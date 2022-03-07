@@ -227,6 +227,7 @@
     <string name="title_setup_password_different">Lozinke se ne podudaraju</string>
     <string name="title_setup_password_invalid">Nevažeća lozinka</string>
     <string name="title_setup_import_accounts">Uvoz računa i identiteta</string>
+    <string name="title_setup_import_delete">Prvo izbriši postojeće račune</string>
     <string name="title_setup_import_rules">Uvoz pravila filtriranja</string>
     <string name="title_setup_import_contacts">Uvezi lokalne kontakte</string>
     <string name="title_setup_import_answers">Uvezi prijedloške za odgovore</string>
@@ -558,6 +559,8 @@
     <string name="title_advanced_disconnect_auto_update">Automatsko ažuriranje spiskova sedmično</string>
     <string name="title_advanced_disconnect_links">Koristi spiskove za upozorenja o linkovima koji mogu pratiti</string>
     <string name="title_advanced_disconnect_images">Koristi spiskove za prepoznavanje slika koje mogu pratiti</string>
+    <string name="title_advanced_clear_all">Izbriši sve podatke</string>
+    <string name="title_advanced_clear_all_remark">Svi podaci iz aplikacije izbrisat će se nepovratno!</string>
     <string name="title_advanced_sign_default">Potpiši po zadanom</string>
     <string name="title_advanced_encrypt_default">Šifriraj po zadanom</string>
     <string name="title_advanced_auto_decrypt">Automatski dešifriraj poruke</string>
@@ -802,7 +805,7 @@
     <string name="title_last_connected">Zadnja konekcija: %1$s</string>
     <string name="title_backoff_until">Čekanje nakon neuspjeha do: %1$s</string>
     <string name="title_storage_quota">Iskorištenost prostora na serveru: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3 protokol podržava samo preuzimanje i brisanje poruka iz vašeg inbox-a. POP3 ne može označavati poruke kao pročitane, premještati poruke itd. Također, POP3 će trošiti više baterije i podataka od IMAP protokola. Zato razmotrite korištenje IMAP protokola kad god je moguće.</string>
+    <string name="title_pop_support">POP3 protokol može samo preuzimati i brisati poruke iz inbox-a (ulazne pošte). Nije moguće markirati poruke kao pročitane, prijavljivati spam (neželjenu poštu), premještati poruke itd. Razmotrite upotrebu IMAP protokola kad god je to moguće.</string>
     <string name="title_pop_sent">Ukoliko izgubite uređaj ili Vam ga ukradu, poslane poruke mogu biti izgubljene.</string>
     <string name="title_pop_warning">Ukoliko POP3 server ne podržava UIDL komandu, korištenje podataka može biti uvećano. Shodno tome podesite ispod učestalost odazivanja.</string>
     <string name="title_pop_folders">POP3 protokol ne podržava kreiranje foldera</string>

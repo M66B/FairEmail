@@ -217,6 +217,7 @@
     <string name="title_setup_password_different">Adgangskoder matcher ikke</string>
     <string name="title_setup_password_invalid">Ugyldig adgangskode</string>
     <string name="title_setup_import_accounts">Import af konti og identiteter</string>
+    <string name="title_setup_import_delete">Slet eksisterende konti først</string>
     <string name="title_setup_import_rules">Import af filterregler</string>
     <string name="title_setup_import_contacts">Import af lokale kontakter</string>
     <string name="title_setup_import_answers">Importér svarskabeloner</string>
@@ -548,6 +549,8 @@
     <string name="title_advanced_disconnect_auto_update">Opdatér automatisk lister ugentligt</string>
     <string name="title_advanced_disconnect_links">Benyt lister til at advare om sporingslinks</string>
     <string name="title_advanced_disconnect_images">Benyt lister til at genkende sporingsbilleder</string>
+    <string name="title_advanced_clear_all">Slet alle data</string>
+    <string name="title_advanced_clear_all_remark">Alle app-data slettes irreversibelt!</string>
     <string name="title_advanced_sign_default">Signér som standard</string>
     <string name="title_advanced_encrypt_default">Kryptér som standard</string>
     <string name="title_advanced_auto_decrypt">Auto-dekryptér beskeder</string>
@@ -793,7 +796,7 @@
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
     <string name="title_backoff_until">Ventetid efter fejl: %1$s</string>
     <string name="title_storage_quota">Serverlagerpladsforbrug: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3-protokollen understøtter kun download og sletning af beskeder fra Indbakken. POP3 kan ikke markere beskeder som læste eller flytte dem mv. POP3 forbruger mere batteristrøm og data end IMAP, så overvej at benytte IMAP-protokollen, når det er muligt.</string>
+    <string name="title_pop_support">POP3-protokollen kan kun downloade og slette beskeder fra indbakken. Det er ikke muligt at markere beskeder som læst, flytte dem, anmelde spam mv. Overvej brug af IMAP-protokollen, når det er muligt.</string>
     <string name="title_pop_sent">Er ens enhed mistet eller stjålet, kan sendte beskeder gå tabt.</string>
     <string name="title_pop_warning">Understøtter en POP3-server ikke UIDL-kommandoen, kan dataforbruget være højt. Justér derfor pollingsfrekvensen nedenfor.</string>
     <string name="title_pop_folders">POP3-protokollen understøtter mappeoprettelse</string>

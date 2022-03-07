@@ -217,6 +217,7 @@
     <string name="title_setup_password_different">As senhas não correspondem</string>
     <string name="title_setup_password_invalid">Senha inválida</string>
     <string name="title_setup_import_accounts">Importar contas e identidades</string>
+    <string name="title_setup_import_delete">Excluir contas existentes primeiro</string>
     <string name="title_setup_import_rules">Importar regras de filtro</string>
     <string name="title_setup_import_contacts">Importar contatos locais</string>
     <string name="title_setup_import_answers">Importar modelos de resposta</string>
@@ -547,6 +548,8 @@
     <string name="title_advanced_disconnect_auto_update">Atualizar automaticamente e semanalmente as listas</string>
     <string name="title_advanced_disconnect_links">Use listas para avisar sobre links de rastreamento</string>
     <string name="title_advanced_disconnect_images">Usar listas para reconhecer imagens de rastreamento</string>
+    <string name="title_advanced_clear_all">Excluir todos os dados</string>
+    <string name="title_advanced_clear_all_remark">Todos os dados do app serão excluídos irreversivelmente!</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Criptografar por padrão</string>
     <string name="title_advanced_auto_decrypt">Descriptografar mensagens automaticamente</string>
@@ -791,7 +794,7 @@
     <string name="title_last_connected">Última vez conectado: %1$s</string>
     <string name="title_backoff_until">Esperando após falha até %1$s</string>
     <string name="title_storage_quota">Uso do armazenamento do servidor: %1$s/%2$s</string>
-    <string name="title_pop_support">O protocolo POP3 suporta o download e a exclusão de mensagens apenas da caixa de entrada. O POP3 não pode marcar mensagens como lidas, mover mensagens etc. O POP3 usará mais energia e dados da bateria que o IMAP. Portanto, considere usar o protocolo IMAP sempre que possível.</string>
+    <string name="title_pop_support">O protocolo POP3 só pode baixar e excluir mensagens da caixa de entrada. Não é possível marcar mensagens como lidas, reportar spam, mover mensagens, etc. Considere utilizar o protocolo IMAP sempre que possível.</string>
     <string name="title_pop_sent">Se o seu dispositivo for perdido ou roubado, as mensagens enviadas podem ser perdidas.</string>
     <string name="title_pop_warning">Se um servidor POP3 não suportar o comando UIDL, o uso de dados pode ser alto. Portanto, ajuste a frequência abaixo de acordo.</string>
     <string name="title_pop_folders">O protocolo POP3 não suporta a criação de pastas</string>

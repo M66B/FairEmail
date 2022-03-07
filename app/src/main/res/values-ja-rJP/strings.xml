@@ -781,7 +781,6 @@
     <string name="title_last_connected">最終接続: %1$s</string>
     <string name="title_backoff_until">失敗後の待機時間: %1$s</string>
     <string name="title_storage_quota">サーバーのストレージ使用量: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3 プロトコルは受信トレイへのメッセージダウンロードと削除のみをサポートします。POP3 ではメッセージを既読としてマークしたりメッセージを移動したりすることはできません。POP3 のバッテリー使用量とデータ使用量は IMAP を使用した場合より多くなります。そのため、可能な限り IMAP プロトコルの使用してください</string>
     <string name="title_pop_sent">デバイスを紛失したり盗難されたりした場合、送信されたメッセージが失われる可能性があります。</string>
     <string name="title_pop_warning">POP3 サーバーが UIDL コマンドをサポートしていない場合、データ使用量が高くなる可能性があります。それを考慮して、適切な Poll 頻度に調整してください。</string>
     <string name="title_pop_folders">POP3 プロトコルはフォルダーの作成をサポートしていません</string>

@@ -216,6 +216,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_password_different">De wachtwoorden komen niet overeen</string>
     <string name="title_setup_password_invalid">Wachtwoord ongeldig</string>
     <string name="title_setup_import_accounts">Importeer accounts en identiteiten</string>
+    <string name="title_setup_import_delete">Verwijder bestaande accounts eerst</string>
     <string name="title_setup_import_rules">Importeer filterregels</string>
     <string name="title_setup_import_contacts">Importeer lokale contacten</string>
     <string name="title_setup_import_answers">Importeer antwoordsjablonen</string>
@@ -375,6 +376,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_nav_hide_message">U kunt de opties opnieuw inschakelen in de weergave-instellingen</string>
     <string name="title_advanced_nav_message_count">Toon aantal lokaal opgeslagen berichten in het navigatiemenu</string>
     <string name="title_advanced_nav_unseen_drafts">Aantal ongelezen concepten in het navigatiemenu tonen</string>
+    <string name="title_advanced_nav_pinned_count">Toon het aantal ongelezen berichten in het vastgezette navigatiemenu</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>
     <string name="title_advanced_cards_beige">Gebruik een beige achtergrond bij het gebruik van de kaartstijl (alleen lichte thema\'s)</string>
@@ -546,6 +548,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_disconnect_auto_update">Werk lijsten wekelijks automatisch bij</string>
     <string name="title_advanced_disconnect_links">Gebruik lijsten om te waarschuwen voor tracking links</string>
     <string name="title_advanced_disconnect_images">Gebruik lijsten om tracking afbeeldingen te herkennen</string>
+    <string name="title_advanced_mnemonic">Gegevens op afstand verwijderen</string>
+    <string name="title_advanced_mnemonic_hint">Elke e-mail ontvangen met de onderstaande woorden in de onderwerpregel zal automatisch en onmiddellijk alle app-gegevens op dit apparaat verwijderen</string>
+    <string name="title_advanced_clear_all">Verwijder alle gegevens</string>
+    <string name="title_advanced_clear_all_remark">Alle app gegevens worden onomkeerbaar verwijderd!</string>
     <string name="title_advanced_sign_default">Standaard ondertekenen</string>
     <string name="title_advanced_encrypt_default">Standaard versleutelen</string>
     <string name="title_advanced_auto_decrypt">Berichten automatisch ontsleutelen</string>
@@ -790,7 +796,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
     <string name="title_backoff_until">Wachten na fout tot: %1$s</string>
     <string name="title_storage_quota">Opslaggebruik server: %1$s/%2$s</string>
-    <string name="title_pop_support">Het POP3-protocol ondersteunt alleen het downloaden en verwijderen van berichten uit de inbox. POP3 kan berichten niet markeren als gelezen, berichten verplaatsen, enz. POP3 zal meer batterijvermogen en -gegevens gebruiken dan IMAP. Overweeg dus om het IMAP-protocol waar mogelijk te gebruiken.</string>
+    <string name="title_pop_support">Het POP3-protocol kan alleen berichten uit de inbox downloaden en verwijderen. Het is niet mogelijk om berichten als gelezen te markeren, spam te melden, berichten te verplaatsen, enz. Overweeg waar mogelijk het IMAP-protocol te gebruiken.</string>
     <string name="title_pop_sent">Als uw apparaat verloren of gestolen is, kunnen verzonden berichten verloren gaan.</string>
     <string name="title_pop_warning">Als een POP3-server het UIDL-commando niet ondersteunt, kan het datagebruik hoog zijn. Pas dus de onderstaande poll-frequentie dienovereenkomstig aan.</string>
     <string name="title_pop_folders">Het POP3-protocol biedt geen ondersteuning voor het maken van mappen</string>

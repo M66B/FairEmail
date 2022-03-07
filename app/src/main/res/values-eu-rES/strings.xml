@@ -3,8 +3,11 @@
     <string name="app_search">FairEmail bilaketa</string>
     <string name="app_changelog">Aldaketen erregistroa</string>
     <string name="app_welcome">FairEmail kode irekiko email aplikazio bat da, pribatutasuna eta segurtasuna aintzat dituena. Horregatik ezaugarri batzuk ohi ez bezala funtzionatu dezakete.</string>
+    <string name="app_continue">Jarraitu hala ere</string>
     <string name="app_exit">Jo \'atzera\' berriro irteteko</string>
+    <string name="app_cake">Ez dago biltegiratze toki nahiko</string>
     <string name="app_updated">Azken eguneratzea: %1$s</string>
+    <string name="app_download">Hemendik deskargatua: %1$s</string>
     <string name="channel_service">Jaso</string>
     <string name="channel_send">Bidali</string>
     <string name="channel_notification">E-mail</string>
@@ -32,7 +35,7 @@
     <string name="shortcut_compose">Idatzi</string>
     <string name="shortcut_setup">Ezarpenak</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">%1$d kontua monitorizatzen</item>
+        <item quantity="one">Kontu %1$d monitorizatzen</item>
         <item quantity="other">%1$d kontu monitorizatzen</item>
     </plurals>
     <plurals name="title_notification_operations">
@@ -51,6 +54,10 @@
         <item quantity="one">Berri %1$d</item>
         <item quantity="other">%1$d berri</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Lekuz aldatu mezu %1$d?</item>
+        <item quantity="other">Lekuz aldatu %1$d mezu?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Ezabatu mezu %1$d behin betiko?</item>
         <item quantity="other">Ezabatu %1$d mezu behin betiko?</item>
@@ -62,14 +69,18 @@
     <string name="title_ask_spam_who">Jo %1$s erabiltzailearen mezua spamtzat?</string>
     <string name="title_block">Blokeatu %1$s</string>
     <string name="title_block_sender">Blokeatu igorlea</string>
+    <string name="title_block_sender_domain">Blokeatu\'%1$s\' domeinua</string>
     <string name="title_block_sender_hint">        Igorle bat blokeatzea doako ezaugarri bat da.
         Igorleen domeinu bat blokeatzeko iragazki arauak behar dira, eta hori ordainpeko ezaugarri bat da.
     </string>
+    <string name="title_junk_filter">Erabili tokiko spam iragazia</string>
+    <string name="title_junk_blocklist">Erabili spama blokeatzeko zerrendak</string>
     <string name="title_junk_clear">Garbitu</string>
     <string name="title_notification_sending">Mezuak bidaltzen</string>
     <string name="title_notification_waiting">Konexio erabilgarriaren zain</string>
     <string name="title_notification_idle">Inaktiboa</string>
     <string name="title_notification_failed">%1$s(e)k huts egin du</string>
+    <string name="title_notification_alert">Zerbitzari-alerta: \'%1$s\'</string>
     <string name="title_factor_minutes">%1$d minutu</string>
     <string name="menu_answers">Txantiloiak</string>
     <string name="menu_operations">Eragiketak</string>
@@ -91,24 +102,36 @@
     <string name="title_agree">Ados nago</string>
     <string name="title_disagree">Ez nago ados</string>
     <string name="title_version">%1$s bertsioa</string>
+    <string name="title_privacy_policy">Pribatutasun gidalerroak</string>
     <string name="title_list_accounts">Kontuak</string>
     <string name="title_list_identities">Identitateak</string>
     <string name="title_edit_account">Editatu kontua</string>
     <string name="title_edit_identity">Editatu identitatea</string>
     <string name="title_edit_folder">Editatu karpeta</string>
+    <string name="title_disable_gmail">Desgaitu Gmail aplikazioa</string>
     <string name="title_setup">Ezarpenak</string>
     <string name="title_setup_help">Laguntza</string>
     <string name="title_setup_quick">Ezarpen azkarra</string>
+    <string name="title_setup_intro">Kontua hiru urratsetan ezarri dezakezu eta jarraian mezuak jaso eta bidali</string>
+    <string name="title_setup_simple">Ez dago aukerak aldatzeko beharrik</string>
+    <string name="title_setup_issue">Fair Email zure pribatutasuna babesten laguntzeko garatu da eta literaki milaka lan orduen emaitza da. Arazoak badituzu, jarri kontaktuan eta eskatu laguntza, ez utzi mesedez kritika txar bat. laguntzen saiaten ari naiz!</string>
+    <string name="title_setup_analytics">FairEmail-ek ez ditu iragarkiak erakusten, eta ez du zure jardueraren jarraipenik egiten edo hau aztertzen. Bugsnag akatsen berri jasotzeko erabiltzen da eta zuk besterik esan ezean desgaituta dago.</string>
+    <string name="title_setup_quick_accounts">Gehitu edo aldatu kontuak</string>
+    <string name="title_setup_quick_support">Hornitaile batzuek zaildu egiten dute kontua gehitzea. Ez haserretu FairEmail aplikazioarekin, eskatu gaitzazu laguntza.</string>
     <string name="title_setup_quick_hint">Ezarpen azkar honek konfigurazioaren informazioa autoconfig.thunderbird.net helbidetik eskuratuko du</string>
     <string name="title_setup_quick_imap">IMAP zerbitzaria mezuak jasotzeko</string>
     <string name="title_setup_quick_smtp">SMTP zerbitzaria mezuak igortzeko</string>
+    <string name="title_setup_quick_certificates">Zerbitzari-ziurtagiriak</string>
     <string name="title_setup_wizard">Morroia</string>
+    <string name="title_setup_wizard_multiple">Morroia hainbat aldiz erabil daiteke zenbait kontu konfiguratzeko</string>
+    <string name="title_setup_wizard_new">E-mail kontu berria behar dut</string>
     <string name="title_setup_classic">Konfigurazio klasikoa</string>
     <string name="title_setup_account_remark">Jaso e-maila</string>
     <string name="title_setup_identity_remark">Bidali e-maila</string>
     <string name="title_setup_accounts">Kontuak</string>
     <string name="title_setup_identities">Identitateak</string>
     <string name="title_setup_other">Beste hornitzaile bat</string>
+    <string name="title_setup_pop3">POP3 kontua</string>
     <string name="title_setup_gmail_rationale">Eman baimena kontu bat aukeratu eta zure izena irakurtzeko</string>
     <string name="title_setup_gmail_permissions">Google-k zure posta elektronikoa irakurri, konposatu, bidali eta ezabatzeko baimenak eskatuko ditu. FairEmail-ek ez ditu zure mezuak ezabatuko baimen espliziturik gabe.</string>
     <string name="title_setup_gmail_drafts">Zirriborroen karpeta IMAP bidez eskuragarri ez badago, Gmailen etiketen ezarpenetan konpondu daiteke</string>
@@ -128,6 +151,10 @@
     <string name="title_setup_free">Aplikazio hau doan erabili daiteke?</string>
     <string name="title_setup_permissions">Eman baimenak</string>
     <string name="title_setup_permissions_remark">Kontaktuen informazioa atzitzeko (aukerakoa)</string>
+    <string name="title_setup_permission_import_contacts">Nola inportatu ditzazket kontaktuak?</string>
+    <string name="title_setup_doze">Desgaitu bateria optimizazioak</string>
+    <string name="title_setup_doze_remark">Mezuak modu fidagarrian bidali eta jasotzeko</string>
+    <string name="title_setup_doze_hint">Egitan, aplikazio honek bateria gutxiago erabiltzen du bateria optimizazioak desgaitzen zaizkionean</string>
     <string name="title_setup_doze_battery">Bateria-erabilera handia?</string>
     <string name="title_setup_doze_stopped">Sinkronizazioa gelditu da?</string>
     <string name="title_setup_data">Datuen aurreztailea gaituta dago</string>
@@ -139,6 +166,8 @@
     <string name="title_setup_still">Oraindik egiteko</string>
     <string name="title_setup_error">Akatsa</string>
     <string name="title_setup_configuring">Kontua konfiguratzen &#8230;</string>
+    <string name="title_setup_app_password">Aplokazio-pasahitz bat erabili behar zenezake</string>
+    <string name="title_setup_extra">Gehigarria</string>
     <string name="title_setup_close">Itxi ezarpenak</string>
     <string name="title_setup_export">Esportatu ezarpenak</string>
     <string name="title_setup_import">Inportatu ezarpenak</string>
@@ -168,6 +197,8 @@
     <string name="title_setup_theme_red_green">Gorria/berdea</string>
     <string name="title_setup_theme_grey">Grisa</string>
     <string name="title_setup_theme_black">Beltza</string>
+    <string name="title_setup_theme_white">Zuria</string>
+    <string name="title_setup_theme_black_or_white">Beltza edo zuria</string>
     <string name="title_setup_theme_black_and_white">Beltza eta zuria</string>
     <string name="title_setup_theme_reverse">Alderantzizkatu koloreak</string>
     <string name="title_setup_theme_light">Argia</string>
@@ -175,12 +206,21 @@
     <string name="title_setup_theme_system">Jarraitu sistema</string>
     <string name="title_setup_theme_black_background">Atzeko plano beltza</string>
     <string name="title_setup_theme_system_hint">Jarraitu sistemako azala automatikoki txandakatuko ditu argia eta iluna eguna eta gauaren arabera, Androidek onartzen duenean</string>
+    <string name="title_setup_theme_more_colors">Kolore gehiago nahi ditut</string>
     <string name="title_setup_advanced">Aurreratua</string>
     <string name="title_setup_options">Aukerak</string>
     <string name="title_setup_defaults">Berrezarri balio lehenetsiak</string>
     <string name="title_setup_reset_questions">Berrezarri galderak</string>
+    <string name="title_setup_reset_general">Galdera orokorrak</string>
     <string name="title_setup_reset_images">Erakutsi irudiak</string>
+    <string name="title_setup_reset_links">Baieztatu loturak</string>
     <string name="title_advanced_hint_title">Aukera aurreratu gehiago</string>
+    <string name="title_advanced_hint_message">        Aukera aurreratuetan sartzen ari zara.
+        Aukera guztiek maiz erabilitako balio estandarrak dituzte, eta zuk bestela nahi ezean ez dago hauek aldatzeko beharrik.
+    </string>
+    <string name="title_advanced_hint_remark">Aukerak fitxatan kategorizatuta daude, atalka sakabnatuta, itxura edo erabileraren arabera antolatuta, eta bilatu daitezke.    </string>
+    <string name="title_advanced_hint_setup">Kontu bat konfiguratu dezakezu Morroia botoia sakatuz konfigurazio pantaila nagusian.</string>
+    <string name="title_advanced_section_main">Nagusia</string>
     <string name="title_advanced_section_synchronize">Jaso</string>
     <string name="title_advanced_section_send">Bidali</string>
     <string name="title_advanced_section_connection">Konexioa</string>
@@ -196,6 +236,7 @@
     <string name="title_advanced_always">Jaso beti kontu hauetako mezuak</string>
     <string name="title_advanced_schedule">Egitaraua</string>
     <string name="title_advanced_advanced">Aurreratua</string>
+    <string name="title_advanced_quick_sync">Sinkronizazio bizkorra</string>
     <string name="title_advanced_no_date">Datarik gabeko mezuak</string>
     <string name="title_advanced_unseen">Irakurri gabeko mezu guztiak</string>
     <string name="title_advanced_flagged">Izardun mezu guztiak</string>
@@ -264,9 +305,11 @@
     <string name="title_advanced_replace_name">Nahiago kontaktu-izena bidaltzaile-izena baino</string>
     <string name="title_advanced_distinguish_contacts">Azpimarratu igorlea kontaktua jasotzaile lokalki ezaguna bada</string>
     <string name="title_advanced_show_recipients">Erakutsi hartzaileak mezuaren goiburuan</string>
+    <string name="title_advanced_sender_ellipsize">Beharrezkoa denean laburtu igorlea</string>
     <string name="title_advanced_subject_top">Erakutsi mintzagaia igorlearen gainean</string>
     <string name="title_advanced_subject_italic">Erakutsi mintzagaia letra etzanean</string>
     <string name="title_advanced_highlight_subject">Nabarmendu gaia</string>
+    <string name="title_advanced_subject_ellipsize">Behar denean laburtu mintzagaia</string>
     <string name="title_advanced_keywords">Erakutsi gako-hitzak mezuaren goiburuan</string>
     <string name="title_advanced_flags">Erakutsi izarrak</string>
     <string name="title_advanced_flags_background">Koloredun izarren ordez, koloredun atzealdea erakutsi</string>
@@ -304,6 +347,7 @@
     <string name="title_advanced_onclose">Elkarrizketa ixtean</string>
     <string name="title_advanced_quick_filter">Erakutsi iragazki azkarren ikonoak</string>
     <string name="title_advanced_quick_scroll">Erakutsi azkar gora/behera korritzeko ikonoak</string>
+    <string name="title_advanced_folder_nav">Itzuli beti karpeten zerrendara mezuen zerrrendatik</string>
     <string name="title_advanced_autoread">Markatu mezuak irakurrita gisa hauek mugitzean</string>
     <string name="title_advanced_star_snoozed">Gehitu automatikoki izarra atzeratutako mezuetan</string>
     <string name="title_advanced_autounstar">Kendu izarrak mezuetatik hauek mugitzean</string>
@@ -450,6 +494,7 @@
     <string name="title_account_interval_hint">Mezu berrien arazketa freskatzeko maiztasuna</string>
     <string name="title_account_partial_fetch_hint">Ezgaitu hau mezu hutsak edo eranskinak hondatuta badaude</string>
     <string name="title_color">Kolorea</string>
+    <string name="title_transparent">Gardena</string>
     <string name="title_account_ondemand">Sinkronizatu eskuz</string>
     <string name="title_account_notify">Banatutako jakinarazpenak</string>
     <string name="title_account_left">Pasatu hatza ezkerrera</string>
@@ -502,13 +547,13 @@
     <string name="title_no_utf8">Hornitzaile honek ez du UTF-8 onartzen</string>
     <string name="title_no_sync">Sinkronizazio akatsak %1$s geroztik</string>
     <string name="title_reply_domain">Bidaltzailearena (%1$s) eta erantzuteko domeinua (%2$s) ez datoz bat</string>
+    <string name="title_delete_account">Ezabatu kontua</string>
     <string name="title_account_delete">Ezabatu kontu hau behin betiko?</string>
     <string name="title_identity_delete">Ezabatu identitate hau behin betiko?</string>
     <string name="title_edit_html">Editatu HTML gisa</string>
     <string name="title_sign_key">Sinadura-gakoa: %1$s</string>
     <string name="title_last_connected">Azken konexioa: %1$s</string>
     <string name="title_storage_quota">Zerbitzariko biltegiratze erabilera: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3 protokoloak mezuak deskargatzea eta ezabatzea soilik sarrerako ontzitik onartzen du. POP3-k ezin ditu mezuak irakurrita gisa markatu, eraman eta abar. POP3-k bateriaren energia eta datu gehiago erabiliko ditu IMAPek baino. Beraz, hobetsi IMAP protokoloa erabiltzea ahal den guztietan.</string>
     <string name="title_oauth_support">Ez da OAuth onartzen</string>
     <string name="title_review">Berrikusi</string>
     <string name="title_hint_alias">Sakatu luze aukeratzeko, hala nola kopiatzeko ezizen identitateak sortzeko</string>
@@ -631,6 +676,7 @@
     <string name="title_copy_to">Kopiatu hona &#8230;</string>
     <string name="title_subscribe">Harpidetu</string>
     <string name="title_delete">Ezabatu</string>
+    <string name="title_delete_all">Ezabatu guztiak</string>
     <string name="title_more">Gehiago</string>
     <string name="title_spam">Spama</string>
     <string name="title_move">Eraman</string>
@@ -692,6 +738,7 @@
     <string name="title_ask_reporting">Bidali errore txostenak?</string>
     <string name="title_reporting_why">Errore txostenek FairEmail hobetzen laguntzen dute</string>
     <string name="title_ask_review">Baloratu FairEmail mesedez</string>
+    <string name="title_need_help">Laguntza behar dut</string>
     <string name="title_third_party">Hirugarren baten bertsioa erabiltzen ari zara</string>
     <string name="title_expand_warning">Mezu hau hedatzean %1$s deskargatuko da</string>
     <string name="title_download_message">Deskargatzen &#8230;</string>
@@ -713,6 +760,7 @@
     <string name="title_subject">Mintzagaia:</string>
     <string name="title_attachment">Eranskina:</string>
     <string name="title_body_hint">Zure mezua</string>
+    <string name="title_body_hint_style">Testua aukeratu dezakezu honi formatua emateko</string>
     <string name="title_discard">Baztertu</string>
     <string name="title_save">Gorde</string>
     <string name="title_send">Bidali</string>
@@ -838,6 +886,7 @@
     <string name="title_search_flag_hidden">ezkutuan</string>
     <string name="title_search_flag_encrypted">zifratuta</string>
     <string name="title_search_flag_attachments">eranskinak</string>
+    <string name="title_search_flag_notes">oharrak</string>
     <string name="title_search_flag_invite">gonbidapena</string>
     <string name="title_search_flag_size">neurria &gt; %1$s</string>
     <string name="title_search_device">Bilatu gailuan</string>
@@ -859,7 +908,9 @@
     <string name="title_filter_unflagged">Izarrik gabe</string>
     <string name="title_filter_unknown">Bidaltzaile ezezagunak</string>
     <string name="title_filter_hidden">Ezkutuan</string>
+    <string name="title_filter_deleted">Ezabatua</string>
     <string name="title_filter_duplicates">Bikoiztutakoak</string>
+    <string name="title_filter_trash">Zakarrontzian</string>
     <string name="title_compact">Ikuspegi trinkoa</string>
     <string name="title_zoom">Letra tamaina</string>
     <string name="title_padding">Betegarriaren tamaina</string>
@@ -873,6 +924,7 @@
     <string name="title_previous">Aurrekoa</string>
     <string name="title_next">Hurrengoa</string>
     <string name="title_edit_signature">Editatu sinadura</string>
+    <string name="title_edit_signature_remark">Android-ek HTML guztia bistaratu ezin badezake ere, dagoen moduan bidaliko da</string>
     <string name="title_edit_signature_text">Sinaduraren testua</string>
     <string name="title_edit_signature_image">Txertatu irudia</string>
     <string name="title_answer_caption">Editatu txantiloia</string>
@@ -1110,6 +1162,7 @@
     <string name="title_snooze_now">Atzeratu</string>
     <string name="title_loading">Kargatzen &#8230;</string>
     <string name="title_fetching_again">Mezua berriro zerbitzaritik jasotzen</string>
+    <string name="title_go_back">Atzera</string>
     <string name="title_conversation_actions">Ekintzak</string>
     <string name="title_conversation_action_reply">Erantzun honekin: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopiatu: \'%1$s\'</string>
@@ -1146,6 +1199,7 @@
     <string name="title_unexpected_info_remark">Azaldu zer egiten ari zinen errorea jasotzean:</string>
     <string name="title_widget_title_count">Mezu berrien kopurua</string>
     <string name="title_widget_title_list">Mezuen zerrenda</string>
+    <string name="title_widget_title_sync">Sinkronizazioa bai/ez</string>
     <string name="title_power_menu_off">Itzalita</string>
     <string name="title_widget_account">Kontua</string>
     <string name="title_widget_account_all">Denak</string>

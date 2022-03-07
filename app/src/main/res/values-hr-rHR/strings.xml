@@ -451,7 +451,6 @@
     <string name="title_sign_key">Potpiši ključ: %1$s</string>
     <string name="title_last_connected">Posljednje povezivanje: %1$s</string>
     <string name="title_storage_quota">Potrošnja pohrane na poslužitelju: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3 protokol podržava preuzimanje i brisanje poruka samo iz pristigle pošte. POP3 ne može označiti poruke kao pročitane, premjestiti poruke itd. POP3 će trošiti energije baterije i više podataka nego IMAP. Dakle, razmislite o korištenju protokola IMAP kad god je to moguće.</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
     <string name="title_review">Recenzija</string>
     <string name="title_hint_alias">Dugo pritisnite za opcije, poput kopiranja za stvaranje identiteta aliasa</string>

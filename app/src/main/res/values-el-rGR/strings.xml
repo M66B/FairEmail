@@ -2,7 +2,7 @@
 <resources>
     <string name="app_search">Αναζήτηση FairEmail</string>
     <string name="app_changelog">Αρχείο καταγραφής αλλαγών</string>
-    <string name="app_welcome">Το FairEmail είναι μια ανοικτού κώδικα εφαρμογή ηλ. ταχυδρομείου που επικεντρώνεται στην προστασία του απορρήτου και την ασφάλειά σας. Για τον λόγο αυτό ορισμένες δυνατότητες ενδέχεται να λειτουργούν διαφορετικά από ό, τι έχετε συνηθίσει.</string>
+    <string name="app_welcome">Το FairEmail είναι μια ανοικτού κώδικα εφαρμογή ηλεκτρονικού ταχυδρομείου που επικεντρώνεται στην προστασία του απορρήτου και την ασφάλειά σας. Για τον λόγο αυτό ορισμένες δυνατότητες ενδέχεται να λειτουργούν διαφορετικά από ό,τι έχετε συνηθίσει.</string>
     <string name="app_limitations">Για παράδειγμα, τα μηνύματα επαναμορφοποιούνται από προεπιλογή, με στόχο την αφαίρεση μη ασφαλών στοιχείων και τη βελτίωση της αναγνωσιμότητας, ενώ το άνοιγμα συνδέσμων πρέπει να επιβεβαιώνεται για λόγους ασφάλειας. Και οι δύο λειτουργίες απενεργοποιούνται, εφόσον το επιθυμείτε.</string>
     <string name="app_unsupported">Σφάλματα στην έκδοση Android της συγκεκριμένης συσκευής κάνουν την εφαρμογή να καταρρέει</string>
     <string name="app_continue">Συνέχεια ούτως ή άλλως</string>
@@ -217,6 +217,7 @@
     <string name="title_setup_password_different">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
     <string name="title_setup_password_invalid">Μη έγκυρος κωδικός πρόσβασης</string>
     <string name="title_setup_import_accounts">Εισαγωγή λογαριασμών και ταυτοτήτων</string>
+    <string name="title_setup_import_delete">Να διαγραφούν πρώτα οι υπάρχοντες λογαριασμοί</string>
     <string name="title_setup_import_rules">Εισαγωγή κανόνων φίλτρων</string>
     <string name="title_setup_import_contacts">Εισαγωγή τοπικών επαφών</string>
     <string name="title_setup_import_answers">Εισαγωγή προτύπων απάντησης</string>
@@ -547,6 +548,8 @@
     <string name="title_advanced_disconnect_auto_update">Αυτόματη εβδομαδιαία ενημέρωση των λιστών</string>
     <string name="title_advanced_disconnect_links">Χρήση προειδοποιητικών λιστών για συνδέσμους ιχνηλάτησης</string>
     <string name="title_advanced_disconnect_images">Χρήση λιστών για ταυτοποίηση των εικόνων ιχνηλάτησης</string>
+    <string name="title_advanced_clear_all">Διαγραφή όλων των δεδομένων</string>
+    <string name="title_advanced_clear_all_remark">Όλα τα δεδομένα της εφαρμογής θα διαγραφούν αμετάκλητα!</string>
     <string name="title_advanced_sign_default">Υπογραφή από προεπιλογή</string>
     <string name="title_advanced_encrypt_default">Κρυπτογράφηση από προεπιλογή</string>
     <string name="title_advanced_auto_decrypt">Αυτόματη αποκρυπτογράφηση μηνυμάτων</string>
@@ -789,7 +792,7 @@
     <string name="title_last_connected">Τελευταία σύνδεση: %1$s</string>
     <string name="title_backoff_until">Αναμονή μετά από μία αποτυχία μέχρι: %1$s</string>
     <string name="title_storage_quota">Χρήση χωρητικότητας διακομιστή: %1$s/%2$s</string>
-    <string name="title_pop_support">Το πρωτόκολλο POP3 υποστηρίζει το κατέβασμα και τη διαγραφή μηνυμάτων μόνον από τα εισερχόμενα. Το POP3 δεν μπορεί να επισημαίνει μηνύματα ως αναγνωσμένα, να τα μετακινεί, κλπ. Το POP3 καταναλώνει περισσότερη μπαταρία και δεδομένα από το IMAP. Συνεπώς, σκεφτείτε να χρησιμοποιείτε το πρωτόκολλο IMAP όποτε είναι δυνατόν.</string>
+    <string name="title_pop_support">Το πρωτόκολλο POP3 μπορεί μόνο να κατεβάζει και να διαγράφει μηνύματα από τα εισερχόμενα. Δεν είναι δυνατόν να επισημαίνονται μηνύματα ως αναγνωσμένα, να αναφέρονται ανεπιθύμητα μηνύματα, να μετακινούνται μηνύματα κλπ. Έχετε υπόψη να χρησιμοποιείτε το πρωτόκολλο IMAP όποτε είναι δυνατόν.</string>
     <string name="title_pop_sent">Εάν η συσκευή σας χαθεί ή κλαπεί, ενδέχεται να χαθούν απεσταλμένα μηνύματα.</string>
     <string name="title_pop_warning">Εάν ένας POP3 διακομιστής δεν υποστηρίζει την εντολή UIDL, η χρήση δεδομένων μπορεί να είναι υψηλή. Συνεπώς, ρυθμίστε, παρακάτω, τη συχνότητα συγχρονισμού αναλόγως.</string>
     <string name="title_pop_folders">Το πρωτόκολλο POP3 δεν υποστηρίζει τη δημιουργία φακέλων</string>

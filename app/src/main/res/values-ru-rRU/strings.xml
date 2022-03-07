@@ -237,6 +237,7 @@
     <string name="title_setup_password_different">Пароли не совпадают</string>
     <string name="title_setup_password_invalid">Пароль неверный</string>
     <string name="title_setup_import_accounts">Импорт учётных записей и идентификаторов</string>
+    <string name="title_setup_import_delete">Удалить существующие учётные записи</string>
     <string name="title_setup_import_rules">Импорт правил фильтров</string>
     <string name="title_setup_import_contacts">Импорт локальных контактов</string>
     <string name="title_setup_import_answers">Импорт шаблонов ответов</string>
@@ -396,6 +397,7 @@
     <string name="title_advanced_nav_hide_message">Снова включить панель можно в разделе настроек \"Отображение\"</string>
     <string name="title_advanced_nav_message_count">Показывать количество сохранённых локально сообщений в меню навигации</string>
     <string name="title_advanced_nav_unseen_drafts">Показывать количество непрочитанных черновиков в меню навигации</string>
+    <string name="title_advanced_nav_pinned_count">Показывать количество непрочитанных сообщений в закреплённом меню навигации</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
     <string name="title_advanced_cards_beige">Использовать бежевый фон для карточного стиля (только для светлых тем)</string>
@@ -567,6 +569,10 @@
     <string name="title_advanced_disconnect_auto_update">Еженедельное автообновление списков</string>
     <string name="title_advanced_disconnect_links">Использовать списки для предупреждения об отслеживающих ссылках</string>
     <string name="title_advanced_disconnect_images">Использовать списки для распознавания отслеживающих изображений</string>
+    <string name="title_advanced_mnemonic">Удалённое удаление данных</string>
+    <string name="title_advanced_mnemonic_hint">Любое сообщение, полученное со следующими словами в строке темы, автоматически удалит все данные приложения на этом устройстве</string>
+    <string name="title_advanced_clear_all">Удаление всех данных</string>
+    <string name="title_advanced_clear_all_remark">Все данные приложения будут безвозвратно удалены!</string>
     <string name="title_advanced_sign_default">Подписывать по умолчанию</string>
     <string name="title_advanced_encrypt_default">Шифровать по умолчанию</string>
     <string name="title_advanced_auto_decrypt">Автоматически расшифровывать сообщения</string>
@@ -812,7 +818,7 @@
     <string name="title_last_connected">Последнее подключение: %1$s</string>
     <string name="title_backoff_until">Ожидание после ошибки до: %1$s</string>
     <string name="title_storage_quota">Занято на сервере: %1$s/%2$s</string>
-    <string name="title_pop_support">Протокол POP3 поддерживает загрузку и удаление сообщений только из папки \"Входящие\". POP3 не может помечать сообщения прочитанными, перемещать их и т.д. POP3 расходует больше энергии батареи и трафика, чем IMAP. Поэтому всегда используйте протокол IMAP, если это возможно.</string>
+    <string name="title_pop_support">Протокол POP3 позволяет только загружать и удалять сообщения в папке \"Входящие\". Невозможно помечать сообщения как прочитанные, сообщать о спаме, перемещать сообщения и т.д. По возможности используйте протокол IMAP.</string>
     <string name="title_pop_sent">Если ваше устройство будет потеряно или украдено, отправленные сообщения могут быть утрачены.</string>
     <string name="title_pop_warning">Если сервер POP3 не поддерживает команду UIDL, объём передаваемых данных может быть большим. Установите ниже приемлемую частоту опроса.</string>
     <string name="title_pop_folders">Протокол POP3 не поддерживает создание папок</string>

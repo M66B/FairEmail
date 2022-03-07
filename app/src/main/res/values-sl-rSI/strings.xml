@@ -466,7 +466,6 @@
     <string name="title_sign_key">Podpisni ključ: %1$s</string>
     <string name="title_last_connected">Nazadnje povezano: %1$s</string>
     <string name="title_storage_quota">Poraba prostora na strežniku: %1$s/%2$s</string>
-    <string name="title_pop_support">Protokol POP3 podpira prejemanje in brisanje sporočil samo iz mape \'Prejeto\'.  POP3 ne more označevati sporočil kot prebranih, jih premikati itd.  POP3 bo porabil več energije in podatkov kot IMAP.  Morda bi bilo bolje uporabiti protokol IMAP.</string>
     <string name="title_oauth_support">OAuth ni podprt.</string>
     <string name="title_review">Pregled</string>
     <string name="title_hint_alias">Dolg pritisk za možnosti, kot je kopiranje za ustvaritev identitet za vzdevke.</string>

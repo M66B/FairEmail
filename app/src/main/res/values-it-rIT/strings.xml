@@ -548,6 +548,8 @@
     <string name="title_advanced_disconnect_auto_update">Aggiorna settimanalmente e automaticamente gli elenchi</string>
     <string name="title_advanced_disconnect_links">Usa gli elenchi per avvisare dei link di monitoraggio</string>
     <string name="title_advanced_disconnect_images">Usa gli elenchi per riconoscere le immagini di monitoraggio</string>
+    <string name="title_advanced_clear_all">Elimina tutti i dati</string>
+    <string name="title_advanced_clear_all_remark">Tutti i dati dell\'app saranno irreversibilmente eliminati!</string>
     <string name="title_advanced_sign_default">Firma di default</string>
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
     <string name="title_advanced_auto_decrypt">Decrittografa automaticamente i messaggi</string>
@@ -793,7 +795,7 @@
     <string name="title_last_connected">Ultima connessione: %1$s</string>
     <string name="title_backoff_until">Attesa dopo il fallimento fino a: %1$s</string>
     <string name="title_storage_quota">Uso dell\'archiviazione del server: %1$s/%2$s</string>
-    <string name="title_pop_support">Il protocollo POP3 supporta il download e l\'eliminazione dei messaggi solo dalla casella di posta in arrivo. POP3 non può contrassegnare i messaggi come letti, spostarli, etc. POP3 userà più energia della batteria e dati di IMAP. Quindi, considera di usare il protocollo IMAP quando possibile.</string>
+    <string name="title_pop_support">Il protocollo POP3 può scaricare ed eliminare i messaggi solo dalla posta in arrivo. Non è possibile contrassegnare i messaggi come letti, segnalarli come spam, spostarli, etc. Considera di usare il protocollo IMAP quando possibile.</string>
     <string name="title_pop_sent">Se il tuo dispositivo viene smarrito o rubato, i messaggi inviati potrebbero esser persi.</string>
     <string name="title_pop_warning">Se un server POP3 non supporta il comando UIDL, l\'uso dei dati potrebbe essere elevato. Quindi, regola sotto la frequenza di sondaggio di conseguenza.</string>
     <string name="title_pop_folders">Il protocollo POP3 non supporta la creazione di cartelle</string>

@@ -216,6 +216,7 @@
     <string name="title_setup_password_different">Passwörter stimmen nicht überein</string>
     <string name="title_setup_password_invalid">Passwort ungültig</string>
     <string name="title_setup_import_accounts">Konten und Identitäten importieren</string>
+    <string name="title_setup_import_delete">Zunächst bestehende Konten löschen</string>
     <string name="title_setup_import_rules">Filterregeln importieren</string>
     <string name="title_setup_import_contacts">Lokale Kontakte importieren</string>
     <string name="title_setup_import_answers">Antwortvorlagen importieren</string>
@@ -375,6 +376,7 @@
     <string name="title_advanced_nav_hide_message">Sie können die Optionen in den Darstellungseinstellungen wieder aktivieren</string>
     <string name="title_advanced_nav_message_count">Anzahl der lokal gespeicherten Nachrichten im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_unseen_drafts">Anzahl ungelesener Entwürfe im Navigationsmenü anzeigen</string>
+    <string name="title_advanced_nav_pinned_count">Anzahl ungelesener Nachrichten im angehefteten Navigationsmenü anzeigen</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen:</string>
     <string name="title_advanced_cards">Ordner und Unterhaltungen mit Rahmen (breit) statt in Tabellendesign (schmal) zeigen</string>
     <string name="title_advanced_cards_beige">Beigefarbenen Hintergrund verwenden, wenn Kartenstil genutzt wird (nur bei hellen Farbschemen)</string>
@@ -546,6 +548,10 @@
     <string name="title_advanced_disconnect_auto_update">Listen wöchentlich automatisch aktualisieren</string>
     <string name="title_advanced_disconnect_links">Listen verwenden, um vor Nachverfolgungslinks zu warnen</string>
     <string name="title_advanced_disconnect_images">Listen zur Erkennung von Nachverfolgungsbildern verwenden</string>
+    <string name="title_advanced_mnemonic">Daten aus der Ferne löschen</string>
+    <string name="title_advanced_mnemonic_hint">Jede E-Mail mit den folgenden Wörtern in der Betreffzeile wird automatisch und sofort alle App-Daten auf diesem Gerät löschen</string>
+    <string name="title_advanced_clear_all">Alle Daten löschen</string>
+    <string name="title_advanced_clear_all_remark">Alle App-Daten werden unwiderruflich gelöscht!</string>
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
@@ -790,7 +796,7 @@
     <string name="title_last_connected">Zuletzt verbunden: %1$s</string>
     <string name="title_backoff_until">Warten nach einem Fehler bis: %1$s</string>
     <string name="title_storage_quota">Server-Speicherauslastung: %1$s/%2$s</string>
-    <string name="title_pop_support">Das POP3-Protokoll unterstützt das Herunterladen und Löschen von Nachrichten nur aus dem Posteingang. POP3 kann Nachrichten nicht markieren, Nachrichten verschieben, usw. POP3 benötigt mehr Akkuleistung und Daten als IMAP. Daher erwägen Sie bitte, das IMAP-Protokoll zu verwenden, wann immer möglich.</string>
+    <string name="title_pop_support">Das POP3-Protokoll kann nur Nachrichten aus dem Posteingang herunterladen und löschen. Es ist nicht möglich, Nachrichten als gelesen zu markieren, Spam zu melden, Nachrichten zu verschieben, usw. Erwägen Sie, wann immer möglich, das IMAP-Protokoll zu verwenden.</string>
     <string name="title_pop_sent">Wenn Ihr Gerät verloren geht oder gestohlen wird, können gesendete Nachrichten verloren gehen.</string>
     <string name="title_pop_warning">Falls ein POP3-Server den Befehl UIDL nicht unterstützt, kann eine hohe Datenauslastung entstehen. Stellen Sie also die unten stehende Abfragefrequenz entsprechend ein.</string>
     <string name="title_pop_folders">Das POP3-Protokoll unterstützt das Erstellen von Ordnern nicht</string>

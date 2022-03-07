@@ -777,7 +777,6 @@
     <string name="title_last_connected">Utoljára csatlakozva: %1$s</string>
     <string name="title_backoff_until">Várakozás hiba után eddig: %1$s</string>
     <string name="title_storage_quota">Szerver tárhely használatban: %1$s/%2$s</string>
-    <string name="title_pop_support">A POP3 protokoll csak a bérkezett mappa üzeneteinek letöltését vagy törlését támogatja. Nem lehetséges az üzenetek olvasottként megjelölése, azok mozgatása, stb. A POP3 továbbá magasabb adatkapcsolat- és akkumulátorhasználattal jár. Javasolt tehát az IMAP használata, amikor csak lehetséges.</string>
     <string name="title_pop_sent">Ha eszközét ellopják vagy elvesződik, az elküldött üzenetek elveszhetnek.</string>
     <string name="title_pop_warning">Ha egy POP3 szerver nem támogatja az UIDL parancsot, az adathasználat megnőhet. Ezért ennek megfelelően állítsa be a frissítési gyakoriságot.</string>
     <string name="title_pop_folders">A POP3 protokol nem támogatja a könyvtárak létrehozását</string>

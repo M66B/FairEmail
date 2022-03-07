@@ -14,9 +14,9 @@
     <string name="channel_progress">ପ୍ରଗତି</string>
     <plurals name="page_message">
         <item quantity="one">ବାର୍ତ୍ତା</item>
-        <item quantity="other">ବାର୍ତ୍ତାଗୁଡ଼ିକ</item>
+        <item quantity="other">ବାର୍ତ୍ତାଗୁଡ଼ିକ</item>
     </plurals>
-    <string name="page_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
+    <string name="page_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="page_compose">ରଚନା କରନ୍ତୁ</string>
     <string name="tile_synchronize">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
     <string name="tile_unseen">ନୂଆ ବାର୍ତ୍ତା</string>
@@ -49,7 +49,7 @@
     <string name="menu_attribution">କୃତଜ୍ଞତା</string>
     <string name="menu_privacy">ଗୋପନୀୟତା</string>
     <string name="menu_about">ବିଷୟରେ</string>
-    <string name="menu_pro">ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ</string>
+    <string name="menu_pro">ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ</string>
     <string name="menu_rate">ଏହି ଆପକୁ ମୂଲ୍ୟାଙ୍କନ କରନ୍ତୁ</string>
     <string name="title_welcome">ସ୍ୱାଗତ</string>
     <string name="title_contributors">ଯୋଗଦାନକାରୀ</string>
@@ -57,8 +57,8 @@
     <string name="title_disagree">ମୁଁ ସହମତ ନୁହେଁ</string>
     <string name="title_version">ସଂସ୍କରଣ %1$s</string>
     <string name="title_privacy_policy">ଗୋପନୀୟତା ନୀତି</string>
-    <string name="title_list_accounts">ଆକାଉଣ୍ଟଗୁଡ଼ିକ</string>
-    <string name="title_list_identities">ପରିଚୟଗୁଡ଼ିକ</string>
+    <string name="title_list_accounts">ଆକାଉଣ୍ଟଗୁଡ଼ିକ</string>
+    <string name="title_list_identities">ପରିଚୟଗୁଡ଼ିକ</string>
     <string name="title_edit_account">ଆକାଉଣ୍ଟ୍ ସମ୍ପାଦନା</string>
     <string name="title_edit_identity">ପରିଚୟ ସମ୍ପାଦନା</string>
     <string name="title_edit_folder">ଫୋଲ୍ଡର୍ ସମ୍ପାଦନା</string>
@@ -77,8 +77,8 @@
     <string name="title_setup_classic">ସର୍ବତ୍କୃଷ୍ଟ ବିନ୍ୟାସ</string>
     <string name="title_setup_account_remark">ଇମେଲ୍ ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
     <string name="title_setup_identity_remark">ଇମେଲ୍ ପଠାନ୍ତୁ</string>
-    <string name="title_setup_accounts">ଆକାଉଣ୍ଟଗୁଡ଼ିକ</string>
-    <string name="title_setup_identities">ପରିଚୟଗୁଡ଼ିକ</string>
+    <string name="title_setup_accounts">ଆକାଉଣ୍ଟଗୁଡ଼ିକ</string>
+    <string name="title_setup_identities">ପରିଚୟଗୁଡ଼ିକ</string>
     <string name="title_setup_other">ଅନ୍ୟ ପ୍ରଦାନକାରୀ</string>
     <string name="title_setup_pop3">POP3 ଆକାଉଣ୍ଟ୍</string>
     <string name="title_setup_oauth_permission">ଇମେଲ୍ ପ୍ରଦାନକାରୀ କେବଳ Play Store ଏବଂ GitHub ସଂସ୍କରଣ ପାଇଁ OAuth ଅନୁମୋଦନ କରିଛନ୍ତି</string>
@@ -96,12 +96,12 @@
     <string name="title_setup_doze_device">ଏହି ଡିଭାଇସ୍ ପାଇଁ ଏହା ବୋଧହୁଏ ଆବଶ୍ୟକୀୟ</string>
     <string name="title_setup_alarm_12">ଆପ୍ କାମ କରିବ ନାହିଁ</string>
     <string name="title_setup_data">ଡାଟା ସେଭର୍ ସକ୍ଷମ ହୋଇଅଛି</string>
-    <string name="title_setup_advanced_options">ବିକଶିତ ବିକଳ୍ପଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
+    <string name="title_setup_advanced_options">ବିକଶିତ ବିକଳ୍ପଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_setup_inbox">ଇନବକ୍ସ କୁ ଯାଆନ୍ତୁ</string>
     <string name="title_setup_done">ହୋଇଗଲା</string>
     <string name="title_setup_error">ତ୍ରୁଟି</string>
     <string name="title_setup_configuring">ଆକାଉଣ୍ଟ୍ ବିନ୍ୟାସ କରୁଅଛି &#8230;</string>
-    <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‍ୱାର୍ଡ଼ ବ୍ୟବହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
+    <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‍ୱାର୍ଡ଼ ବ୍ୟବହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
     <string name="title_setup_extra">ଅତିରିକ୍ତ</string>
     <string name="title_setup_close">ସେଟିଂସ୍ ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="title_setup_export">ସେଟିଂସ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
@@ -109,12 +109,13 @@
     <string name="title_setup_export_remark">        ଯେହେତୁ ସେଟିଂସ୍ ଫାଇଲ୍ ସମସ୍ତ ସେଟିଂସ୍ ଏବଂ ଆକାଉଣ୍ଟ୍ ସୂଚନା ଧାରଣ କରେ, ଏହା ଏକ ପାସ୍‍ୱାର୍ଡ଼ ସହିତ ଏନକ୍ରିପ୍ଟ ହୋଇଛି।
         ସେଟିଂସ୍ ପୁଣି ଆମଦାନୀ କରିବାକୁ ପାସ୍‍ୱାର୍ଡ଼ ଆବଶ୍ୟକ, ତେଣୁ ଦୟାକରି ଏହାକୁ ଭୁଲନ୍ତୁ ନାହିଁ!
     </string>
-    <string name="title_setup_password">ପାସ୍‍ୱାର୍ଡ଼</string>
-    <string name="title_setup_password_repeat">ପାସ୍‍ୱାର୍ଡ଼ ପୁନରାବୃତ୍ତି କରନ୍ତୁ</string>
-    <string name="title_setup_password_missing">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
-    <string name="title_setup_password_different">ପାସ୍‍ୱାର୍ଡ଼ଗୁଡ଼ିକ ମେଳ ଖାଉନାହିଁ</string>
-    <string name="title_setup_password_invalid">ପାସ୍‍ୱାର୍ଡ଼ ଅବୈଧ ଅଟେ</string>
-    <string name="title_setup_import_settings">ଆମଦାନୀ ବିକଳ୍ପଗୁଡ଼ିକ</string>
+    <string name="title_setup_password">ପାସ୍‍ୱାର୍ଡ଼</string>
+    <string name="title_setup_password_repeat">ପାସ୍‍ୱାର୍ଡ଼ ପୁନରାବୃତ୍ତି କରନ୍ତୁ</string>
+    <string name="title_setup_password_missing">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
+    <string name="title_setup_password_different">ପାସ୍‍ୱାର୍ଡ଼ଗୁଡ଼ିକ ମେଳ ଖାଉନାହିଁ</string>
+    <string name="title_setup_password_invalid">ପାସ୍‍ୱାର୍ଡ଼ ଅବୈଧ ଅଟେ</string>
+    <string name="title_setup_import_delete">ପ୍ରଥମେ ବିଦ୍ୟମାନ ଆକାଉଣ୍ଟଗୁଡ଼ିକୁ ବିଲୋପ କରନ୍ତୁ</string>
+    <string name="title_setup_import_settings">ଆମଦାନୀ ବିକଳ୍ପଗୁଡ଼ିକ</string>
     <string name="title_setup_exported">ସେଟିଂସ୍ ରପ୍ତାନି ହୋଇଛି</string>
     <string name="title_setup_imported">ସେଟିଂସ୍ ଆମଦାନୀ ହୋଇଛି</string>
     <string name="title_setup_import_invalid">ଅବୈଧ ସେଟିଂସ୍ ଫାଇଲ୍</string>
@@ -136,24 +137,24 @@
     <string name="title_setup_theme_white">ଧଳା</string>
     <string name="title_setup_theme_black_or_white">କଳା ବା ଧଳା</string>
     <string name="title_setup_theme_black_and_white">କଳା ଓ ଧଳା</string>
-    <string name="title_setup_theme_reverse">ରଙ୍ଗ ଗୁଡ଼ିକ ଅଦଳବଦଳ କରନ୍ତୁ</string>
+    <string name="title_setup_theme_reverse">ରଙ୍ଗ ଗୁଡ଼ିକ ଅଦଳବଦଳ କରନ୍ତୁ</string>
     <string name="title_setup_theme_light">ହାଲୁକା</string>
-    <string name="title_setup_theme_dark">ଗାଢ଼</string>
+    <string name="title_setup_theme_dark">ଗାଢ଼</string>
     <string name="title_setup_theme_system">ସିଷ୍ଟମକୁ ଅନୁସରଣ କରନ୍ତୁ</string>
     <string name="title_setup_theme_black_background">କଳା ପୃଷ୍ଠପଟ</string>
     <string name="title_setup_theme_html_light">ମୂଳ ବାର୍ତ୍ତା ଦର୍ଶନ ପାଇଁ ହାଲୁକା ପୃଷ୍ଠପଟ</string>
     <string name="title_setup_theme_composer_light">ବାର୍ତ୍ତା ସମ୍ପାଦକ ପାଇଁ ହାଲୁକା ପୃଷ୍ଠପଟ</string>
-    <string name="title_setup_theme_you_hint">Material You ରଙ୍ଗଗୁଡ଼ିକ ଆଣ୍ଡ୍ରଏଡ୍ ୱାଲପେପର୍ ଓ ଷ୍ଟାଇଲ୍ ସେଟିଂସରେ ବିନ୍ୟାସ କରାଯାଇପାରିବ</string>
-    <string name="title_setup_theme_system_hint">ଆଣ୍ଡ୍ରଏଡ୍ ଦ୍ୱାରା ସମର୍ଥିତ ହେଲେ ଏହା ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଦିନ/ରାତ୍ରି ମୋଡ୍ ରେ ଏକ ହାଲୁକା/ଗାଢ଼ ଥିମ୍ କୁ ବଦଳିଯିବ</string>
+    <string name="title_setup_theme_you_hint">Material You ରଙ୍ଗଗୁଡ଼ିକ ଆଣ୍ଡ୍ରଏଡ୍ ୱାଲପେପର୍ ଓ ଷ୍ଟାଇଲ୍ ସେଟିଂସରେ ବିନ୍ୟାସ କରାଯାଇପାରିବ</string>
+    <string name="title_setup_theme_system_hint">ଆଣ୍ଡ୍ରଏଡ୍ ଦ୍ୱାରା ସମର୍ଥିତ ହେଲେ ଏହା ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଦିନ/ରାତ୍ରି ମୋଡ୍ ରେ ଏକ ହାଲୁକା/ଗାଢ଼ ଥିମ୍ କୁ ବଦଳିଯିବ</string>
     <string name="title_setup_theme_more_colors">ମୁଁ ଅଧିକ ରଙ୍ଗ ଚାହୁଁଛି</string>
     <string name="title_setup_advanced">ବିକଶିତ</string>
-    <string name="title_setup_options">ବିକଳ୍ପଗୁଡ଼ିକ</string>
+    <string name="title_setup_options">ବିକଳ୍ପଗୁଡ଼ିକ</string>
     <string name="title_setup_reset_general">ସାଧାରଣ ପ୍ରଶ୍ନ</string>
     <string name="title_setup_reset_full">ମୂଳ ବାର୍ତ୍ତା ଦେଖାନ୍ତୁ</string>
-    <string name="title_setup_reset_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
-    <string name="title_setup_reset_links">ଲିଙ୍କଗୁଡ଼ିକ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
-    <string name="title_advanced_hint_title">ଅଧିକ ବିକଶିତ ବିକଳ୍ପଗୁଡ଼ିକ</string>
-    <string name="title_advanced_hint_remark">        ବିକଳ୍ପଗୁଡ଼ିକ ଟ୍ୟାବ୍ ଅନୁଯାୟୀ ବର୍ଗୀକୃତ, ବିଭାଗରେ ବିଭକ୍ତ, ରୂପ କିମ୍ୱା ବ୍ୟବହାର ଅନୁଯାୟୀ ସଂଗଠିତ ହୋଇଅଛି, ଏବଂ ସନ୍ଧାନଯୋଗ୍ୟ ଅଟେ।
+    <string name="title_setup_reset_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
+    <string name="title_setup_reset_links">ଲିଙ୍କଗୁଡ଼ିକ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <string name="title_advanced_hint_title">ଅଧିକ ବିକଶିତ ବିକଳ୍ପଗୁଡ଼ିକ</string>
+    <string name="title_advanced_hint_remark">        ବିକଳ୍ପଗୁଡ଼ିକ ଟ୍ୟାବ୍ ଅନୁଯାୟୀ ବର୍ଗୀକୃତ, ବିଭାଗରେ ବିଭକ୍ତ, ରୂପ କିମ୍ୱା ବ୍ୟବହାର ଅନୁଯାୟୀ ସଂଗଠିତ ହୋଇଅଛି, ଏବଂ ସନ୍ଧାନଯୋଗ୍ୟ ଅଟେ।
     </string>
     <string name="title_advanced_section_main">ମୁଖ୍ୟ</string>
     <string name="title_advanced_section_synchronize">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
@@ -163,7 +164,7 @@
     <string name="title_advanced_section_behavior">ଆଚରଣ</string>
     <string name="title_advanced_section_privacy">ଗୋପନୀୟତା</string>
     <string name="title_advanced_section_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
-    <string name="title_advanced_section_notifications">ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକ</string>
+    <string name="title_advanced_section_notifications">ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକ</string>
     <string name="title_advanced_section_misc">ବିବିଧ</string>
     <string name="title_advanced_when">କେବେ</string>
     <string name="title_advanced_optimize">ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ</string>
@@ -189,6 +190,7 @@
     <string name="title_advanced_min_screen_size">ସ୍କ୍ରିନ୍ ବିଭାଜନ ପାଇଁ ସର୍ବନିମ୍ନ ସ୍କ୍ରିନ୍ ଆକାର</string>
     <string name="title_advanced_close_pane">ବାର୍ତ୍ତାଳାପ ବନ୍ଦ କରିବା ସମୟରେ ଧାଡ଼ି କିମ୍ବା ସ୍ତମ୍ଭକୁ ସଙ୍କୋଚନ କରନ୍ତୁ</string>
     <string name="title_advanced_column_width">ବାର୍ତ୍ତା ସ୍ତମ୍ଭର ପ୍ରସ୍ଥ: %1$s %%</string>
+    <string name="title_advanced_nav_pinned_count">ପିନ୍ ହୋଇଥିବା ନେଭିଗେସନ୍ ମେନୁରେ ପଢ଼ିନଥିବା ବାର୍ତ୍ତାଗୁଡ଼ିକର ସଂଖ୍ୟା ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_cards">ଟାବୁଲାର୍ ଶୈଳୀ ପରିବର୍ତ୍ତେ କାର୍ଡ଼ ଶୈଳୀ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_cards_beige">କାର୍ଡ଼ ଶୈଳୀ ବ୍ୟବହାର କଲାବେଳେ ବେଜ୍ ପୃଷ୍ଠପଟ ବ୍ୟବହାର କରିବା (କେବଳ ହାଲୁକା ଥିମ୍ ପାଇଁ ପ୍ରଯୁଜ୍ୟ)</string>
@@ -239,7 +241,10 @@
     <string name="title_advanced_autolock">ସ୍କ୍ରିନ୍ ଅଫ୍ ହେଲେ ଲକ୍ ପକାଇବା</string>
     <string name="title_advanced_autolock_nav">ଆପ୍ ଛାଡ଼ିବା ମାତ୍ରେ ଲକ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_load_emoji">Google Play Servicesରୁ ଅପଡେଟ୍ ହୋଇଥିବା Emoji ଲୋଡ୍ କରନ୍ତୁ</string>
-    <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
+    <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
+    <string name="title_advanced_mnemonic">ସୁଦୂରରୁ ଡାଟା ବିଲୋପ କରନ୍ତୁ</string>
+    <string name="title_advanced_clear_all">ସବୁ ଡାଟା ବିଲୋପ କରନ୍ତୁ</string>
+    <string name="title_advanced_clear_all_remark">ସବୁ ଆପ୍ ଡାଟା ଅପରିବର୍ତ୍ତନୀୟ ଭାବରେ ବିଲୋପ ହୋଇଯିବ!</string>
     <string name="title_advanced_openpgp">OpenPGP ପ୍ରଦାନକାରୀ</string>
     <string name="title_advanced_fts">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ନିର୍ମାଣ କରିବା</string>
     <string name="title_advanced_language">ଭାଷା</string>
@@ -277,7 +282,7 @@
     <string name="title_account_linked">ଲିଙ୍କ୍ ହୋଇଥିବା ଆକାଉଣ୍ଟ୍</string>
     <string name="title_account_name">ଆକାଉଣ୍ଟ୍ ନାମ</string>
     <string name="title_account_category">ବର୍ଗ</string>
-    <string name="title_account_name_hint">ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ଭିନ୍ନ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହୁଏ</string>
+    <string name="title_account_name_hint">ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ଭିନ୍ନ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହୁଏ</string>
     <string name="title_color">ରଙ୍ଗ</string>
     <string name="title_background">ପୃଷ୍ଠପଟ</string>
     <string name="title_transparent">ପାରଦର୍ଶୀ</string>
@@ -293,8 +298,8 @@
     <string name="title_encryption_none">କିଛି ନୁହେଁ</string>
     <string name="title_port">ପୋର୍ଟ ନମ୍ଵର୍</string>
     <string name="title_user">ଉପଭୋକ୍ତା ନାମ</string>
-    <string name="title_password">ପାସ୍‍ୱାର୍ଡ଼</string>
-    <string name="title_password_storage">ପାସ୍‍ୱାର୍ଡ଼ଗୁଡିକ କିପରି ଗଚ୍ଛିତ କରାଯାଏ?</string>
+    <string name="title_password">ପାସ୍‍ୱାର୍ଡ଼</string>
+    <string name="title_password_storage">ପାସ୍‍ୱାର୍ଡ଼ଗୁଡ଼ିକ କିପରି ଗଚ୍ଛିତ କରାଯାଏ?</string>
     <string name="title_primary">ପ୍ରାଥମିକ</string>
     <string name="title_primary_account">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ଆକାଉଣ୍ଟ୍)</string>
     <string name="title_primary_identity">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ପରିଚୟ)</string>
@@ -307,20 +312,21 @@
     <string name="title_no_account">ଆକାଉଣ୍ଟ୍ ନିଖୋଜ</string>
     <string name="title_no_host">ହୋଷ୍ଟ ନାମ ନିଖୋଜ</string>
     <string name="title_no_user">ଉପଭୋକ୍ତା ନାମ ନିଖୋଜ</string>
-    <string name="title_no_password">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
+    <string name="title_no_password">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
     <string name="title_no_inbox">ଇନବକ୍ସ ମିଳିଲା ନାହିଁ</string>
     <string name="title_account_auth_update">ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରିବା</string>
     <string name="title_account_auth_password">ପାସ୍‍ୱାର୍ଡ଼ ପ୍ରାମାଣିକିକରଣକୁ ସୁଇଚ୍ କରନ୍ତୁ</string>
     <string name="title_delete_account">ଆକାଉଣ୍ଟ୍ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_edit_html">HTML ଭାବରେ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_storage_quota">ସର୍ଭର୍ ଷ୍ଟୋରେଜ୍ ବ୍ୟବହାର: %1$s/%2$s</string>
+    <string name="title_pop_support">POP3 ପ୍ରୋଟୋକଲ୍ କେବଳ ଇନବକ୍ସରୁ ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ଡାଉନଲୋଡ୍ ଏବଂ ବିଲୋପ କରିପାରେ। ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ପଠିତ ଭାବେ ଚିହ୍ନଟ କରିବା, ସ୍ପାମ୍ ରିପୋର୍ଟ୍ କରିବା, ବାର୍ତ୍ତା ଘୁଞ୍ଚାଇବା ଇତ୍ୟାଦି ସମ୍ଭବ ନୁହେଁ। ପାରିଲା ମାତ୍ରେ IMAP ପ୍ରୋଟୋକଲ୍ ବ୍ୟବହାର କରିବାକୁ ବିଚାର କରନ୍ତୁ।</string>
     <string name="title_review">ସମୀକ୍ଷା କର</string>
     <string name="title_service_token">ଆଣ୍ଡ୍ରଏଡ୍ ଆକାଉଣ୍ଟ୍ ମ୍ୟାନେଜର୍ ଏକ VPN, ଫାୟାରୱାଲ୍, ବିଜ୍ଞାପନ ଅବରୋଧକ ଇତ୍ୟାଦି ଦ୍ୱାରା ଅବରୋଧ ହୋଇପାରେ, ଯାହା ଏହାକୁ ଏକ ଆକସେସ୍ ଟୋକନ୍ ପ୍ରାପ୍ତ କରିବାରୁ ପ୍ରତିରୋଧ କରିପାରେ</string>
     <string name="title_synchronize_now">ବର୍ତ୍ତମାନ ସିଙ୍କ୍ରୋନାଇଜ୍ କରନ୍ତୁ</string>
     <string name="title_synchronize_enabled">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
     <string name="title_synchronize_batch_enable">ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_synchronize_batch_disable">ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ଅକ୍ଷମ କରନ୍ତୁ</string>
-    <string name="title_expunge">କାଢ଼ିଦିଅନ୍ତୁ</string>
+    <string name="title_expunge">କାଢ଼ିଦିଅନ୍ତୁ</string>
     <string name="title_expunge_remark">ଏହା ବିଲୋପ ପାଇଁ ଚିହ୍ନିତ ସମସ୍ତ ବାର୍ତ୍ତାକୁ ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବ</string>
     <string name="title_empty_trash">ଆବର୍ଜନା ପାତ୍ର ଖାଲି କରନ୍ତୁ</string>
     <string name="title_edit_properties">ଗୁଣଧର୍ମ ସମ୍ପାଦନା</string>
@@ -408,16 +414,16 @@
     <string name="title_style_font_default">ଡିଫଲ୍ଟ</string>
     <string name="title_style_indentation">ଇଣ୍ଡେଣ୍ଟେସନ୍</string>
     <string name="title_style_link">ଲିଙ୍କ୍ ସନ୍ନିବେଶ କର</string>
-    <string name="title_add_image">ପ୍ରତିଛବି ଯୋଡ଼ନ୍ତୁ</string>
+    <string name="title_add_image">ପ୍ରତିଛବି ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_add_image_inline">ସନ୍ନିବେଶ କର</string>
     <string name="title_add_image_attach">ସଂଲଗ୍ନ କର</string>
     <string name="title_add_image_resize">ଆକାର ବଦଳାନ୍ତୁ</string>
     <string name="title_add_image_privacy">ଗୋପନୀୟତା-ସମ୍ବେଦନଶୀଳ ତଥ୍ୟ ଅପସାରଣ କରନ୍ତୁ</string>
     <string name="title_add_image_select">ଫାଇଲ୍ ବାଛନ୍ତୁ</string>
     <string name="title_attachment_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
-    <string name="title_attachment_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
+    <string name="title_attachment_audio">ଅଡ଼ିଓ ରେକର୍ଡ କର</string>
     <string name="title_show_addresses">CC/BCC ଦେଖାଅ</string>
-    <string name="title_manage_local_contacts">ସ୍ଥାନୀୟ ସମ୍ପର୍କଗୁଡ଼ିକୁ ପରିଚାଳନା କରନ୍ତୁ</string>
+    <string name="title_manage_local_contacts">ସ୍ଥାନୀୟ ସମ୍ପର୍କଗୁଡ଼ିକୁ ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="title_translate">ଅନୁବାଦ କର</string>
     <string name="title_translate_formal">ଆନୁଷ୍ଠାନିକ ଶବ୍ଦରୂପ ବ୍ୟବହାର କରିବା</string>
     <string name="title_send_dsn">ସ୍ଥିତି ରିପୋର୍ଟ୍</string>
@@ -444,7 +450,7 @@
     <string name="title_search_flag_hidden">ଲୁକ୍କାୟିତ</string>
     <string name="title_search_flag_encrypted">ଏନକ୍ରିପ୍ଟ ହୋଇଥିବା</string>
     <string name="title_search_flag_attachments">ସଂଲଗ୍ନକରଣ</string>
-    <string name="title_search_flag_notes">ନୋଟଗୁଡ଼ିକ</string>
+    <string name="title_search_flag_notes">ନୋଟଗୁଡ଼ିକ</string>
     <string name="title_search_flag_invite">ଆମନ୍ତ୍ରଣ</string>
     <string name="title_search_flag_size">ଆକାର &gt; %1$s</string>
     <string name="title_sort_on_time">ସମୟ</string>
@@ -506,8 +512,8 @@
     <string name="title_rule_select_sound">ଧ୍ୱନି ବାଛନ୍ତୁ</string>
     <string name="title_rule_use_as_alarm">ଆଲାର୍ମ ଭାବେ ବ୍ୟବହାର କରିବା</string>
     <string name="title_legend_section_synchronize">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
-    <string name="title_legend_section_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
-    <string name="title_legend_section_messages">ବାର୍ତ୍ତାଗୁଡ଼ିକ</string>
+    <string name="title_legend_section_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
+    <string name="title_legend_section_messages">ବାର୍ତ୍ତାଗୁଡ଼ିକ</string>
     <string name="title_legend_section_compose">ରଚନା କରନ୍ତୁ</string>
     <string name="title_legend_synchronize_on">ସିଙ୍କ୍ରୋନାଇଜ୍ ଚାଲୁ</string>
     <string name="title_legend_synchronize_off">ସିଙ୍କ୍ରୋନାଇଜ୍ ବନ୍ଦ</string>
@@ -520,8 +526,8 @@
     <string name="title_legend_cc">CC/BCC ଦେଖାଅ</string>
     <string name="title_legend_link">ଲିଙ୍କ୍ ସନ୍ନିବେଶ କର</string>
     <string name="title_legend_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
-    <string name="title_legend_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
-    <string name="title_legend_show_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
+    <string name="title_legend_audio">ଅଡ଼ିଓ ରେକର୍ଡ କର</string>
+    <string name="title_legend_show_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_legend_show_amp">AMP ଭାରିଆଣ୍ଟ ଦେଖାଇବା</string>
     <string name="title_legend_edit">ସମ୍ପାଦନ</string>
     <string name="title_legend_delete">ବିଲୋପ</string>
@@ -588,7 +594,7 @@
         <item>Unified inbox</item>
         <item>Unified folders</item>
         <item>Primary account folders</item>
-        <item>ଆକାଉଣ୍ଟଗୁଡ଼ିକ</item>
+        <item>ଆକାଉଣ୍ଟଗୁଡ଼ିକ</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
@@ -624,7 +630,7 @@
         <item>Bcc</item>
     </string-array>
     <string-array name="biometricsTimeoutNames">
-        <item>ଗୋଟେ ମିନିଟ୍‌</item>
+        <item>ଗୋଟେ ମିନିଟ୍</item>
         <item>୨ ମିନିଟ୍</item>
         <item>୫ ମିନିଟ୍</item>
         <item>୧୦ ମିନିଟ୍</item>

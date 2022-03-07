@@ -354,6 +354,7 @@
     <string name="title_advanced_signature_reply">Použít podpis při odpovědi</string>
     <string name="title_advanced_signature_forward">Použít podpis při přeposlání</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej natrvalo smazat</string>
+    <string name="title_advanced_reply_move">Při odpovědi na zprávu uložit odpověď do stejné složky</string>
     <string name="title_advanced_auto_link">Automaticky vytvářet odkazy</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
     <string name="title_advanced_flow">„Format flowed“ pro prostý text</string>
@@ -566,6 +567,8 @@
     <string name="title_advanced_disconnect_auto_update">Automaticky týdně aktualizovat seznamy</string>
     <string name="title_advanced_disconnect_links">Použít seznamy k upozornění na sledovací odkazy</string>
     <string name="title_advanced_disconnect_images">Použít seznamy k rozpoznání sledovacích obrázků</string>
+    <string name="title_advanced_clear_all">Odstranit všechna data</string>
+    <string name="title_advanced_clear_all_remark">Všechna data aplikace budou nevratně smazána!</string>
     <string name="title_advanced_sign_default">Automaticky podepisovat</string>
     <string name="title_advanced_encrypt_default">Automaticky šifrovat</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
@@ -810,7 +813,7 @@
     <string name="title_last_connected">Poslední připojení: %1$s</string>
     <string name="title_backoff_until">Čekání po selhání do: %1$s</string>
     <string name="title_storage_quota">Využití úložiště serveru: %1$s/%2$s</string>
-    <string name="title_pop_support">Protokol POP3 podporuje stahování a odstraňování zpráv pouze ze složky doručené. POP3 neumí zprávu označit jako oblíbenou, přesouvat zprávy, atd. Oproti IMAP bude POP3 také více zatěžovat baterii. Zvažte tak použití protokolu IMAP, kdykoli to bude možné.</string>
+    <string name="title_pop_support">Protokol POP3 může pouze stahovat a mazat zprávy z doručené pošty. Není možné označit zprávy jako přečtené, nahlašovat spam, přesouvat zprávy atd. Zvažte použití protokolu IMAP, kdykoli je to možné.</string>
     <string name="title_pop_sent">Při ztrátě či odcizení zařízení mohou být odeslané zprávy ztraceny.</string>
     <string name="title_pop_warning">Nepodporuje-li server POP3 příkaz UIDL, využití dat může být vysoké. Dle potřeby proto prosím níže upravte interval dotazování.</string>
     <string name="title_pop_folders">Protokol POP3 nepodporuje vytváření složek</string>
@@ -1730,7 +1733,7 @@
         <item>Přejít na další konverzaci</item>
     </string-array>
     <string-array name="resizeNames">
-        <item>Extra small</item>
+        <item>Velmi malé</item>
         <item>Malé</item>
         <item>Střední</item>
         <item>Velké</item>

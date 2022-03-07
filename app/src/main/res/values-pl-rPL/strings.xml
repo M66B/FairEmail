@@ -237,6 +237,7 @@
     <string name="title_setup_password_different">Hasła nie są identyczne</string>
     <string name="title_setup_password_invalid">Nieprawidłowe hasło</string>
     <string name="title_setup_import_accounts">Importuj konta i tożsamości</string>
+    <string name="title_setup_import_delete">Najpierw usuń istniejące konta</string>
     <string name="title_setup_import_rules">Importuj reguły filtrowania</string>
     <string name="title_setup_import_contacts">Importuj kontakty lokalne</string>
     <string name="title_setup_import_answers">Importuj szablony odpowiedzi</string>
@@ -567,6 +568,8 @@
     <string name="title_advanced_disconnect_auto_update">Automatycznie aktualizuj listy co tydzień</string>
     <string name="title_advanced_disconnect_links">Użyj list do rozpoznawania linków śledzących</string>
     <string name="title_advanced_disconnect_images">Użyj list do rozpoznawania obrazów śledzących</string>
+    <string name="title_advanced_clear_all">Usuń wszystkie dane</string>
+    <string name="title_advanced_clear_all_remark">Wszystkie dane aplikacji zostaną nieodwracalnie usunięte!</string>
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
     <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>
@@ -811,7 +814,7 @@
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
     <string name="title_backoff_until">Oczekiwanie po niepowodzeniu do: %1$s</string>
     <string name="title_storage_quota">Wykorzystane miejsce: %1$s/%2$s</string>
-    <string name="title_pop_support">Protokół POP3 obsługuje tylko pobieranie i usuwanie wiadomości ze skrzynki odbiorczej. POP3 nie może oznaczać wiadomości jako przeczytanej, przenosić wiadomości itp. POP3 zużywa więcej energii baterii i danych niż IMAP. Dlatego rozważ użycie protokołu IMAP, gdy tylko jest to możliwe.</string>
+    <string name="title_pop_support">Protokół POP3 może tylko pobierać i usuwać wiadomości ze skrzynki odbiorczej. Nie można oznaczać wiadomości jako przeczytanych, zgłaszać spamu, przenosić wiadomości itp. Jeśli to możliwe, rozważ korzystanie z protokołu IMAP.</string>
     <string name="title_pop_sent">Jeśli zgubisz swoje urządzenie lub zostanie skradzione, wysłane wiadomości mogą zostać utracone.</string>
     <string name="title_pop_warning">Jeśli serwer POP3 nie obsługuje polecenia UIDL, użycie danych może być wysokie. Dlatego odpowiednio dostosuj częstotliwość odpytywania poniżej.</string>
     <string name="title_pop_folders">Protokół POP3 nie obsługuje tworzenia folderów</string>

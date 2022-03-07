@@ -791,7 +791,6 @@
     <string name="title_last_connected">Son bağlantı: %1$s</string>
     <string name="title_backoff_until">Xətadan sonra %1$s tarixinə qədər gözlənilir</string>
     <string name="title_storage_quota">Server anbar istifadəsi: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3 protokolu, mesajları yalnız gələn qutusundan silməyi və endirməyi dəstəkləyir. POP3, mesajları oxundu kimi işarələyə, köçürə bilmir və s. POP3, IMAP-dan daha çox enerji və verilənlər istifadə edir. Ona görə də, mümkün olduqca IMAP protokolunu istifadə etməyi düşünün.</string>
     <string name="title_pop_sent">Cihazınız itsə və ya oğurlansa, göndərilən mesajlar itə bilər.</string>
     <string name="title_pop_warning">Əgər POP3 serveri UIDL əmrini dəstəkləmirsə, verilənlərin istifadəsi yüksək ola bilər. Ona görə də, aşağıdakı anket tezliyini buna görə nizamlayın.</string>
     <string name="title_pop_folders">POP3 protokolu qovluq yaratmağı dəstəkləmir</string>

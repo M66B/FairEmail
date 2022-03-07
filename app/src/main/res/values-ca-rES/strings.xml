@@ -509,7 +509,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_sign_key">Clau signada: %1$s</string>
     <string name="title_last_connected">Darrera connexió: %1$s</string>
     <string name="title_storage_quota">Ús de l’emmagatzematge del servidor: %1$s/%2$s</string>
-    <string name="title_pop_support">El protocol POP3 només permet descarregar i esborrar missatges de la safata d\'entrada. No deixa marcar missatges com a llegits, moure missatges, etc. Com que POP3 també necessita més bateria i dades, pot ser preferible utilitzar el protocol IMAP.</string>
     <string name="title_oauth_support">OAuth no està suportat</string>
     <string name="title_review">Revisa</string>
     <string name="title_hint_alias">Premuda llarga per a opcions com ara copiar per crear noves àlies d\'identitats</string>

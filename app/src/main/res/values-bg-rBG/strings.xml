@@ -559,7 +559,6 @@
     <string name="title_sign_key">Ключ за подписване:%1$s</string>
     <string name="title_last_connected">Последна проверка: %1$s</string>
     <string name="title_storage_quota">Използвано място на сървъра: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3 протокола поддържа изтегляне и изтриване на съобщенията само във входяща поща. POP3 не може да маркира съобщенията като прочетени, не може да премества съобщения, т. н. POP3 използва повече батерия и данни от IMAP. Моля използвайте IMAP протокола когато е възможно.</string>
     <string name="title_oauth_support">OAuth не се поддържа</string>
     <string name="title_review">Преглед</string>
     <string name="title_hint_alias">Дълго натискане за опции, като копиране, за да се създаде псевдоним за идентичност</string>

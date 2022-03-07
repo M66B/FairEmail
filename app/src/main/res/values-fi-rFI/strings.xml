@@ -783,7 +783,6 @@
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
     <string name="title_backoff_until">Odottaa epäonnistumisen jälkeen ajanhetkeen: %1$s</string>
     <string name="title_storage_quota">Palvelimen tallennustilan käyttö: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3-protokolla tukee vain viestien latausta ja poistamista. POP3 ei merkitse viestejä luetuksi, siirrä niitä, jne. POP3 käyttää enemmän akkua ja dataa kuin IMAP. Kannattaa harkita IMAP-protokollan käyttöä aina kuin mahdollista.</string>
     <string name="title_pop_sent">Jos laitteesi katoaa tai varastetaan, lähetetyt viestit saattavat kadota.</string>
     <string name="title_pop_warning">Datan käyttö saattaa olla suurta, jos POP3-palvelin ei tue UIDL-komentoa. Säädä kyselytaajuus sen mukaisesti.</string>
     <string name="title_pop_folders">POP3-protokolla ei tue kansioiden luomista</string>

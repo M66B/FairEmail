@@ -216,6 +216,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_password_different">Parolalar eşleşmiyor</string>
     <string name="title_setup_password_invalid">Parola geçersiz</string>
     <string name="title_setup_import_accounts">Hesapları ve kimlikleri içe aktarın</string>
+    <string name="title_setup_import_delete">Önce mevcut hesapları sil</string>
     <string name="title_setup_import_rules">Filtre kurallarını içe aktar</string>
     <string name="title_setup_import_contacts">Yerel kişileri içe aktar</string>
     <string name="title_setup_import_answers">Yanıt şablonlarını içe aktar</string>
@@ -546,6 +547,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_disconnect_auto_update">Listeleri haftalık olarak otomatik güncelle</string>
     <string name="title_advanced_disconnect_links">Takipçi içeren bağlantıları önden uyarabilmek için listeleri kullan</string>
     <string name="title_advanced_disconnect_images">Takipçi içeren görselleri tanımak için listeleri kullan</string>
+    <string name="title_advanced_clear_all">Tüm verileri sil</string>
+    <string name="title_advanced_clear_all_remark">Tüm uygulama verileri geri alınamaz şekilde silinecek!</string>
     <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
     <string name="title_advanced_encrypt_default">Varsayılan olarak şifrele</string>
     <string name="title_advanced_auto_decrypt">İletilerin şifrelerini otomatik olarak çöz</string>
@@ -790,7 +793,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_last_connected">Son bağlantı: %1$s</string>
     <string name="title_backoff_until">Hatadan sonra şu tarihe kadar bekleniyor: %1$s</string>
     <string name="title_storage_quota">Sunucu depolama alanı kullanımı: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3 protokolü sadece gelen kutusundan mesajları indirmeyi ve silmeyi desteklemektedir. POP3 mesajları okundu olarak işaretleyemez, taşıyamaz, vs. POP3 IMAP\'ten daha fazla batarya gücü ve veri kullanacaktır. Bu yüzden, mümkün olduğunca IMAP protokolünü kullanmayı göz önünde bulundurun.</string>
+    <string name="title_pop_support">POP3 protokolü yalnızca gelen kutusundaki mesajları indirebilir ve silebilir. İletileri okundu olarak işaretlemek, istenmeyen postaları bildirmek, iletileri taşımak vb. mümkün değildir. Mümkün olduğunda IMAP protokolünü kullanmayı düşünün.</string>
     <string name="title_pop_sent">Cihazınız kaybolursa veya çalınırsa, gönderilen mesajlar kaybolabilir.</string>
     <string name="title_pop_warning">Bir POP3 sunucusu UIDL komutunu desteklemiyorsa, veri kullanımı yüksek olabilir. Bu nedenle, aşağıdaki anket sıklığını buna göre ayarlayın.</string>
     <string name="title_pop_folders">POP3 protokolü klasör oluşturmayı desteklemiyor</string>

@@ -237,6 +237,7 @@
     <string name="title_setup_password_different">הסיסמאות אינן תואמות</string>
     <string name="title_setup_password_invalid">סיסמה שגויה</string>
     <string name="title_setup_import_accounts">ייבוא חשבונות וזהויות</string>
+    <string name="title_setup_import_delete">מחיקת חשבונות קיימים תחילה</string>
     <string name="title_setup_import_rules">ייבוא כללי סינון</string>
     <string name="title_setup_import_contacts">ייבוא אנשי קשר מקומיים</string>
     <string name="title_setup_import_answers">ייבוא תבניות תגובות</string>
@@ -397,6 +398,7 @@
     <string name="title_advanced_nav_hide_message">אפשר להפעיל את האפשרויות שוב בהגדרות התצוגה</string>
     <string name="title_advanced_nav_message_count">להציג את מספר ההודעות שמאוחסנות מקומית בתפריט הניווט</string>
     <string name="title_advanced_nav_unseen_drafts">להציג את מספר הטיוטות שלא נקראו בתפריט הניווט</string>
+    <string name="title_advanced_nav_pinned_count">להציג את מספר ההודעות שלא נקראו בתפריט הניווט הנעוץ</string>
     <string name="title_advanced_startup">הצגה במסך הפתיחה</string>
     <string name="title_advanced_cards">להשתמש בסגנון כרטיסים במקום בסגנון לשוניות</string>
     <string name="title_advanced_cards_beige">להשתמש ברקע בז׳ בעת שימוש בסגנון כרטיסים (ערכות עיצוב בהירות בלבד)</string>
@@ -568,6 +570,10 @@
     <string name="title_advanced_disconnect_auto_update">לעדכן את הרשימות אוטומטית כל שבוע</string>
     <string name="title_advanced_disconnect_links">להשתמש ברשימות כדי להזהיר על קישורי מעקב</string>
     <string name="title_advanced_disconnect_images">להשתמש ברשימות כדי לזהות תמונות מעקב</string>
+    <string name="title_advanced_mnemonic">מחיקת הנתונים בצד המרוחק</string>
+    <string name="title_advanced_mnemonic_hint">כל הודעה שהתקבלה עם המילים שלהלן כחלק מהנושא ימחקו את כל נתוני היישומון מהמכשיר הזה אוטומטית ומיידית</string>
+    <string name="title_advanced_clear_all">מחיקת כל הנתונים</string>
+    <string name="title_advanced_clear_all_remark">כל נתוני היישומון יימחקו ללא אפשרות לשחזור!</string>
     <string name="title_advanced_sign_default">חתימה כבררת מחדל</string>
     <string name="title_advanced_encrypt_default">הצפנה כבררת מחדל</string>
     <string name="title_advanced_auto_decrypt">פענוח הודעות אוטומטית</string>
@@ -812,7 +818,7 @@
     <string name="title_last_connected">חיבור אחרון: %1$s</string>
     <string name="title_backoff_until">בהמתנה לאחר הכשל עד: %1$s</string>
     <string name="title_storage_quota">ניצולת האחסון בשרת: %1$s/%2$s</string>
-    <string name="title_pop_support">פרוטוקול POP3 תומך בהורדת ובמחיקת הודעות מתיבת הדואר הנכנס בלבד. אין אפשרות לסמן שהודעות נקראו, להעביר הודעות וכן הלאה ב־POP3. התמנשקות מול POP3 דורשת ניצולת סוללה ונתונים גבוהה יותר מאשר IMAP. לכן, מוטב לשקול להשתמש בפרוטוקול IMAP מתי שרק ניתן.</string>
+    <string name="title_pop_support">פרוטוקול POP3 יכול רק להוריד ולמחוק הודעות מתיבת הדואר הנכנס. אי אפשר לסמן הודעות כנקראו, לדווח על ספאם, להעביר הודעות וכו׳. כדאי להשתמש בפרוטוקול IMAP כשאפשר.</string>
     <string name="title_pop_sent">אם המכשיר שלך ילך לאיבוד או ייגנב, ההודעות שנשלחו עלולות ללכת לאיבוד.</string>
     <string name="title_pop_warning">אם שרת POP3 לא תומך בפקודת UIDL, צריכת הנתונים עשויה להיות גבוהה. לכן, יש להתאים את תדירות התשאול שלהלן בהתאם.</string>
     <string name="title_pop_folders">פרוטוקול POP3 לא תומך ביצירת תיקיות</string>

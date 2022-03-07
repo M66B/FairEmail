@@ -810,7 +810,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_last_connected">Naposledy pripojený: %1$s</string>
     <string name="title_backoff_until">Čakanie po zlyhaní do: %1$s</string>
     <string name="title_storage_quota">Využitie úložiska na serveri: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3 protokol podporuje len preberanie a odstraňovanie správ zo servera. POP3 nedokáže označovať správy za prečítané, presúvať ich a pod. POP3 má vyššiu spotrebu batérie a údajov. Zvážte preto použitie IMAP vždy, keď je to možné.</string>
     <string name="title_pop_sent">Ak zariadenie stratíte alebo vám ho ukradnú, môže dôjsť aj k strate odoslaných správ.</string>
     <string name="title_pop_warning">Ak server POP3 nepodporuje príkaz UIDL, nároky na využívanie údajov budú vysoké. Prispôsobte podľa toho nastavenie frekvencia načítavania nižšie.</string>
     <string name="title_pop_folders">POP3 protokol nepodporuje vytváranie priečinkov</string>

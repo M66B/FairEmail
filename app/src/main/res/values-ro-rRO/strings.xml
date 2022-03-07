@@ -227,6 +227,7 @@
     <string name="title_setup_password_different">Parolele nu corespund</string>
     <string name="title_setup_password_invalid">Parolă incorectă</string>
     <string name="title_setup_import_accounts">Importați conturi și identități</string>
+    <string name="title_setup_import_delete">Ștergeți mai întâi conturile existente</string>
     <string name="title_setup_import_rules">Importarea regulilor de filtrare</string>
     <string name="title_setup_import_contacts">Importați contacte locale</string>
     <string name="title_setup_import_answers">Importați șabloane de răspuns</string>
@@ -557,6 +558,8 @@
     <string name="title_advanced_disconnect_auto_update">Actualizați automat listele săptămânal</string>
     <string name="title_advanced_disconnect_links">Folosește liste pentru a avertiza despre adrese de urmărire</string>
     <string name="title_advanced_disconnect_images">Folosește listele pentru a recunoaște imaginile de urmărire</string>
+    <string name="title_advanced_clear_all">Ștergeți toate datele</string>
+    <string name="title_advanced_clear_all_remark">Toate datele aplicației vor fi șterse ireversibil!</string>
     <string name="title_advanced_sign_default">Semnare în mod implicit</string>
     <string name="title_advanced_encrypt_default">Criptare în mod implicit</string>
     <string name="title_advanced_auto_decrypt">Decriptează automat mesajele</string>
@@ -801,7 +804,7 @@
     <string name="title_last_connected">Ultima conectare: %1$s</string>
     <string name="title_backoff_until">Aşteptare după eşec până la: %1$s</string>
     <string name="title_storage_quota">Spațiu utilizat pe server: %1$s/%2$s</string>
-    <string name="title_pop_support">Protocolul POP3 acceptă descărcarea și ștergerea mesajelor numai din căsuța de mesaje primite. POP3 nu poate marca mesajele drept citite, nu poate muta mesajele etc. POP3 va consuma mai multă baterie și date decât IMAP. Deci, luați în considerare utilizarea protocolului IMAP ori de câte ori este posibil.</string>
+    <string name="title_pop_support">Protocolul POP3 poate descărca și șterge doar mesajele din căsuța de primire. Nu este posibilă marcarea mesajelor ca fiind citite, raportarea spam-ului, mutarea mesajelor etc. Luați în considerare utilizarea protocolului IMAP ori de câte ori este posibil.</string>
     <string name="title_pop_sent">Dacă dispozitivul este pierdut sau furat, mesajele trimise ar putea fi pierdute.</string>
     <string name="title_pop_warning">Dacă un server POP3 nu acceptă comanda UIDL, utilizarea datelor poate fi mare. Deci, ajustați frecvenţa descărcărilor de mai jos corespunzător.</string>
     <string name="title_pop_folders">Protocolul POP3 nu suportă crearea de dosare</string>

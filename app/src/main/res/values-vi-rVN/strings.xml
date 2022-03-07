@@ -778,7 +778,6 @@
     <string name="title_last_connected">Lần cuối kết nối: %1$s</string>
     <string name="title_backoff_until">Đang đợi sau khi thất bại cho đến: %1$s</string>
     <string name="title_storage_quota">Sử dụng kho lưu trữ của máy chủ: %1$s/%2$s</string>
-    <string name="title_pop_support">Giao thức POP3 chỉ hỗ trợ việc tải xuống và xoá thư khỏi hộp thư đến. POP3 không thể đánh dấu thư là đã đọc, di chuyển thư, v.v. POP3 sẽ sử dụng nhiều pin và dữ liệu hơn IMAP. Vậy nên hãy cân nhắc việc sử dụng giao thức IMAP bất cứ khi nào có thể.</string>
     <string name="title_pop_sent">Nếu thiết bị của bạn bị mất hoặc trộm, các thư đã gửi sẽ có thể bị mất.</string>
     <string name="title_pop_warning">Nếu một máy chủ POP3 không hỗ trợ lệnh UIDL, sử dụng dữ liệu có thể sẽ cao. Vậy nên, hãy theo đó mà điều chỉnh tần số kiểm tra ở dưới.</string>
     <string name="title_pop_folders">Giao thức POP3 không hỗ trợ việc tạo thư mục</string>

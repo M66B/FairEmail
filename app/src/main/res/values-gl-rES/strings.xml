@@ -763,7 +763,6 @@
     <string name="title_last_connected">Última conexión: %1$s</string>
     <string name="title_backoff_until">Agardar despois dun fallo até: %1$s</string>
     <string name="title_storage_quota">Uso de almacenaxe do servidor: %1$s/%2$s</string>
-    <string name="title_pop_support">O protocolo POP3 só admite baixar e borrar mensaxes desde o cartafol principal. POP3 non pode marcar as mensaxes como lidas, movelas, etc. POP3 vai usar máis batería e datos que IMAP. Polo tanto, pense en usar o protocolo IMAP na medida do posible.</string>
     <string name="title_pop_sent">Si perde seu dispositivo ou llo rouban, as mensaxes enviadas poderíanse perder.</string>
     <string name="title_pop_warning">Si unha conta POP3 non soporta o comando UIDL, o uso de datos podería ser alto. Axuste a frecuencia de sincronización tendo isto en conta.</string>
     <string name="title_pop_folders">O protocolo POP3 non permite crear cartafoles</string>

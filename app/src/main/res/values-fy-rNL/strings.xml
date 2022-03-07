@@ -637,7 +637,6 @@
     <string name="title_last_connected">Lêst ferbûn: %1$s</string>
     <string name="title_backoff_until">Wachtsje nei mislearring oant: %1$s</string>
     <string name="title_storage_quota">Tsjinner opslach gebrûk: %1$s/%2$s</string>
-    <string name="title_pop_support">It POP3-protokol stipet allinich it downloaden en wiskjen fan berjochten út it postfak. POP3 kin gjin berjochten markearje as lêzen, berjochten ferpleatse, ensfh. POP3 sil mear batterijkrêft en gegevens brûke dan IMAP. Dus, beskôgje as it mooglik is it IMAP-protokol te brûken.</string>
     <string name="title_pop_sent">As dyn apparaat ferlern of stellen is, kinne ferstjoerde berjochten miskien ferlern gean.</string>
     <string name="title_pop_warning">As in POP3-server it UIDL-kommando net begrypt, kin it gegevensgebrûk heech wêze. Pasje de peilfrekwinsje hjirûnder oan.</string>
     <string name="title_pop_folders">It POP3 protokol understeunt gjin mappen</string>

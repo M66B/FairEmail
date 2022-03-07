@@ -749,7 +749,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_last_connected">Terakhir tersambung: %1$s</string>
     <string name="title_backoff_until">Menunggu setelah terjadi kegagalan koneksi sampai: %1$s</string>
     <string name="title_storage_quota">Penggunaan penyimpanan server: %1$s/%2$s</string>
-    <string name="title_pop_support">Protokol POP3 mendukung pengunduhan dan penghapusan pesan hanya dari kotak masuk. POP3 tidak dapat menandai pesan sebagai sudah dibaca, memindahkan pesan, dll. POP3 akan menggunakan lebih banyak daya baterai dan data daripada IMAP. Jadi, pertimbangkan dahulu sebelum menggunakan protokol IMAP.</string>
     <string name="title_pop_sent">Jika perangkat anda hilang atau dicuri, mengirim pesan mungkin dapat hilang.</string>
     <string name="title_pop_warning">Jika server POP3 tidak mendukung perintah UIDL, data yang digunakan mungkin tinggi. Jadi, sesuaikan frekuensi polling di bawah ini.</string>
     <string name="title_pop_folders">Protokol POP3 tidak mendukung pembuatan folder</string>

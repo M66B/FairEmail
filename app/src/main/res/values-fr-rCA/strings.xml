@@ -217,6 +217,7 @@
     <string name="title_setup_password_different">Les mots de passe ne correspondent pas</string>
     <string name="title_setup_password_invalid">Mot de passe invalide</string>
     <string name="title_setup_import_accounts">Importer les comptes et identités</string>
+    <string name="title_setup_import_delete">Supprimer d\'abord les comptes existants</string>
     <string name="title_setup_import_rules">Importer les règles de filtrage</string>
     <string name="title_setup_import_contacts">Importer les contacts locaux</string>
     <string name="title_setup_import_answers">Importer les modèles de réponse</string>
@@ -548,6 +549,8 @@
     <string name="title_advanced_disconnect_auto_update">Mettre à jour automatiquement les listes chaque semaine</string>
     <string name="title_advanced_disconnect_links">Utiliser des listes pour vous avertir des liens de pistage</string>
     <string name="title_advanced_disconnect_images">Utiliser des listes pour identifier les images de pistage</string>
+    <string name="title_advanced_clear_all">Supprimer toutes les données</string>
+    <string name="title_advanced_clear_all_remark">Toutes les données de l\'application seront définitivement supprimées !</string>
     <string name="title_advanced_sign_default">Signer par défaut</string>
     <string name="title_advanced_encrypt_default">Chiffrer par défaut</string>
     <string name="title_advanced_auto_decrypt">Déchiffrer automatiquement les messages</string>
@@ -793,7 +796,7 @@
     <string name="title_last_connected">Dernière connexion : %1$s</string>
     <string name="title_backoff_until">Attente après l\'échec jusqu\'à : %1$s</string>
     <string name="title_storage_quota">Utilisation du stockage sur le serveur : %1$s/%2$s</string>
-    <string name="title_pop_support">Le protocole POP3 prend en charge le téléchargement et la suppression des messages depuis la boîte de réception uniquement. POP3 ne permet pas de marquer les messages comme lus, de les déplacer, etc. POP3 utilisera davantage de pile et de données qu’IMAP. Par conséquent, envisagez d’utiliser le protocole IMAP lorsque cela est possible.</string>
+    <string name="title_pop_support">Le protocole POP3 ne peut que télécharger et supprimer des messages de la boîte de réception. Il n\'est pas possible de marquer les messages comme lus, de signaler le courrier indésirable, de déplacer les messages, etc. Envisagez d\'utiliser le protocole IMAP dans la mesure du possible.</string>
     <string name="title_pop_sent">Si votre appareil est perdu ou volé, les messages envoyés pourraient être perdus.</string>
     <string name="title_pop_warning">Si un serveur POP3 ne prend pas en charge la commande UIDL, l\'utilisation des données peut être élevée. Ajustez donc la fréquence de synchronisation ci-dessous en conséquence.</string>
     <string name="title_pop_folders">Le protocole POP3 ne permet pas la création de dossiers</string>

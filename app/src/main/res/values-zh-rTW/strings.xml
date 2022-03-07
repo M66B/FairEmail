@@ -763,7 +763,6 @@
     <string name="title_last_connected">上次連線時間: %1$s</string>
     <string name="title_backoff_until">失敗後等待直到: %1$s</string>
     <string name="title_storage_quota">伺服器儲存空間用量: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3 協定僅支援從收件匣下載和刪除訊息。POP3 不能執行移動訊息、將訊息標示為已讀取或是其他的一些操作。POP3 將消耗比 IMAP 更多的電量和數據。因此只要有可能，請盡量考慮使用 IMAP 協定。</string>
     <string name="title_pop_sent">如果您的裝置丟失或被盜，傳送的訊息可能會一併失去。</string>
     <string name="title_pop_warning">如果 POP3 伺服器不支援 UIDL 命令，則數據用量可能很高。因此，請依據情況相對應地調整下面的輪詢頻率。</string>
     <string name="title_pop_folders">POP3 協定不支援建立資料夾</string>

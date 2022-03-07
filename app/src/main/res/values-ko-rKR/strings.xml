@@ -170,6 +170,7 @@
     <string name="title_setup_password_repeat">비밀번호 재입력</string>
     <string name="title_setup_password_missing">비밀번호 누락</string>
     <string name="title_setup_password_invalid">유효하지 않은 비밀번호</string>
+    <string name="title_setup_import_delete">기존 계정을 먼저 삭제하십시오</string>
     <string name="title_setup_exported">설정 내보냄</string>
     <string name="title_setup_imported">설정 불러옴</string>
     <string name="title_setup_reorder_accounts">계정 정렬</string>
@@ -311,6 +312,8 @@
     <string name="title_advanced_notify_subtext">부가 텍스트로 계정이나 폴더명 보기</string>
     <string name="title_advanced_client_id">앱 이름 및 버전을 이메일 서버로 전송</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_clear_all">모든 데이터 삭제</string>
+    <string name="title_advanced_clear_all_remark">모든 앱과 데이터가 삭제되며 되돌릴 수 없습니다!</string>
     <string name="title_advanced_openpgp">OpenPGP 제공업체</string>
     <string name="title_advanced_autocrypt">Autocrypt 사용</string>
     <string name="title_advanced_encrypt_subject">제목 암호화</string>
@@ -376,6 +379,7 @@
     <string name="title_account_delete">이 계정을 영구적으로 삭제할까요?</string>
     <string name="title_edit_html">HTML 편집</string>
     <string name="title_sign_key">서명 키: %1$s</string>
+    <string name="title_pop_support">POP3 프로토콜은 받은 편지함에서 메시지를 다운로드하고 삭제하는 작업만 수행할 수 있습니다. 메시지를 읽은 상태로 표시, 스팸 신고, 메시지 이동 등의 작업은 불가능합니다. 가능하면 IMAP 프로토콜을 사용하십시오.</string>
     <string name="title_oauth_support">OAuth가 지원되지 않습니다</string>
     <string name="title_review">검토</string>
     <string name="title_hint_accounts">길게 눌러 계정 비활성화 및 삭제 등 설정 표시</string>
