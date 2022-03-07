@@ -4,7 +4,7 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next version
+### 1.1852 - 2022-03-07
 
 * Added image dimensions to mini gallery
 * Added PGP and S/MIME key indicators to address bubbles
