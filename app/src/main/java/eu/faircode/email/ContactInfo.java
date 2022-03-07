@@ -616,6 +616,8 @@ public class ContactInfo {
                         continue;
 
                     URL url = new URL(base, href);
+                    if (!"https".equals(url.getProtocol()))
+                        throw new FileNotFoundException(url.toString());
                     Log.i("GET favicon manifest " + url);
 
                     HttpsURLConnection m = (HttpsURLConnection) url.openConnection();
@@ -767,7 +769,7 @@ public class ContactInfo {
         Log.i("GET favicon " + url);
 
         if (!"https".equals(url.getProtocol()))
-            throw new FileNotFoundException("http");
+            throw new FileNotFoundException(url.toString());
 
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
