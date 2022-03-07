@@ -4,6 +4,12 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### 1.1853 - 2022-03-07
+
+* Added BIP39 word lists in various languages
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1852 - 2022-03-07
 
 * Added image dimensions to mini gallery
