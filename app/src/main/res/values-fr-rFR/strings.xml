@@ -378,6 +378,7 @@
     <string name="title_advanced_nav_hide_message">Vous pouvez réactiver les options dans les paramètres d\'affichage</string>
     <string name="title_advanced_nav_message_count">Afficher le nombre de messages stockés localement dans le menu de navigation</string>
     <string name="title_advanced_nav_unseen_drafts">Afficher le nombre de brouillons non lus dans le menu de navigation</string>
+    <string name="title_advanced_nav_pinned_count">Afficher le nombre de messages non lus dans le menu de navigation épinglé</string>
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>
     <string name="title_advanced_cards">Utiliser le style carte au lieu du style tableau</string>
     <string name="title_advanced_cards_beige">Afficher un arrière-plan beige lors de l\'utilisation du style carte (thèmes clairs seulement)</string>
@@ -549,6 +550,8 @@
     <string name="title_advanced_disconnect_auto_update">Mettre à jour automatiquement les listes chaque semaine</string>
     <string name="title_advanced_disconnect_links">Utiliser des listes pour vous avertir des liens de pistage</string>
     <string name="title_advanced_disconnect_images">Utiliser des listes pour identifier les images de pistage</string>
+    <string name="title_advanced_mnemonic">Supprimer les données à distance</string>
+    <string name="title_advanced_mnemonic_hint">Tout e-mail reçu avec les mots ci-dessous dans l\'objet supprimera automatiquement et immédiatement toutes les données de l\'application sur cet appareil</string>
     <string name="title_advanced_clear_all">Supprimer toutes les données</string>
     <string name="title_advanced_clear_all_remark">Toutes les données de l\'application seront définitivement supprimées !</string>
     <string name="title_advanced_sign_default">Signer par défaut</string>

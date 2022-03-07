@@ -377,6 +377,7 @@
     <string name="title_advanced_nav_hide_message">Você pode reativar as opções nas configurações de exibição</string>
     <string name="title_advanced_nav_message_count">Mostrar número de mensagens armazenadas localmente no menu de navegação</string>
     <string name="title_advanced_nav_unseen_drafts">Mostrar o número de rascunhos não lidos no menu de navegação</string>
+    <string name="title_advanced_nav_pinned_count">Mostrar o número de mensagens não lidas em um menu de navegação fixado</string>
     <string name="title_advanced_startup">Mostrar na Tela de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
     <string name="title_advanced_cards_beige">Usar o fundo quando usar o estilo do cartão (apenas temas claros)</string>
@@ -548,6 +549,8 @@
     <string name="title_advanced_disconnect_auto_update">Atualizar automaticamente e semanalmente as listas</string>
     <string name="title_advanced_disconnect_links">Use listas para avisar sobre links de rastreamento</string>
     <string name="title_advanced_disconnect_images">Usar listas para reconhecer imagens de rastreamento</string>
+    <string name="title_advanced_mnemonic">Excluir dados remotamente</string>
+    <string name="title_advanced_mnemonic_hint">Qualquer email recebido com as palavras abaixo no campo assunto irá ser automaticamente e imediatamente excluída de todos os dados do app neste dispositivo</string>
     <string name="title_advanced_clear_all">Excluir todos os dados</string>
     <string name="title_advanced_clear_all_remark">Todos os dados do app serão excluídos irreversivelmente!</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>

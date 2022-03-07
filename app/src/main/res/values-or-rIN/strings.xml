@@ -243,6 +243,7 @@
     <string name="title_advanced_load_emoji">Google Play Servicesରୁ ଅପଡେଟ୍ ହୋଇଥିବା Emoji ଲୋଡ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
     <string name="title_advanced_mnemonic">ସୁଦୂରରୁ ଡାଟା ବିଲୋପ କରନ୍ତୁ</string>
+    <string name="title_advanced_mnemonic_hint">ବିଷୟ ରେଖାରେ ନିମ୍ନଲିଖିତ ଶବ୍ଦ ସହିତ ମିଳିଥିବା ଯେକୌଣସି ଇମେଲ୍ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଏବଂ ତୁରନ୍ତ ଏହି ଡିଭାଇସରେ ଥିବା ସମସ୍ତ ଆପ୍ ର ଡାଟା ବିଲୋପ କରିନେବ</string>
     <string name="title_advanced_clear_all">ସବୁ ଡାଟା ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_advanced_clear_all_remark">ସବୁ ଆପ୍ ଡାଟା ଅପରିବର୍ତ୍ତନୀୟ ଭାବରେ ବିଲୋପ ହୋଇଯିବ!</string>
     <string name="title_advanced_openpgp">OpenPGP ପ୍ରଦାନକାରୀ</string>
