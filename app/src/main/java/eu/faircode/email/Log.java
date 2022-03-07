@@ -35,6 +35,8 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PermissionGroupInfo;
+import android.content.pm.PermissionInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteFullException;
@@ -2634,6 +2636,27 @@ public class Log {
                     } catch (Throwable ex) {
                         size += write(os, String.format("%s\r\n", ex));
                     }
+
+                try {
+                    PackageManager pm = context.getPackageManager();
+                    List<PermissionGroupInfo> groups = pm.getAllPermissionGroups(0);
+                    groups.add(0, null); // Ungrouped
+
+                    for (PermissionGroupInfo group : groups) {
+                        String name = (group == null ? null : group.name);
+                        size += write(os, String.format("\r\n%s\r\n", name == null ? "Ungrouped" : name));
+                        size += write(os, "----------------------------------------\r\n");
+
+                        try {
+                            for (PermissionInfo permission : pm.queryPermissionsByGroup(name, 0))
+                                size += write(os, String.format("%s\r\n", permission.name));
+                        } catch (Throwable ex) {
+                            size += write(os, String.format("%s\r\n", ex));
+                        }
+                    }
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
             }
 
             db.attachment().setDownloaded(attachment.id, size);
