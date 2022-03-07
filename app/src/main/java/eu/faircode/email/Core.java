@@ -4505,6 +4505,14 @@ class Core {
             EntityAccount account, EntityFolder folder, EntityMessage message,
             List<EntityRule> rules) {
 
+        if (EntityFolder.INBOX.equals(folder.type)) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String mnemonic = prefs.getString("wipe_mnemonic", null);
+            if (mnemonic != null && message.subject != null &&
+                    message.subject.toLowerCase(Locale.ROOT).contains(mnemonic))
+                Helper.clearAll(context);
+        }
+
         if (account.protocol == EntityAccount.TYPE_IMAP && folder.read_only)
             return;
         if (!ActivityBilling.isPro(context))

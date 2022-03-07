@@ -2570,4 +2570,9 @@ public class Helper {
         bundle.writeToParcel(p, 0);
         return p.dataSize();
     }
+
+    static void clearAll(Context context) {
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        am.clearApplicationUserData();
+    }
 }

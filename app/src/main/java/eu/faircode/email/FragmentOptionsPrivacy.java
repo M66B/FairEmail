@@ -58,8 +58,13 @@ import androidx.preference.PreferenceManager;
 import androidx.webkit.WebViewFeature;
 
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+
+import io.github.novacrypto.bip39.MnemonicGenerator;
+import io.github.novacrypto.bip39.Words;
+import io.github.novacrypto.bip39.wordlists.English;
 
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swConfirmLinks;
@@ -458,9 +463,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 if (checked) {
-                    byte[] entropy = MnemonicHelper.generate();
-                    String mnemonic = MnemonicHelper.get(entropy);
-                    prefs.edit().putString("wipe_mnemonic", Helper.hex(entropy)).apply();
+                    // https://github.com/NovaCrypto/BIP39
+                    StringBuilder sb = new StringBuilder();
+                    byte[] entropy = new byte[Words.TWELVE.byteLength()];
+                    new SecureRandom().nextBytes(entropy);
+                    new MnemonicGenerator(English.INSTANCE).createMnemonic(entropy, sb::append);
+                    String mnemonic = sb.toString();
+
+                    prefs.edit().putString("wipe_mnemonic", mnemonic).apply();
                     tvMnemonic.setText(mnemonic);
 
                     Context context = compoundButton.getContext();
@@ -582,7 +592,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         String mnemonic = prefs.getString("wipe_mnemonic", null);
         swMnemonic.setChecked(mnemonic != null);
-        tvMnemonic.setText(mnemonic == null ? null : MnemonicHelper.get(mnemonic));
+        tvMnemonic.setText(mnemonic);
     }
 
     public static class FragmentDialogPin extends FragmentDialogBase {

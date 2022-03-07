@@ -19,17 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
-import java.util.List;
 
 public class ActivityClear extends ActivityBase {
     private Button btnClearAll;
@@ -49,10 +43,7 @@ public class ActivityClear extends ActivityBase {
         btnClearAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-                am.clearApplicationUserData();
-
-                finish();
+                Helper.clearAll(v.getContext());
             }
         });
 

@@ -2015,8 +2015,12 @@ public class Log {
                 Map<String, ?> settings = prefs.getAll();
                 List<String> keys = new ArrayList<>(settings.keySet());
                 Collections.sort(keys);
-                for (String key : keys)
-                    size += write(os, key + "=" + settings.get(key) + "\r\n");
+                for (String key : keys) {
+                    Object value = settings.get(key);
+                    if ("wipe_mnemonic".equals(key) && value != null)
+                        value = "[redacted]";
+                    size += write(os, key + "=" + value + "\r\n");
+                }
             }
 
             db.attachment().setDownloaded(attachment.id, size);
