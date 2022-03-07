@@ -30,7 +30,6 @@ public class MnemonicHelper {
 
     static String get(byte[] entropy) {
         StringBuilder sb = new StringBuilder();
-        new SecureRandom().nextBytes(entropy);
         new MnemonicGenerator(English.INSTANCE).createMnemonic(entropy, sb::append);
         return sb.toString();
     }
