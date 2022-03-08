@@ -2838,7 +2838,7 @@ public class FragmentCompose extends FragmentBase {
                 etBody.setText(body);
 
                 int start = args.getInt("start");
-                if (start < body.length())
+                if (start <= body.length())
                     etBody.setSelection(start);
             }
 
