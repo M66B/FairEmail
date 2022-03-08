@@ -1,6 +1,7 @@
 package eu.faircode.email;
 
 import android.content.Context;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
@@ -9,12 +10,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class BIP39 {
     // https://github.com/bitcoin/bips/tree/master/bip-0039
     // https://github.com/bitcoin/bips/pull/1129
-    static String getWord(@NonNull Locale locale, int index, Context context) {
+    static String getMnemonic(@NonNull Locale locale, int words, Context context) {
+        List<String> list = new ArrayList<>();
+        SecureRandom rnd = new SecureRandom();
+        for (int i = 0; i < words; i++)
+            list.add(BIP39.getWord(locale, rnd.nextInt(2048), context));
+        String delimiter = ("ja".equals(locale.getLanguage()) ? "\u3000" : " ");
+        return TextUtils.join(delimiter, list);
+    }
+
+    private static String getWord(@NonNull Locale locale, int index, Context context) {
         String lang = locale.getLanguage();
         if ("zh".equals(lang) && "CN".equals(locale.getCountry()))
             lang = "zh_cn";

@@ -58,12 +58,8 @@ import androidx.preference.PreferenceManager;
 import androidx.webkit.WebViewFeature;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.security.SecureRandom;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -466,13 +462,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 if (checked) {
                     Context context = compoundButton.getContext();
-
-                    Locale locale = Locale.getDefault();
-                    List<String> words = new ArrayList<>();
-                    SecureRandom rnd = new SecureRandom();
-                    for (int i = 0; i < BIP39_WORDS; i++)
-                        words.add(BIP39.getWord(locale, rnd.nextInt(2048), context));
-                    String mnemonic = TextUtils.join(" ", words);
+                    String mnemonic = BIP39.getMnemonic(Locale.getDefault(), BIP39_WORDS, context);
 
                     prefs.edit().putString("wipe_mnemonic", mnemonic).apply();
                     tvMnemonic.setText(mnemonic);
