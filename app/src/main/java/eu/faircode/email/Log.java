@@ -2467,7 +2467,7 @@ public class Log {
             EntityAttachment attachment = new EntityAttachment();
             attachment.message = id;
             attachment.sequence = sequence;
-            attachment.name = "channel.txt";
+            attachment.name = "notification.txt";
             attachment.type = "text/plain";
             attachment.disposition = Part.ATTACHMENT;
             attachment.size = null;
@@ -2502,7 +2502,8 @@ public class Log {
                         name = Integer.toString(filter);
                 }
 
-                size += write(os, String.format("Interruption filter allow=%s\r\n\r\n", name));
+                size += write(os, String.format("Interruption filter allow=%s %s\r\n\r\n",
+                        name, (filter == NotificationManager.INTERRUPTION_FILTER_ALL ? "" : "!!!")));
 
                 for (NotificationChannel channel : nm.getNotificationChannels())
                     try {
