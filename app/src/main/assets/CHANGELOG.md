@@ -4,6 +4,14 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### Next version
+
+* Added [Libravatar](https://www.libravatar.org/) support
+* Added some more [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) word lists
+* Targeting Android 12L (SDK 32)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1853 - 2022-03-07
 
 * Added BIP39 word lists in various languages
