@@ -8,7 +8,8 @@
 
 * Added [Libravatar](https://www.libravatar.org/) support
 * Added some more [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) word lists
-* Targeting Android 12L (SDK 32)
+* Added [CSS inherit](https://developer.mozilla.org/en-US/docs/Web/CSS/inherit) support
+* Targeting [Android 12L](https://developer.android.com/about/versions/12/12L) (SDK 32)
 * Small improvements and minor bug fixes
 * Updated translations
 
