@@ -130,7 +130,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 ivType.setImageResource(R.drawable.twotone_report_24);
                 ivType.setContentDescription(context.getString(R.string.title_legend_junk));
             } else if (contact.type == EntityContact.TYPE_NO_JUNK) {
-                ivType.setImageResource(R.drawable.twotone_report_off_24);
+                ivType.setImageResource(R.drawable.twotone_person_off_24);
                 ivType.setContentDescription(context.getString(R.string.title_no_junk));
             } else {
                 ivType.setImageDrawable(null);
