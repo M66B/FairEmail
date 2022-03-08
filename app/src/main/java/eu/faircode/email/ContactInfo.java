@@ -90,7 +90,7 @@ import javax.net.ssl.SSLSession;
 public class ContactInfo {
     private String email;
     private Bitmap bitmap;
-    private String type;
+    private String type; // contact, vmc, gravatar, libravatar, favicon, identicon, letter, unknown
     private boolean verified;
     private String displayName;
     private Uri lookupUri;
@@ -157,6 +157,10 @@ public class ContactInfo {
 
     Uri getLookupUri() {
         return lookupUri;
+    }
+
+    boolean isEmailBased() {
+        return ("gravatar".equals(type) || "libravatar".equals(type));
     }
 
     boolean isKnown() {
@@ -258,6 +262,7 @@ public class ContactInfo {
         boolean avatars = prefs.getBoolean("avatars", true);
         boolean bimi = prefs.getBoolean("bimi", false);
         boolean gravatars = prefs.getBoolean("gravatars", false);
+        boolean libravatars = prefs.getBoolean("libravatars", false);
         boolean favicons = prefs.getBoolean("favicons", false);
         boolean generated = prefs.getBoolean("generated_icons", true);
         boolean identicons = prefs.getBoolean("identicons", false);
@@ -308,7 +313,7 @@ public class ContactInfo {
         // Favicon
         if (info.bitmap == null &&
                 !EntityFolder.JUNK.equals(folderType) &&
-                (bimi || (gravatars && canGravatars()) || favicons)) {
+                (bimi || (canGravatars() && (gravatars || libravatars)) || favicons)) {
             String d = UriHelper.getEmailDomain(info.email);
             if (d != null) {
                 // Prevent using Doodles
@@ -334,6 +339,8 @@ public class ContactInfo {
                     File[] files = null;
                     if (gravatars && canGravatars()) {
                         File f = new File(dir, email + ".gravatar");
+                        if (!f.exists())
+                            f = new File(dir, email + ".libravatar");
                         if (f.exists())
                             files = new File[]{f};
                     }
@@ -393,6 +400,49 @@ public class ContactInfo {
                                             // Positive reply
                                             Bitmap bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
                                             return (bitmap == null ? null : new Favicon(bitmap, "gravatar", false));
+                                        } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
+                                            // Negative reply
+                                            return null;
+                                        } else
+                                            throw new IOException("Error " + status + ": " + urlConnection.getResponseMessage());
+                                    } finally {
+                                        urlConnection.disconnect();
+                                    }
+                                }
+                            }));
+
+                        if (libravatars && canGravatars())
+                            futures.add(executorFavicon.submit(new Callable<Favicon>() {
+                                @Override
+                                public Favicon call() throws Exception {
+                                    // https://wiki.libravatar.org/api/
+                                    String baseUrl = BuildConfig.LIBRAVATAR_URI;
+                                    for (String dns : BuildConfig.LIBRAVATAR_DNS.split(",")) {
+                                        DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, dns + "." + domain, "srv");
+                                        if (records.length > 0) {
+                                            baseUrl = (records[0].port == 443 ? "https" : "http") + "://" + records[0].name + "/avatar/";
+                                            break;
+                                        }
+                                    }
+
+                                    String hash = Helper.md5(email.getBytes());
+
+                                    URL url = new URL(baseUrl + hash + "?d=404");
+                                    Log.i("Libravatar key=" + email + " url=" + url);
+
+                                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                                    urlConnection.setRequestMethod("GET");
+                                    urlConnection.setReadTimeout(GRAVATAR_TIMEOUT);
+                                    urlConnection.setConnectTimeout(GRAVATAR_TIMEOUT);
+                                    urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                                    urlConnection.connect();
+
+                                    try {
+                                        int status = urlConnection.getResponseCode();
+                                        if (status == HttpURLConnection.HTTP_OK) {
+                                            // Positive reply
+                                            Bitmap bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
+                                            return (bitmap == null ? null : new Favicon(bitmap, "libravatar", false));
                                         } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
                                             // Negative reply
                                             return null;
@@ -480,7 +530,7 @@ public class ContactInfo {
 
                         // Add to cache
                         File output = new File(dir,
-                                ("gravatar".equals(info.type) ? email : domain) +
+                                (info.isEmailBased() ? email : domain) +
                                         "." + info.type +
                                         (info.verified ? "_verified" : ""));
                         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(output))) {
