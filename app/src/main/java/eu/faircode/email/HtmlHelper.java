@@ -151,6 +151,43 @@ public class HtmlHelper {
 
     private static final HashMap<String, Integer> x11ColorMap = new HashMap<>();
 
+    // https://www.w3.org/TR/CSS21/propidx.html
+    private static final List<String> STYLE_NO_INHERIT = Collections.unmodifiableList(Arrays.asList(
+            "background-attachment", "background-color", "background-image", "background-position", "background-repeat", "background",
+            "border-color", "border-style", "border-top", "border-right", "border-bottom", "border-left",
+            "border-top-color", "border-right-color", "border-bottom-color", "border-left-color",
+            "border-top-style", "border-right-style", "border-bottom-style", "border-left-style",
+            "border-top-width", "border-right-width", "border-bottom-width", "border-left-width",
+            "border-width", "border",
+            "bottom",
+            "clear",
+            "clip",
+            "content",
+            "counter-increment", "counter-reset",
+            "cue-after", "cue-before", "cue",
+            "display",
+            "float",
+            "height",
+            "left",
+            "margin-right", "margin-left", "margin-top", "margin-bottom", "margin",
+            "max-height", "max-width", "min-height", "min-width",
+            "outline-color", "outline-style", "outline-width", "outline",
+            "overflow",
+            "padding-top", "padding-right", "padding-bottom", "padding-left",
+            "padding", "page-break-after", "page-break-before", "page-break-inside",
+            "pause-after", "pause-before", "pause",
+            "play-during",
+            "position",
+            "right",
+            "table-layout",
+            "text-decoration",
+            "top",
+            "unicode-bidi",
+            "vertical-align",
+            "width",
+            "z-index"
+    ));
+
     static {
         // https://www.w3.org/TR/css-color-3/
         x11ColorMap.put("aliceblue", 0xF0F8FF);
@@ -1657,21 +1694,46 @@ public class HtmlHelper {
     private static String mergeStyles(String base, String style, String selector) {
         Map<String, String> result = new HashMap<>();
 
-        List<String> params = new ArrayList<>();
-        if (!TextUtils.isEmpty(base))
-            params.addAll(Arrays.asList(base.split(";")));
-        if (!TextUtils.isEmpty(style))
-            params.addAll(Arrays.asList(style.split(";")));
+        //https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#controlling_inheritance
 
-        for (String param : params) {
-            int colon = param.indexOf(':');
-            if (colon > 0) {
+        // Base style
+        if (!TextUtils.isEmpty(base))
+            for (String param : base.split(";")) {
+                int colon = param.indexOf(':');
+                if (colon < 0) {
+                    Log.w("CSS invalid=" + param);
+                    continue;
+                }
+
                 String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
+                if (STYLE_NO_INHERIT.contains(key)) {
+                    Log.i("CSS no inherit=" + key);
+                    continue;
+                }
+
                 if (selector == null || selector.equals(key))
                     result.put(key, param);
-            } else
-                Log.w("Invalid style param=" + param);
-        }
+            }
+
+        // Element style
+        if (!TextUtils.isEmpty(style))
+            for (String param : style.split(";")) {
+                int colon = param.indexOf(':');
+                if (colon < 0) {
+                    Log.w("CSS invalid=" + param);
+                    continue;
+                }
+
+                String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
+                String value = param.substring(colon + 1).trim().toUpperCase(Locale.ROOT);
+                if ("inherit".equals(value)) {
+                    Log.i("CSS inherit=" + key);
+                    continue;
+                }
+
+                if (selector == null || selector.equals(key))
+                    result.put(key, param);
+            }
 
         return TextUtils.join(";", result.values());
     }
