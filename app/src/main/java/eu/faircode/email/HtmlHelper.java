@@ -601,7 +601,7 @@ public class HtmlHelper {
             String style = processStyles(tag, clazz, null, sheets);
 
             // Element style
-            style = mergeStyles(style, element.attr("style"));
+            style = mergeElementStyles(style, element.attr("style"));
 
             if ("fairemail_debug_info".equals(clazz))
                 style = mergeStyles(style, "font-size: smaller");
@@ -1688,15 +1688,18 @@ public class HtmlHelper {
     }
 
     static String mergeStyles(String base, String style) {
-        return mergeStyles(base, style, null);
+        return mergeStyles(base, style, false);
     }
 
-    private static String mergeStyles(String base, String style, String selector) {
+    static String mergeElementStyles(String base, String style) {
+        return mergeStyles(base, style, true);
+    }
+
+    private static String mergeStyles(String base, String style, boolean element) {
         Map<String, String> result = new HashMap<>();
 
-        //https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#controlling_inheritance
-
         // Base style
+        Map<String, String> baseParams = new HashMap<>();
         if (!TextUtils.isEmpty(base))
             for (String param : base.split(";")) {
                 int colon = param.indexOf(':');
@@ -1706,13 +1709,7 @@ public class HtmlHelper {
                 }
 
                 String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
-                if (STYLE_NO_INHERIT.contains(key)) {
-                    Log.i("CSS no inherit=" + key);
-                    continue;
-                }
-
-                if (selector == null || selector.equals(key))
-                    result.put(key, param);
+                baseParams.put(key, param);
             }
 
         // Element style
@@ -1726,14 +1723,40 @@ public class HtmlHelper {
 
                 String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
                 String value = param.substring(colon + 1).trim().toUpperCase(Locale.ROOT);
-                if ("inherit".equals(value)) {
-                    Log.i("CSS inherit=" + key);
-                    continue;
-                }
 
-                if (selector == null || selector.equals(key))
+                //https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#controlling_inheritance
+                boolean initial = false; // no value
+                boolean inherit = false; // parent value
+                if (element)
+                    switch (value) {
+                        case "inherit":
+                            inherit = true;
+                            break;
+                        case "initial":
+                            initial = true;
+                            break;
+                        case "unset":
+                        case "revert":
+                            inherit = !STYLE_NO_INHERIT.contains(key);
+                            break;
+                    }
+
+                if (initial || inherit)
+                    Log.i("CSS " + value + "=" + key);
+
+                if (inherit) {
+                    param = baseParams.get(key);
+                    if (param != null)
+                        result.put(key, param);
+                } else if (!initial)
                     result.put(key, param);
+
+                baseParams.remove(key);
             }
+
+        for (String key : baseParams.keySet())
+            if (!STYLE_NO_INHERIT.contains(key))
+                result.put(key, baseParams.get(key));
 
         return TextUtils.join(";", result.values());
     }
