@@ -141,7 +141,7 @@ public class MessageHelper {
     static final int DEFAULT_DOWNLOAD_SIZE = 4 * 1024 * 1024; // bytes
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
     static final int MAX_SUBJECT_AGE = 48; // hours
-    static final long MAX_THREAD_AGE = 180; // days
+    static final long MAX_THREAD_RANGE = 180; // days
 
     static final List<String> RECEIVED_WORDS = Collections.unmodifiableList(Arrays.asList(
             "from", "by", "via", "with", "id", "for"
@@ -1484,10 +1484,11 @@ public class MessageHelper {
 
         List<String> all = new ArrayList<>(refs);
         all.add(msgid);
-        Long range = (received == 0 ? null : received - MAX_THREAD_AGE * 24 * 3600L);
+        Long start = (received == 0 ? null : received - MAX_THREAD_RANGE * 24 * 3600L);
+        Long end = (received == 0 ? null : received + MAX_THREAD_RANGE * 24 * 3600L);
         List<TupleThreadInfo> infos = (all.size() == 0
                 ? new ArrayList<>()
-                : db.message().getThreadInfo(account, all, range));
+                : db.message().getThreadInfo(account, all, start, end));
 
         // References, In-Reply-To (sent before)
         for (TupleThreadInfo info : infos)

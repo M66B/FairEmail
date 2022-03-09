@@ -425,8 +425,9 @@ public interface DaoMessage {
     @Query("SELECT thread, msgid, hash, inreplyto FROM message" +
             " WHERE account = :account" +
             " AND (msgid IN (:msgids) OR inreplyto IN (:msgids))" +
-            " AND (:range IS NULL || received > :range)")
-    List<TupleThreadInfo> getThreadInfo(long account, List<String> msgids, Long range);
+            " AND (:from IS NULL || received > :from)" +
+            " AND (:to IS NULL || received < :to)")
+    List<TupleThreadInfo> getThreadInfo(long account, List<String> msgids, Long from, Long to);
 
     @Query("SELECT * FROM message" +
             " WHERE account = :account" +
