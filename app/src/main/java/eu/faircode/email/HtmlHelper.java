@@ -785,7 +785,7 @@ public class HtmlHelper {
                             if (fsize != null)
                                 if (fsize == 0) {
                                     if (BuildConfig.DEBUG)
-                                        if (display_hidden)
+                                        if (display_hidden && false)
                                             sb.append("text-decoration:line-through;");
                                         else if (false) {
                                             Log.i("Removing font size zero " + element.tagName());
