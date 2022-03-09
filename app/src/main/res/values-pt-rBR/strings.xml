@@ -397,6 +397,7 @@
     <string name="title_advanced_color_stripe_wide">Use faixa de cores largas</string>
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatares</string>
+    <string name="title_advanced_libravatars">Mostrar Libravatars</string>
     <string name="title_advanced_bimi_unverified">Remetente não verificado</string>
     <string name="title_advanced_bimi_verified">Remetente verificado</string>
     <string name="title_advanced_favicons">Mostrar ícone de favoritos</string>
@@ -550,9 +551,9 @@
     <string name="title_advanced_disconnect_links">Use listas para avisar sobre links de rastreamento</string>
     <string name="title_advanced_disconnect_images">Usar listas para reconhecer imagens de rastreamento</string>
     <string name="title_advanced_mnemonic">Excluir dados remotamente</string>
-    <string name="title_advanced_mnemonic_hint">Qualquer email recebido com as palavras abaixo no campo assunto irá ser automaticamente e imediatamente excluída de todos os dados do app neste dispositivo</string>
-    <string name="title_advanced_clear_all">Excluir todos os dados</string>
-    <string name="title_advanced_clear_all_remark">Todos os dados do app serão excluídos irreversivelmente!</string>
+    <string name="title_advanced_mnemonic_hint">Qualquer email recebido com as palavras abaixo no campo assunto, irá automaticamente e imediatamente excluída dos dados do aplicativo</string>
+    <string name="title_advanced_clear_all">Excluir dados do aplicativo</string>
+    <string name="title_advanced_clear_all_remark">Os dados do aplicativo serão irremediavelmente excluídos!</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Criptografar por padrão</string>
     <string name="title_advanced_auto_decrypt">Descriptografar mensagens automaticamente</string>

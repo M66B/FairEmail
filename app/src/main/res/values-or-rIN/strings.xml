@@ -66,8 +66,8 @@
     <string name="title_setup">ସେଟିଂସମୂହ</string>
     <string name="title_setup_help">ସହାୟତା</string>
     <string name="title_setup_quick">ଦ୍ରୁତ ସେଟଅପ୍</string>
-    <string name="title_setup_quick_accounts">ଆକାଉଣ୍ଟ୍ ଯୋଡ଼ନ୍ତୁ ବା ବଦଳାନ୍ତୁ</string>
-    <string name="title_setup_quick_support">କିଛି ପ୍ରଦାନକାରୀ ଏକ ଆକାଉଣ୍ଟ୍ ଯୋଡ଼ିବା କଷ୍ଟକର କରନ୍ତି। ଦୟାକରି ଏଥିପାଇଁ FairEmail କୁ ଦୋଷ ଦିଅନ୍ତୁ ନାହିଁ, କିନ୍ତୁ ଏହା ବଦଳରେ ସମର୍ଥନ ମାଗନ୍ତୁ।</string>
+    <string name="title_setup_quick_accounts">ଆକାଉଣ୍ଟ୍ ଯୋଡ଼ନ୍ତୁ ବା ବଦଳାନ୍ତୁ</string>
+    <string name="title_setup_quick_support">କିଛି ପ୍ରଦାନକାରୀ ଏକ ଆକାଉଣ୍ଟ୍ ଯୋଡ଼ିବା କଷ୍ଟକର କରଦିଅନ୍ତି। ଦୟାକରି ଏଥିପାଇଁ FairEmail କୁ ଦୋଷ ଦିଅନ୍ତୁ ନାହିଁ, କିନ୍ତୁ ଏହା ବଦଳରେ ସମର୍ଥନ ମାଗନ୍ତୁ।</string>
     <string name="title_setup_quick_patience">ଦୟାକରି ଧୈର୍ଯ୍ୟ ରଖନ୍ତୁ &#8230;</string>
     <string name="title_setup_quick_imap">ବାର୍ତ୍ତା ପ୍ରାପ୍ତ କରିବା ପାଇଁ IMAP ସର୍ଭର୍</string>
     <string name="title_setup_quick_smtp">ବାର୍ତ୍ତା ପଠାଇବା ପାଇଁ SMTP ସର୍ଭର୍</string>
@@ -175,7 +175,7 @@
     <string name="title_advanced_sync_folders_poll">ଫୋଲ୍ଡର୍ ତାଲିକା ସକ୍ରିୟ ଭାବରେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରିବା</string>
     <string name="title_advanced_keyboard_no_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍ ପ୍ରତିରୋଧ କରନ୍ତୁ</string>
     <string name="title_advanced_suggest_names">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ବ୍ୟବହାର କରିବା</string>
-    <string name="title_advanced_answer_action">ଉତ୍ତର ବଟନ୍ ଉପରେ ଦୀର୍ଘ ସମୟ ଦବାଇବା ଦ୍ୱାରା:</string>
+    <string name="title_advanced_answer_action">ଉତ୍ତର ବଟନ୍ ଉପରେ ଦୀର୍ଘ ପ୍ରେସ୍ କଲେ:</string>
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
     <string name="title_advanced_prefix_count">ପ୍ରତ୍ୟୁତ୍ତର ଉପସର୍ଗ ରେ ଗଣନା ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_advanced_reply_move">ଏକ ବାର୍ତ୍ତାକୁ ପ୍ରତ୍ୟୁତ୍ତର ଦେବା ପରେ, ସମାନ ଫୋଲ୍ଡରରେ ପ୍ରତ୍ୟୁତ୍ତର ସଞ୍ଚୟ କରନ୍ତୁ</string>
@@ -201,6 +201,7 @@
     <string name="title_advanced_category_header">ଆକାଉଣ୍ଟ୍ ବର୍ଗ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_date_header">ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_advanced_libravatars">ଲିବ୍ରଅବତାରଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_favicons_partial">ୱେବ୍ ପୃଷ୍ଠାର କେବଳ ପ୍ରଥମ %1$s ସ୍କେନ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_name_email">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ଦେଖାଅ</string>
     <string name="title_advanced_highlight_subject">ବିଷୟକୁ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
@@ -239,13 +240,13 @@
     <string name="title_advanced_ask_html">ମୂଳ ବାର୍ତ୍ତା ଦେଖାଇବା ନିଶ୍ଚିତ କରନ୍ତୁ</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_autolock">ସ୍କ୍ରିନ୍ ଅଫ୍ ହେଲେ ଲକ୍ ପକାଇବା</string>
-    <string name="title_advanced_autolock_nav">ଆପ୍ ଛାଡ଼ିବା ମାତ୍ରେ ଲକ୍ କରନ୍ତୁ</string>
+    <string name="title_advanced_autolock_nav">ଆପ୍ ଛାଡ଼ିବା ମାତ୍ରେ ଲକ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_load_emoji">Google Play Servicesରୁ ଅପଡେଟ୍ ହୋଇଥିବା Emoji ଲୋଡ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
     <string name="title_advanced_mnemonic">ସୁଦୂରରୁ ଡାଟା ବିଲୋପ କରନ୍ତୁ</string>
-    <string name="title_advanced_mnemonic_hint">ବିଷୟ ରେଖାରେ ନିମ୍ନଲିଖିତ ଶବ୍ଦ ସହିତ ମିଳିଥିବା ଯେକୌଣସି ଇମେଲ୍ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଏବଂ ତୁରନ୍ତ ଏହି ଡିଭାଇସରେ ଥିବା ସମସ୍ତ ଆପ୍ ର ଡାଟା ବିଲୋପ କରିନେବ</string>
-    <string name="title_advanced_clear_all">ସବୁ ଡାଟା ବିଲୋପ କରନ୍ତୁ</string>
-    <string name="title_advanced_clear_all_remark">ସବୁ ଆପ୍ ଡାଟା ଅପରିବର୍ତ୍ତନୀୟ ଭାବରେ ବିଲୋପ ହୋଇଯିବ!</string>
+    <string name="title_advanced_mnemonic_hint">ବିଷୟ ରେଖାରେ ନିମ୍ନଲିଖିତ ଶବ୍ଦ ସହିତ ଆସିଥିବା ଯେକୌଣସି ଇମେଲ୍ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଏବଂ ତୁରନ୍ତ ଆପ୍ ଡାଟା ବିଲୋପ କରିଦେବ</string>
+    <string name="title_advanced_clear_all">ଆପ୍ ଡାଟା ବିଲୋପ କରନ୍ତୁ</string>
+    <string name="title_advanced_clear_all_remark">ଆପ୍ ଡାଟା ଅପରିବର୍ତ୍ତନୀୟ ଭାବରେ ବିଲୋପ ହୋଇଯିବ!</string>
     <string name="title_advanced_openpgp">OpenPGP ପ୍ରଦାନକାରୀ</string>
     <string name="title_advanced_fts">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ନିର୍ମାଣ କରିବା</string>
     <string name="title_advanced_language">ଭାଷା</string>
@@ -352,6 +353,7 @@
     <string name="title_trashed_from">%1$sଙ୍କ ଠାରୁ ଆସିଥିବା ଆବର୍ଜନାରେ ଥିବା ବାର୍ତ୍ତା</string>
     <string name="title_hide">ଲୁଚାଅ</string>
     <string name="title_unhide">ଦେଖାଅ</string>
+    <string name="title_flag">ତାରା ଲଗାନ୍ତୁ</string>
     <string name="title_importance_low">ନିମ୍ନ</string>
     <string name="title_importance_normal">ସାଧାରଣ</string>
     <string name="title_importance_high">ଉଚ୍ଚ</string>
@@ -359,6 +361,8 @@
     <string name="title_resend">ପୁନଃପ୍ରେରଣ</string>
     <string name="title_fetching_headers">ବାର୍ତ୍ତାର ଶୀର୍ଷଲେଖଗୁଡ଼ିକ ଡାଉନଲୋଡ୍ କରୁଛି &#8230;</string>
     <string name="title_force_light">ହାଲୁକା ଥିମ୍ ବାଧ୍ୟ କରନ୍ତୁ</string>
+    <string name="title_event">କ୍ୟାଲେଣ୍ଡରରେ ଯୋଗ କରନ୍ତୁ</string>
+    <string name="title_pin">ସର୍ଟକଟ୍ ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_raw_send_message">ବାର୍ତ୍ତା</string>
     <string name="title_raw_send_thread">ବାର୍ତ୍ତାଳାପ</string>
     <string name="title_trash">ଆବର୍ଜନା ପାତ୍ର</string>
@@ -380,6 +384,7 @@
     <string name="title_no_viewer_name">ବିଷୟବସ୍ତୁ ନାମ</string>
     <string name="title_no_viewer_type">ବିଷୟବସ୍ତୁ ପ୍ରକାର</string>
     <string name="title_no_viewer_search">ଆପ୍‌ ଖୋଜନ୍ତୁ</string>
+    <string name="title_no_recorder">କୌଣସି ଉପଯୁକ୍ତ ଅଡ଼ିଓ ରେକର୍ଡର୍ ଆପ୍ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="title_no_folder">ଫୋଲ୍ଡର୍ ବିଦ୍ୟମାନ ନାହିଁ</string>
     <string name="title_insufficient_memory">ଉପଲବ୍ଧ ମେମୋରୀ ଅପେକ୍ଷା ବାର୍ତ୍ତା ଅଧିକ ବଡ଼ ଅଟେ (%1$d)</string>
     <string name="title_show_full">ପୂର୍ଣ୍ଣ ବାର୍ତ୍ତା ଦେଖାନ୍ତୁ</string>
@@ -424,6 +429,7 @@
     <string name="title_attachment_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
     <string name="title_attachment_audio">ଅଡ଼ିଓ ରେକର୍ଡ କର</string>
     <string name="title_show_addresses">CC/BCC ଦେଖାଅ</string>
+    <string name="title_media_toolbar">ମିଡ଼ିଆ ଉପକରଣ ଦଣ୍ଡିକା</string>
     <string name="title_manage_local_contacts">ସ୍ଥାନୀୟ ସମ୍ପର୍କଗୁଡ଼ିକୁ ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="title_translate">ଅନୁବାଦ କର</string>
     <string name="title_translate_formal">ଆନୁଷ୍ଠାନିକ ଶବ୍ଦରୂପ ବ୍ୟବହାର କରିବା</string>
@@ -435,6 +441,7 @@
     <string name="title_resync">ପୁନଃସିଙ୍କ୍ କରନ୍ତୁ</string>
     <string name="title_alternative_text">ସାଧା ପାଠ୍ୟ ଦେଖାଇବା</string>
     <string name="title_alternative_html">HTML ଦେଖାଇବା</string>
+    <string name="title_signature_sender">ପ୍ରେରକଙ୍କ ଠିକଣା</string>
     <string name="title_signature_subject">ବିଷୟ</string>
     <string name="title_search">ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="title_search_for_hint">ପାଠ୍ୟ ପ୍ରବେଶ କରନ୍ତୁ</string>
@@ -490,6 +497,7 @@
     <string name="title_rule_noop">କିଛି କରନ୍ତୁନି</string>
     <string name="title_rule_hide">ଲୁଚାଅ</string>
     <string name="title_rule_snooze">ସ୍ନୁଜ୍</string>
+    <string name="title_rule_flag">ତାରା ଲଗାନ୍ତୁ</string>
     <string name="title_rule_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_rule_delete">ସବୁଦିନ ପାଇଁ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_rule_sound">ଧ୍ୱନି ବଜାନ୍ତୁ</string>
@@ -536,10 +544,12 @@
     <string name="title_legend_n">ପରବର୍ତ୍ତୀ</string>
     <string name="title_legend_p">ପୂର୍ବବର୍ତ୍ତୀ</string>
     <string name="title_legend_r">ପ୍ରତ୍ୟୁତ୍ତର</string>
+    <string name="title_remark_owner"><a href="https://ipinfo.io/">ipinfo.io</a>ରୁ ସୂଚନା ଆଦୟ କରାଯିବ</string>
     <string name="title_updated">ସଂସ୍କରଣ %1$s କୁ ଅପଡେଟ୍ ଉପଲବ୍ଧ ଅଛି</string>
     <string name="title_undo">ପୂର୍ବବତ୍</string>
     <string name="title_redo">ପୁନଃକରଣ</string>
     <string name="title_insert_line">ଲାଇନ୍ ସନ୍ନିବେଶ କର</string>
+    <string name="title_add">ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_info">ସୂଚନା</string>
     <string name="title_show">ଦେଖାଅ</string>
     <string name="title_enable">ସକ୍ଷମ କରନ୍ତୁ</string>

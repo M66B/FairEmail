@@ -397,6 +397,7 @@
     <string name="title_advanced_nav_hide_message">Możesz włączyć opcje ponownie w ustawieniach wyświetlania</string>
     <string name="title_advanced_nav_message_count">Pokaż liczbę lokalnie przechowywanych wiadomości w menu nawigacji</string>
     <string name="title_advanced_nav_unseen_drafts">Pokaż liczbę nieprzeczytanych szkiców w menu nawigacji</string>
+    <string name="title_advanced_nav_pinned_count">Pokaż liczbę nieprzeczytanych wiadomości w przypiętym menu nawigacji</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>
     <string name="title_advanced_cards_beige">Użyj beżowego tła podczas używania stylu karty (tylko jasne motywy)</string>
@@ -416,6 +417,7 @@
     <string name="title_advanced_color_stripe_wide">Użyj szerokiego kolorowego paska</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_gravatars">Pokaż Gravatary</string>
+    <string name="title_advanced_libravatars">Pokaż Libravatary</string>
     <string name="title_advanced_bimi_unverified">Niezweryfikowany nadawca</string>
     <string name="title_advanced_bimi_verified">Zweryfikowany nadawca</string>
     <string name="title_advanced_favicons">Pokaż favikony</string>
@@ -568,8 +570,10 @@
     <string name="title_advanced_disconnect_auto_update">Automatycznie aktualizuj listy co tydzień</string>
     <string name="title_advanced_disconnect_links">Użyj list do rozpoznawania linków śledzących</string>
     <string name="title_advanced_disconnect_images">Użyj list do rozpoznawania obrazów śledzących</string>
-    <string name="title_advanced_clear_all">Usuń wszystkie dane</string>
-    <string name="title_advanced_clear_all_remark">Wszystkie dane aplikacji zostaną nieodwracalnie usunięte!</string>
+    <string name="title_advanced_mnemonic">Usuń dane zdalnie</string>
+    <string name="title_advanced_mnemonic_hint">Każda otrzymana wiadomość e-mail z poniższymi słowami w temacie, automatycznie i natychmiast usunie dane aplikacji</string>
+    <string name="title_advanced_clear_all">Usuń dane aplikacji</string>
+    <string name="title_advanced_clear_all_remark">Dane aplikacji zostaną nieodwracalnie usunięte!</string>
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
     <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>

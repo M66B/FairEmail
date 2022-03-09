@@ -397,6 +397,7 @@
     <string name="title_advanced_color_stripe_wide">Usar banda de color ancha</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatares</string>
+    <string name="title_advanced_libravatars">Mostrar Libravatars</string>
     <string name="title_advanced_bimi_unverified">Remitente no verificado</string>
     <string name="title_advanced_bimi_verified">Remitente verificado</string>
     <string name="title_advanced_favicons">Mostrar favicons</string>
@@ -550,9 +551,9 @@
     <string name="title_advanced_disconnect_links">Usar listas para advertir sobre enlaces de seguimiento</string>
     <string name="title_advanced_disconnect_images">Usar listas para reconocer imágenes de rastreo</string>
     <string name="title_advanced_mnemonic">Eliminar datos de forma remota</string>
-    <string name="title_advanced_mnemonic_hint">Cualquier correo electrónico recibido con las siguientes palabras en la línea de asunto borrará de forma automática e inmediata todos los datos de la aplicación de este dispositivo</string>
-    <string name="title_advanced_clear_all">Borrar todos los datos</string>
-    <string name="title_advanced_clear_all_remark">¡Todos los datos de la aplicación se eliminarán de forma irreversible!</string>
+    <string name="title_advanced_mnemonic_hint">Cualquier correo electrónico recibido con las siguientes palabras en la línea de asunto borrará automática e inmediatamente los datos de la aplicación</string>
+    <string name="title_advanced_clear_all">Borrar los datos de la aplicación</string>
+    <string name="title_advanced_clear_all_remark">¡Los datos de la aplicación serán irreversiblemente eliminados!</string>
     <string name="title_advanced_sign_default">Firmar por defecto</string>
     <string name="title_advanced_encrypt_default">Cifrar por defecto</string>
     <string name="title_advanced_auto_decrypt">Descifrar automáticamente los mensajes</string>

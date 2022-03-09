@@ -215,6 +215,7 @@
     <string name="title_setup_password_different">Lösenord matchar inte</string>
     <string name="title_setup_password_invalid">Ogiltigt lösenord</string>
     <string name="title_setup_import_accounts">Importera konton och identiteter</string>
+    <string name="title_setup_import_delete">Ta bort befintliga konton först</string>
     <string name="title_setup_import_rules">Importera filterregler</string>
     <string name="title_setup_import_contacts">Importera lokala kontakter</string>
     <string name="title_setup_import_answers">Importera svarsmallar</string>
@@ -373,6 +374,7 @@
     <string name="title_advanced_nav_hide_message">Du kan aktivera alternativen igen i visningsinställningarna</string>
     <string name="title_advanced_nav_message_count">Visa antalet lokalt lagrade meddelanden i navigeringsmenyn</string>
     <string name="title_advanced_nav_unseen_drafts">Visa antal olästa utkast i navigeringsmenyn</string>
+    <string name="title_advanced_nav_pinned_count">Visa antalet olästa meddelanden i navigeringsmenyn</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_cards">Använd kortstil istället för tabellstil</string>
     <string name="title_advanced_cards_beige">Använd beige bakgrund när du använder kortstil (endast ljusa teman)</string>
@@ -392,6 +394,7 @@
     <string name="title_advanced_color_stripe_wide">Använd bred färgrand</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_gravatars">Visa Gravatars</string>
+    <string name="title_advanced_libravatars">Visa Libravatars</string>
     <string name="title_advanced_bimi_unverified">Overifierad avsändare</string>
     <string name="title_advanced_bimi_verified">Verifierad avsändare</string>
     <string name="title_advanced_favicons">Visa favicons</string>
@@ -544,6 +547,7 @@
     <string name="title_advanced_disconnect_auto_update">Uppdatera listor automatiskt varje vecka</string>
     <string name="title_advanced_disconnect_links">Använd listor för att varna för spårningslänkar</string>
     <string name="title_advanced_disconnect_images">Använd listor för att känna igen spårningsbilder</string>
+    <string name="title_advanced_mnemonic">Radera fjärrdata</string>
     <string name="title_advanced_sign_default">Signera som standard</string>
     <string name="title_advanced_encrypt_default">Kryptera som standard</string>
     <string name="title_advanced_auto_decrypt">Dekryptera meddelanden automatiskt</string>
@@ -788,6 +792,7 @@
     <string name="title_last_connected">Senast ansluten: %1$s</string>
     <string name="title_backoff_until">Väntar efter misslyckande till: %1$s</string>
     <string name="title_storage_quota">Server lagringsanvändning: %1$s/%2$s</string>
+    <string name="title_pop_support">POP3-protokollet kan bara ladda ner och ta bort meddelanden från inkorgen. Det går inte att markera meddelanden som lästa, rapportera skräppost, flytta meddelanden etc. Överväg att använda IMAP-protokollet när det är möjligt.</string>
     <string name="title_pop_sent">Om din enhet kommer bort eller blir stulen kan skickade meddelanden gå förlorade.</string>
     <string name="title_pop_warning">Om en POP3-server inte har stöd för UIDL-kommandot kan dataanvändningen bli hög. Så justera undersökningsfrekvensen därefter nedan.</string>
     <string name="title_pop_folders">POP3-protokollet stöder inte skapande av mappar</string>

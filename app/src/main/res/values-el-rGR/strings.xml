@@ -371,12 +371,12 @@
     <string name="title_advanced_min_screen_size">Ελάχιστο μέγεθος οθόνης για διαχωρισμό της οθόνης</string>
     <string name="title_advanced_close_pane">Σύμπτυξη γραμμής ή στήλης κατά το κλείσιμο μιας συζήτησης</string>
     <string name="title_advanced_column_width">Πλάτος της στήλης μηνυμάτων: %1$s %%</string>
-    <string name="title_advanced_nav_options">Προβολή των επιλογών του μενού πλοήγησης</string>
+    <string name="title_advanced_nav_options">Να προβάλλονται οι επιλογές του μενού πλοήγησης</string>
     <string name="title_advanced_nav_pin">Καρφίτσωμα του μενού πλοήγησης</string>
     <string name="title_advanced_nav_hide_title">Απόκρυψη των επιλογών του μενού πλοήγησης;</string>
     <string name="title_advanced_nav_hide_message">Μπορείτε να ενεργοποιήσετε ξανά τις επιλογές στις ρυθμίσεις εμφάνισης</string>
-    <string name="title_advanced_nav_message_count">Να εμφανίζεται ο αριθμός των τοπικά αποθηκευμένων μηνυμάτων στο μενού πλοήγησης</string>
-    <string name="title_advanced_nav_unseen_drafts">Να εμφανίζεται ο αριθμός των μη αναγνωσμένων προσχεδίων στο μενού πλοήγησης</string>
+    <string name="title_advanced_nav_message_count">Να προβάλλεται ο αριθμός των τοπικά αποθηκευμένων μηνυμάτων στο μενού πλοήγησης</string>
+    <string name="title_advanced_nav_unseen_drafts">Να προβάλλεται ο αριθμός των μη αναγνωσμένων προσχεδίων στο μενού πλοήγησης</string>
     <string name="title_advanced_nav_pinned_count">Να προβάλλεται ο αριθμός των μη αναγνωσμένων μηνυμάτων στο καρφιτσωμένο μενού πλοήγησης</string>
     <string name="title_advanced_startup">Εμφάνιση στην οθόνη έναρξης</string>
     <string name="title_advanced_cards">Προβολή σε στιλ κάρτας αντί σε στιλ πίνακα</string>
@@ -397,6 +397,7 @@
     <string name="title_advanced_color_stripe_wide">Χρήση φαρδιάς λωρίδας χρώματος</string>
     <string name="title_advanced_avatars">Προβολή φωτογραφιών επαφών</string>
     <string name="title_advanced_gravatars">Προβολή Gravatar</string>
+    <string name="title_advanced_libravatars">Προβολή Libravatar</string>
     <string name="title_advanced_bimi_unverified">Μη επαληθευμένος αποστολέας</string>
     <string name="title_advanced_bimi_verified">Επαληθευμένος αποστολέας</string>
     <string name="title_advanced_favicons">Προβολή favicon</string>
@@ -549,8 +550,10 @@
     <string name="title_advanced_disconnect_auto_update">Αυτόματη εβδομαδιαία ενημέρωση των λιστών</string>
     <string name="title_advanced_disconnect_links">Χρήση προειδοποιητικών λιστών για συνδέσμους ιχνηλάτησης</string>
     <string name="title_advanced_disconnect_images">Χρήση λιστών για ταυτοποίηση των εικόνων ιχνηλάτησης</string>
-    <string name="title_advanced_clear_all">Διαγραφή όλων των δεδομένων</string>
-    <string name="title_advanced_clear_all_remark">Όλα τα δεδομένα της εφαρμογής θα διαγραφούν αμετάκλητα!</string>
+    <string name="title_advanced_mnemonic">Διαγραφή δεδομένων εξ αποστάσεως</string>
+    <string name="title_advanced_mnemonic_hint">Οποιοδήποτε μήνυμα έχει ληφθεί και έχει τις παρακάτω λέξεις στη γραμμή θέματος, θα διαγράψει αυτόματα και αμέσως τα δεδομένα της εφαρμογής</string>
+    <string name="title_advanced_clear_all">Διαγραφή των δεδομένων της εφαρμογής</string>
+    <string name="title_advanced_clear_all_remark">Τα δεδομένα της εφαρμογής θα διαγραφούν αμετάκλητα!</string>
     <string name="title_advanced_sign_default">Υπογραφή από προεπιλογή</string>
     <string name="title_advanced_encrypt_default">Κρυπτογράφηση από προεπιλογή</string>
     <string name="title_advanced_auto_decrypt">Αυτόματη αποκρυπτογράφηση μηνυμάτων</string>

@@ -398,6 +398,7 @@
     <string name="title_advanced_color_stripe_wide">Utiliser une bande de couleur large</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_gravatars">Afficher les Gravatars</string>
+    <string name="title_advanced_libravatars">Afficher les Libravatars</string>
     <string name="title_advanced_bimi_unverified">Expéditeur non vérifié</string>
     <string name="title_advanced_bimi_verified">Expéditeur vérifié</string>
     <string name="title_advanced_favicons">Afficher l\'icône des sites web</string>
@@ -551,9 +552,9 @@
     <string name="title_advanced_disconnect_links">Utiliser des listes pour vous avertir des liens de pistage</string>
     <string name="title_advanced_disconnect_images">Utiliser des listes pour identifier les images de pistage</string>
     <string name="title_advanced_mnemonic">Supprimer les données à distance</string>
-    <string name="title_advanced_mnemonic_hint">Tout courriel reçu avec les mots ci-dessous dans l\'objet supprimera automatiquement et immédiatement toutes les données de l\'application sur cet appareil</string>
-    <string name="title_advanced_clear_all">Supprimer toutes les données</string>
-    <string name="title_advanced_clear_all_remark">Toutes les données de l\'application seront définitivement supprimées !</string>
+    <string name="title_advanced_mnemonic_hint">Tout courriel reçu contenant les mots ci-dessous dans l\'objet supprimera automatiquement et immédiatement toutes les données de l\'application sur cet appareil</string>
+    <string name="title_advanced_clear_all">Supprimer les données de l\'application</string>
+    <string name="title_advanced_clear_all_remark">Les données de l\'application seront définitivement supprimées!</string>
     <string name="title_advanced_sign_default">Signer par défaut</string>
     <string name="title_advanced_encrypt_default">Chiffrer par défaut</string>
     <string name="title_advanced_auto_decrypt">Déchiffrer automatiquement les messages</string>

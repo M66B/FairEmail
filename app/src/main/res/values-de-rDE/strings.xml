@@ -396,6 +396,7 @@
     <string name="title_advanced_color_stripe_wide">Breite Farbstreifen verwenden</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_gravatars">Gravatare anzeigen</string>
+    <string name="title_advanced_libravatars">Libravatars anzeigen</string>
     <string name="title_advanced_bimi_unverified">Nicht verifizierter Absender</string>
     <string name="title_advanced_bimi_verified">Bestätigter Absender</string>
     <string name="title_advanced_favicons">Favicons anzeigen</string>
@@ -549,9 +550,9 @@
     <string name="title_advanced_disconnect_links">Listen verwenden, um vor Nachverfolgungslinks zu warnen</string>
     <string name="title_advanced_disconnect_images">Listen zur Erkennung von Nachverfolgungsbildern verwenden</string>
     <string name="title_advanced_mnemonic">Daten aus der Ferne löschen</string>
-    <string name="title_advanced_mnemonic_hint">Jede E-Mail mit den folgenden Wörtern in der Betreffzeile wird automatisch und sofort alle App-Daten auf diesem Gerät löschen</string>
-    <string name="title_advanced_clear_all">Alle Daten löschen</string>
-    <string name="title_advanced_clear_all_remark">Alle App-Daten werden unwiderruflich gelöscht!</string>
+    <string name="title_advanced_mnemonic_hint">Jede E-Mail mit den folgenden Wörtern in der Betreffzeile wird automatisch und sofort die App-Daten auf diesem Gerät löschen</string>
+    <string name="title_advanced_clear_all">App-Daten löschen</string>
+    <string name="title_advanced_clear_all_remark">Die App-Daten werden unwiderruflich gelöscht!</string>
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>

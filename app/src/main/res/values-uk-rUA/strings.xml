@@ -238,6 +238,7 @@
     <string name="title_setup_password_different">Паролі не збігаються</string>
     <string name="title_setup_password_invalid">Пароль не є дійсним</string>
     <string name="title_setup_import_accounts">Імпортувати облікові записи та особисті дані</string>
+    <string name="title_setup_import_delete">Спочатку видалити існуючі облікові записи</string>
     <string name="title_setup_import_rules">Імпортувати правила фільтрів</string>
     <string name="title_setup_import_contacts">Імпортувати локальні контакти</string>
     <string name="title_setup_import_answers">Імпортувати шаблони відповідей</string>
@@ -334,6 +335,7 @@
     <string name="title_advanced_suggest_received">Пропонувати адреси, що були знайдені в отриманих повідомленнях</string>
     <string name="title_advanced_suggest_frequently">Сортувати запропоновані адреси за частотою використання</string>
     <string name="title_advanced_alt_re_fwd">Альтернативний префікс для відповіді/пересилання</string>
+    <string name="title_advanced_send_chips">Показати бульбашки адрес</string>
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
     <string name="title_advanced_attach_new">Додати спільні файли до нової чернетки</string>
@@ -354,6 +356,7 @@
     <string name="title_advanced_signature_reply">Використовувати підпис під час відповіді</string>
     <string name="title_advanced_signature_forward">Використовувати підпис під час перенаправлення</string>
     <string name="title_advanced_discard_delete">Видалення чернетки на назавжди</string>
+    <string name="title_advanced_reply_move">Зберігати повідомлення-відповідь у тій самій папці</string>
     <string name="title_advanced_auto_link">Автоматично створювати посилання</string>
     <string name="title_advanced_plain_only">Надсилати як звичайний текст за замовчуванням</string>
     <string name="title_advanced_flow">помічати відповідь в форматі звичайного тексту</string>
@@ -395,6 +398,7 @@
     <string name="title_advanced_nav_hide_message">Ви можете знову включити опції в налаштуваннях екрану</string>
     <string name="title_advanced_nav_message_count">Показати кількість локально збережених повідомлень в меню навігації</string>
     <string name="title_advanced_nav_unseen_drafts">Відображати кількість непрочитаних чернеток у меню навігації</string>
+    <string name="title_advanced_nav_pinned_count">Відображати кількість непрочитаних повідомлень у закріпленому навігаційному меню</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати стиль картки замість табличного стилю</string>
     <string name="title_advanced_cards_beige">Використовувати бежевий фон під час використання стилю карт (тільки для світлої теми)</string>
@@ -414,6 +418,7 @@
     <string name="title_advanced_color_stripe_wide">Використовувати широку смугу кольорів</string>
     <string name="title_advanced_avatars">Показувати фото контактів</string>
     <string name="title_advanced_gravatars">Показувати Gravatars</string>
+    <string name="title_advanced_libravatars">Показувати Libr-аватари</string>
     <string name="title_advanced_bimi_unverified">Неперевірений відправник</string>
     <string name="title_advanced_bimi_verified">Перевірений відправник</string>
     <string name="title_advanced_favicons">Показати піктограми сайтів</string>
@@ -566,6 +571,7 @@
     <string name="title_advanced_disconnect_auto_update">Автоматично оновлювати списки щотижня</string>
     <string name="title_advanced_disconnect_links">Використовуйте списки для попередження про посилання за якими можливе відслідковування</string>
     <string name="title_advanced_disconnect_images">Використовувати списки для розпізнавання зображень за якими можливе відстеження</string>
+    <string name="title_advanced_mnemonic">Віддалене видалення даних</string>
     <string name="title_advanced_sign_default">Підписати за замовчуванням</string>
     <string name="title_advanced_encrypt_default">Шифрувати за замовчуванням</string>
     <string name="title_advanced_auto_decrypt">Автоматично розшифрувати повідомлення</string>
@@ -809,6 +815,7 @@
     <string name="title_last_connected">Останнє підключення: %1$s</string>
     <string name="title_backoff_until">Очікування після збою до: %1$s</string>
     <string name="title_storage_quota">Використання простору на сервері: %1$s/%2$s</string>
+    <string name="title_pop_support">Протокол POP3 може лише завантажувати й видаляти повідомлення з теки Вхідні. Неможливо позначити повідомлення прочитаними, скаржитися на спам, переміщувати повідомлення, і тому подібне. Подумайте про викорастання протоколу IMAP, якщо це можливо.</string>
     <string name="title_pop_sent">Якщо ваш пристрій загублено або викрадено, надіслані повідомлення можуть бути втрачені.</string>
     <string name="title_pop_warning">Якщо сервер POP3 не підтримує команду UIDL, використання даних може бути високим. Отже, змініть частоту опитування в налаштуваннях нижче.</string>
     <string name="title_pop_folders">Протокол POP3 не підтримує створення тек</string>

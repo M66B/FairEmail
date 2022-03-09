@@ -559,8 +559,6 @@
     <string name="title_advanced_disconnect_auto_update">Automatsko ažuriranje spiskova sedmično</string>
     <string name="title_advanced_disconnect_links">Koristi spiskove za upozorenja o linkovima koji mogu pratiti</string>
     <string name="title_advanced_disconnect_images">Koristi spiskove za prepoznavanje slika koje mogu pratiti</string>
-    <string name="title_advanced_clear_all">Izbriši sve podatke</string>
-    <string name="title_advanced_clear_all_remark">Svi podaci iz aplikacije izbrisat će se nepovratno!</string>
     <string name="title_advanced_sign_default">Potpiši po zadanom</string>
     <string name="title_advanced_encrypt_default">Šifriraj po zadanom</string>
     <string name="title_advanced_auto_decrypt">Automatski dešifriraj poruke</string>

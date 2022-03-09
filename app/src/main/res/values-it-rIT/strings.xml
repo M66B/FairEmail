@@ -548,8 +548,6 @@
     <string name="title_advanced_disconnect_auto_update">Aggiorna settimanalmente e automaticamente gli elenchi</string>
     <string name="title_advanced_disconnect_links">Usa gli elenchi per avvisare dei link di monitoraggio</string>
     <string name="title_advanced_disconnect_images">Usa gli elenchi per riconoscere le immagini di monitoraggio</string>
-    <string name="title_advanced_clear_all">Elimina tutti i dati</string>
-    <string name="title_advanced_clear_all_remark">Tutti i dati dell\'app saranno irreversibilmente eliminati!</string>
     <string name="title_advanced_sign_default">Firma di default</string>
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
     <string name="title_advanced_auto_decrypt">Decrittografa automaticamente i messaggi</string>

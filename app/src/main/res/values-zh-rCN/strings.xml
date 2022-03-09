@@ -387,6 +387,7 @@
     <string name="title_advanced_color_stripe_wide">使用宽色条</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_gravatars">显示 Gravatars 头像</string>
+    <string name="title_advanced_libravatars">显示 Libravatars 头像</string>
     <string name="title_advanced_bimi_unverified">未验证的发送者</string>
     <string name="title_advanced_bimi_verified">已验证的发送者</string>
     <string name="title_advanced_favicons">显示网页图标</string>
@@ -540,9 +541,9 @@
     <string name="title_advanced_disconnect_links">使用列表警告跟踪链接</string>
     <string name="title_advanced_disconnect_images">使用列表来识别追踪用图像</string>
     <string name="title_advanced_mnemonic">远程删除数据</string>
-    <string name="title_advanced_mnemonic_hint">收到任何“主题”部分包含以下字词的电子邮件都将自动并立即删除此设备上的所有应用数据</string>
-    <string name="title_advanced_clear_all">删除所有数据</string>
-    <string name="title_advanced_clear_all_remark">所有应用数据将被不可逆转地删除！</string>
+    <string name="title_advanced_mnemonic_hint">如果收到任何标题栏有以下文字的邮件，应用程序数据将立即被自动删除</string>
+    <string name="title_advanced_clear_all">删除应用数据</string>
+    <string name="title_advanced_clear_all_remark">应用数据将不可逆转地删除！</string>
     <string name="title_advanced_sign_default">使用默认签名</string>
     <string name="title_advanced_encrypt_default">使用默认加密</string>
     <string name="title_advanced_auto_decrypt">自动解密消息</string>
@@ -904,10 +905,10 @@
     <string name="title_filters_active">已激活至少一个过滤器</string>
     <string name="title_duplicate_in">%1$s 中的重复消息</string>
     <string name="title_trashed_from">来自 %1$s 的已回收消息</string>
-    <string name="title_subject_reply">回复：%1$s</string>
-    <string name="title_subject_forward">转发：%1$s</string>
-    <string name="title_subject_reply_alt">回复：%1$s</string>
-    <string name="title_subject_forward_alt">转发：%1$s</string>
+    <string name="title_subject_reply">回复: %1$s</string>
+    <string name="title_subject_forward">转发: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
     <string name="title_toggle_seen">切换已读状态</string>
@@ -1066,7 +1067,7 @@
     <string name="title_stored">消息存储于：</string>
     <string name="title_size">大小：</string>
     <string name="title_language">语言：</string>
-    <string name="title_subject">主题：</string>
+    <string name="title_subject">主题:</string>
     <string name="title_attachment">附件：</string>
     <string name="title_body_hint">您的邮件内容……</string>
     <string name="title_body_hint_style">您可以选择要格式化的文本</string>
@@ -1156,7 +1157,7 @@
     <string name="title_extra_missing">缺少用户名</string>
     <string name="title_noreply_reminder">正在向“无回复”地址发送邮件</string>
     <string name="title_external_reminder">发送到外部地址</string>
-    <string name="title_subject_reminder">主题为空</string>
+    <string name="title_subject_reminder">主题是空的</string>
     <string name="title_text_reminder">消息为空</string>
     <string name="title_attachment_keywords">至少包含一个附件</string>
     <string name="title_attachment_reminder">您是否打算添加一个附件？</string>

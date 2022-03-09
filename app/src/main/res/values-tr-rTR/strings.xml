@@ -376,6 +376,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_nav_hide_message">Seçenekleri ekran ayarlarında tekrar etkinleştirebilirsiniz</string>
     <string name="title_advanced_nav_message_count">Navigasyon menüsünde yerel olarak saklanan mesajların sayısını göster</string>
     <string name="title_advanced_nav_unseen_drafts">Gezinme menüsünde okunmamış taslak sayısını göster</string>
+    <string name="title_advanced_nav_pinned_count">Sabitlenmiş gezinme menüsünde okunmamış mesajların sayısını göster</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>
     <string name="title_advanced_cards_beige">Kart stilini kullanırken bej arka plan kullan (yalnızca açık renkli temalar)</string>
@@ -395,6 +396,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_color_stripe_wide">Geniş renkli şerit kullanın</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_gravatars">Gravatar\'ları göster</string>
+    <string name="title_advanced_libravatars">Libravatar\'ları göster</string>
     <string name="title_advanced_bimi_unverified">Doğrulanmamış gönderen</string>
     <string name="title_advanced_bimi_verified">Doğrulanmış gönderen</string>
     <string name="title_advanced_favicons">Faviconları göster</string>
@@ -547,8 +549,10 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_disconnect_auto_update">Listeleri haftalık olarak otomatik güncelle</string>
     <string name="title_advanced_disconnect_links">Takipçi içeren bağlantıları önden uyarabilmek için listeleri kullan</string>
     <string name="title_advanced_disconnect_images">Takipçi içeren görselleri tanımak için listeleri kullan</string>
-    <string name="title_advanced_clear_all">Tüm verileri sil</string>
-    <string name="title_advanced_clear_all_remark">Tüm uygulama verileri geri alınamaz şekilde silinecek!</string>
+    <string name="title_advanced_mnemonic">Verileri uzaktan sil</string>
+    <string name="title_advanced_mnemonic_hint">Konu satırında aşağıdaki kelimeleri içeren herhangi bir e-posta, uygulama verilerini otomatik olarak ve hemen siler</string>
+    <string name="title_advanced_clear_all">Uygulama verilerini sil</string>
+    <string name="title_advanced_clear_all_remark">Uygulama verileri geri alınamaz şekilde silinecek!</string>
     <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
     <string name="title_advanced_encrypt_default">Varsayılan olarak şifrele</string>
     <string name="title_advanced_auto_decrypt">İletilerin şifrelerini otomatik olarak çöz</string>

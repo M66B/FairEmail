@@ -327,6 +327,7 @@
     <string name="title_advanced_nav_pin">سنجاق کردن منوی ناوبری</string>
     <string name="title_advanced_nav_hide_title">پنهان کردن گزینه‌های منوی ناوبری؟</string>
     <string name="title_advanced_nav_hide_message">شما می‌توانید مجددا گزینه‌ها را در تنظیمات نمایش فعال کنید</string>
+    <string name="title_advanced_nav_pinned_count">تعداد پیام‌های خوانده نشده را در منوی ناوبری سنجاق‌شده نشان بده</string>
     <string name="title_advanced_startup">نمایش در صفحه آغازین</string>
     <string name="title_advanced_category_header">دسته‌بندی بر اساس طبقه‌بندی حساب</string>
     <string name="title_advanced_date_header">گروه بندی بر اساس تاریخ</string>
@@ -336,6 +337,7 @@
     <string name="title_advanced_color_stripe">نمایش نوار رنگ</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_advanced_gravatars">نمایش Gravatar ها</string>
+    <string name="title_advanced_libravatars">نمایش Libravatar ها</string>
     <string name="title_advanced_bimi_verified">فرستنده تایید شده</string>
     <string name="title_advanced_favicons">نمایش فاوآیکون‌ها</string>
     <string name="title_advanced_favicons_partial">تنها %1$s صفحه اول از صفحات وب را اسکن کن</string>
@@ -429,8 +431,10 @@
     <string name="title_advanced_secure">از صفحه برنامه های اخیر پنهان شو و از گرفتن اسکرین‌شات جلوگیری کن</string>
     <string name="title_advanced_pin">پین</string>
     <string name="title_advanced_biometrics_timeout">وقفه تایید هویت بیومتریک</string>
-    <string name="title_advanced_clear_all">پاک کردن تمام اطلاعات</string>
-    <string name="title_advanced_clear_all_remark">تمام اطلاعات اپلیکیشن به صورت غیرقابل بازگشت پاک خواهند شد!</string>
+    <string name="title_advanced_mnemonic">پاک کردن اطلاعات از راه دور</string>
+    <string name="title_advanced_mnemonic_hint">هرگونه ایمیل دریافتی با کلمات زیر در قسمت موضوع آن، به صورت فوری و خودکار تمام اطلاعات اپلیکیشن را پاک خواهد کرد</string>
+    <string name="title_advanced_clear_all">حذف اطلاعات اپلیکیشن</string>
+    <string name="title_advanced_clear_all_remark">اطلاعات اپلیکیشن به طور برگشت‌ناپذیر پاک خواهد شد!</string>
     <string name="title_advanced_sign_default">امضاء به‌صورت پیش‌فرض</string>
     <string name="title_advanced_encrypt_default">رمزگذاری به‌صورت پیش‌فرض</string>
     <string name="title_advanced_auto_decrypt">رمزگشایی خودکار پیام‌ها</string>

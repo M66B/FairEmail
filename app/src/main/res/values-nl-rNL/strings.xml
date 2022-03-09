@@ -396,6 +396,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_color_stripe_wide">Gebruik brede kleurenstreep</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_gravatars">Gravatars weergeven</string>
+    <string name="title_advanced_libravatars">Toon Libravatars</string>
     <string name="title_advanced_bimi_unverified">Niet-geverifieerde afzender</string>
     <string name="title_advanced_bimi_verified">Geverifieerde afzender</string>
     <string name="title_advanced_favicons">Toon favicons</string>
@@ -549,9 +550,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_disconnect_links">Gebruik lijsten om te waarschuwen voor tracking links</string>
     <string name="title_advanced_disconnect_images">Gebruik lijsten om tracking afbeeldingen te herkennen</string>
     <string name="title_advanced_mnemonic">Gegevens op afstand verwijderen</string>
-    <string name="title_advanced_mnemonic_hint">Elke e-mail ontvangen met de onderstaande woorden in de onderwerpregel zal automatisch en onmiddellijk alle app-gegevens op dit apparaat verwijderen</string>
-    <string name="title_advanced_clear_all">Verwijder alle gegevens</string>
-    <string name="title_advanced_clear_all_remark">Alle app gegevens worden onomkeerbaar verwijderd!</string>
+    <string name="title_advanced_mnemonic_hint">Elke e-mail ontvangen met de onderstaande woorden in de onderwerpregel zal automatisch en onmiddellijk de app gegevens verwijderen</string>
+    <string name="title_advanced_clear_all">Verwijder de app gegevens</string>
+    <string name="title_advanced_clear_all_remark">De app gegevens worden onomkeerbaar verwijderd!</string>
     <string name="title_advanced_sign_default">Standaard ondertekenen</string>
     <string name="title_advanced_encrypt_default">Standaard versleutelen</string>
     <string name="title_advanced_auto_decrypt">Berichten automatisch ontsleutelen</string>

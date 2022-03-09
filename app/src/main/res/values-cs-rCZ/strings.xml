@@ -237,6 +237,7 @@
     <string name="title_setup_password_different">Hesla se neshodují</string>
     <string name="title_setup_password_invalid">Nesprávné heslo</string>
     <string name="title_setup_import_accounts">Import účtů a identit</string>
+    <string name="title_setup_import_delete">Nejprve odstranit existující účty</string>
     <string name="title_setup_import_rules">Import pravidel filtrů</string>
     <string name="title_setup_import_contacts">Import místních kontaktů</string>
     <string name="title_setup_import_answers">Import šablon pro odpovědi</string>
@@ -396,6 +397,7 @@
     <string name="title_advanced_nav_hide_message">Možnosti můžete znovu povolit v nastavení displeje</string>
     <string name="title_advanced_nav_message_count">Zobrazit počet místně uložených zpráv v navigačním menu</string>
     <string name="title_advanced_nav_unseen_drafts">Zobrazit počet nepřečtených konceptů v navigačním menu</string>
+    <string name="title_advanced_nav_pinned_count">Zobrazit počet nepřečtených zpráv v připnutém navigačním menu</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
     <string name="title_advanced_cards_beige">Použít béžové pozadí při zobrazení stylem karet (pouze světlé motivy)</string>
@@ -415,6 +417,7 @@
     <string name="title_advanced_color_stripe_wide">Použít široký barevný pruh</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_gravatars">Zobrazit Gravatary</string>
+    <string name="title_advanced_libravatars">Zobrazit Libravatary</string>
     <string name="title_advanced_bimi_unverified">Neověřený odesílatel</string>
     <string name="title_advanced_bimi_verified">Ověřený odesílatel</string>
     <string name="title_advanced_favicons">Zobrazit ikony stránek</string>
@@ -567,8 +570,10 @@
     <string name="title_advanced_disconnect_auto_update">Automaticky týdně aktualizovat seznamy</string>
     <string name="title_advanced_disconnect_links">Použít seznamy k upozornění na sledovací odkazy</string>
     <string name="title_advanced_disconnect_images">Použít seznamy k rozpoznání sledovacích obrázků</string>
-    <string name="title_advanced_clear_all">Odstranit všechna data</string>
-    <string name="title_advanced_clear_all_remark">Všechna data aplikace budou nevratně smazána!</string>
+    <string name="title_advanced_mnemonic">Odstranit data vzdáleně</string>
+    <string name="title_advanced_mnemonic_hint">Jakýkoli přijatý e-mail s níže uvedenými slovy v předmětu automaticky a okamžitě odstraní data aplikace</string>
+    <string name="title_advanced_clear_all">Odstranit data aplikace</string>
+    <string name="title_advanced_clear_all_remark">Data aplikace budou nevratně smazána!</string>
     <string name="title_advanced_sign_default">Automaticky podepisovat</string>
     <string name="title_advanced_encrypt_default">Automaticky šifrovat</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>

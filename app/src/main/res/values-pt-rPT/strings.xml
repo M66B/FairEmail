@@ -124,7 +124,7 @@
     <string name="title_setup_help">Ajuda</string>
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_intro">A configuração de uma conta consiste em três passos podendo, logo após isso, enviar e receber e-mails</string>
-    <string name="title_setup_simple">Não há necessidade de todo, de modificar qualquer definição</string>
+    <string name="title_setup_simple">Não é necessária a alteração doutras opções</string>
     <string name="title_setup_issue">O FairEmail foi desenvolvido para o ajudar a proteger a sua privacidade e representa, literalmente, milhares de horas de trabalho. Caso tenha algum problema, peço que me contacte primeiro para assistência antes de deixar uma avaliação negativa. Tenho todo o gosto em ajudar!</string>
     <string name="title_setup_analytics">O FairEmail não exibe anúncios e não monitoriza ou analisa o seu comportamento. O Bugsnag é usado para comunicar erros e está desactivado por defeito.</string>
     <string name="title_setup_quick_accounts">Adicionar ou alterar contas</string>
@@ -233,7 +233,7 @@
     <string name="title_importing_wizard">Execute o assistente para autenticar novamente</string>
     <string name="title_setup_reorder_accounts">Ordenar contas</string>
     <string name="title_setup_reorder_folders">Ordenar pastas</string>
-    <string name="title_reset_order">Reverter ordem</string>
+    <string name="title_reset_order">Redefinir a ordenação</string>
     <string name="title_setup_authentication">Autenticação</string>
     <string name="title_setup_biometrics">Autenticação biométrica</string>
     <string name="title_setup_biometrics_enable">Activar</string>
@@ -303,6 +303,7 @@
     <string name="title_advanced_check_tls">Verificar \'transport layer security\' (TLS)</string>
     <string name="title_advanced_check_reply_domain">Verificar endereço de resposta ao sincronizar mensagens</string>
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente ao sincronizar mensagens</string>
+    <string name="title_advanced_check_blocklist">Verificar se o nome do domínio do remetente faz parte de uma lista de bloqueio de spam</string>
     <string name="title_advanced_tune_keep_alive">Ajustar automaticamente o intervalo de ligação \'keep-alive\'</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
     <string name="title_advanced_keyboard_no_fullscreen">Prevenir teclado em modo ecrã inteiro</string>
@@ -381,6 +382,7 @@
     <string name="title_advanced_color_stripe_wide">Usar ampla faixa de cores</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatar</string>
+    <string name="title_advanced_libravatars">Mostrar Libravatars</string>
     <string name="title_advanced_bimi_unverified">Remetente não verificado</string>
     <string name="title_advanced_bimi_verified">Remetente verificado</string>
     <string name="title_advanced_favicons">Mostrar \"favicons\"</string>
@@ -515,7 +517,6 @@
     <string name="title_advanced_disconnect_links">Utilizar listas para avisar sobre hiperligações que monitorizam</string>
     <string name="title_advanced_disconnect_images">Utilizar listas para reconhecer imagens de monitorização</string>
     <string name="title_advanced_mnemonic">Eliminar dados remotamente</string>
-    <string name="title_advanced_mnemonic_hint">A receção de qualquer e-mail com as palavras abaixo no assunto eliminará automaticamente todos os dados de aplicações neste dispositivo</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
     <string name="title_advanced_auto_decrypt">Desencriptar mensagens automaticamente</string>
@@ -570,7 +571,7 @@
     <string name="title_advanced_poll_folders_hint">Sincroniza periodicamente a lista de pastas mesmo após a ligação a uma conta</string>
     <string name="title_advanced_lookup_mx_hint">Faz a verificação se existem registos DNS MX</string>
     <string name="title_advanced_suggest_names_hint">Com a opção desactiva, ao seleccionar um contacto apenas os endereços de e-mail serão utilizados</string>
-    <string name="title_advanced_suggest_local_hint">Em complemento aos contactos fornecidos pelo Android. Os dados de contacto serão armazenados para mensagens recém-enviadas ou recebidas apenas se a função estiver activa.</string>
+    <string name="title_advanced_suggest_local_hint">Em complemento aos contactos fornecidos pelo Android. Apenas só será guardada informação de contactos nas mensagens recém-enviadas ou recebidas caso esta função esteja activa.</string>
     <string name="title_advanced_usenet_hint">Coloca \'-- \' entre o texto e a assinatura</string>
     <string name="title_advanced_remove_signature_hint">Pode resultar na remoção de pouco ou de demasiado texto</string>
     <string name="title_advanced_metered_warning">Desactivar esta opção fará com que não sejam recebidas e enviadas mensagens em ligações móveis de Internet</string>
@@ -602,6 +603,9 @@
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
     <string name="title_identity_tenant_hint">Este campo deve estar vazio na maioria dos casos</string>
+    <string name="title_optional">Opcional</string>
+    <string name="title_recommended">Recomendado</string>
+    <string name="title_account_linked">Conta associada</string>
     <string name="title_account_name">Nome da conta</string>
     <string name="title_account_category">Categoria</string>
     <string name="title_color">Cor</string>
@@ -610,8 +614,15 @@
     <string name="title_account_ondemand">Sincronizar manualmente</string>
     <string name="title_account_left">Deslizar para a esquerda</string>
     <string name="title_account_right">Deslizar para a direita</string>
+    <string name="title_domain">Nome do domínio</string>
+    <string name="title_autoconfig">Obter configurações</string>
+    <string name="title_aliases">Pseudónimos</string>
+    <string name="title_provider">Fornecedor</string>
+    <string name="title_custom">Personalizado</string>
+    <string name="title_host">Nome do servidor</string>
     <string name="title_encryption">Encriptação</string>
     <string name="title_encryption_none">Nenhuma</string>
+    <string name="title_allow_insecure">Permitir ligações inseguras</string>
     <string name="title_user">Nome de utilizador</string>
     <string name="title_password">Palavra-passe</string>
     <string name="title_password_storage">Como são armazenadas as palavras-passe?</string>
@@ -702,8 +713,11 @@
     <string name="title_no_messages">Sem mensagens</string>
     <string name="title_filters_active">Um ou mais filtros activos</string>
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
+    <string name="title_seen">Marcar como lida</string>
+    <string name="title_unseen">Marcar como não lida</string>
     <string name="title_hide">Esconder</string>
     <string name="title_unhide">Mostrar</string>
+    <string name="title_set_importance">Definir a prioridade</string>
     <string name="title_importance_low">Baixa</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Alta</string>
@@ -749,6 +763,7 @@
     <string name="title_no_viewer_name">Nome do conteúdo</string>
     <string name="title_no_viewer_type">Tipo de conteúdo</string>
     <string name="title_no_viewer_search">Procurar aplicação</string>
+    <string name="title_no_recorder">Não existe uma aplicação compatível de gravação de áudio</string>
     <string name="title_insufficient_memory">Mensagem muito grande para a memória disponível (%1$d)</string>
     <string name="title_fullscreen">Mostrar ecrã completo</string>
     <string name="title_fit_width">Ajustar à largura</string>
@@ -883,6 +898,7 @@
     <string name="title_rule_unseen">Marcar como não lida</string>
     <string name="title_rule_hide">Esconder</string>
     <string name="title_rule_snooze">Adiar</string>
+    <string name="title_rule_importance">Definir a prioridade</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_automation">Automatização</string>
     <string name="title_rule_delete">Eliminar permanentemente</string>

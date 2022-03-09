@@ -416,7 +416,8 @@
     <string name="title_advanced_color_stripe">Показывать цветовую полосу</string>
     <string name="title_advanced_color_stripe_wide">Использовать широкий диапазон цветов</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
-    <string name="title_advanced_gravatars">Показывать Граватары</string>
+    <string name="title_advanced_gravatars">Показывать граватары</string>
+    <string name="title_advanced_libravatars">Показывать либраватары</string>
     <string name="title_advanced_bimi_unverified">Непроверенный отправитель</string>
     <string name="title_advanced_bimi_verified">Проверенный отправитель</string>
     <string name="title_advanced_favicons">Показывать значки сайтов</string>
@@ -570,9 +571,9 @@
     <string name="title_advanced_disconnect_links">Использовать списки для предупреждения об отслеживающих ссылках</string>
     <string name="title_advanced_disconnect_images">Использовать списки для распознавания отслеживающих изображений</string>
     <string name="title_advanced_mnemonic">Удалённое удаление данных</string>
-    <string name="title_advanced_mnemonic_hint">Любое сообщение, полученное со следующими словами в строке темы, автоматически удалит все данные приложения на этом устройстве</string>
-    <string name="title_advanced_clear_all">Удаление всех данных</string>
-    <string name="title_advanced_clear_all_remark">Все данные приложения будут безвозвратно удалены!</string>
+    <string name="title_advanced_mnemonic_hint">Любое сообщение, полученное со следующими словами в строке темы, автоматически удалит данные приложения</string>
+    <string name="title_advanced_clear_all">Удаление данных приложения</string>
+    <string name="title_advanced_clear_all_remark">Данные приложения будут безвозвратно удалены!</string>
     <string name="title_advanced_sign_default">Подписывать по умолчанию</string>
     <string name="title_advanced_encrypt_default">Шифровать по умолчанию</string>
     <string name="title_advanced_auto_decrypt">Автоматически расшифровывать сообщения</string>

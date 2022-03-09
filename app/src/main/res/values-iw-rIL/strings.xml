@@ -418,6 +418,7 @@
     <string name="title_advanced_color_stripe_wide">להשתמש בפס צבע רחב</string>
     <string name="title_advanced_avatars">הצגת תמונות אנשי קשר</string>
     <string name="title_advanced_gravatars">הצגת Gravatarים</string>
+    <string name="title_advanced_libravatars">הצגת Libravatarים</string>
     <string name="title_advanced_bimi_unverified">מוען בלתי מאומת</string>
     <string name="title_advanced_bimi_verified">מוען מאומת</string>
     <string name="title_advanced_favicons">הצגת סמלי אתרים</string>
@@ -571,9 +572,8 @@
     <string name="title_advanced_disconnect_links">להשתמש ברשימות כדי להזהיר על קישורי מעקב</string>
     <string name="title_advanced_disconnect_images">להשתמש ברשימות כדי לזהות תמונות מעקב</string>
     <string name="title_advanced_mnemonic">מחיקת הנתונים בצד המרוחק</string>
-    <string name="title_advanced_mnemonic_hint">כל הודעה שהתקבלה עם המילים שלהלן כחלק מהנושא ימחקו את כל נתוני היישומון מהמכשיר הזה אוטומטית ומיידית</string>
-    <string name="title_advanced_clear_all">מחיקת כל הנתונים</string>
-    <string name="title_advanced_clear_all_remark">כל נתוני היישומון יימחקו ללא אפשרות לשחזור!</string>
+    <string name="title_advanced_clear_all">מחיקת נתוני היישומון</string>
+    <string name="title_advanced_clear_all_remark">נתוני היישומון יימחקו ללא אפשרות לשחזור!</string>
     <string name="title_advanced_sign_default">חתימה כבררת מחדל</string>
     <string name="title_advanced_encrypt_default">הצפנה כבררת מחדל</string>
     <string name="title_advanced_auto_decrypt">פענוח הודעות אוטומטית</string>

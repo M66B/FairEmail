@@ -378,6 +378,7 @@
     <string name="title_advanced_nav_hide_message">Indstillingerne kan genaktivere via skærmindstillingerne</string>
     <string name="title_advanced_nav_message_count">Vis antal lokalt gemte beskeder i navigationsmenuen</string>
     <string name="title_advanced_nav_unseen_drafts">Vis antallet af ulæste udkast i navigeringsmenuen</string>
+    <string name="title_advanced_nav_pinned_count">Vis antallet af ulæste udkast i den fastgjorte navigeringsmenu</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
     <string name="title_advanced_cards_beige">Brug beige baggrund ifm. kortstil (kun lyse temaer)</string>
@@ -397,6 +398,7 @@
     <string name="title_advanced_color_stripe_wide">Benyt bred farvestribe</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
     <string name="title_advanced_gravatars">Vis Gravatarer</string>
+    <string name="title_advanced_libravatars">Vis Libravatars</string>
     <string name="title_advanced_bimi_unverified">Ubekræftet afsender</string>
     <string name="title_advanced_bimi_verified">Bekræftet afsender</string>
     <string name="title_advanced_favicons">Vis favoritkoner</string>
@@ -549,7 +551,9 @@
     <string name="title_advanced_disconnect_auto_update">Opdatér automatisk lister ugentligt</string>
     <string name="title_advanced_disconnect_links">Benyt lister til at advare om sporingslinks</string>
     <string name="title_advanced_disconnect_images">Benyt lister til at genkende sporingsbilleder</string>
-    <string name="title_advanced_clear_all">Slet alle data</string>
+    <string name="title_advanced_mnemonic">Fjernsletning af data</string>
+    <string name="title_advanced_mnemonic_hint">Modtagelse af en e-mail indeholdende nedenstående ord i emnefeltet vil øjeblikkeligt udløse sletning alle app-data på denne enhed</string>
+    <string name="title_advanced_clear_all">Slet app-data</string>
     <string name="title_advanced_clear_all_remark">Alle app-data slettes irreversibelt!</string>
     <string name="title_advanced_sign_default">Signér som standard</string>
     <string name="title_advanced_encrypt_default">Kryptér som standard</string>
