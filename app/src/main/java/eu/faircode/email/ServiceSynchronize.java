@@ -2365,8 +2365,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     int backoff = state.getBackoff();
                     int recently = (lastLost + LOST_RECENTLY < now ? 1 : 2);
+                    boolean logarithmic_backoff = prefs.getBoolean("logarithmic_backoff", true);
                     EntityLog.log(this, EntityLog.Type.Account, account,
-                            account.name + " backoff=" + backoff + " recently=" + recently + "x");
+                            account.name + " backoff=" + backoff +
+                                    " recently=" + recently + "x" +
+                                    " logarithmic=" + logarithmic_backoff);
+
+                    if (!logarithmic_backoff)
+                        backoff = CONNECT_BACKOFF_START;
 
                     if (backoff < CONNECT_BACKOFF_MAX)
                         state.setBackoff(backoff * 2);
