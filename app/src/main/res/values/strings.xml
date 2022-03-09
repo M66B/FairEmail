@@ -702,14 +702,14 @@
     <string name="title_advanced_test4" translatable="false">Test #4</string>
     <string name="title_advanced_test5" translatable="false">Test #5</string>
     <string name="title_advanced_repair" translatable="false">Repair</string>
-    <string name="title_advanced_autostart" translatable="false">Autostart</string>
-    <string name="title_advanced_work_manager" translatable="false">Work manager</string>
-    <string name="title_advanced_external_storage" translatable="false">External storage</string>
+    <string name="title_advanced_autostart" translatable="false">Autostart app</string>
+    <string name="title_advanced_work_manager" translatable="false">Initialize work manager</string>
+    <string name="title_advanced_external_storage" translatable="false">Use external storage</string>
     <string name="title_advanced_room_query_threads" translatable="false">ROOM query threads: %1$s</string>
-    <string name="title_advanced_wal" translatable="false">WAL</string>
-    <string name="title_advanced_checkpoints" translatable="false">Checkpoints</string>
-    <string name="title_advanced_analyze" translatable="false">Analyze</string>
-    <string name="title_advanced_sqlite_cache" translatable="false">Sqlite cache: %1$s %% - %2$s</string>
+    <string name="title_advanced_wal" translatable="false">sqlite WAL</string>
+    <string name="title_advanced_checkpoints" translatable="false">sqlite checkpoints</string>
+    <string name="title_advanced_analyze" translatable="false">sqlite analyze</string>
+    <string name="title_advanced_sqlite_cache" translatable="false">sqlite cache: %1$s %% - %2$s</string>
     <string name="title_advanced_chunk_size" translatable="false">Chunk size: %1$d</string>
     <string name="title_advanced_undo_manager" translatable="false">Use Android\'s undo manager</string>
     <string name="title_advanced_webview_legacy" translatable="false">Old WebView behavior</string>
