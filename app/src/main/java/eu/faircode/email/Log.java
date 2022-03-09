@@ -1894,7 +1894,7 @@ public class Log {
         Point dim = new Point();
         display.getSize(dim);
         float density = context.getResources().getDisplayMetrics().density;
-        sb.append(String.format("Density %f\r\n", density));
+        sb.append(String.format("Density 1dp=%f\r\n", density));
         sb.append(String.format("Resolution: %.2f x %.2f dp\r\n", dim.x / density, dim.y / density));
 
         Configuration config = context.getResources().getConfiguration();
