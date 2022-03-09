@@ -97,6 +97,7 @@ public class WorkerCleanup extends Worker {
         boolean cleanup_attachments = prefs.getBoolean("cleanup_attachments", false);
         boolean download_headers = prefs.getBoolean("download_headers", false);
         boolean download_eml = prefs.getBoolean("download_eml", false);
+        boolean sqlite_analyze = prefs.getBoolean("sqlite_analyze", true);
 
         long start = new Date().getTime();
         DB db = DB.getInstance(context);
@@ -339,9 +340,9 @@ public class WorkerCleanup extends Worker {
                 db.endTransaction();
             }
 
-            if (BuildConfig.DEBUG) {
+            if (sqlite_analyze) {
                 // https://sqlite.org/lang_analyze.html
-                Log.i("Analyze");
+                Log.i("Running analyze");
                 long analyze = new Date().getTime();
                 try (Cursor cursor = db.getOpenHelper().getWritableDatabase().query("PRAGMA analysis_limit=1000; PRAGMA optimize;")) {
                     cursor.moveToNext();
