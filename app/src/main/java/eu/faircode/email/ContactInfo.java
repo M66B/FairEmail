@@ -398,7 +398,7 @@ public class ContactInfo {
                                         int status = urlConnection.getResponseCode();
                                         if (status == HttpURLConnection.HTTP_OK) {
                                             // Positive reply
-                                            Bitmap bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
+                                            Bitmap bitmap = ImageHelper.getScaledBitmap(urlConnection.getInputStream(), url.toString(), null, scaleToPixels);
                                             return (bitmap == null ? null : new Favicon(bitmap, "gravatar", false));
                                         } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
                                             // Negative reply
@@ -441,7 +441,7 @@ public class ContactInfo {
                                         int status = urlConnection.getResponseCode();
                                         if (status == HttpURLConnection.HTTP_OK) {
                                             // Positive reply
-                                            Bitmap bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
+                                            Bitmap bitmap = ImageHelper.getScaledBitmap(urlConnection.getInputStream(), url.toString(), null, scaleToPixels);
                                             return (bitmap == null ? null : new Favicon(bitmap, "libravatar", false));
                                         } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
                                             // Negative reply
