@@ -3447,8 +3447,11 @@ for example if the internet connection is bad or a firewall or a VPN is blocking
 FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power).
 If this fails, FairEmail will schedule an alarm to retry after 5, 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
 
+By temporarily enabling debug mode in the miscellaneous settings, you can disable this logarithmic back-off scheme (since version 1.1855).
+This will result in using a linear back-off scheme, which means that after each failure the wait time will be increased by 1 minute up to 60 minutes.
+
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)
-does not allow to wake the device earlier than after 15 minutes.
+does not allow to wake the device earlier than after 15 minutes when doze mode is enabled.
 
 *Force sync* in the three-dots menu of the unified inbox can be used to let FairEmail attempt to reconnect without waiting.
 

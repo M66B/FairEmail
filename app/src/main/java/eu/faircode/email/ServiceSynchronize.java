@@ -2315,76 +2315,83 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 if (state.isRunning()) {
                     long now = new Date().getTime();
+                    boolean logarithmic_backoff = prefs.getBoolean("logarithmic_backoff", true);
 
-                    // Check for fast successive server, connectivity, etc failures
-                    long poll_interval = Math.min(account.poll_interval, CONNECT_BACKOFF_ALARM_START);
-                    long fail_threshold = poll_interval * 60 * 1000L * FAST_FAIL_THRESHOLD / 100;
-                    long was_connected = (account.last_connected == null ? 0 : now - account.last_connected);
-                    if (was_connected < fail_threshold) {
-                        if (state.getBackoff() == CONNECT_BACKOFF_START) {
-                            fast_fails++;
-                            if (fast_fails == 1)
-                                first_fail = now;
-                            else if (fast_fails >= FAST_FAIL_COUNT) {
-                                long avg_fail = (now - first_fail) / fast_fails;
-                                if (avg_fail < fail_threshold) {
-                                    long missing = (fail_threshold - avg_fail) * fast_fails;
-                                    int compensate = (int) (missing / (CONNECT_BACKOFF_ALARM_START * 60 * 1000L));
-                                    if (compensate > 0) {
-                                        if (was_connected != 0 && was_connected < CONNECT_BACKOFF_GRACE)
-                                            compensate = 1;
+                    if (logarithmic_backoff) {
+                        // Check for fast successive server, connectivity, etc failures
+                        long poll_interval = Math.min(account.poll_interval, CONNECT_BACKOFF_ALARM_START);
+                        long fail_threshold = poll_interval * 60 * 1000L * FAST_FAIL_THRESHOLD / 100;
+                        long was_connected = (account.last_connected == null ? 0 : now - account.last_connected);
+                        if (was_connected < fail_threshold) {
+                            if (state.getBackoff() == CONNECT_BACKOFF_START) {
+                                fast_fails++;
+                                if (fast_fails == 1)
+                                    first_fail = now;
+                                else if (fast_fails >= FAST_FAIL_COUNT) {
+                                    long avg_fail = (now - first_fail) / fast_fails;
+                                    if (avg_fail < fail_threshold) {
+                                        long missing = (fail_threshold - avg_fail) * fast_fails;
+                                        int compensate = (int) (missing / (CONNECT_BACKOFF_ALARM_START * 60 * 1000L));
+                                        if (compensate > 0) {
+                                            if (was_connected != 0 && was_connected < CONNECT_BACKOFF_GRACE)
+                                                compensate = 1;
 
-                                        int backoff = compensate * CONNECT_BACKOFF_ALARM_START;
-                                        if (backoff > CONNECT_BACKOFF_ALARM_MAX)
-                                            backoff = CONNECT_BACKOFF_ALARM_MAX;
+                                            int backoff = compensate * CONNECT_BACKOFF_ALARM_START;
+                                            if (backoff > CONNECT_BACKOFF_ALARM_MAX)
+                                                backoff = CONNECT_BACKOFF_ALARM_MAX;
 
-                                        String msg = "Fast" +
-                                                " fails=" + fast_fails +
-                                                " was=" + (was_connected / 1000L) +
-                                                " first=" + ((now - first_fail) / 1000L) +
-                                                " poll=" + poll_interval +
-                                                " avg=" + (avg_fail / 1000L) + "/" + (fail_threshold / 1000L) +
-                                                " missing=" + (missing / 1000L) +
-                                                " compensate=" + compensate +
-                                                " backoff=" + backoff +
-                                                " host=" + account.host +
-                                                " ex=" + Log.formatThrowable(last_fail, false);
-                                        if (compensate > 2)
-                                            Log.e(msg);
-                                        EntityLog.log(this, EntityLog.Type.Account, account, msg);
+                                            String msg = "Fast" +
+                                                    " fails=" + fast_fails +
+                                                    " was=" + (was_connected / 1000L) +
+                                                    " first=" + ((now - first_fail) / 1000L) +
+                                                    " poll=" + poll_interval +
+                                                    " avg=" + (avg_fail / 1000L) + "/" + (fail_threshold / 1000L) +
+                                                    " missing=" + (missing / 1000L) +
+                                                    " compensate=" + compensate +
+                                                    " backoff=" + backoff +
+                                                    " host=" + account.host +
+                                                    " ex=" + Log.formatThrowable(last_fail, false);
+                                            if (compensate > 2)
+                                                Log.e(msg);
+                                            EntityLog.log(this, EntityLog.Type.Account, account, msg);
 
-                                        state.setBackoff(backoff * 60);
+                                            state.setBackoff(backoff * 60);
+                                        }
                                     }
                                 }
                             }
+                        } else {
+                            fast_fails = 0;
+                            first_fail = 0;
                         }
-                    } else {
-                        fast_fails = 0;
-                        first_fail = 0;
                     }
 
                     int backoff = state.getBackoff();
                     int recently = (lastLost + LOST_RECENTLY < now ? 1 : 2);
-                    boolean logarithmic_backoff = prefs.getBoolean("logarithmic_backoff", true);
                     EntityLog.log(this, EntityLog.Type.Account, account,
                             account.name + " backoff=" + backoff +
                                     " recently=" + recently + "x" +
                                     " logarithmic=" + logarithmic_backoff);
 
-                    if (!logarithmic_backoff)
-                        backoff = CONNECT_BACKOFF_START;
-
-                    if (backoff < CONNECT_BACKOFF_MAX)
-                        state.setBackoff(backoff * 2);
-                    else if (backoff == CONNECT_BACKOFF_MAX)
-                        if (AlarmManagerCompatEx.hasExactAlarms(this))
-                            state.setBackoff(CONNECT_BACKOFF_INTERMEDIATE * 60);
-                        else
+                    if (logarithmic_backoff) {
+                        if (backoff < CONNECT_BACKOFF_MAX)
+                            state.setBackoff(backoff * 2);
+                        else if (backoff == CONNECT_BACKOFF_MAX)
+                            if (AlarmManagerCompatEx.hasExactAlarms(this))
+                                state.setBackoff(CONNECT_BACKOFF_INTERMEDIATE * 60);
+                            else
+                                state.setBackoff(CONNECT_BACKOFF_ALARM_START * 60);
+                        else if (backoff == CONNECT_BACKOFF_INTERMEDIATE * 60)
                             state.setBackoff(CONNECT_BACKOFF_ALARM_START * 60);
-                    else if (backoff == CONNECT_BACKOFF_INTERMEDIATE * 60)
-                        state.setBackoff(CONNECT_BACKOFF_ALARM_START * 60);
-                    else if (backoff < CONNECT_BACKOFF_ALARM_MAX * 60) {
-                        int b = backoff * 2;
+                        else if (backoff < CONNECT_BACKOFF_ALARM_MAX * 60) {
+                            int b = backoff * 2;
+                            if (b > CONNECT_BACKOFF_ALARM_MAX * 60)
+                                b = CONNECT_BACKOFF_ALARM_MAX * 60;
+                            state.setBackoff(b);
+                        }
+                    } else {
+                        // Linear back-off
+                        int b = backoff + 60;
                         if (b > CONNECT_BACKOFF_ALARM_MAX * 60)
                             b = CONNECT_BACKOFF_ALARM_MAX * 60;
                         state.setBackoff(b);
