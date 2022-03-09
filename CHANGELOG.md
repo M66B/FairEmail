@@ -4,7 +4,7 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next version
+### 1.1854 - 2022-03-09
 
 * Added [Libravatar](https://www.libravatar.org/) support
 * Added some more [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) word lists
