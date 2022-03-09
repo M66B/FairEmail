@@ -3448,7 +3448,7 @@ FairEmail will retry one time after waiting 8 seconds while keeping the device a
 If this fails, FairEmail will schedule an alarm to retry after 5, 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
 
 By temporarily enabling debug mode in the miscellaneous settings, you can disable this logarithmic back-off scheme (since version 1.1855).
-This will result in using a linear back-off scheme, which means that after each failure the wait time will be increased by 1 minute up to 60 minutes.
+This will result in using a linear back-off scheme, which means that after each successive failure the waiting time will be increased by 1 minute up to 60 minutes.
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)
 does not allow to wake the device earlier than after 15 minutes when doze mode is enabled.
