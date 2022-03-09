@@ -141,6 +141,7 @@ public class MessageHelper {
     static final int DEFAULT_DOWNLOAD_SIZE = 4 * 1024 * 1024; // bytes
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
     static final int MAX_SUBJECT_AGE = 48; // hours
+    static final long MAX_THREAD_AGE = 180; // days
 
     static final List<String> RECEIVED_WORDS = Collections.unmodifiableList(Arrays.asList(
             "from", "by", "via", "with", "id", "for"
@@ -1334,10 +1335,10 @@ public class MessageHelper {
         return reportHeaders;
     }
 
-    String getThreadId(Context context, long account, long folder, long uid) throws MessagingException {
+    String getThreadId(Context context, long account, long folder, long uid, long received) throws MessagingException {
         if (threadId == null)
             if (true)
-                threadId = _getThreadIdAlt(context, account, folder, uid);
+                threadId = _getThreadIdAlt(context, account, folder, uid, received);
             else
                 threadId = _getThreadId(context, account, folder, uid);
         return threadId;
@@ -1429,7 +1430,7 @@ public class MessageHelper {
         return thread;
     }
 
-    private String _getThreadIdAlt(Context context, long account, long folder, long uid) throws MessagingException {
+    private String _getThreadIdAlt(Context context, long account, long folder, long uid, long received) throws MessagingException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         if (imessage instanceof GmailMessage) {
@@ -1483,9 +1484,10 @@ public class MessageHelper {
 
         List<String> all = new ArrayList<>(refs);
         all.add(msgid);
+        Long range = (received == 0 ? null : received - MAX_THREAD_AGE * 24 * 3600L);
         List<TupleThreadInfo> infos = (all.size() == 0
                 ? new ArrayList<>()
-                : db.message().getThreadInfo(account, all));
+                : db.message().getThreadInfo(account, all, range));
 
         // References, In-Reply-To (sent before)
         for (TupleThreadInfo info : infos)

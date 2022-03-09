@@ -2909,7 +2909,7 @@ class Core {
                         message.references = TextUtils.join(" ", helper.getReferences());
                         message.inreplyto = helper.getInReplyTo();
                         message.deliveredto = helper.getDeliveredTo();
-                        message.thread = helper.getThreadId(context, account.id, folder.id, 0);
+                        message.thread = helper.getThreadId(context, account.id, folder.id, 0, received);
                         message.priority = helper.getPriority();
                         message.sensitivity = helper.getSensitivity();
                         message.auto_submitted = helper.getAutoSubmitted();
@@ -3807,7 +3807,7 @@ class Core {
                     have = true;
 
                 if (dup.folder.equals(folder.id)) {
-                    String thread = helper.getThreadId(context, account.id, folder.id, uid);
+                    String thread = helper.getThreadId(context, account.id, folder.id, uid, dup.received);
                     Log.i(folder.name + " found as id=" + dup.id +
                             " uid=" + dup.uid + "/" + uid +
                             " msgid=" + msgid + " thread=" + thread);
@@ -3886,7 +3886,7 @@ class Core {
             message.inreplyto = helper.getInReplyTo();
             // Local address contains control or whitespace in string ``mailing list someone@example.org''
             message.deliveredto = helper.getDeliveredTo();
-            message.thread = helper.getThreadId(context, account.id, folder.id, uid);
+            message.thread = helper.getThreadId(context, account.id, folder.id, uid, received);
             if (BuildConfig.DEBUG && message.thread.startsWith("outlook:"))
                 message.warning = message.thread;
             message.priority = helper.getPriority();
