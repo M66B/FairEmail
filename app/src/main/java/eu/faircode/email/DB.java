@@ -2299,9 +2299,6 @@ public abstract class DB extends RoomDatabase {
     }
 
     public static void checkpoint(Context context) {
-        if (!BuildConfig.DEBUG)
-            return;
-
         // https://www.sqlite.org/pragma.html#pragma_wal_checkpoint
         DB db = getInstance(context);
         db.getQueryExecutor().execute(new Runnable() {

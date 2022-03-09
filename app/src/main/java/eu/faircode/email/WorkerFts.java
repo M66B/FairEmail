@@ -59,7 +59,7 @@ public class WorkerFts extends Worker {
             Context context = getApplicationContext();
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean checkpoints = prefs.getBoolean("checkpoints", true);
+            boolean checkpoints = prefs.getBoolean("sqlite_checkpoints", false);
 
             int indexed = 0;
             List<Long> ids = new ArrayList<>(INDEX_BATCH_SIZE);

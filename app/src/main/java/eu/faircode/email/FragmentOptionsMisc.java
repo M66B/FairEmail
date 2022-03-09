@@ -197,7 +197,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "experiments", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "log_level", "test1", "test2", "test3", "test4", "test5",
             "work_manager", // "external_storage",
-            "query_threads", "wal", "checkpoints", "sqlite_analyze", "sqlite_cache",
+            "query_threads", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_cache",
             "chunk_size", "undo_manager", "webview_legacy",
             "use_modseq", "uid_command", "perform_expunge", "uid_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop",
@@ -881,7 +881,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCheckpoints.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("checkpoints", checked).apply();
+                prefs.edit().putBoolean("sqlite_checkpoints", checked).apply();
             }
         });
 
@@ -1602,7 +1602,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         sbRoomQueryThreads.setProgress(query_threads);
 
         swWal.setChecked(prefs.getBoolean("wal", true));
-        swCheckpoints.setChecked(prefs.getBoolean("checkpoints", true));
+        swCheckpoints.setChecked(prefs.getBoolean("sqlite_checkpoints", false));
         swAnalyze.setChecked(prefs.getBoolean("sqlite_analyze", true));
 
         int sqlite_cache = prefs.getInt("sqlite_cache", DB.DEFAULT_CACHE_SIZE);
