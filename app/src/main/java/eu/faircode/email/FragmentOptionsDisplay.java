@@ -1440,7 +1440,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swImagesPlaceholders.setChecked(prefs.getBoolean("image_placeholders", true));
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
         swButtonExtra.setChecked(prefs.getBoolean("button_extra", false));
-        swUnzip.setChecked(prefs.getBoolean("unzip", false));
+        swUnzip.setChecked(prefs.getBoolean("unzip", true));
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swThumbnails.setChecked(prefs.getBoolean("thumbnails", true));
 
