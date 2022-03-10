@@ -701,12 +701,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         List<Long> expanded = values.get("expanded");
                         Log.i("Capture expanded=" + (expanded == null ? null : expanded.size()));
                         if (expanded != null && expanded.size() == 1) {
-                            int pos = adapter.getPositionForKey(expanded.get(0));
+                            long id = expanded.get(0);
+                            int pos = adapter.getPositionForKey(id);
                             Log.i("Capture pos=" + pos);
                             child = llm.findViewByPosition(pos);
                             Log.i("Capture child=" + child);
-                            if (child != null)
-                                rect.set(0, 0, child.getWidth(), child.getHeight());
+                            if (child != null) {
+                                int w = child.getWidth();
+                                int h = child.getHeight();
+                                Log.i("Capture " + w + "x" + h);
+                                rect.set(0, 0, w, h);
+                            }
                         }
                     } catch (Throwable ex) {
                         Log.e(ex);
