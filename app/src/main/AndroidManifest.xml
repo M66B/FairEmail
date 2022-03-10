@@ -377,6 +377,25 @@
         </activity>
 
         <activity
+            android:name=".ActivityDmarc"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:launchMode="singleTask">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:mimeType="text/xml" />
+                <data android:mimeType="application/xml" />
+                <data android:host="*" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".ActivityBilling"
             android:exported="false"
             android:icon="@mipmap/ic_launcher"

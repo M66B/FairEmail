@@ -698,7 +698,8 @@ public class Helper {
                 "message/delivery-status".equals(type) ||
                 "message/disposition-notification".equals(type) ||
                 "text/rfc822-headers".equals(type) ||
-                "text/x-amp-html".equals(type)))
+                "text/x-amp-html".equals(type) ||
+                "text/xml".equals(type) /* DMARC */))
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         if (!TextUtils.isEmpty(name))
