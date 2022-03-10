@@ -94,6 +94,8 @@ import java.util.TimeZone;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
@@ -3372,6 +3374,77 @@ public class MessageHelper {
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
+
+                else if ("application/zip".equals(local.type)) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean unzip = prefs.getBoolean("unzip", false);
+
+                    if (unzip) {
+                        // https://developer.android.com/reference/java/util/zip/ZipInputStream
+                        try (ZipInputStream zis = new ZipInputStream(
+                                new BufferedInputStream(new FileInputStream(local.getFile(context))))) {
+
+                            int subsequence = 1;
+
+                            ZipEntry ze;
+                            while ((ze = zis.getNextEntry()) != null)
+                                try {
+                                    String name = ze.getName();
+                                    long total = ze.getSize();
+
+                                    // isDirectory:
+                                    //   A directory entry is defined to be one whose name ends with a '/'.
+                                    if (ze.isDirectory() ||
+                                            (name != null && name.endsWith("\\"))) {
+                                        Log.i("Zipped folder=" + name);
+                                        continue;
+                                    }
+
+                                    Log.i("Zipped attachment seq=" + local.sequence + ":" + subsequence +
+                                            " " + name + ":" + total);
+
+                                    EntityAttachment entry = new EntityAttachment();
+                                    entry.message = local.message;
+                                    entry.sequence = local.sequence;
+                                    entry.subsequence = subsequence++;
+                                    entry.name = name;
+                                    entry.type = Helper.guessMimeType(entry.name);
+                                    entry.size = total;
+                                    entry.id = db.attachment().insertAttachment(entry);
+
+                                    File efile = entry.getFile(context);
+                                    Log.i("Unzipping to " + efile);
+
+                                    int last = 0;
+                                    long size = 0;
+                                    try (OutputStream os = new FileOutputStream(efile)) {
+                                        byte[] buffer = new byte[Helper.BUFFER_SIZE];
+                                        for (int len = zis.read(buffer); len != -1; len = zis.read(buffer)) {
+                                            size += len;
+                                            os.write(buffer, 0, len);
+
+                                            int progress = (int) (size * 100 / total);
+                                            if (progress / 20 > last / 20) {
+                                                last = progress;
+                                                db.attachment().setProgress(entry.id, progress);
+                                            }
+                                        }
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                        db.attachment().setError(entry.id, Log.formatThrowable(ex));
+                                        db.attachment().setAvailable(entry.id, true); // unrecoverable
+                                    }
+
+                                    db.attachment().setDownloaded(entry.id, efile.length());
+                                } finally {
+                                    zis.closeEntry();
+                                }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                            db.attachment().setError(local.id, Log.formatThrowable(ex));
+                        }
+                    }
+                }
             }
         }
 

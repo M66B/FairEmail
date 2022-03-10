@@ -6,10 +6,11 @@
 
 ### Next version
 
-* Enabled [sqlite analyze](https://sqlite.org/lang_analyze.html)
-* Added [linear back-off scheme](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123)
+* Added option to show contents of zipped attachments
 * Added option to sort reply templates by frequency of use
 * Added basic [DMARC](https://en.wikipedia.org/wiki/DMARC) report viewer
+* Added [linear back-off scheme](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123)
+* Enabled [sqlite analyze](https://sqlite.org/lang_analyze.html)
 * Small improvements and minor bug fixes
 * Updated translations
 

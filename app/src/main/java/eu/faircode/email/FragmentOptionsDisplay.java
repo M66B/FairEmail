@@ -166,6 +166,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swImagesPlaceholders;
     private SwitchCompat swImagesInline;
     private SwitchCompat swButtonExtra;
+    private SwitchCompat swUnzip;
     private SwitchCompat swAttachmentsAlt;
     private SwitchCompat swThumbnails;
 
@@ -197,7 +198,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "message_zoom", "overview_mode", "override_width",
             "display_font", "contrast", "monospaced_pre",
             "background_color", "text_color", "text_size", "text_font", "text_align", "text_separators",
-            "collapse_quotes", "image_placeholders", "inline_images", "button_extra", "attachments_alt", "thumbnails",
+            "collapse_quotes", "image_placeholders", "inline_images", "button_extra",
+            "unzip", "attachments_alt", "thumbnails",
             "bundled_fonts", "parse_classes",
             "authentication", "authentication_indicator"
     };
@@ -314,6 +316,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swImagesPlaceholders = view.findViewById(R.id.swImagesPlaceholders);
         swImagesInline = view.findViewById(R.id.swImagesInline);
         swButtonExtra = view.findViewById(R.id.swButtonExtra);
+        swUnzip = view.findViewById(R.id.swUnzip);
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swThumbnails = view.findViewById(R.id.swThumbnails);
         swBundledFonts = view.findViewById(R.id.swBundledFonts);
@@ -1165,6 +1168,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swUnzip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("unzip", checked).apply();
+            }
+        });
+
         swAttachmentsAlt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1430,6 +1440,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swImagesPlaceholders.setChecked(prefs.getBoolean("image_placeholders", true));
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
         swButtonExtra.setChecked(prefs.getBoolean("button_extra", false));
+        swUnzip.setChecked(prefs.getBoolean("unzip", false));
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swThumbnails.setChecked(prefs.getBoolean("thumbnails", true));
 
