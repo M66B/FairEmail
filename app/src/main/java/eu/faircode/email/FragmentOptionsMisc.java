@@ -145,6 +145,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SeekBar sbSqliteCache;
     private TextView tvChunkSize;
     private SeekBar sbChunkSize;
+    private TextView tvThreadRange;
+    private SeekBar sbThreadRange;
     private ImageButton ibSqliteCache;
     private SwitchCompat swUndoManager;
     private SwitchCompat swWebViewLegacy;
@@ -198,7 +200,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "protocol", "debug", "log_level", "test1", "test2", "test3", "test4", "test5",
             "work_manager", // "external_storage",
             "query_threads", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_cache",
-            "chunk_size", "undo_manager", "webview_legacy",
+            "chunk_size", "thread_range", "undo_manager", "webview_legacy",
             "use_modseq", "uid_command", "perform_expunge", "uid_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop",
             "keep_alive_poll", "empty_pool", "idle_done", "logarithmic_backoff",
@@ -301,6 +303,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibSqliteCache = view.findViewById(R.id.ibSqliteCache);
         tvChunkSize = view.findViewById(R.id.tvChunkSize);
         sbChunkSize = view.findViewById(R.id.sbChunkSize);
+        tvThreadRange = view.findViewById(R.id.tvThreadRange);
+        sbThreadRange = view.findViewById(R.id.sbThreadRange);
         swUndoManager = view.findViewById(R.id.swUndoManager);
         swWebViewLegacy = view.findViewById(R.id.swWebViewLegacy);
         swModSeq = view.findViewById(R.id.swModSeq);
@@ -925,6 +929,23 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     progress = 1;
                 progress = progress * 10;
                 prefs.edit().putInt("chunk_size", progress).apply();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+        });
+
+        sbThreadRange.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putInt("thread_range", progress).apply();
             }
 
             @Override
@@ -1617,6 +1638,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         int chunk_size = prefs.getInt("chunk_size", Core.DEFAULT_CHUNK_SIZE);
         tvChunkSize.setText(getString(R.string.title_advanced_chunk_size, chunk_size));
         sbChunkSize.setProgress(chunk_size);
+
+        int thread_range = prefs.getInt("thread_range", MessageHelper.DEFAULT_THREAD_RANGE);
+        int range = (int) Math.pow(2, thread_range);
+        tvThreadRange.setText(getString(R.string.title_advanced_thread_range, range));
+        sbThreadRange.setProgress(thread_range);
 
         swUndoManager.setChecked(prefs.getBoolean("undo_manager", false));
         swWebViewLegacy.setChecked(prefs.getBoolean("webview_legacy", false));

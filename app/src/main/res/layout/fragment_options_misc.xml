@@ -877,6 +877,29 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvChunkSize" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvThreadRange"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_thread_range"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbChunkSize" />
+
+                <SeekBar
+                    android:id="@+id/sbThreadRange"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:max="10"
+                    android:min="0"
+                    android:progress="7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvThreadRange" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swUndoManager"
                     android:layout_width="0dp"
@@ -886,7 +909,7 @@
                     android:text="@string/title_advanced_undo_manager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sbChunkSize"
+                    app:layout_constraintTop_toBottomOf="@id/sbThreadRange"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
