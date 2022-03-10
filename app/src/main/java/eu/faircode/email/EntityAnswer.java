@@ -167,18 +167,35 @@ public class EntityAnswer implements Serializable {
         boolean grouped = BuildConfig.DEBUG;
 
         int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
+        NumberFormat NF = NumberFormat.getNumberInstance();
 
         List<EntityAnswer> favorites = new ArrayList<>();
-        List<String> groups = new ArrayList<>();
+        Map<String, Integer> groupApplied = new HashMap<>();
         for (EntityAnswer answer : answers)
             if (compose && answer.favorite)
                 favorites.add(answer);
-            else if (answer.group != null && !groups.contains(answer.group))
-                groups.add(answer.group);
+            else if (answer.group != null) {
+                Integer total = groupApplied.get(answer.group);
+                if (total == null)
+                    total = 0;
+                groupApplied.put(answer.group, total + answer.applied);
+            }
 
         Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-        Collections.sort(groups, collator);
+
+        List<String> groups = new ArrayList<>(groupApplied.keySet());
+        Collections.sort(groups, new Comparator<String>() {
+            @Override
+            public int compare(String g1, String g2) {
+                Integer a1 = groupApplied.get(g1);
+                Integer a2 = groupApplied.get(g2);
+                if (!grouped || a1.equals(a2))
+                    return collator.compare(g1, g2);
+                else
+                    return -a1.compareTo(a2);
+            }
+        });
 
         Collections.sort(answers, new Comparator<EntityAnswer>() {
             @Override
@@ -200,10 +217,20 @@ public class EntityAnswer implements Serializable {
         int order = 0;
 
         Map<String, SubMenu> map = new HashMap<>();
-        for (String group : groups)
-            map.put(group, main.addSubMenu(Menu.NONE, order, order++, group));
+        for (String group : groups) {
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(group);
 
-        NumberFormat NF = NumberFormat.getNumberInstance();
+            int total = groupApplied.get(group);
+            if (grouped && total > 0) {
+                int start = ssb.length();
+                ssb.append(" (").append(NF.format(total)).append(")");
+                ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
+                        start, ssb.length(), 0);
+            }
+
+            map.put(group, main.addSubMenu(Menu.NONE, order, order++, ssb));
+        }
+
         for (EntityAnswer answer : answers) {
             if (compose && answer.favorite)
                 continue;
