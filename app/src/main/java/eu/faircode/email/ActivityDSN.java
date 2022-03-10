@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spanned;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
@@ -49,12 +50,16 @@ public class ActivityDSN extends ActivityBase {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle("DSN");
-        setContentView(R.layout.activity_dsn);
+
+        View view = LayoutInflater.from(this).inflate(R.layout.activity_dsn, null);
+        setContentView(view);
 
         tvHeaders = findViewById(R.id.tvHeaders);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
 
+        // Initialize
+        FragmentDialogTheme.setBackground(this, view, false);
         grpReady.setVisibility(View.GONE);
 
         load();
