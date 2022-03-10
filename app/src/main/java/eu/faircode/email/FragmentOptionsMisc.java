@@ -93,6 +93,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private SwitchCompat swPowerMenu;
     private SwitchCompat swExternalSearch;
+    private SwitchCompat swSortAnswers;
     private SwitchCompat swExternalAnswer;
     private SwitchCompat swShortcuts;
     private SwitchCompat swFts;
@@ -192,7 +193,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static long MIN_FILE_SIZE = 1024 * 1024L;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "shortcuts", "fts",
+            "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
             "language", "deepl_enabled", "watchdog",
             "updates", "weekly", "show_changelog",
@@ -250,6 +251,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swPowerMenu = view.findViewById(R.id.swPowerMenu);
         swExternalSearch = view.findViewById(R.id.swExternalSearch);
+        swSortAnswers = view.findViewById(R.id.swSortAnswers);
         swExternalAnswer = view.findViewById(R.id.swExternalAnswer);
         swShortcuts = view.findViewById(R.id.swShortcuts);
         swFts = view.findViewById(R.id.swFts);
@@ -362,6 +364,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 Helper.enableComponent(getContext(), ActivitySearch.class, checked);
+            }
+        });
+
+        swSortAnswers.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sort_answers", checked).apply();
             }
         });
 
@@ -1558,6 +1567,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
 
+        swSortAnswers.setChecked(prefs.getBoolean("sort_answers", false));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
             swPowerMenu.setChecked(Helper.isComponentEnabled(getContext(), ServicePowerControl.class));
         swExternalSearch.setChecked(Helper.isComponentEnabled(getContext(), ActivitySearch.class));

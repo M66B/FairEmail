@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -37,6 +38,7 @@ import android.view.SubMenu;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.MenuCompat;
+import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -164,7 +166,8 @@ public class EntityAnswer implements Serializable {
     }
 
     static void fillMenu(Menu main, boolean compose, List<EntityAnswer> answers, Context context) {
-        boolean grouped = BuildConfig.DEBUG;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean sort_answers = prefs.getBoolean("sort_answers", false);
 
         int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
         NumberFormat NF = NumberFormat.getNumberInstance();
@@ -190,7 +193,7 @@ public class EntityAnswer implements Serializable {
             public int compare(String g1, String g2) {
                 Integer a1 = groupApplied.get(g1);
                 Integer a2 = groupApplied.get(g2);
-                if (!grouped || a1.equals(a2))
+                if (!sort_answers || a1.equals(a2))
                     return collator.compare(g1, g2);
                 else
                     return -a1.compareTo(a2);
@@ -200,7 +203,7 @@ public class EntityAnswer implements Serializable {
         Collections.sort(answers, new Comparator<EntityAnswer>() {
             @Override
             public int compare(EntityAnswer a1, EntityAnswer a2) {
-                if (!grouped || a1.applied.equals(a2.applied))
+                if (!sort_answers || a1.applied.equals(a2.applied))
                     return collator.compare(a1.name, a2.name);
                 else
                     return -a1.applied.compareTo(a2.applied);
@@ -221,7 +224,7 @@ public class EntityAnswer implements Serializable {
             SpannableStringBuilder ssb = new SpannableStringBuilderEx(group);
 
             int total = groupApplied.get(group);
-            if (grouped && total > 0) {
+            if (sort_answers && total > 0) {
                 int start = ssb.length();
                 ssb.append(" (").append(NF.format(total)).append(")");
                 ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
@@ -247,7 +250,7 @@ public class EntityAnswer implements Serializable {
                 ssb.setSpan(imageSpan, 0, 1, 0);
             }
 
-            if (grouped && answer.applied > 0) {
+            if (sort_answers && answer.applied > 0) {
                 int start = ssb.length();
                 ssb.append(" (").append(NF.format(answer.applied)).append(")");
                 ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
@@ -349,7 +352,7 @@ public class EntityAnswer implements Serializable {
                     .setIntent(new Intent().putExtra("id", answer.id));
         }
 
-        if (grouped)
+        if (sort_answers)
             MenuCompat.setGroupDividerEnabled(main, true);
     }
 

@@ -86,6 +86,18 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swSortAnswers"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:tag="nosuggest"
+                    android:text="@string/title_advanced_sort_answers"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swExternalSearch"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swExternalAnswer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -94,7 +106,7 @@
                     android:text="@string/title_advanced_external_answer"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swExternalSearch"
+                    app:layout_constraintTop_toBottomOf="@id/swSortAnswers"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
