@@ -9,7 +9,7 @@
 * Enabled [sqlite analyze](https://sqlite.org/lang_analyze.html)
 * Added [linear back-off scheme](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123)
 * Added option to sort reply templates by frequency of use
-* Added basic DMARC report viewer
+* Added basic [DMARC](https://en.wikipedia.org/wiki/DMARC) report viewer
 * Small improvements and minor bug fixes
 * Updated translations
 
