@@ -205,6 +205,8 @@ public class ActivityDmarc extends ActivityBase {
                                     eventType = xml.next();
                                     if (eventType == XmlPullParser.TEXT) {
                                         String text = xml.getText();
+                                        if (text == null)
+                                            text = "<null>";
                                         if ("begin".equals(name) || "end".equals(name)) {
                                             text = text.trim();
                                             try {
@@ -224,8 +226,12 @@ public class ActivityDmarc extends ActivityBase {
                             case "domain":
                                 if (feedback && (policy_published || auth_results)) {
                                     eventType = xml.next();
-                                    if (eventType == XmlPullParser.TEXT)
-                                        ssb.append(xml.getText()).append(' ');
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        String text = xml.getText();
+                                        if (text == null)
+                                            text = "<null>";
+                                        ssb.append(text).append(' ');
+                                    }
                                 }
                                 break;
                             case "adkim":
@@ -233,11 +239,16 @@ public class ActivityDmarc extends ActivityBase {
                             case "p":
                             case "sp":
                             case "pct":
+                            case "fo":
                                 if (feedback && policy_published) {
                                     eventType = xml.next();
-                                    if (eventType == XmlPullParser.TEXT)
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        String text = xml.getText();
+                                        if (text == null)
+                                            text = "<null>";
                                         ssb.append(name).append('=')
-                                                .append(xml.getText()).append(' ');
+                                                .append(text).append(' ');
+                                    }
                                 }
                                 break;
                             case "source_ip":
@@ -245,8 +256,11 @@ public class ActivityDmarc extends ActivityBase {
                                 if (feedback && record && row) {
                                     eventType = xml.next();
                                     if (eventType == XmlPullParser.TEXT) {
+                                        String text = xml.getText();
+                                        if (text == null)
+                                            text = "<null>";
                                         ssb.append(name).append('=')
-                                                .append(xml.getText()).append(' ');
+                                                .append(text).append(' ');
                                     }
                                 }
                                 break;
@@ -254,6 +268,8 @@ public class ActivityDmarc extends ActivityBase {
                             case "dkim":
                             case "spf":
                             case "header_from":
+                            case "envelope_from":
+                            case "envelope_to":
                                 if (feedback && record)
                                     if (policy_evaluated || identifiers) {
                                         eventType = xml.next();
@@ -261,8 +277,10 @@ public class ActivityDmarc extends ActivityBase {
                                             ssb.append(name).append('=');
                                             int start = ssb.length();
                                             String text = xml.getText();
+                                            if (text == null)
+                                                text = "<null>";
                                             ssb.append(text);
-                                            if (!"pass".equals(text) &&
+                                            if (!"pass".equals(text.toLowerCase(Locale.ROOT)) &&
                                                     ("dkim".equals(name) || "spf".equals(name))) {
                                                 ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
                                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
@@ -279,8 +297,10 @@ public class ActivityDmarc extends ActivityBase {
                                         ssb.append(result == null ? "?" : result).append('=');
                                         int start = ssb.length();
                                         String text = xml.getText();
+                                        if (text == null)
+                                            text = "<null>";
                                         ssb.append(text);
-                                        if (!"pass".equals(text)) {
+                                        if (!"pass".equals(text.toLowerCase(Locale.ROOT))) {
                                             ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
                                             ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
                                         }
@@ -292,9 +312,13 @@ public class ActivityDmarc extends ActivityBase {
                             case "scope":
                                 if (feedback && auth_results) {
                                     eventType = xml.next();
-                                    if (eventType == XmlPullParser.TEXT)
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        String text = xml.getText();
+                                        if (text == null)
+                                            text = "<null>";
                                         ssb.append(name).append('=')
-                                                .append(xml.getText()).append(' ');
+                                                .append(text).append(' ');
+                                    }
                                 }
                                 break;
                         }
@@ -380,11 +404,8 @@ public class ActivityDmarc extends ActivityBase {
 
             @Override
             protected void onException(Bundle args, @NonNull Throwable ex) {
-                if (ex instanceof IllegalArgumentException && !BuildConfig.DEBUG)
-                    Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG)
-                            .setGestureInsetBottomIgnored(true).show();
-                else
-                    Log.unexpectedError(getSupportFragmentManager(), ex, false);
+                tvDmarc.setText(ex + "\n" + android.util.Log.getStackTraceString(ex));
+                grpReady.setVisibility(View.VISIBLE);
             }
         }.execute(this, args, "dmarc:decode");
     }
