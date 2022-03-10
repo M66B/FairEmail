@@ -96,9 +96,9 @@ public class EditTextCompose extends FixedEditText {
                             menu.add(Menu.CATEGORY_SECONDARY, R.string.title_undo, 1001, getTitle(R.string.title_undo));
                         if (undo_manager && can(android.R.id.redo))
                             menu.add(Menu.CATEGORY_SECONDARY, R.string.title_redo, 1002, getTitle(R.string.title_redo));
-                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_line, 1003, R.string.title_insert_line);
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_line, 1003, context.getString(R.string.title_insert_line));
                         if (BuildConfig.DEBUG)
-                            menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_arrow, 1004, R.string.title_insert_arrow);
+                            menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_arrow, 1004, context.getString(R.string.title_insert_arrow));
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
