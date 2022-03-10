@@ -4,6 +4,13 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### Next version
+
+* Enabled [sqlite analyze](https://sqlite.org/lang_analyze.html)
+* Added [linear back-off scheme](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1854 - 2022-03-09
 
 * Added [Libravatar](https://www.libravatar.org/) support
