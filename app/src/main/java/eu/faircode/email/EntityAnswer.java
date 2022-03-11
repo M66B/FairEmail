@@ -126,6 +126,12 @@ public class EntityAnswer implements Serializable {
                 if (c > 0) {
                     first = fullName.substring(0, c).trim();
                     last = fullName.substring(c + 1).trim();
+                } else {
+                    c = fullName.indexOf('@');
+                    if (c > 0) {
+                        first = fullName.substring(0, c).trim();
+                        last = null;
+                    }
                 }
             }
         }
