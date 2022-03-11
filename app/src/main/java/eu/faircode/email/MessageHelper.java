@@ -52,6 +52,7 @@ import com.sun.mail.util.MessageRemovedIOException;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveStreamFactory;
+import org.apache.commons.compress.archivers.zip.UnsupportedZipFeatureException;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -3528,7 +3529,11 @@ public class MessageHelper {
                                 }
                             } catch (Throwable ex) {
                                 Log.e(ex);
-                                db.attachment().setWarning(local.id, Log.formatThrowable(ex));
+                                // Unsupported feature encryption used in entry ...
+                                if (ex instanceof UnsupportedZipFeatureException)
+                                    db.attachment().setWarning(local.id, ex.getMessage());
+                                else
+                                    db.attachment().setWarning(local.id, Log.formatThrowable(ex));
                             }
                 }
             }
