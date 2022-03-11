@@ -34,6 +34,8 @@ import android.view.textclassifier.TextClassifier;
 import androidx.annotation.RequiresApi;
 import androidx.preference.PreferenceManager;
 
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -49,6 +51,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 
 public class TextHelper {
     private static final int MAX_DETECT_SAMPLE_SIZE = 8192;
@@ -204,6 +213,24 @@ public class TextHelper {
         } catch (Throwable ex) {
             Log.e(ex);
             return null;
+        }
+    }
+
+    public static String formatXml(String xml, int indent) {
+        try {
+            Source source = new StreamSource(new StringReader(xml));
+            StringWriter writer = new StringWriter();
+            StreamResult result = new StreamResult(writer);
+            TransformerFactory factory = TransformerFactory.newInstance();
+            Transformer transformer = factory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", Integer.toString(indent));
+            transformer.transform(source, result);
+            return result.getWriter().toString();
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return xml;
         }
     }
 

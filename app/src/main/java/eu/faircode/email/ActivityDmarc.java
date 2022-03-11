@@ -389,7 +389,7 @@ public class ActivityDmarc extends ActivityBase {
                 ssb.append("\n");
 
                 int start = ssb.length();
-                ssb.append(data);
+                ssb.append(TextHelper.formatXml(data, 2));
                 ssb.setSpan(new TypefaceSpan("monospace"), start, ssb.length(), 0);
                 ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
 
