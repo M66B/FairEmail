@@ -3441,7 +3441,7 @@ public class MessageHelper {
                                 }
                         } catch (Throwable ex) {
                             Log.e(ex);
-                            db.attachment().setError(local.id, Log.formatThrowable(ex));
+                            db.attachment().setWarning(local.id, Log.formatThrowable(ex));
                         }
                     }
                 }
