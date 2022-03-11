@@ -1489,8 +1489,8 @@ public class MessageHelper {
 
         int thread_range = prefs.getInt("thread_range", MessageHelper.DEFAULT_THREAD_RANGE);
         int range = (int) Math.pow(2, thread_range);
-        Long start = (received == 0 ? null : received - range * 24 * 3600L);
-        Long end = (received == 0 ? null : received + range * 24 * 3600L);
+        Long start = (received == 0 ? null : received - range * 24 * 3600 * 1000L);
+        Long end = (received == 0 ? null : received + range * 24 * 3600 * 1000L);
 
         List<TupleThreadInfo> infos = (all.size() == 0
                 ? new ArrayList<>()
