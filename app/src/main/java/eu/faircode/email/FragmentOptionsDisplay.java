@@ -1412,7 +1412,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPreview.setChecked(prefs.getBoolean("preview", false));
         swPreviewItalic.setChecked(prefs.getBoolean("preview_italic", true));
         swPreviewItalic.setEnabled(swPreview.isChecked());
-        spPreviewLines.setSelection(prefs.getInt("preview_lines", 2) - 1);
+        spPreviewLines.setSelection(prefs.getInt("preview_lines", 1) - 1);
         spPreviewLines.setEnabled(swPreview.isChecked());
 
         swAddresses.setChecked(prefs.getBoolean("addresses", false));

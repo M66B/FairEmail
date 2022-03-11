@@ -597,6 +597,9 @@ public class ApplicationEx extends Application
         } else if (version < 1847) {
             if (Helper.isAccessibilityEnabled(context))
                 editor.putBoolean("send_chips", false);
+        } else if (version < 1855) {
+            if (!prefs.contains("preview_lines"))
+                editor.putInt("preview_lines", 2);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
