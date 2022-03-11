@@ -3386,6 +3386,7 @@ public class MessageHelper {
                     }
 
                 else if (local.isCompressed()) {
+                    // https://commons.apache.org/proper/commons-compress/examples.html
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean unzip = prefs.getBoolean("unzip", true);
 
