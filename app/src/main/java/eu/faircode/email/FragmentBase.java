@@ -573,41 +573,42 @@ public class FragmentBase extends Fragment {
                 DB db = DB.getInstance(context);
                 DocumentFile tree = DocumentFile.fromTreeUri(context, uri);
                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                for (EntityAttachment attachment : attachments) {
-                    File file = attachment.getFile(context);
+                for (EntityAttachment attachment : attachments)
+                    if (attachment.subsequence == null) {
+                        File file = attachment.getFile(context);
 
-                    String name = Helper.sanitizeFilename(attachment.name);
-                    if (TextUtils.isEmpty(name))
-                        name = Long.toString(attachment.id);
-                    DocumentFile document = tree.createFile(attachment.getMimeType(), name);
-                    if (document == null)
-                        throw new FileNotFoundException("Could not save " + uri + ":" + name);
+                        String name = Helper.sanitizeFilename(attachment.name);
+                        if (TextUtils.isEmpty(name))
+                            name = Long.toString(attachment.id);
+                        DocumentFile document = tree.createFile(attachment.getMimeType(), name);
+                        if (document == null)
+                            throw new FileNotFoundException("Could not save " + uri + ":" + name);
 
-                    OutputStream os = null;
-                    InputStream is = null;
-                    try {
-                        os = context.getContentResolver().openOutputStream(document.getUri());
-                        is = new FileInputStream(file);
-
-                        byte[] buffer = new byte[Helper.BUFFER_SIZE];
-                        int read;
-                        while ((read = is.read(buffer)) != -1)
-                            os.write(buffer, 0, read);
-                    } finally {
+                        OutputStream os = null;
+                        InputStream is = null;
                         try {
-                            if (os != null)
-                                os.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                        try {
-                            if (is != null)
-                                is.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
+                            os = context.getContentResolver().openOutputStream(document.getUri());
+                            is = new FileInputStream(file);
+
+                            byte[] buffer = new byte[Helper.BUFFER_SIZE];
+                            int read;
+                            while ((read = is.read(buffer)) != -1)
+                                os.write(buffer, 0, read);
+                        } finally {
+                            try {
+                                if (os != null)
+                                    os.close();
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
+                            try {
+                                if (is != null)
+                                    is.close();
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
                         }
                     }
-                }
 
                 return null;
             }

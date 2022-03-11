@@ -3062,28 +3062,36 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_inline = properties.getValue("inline", message.id);
             Log.i("Show inline=" + show_inline);
 
-            boolean has_inline = false;
-            int download = 0;
-            boolean save = (attachments.size() > 1);
+            int available = 0;
+            int unavailable = 0;
+            int downloadable = 0;
             boolean downloading = false;
+            boolean has_inline = false;
             EntityAttachment calendar = null;
 
-            List<EntityAttachment> a = new ArrayList<>();
+            List<EntityAttachment> show = new ArrayList<>();
             for (EntityAttachment attachment : attachments) {
+                if (attachment.subsequence == null) {
+                    if (attachment.available)
+                        available++;
+                    else
+                        unavailable++;
+
+                    if (attachment.progress == null) {
+                        if (!attachment.available)
+                            downloadable++;
+                    } else
+                        downloading = true;
+                }
+
                 boolean inline = (attachment.isEncryption() ||
                         "text/x-amp-html".equals(attachment.type) ||
                         (attachment.isInline() && attachment.isImage()));
                 if (inline && attachment.available)
                     has_inline = true;
-                if (attachment.progress == null && !attachment.available)
-                    download++;
-                if (!attachment.available)
-                    save = false;
-                if (attachment.progress != null)
-                    downloading = true;
 
                 if (show_inline || !inline || !attachment.available)
-                    a.add(attachment);
+                    show.add(attachment);
 
                 if (attachment.available &&
                         "text/calendar".equals(attachment.getMimeType()))
@@ -3094,7 +3102,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void run() {
                     try {
-                        adapterAttachment.set(a);
+                        adapterAttachment.set(show);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
@@ -3108,8 +3116,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbInline.setChecked(show_inline);
             cbInline.setVisibility(has_inline ? View.VISIBLE : View.GONE);
 
-            ibSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
-            ibDownloadAttachments.setVisibility(download > 1 && suitable ? View.VISIBLE : View.GONE);
+            ibSaveAttachments.setVisibility(available > 1 && unavailable == 0 ? View.VISIBLE : View.GONE);
+            ibDownloadAttachments.setVisibility(downloadable > 1 && suitable ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(downloading && !suitable ? View.VISIBLE : View.GONE);
 
             cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
