@@ -3386,7 +3386,7 @@ public class MessageHelper {
 
                 else if (local.isCompressed()) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean unzip = prefs.getBoolean("unzip", false);
+                    boolean unzip = prefs.getBoolean("unzip", true);
 
                     if (unzip)
                         if (local.isGzip() && !local.isTarGzip())
