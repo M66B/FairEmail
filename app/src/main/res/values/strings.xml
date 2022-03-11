@@ -508,7 +508,7 @@
     <string name="title_advanced_preview_italic">Show message preview in italics</string>
     <string name="title_advanced_preview_lines">Number of preview lines</string>
     <string name="title_advanced_addresses">Expand address details by default</string>
-    <string name="title_advanced_unzip">Show contents of zipped attachments</string>
+    <string name="title_advanced_unzip">Show contents of compressed attachments</string>
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_thumbnails">Show image thumbnails after the message text</string>
     <string name="title_advanced_message_text_zoom2">Default message text zoom: %1$s %%</string>
@@ -808,7 +808,7 @@
     <string name="title_advanced_monospaced_pre_hint">Plain text only messages will be considered as preformatted</string>
     <string name="title_advanced_placeholders_hint">This applies to reformatted messages only</string>
     <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
-    <string name="title_advanced_unzip_hint">The contents of zip files with more than %1$s files or with files larger than %2$s will not be shown</string>
+    <string name="compressed">The contents of compressed files (%1$s) with more than %2$s files or with files larger than %3$s will not be shown</string>
     <string name="title_advanced_parse_classes_hint">This will more accurately display messages, but possibly with a delay</string>
 
     <string name="title_advanced_language_detection_hint">Language detection support depends on the device manufacturer</string>

@@ -28,6 +28,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -1177,7 +1178,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        tvUnzipHint.setText(getString(R.string.title_advanced_unzip_hint,
+        tvUnzipHint.setText(getString(R.string.compressed,
+                TextUtils.join(",", MessageHelper.UNZIP_FORMATS),
                 Integer.toString(MessageHelper.MAX_UNZIP_COUNT),
                 Helper.humanReadableByteCount(MessageHelper.MAX_UNZIP_SIZE)));
 
