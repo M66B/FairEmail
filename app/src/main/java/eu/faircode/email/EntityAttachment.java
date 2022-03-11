@@ -100,6 +100,39 @@ public class EntityAttachment {
         return ImageHelper.isImage(getMimeType());
     }
 
+    boolean isCompressed() {
+        if ("application/zip".equals(type))
+            return true;
+        if ("application/gzip".equals(type) && !BuildConfig.PLAY_STORE_RELEASE)
+            return true;
+
+        String extension = Helper.getExtension(name);
+        if ("zip".equals(extension))
+            return true;
+        if ("gz".equals(extension) && !BuildConfig.PLAY_STORE_RELEASE)
+            return true;
+
+        return false;
+    }
+
+    boolean isGzip() {
+        if (BuildConfig.PLAY_STORE_RELEASE)
+            return false;
+
+        if ("application/gzip".equals(type))
+            return true;
+
+        String extension = Helper.getExtension(name);
+        if ("gz".equals(extension))
+            return true;
+
+        return false;
+    }
+
+    boolean isTarGzip() {
+        return (name != null && name.endsWith(".tar.gz"));
+    }
+
     boolean isEncryption() {
         if ("application/pkcs7-mime".equals(type))
             return true;

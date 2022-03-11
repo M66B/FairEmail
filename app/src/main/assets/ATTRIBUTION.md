@@ -41,3 +41,4 @@ FairEmail uses:
 * [Cousine font](https://fonts.google.com/specimen/Cousine). By Steve Matteson. [Apache License 2.0](https://fonts.google.com/specimen/Cousine#license).
 * [Lato font](https://fonts.google.com/specimen/Lato). By Łukasz Dziedzic. [Apache License 2.0](https://fonts.google.com/specimen/Lato#license).
 * [Caladea font](https://fonts.google.com/specimen/Caladea). By Andrés Torresi, Carolina Giovanolli. [Apache License 2.0](https://fonts.google.com/specimen/Caladea#license).
+* [Apache Commons Compress](https://commons.apache.org/proper/commons-compress/). Copyright © 2002-2021 The Apache Software Foundation. All Rights Reserved. [Apache License 2.0](https://www.apache.org/licenses/).

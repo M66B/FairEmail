@@ -167,6 +167,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swImagesInline;
     private SwitchCompat swButtonExtra;
     private SwitchCompat swUnzip;
+    private TextView tvUnzipHint;
     private SwitchCompat swAttachmentsAlt;
     private SwitchCompat swThumbnails;
 
@@ -317,6 +318,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swImagesInline = view.findViewById(R.id.swImagesInline);
         swButtonExtra = view.findViewById(R.id.swButtonExtra);
         swUnzip = view.findViewById(R.id.swUnzip);
+        tvUnzipHint = view.findViewById(R.id.tvUnzipHint);
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swThumbnails = view.findViewById(R.id.swThumbnails);
         swBundledFonts = view.findViewById(R.id.swBundledFonts);
@@ -1174,6 +1176,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 prefs.edit().putBoolean("unzip", checked).apply();
             }
         });
+
+        tvUnzipHint.setText(getString(R.string.title_advanced_unzip_hint, MessageHelper.MAX_UNZIP));
 
         swAttachmentsAlt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

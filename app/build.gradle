@@ -376,6 +376,7 @@ dependencies {
     def reactivestreams_version = "1.0.3"
     def rxjava2_version = "2.2.21"
     def svg_version = "1.4"
+    def compress_version = "1.21"
 
     // https://developer.android.com/jetpack/androidx/releases/startup
     implementation "androidx.startup:startup-runtime:$startup_version"
@@ -572,4 +573,8 @@ dependencies {
 
     // http://bigbadaboom.github.io/androidsvg/
     implementation "com.caverock:androidsvg:$svg_version"
+
+    // https://commons.apache.org/proper/commons-compress/
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-compress
+    implementation "org.apache.commons:commons-compress:$compress_version"
 }

@@ -49,6 +49,11 @@ import com.sun.mail.util.BASE64DecoderStream;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
 
+import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.apache.commons.compress.archivers.ArchiveException;
+import org.apache.commons.compress.archivers.ArchiveInputStream;
+import org.apache.commons.compress.archivers.ArchiveStreamFactory;
+import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -144,6 +149,7 @@ public class MessageHelper {
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
     static final int MAX_SUBJECT_AGE = 48; // hours
     static final int DEFAULT_THREAD_RANGE = 7; // 2^7 = 128 days
+    static final int MAX_UNZIP = 10;
 
     static final List<String> RECEIVED_WORDS = Collections.unmodifiableList(Arrays.asList(
             "from", "by", "via", "with", "id", "for"
@@ -3373,77 +3379,146 @@ public class MessageHelper {
                             }
                     } catch (Throwable ex) {
                         Log.e(ex);
+                        db.attachment().setWarning(local.id, Log.formatThrowable(ex));
                     }
 
-                else if ("application/zip".equals(local.type)) {
+                else if (local.isCompressed()) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean unzip = prefs.getBoolean("unzip", false);
 
-                    if (unzip) {
-                        // https://developer.android.com/reference/java/util/zip/ZipInputStream
-                        try (ZipInputStream zis = new ZipInputStream(
-                                new BufferedInputStream(new FileInputStream(local.getFile(context))))) {
+                    if (unzip)
+                        if (local.isGzip() && !local.isTarGzip())
+                            try (GzipCompressorInputStream gzip = new GzipCompressorInputStream(
+                                    new BufferedInputStream(new FileInputStream(local.getFile(context))))) {
+                                String name = gzip.getMetaData().getFilename();
+                                long total = gzip.getUncompressedCount();
 
-                            int subsequence = 1;
+                                Log.i("Gzipped attachment seq=" + local.sequence + " " + name + ":" + total);
 
-                            ZipEntry ze;
-                            while ((ze = zis.getNextEntry()) != null)
-                                try {
-                                    String name = ze.getName();
-                                    long total = ze.getSize();
+                                if (name == null &&
+                                        local.name != null && local.name.endsWith(".gz"))
+                                    name = local.name.substring(0, local.name.length() - 3);
 
-                                    // isDirectory:
-                                    //   A directory entry is defined to be one whose name ends with a '/'.
-                                    if (ze.isDirectory() ||
-                                            (name != null && name.endsWith("\\"))) {
-                                        Log.i("Zipped folder=" + name);
-                                        continue;
-                                    }
+                                EntityAttachment attachment = new EntityAttachment();
+                                attachment.message = local.message;
+                                attachment.sequence = local.sequence;
+                                attachment.subsequence = 1;
+                                attachment.name = name;
+                                attachment.type = Helper.guessMimeType(name);
+                                if (total >= 0)
+                                    attachment.size = total;
+                                attachment.id = db.attachment().insertAttachment(attachment);
 
-                                    Log.i("Zipped attachment seq=" + local.sequence + ":" + subsequence +
-                                            " " + name + ":" + total);
+                                File efile = attachment.getFile(context);
+                                Log.i("Gunzipping to " + efile);
 
-                                    EntityAttachment entry = new EntityAttachment();
-                                    entry.message = local.message;
-                                    entry.sequence = local.sequence;
-                                    entry.subsequence = subsequence++;
-                                    entry.name = name;
-                                    entry.type = Helper.guessMimeType(entry.name);
-                                    entry.size = total;
-                                    entry.id = db.attachment().insertAttachment(entry);
+                                int last = 0;
+                                long size = 0;
+                                try (OutputStream os = new FileOutputStream(efile)) {
+                                    byte[] buffer = new byte[Helper.BUFFER_SIZE];
+                                    for (int len = gzip.read(buffer); len != -1; len = gzip.read(buffer)) {
+                                        size += len;
+                                        os.write(buffer, 0, len);
 
-                                    File efile = entry.getFile(context);
-                                    Log.i("Unzipping to " + efile);
-
-                                    int last = 0;
-                                    long size = 0;
-                                    try (OutputStream os = new FileOutputStream(efile)) {
-                                        byte[] buffer = new byte[Helper.BUFFER_SIZE];
-                                        for (int len = zis.read(buffer); len != -1; len = zis.read(buffer)) {
-                                            size += len;
-                                            os.write(buffer, 0, len);
-
+                                        if (total > 0) {
                                             int progress = (int) (size * 100 / total);
                                             if (progress / 20 > last / 20) {
                                                 last = progress;
-                                                db.attachment().setProgress(entry.id, progress);
+                                                db.attachment().setProgress(attachment.id, progress);
                                             }
                                         }
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
-                                        db.attachment().setError(entry.id, Log.formatThrowable(ex));
-                                        db.attachment().setAvailable(entry.id, true); // unrecoverable
                                     }
-
-                                    db.attachment().setDownloaded(entry.id, efile.length());
-                                } finally {
-                                    zis.closeEntry();
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                    db.attachment().setError(attachment.id, Log.formatThrowable(ex));
+                                    db.attachment().setAvailable(attachment.id, true); // unrecoverable
                                 }
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                            db.attachment().setWarning(local.id, Log.formatThrowable(ex));
-                        }
-                    }
+
+                                db.attachment().setDownloaded(attachment.id, efile.length());
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                                db.attachment().setWarning(local.id, Log.formatThrowable(ex));
+                            }
+                        else
+                            try (FileInputStream fis = new FileInputStream(local.getFile(context))) {
+                                ArchiveInputStream ais = new ArchiveStreamFactory().createArchiveInputStream(
+                                        new BufferedInputStream(local.isTarGzip() ? new GzipCompressorInputStream(fis) : fis));
+
+                                int count = 0;
+                                ArchiveEntry entry;
+                                while ((entry = ais.getNextEntry()) != null)
+                                    if (ais.canReadEntryData(entry) && !entry.isDirectory())
+                                        if (++count > MAX_UNZIP)
+                                            break;
+
+                                Log.i("Zip entries=" + count);
+                                if (count <= MAX_UNZIP) {
+                                    fis.getChannel().position(0);
+
+                                    ais = new ArchiveStreamFactory().createArchiveInputStream(
+                                            new BufferedInputStream(local.isTarGzip() ? new GzipCompressorInputStream(fis) : fis));
+
+                                    int subsequence = 1;
+                                    while ((entry = ais.getNextEntry()) != null) {
+                                        if (!ais.canReadEntryData(entry)) {
+                                            Log.w("Zip invalid=" + entry);
+                                            continue;
+                                        }
+
+                                        String name = entry.getName();
+                                        long total = entry.getSize();
+
+                                        if (entry.isDirectory() ||
+                                                (name != null && name.endsWith("\\"))) {
+                                            Log.i("Zipped folder=" + name);
+                                            continue;
+                                        }
+
+                                        Log.i("Zipped attachment seq=" + local.sequence + ":" + subsequence +
+                                                " " + name + ":" + total);
+
+                                        EntityAttachment attachment = new EntityAttachment();
+                                        attachment.message = local.message;
+                                        attachment.sequence = local.sequence;
+                                        attachment.subsequence = subsequence++;
+                                        attachment.name = name;
+                                        attachment.type = Helper.guessMimeType(name);
+                                        if (total >= 0)
+                                            attachment.size = total;
+                                        attachment.id = db.attachment().insertAttachment(attachment);
+
+                                        File efile = attachment.getFile(context);
+                                        Log.i("Unzipping to " + efile);
+
+                                        int last = 0;
+                                        long size = 0;
+                                        try (OutputStream os = new FileOutputStream(efile)) {
+                                            byte[] buffer = new byte[Helper.BUFFER_SIZE];
+                                            for (int len = ais.read(buffer); len != -1; len = ais.read(buffer)) {
+                                                size += len;
+                                                os.write(buffer, 0, len);
+
+                                                if (total > 0) {
+                                                    int progress = (int) (size * 100 / total);
+                                                    if (progress / 20 > last / 20) {
+                                                        last = progress;
+                                                        db.attachment().setProgress(attachment.id, progress);
+                                                    }
+                                                }
+                                            }
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                            db.attachment().setError(attachment.id, Log.formatThrowable(ex));
+                                            db.attachment().setAvailable(attachment.id, true); // unrecoverable
+                                        }
+
+                                        db.attachment().setDownloaded(attachment.id, efile.length());
+                                    }
+                                }
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                                db.attachment().setWarning(local.id, Log.formatThrowable(ex));
+                            }
                 }
             }
         }
