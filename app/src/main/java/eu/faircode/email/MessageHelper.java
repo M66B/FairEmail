@@ -50,7 +50,6 @@ import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
 
 import org.apache.commons.compress.archivers.ArchiveEntry;
-import org.apache.commons.compress.archivers.ArchiveException;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveStreamFactory;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
@@ -99,8 +98,6 @@ import java.util.TimeZone;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
@@ -149,7 +146,8 @@ public class MessageHelper {
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
     static final int MAX_SUBJECT_AGE = 48; // hours
     static final int DEFAULT_THREAD_RANGE = 7; // 2^7 = 128 days
-    static final int MAX_UNZIP = 10;
+    static final int MAX_UNZIP_COUNT = 20;
+    static final long MAX_UNZIP_SIZE = 1000 * 1000 * 1000L;
 
     static final List<String> RECEIVED_WORDS = Collections.unmodifiableList(Arrays.asList(
             "from", "by", "via", "with", "id", "for"
@@ -3395,46 +3393,48 @@ public class MessageHelper {
 
                                 Log.i("Gzipped attachment seq=" + local.sequence + " " + name + ":" + total);
 
-                                if (name == null &&
-                                        local.name != null && local.name.endsWith(".gz"))
-                                    name = local.name.substring(0, local.name.length() - 3);
+                                if (total <= MAX_UNZIP_SIZE) {
+                                    if (name == null &&
+                                            local.name != null && local.name.endsWith(".gz"))
+                                        name = local.name.substring(0, local.name.length() - 3);
 
-                                EntityAttachment attachment = new EntityAttachment();
-                                attachment.message = local.message;
-                                attachment.sequence = local.sequence;
-                                attachment.subsequence = 1;
-                                attachment.name = name;
-                                attachment.type = Helper.guessMimeType(name);
-                                if (total >= 0)
-                                    attachment.size = total;
-                                attachment.id = db.attachment().insertAttachment(attachment);
+                                    EntityAttachment attachment = new EntityAttachment();
+                                    attachment.message = local.message;
+                                    attachment.sequence = local.sequence;
+                                    attachment.subsequence = 1;
+                                    attachment.name = name;
+                                    attachment.type = Helper.guessMimeType(name);
+                                    if (total >= 0)
+                                        attachment.size = total;
+                                    attachment.id = db.attachment().insertAttachment(attachment);
 
-                                File efile = attachment.getFile(context);
-                                Log.i("Gunzipping to " + efile);
+                                    File efile = attachment.getFile(context);
+                                    Log.i("Gunzipping to " + efile);
 
-                                int last = 0;
-                                long size = 0;
-                                try (OutputStream os = new FileOutputStream(efile)) {
-                                    byte[] buffer = new byte[Helper.BUFFER_SIZE];
-                                    for (int len = gzip.read(buffer); len != -1; len = gzip.read(buffer)) {
-                                        size += len;
-                                        os.write(buffer, 0, len);
+                                    int last = 0;
+                                    long size = 0;
+                                    try (OutputStream os = new FileOutputStream(efile)) {
+                                        byte[] buffer = new byte[Helper.BUFFER_SIZE];
+                                        for (int len = gzip.read(buffer); len != -1; len = gzip.read(buffer)) {
+                                            size += len;
+                                            os.write(buffer, 0, len);
 
-                                        if (total > 0) {
-                                            int progress = (int) (size * 100 / total);
-                                            if (progress / 20 > last / 20) {
-                                                last = progress;
-                                                db.attachment().setProgress(attachment.id, progress);
+                                            if (total > 0) {
+                                                int progress = (int) (size * 100 / total);
+                                                if (progress / 20 > last / 20) {
+                                                    last = progress;
+                                                    db.attachment().setProgress(attachment.id, progress);
+                                                }
                                             }
                                         }
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                        db.attachment().setError(attachment.id, Log.formatThrowable(ex));
+                                        db.attachment().setAvailable(attachment.id, true); // unrecoverable
                                     }
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
-                                    db.attachment().setError(attachment.id, Log.formatThrowable(ex));
-                                    db.attachment().setAvailable(attachment.id, true); // unrecoverable
-                                }
 
-                                db.attachment().setDownloaded(attachment.id, efile.length());
+                                    db.attachment().setDownloaded(attachment.id, efile.length());
+                                }
                             } catch (Throwable ex) {
                                 Log.e(ex);
                                 db.attachment().setWarning(local.id, Log.formatThrowable(ex));
@@ -3447,12 +3447,15 @@ public class MessageHelper {
                                 int count = 0;
                                 ArchiveEntry entry;
                                 while ((entry = ais.getNextEntry()) != null)
-                                    if (ais.canReadEntryData(entry) && !entry.isDirectory())
-                                        if (++count > MAX_UNZIP)
+                                    if (ais.canReadEntryData(entry) && !entry.isDirectory()) {
+                                        if (entry.getSize() > MAX_UNZIP_SIZE)
+                                            count = MAX_UNZIP_COUNT;
+                                        if (++count > MAX_UNZIP_COUNT)
                                             break;
+                                    }
 
                                 Log.i("Zip entries=" + count);
-                                if (count <= MAX_UNZIP) {
+                                if (count <= MAX_UNZIP_COUNT) {
                                     fis.getChannel().position(0);
 
                                     ais = new ArchiveStreamFactory().createArchiveInputStream(

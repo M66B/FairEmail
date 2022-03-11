@@ -1177,7 +1177,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        tvUnzipHint.setText(getString(R.string.title_advanced_unzip_hint, MessageHelper.MAX_UNZIP));
+        tvUnzipHint.setText(getString(R.string.title_advanced_unzip_hint,
+                Integer.toString(MessageHelper.MAX_UNZIP_COUNT),
+                Helper.humanReadableByteCount(MessageHelper.MAX_UNZIP_SIZE)));
 
         swAttachmentsAlt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
