@@ -3377,7 +3377,7 @@ public class MessageHelper {
 
                 else if ("application/zip".equals(local.type)) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean unzip = prefs.getBoolean("unzip", true);
+                    boolean unzip = prefs.getBoolean("unzip", false);
 
                     if (unzip) {
                         // https://developer.android.com/reference/java/util/zip/ZipInputStream
