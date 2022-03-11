@@ -426,6 +426,9 @@ public class FragmentOptions extends FragmentBase {
                 } else if (view instanceof TextView) {
                     String description = ((TextView) view).getText().toString();
                     if (description.toLowerCase().contains(query)) {
+                        description = description
+                                .replace("%%", "%")
+                                .replaceAll("%([0-9]\\$)?[sd]", "#");
                         String text = view.getContext().getString(R.string.title_title_description, title, description);
                         cursor.newRow()
                                 .add(id++)
