@@ -62,7 +62,7 @@ public class IPInfo {
         }
     }
 
-    private static Organization getOrganization(InetAddress address, Context context) throws IOException {
+    static Organization getOrganization(InetAddress address, Context context) throws IOException {
         synchronized (addressOrganization) {
             if (addressOrganization.containsKey(address))
                 return addressOrganization.get(address);

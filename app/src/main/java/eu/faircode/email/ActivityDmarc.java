@@ -19,56 +19,34 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
-import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
-
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.method.ScrollingMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.Group;
-import androidx.preference.PreferenceManager;
-import androidx.webkit.WebSettingsCompat;
-import androidx.webkit.WebViewFeature;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.StringReader;
-import java.nio.charset.StandardCharsets;
+import java.net.InetAddress;
 import java.text.DateFormat;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Locale;
 
 public class ActivityDmarc extends ActivityBase {
@@ -261,6 +239,15 @@ public class ActivityDmarc extends ActivityBase {
                                             text = "<null>";
                                         ssb.append(name).append('=')
                                                 .append(text).append(' ');
+                                        if ("source_ip".equals(name))
+                                            try {
+                                                InetAddress addr = InetAddress.getByName(text);
+                                                IPInfo.Organization info =
+                                                        IPInfo.getOrganization(addr, context);
+                                                ssb.append('(').append(info.name).append(") ");
+                                            } catch (Throwable ex) {
+                                                Log.w(ex);
+                                            }
                                     }
                                 }
                                 break;
