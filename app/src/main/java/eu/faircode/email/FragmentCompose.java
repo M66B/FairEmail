@@ -1346,7 +1346,7 @@ public class FragmentCompose extends FragmentBase {
         outState.putParcelable("fair:pickUri", pickUri);
 
         // Focus was lost at this point
-        outState.putInt("fair:selection", etBody.getSelectionStart());
+        outState.putInt("fair:selection", etBody == null ? 0 : etBody.getSelectionStart());
 
         super.onSaveInstanceState(outState);
     }
