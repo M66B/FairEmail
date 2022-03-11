@@ -20,9 +20,11 @@ package eu.faircode.email;
 */
 
 import android.app.ActivityManager;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -112,6 +114,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvSdcard;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
+    private ImageButton ibChannelUpdated;
     private SwitchCompat swCheckWeekly;
     private SwitchCompat swChangelog;
     private SwitchCompat swExperiments;
@@ -270,6 +273,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvSdcard = view.findViewById(R.id.tvSdcard);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
+        ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
         swCheckWeekly = view.findViewById(R.id.swWeekly);
         swChangelog = view.findViewById(R.id.swChangelog);
         swExperiments = view.findViewById(R.id.swExperiments);
@@ -596,6 +600,18 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                             (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
                     nm.cancel(NotificationHelper.NOTIFICATION_UPDATE);
                 }
+            }
+        });
+
+        final Intent channelUpdate = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
+                .putExtra(Settings.EXTRA_CHANNEL_ID, "update");
+
+        ibChannelUpdated.setVisibility(View.GONE);
+        ibChannelUpdated.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.getContext().startActivity(channelUpdate);
             }
         });
 
@@ -1446,6 +1462,18 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     public void onResume() {
         super.onResume();
         resumed = true;
+
+        if (!Helper.isPlayStoreInstall() &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+            NotificationChannel notification = nm.getNotificationChannel("update");
+            if (notification != null) {
+                boolean disabled = notification.getImportance() == NotificationManager.IMPORTANCE_NONE;
+                ibChannelUpdated.setImageLevel(disabled ? 0 : 1);
+                ibChannelUpdated.setVisibility(disabled ? View.VISIBLE : View.GONE);
+            }
+        }
 
         View view = getView();
         if (view != null)
