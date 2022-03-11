@@ -3421,6 +3421,8 @@ public class MessageHelper {
                                         byte[] buffer = new byte[Helper.BUFFER_SIZE];
                                         for (int len = gzip.read(buffer); len != -1; len = gzip.read(buffer)) {
                                             size += len;
+                                            if (size > MAX_UNZIP_SIZE)
+                                                throw new IOException("File too large");
                                             os.write(buffer, 0, len);
 
                                             if (total > 0) {
@@ -3503,6 +3505,8 @@ public class MessageHelper {
                                             byte[] buffer = new byte[Helper.BUFFER_SIZE];
                                             for (int len = ais.read(buffer); len != -1; len = ais.read(buffer)) {
                                                 size += len;
+                                                if (size > MAX_UNZIP_SIZE)
+                                                    throw new IOException("File too large");
                                                 os.write(buffer, 0, len);
 
                                                 if (total > 0) {
