@@ -2391,7 +2391,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     } else {
                         // Linear back-off
-                        int b = backoff + 60;
+                        int b = backoff + (backoff < CONNECT_BACKOFF_INTERMEDIATE * 60 ? 60 : 5 * 60);
                         if (b > CONNECT_BACKOFF_ALARM_MAX * 60)
                             b = CONNECT_BACKOFF_ALARM_MAX * 60;
                         state.setBackoff(b);
