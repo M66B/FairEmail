@@ -160,12 +160,15 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             view.post(new Runnable() {
                 @Override
                 public void run() {
-                    int left = ibInbox.getLeft();
-                    int right = ibInbox.getRight();
-                    if (view.getLayoutDirection() == View.LAYOUT_DIRECTION_LTR)
-                        left = Math.min(left, right - view.getHeight());
-                    else
-                        right = Math.max(right, left + view.getHeight());
+                    int left;
+                    int right;
+                    if (view.getLayoutDirection() == View.LAYOUT_DIRECTION_LTR) {
+                        left = view.getWidth() - view.getWidth() / 3;
+                        right = view.getWidth();
+                    } else {
+                        left = 0;
+                        right = view.getWidth() / 3;
+                    }
                     Rect rect = new Rect(
                             left,
                             view.getTop(),
