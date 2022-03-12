@@ -705,11 +705,13 @@ public class ContactInfo {
                     Log.w(ex);
                 }
 
+        String host = base.getHost();
+
         Collections.sort(imgs, new Comparator<Element>() {
             @Override
             public int compare(Element img1, Element img2) {
-                int t1 = getOrder(img1);
-                int t2 = getOrder(img2);
+                int t1 = getOrder(host, img1);
+                int t2 = getOrder(host, img2);
                 int t = Integer.compare(t1, t2);
                 if (t != 0)
                     return -t;
@@ -724,7 +726,7 @@ public class ContactInfo {
 
         Log.i("Favicons " + base + "=" + imgs.size());
         for (int i = 0; i < imgs.size(); i++)
-            Log.i("Favicon #" + getOrder(imgs.get(i)) + " " + i + "=" + imgs.get(i) + " @" + base);
+            Log.i("Favicon #" + getOrder(host, imgs.get(i)) + " " + i + "=" + imgs.get(i) + " @" + base);
 
         List<Future<Pair<Favicon, URL>>> futures = new ArrayList<>();
         for (Element img : imgs) {
@@ -763,7 +765,7 @@ public class ContactInfo {
         return null;
     }
 
-    private static int getOrder(Element img) {
+    private static int getOrder(String host, Element img) {
         // https://en.wikipedia.org/wiki/Favicon#How_to_use
         String href = img.attr("href")
                 .toLowerCase(Locale.ROOT)
@@ -779,15 +781,27 @@ public class ContactInfo {
         if ("link".equals(img.tagName()))
             order += 100;
 
-        if ("icon".equals(rel))
-            order += 10;
-        else if ("apple-touch-icon".equals(rel))
-            order += 20;
+        boolean isIco = (href.endsWith(".ico") || "image/x-icon".equals(type));
+        boolean isSvg = (href.endsWith(".svg") || "image/svg+xml".equals(type));
 
-        if (href.endsWith(".ico"))
-            order -= 2;
-        else if (href.endsWith(".svg") || "image/svg+xml".equals(type))
-            order -= 1;
+        // Safari: "mask-icon"
+        // "apple-touch-startup-image"
+        if ("icon".equals(rel) && !isIco)
+            order += 20;
+        else if ("apple-touch-icon".equals(rel) ||
+                "apple-touch-icon-precomposed".equals(rel)) {
+            if ("mailbox.org".equals(host))
+                order += 30;
+            else
+                order += 10;
+        }
+
+        if (isIco)
+            order += 1;
+        else if (isSvg)
+            order += 2;
+        else
+            order += 5;
 
         return order;
     }
