@@ -716,6 +716,7 @@
     <string name="title_advanced_thread_range" translatable="false">Thread range: %1$d days</string>
     <string name="title_advanced_undo_manager" translatable="false">Use Android\'s undo manager</string>
     <string name="title_advanced_webview_legacy" translatable="false">Old WebView behavior</string>
+    <string name="title_advanced_browser_zoom" translatable="false">Use browser zoom</string>
     <string name="title_advanced_modseq" translatable="false">MODSEQ</string>
     <string name="title_advanced_uid" translatable="false">UID command</string>
     <string name="title_advanced_expunge" translatable="false">AUTO EXPUNGE</string>

@@ -2724,6 +2724,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 HtmlHelper.restorePre(document);
                         }
 
+                        boolean browser_zoom = prefs.getBoolean("browser_zoom", true);
+                        int message_zoom = prefs.getInt("message_zoom", 100);
+                        if (browser_zoom && message_zoom != 100) {
+                            String z = String.format("%.2f", message_zoom / 100f);
+                            document.select("body").attr("style",
+                                    "zoom: " + z + ";" +
+                                            "-moz-transform: scale(" + z + ");" + // Firefox
+                                            "-moz-transform-origin: 0 0;" +
+                                            "-o-transform: scale(" + z + ");" + // Opera
+                                            "-o-transform-origin: 0 0;" +
+                                            "-webkit-transform: scale(" + z + ");" + // Safari
+                                            "-webkit-transform-origin: 0 0;" +
+                                            "transform: scale(" + z + ");" + // Standard
+                                            "transform-origin: 0 0;");
+                        }
+
                         HtmlHelper.guessSchemes(document);
                         HtmlHelper.autoLink(document);
 

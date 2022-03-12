@@ -109,6 +109,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
+        boolean browser_zoom = prefs.getBoolean("browser_zoom", true);
         int message_zoom = prefs.getInt("message_zoom", 100);
         boolean monospaced = prefs.getBoolean("monospaced", false);
         legacy = prefs.getBoolean("webview_legacy", false);
@@ -121,7 +122,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             WebSettingsCompat.setForceDark(settings, dark && !force_light ? FORCE_DARK_ON : FORCE_DARK_OFF);
         setBackgroundColor(canForce && force_light ? Color.WHITE : Color.TRANSPARENT);
 
-        float fontSize = 16f /* Default */ * message_zoom / 100f;
+        float fontSize = 16f /* Default */ *
+                (browser_zoom ? 1f : message_zoom / 100f);
         if (zoom == 0 /* small */)
             fontSize *= HtmlHelper.FONT_SMALL;
         else if (zoom == 2 /* large */)
