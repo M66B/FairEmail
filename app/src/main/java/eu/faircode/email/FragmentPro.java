@@ -199,40 +199,68 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         addBillingListener(new ActivityBilling.IBillingListener() {
             @Override
             public void onConnected() {
-                ivConnected.setImageResource(R.drawable.twotone_cloud_done_24);
-                ivConnected.setVisibility(View.VISIBLE);
+                post(new Runnable() {
+                    @Override
+                    public void run() {
+                        ivConnected.setImageResource(R.drawable.twotone_cloud_done_24);
+                        ivConnected.setVisibility(View.VISIBLE);
+                    }
+                });
             }
 
             @Override
             public void onDisconnected() {
-                ivConnected.setImageResource(R.drawable.twotone_cloud_off_24);
-                ivConnected.setVisibility(View.VISIBLE);
+                post(new Runnable() {
+                    @Override
+                    public void run() {
+                        ivConnected.setImageResource(R.drawable.twotone_cloud_off_24);
+                        ivConnected.setVisibility(View.VISIBLE);
+                    }
+                });
             }
 
             @Override
             public void onSkuDetails(String sku, String price) {
-                if (ActivityBilling.getSkuPro().equals(sku)) {
-                    tvPrice.setText(getString(R.string.title_pro_one_time, price));
-                    tvPrice.setVisibility(View.VISIBLE);
-                    btnPurchase.setEnabled(true);
-                }
+                if (!ActivityBilling.getSkuPro().equals(sku))
+                    return;
+
+                post(new Runnable() {
+                    @Override
+                    public void run() {
+                        tvPrice.setText(getString(R.string.title_pro_one_time, price));
+                        tvPrice.setVisibility(View.VISIBLE);
+                        btnPurchase.setEnabled(true);
+                    }
+                });
             }
 
             @Override
             public void onPurchasePending(String sku) {
-                if (ActivityBilling.getSkuPro().equals(sku)) {
-                    btnPurchase.setEnabled(false);
-                    tvPending.setVisibility(View.VISIBLE);
-                }
+                if (!ActivityBilling.getSkuPro().equals(sku))
+                    return;
+
+                post(new Runnable() {
+                    @Override
+                    public void run() {
+                        btnPurchase.setEnabled(false);
+                        tvPending.setVisibility(View.VISIBLE);
+                    }
+                });
             }
 
             @Override
             public void onPurchased(String sku, boolean purchased) {
-                if (ActivityBilling.getSkuPro().equals(sku)) {
-                    btnPurchase.setEnabled(!purchased);
-                    tvPending.setVisibility(View.GONE);
-                    btnConsume.setEnabled(purchased);
-                }
+                if (!ActivityBilling.getSkuPro().equals(sku))
+                    return;
+
+                post(new Runnable() {
+                    @Override
+                    public void run() {
+                        btnPurchase.setEnabled(!purchased);
+                        tvPending.setVisibility(View.GONE);
+                        btnConsume.setEnabled(purchased);
+                    }
+                });
             }
 
             @Override
@@ -253,6 +281,23 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
                     }
                 });
                 snackbar.show();
+            }
+
+            private void post(Runnable runnable) {
+                final View view = getView();
+                if (view == null)
+                    return;
+
+                view.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            runnable.run();
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
             }
         });
     }
