@@ -47,6 +47,9 @@ import java.io.InputStream;
 import java.io.StringReader;
 import java.net.InetAddress;
 import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 public class ActivityDmarc extends ActivityBase {
@@ -141,6 +144,7 @@ public class ActivityDmarc extends ActivityBase {
                 boolean policy_evaluated = false;
                 boolean identifiers = false;
                 boolean auth_results = false;
+                String lastDomain = null;
                 String result = null;
                 int eventType = xml.getEventType();
                 while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -155,6 +159,7 @@ public class ActivityDmarc extends ActivityBase {
                                 break;
                             case "policy_published":
                                 policy_published = true;
+                                lastDomain = null;
                                 break;
                             case "record":
                                 record = true;
@@ -206,6 +211,7 @@ public class ActivityDmarc extends ActivityBase {
                                     eventType = xml.next();
                                     if (eventType == XmlPullParser.TEXT) {
                                         String text = xml.getText();
+                                        lastDomain = text;
                                         if (text == null)
                                             text = "<null>";
                                         ssb.append(text).append(' ');
@@ -288,11 +294,13 @@ public class ActivityDmarc extends ActivityBase {
                                             if (text == null)
                                                 text = "<null>";
                                             ssb.append(text);
+
                                             if (!"pass".equals(text.toLowerCase(Locale.ROOT)) &&
                                                     ("dkim".equals(name) || "spf".equals(name))) {
                                                 ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
                                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
                                             }
+
                                             ssb.append(' ');
                                         }
                                     } else if (auth_results)
@@ -355,8 +363,22 @@ public class ActivityDmarc extends ActivityBase {
                                 break;
                             case "policy_published":
                                 policy_published = false;
-                                if (feedback)
+                                if (feedback) {
                                     ssb.append("\n\n");
+                                    if (lastDomain != null) {
+                                        List<DnsHelper.DnsRecord> records = new ArrayList<>();
+                                        for (DnsHelper.DnsRecord r : DnsHelper.lookup(context, lastDomain, "txt"))
+                                            if (r.name.contains("spf"))
+                                                records.add(r);
+                                        records.addAll(Arrays.asList(
+                                                DnsHelper.lookup(context, "_dmarc." + lastDomain, "txt")));
+                                        records.addAll(Arrays.asList(
+                                                DnsHelper.lookup(context, "default._bimi." + lastDomain, "txt")));
+                                        for (DnsHelper.DnsRecord r : records)
+                                            ssb.append(r.name).append("\n");
+                                        ssb.append("\n");
+                                    }
+                                }
                                 break;
                             case "record":
                                 record = false;
