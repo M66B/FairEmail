@@ -3806,7 +3806,7 @@ public class MessageHelper {
                             }
                         }
                     } else
-                        throw new MessagingStructureException(content);
+                        throw new MessagingStructureException(content, "multipart/mixed");
                 }
 
                 if (part.isMimeType("multipart/signed")) {
@@ -3851,7 +3851,7 @@ public class MessageHelper {
                                 Log.e(sb.toString());
                             }
                         } else
-                            throw new MessagingStructureException(content);
+                            throw new MessagingStructureException(content, "multipart/signed");
                     } else
                         Log.e(ct.toString());
                 } else if (part.isMimeType("multipart/encrypted")) {
@@ -3873,7 +3873,7 @@ public class MessageHelper {
                                 Log.e(sb.toString());
                             }
                         } else
-                            throw new MessagingStructureException(content);
+                            throw new MessagingStructureException(content, "multipart/encrypted");
                     } else
                         Log.e(ct.toString());
                 } else if (part.isMimeType("application/pkcs7-mime") ||
@@ -3956,7 +3956,7 @@ public class MessageHelper {
                 if (content instanceof Multipart)
                     multipart = (Multipart) part.getContent();
                 else
-                    throw new MessagingStructureException(content);
+                    throw new MessagingStructureException(content, "multipart/*");
 
                 int count = multipart.getCount();
                 for (int i = 0; i < count; i++)
@@ -4436,17 +4436,19 @@ public class MessageHelper {
 
     static class MessagingStructureException extends MessagingException {
         private String className;
+        private String expected;
 
-        MessagingStructureException(Object content) {
+        MessagingStructureException(Object content, String expected) {
             super();
             if (content != null)
                 this.className = content.getClass().getName();
+            this.expected = expected;
         }
 
         @Nullable
         @Override
         public String getMessage() {
-            return className;
+            return className + " expected: " + expected;
         }
     }
 
