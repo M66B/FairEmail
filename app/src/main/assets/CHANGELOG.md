@@ -4,12 +4,11 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next version
+### 1.1855 - 2022-03-12
 
-* Added option to show contents of zipped attachments
+* Added option to show contents of zipped attachments (enabled by default)
 * Added option to sort reply templates by frequency of use
 * Added basic [DMARC](https://en.wikipedia.org/wiki/DMARC) report viewer
-* Added [linear back-off scheme](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123)
 * Enabled [sqlite analyze](https://sqlite.org/lang_analyze.html)
 * Small improvements and minor bug fixes
 * Updated translations
