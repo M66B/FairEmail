@@ -690,6 +690,7 @@ public class ContactInfo {
                                 String type = jicon.optString("type", "");
                                 if (!TextUtils.isEmpty(src)) {
                                     Element img = doc.createElement("link")
+                                            .attr("rel", "manifest")
                                             .attr("href", src)
                                             .attr("sizes", sizes)
                                             .attr("type", type);
@@ -707,26 +708,11 @@ public class ContactInfo {
         Collections.sort(imgs, new Comparator<Element>() {
             @Override
             public int compare(Element img1, Element img2) {
-                boolean l1 = "link".equals(img1.tagName());
-                boolean l2 = "link".equals(img2.tagName());
-                int l = Boolean.compare(l1, l2);
-                if (l != 0)
-                    return -l;
-
-                // https://en.wikipedia.org/wiki/Favicon#How_to_use
-                boolean i1 = "icon".equalsIgnoreCase(img1.attr("rel")
-                        .replace("shortcut", "").trim());
-                boolean i2 = "icon".equalsIgnoreCase(img2.attr("rel")
-                        .replace("shortcut", "").trim());
-                int i = Boolean.compare(i1, i2);
-                if (i != 0)
-                    return -i;
-
                 int t1 = getOrder(img1);
                 int t2 = getOrder(img2);
                 int t = Integer.compare(t1, t2);
                 if (t != 0)
-                    return t;
+                    return -t;
 
                 int s1 = getSize(img1.attr("sizes"));
                 int s2 = getSize(img2.attr("sizes"));
@@ -738,7 +724,7 @@ public class ContactInfo {
 
         Log.i("Favicons " + base + "=" + imgs.size());
         for (int i = 0; i < imgs.size(); i++)
-            Log.i("Favicon " + i + "=" + imgs.get(i) + " @" + base);
+            Log.i("Favicon #" + getOrder(imgs.get(i)) + " " + i + "=" + imgs.get(i) + " @" + base);
 
         List<Future<Pair<Favicon, URL>>> futures = new ArrayList<>();
         for (Element img : imgs) {
@@ -778,15 +764,30 @@ public class ContactInfo {
     }
 
     private static int getOrder(Element img) {
-        String href = img.attr("href");
-        String type = img.attr("type");
+        // https://en.wikipedia.org/wiki/Favicon#How_to_use
+        String href = img.attr("href")
+                .toLowerCase(Locale.ROOT)
+                .trim();
+        String rel = img.attr("rel")
+                .toLowerCase(Locale.ROOT)
+                .replace("shortcut", "") // "shortcut icon"
+                .trim();
+        String type = img.attr("type")
+                .trim();
 
-        int order = -1;
-        String h = (href == null ? "" : href.toLowerCase(Locale.ROOT));
-        if (h.endsWith(".ico"))
-            order = 2;
-        else if (h.endsWith(".svg") || "image/svg+xml".equals(type))
-            order = 1;
+        int order = 0;
+        if ("link".equals(img.tagName()))
+            order += 100;
+
+        if ("icon".equals(rel))
+            order += 10;
+        else if ("apple-touch-icon".equals(rel))
+            order += 20;
+
+        if (href.endsWith(".ico"))
+            order -= 2;
+        else if (href.endsWith(".svg") || "image/svg+xml".equals(type))
+            order -= 1;
 
         return order;
     }
