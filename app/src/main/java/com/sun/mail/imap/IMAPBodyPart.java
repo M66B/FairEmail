@@ -294,7 +294,8 @@ public class IMAPBodyPart extends MimeBodyPart implements ReadableMime {
 		     );
 	    else if (bs.isNested() && message.isREV1() && bs.envelope != null)
 		dh = new DataHandler(
-			new IMAPNestedMessage(message, 
+			new IMAPNestedMessage(message,
+					      bs.encoding,
 					      bs.bodies[0],
 					      bs.envelope,
 					      sectionId),

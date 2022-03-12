@@ -830,7 +830,8 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 		 * FETCH the components of nested messages
 		 */
 		dh = new DataHandler(
-			    new IMAPNestedMessage(this, 
+			    new IMAPNestedMessage(this,
+				bs.encoding,
 				bs.bodies[0], 
 				bs.envelope,
 				sectionId == null ? "1" : sectionId + ".1"),
@@ -912,6 +913,11 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 	    return;
 	}
 	InputStream is = getMimeStream();
+	if (this instanceof IMAPNestedMessage) {
+		String encoding = getEncoding();
+		if (encoding != null)
+			is = MimeUtility.decode(is, encoding);
+	}
 	try {
 	    // write out the bytes
 	    byte[] bytes = new byte[16*1024];
