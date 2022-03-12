@@ -2724,7 +2724,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 HtmlHelper.restorePre(document);
                         }
 
-                        boolean browser_zoom = prefs.getBoolean("browser_zoom", true);
+                        boolean browser_zoom = prefs.getBoolean("browser_zoom", false);
                         int message_zoom = prefs.getInt("message_zoom", 100);
                         if (browser_zoom && message_zoom != 100) {
                             String z = String.format("%.2f", message_zoom / 100f);

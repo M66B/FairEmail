@@ -1693,7 +1693,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swUndoManager.setChecked(prefs.getBoolean("undo_manager", false));
         swWebViewLegacy.setChecked(prefs.getBoolean("webview_legacy", false));
-        swBrowserZoom.setChecked(prefs.getBoolean("browser_zoom", true));
+        swBrowserZoom.setChecked(prefs.getBoolean("browser_zoom", false));
         swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
         swUid.setChecked(prefs.getBoolean("uid_command", false));
         swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
