@@ -431,6 +431,7 @@
     <string name="title_advanced_preview_italic">Afficher l\'aperçu du message en italique</string>
     <string name="title_advanced_preview_lines">Nombre de lignes d\'aperçu</string>
     <string name="title_advanced_addresses">Déplier par défaut les détails de l’adresse</string>
+    <string name="title_advanced_unzip">Afficher le contenu des pièces jointes compressées</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_thumbnails">Afficher les vignettes des images après le texte du message</string>
     <string name="title_advanced_message_text_zoom2">Zoom du texte du message par défaut : %1$s %%</string>
@@ -578,6 +579,7 @@
     </string>
     <string name="title_advanced_power_menu">Ajouter des actions au menu alimentation d\'Android</string>
     <string name="title_advanced_external_search">Autoriser les autres applications à rechercher dans les messages</string>
+    <string name="title_advanced_sort_answers">Trier les modèles de réponse par fréquence d\'utilisation</string>
     <string name="title_advanced_shortcuts">Afficher les contacts fréquemment utilisés dans le menu « Partager » d’Android</string>
     <string name="title_advanced_fts">Construire l\'index de recherche</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexés (%3$s)</string>
@@ -657,6 +659,7 @@
     <string name="title_advanced_monospaced_pre_hint">Seuls les messages en texte brut seront considérés comme préformatés</string>
     <string name="title_advanced_placeholders_hint">Ceci s\'applique uniquement aux messages reformatés</string>
     <string name="title_advanced_inline_hint">Les images incluses dans le message font partie intégrante du message</string>
+    <string name="compressed" comment="compressed&#10;&#10;The contents of compressed files (&lt;types&gt;) with more than &lt;count&gt; files or with files larger than &lt;size&gt; will not be shown">Le contenu des fichiers compressés (%1$s) avec plus de %2$s fichiers ou avec des fichiers de taille supérieure à %3$s ne sera pas affiché</string>
     <string name="title_advanced_parse_classes_hint">L’affichage des messages sera plus fidèle mais pourra être retardé</string>
     <string name="title_advanced_language_detection_hint">La prise en charge de la détection de la langue dépend du fabricant de l\'appareil</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message s’il n’y a qu’un seul message ou un seul message non lu dans une conversation</string>

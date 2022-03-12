@@ -398,6 +398,7 @@
     <string name="title_advanced_color_stripe_wide">Geniş rəng zolağı istifadə et</string>
     <string name="title_advanced_avatars">Əlaqə fotolarını göstər</string>
     <string name="title_advanced_gravatars">\"Gravatar\"ları göstər</string>
+    <string name="title_advanced_libravatars">\"Libravatar\"ları göstər</string>
     <string name="title_advanced_bimi_unverified">Təsdiqlənməmiş göndərən</string>
     <string name="title_advanced_bimi_verified">Təsdiqlənmiş göndərən</string>
     <string name="title_advanced_favicons">\"Favicon\"ları göstər</string>
@@ -551,6 +552,9 @@
     <string name="title_advanced_disconnect_links">İzləmə linkləri haqqında xəbərdarlıq etmək üçün siyahıları istifadə et</string>
     <string name="title_advanced_disconnect_images">İzləmə təsvirlərini tanımaq üçün siyahıları istifadə et</string>
     <string name="title_advanced_mnemonic">Verilənləri uzaqdan sil</string>
+    <string name="title_advanced_mnemonic_hint">Mövzu sətrində aşağıdakı sözləri ehtiva edən istənilən alınmış e-poçt, tətbiq verilənlərini avtomatik olaraq dərhal siləcək</string>
+    <string name="title_advanced_clear_all">Tətbiq verilənlərini sil</string>
+    <string name="title_advanced_clear_all_remark">Tətbiq verilənləri geri qaytarılmayacaq formada silinəcək!</string>
     <string name="title_advanced_sign_default">İlkin olaraq imzala</string>
     <string name="title_advanced_encrypt_default">İlkin olaraq şifrələ</string>
     <string name="title_advanced_auto_decrypt">Mesajların şifrələrini avtomatik aç</string>
@@ -574,6 +578,7 @@
     </string>
     <string name="title_advanced_power_menu">Android enerji menyusuna əməliyyat əlavə et</string>
     <string name="title_advanced_external_search">Digər tətbiqlərin mesajlarda axtarış etməsinə icazə ver</string>
+    <string name="title_advanced_sort_answers">Cavab şablonlarını istifadə tezliyinə görə sırala</string>
     <string name="title_advanced_shortcuts">Tez-tez istifadə olunan əlaqələri Android paylaşma menyusunda göstər</string>
     <string name="title_advanced_fts">Axtarış indeksini quraşdır</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d mesaj indeksləndi (%3$s)</string>

@@ -431,6 +431,7 @@
     <string name="title_advanced_preview_italic">Vis beskedforhåndsvisning med kursiv</string>
     <string name="title_advanced_preview_lines">Antal forhåndsvisningslinier</string>
     <string name="title_advanced_addresses">Vis adresseoplysninger som standard</string>
+    <string name="title_advanced_unzip">Vis indhold af komprimerede vedhæftninger</string>
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter beskedteksten</string>
     <string name="title_advanced_thumbnails">Vis billedminiaturer efter beskedteksten</string>
     <string name="title_advanced_message_text_zoom2">Standard beskedtekstzoom %1$s%%</string>
@@ -578,6 +579,7 @@
     </string>
     <string name="title_advanced_power_menu">Føj handlinger til Androids Tænd/Sluk menu</string>
     <string name="title_advanced_external_search">Tillad andre apps at søge i beskeder</string>
+    <string name="title_advanced_sort_answers">Sortér svarskabeloner efter anvendelsesfrekvens</string>
     <string name="title_advanced_shortcuts">Vis ofte anvendte kontakter i Android-delingsmenuen</string>
     <string name="title_advanced_fts">Opbyg søgeindeks</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d beskeder indekseret (%3$s)</string>
@@ -657,6 +659,7 @@
     <string name="title_advanced_monospaced_pre_hint">Rene tekstbeskeder betragtes som præformaterede</string>
     <string name="title_advanced_placeholders_hint">Dette gælder kun omformaterede beskeder</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
+    <string name="compressed" comment="compressed&#10;&#10;The contents of compressed files (&lt;types&gt;) with more than &lt;count&gt; files or with files larger than &lt;size&gt; will not be shown">Komprimerede filer (%1$s) indeholdende flere end %2$s filer, eller med filer større end %3$s, vises ikke</string>
     <string name="title_advanced_parse_classes_hint">Dette viser beskeder mere korrekt, men muligvis med en forsinkelse</string>
     <string name="title_advanced_language_detection_hint">Sprogdetekteringsunderstøttelse afhænger af enhedsproducenten</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>

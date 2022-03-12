@@ -576,6 +576,7 @@
     </string>
     <string name="title_advanced_power_menu">Añadir acciones al menú de apagado de Android</string>
     <string name="title_advanced_external_search">Permitir que otras aplicaciones busquen en mensajes</string>
+    <string name="title_advanced_sort_answers">Ordenar plantillas de respuesta por frecuencia de uso</string>
     <string name="title_advanced_shortcuts">Mostrar contactos frecuentes en el menú compartir de Android</string>
     <string name="title_advanced_fts">Crear índice de búsqueda</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensajes indexados (%3$s)</string>

@@ -450,6 +450,7 @@
     <string name="title_advanced_preview_italic">Pokaż podgląd wiadomości kursywą</string>
     <string name="title_advanced_preview_lines">Liczba linii podglądu</string>
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
+    <string name="title_advanced_unzip">Pokaż zawartość skompresowanych załączników</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_thumbnails">Pokaż miniatury obrazów po tekście wiadomości</string>
     <string name="title_advanced_message_text_zoom2">Domyślne powiększenie tekstu wiadomości: %1$s %%</string>
@@ -596,6 +597,7 @@
     </string>
     <string name="title_advanced_power_menu">Dodaj akcje do menu zasilania Androida</string>
     <string name="title_advanced_external_search">Zezwalaj innym aplikacjom na wyszukiwanie w wiadomościach</string>
+    <string name="title_advanced_sort_answers">Sortuj szablony odpowiedzi według częstotliwości ich używania</string>
     <string name="title_advanced_shortcuts">Pokaż często używane kontakty w menu udostępniania Androida</string>
     <string name="title_advanced_fts">Utwórz indeks wyszukiwania</string>
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
@@ -675,6 +677,7 @@
     <string name="title_advanced_monospaced_pre_hint">Tylko wiadomości tekstowe będą uważane za wstępnie sformatowane</string>
     <string name="title_advanced_placeholders_hint">Dotyczy to tylko przeformatowanych wiadomości</string>
     <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
+    <string name="compressed" comment="compressed&#10;&#10;The contents of compressed files (&lt;types&gt;) with more than &lt;count&gt; files or with files larger than &lt;size&gt; will not be shown">Zawartość plików skompresowanych (%1$s), z więcej niż %2$s plików lub z plikami większymi niż %3$s, nie zostanie wyświetlona</string>
     <string name="title_advanced_parse_classes_hint">Spowoduje to poprawniejsze wyświetlanie wiadomości, ale z możliwym opóźnieniem</string>
     <string name="title_advanced_language_detection_hint">Obsługa wykrywania języków zależy od producenta urządzenia</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>

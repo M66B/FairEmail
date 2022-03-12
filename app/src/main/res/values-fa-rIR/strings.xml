@@ -245,6 +245,7 @@
     <string name="title_setup_reset_general">پرسش‌های عمومی</string>
     <string name="title_setup_reset_full">مشاهده پیام‌های اصلی</string>
     <string name="title_setup_reset_images">نمایش تصاویر</string>
+    <string name="title_setup_reset_links">لینک‌ها را تایید کنید</string>
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
@@ -276,6 +277,7 @@
     <string name="title_advanced_sync_folders_poll">هم‌رسانی فعالانه فهرست پوشه‌ها</string>
     <string name="title_advanced_sync_shared_folders">فهرست‌های پوشه‌های همرسانی شده را همگام‌سازی کن</string>
     <string name="title_advanced_subscriptions">مدیریت اشتراکات پوشه</string>
+    <string name="title_advanced_check_authentication">اصالت پیام را بررسی کنید</string>
     <string name="title_advanced_check_mx">نشانی‌های ایمیل فرستنده را هنگام همگام‌سازی پیام‌ها بررسی کن</string>
     <string name="title_advanced_tune_keep_alive">وقفه زنده-نگه‌داشتن را خودکار کوک کن</string>
     <string name="title_advanced_keyboard">نمایش صفحه کلید به‌صورت پیش‌فرض</string>
@@ -365,6 +367,7 @@
     <string name="title_advanced_preview_italic">پیش‌نمایش پیام را به‌صورت ایتالیک نمایش بده</string>
     <string name="title_advanced_preview_lines">شمار خط‌های پیش‌نمایش</string>
     <string name="title_advanced_addresses">نمایش جزئیات آدرس به صورت پیش‌فرض</string>
+    <string name="title_advanced_unzip">محتویات ضمیمه‌های فشرده‌ شده را نشان بده</string>
     <string name="title_advanced_attachments_alt">نمایش پیوست‌ها بعد از متن پیام</string>
     <string name="title_advanced_contrast">از کنتراست زیاد برای متن پیام استفاده کن</string>
     <string name="title_advanced_background_color">استفاده از رنگ‌های پس‌زمینه</string>
@@ -449,6 +452,7 @@
     <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
     </string>
     <string name="title_advanced_external_search">اجازه به دیگر برنامه‌ها برای جستجو در پیام‌ها</string>
+    <string name="title_advanced_sort_answers">قالب‌های پاسخ‌گویی را بر اساس تناوب استفاده از آنها مرتب کن</string>
     <string name="title_advanced_shortcuts">نمایش مخاطبین مکررا استفاده شده در فهرست اشتراک‌گذاری اندروید</string>
     <string name="title_advanced_fts">ساخت شاخص جستجو</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d پیام ایندکس شد (%3$s)</string>
@@ -474,6 +478,7 @@
     <string name="title_advanced_threading_hint">پیام‌های گروهی مرتبط با یکدیگر</string>
     <string name="title_advanced_gravatars_hint">شاید خطر حریم خصوصی وجود داشته باشد</string>
     <string name="title_advanced_preview_hint">فقط زمانی در دسترس است که متن پیام دانلود شده باشد</string>
+    <string name="compressed" comment="compressed&#10;&#10;The contents of compressed files (&lt;types&gt;) with more than &lt;count&gt; files or with files larger than &lt;size&gt; will not be shown">محتویات فایل‌های فشرده شده (%1$s) با بیش از %2$s فایل یا فایل‌های بزرگ‌تر از %3$s نمایش داده نخواهند شد</string>
     <string name="title_advanced_autoexpand_hint">باز کردن خودکار پیام وقتی فقط یک پیام یا فقط یک پیام خوانده نشده در مکالمه وجود دارد</string>
     <string name="title_advanced_autoclose_hint">بسته شدن خودکار مکالمات زمانی که همه پیام‌ها آرشیو شده، فرستاده شده و یا به به سطل آشغال فرستاده شده است</string>
     <string name="title_advanced_sender_hint">بیشتر فراهم‌کنندگان نشانی‌های ویرایش شده فرستنده را قبول نمی‌کنند</string>

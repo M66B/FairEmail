@@ -260,6 +260,7 @@
     <string name="title_advanced_date_bold">날짜를 굵게 표시</string>
     <string name="title_advanced_threading">대화 스레딩</string>
     <string name="title_advanced_gravatars">그라바타 표시</string>
+    <string name="title_advanced_libravatars">리브라바타 표시</string>
     <string name="title_advanced_bimi_unverified">확인되지 않은 발신자</string>
     <string name="title_advanced_bimi_verified">확인된 발신자</string>
     <string name="title_advanced_favicons">파비콘 표시</string>
@@ -314,6 +315,9 @@
     <string name="title_advanced_client_id">앱 이름 및 버전을 이메일 서버로 전송</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_mnemonic">원격 데이터 삭제</string>
+    <string name="title_advanced_mnemonic_hint">제목에 아래 단어가 포함된 이메일을 받은 경우 자동으로 이 기기의 모든 앱 데이터를 즉시 삭제합니다</string>
+    <string name="title_advanced_clear_all">앱 데이터 삭제</string>
+    <string name="title_advanced_clear_all_remark">앱 데이터가 삭제되며 되돌릴 수 없습니다!</string>
     <string name="title_advanced_openpgp">OpenPGP 제공업체</string>
     <string name="title_advanced_autocrypt">Autocrypt 사용</string>
     <string name="title_advanced_encrypt_subject">제목 암호화</string>
@@ -324,6 +328,7 @@
     <string name="title_advanced_import_key">개인 키 불러오기</string>
     <string name="title_advanced_manage_keys">개인 키 관리</string>
     <string name="title_advanced_power_menu">Android 전원 메뉴에 동작 추가</string>
+    <string name="title_advanced_sort_answers">답장 템플릿을 사용 빈도순으로 정렬</string>
     <string name="title_advanced_language">언어</string>
     <string name="title_advanced_language_system">시스템</string>
     <string name="title_advanced_cleanup">비우기</string>

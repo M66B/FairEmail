@@ -332,7 +332,7 @@
     <string name="title_advanced_suggest_local">Предлагать локальные контакты</string>
     <string name="title_advanced_suggest_sent">Предлагать адреса, найденные в отправленных сообщениях</string>
     <string name="title_advanced_suggest_received">Предлагать адреса, найденные в полученных сообщениях</string>
-    <string name="title_advanced_suggest_frequently">Сортировать предложенные адреса по частоте использования</string>
+    <string name="title_advanced_suggest_frequently">Сортировать предлагаемые адреса по частоте использования</string>
     <string name="title_advanced_alt_re_fwd">Альтернативный префикс ответа/пересылки</string>
     <string name="title_advanced_send_chips">Показывать пузыри адреса</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
@@ -450,6 +450,7 @@
     <string name="title_advanced_preview_italic">Показывать предпросмотр сообщения курсивом</string>
     <string name="title_advanced_preview_lines">Количество строк предпросмотра</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
+    <string name="title_advanced_unzip">Показывать содержимое сжатых вложений</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_thumbnails">Показывать миниатюры изображений после текста сообщения</string>
     <string name="title_advanced_message_text_zoom2">Масштаб текста сообщения по умолчанию: %1$s%%</string>
@@ -597,6 +598,7 @@
     </string>
     <string name="title_advanced_power_menu">Добавить действия в меню питания Android</string>
     <string name="title_advanced_external_search">Разрешать другим приложениям искать в сообщениях</string>
+    <string name="title_advanced_sort_answers">Сортировать шаблоны ответов по частоте использования</string>
     <string name="title_advanced_shortcuts">Показывать часто используемые контакты в меню \"Поделиться\" Android</string>
     <string name="title_advanced_fts">Создавать индекс поиска</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
@@ -676,6 +678,7 @@
     <string name="title_advanced_monospaced_pre_hint">Сообщения, содержащие только простой текст, будут рассматриваться как форматированные</string>
     <string name="title_advanced_placeholders_hint">Относится только к изменённым сообщениям</string>
     <string name="title_advanced_inline_hint">Встроенные изображения – это изображения, включённые в сообщение</string>
+    <string name="compressed" comment="compressed&#10;&#10;The contents of compressed files (&lt;types&gt;) with more than &lt;count&gt; files or with files larger than &lt;size&gt; will not be shown">Содержимое сжатых файлов (%1$s) с более чем %2$s файлами или файлами размером более %3$s не будет показано</string>
     <string name="title_advanced_parse_classes_hint">Позволит более точно отображать сообщения, но, возможно, с задержкой</string>
     <string name="title_advanced_language_detection_hint">Поддержка определения языка зависит от производителя устройства</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>

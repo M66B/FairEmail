@@ -248,6 +248,7 @@
     <string name="title_advanced_clear_all">ଆପ୍ ଡାଟା ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_advanced_clear_all_remark">ଆପ୍ ଡାଟା ଅପରିବର୍ତ୍ତନୀୟ ଭାବରେ ବିଲୋପ ହୋଇଯିବ!</string>
     <string name="title_advanced_openpgp">OpenPGP ପ୍ରଦାନକାରୀ</string>
+    <string name="title_advanced_sort_answers">ବ୍ୟବହାରର ବାରମ୍ଵାରତା ଅନୁଯାୟୀ ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟଗୁଡ଼ିକୁ ସଜାନ୍ତୁ</string>
     <string name="title_advanced_fts">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ନିର୍ମାଣ କରିବା</string>
     <string name="title_advanced_language">ଭାଷା</string>
     <string name="title_advanced_language_system">ସିଷ୍ଟମ୍</string>
@@ -499,6 +500,7 @@
     <string name="title_rule_snooze">ସ୍ନୁଜ୍</string>
     <string name="title_rule_flag">ତାରା ଲଗାନ୍ତୁ</string>
     <string name="title_rule_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
+    <string name="title_rule_tts">ପାଠ୍ୟ ରୁ କଥନ</string>
     <string name="title_rule_delete">ସବୁଦିନ ପାଇଁ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_rule_sound">ଧ୍ୱନି ବଜାନ୍ତୁ</string>
     <string name="title_rule_name">ନାମ</string>
@@ -573,10 +575,14 @@
     <string name="title_widget_font_size">ପାଠ୍ୟ ଆକାର</string>
     <string name="title_widget_padding">ପ୍ୟାଡିଂ ଆକାର</string>
     <string name="title_widget_background">ପୃଷ୍ଠପଟ ରଙ୍ଗ</string>
+    <string name="title_accessibility_collapsed">ସଙ୍କୁଚିତ ହୋଇଅଛି</string>
+    <string name="title_accessibility_expanded">ପ୍ରସାରିତ ହୋଇଅଛି</string>
     <string name="title_accessibility_seen">ପଠିତ</string>
     <string name="title_accessibility_unseen">ଅପଠିତ</string>
     <!-- Thunderbird -->
     <string name="title_accessibility_flagged">ତାରାଙ୍କିତ</string>
+    <string name="title_accessibility_collapse">ସଙ୍କୋଚନ</string>
+    <string name="title_accessibility_expand">ପ୍ରସାରଣ</string>
     <string name="title_accessibility_view_help">ସହାୟତା ଦେଖନ୍ତୁ</string>
     <string name="title_accessibility_edit">ସମ୍ପାଦନ</string>
     <string name="title_accessibility_attachment">ସଂଲଗ୍ନକରଣ</string>

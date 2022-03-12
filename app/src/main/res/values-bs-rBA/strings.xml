@@ -388,6 +388,7 @@
     <string name="title_advanced_nav_hide_message">Možete ponovo omogućiti opcije na postavkama ekrana</string>
     <string name="title_advanced_nav_message_count">Prikaži broj lokalno spašenih poruka u navigacijskom meniju</string>
     <string name="title_advanced_nav_unseen_drafts">Prikaži broj nepročitanih nacrta u navigacijskom meniju</string>
+    <string name="title_advanced_nav_pinned_count">Prikaži broj nepročitanih poruka u fiksiranom navigacijskom meniju</string>
     <string name="title_advanced_startup">Prikaži na početnom ekranu</string>
     <string name="title_advanced_cards">Koristi kartični stil umjesto tabelarnog</string>
     <string name="title_advanced_cards_beige">Koristi bež pozadinu kada se koristi kartični stil (samo kod svijetlih tema)</string>
@@ -407,6 +408,7 @@
     <string name="title_advanced_color_stripe_wide">Koristi široku traku s bojama</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_gravatars">Prikaži gravatare</string>
+    <string name="title_advanced_libravatars">Prikaži Libravatare</string>
     <string name="title_advanced_bimi_unverified">Nepotvrđeni pošiljalac</string>
     <string name="title_advanced_bimi_verified">Potvrđeni pošiljalac</string>
     <string name="title_advanced_favicons">Prikaži fav ikonice</string>
@@ -439,6 +441,7 @@
     <string name="title_advanced_preview_italic">Prikaži pregled poruke u kurzivu</string>
     <string name="title_advanced_preview_lines">Broj linija za pregled</string>
     <string name="title_advanced_addresses">Proširi detalje adrese po zadanom</string>
+    <string name="title_advanced_unzip">Prikaži sadržaj kompresovanih priloga</string>
     <string name="title_advanced_attachments_alt">Prikaži priloge poslije teksta poruke</string>
     <string name="title_advanced_thumbnails">Prikaži sličice fotografija poslije teksta poruke</string>
     <string name="title_advanced_message_text_zoom2">Zadani nivo zumiranja teksta: %1$s %%</string>
@@ -559,6 +562,10 @@
     <string name="title_advanced_disconnect_auto_update">Automatsko ažuriranje spiskova sedmično</string>
     <string name="title_advanced_disconnect_links">Koristi spiskove za upozorenja o linkovima koji mogu pratiti</string>
     <string name="title_advanced_disconnect_images">Koristi spiskove za prepoznavanje slika koje mogu pratiti</string>
+    <string name="title_advanced_mnemonic">Izbriši udaljene podatke</string>
+    <string name="title_advanced_mnemonic_hint">Bilo koja e-pošta koja sadrži neku od dolje navedenih riječi u naslovu automatski i odmah će izbrisati podatke aplikacije</string>
+    <string name="title_advanced_clear_all">Izbriši podatke aplikacije</string>
+    <string name="title_advanced_clear_all_remark">Podaci aplikacije izbrisat će se nepovratno!</string>
     <string name="title_advanced_sign_default">Potpiši po zadanom</string>
     <string name="title_advanced_encrypt_default">Šifriraj po zadanom</string>
     <string name="title_advanced_auto_decrypt">Automatski dešifriraj poruke</string>
@@ -582,6 +589,7 @@
     </string>
     <string name="title_advanced_power_menu">Dodaj radnje na Androidov meni za uključenje/gašenje</string>
     <string name="title_advanced_external_search">Dopusti drugim aplikacijama da pretražuju u porukama</string>
+    <string name="title_advanced_sort_answers">Sortiraj prijedloške za odgovore prema učestalosti korištenja</string>
     <string name="title_advanced_shortcuts">Prikaži često korištene kontakte u Android meniju za dijeljenje</string>
     <string name="title_advanced_fts">Kreiraj indeks pretraživanja</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d poruke/a indeksirano (%3$s)</string>
@@ -660,6 +668,7 @@
     <string name="title_advanced_monospaced_pre_hint">Samo poruke s običnim tekstom razmatrat će se kao preformatirane</string>
     <string name="title_advanced_placeholders_hint">Ovo se primjenjuje samo na preformatirane poruke</string>
     <string name="title_advanced_inline_hint">Poravnate slike su slike unutar tijela poruke</string>
+    <string name="compressed" comment="compressed&#10;&#10;The contents of compressed files (&lt;types&gt;) with more than &lt;count&gt; files or with files larger than &lt;size&gt; will not be shown">Sadržaj kompresovanih datoteka (%1$s) sa više od %2$s datoteke(a) ili sa datotekama većim od %3$s neće se prikazivati</string>
     <string name="title_advanced_parse_classes_hint">Ovo će preciznije prikazivati poruke, ali vjerovatno sa kašnjenjem</string>
     <string name="title_advanced_language_detection_hint">Podrška za otkrivanje jezika zavisi od proizvođača uređaja</string>
     <string name="title_advanced_autoexpand_hint">Automatski otvori poruku kada se u konverzaciji nalazi samo jedna poruka ili samo jedna nepročitana poruka</string>
