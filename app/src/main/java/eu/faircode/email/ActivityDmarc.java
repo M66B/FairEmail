@@ -216,7 +216,6 @@ public class ActivityDmarc extends ActivityBase {
                             case "aspf":
                             case "p":
                             case "sp":
-                            case "pct":
                             case "fo":
                                 if (feedback && policy_published) {
                                     eventType = xml.next();
@@ -224,10 +223,32 @@ public class ActivityDmarc extends ActivityBase {
                                         String text = xml.getText();
                                         if (text == null)
                                             text = "<null>";
+                                        if ("adkim".equals(name) || "aspf".equals(name))
+                                            if ("r".equals(text))
+                                                text = "relaxed";
+                                            else if ("s".equals(text))
+                                                text = "strict";
                                         ssb.append(name).append('=')
                                                 .append(text).append(' ');
                                     }
                                 }
+                                break;
+                            case "pct":
+                                if (feedback && policy_published) {
+                                    eventType = xml.next();
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        String text = xml.getText();
+                                        if (text == null)
+                                            text = "<null>";
+                                        Integer pct = Helper.parseInt(text);
+                                        if (pct == null)
+                                            ssb.append(name).append('=')
+                                                    .append(text).append(' ');
+                                        else
+                                            ssb.append(text).append("% ");
+                                    }
+                                }
+
                                 break;
                             case "source_ip":
                             case "count":
