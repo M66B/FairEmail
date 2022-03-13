@@ -399,16 +399,11 @@ public class MessageClassifier {
 
         long start = new Date().getTime();
 
-        File file = getFile(context);
+        File file = getFile(context, false);
+        File backup = getFile(context, true);
+        backup.delete();
         if (file.exists())
-            try {
-                File backup = getBackupFile(context);
-                Log.i("Classifier backup " + backup);
-                backup.delete();
-                file.renameTo(backup);
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
+            file.renameTo(backup);
 
         Log.i("Classifier save " + file);
         try (JsonWriter writer = new JsonWriter(new BufferedWriter(new FileWriter(file)))) {
@@ -477,6 +472,8 @@ public class MessageClassifier {
             writer.endObject();
         }
 
+        backup.delete();
+
         dirty = false;
 
         long elapsed = new Date().getTime() - start;
@@ -488,21 +485,12 @@ public class MessageClassifier {
             return;
 
         clear(context);
-        File file = getFile(context);
+        File file = getFile(context, false);
+        File backup = getFile(context, true);
+        if (backup.exists())
+            file = backup;
         try {
             _load(file);
-        } catch (MalformedJsonException ex) {
-            Log.w(ex);
-            clear(context);
-            File backup = getBackupFile(context);
-            if (backup.exists())
-                try {
-                    _load(backup);
-                } catch (Throwable ex1) {
-                    Log.e(ex1);
-                    backup.delete();
-                    clear(context);
-                }
         } catch (Throwable ex) {
             Log.e(ex);
             file.delete();
@@ -689,12 +677,9 @@ public class MessageClassifier {
         return prefs.getBoolean("classification", false);
     }
 
-    static File getFile(@NonNull Context context) {
-        return new File(context.getFilesDir(), "classifier.json");
-    }
-
-    static File getBackupFile(@NonNull Context context) {
-        return new File(context.getFilesDir(), "classifier.backup");
+    static File getFile(@NonNull Context context, boolean backup) {
+        return new File(context.getFilesDir(),
+                backup ? "classifier.backup" : "classifier.json");
     }
 
     private static class State {
