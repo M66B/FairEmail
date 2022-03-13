@@ -10,6 +10,8 @@
 
 package javax.activation;
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+
 import com.sun.mail.imap.IMAPNestedMessage;
 
 import java.io.InputStream;
@@ -265,7 +267,7 @@ public class DataHandler /*implements Transferable*/ {
 	    //
 	    final PipedOutputStream pos = new PipedOutputStream();
 	    PipedInputStream pin = new PipedInputStream(pos);
-	    new Thread(
+	    Thread thread = new Thread(
 		       new Runnable() {
 		public void run() {
 		    try {
@@ -279,7 +281,9 @@ public class DataHandler /*implements Transferable*/ {
 		    }
 		}
 	    },
-		      "DataHandler.getInputStream").start();
+		      "DataHandler.getInputStream");
+		thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+		thread.start();
 	    ins = pin;
 	}
 
