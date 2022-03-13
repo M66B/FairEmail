@@ -338,10 +338,15 @@ public class Bimi {
                         Log.i("BIMI got TXT " + records[0].name);
 
                         Map<String, String> dmarc = MessageHelper.getKeyValues(records[0].name);
-                        String policy = dmarc.get("p");
-                        if (policy == null ||
-                                !DMARC_POLICIES.contains(policy.toLowerCase(Locale.ROOT)))
-                            throw new IllegalArgumentException("DMARC invalid policy=" + policy);
+
+                        String p = dmarc.get("p");
+                        if (p == null ||
+                                !DMARC_POLICIES.contains(p.toLowerCase(Locale.ROOT)))
+                            throw new IllegalArgumentException("DMARC invalid p=" + p);
+
+                        String pct = dmarc.get("pct");
+                        if (!TextUtils.isEmpty(pct) && !"100".equals(pct))
+                            throw new IllegalArgumentException("DMARC invalid pct=" + p);
 
                         verified = true;
                     } catch (MalformedURLException ex) {
