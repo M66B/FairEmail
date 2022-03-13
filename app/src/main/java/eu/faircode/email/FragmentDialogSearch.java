@@ -81,6 +81,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         boolean last_search_notes = prefs.getBoolean("last_search_notes", true);
         boolean last_search_trash = prefs.getBoolean("last_search_trash", true);
         boolean last_search_junk = prefs.getBoolean("last_search_junk", true);
+        boolean last_search_device = prefs.getBoolean("last_search_device", true);
 
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_search, null);
 
@@ -120,6 +121,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         Button btnAfter = dview.findViewById(R.id.btnAfter);
         TextView tvBefore = dview.findViewById(R.id.tvBefore);
         TextView tvAfter = dview.findViewById(R.id.tvAfter);
+        CheckBox cbSearchDevice = dview.findViewById(R.id.cbSearchDevice);
         Group grpMore = dview.findViewById(R.id.grpMore);
 
         ibInfo.setOnClickListener(new View.OnClickListener() {
@@ -236,6 +238,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                     cbHtml.setVisibility(View.GONE);
                     cbSearchTrash.setVisibility(View.GONE);
                     cbSearchJunk.setVisibility(View.GONE);
+                    cbSearchDevice.setVisibility(View.GONE);
                 } else {
                     ibMore.setImageLevel(0);
                     grpMore.setVisibility(View.VISIBLE);
@@ -247,6 +250,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         cbSearchTrash.setVisibility(View.VISIBLE);
                         cbSearchJunk.setVisibility(View.VISIBLE);
                     }
+                    if (account > 0 && folder > 0)
+                        cbSearchDevice.setVisibility(View.VISIBLE);
                 }
             }
         };
@@ -258,10 +263,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_fts", isChecked).apply();
-                cbHeaders.setEnabled(!isChecked);
-                cbHtml.setEnabled(!isChecked);
-                cbAttachments.setEnabled(!isChecked);
-                spMessageSize.setEnabled(!isChecked);
             }
         });
 
@@ -352,6 +353,13 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         });
 
+        cbSearchDevice.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                prefs.edit().putBoolean("last_search_device", isChecked).apply();
+            }
+        });
+
         ibMore.setImageLevel(1);
         cbSearchIndex.setChecked(last_fts && fts && pro);
         cbSearchIndex.setEnabled(fts && pro);
@@ -363,16 +371,18 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         tvSearchTextUnsupported.setText(getString(R.string.title_search_text_unsupported,
                 "full text search not supported"));
         cbNotes.setChecked(last_search_notes);
-        tvAfter.setText(null);
-        tvBefore.setText(null);
         cbSearchTrash.setChecked(last_search_trash);
         cbSearchJunk.setChecked(last_search_junk);
+        tvAfter.setText(null);
+        tvBefore.setText(null);
+        cbSearchDevice.setChecked(last_search_device);
 
         grpMore.setVisibility(View.GONE);
         cbHeaders.setVisibility(View.GONE);
         cbHtml.setVisibility(View.GONE);
         cbSearchTrash.setVisibility(View.GONE);
         cbSearchJunk.setVisibility(View.GONE);
+        cbSearchDevice.setVisibility(View.GONE);
 
         final AlertDialog dialog = new AlertDialog.Builder(context)
                 .setView(dview)
@@ -385,20 +395,20 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         if (TextUtils.isEmpty(criteria.query))
                             criteria.query = null;
 
-                        criteria.fts = cbSearchIndex.isChecked();
+                        criteria.fts = (cbSearchIndex.isChecked() && cbSearchIndex.isEnabled());
                         criteria.in_senders = cbSenders.isChecked();
                         criteria.in_recipients = cbRecipients.isChecked();
                         criteria.in_subject = cbSubject.isChecked();
                         criteria.in_keywords = cbKeywords.isChecked();
                         criteria.in_message = cbMessage.isChecked();
                         criteria.in_notes = cbNotes.isChecked();
-                        criteria.in_headers = (!criteria.fts && cbHeaders.isChecked());
-                        criteria.in_html = (!criteria.fts && cbHtml.isChecked());
+                        criteria.in_headers = cbHeaders.isChecked();
+                        criteria.in_html = cbHtml.isChecked();
                         criteria.with_unseen = cbUnseen.isChecked();
                         criteria.with_flagged = cbFlagged.isChecked();
                         criteria.with_hidden = cbHidden.isChecked();
                         criteria.with_encrypted = cbEncrypted.isChecked();
-                        criteria.with_attachments = (!criteria.fts && cbAttachments.isChecked());
+                        criteria.with_attachments = cbAttachments.isChecked();
 
                         if (!criteria.fts) {
                             int pos = spMessageSize.getSelectedItemPosition();
@@ -418,6 +428,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                             criteria.after = ((Calendar) after).getTimeInMillis();
                         if (before != null)
                             criteria.before = ((Calendar) before).getTimeInMillis();
+
+                        boolean device = (cbSearchDevice.isChecked() || account < 0 || folder < 0);
 
                         if (criteria.query != null) {
                             List<String> searches = new ArrayList<>();
@@ -471,7 +483,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                                             context, getViewLifecycleOwner(), getParentFragmentManager(),
                                             account,
                                             archive == null ? folder : archive.id,
-                                            archive != null,
+                                            archive != null || !device,
                                             criteria);
                                 }
 
@@ -483,7 +495,9 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         else
                             FragmentMessages.search(
                                     context, getViewLifecycleOwner(), getParentFragmentManager(),
-                                    account, folder, false, criteria);
+                                    account, folder,
+                                    !device,
+                                    criteria);
                     }
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -513,9 +527,13 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 else if (id == R.id.ibNotes)
                     criteria.with_notes = true;
 
+                boolean device = (cbSearchDevice.isChecked() || account < 0 || folder < 0);
+
                 FragmentMessages.search(
                         context, getViewLifecycleOwner(), getParentFragmentManager(),
-                        account, folder, false, criteria);
+                        account, folder,
+                        !device,
+                        criteria);
             }
         };
 

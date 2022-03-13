@@ -321,6 +321,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             continue;
                     }
 
+                    if (criteria.with_attachments) {
+                        if (message.attachments == 0)
+                            continue;
+                    }
+
                     if (excluded.contains(message.folder))
                         continue;
 

@@ -1454,6 +1454,7 @@
     <string name="title_search_in_junk">In spam</string>
     <string name="title_search_with_before">Before</string>
     <string name="title_search_with_after">After</string>
+    <string name="title_search_device_first">Search the device first</string>
     <string name="title_search_flag_unseen">unread</string>
     <string name="title_search_flag_flagged">starred</string>
     <string name="title_search_flag_hidden">hidden</string>
