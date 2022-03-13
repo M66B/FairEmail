@@ -355,6 +355,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private int autoCloseCount = 0;
     private boolean autoExpanded = true;
 
+    private Integer lastUnseen;
+    private Boolean lastRefreshing;
+    private Boolean lastFolderErrors;
+    private Boolean lastAccountErrors;
+
     final private Map<String, String> kv = new HashMap<>();
     final private Map<String, List<Long>> values = new HashMap<>();
     final private LongSparseArray<Float> sizes = new LongSparseArray<>();
@@ -5455,17 +5460,31 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         }
 
+        if (Objects.equals(lastUnseen, unseen) &&
+                Objects.equals(lastRefreshing, refreshing) &&
+                Objects.equals(lastFolderErrors, folderErrors) &&
+                Objects.equals(lastAccountErrors, accountErrors)) {
+            Log.i("Folder state unchanged");
+            return;
+        }
+
+        lastUnseen = unseen;
+        lastRefreshing = refreshing;
+        lastFolderErrors = folderErrors;
+        lastAccountErrors = accountErrors;
+
         // Get name
         String name;
+        Context context = getContext();
         if (viewType == AdapterMessage.ViewType.UNIFIED)
             if (type == null) {
                 name = (folders.size() == 1 ? folders.get(0).accountName : null);
                 if (name == null)
                     name = getString(R.string.title_folder_unified);
             } else
-                name = "»" + EntityFolder.localizeType(getContext(), type);
+                name = "»" + EntityFolder.localizeType(context, type);
         else {
-            name = (folders.size() > 0 ? folders.get(0).getDisplayName(getContext()) : "");
+            name = (folders.size() > 0 ? folders.get(0).getDisplayName(context) : "");
             if (folders.size() == 1) {
                 String accountName = folders.get(0).accountName;
                 if (accountName != null)
@@ -5474,10 +5493,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         // Show name/unread
-        if (unseen == 0)
-            setSubtitle(name);
-        else
-            setSubtitle(getString(R.string.title_name_count, name, NF.format(unseen)));
+        if (unseen > 0)
+            name = getString(R.string.title_name_count, name, NF.format(unseen));
+        setSubtitle(name);
 
         fabError.setTag(accountErrors);
         if (folderErrors || accountErrors)
