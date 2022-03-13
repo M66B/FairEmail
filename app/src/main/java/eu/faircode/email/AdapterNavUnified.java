@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -148,10 +149,43 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             if (EntityFolder.OUTBOX.equals(folder.type))
                 lbm.sendBroadcast(new Intent(ActivityView.ACTION_VIEW_OUTBOX));
-            else
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                .putExtra("type", folder.type));
+            else {
+                Bundle args = new Bundle();
+                args.putString("type", folder.type);
+
+                new SimpleTask<EntityFolder>() {
+                    @Override
+                    protected EntityFolder onExecute(Context context, Bundle args) throws Throwable {
+                        String type = args.getString("type");
+
+                        DB db = DB.getInstance(context);
+                        List<EntityFolder> folders = db.folder().getFoldersByType(type);
+
+                        return (folders != null && folders.size() == 1 ? folders.get(0) : null);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, EntityFolder one) {
+                        if (one == null)
+                            lbm.sendBroadcast(
+                                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                            .putExtra("type", folder.type));
+                        else
+                            lbm.sendBroadcast(
+                                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                            .putExtra("account", one.account)
+                                            .putExtra("folder", one.id)
+                                            .putExtra("type", one.type));
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                        .putExtra("type", folder.type));
+                    }
+                }.execute(context, owner, args, "nav:folder");
+            }
         }
     }
 
