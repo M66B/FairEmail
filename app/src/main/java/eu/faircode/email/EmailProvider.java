@@ -102,7 +102,8 @@ public class EmailProvider implements Parcelable {
             "tutanota.de",
             "tutamail.com", // tutanota
             "tuta.io", // tutanota
-            "keemail.me" // tutanota
+            "keemail.me", // tutanota
+            "ctemplar.com"
     ));
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(0, "provider");
