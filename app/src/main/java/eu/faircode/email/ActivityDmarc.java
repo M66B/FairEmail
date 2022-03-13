@@ -147,6 +147,7 @@ public class ActivityDmarc extends ActivityBase {
                 boolean auth_results = false;
                 String lastDomain = null;
                 String result = null;
+                List<Pair<String, DnsHelper.DnsRecord>> spf = null;
                 int eventType = xml.getEventType();
                 while (eventType != XmlPullParser.END_DOCUMENT) {
                     if (eventType == XmlPullParser.START_TAG) {
@@ -267,7 +268,41 @@ public class ActivityDmarc extends ActivityBase {
                                             text = "<null>";
                                         ssb.append(name).append('=')
                                                 .append(text).append(' ');
-                                        if ("source_ip".equals(name))
+                                        if ("source_ip".equals(name)) {
+                                            try {
+                                                boolean valid = false;
+                                                if (spf != null)
+                                                    for (Pair<String, DnsHelper.DnsRecord> p : spf) {
+                                                        for (String ip : p.second.name.split("\\s+")) {
+                                                            ip = ip.toLowerCase(Locale.ROOT);
+                                                            if (ip.startsWith("ip4:") || ip.startsWith("ip6:")) {
+                                                                String[] net = ip.substring(4).split("/");
+                                                                if (net.length != 2)
+                                                                    continue;
+                                                                Integer prefix = Helper.parseInt(net[1]);
+                                                                if (prefix == null)
+                                                                    continue;
+                                                                if (inSubnet(text, net[0], prefix)) {
+                                                                    valid = true;
+                                                                    break;
+                                                                }
+                                                            }
+                                                        }
+                                                        if (valid)
+                                                            break;
+                                                    }
+
+                                                int start = ssb.length();
+                                                ssb.append(valid ? "valid" : "invalid");
+                                                if (!valid) {
+                                                    ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                                                    ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
+                                                }
+                                                ssb.append(' ');
+                                            } catch (Throwable ex) {
+                                                Log.w(ex);
+                                            }
+
                                             try {
                                                 InetAddress addr = InetAddress.getByName(text);
                                                 IPInfo.Organization info =
@@ -276,6 +311,7 @@ public class ActivityDmarc extends ActivityBase {
                                             } catch (Throwable ex) {
                                                 Log.w(ex);
                                             }
+                                        }
                                     }
                                 }
                                 break;
@@ -298,8 +334,8 @@ public class ActivityDmarc extends ActivityBase {
 
                                             if (!"pass".equals(text.toLowerCase(Locale.ROOT)) &&
                                                     ("dkim".equals(name) || "spf".equals(name))) {
-                                                ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
                                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                                                ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
                                             }
 
                                             ssb.append(' ');
@@ -318,8 +354,8 @@ public class ActivityDmarc extends ActivityBase {
                                             text = "<null>";
                                         ssb.append(text);
                                         if (!"pass".equals(text.toLowerCase(Locale.ROOT))) {
-                                            ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
                                             ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                                            ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
                                         }
                                         ssb.append(' ');
                                     }
@@ -366,10 +402,13 @@ public class ActivityDmarc extends ActivityBase {
                                 policy_published = false;
                                 if (feedback) {
                                     ssb.append("\n\n");
-                                    if (lastDomain != null) {
-                                        for (Pair<String, DnsHelper.DnsRecord> spf : lookupSpf(context, lastDomain))
-                                            ssb.append(spf.first).append(' ')
-                                                    .append(spf.second.name).append("\n");
+                                    if (lastDomain == null)
+                                        spf = null;
+                                    else {
+                                        spf = lookupSpf(context, lastDomain);
+                                        for (Pair<String, DnsHelper.DnsRecord> p : spf)
+                                            ssb.append(p.first).append(' ')
+                                                    .append(p.second.name).append("\n");
 
                                         List<DnsHelper.DnsRecord> records = new ArrayList<>();
                                         records.addAll(Arrays.asList(
@@ -456,6 +495,30 @@ public class ActivityDmarc extends ActivityBase {
                 return result;
             }
 
+            private boolean inSubnet(final String ip, final String net, final int prefix) {
+                try {
+                    byte[] _ip = InetAddress.getByName(ip).getAddress();
+                    byte[] _net = InetAddress.getByName(net).getAddress();
+
+                    if (_ip.length != _net.length)
+                        return false;
+
+                    int i = 0;
+                    int p = prefix;
+                    while (p >= 8) {
+                        if (_ip[i] != _net[i])
+                            return false;
+                        ++i;
+                        p -= 8;
+                    }
+
+                    int m = (0xFF00 >> p) & 0xFF;
+                    return (_ip[i] & m) == (_net[i] & m);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                    return false;
+                }
+            }
         }.execute(this, args, "dmarc:decode");
     }
 }
