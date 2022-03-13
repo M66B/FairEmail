@@ -23,6 +23,7 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
@@ -91,6 +92,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swTuneKeepAlive;
 
     private SwitchCompat swCheckAuthentication;
+    private ImageButton ibCheckAuthenticationInfo;
     private SwitchCompat swCheckTls;
     private ImageButton ibCheckTlsInfo;
     private SwitchCompat swCheckReply;
@@ -164,6 +166,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swTuneKeepAlive = view.findViewById(R.id.swTuneKeepAlive);
 
         swCheckAuthentication = view.findViewById(R.id.swCheckAuthentication);
+        ibCheckAuthenticationInfo = view.findViewById(R.id.ibCheckAuthenticationInfo);
         swCheckTls = view.findViewById(R.id.swCheckTls);
         ibCheckTlsInfo = view.findViewById(R.id.ibCheckTlsInfo);
         swCheckReply = view.findViewById(R.id.swCheckReply);
@@ -396,6 +399,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
                 prefs.edit().putBoolean("check_authentication", checked).apply();
                 swCheckTls.setEnabled(checked);
+            }
+        });
+
+        ibCheckAuthenticationInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.AUTH_RESULTS_URI), true);
             }
         });
 

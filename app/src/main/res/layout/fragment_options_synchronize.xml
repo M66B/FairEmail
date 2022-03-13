@@ -769,6 +769,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swCheckAuthentication" />
 
+                <eu.faircode.email.FixedImageButton
+                    android:id="@+id/ibCheckAuthenticationInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/title_info"
+                    android:tooltipText="@string/title_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCheckAuthenticationHint"
+                    app:srcCompat="@drawable/twotone_info_24" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swCheckTls"
                     android:layout_width="0dp"
@@ -778,7 +788,7 @@
                     android:text="@string/title_advanced_check_tls"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCheckAuthenticationHint"
+                    app:layout_constraintTop_toBottomOf="@id/ibCheckAuthenticationInfo"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
