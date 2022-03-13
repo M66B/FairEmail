@@ -111,7 +111,6 @@ import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
-import java.net.Socket;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
@@ -1588,14 +1587,6 @@ public class Log {
             if (ex instanceof ConnectionException)
                 return null;
 
-            if (ex instanceof MailConnectException &&
-                    ex.getCause() instanceof SocketTimeoutException)
-                ex = new Throwable("No response received from email server", ex);
-
-            if (ex instanceof MessagingException &&
-                    ex.getCause() instanceof UnknownHostException)
-                ex = new Throwable("Email server address lookup failed", ex);
-
             if (ex instanceof StoreClosedException ||
                     ex instanceof FolderClosedException ||
                     ex instanceof FolderClosedIOException ||
@@ -1608,6 +1599,14 @@ public class Log {
                             "This operation is not allowed on a closed folder".equals(ex.getMessage())))
                 return null;
         }
+
+        if (ex instanceof MailConnectException &&
+                ex.getCause() instanceof SocketTimeoutException)
+            ex = new Throwable("No response received from email server", ex);
+
+        if (ex instanceof MessagingException &&
+                ex.getCause() instanceof UnknownHostException)
+            ex = new Throwable("Email server address lookup failed", ex);
 
         StringBuilder sb = new StringBuilder();
         if (BuildConfig.DEBUG)
