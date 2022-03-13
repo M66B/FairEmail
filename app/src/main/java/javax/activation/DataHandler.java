@@ -10,6 +10,8 @@
 
 package javax.activation;
 
+import com.sun.mail.imap.IMAPNestedMessage;
+
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -17,6 +19,9 @@ import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.io.OutputStreamWriter;
 import java.net.URL;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeUtility;
 //import java.awt.datatransfer.Transferable;
 //import java.awt.datatransfer.DataFlavor;
 //import java.awt.datatransfer.UnsupportedFlavorException;
@@ -232,6 +237,24 @@ public class DataHandler /*implements Transferable*/ {
 				"no object DCH for MIME type " + getBaseType());
 	    }
 	    // there is none but the default^^^^^^^^^^^^^^^^
+
+		if (object instanceof IMAPNestedMessage &&
+				dch instanceof ObjectDataContentHandler)
+			try {
+				IMAPNestedMessage nested = (IMAPNestedMessage) object;
+				String encoding = nested.getEncoding();
+				if (encoding == null)
+					return nested.getMimeStream();
+				else
+					return MimeUtility.decode(nested.getMimeStream(), encoding);
+			} catch (MessagingException ex) {
+				throw new IOException(ex);
+			}
+
+		eu.faircode.email.Log.e("DataHandler" +
+				" object=" + (object == null ? null : object.getClass().getName()) +
+				" dch=" + dch.getClass().getName());
+
 	    final DataContentHandler fdch = dch;
 
 	    // from bill s.
