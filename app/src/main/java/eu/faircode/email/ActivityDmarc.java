@@ -32,6 +32,7 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -366,10 +367,11 @@ public class ActivityDmarc extends ActivityBase {
                                 if (feedback) {
                                     ssb.append("\n\n");
                                     if (lastDomain != null) {
+                                        for (Pair<String, DnsHelper.DnsRecord> spf : lookupSpf(context, lastDomain))
+                                            ssb.append(spf.first).append(' ')
+                                                    .append(spf.second.name).append("\n");
+
                                         List<DnsHelper.DnsRecord> records = new ArrayList<>();
-                                        for (DnsHelper.DnsRecord r : DnsHelper.lookup(context, lastDomain, "txt"))
-                                            if (r.name.contains("spf"))
-                                                records.add(r);
                                         records.addAll(Arrays.asList(
                                                 DnsHelper.lookup(context, "_dmarc." + lastDomain, "txt")));
                                         records.addAll(Arrays.asList(
@@ -437,6 +439,23 @@ public class ActivityDmarc extends ActivityBase {
                 tvDmarc.setText(ex + "\n" + android.util.Log.getStackTraceString(ex));
                 grpReady.setVisibility(View.VISIBLE);
             }
+
+            private List<Pair<String, DnsHelper.DnsRecord>> lookupSpf(Context context, String domain) {
+                List<Pair<String, DnsHelper.DnsRecord>> result = new ArrayList<>();
+                try {
+                    for (DnsHelper.DnsRecord r : DnsHelper.lookup(context, domain, "txt"))
+                        if (r.name.contains("spf")) {
+                            result.add(new Pair<>(domain, r));
+                            for (String part : r.name.split("\\s+"))
+                                if (part.toLowerCase(Locale.ROOT).startsWith("include:"))
+                                    result.addAll(lookupSpf(context, part.substring("include:".length())));
+                        }
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+                return result;
+            }
+
         }.execute(this, args, "dmarc:decode");
     }
 }
