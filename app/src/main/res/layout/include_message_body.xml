@@ -103,6 +103,14 @@
         app:layout_constraintTop_toBottomOf="@id/tvDownloading" />
 
     <View
+        android:id="@+id/vwRipple"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/ripple"
+        app:layout_constraintStart_toStartOf="@+id/tvBody"
+        app:layout_constraintTop_toTopOf="@+id/tvBody" />
+
+    <View
         android:id="@+id/wvBody"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

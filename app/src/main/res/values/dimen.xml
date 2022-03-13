@@ -13,4 +13,5 @@
     <dimen name="quote_stripe_width">3dp</dimen>
     <dimen name="line_dash_length">3dp</dimen>
     <dimen name="search_in_text_margin">48dp</dimen>
+    <dimen name="ripple_radius">24dp</dimen>
 </resources>
