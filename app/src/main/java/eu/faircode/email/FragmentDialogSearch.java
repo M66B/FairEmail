@@ -238,7 +238,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                     cbHtml.setVisibility(View.GONE);
                     cbSearchTrash.setVisibility(View.GONE);
                     cbSearchJunk.setVisibility(View.GONE);
-                    cbSearchDevice.setVisibility(View.GONE);
                 } else {
                     ibMore.setImageLevel(0);
                     grpMore.setVisibility(View.VISIBLE);
@@ -250,8 +249,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         cbSearchTrash.setVisibility(View.VISIBLE);
                         cbSearchJunk.setVisibility(View.VISIBLE);
                     }
-                    if (account > 0 && folder > 0)
-                        cbSearchDevice.setVisibility(View.VISIBLE);
                 }
             }
         };
@@ -376,13 +373,13 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         tvAfter.setText(null);
         tvBefore.setText(null);
         cbSearchDevice.setChecked(last_search_device);
+        cbSearchDevice.setEnabled(account > 0 && folder > 0);
 
         grpMore.setVisibility(View.GONE);
         cbHeaders.setVisibility(View.GONE);
         cbHtml.setVisibility(View.GONE);
         cbSearchTrash.setVisibility(View.GONE);
         cbSearchJunk.setVisibility(View.GONE);
-        cbSearchDevice.setVisibility(View.GONE);
 
         final AlertDialog dialog = new AlertDialog.Builder(context)
                 .setView(dview)
@@ -429,7 +426,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         if (before != null)
                             criteria.before = ((Calendar) before).getTimeInMillis();
 
-                        boolean device = (cbSearchDevice.isChecked() || account < 0 || folder < 0);
+                        boolean device = (cbSearchDevice.isChecked() || !cbSearchDevice.isEnabled());
 
                         if (criteria.query != null) {
                             List<String> searches = new ArrayList<>();
@@ -527,7 +524,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 else if (id == R.id.ibNotes)
                     criteria.with_notes = true;
 
-                boolean device = (cbSearchDevice.isChecked() || account < 0 || folder < 0);
+                boolean device = (cbSearchDevice.isChecked() || !cbSearchDevice.isEnabled());
 
                 FragmentMessages.search(
                         context, getViewLifecycleOwner(), getParentFragmentManager(),
