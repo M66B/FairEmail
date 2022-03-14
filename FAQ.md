@@ -4553,6 +4553,8 @@ but unfortunately modifications by manufacturers often [require it anyway](https
 <a name="faq176"></a>
 **(176) When will a message be considered safely transported?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq176)
+
 If the receive option *Check transport layer security (TLS)* is enabled,
 a green shield will be shown only if a message was transported securely by all servers.
 
@@ -4587,6 +4589,8 @@ Received: brown.elm.relay.mailchannels.net (brown.elm.relay.mailchannels.net. [2
 <a name="faq177"></a>
 **(177) What does 'Sensitivity' mean?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq177)
+
 The sensitivity of a message indicates the confidentiality of a message.
 
 * Personal: for you only
@@ -4602,6 +4606,8 @@ The sensitivity indication is sent as [a message header](https://datatracker.iet
 <a name="faq178"></a>
 **(178) Why are widgets not updating?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq178)
+
 Apps provide the layout and data for widgets on demand, but the homescreen app/launcher manages all widgets, with a little help from Android.
 
 If widgets are not being updated, this is often caused by missing permission.
@@ -4611,6 +4617,8 @@ Please see [this video](https://www.youtube.com/watch?v=ywQrYJ6rtnM) about how t
 
 <a name="faq179"></a>
 **(179) What are reply templates?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq179)
 
 Reply templates are predefined answer texts.
 
