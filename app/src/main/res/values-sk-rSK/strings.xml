@@ -821,6 +821,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_last_connected">Naposledy pripojený: %1$s</string>
     <string name="title_backoff_until">Čakanie po zlyhaní do: %1$s</string>
     <string name="title_storage_quota">Využitie úložiska na serveri: %1$s/%2$s</string>
+    <string name="title_pop_support">Protokol POP3 umožňuje len sťahovanie a mazanie správ z priečinka doručená pošta. Nie je možné označovať správy ako prečítané, ohlásiť nevižiadanú poštu, presúvať správy atď. Zvážte prosím použitie protokolu imap vždy, keď je to možné.</string>
     <string name="title_pop_sent">Ak zariadenie stratíte alebo vám ho ukradnú, môže dôjsť aj k strate odoslaných správ.</string>
     <string name="title_pop_warning">Ak server POP3 nepodporuje príkaz UIDL, nároky na využívanie údajov budú vysoké. Prispôsobte podľa toho nastavenie frekvencia načítavania nižšie.</string>
     <string name="title_pop_folders">POP3 protokol nepodporuje vytváranie priečinkov</string>
@@ -1262,6 +1263,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_in_junk">V nevyžiadaných</string>
     <string name="title_search_with_before">Pred</string>
     <string name="title_search_with_after">Po</string>
+    <string name="title_search_device_first">Prehľadať najprv správy v zariadení</string>
     <string name="title_search_flag_unseen">neprečítané</string>
     <string name="title_search_flag_flagged">s hviezdičkou</string>
     <string name="title_search_flag_hidden">skryté</string>
@@ -1318,6 +1320,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_answer_group">Skupina šablóny (voliteľné)</string>
     <string name="title_answer_standard">Predvolené</string>
     <string name="title_answer_favorite">Obľúbená</string>
+    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Výstrižok</string>
     <string name="title_answer_receipt">Použiť ako potvrdenie o prečítaní</string>
     <string name="title_answer_hide">Skryť z ponuky</string>
     <string name="title_answer_text">Text šablóny</string>

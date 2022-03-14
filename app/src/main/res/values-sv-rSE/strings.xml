@@ -427,6 +427,7 @@
     <string name="title_advanced_preview_italic">Visa förhandsgranskning av meddelande i kursiv stil</string>
     <string name="title_advanced_preview_lines">Antal förhandsgranskningsrader</string>
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
+    <string name="title_advanced_unzip">Visa innehållet i komprimerade bilagor</string>
     <string name="title_advanced_attachments_alt">Visa bilagor efter meddelandetexten</string>
     <string name="title_advanced_thumbnails">Visa miniatyrbilder efter meddelandetexten</string>
     <string name="title_advanced_message_text_zoom2">Standard meddelandetext zoom: %1$s %%</string>
@@ -548,6 +549,9 @@
     <string name="title_advanced_disconnect_links">Använd listor för att varna för spårningslänkar</string>
     <string name="title_advanced_disconnect_images">Använd listor för att känna igen spårningsbilder</string>
     <string name="title_advanced_mnemonic">Radera fjärrdata</string>
+    <string name="title_advanced_mnemonic_hint">Alla e-postmeddelanden som mottagits med nedanstående ord i ämnesraden kommer automatiskt och omedelbart ta bort appdata</string>
+    <string name="title_advanced_clear_all">Ta bort appdata</string>
+    <string name="title_advanced_clear_all_remark">Appens data kommer att tas bort oåterkalleligt!</string>
     <string name="title_advanced_sign_default">Signera som standard</string>
     <string name="title_advanced_encrypt_default">Kryptera som standard</string>
     <string name="title_advanced_auto_decrypt">Dekryptera meddelanden automatiskt</string>
@@ -570,6 +574,7 @@
     </string>
     <string name="title_advanced_power_menu">Lägg till åtgärder i Androidmenyn för avstängning</string>
     <string name="title_advanced_external_search">Tillåt andra appar att söka i meddelanden</string>
+    <string name="title_advanced_sort_answers">Sortera svarsmallar efter användningsfrekvens</string>
     <string name="title_advanced_shortcuts">Visa ofta använda kontakter i Android dela-menyn</string>
     <string name="title_advanced_fts">Bygg sökindex</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meddelanden indexerade (%3$s)</string>
@@ -649,6 +654,7 @@
     <string name="title_advanced_monospaced_pre_hint">Enkla textmeddelanden kommer att betraktas som förformaterade</string>
     <string name="title_advanced_placeholders_hint">Detta gäller endast omformaterade meddelanden</string>
     <string name="title_advanced_inline_hint">Infogade bilder är bilder som ingår i meddelandet</string>
+    <string name="compressed">Innehållet i komprimerade filer (%1$s) med mer än %2$s filer eller med filer större än %3$s kommer inte att visas</string>
     <string name="title_advanced_parse_classes_hint">Detta kommer att visa meddelanden mer korrekt, men möjligen med en fördröjning</string>
     <string name="title_advanced_language_detection_hint">Stöd för språkdetektering beror på enhetstillverkaren</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
@@ -1235,6 +1241,7 @@
     <string name="title_search_in_junk">I skräpposten</string>
     <string name="title_search_with_before">Före</string>
     <string name="title_search_with_after">Efter</string>
+    <string name="title_search_device_first">Sök på enheten först</string>
     <string name="title_search_flag_unseen">oläst</string>
     <string name="title_search_flag_flagged">stjärnmärkt</string>
     <string name="title_search_flag_hidden">dold</string>
@@ -1291,6 +1298,7 @@
     <string name="title_answer_group">Mallgrupp (valfritt)</string>
     <string name="title_answer_standard">Standard</string>
     <string name="title_answer_favorite">Favorit</string>
+    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Kort text</string>
     <string name="title_answer_receipt">Använd som ett läskvitto</string>
     <string name="title_answer_hide">Dölj från menyer</string>
     <string name="title_answer_text">Malltext</string>

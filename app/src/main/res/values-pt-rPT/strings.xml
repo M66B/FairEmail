@@ -352,7 +352,7 @@
     <string name="title_advanced_download_eml">Transferir ficheiros de mensagem em bruto</string>
     <string name="title_advanced_download_plain">Transferir apenas partes de texto simples (caso esteja disponível)</string>
     <string name="title_advanced_validated">Exigir uma conexão validada (verificada)</string>
-    <string name="title_advanced_vpn_only">Conecte-se apenas através de uma VPN</string>
+    <string name="title_advanced_vpn_only">Apenas conectar-se através de uma VPN</string>
     <string name="title_advanced_timeout">Tempo limite de ligação (em segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 sobre IPv6</string>
     <string name="title_advanced_ssl_harden">Fortificar conexões SSL</string>
@@ -586,6 +586,7 @@
     <string name="title_advanced_metered_warning">Desactivar esta opção fará com que não sejam recebidas e enviadas mensagens em ligações móveis de Internet</string>
     <string name="title_advanced_rlah_hint">Presume que não há roaming dentro da UE</string>
     <string name="title_advanced_plain_hint">Activar esta opção irá reduzir a utilização de dados, mas as mensagens serão mostradas sem formatação</string>
+    <string name="title_advanced_validate_hint">Isto pode resultar em problemas na sincronização de mensagens, por exemplo, ao utilizar uma VPN, mas também noutras situações</string>
     <string name="title_advanced_roaming_hint">Os cabeçalhos de mensagens serão sempre obtidos em roaming. Pode usar a configuração de roaming do dispositivo para desactivar a internet em roaming.</string>
     <string name="title_advanced_layout_hint">Pode mudar para um layout mais compacto e alterar o tamanho do texto da mensagem no menu da barra de acção presente na parte superior da vista de mensagens</string>
     <string name="title_advanced_navbar_colorize_hint">O funcionamento disto depende da versão e variante do Android</string>
@@ -729,6 +730,7 @@
     <string name="title_unseen">Marcar como não lida</string>
     <string name="title_hide">Esconder</string>
     <string name="title_unhide">Mostrar</string>
+    <string name="title_flag">Adicionar estrela</string>
     <string name="title_set_importance">Definir a prioridade</string>
     <string name="title_importance_low">Baixa</string>
     <string name="title_importance_normal">Normal</string>
@@ -746,6 +748,7 @@
     <string name="title_raw_send_message">Mensagem</string>
     <string name="title_raw_send_thread">Conversa</string>
     <string name="title_manage_keywords">Gerir palavras-chave</string>
+    <string name="title_add_keyword">Adicionar palavra-chave</string>
     <string name="title_save_eml">Guardar ficheiro de mensagem (.eml)</string>
     <string name="title_eml_remark">Para encaminhar mensagens, as mensagens (originais) precisam de ser descarregadas do servidor de e-mail. Requer uma ligação à internet e as mensagens devem ser armazenadas no servidor de e-mail.</string>
     <string name="title_eml_option">Isto pode ser prevenido activando, nas definições de ligação, a opção de transferir os ficheiros de mensagem em bruto</string>
@@ -903,6 +906,7 @@
     <string name="title_search_in_junk">No spam</string>
     <string name="title_search_with_before">Anterior a</string>
     <string name="title_search_with_after">Depois de</string>
+    <string name="title_search_device_first">Pesquisar no dispositivo primeiro</string>
     <string name="title_search_flag_unseen">não lida</string>
     <string name="title_search_flag_flagged">com estrela</string>
     <string name="title_search_flag_hidden">oculta</string>
@@ -989,6 +993,7 @@
     <string name="title_rule_attachments">Contém anexos</string>
     <string name="title_rule_hours">Horas</string>
     <string name="title_rule_folder">Pasta</string>
+    <string name="title_rule_template">Modelo de resposta</string>
     <string name="title_rule_answer_subject">Utilizar o nome do modelo como assunto</string>
     <string name="title_rule_original_text">Inserir o texto original da mensagem</string>
     <string name="title_rule_forward_to">Encaminhar para</string>

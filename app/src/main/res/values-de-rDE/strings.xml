@@ -1243,7 +1243,7 @@
     <string name="title_search_in_junk">Im Spam-Ordner</string>
     <string name="title_search_with_before">Vor</string>
     <string name="title_search_with_after">Nach</string>
-    <string name="title_search_device_first">Auf dem Gerät zuerst suchen</string>
+    <string name="title_search_device_first">Zuerst auf dem Gerät suchen</string>
     <string name="title_search_flag_unseen">Ungelesen</string>
     <string name="title_search_flag_flagged">markiert</string>
     <string name="title_search_flag_hidden">Ausgeblendet</string>
@@ -1300,6 +1300,7 @@
     <string name="title_answer_group">Vorlagengruppe (optional)</string>
     <string name="title_answer_standard">Standard</string>
     <string name="title_answer_favorite">Favorit</string>
+    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Textbaustein</string>
     <string name="title_answer_receipt">Als Lesebestätigung verwenden</string>
     <string name="title_answer_hide">Aus Menüs ausblenden</string>
     <string name="title_answer_text">Vorlagentext</string>

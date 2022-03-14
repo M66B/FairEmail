@@ -1254,6 +1254,7 @@
     <string name="title_search_in_junk">În spam</string>
     <string name="title_search_with_before">Înainte de</string>
     <string name="title_search_with_after">După</string>
+    <string name="title_search_device_first">Căutați mai întâi pe dispozitiv</string>
     <string name="title_search_flag_unseen">necitit</string>
     <string name="title_search_flag_flagged">marcat</string>
     <string name="title_search_flag_hidden">ascuns</string>
@@ -1310,6 +1311,7 @@
     <string name="title_answer_group">Grup șablon (opțional)</string>
     <string name="title_answer_standard">Implicit</string>
     <string name="title_answer_favorite">Favorit</string>
+    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Fragment</string>
     <string name="title_answer_receipt">Utilizați ca și chitanță de citire</string>
     <string name="title_answer_hide">Ascunde din meniuri</string>
     <string name="title_answer_text">Text șablon</string>

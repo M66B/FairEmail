@@ -241,6 +241,8 @@
     <string name="title_setup_theme_red_green">Piros/zöld</string>
     <string name="title_setup_theme_grey">Szürke</string>
     <string name="title_setup_theme_black">Fekete</string>
+    <string name="title_setup_theme_white">Fehér</string>
+    <string name="title_setup_theme_black_or_white">Fekete vagy fehér</string>
     <string name="title_setup_theme_black_and_white">Fekete és fehér</string>
     <string name="title_setup_theme_reverse">Színek felcserélése</string>
     <string name="title_setup_theme_light">Világos</string>
@@ -770,6 +772,7 @@
     <string name="title_drafts_select">Emailek küldéséhez egy piszkozat mappa kiválasztása szükséges a fiókbeállításokban</string>
     <string name="title_account_auth_update">Hitelesítés frissítése</string>
     <string name="title_account_auth_password">Váltás jelszó alapú azonosításra</string>
+    <string name="title_delete_account">Fiók törlése</string>
     <string name="title_account_delete">Véglegesen törli a fiókot?</string>
     <string name="title_identity_delete">Véglegesen törli az identitást?</string>
     <string name="title_edit_html">Szerkesztés HTML-ként</string>
@@ -1215,6 +1218,7 @@
     <string name="title_search_in_junk">Levélszemétben is</string>
     <string name="title_search_with_before">Előtt</string>
     <string name="title_search_with_after">Után</string>
+    <string name="title_search_device_first">Először keressen az eszközön</string>
     <string name="title_search_flag_unseen">olvasatlan</string>
     <string name="title_search_flag_flagged">csillagozott</string>
     <string name="title_search_flag_hidden">rejtett</string>
@@ -1504,6 +1508,7 @@
     <string name="title_later">Később</string>
     <string name="title_undo">Visszavonás</string>
     <string name="title_redo">Mégis</string>
+    <string name="title_insert_line">Sor beszúrása</string>
     <string name="title_add">Hozzáadás</string>
     <string name="title_browse">Megnyitás a következővel:</string>
     <string name="title_info">Info</string>
@@ -1681,7 +1686,7 @@
         <item>Ugrás a következő beszélgetéshez</item>
     </string-array>
     <string-array name="resizeNames">
-        <item>Extra small</item>
+        <item>Nagyon kicsi</item>
         <item>Kicsi</item>
         <item>Közepes</item>
         <item>Nagy</item>

@@ -1299,6 +1299,7 @@
     <string name="title_answer_group">Ομάδα προτύπων (προαιρετικό)</string>
     <string name="title_answer_standard">Προεπιλογή</string>
     <string name="title_answer_favorite">Αγαπημένα</string>
+    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Απόσπασμα</string>
     <string name="title_answer_receipt">Χρήση ως αποδεικτικού ανάγνωσης</string>
     <string name="title_answer_hide">Απόκρυψη από τα μενού</string>
     <string name="title_answer_text">Κείμενο προτύπου</string>

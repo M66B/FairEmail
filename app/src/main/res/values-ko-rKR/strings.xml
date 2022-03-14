@@ -635,6 +635,7 @@
     <string name="title_answer_name">템플릿명</string>
     <string name="title_answer_standard">기본값</string>
     <string name="title_answer_favorite">즐겨찾기</string>
+    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">스니펫</string>
     <string name="title_answer_hide">메뉴에서 숨기기</string>
     <string name="title_answer_text">템플릿 내용</string>
     <string name="title_answer_placeholder">자리표시자</string>

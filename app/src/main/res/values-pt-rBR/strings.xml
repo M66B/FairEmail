@@ -1302,6 +1302,7 @@
     <string name="title_answer_group">Grupo de modelo (opcional)</string>
     <string name="title_answer_standard">Padrão</string>
     <string name="title_answer_favorite">Favorito</string>
+    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Fragmento</string>
     <string name="title_answer_receipt">Enviar confirmação de leitura</string>
     <string name="title_answer_hide">Ocultar dos menus</string>
     <string name="title_answer_text">Texto do modelo</string>
