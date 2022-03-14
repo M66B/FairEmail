@@ -255,7 +255,8 @@ public class DataHandler /*implements Transferable*/ {
 
 		eu.faircode.email.Log.e("DataHandler" +
 				" object=" + (object == null ? null : object.getClass().getName()) +
-				" dch=" + dch.getClass().getName());
+				" dch=" + dch.getClass().getName() +
+				" type=" + getContentType());
 
 	    final DataContentHandler fdch = dch;
 
