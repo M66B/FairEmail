@@ -556,7 +556,8 @@ public class ConnectionHelper {
                 for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
                     InetAddress addr = iaddr.getAddress();
                     boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
-                    EntityLog.log(context, "Interface=" + ni + " addr=" + addr + " local=" + local);
+                    EntityLog.log(context, EntityLog.Type.Network,
+                            "Interface=" + ni + " addr=" + addr + " local=" + local);
                     if (!local)
                         if (addr instanceof Inet4Address)
                             has4 = true;
@@ -581,9 +582,9 @@ public class ConnectionHelper {
         InetSocketAddress address = new InetSocketAddress(domain, port);
         SocketFactory factory = SSLSocketFactory.getDefault();
         try (SSLSocket sslSocket = (SSLSocket) factory.createSocket()) {
-            EntityLog.log(context, "Connecting to " + address);
+            EntityLog.log(context, EntityLog.Type.Network, "Connecting to " + address);
             sslSocket.connect(address, timeout);
-            EntityLog.log(context, "Connected " + address);
+            EntityLog.log(context, EntityLog.Type.Network, "Connected " + address);
 
             sslSocket.setSoTimeout(timeout);
             sslSocket.startHandshake();

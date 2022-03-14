@@ -387,7 +387,8 @@ public class EmailService implements AutoCloseable {
                 ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 Network active = cm.getActiveNetwork();
                 if (active != null) {
-                    EntityLog.log(context, "Binding to active network " + active);
+                    EntityLog.log(context, EntityLog.Type.Network, "Binding to" +
+                            " active=" + active);
                     properties.put("fairemail.factory", active.getSocketFactory());
                 }
             } catch (Throwable ex) {
@@ -521,14 +522,14 @@ public class EmailService implements AutoCloseable {
             String key = "dns." + host;
             try {
                 main = InetAddress.getByName(host);
-                EntityLog.log(context, "Resolved " + main);
+                EntityLog.log(context, EntityLog.Type.Network, "Main address=" + main);
                 prefs.edit().putString(key, main.getHostAddress()).apply();
             } catch (UnknownHostException ex) {
                 String last = prefs.getString(key, null);
                 if (TextUtils.isEmpty(last))
                     throw new MessagingException(ex.getMessage(), ex);
                 else {
-                    EntityLog.log(context, "Using " + key + "=" + last);
+                    EntityLog.log(context, EntityLog.Type.Network, "Using " + key + "=" + last);
                     main = InetAddress.getByName(last);
                 }
             }
@@ -541,7 +542,7 @@ public class EmailService implements AutoCloseable {
                         for (InetAddress iaddr : InetAddress.getAllByName(host))
                             if (iaddr instanceof Inet4Address) {
                                 main = iaddr;
-                                EntityLog.log(context, "Preferring=" + main);
+                                EntityLog.log(context, EntityLog.Type.Network, "Preferring=" + main);
                                 break;
                             }
                     } catch (UnknownHostException ex) {
@@ -610,8 +611,9 @@ public class EmailService implements AutoCloseable {
             }
 
             if (ioError) {
-                EntityLog.log(context, "Connect ex=" +
-                        ex.getClass().getName() + ":" + ex.getMessage());
+                EntityLog.log(context, EntityLog.Type.Network, "Connect ex=" +
+                        ex.getClass().getName() + ":" +
+                        ex + "\n" + android.util.Log.getStackTraceString(ex));
                 try {
                     // Some devices resolve IPv6 addresses while not having IPv6 connectivity
                     InetAddress[] iaddrs = InetAddress.getAllByName(host);
@@ -620,13 +622,13 @@ public class EmailService implements AutoCloseable {
 
                     boolean[] has46 = ConnectionHelper.has46(context);
 
-                    EntityLog.log(context, "Address main=" + main +
+                    EntityLog.log(context, EntityLog.Type.Network, "Address main=" + main +
                             " count=" + iaddrs.length +
                             " ip4=" + ip4 + " max4=" + MAX_IPV4 + " has4=" + has46[0] +
                             " ip6=" + ip6 + " max6=" + MAX_IPV6 + " has6=" + has46[1]);
 
                     for (InetAddress iaddr : iaddrs) {
-                        EntityLog.log(context, "Address resolved=" + iaddr);
+                        EntityLog.log(context, EntityLog.Type.Network, "Address resolved=" + iaddr);
 
                         if (iaddr.equals(main))
                             continue;
@@ -644,13 +646,14 @@ public class EmailService implements AutoCloseable {
                         }
 
                         try {
-                            EntityLog.log(context, "Falling back to " + iaddr);
+                            EntityLog.log(context, EntityLog.Type.Network, "Falling back to " + iaddr);
                             _connect(iaddr, port, require_id, user, factory);
                             return;
                         } catch (MessagingException ex1) {
                             ex = ex1;
-                            EntityLog.log(context, "Fallback ex=" +
-                                    ex1.getClass().getName() + ":" + ex1.getMessage());
+                            EntityLog.log(context, EntityLog.Type.Network, "Fallback ex=" +
+                                    ex1.getClass().getName() + ":" +
+                                    ex1 + " " + android.util.Log.getStackTraceString(ex1));
                         }
                     }
                 } catch (IOException ex1) {
@@ -665,7 +668,7 @@ public class EmailService implements AutoCloseable {
     private void _connect(
             InetAddress address, int port, boolean require_id, String user,
             SSLSocketFactoryService factory) throws MessagingException {
-        EntityLog.log(context, "Connecting to " + address + ":" + port);
+        EntityLog.log(context, EntityLog.Type.Network, "Connecting to " + address + ":" + port);
 
         isession = Session.getInstance(properties, authenticator);
 
@@ -724,7 +727,7 @@ public class EmailService implements AutoCloseable {
                         Map<String, String> crumb = new HashMap<>();
                         for (String key : sid.keySet()) {
                             crumb.put(key, sid.get(key));
-                            EntityLog.log(context, "Server " + key + "=" + sid.get(key));
+                            EntityLog.log(context, EntityLog.Type.Protocol, "Server " + key + "=" + sid.get(key));
                         }
                         Log.breadcrumb("server", crumb);
                     }
