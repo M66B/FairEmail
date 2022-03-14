@@ -451,6 +451,7 @@
     <string name="title_advanced_preview_italic">תצוגה מקדימה של ההודעה בכתב נטוי</string>
     <string name="title_advanced_preview_lines">מספר השורות בתצוגה המקדימה</string>
     <string name="title_advanced_addresses">הרחבת פרטי הכתובת כברירת מחדל</string>
+    <string name="title_advanced_unzip">הצגת תוכן הקבצים המצורפים הדחוסים</string>
     <string name="title_advanced_attachments_alt">הצגת הקבצים המצורפים אחרי טקסט ההודעה</string>
     <string name="title_advanced_thumbnails">הצגת תמונות ממוזערות אחרי טקסט ההודעה</string>
     <string name="title_advanced_message_text_zoom2">תקריב טקסט ההודעות כבררת מחדל: %1$s %%</string>
@@ -677,6 +678,7 @@
     <string name="title_advanced_monospaced_pre_hint">הודעות בטקסט פשוט בלבד תיחשבנה שעוצבו מראש</string>
     <string name="title_advanced_placeholders_hint">חל על הודעות שעוצבו מחדש בלבד</string>
     <string name="title_advanced_inline_hint">תמונות מובנות הן תמונות שכלולות בהודעה</string>
+    <string name="compressed">תוכן קבצים דחוסים (%1$s) עם למעלה מ־%2$s קבצים או עם קבצים שגודלם עולה על %3$s לא יוצגו</string>
     <string name="title_advanced_parse_classes_hint">זה יציג הודעות בצורה יותר מדויקת אך כנראה עם עיכוב מסוים</string>
     <string name="title_advanced_language_detection_hint">תמיכה בזיהוי שפות תלויה ביצרן המכשיר</string>
     <string name="title_advanced_autoexpand_hint">לפתוח הודעות אוטומטית כשיש רק הודעה אחת או רק הודעה אחת שלא נקראה בדיון</string>
@@ -1266,6 +1268,7 @@
     <string name="title_search_in_junk">בספאם</string>
     <string name="title_search_with_before">לפני</string>
     <string name="title_search_with_after">אחרי</string>
+    <string name="title_search_device_first">חיפוש במכשיר תחילה</string>
     <string name="title_search_flag_unseen">לא נקרא</string>
     <string name="title_search_flag_flagged">עם כוכב</string>
     <string name="title_search_flag_hidden">מוסתר</string>

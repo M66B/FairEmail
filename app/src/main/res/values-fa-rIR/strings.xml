@@ -478,7 +478,7 @@
     <string name="title_advanced_threading_hint">پیام‌های گروهی مرتبط با یکدیگر</string>
     <string name="title_advanced_gravatars_hint">شاید خطر حریم خصوصی وجود داشته باشد</string>
     <string name="title_advanced_preview_hint">فقط زمانی در دسترس است که متن پیام دانلود شده باشد</string>
-    <string name="compressed" comment="compressed&#10;&#10;The contents of compressed files (&lt;types&gt;) with more than &lt;count&gt; files or with files larger than &lt;size&gt; will not be shown">محتویات فایل‌های فشرده شده (%1$s) با بیش از %2$s فایل یا فایل‌های بزرگ‌تر از %3$s نمایش داده نخواهند شد</string>
+    <string name="compressed">محتویات فایل‌های فشرده شده (%1$s) با بیش از %2$s فایل یا فایل‌های بزرگ‌تر از %3$s نمایش داده نخواهند شد</string>
     <string name="title_advanced_autoexpand_hint">باز کردن خودکار پیام وقتی فقط یک پیام یا فقط یک پیام خوانده نشده در مکالمه وجود دارد</string>
     <string name="title_advanced_autoclose_hint">بسته شدن خودکار مکالمات زمانی که همه پیام‌ها آرشیو شده، فرستاده شده و یا به به سطل آشغال فرستاده شده است</string>
     <string name="title_advanced_sender_hint">بیشتر فراهم‌کنندگان نشانی‌های ویرایش شده فرستنده را قبول نمی‌کنند</string>
@@ -851,6 +851,7 @@
     <string name="title_search_with_size">اندازه پیام بزرگ‌تر از</string>
     <string name="title_search_with_before">قبل از</string>
     <string name="title_search_with_after">بعد از</string>
+    <string name="title_search_device_first">ابتدا روی دستگاه جستجو کن</string>
     <string name="title_search_flag_unseen">خوانده نشده</string>
     <string name="title_search_flag_flagged">ستاره دار</string>
     <string name="title_search_flag_hidden">پنهان</string>

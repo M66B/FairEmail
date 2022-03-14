@@ -451,6 +451,7 @@
     <string name="title_advanced_preview_italic">Показувати попередній перегляд повідомлення в курсиві</string>
     <string name="title_advanced_preview_lines">Кількість рядків для попереднього перегляду</string>
     <string name="title_advanced_addresses">Розгорнути деталі адреси за замовчуванням</string>
+    <string name="title_advanced_unzip">Показувати вміст стиснутих вкладень</string>
     <string name="title_advanced_attachments_alt">Показати вкладення після тексту повідомлення</string>
     <string name="title_advanced_thumbnails">Показувати ескізи зображень після повідомлення</string>
     <string name="title_advanced_message_text_zoom2">Масштаб тексту за замовчуванням: %1$s %%</string>
@@ -597,6 +598,7 @@
     </string>
     <string name="title_advanced_power_menu">Додати дії до меню живлення в Android</string>
     <string name="title_advanced_external_search">Дозволити іншим програмам пошук в повідомленнях</string>
+    <string name="title_advanced_sort_answers">Сортувати шаблони відповідей за частотою використання</string>
     <string name="title_advanced_shortcuts">Показувати, в меню швидкого доступу до Android, найчастіше використовувані контакти</string>
     <string name="title_advanced_fts">Побудувати індекс для пошуку</string>
     <string name="title_advanced_fts_indexed">%1$d з %2$d повідомлень індексовано (%3$s)</string>
@@ -675,6 +677,7 @@
     <string name="title_advanced_monospaced_pre_hint">Лише текстові повідомлення вважатимуться попередньо відформатованими</string>
     <string name="title_advanced_placeholders_hint">Це стосується лише для переформатованих повідомлень</string>
     <string name="title_advanced_inline_hint">Вбудовані зображення включені в повідомлення</string>
+    <string name="compressed">Вміст стиснутих файлів (%1$s) із кількістю файлів більшою за %2$s, або з файлами більшими за %3$s, небуде показаний</string>
     <string name="title_advanced_parse_classes_hint">Можливо, це буде більш точно відображати повідомлення, але, можливо, з затримкою</string>
     <string name="title_advanced_language_detection_hint">Підтримка виявлення мови залежить від виробника пристрою</string>
     <string name="title_advanced_autoexpand_hint">Автоматично відкривати повідомлення, коли є тільки одне повідомлення або тільки одне непрочитане повідомлення в розмові</string>
@@ -1262,6 +1265,7 @@
     <string name="title_search_in_junk">У спамі</string>
     <string name="title_search_with_before">До</string>
     <string name="title_search_with_after">Після</string>
+    <string name="title_search_device_first">Спочатку шукати на пристрої</string>
     <string name="title_search_flag_unseen">непрочитане</string>
     <string name="title_search_flag_flagged">обране</string>
     <string name="title_search_flag_hidden">приховане</string>

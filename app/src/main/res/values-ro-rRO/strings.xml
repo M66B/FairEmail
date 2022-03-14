@@ -667,7 +667,7 @@
     <string name="title_advanced_monospaced_pre_hint">Mesajele care conțin doar text simplu vor fi considerate ca fiind preformatate</string>
     <string name="title_advanced_placeholders_hint">Acest lucru se aplică numai mesajelor reformatate</string>
     <string name="title_advanced_inline_hint">Imaginile integrate sunt cele include în mesaj</string>
-    <string name="compressed" comment="compressed&#10;&#10;The contents of compressed files (&lt;types&gt;) with more than &lt;count&gt; files or with files larger than &lt;size&gt; will not be shown">Conținutul fișierelor comprimate (%1$s) cu mai mult de %2$s fișiere sau cu fișiere mai mari de %3$s nu va fi afișat</string>
+    <string name="compressed">Conținutul fișierelor comprimate (%1$s) cu mai mult de %2$s fișiere sau cu fișiere mai mari de %3$s nu va fi afișat</string>
     <string name="title_advanced_parse_classes_hint">Acest lucru va afișa cu mai multă precizie mesajele, dar posibil cu o întârziere</string>
     <string name="title_advanced_language_detection_hint">Detectarea limbii depinde de producătorul dispozitivului</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>

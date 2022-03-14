@@ -454,6 +454,7 @@
     <string name="title_search_with_hidden">ଲୁକ୍କାୟିତ (କେବଳ ଡିଭାଇସରେ)</string>
     <string name="title_search_with_encrypted">ଏନକ୍ରିପ୍ଟ ହୋଇଥିବା (କେବଳ ଡିଭାଇସରେ)</string>
     <string name="title_search_in_trash">ଆବର୍ଜନା ପାତ୍ରରେ</string>
+    <string name="title_search_device_first">ପ୍ରଥମେ ଡିଭାଇସରେ ଖୋଜନ୍ତୁ</string>
     <string name="title_search_flag_unseen">ଅପଠିତ</string>
     <string name="title_search_flag_flagged">ତାରାଙ୍କିତ</string>
     <string name="title_search_flag_hidden">ଲୁକ୍କାୟିତ</string>

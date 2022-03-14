@@ -217,6 +217,7 @@
     <string name="title_setup_password_different">Salasanat eivät vastaa toisiaan</string>
     <string name="title_setup_password_invalid">Salasana on virheellinen</string>
     <string name="title_setup_import_accounts">Tuo tilit ja identiteetit</string>
+    <string name="title_setup_import_delete">Poista ensin olemassa olevat tilit</string>
     <string name="title_setup_import_rules">Tuo suodatussäännöt</string>
     <string name="title_setup_import_contacts">Tuo paikalliset yhteystiedot</string>
     <string name="title_setup_import_answers">Tuo vastausviestipohjat</string>
@@ -313,9 +314,11 @@
     <string name="title_advanced_suggest_received">Ehdota saapuneista viesteistä löytyviä osoitteita</string>
     <string name="title_advanced_suggest_frequently">Järjestä ehdotetut osoitteet käytetyimmät ensin</string>
     <string name="title_advanced_alt_re_fwd">Vaihtoehtoinen vastaus-/edelleenlähetysetuliite</string>
+    <string name="title_advanced_send_chips">Näytä osoitteet kehyksissä</string>
     <string name="title_advanced_send_reminders">Näytä muistutukset</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
     <string name="title_advanced_attach_new">Lisää jaetut tiedostot uuteen luonnokseen</string>
+    <string name="title_advanced_answer_action">Vastauspainikkeen pitkän painalluksen toiminto:</string>
     <string name="title_advanced_send_pending">Näytä huomaamaton viivästetyn lähetyksen kuvake</string>
     <string name="title_advanced_compose_font">Oletuskirjasin</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
@@ -332,6 +335,7 @@
     <string name="title_advanced_signature_reply">Käytä allekirjoitusta vastatessa</string>
     <string name="title_advanced_signature_forward">Käytä allekirjoitusta edelleenlähetettäessä</string>
     <string name="title_advanced_discard_delete">Poista luonnos hylättäessä</string>
+    <string name="title_advanced_reply_move">Tallenna vastaus samaan kansioon, kun vastataan viestiin</string>
     <string name="title_advanced_auto_link">Luo linkkejä automaattisesti</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_flow">\'format flowed\' muotoilemattomalle tekstille</string>
@@ -345,6 +349,7 @@
     <string name="title_advanced_rlah">Kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_download_headers">Lataa viestien kaikki tunnistetiedot</string>
     <string name="title_advanced_download_eml">Lataa viestien raakatiedostot</string>
+    <string name="title_advanced_download_plain">Lataa oletuksena vain muotoilemattomat tekstit (jos saatavilla)</string>
     <string name="title_advanced_validated">Vaadi vahvistettu (tarkistettu) yhteys</string>
     <string name="title_advanced_vpn_only">Yhdistä vain VPN-yhteyden kautta</string>
     <string name="title_advanced_timeout">Yhteyden aikakatkaisu (sekuntia)</string>
@@ -372,6 +377,7 @@
     <string name="title_advanced_nav_hide_message">Voit ottaa asetukset uudelleen käyttöön ulkoasuasetuksissa</string>
     <string name="title_advanced_nav_message_count">Näytä paikallisesti tallennettujen viestien määrä navigointivalikossa</string>
     <string name="title_advanced_nav_unseen_drafts">Näytä lukemattomien luonnosten määrä navigointivalikossa</string>
+    <string name="title_advanced_nav_pinned_count">Näytä lukemattomien viestien määrä kiinnitetyssä navigointivalikossa</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
     <string name="title_advanced_cards">Käytä korttityyliä taulukkotyylin sijaan</string>
     <string name="title_advanced_cards_beige">Käytä beigeä taustaa korttityylissä (vain vaaleat teemat)</string>
@@ -391,9 +397,11 @@
     <string name="title_advanced_color_stripe_wide">Käytä leveää väriraitaa</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_gravatars">Näytä Gravatarit</string>
+    <string name="title_advanced_libravatars">Näytä Libravatarit</string>
     <string name="title_advanced_bimi_unverified">Vahvistamaton lähettäjä</string>
     <string name="title_advanced_bimi_verified">Vahvistettu lähettäjä</string>
     <string name="title_advanced_favicons">Näytä sivustokuvakkeet</string>
+    <string name="title_advanced_favicons_partial">Lue vain ensimmäiset %1$s verkkosivusta</string>
     <string name="title_advanced_generated_icons">Näytä luodut kuvakkeet</string>
     <string name="title_advanced_identicons">Näytä identikonit</string>
     <string name="title_advanced_circular">Näytä pyöreät kuvakkeet</string>
@@ -422,6 +430,7 @@
     <string name="title_advanced_preview_italic">Näytä viestin esikatselu kursiivilla</string>
     <string name="title_advanced_preview_lines">Esikatselurivien lukumäärä</string>
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
+    <string name="title_advanced_unzip">Näytä pakattujen liitteiden sisältö</string>
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_thumbnails">Näytä kuvien esikatselukuvat viestin tekstin jälkeen</string>
     <string name="title_advanced_message_text_zoom2">Viestien tekstin oletuszoomaus: %1$s %%</string>
@@ -477,6 +486,7 @@
     <string name="title_advanced_undo">Toiminnon kumoamisaika</string>
     <string name="title_advanced_quick_filter">Näytä huomaamattomat pikasuodatuskuvakkeet</string>
     <string name="title_advanced_quick_scroll">Näytä huomaamattomat ylös-/alaspikavierityskuvakkeet</string>
+    <string name="title_advanced_folder_nav">Siirry viestilistasta takaisin kansiolistaan</string>
     <string name="title_advanced_autoread">Merkitse viestit luetuiksi siirrettäessä</string>
     <string name="title_advanced_star_snoozed">Lisää tähti torkutettaessa viestejä</string>
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
@@ -541,6 +551,10 @@
     <string name="title_advanced_disconnect_auto_update">Päivitä listat viikoittain</string>
     <string name="title_advanced_disconnect_links">Varoita seurantalinkeistä käyttämällä listoja</string>
     <string name="title_advanced_disconnect_images">Tunnista seurantakuvat käyttämällä listoja</string>
+    <string name="title_advanced_mnemonic">Poista tiedot etänä</string>
+    <string name="title_advanced_mnemonic_hint">Vastaanotettu sähköpostiviesti, jossa on alla olevat sanat otsikkorivillä, poistaa välittömästi sovelluksen tiedot</string>
+    <string name="title_advanced_clear_all">Poista sovelluksen tiedot</string>
+    <string name="title_advanced_clear_all_remark">Sovelluksen tiedot poistetaan. Tätä ei voi perua!</string>
     <string name="title_advanced_sign_default">Allekirjoita oletuksena</string>
     <string name="title_advanced_encrypt_default">Salaa oletuksena</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
@@ -562,6 +576,7 @@
     <string name="title_advanced_manage_keys_hint">Tämä avaa Androidin turvallisuusasetukset.        Avaimet ja varmenteet löytyvät yleensä edistyneistä asetuksista kohdasta Salaus ja kirjautumistiedot.    </string>
     <string name="title_advanced_power_menu">Lisää toimintoja Androidin virrankatkaisuvalikkoon</string>
     <string name="title_advanced_external_search">Salli muiden sovellusten hakea viesteistä</string>
+    <string name="title_advanced_sort_answers">Järjestä vastausviestipohjat käytetyimmät ensin</string>
     <string name="title_advanced_shortcuts">Näytä usein käytetyt yhteystiedot Androidin jakamisvalikossa</string>
     <string name="title_advanced_fts">Rakenna haun indeksi</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
@@ -615,6 +630,7 @@
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_usage_hint">Tämä lisää akun, datan ja tallennustilan käyttöä</string>
+    <string name="title_advanced_plain_hint">Tämän ottaminen käyttöön rajoittaa datan käyttöä, mutta viestit näytetään ilman muotoilua</string>
     <string name="title_advanced_tcp_keep_alive_hint">Tämän käyttöönotto voi aiheuttaa yhteysongelmia joissakin laitteissa</string>
     <string name="title_advanced_validate_hint">Tämä voi aiheuttaa sen, ettei viestejä synkronoida esimerkiksi VPN:ää käytettäessä tai joissakin muissakaan tilanteissa</string>
     <string name="title_advanced_timeout_hint">Luku-/kirjoitusaikakatkaisu asetetaan kaksi kertaa niin pitkäksi kuin yhteyden aikakatkaisu. Korkeat arvot aiheuttavat enemmän akun käyttöä.</string>
@@ -640,6 +656,7 @@
     <string name="title_advanced_monospaced_pre_hint">Muotoilematonta tekstiä olevat viestit käsitellään valmiiksi muotoiltuina</string>
     <string name="title_advanced_placeholders_hint">Tämä koskee vain uudelleenmuotoiltuja viestejä</string>
     <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>
+    <string name="compressed">Pakattujen tiedostojen (%1$s) sisältöä yli %2$s tiedostolla tai suuremmilla tiedostoilla kuin %3$s ei näytetä</string>
     <string name="title_advanced_parse_classes_hint">Tämä näyttää viestit tarkemmin, mutta saattaa aiheuttaa viiveen</string>
     <string name="title_advanced_language_detection_hint">Kielen tunnistuksen tuki riippuu laitteen valmistajasta</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
@@ -783,6 +800,7 @@
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
     <string name="title_backoff_until">Odottaa epäonnistumisen jälkeen ajanhetkeen: %1$s</string>
     <string name="title_storage_quota">Palvelimen tallennustilan käyttö: %1$s/%2$s</string>
+    <string name="title_pop_support">POP3-protokolla voi ladata ja poistaa viestejä vain saapuneet-kansiosta. Viestejä ei ole mahdollista merkitä luetuksi tai roskapostiksi, siirtää jne. Harkitse IMAP-protokollan käyttöä aina, kun se on mahdollista.</string>
     <string name="title_pop_sent">Jos laitteesi katoaa tai varastetaan, lähetetyt viestit saattavat kadota.</string>
     <string name="title_pop_warning">Datan käyttö saattaa olla suurta, jos POP3-palvelin ei tue UIDL-komentoa. Säädä kyselytaajuus sen mukaisesti.</string>
     <string name="title_pop_folders">POP3-protokolla ei tue kansioiden luomista</string>
@@ -841,6 +859,7 @@
     <string name="title_delete_operation_deleted">%1$d toimenpidettä poistettu</string>
     <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
     <string name="title_no_operations">Ei odottavia toimenpiteitä</string>
+    <string name="title_check_operations">Tarkistetaan toimenpiteitä</string>
     <string name="title_hint_operations">Toimenpiteiden poisto voi aiheuttaa viestien katoamista ja synkronointiongelmia</string>
     <string name="title_op_title_headers">Ladataan tunnistetietoja</string>
     <string name="title_op_title_raw">Ladataan raakaviestiä</string>
@@ -1225,6 +1244,7 @@
     <string name="title_search_in_junk">Roskapostista</string>
     <string name="title_search_with_before">Ennen</string>
     <string name="title_search_with_after">Jälkeen</string>
+    <string name="title_search_device_first">Hae ensin laitteesta</string>
     <string name="title_search_flag_unseen">lukematon</string>
     <string name="title_search_flag_flagged">tähdellinen</string>
     <string name="title_search_flag_hidden">piilotettu</string>
@@ -1700,7 +1720,7 @@
         <item>Siirry seuraavaan keskusteluun</item>
     </string-array>
     <string-array name="resizeNames">
-        <item>Extra small</item>
+        <item>Erittäin pieni</item>
         <item>Pieni</item>
         <item>Keskikokoinen</item>
         <item>Suuri</item>

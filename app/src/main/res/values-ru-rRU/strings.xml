@@ -678,7 +678,7 @@
     <string name="title_advanced_monospaced_pre_hint">Сообщения, содержащие только простой текст, будут рассматриваться как форматированные</string>
     <string name="title_advanced_placeholders_hint">Относится только к изменённым сообщениям</string>
     <string name="title_advanced_inline_hint">Встроенные изображения – это изображения, включённые в сообщение</string>
-    <string name="compressed" comment="compressed&#10;&#10;The contents of compressed files (&lt;types&gt;) with more than &lt;count&gt; files or with files larger than &lt;size&gt; will not be shown">Содержимое сжатых файлов (%1$s) с более чем %2$s файлами или файлами размером более %3$s не будет показано</string>
+    <string name="compressed">Содержимое сжатых файлов (%1$s) с более чем %2$s файлами или файлами размером более %3$s не будет показано</string>
     <string name="title_advanced_parse_classes_hint">Позволит более точно отображать сообщения, но, возможно, с задержкой</string>
     <string name="title_advanced_language_detection_hint">Поддержка определения языка зависит от производителя устройства</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
@@ -1267,6 +1267,7 @@
     <string name="title_search_in_junk">В спаме</string>
     <string name="title_search_with_before">Перед</string>
     <string name="title_search_with_after">После</string>
+    <string name="title_search_device_first">Сначала поиск на устройстве</string>
     <string name="title_search_flag_unseen">не прочитано</string>
     <string name="title_search_flag_flagged">избранное</string>
     <string name="title_search_flag_hidden">скрыто</string>

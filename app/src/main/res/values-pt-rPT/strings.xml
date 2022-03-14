@@ -594,7 +594,7 @@
     <string name="title_advanced_override_width_hint">Isto pode tornar as mensagens mais estreitas, mas também pode parecer estranho</string>
     <string name="title_advanced_monospaced_pre_hint">Mensagens de texto simples serão consideradas como pré-formatadas</string>
     <string name="title_advanced_placeholders_hint">Apenas se aplica a mensagens reformatadas</string>
-    <string name="compressed" comment="compressed&#10;&#10;The contents of compressed files (&lt;types&gt;) with more than &lt;count&gt; files or with files larger than &lt;size&gt; will not be shown">O conteúdo dos ficheiros comprimidos (%1$s) com mais de %2$s ficheiros ou com ficheiros maiores do que %3$s não será mostrado</string>
+    <string name="compressed">O conteúdo dos ficheiros comprimidos (%1$s) com mais de %2$s ficheiros ou com ficheiros maiores do que %3$s não será mostrado</string>
     <string name="title_advanced_parse_classes_hint">Mostrará as mensagens com maior precisão, mas com um possível atraso</string>
     <string name="title_advanced_display_harmful_hint">A desactivação desta opção pode ser lesiva para a sua privacidade</string>
     <string name="title_advanced_display_hidden_hint">Pode resultar em textos mal formatados e em duplicado</string>
@@ -723,6 +723,8 @@
     <string name="title_no_messages">Sem mensagens</string>
     <string name="title_filters_active">Um ou mais filtros activos</string>
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
+    <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Marcar como lida</string>
     <string name="title_unseen">Marcar como não lida</string>
     <string name="title_hide">Esconder</string>
@@ -731,6 +733,7 @@
     <string name="title_importance_low">Baixa</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Alta</string>
+    <string name="title_forward">Encaminhar</string>
     <string name="title_resend">Reenviar</string>
     <string name="title_fetching_headers">A transferir cabeçalhos de mensagem &#8230;</string>
     <string name="title_new_message">Nova mensagem</string>
@@ -868,6 +871,7 @@
     <string name="title_invalid_key">Chave privada inválida</string>
     <string name="title_unknown_key">A chave privada não corresponde a nenhuma chave de criptografia</string>
     <string name="title_key_missing">Nenhuma chave para %1$s</string>
+    <string name="title_send_dsn">Relatório de mensagem</string>
     <string name="title_noreply_reminder">A enviar para um endereço \'no-reply\'</string>
     <string name="title_sign">Assinar</string>
     <string name="title_verify">Verificar</string>
@@ -907,6 +911,7 @@
     <string name="title_search_flag_notes">notas</string>
     <string name="title_search_flag_invite">convite</string>
     <string name="title_search_flag_size">tamanho &gt; %1$s</string>
+    <string name="title_sort_on">Ordenar por</string>
     <string name="title_sort_on_time">Data</string>
     <string name="title_sort_on_unread">Não lida</string>
     <string name="title_sort_on_starred">Com estrela</string>
@@ -939,11 +944,19 @@
     <string name="title_previous">Anterior</string>
     <string name="title_next">Seguinte</string>
     <string name="title_edit_signature">Editar assinatura</string>
+    <string name="title_edit_signature_remark">Embora o Android não consiga mostrar todo o conteúdo HTML, a mensagem será enviada em HTML</string>
     <string name="title_edit_signature_text">Texto da assinatura</string>
     <string name="title_edit_signature_image">Inserir imagem</string>
     <string name="title_answer_caption">Editar modelo</string>
+    <string name="title_answer_reply">Modelo de resposta</string>
     <string name="title_answer_name">Nome do modelo</string>
+    <string name="title_answer_group">Grupo de modelo (opcional)</string>
     <string name="title_answer_standard">Predefinido</string>
+    <string name="title_answer_favorite">Favorito</string>
+    <string name="title_answer_receipt">Usar no relatório de msg. lida</string>
+    <string name="title_answer_hide">Ocultar dos menus</string>
+    <string name="title_answer_text">Texto do modelo</string>
+    <string name="title_answer_placeholder">Espaço em branco</string>
     <string name="title_answer_placeholder_name">Nome completo do remetente</string>
     <string name="title_answer_placeholder_email">Endereço de e-mail do remetente</string>
     <string name="title_answer_placeholder_firstname">Primeiro nome do remetente</string>
@@ -952,9 +965,14 @@
     <string name="title_rule_seen">Marcar como lida</string>
     <string name="title_rule_unseen">Marcar como não lida</string>
     <string name="title_rule_hide">Esconder</string>
+    <string name="title_rule_ignore">Suprimir as notificações</string>
     <string name="title_rule_snooze">Adiar</string>
+    <string name="title_rule_flag">Adicionar estrela</string>
     <string name="title_rule_importance">Definir a prioridade</string>
+    <string name="title_rule_keyword">Adicionar palavra-chave</string>
     <string name="title_rule_move">Mover</string>
+    <string name="title_rule_copy">Copiar (etiqueta)</string>
+    <string name="title_rule_answer">Responder/encaminhar</string>
     <string name="title_rule_automation">Automatização</string>
     <string name="title_rule_delete">Eliminar permanentemente</string>
     <string name="title_rule_sound">Reproduzir som</string>
@@ -973,6 +991,7 @@
     <string name="title_rule_folder">Pasta</string>
     <string name="title_rule_answer_subject">Utilizar o nome do modelo como assunto</string>
     <string name="title_rule_original_text">Inserir o texto original da mensagem</string>
+    <string name="title_rule_forward_to">Encaminhar para</string>
     <string name="title_rule_with_attachments">Com anexos</string>
     <string name="title_rule_answer_remark">Apenas uma resposta será enviada em cada conversação, para evitar respostas repetidas</string>
     <string name="title_rule_delete_hint">A eliminação permanente é irreversível, por isso certifique-se de que as condições da regra estão corretas!</string>

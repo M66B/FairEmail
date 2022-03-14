@@ -217,6 +217,7 @@
     <string name="title_setup_password_different">Le password non corrispondono</string>
     <string name="title_setup_password_invalid">Password non valida</string>
     <string name="title_setup_import_accounts">Importa profili e identità</string>
+    <string name="title_setup_import_delete">Elimina prima i profili esistenti</string>
     <string name="title_setup_import_rules">Importa regole del filtro</string>
     <string name="title_setup_import_contacts">Importa i contatti locali</string>
     <string name="title_setup_import_answers">Importa modelli di risposta</string>
@@ -377,6 +378,7 @@
     <string name="title_advanced_nav_hide_message">Puoi abilitare nuovamente le opzioni nelle impostazioni di visualizzazione</string>
     <string name="title_advanced_nav_message_count">Mostra il numero di messaggi memorizzati localmente nel menu di navigazione</string>
     <string name="title_advanced_nav_unseen_drafts">Mostra il numero di bozze non lette nel menu di navigazione</string>
+    <string name="title_advanced_nav_pinned_count">Mostra il numero di messaggi non letti nel menu di navigazione fissato</string>
     <string name="title_advanced_startup">Mostra sulla schermata iniziale</string>
     <string name="title_advanced_cards">Usa stile della carta invece dello stile tabulare</string>
     <string name="title_advanced_cards_beige">Usa lo sfondo beige usando lo stile della carta (solo per temi chiari)</string>
@@ -396,6 +398,7 @@
     <string name="title_advanced_color_stripe_wide">Usa un\'ampia striscia di colore</string>
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
     <string name="title_advanced_gravatars">Mostra Gravatar</string>
+    <string name="title_advanced_libravatars">Mostra Libravatar</string>
     <string name="title_advanced_bimi_unverified">Mittente non verificato</string>
     <string name="title_advanced_bimi_verified">Mittente verificato</string>
     <string name="title_advanced_favicons">Mostra favicon</string>
@@ -428,6 +431,7 @@
     <string name="title_advanced_preview_italic">Mostra l\'anteprima del messaggio in corsivo</string>
     <string name="title_advanced_preview_lines">Numero di righe d\'anteprima</string>
     <string name="title_advanced_addresses">Espandi i dettagli dell\'indirizzo di default</string>
+    <string name="title_advanced_unzip">Mostra i contenuti degli allegati compressi</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_thumbnails">Mostra miniature delle immagini dopo il testo del messaggio</string>
     <string name="title_advanced_message_text_zoom2">Ingrandimento predefinito del testo del messaggio %1$s%%</string>
@@ -548,6 +552,10 @@
     <string name="title_advanced_disconnect_auto_update">Aggiorna settimanalmente e automaticamente gli elenchi</string>
     <string name="title_advanced_disconnect_links">Usa gli elenchi per avvisare dei link di monitoraggio</string>
     <string name="title_advanced_disconnect_images">Usa gli elenchi per riconoscere le immagini di monitoraggio</string>
+    <string name="title_advanced_mnemonic">Elimina i dati da remoto</string>
+    <string name="title_advanced_mnemonic_hint">Qualsiasi email ricevuta con le seguenti parole nella riga dell\'oggetto eliminerà automaticamente e immediatamente i dati dell\'app</string>
+    <string name="title_advanced_clear_all">Elimina i dati dell\'app</string>
+    <string name="title_advanced_clear_all_remark">I dati dell\'app saranno eliminati irreversibilmente!</string>
     <string name="title_advanced_sign_default">Firma di default</string>
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
     <string name="title_advanced_auto_decrypt">Decrittografa automaticamente i messaggi</string>
@@ -571,6 +579,7 @@
     </string>
     <string name="title_advanced_power_menu">Aggiungi azioni al menù di spegnimento Android</string>
     <string name="title_advanced_external_search">Consenti alle altre app di cercare tra i messaggi</string>
+    <string name="title_advanced_sort_answers">Ordina i modelli di risposta per frequenza d\'uso</string>
     <string name="title_advanced_shortcuts">Mostra i contatti usati frequentemente nel menu di condivisione di Android</string>
     <string name="title_advanced_fts">Crea indice di ricerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
@@ -650,6 +659,7 @@
     <string name="title_advanced_monospaced_pre_hint">I messaggi di solo testo semplice sarà considerati come preformattati</string>
     <string name="title_advanced_placeholders_hint">Questo si applica solo ai messaggi riformattati</string>
     <string name="title_advanced_inline_hint">Le immagini in linea sono immagini incluse nel messaggio</string>
+    <string name="compressed">I contenuti dei file compressi (%1$s) con oltre %2$s file o con file più grandi di %3$s non saranno mostrati</string>
     <string name="title_advanced_parse_classes_hint">Questo visualizzerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
     <string name="title_advanced_language_detection_hint">Il supporto per il rilevamento della lingua dipende dal produttore del dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando ce n\'è solo uno o c\'è solo un messaggio non letto in una conversazione</string>
@@ -1239,6 +1249,7 @@
     <string name="title_search_in_junk">Nello spam</string>
     <string name="title_search_with_before">Prima</string>
     <string name="title_search_with_after">Dopo</string>
+    <string name="title_search_device_first">Cerca prima sul dispositivo</string>
     <string name="title_search_flag_unseen">non letto</string>
     <string name="title_search_flag_flagged">stellato</string>
     <string name="title_search_flag_hidden">nascosto</string>

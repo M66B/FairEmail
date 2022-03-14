@@ -1241,6 +1241,7 @@
     <string name="title_search_in_junk">En spam</string>
     <string name="title_search_with_before">Antes de</string>
     <string name="title_search_with_after">Después de</string>
+    <string name="title_search_device_first">Buscar primero en el dispositivo</string>
     <string name="title_search_flag_unseen">no leído</string>
     <string name="title_search_flag_flagged">destacado</string>
     <string name="title_search_flag_hidden">oculto</string>

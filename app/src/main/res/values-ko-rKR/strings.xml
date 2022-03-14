@@ -274,6 +274,7 @@
     <string name="title_advanced_preview_italic">메시지 미리보기를 기울임꼴로 표시</string>
     <string name="title_advanced_preview_lines">미리보기 줄 수</string>
     <string name="title_advanced_addresses">주소 상세정보를 기본으로 펼치기</string>
+    <string name="title_advanced_unzip">압축한 첨부 파일의 내용 표시</string>
     <string name="title_advanced_text_color">글씨 색상 사용</string>
     <string name="title_advanced_text_size">글씨 크기 사용</string>
     <string name="title_advanced_text_font">글꼴 사용</string>

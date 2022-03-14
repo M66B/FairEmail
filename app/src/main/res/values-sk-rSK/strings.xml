@@ -237,6 +237,7 @@
     <string name="title_setup_password_different">Heslá sa nezhodujú</string>
     <string name="title_setup_password_invalid">Heslo je nesprávne</string>
     <string name="title_setup_import_accounts">Importovať účty a totožnosti</string>
+    <string name="title_setup_import_delete">Vymazať najprv existujúce účty</string>
     <string name="title_setup_import_rules">Importovať pravidlá filtrovania</string>
     <string name="title_setup_import_contacts">Importovať lokálne kontakty</string>
     <string name="title_setup_import_answers">Importovať šablóny odpovedí</string>
@@ -354,6 +355,7 @@
     <string name="title_advanced_signature_reply">Používať podpis pri odpovedi</string>
     <string name="title_advanced_signature_forward">Používať podpis pri preposielaní</string>
     <string name="title_advanced_discard_delete">Pri odstránení konceptu nepoužívať kôš</string>
+    <string name="title_advanced_reply_move">Ukladať odpovede v priečinku s pôvodnou správou</string>
     <string name="title_advanced_auto_link">Automaticky vytvoriť odkazy</string>
     <string name="title_advanced_plain_only">Predvolene odosielať obyčajný text</string>
     <string name="title_advanced_flow">\"format flowed\" pre obyčajný text</string>
@@ -395,6 +397,7 @@
     <string name="title_advanced_nav_hide_message">Možnosti môžete opäť povoliť v nastaveniach zobrazenia</string>
     <string name="title_advanced_nav_message_count">Zobraziť počet lokálne uložených správ v navigačnej ponuke</string>
     <string name="title_advanced_nav_unseen_drafts">Zobrazovať počet neprečítaných konceptov v navigačnej ponuke</string>
+    <string name="title_advanced_nav_pinned_count">Zobrazovať počet neprečítaných správ v prichytenej navigačnej ponuke</string>
     <string name="title_advanced_startup">Zobraziť na úvodnej obrazovke</string>
     <string name="title_advanced_cards">Použiť štýl kariet namiesto tabuľkového štýlu</string>
     <string name="title_advanced_cards_beige">Béžové pozadie pri štýle na kartách (len svetlý vzhľad)</string>
@@ -414,6 +417,7 @@
     <string name="title_advanced_color_stripe_wide">Použiť širší farebný pruh</string>
     <string name="title_advanced_avatars">Zobraziť fotografie kontaktov</string>
     <string name="title_advanced_gravatars">Zobraziť Gravatary</string>
+    <string name="title_advanced_libravatars">Zobrazovať obrázky zo stránky Libravatars. org</string>
     <string name="title_advanced_bimi_unverified">Neoverený odosielateľ</string>
     <string name="title_advanced_bimi_verified">Overený odosielateľ</string>
     <string name="title_advanced_favicons">Zobraziť favikony</string>
@@ -446,6 +450,7 @@
     <string name="title_advanced_preview_italic">Zobraziť náhľad správy kurzívou</string>
     <string name="title_advanced_preview_lines">Počet riadkov náhľadu</string>
     <string name="title_advanced_addresses">Predvolene rozbaľovať podrobnosti o adresách</string>
+    <string name="title_advanced_unzip">Zobrazovať obsah komprimovaných príloh</string>
     <string name="title_advanced_attachments_alt">Zobraziť prílohy za textom správy</string>
     <string name="title_advanced_thumbnails">Zobraziť miniatúry obrázkov za textom správy</string>
     <string name="title_advanced_message_text_zoom2">Predvolené priblíženie textu správy: %1$s %%</string>
@@ -566,6 +571,10 @@
     <string name="title_advanced_disconnect_auto_update">Automaticky aktualizovať zoznamy raz týždenne</string>
     <string name="title_advanced_disconnect_links">Použiť zoznamy pre varovanie pred sledujúcimi odkazmi</string>
     <string name="title_advanced_disconnect_images">Použiť zoznamy pre rozpoznanie sledovacích obrázkov</string>
+    <string name="title_advanced_mnemonic">Vymazať údaje na diaľku</string>
+    <string name="title_advanced_mnemonic_hint">Každá prijatá správa s nasledujúcimi slovami v texte predmetu spôsobí okamžité automatické vymazanie údajov aplikácie</string>
+    <string name="title_advanced_clear_all">Vymazať údaje aplikácie</string>
+    <string name="title_advanced_clear_all_remark">Údaje aplikácie budú vymazané bez možnosti obnovenia!</string>
     <string name="title_advanced_sign_default">Predvolene podpisovať správy</string>
     <string name="title_advanced_encrypt_default">Predvolene šifrovať správy</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovať správy</string>
@@ -588,6 +597,7 @@
     </string>
     <string name="title_advanced_power_menu">Pridať akcie do ponuky zariadení systému Android</string>
     <string name="title_advanced_external_search">Povoliť ďalším aplikáciám hľadať v správach</string>
+    <string name="title_advanced_sort_answers">Zotriediť šablóny odpovedí podľa frekvencie používania</string>
     <string name="title_advanced_shortcuts">Zobraziť často používané kontakty v menu zdieľania Androidu</string>
     <string name="title_advanced_fts">Zostaviť index pre vyhľadávanie</string>
     <string name="title_advanced_fts_indexed">%1$d z %2$d správ spracovaných (%3$s)</string>
@@ -667,6 +677,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_monospaced_pre_hint">Správy vo formáte obyčajného textu budú považované za preformátované</string>
     <string name="title_advanced_placeholders_hint">Má vplyv len na preformátované správy</string>
     <string name="title_advanced_inline_hint">Zakomponované obrázky sú obrázky, ktoré sú súčasťou správy</string>
+    <string name="compressed">Obsah komprimovaných súborov (%1$s) S viac než %2$s súbormi alebo so súbormi väčšími než %3$s nebude zobrazený</string>
     <string name="title_advanced_parse_classes_hint">Zobrazí správy s vyššou presnosťou, no s určitým oneskorením</string>
     <string name="title_advanced_language_detection_hint">Podpora detekcie jazyka závisí od výrobcu zariadenia</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otvoriť správu ak konverzácia obsahuje len jednu</string>

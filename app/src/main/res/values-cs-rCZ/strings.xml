@@ -1261,6 +1261,7 @@
     <string name="title_search_in_junk">V nevyžádaných</string>
     <string name="title_search_with_before">Před</string>
     <string name="title_search_with_after">Po</string>
+    <string name="title_search_device_first">Nejprve hledat na zařízení</string>
     <string name="title_search_flag_unseen">nepřečteno</string>
     <string name="title_search_flag_flagged">hvězdička</string>
     <string name="title_search_flag_hidden">skryto</string>

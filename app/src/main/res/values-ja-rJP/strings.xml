@@ -207,6 +207,7 @@
     <string name="title_setup_password_different">パスワードが一致しません</string>
     <string name="title_setup_password_invalid">無効なパスワードです</string>
     <string name="title_setup_import_accounts">アカウントと ID をインポート</string>
+    <string name="title_setup_import_delete">先に既存のアカウントを削除してください</string>
     <string name="title_setup_import_rules">フィルタールールをインポート</string>
     <string name="title_setup_import_contacts">ローカルの連絡先をインポート</string>
     <string name="title_setup_import_answers">返信テンプレートをインポート</string>
@@ -325,6 +326,7 @@
     <string name="title_advanced_signature_reply">返信時に署名を使用</string>
     <string name="title_advanced_signature_forward">転送時に署名を使用</string>
     <string name="title_advanced_discard_delete">下書きを破棄するとき、下書きを完全に削除</string>
+    <string name="title_advanced_reply_move">メッセージに返信したとき、返信を同じフォルダーに保存</string>
     <string name="title_advanced_auto_link">自動的にリンクを作成</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_flow">プレーンテキストに「format flowed」を適用</string>
@@ -365,7 +367,8 @@
     <string name="title_advanced_nav_hide_title">ナビゲーションメニューからオプションを非表示にしますか？</string>
     <string name="title_advanced_nav_hide_message">表示設定からもう一度オプションを表示することができます</string>
     <string name="title_advanced_nav_message_count">ローカルに保存されたメッセージの数をナビゲーションメニューに表示</string>
-    <string name="title_advanced_nav_unseen_drafts">未読の下書きの数をナビゲーションメニューに表示</string>
+    <string name="title_advanced_nav_unseen_drafts">ナビゲーションメニューに未読の下書きの数を表示</string>
+    <string name="title_advanced_nav_pinned_count">ピン留めしたナビゲーションメニューに未読の数を表示</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
     <string name="title_advanced_cards">表形式の代わりにカード形式を使用</string>
     <string name="title_advanced_cards_beige">カード形式のとき背景色にベージュを使用 (ライトテーマのみ)</string>
@@ -385,6 +388,7 @@
     <string name="title_advanced_color_stripe_wide">幅広のカラーストライプを使用</string>
     <string name="title_advanced_avatars">連絡先の写真を表示</string>
     <string name="title_advanced_gravatars">Gravatar を表示</string>
+    <string name="title_advanced_libravatars">Libravatar を表示</string>
     <string name="title_advanced_bimi_unverified">未確認の差出人</string>
     <string name="title_advanced_bimi_verified">認証済みの差出人</string>
     <string name="title_advanced_favicons">Favicon を表示</string>
@@ -417,6 +421,7 @@
     <string name="title_advanced_preview_italic">斜体でメッセージプレビューを表示</string>
     <string name="title_advanced_preview_lines">プレビューの行数</string>
     <string name="title_advanced_addresses">デフォルトでアドレスの詳細を展開</string>
+    <string name="title_advanced_unzip">圧縮された添付ファイルの内容を表示</string>
     <string name="title_advanced_attachments_alt">本文の後に添付ファイルを表示</string>
     <string name="title_advanced_thumbnails">本文の後に画像サムネイルを表示</string>
     <string name="title_advanced_message_text_zoom2">デフォルトの本文のテキスト拡大率: %1$s %%</string>
@@ -537,6 +542,10 @@
     <string name="title_advanced_disconnect_auto_update">リストを自動で毎週更新</string>
     <string name="title_advanced_disconnect_links">リストを使用して追跡リンクについて警告</string>
     <string name="title_advanced_disconnect_images">リストを使用して追跡画像を識別</string>
+    <string name="title_advanced_mnemonic">リモートでデータを削除</string>
+    <string name="title_advanced_mnemonic_hint">件名に以下の単語を含むメールを受信すると、自動的にアプリのデータを削除します</string>
+    <string name="title_advanced_clear_all">アプリのデータを削除</string>
+    <string name="title_advanced_clear_all_remark">削除したアプリのデータは元に戻せません！</string>
     <string name="title_advanced_sign_default">デフォルトで電子署名</string>
     <string name="title_advanced_encrypt_default">デフォルトで暗号化</string>
     <string name="title_advanced_auto_decrypt">メッセージを自動的に復号</string>
@@ -560,6 +569,7 @@
     </string>
     <string name="title_advanced_power_menu">Android の電源メニューにアクションを追加</string>
     <string name="title_advanced_external_search">他のアプリにメッセージの検索を許可</string>
+    <string name="title_advanced_sort_answers">返信テンプレートを使用頻度で並べ替え</string>
     <string name="title_advanced_shortcuts">頻繁に使用する連絡先を Android 共有メニューに表示</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 個のメッセージがインデックスされました (%3$s)</string>
@@ -638,6 +648,7 @@
     <string name="title_advanced_monospaced_pre_hint">プレーンテキストのみのメッセージは書式設定済みとみなされます</string>
     <string name="title_advanced_placeholders_hint">再フォーマットされたメッセージにのみ適用されます</string>
     <string name="title_advanced_inline_hint">インライン画像はメッセージに含まれる画像のことです</string>
+    <string name="compressed">%2$s 件以上のファイルまたは %3$s 以上を含むとき、圧縮ファイル (%1$s) の内容は表示されません</string>
     <string name="title_advanced_parse_classes_hint">メッセージをより正確に表示しますが、遅延が発生する場合があります</string>
     <string name="title_advanced_language_detection_hint">言語検出のサポートはデバイスメーカーに依存します</string>
     <string name="title_advanced_autoexpand_hint">会話内のメッセージが 1 つだけ、または未読メッセージが 1 つだけの場合に自動的にメッセージを開きます</string>
@@ -781,6 +792,7 @@
     <string name="title_last_connected">最終接続: %1$s</string>
     <string name="title_backoff_until">失敗後の待機時間: %1$s</string>
     <string name="title_storage_quota">サーバーのストレージ使用量: %1$s/%2$s</string>
+    <string name="title_pop_support">POP3 プロトコルではメッセージのダウンロードと受信トレイからの削除のみ可能です。メッセージを既読としてマークしたり、迷惑メールとして報告したり、メッセージを移動したりすることはできません。可能であれば IMAP プロトコルの使用を検討してください</string>
     <string name="title_pop_sent">デバイスを紛失したり盗難されたりした場合、送信されたメッセージが失われる可能性があります。</string>
     <string name="title_pop_warning">POP3 サーバーが UIDL コマンドをサポートしていない場合、データ使用量が高くなる可能性があります。それを考慮して、適切な Poll 頻度に調整してください。</string>
     <string name="title_pop_folders">POP3 プロトコルはフォルダーの作成をサポートしていません</string>
@@ -1226,6 +1238,7 @@
     <string name="title_search_in_junk">迷惑メールを検索</string>
     <string name="title_search_with_before">以前</string>
     <string name="title_search_with_after">以降</string>
+    <string name="title_search_device_first">最初にデバイス上を検索</string>
     <string name="title_search_flag_unseen">未読</string>
     <string name="title_search_flag_flagged">スター付き</string>
     <string name="title_search_flag_hidden">非表示のメッセージ</string>
