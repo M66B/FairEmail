@@ -322,10 +322,12 @@ public class ContactInfo {
                         "googlemail.com".equals(d))
                     d = "support.google.com";
 
-                // https://yahoo.fr redirects unsafely to http://fr.yahoo.com/favicon.ico
-                String[] dparts = d.split("\\.");
-                if (dparts.length > 1 && "yahoo".equals(dparts[dparts.length - 2]))
-                    d = "yahoo.com";
+                // https://yahoo.fr/co.uk redirects unsafely to http://fr.yahoo.com/favicon.ico
+                for (String yahoo : d.split("\\."))
+                    if ("yahoo".equals(yahoo)) {
+                        d = "yahoo.com";
+                        break;
+                    }
 
                 final String domain = d.toLowerCase(Locale.ROOT);
                 final String email = info.email.toLowerCase(Locale.ROOT);
