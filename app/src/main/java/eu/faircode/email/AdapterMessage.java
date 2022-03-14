@@ -956,6 +956,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibNotifyContact.setOnClickListener(this);
                 ibPinContact.setOnClickListener(this);
                 ibAddContact.setOnClickListener(this);
+                if (BuildConfig.DEBUG)
+                    ibAddContact.setOnLongClickListener(this);
 
                 ibCopyHeaders.setOnClickListener(this);
                 ibCloseHeaders.setOnClickListener(this);
@@ -1063,7 +1065,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSearchContact.setOnClickListener(null);
                 ibNotifyContact.setOnClickListener(null);
                 ibPinContact.setOnClickListener(null);
-                ibAddContact.setOnClickListener(null);
+                ibAddContact.setOnLongClickListener(null);
+                if (BuildConfig.DEBUG)
+                    ibAddContact.setOnClickListener(null);
 
                 ibCopyHeaders.setOnClickListener(null);
                 ibCloseHeaders.setOnClickListener(null);
@@ -3990,6 +3994,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (id == R.id.ibFlagged) {
                 onMenuColoredStar(message);
                 return true;
+            } else if (id == R.id.ibAddContact) {
+                onGpa(message);
+                return true;
             } else if (id == R.id.tvFolder) {
                 onGotoFolder(message);
                 return true;
@@ -4340,6 +4347,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:flag");
+        }
+
+        private void onGpa(TupleMessageEx message) {
+            Address[] from;
+            if (message.reply == null || message.reply.length == 0)
+                from = (isOutgoing(message) ? message.to : message.from);
+            else
+                from = message.reply;
+            if (from == null || from.length == 0)
+                return;
+            String email = ((InternetAddress) from[0]).getAddress();
+            if (TextUtils.isEmpty(email))
+                return;
+            Uri uri = Uri.parse(BuildConfig.GPA_URI).buildUpon()
+                    .appendQueryParameter("search", email)
+                    .build();
+            Helper.view(context, uri, true);
         }
 
         private void onGotoFolder(TupleMessageEx message) {
