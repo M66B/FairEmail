@@ -235,7 +235,17 @@ public class EditTextCompose extends FixedEditText {
                                                     int start = getSelectionStart();
                                                     if (start < 0)
                                                         start = 0;
-                                                    getText().insert(start, ssb);
+
+                                                    Editable edit = getText();
+
+                                                    if (start > 0) {
+                                                        char kar = edit.charAt(start - 1);
+                                                        if (!(kar == '\n' || kar == ' '))
+                                                            edit.insert(start++, " ");
+                                                    }
+
+                                                    edit.insert(start, ssb);
+
                                                     setSelection(start + ssb.length());
                                                 } catch (Throwable ex) {
                                                     Log.e(ex);
