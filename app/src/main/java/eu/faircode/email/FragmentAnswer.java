@@ -291,7 +291,10 @@ public class FragmentAnswer extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.menu_placeholder_name) {
+        if (itemId == R.id.menu_help) {
+            onMenuHelp();
+            return true;
+        } else if (itemId == R.id.menu_placeholder_name) {
             onMenuPlaceholder("$name$");
             return true;
         } else if (itemId == R.id.menu_placeholder_email) {
@@ -305,6 +308,10 @@ public class FragmentAnswer extends FragmentBase {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onMenuHelp() {
+        Helper.viewFAQ(getContext(), 179);
     }
 
     private void onMenuPlaceholder(String name) {

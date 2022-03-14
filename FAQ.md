@@ -333,6 +333,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(176) When will a message be considered safely transported?](#user-content-faq176)
 * [(177) What does 'Sensitivity' mean?](#user-content-faq177)
 * [(178) Why are widgets not updating?](#user-content-faq178)
+* [(179) What are reply templates?](#user-content-faq179)
 
 [I have another question.](#user-content-get-support)
 
@@ -4605,6 +4606,24 @@ Apps provide the layout and data for widgets on demand, but the homescreen app/l
 
 If widgets are not being updated, this is often caused by missing permission.
 Please see [this video](https://www.youtube.com/watch?v=ywQrYJ6rtnM) about how to fix this.
+
+<br />
+
+<a name="faq179"></a>
+**(179) What are reply templates?**
+
+Reply templates are predefined answer texts.
+
+You can reply with a template, insert a template via the three-dots overflow menu in the message editor,
+and long press on an open space to insert a snippet (the latter requires Android 6 Marshmallow or later).
+
+Templates can have the following options:
+
+* *Default*: template to use when writing a new message
+* *Use as read receipt*: template to use instead of the default read receipt text
+* *Favorite*: template will be added in the main reply popup menu
+* *Snippet*: template will be used as text fragment (since version 1.1857)
+* *Hide from menus*: template will be hidden (disabled)
 
 <br />
 

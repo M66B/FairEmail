@@ -94,7 +94,7 @@ All pro features are convenience or advanced features.
 * Snooze messages ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq67))
 * Send messages after selected time
 * Synchronization scheduling ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq78))
-* Reply templates
+* Reply templates ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq179))
 * Accept/decline calendar invitations
 * Add message to calendar
 * Filter rules ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
