@@ -4,6 +4,15 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### Next version
+
+* Added click link feedback
+* Added option for direct server search
+* Improved favicon selection
+* Improved DMARC report viewer
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1855 - 2022-03-12
 
 * Added option to show contents of zipped attachments (enabled by default)
