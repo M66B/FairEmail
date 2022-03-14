@@ -4620,14 +4620,14 @@ Please see [this video](https://www.youtube.com/watch?v=ywQrYJ6rtnM) about how t
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq179)
 
-Reply templates are predefined answer texts.
+Reply templates are predefined answer texts. They can be defined via the main navigation menu (left side menu).
 
 You can reply with a template, insert a template via the three-dots overflow menu in the message editor,
 and long press on an open space to insert a snippet (the latter requires Android 6 Marshmallow or later).
 
 Templates can have the following options:
 
-* *Default*: template to use when writing a new message
+* *Default*: standard template to use when writing a new message
 * *Use as read receipt*: template to use instead of the default read receipt text
 * *Favorite*: template will be added in the main reply popup menu
 * *Snippet*: template will be used as text fragment (since version 1.1857)
