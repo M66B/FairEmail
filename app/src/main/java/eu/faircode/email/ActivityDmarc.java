@@ -282,7 +282,7 @@ public class ActivityDmarc extends ActivityBase {
                                                                 Integer prefix = Helper.parseInt(net[1]);
                                                                 if (prefix == null)
                                                                     continue;
-                                                                if (inSubnet(text, net[0], prefix)) {
+                                                                if (ConnectionHelper.inSubnet(text, net[0], prefix)) {
                                                                     valid = true;
                                                                     break;
                                                                 }
@@ -503,31 +503,6 @@ public class ActivityDmarc extends ActivityBase {
                     Log.w(ex);
                 }
                 return result;
-            }
-
-            private boolean inSubnet(final String ip, final String net, final int prefix) {
-                try {
-                    byte[] _ip = InetAddress.getByName(ip).getAddress();
-                    byte[] _net = InetAddress.getByName(net).getAddress();
-
-                    if (_ip.length != _net.length)
-                        return false;
-
-                    int i = 0;
-                    int p = prefix;
-                    while (p >= 8) {
-                        if (_ip[i] != _net[i])
-                            return false;
-                        ++i;
-                        p -= 8;
-                    }
-
-                    int m = (0xFF00 >> p) & 0xFF;
-                    return (_ip[i] & m) == (_net[i] & m);
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                    return false;
-                }
             }
         }.execute(this, args, "dmarc:decode");
     }
