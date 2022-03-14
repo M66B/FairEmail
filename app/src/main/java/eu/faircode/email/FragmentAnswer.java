@@ -28,6 +28,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
@@ -184,6 +185,7 @@ public class FragmentAnswer extends FragmentBase {
         FragmentDialogTheme.setBackground(context, view, true);
 
         cbExternal.setVisibility(View.GONE);
+        cbSnippet.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         style_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
@@ -260,6 +262,8 @@ public class FragmentAnswer extends FragmentBase {
 
                 if (ActivityAnswer.canAnswer(context))
                     cbExternal.setVisibility(View.VISIBLE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                    cbSnippet.setVisibility(View.VISIBLE);
                 grpReady.setVisibility(View.VISIBLE);
                 bottom_navigation.setVisibility(View.VISIBLE);
             }
