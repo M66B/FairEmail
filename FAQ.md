@@ -4633,6 +4633,8 @@ Templates can have the following options:
 * *Snippet*: template will be used as text fragment (since version 1.1857)
 * *Hide from menus*: template will be hidden (disabled)
 
+Note that placeholders will not be filled in when using snippets.
+
 <br />
 
 <h2><a name="get-support"></a>Get support</h2>
