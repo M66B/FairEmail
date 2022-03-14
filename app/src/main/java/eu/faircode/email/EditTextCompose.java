@@ -45,6 +45,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.core.view.inputmethod.EditorInfoCompat;
@@ -57,6 +58,9 @@ import org.jsoup.nodes.Document;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
+
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 
 public class EditTextCompose extends FixedEditText {
     private boolean raw = false;
@@ -215,9 +219,18 @@ public class EditTextCompose extends FixedEditText {
                     if (snippets == null)
                         return false;
 
+                    InternetAddress[] to = null;
+                    try {
+                        View root = getRootView();
+                        EditText etTo = (root == null ? null : root.findViewById(R.id.etTo));
+                        if (etTo != null)
+                            to = MessageHelper.parseAddresses(getContext(), etTo.getText().toString());
+                    } catch (AddressException ignored) {
+                    }
+
                     for (EntityAnswer snippet : snippets)
                         if (snippet.id.equals(id)) {
-                            String html = snippet.getHtml(null);
+                            String html = snippet.getHtml(to);
 
                             executor.submit(new Runnable() {
                                 @Override
