@@ -521,13 +521,14 @@ public class EmailService implements AutoCloseable {
             String key = "dns." + host;
             try {
                 main = InetAddress.getByName(host);
+                EntityLog.log(context, "Resolved " + main);
                 prefs.edit().putString(key, main.getHostAddress()).apply();
             } catch (UnknownHostException ex) {
                 String last = prefs.getString(key, null);
                 if (TextUtils.isEmpty(last))
                     throw new MessagingException(ex.getMessage(), ex);
                 else {
-                    Log.w("Using " + key + "=" + last);
+                    EntityLog.log(context, "Using " + key + "=" + last);
                     main = InetAddress.getByName(last);
                 }
             }
