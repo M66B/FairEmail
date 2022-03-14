@@ -785,13 +785,15 @@ public class ContactInfo {
 
         boolean isIco = (href.endsWith(".ico") || "image/x-icon".equals(type));
         boolean isSvg = (href.endsWith(".svg") || "image/svg+xml".equals(type));
+        boolean isMask = ("mask-icon".equals(rel) || img.hasAttr("mask"));
 
-        // Safari: "mask-icon"
-        // "apple-touch-startup-image"
-        if ("icon".equals(rel) && !isIco)
+        if (isMask)
+            order = -10; // Safari: "mask-icon"
+        else if ("icon".equals(rel) && !isIco)
             order += 20;
         else if ("apple-touch-icon".equals(rel) ||
                 "apple-touch-icon-precomposed".equals(rel)) {
+            // "apple-touch-startup-image"
             if ("mailbox.org".equals(host))
                 order += 30;
             else
