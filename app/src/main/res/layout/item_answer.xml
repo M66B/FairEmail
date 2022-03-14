@@ -83,9 +83,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
-                app:layout_constraintEnd_toStartOf="@id/ivFavorite"
+                app:layout_constraintEnd_toStartOf="@id/ivSnippet"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_quickreply_24" />
+
+            <eu.faircode.email.FixedImageView
+                android:id="@+id/ivSnippet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                app:layout_constraintEnd_toStartOf="@id/ivFavorite"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_text_snippet_24" />
 
             <eu.faircode.email.FixedImageView
                 android:id="@+id/ivFavorite"

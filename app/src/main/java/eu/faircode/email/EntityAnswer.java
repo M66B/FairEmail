@@ -84,6 +84,8 @@ public class EntityAnswer implements Serializable {
     @NonNull
     public Boolean favorite;
     @NonNull
+    public Boolean snippet;
+    @NonNull
     public Boolean hide;
     @NonNull
     public Boolean external;
@@ -409,6 +411,7 @@ public class EntityAnswer implements Serializable {
                     this.standard.equals(other.standard) &&
                     this.receipt.equals(other.receipt) &&
                     this.favorite.equals(other.favorite) &&
+                    this.snippet.equals(other.snippet) &&
                     this.hide.equals(other.hide) &&
                     this.external.equals(other.external) &&
                     this.text.equals(other.text) &&

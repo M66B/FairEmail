@@ -75,6 +75,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         private TextView tvName;
         private ImageView ivExternal;
         private ImageView ivStandard;
+        private ImageView ivSnippet;
         private ImageView ivFavorite;
         private ImageView ivReceipt;
         private TextView tvLastApplied;
@@ -90,6 +91,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             tvName = itemView.findViewById(R.id.tvName);
             ivExternal = itemView.findViewById(R.id.ivExternal);
             ivStandard = itemView.findViewById(R.id.ivStandard);
+            ivSnippet = itemView.findViewById(R.id.ivSnippet);
             ivFavorite = itemView.findViewById(R.id.ivFavorite);
             ivReceipt = itemView.findViewById(R.id.ivReceipt);
             tvLastApplied = itemView.findViewById(R.id.tvLastApplied);
@@ -112,6 +114,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             tvName.setText(answer.name);
             ivExternal.setVisibility(answer.external ? View.VISIBLE : View.GONE);
             ivStandard.setVisibility(answer.standard ? View.VISIBLE : View.GONE);
+            ivSnippet.setVisibility(answer.snippet ? View.VISIBLE : View.GONE);
             ivFavorite.setVisibility(answer.favorite ? View.VISIBLE : View.GONE);
             ivReceipt.setVisibility(answer.receipt ? View.VISIBLE : View.GONE);
             tvLastApplied.setText(answer.last_applied == null ? null : DF.format(answer.last_applied));

@@ -41,6 +41,12 @@ public interface DaoAnswer {
     List<EntityAnswer> getAnswersByFavorite(boolean favorite);
 
     @Query("SELECT * FROM answer" +
+            " WHERE snippet" +
+            " AND NOT hide" +
+            " ORDER BY name COLLATE NOCASE")
+    List<EntityAnswer> getSnippets();
+
+    @Query("SELECT * FROM answer" +
             " WHERE external" +
             " AND NOT hide" +
             " ORDER BY name COLLATE NOCASE")

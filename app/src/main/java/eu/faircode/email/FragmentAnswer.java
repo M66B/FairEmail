@@ -63,6 +63,7 @@ public class FragmentAnswer extends FragmentBase {
     private CheckBox cbStandard;
     private CheckBox cbReceipt;
     private CheckBox cbFavorite;
+    private CheckBox cbSnippet;
     private CheckBox cbHide;
     private CheckBox cbExternal;
     private ViewButtonColor btnColor;
@@ -114,6 +115,7 @@ public class FragmentAnswer extends FragmentBase {
         cbStandard = view.findViewById(R.id.cbStandard);
         cbReceipt = view.findViewById(R.id.cbReceipt);
         cbFavorite = view.findViewById(R.id.cbFavorite);
+        cbSnippet = view.findViewById(R.id.cbSnippet);
         cbHide = view.findViewById(R.id.cbHide);
         cbExternal = view.findViewById(R.id.cbExternal);
         btnColor = view.findViewById(R.id.btnColor);
@@ -234,6 +236,7 @@ public class FragmentAnswer extends FragmentBase {
                     cbStandard.setChecked(answer == null ? false : answer.standard);
                     cbReceipt.setChecked(answer == null ? false : answer.receipt);
                     cbFavorite.setChecked(answer == null ? false : answer.favorite);
+                    cbSnippet.setChecked(answer == null ? false : answer.snippet);
                     cbHide.setChecked(answer == null ? false : answer.hide);
                     cbExternal.setChecked(answer == null ? false : answer.external);
                     btnColor.setColor(answer == null ? null : answer.color);
@@ -359,6 +362,7 @@ public class FragmentAnswer extends FragmentBase {
         args.putBoolean("standard", cbStandard.isChecked());
         args.putBoolean("receipt", cbReceipt.isChecked());
         args.putBoolean("favorite", cbFavorite.isChecked());
+        args.putBoolean("snippet", cbSnippet.isChecked());
         args.putBoolean("hide", cbHide.isChecked());
         args.putBoolean("external", cbExternal.isChecked());
         args.putInt("color", btnColor.getColor());
@@ -383,6 +387,7 @@ public class FragmentAnswer extends FragmentBase {
                 boolean standard = args.getBoolean("standard");
                 boolean receipt = args.getBoolean("receipt");
                 boolean favorite = args.getBoolean("favorite");
+                boolean snippet = args.getBoolean("snippet");
                 boolean hide = args.getBoolean("hide");
                 boolean external = args.getBoolean("external");
                 Integer color = args.getInt("color");
@@ -417,6 +422,7 @@ public class FragmentAnswer extends FragmentBase {
                     answer.standard = standard;
                     answer.receipt = receipt;
                     answer.favorite = favorite;
+                    answer.snippet = snippet;
                     answer.hide = hide;
                     answer.external = external;
                     answer.color = color;

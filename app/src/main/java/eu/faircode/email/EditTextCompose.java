@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -50,9 +51,11 @@ import androidx.core.view.inputmethod.EditorInfoCompat;
 import androidx.core.view.inputmethod.InputConnectionCompat;
 import androidx.core.view.inputmethod.InputContentInfoCompat;
 import androidx.preference.PreferenceManager;
+import androidx.room.EntityInsertionAdapter;
 
 import org.jsoup.nodes.Document;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 public class EditTextCompose extends FixedEditText {
@@ -62,6 +65,12 @@ public class EditTextCompose extends FixedEditText {
 
     private Boolean canUndo = null;
     private Boolean canRedo = null;
+    private List<EntityAnswer> snippets;
+
+    private int colorPrimary;
+    private int colorBlockquote;
+    private int quoteGap;
+    private int quoteStripe;
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "paste");
@@ -84,6 +93,11 @@ public class EditTextCompose extends FixedEditText {
     void init(Context context) {
         Helper.setKeyboardIncognitoMode(this, context);
 
+        colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+        colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
+        quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
+        quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean undo_manager = prefs.getBoolean("undo_manager", false);
 
@@ -92,13 +106,20 @@ public class EditTextCompose extends FixedEditText {
                 @Override
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                     try {
+                        int order = 1000;
                         if (undo_manager && can(android.R.id.undo))
-                            menu.add(Menu.CATEGORY_SECONDARY, R.string.title_undo, 1001, getTitle(R.string.title_undo));
+                            menu.add(Menu.CATEGORY_SECONDARY, R.string.title_undo, order++, getTitle(R.string.title_undo));
                         if (undo_manager && can(android.R.id.redo))
-                            menu.add(Menu.CATEGORY_SECONDARY, R.string.title_redo, 1002, getTitle(R.string.title_redo));
-                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_line, 1003, context.getString(R.string.title_insert_line));
+                            menu.add(Menu.CATEGORY_SECONDARY, R.string.title_redo, order++, getTitle(R.string.title_redo));
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_line, order++, context.getString(R.string.title_insert_line));
                         if (BuildConfig.DEBUG)
-                            menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_arrow, 1004, context.getString(R.string.title_insert_arrow));
+                            menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_arrow, order++, context.getString(R.string.title_insert_arrow));
+                        if (snippets != null)
+                            for (EntityAnswer snippet : snippets) {
+                                menu.add(Menu.CATEGORY_SECONDARY, order, order, snippet.name).
+                                        setIntent(new Intent().putExtra("id", snippet.id));
+                                order++;
+                            }
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
@@ -128,6 +149,12 @@ public class EditTextCompose extends FixedEditText {
                             return insertLine();
                         else if (id == R.string.title_insert_arrow)
                             return insertArrow();
+                        else {
+                            Intent intent = item.getIntent();
+                            if (intent == null)
+                                return false;
+                            return insertSnippet(intent.getLongExtra("id", -1L));
+                        }
                     }
                     return false;
                 }
@@ -182,6 +209,61 @@ public class EditTextCompose extends FixedEditText {
 
                     edit.insert(start, " \u27f6 ");
                     return true;
+                }
+
+                private boolean insertSnippet(long id) {
+                    if (snippets == null)
+                        return false;
+
+                    for (EntityAnswer snippet : snippets)
+                        if (snippet.id.equals(id)) {
+                            String html = snippet.getHtml(null);
+
+                            executor.submit(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        SpannableStringBuilder ssb = getSpanned(context, html);
+                                        int len = ssb.length();
+                                        if (len > 0 && ssb.charAt(len - 1) == '\n')
+                                            ssb.replace(len - 1, len, " ");
+
+                                        EditTextCompose.this.post(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                try {
+                                                    int start = getSelectionStart();
+                                                    if (start < 0)
+                                                        start = 0;
+                                                    getText().insert(start, ssb);
+                                                    setSelection(start + ssb.length());
+                                                } catch (Throwable ex) {
+                                                    Log.e(ex);
+                                                }
+                                            }
+                                        });
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }
+                            });
+
+                            return true;
+                        }
+
+                    return false;
+                }
+            });
+
+            DB db = DB.getInstance(context);
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        snippets = db.answer().getSnippets();
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                 }
             });
         }
@@ -286,45 +368,15 @@ public class EditTextCompose extends FixedEditText {
                 } else
                     html = h;
 
-                final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
-                final int colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
-                final int quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
-                final int quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
-
                 executor.submit(new Runnable() {
                     @Override
                     public void run() {
                         try {
-                            SpannableStringBuilder ssb;
-                            if (raw)
-                                ssb = new SpannableStringBuilderEx(html);
-                            else {
-                                Document document = HtmlHelper.sanitizeCompose(context, html, false);
-                                Spanned paste = HtmlHelper.fromDocument(context, document, new Html.ImageGetter() {
-                                    @Override
-                                    public Drawable getDrawable(String source) {
-                                        return ImageHelper.decodeImage(context,
-                                                -1, source, true, 0, 1.0f, EditTextCompose.this);
-                                    }
-                                }, null);
+                            SpannableStringBuilder ssb = (raw)
+                                    ? new SpannableStringBuilderEx(html)
+                                    : getSpanned(context, html);
 
-                                ssb = new SpannableStringBuilderEx(paste);
-                                QuoteSpan[] spans = ssb.getSpans(0, ssb.length(), QuoteSpan.class);
-                                for (QuoteSpan span : spans) {
-                                    QuoteSpan q;
-                                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                        q = new QuoteSpan(colorBlockquote);
-                                    else
-                                        q = new QuoteSpan(colorBlockquote, quoteStripe, quoteGap);
-                                    ssb.setSpan(q,
-                                            ssb.getSpanStart(span),
-                                            ssb.getSpanEnd(span),
-                                            ssb.getSpanFlags(span));
-                                    ssb.removeSpan(span);
-                                }
-                            }
-
-                            ApplicationEx.getMainHandler().post(new Runnable() {
+                            EditTextCompose.this.post(new Runnable() {
                                 @Override
                                 public void run() {
                                     try {
@@ -381,6 +433,34 @@ public class EditTextCompose extends FixedEditText {
             Log.e(ex);
             return false;
         }
+    }
+
+    private SpannableStringBuilder getSpanned(Context context, String html) {
+        Document document = HtmlHelper.sanitizeCompose(context, html, false);
+        Spanned paste = HtmlHelper.fromDocument(context, document, new Html.ImageGetter() {
+            @Override
+            public Drawable getDrawable(String source) {
+                return ImageHelper.decodeImage(context,
+                        -1, source, true, 0, 1.0f, EditTextCompose.this);
+            }
+        }, null);
+
+        SpannableStringBuilder ssb = new SpannableStringBuilderEx(paste);
+        QuoteSpan[] spans = ssb.getSpans(0, ssb.length(), QuoteSpan.class);
+        for (QuoteSpan span : spans) {
+            QuoteSpan q;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                q = new QuoteSpan(colorBlockquote);
+            else
+                q = new QuoteSpan(colorBlockquote, quoteStripe, quoteGap);
+            ssb.setSpan(q,
+                    ssb.getSpanStart(span),
+                    ssb.getSpanEnd(span),
+                    ssb.getSpanFlags(span));
+            ssb.removeSpan(span);
+        }
+
+        return ssb;
     }
 
     @Override
