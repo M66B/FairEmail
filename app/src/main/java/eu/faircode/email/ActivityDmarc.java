@@ -405,10 +405,20 @@ public class ActivityDmarc extends ActivityBase {
                                     if (lastDomain == null)
                                         spf = null;
                                     else {
+                                        Integer start = null;
                                         spf = lookupSpf(context, lastDomain);
-                                        for (Pair<String, DnsHelper.DnsRecord> p : spf)
+                                        for (Pair<String, DnsHelper.DnsRecord> p : spf) {
                                             ssb.append(p.first).append(' ')
                                                     .append(p.second.name).append("\n");
+                                            if (start == null) {
+                                                start = ssb.length();
+                                                ssb.append("\n");
+                                            }
+                                        }
+                                        if (start != null) {
+                                            ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
+                                            ssb.append("\n");
+                                        }
 
                                         List<DnsHelper.DnsRecord> records = new ArrayList<>();
                                         records.addAll(Arrays.asList(
