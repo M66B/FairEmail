@@ -54,8 +54,6 @@ import java.net.ConnectException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
-import java.net.InterfaceAddress;
-import java.net.NetworkInterface;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.UnknownHostException;
@@ -70,7 +68,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -537,7 +534,7 @@ public class EmailService implements AutoCloseable {
 
             boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", true);
             if (prefer_ip4 && main instanceof Inet6Address) {
-                boolean[] has46 = has46(context);
+                boolean[] has46 = ConnectionHelper.has46(context);
                 if (has46[0])
                     try {
                         for (InetAddress iaddr : InetAddress.getAllByName(host))
@@ -620,7 +617,7 @@ public class EmailService implements AutoCloseable {
                     int ip4 = (main instanceof Inet4Address ? 1 : 0);
                     int ip6 = (main instanceof Inet6Address ? 1 : 0);
 
-                    boolean[] has46 = has46(context);
+                    boolean[] has46 = ConnectionHelper.has46(context);
 
                     EntityLog.log(context, "Address main=" + main +
                             " count=" + iaddrs.length +
@@ -773,36 +770,6 @@ public class EmailService implements AutoCloseable {
             }
         } else
             throw new NoSuchProviderException(protocol);
-    }
-
-    static boolean[] has46(Context context) {
-        boolean has4 = false;
-        boolean has6 = false;
-        try {
-            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
-            while (interfaces != null && interfaces.hasMoreElements()) {
-                NetworkInterface ni = interfaces.nextElement();
-                for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
-                    InetAddress addr = iaddr.getAddress();
-                    boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
-                    EntityLog.log(context, "Interface=" + ni + " addr=" + addr + " local=" + local);
-                    if (!local)
-                        if (addr instanceof Inet4Address)
-                            has4 = true;
-                        else if (addr instanceof Inet6Address)
-                            has6 = true;
-                }
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-            /*
-                java.lang.NullPointerException: Attempt to read from field 'java.util.List java.net.NetworkInterface.childs' on a null object reference
-                    at java.net.NetworkInterface.getAll(NetworkInterface.java:498)
-                    at java.net.NetworkInterface.getNetworkInterfaces(NetworkInterface.java:398)
-             */
-        }
-
-        return new boolean[]{has4, has6};
     }
 
     static Map<String, String> getId(Context context) {

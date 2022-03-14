@@ -41,6 +41,8 @@ import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
+import java.net.InterfaceAddress;
+import java.net.NetworkInterface;
 import java.net.UnknownHostException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateParsingException;
@@ -48,6 +50,7 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -541,6 +544,36 @@ public class ConnectionHelper {
             Log.w(ex);
             return false;
         }
+    }
+
+    static boolean[] has46(Context context) {
+        boolean has4 = false;
+        boolean has6 = false;
+        try {
+            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+            while (interfaces != null && interfaces.hasMoreElements()) {
+                NetworkInterface ni = interfaces.nextElement();
+                for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
+                    InetAddress addr = iaddr.getAddress();
+                    boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
+                    EntityLog.log(context, "Interface=" + ni + " addr=" + addr + " local=" + local);
+                    if (!local)
+                        if (addr instanceof Inet4Address)
+                            has4 = true;
+                        else if (addr instanceof Inet6Address)
+                            has6 = true;
+                }
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                java.lang.NullPointerException: Attempt to read from field 'java.util.List java.net.NetworkInterface.childs' on a null object reference
+                    at java.net.NetworkInterface.getAll(NetworkInterface.java:498)
+                    at java.net.NetworkInterface.getNetworkInterfaces(NetworkInterface.java:398)
+             */
+        }
+
+        return new boolean[]{has4, has6};
     }
 
     static List<String> getCommonNames(Context context, String domain, int port, int timeout) throws IOException {
