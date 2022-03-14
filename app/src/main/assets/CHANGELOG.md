@@ -4,7 +4,7 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next version
+### 1.1856 - 2022-03-14
 
 * Added click link feedback
 * Added option for direct server search
