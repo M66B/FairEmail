@@ -301,6 +301,7 @@ public class ActivityDmarc extends ActivityBase {
                                                 ssb.append(' ');
                                             } catch (Throwable ex) {
                                                 Log.w(ex);
+                                                ssb.append(ex.toString()).append('\n');
                                             }
 
                                             try {
@@ -310,6 +311,7 @@ public class ActivityDmarc extends ActivityBase {
                                                 ssb.append('(').append(info.name).append(") ");
                                             } catch (Throwable ex) {
                                                 Log.w(ex);
+                                                ssb.append(ex.toString()).append('\n');
                                             }
                                         }
                                     }
@@ -406,7 +408,8 @@ public class ActivityDmarc extends ActivityBase {
                                         spf = null;
                                     else {
                                         Integer start = null;
-                                        spf = lookupSpf(context, lastDomain);
+                                        SpannableStringBuilder extra = new SpannableStringBuilderEx();
+                                        spf = lookupSpf(context, lastDomain, extra);
                                         for (Pair<String, DnsHelper.DnsRecord> p : spf) {
                                             ssb.append(p.first).append(' ')
                                                     .append(p.second.name).append("\n");
@@ -415,6 +418,7 @@ public class ActivityDmarc extends ActivityBase {
                                                 ssb.append("\n");
                                             }
                                         }
+                                        ssb.append('\n').append(extra);
                                         if (start != null) {
                                             ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
                                             ssb.append("\n");
@@ -489,18 +493,24 @@ public class ActivityDmarc extends ActivityBase {
                 grpReady.setVisibility(View.VISIBLE);
             }
 
-            private List<Pair<String, DnsHelper.DnsRecord>> lookupSpf(Context context, String domain) {
+            private List<Pair<String, DnsHelper.DnsRecord>> lookupSpf(Context context, String domain, SpannableStringBuilder ssb) {
                 List<Pair<String, DnsHelper.DnsRecord>> result = new ArrayList<>();
                 try {
-                    for (DnsHelper.DnsRecord r : DnsHelper.lookup(context, domain, "txt"))
+                    DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "txt");
+                    ssb.append(domain).append('=')
+                            .append(Integer.toString(records.length)).append('\n');
+                    for (DnsHelper.DnsRecord r : records)
                         if (r.name.contains("spf")) {
                             result.add(new Pair<>(domain, r));
                             for (String part : r.name.split("\\s+"))
-                                if (part.toLowerCase(Locale.ROOT).startsWith("include:"))
-                                    result.addAll(lookupSpf(context, part.substring("include:".length())));
+                                if (part.toLowerCase(Locale.ROOT).startsWith("include:")) {
+                                    String sub = part.substring("include:".length());
+                                    result.addAll(lookupSpf(context, sub, ssb));
+                                }
                         }
                 } catch (Throwable ex) {
                     Log.w(ex);
+                    ssb.append(ex.toString()).append('\n');
                 }
                 return result;
             }
