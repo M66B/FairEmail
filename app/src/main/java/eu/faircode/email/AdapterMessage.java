@@ -7972,6 +7972,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final TextView tvText = view.findViewById(R.id.tvText);
             final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean compact = prefs.getBoolean("compact", false);
+            int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
+            int message_zoom = prefs.getInt("message_zoom", 100);
+
+            float textSize = Helper.getTextSize(context, zoom) * message_zoom / 100f;
+            tvText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+
             List<DeepL.Language> languages = DeepL.getTargetLanguages(context, false);
             ArrayAdapter<DeepL.Language> adapter = new ArrayAdapter<DeepL.Language>(context, android.R.layout.simple_spinner_item, android.R.id.text1, languages) {
                 @NonNull
@@ -8009,7 +8017,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spLanguage.setAdapter(adapter);
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String current = prefs.getString("deepl_target", null);
 
             for (int pos = 0; pos < languages.size(); pos++)
