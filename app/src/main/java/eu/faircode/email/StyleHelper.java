@@ -27,6 +27,8 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.text.Editable;
 import android.text.Layout;
+import android.text.NoCopySpan;
+import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -79,7 +81,8 @@ public class StyleHelper {
             QuoteSpan.class, IndentSpan.class,
             StrikethroughSpan.class,
             URLSpan.class,
-            TypefaceSpan.class, CustomTypefaceSpan.class
+            TypefaceSpan.class, CustomTypefaceSpan.class,
+            TranslatedSpan.class
     ));
 
     static boolean apply(int action, LifecycleOwner owner, View anchor, EditText etBody, Object... args) {
@@ -923,6 +926,15 @@ public class StyleHelper {
                 }
             }
         }
+    }
+
+    static void markAsTranslated(Editable text, int start, int end) {
+        for (TranslatedSpan span : text.getSpans(0, text.length(), TranslatedSpan.class))
+            text.removeSpan(span);
+        text.setSpan(new TranslatedSpan(), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
+
+    static class TranslatedSpan implements NoCopySpan {
     }
 
     static String getFamily(String family) {
