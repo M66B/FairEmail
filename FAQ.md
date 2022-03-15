@@ -1268,6 +1268,9 @@ can likely be solved by changing the advanced identity setting *Use local IP add
 The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default).
 Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app.
 You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+Some devices have a firewall, which you can access like this:
+
+*Settings, Data usage, Three-dots overflow menu, Data usage control*
 
 The error *... Connection refused ...* means that the email server
 or something between the email server and the app, like a firewall, actively refused the connection.
