@@ -583,6 +583,14 @@ Some people ask:
 
 **Important**: using your account password [won't be possible anymore from May 30, 2022](https://support.google.com/accounts/answer/6010255).
 
+How to check:
+
+* Go to the *Settings* via the navigation menu (left side menu)
+* Tap on *Manual setup and account options*
+* Tap on *Accounts*
+* Find the account in the list
+* If there is a shield icon before the account name (=OAuth), the account will keep working
+
 How to fix:
 
 * Go to the *Settings* via the navigation menu (left side menu)
