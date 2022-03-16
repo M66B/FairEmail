@@ -45,6 +45,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -239,6 +240,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                     @RequiresApi(api = Build.VERSION_CODES.O)
                     protected void onExecuted(Bundle args, Void data) {
                         NotificationHelper.clear(getContext());
+                        ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
