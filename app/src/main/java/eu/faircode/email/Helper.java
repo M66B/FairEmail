@@ -2321,14 +2321,6 @@ public class Helper {
                 }
             });
 
-            etPin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                @Override
-                public void onFocusChange(View v, boolean hasFocus) {
-                    if (hasFocus)
-                        showKeyboard(etPin);
-                }
-            });
-
             try {
                 dialog.show();
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
@@ -2341,10 +2333,15 @@ public class Helper {
                 dview.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        etPin.setCompoundDrawables(null, null, null, null);
-                        etPin.setEnabled(true);
-                        etPin.requestFocus();
-                        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                        try {
+                            etPin.setCompoundDrawables(null, null, null, null);
+                            etPin.setEnabled(true);
+                            etPin.requestFocus();
+                            showKeyboard(etPin);
+                            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                     }
                 }, delay < 0 ? 0 : delay);
 
