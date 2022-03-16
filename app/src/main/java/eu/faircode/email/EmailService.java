@@ -460,17 +460,10 @@ public class EmailService implements AutoCloseable {
                             context.getString(R.string.title_service_auth, msg),
                             ex.getNextException());
                 }
-            } else if (purpose == PURPOSE_CHECK) {
-                String msg = ex.getMessage();
-                if (msg != null)
-                    msg = msg.trim();
-                if (TextUtils.isEmpty(msg))
-                    throw ex;
-                throw new AuthenticationFailedException(
-                        context.getString(R.string.title_service_auth, msg),
-                        ex.getNextException());
             } else
-                throw ex;
+                throw new AuthenticationFailedException(
+                        context.getString(R.string.title_service_auth, ex.getMessage()),
+                        ex.getNextException());
         } catch (MailConnectException ex) {
             if (ConnectionHelper.vpnActive(context)) {
                 MailConnectException mex = new MailConnectException(
