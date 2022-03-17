@@ -24,6 +24,7 @@ import static android.system.OsConstants.ENOSPC;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.system.ErrnoException;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -3385,7 +3386,7 @@ public class MessageHelper {
                         db.attachment().setWarning(local.id, Log.formatThrowable(ex));
                     }
 
-                else if (local.isCompressed()) {
+                else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && local.isCompressed()) {
                     // https://commons.apache.org/proper/commons-compress/examples.html
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean unzip = prefs.getBoolean("unzip", true);

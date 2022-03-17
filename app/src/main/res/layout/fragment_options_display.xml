@@ -1795,6 +1795,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swAttachmentsAlt"
                     app:switchPadding="12dp" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpUnzip"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="swUnzip,tvUnzipHint" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

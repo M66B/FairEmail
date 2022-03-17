@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -178,6 +179,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swAuthenticationIndicator;
 
     private Group grpGravatars;
+    private Group grpUnzip;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
@@ -328,6 +330,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAuthenticationIndicator = view.findViewById(R.id.swAuthenticationIndicator);
 
         grpGravatars = view.findViewById(R.id.grpGravatars);
+        grpUnzip = view.findViewById(R.id.grpUnzip);
 
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
 
@@ -1231,6 +1234,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swFaviconsPartial.setText(getString(R.string.title_advanced_favicons_partial,
                 Helper.humanReadableByteCount(ContactInfo.FAVICON_READ_BYTES)));
         grpGravatars.setVisibility(ContactInfo.canGravatars() ? View.VISIBLE : View.GONE);
+        grpUnzip.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
         tvBimiUnverified.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
