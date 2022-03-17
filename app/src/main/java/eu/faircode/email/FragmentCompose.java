@@ -2131,6 +2131,7 @@ public class FragmentCompose extends FragmentBase {
                 new SimpleTask<DeepL.Translation>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
+                        etBody.setSelection(paragraph.first, paragraph.second);
                         ToastEx.makeText(context, R.string.title_translating, Toast.LENGTH_SHORT).show();
                     }
 
@@ -2200,6 +2201,7 @@ public class FragmentCompose extends FragmentBase {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
+                        etBody.setSelection(paragraph.second);
                         Throwable exex = new Throwable("DeepL", ex);
                         Log.unexpectedError(getParentFragmentManager(), exex, false);
                     }
