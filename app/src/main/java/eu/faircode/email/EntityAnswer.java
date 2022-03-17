@@ -325,6 +325,13 @@ public class EntityAnswer implements Serializable {
 
                 ssb.append("\n\n");
 
+                if (p.appPassword)
+                    ssb.append("App password\n\n");
+
+                if (p.documentation !=
+                        null)
+                    ssb.append(HtmlHelper.fromHtml(p.documentation.toString(), context)).append("\n\n");
+
                 if (!TextUtils.isEmpty(p.link))
                     ssb.append(p.link).append("\n\n");
 
