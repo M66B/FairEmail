@@ -52,7 +52,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.nodes.Document;
 
@@ -376,6 +375,8 @@ public class ActivitySignature extends ActivityBase {
 
     private void onImageSelected(Uri uri) {
         try {
+            NoStreamException.check(uri, this);
+
             getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
             int start = etText.getSelectionStart();
@@ -406,16 +407,8 @@ public class ActivitySignature extends ActivityBase {
                             })
                             .show();
             }
-        } catch (SecurityException ex) {
-            Snackbar sb = Snackbar.make(view, R.string.title_no_stream, Snackbar.LENGTH_INDEFINITE)
-                    .setGestureInsetBottomIgnored(true);
-            sb.setAction(R.string.title_info, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Helper.viewFAQ(ActivitySignature.this, 49);
-                }
-            });
-            sb.show();
+        } catch (NoStreamException ex) {
+            ex.report(this);
         } catch (Throwable ex) {
             Log.unexpectedError(getSupportFragmentManager(), ex);
         }

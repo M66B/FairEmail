@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -43,7 +42,6 @@ import androidx.constraintlayout.widget.Group;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.net.InetAddress;
@@ -111,14 +109,7 @@ public class ActivityDmarc extends ActivityBase {
             protected Spanned onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
 
-                if (uri == null)
-                    throw new FileNotFoundException();
-
-                if (!"content".equals(uri.getScheme()) &&
-                        !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                    Log.w("DMARC uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
+                NoStreamException.check(uri, context);
 
                 DateFormat DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);
                 int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
@@ -489,7 +480,10 @@ public class ActivityDmarc extends ActivityBase {
 
             @Override
             protected void onException(Bundle args, @NonNull Throwable ex) {
-                tvDmarc.setText(ex + "\n" + android.util.Log.getStackTraceString(ex));
+                if (ex instanceof NoStreamException)
+                    ((NoStreamException) ex).report(ActivityDmarc.this);
+                else
+                    tvDmarc.setText(ex + "\n" + android.util.Log.getStackTraceString(ex));
                 grpReady.setVisibility(View.VISIBLE);
             }
 

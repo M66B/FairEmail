@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -257,14 +256,7 @@ public class ActivityEML extends ActivityBase {
             protected Result onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
 
-                if (uri == null)
-                    throw new FileNotFoundException();
-
-                if (!"content".equals(uri.getScheme()) &&
-                        !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                    Log.w("EML uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
+                NoStreamException.check(uri, context);
 
                 Result result = new Result();
 
@@ -389,9 +381,8 @@ public class ActivityEML extends ActivityBase {
 
             @Override
             protected void onException(Bundle args, @NonNull Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG)
-                            .setGestureInsetBottomIgnored(true).show();
+                if (ex instanceof NoStreamException)
+                    ((NoStreamException) ex).report(ActivityEML.this);
                 else
                     Log.unexpectedError(getSupportFragmentManager(), ex, false);
             }

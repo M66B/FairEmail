@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 
-import android.Manifest;
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
@@ -848,14 +847,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         " answers=" + import_answers +
                         " settings=" + import_settings);
 
-                if (uri == null)
-                    throw new FileNotFoundException();
-
-                if (!"content".equals(uri.getScheme()) &&
-                        !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                    Log.w("Import uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
+                NoStreamException.check(uri, context);
 
                 StringBuilder data = new StringBuilder();
                 Log.i("Reading URI=" + uri);
@@ -1256,18 +1248,22 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                SpannableStringBuilder ssb = new SpannableStringBuilder();
-                if (ex.getCause() instanceof BadPaddingException)
-                    ssb.append(getString(R.string.title_setup_password_invalid));
-                else if (ex instanceof IOException && ex.getCause() instanceof IllegalBlockSizeException)
-                    ssb.append(getString(R.string.title_setup_import_invalid));
-                if (ssb.length() > 0) {
-                    ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
-                    ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
-                    ssb.append("\n\n");
+                if (ex instanceof NoStreamException)
+                    ((NoStreamException) ex).report(ActivitySetup.this);
+                else {
+                    SpannableStringBuilder ssb = new SpannableStringBuilder();
+                    if (ex.getCause() instanceof BadPaddingException)
+                        ssb.append(getString(R.string.title_setup_password_invalid));
+                    else if (ex instanceof IOException && ex.getCause() instanceof IllegalBlockSizeException)
+                        ssb.append(getString(R.string.title_setup_import_invalid));
+                    if (ssb.length() > 0) {
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
+                        ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
+                        ssb.append("\n\n");
+                    }
+                    ssb.append(ex.toString());
+                    onProgress(ssb, null);
                 }
-                ssb.append(ex.toString());
-                onProgress(ssb, null);
             }
         }.execute(this, args, "setup:import");
     }

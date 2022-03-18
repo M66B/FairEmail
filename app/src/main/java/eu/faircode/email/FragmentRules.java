@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_OK;
 
-import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -392,14 +391,7 @@ public class FragmentRules extends FragmentBase {
                 long fid = args.getLong("folder");
                 Uri uri = args.getParcelable("uri");
 
-                if (uri == null)
-                    throw new FileNotFoundException();
-
-                if (!"content".equals(uri.getScheme()) &&
-                        !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                    Log.w("Import uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
+                NoStreamException.check(uri, context);
 
                 StringBuilder data = new StringBuilder();
 
@@ -462,8 +454,9 @@ public class FragmentRules extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException ||
-                        ex instanceof FileNotFoundException ||
+                if (ex instanceof NoStreamException)
+                    ((NoStreamException) ex).report(getContext());
+                else if (ex instanceof FileNotFoundException ||
                         ex instanceof JSONException)
                     ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
                 else

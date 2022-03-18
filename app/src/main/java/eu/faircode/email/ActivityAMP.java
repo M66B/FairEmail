@@ -22,15 +22,12 @@ package eu.faircode.email;
 import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
 import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
 
-import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,12 +42,9 @@ import androidx.preference.PreferenceManager;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -199,14 +193,7 @@ public class ActivityAMP extends ActivityBase {
                 Uri uri = args.getParcelable("uri");
                 long id = args.getLong("id");
 
-                if (uri == null)
-                    throw new FileNotFoundException();
-
-                if (!"content".equals(uri.getScheme()) &&
-                        !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                    Log.w("AMP uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
+                NoStreamException.check(uri, context);
 
                 DB db = DB.getInstance(context);
                 EntityMessage message = db.message().getMessage(id);
@@ -249,9 +236,8 @@ public class ActivityAMP extends ActivityBase {
 
             @Override
             protected void onException(Bundle args, @NonNull Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG)
-                            .setGestureInsetBottomIgnored(true).show();
+                if (ex instanceof NoStreamException)
+                    ((NoStreamException) ex).report(ActivityAMP.this);
                 else
                     Log.unexpectedError(getSupportFragmentManager(), ex, false);
             }

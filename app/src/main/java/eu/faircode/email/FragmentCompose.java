@@ -2870,8 +2870,8 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 // External app sending absolute file
-                if (ex instanceof SecurityException)
-                    handleFileShare();
+                if (ex instanceof NoStreamException)
+                    ((NoStreamException) ex).report(getContext());
                 else if (ex instanceof FileNotFoundException ||
                         ex instanceof IllegalArgumentException ||
                         ex instanceof IllegalStateException) {
@@ -2965,7 +2965,10 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                if (ex instanceof NoStreamException)
+                    ((NoStreamException) ex).report(getContext());
+                else
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:shared");
     }
@@ -3948,11 +3951,7 @@ public class FragmentCompose extends FragmentBase {
             Context context, long id, Uri uri, boolean image, int resize, boolean privacy) throws IOException {
         Log.w("Add attachment uri=" + uri + " image=" + image + " resize=" + resize + " privacy=" + privacy);
 
-        if (!"content".equals(uri.getScheme()) &&
-                !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-            Log.w("Add attachment uri=" + uri);
-            throw new SecurityException("Add attachment with file scheme");
-        }
+        NoStreamException.check(uri, context);
 
         EntityAttachment attachment = new EntityAttachment();
         UriInfo info = getInfo(uri, context);
@@ -5335,8 +5334,8 @@ public class FragmentCompose extends FragmentBase {
             // External app sending absolute file
             if (ex instanceof MessageRemovedException)
                 finish();
-            else if (ex instanceof SecurityException)
-                handleFileShare();
+            if (ex instanceof NoStreamException)
+                ((NoStreamException) ex).report(getContext());
             else if (ex instanceof FileNotFoundException ||
                     ex instanceof IllegalArgumentException ||
                     ex instanceof IllegalStateException)
@@ -5359,18 +5358,6 @@ public class FragmentCompose extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
         }
     }.setExecutor(executor);
-
-    private void handleFileShare() {
-        Snackbar sb = Snackbar.make(view, R.string.title_no_stream, Snackbar.LENGTH_INDEFINITE)
-                .setGestureInsetBottomIgnored(true);
-        sb.setAction(R.string.title_info, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 49);
-            }
-        });
-        sb.show();
-    }
 
     private SimpleTask<EntityMessage> actionLoader = new SimpleTask<EntityMessage>() {
         @Override
