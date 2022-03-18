@@ -1666,6 +1666,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpDownloading.setVisibility(View.GONE);
             tvBody.setText(null);
             tvBody.setVisibility(View.GONE);
+            vwRipple.setVisibility(View.GONE);
             // TO DO: clear web view?
             wvBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
@@ -1931,6 +1932,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvBody.setMinHeight(height);
                 }
             }
+            vwRipple.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
 
             clearCalendar();
@@ -2924,6 +2926,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             public void run() {
                                 try {
                                     tvBody.setText((Spanned) result);
+                                    vwRipple.setVisibility(View.VISIBLE);
 
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                                         bindConversationActions(message, args.getParcelable("actions"));
