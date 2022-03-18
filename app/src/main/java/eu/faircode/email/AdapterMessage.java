@@ -1670,7 +1670,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // TO DO: clear web view?
             wvBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
-            grpAction.setVisibility(View.GONE);
             clearActions();
             ibInfrastructure.setVisibility(View.GONE);
             ibTrashBottom.setVisibility(View.GONE);
