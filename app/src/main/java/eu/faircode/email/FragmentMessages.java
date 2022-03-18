@@ -4639,12 +4639,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         : R.string.title_check_gmail_oauth);
                 final Snackbar snackbar = Snackbar.make(view, resid, Snackbar.LENGTH_INDEFINITE)
                         .setGestureInsetBottomIgnored(true);
-                snackbar.setAction(passwd > 0 ? R.string.title_info : android.R.string.ok, new View.OnClickListener() {
+                snackbar.setAction(R.string.title_info, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         snackbar.dismiss();
-                        if (resid == R.string.title_check_gmail_password)
-                            Helper.viewFAQ(v.getContext(), 6);
+                        Helper.viewFAQ(v.getContext(), 6);
                         prefs.edit().putBoolean("gmail_checked", true).apply();
                     }
                 });
