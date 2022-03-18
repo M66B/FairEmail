@@ -5966,6 +5966,17 @@ public class FragmentCompose extends FragmentBase {
                             outbox.id = db.folder().insertFolder(outbox);
                         }
 
+                        // Delay sending message
+                        if (draft.ui_snoozed == null && send_delayed != 0) {
+                            if (extras.getBoolean("now"))
+                                draft.ui_snoozed = null;
+                            else
+                                draft.ui_snoozed = new Date().getTime() + send_delayed * 1000L;
+                        }
+
+                        if (draft.ui_snoozed != null)
+                            draft.received = draft.ui_snoozed;
+
                         // Copy message to outbox
                         draft.id = null;
                         draft.folder = outbox.id;
@@ -5978,15 +5989,6 @@ public class FragmentCompose extends FragmentBase {
                         // Move attachments
                         for (EntityAttachment attachment : attachments)
                             db.attachment().setMessage(attachment.id, draft.id);
-
-                        // Delay sending message
-                        if (draft.ui_snoozed == null && send_delayed != 0) {
-                            if (extras.getBoolean("now"))
-                                draft.ui_snoozed = null;
-                            else
-                                draft.ui_snoozed = new Date().getTime() + send_delayed * 1000L;
-                            db.message().setMessageSnoozed(draft.id, draft.ui_snoozed);
-                        }
 
                         // Send message
                         if (draft.ui_snoozed == null)
