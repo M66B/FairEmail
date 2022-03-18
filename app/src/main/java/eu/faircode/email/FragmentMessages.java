@@ -4355,7 +4355,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (!checkDoze())
             if (!checkReporting())
                 if (!checkReview())
-                    checkFingerprint();
+                    if (!checkFingerprint())
+                        checkGmail();
 
         prefs.registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(prefs, "pro");
@@ -4582,6 +4583,67 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
         snackbar.show();
+
+        return true;
+    }
+
+    private boolean checkGmail() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (prefs.getBoolean("gmail_checked", false))
+            return false;
+
+        new SimpleTask<List<EntityAccount>>() {
+            @Override
+            protected List<EntityAccount> onExecute(Context context, Bundle args) throws Throwable {
+                DB db = DB.getInstance(context);
+                return db.account().getAccounts();
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                int oauth = 0;
+                int passwd = 0;
+                if (accounts != null)
+                    for (EntityAccount account : accounts)
+                        if (account.isGmail())
+                            if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH)
+                                oauth++;
+                            else if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD)
+                                passwd++;
+
+                if (oauth + passwd == 0) {
+                    prefs.edit().putBoolean("gmail_checked", true).apply();
+                    return;
+                }
+
+                final int resid = (passwd > 0
+                        ? R.string.title_check_gmail_password
+                        : R.string.title_check_gmail_oauth);
+                final Snackbar snackbar = Snackbar.make(view, resid, Snackbar.LENGTH_INDEFINITE)
+                        .setGestureInsetBottomIgnored(true);
+                snackbar.setAction(passwd > 0 ? R.string.title_info : android.R.string.ok, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        snackbar.dismiss();
+                        if (resid == R.string.title_check_gmail_password)
+                            Helper.viewFAQ(v.getContext(), 6);
+                        prefs.edit().putBoolean("gmail_checked", true).apply();
+                    }
+                });
+                snackbar.addCallback(new Snackbar.Callback() {
+                    @Override
+                    public void onDismissed(Snackbar transientBottomBar, int event) {
+                        prefs.edit().putBoolean("gmail_checked", true).apply();
+                    }
+                });
+                snackbar.show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.e(ex);
+            }
+        }.execute(this, new Bundle(), "gmail:check");
 
         return true;
     }
