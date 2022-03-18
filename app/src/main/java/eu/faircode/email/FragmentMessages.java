@@ -399,6 +399,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static final int REQUEST_BUTTONS = 24;
     private static final int REQUEST_ALL_READ = 25;
     private static final int REQUEST_SAVE_SEARCH = 26;
+    private static final int REQUEST_DELETE_SEARCH = 27;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -4993,30 +4994,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuDeleteSearch() {
+        if (criteria == null)
+            return;
+
         Bundle args = new Bundle();
-        args.putLong("id", criteria == null ? -1 : criteria.id);
+        args.putString("question", getString(R.string.title_search_delete));
+        args.putString("remark", criteria.getTitle(getContext()));
+        args.putLong("id", criteria.id);
+        args.putBoolean("warning", true);
 
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-                db.search().deleteSearch(id);
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                finish();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(this, args, "search:delete");
+        FragmentDialogAsk ask = new FragmentDialogAsk();
+        ask.setArguments(args);
+        ask.setTargetFragment(FragmentMessages.this, REQUEST_DELETE_SEARCH);
+        ask.show(getParentFragmentManager(), "swipe:delete");
     }
 
     private void onMenuFolders(long account) {
@@ -5413,6 +5403,30 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "search:save");
+    }
+
+    private void onDeleteSearch(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                db.search().deleteSearch(id);
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                finish();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "search:delete");
     }
 
     private void onMenuSyncMore() {
@@ -7218,6 +7232,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case REQUEST_SAVE_SEARCH:
                     if (resultCode == RESULT_OK && data != null)
                         onSaveSearch(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_DELETE_SEARCH:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDeleteSearch(data.getBundleExtra("args"));
                     break;
             }
         } catch (Throwable ex) {
