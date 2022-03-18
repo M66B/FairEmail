@@ -153,7 +153,6 @@
     <provider
         name="Yahoo.co.jp"
         domain="yahoo\\.co\\.jp"
-        enabled="false"
         order="6"
         user="local">
         <imap
@@ -172,7 +171,7 @@
         domain="yahoo\\..*"
         id="yahoo"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88"
-        order="6">
+        order="7">
         <imap
             host="imap.mail.yahoo.com"
             port="993"
