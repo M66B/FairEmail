@@ -1152,7 +1152,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 criteria.after = json.getLong("after") + now.getTimeInMillis();
 
             if (json.has("before"))
-                criteria.before = json.getLong("before" + now.getTimeInMillis());
+                criteria.before = json.getLong("before") + now.getTimeInMillis();
 
             return criteria;
         }
