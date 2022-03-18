@@ -583,6 +583,12 @@ Some people ask:
 
 **Important**: using your account password [won't be possible anymore from May 30, 2022](https://support.google.com/accounts/answer/6010255).
 
+If you authorized your Gmail account with the quick setup wizard or manually with an app password,
+your Gmail account will keep being synchronized after May 30, 2022.
+
+If you enabled *Less secure apps* in the Google account settings and authorized your Gmail account manually with your normal account password,
+your Gmail account can't be synchronized from May 30, 2022 anymore.
+
 How to check:
 
 * Go to the *Settings* via the navigation menu (left side menu)
