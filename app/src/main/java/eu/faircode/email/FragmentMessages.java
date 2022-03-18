@@ -4593,6 +4593,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (prefs.getBoolean("gmail_checked", false))
             return false;
 
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MILLISECOND, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.HOUR, 0);
+        cal.set(Calendar.DAY_OF_MONTH, 30);
+        cal.set(Calendar.MONTH, Calendar.MAY);
+        cal.set(Calendar.YEAR, 2022);
+
+        cal.add(Calendar.MONTH, 2);
+
+        long now = new Date().getTime();
+        if (now > cal.getTimeInMillis()) {
+            prefs.edit().putBoolean("gmail_checked", true).apply();
+            return false;
+        }
+
         new SimpleTask<List<EntityAccount>>() {
             @Override
             protected List<EntityAccount> onExecute(Context context, Bundle args) throws Throwable {
