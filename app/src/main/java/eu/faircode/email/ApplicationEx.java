@@ -226,8 +226,6 @@ public class ApplicationEx extends Application
             ServiceSend.watchdog(this);
         }
 
-        ServiceSynchronize.scheduleWatchdog(this);
-
         boolean work_manager = prefs.getBoolean("work_manager", true);
         Log.i("Work manager=" + work_manager);
         if (work_manager) {
