@@ -3728,24 +3728,6 @@ class Core {
             IMAPStore istore, IMAPFolder ifolder, MimeMessage imessage,
             boolean browsed, boolean download,
             List<EntityRule> rules, State state, SyncStats stats) throws MessagingException, IOException {
-        try {
-            return _synchronizeMessage(context, account, folder,
-                    istore, ifolder, imessage,
-                    browsed, download, rules, state, stats);
-        } catch (MessageHelper.MessagingStructureException ex) {
-            Log.e(ex);
-            long uid = ifolder.getUID(imessage);
-            EntityOperation.queue(context, folder, EntityOperation.FETCH, uid);
-            return null;
-        }
-    }
-
-    private static EntityMessage _synchronizeMessage(
-            Context context,
-            EntityAccount account, EntityFolder folder,
-            IMAPStore istore, IMAPFolder ifolder, MimeMessage imessage,
-            boolean browsed, boolean download,
-            List<EntityRule> rules, State state, SyncStats stats) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean download_headers = prefs.getBoolean("download_headers", false);

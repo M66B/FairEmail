@@ -3806,8 +3806,11 @@ public class MessageHelper {
                                 break;
                             }
                         }
-                    } else
-                        throw new MessagingStructureException(content, "multipart/mixed");
+                    } else {
+                        String msg = "Expected multipart/mixed got " + content.getClass().getName();
+                        Log.e(msg);
+                        parts.warnings.add(msg);
+                    }
                 }
 
                 if (part.isMimeType("multipart/signed")) {
@@ -3851,8 +3854,11 @@ public class MessageHelper {
                                     sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
                                 Log.e(sb.toString());
                             }
-                        } else
-                            throw new MessagingStructureException(content, "multipart/signed");
+                        } else {
+                            String msg = "Expected multipart/signed got " + content.getClass().getName();
+                            Log.e(msg);
+                            parts.warnings.add(msg);
+                        }
                     } else
                         Log.e(ct.toString());
                 } else if (part.isMimeType("multipart/encrypted")) {
@@ -3873,8 +3879,12 @@ public class MessageHelper {
                                     sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
                                 Log.e(sb.toString());
                             }
-                        } else
-                            throw new MessagingStructureException(content, "multipart/encrypted");
+                        } else {
+                            String msg = "Expected multipart/encrypted got " + content.getClass().getName();
+                            Log.e(msg);
+                            parts.warnings.add(msg);
+
+                        }
                     } else
                         Log.e(ct.toString());
                 } else if (part.isMimeType("application/pkcs7-mime") ||
@@ -3954,145 +3964,148 @@ public class MessageHelper {
             if (part.isMimeType("multipart/*")) {
                 Multipart multipart;
                 Object content = part.getContent(); // Should always be Multipart
-                if (content instanceof Multipart)
+                if (content instanceof Multipart) {
                     multipart = (Multipart) part.getContent();
-                else
-                    throw new MessagingStructureException(content, "multipart/*");
-
-                int count = multipart.getCount();
-                for (int i = 0; i < count; i++)
-                    try {
-                        BodyPart child = multipart.getBodyPart(i);
-                        getMessageParts(part, child, parts, encrypt);
-                    } catch (ParseException ex) {
-                        // Nested body: try to continue
-                        // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
-                        Log.w(ex);
-                        parts.warnings.add(Log.formatThrowable(ex, false));
-                    }
-            } else {
-                // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
-                String disposition;
-                try {
-                    // From the body structure
-                    disposition = part.getDisposition();
-                    if (disposition != null)
-                        disposition = disposition.toLowerCase(Locale.ROOT);
-                } catch (MessagingException ex) {
-                    Log.w(ex);
-                    parts.warnings.add(Log.formatThrowable(ex, false));
-                    disposition = null;
-                }
-
-                String filename;
-                try {
-                    // From the body structure:
-                    // 1. disposition filename
-                    // 2. content type name
-                    filename = part.getFileName(); // IMAPBodyPart/BODYSTRUCTURE
-                    if (filename != null) {
-                        // https://tools.ietf.org/html/rfc2231
-                        // http://kb.mozillazine.org/Attachments_renamed
-                        // https://blog.nodemailer.com/2017/01/27/the-mess-that-is-attachment-filenames/
-                        int q1 = filename.indexOf('\'');
-                        int q2 = filename.indexOf('\'', q1 + 1);
-                        if (q1 >= 0 && q2 > 0) {
-                            try {
-                                String charset = filename.substring(0, q1);
-                                String language = filename.substring(q1 + 1, q2);
-                                String name = filename.substring(q2 + 1)
-                                        .replace("+", "%2B");
-
-                                if (!TextUtils.isEmpty(charset))
-                                    filename = URLDecoder.decode(name, charset);
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
+                    int count = multipart.getCount();
+                    for (int i = 0; i < count; i++)
+                        try {
+                            BodyPart child = multipart.getBodyPart(i);
+                            getMessageParts(part, child, parts, encrypt);
+                        } catch (ParseException ex) {
+                            // Nested body: try to continue
+                            // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
+                            Log.w(ex);
+                            parts.warnings.add(Log.formatThrowable(ex, false));
                         }
-
-                        filename = decodeMime(filename);
-                    }
-                } catch (MessagingException ex) {
-                    Log.w(ex);
-                    parts.warnings.add(Log.formatThrowable(ex, false));
-                    filename = null;
-                }
-
-                ContentType contentType;
-                try {
-                    // From the body structure
-                    contentType = new ContentType(part.getContentType());
-                } catch (ParseException ex) {
-                    if (part instanceof MimeMessage)
-                        Log.w("MimeMessage content type=" + ex.getMessage());
-                    else
-                        Log.w(ex);
-                    contentType = new ContentType(Helper.guessMimeType(filename));
-                }
-
-                String ct = contentType.getBaseType();
-                if (("text/plain".equalsIgnoreCase(ct) || "text/html".equalsIgnoreCase(ct)) &&
-                        !Part.ATTACHMENT.equalsIgnoreCase(disposition) && TextUtils.isEmpty(filename)) {
-                    parts.text.add(new PartHolder(part, contentType));
+                    return;
                 } else {
-                    if (Report.isDeliveryStatus(ct) || Report.isDispositionNotification(ct))
-                        parts.extra.add(new PartHolder(part, contentType));
+                    String msg = "Expected multipart/* got " + content.getClass().getName();
+                    Log.e(msg);
+                    parts.warnings.add(msg);
+                }
+            }
 
-                    AttachmentPart apart = new AttachmentPart();
-                    apart.disposition = disposition;
-                    apart.filename = filename;
-                    apart.encrypt = encrypt;
-                    apart.part = part;
+            // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
+            String disposition;
+            try {
+                // From the body structure
+                disposition = part.getDisposition();
+                if (disposition != null)
+                    disposition = disposition.toLowerCase(Locale.ROOT);
+            } catch (MessagingException ex) {
+                Log.w(ex);
+                parts.warnings.add(Log.formatThrowable(ex, false));
+                disposition = null;
+            }
 
-                    String cid = null;
-                    try {
-                        if (apart.part instanceof IMAPBodyPart)
-                            cid = ((IMAPBodyPart) apart.part).getContentID();
-                        if (TextUtils.isEmpty(cid)) {
-                            String[] cids = apart.part.getHeader("Content-ID");
-                            if (cids != null && cids.length > 0)
-                                cid = MimeUtility.unfold(cids[0]);
+            String filename;
+            try {
+                // From the body structure:
+                // 1. disposition filename
+                // 2. content type name
+                filename = part.getFileName(); // IMAPBodyPart/BODYSTRUCTURE
+                if (filename != null) {
+                    // https://tools.ietf.org/html/rfc2231
+                    // http://kb.mozillazine.org/Attachments_renamed
+                    // https://blog.nodemailer.com/2017/01/27/the-mess-that-is-attachment-filenames/
+                    int q1 = filename.indexOf('\'');
+                    int q2 = filename.indexOf('\'', q1 + 1);
+                    if (q1 >= 0 && q2 > 0) {
+                        try {
+                            String charset = filename.substring(0, q1);
+                            String language = filename.substring(q1 + 1, q2);
+                            String name = filename.substring(q2 + 1)
+                                    .replace("+", "%2B");
+
+                            if (!TextUtils.isEmpty(charset))
+                                filename = URLDecoder.decode(name, charset);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         }
+                    }
+
+                    filename = decodeMime(filename);
+                }
+            } catch (MessagingException ex) {
+                Log.w(ex);
+                parts.warnings.add(Log.formatThrowable(ex, false));
+                filename = null;
+            }
+
+            ContentType contentType;
+            try {
+                // From the body structure
+                contentType = new ContentType(part.getContentType());
+            } catch (ParseException ex) {
+                if (part instanceof MimeMessage)
+                    Log.w("MimeMessage content type=" + ex.getMessage());
+                else
+                    Log.w(ex);
+                contentType = new ContentType(Helper.guessMimeType(filename));
+            }
+
+            String ct = contentType.getBaseType();
+            if (("text/plain".equalsIgnoreCase(ct) || "text/html".equalsIgnoreCase(ct)) &&
+                    !Part.ATTACHMENT.equalsIgnoreCase(disposition) && TextUtils.isEmpty(filename)) {
+                parts.text.add(new PartHolder(part, contentType));
+            } else {
+                if (Report.isDeliveryStatus(ct) || Report.isDispositionNotification(ct))
+                    parts.extra.add(new PartHolder(part, contentType));
+
+                AttachmentPart apart = new AttachmentPart();
+                apart.disposition = disposition;
+                apart.filename = filename;
+                apart.encrypt = encrypt;
+                apart.part = part;
+
+                String cid = null;
+                try {
+                    if (apart.part instanceof IMAPBodyPart)
+                        cid = ((IMAPBodyPart) apart.part).getContentID();
+                    if (TextUtils.isEmpty(cid)) {
+                        String[] cids = apart.part.getHeader("Content-ID");
+                        if (cids != null && cids.length > 0)
+                            cid = MimeUtility.unfold(cids[0]);
+                    }
+                } catch (MessagingException ex) {
+                    Log.w(ex);
+                    if (!"Failed to fetch headers".equals(ex.getMessage()))
+                        parts.warnings.add(Log.formatThrowable(ex, false));
+                }
+
+                Boolean related = null;
+                if (parent != null)
+                    try {
+                        related = parent.isMimeType("multipart/related");
                     } catch (MessagingException ex) {
                         Log.w(ex);
-                        if (!"Failed to fetch headers".equals(ex.getMessage()))
-                            parts.warnings.add(Log.formatThrowable(ex, false));
                     }
 
-                    Boolean related = null;
-                    if (parent != null)
-                        try {
-                            related = parent.isMimeType("multipart/related");
-                        } catch (MessagingException ex) {
-                            Log.w(ex);
-                        }
+                apart.attachment = new EntityAttachment();
+                apart.attachment.disposition = apart.disposition;
+                apart.attachment.name = apart.filename;
+                apart.attachment.type = contentType.getBaseType().toLowerCase(Locale.ROOT);
+                apart.attachment.size = (long) apart.part.getSize();
+                apart.attachment.cid = cid;
+                apart.attachment.related = related;
+                apart.attachment.encryption = apart.encrypt;
 
-                    apart.attachment = new EntityAttachment();
-                    apart.attachment.disposition = apart.disposition;
-                    apart.attachment.name = apart.filename;
-                    apart.attachment.type = contentType.getBaseType().toLowerCase(Locale.ROOT);
-                    apart.attachment.size = (long) apart.part.getSize();
-                    apart.attachment.cid = cid;
-                    apart.attachment.related = related;
-                    apart.attachment.encryption = apart.encrypt;
+                if ("text/calendar".equalsIgnoreCase(apart.attachment.type) &&
+                        TextUtils.isEmpty(apart.attachment.name))
+                    apart.attachment.name = "invite.ics";
 
-                    if ("text/calendar".equalsIgnoreCase(apart.attachment.type) &&
-                            TextUtils.isEmpty(apart.attachment.name))
-                        apart.attachment.name = "invite.ics";
+                if (apart.attachment.size <= 0)
+                    apart.attachment.size = null;
 
-                    if (apart.attachment.size <= 0)
-                        apart.attachment.size = null;
-
-                    // https://tools.ietf.org/html/rfc2392
-                    if (apart.attachment.cid != null) {
-                        if (!apart.attachment.cid.startsWith("<"))
-                            apart.attachment.cid = "<" + apart.attachment.cid;
-                        if (!apart.attachment.cid.endsWith(">"))
-                            apart.attachment.cid += ">";
-                    }
-
-                    parts.attachments.add(apart);
+                // https://tools.ietf.org/html/rfc2392
+                if (apart.attachment.cid != null) {
+                    if (!apart.attachment.cid.startsWith("<"))
+                        apart.attachment.cid = "<" + apart.attachment.cid;
+                    if (!apart.attachment.cid.endsWith(">"))
+                        apart.attachment.cid += ">";
                 }
+
+                parts.attachments.add(apart);
             }
         } catch (FolderClosedException ex) {
             throw ex;
@@ -4433,24 +4446,6 @@ public class MessageHelper {
         }
 
         return values;
-    }
-
-    static class MessagingStructureException extends MessagingException {
-        private String className;
-        private String expected;
-
-        MessagingStructureException(Object content, String expected) {
-            super();
-            if (content != null)
-                this.className = content.getClass().getName();
-            this.expected = expected;
-        }
-
-        @Nullable
-        @Override
-        public String getMessage() {
-            return className + " expected: " + expected;
-        }
     }
 
     static class Report {
