@@ -342,6 +342,8 @@ public class FragmentOptions extends FragmentBase {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                if (newText != null)
+                    newText = newText.trim();
                 searching = newText;
                 suggest(newText);
                 return false;
