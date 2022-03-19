@@ -2355,11 +2355,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (BuildConfig.DEBUG && headers instanceof SpannableStringBuilder) {
                     SpannableStringBuilder ssb = (SpannableStringBuilder) headers;
                     ssb.append('\n')
-                            .append("TLS=" + message.tls)
-                            .append(" DKIM=" + message.dkim)
-                            .append(" SPF=" + message.spf)
-                            .append(" DMARC=" + message.dmarc)
-                            .append(" BL=" + message.blocklist)
+                            .append("TLS=").append(message.tls == null ? "-" : (message.tls ? "✓" : "✗"))
+                            .append(" DKIM=").append(message.dkim == null ? "-" : (message.dkim ? "✓" : "✗"))
+                            .append(" SPF=").append(message.spf == null ? "-" : (message.spf ? "✓" : "✗"))
+                            .append(" DMARC=").append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"))
+                            .append(" BL=").append(message.blocklist == null ? "-" : (message.blocklist ? "✓" : "✗"))
                             .append('\n');
                 }
                 tvHeaders.setText(headers);
