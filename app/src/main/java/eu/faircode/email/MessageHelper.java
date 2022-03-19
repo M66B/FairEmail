@@ -3393,7 +3393,7 @@ public class MessageHelper {
                 else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && local.isCompressed()) {
                     // https://commons.apache.org/proper/commons-compress/examples.html
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean unzip = prefs.getBoolean("unzip", true);
+                    boolean unzip = prefs.getBoolean("unzip", !BuildConfig.PLAY_STORE_RELEASE);
 
                     if (unzip)
                         if (local.isGzip() && !local.isTarGzip())
