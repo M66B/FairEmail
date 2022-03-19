@@ -51,6 +51,7 @@ import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
 
 import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.apache.commons.compress.archivers.ArchiveException;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveStreamFactory;
 import org.apache.commons.compress.archivers.zip.UnsupportedZipFeatureException;
@@ -3383,7 +3384,10 @@ public class MessageHelper {
                             }
                     } catch (Throwable ex) {
                         Log.e(ex);
-                        db.attachment().setWarning(local.id, Log.formatThrowable(ex));
+                        if (ex instanceof ArchiveException)
+                            db.attachment().setWarning(local.id, ex.getMessage());
+                        else
+                            db.attachment().setWarning(local.id, Log.formatThrowable(ex));
                     }
 
                 else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && local.isCompressed()) {
@@ -3531,8 +3535,10 @@ public class MessageHelper {
                                 }
                             } catch (Throwable ex) {
                                 Log.e(ex);
-                                // Unsupported feature encryption used in entry ...
-                                if (ex instanceof UnsupportedZipFeatureException)
+                                // ArchiveException: Unsupported feature encryption used in entry ...
+                                // UnsupportedZipFeatureException: No Archiver found for the stream signature
+                                if (ex instanceof ArchiveException ||
+                                        ex instanceof UnsupportedZipFeatureException)
                                     db.attachment().setWarning(local.id, ex.getMessage());
                                 else
                                     db.attachment().setWarning(local.id, Log.formatThrowable(ex));
