@@ -4,7 +4,7 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next version
+### 1.1857 - 2022-03-19
 
 * Added inserting templates as text snippets
 * Small improvements and minor bug fixes
