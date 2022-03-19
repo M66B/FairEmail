@@ -579,35 +579,33 @@ Some people ask:
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq6)
 
-<hr />
-
-**Important**: using your account password [won't be possible anymore from May 30, 2022](https://support.google.com/accounts/answer/6010255).
-
-If you authorized your Gmail account with the quick setup wizard or manually with an app password,
-your Gmail account will keep being synchronized after May 30, 2022.
-
-If you enabled *Less secure apps* in the Google account settings and authorized your Gmail account manually with your normal account password,
-your Gmail account can't be synchronized from May 30, 2022 anymore.
-
-How to check:
-
-* Go to the *Settings* via the navigation menu (left side menu)
-* Tap on *Manual setup and account options*
-* Tap on *Accounts*
-* Find the account in the list
-* If there is a shield icon before the account name (=OAuth), the account will keep working
-
-How to fix:
-
-* Go to the *Settings* via the navigation menu (left side menu)
-* Tap on the *Wizard* button and select *Gmail (OAuth)*
-* Tick the checkbox to authenticate an existing account (else you'll create a new account!)
-* Fill in the fields and follow the steps
-* Repeat for each Gmail account
-
-Alternatively, you can use an app password, please see below.
-
-<hr />
+>
+> **Important**: using your account password [won't be possible anymore from May 30, 2022](https://support.google.com/accounts/answer/6010255).
+>
+> "*To help keep your account secure, starting May 30, 2022, ​​Google will no longer support the use of third-party apps or devices which ask you to sign in to your Google Account using only your username and password.*"
+>
+> &#x2714; If you authorized your Gmail account with the quick setup wizard or manually with an app password, your Gmail account will keep being synchronized after May 30, 2022.
+>
+> &#x274C; If you enabled *Less secure apps* in the Google account settings and authorized your Gmail account manually with your normal account password, your Gmail account can't be synchronized from May 30, 2022 anymore.
+>
+> How to check:
+>
+> * Go to the *Settings* via the navigation menu (left side menu)
+> * Tap on *Manual setup and account options*
+> * Tap on *Accounts*
+> * Find the account in the list
+> * If there is a shield icon before the account name (=OAuth), the account will keep working
+>
+> How to fix:
+>
+> * Go to the *Settings* via the navigation menu (left side menu)
+> * Tap on the *Wizard* button and select *Gmail (OAuth)*
+> * Tick the checkbox to authenticate an existing account (else you'll create a new account!)
+> * Fill in the fields and follow the steps
+> * Repeat for each Gmail account
+>
+> Alternatively, you can use an app password, please see below.
+>
 
 If you use the Play store or GitHub version of FairEmail,
 you can use the quick setup wizard to easily setup a Gmail account and identity.
