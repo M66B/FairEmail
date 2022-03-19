@@ -455,7 +455,7 @@ public class FragmentRules extends FragmentBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof NoStreamException)
-                    ((NoStreamException) ex).report(getContext());
+                    ((NoStreamException) ex).report(getActivity());
                 else if (ex instanceof FileNotFoundException ||
                         ex instanceof JSONException)
                     ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();

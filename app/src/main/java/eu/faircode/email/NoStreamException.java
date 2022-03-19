@@ -20,10 +20,12 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,7 +57,10 @@ public class NoStreamException extends SecurityException {
         throw new NoStreamException(uri);
     }
 
-    void report(Context context) {
+    void report(Activity context) {
+        if (context == null)
+            return;
+
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_no_stream, null);
 
         TextView tvUri = dview.findViewById(R.id.tvUri);
@@ -70,19 +75,19 @@ public class NoStreamException extends SecurityException {
             }
         });
 
-        new AlertDialog.Builder(context)
-                .setView(dview)
-                .setNegativeButton(android.R.string.cancel, null)
-                .setPositiveButton(R.string.title_setup_grant, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        Uri uri = Uri.fromParts("package", context.getPackageName(), null);
-                        intent.setData(uri);
-                        context.startActivity(intent);
-                    }
-                })
-                .show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(dview);
+        builder.setNegativeButton(android.R.string.cancel, null);
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
+            builder.setPositiveButton(R.string.title_setup_grant, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    String permission = Manifest.permission.READ_EXTERNAL_STORAGE;
+                    context.requestPermissions(new String[]{permission}, FragmentBase.REQUEST_PERMISSIONS);
+                }
+            });
+
+        builder.show();
     }
 }

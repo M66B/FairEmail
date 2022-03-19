@@ -82,8 +82,6 @@ public class FragmentAccounts extends FragmentBase {
 
     private AdapterAccount adapter;
 
-    private static final int REQUEST_IMPORT_OAUTH = 1;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,7 +130,7 @@ public class FragmentAccounts extends FragmentBase {
             @Override
             public void onClick(View v) {
                 try {
-                    requestPermissions(Helper.getOAuthPermissions(), REQUEST_IMPORT_OAUTH);
+                    requestPermissions(Helper.getOAuthPermissions(), REQUEST_PERMISSIONS);
                 } catch (Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                 }
@@ -432,13 +430,10 @@ public class FragmentAccounts extends FragmentBase {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == REQUEST_IMPORT_OAUTH)
-            if (Helper.hasPermissions(getContext(), permissions)) {
-                btnGrant.setVisibility(View.GONE);
-                ServiceSynchronize.reload(getContext(), null, false, "Permissions regranted");
-            }
+        if (Helper.hasPermissions(getContext(), permissions)) {
+            btnGrant.setVisibility(View.GONE);
+            ServiceSynchronize.reload(getContext(), null, false, "Permissions regranted");
+        }
     }
 
     private void onSwipeRefresh() {

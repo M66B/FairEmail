@@ -465,7 +465,7 @@ public class FragmentSetup extends FragmentBase {
                 try {
                     btnPermissions.setEnabled(false);
                     String permission = Manifest.permission.READ_CONTACTS;
-                    requestPermissions(new String[]{permission}, ActivitySetup.REQUEST_PERMISSION);
+                    requestPermissions(new String[]{permission}, REQUEST_PERMISSIONS);
                 } catch (Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                     /*

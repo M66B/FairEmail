@@ -143,7 +143,7 @@ public class FragmentGmail extends FragmentBase {
             @Override
             public void onClick(View v) {
                 try {
-                    requestPermissions(Helper.getOAuthPermissions(), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+                    requestPermissions(Helper.getOAuthPermissions(), REQUEST_PERMISSIONS);
                 } catch (Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                 }

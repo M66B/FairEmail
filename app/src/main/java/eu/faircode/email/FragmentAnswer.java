@@ -514,7 +514,7 @@ public class FragmentAnswer extends FragmentBase {
             etText.setText(ssb);
             etText.setSelection(start + 2);
         } catch (NoStreamException ex) {
-            ex.report(getContext());
+            ex.report(getActivity());
         } catch (Throwable ex) {
             Log.unexpectedError(getParentFragmentManager(), ex);
         }

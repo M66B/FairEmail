@@ -320,7 +320,6 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_LINK = 12;
     private static final int REQUEST_DISCARD = 13;
     private static final int REQUEST_SEND = 14;
-    private static final int REQUEST_PERMISSION = 15;
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "compose");
 
@@ -2679,7 +2678,7 @@ public class FragmentCompose extends FragmentBase {
                         pickRequest = requestCode;
                         pickUri = uri;
                         String permission = Manifest.permission.READ_CONTACTS;
-                        requestPermissions(new String[]{permission}, REQUEST_PERMISSION);
+                        requestPermissions(new String[]{permission}, REQUEST_PERMISSIONS);
                     } catch (Throwable ex1) {
                         Log.unexpectedError(getParentFragmentManager(), ex1);
                     }
@@ -2691,10 +2690,11 @@ public class FragmentCompose extends FragmentBase {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (pickUri == null)
+            return;
         for (int i = 0; i < permissions.length; i++)
             if (Manifest.permission.READ_CONTACTS.equals(permissions[i]))
-                if (pickUri != null &&
-                        grantResults[i] == PackageManager.PERMISSION_GRANTED)
+                if (grantResults[i] == PackageManager.PERMISSION_GRANTED)
                     onPickContact(pickRequest, new Intent().setData(pickUri));
     }
 
@@ -2871,7 +2871,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 // External app sending absolute file
                 if (ex instanceof NoStreamException)
-                    ((NoStreamException) ex).report(getContext());
+                    ((NoStreamException) ex).report(getActivity());
                 else if (ex instanceof FileNotFoundException ||
                         ex instanceof IllegalArgumentException ||
                         ex instanceof IllegalStateException) {
@@ -2966,7 +2966,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof NoStreamException)
-                    ((NoStreamException) ex).report(getContext());
+                    ((NoStreamException) ex).report(getActivity());
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
@@ -5335,7 +5335,7 @@ public class FragmentCompose extends FragmentBase {
             if (ex instanceof MessageRemovedException)
                 finish();
             if (ex instanceof NoStreamException)
-                ((NoStreamException) ex).report(getContext());
+                ((NoStreamException) ex).report(getActivity());
             else if (ex instanceof FileNotFoundException ||
                     ex instanceof IllegalArgumentException ||
                     ex instanceof IllegalStateException)

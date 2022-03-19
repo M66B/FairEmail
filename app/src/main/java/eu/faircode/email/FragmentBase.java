@@ -80,6 +80,8 @@ public class FragmentBase extends Fragment {
     private static final int REQUEST_ATTACHMENTS = 52;
     private static final int REQUEST_RECOVERABLE_PERMISSION = 53;
 
+    static final int REQUEST_PERMISSIONS = 1000;
+
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
     static final String ACTION_STORE_ATTACHMENTS = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENTS";
 

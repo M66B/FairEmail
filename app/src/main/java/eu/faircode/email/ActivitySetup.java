@@ -133,16 +133,15 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     private static final int KEY_ITERATIONS = 65536;
     private static final int KEY_LENGTH = 256;
 
-    static final int REQUEST_PERMISSION = 1;
-    static final int REQUEST_SOUND = 2;
-    static final int REQUEST_EXPORT = 3;
-    static final int REQUEST_IMPORT = 4;
-    static final int REQUEST_CHOOSE_ACCOUNT = 5;
-    static final int REQUEST_DONE = 6;
-    static final int REQUEST_IMPORT_CERTIFICATE = 7;
-    static final int REQUEST_OAUTH = 8;
-    static final int REQUEST_STILL = 9;
-    static final int REQUEST_DELETE_ACCOUNT = 10;
+    static final int REQUEST_SOUND = 1;
+    static final int REQUEST_EXPORT = 2;
+    static final int REQUEST_IMPORT = 3;
+    static final int REQUEST_CHOOSE_ACCOUNT = 4;
+    static final int REQUEST_DONE = 5;
+    static final int REQUEST_IMPORT_CERTIFICATE = 6;
+    static final int REQUEST_OAUTH = 7;
+    static final int REQUEST_STILL = 8;
+    static final int REQUEST_DELETE_ACCOUNT = 9;
 
     static final int PI_MISC = 1;
 

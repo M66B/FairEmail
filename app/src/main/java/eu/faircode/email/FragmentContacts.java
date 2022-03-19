@@ -373,7 +373,7 @@ public class FragmentContacts extends FragmentBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof NoStreamException)
-                    ((NoStreamException) ex).report(getContext());
+                    ((NoStreamException) ex).report(getActivity());
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
