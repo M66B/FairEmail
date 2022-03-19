@@ -720,7 +720,6 @@
     <string name="title_no_recorder">Няма налично подходящо приложение за аудио рекордер</string>
     <string name="title_no_camera">Няма налично подходящо приложение за камера</string>
     <string name="title_no_saf">Достъпът до софтуерната рамка не е наличен</string>
-    <string name="title_no_stream">Остарялото приложение изпрати пътя към файла вместо файла</string>
     <string name="title_no_internet">Няма или не е намерена подходяща интернет връзка</string>
     <string name="title_no_connection">Свързване с един или повече профили &#8230;</string>
     <string name="title_no_folder">Папката не съществува</string>

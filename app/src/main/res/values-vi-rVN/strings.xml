@@ -993,7 +993,6 @@
     <string name="title_no_recorder">Không có ứng dụng ghi âm phù hợp</string>
     <string name="title_no_camera">Không có ứng dụng máy ảnh phù hợp</string>
     <string name="title_no_saf">Storage access framework không có sẵn</string>
-    <string name="title_no_stream">Một ứng dụng lỗi thời đã gửi một đường dẫn tệp thay vì một luồng truyền tệp</string>
     <string name="title_no_internet">Không có hoặc không có kết nối internet phù hợp</string>
     <string name="title_no_connection">Đang kết nối đến một hoặc nhiều tài khoản &#8230;</string>
     <string name="title_no_folder">Thư mục không tồn tại</string>

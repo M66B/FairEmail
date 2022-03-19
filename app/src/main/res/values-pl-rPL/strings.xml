@@ -3,10 +3,10 @@
     <string name="app_search">Wyszukiwanie FairEmail</string>
     <string name="app_changelog">Historia zmian</string>
     <string name="app_welcome">FairEmail to aplikacja e-mail o otwartym kodzie źródłowym, koncentrująca się na prywatności i bezpieczeństwie. Z tego powodu niektóre funkcje mogą działać inaczej niż to, do czego jesteś przyzwyczajony.</string>
-    <string name="app_limitations">Na przykład wiadomości są domyślnie formatowane tak, aby usunąć niebezpieczne elementy i poprawić czytelność, a otwieranie linków musi zostać potwierdzone ze względów bezpieczeństwa. W razie potrzeby można to wyłączyć w opcjach.</string>
-    <string name="app_unsupported">Błędy w wersji Androida tego konkretnego urządzenia powodują awarie</string>
+    <string name="app_limitations">Przykładowo, wiadomości są domyślnie formatowane tak, aby usunąć niebezpieczne elementy i poprawić czytelność, a otwieranie linków musi zostać potwierdzone ze względów bezpieczeństwa. Obie funkcje mogą zostać wyłączone w opcjach.</string>
+    <string name="app_unsupported">Błędy w wersji Androida tego urządzenia powodują awarie</string>
     <string name="app_continue">Kontynuuj mimo to</string>
-    <string name="app_exit">Ponownie \'wstecz\', aby wyjść</string>
+    <string name="app_exit">Użyj przycisku \'wstecz\', aby wyjść</string>
     <string name="app_cake">Za mało miejsca w pamięci</string>
     <string name="app_updated">Ostatnia aktualizacja: %1$s</string>
     <string name="app_download">Pobrano z: %1$s</string>
@@ -17,17 +17,17 @@
     <string name="channel_update">Aktualizacje</string>
     <string name="channel_warning">Ostrzeżenia</string>
     <string name="channel_error">Błędy</string>
-    <string name="channel_alert">Alerty serwera</string>
+    <string name="channel_alert">Komunikaty serwera</string>
     <string name="channel_group_contacts">Kontakty</string>
     <string name="channel_service_description">Synchronizacja i monitorowanie kont</string>
     <string name="channel_send_description">Wysyłanie wiadomości</string>
     <string name="channel_notification_description">Powiadomienia o nowych wiadomościach</string>
-    <string name="channel_progress_description">Powiadomienia o postępach dotyczące dłuższych działań</string>
+    <string name="channel_progress_description">Powiadomienia o postępach dłuższych działań</string>
     <plurals name="page_conversation">
-        <item quantity="one">Wątek</item>
-        <item quantity="few">Wątki</item>
-        <item quantity="many">Wątki</item>
-        <item quantity="other">Wątków</item>
+        <item quantity="one">Rozmowa</item>
+        <item quantity="few">Rozmowy</item>
+        <item quantity="many">Rozmowy</item>
+        <item quantity="other">Rozmów</item>
     </plurals>
     <plurals name="page_message">
         <item quantity="one">Wiadomość</item>
@@ -61,16 +61,16 @@
         <item quantity="other">%1$d nowych wiadomości</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d wiadomość zostanie wysłana</item>
-        <item quantity="few">%1$d wiadomości zostaną wysłane</item>
-        <item quantity="many">%1$d wiadomości zostanie wysłanych</item>
-        <item quantity="other">%1$d wiadomości zostanie wysłanych</item>
+        <item quantity="one">%1$d Wiadomość do wysłania</item>
+        <item quantity="few">%1$d Wiadomości do wysłania</item>
+        <item quantity="many">%1$d Wiadomości do wysłania</item>
+        <item quantity="other">%1$d Wiadomości do wysłania</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="one">%1$d nowa</item>
-        <item quantity="few">%1$d nowe</item>
-        <item quantity="many">%1$d nowych</item>
-        <item quantity="other">%1$d nowych</item>
+        <item quantity="one">%1$d Nowa</item>
+        <item quantity="few">%1$d Nowe</item>
+        <item quantity="many">%1$d Nowych</item>
+        <item quantity="other">%1$d Nowych</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Przenieść %1$d wiadomość?</item>
@@ -79,28 +79,28 @@
         <item quantity="other">Przenieść %1$d wiadomości?</item>
     </plurals>
     <plurals name="title_deleting_messages">
-        <item quantity="one">Usunąć bezpowrotnie %1$d wiadomość?</item>
-        <item quantity="few">Usunąć bezpowrotnie %1$d wiadomości?</item>
-        <item quantity="many">Usunąć bezpowrotnie %1$d wiadomości?</item>
-        <item quantity="other">Usunąć bezpowrotnie %1$d wiadomości?</item>
+        <item quantity="one">Usunąć trwale %1$d wiadomość?</item>
+        <item quantity="few">Usunąć trwale %1$d wiadomości?</item>
+        <item quantity="many">Usunąć trwale %1$d wiadomości?</item>
+        <item quantity="other">Usunąć trwale %1$d wiadomości?</item>
     </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Traktować wiadomość %1$d jako spam?</item>
         <item quantity="few">Traktować wiadomości %1$d jako spam?</item>
-        <item quantity="many">Traktować wiadomości %1$d jako spam?</item>
-        <item quantity="other">Traktować wiadomości %1$d jako spam?</item>
+        <item quantity="many">Zgłosić %1$d wiadomości jako spam?</item>
+        <item quantity="other">Zgłosić %1$d wiadomości jako spam?</item>
     </plurals>
-    <string name="title_ask_spam_who">Traktuj wiadomość od %1$s jako spam?</string>
-    <string name="title_junk_hint">Twój dostawca poczty e-mail jest odpowiedzialny za filtrowanie spamu. Aplikacja poczty e-mail nie ma wszystkich danych, aby wykonać to skutecznie.</string>
+    <string name="title_ask_spam_who">Zgłosić wiadomość od %1$s jako spam?</string>
+    <string name="title_junk_hint">Twój dostawca poczty e-mail jest odpowiedzialny za filtrowanie spamu. Aplikacja poczty e-mail nie ma wystarczających danych, aby wykonać tę operację.</string>
     <string name="title_block">Zablokuj %1$s</string>
     <string name="title_block_sender">Zablokuj nadawcę</string>
     <string name="title_block_sender_domain">Blokuj domenę \'%1$s\'</string>
-    <string name="title_block_sender_hint">        Blokowanie nadawcy jest darmową funkcją.
+    <string name="title_block_sender_hint">        Blokowanie nadawcy jest funkcją darmową.
         Blokowanie domeny nadawcy używa zasad filtrowania, co jest funkcją Pro.
     </string>
     <string name="title_junk_filter">Użyj lokalnego filtra spamu</string>
     <string name="title_junk_filter_hint">Może to zwiększyć zużycie baterii i niepoprawnie oznaczać wiadomości jako spam</string>
-    <string name="title_junk_blocklist">Użyj list blokowanego spamu</string>
+    <string name="title_junk_blocklist">Użyj listy zablokowanego spamu</string>
     <string name="title_junk_clear">Wyczyść</string>
     <string name="title_junk_clear_hint">Spowoduje to usunięcie wszystkich zasad blokowania nadawcy</string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
@@ -1037,7 +1037,6 @@
     <string name="title_no_recorder">Brak dostępnej odpowiedniej aplikacji do nagrywania dźwięku</string>
     <string name="title_no_camera">Brak dostępnej odpowiedniej aplikacji aparatu</string>
     <string name="title_no_saf">Brak dostępu do plików</string>
-    <string name="title_no_stream">Nieaktualna aplikacja wysłała ścieżkę pliku zamiast strumienia pliku</string>
     <string name="title_no_internet">Brak lub brak odpowiedniego połączenia internetowego</string>
     <string name="title_no_connection">Łączenie z jednym lub kilkoma kontami &#8230;</string>
     <string name="title_no_folder">Folder nie istnieje</string>
@@ -1322,6 +1321,7 @@
     <string name="title_answer_group">Grupa szablonów (opcjonalnie)</string>
     <string name="title_answer_standard">Domyślna</string>
     <string name="title_answer_favorite">Ulubione</string>
+    <string name="title_answer_snippet">Fragment tekstu</string>
     <string name="title_answer_receipt">Użyj jako potwierdzenia przeczytania</string>
     <string name="title_answer_hide">Ukryj z menu</string>
     <string name="title_answer_text">Tekst szablonu</string>

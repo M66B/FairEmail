@@ -957,7 +957,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_no_recorder">Tidak ada aplikasi perekam suara yang sesuai</string>
     <string name="title_no_camera">Aplikasi kamera tidak sesuai</string>
     <string name="title_no_saf">Akses penyimpanan tidak tersedia</string>
-    <string name="title_no_stream">Mengirim file rusak tidak akan membatalkan jalur file</string>
     <string name="title_no_internet">Tidak ada koneksi internet atau koneksi tidak sesuai</string>
     <string name="title_no_connection">Menghubungkan ke beberapa akun &#8230;</string>
     <string name="title_no_folder">Folder tidak ada</string>

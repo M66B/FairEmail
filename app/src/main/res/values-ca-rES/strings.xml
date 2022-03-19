@@ -655,7 +655,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_no_recorder">No hi ha disponible cap aplicació de gravadora d’àudio adequada</string>
     <string name="title_no_camera">No hi ha disponible cap aplicació de càmera adequada</string>
     <string name="title_no_saf">Marc d\'accés d\'emmagatzematge no disponible</string>
-    <string name="title_no_stream">Una aplicació obsoleta enviava una ruta del fitxer en lloc d’un flux de fitxers</string>
     <string name="title_no_internet">Cap connexió a Internet adequada</string>
     <string name="title_no_connection">Connectat a un o més comptes &#8230;</string>
     <string name="title_no_folder">La carpeta no existeix</string>

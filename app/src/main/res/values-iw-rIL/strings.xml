@@ -1039,7 +1039,6 @@
     <string name="title_no_recorder">אין יישומון הקלטת שמע מתאים</string>
     <string name="title_no_camera">אין יישומון מצלמה מתאים</string>
     <string name="title_no_saf">תשתית גישה לאחסון אינה זמינה</string>
-    <string name="title_no_stream">יישומון מיושן שלח נתיב לקובץ במקום תזרים קובץ</string>
     <string name="title_no_internet">לא או שחיבור האינטרנט אינו מתאים</string>
     <string name="title_no_connection">מתבצע חיבור לחשבון אחד או יותר&#8230;</string>
     <string name="title_no_folder">התיקייה אינה קיימת</string>
@@ -1325,7 +1324,7 @@
     <string name="title_answer_group">קבוצת תבניות (רשות)</string>
     <string name="title_answer_standard">ברירת מחדל</string>
     <string name="title_answer_favorite">מועדפת</string>
-    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">מקטע</string>
+    <string name="title_answer_snippet">מקטע</string>
     <string name="title_answer_receipt">להשתמש כאישור קריאה</string>
     <string name="title_answer_hide">הסתרה מהתפריטים</string>
     <string name="title_answer_text">טקסט תבנית</string>

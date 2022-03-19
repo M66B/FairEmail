@@ -274,6 +274,8 @@
     <string name="title_setup_reset_full">Afișați mesajele originale</string>
     <string name="title_setup_reset_images">Afișare imagini</string>
     <string name="title_setup_reset_links">Confirmați link-urile</string>
+    <string name="title_check_gmail_oauth">Conturile dumneavoastră Gmail vor continua să funcționeze și după 30 mai 2022</string>
+    <string name="title_check_gmail_password">Este posibil ca unele dintre conturile tale de Gmail să nu mai funcționeze după 30 mai 2022</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.        Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
@@ -1027,7 +1029,8 @@
     <string name="title_no_recorder">Nu este disponibilă o aplicație de înregistrat audio</string>
     <string name="title_no_camera">Nu este disponibilă o aplicație de fotografiat</string>
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
-    <string name="title_no_stream">O aplicație invechită a trimis calea fișierului în locul unui flux de date</string>
+    <string name="title_no_stream">FairEmail nu are permisiunea de a citi direct acest fișier</string>
+    <string name="title_no_stream_help">Acest lucru poate fi rezolvat prin selectarea fișierului cu o aplicație mai modernă de gestionare a fișierelor sau prin acordarea permisiunii de citire a fișierelor</string>
     <string name="title_no_internet">Nu există o conexiune viabilă la Internet</string>
     <string name="title_no_connection">Conectare la unul sau mai multe conturi &#8230;</string>
     <string name="title_no_folder">Dosarul nu există</string>
@@ -1266,6 +1269,7 @@
     <string name="title_search_device">Căutare pe dispozitiv</string>
     <string name="title_search_server">Căutare pe server</string>
     <string name="title_search_in">Căutare în</string>
+    <string name="title_search_delete">Ștergeți căutarea salvată?</string>
     <string name="title_sort_on">Sortare</string>
     <string name="title_sort_on_time">Dată</string>
     <string name="title_sort_on_unread">Necitit</string>
@@ -1311,7 +1315,7 @@
     <string name="title_answer_group">Grup șablon (opțional)</string>
     <string name="title_answer_standard">Implicit</string>
     <string name="title_answer_favorite">Favorit</string>
-    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Fragment</string>
+    <string name="title_answer_snippet">Fragment</string>
     <string name="title_answer_receipt">Utilizați ca și chitanță de citire</string>
     <string name="title_answer_hide">Ascunde din meniuri</string>
     <string name="title_answer_text">Text șablon</string>

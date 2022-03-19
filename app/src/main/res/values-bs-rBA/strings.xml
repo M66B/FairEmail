@@ -1029,7 +1029,6 @@
     <string name="title_no_recorder">Ne postoji aplikacija za snimanje zvuka</string>
     <string name="title_no_camera">Ne postoji aplikacija kamere</string>
     <string name="title_no_saf">Framework za pristup skladišti nije dostupan</string>
-    <string name="title_no_stream">Zastarjela aplikacija je poslala putanje umjesto strujanja datoteka</string>
     <string name="title_no_internet">Bez ikakve ili prihvatljive internet konekcije</string>
     <string name="title_no_connection">Povezivanje na jedan ili više računa &#8230;</string>
     <string name="title_no_folder">Folder ne postoji</string>
@@ -1258,6 +1257,7 @@
     <string name="title_search_in_junk">U spamu</string>
     <string name="title_search_with_before">Prije</string>
     <string name="title_search_with_after">Poslije</string>
+    <string name="title_search_device_first">Prvo traži na uređaju</string>
     <string name="title_search_flag_unseen">nepročitano</string>
     <string name="title_search_flag_flagged">favoriti</string>
     <string name="title_search_flag_hidden">skriveno</string>
@@ -1314,6 +1314,7 @@
     <string name="title_answer_group">Grupa prijedloška (opcionalno)</string>
     <string name="title_answer_standard">Zadani</string>
     <string name="title_answer_favorite">Favorit</string>
+    <string name="title_answer_snippet">Isječak</string>
     <string name="title_answer_receipt">Koristi kao potvrdu o čitanju</string>
     <string name="title_answer_hide">Sakrij na menijima</string>
     <string name="title_answer_text">Tekst prijedloška</string>

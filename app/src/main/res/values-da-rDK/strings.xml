@@ -1019,7 +1019,6 @@
     <string name="title_no_recorder">Ingen passende lydoptager-app tilgængelig</string>
     <string name="title_no_camera">Ingen passende kamera-app tilgængelig</string>
     <string name="title_no_saf">Storage access framework ikke tilgængelig</string>
-    <string name="title_no_stream">En forældet app har sendt en filsti i stedet for en fil-stream</string>
     <string name="title_no_internet">Ingen (passende) dataforbindelse</string>
     <string name="title_no_connection">Opretter forbindelse til én eller flere konti &#8230;</string>
     <string name="title_no_folder">Mappe findes ikke</string>
@@ -1305,6 +1304,7 @@
     <string name="title_answer_group">Skabelongruppe (valgfrit)</string>
     <string name="title_answer_standard">Standard</string>
     <string name="title_answer_favorite">Favorit</string>
+    <string name="title_answer_snippet">Uddrag</string>
     <string name="title_answer_receipt">Brug som læst-kvittering</string>
     <string name="title_answer_hide">Skjul fra menuer</string>
     <string name="title_answer_text">Skabelontekst</string>

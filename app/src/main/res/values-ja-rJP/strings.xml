@@ -1009,7 +1009,6 @@
     <string name="title_no_recorder">対応するオーディオレコーダーアプリがありません</string>
     <string name="title_no_camera">対応するカメラアプリがありません</string>
     <string name="title_no_saf">ストレージアクセスフレームワークが利用できません</string>
-    <string name="title_no_stream">古いアプリがファイルストリームの代わりにファイルパスを送信しました</string>
     <string name="title_no_internet">安定したインターネット接続を確立できません</string>
     <string name="title_no_connection">1 つ以上のアカウントへ接続しています&#8230;</string>
     <string name="title_no_folder">フォルダーが存在しません</string>

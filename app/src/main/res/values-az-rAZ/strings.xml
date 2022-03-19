@@ -431,6 +431,7 @@
     <string name="title_advanced_preview_italic">Mesaj önbaxışını \"italic\" göstər</string>
     <string name="title_advanced_preview_lines">Önbaxış sətir sayı</string>
     <string name="title_advanced_addresses">Ünvan təfsilatlarını ilkin olaraq göstər</string>
+    <string name="title_advanced_unzip">Sıxışdırılmış qoşmaların məzmunlarını göstər</string>
     <string name="title_advanced_attachments_alt">Mesaj mətnindən sonra qoşmaları göstər</string>
     <string name="title_advanced_thumbnails">Mesaj mətnindən sonra təsvir eskizlərini göstər</string>
     <string name="title_advanced_message_text_zoom2">İlkin mesajın mətn yaxınlaşdırması: %1$s %%</string>
@@ -657,6 +658,7 @@
     <string name="title_advanced_monospaced_pre_hint">Yalnız düz mətn mesajları əvvəlcədən formatlanmış olaraq nəzərə alınacaq</string>
     <string name="title_advanced_placeholders_hint">Bu, yalnız yenidən format edilmiş mesajlara tətbiq olunur</string>
     <string name="title_advanced_inline_hint">Sətiriçi təsvirlər, mesaja daxil edilən təsvirlərdir</string>
+    <string name="compressed">Sayca %2$s fayldan çox və ya həcmi %3$s-dan çox olsa sıxışdırılmış faylların məzmunları (%1$s) göstərilməyəcək</string>
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha dəqiq görüntüləyəcək, ancaq gecikmə yaşana bilər</string>
     <string name="title_advanced_language_detection_hint">Dil aşkarlama dəstəyi, cihaz istehsalçısından asılıdır</string>
     <string name="title_advanced_autoexpand_hint">Bir danışıqda sadəcə bir mesaj və ya sadəcə bir oxunmamış mesaj olanda mesajı avtomatik aç</string>
@@ -1017,7 +1019,6 @@
     <string name="title_no_recorder">Uyğun bir səsyazan tətbiq yoxdur</string>
     <string name="title_no_camera">Uyğun bir kamera tətbiqi yoxdur</string>
     <string name="title_no_saf">Anbar müraciət çərçivəsi mövcud deyil</string>
-    <string name="title_no_stream">Köhnə bir tətbiq, fayl axını əvəzinə fayl yolu göndərdi</string>
     <string name="title_no_internet">Uyğun bir internet bağlantısı yoxdur</string>
     <string name="title_no_connection">Bir və ya bir neçə hesabla bağlantı qurulur &#8230;</string>
     <string name="title_no_folder">Qovluq mövcud deyil</string>
@@ -1246,6 +1247,7 @@
     <string name="title_search_in_junk">Spam qovluğunda</string>
     <string name="title_search_with_before">Əvvəl</string>
     <string name="title_search_with_after">Sonra</string>
+    <string name="title_search_device_first">Əvvəlcə cihazda axtar</string>
     <string name="title_search_flag_unseen">oxunmadı</string>
     <string name="title_search_flag_flagged">ulduzlu</string>
     <string name="title_search_flag_hidden">gizli</string>

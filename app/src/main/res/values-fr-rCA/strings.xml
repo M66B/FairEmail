@@ -264,6 +264,8 @@
     <string name="title_setup_reset_full">Afficher les messages originaux</string>
     <string name="title_setup_reset_images">Afficher les images</string>
     <string name="title_setup_reset_links">Confirmer les liens</string>
+    <string name="title_check_gmail_oauth">Vos comptes Gmail continueront de fonctionner après le 30 mai 2022</string>
+    <string name="title_check_gmail_password">Certains de vos comptes Gmail peuvent cesser de fonctionner après le 30 mai 2022</string>
     <string name="title_advanced_hint_title">Paramètres avancés</string>
     <string name="title_advanced_hint_message">        Vous parcourez les paramètres avancés.
         Toutes les options ont des valeurs par défaut couramment utilisées que vous n\'avez pas besoin de modifier sauf si vous avez une préférence différente.
@@ -1020,7 +1022,8 @@
     <string name="title_no_recorder">Aucune application d\'enregistrement audio disponible</string>
     <string name="title_no_camera">Aucune application d’appareil photo disponible</string>
     <string name="title_no_saf">Programme d\'accès au stockage non disponible</string>
-    <string name="title_no_stream">Une application obsolète a envoyé un chemin d’accès au lieu d’un flux de fichier</string>
+    <string name="title_no_stream">FairEmail n\'a pas la permission de lire ce fichier directement</string>
+    <string name="title_no_stream_help">Ceci peut être résolu en sélectionnant le fichier avec une application plus moderne de gestion de fichiers ou en accordant la permission de lire les fichiers</string>
     <string name="title_no_internet">Aucune connexion Internet ou connexion non appropriée</string>
     <string name="title_no_connection">Connexion à un ou plusieurs comptes&#8230;</string>
     <string name="title_no_folder">Le dossier n’existe pas</string>
@@ -1261,6 +1264,7 @@
     <string name="title_search_device">Rechercher sur l’appareil</string>
     <string name="title_search_server">Rechercher sur le serveur</string>
     <string name="title_search_in">Rechercher dans</string>
+    <string name="title_search_delete">Supprimer la recherche enregistrée?</string>
     <string name="title_sort_on">Trier par</string>
     <string name="title_sort_on_time">Date</string>
     <string name="title_sort_on_unread">Non lu(s)</string>
@@ -1306,7 +1310,7 @@
     <string name="title_answer_group">Groupe de modèles (facultatifl)</string>
     <string name="title_answer_standard">Par défaut</string>
     <string name="title_answer_favorite">Favori</string>
-    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Fragment</string>
+    <string name="title_answer_snippet">Fragment</string>
     <string name="title_answer_receipt">Utiliser comme confirmation de lecture</string>
     <string name="title_answer_hide">Masquer du menu « Répondre »</string>
     <string name="title_answer_text">Texte du modèle</string>

@@ -1038,7 +1038,6 @@
     <string name="title_no_recorder">Немає відповідного додатку для запису аудіо</string>
     <string name="title_no_camera">Немає відповідного додатку для камери</string>
     <string name="title_no_saf">Компонент для доступу до сховища недоступний</string>
-    <string name="title_no_stream">Застаріла програма надіслала шлях до файлу замість до потоку файлів</string>
     <string name="title_no_internet">Відсутнє або не відповідне підключення до Інтернету</string>
     <string name="title_no_connection">Підключення до одного або декількох облікових записів &#8230;</string>
     <string name="title_no_folder">Тека не існує</string>
@@ -1322,7 +1321,7 @@
     <string name="title_answer_group">Шаблон групи (за бажанням)</string>
     <string name="title_answer_standard">Типово</string>
     <string name="title_answer_favorite">Обране</string>
-    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Фрагмент</string>
+    <string name="title_answer_snippet">Фрагмент</string>
     <string name="title_answer_receipt">Надіслати повідомлення про перегляд</string>
     <string name="title_answer_hide">Не показувати в меню</string>
     <string name="title_answer_text">Текст шаблону</string>

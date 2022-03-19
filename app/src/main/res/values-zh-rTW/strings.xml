@@ -977,7 +977,6 @@
     <string name="title_no_recorder">無適用的音頻錄製程式</string>
     <string name="title_no_camera">無適用的相機程式</string>
     <string name="title_no_saf">儲存空間存取架構不可用</string>
-    <string name="title_no_stream">過時的應用程式傳送了檔案路徑而非檔案流</string>
     <string name="title_no_internet">無網際網路連線或連線不合宜</string>
     <string name="title_no_connection">正在連線至一個或多個帳戶 &#8230;</string>
     <string name="title_no_folder">資料夾不存在</string>

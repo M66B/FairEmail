@@ -706,7 +706,6 @@
     <string name="title_no_recorder">Ez dago audio grabagailu aplikazio egokirik eskuragarri</string>
     <string name="title_no_camera">Ez dago kamera aplikazio egokirik eskuragarri</string>
     <string name="title_no_saf">Biltegiratzea atzitzeko tresneria ez dago eskuragarri</string>
-    <string name="title_no_stream">Zaharkitutako aplikazio batek fitxategi bide bat bidali du fitxategi jario baten ordez</string>
     <string name="title_no_internet">Internet konexiorik ez edo konexio desegokia</string>
     <string name="title_no_connection">Konektatzen kontu batera edo batzuetara &#8230;</string>
     <string name="title_no_folder">Karpeta ez da existitzen</string>

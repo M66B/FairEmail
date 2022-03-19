@@ -1020,7 +1020,6 @@
     <string name="title_no_recorder">Nessun\'app di registrazione audio adatta disponibile</string>
     <string name="title_no_camera">Nessun\'app fotocamera adatta</string>
     <string name="title_no_saf">Framework di accesso all\'archiviazione non disponibile</string>
-    <string name="title_no_stream">Un\'app obsoleta ha inviato un percorso del vile invece di un flusso di file</string>
     <string name="title_no_internet">Nessuna o inadeguata connessione a Internet</string>
     <string name="title_no_connection">Connessione a uno o più profili&#8230;</string>
     <string name="title_no_folder">La cartella non esiste</string>
@@ -1306,7 +1305,7 @@
     <string name="title_answer_group">Gruppo di modelli (opzionale)</string>
     <string name="title_answer_standard">Default</string>
     <string name="title_answer_favorite">Preferito</string>
-    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Frammento</string>
+    <string name="title_answer_snippet">Frammento</string>
     <string name="title_answer_receipt">Usa come conferma di lettura</string>
     <string name="title_answer_hide">Nascondi dai menu</string>
     <string name="title_answer_text">Testo del modello</string>

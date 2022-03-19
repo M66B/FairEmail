@@ -263,6 +263,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_reset_full">Toon originele berichten</string>
     <string name="title_setup_reset_images">Toon afbeeldingen</string>
     <string name="title_setup_reset_links">Bevestig koppelingen</string>
+    <string name="title_check_gmail_oauth">Uw Gmail accounts zullen blijven werken na 30 mei 2022</string>
+    <string name="title_check_gmail_password">Sommige Gmail accounts werken mogelijk niet meer na 30 mei 2022</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.        Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
     </string>
@@ -1015,7 +1017,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_no_recorder">Geen geschikte audio-recorder app beschikbaar</string>
     <string name="title_no_camera">Geen geschikte camera app beschikbaar</string>
     <string name="title_no_saf">Storage access framework niet beschikbaar</string>
-    <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
+    <string name="title_no_stream">FairEmail heeft geen toestemming om dit bestand direct te lezen</string>
+    <string name="title_no_stream_help">Dit kan worden opgelost door het bestand te selecteren met een modernere bestandsbeheerder app of door toestemming te geven om bestanden te lezen</string>
     <string name="title_no_internet">Geen of geen geschikte internet-verbinding</string>
     <string name="title_no_connection">Verbinding maken met één of meer accounts &#8230;</string>
     <string name="title_no_folder">Map bestaat niet</string>
@@ -1252,6 +1255,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_search_device">Zoeken op apparaat</string>
     <string name="title_search_server">Zoek op server</string>
     <string name="title_search_in">Zoeken in</string>
+    <string name="title_search_delete">Opgeslagen zoekopdracht verwijderen?</string>
     <string name="title_sort_on">Sorteer op</string>
     <string name="title_sort_on_time">Tijd</string>
     <string name="title_sort_on_unread">Ongelezen</string>
@@ -1296,7 +1300,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_answer_group">Sjabloongroep (optioneel)</string>
     <string name="title_answer_standard">Standaard</string>
     <string name="title_answer_favorite">Favoriet</string>
-    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Tekstfragment</string>
+    <string name="title_answer_snippet">Tekstfragment</string>
     <string name="title_answer_receipt">Als leesbevestiging gebruiken</string>
     <string name="title_answer_hide">Verbergen in menu\'s</string>
     <string name="title_answer_text">Sjabloontekst</string>

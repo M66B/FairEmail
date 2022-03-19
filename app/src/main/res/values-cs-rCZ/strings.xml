@@ -284,6 +284,8 @@
     <string name="title_setup_reset_full">Zobrazit původní zprávy</string>
     <string name="title_setup_reset_images">Zobrazit obrázky</string>
     <string name="title_setup_reset_links">Potvrdit odkazy</string>
+    <string name="title_check_gmail_oauth">Vaše Gmail účty budou fungovat i po 30. květnu 2022</string>
+    <string name="title_check_gmail_password">Některé z vašich Gmail účtů mohou přestat fungovat po 30. květnu 2022</string>
     <string name="title_advanced_hint_title">Pokročilé možnosti</string>
     <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.        Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
     </string>
@@ -450,6 +452,7 @@
     <string name="title_advanced_preview_italic">Zobrazit náhled zprávy kurzívou</string>
     <string name="title_advanced_preview_lines">Počet řádků náhledu</string>
     <string name="title_advanced_addresses">Automaticky zobrazit detaily adresy</string>
+    <string name="title_advanced_unzip">Zobrazit obsah komprimovaných příloh</string>
     <string name="title_advanced_attachments_alt">Zobrazit přílohy pod textem zprávy</string>
     <string name="title_advanced_thumbnails">Zobrazit náhledy obrázků pod textem zprávy</string>
     <string name="title_advanced_message_text_zoom2">Výchozí zvětšení textu zprávy: %1$s %%</string>
@@ -596,6 +599,7 @@
     </string>
     <string name="title_advanced_power_menu">Přidat akce do menu napájení Androidu</string>
     <string name="title_advanced_external_search">Povolit ostatním aplikacím vyhledávat ve zprávách</string>
+    <string name="title_advanced_sort_answers">Seřadit šablony odpovědí podle frekvence používání</string>
     <string name="title_advanced_shortcuts">Zobrazit často používané kontakty v nabídce sdílení Androidu</string>
     <string name="title_advanced_fts">Sestavit index vyhledávání</string>
     <string name="title_advanced_fts_indexed">Indexováno %1$d / %2$d zpráv (%3$s)</string>
@@ -675,6 +679,7 @@
     <string name="title_advanced_monospaced_pre_hint">Pouze prosté textové zprávy budou považovány za předformátované</string>
     <string name="title_advanced_placeholders_hint">Platí pouze pro přeformátované zprávy</string>
     <string name="title_advanced_inline_hint">Vložené obrázky jsou obrázky v těle zprávy</string>
+    <string name="compressed">Obsah komprimovaných souborů (%1$s) s více než %2$s soubory nebo se soubory většími než %3$s nebudou zobrazeny</string>
     <string name="title_advanced_parse_classes_hint">Zprávy budou zobrazovány přesněji, ale s potencionálním zpožděním</string>
     <string name="title_advanced_language_detection_hint">Podpora detekce jazyka je závislá na výrobci zařízení</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu, je-li v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
@@ -1034,7 +1039,8 @@
     <string name="title_no_recorder">Není k dispozici žádná vhodná aplikace nahrávání zvuku</string>
     <string name="title_no_camera">Není k dispozici žádná vhodná aplikace fotoaparátu</string>
     <string name="title_no_saf">Rozhraní přístupu k úložišti není k dispozici</string>
-    <string name="title_no_stream">Zastaralá aplikace poslala cestu k souboru namísto datového proudu</string>
+    <string name="title_no_stream">FairEmail nemá oprávnění k přímému čtení tohoto souboru</string>
+    <string name="title_no_stream_help">To lze vyřešit výběrem souboru s modernější aplikací pro správu souborů nebo udělením oprávnění ke čtení souborů</string>
     <string name="title_no_internet">Žádné nebo nevyhovující internetové připojení</string>
     <string name="title_no_connection">Připojování k jednomu nebo více účtům &#8230;</string>
     <string name="title_no_folder">Složka neexistuje</string>
@@ -1273,6 +1279,7 @@
     <string name="title_search_device">Hledat v zařízení</string>
     <string name="title_search_server">Hledat na serveru</string>
     <string name="title_search_in">Hledat v</string>
+    <string name="title_search_delete">Smazat uložené vyhledávání?</string>
     <string name="title_sort_on">Řadit dle</string>
     <string name="title_sort_on_time">Čas</string>
     <string name="title_sort_on_unread">Nepřečteno</string>
@@ -1318,6 +1325,7 @@
     <string name="title_answer_group">Skupina šablon (nepovinné)</string>
     <string name="title_answer_standard">Výchozí</string>
     <string name="title_answer_favorite">Oblíbená</string>
+    <string name="title_answer_snippet">Úryvek</string>
     <string name="title_answer_receipt">Použít jako potvrzení o přečtení</string>
     <string name="title_answer_hide">Skrýt z nabídek</string>
     <string name="title_answer_text">Text šablony</string>

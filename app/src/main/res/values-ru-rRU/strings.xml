@@ -284,6 +284,8 @@
     <string name="title_setup_reset_full">Показывать исходные сообщения</string>
     <string name="title_setup_reset_images">Показывать изображения</string>
     <string name="title_setup_reset_links">Подтверждать ссылки</string>
+    <string name="title_check_gmail_oauth">Ваши учётные записи Gmail будут работать после 30 мая 2022 года</string>
+    <string name="title_check_gmail_password">Некоторые из ваших учётных записей Gmail могут перестать работать после 30 мая 2022 года</string>
     <string name="title_advanced_hint_title">Настройки для опытных</string>
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
         Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.    </string>
@@ -1039,7 +1041,8 @@
     <string name="title_no_recorder">Нет подходящего приложения аудиозаписи</string>
     <string name="title_no_camera">Нет подходящего приложения камеры</string>
     <string name="title_no_saf">Нет метода доступа к хранилищу</string>
-    <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
+    <string name="title_no_stream">У FairEmail нет разрешения на чтение этого файла</string>
+    <string name="title_no_stream_help">Это можно решить, выбрав файл с помощью современного приложения файлового менеджера или предоставив разрешение на чтение файлов</string>
     <string name="title_no_internet">Нет подходящего интернет-подключения</string>
     <string name="title_no_connection">Подключение к одной или нескольким учётным записям&#8230;</string>
     <string name="title_no_folder">Папка не существует</string>
@@ -1279,6 +1282,7 @@
     <string name="title_search_device">Поиск на устройстве</string>
     <string name="title_search_server">Поиск на сервере</string>
     <string name="title_search_in">Поиск в</string>
+    <string name="title_search_delete">Удалить сохранённый поиск?</string>
     <string name="title_sort_on">Сортировка</string>
     <string name="title_sort_on_time">Время</string>
     <string name="title_sort_on_unread">Не прочитано</string>
@@ -1324,7 +1328,7 @@
     <string name="title_answer_group">Группа шаблонов (необязательно)</string>
     <string name="title_answer_standard">По умолчанию</string>
     <string name="title_answer_favorite">Избранное</string>
-    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Фрагмент</string>
+    <string name="title_answer_snippet">Фрагмент</string>
     <string name="title_answer_receipt">Использовать как уведомление о прочтении</string>
     <string name="title_answer_hide">Скрыть из меню</string>
     <string name="title_answer_text">Текст шаблона</string>

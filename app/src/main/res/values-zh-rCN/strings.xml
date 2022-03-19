@@ -254,6 +254,8 @@
     <string name="title_setup_reset_full">显示原始邮件</string>
     <string name="title_setup_reset_images">显示图片</string>
     <string name="title_setup_reset_links">确认链接</string>
+    <string name="title_check_gmail_oauth">您的 Gmail 帐户将在 2022 年 5 月 30 日之后可继续使用</string>
+    <string name="title_check_gmail_password">您的部分 Gmail 帐户可能会在 2022 年 5 月 30 日之后不可使用</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
     <string name="title_advanced_hint_message">        您正在前往更多的高级选项        所有选项默认均使用可更改的常用标准值
     </string>
@@ -1005,7 +1007,8 @@
     <string name="title_no_recorder">没有合适的录音app可用</string>
     <string name="title_no_camera">没有合适的相机app可用</string>
     <string name="title_no_saf">存储访问框架不可用</string>
-    <string name="title_no_stream">过时的应用发送的是文件路径, 而不是文件流</string>
+    <string name="title_no_stream">FairEmail 无权直接读取此文件</string>
+    <string name="title_no_stream_help">这可以通过使用更现代的文件管理器选择文件或授予文件读取权限来解决</string>
     <string name="title_no_internet">没有或没有合适的网络连接</string>
     <string name="title_no_connection">正在连接到一个或多个账户 &#8230;</string>
     <string name="title_no_folder">文件夹不存在</string>
@@ -1244,6 +1247,7 @@
     <string name="title_search_device">在设备上搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
     <string name="title_search_in">搜索范围</string>
+    <string name="title_search_delete">删除已保存的搜索？</string>
     <string name="title_sort_on">排序方式</string>
     <string name="title_sort_on_time">时间</string>
     <string name="title_sort_on_unread">未读</string>
@@ -1289,7 +1293,7 @@
     <string name="title_answer_group">模板组 (可选)</string>
     <string name="title_answer_standard">默认</string>
     <string name="title_answer_favorite">收藏</string>
-    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">文本片段</string>
+    <string name="title_answer_snippet">文本片段</string>
     <string name="title_answer_receipt">用作已读回执</string>
     <string name="title_answer_hide">从菜单中隐藏</string>
     <string name="title_answer_text">模板内容</string>

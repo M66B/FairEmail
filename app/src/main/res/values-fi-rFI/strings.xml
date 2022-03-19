@@ -1016,7 +1016,6 @@
     <string name="title_no_recorder">Sopivaa audiotallennussovellusta ei ole saatavilla</string>
     <string name="title_no_camera">Sopivaa kamerasovellusta ei ole saatavilla</string>
     <string name="title_no_saf">Storage access framework ei ole käytettävissä</string>
-    <string name="title_no_stream">Vanhentunut sovellus lähetti tiedoston kansion tiedostovirran sijaan</string>
     <string name="title_no_internet">Ei verkkoyhteyttä tai ei sopivaa verkkoyhteyttä</string>
     <string name="title_no_connection">Yhdistetään yhteen tai useampaan tiliin &#8230;</string>
     <string name="title_no_folder">Kansiota ei ole</string>

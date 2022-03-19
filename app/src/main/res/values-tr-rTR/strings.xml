@@ -263,6 +263,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_reset_full">Orijinal mesajları göster</string>
     <string name="title_setup_reset_images">Resimleri göster</string>
     <string name="title_setup_reset_links">Bağlantıları onaylayın</string>
+    <string name="title_check_gmail_oauth">Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmaya devam edecek</string>
+    <string name="title_check_gmail_password">Bazı Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmayı durdurabilir</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.        Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
     </string>
@@ -1015,7 +1017,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_no_recorder">Uygun bir ses kaydedici uygulaması yok</string>
     <string name="title_no_camera">Uygun bir kamera uygulaması yok</string>
     <string name="title_no_saf">Depolama erişim çerçevesi mevcut değil</string>
-    <string name="title_no_stream">Eski bir uygulama bir dosya akışı yerine dosya yolu gönderdi</string>
+    <string name="title_no_stream">FairEmail\'in bu dosyayı doğrudan okuma izni yok</string>
+    <string name="title_no_stream_help">Bu, dosyayı daha modern bir dosya yöneticisi uygulamasıyla seçerek veya dosyaları okuma izni vererek çözülebilir</string>
     <string name="title_no_internet">Uygun internet bağlantısı veya internet yok</string>
     <string name="title_no_connection">Bir veya daha fazla hesaba bağlanılıyor &#8230;</string>
     <string name="title_no_folder">Klasör yok</string>
@@ -1254,6 +1257,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_search_device">Cihazda ara</string>
     <string name="title_search_server">Sunucuda ara</string>
     <string name="title_search_in">İçinde ara</string>
+    <string name="title_search_delete">Kayıtlı arama silinsin mi?</string>
     <string name="title_sort_on">Sırala</string>
     <string name="title_sort_on_time">Zaman</string>
     <string name="title_sort_on_unread">Okunmadı</string>
@@ -1299,6 +1303,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_answer_group">Şablon grubu (isteğe bağlı)</string>
     <string name="title_answer_standard">Varsayılan</string>
     <string name="title_answer_favorite">Favori</string>
+    <string name="title_answer_snippet">Kısaca</string>
     <string name="title_answer_receipt">Okuma makbuzu olarak kullan</string>
     <string name="title_answer_hide">Menülerden gizle</string>
     <string name="title_answer_text">Kalıp metni</string>

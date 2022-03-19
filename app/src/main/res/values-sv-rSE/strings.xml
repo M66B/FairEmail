@@ -262,6 +262,8 @@
     <string name="title_setup_reset_full">Visa originalmeddelanden</string>
     <string name="title_setup_reset_images">Visa bilder</string>
     <string name="title_setup_reset_links">Bekräfta länkar</string>
+    <string name="title_check_gmail_oauth">Dina Gmail-konton kommer att fortsätta fungera efter den 30 maj 2022</string>
+    <string name="title_check_gmail_password">Vissa av dina Gmail-konton kan sluta fungera efter den 30 maj 2022</string>
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
     <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.        Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
     <string name="title_advanced_hint_remark">        Alternativen kategoriseras efter flik, indelade i sektioner, organiserade efter utseende eller användning och sökbara.
@@ -1014,7 +1016,8 @@
     <string name="title_no_recorder">Ingen lämplig ljudinspelningsapp tillgänglig</string>
     <string name="title_no_camera">Ingen lämplig kameraapp tillgänglig</string>
     <string name="title_no_saf">Ramverk för lagringstillträde är inte tillgängligt</string>
-    <string name="title_no_stream">En föråldrad app skickade en sökväg istället för en filström</string>
+    <string name="title_no_stream">FairEmail har inte behörighet att läsa denna fil direkt</string>
+    <string name="title_no_stream_help">Detta kan lösas genom att välja filen med en mer modern filhanterarapp eller genom att bevilja behörighet att läsa filer</string>
     <string name="title_no_internet">Ingen eller ingen lämplig internetuppkoppling</string>
     <string name="title_no_connection">Ansluter till ett eller flera konton &#8230;</string>
     <string name="title_no_folder">Mappen finns inte</string>
@@ -1253,6 +1256,7 @@
     <string name="title_search_device">Sök på enheten</string>
     <string name="title_search_server">Sök på servern</string>
     <string name="title_search_in">Sök i</string>
+    <string name="title_search_delete">Ta bort sparad sökning?</string>
     <string name="title_sort_on">Sortera på</string>
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Olästa</string>
@@ -1298,7 +1302,7 @@
     <string name="title_answer_group">Mallgrupp (valfritt)</string>
     <string name="title_answer_standard">Standard</string>
     <string name="title_answer_favorite">Favorit</string>
-    <string name="title_answer_snippet" comment="title_answer_snippet&#10;Option title to mark a reply template as text fragment, which can be inserted by long press on an open space">Kort text</string>
+    <string name="title_answer_snippet">Kort text</string>
     <string name="title_answer_receipt">Använd som ett läskvitto</string>
     <string name="title_answer_hide">Dölj från menyer</string>
     <string name="title_answer_text">Malltext</string>
