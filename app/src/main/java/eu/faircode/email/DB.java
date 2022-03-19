@@ -71,7 +71,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 226,
+        version = 227,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2269,7 +2269,7 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `attachment` ADD COLUMN `related` INTEGER");
                         db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
                         db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
-                        createTriggers(db, true);
+                        createTriggers(db);
                     }
                 }).addMigrations(new Migration(223, 224) {
                     @Override
@@ -2290,6 +2290,14 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `answer` ADD COLUMN `snippet` INTEGER NOT NULL DEFAULT 0");
+                    }
+                }).addMigrations(new Migration(226, 227) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
+                        db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
+                        createTriggers(db, true);
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override

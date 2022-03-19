@@ -3173,8 +3173,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             List<EntityAttachment> images = new ArrayList<>();
             if (thumbnails && bind_extras)
                 for (EntityAttachment attachment : attachments)
-                    if (attachment.isAttachment() &&
-                            (attachment.isImage() || "image/svg+xml".equals(attachment.getMimeType())))
+                    if (attachment.isAttachment() && attachment.isImage())
                         images.add(attachment);
             adapterImage.set(images);
             grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);

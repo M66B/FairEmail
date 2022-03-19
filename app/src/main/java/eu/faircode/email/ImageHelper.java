@@ -93,6 +93,7 @@ class ImageHelper {
 
     // https://developer.android.com/guide/topics/media/media-formats#image-formats
     static final List<String> IMAGE_TYPES = Collections.unmodifiableList(Arrays.asList(
+            "image/svg+xml", // native
             "image/bmp",
             "image/gif",
             "image/jpeg",
