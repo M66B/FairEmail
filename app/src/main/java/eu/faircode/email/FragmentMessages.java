@@ -945,7 +945,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
-        boolean ascending = prefs.getBoolean(getSortOrder(getContext(), viewType, type), false);
+        boolean outbox = EntityFolder.OUTBOX.equals(type);
+        boolean ascending = prefs.getBoolean(getSortOrder(getContext(), viewType, type), outbox);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
         boolean filter_trash = prefs.getBoolean("filter_trash", false);
 
@@ -4702,10 +4703,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        boolean drafts = EntityFolder.DRAFTS.equals(type);
+        boolean outbox = EntityFolder.OUTBOX.equals(type);
+        boolean sent = EntityFolder.SENT.equals(type);
+
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String sort = prefs.getString(getSort(context, viewType, type), "time");
-        boolean ascending = prefs.getBoolean(getSortOrder(context, viewType, type), false);
+        boolean ascending = prefs.getBoolean(getSortOrder(context, viewType, type), outbox);
         boolean filter_seen = prefs.getBoolean(getFilter(context, "seen", viewType, type), false);
         boolean filter_unflagged = prefs.getBoolean(getFilter(context, "unflagged", viewType, type), false);
         boolean filter_unknown = prefs.getBoolean(getFilter(context, "unknown", viewType, type), false);
@@ -4720,10 +4725,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         int padding = prefs.getInt("view_padding", compact ? 0 : 1);
         boolean quick_filter = prefs.getBoolean("quick_filter", false);
-
-        boolean drafts = EntityFolder.DRAFTS.equals(type);
-        boolean outbox = EntityFolder.OUTBOX.equals(type);
-        boolean sent = EntityFolder.SENT.equals(type);
 
         boolean folder =
                 (viewType == AdapterMessage.ViewType.UNIFIED ||
@@ -6613,7 +6614,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     static String getSortOrder(Context context, AdapterMessage.ViewType viewType, String type) {
-        if (viewType == AdapterMessage.ViewType.THREAD)
+        if (EntityFolder.OUTBOX.equals(type))
+            return "ascending_outbox";
+        else if (viewType == AdapterMessage.ViewType.THREAD)
             return "ascending_thread";
         else if (viewType == AdapterMessage.ViewType.UNIFIED)
             return "ascending_unified";

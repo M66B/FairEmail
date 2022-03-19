@@ -514,9 +514,11 @@ public class ViewModelMessages extends ViewModel {
             this.criteria = criteria;
             this.server = server;
 
+            boolean outbox = EntityFolder.OUTBOX.equals(type);
+
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             this.sort = prefs.getString(FragmentMessages.getSort(context, viewType, type), "time");
-            this.ascending = prefs.getBoolean(FragmentMessages.getSortOrder(context, viewType, type), false);
+            this.ascending = prefs.getBoolean(FragmentMessages.getSortOrder(context, viewType, type), outbox);
             this.filter_seen = prefs.getBoolean(FragmentMessages.getFilter(context, "seen", viewType, type), false);
             this.filter_unflagged = prefs.getBoolean(FragmentMessages.getFilter(context, "unflagged", viewType, type), false);
             this.filter_unknown = prefs.getBoolean(FragmentMessages.getFilter(context, "unknown", viewType, type), false);
