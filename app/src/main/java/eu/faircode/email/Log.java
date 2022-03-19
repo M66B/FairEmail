@@ -2055,6 +2055,7 @@ public class Log {
                 int pollInterval = ServiceSynchronize.getPollInterval(context);
                 boolean metered = prefs.getBoolean("metered", true);
                 Boolean ignoring = Helper.isIgnoringOptimizations(context);
+                boolean canSchedule = AlarmManagerCompatEx.canScheduleExactAlarms(context);
                 boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
                 boolean schedule = prefs.getBoolean("schedule", false);
 
@@ -2068,6 +2069,7 @@ public class Log {
                         " vpn=" + vpn + (vpn ? " !!!" : "") +
                         " ng=" + ng + " tc=" + tc + "\r\n" +
                         "optimizing=" + (ignoring == null ? null : !ignoring) + (Boolean.FALSE.equals(ignoring) ? " !!!" : "") +
+                        " canSchedule=" + canSchedule + (canSchedule ? "" : " !!!") +
                         " auto_optimize=" + auto_optimize + (auto_optimize ? " !!!" : "") + "\r\n" +
                         "accounts=" + accounts.size() +
                         " folders=" + db.folder().countTotal() +
