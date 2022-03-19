@@ -4,7 +4,7 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next versoion
+### Next version
 
 * Added inserting templates as text snippets
 * Small improvements and minor bug fixes
