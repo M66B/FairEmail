@@ -325,9 +325,12 @@ public class FragmentQuickSetup extends FragmentBase {
                         List<String> users;
                         if (provider.user == EmailProvider.UserType.LOCAL)
                             users = Arrays.asList(username, email);
-                        else if (provider.user == EmailProvider.UserType.VALUE)
-                            users = Arrays.asList(provider.username, email, username);
-                        else
+                        else if (provider.user == EmailProvider.UserType.VALUE) {
+                            String user = provider.username;
+                            if (user.startsWith("*@"))
+                                user = username + user.substring(1);
+                            users = Arrays.asList(user, email, username);
+                        } else
                             users = Arrays.asList(email, username);
                         Log.i("User type=" + provider.user +
                                 " users=" + TextUtils.join(", ", users));
