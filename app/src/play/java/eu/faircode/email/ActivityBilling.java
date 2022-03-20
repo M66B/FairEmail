@@ -78,8 +78,9 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     static final String ACTION_PURCHASE_ERROR = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE_ERROR";
 
     private static final String SKU_TEST = "android.test.purchased";
-    private final static long MAX_SKU_CACHE_DURATION = 24 * 3600 * 1000L; // milliseconds
-    private final static long MAX_SKU_NOACK_DURATION = 24 * 3600 * 1000L; // milliseconds
+    private static final long IAB_CONNECTED_CHECK = 10 * 1000L;
+    private static final long MAX_SKU_CACHE_DURATION = 24 * 3600 * 1000L; // milliseconds
+    private static final long MAX_SKU_NOACK_DURATION = 24 * 3600 * 1000L; // milliseconds
 
     @Override
     @SuppressLint("MissingSuperCall")
@@ -111,6 +112,19 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                     .setListener(this)
                     .build();
             billingClient.startConnection(billingClientStateListener);
+
+            getMainHandler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        boolean connected = (billingClient != null &&
+                                billingClient.getConnectionState() == BillingClient.ConnectionState.CONNECTED);
+                        EntityLog.log(ActivityBilling.this, "IAB check connected=" + connected);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            }, IAB_CONNECTED_CHECK);
         }
     }
 
