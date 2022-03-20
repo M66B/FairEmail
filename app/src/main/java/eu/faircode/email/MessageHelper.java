@@ -4498,6 +4498,7 @@ public class MessageHelper {
                                 this.recipient = value;
                                 break;
                             case "Status":
+                                // https://www.iana.org/assignments/smtp-enhanced-status-codes/smtp-enhanced-status-codes.xhtml
                                 this.status = value;
                                 break;
                             case "Diagnostic-Code":
@@ -4505,7 +4506,7 @@ public class MessageHelper {
                                 break;
                         }
                     } else if (isDispositionNotification(type)) {
-                        //https://datatracker.ietf.org/doc/html/rfc3798#section-3.2.6
+                        // https://datatracker.ietf.org/doc/html/rfc3798#section-3.2.6
                         switch (name) {
                             case "Reporting-UA":
                                 this.reporter = value;
@@ -4537,6 +4538,10 @@ public class MessageHelper {
 
         boolean isDelivered() {
             return ("delivered".equals(action) || "relayed".equals(action) || "expanded".equals(action));
+        }
+
+        boolean isDelayed() {
+            return "delayed".equals(action);
         }
 
         boolean isMdnManual() {
