@@ -24,9 +24,11 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -116,23 +118,45 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             ivStop.setVisibility(rule.stop ? View.VISIBLE : View.INVISIBLE);
 
             try {
-                List<String> condition = new ArrayList<>();
+                List<Pair<String, String>> conditions = new ArrayList<>();
                 JSONObject jcondition = new JSONObject(rule.condition);
                 if (jcondition.has("sender"))
-                    condition.add(context.getString(R.string.title_rule_sender));
+                    conditions.add(new Pair<>(context.getString(R.string.title_rule_sender),
+                            jcondition.getJSONObject("sender").optString("value")));
                 if (jcondition.has("recipient"))
-                    condition.add(context.getString(R.string.title_rule_recipient));
+                    conditions.add(new Pair<>(context.getString(R.string.title_rule_recipient),
+                            jcondition.getJSONObject("recipient").optString("value")));
                 if (jcondition.has("subject"))
-                    condition.add(context.getString(R.string.title_rule_subject));
+                    conditions.add(new Pair<>(context.getString(R.string.title_rule_subject),
+                            jcondition.getJSONObject("subject").optString("value")));
                 if (jcondition.has("header"))
-                    condition.add(context.getString(R.string.title_rule_header));
+                    conditions.add(new Pair<>(context.getString(R.string.title_rule_header),
+                            jcondition.getJSONObject("header").optString("value")));
                 if (jcondition.has("body"))
-                    condition.add(context.getString(R.string.title_rule_body));
+                    conditions.add(new Pair<>(context.getString(R.string.title_rule_body),
+                            jcondition.getJSONObject("body").optString("value")));
                 if (jcondition.has("date"))
-                    condition.add(context.getString(R.string.title_rule_time_abs));
+                    conditions.add(new Pair<>(context.getString(R.string.title_rule_time_abs),
+                            null));
                 if (jcondition.has("schedule"))
-                    condition.add(context.getString(R.string.title_rule_time_rel));
-                tvCondition.setText(TextUtils.join(" & ", condition));
+                    conditions.add(new Pair<>(context.getString(R.string.title_rule_time_rel),
+                            null));
+
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+                for (Pair<String, String> condition : conditions) {
+                    if (ssb.length() > 0)
+                        ssb.append("\n");
+                    ssb.append(condition.first);
+                    if (!TextUtils.isEmpty(condition.second)) {
+                        ssb.append(" \"");
+                        int start = ssb.length();
+                        ssb.append(condition.second);
+                        ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), 0);
+                        ssb.append("\"");
+                    }
+                }
+
+                tvCondition.setText(ssb);
             } catch (Throwable ex) {
                 tvCondition.setText(ex.getMessage());
             }
