@@ -81,9 +81,9 @@ public class FragmentSetup extends FragmentBase {
     private Button btnQuick;
     private TextView tvQuickNew;
 
+    private CardView cardManual;
     private ImageButton ibManual;
     private TextView tvManual;
-    private CardView cardManual;
 
     private Button btnAccount;
     private Button btnIdentity;
@@ -110,14 +110,17 @@ public class FragmentSetup extends FragmentBase {
     private TextView tvBatteryUsage;
     private TextView tvSyncStopped;
 
+    private CardView cardExtra;
     private Button btnApp;
     private Button btnDelete;
     private Button btnMore;
     private Button btnSupport;
+    private ImageButton ibExtra;
 
     private Group grpBackgroundRestricted;
     private Group grpDataSaver;
     private Group grpSupport;
+    private Group grpExtra;
 
     private int textColorPrimary;
     private int colorWarning;
@@ -151,9 +154,9 @@ public class FragmentSetup extends FragmentBase {
         btnQuick = view.findViewById(R.id.btnQuick);
         tvQuickNew = view.findViewById(R.id.tvQuickNew);
 
+        cardManual = view.findViewById(R.id.cardManual);
         ibManual = view.findViewById(R.id.ibManual);
         tvManual = view.findViewById(R.id.tvManual);
-        cardManual = view.findViewById(R.id.cardManual);
 
         btnAccount = view.findViewById(R.id.btnAccount);
         btnIdentity = view.findViewById(R.id.btnIdentity);
@@ -180,14 +183,17 @@ public class FragmentSetup extends FragmentBase {
         tvBatteryUsage = view.findViewById(R.id.tvBatteryUsage);
         tvSyncStopped = view.findViewById(R.id.tvSyncStopped);
 
+        cardExtra = view.findViewById(R.id.cardExtra);
         btnApp = view.findViewById(R.id.btnApp);
         btnDelete = view.findViewById(R.id.btnDelete);
         btnMore = view.findViewById(R.id.btnMore);
         btnSupport = view.findViewById(R.id.btnSupport);
+        ibExtra = view.findViewById(R.id.ibExtra);
 
         grpBackgroundRestricted = view.findViewById(R.id.grpBackgroundRestricted);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
         grpSupport = view.findViewById(R.id.grpSupport);
+        grpExtra = view.findViewById(R.id.grpExtra);
 
         // Wire controls
 
@@ -374,26 +380,7 @@ public class FragmentSetup extends FragmentBase {
                 manual = !manual;
                 updateManual();
                 if (manual)
-                    view.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Rect rect = new Rect();
-                                cardManual.getDrawingRect(rect);
-                                view.offsetDescendantRectToMyCoords(cardManual, rect);
-
-                                int vh = view.getHeight();
-                                int ch = rect.height();
-                                if (vh > 0 && ch > 0) {
-                                    int y = rect.top - (vh - ch);
-                                    if (y > 0 && view instanceof ScrollView)
-                                        ((ScrollView) view).scrollTo(0, y);
-                                }
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
-                        }
-                    });
+                    ensureVisible(cardManual);
             }
         });
 
@@ -528,6 +515,20 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
+        updateExtra();
+
+        ibExtra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(v.getContext());
+                boolean setup_extra = !prefs.getBoolean("setup_extra", false);
+                prefs.edit().putBoolean("setup_extra", setup_extra).apply();
+                updateExtra();
+                if (setup_extra)
+                    ensureVisible(cardExtra);
+            }
+        });
+
         PackageManager pm = getContext().getPackageManager();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -592,9 +593,6 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        grpSupport.setVisibility(
-                Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG
-                        ? View.VISIBLE : View.GONE);
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -791,6 +789,41 @@ public class FragmentSetup extends FragmentBase {
 
         ibManual.setImageLevel(manual ? 0 /* less */ : 1 /* more */);
         cardManual.setVisibility(manual ? View.VISIBLE : View.GONE);
+    }
+
+    private void updateExtra() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean setup_extra = prefs.getBoolean("setup_extra", false);
+        ibExtra.setImageLevel(setup_extra ? 0 /* less */ : 1 /* more */);
+
+        grpSupport.setVisibility(setup_extra &&
+                (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)
+                ? View.VISIBLE : View.GONE);
+
+        grpExtra.setVisibility(setup_extra ? View.VISIBLE : View.GONE);
+    }
+
+    private void ensureVisible(View child) {
+        view.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Rect rect = new Rect();
+                    child.getDrawingRect(rect);
+                    view.offsetDescendantRectToMyCoords(child, rect);
+
+                    int vh = view.getHeight();
+                    int ch = rect.height();
+                    if (vh > 0 && ch > 0) {
+                        int y = rect.top - (vh - ch);
+                        if (y > 0 && view instanceof ScrollView)
+                            view.scrollTo(0, y);
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     @Override

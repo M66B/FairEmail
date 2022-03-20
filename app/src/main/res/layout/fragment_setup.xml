@@ -956,11 +956,29 @@
                     app:layout_constraintTop_toTopOf="@id/btnSupport"
                     app:srcCompat="@drawable/twotone_open_in_new_24" />
 
+                <eu.faircode.email.FixedImageButton
+                    android:id="@+id/ibExtra"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnSupport"
+                    app:srcCompat="@drawable/expander" />
+
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpSupport"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvSupportHint,btnSupport" />
+                    app:constraint_referenced_ids="tvSupportHint,btnSupport,ivExternal" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpExtra"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="btnApp,btnDelete,btnMore" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
