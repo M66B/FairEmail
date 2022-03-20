@@ -634,8 +634,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
 
             private void bindTo(EntityAccount account) {
-                cbExempted.setEnabled(!Helper.isOptimizing12(context) &&
-                        !account.ondemand && account.protocol == EntityAccount.TYPE_IMAP);
+                cbExempted.setEnabled(!account.ondemand && account.protocol == EntityAccount.TYPE_IMAP);
                 cbExempted.setChecked(account.poll_exempted);
                 cbExempted.setText(account.name);
             }

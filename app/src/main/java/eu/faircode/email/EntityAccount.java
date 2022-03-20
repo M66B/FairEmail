@@ -188,7 +188,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     }
 
     boolean isExempted(Context context) {
-        return (!Helper.isOptimizing12(context) && this.poll_exempted);
+        return this.poll_exempted;
     }
 
     String getProtocol() {

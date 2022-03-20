@@ -4461,14 +4461,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (!setup_reminder)
             return false;
 
-        boolean isOptimizing = Helper.isOptimizing12(context);
-        boolean canSchedule = AlarmManagerCompatEx.canScheduleExactAlarms(context);
-
-        if (!isOptimizing && canSchedule)
+        if (!Helper.isAndroid12())
+            return false;
+        if (!Boolean.FALSE.equals(Helper.isIgnoringOptimizations(context)))
+            return false;
+        if (AlarmManagerCompatEx.canScheduleExactAlarms(context))
             return false;
 
         final Snackbar snackbar = Snackbar.make(view,
-                canSchedule ? R.string.title_setup_doze_12 : R.string.title_setup_alarm_12,
+                R.string.title_setup_alarm_12,
                 Snackbar.LENGTH_INDEFINITE)
                 .setGestureInsetBottomIgnored(true);
         snackbar.setAction(R.string.title_fix, new View.OnClickListener() {

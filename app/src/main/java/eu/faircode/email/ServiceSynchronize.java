@@ -2879,9 +2879,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     static int getPollInterval(Context context) {
-        if (Helper.isOptimizing12(context))
-            return (BuildConfig.DEBUG ? 2 : 15);
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getInt("poll_interval", 0); // minutes
     }

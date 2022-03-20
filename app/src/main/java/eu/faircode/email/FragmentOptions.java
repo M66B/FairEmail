@@ -484,10 +484,9 @@ public class FragmentOptions extends FragmentBase {
         boolean setup_reminder = prefs.getBoolean("setup_reminder", true);
 
         boolean hasPermissions = hasPermission(Manifest.permission.READ_CONTACTS);
-        Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
+        boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(getContext()));
 
-        if (!setup_reminder ||
-                (hasPermissions && (isIgnoring == null || isIgnoring)))
+        if (!setup_reminder || (hasPermissions && isIgnoring))
             super.finish();
         else {
             FragmentDialogStill fragment = new FragmentDialogStill();

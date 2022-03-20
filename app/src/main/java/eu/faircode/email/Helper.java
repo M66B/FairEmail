@@ -450,6 +450,9 @@ public class Helper {
     }
 
     static Boolean isIgnoringOptimizations(Context context) {
+        if (isArc())
+            return true;
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
             return null;
 
@@ -458,14 +461,6 @@ public class Helper {
             return null;
 
         return pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
-    }
-
-    static boolean isOptimizing12(Context context) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || true)
-            return false;
-
-        Boolean ignoring = Helper.isIgnoringOptimizations(context);
-        return (ignoring != null && !ignoring);
     }
 
     static Integer getBatteryLevel(Context context) {
@@ -1112,12 +1107,11 @@ public class Helper {
                 // Vivo
                 isRealme() ||
                 isBlackview() ||
-                isSony() ||
-                BuildConfig.DEBUG);
+                isSony());
     }
 
-    static boolean isDozeRequired() {
-        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.R && false);
+    static boolean isAndroid12() {
+        return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
     }
 
     static String getUiModeType(Context context) {

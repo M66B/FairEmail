@@ -47,8 +47,7 @@ public class FragmentDialogStill extends FragmentDialogBase {
         final Context context = getContext();
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_setup, null);
         TextView tvDozeDevice = dview.findViewById(R.id.tvDozeDevice);
-        TextView tvDozeAndroid = dview.findViewById(R.id.tvDozeAndroid);
-        TextView tvInexact = dview.findViewById(R.id.tvInexact);
+        TextView tvDozeAndroid12 = dview.findViewById(R.id.tvDozeAndroid12);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
         Group grp2 = dview.findViewById(R.id.grp2);
         Group grp3 = dview.findViewById(R.id.grp3);
@@ -70,17 +69,14 @@ public class FragmentDialogStill extends FragmentDialogBase {
         });
 
         boolean hasPermissions = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
-        Boolean isIgnoring = Helper.isIgnoringOptimizations(context);
-        boolean isKilling = Helper.isKilling() && !(isIgnoring == null || isIgnoring);
-        boolean isOptimizing = Helper.isOptimizing12(context);
-        boolean canSchedule = AlarmManagerCompatEx.canScheduleExactAlarms(context);
+        boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(context));
+        boolean canScheduleExact = AlarmManagerCompatEx.canScheduleExactAlarms(getContext());
 
-        tvDozeDevice.setVisibility(isKilling && !isOptimizing ? View.VISIBLE : View.GONE);
-        tvDozeAndroid.setVisibility(isOptimizing ? View.VISIBLE : View.GONE);
-        tvInexact.setVisibility(canSchedule ? View.GONE : View.VISIBLE);
+        tvDozeDevice.setVisibility(Helper.isKilling() && !isIgnoring ? View.VISIBLE : View.GONE);
+        tvDozeAndroid12.setVisibility(!canScheduleExact && !isIgnoring ? View.VISIBLE : View.GONE);
 
         grp2.setVisibility(hasPermissions ? View.GONE : View.VISIBLE);
-        grp3.setVisibility(isIgnoring == null || isIgnoring ? View.GONE : View.VISIBLE);
+        grp3.setVisibility(isIgnoring ? View.GONE : View.VISIBLE);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(dview)

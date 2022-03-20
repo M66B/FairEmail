@@ -103,7 +103,6 @@ public class FragmentSetup extends FragmentBase {
     private TextView tvDoze12;
     private ImageButton ibDoze;
 
-    private Button btnInexactAlarms;
     private Button btnBackgroundRestricted;
     private Button btnDataSaver;
     private TextView tvStamina;
@@ -116,7 +115,6 @@ public class FragmentSetup extends FragmentBase {
     private Button btnMore;
     private Button btnSupport;
 
-    private Group grpInexactAlarms;
     private Group grpBackgroundRestricted;
     private Group grpDataSaver;
     private Group grpSupport;
@@ -175,7 +173,6 @@ public class FragmentSetup extends FragmentBase {
         tvDoze12 = view.findViewById(R.id.tvDoze12);
         ibDoze = view.findViewById(R.id.ibDoze);
 
-        btnInexactAlarms = view.findViewById(R.id.btnInexactAlarms);
         btnBackgroundRestricted = view.findViewById(R.id.btnBackgroundRestricted);
         btnDataSaver = view.findViewById(R.id.btnDataSaver);
         tvStamina = view.findViewById(R.id.tvStamina);
@@ -188,7 +185,6 @@ public class FragmentSetup extends FragmentBase {
         btnMore = view.findViewById(R.id.btnMore);
         btnSupport = view.findViewById(R.id.btnSupport);
 
-        grpInexactAlarms = view.findViewById(R.id.grpInexactAlarms);
         grpBackgroundRestricted = view.findViewById(R.id.grpBackgroundRestricted);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
         grpSupport = view.findViewById(R.id.grpSupport);
@@ -534,20 +530,6 @@ public class FragmentSetup extends FragmentBase {
 
         PackageManager pm = getContext().getPackageManager();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            final Intent settings = new Intent(
-                    Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM,
-                    Uri.parse("package:" + BuildConfig.APPLICATION_ID));
-
-            btnInexactAlarms.setEnabled(settings.resolveActivity(pm) != null); // system whitelisted
-            btnInexactAlarms.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(settings);
-                }
-            });
-        }
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             final Intent settings = new Intent(
                     Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
@@ -639,7 +621,6 @@ public class FragmentSetup extends FragmentBase {
 
         btnInbox.setEnabled(false);
 
-        grpInexactAlarms.setVisibility(View.GONE);
         grpBackgroundRestricted.setVisibility(View.GONE);
         grpDataSaver.setVisibility(View.GONE);
         tvStamina.setVisibility(View.GONE);
@@ -745,7 +726,8 @@ public class FragmentSetup extends FragmentBase {
         }
 
         // Doze
-        Boolean ignoring = Helper.isIgnoringOptimizations(getContext());
+        boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(getContext()));
+        boolean canScheduleExact = AlarmManagerCompatEx.canScheduleExactAlarms(getContext());
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
             btnDoze.setEnabled(false);
@@ -755,19 +737,15 @@ public class FragmentSetup extends FragmentBase {
             if (intent.resolveActivity(pm) == null)
                 btnDoze.setEnabled(false);
             else
-                btnDoze.setEnabled((ignoring != null && !ignoring) || BuildConfig.DEBUG);
+                btnDoze.setEnabled(!isIgnoring || BuildConfig.DEBUG);
         }
 
-        boolean done = (ignoring == null || ignoring || Helper.isArc());
-        tvDozeDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
-        tvDozeDone.setTextColor(done ? textColorPrimary : colorWarning);
-        tvDozeDone.setTypeface(null, done ? Typeface.NORMAL : Typeface.BOLD);
-        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
-        tvDoze12.setVisibility(Helper.isOptimizing12(getContext()) ? View.VISIBLE : View.GONE);
+        tvDozeDone.setText(isIgnoring ? R.string.title_setup_done : R.string.title_setup_to_do);
+        tvDozeDone.setTextColor(isIgnoring ? textColorPrimary : colorWarning);
+        tvDozeDone.setTypeface(null, isIgnoring ? Typeface.NORMAL : Typeface.BOLD);
+        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(isIgnoring ? check : null, null, null, null);
 
-        grpInexactAlarms.setVisibility(
-                !AlarmManagerCompatEx.canScheduleExactAlarms(getContext())
-                        ? View.VISIBLE : View.GONE);
+        tvDoze12.setVisibility(!canScheduleExact && !isIgnoring ? View.VISIBLE : View.GONE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             ActivityManager am =
