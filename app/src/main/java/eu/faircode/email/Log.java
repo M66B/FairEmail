@@ -2075,7 +2075,8 @@ public class Log {
                         " folders=" + db.folder().countTotal() +
                         " messages=" + db.message().countTotal() +
                         " rules=" + db.rule().countTotal() +
-                        " operations=" + db.operation().getOperationCount() +
+                        " ops=" + db.operation().getOperationCount() +
+                        " outbox=" + db.message().countOutbox() +
                         "\r\n\r\n");
 
                 if (schedule) {

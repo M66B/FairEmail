@@ -462,6 +462,11 @@ public interface DaoMessage {
             " AND sender = :sender")
     int countSender(long folder, String sender);
 
+    @Query("SELECT COUNT(*) FROM message" +
+            " JOIN folder ON folder.id = message.folder" +
+            " WHERE folder.account IS NULL")
+    int countOutbox();
+
     @Query("SELECT COUNT(*) FROM message")
     int countTotal();
 
