@@ -10827,7 +10827,7 @@ onavstack.net
 *.advisor.ws
 
 // AZ.pl sp. z.o.o: https://az.pl
-// Submited by Krzysztof Wolski <krzysztof.wolski@home.eu>
+// Submitted by Krzysztof Wolski <krzysztof.wolski@home.eu>
 ecommerce-shop.pl
 
 // b-data GmbH : https://www.b-data.io
@@ -11240,6 +11240,11 @@ deno-staging.dev
 // deSEC : https://desec.io/
 // Submitted by Peter Thomassen <peter@desec.io>
 dedyn.io
+
+// Deta: https://www.deta.sh/
+// Submitted by Aavash Shrestha <aavash@deta.sh>
+deta.app
+deta.dev
 
 // Diher Solutions : https://diher.solutions
 // Submitted by Didi Hermawan <mail@diher.solutions>
@@ -11870,8 +11875,6 @@ app.os.stg.fedoraproject.org
 
 // FearWorks Media Ltd. : https://fearworksmedia.co.uk
 // submitted by Keith Fairley <domains@fearworksmedia.co.uk>
-couk.me
-ukco.me
 conn.uk
 copro.uk
 hosp.uk
@@ -12277,7 +12280,7 @@ günstigbestellen.de
 günstigliefern.de
 
 // Hakaran group: http://hakaran.cz
-// Submited by Arseniy Sokolov <security@hakaran.cz>
+// Submitted by Arseniy Sokolov <security@hakaran.cz>
 fin.ci
 free.hr
 caa.li
@@ -12320,7 +12323,7 @@ development.run
 ravendb.run
 
 // home.pl S.A.: https://home.pl
-// Submited by Krzysztof Wolski <krzysztof.wolski@home.eu>
+// Submitted by Krzysztof Wolski <krzysztof.wolski@home.eu>
 homesklep.pl
 
 // Hong Kong Productivity Council: https://www.hkpc.org/
@@ -12430,7 +12433,7 @@ to.leg.br
 pixolino.com
 
 // Internet-Pro, LLP: https://netangels.ru/
-// Submited by Vasiliy Sheredeko <piphon@gmail.com>
+// Submitted by Vasiliy Sheredeko <piphon@gmail.com>
 na4u.ru
 
 // iopsys software solutions AB : https://iopsys.eu/
@@ -12453,7 +12456,7 @@ iserv.dev
 iobb.net
 
 // Jelastic, Inc. : https://jelastic.com/
-// Submited by Ihor Kolodyuk <ik@jelastic.com>
+// Submitted by Ihor Kolodyuk <ik@jelastic.com>
 mel.cloudlets.com.au
 cloud.interhostsolutions.be
 users.scale.virtualcloud.com.br
@@ -12889,7 +12892,10 @@ noop.app
 // Northflank Ltd. : https://northflank.com/
 // Submitted by Marco Suter <marco@northflank.com>
 *.northflank.app
+*.build.run
 *.code.run
+*.database.run
+*.migration.run
 
 // Noticeable : https://noticeable.io
 // Submitted by Laurent Pellegrino <security@noticeable.io>
@@ -13077,7 +13083,7 @@ operaunite.com
 tech.orange
 
 // Oursky Limited : https://authgear.com/, https://skygear.io/
-// Submited by Authgear Team <hello@authgear.com>, Skygear Developer <hello@skygear.io>
+// Submitted by Authgear Team <hello@authgear.com>, Skygear Developer <hello@skygear.io>
 authgear-staging.com
 authgearapps.com
 skygearapp.com
@@ -13496,6 +13502,8 @@ srht.site
 stackhero-network.com
 
 // Staclar : https://staclar.com
+// Submitted by Q Misell <q@staclar.com>
+musician.io
 // Submitted by Matthias Merkel <matthias.merkel@staclar.com>
 novecore.site
 
@@ -13738,6 +13746,10 @@ my-wan.de
 syno-ds.de
 synology-diskstation.de
 synology-ds.de
+
+// Typedream : https://typedream.com
+// Submitted by Putri Karunia <putri@typedream.com>
+typedream.app
 
 // Typeform : https://www.typeform.com
 // Submitted by Sergi Ferriz <sergi.ferriz@typeform.com>
