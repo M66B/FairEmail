@@ -367,9 +367,6 @@ public class ServiceUI extends IntentService {
     }
 
     private void onFlag(long id) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean threading = prefs.getBoolean("threading", true);
-
         DB db = DB.getInstance(this);
         try {
             db.beginTransaction();
@@ -378,12 +375,8 @@ public class ServiceUI extends IntentService {
             if (message == null)
                 return;
 
-            List<EntityMessage> messages = db.message().getMessagesByThread(
-                    message.account, message.thread, threading ? null : id, message.folder);
-            for (EntityMessage threaded : messages) {
-                EntityOperation.queue(this, threaded, EntityOperation.FLAG, true);
-                EntityOperation.queue(this, threaded, EntityOperation.SEEN, true);
-            }
+            EntityOperation.queue(this, message, EntityOperation.FLAG, true);
+            EntityOperation.queue(this, message, EntityOperation.SEEN, true);
 
             db.setTransactionSuccessful();
         } finally {
