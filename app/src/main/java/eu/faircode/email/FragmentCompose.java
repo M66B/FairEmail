@@ -73,6 +73,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.ArrowKeyMovementMethod;
+import android.text.style.BackgroundColorSpan;
 import android.text.style.BulletSpan;
 import android.text.style.CharacterStyle;
 import android.text.style.ImageSpan;
@@ -2145,10 +2146,21 @@ public class FragmentCompose extends FragmentBase {
                 args.putString("text", text);
 
                 new SimpleTask<DeepL.Translation>() {
+                    private Object highlightSpan;
+
                     @Override
                     protected void onPreExecute(Bundle args) {
-                        etBody.setSelection(paragraph.first, paragraph.second);
+                        int textColorHighlight = Helper.resolveColor(getContext(), android.R.attr.textColorHighlight);
+                        highlightSpan = new BackgroundColorSpan(textColorHighlight);
+                        etBody.getText().setSpan(highlightSpan, paragraph.first, paragraph.second,
+                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
                         ToastEx.makeText(context, R.string.title_translating, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    protected void onPostExecute(Bundle args) {
+                        if (highlightSpan != null)
+                            etBody.getText().removeSpan(highlightSpan);
                     }
 
                     @Override
