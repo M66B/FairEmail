@@ -8168,6 +8168,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
+                                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(tvText.getText());
+                                    ssb.removeSpan(mark);
+                                    tvText.setText(ssb);
+
                                     Throwable exex = new Throwable("DeepL", ex);
                                     ToastEx.makeText(context, Log.formatThrowable(exex), Toast.LENGTH_LONG).show();
                                 }
