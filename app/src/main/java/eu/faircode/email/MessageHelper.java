@@ -2048,6 +2048,7 @@ public class MessageHelper {
                 else if (unsubscribe.toLowerCase(Locale.ROOT).startsWith("mailto:")) {
                     if (mailto == null) {
                         try {
+                            unsubscribe = "mailto:" + unsubscribe.substring("mailto:".length());
                             MailTo.parse(unsubscribe);
                             mailto = unsubscribe;
                         } catch (Throwable ex) {
