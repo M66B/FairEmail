@@ -6,7 +6,8 @@
 
 ### Next version
 
-* Showing rule condition values
+* Added remove all attachments button to message editor
+* Showing filter rule condition values in the rule list
 * Small improvements and minor bug fixes
 * Updated translations
 
