@@ -197,6 +197,9 @@ public class DeepL {
     }
 
     public static Translation translate(String text, String target, boolean formality, Context context) throws IOException, JSONException {
+        if (!ConnectionHelper.getNetworkState(context).isConnected())
+            throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
+
         // https://www.deepl.com/docs-api/translating-text/request/
         String request =
                 "text=" + URLEncoder.encode(text, StandardCharsets.UTF_8.name()) +
