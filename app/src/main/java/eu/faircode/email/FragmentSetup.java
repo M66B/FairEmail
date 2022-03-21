@@ -22,6 +22,7 @@ package eu.faircode.email;
 import static android.app.Activity.RESULT_OK;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.Dialog;
 import android.content.Context;
@@ -54,6 +55,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
@@ -479,8 +481,19 @@ public class FragmentSetup extends FragmentBase {
 
         btnDoze.setOnClickListener(new View.OnClickListener() {
             @Override
+            @SuppressLint("BatteryLife")
+            @RequiresApi(api = Build.VERSION_CODES.M)
             public void onClick(View v) {
-                new FragmentDialogDoze().show(getParentFragmentManager(), "setup:doze");
+                if (hasPermission(Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)) {
+                    Intent intent = new Intent();
+                    if (Boolean.FALSE.equals(Helper.isIgnoringOptimizations(v.getContext())))
+                        intent.setAction(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
+                                .setData(Uri.parse("package:" + v.getContext().getPackageName()));
+                    else
+                        intent.setAction(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
+                    v.getContext().startActivity(intent);
+                } else
+                    new FragmentDialogDoze().show(getParentFragmentManager(), "setup:doze");
             }
         });
 
