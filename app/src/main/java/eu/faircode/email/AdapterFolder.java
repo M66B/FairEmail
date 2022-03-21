@@ -637,6 +637,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 submenu.add(Menu.FIRST, R.string.title_synchronize_batch_disable, 3, R.string.title_synchronize_batch_disable);
                 submenu.add(Menu.FIRST, R.string.title_notify_batch_enable, 4, R.string.title_notify_batch_enable);
                 submenu.add(Menu.FIRST, R.string.title_notify_batch_disable, 5, R.string.title_notify_batch_disable);
+                submenu.add(Menu.FIRST, R.string.title_synchronize_more, 6, R.string.title_synchronize_more);
             }
 
             if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP)
@@ -669,6 +670,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         } else if (itemId == R.string.title_notify_batch_disable) {
                             onActionEnableNotify(false);
                             return true;
+                        } else if (itemId == R.string.title_synchronize_more) {
+                            onActionSyncMore(true);
+                            return true;
                         }
                         return false;
                     }
@@ -678,7 +682,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         onActionSync(false);
                         return true;
                     } else if (itemId == R.string.title_synchronize_more) {
-                        onActionSyncMore();
+                        onActionSyncMore(false);
                         return true;
                     } else if (itemId == R.string.title_unified_folder || itemId == R.string.title_navigation_folder || itemId == R.string.title_notify_folder || itemId == R.string.title_synchronize_enabled) {
                         onActionProperty(itemId, !item.isChecked());
@@ -892,10 +896,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     }.execute(context, owner, args, "enable");
                 }
 
-                private void onActionSyncMore() {
+                private void onActionSyncMore(boolean children) {
                     Bundle args = new Bundle();
                     args.putLong("folder", folder.id);
                     args.putString("name", folder.getDisplayName(context));
+                    args.putBoolean("children", children);
 
                     FragmentDialogSync sync = new FragmentDialogSync();
                     sync.setArguments(args);

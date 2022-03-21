@@ -33,6 +33,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -91,6 +92,7 @@ public class FragmentDialogSync extends FragmentDialogBase {
                                 long fid = args.getLong("folder");
                                 String type = args.getString("type");
                                 int months = args.getInt("months", -1);
+                                boolean children = args.getBoolean("children");
 
                                 DB db = DB.getInstance(context);
                                 try {
@@ -103,7 +105,15 @@ public class FragmentDialogSync extends FragmentDialogBase {
                                         EntityFolder folder = db.folder().getFolder(fid);
                                         if (folder == null)
                                             return null;
-                                        folders = Arrays.asList(folder);
+
+                                        folders = new ArrayList<>();
+                                        folders.add(folder);
+
+                                        if (children) {
+                                            List<EntityFolder> sub = db.folder().getChildFolders(folder.id);
+                                            if (sub != null)
+                                                folders.addAll(sub);
+                                        }
                                     }
 
                                     for (EntityFolder folder : folders)
