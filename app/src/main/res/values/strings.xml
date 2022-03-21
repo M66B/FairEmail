@@ -1233,6 +1233,7 @@
     <string name="title_ask_delete_accept">I understand that permanently deleting messages is irreversible</string>
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_delete_rule">Delete rule permanently?</string>
+    <string name="title_ask_delete_attachments">Remove all attachments?</string>
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_html_remark">Displaying the original message on a dark background is not possible as it may make dark texts and images invisible</string>

@@ -240,6 +240,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibBccAdd;
     private EditText etSubject;
     private ImageButton ibCcBcc;
+    private ImageButton ibRemoveAttachments;
     private RecyclerView rvAttachment;
     private TextView tvNoInternetAttachments;
     private TextView tvDsn;
@@ -320,6 +321,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_LINK = 12;
     private static final int REQUEST_DISCARD = 13;
     private static final int REQUEST_SEND = 14;
+    private static final int REQUEST_REMOVE_ATTACHMENTS = 15;
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "compose");
 
@@ -356,6 +358,7 @@ public class FragmentCompose extends FragmentBase {
         ibBccAdd = view.findViewById(R.id.ibBccAdd);
         etSubject = view.findViewById(R.id.etSubject);
         ibCcBcc = view.findViewById(R.id.ibCcBcc);
+        ibRemoveAttachments = view.findViewById(R.id.ibRemoveAttachments);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
         tvDsn = view.findViewById(R.id.tvDsn);
@@ -1205,6 +1208,20 @@ public class FragmentCompose extends FragmentBase {
         etBcc.setAdapter(cadapter);
 
         grpAddresses.setVisibility(cc_bcc ? View.VISIBLE : View.GONE);
+
+        ibRemoveAttachments.setVisibility(View.GONE);
+        ibRemoveAttachments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString("question", getString(R.string.title_ask_delete_attachments));
+
+                FragmentDialogAsk fragment = new FragmentDialogAsk();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentCompose.this, REQUEST_REMOVE_ATTACHMENTS);
+                fragment.show(getParentFragmentManager(), "compose:discard");
+            }
+        });
 
         rvAttachment.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -2543,6 +2560,10 @@ public class FragmentCompose extends FragmentBase {
                         onAction(R.id.action_send, extras, "sendnow");
                     }
                     break;
+                case REQUEST_REMOVE_ATTACHMENTS:
+                    if (resultCode == RESULT_OK)
+                        onRemoveAttachments();
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -3868,6 +3889,28 @@ public class FragmentCompose extends FragmentBase {
         onAction(R.id.action_delete, "delete");
     }
 
+    private void onRemoveAttachments() {
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                db.attachment().deleteAttachments(id);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(FragmentCompose.this, args, "attachments:remove");
+    }
+
     private void onExit() {
         if (state == State.LOADED) {
             state = State.NONE;
@@ -5162,6 +5205,7 @@ public class FragmentCompose extends FragmentBase {
                                 }
                             });
 
+                            ibRemoveAttachments.setVisibility(attachments.size() > 2 ? View.VISIBLE : View.GONE);
                             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
                             boolean downloading = false;
