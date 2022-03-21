@@ -187,7 +187,6 @@
     <string name="title_setup_doze_battery">Yüksək batareya istifadəsi?</string>
     <string name="title_setup_doze_stopped">Eyniləşdirmə dayandırılsın?</string>
     <string name="title_setup_doze_device">Bu, çox güman ki, bu cihaz üçün tələb olunur</string>
-    <string name="title_setup_doze_12">Ani mesajlar sıradan çıxarıldı</string>
     <string name="title_setup_alarm_12">Tətbiq işləmir</string>
     <string name="title_setup_inexact">Zəngli saatlar və xatırladıcılar sıradan çıxarıldı</string>
     <string name="title_setup_background">Arxaplan məhdudiyyətləri fəaldır</string>
@@ -264,6 +263,8 @@
     <string name="title_setup_reset_full">Orijinal mesajları göstər</string>
     <string name="title_setup_reset_images">Təsvirləri göstər</string>
     <string name="title_setup_reset_links">Bağlantıları təsdiqlə</string>
+    <string name="title_check_gmail_oauth">Gmail hesablarınız 30 May 2022-ci il tarixindən sonra işləməyə davam edəcək</string>
+    <string name="title_check_gmail_password">Bəzi Gmail hesablarınız 30 May 2022-ci il tarixindən işləməyi dayandıra bilər</string>
     <string name="title_advanced_hint_title">Daha çox qabaqcıl seçimlər</string>
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.
         Bütün seçimlər, fərqli bir tərcihiniz olmadığı müddətcə dəyişdirməyinizə ehtiyac olmayan və geniş istifadə olunan standart dəyərlərə sahibdir.
@@ -1019,6 +1020,8 @@
     <string name="title_no_recorder">Uyğun bir səsyazan tətbiq yoxdur</string>
     <string name="title_no_camera">Uyğun bir kamera tətbiqi yoxdur</string>
     <string name="title_no_saf">Anbar müraciət çərçivəsi mövcud deyil</string>
+    <string name="title_no_stream">FairEmail-in bu faylı birbaşa oxumaq icazəsi yoxdur</string>
+    <string name="title_no_stream_help">Bu, bir çox müasir fayl menecer tətbiqi ilə faylı seçərək və ya faylları oxuma icazəsi verərək həll edilə bilər</string>
     <string name="title_no_internet">Uyğun bir internet bağlantısı yoxdur</string>
     <string name="title_no_connection">Bir və ya bir neçə hesabla bağlantı qurulur &#8230;</string>
     <string name="title_no_folder">Qovluq mövcud deyil</string>
@@ -1259,6 +1262,7 @@
     <string name="title_search_device">Cihazda axtar</string>
     <string name="title_search_server">Serverdə axtar</string>
     <string name="title_search_in">Axtar</string>
+    <string name="title_search_delete">Saxlanılmış axtarış silinsin?</string>
     <string name="title_sort_on">Sırala</string>
     <string name="title_sort_on_time">Vaxt</string>
     <string name="title_sort_on_unread">Oxunmadı</string>
@@ -1304,6 +1308,7 @@
     <string name="title_answer_group">Şablon qrupu (ixtiyari)</string>
     <string name="title_answer_standard">İlkin</string>
     <string name="title_answer_favorite">Sevimli</string>
+    <string name="title_answer_snippet">Fraqment</string>
     <string name="title_answer_receipt">Oxundu bildirişi kimi istifadə et</string>
     <string name="title_answer_hide">Menyulardan gizlət</string>
     <string name="title_answer_text">Şablon mətni</string>

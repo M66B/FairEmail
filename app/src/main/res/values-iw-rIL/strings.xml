@@ -207,7 +207,6 @@
     <string name="title_setup_doze_battery">שימוש גבוה בסוללה?</string>
     <string name="title_setup_doze_stopped">הסנכרון נפסק?</string>
     <string name="title_setup_doze_device">זה כנראה אילוץ של המכשיר הזה</string>
-    <string name="title_setup_doze_12">הודעות בדחיפה מושבתות</string>
     <string name="title_setup_alarm_12">היישומון לא יעבוד</string>
     <string name="title_setup_inexact">התראות ותזכורות מושבתות</string>
     <string name="title_setup_background">הגבלות רקע פעילות</string>
@@ -284,6 +283,8 @@
     <string name="title_setup_reset_full">הצגת ההודעה המקורית</string>
     <string name="title_setup_reset_images">הצגת תמונות</string>
     <string name="title_setup_reset_links">אישור קישורים</string>
+    <string name="title_check_gmail_oauth">חשבונות ה־Gmail שלך ימשיכו לעבוד גם אחרי 30 במאי 2022</string>
+    <string name="title_check_gmail_password">חלק מחשבונות ה־Gmail שלך כנראה יפסיקו לעבוד אחרי 30 במאי 2022</string>
     <string name="title_advanced_hint_title">אפשרויות יותר מתקדמות</string>
     <string name="title_advanced_hint_message">        בחרת לנווט אל האפשרויות המתקדמות יותר.
         כל האפשרויות מוגדרות לפי ערכים מקובלים, שאין צורך לשנות אותם אלא אם כן יש לך העדפות שונות.
@@ -1039,6 +1040,8 @@
     <string name="title_no_recorder">אין יישומון הקלטת שמע מתאים</string>
     <string name="title_no_camera">אין יישומון מצלמה מתאים</string>
     <string name="title_no_saf">תשתית גישה לאחסון אינה זמינה</string>
+    <string name="title_no_stream">ל־FairEmail אין הרשאה לקרוא את הקובץ הזה ישירות</string>
+    <string name="title_no_stream_help">אפשר לפתור את זה על ידי בחירת הקובץ עם מנהל קבצים עדכני יותר או על ידי הענקת הרשאה לקריאת קבצים</string>
     <string name="title_no_internet">לא או שחיבור האינטרנט אינו מתאים</string>
     <string name="title_no_connection">מתבצע חיבור לחשבון אחד או יותר&#8230;</string>
     <string name="title_no_folder">התיקייה אינה קיימת</string>
@@ -1064,6 +1067,7 @@
     <string name="title_ask_delete_accept">ברור לי שמחיקת הודעות לצמיתות היא בלתי הפיכה</string>
     <string name="title_ask_delete_answer">למחוק את תבנית התגובה לצמיתות?</string>
     <string name="title_ask_delete_rule">למחוק את הכלל לצמיתות?</string>
+    <string name="title_ask_delete_attachments">להסיר את כל הקבצים המצורפים?</string>
     <string name="title_ask_discard">להשליך את הטיוטה?</string>
     <string name="title_ask_show_html">הצגת ההודעה המקורית עשויה להדליף פרטים אישיים רגישים</string>
     <string name="title_ask_show_html_remark">הצגת ההודעה המקורית על רקע כהה אינה אפשרית כיוון שהיא עשויה להפוך טקסטים ותמונות כהים לבלתי נראים</string>
@@ -1279,6 +1283,7 @@
     <string name="title_search_device">חיפוש במכשיר</string>
     <string name="title_search_server">חיפוש בשרת</string>
     <string name="title_search_in">חיפוש בתוך</string>
+    <string name="title_search_delete">למחוק את החיפוש השמור?</string>
     <string name="title_sort_on">מיון לפי</string>
     <string name="title_sort_on_time">שעה</string>
     <string name="title_sort_on_unread">לא נקרא</string>

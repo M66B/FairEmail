@@ -197,7 +197,6 @@
     <string name="title_setup_doze_battery">Visoka potrošnja baterije?</string>
     <string name="title_setup_doze_stopped">Sinhronizacija zaustavljena?</string>
     <string name="title_setup_doze_device">Ovo je vjerovatno neophodno za ovaj uređaj</string>
-    <string name="title_setup_doze_12">Trenutna obavještenja su isključena</string>
     <string name="title_setup_alarm_12">Aplikacija neće raditi</string>
     <string name="title_setup_inexact">Alarmi &amp; podsjetnici su isključeni</string>
     <string name="title_setup_background">Pozadinska ograničenja su uključena</string>
@@ -274,6 +273,8 @@
     <string name="title_setup_reset_full">Prikaži izvorne poruke</string>
     <string name="title_setup_reset_images">Prikaži slike</string>
     <string name="title_setup_reset_links">Potvrdi linkove</string>
+    <string name="title_check_gmail_oauth">Vaši Gmail računi radit će nakon 30. maja 2022.</string>
+    <string name="title_check_gmail_password">Neki od vaših Gmail računa prestat će raditi nakon 30. maja 2022.</string>
     <string name="title_advanced_hint_title">Više naprednih opcija</string>
     <string name="title_advanced_hint_message">        Prebacujete se na više naprednih opcija.
         Sve opcije imaju postavljene uobičajene standardne vrijednosti, koje ne trebate mijenjati osim ako ne preferirate drugačije.
@@ -1029,6 +1030,8 @@
     <string name="title_no_recorder">Ne postoji aplikacija za snimanje zvuka</string>
     <string name="title_no_camera">Ne postoji aplikacija kamere</string>
     <string name="title_no_saf">Framework za pristup skladišti nije dostupan</string>
+    <string name="title_no_stream">FairEmail nema dozvolu za direktno čitanje ove datoteke</string>
+    <string name="title_no_stream_help">Ovo se može riješiti tako da se izabere datoteka pomoću modernijeg upravljača datotekama ili odobravanjem dozvole za čitanje datoteka</string>
     <string name="title_no_internet">Bez ikakve ili prihvatljive internet konekcije</string>
     <string name="title_no_connection">Povezivanje na jedan ili više računa &#8230;</string>
     <string name="title_no_folder">Folder ne postoji</string>
@@ -1269,6 +1272,7 @@
     <string name="title_search_device">Traži na uređaju</string>
     <string name="title_search_server">Traži na serveru</string>
     <string name="title_search_in">Traži u</string>
+    <string name="title_search_delete">Izbrisati sačuvanu pretragu?</string>
     <string name="title_sort_on">Sortiraj prema</string>
     <string name="title_sort_on_time">Vremenu</string>
     <string name="title_sort_on_unread">Nepročitano</string>

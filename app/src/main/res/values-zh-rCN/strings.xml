@@ -177,7 +177,6 @@
     <string name="title_setup_doze_battery">太耗电？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
     <string name="title_setup_doze_device">对此设备来说，这可能是必需的</string>
-    <string name="title_setup_doze_12">推送消息已禁用</string>
     <string name="title_setup_alarm_12">应用将无法工作</string>
     <string name="title_setup_inexact">闹钟 &amp; 提醒已禁用</string>
     <string name="title_setup_background">已启用后台限制</string>
@@ -541,8 +540,8 @@
     <string name="title_advanced_generic_user_agent">使用通用浏览器用户代理</string>
     <string name="title_advanced_load_emoji">从 Google Play 服务加载更新的 Emoji</string>
     <string name="title_advanced_disconnect_auto_update">每周自动更新列表</string>
-    <string name="title_advanced_disconnect_links">使用列表警告跟踪链接</string>
-    <string name="title_advanced_disconnect_images">使用列表来识别追踪用图像</string>
+    <string name="title_advanced_disconnect_links">使用该列表来警告跟踪链接</string>
+    <string name="title_advanced_disconnect_images">使用该列表来识别追踪图像</string>
     <string name="title_advanced_mnemonic">远程删除数据</string>
     <string name="title_advanced_mnemonic_hint">如果收到任何标题栏有以下文字的邮件，应用程序数据将立即被自动删除</string>
     <string name="title_advanced_clear_all">删除应用数据</string>
@@ -680,7 +679,7 @@
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>
     <string name="title_advanced_notify_no_channels">此Android版本不支持通知通道</string>
     <string name="title_advanced_fts_hint">启用此功能将提高搜索性能，但也会增加电池和存储空间用量</string>
-    <string name="title_advanced_english_hint">这将重新启动应用程序</string>
+    <string name="title_advanced_english_hint">应用将重新启动</string>
     <string name="title_advanced_experiments_hint">当前实验性功能列表</string>
     <string name="title_advanced_protocol_hint">这将大幅增加电池和存储空间用量！</string>
     <string name="title_advanced_debug_hint">这将会在多处显示冗杂的调试信息</string>
@@ -1451,7 +1450,7 @@
     <string name="title_legend_reformatted">查看格式重制后的消息</string>
     <string name="title_legend_external_image">外部图像的占位符</string>
     <string name="title_legend_embedded_image">嵌入图像的占位符</string>
-    <string name="title_legend_tracking_pixel">追踪用图像</string>
+    <string name="title_legend_tracking_pixel">追踪图像</string>
     <string name="title_legend_broken_image">损坏的图像</string>
     <string name="title_legend_pick">选择联系人</string>
     <string name="title_legend_cc">显示抄送和密送</string>

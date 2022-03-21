@@ -187,7 +187,6 @@
     <string name="title_setup_doze_battery">Η μπαταρία χρησιμοποιείται παραπάνω από το κανονικό;</string>
     <string name="title_setup_doze_stopped">Σταμάτησε ο συγχρονισμός;</string>
     <string name="title_setup_doze_device">Αυτό πιθανόν απαιτείται για αυτήν τη συσκευή</string>
-    <string name="title_setup_doze_12">Τα μηνύματα ώθησης (push) είναι απενεργοποιημένα</string>
     <string name="title_setup_alarm_12">Η εφαρμογή δεν θα λειτουργήσει</string>
     <string name="title_setup_inexact">Ειδοποιήσεις &amp; υπενθυμίσεις απενεργοποιημένες</string>
     <string name="title_setup_background">Οι περιορισμοί παρασκηνίου είναι ενεργοποιημένοι</string>
@@ -264,6 +263,8 @@
     <string name="title_setup_reset_full">Προβολή αρχικών μηνυμάτων</string>
     <string name="title_setup_reset_images">Προβολή εικόνων</string>
     <string name="title_setup_reset_links">Επιβεβαίωση συνδέσμων</string>
+    <string name="title_check_gmail_oauth">Οι λογαριασμοί σας Gmail θα συνεχίσουν να λειτουργούν μετά τις 30 Μαΐου 2022</string>
+    <string name="title_check_gmail_password">Ορισμένοι από τους λογαριασμούς σας Gmail ενδέχεται να σταματήσουν να λειτουργούν μετά τις 30 Μαΐου 2022</string>
     <string name="title_advanced_hint_title">Πιο προηγμένες επιλογές</string>
     <string name="title_advanced_hint_message">        Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.        Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, τις οποίες δεν χρειάζεται να αλλάξετε εκτός εάν έχετε μία διαφορετική προτίμηση.
     </string>
@@ -1015,6 +1016,8 @@
     <string name="title_no_recorder">Δεν βρέθηκε καμία κατάλληλη εφαρμογή ηχογράφησης</string>
     <string name="title_no_camera">Καμία κατάλληλη εφαρμογή κάμερας δεν είναι διαθέσιμη</string>
     <string name="title_no_saf">Πλαίσιο πρόσβασης αποθήκευσης δεν είναι διαθέσιμο</string>
+    <string name="title_no_stream">Το FairEmail δεν έχει άδεια να διαβάσει αυτό το αρχείο απευθείας</string>
+    <string name="title_no_stream_help">Αυτό μπορεί να επιλυθεί επιλέγοντας το αρχείο με μια πιο σύγχρονη εφαρμογή διαχείρισης αρχείων, ή χορηγώντας άδεια για την ανάγνωση αρχείων</string>
     <string name="title_no_internet">Καθόλου σύνδεση ή καμία κατάλληλη σύνδεση διαδικτύου</string>
     <string name="title_no_connection">Σύνδεση σε έναν ή περισσότερους λογαριασμούς &#8230;</string>
     <string name="title_no_folder">Ο φάκελος δεν υπάρχει</string>
@@ -1253,6 +1256,7 @@
     <string name="title_search_device">Αναζήτηση στη συσκευή</string>
     <string name="title_search_server">Αναζήτηση στο διακομιστή</string>
     <string name="title_search_in">Αναζήτηση σε</string>
+    <string name="title_search_delete">Διαγραφή αποθηκευμένης αναζήτησης;</string>
     <string name="title_sort_on">Ταξινόμηση κατά</string>
     <string name="title_sort_on_time">Ημερομηνία</string>
     <string name="title_sort_on_unread">Μη αναγνωσμένα</string>

@@ -207,7 +207,6 @@
     <string name="title_setup_doze_battery">Wysokie użycie baterii?</string>
     <string name="title_setup_doze_stopped">Synchronizacja zatrzymana?</string>
     <string name="title_setup_doze_device">Prawdopodobnie jest to wymagane dla tego urządzenia</string>
-    <string name="title_setup_doze_12">Wiadomości push są wyłączone</string>
     <string name="title_setup_alarm_12">Aplikacja nie zadziała</string>
     <string name="title_setup_inexact">Alarmy &amp; przypomnienia są wyłączone</string>
     <string name="title_setup_background">Ograniczenia w tle są włączone</string>
@@ -284,6 +283,8 @@
     <string name="title_setup_reset_full">Pokaż oryginalne wiadomości</string>
     <string name="title_setup_reset_images">Pokaż obrazy</string>
     <string name="title_setup_reset_links">Potwierdź linki</string>
+    <string name="title_check_gmail_oauth">Twoje konta Gmail będą nadal działać po 30 maja 2022</string>
+    <string name="title_check_gmail_password">Niektóre z Twoich kont Gmail mogą przestać działać po 30 maja 2022</string>
     <string name="title_advanced_hint_title">Ustawienia zaawansowane</string>
     <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.         Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
     </string>
@@ -1037,6 +1038,8 @@
     <string name="title_no_recorder">Brak dostępnej odpowiedniej aplikacji do nagrywania dźwięku</string>
     <string name="title_no_camera">Brak dostępnej odpowiedniej aplikacji aparatu</string>
     <string name="title_no_saf">Brak dostępu do plików</string>
+    <string name="title_no_stream">FairEmail nie ma uprawnień do bezpośredniego odczytu tego pliku</string>
+    <string name="title_no_stream_help">Można to rozwiązać, wybierając plik za pomocą bardziej nowoczesnej aplikacji menedżera plików lub przyznając uprawnienia do odczytu plików</string>
     <string name="title_no_internet">Brak lub brak odpowiedniego połączenia internetowego</string>
     <string name="title_no_connection">Łączenie z jednym lub kilkoma kontami &#8230;</string>
     <string name="title_no_folder">Folder nie istnieje</string>
@@ -1062,6 +1065,7 @@
     <string name="title_ask_delete_accept">Rozumiem, że trwałe usuwanie wiadomości jest nieodwracalne</string>
     <string name="title_ask_delete_answer">Trwale usunąć szablon odpowiedzi?</string>
     <string name="title_ask_delete_rule">Usunąć regułę bezpowrotnie?</string>
+    <string name="title_ask_delete_attachments">Usunąć wszystkie załączniki?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_html_remark">Wyświetlanie oryginalnej wiadomości na ciemnym tle nie jest możliwe, ponieważ może to powodować brak widoczności ciemnych tekstów i obrazów</string>
@@ -1275,6 +1279,7 @@
     <string name="title_search_device">Szukaj na urządzeniu</string>
     <string name="title_search_server">Szukaj na serwerze</string>
     <string name="title_search_in">Szukaj w</string>
+    <string name="title_search_delete">Usunąć zapisane wyszukiwanie?</string>
     <string name="title_sort_on">Sortuj wg</string>
     <string name="title_sort_on_time">Czas</string>
     <string name="title_sort_on_unread">Nieprzeczytane</string>

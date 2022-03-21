@@ -246,6 +246,8 @@
     <string name="title_setup_reset_full">مشاهده پیام‌های اصلی</string>
     <string name="title_setup_reset_images">نمایش تصاویر</string>
     <string name="title_setup_reset_links">لینک‌ها را تایید کنید</string>
+    <string name="title_check_gmail_oauth">حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، همچنان کار خواهند کرد</string>
+    <string name="title_check_gmail_password">تعدادی از حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، ممکن است از کار بیافتند</string>
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
@@ -699,6 +701,8 @@
     <string name="title_no_recorder">برنامه ضبط صدا سازگاری در دسترس نیست</string>
     <string name="title_no_camera">برنامه دوربین سازگاری در دسترس نیست</string>
     <string name="title_no_saf">چارچوب دسترسی ذخیره سازی موجود نیست</string>
+    <string name="title_no_stream">FairEmail اجازه خواندن این فایل را به طور مستقیم ندارد</string>
+    <string name="title_no_stream_help">با انتخاب فایل به وسیله یک برنامه مدیریت فایل به‌روزتر یا با دادن اجازه دسترسی برای خوانش فایل‌ها، این مشکل می‌تواند حل شود</string>
     <string name="title_no_internet">اینترنت یا اتصال سازگاری در دسترس نیست</string>
     <string name="title_no_connection">در حال اتصال به یک یا چند حساب &#8230;</string>
     <string name="title_no_folder">پوشه وجود ندارد</string>
@@ -861,6 +865,7 @@
     <string name="title_search_device">جستجو بر روی دستگاه‌</string>
     <string name="title_search_server">جستجو بر روی سرور</string>
     <string name="title_search_in">جستجو در</string>
+    <string name="title_search_delete">جستجوی ذخیره شده پاک شود؟</string>
     <string name="title_sort_on">مرتب‌سازی براساس</string>
     <string name="title_sort_on_time">زمان</string>
     <string name="title_sort_on_unread">خوانده نشده</string>

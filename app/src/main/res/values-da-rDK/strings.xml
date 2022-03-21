@@ -187,7 +187,6 @@
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
     <string name="title_setup_doze_stopped">Synk stoppet?</string>
     <string name="title_setup_doze_device">Dette kræves sandsynligvis for denne enhed</string>
-    <string name="title_setup_doze_12">Push-beskeder er deaktivet</string>
     <string name="title_setup_alarm_12">Appen vil ikke fungere</string>
     <string name="title_setup_inexact">Alarmer og påmindelser er deaktiveret</string>
     <string name="title_setup_background">Baggrundsbegrænsninger er aktive</string>
@@ -264,6 +263,8 @@
     <string name="title_setup_reset_full">Vis oprindelige beskeder</string>
     <string name="title_setup_reset_images">Vis billeder</string>
     <string name="title_setup_reset_links">Bekræft links</string>
+    <string name="title_check_gmail_oauth">Gmail-konti vil fortsat fungere efter 3005-22</string>
+    <string name="title_check_gmail_password">Visse Gmail-konti kan ophøre med at fungere efter 3005-22</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har alm. brugte standardværdier, som kun behøver ændring ifm. en evt. anden præference.
@@ -1019,6 +1020,8 @@
     <string name="title_no_recorder">Ingen passende lydoptager-app tilgængelig</string>
     <string name="title_no_camera">Ingen passende kamera-app tilgængelig</string>
     <string name="title_no_saf">Storage access framework ikke tilgængelig</string>
+    <string name="title_no_stream">FairEmail har ikke tilladelse til at læse denne fil direkte</string>
+    <string name="title_no_stream_help">Dette kan løses ved at vælge filen via en mere moderne filhånderings-app eller ved at give den fillæsningstilladelse</string>
     <string name="title_no_internet">Ingen (passende) dataforbindelse</string>
     <string name="title_no_connection">Opretter forbindelse til én eller flere konti &#8230;</string>
     <string name="title_no_folder">Mappe findes ikke</string>
@@ -1259,6 +1262,7 @@
     <string name="title_search_device">Søg på enhed</string>
     <string name="title_search_server">Søg på server</string>
     <string name="title_search_in">Søg i</string>
+    <string name="title_search_delete">Slet gemt søgning?</string>
     <string name="title_sort_on">Sortér efter</string>
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Ulæst</string>

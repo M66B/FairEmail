@@ -208,7 +208,6 @@
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
     <string name="title_setup_doze_device">Це, ймовірно, необхідно для цього пристрою</string>
-    <string name="title_setup_doze_12">Push-повідомлення відключені</string>
     <string name="title_setup_alarm_12">Додаток не працюватиме</string>
     <string name="title_setup_inexact">Будильник &amp; нагадування вимкнені</string>
     <string name="title_setup_background">Фонові обмеження увімкнено</string>
@@ -285,6 +284,8 @@
     <string name="title_setup_reset_full">Показати оригінальні повідомлення</string>
     <string name="title_setup_reset_images">Показати зображення</string>
     <string name="title_setup_reset_links">Підтвердити посилання</string>
+    <string name="title_check_gmail_oauth">Ваші облікові записи Gmail працюватимуть після 30 травня, 2022 року</string>
+    <string name="title_check_gmail_password">Деякі ваші облікові записи Gmail можуть не працювати після 30 травня, 2022 року</string>
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.        Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
     </string>
@@ -1038,6 +1039,8 @@
     <string name="title_no_recorder">Немає відповідного додатку для запису аудіо</string>
     <string name="title_no_camera">Немає відповідного додатку для камери</string>
     <string name="title_no_saf">Компонент для доступу до сховища недоступний</string>
+    <string name="title_no_stream">FairEmail не має дозволу на безпосереднє читання цього файлу</string>
+    <string name="title_no_stream_help">Виберіть файл у більш сучасному застосунку для керування файлами, або надайте дозвіл на читання файлів</string>
     <string name="title_no_internet">Відсутнє або не відповідне підключення до Інтернету</string>
     <string name="title_no_connection">Підключення до одного або декількох облікових записів &#8230;</string>
     <string name="title_no_folder">Тека не існує</string>
@@ -1063,6 +1066,7 @@
     <string name="title_ask_delete_accept">Я розумію, що назавжди видалені повідомлення не можуть бути відновленні</string>
     <string name="title_ask_delete_answer">Видалити шаблон відповіді остаточно?</string>
     <string name="title_ask_delete_rule">Видалити правило остаточно?</string>
+    <string name="title_ask_delete_attachments">Видалити всі вкладення?</string>
     <string name="title_ask_discard">Відхилити чернетку?</string>
     <string name="title_ask_show_html">Показ оригінального повідомлення може призвести до витоку конфіденційної інформації</string>
     <string name="title_ask_show_html_remark">Показ оригінального повідомлення на темному тлі неможливе, оскільки воно може зробити темні тексти та зображення невидимими</string>
@@ -1276,6 +1280,7 @@
     <string name="title_search_device">Пошук на пристрої</string>
     <string name="title_search_server">Пошук на сервері</string>
     <string name="title_search_in">Пошук у</string>
+    <string name="title_search_delete">Видалити збережений пошук?</string>
     <string name="title_sort_on">Сортувати за</string>
     <string name="title_sort_on_time">Часом</string>
     <string name="title_sort_on_unread">Непрочитані</string>

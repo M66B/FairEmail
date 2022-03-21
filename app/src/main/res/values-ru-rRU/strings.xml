@@ -207,7 +207,6 @@
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
     <string name="title_setup_doze_device">Вероятно, это необходимо для вашего устройства</string>
-    <string name="title_setup_doze_12">Push-сообщения отключены</string>
     <string name="title_setup_alarm_12">Приложение не будет работать</string>
     <string name="title_setup_inexact">Будильники и напоминания отключены</string>
     <string name="title_setup_background">Фоновые ограничения включены</string>
@@ -1068,6 +1067,7 @@
     <string name="title_ask_delete_accept">Я понимаю, что окончательное удаление сообщений необратимо</string>
     <string name="title_ask_delete_answer">Удалить шаблон ответа навсегда?</string>
     <string name="title_ask_delete_rule">Удалить правило навсегда?</string>
+    <string name="title_ask_delete_attachments">Удалить все вложения?</string>
     <string name="title_ask_discard">Удалить черновик?</string>
     <string name="title_ask_show_html">Отображение исходного сообщения может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_html_remark">Отображение исходного сообщения с тёмным фоном невозможно, потому что это может привести к сокрытию тёмного текста и изображений</string>

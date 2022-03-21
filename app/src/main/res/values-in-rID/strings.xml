@@ -175,7 +175,6 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_setup_doze_battery">Penggunaan boros baterai?</string>
     <string name="title_setup_doze_stopped">Sinkronisasi berhenti?</string>
     <string name="title_setup_doze_device">Ini mungkin diperlukan untuk perangkat ini</string>
-    <string name="title_setup_doze_12">Pesan dorong nonaktif</string>
     <string name="title_setup_alarm_12">Aplikasi tidak bisa berfungsi</string>
     <string name="title_setup_inexact">Peringatan pengingat &amp; nonaktif</string>
     <string name="title_setup_background">Pembatasan pada latar belakang telah diaktifkan</string>

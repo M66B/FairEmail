@@ -187,7 +187,6 @@
     <string name="title_setup_doze_battery">Alto consumo della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
     <string name="title_setup_doze_device">Questo è probabilmente necessario per questo dispositivo</string>
-    <string name="title_setup_doze_12">I messaggi push sono disabilitati</string>
     <string name="title_setup_alarm_12">L\'app non funzionerà</string>
     <string name="title_setup_inexact">Sveglie e promemoria sono disabilitati</string>
     <string name="title_setup_background">Restrizioni di background abilitate</string>
@@ -264,6 +263,8 @@
     <string name="title_setup_reset_full">Mostra i messaggi originali</string>
     <string name="title_setup_reset_images">Mostra le immagini</string>
     <string name="title_setup_reset_links">Confermare i link</string>
+    <string name="title_check_gmail_oauth">I tuoi profili Gmail continueranno a funzionare dopo il 30 Maggio 2022</string>
+    <string name="title_check_gmail_password">Alcuni dei profili Gmail potrebbero smettere di funzionare dopo il 30 Maggio 2022</string>
     <string name="title_advanced_hint_title">Opzioni più avanzate</string>
     <string name="title_advanced_hint_message">        Stai navigando alle opzioni più avanzate.
         Tutte le opzioni hanno comunemente usato valori standard, che non devi modificare a meno che tu non abbia una preferenza differente.
@@ -1020,6 +1021,8 @@
     <string name="title_no_recorder">Nessun\'app di registrazione audio adatta disponibile</string>
     <string name="title_no_camera">Nessun\'app fotocamera adatta</string>
     <string name="title_no_saf">Framework di accesso all\'archiviazione non disponibile</string>
+    <string name="title_no_stream">FairEmail non è autorizzato a leggere direttamente questo file</string>
+    <string name="title_no_stream_help">Ciò è risolvibile selezionando il file con un\'app di gestione dei file più moderna o concedendo l\'autorizzazione a leggere i file</string>
     <string name="title_no_internet">Nessuna o inadeguata connessione a Internet</string>
     <string name="title_no_connection">Connessione a uno o più profili&#8230;</string>
     <string name="title_no_folder">La cartella non esiste</string>
@@ -1260,6 +1263,7 @@
     <string name="title_search_device">Cerca sul dispositivo</string>
     <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_in">Cerca in</string>
+    <string name="title_search_delete">Eliminare la ricerca salvata?</string>
     <string name="title_sort_on">Ordina per</string>
     <string name="title_sort_on_time">Ora</string>
     <string name="title_sort_on_unread">Non letti</string>
