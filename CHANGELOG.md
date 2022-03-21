@@ -4,7 +4,7 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next version
+### 1.1858 - 2022-03-21
 
 * Added remove all attachments button to message editor
 * Showing filter rule condition values in the rule list
