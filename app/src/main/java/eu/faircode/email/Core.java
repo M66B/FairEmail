@@ -2177,12 +2177,43 @@ class Core {
         for (EntityFolder folder : folders) {
             if (folder.tbc != null) {
                 try {
+                    // Prefix folder with namespace
+                    Folder[] ns = istore.getPersonalNamespaces();
+                    if (ns != null && ns.length == 1) {
+                        String n = ns[0].getFullName();
+                        // Typically "" or "INBOX"
+                        if (!TextUtils.isEmpty(n)) {
+                            n += ns[0].getSeparator();
+                            if (!folder.name.startsWith(n)) {
+                                folder.name = n + folder.name;
+                                db.folder().updateFolder(folder);
+                            }
+                        }
+                    }
+
                     EntityLog.log(context, folder.name + " creating");
                     Folder ifolder = istore.getFolder(folder.name);
-                    if (!ifolder.exists()) {
-                        ifolder.create(Folder.HOLDS_MESSAGES);
-                        ifolder.setSubscribed(true);
-                    }
+                    if (!ifolder.exists())
+                        try {
+                            ((IMAPFolder) ifolder).doCommand(new IMAPFolder.ProtocolCommand() {
+                                @Override
+                                public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                                    protocol.create(folder.name);
+                                    return null;
+                                }
+                            });
+                            ifolder.setSubscribed(true);
+                        } catch (MessagingException ex) {
+                            // com.sun.mail.iap.CommandFailedException:
+                            //  K5 NO Client tried to access nonexistent namespace.
+                            //  (Mailbox name should probably be prefixed with: INBOX.) (n.nnn + n.nnn secs).
+                            // com.sun.mail.iap.CommandFailedException:
+                            //  AN5 NO [OVERQUOTA] Quota exceeded (number of mailboxes exceeded) (n.nnn + n.nnn + n.nnn secs).
+                            Log.w(ex);
+                            EntityLog.log(context, folder.name + " creation " +
+                                    ex + "\n" + android.util.Log.getStackTraceString(ex));
+                            db.account().setAccountError(account.id, Log.formatThrowable(ex));
+                        }
                     local.put(folder.name, folder);
                 } finally {
                     db.folder().resetFolderTbc(folder.id);
