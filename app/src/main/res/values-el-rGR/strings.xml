@@ -1043,6 +1043,7 @@
     <string name="title_ask_delete_accept">Κατανοώ πως η μόνιμη διαγραφή μηνυμάτων είναι μη αναστρέψιμη</string>
     <string name="title_ask_delete_answer">Οριστική διαγραφή του προτύπου απάντησης;</string>
     <string name="title_ask_delete_rule">Οριστική διαγραφή του κανόνα;</string>
+    <string name="title_ask_delete_attachments">Αφαίρεση όλων των συνημμένων;</string>
     <string name="title_ask_discard">Απόρριψη προχείρου;</string>
     <string name="title_ask_show_html">Η προβολή του αρχικού μηνύματος μπορεί να προδώσει ευαίσθητα προσωπικά δεδομένα</string>
     <string name="title_ask_show_html_remark">Η προβολή του αρχικού μηνύματος σε σκούρο φόντο δεν είναι εφικτή, καθώς ενδέχεται να κάνει αόρατα κείμενα και εικόνες με σκούρα χρώματα</string>

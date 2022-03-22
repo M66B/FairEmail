@@ -1048,6 +1048,7 @@
     <string name="title_ask_delete_accept">Comprendo che l\'eliminazione permanente dei messaggi è irriversibile</string>
     <string name="title_ask_delete_answer">Eliminare permanentemente il modello di risposta?</string>
     <string name="title_ask_delete_rule">Eliminare permanentemente la regola?</string>
+    <string name="title_ask_delete_attachments">Rimuovere tutti gli allegati?</string>
     <string name="title_ask_discard">Scartare la bozza?</string>
     <string name="title_ask_show_html">Mostrare il messaggio originale potrebbe causare una fuga di informazioni sensibili sulla privacy</string>
     <string name="title_ask_show_html_remark">Mostrare il messaggio originale su uno sfondo scuro è impossibile poiché potrebbe rendere i testi e le immagini scuri invisibili</string>

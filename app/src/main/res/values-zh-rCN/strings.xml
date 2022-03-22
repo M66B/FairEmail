@@ -527,7 +527,7 @@
     <string name="title_advanced_ask_images">确认显示图片</string>
     <string name="title_advanced_confirm_html">默认显示重新格式化的消息</string>
     <string name="title_advanced_ask_html">确认显示原始邮件</string>
-    <string name="title_advanced_tracking">尝试识别和禁止追踪用图像</string>
+    <string name="title_advanced_tracking">尝试识别和禁止追踪用途的图像</string>
     <string name="title_advanced_hide_timezone">发送没有时区数据的消息</string>
     <string name="title_advanced_client_id">将应用名称和版本发送到电子邮件服务器</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
@@ -541,9 +541,9 @@
     <string name="title_advanced_load_emoji">从 Google Play 服务加载更新的 Emoji</string>
     <string name="title_advanced_disconnect_auto_update">每周自动更新列表</string>
     <string name="title_advanced_disconnect_links">使用该列表来警告跟踪链接</string>
-    <string name="title_advanced_disconnect_images">使用该列表来识别追踪图像</string>
+    <string name="title_advanced_disconnect_images">使用该列表来识别追踪用途的图像</string>
     <string name="title_advanced_mnemonic">远程删除数据</string>
-    <string name="title_advanced_mnemonic_hint">如果收到任何标题栏有以下文字的邮件，应用程序数据将立即被自动删除</string>
+    <string name="title_advanced_mnemonic_hint">如果收到任何标题行含有以下文字的电子邮件，应用程序数据将立即被自动删除</string>
     <string name="title_advanced_clear_all">删除应用数据</string>
     <string name="title_advanced_clear_all_remark">应用数据将不可逆转地删除！</string>
     <string name="title_advanced_sign_default">使用默认签名</string>
@@ -1033,6 +1033,7 @@
     <string name="title_ask_delete_accept">我明白永久删除消息是不可逆的</string>
     <string name="title_ask_delete_answer">是否永久性删除回复模板？</string>
     <string name="title_ask_delete_rule">是否永久删除规则？</string>
+    <string name="title_ask_delete_attachments">删除所有附件？</string>
     <string name="title_ask_discard">舍弃草稿？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_html_remark">无法在暗色背景下显示原始消息，因为会导致看不见的黑色文本和图像</string>
@@ -1450,7 +1451,7 @@
     <string name="title_legend_reformatted">查看格式重制后的消息</string>
     <string name="title_legend_external_image">外部图像的占位符</string>
     <string name="title_legend_embedded_image">嵌入图像的占位符</string>
-    <string name="title_legend_tracking_pixel">追踪图像</string>
+    <string name="title_legend_tracking_pixel">追踪用途的图像</string>
     <string name="title_legend_broken_image">损坏的图像</string>
     <string name="title_legend_pick">选择联系人</string>
     <string name="title_legend_cc">显示抄送和密送</string>

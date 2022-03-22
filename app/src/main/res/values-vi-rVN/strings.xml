@@ -206,6 +206,7 @@
     <string name="title_setup_password_different">Mật khẩu không khớp</string>
     <string name="title_setup_password_invalid">Mật khẩu không hợp lệ</string>
     <string name="title_setup_import_accounts">Nhập các tài khoản và danh tính</string>
+    <string name="title_setup_import_delete">Xóa các tài khoản hiện có trước tiên</string>
     <string name="title_setup_import_rules">Nhập các quy tắc bộ lọc</string>
     <string name="title_setup_import_contacts">Nhập các liên hệ cục bộ</string>
     <string name="title_setup_import_answers">Nhập các mẫu để tạo câu trả lời</string>
@@ -252,6 +253,8 @@
     <string name="title_setup_reset_full">Hiện thư gốc</string>
     <string name="title_setup_reset_images">Hiện hình ảnh</string>
     <string name="title_setup_reset_links">Xác nhận liên kết</string>
+    <string name="title_check_gmail_oauth">Các tài khoản Gmail của bạn sẽ tiếp tục hoạt động sau 30 tháng 5, 2022</string>
+    <string name="title_check_gmail_password">Một số tài khoản Gmail của bạn có thể dừng hoạt động sau 30 tháng 5, 2022</string>
     <string name="title_advanced_hint_title">Tuỳ chọn nâng cao hơn</string>
     <string name="title_advanced_hint_message">        Bạn đang điều hướng đến các tùy chọn nâng cao hơn.        Tất cả các tùy chọn đều có các giá trị tiêu chuẩn thường được sử dụng, bạn không cần phải thay đổi trừ khi bạn có tùy chọn khác.
     </string>
@@ -323,6 +326,7 @@
     <string name="title_advanced_signature_reply">Sử dụng chữ ký khi trả lời</string>
     <string name="title_advanced_signature_forward">Sử dụng chữ ký khi chuyển tiếp</string>
     <string name="title_advanced_discard_delete">Khi bỏ thư nháp vĩnh viễn xoá thư nháp</string>
+    <string name="title_advanced_reply_move">Khi trả lời thư, lưu thư trả lời trong thư mục đó</string>
     <string name="title_advanced_auto_link">Tự động tạo các liên kết</string>
     <string name="title_advanced_plain_only">Chỉ gửi văn bản thường theo mặc định</string>
     <string name="title_advanced_flow">\'format flowed\' cho văn bản thường</string>
@@ -364,6 +368,7 @@
     <string name="title_advanced_nav_hide_message">Bạn có thể bật lại các tùy chọn trong cài đặt hiển thị</string>
     <string name="title_advanced_nav_message_count">Hiện số thư được lưu trữ cục bộ trong menu điều hướng</string>
     <string name="title_advanced_nav_unseen_drafts">Hiện số thư nháp chưa đọc trong menu điều hướng</string>
+    <string name="title_advanced_nav_pinned_count">Hiện số thư chưa đọc trong menu điều hướng được ghim</string>
     <string name="title_advanced_startup">Hiện trên màn hình bắt đầu</string>
     <string name="title_advanced_cards">Sử dụng kiểu thẻ thay vì kiểu tab</string>
     <string name="title_advanced_cards_beige">Sử dụng nền màu be khi dùng kiểu thẻ (chỉ chủ đề sáng)</string>
@@ -383,6 +388,7 @@
     <string name="title_advanced_color_stripe_wide">Sử dụng dải màu rộng</string>
     <string name="title_advanced_avatars">Hiện ảnh liên hệ</string>
     <string name="title_advanced_gravatars">Hiện Gravatar</string>
+    <string name="title_advanced_libravatars">Hiện Libravatar</string>
     <string name="title_advanced_bimi_unverified">Người gửi chưa được xác minh</string>
     <string name="title_advanced_bimi_verified">Người gửi đã được xác minh</string>
     <string name="title_advanced_favicons">Hiện biểu tượng yêu thích</string>
@@ -415,6 +421,7 @@
     <string name="title_advanced_preview_italic">Hiện xem trước thư bằng chữ nghiêng</string>
     <string name="title_advanced_preview_lines">Số dòng xem trước</string>
     <string name="title_advanced_addresses">Mở rộng chi tiết địa chỉ theo mặc định</string>
+    <string name="title_advanced_unzip">Hiện nội dung các tệp đính kèm đã nén</string>
     <string name="title_advanced_attachments_alt">Hiện các tệp đính kèm sau văn bản thư</string>
     <string name="title_advanced_thumbnails">Hiện hình ảnh xem trước sau văn bản thư</string>
     <string name="title_advanced_message_text_zoom2">Độ phóng văn bản thư mặc định: %1$s %%</string>
@@ -470,6 +477,7 @@
     <string name="title_advanced_undo">Thời gian chờ hoàn tác</string>
     <string name="title_advanced_quick_filter">Hiện biểu tượng bộ lọc nhanh không gây phiền</string>
     <string name="title_advanced_quick_scroll">Hiện biểu tượng cuộn lên/xuống nhanh không gây phiền</string>
+    <string name="title_advanced_folder_nav">Luôn quay lại danh sách thư mục từ danh sách thư</string>
     <string name="title_advanced_autoread">Tự động đánh dấu thư đã đọc khi di chuyển thư</string>
     <string name="title_advanced_star_snoozed">Tự động thêm sao khi đặt báo lại thư</string>
     <string name="title_advanced_autounstar">Tự động bỏ sao khỏi thư khi di chuyển thư</string>
@@ -534,6 +542,10 @@
     <string name="title_advanced_disconnect_auto_update">Tự động cập nhật các danh sách hàng tuần</string>
     <string name="title_advanced_disconnect_links">Sử dụng các danh sách để cảnh báo về các liên kết theo dõi</string>
     <string name="title_advanced_disconnect_images">Sử dụng các danh sách để nhận ra các hình ảnh theo dõi</string>
+    <string name="title_advanced_mnemonic">Xóa dữ liệu từ xa</string>
+    <string name="title_advanced_mnemonic_hint">Bất kỳ email nào nhận được mà có các từ sau ở dòng chủ đề sẽ tự động xóa dữ liệu ứng dụng ngay lập tức</string>
+    <string name="title_advanced_clear_all">Xóa dữ liệu ứng dụng</string>
+    <string name="title_advanced_clear_all_remark">Dữ liệu ứng dụng sẽ bị xóa và không thể phục hồi!</string>
     <string name="title_advanced_sign_default">Ký theo mặc định</string>
     <string name="title_advanced_encrypt_default">Mã hoá theo mặc định</string>
     <string name="title_advanced_auto_decrypt">Tự động giải mã thư</string>
@@ -556,6 +568,7 @@
     </string>
     <string name="title_advanced_power_menu">Thêm các hành động vào menu nguồn của Android</string>
     <string name="title_advanced_external_search">Cho phép các ứng dụng khác tìm kiếm trong thư</string>
+    <string name="title_advanced_sort_answers">Sắp xếp mẫu thư trả lời theo tần suất sử dụng</string>
     <string name="title_advanced_shortcuts">Hiện các liên hệ hay sử dụng trong menu chia sẻ của Android</string>
     <string name="title_advanced_fts">Xây dựng mục lục tìm kiếm</string>
     <string name="title_advanced_fts_indexed">%1$d /%2$d thư đã tạo mục lục (%3$s)</string>
@@ -634,6 +647,7 @@
     <string name="title_advanced_monospaced_pre_hint">Các thư chỉ có văn bản thuần sẽ được coi là đã định dạng trước</string>
     <string name="title_advanced_placeholders_hint">Cái này chỉ áp dụng cho các thư được định dạng lại</string>
     <string name="title_advanced_inline_hint">Hình ảnh tích hợp là hình ảnh được bao gồm trong thư</string>
+    <string name="compressed">Nội dung các tệp đã nén (%1$s) có nhiều hơn %2$s tệp hoặc có tệp lớn hơn %3$s sẽ không được hiện</string>
     <string name="title_advanced_parse_classes_hint">Cái này sẽ hiển thị thư chính xác hơn, nhưng có thể có độ trễ</string>
     <string name="title_advanced_language_detection_hint">Việc hỗ trợ dò tìm ngôn ngữ phụ thuộc vào nhà sản xuất thiết bị</string>
     <string name="title_advanced_autoexpand_hint">Tự động mở thư khi chỉ cỏ một thư hoặc một thư chưa đọc trong một cuộc hội thoại</string>
@@ -777,6 +791,7 @@
     <string name="title_last_connected">Lần cuối kết nối: %1$s</string>
     <string name="title_backoff_until">Đang đợi sau khi thất bại cho đến: %1$s</string>
     <string name="title_storage_quota">Sử dụng kho lưu trữ của máy chủ: %1$s/%2$s</string>
+    <string name="title_pop_support">Giao thức POP3 chỉ có thể tải xuống và xóa thư khỏi hộp thư đến. Bạn không thể đánh dấu thư đã đọc, báo cáo thư rác, di chuyển thư, v.v. Hãy cân nhắc sử dụng giao thức IMAP khi có thể.</string>
     <string name="title_pop_sent">Nếu thiết bị của bạn bị mất hoặc trộm, các thư đã gửi sẽ có thể bị mất.</string>
     <string name="title_pop_warning">Nếu một máy chủ POP3 không hỗ trợ lệnh UIDL, sử dụng dữ liệu có thể sẽ cao. Vậy nên, hãy theo đó mà điều chỉnh tần số kiểm tra ở dưới.</string>
     <string name="title_pop_folders">Giao thức POP3 không hỗ trợ việc tạo thư mục</string>
@@ -992,6 +1007,8 @@
     <string name="title_no_recorder">Không có ứng dụng ghi âm phù hợp</string>
     <string name="title_no_camera">Không có ứng dụng máy ảnh phù hợp</string>
     <string name="title_no_saf">Storage access framework không có sẵn</string>
+    <string name="title_no_stream">FairEmail không có quyền đọc tệp này trực tiếp</string>
+    <string name="title_no_stream_help">Việc này có thể giải quyết bằng cách chọn tệp bằng ứng dụng quản lý tệp hiện đại hơn hoặc bằng cách cấp quyền đọc tệp</string>
     <string name="title_no_internet">Không có hoặc không có kết nối internet phù hợp</string>
     <string name="title_no_connection">Đang kết nối đến một hoặc nhiều tài khoản &#8230;</string>
     <string name="title_no_folder">Thư mục không tồn tại</string>
@@ -1017,6 +1034,7 @@
     <string name="title_ask_delete_accept">Tôi hiểu rằng việc xoá thư vĩnh viễn không thể được hoàn tác</string>
     <string name="title_ask_delete_answer">Xoá mẫu trả lời vĩnh viễn?</string>
     <string name="title_ask_delete_rule">Xóa quy tắc vĩnh viễn?</string>
+    <string name="title_ask_delete_attachments">Xóa tất cả tệp đính kèm?</string>
     <string name="title_ask_discard">Bỏ thư nháp?</string>
     <string name="title_ask_show_html">Việc hiện thư gốc có thể gây rò rỉ thông tin riêng tư nhạy cảm</string>
     <string name="title_ask_show_html_remark">Không thể hiển thị thư gốc trên nền tối vì các văn bản tối và hình ảnh có thể không nhìn thấy được</string>
@@ -1218,6 +1236,7 @@
     <string name="title_search_in_junk">Trong thư rác</string>
     <string name="title_search_with_before">Trước</string>
     <string name="title_search_with_after">Sau</string>
+    <string name="title_search_device_first">Tìm kiếm trên thiết bị trước tiên</string>
     <string name="title_search_flag_unseen">chưa đọc</string>
     <string name="title_search_flag_flagged">được gắn sao</string>
     <string name="title_search_flag_hidden">ẩn</string>
@@ -1229,6 +1248,7 @@
     <string name="title_search_device">Tìm kiếm trên thiết bị</string>
     <string name="title_search_server">Tìm kiếm trên máy chủ</string>
     <string name="title_search_in">Tìm kiếm trong</string>
+    <string name="title_search_delete">Xóa mục tìm kiếm đã lưu?</string>
     <string name="title_sort_on">Sắp xếp theo</string>
     <string name="title_sort_on_time">Thời gian</string>
     <string name="title_sort_on_unread">Chưa đọc</string>
@@ -1274,6 +1294,7 @@
     <string name="title_answer_group">Nhóm mẫu (không bắt buộc)</string>
     <string name="title_answer_standard">Mặc định</string>
     <string name="title_answer_favorite">Yêu thích</string>
+    <string name="title_answer_snippet">Đoạn trích</string>
     <string name="title_answer_receipt">Sử dụng làm xác nhận đã đọc</string>
     <string name="title_answer_hide">Ẩn khỏi các menu</string>
     <string name="title_answer_text">Văn bản mẫu</string>

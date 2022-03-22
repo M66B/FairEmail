@@ -1042,6 +1042,7 @@
     <string name="title_ask_delete_accept">Jag förstår att permanent ta bort meddelanden är oåterkalleligt</string>
     <string name="title_ask_delete_answer">Ta bort svarsmall permanent?</string>
     <string name="title_ask_delete_rule">Ta bort regel permanent?</string>
+    <string name="title_ask_delete_attachments">Ta bort alla bilagor?</string>
     <string name="title_ask_discard">Släng utkastet?</string>
     <string name="title_ask_show_html">Att visa det ursprungliga meddelandet kan läcka sekretesskänslig information</string>
     <string name="title_ask_show_html_remark">Att visa originalmeddelandet med en mörk bakgrund är inte möjligt eftersom det kan orsaka osynliga mörka texter och bilder</string>

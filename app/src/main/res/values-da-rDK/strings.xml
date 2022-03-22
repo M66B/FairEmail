@@ -1047,6 +1047,7 @@
     <string name="title_ask_delete_accept">Det er forstået, at permanent beskedsletning er irreversibel</string>
     <string name="title_ask_delete_answer">Slet svarskabelon permanent?</string>
     <string name="title_ask_delete_rule">Slet regel permanent?</string>
+    <string name="title_ask_delete_attachments">Fjern alle vedhæftninger?</string>
     <string name="title_ask_discard">Kassér kladde?</string>
     <string name="title_ask_show_html">Visning af beskedindhold kan lække personfølsomme data</string>
     <string name="title_ask_show_html_remark">Visning af originalbeskeden på en mørk baggrund er ikke mulig, da det kan afstedkomme usynlige mørke tekster og billeder</string>

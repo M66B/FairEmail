@@ -1057,6 +1057,7 @@
     <string name="title_ask_delete_accept">Razumijem da je trajno brisanje poruka nepovratno</string>
     <string name="title_ask_delete_answer">Trajno izbrisati prijedložak za odgovore?</string>
     <string name="title_ask_delete_rule">Trajno izbrisati pravilo?</string>
+    <string name="title_ask_delete_attachments">Ukloniti sve priloge?</string>
     <string name="title_ask_discard">Odbaciti nacrt?</string>
     <string name="title_ask_show_html">Prikaz originalne poruke može uzrokovati curenje osjetljivih informacija</string>
     <string name="title_ask_show_html_remark">Prikaz izvorne poruke na tamnoj pozadini nije moguć jer bi to učinilo tamne tekstove i slike nevidljivim</string>

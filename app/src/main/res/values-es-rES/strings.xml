@@ -263,6 +263,8 @@
     <string name="title_setup_reset_full">Mostrar el mensaje original</string>
     <string name="title_setup_reset_images">Mostrar imágenes</string>
     <string name="title_setup_reset_links">Confirmar enlaces</string>
+    <string name="title_check_gmail_oauth">Tus cuentas de Gmail continuarán funcionando después del 30 de Mayo de 2022</string>
+    <string name="title_check_gmail_password">Algunas de sus cuentas de Gmail podrían dejar de funcionar después del 30 de Mayo de 2022</string>
     <string name="title_advanced_hint_title">Opciones más avanzadas</string>
     <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.        Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
     </string>
@@ -1016,6 +1018,8 @@
     <string name="title_no_recorder">No hay una aplicación de grabación de audio adecuada</string>
     <string name="title_no_camera">No hay una aplicación de cámara adecuada disponible</string>
     <string name="title_no_saf">Framework de acceso a almacenamiento no disponible</string>
+    <string name="title_no_stream">FairEmail no tiene permiso para leer este archivo directamente</string>
+    <string name="title_no_stream_help">Esto puede resolverse seleccionando el archivo con una app de gestión de archivos más moderna u otorgando permiso para leer archivos</string>
     <string name="title_no_internet">No o ninguna conexión adecuada de Internet</string>
     <string name="title_no_connection">Conectando a una o más cuentas &#8230;</string>
     <string name="title_no_folder">La carpeta no existe</string>
@@ -1041,6 +1045,7 @@
     <string name="title_ask_delete_accept">Entiendo que la eliminación permanente de mensajes es irreverible</string>
     <string name="title_ask_delete_answer">¿Eliminar plantilla de respuesta permanentemente?</string>
     <string name="title_ask_delete_rule">¿Eliminar regla permanentemente?</string>
+    <string name="title_ask_delete_attachments">¿Eliminar todos los adjuntos?</string>
     <string name="title_ask_discard">¿Descartar el borrador?</string>
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_html_remark">No es posible mostrar el mensaje original con un fondo oscuro porque puede causar que textos e imágenes oscuros sean invisibles</string>
@@ -1253,6 +1258,7 @@
     <string name="title_search_device">Buscar en dispositivo</string>
     <string name="title_search_server">Buscar en el servidor</string>
     <string name="title_search_in">Buscar en</string>
+    <string name="title_search_delete">¿Borrar búsqueda guardada?</string>
     <string name="title_sort_on">Ordenar por</string>
     <string name="title_sort_on_time">Tiempo</string>
     <string name="title_sort_on_unread">No leído</string>
