@@ -129,6 +129,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                 if (jcondition.has("subject"))
                     conditions.add(new Pair<>(context.getString(R.string.title_rule_subject),
                             jcondition.getJSONObject("subject").optString("value")));
+                if (jcondition.optBoolean("attachments"))
+                    conditions.add(new Pair<>(context.getString(R.string.title_rule_attachments),
+                            null));
                 if (jcondition.has("header"))
                     conditions.add(new Pair<>(context.getString(R.string.title_rule_header),
                             jcondition.getJSONObject("header").optString("value")));
