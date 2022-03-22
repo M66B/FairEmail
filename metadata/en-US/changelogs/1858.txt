@@ -4,10 +4,16 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### Next version
+
+* Showing common filter rule action values in rule lists
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1858 - 2022-03-21
 
 * Added remove all attachments button to message editor
-* Showing filter rule condition values in the rule list
+* Showing filter rule condition values in rule lists
 * Small improvements and minor bug fixes
 * Updated translations
 
