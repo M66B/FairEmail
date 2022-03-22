@@ -164,57 +164,50 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             try {
                 JSONObject jaction = new JSONObject(rule.action);
                 int type = jaction.getInt("type");
-                switch (type) {
-                    case EntityRule.TYPE_NOOP:
-                        tvAction.setText(R.string.title_rule_noop);
-                        break;
-                    case EntityRule.TYPE_SEEN:
-                        tvAction.setText(R.string.title_rule_seen);
-                        break;
-                    case EntityRule.TYPE_UNSEEN:
-                        tvAction.setText(R.string.title_rule_unseen);
-                        break;
-                    case EntityRule.TYPE_HIDE:
-                        tvAction.setText(R.string.title_rule_hide);
-                        break;
-                    case EntityRule.TYPE_IGNORE:
-                        tvAction.setText(R.string.title_rule_ignore);
-                        break;
-                    case EntityRule.TYPE_SNOOZE:
-                        tvAction.setText(R.string.title_rule_snooze);
-                        break;
-                    case EntityRule.TYPE_FLAG:
-                        tvAction.setText(R.string.title_rule_flag);
-                        break;
-                    case EntityRule.TYPE_IMPORTANCE:
-                        tvAction.setText(R.string.title_rule_importance);
-                        break;
-                    case EntityRule.TYPE_KEYWORD:
-                        tvAction.setText(R.string.title_rule_keyword);
-                        break;
-                    case EntityRule.TYPE_MOVE:
-                        tvAction.setText(R.string.title_rule_move);
-                        break;
-                    case EntityRule.TYPE_COPY:
-                        tvAction.setText(R.string.title_rule_copy);
-                        break;
-                    case EntityRule.TYPE_ANSWER:
-                        tvAction.setText(R.string.title_rule_answer);
-                        break;
-                    case EntityRule.TYPE_TTS:
-                        tvAction.setText(R.string.title_rule_tts);
-                        break;
-                    case EntityRule.TYPE_AUTOMATION:
-                        tvAction.setText(R.string.title_rule_automation);
-                        break;
-                    case EntityRule.TYPE_DELETE:
-                        tvAction.setText(R.string.title_rule_delete);
-                        break;
-                    case EntityRule.TYPE_SOUND:
-                        tvAction.setText(R.string.title_rule_sound);
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Unknown action type=" + type);
+                tvAction.setText(getActionTitle(type));
+
+                if (type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", rule.id);
+                    args.putInt("type", type);
+                    args.putLong("target", jaction.optLong("target", -1));
+
+                    new SimpleTask<EntityFolder>() {
+                        @Override
+                        protected EntityFolder onExecute(Context context, Bundle args) throws Throwable {
+                            long target = args.getLong("target");
+
+                            DB db = DB.getInstance(context);
+                            return db.folder().getFolder(target);
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, EntityFolder folder) {
+                            int pos = getAdapterPosition();
+                            if (pos == RecyclerView.NO_POSITION)
+                                return;
+
+                            long id = args.getLong("id");
+                            if (id != AdapterRule.this.getItemId(pos))
+                                return;
+
+                            int type = args.getInt("type");
+                            SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+                            ssb.append(context.getString(getActionTitle(type)));
+                            ssb.append(" \"");
+                            int start = ssb.length();
+                            ssb.append(folder == null ? "???" : folder.name);
+                            ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), 0);
+                            ssb.append("\"");
+
+                            tvAction.setText(ssb);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            // Ignored
+                        }
+                    }.execute(context, owner, args, "rule:folder");
                 }
             } catch (Throwable ex) {
                 tvAction.setText(ex.getMessage());
@@ -430,6 +423,45 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             popupMenu.show();
 
             return true;
+        }
+
+        private int getActionTitle(int type) {
+            switch (type) {
+                case EntityRule.TYPE_NOOP:
+                    return R.string.title_rule_noop;
+                case EntityRule.TYPE_SEEN:
+                    return R.string.title_rule_seen;
+                case EntityRule.TYPE_UNSEEN:
+                    return R.string.title_rule_unseen;
+                case EntityRule.TYPE_HIDE:
+                    return R.string.title_rule_hide;
+                case EntityRule.TYPE_IGNORE:
+                    return R.string.title_rule_ignore;
+                case EntityRule.TYPE_SNOOZE:
+                    return R.string.title_rule_snooze;
+                case EntityRule.TYPE_FLAG:
+                    return R.string.title_rule_flag;
+                case EntityRule.TYPE_IMPORTANCE:
+                    return R.string.title_rule_importance;
+                case EntityRule.TYPE_KEYWORD:
+                    return R.string.title_rule_keyword;
+                case EntityRule.TYPE_MOVE:
+                    return R.string.title_rule_move;
+                case EntityRule.TYPE_COPY:
+                    return R.string.title_rule_copy;
+                case EntityRule.TYPE_ANSWER:
+                    return R.string.title_rule_answer;
+                case EntityRule.TYPE_TTS:
+                    return R.string.title_rule_tts;
+                case EntityRule.TYPE_AUTOMATION:
+                    return R.string.title_rule_automation;
+                case EntityRule.TYPE_DELETE:
+                    return R.string.title_rule_delete;
+                case EntityRule.TYPE_SOUND:
+                    return R.string.title_rule_sound;
+                default:
+                    throw new IllegalArgumentException("Unknown action type=" + type);
+            }
         }
     }
 
