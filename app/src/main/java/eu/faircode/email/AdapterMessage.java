@@ -5242,6 +5242,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putLongArray("disabled", disabled);
             args.putLong("message", message.id);
             args.putBoolean("copy", copy);
+            args.putBoolean("cancopy", true);
             args.putBoolean("similar", false);
 
             FragmentDialogFolder fragment = new FragmentDialogFolder();
