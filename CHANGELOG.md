@@ -4,7 +4,7 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next version
+### 1.1859 - 2022-03-22
 
 * Showing common filter rule action values in rule lists
 * Small improvements and minor bug fixes
