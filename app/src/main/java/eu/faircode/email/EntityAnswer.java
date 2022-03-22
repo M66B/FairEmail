@@ -285,7 +285,7 @@ public class EntityAnswer implements Serializable {
 
                 ssb.append(" host ");
                 start = ssb.length();
-                ssb.append(p.imap.host);
+                ssb.append(p.imap.host == null ? "?" : p.imap.host);
                 ssb.setSpan(new StyleSpan(Typeface.BOLD),
                         start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
@@ -307,7 +307,7 @@ public class EntityAnswer implements Serializable {
 
                 ssb.append(" host ");
                 start = ssb.length();
-                ssb.append(p.smtp.host);
+                ssb.append(p.smtp.host == null ? "?" : p.smtp.host);
                 ssb.setSpan(new StyleSpan(Typeface.BOLD),
                         start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
