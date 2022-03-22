@@ -3264,6 +3264,13 @@ are not available, for example when using a non Play store version of the app, o
 
 OAuth is not supported for third party builds like the F-Droid build, please [see here](#user-content-faq147) about why not.
 
+Since version 1.1859 there is support for custom OAuth.
+To use custom OAuth, an XML file containing the server and OAuth data, like the client secret, should be created and imported.
+Please [see here](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/xml/providers.xml) about how the XML file should look like.
+The XML file can be imported via a button in the debug panel of the miscellaneous settings of the app.
+To show the debug panel, debug mode mode should temporarily be enabled.
+After importing, you can use the quick setup wizard to configure an account.
+
 <br />
 
 <a name="faq112"></a>
