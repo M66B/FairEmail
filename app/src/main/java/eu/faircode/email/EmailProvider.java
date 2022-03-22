@@ -126,15 +126,17 @@ public class EmailProvider implements Parcelable {
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                File file = new File(context.getFilesDir(), "providers.xml");
-                if (file.exists()) {
-                    try (FileInputStream is = new FileInputStream(file)) {
-                        XmlPullParser parser = Xml.newPullParser();
-                        parser.setInput(is, null);
-                        imported = parseProfiles(parser);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
+                try {
+                    File file = new File(context.getFilesDir(), "providers.xml");
+                    if (file.exists()) {
+                        try (FileInputStream is = new FileInputStream(file)) {
+                            XmlPullParser parser = Xml.newPullParser();
+                            parser.setInput(is, null);
+                            imported = parseProfiles(parser);
+                        }
                     }
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
             }
         });
