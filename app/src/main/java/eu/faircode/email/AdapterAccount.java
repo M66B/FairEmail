@@ -218,7 +218,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 tvName.setTextColor(account.unseen > 0 ? colorUnread : textColorSecondary);
             }
 
-            tvUser.setText(account.user);
+            StringBuilder user = new StringBuilder(account.user);
+            if (account.provider != null && (BuildConfig.DEBUG || debug))
+                user.append(" (").append(account.provider).append(')');
+            tvUser.setText(user);
 
             if ("connected".equals(account.state)) {
                 ivState.setImageResource(R.drawable.twotone_cloud_done_24);
