@@ -47,6 +47,7 @@ import com.sun.mail.util.SocketConnectException;
 import com.sun.mail.util.TraceOutputStream;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -450,6 +451,8 @@ public class EmailService implements AutoCloseable {
                 try {
                     authenticator.refreshToken(true);
                     connect(host, port, auth, user, factory);
+                } catch (FileNotFoundException ex1) {
+                    throw new AuthenticationFailedException(ex1.getMessage(), ex1);
                 } catch (Exception ex1) {
                     Log.e(ex1);
                     String msg = ex.getMessage();

@@ -34,6 +34,7 @@ import net.openid.appauth.NoClientAuthentication;
 
 import org.json.JSONException;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Objects;
@@ -146,7 +147,7 @@ public class ServiceAuthenticator extends Authenticator {
     }
 
     private static void OAuthRefresh(Context context, String id, AuthState authState, boolean expire, long keep_alive)
-            throws MessagingException {
+            throws FileNotFoundException, MessagingException {
         try {
             Long expiration = authState.getAccessTokenExpirationTime();
             if (expiration != null && expiration - keep_alive < new Date().getTime()) {
@@ -188,6 +189,8 @@ public class ServiceAuthenticator extends Authenticator {
 
             if (holder.error != null)
                 throw holder.error;
+        } catch (FileNotFoundException ex) {
+            throw ex; // provider not found
         } catch (Exception ex) {
             throw new MessagingException("OAuth refresh id=" + id, ex);
         }
