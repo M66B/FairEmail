@@ -214,6 +214,7 @@ public class ApplicationEx extends Application
                 Log.e(ex);
             }
 
+        EmailProvider.init(this);
         EncryptionHelper.init(this);
         MessageHelper.setSystemProperties(this);
 

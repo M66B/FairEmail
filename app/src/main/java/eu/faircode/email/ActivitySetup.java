@@ -142,6 +142,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final int REQUEST_OAUTH = 7;
     static final int REQUEST_STILL = 8;
     static final int REQUEST_DELETE_ACCOUNT = 9;
+    static final int REQUEST_IMPORT_PROVIDERS = 10;
 
     static final int PI_MISC = 1;
 
@@ -461,6 +462,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 case REQUEST_IMPORT_CERTIFICATE:
                     if (resultCode == RESULT_OK && data != null)
                         handleImportCertificate(data);
+                    break;
+                case REQUEST_IMPORT_PROVIDERS:
+                    if (resultCode == RESULT_OK && data != null)
+                        handleImportProviders(data);
                     break;
             }
         } catch (Throwable ex) {
@@ -1541,6 +1546,34 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 }
             }.execute(this, args, "setup:cert");
         }
+    }
+
+    private void handleImportProviders(Intent data) {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", data.getData());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+
+                Log.i("Reading URI=" + uri);
+                ContentResolver resolver = context.getContentResolver();
+                EmailProvider.importProfiles(resolver.openInputStream(uri), context);
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ToastEx.makeText(ActivitySetup.this, R.string.title_completed, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getSupportFragmentManager(), ex);
+            }
+        }.execute(this, args, "import:providers");
     }
 
     private void onGmail(Intent intent) {

@@ -1379,6 +1379,16 @@
                     app:layout_constraintTop_toBottomOf="@id/swDupMsgId"
                     app:switchPadding="12dp" />
 
+                <Button
+                    android:id="@+id/btnImportProviders"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_import_providers"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swTestIab" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvProcessors"
                     android:layout_width="0dp"
@@ -1388,7 +1398,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swTestIab" />
+                    app:layout_constraintTop_toBottomOf="@id/btnImportProviders" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvMemoryClass"

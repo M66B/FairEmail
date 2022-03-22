@@ -22,11 +22,11 @@ package eu.faircode.email;
 import static android.system.OsConstants.ECONNREFUSED;
 
 import android.content.Context;
-import android.content.res.XmlResourceParser;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.system.ErrnoException;
 import android.text.TextUtils;
+import android.util.Xml;
 
 import androidx.annotation.NonNull;
 
@@ -37,9 +37,14 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
@@ -92,6 +97,10 @@ public class EmailProvider implements Parcelable {
 
     enum UserType {LOCAL, EMAIL, VALUE}
 
+    private static List<EmailProvider> imported;
+    private static final ExecutorService executor =
+            Helper.getBackgroundExecutor(0, "provider");
+
     private static final int SCAN_TIMEOUT = 15 * 1000; // milliseconds
     private static final int ISPDB_TIMEOUT = 15 * 1000; // milliseconds
 
@@ -105,14 +114,39 @@ public class EmailProvider implements Parcelable {
             "keemail.me", // tutanota
             "ctemplar.com"
     ));
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(0, "provider");
 
     private EmailProvider() {
     }
 
     EmailProvider(String name) {
         this.name = name;
+    }
+
+    static void init(Context context) {
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                File file = new File(context.getFilesDir(), "providers.xml");
+                if (file.exists()) {
+                    try (FileInputStream is = new FileInputStream(file)) {
+                        XmlPullParser parser = Xml.newPullParser();
+                        parser.setInput(is, null);
+                        imported = parseProfiles(parser);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            }
+        });
+    }
+
+    static void importProfiles(InputStream is, Context context) throws IOException {
+        File file = new File(context.getFilesDir(), "providers.xml");
+        try (OutputStream os = new FileOutputStream(file)) {
+            Helper.copy(is, os);
+        }
+
+        init(context);
     }
 
     private void validate() throws UnknownHostException {
@@ -139,9 +173,38 @@ public class EmailProvider implements Parcelable {
 
     static List<EmailProvider> loadProfiles(Context context) {
         List<EmailProvider> result = null;
+
+        try {
+            result = parseProfiles(context.getResources().getXml(R.xml.providers));
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
+        if (imported != null)
+            result.addAll(imported);
+
+        final Collator collator = Collator.getInstance(Locale.getDefault());
+        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+        Collections.sort(result, new Comparator<EmailProvider>() {
+            @Override
+            public int compare(EmailProvider p1, EmailProvider p2) {
+                int o = Integer.compare(p1.order, p2.order);
+                if (o == 0)
+                    return collator.compare(p1.name, p2.name);
+                else
+                    return o;
+            }
+        });
+
+        return result;
+    }
+
+    private static List<EmailProvider> parseProfiles(XmlPullParser xml) {
+        List<EmailProvider> result = null;
+
         try {
             EmailProvider provider = null;
-            XmlResourceParser xml = context.getResources().getXml(R.xml.providers);
             int eventType = xml.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 if (eventType == XmlPullParser.START_TAG) {
@@ -156,7 +219,7 @@ public class EmailProvider implements Parcelable {
                         provider.description = xml.getAttributeValue(null, "description");
                         if (provider.description == null)
                             provider.description = provider.name;
-                        provider.enabled = xml.getAttributeBooleanValue(null, "enabled", true);
+                        provider.enabled = getAttributeBooleanValue(xml, "enabled", true);
 
                         String domain = xml.getAttributeValue(null, "domain");
                         if (domain != null)
@@ -166,11 +229,11 @@ public class EmailProvider implements Parcelable {
                         if (mx != null)
                             provider.mx = Arrays.asList(mx.split(","));
 
-                        provider.order = xml.getAttributeIntValue(null, "order", Integer.MAX_VALUE);
-                        provider.keepalive = xml.getAttributeIntValue(null, "keepalive", 0);
-                        provider.partial = xml.getAttributeBooleanValue(null, "partial", true);
-                        provider.useip = xml.getAttributeBooleanValue(null, "useip", true);
-                        provider.appPassword = xml.getAttributeBooleanValue(null, "appPassword", false);
+                        provider.order = getAttributeIntValue(xml, "order", Integer.MAX_VALUE);
+                        provider.keepalive = getAttributeIntValue(xml, "keepalive", 0);
+                        provider.partial = getAttributeBooleanValue(xml, "partial", true);
+                        provider.useip = getAttributeBooleanValue(xml, "useip", true);
+                        provider.appPassword = getAttributeBooleanValue(xml, "appPassword", false);
                         provider.link = xml.getAttributeValue(null, "link");
 
                         String documentation = xml.getAttributeValue(null, "documentation");
@@ -193,20 +256,20 @@ public class EmailProvider implements Parcelable {
                     } else if ("imap".equals(name)) {
                         provider.imap.score = 100;
                         provider.imap.host = xml.getAttributeValue(null, "host");
-                        provider.imap.port = xml.getAttributeIntValue(null, "port", 0);
-                        provider.imap.starttls = xml.getAttributeBooleanValue(null, "starttls", false);
+                        provider.imap.port = getAttributeIntValue(xml, "port", 0);
+                        provider.imap.starttls = getAttributeBooleanValue(xml, "starttls", false);
                     } else if ("smtp".equals(name)) {
                         provider.smtp.score = 100;
                         provider.smtp.host = xml.getAttributeValue(null, "host");
-                        provider.smtp.port = xml.getAttributeIntValue(null, "port", 0);
-                        provider.smtp.starttls = xml.getAttributeBooleanValue(null, "starttls", false);
+                        provider.smtp.port = getAttributeIntValue(xml, "port", 0);
+                        provider.smtp.starttls = getAttributeBooleanValue(xml, "starttls", false);
                     } else if ("oauth".equals(name)) {
                         provider.oauth = new OAuth();
-                        provider.oauth.enabled = xml.getAttributeBooleanValue(null, "enabled", false);
-                        provider.oauth.askAccount = xml.getAttributeBooleanValue(null, "askAccount", false);
+                        provider.oauth.enabled = getAttributeBooleanValue(xml, "enabled", false);
+                        provider.oauth.askAccount = getAttributeBooleanValue(xml, "askAccount", false);
                         provider.oauth.clientId = xml.getAttributeValue(null, "clientId");
                         provider.oauth.clientSecret = xml.getAttributeValue(null, "clientSecret");
-                        provider.oauth.pcke = xml.getAttributeBooleanValue(null, "pcke", false);
+                        provider.oauth.pcke = getAttributeBooleanValue(xml, "pcke", false);
                         provider.oauth.scopes = xml.getAttributeValue(null, "scopes").split(",");
                         provider.oauth.authorizationEndpoint = xml.getAttributeValue(null, "authorizationEndpoint");
                         provider.oauth.tokenEndpoint = xml.getAttributeValue(null, "tokenEndpoint");
@@ -226,21 +289,18 @@ public class EmailProvider implements Parcelable {
         } catch (Throwable ex) {
             Log.e(ex);
         }
-        final Collator collator = Collator.getInstance(Locale.getDefault());
-        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-        Collections.sort(result, new Comparator<EmailProvider>() {
-            @Override
-            public int compare(EmailProvider p1, EmailProvider p2) {
-                int o = Integer.compare(p1.order, p2.order);
-                if (o == 0)
-                    return collator.compare(p1.name, p2.name);
-                else
-                    return o;
-            }
-        });
 
         return result;
+    }
+
+    static boolean getAttributeBooleanValue(XmlPullParser parser, String name, boolean defaultValue) {
+        String value = parser.getAttributeValue(null, name);
+        return (value == null ? defaultValue : Boolean.parseBoolean(value));
+    }
+
+    static int getAttributeIntValue(XmlPullParser parser, String name, int defaultValue) {
+        String value = parser.getAttributeValue(null, name);
+        return (value == null ? defaultValue : Integer.parseInt(value));
     }
 
     static EmailProvider getProvider(Context context, String id) throws FileNotFoundException {
