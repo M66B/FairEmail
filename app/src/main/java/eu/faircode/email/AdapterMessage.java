@@ -5589,6 +5589,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Uri sanitized = UriHelper.sanitize(uri);
                 if (sanitized != null && isActivate(sanitized))
                     uri = sanitized;
+                else if (title != null) {
+                    Uri alt = Uri.parse(title);
+                    if (isActivate(alt))
+                        uri = alt;
+                }
             } catch (Throwable ignored) {
             }
 
