@@ -167,25 +167,54 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             try {
                 JSONObject jaction = new JSONObject(rule.action);
                 int type = jaction.getInt("type");
-                tvAction.setText(getActionTitle(type));
+                if (type == EntityRule.TYPE_SNOOZE) {
+                    int duration = jaction.optInt("duration", 0);
+                    setAction(type, Integer.toString(duration));
+                } else if (type == EntityRule.TYPE_IMPORTANCE) {
+                    int importance = jaction.optInt("value");
 
-                if (type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY) {
+                    String value = null;
+                    if (importance == EntityMessage.PRIORITIY_LOW)
+                        value = context.getString(R.string.title_importance_low);
+                    else if (importance == EntityMessage.PRIORITIY_NORMAL)
+                        value = context.getString(R.string.title_importance_normal);
+                    else if (importance == EntityMessage.PRIORITIY_HIGH)
+                        value = context.getString(R.string.title_importance_high);
+
+                    setAction(type, value);
+                } else if (type == EntityRule.TYPE_KEYWORD) {
+                    setAction(type, jaction.optString("keyword"));
+                } else
+                    setAction(type, null);
+
+                if (type == EntityRule.TYPE_ANSWER ||
+                        type == EntityRule.TYPE_MOVE ||
+                        type == EntityRule.TYPE_COPY) {
                     Bundle args = new Bundle();
                     args.putLong("id", rule.id);
                     args.putInt("type", type);
                     args.putLong("target", jaction.optLong("target", -1));
+                    args.putLong("answer", jaction.optLong("answer", -1));
 
-                    new SimpleTask<EntityFolder>() {
+                    new SimpleTask<String>() {
                         @Override
-                        protected EntityFolder onExecute(Context context, Bundle args) throws Throwable {
-                            long target = args.getLong("target");
-
+                        protected String onExecute(Context context, Bundle args) throws Throwable {
                             DB db = DB.getInstance(context);
-                            return db.folder().getFolder(target);
+                            int type = args.getInt("type");
+                            if (type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY) {
+                                long id = args.getLong("target");
+                                EntityFolder folder = db.folder().getFolder(id);
+                                return (folder == null ? null : folder.name);
+                            } else if (type == EntityRule.TYPE_ANSWER) {
+                                long id = args.getLong("answer");
+                                EntityAnswer answer = db.answer().getAnswer(id);
+                                return (answer == null ? null : answer.name);
+                            } else
+                                return null;
                         }
 
                         @Override
-                        protected void onExecuted(Bundle args, EntityFolder folder) {
+                        protected void onExecuted(Bundle args, String value) {
                             int pos = getAdapterPosition();
                             if (pos == RecyclerView.NO_POSITION)
                                 return;
@@ -194,16 +223,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                             if (id != AdapterRule.this.getItemId(pos))
                                 return;
 
-                            int type = args.getInt("type");
-                            SpannableStringBuilder ssb = new SpannableStringBuilderEx();
-                            ssb.append(context.getString(getActionTitle(type)));
-                            ssb.append(" \"");
-                            int start = ssb.length();
-                            ssb.append(folder == null ? "???" : folder.name);
-                            ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), 0);
-                            ssb.append("\"");
-
-                            tvAction.setText(ssb);
+                            setAction(args.getInt("type"), value);
                         }
 
                         @Override
@@ -216,7 +236,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                 tvAction.setText(ex.getMessage());
             }
 
-            tvLastApplied.setText(rule.last_applied == null ? null : DF.format(rule.last_applied));
+            tvLastApplied.setText(rule.last_applied == null ? "-" : DF.format(rule.last_applied));
             tvApplied.setText(NF.format(rule.applied));
         }
 
@@ -428,42 +448,73 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             return true;
         }
 
-        private int getActionTitle(int type) {
+        private void setAction(int type, String value) {
+            int resid;
             switch (type) {
                 case EntityRule.TYPE_NOOP:
-                    return R.string.title_rule_noop;
+                    resid = R.string.title_rule_noop;
+                    break;
                 case EntityRule.TYPE_SEEN:
-                    return R.string.title_rule_seen;
+                    resid = R.string.title_rule_seen;
+                    break;
                 case EntityRule.TYPE_UNSEEN:
-                    return R.string.title_rule_unseen;
+                    resid = R.string.title_rule_unseen;
+                    break;
                 case EntityRule.TYPE_HIDE:
-                    return R.string.title_rule_hide;
+                    resid = R.string.title_rule_hide;
+                    break;
                 case EntityRule.TYPE_IGNORE:
-                    return R.string.title_rule_ignore;
+                    resid = R.string.title_rule_ignore;
+                    break;
                 case EntityRule.TYPE_SNOOZE:
-                    return R.string.title_rule_snooze;
+                    resid = R.string.title_rule_snooze;
+                    break;
                 case EntityRule.TYPE_FLAG:
-                    return R.string.title_rule_flag;
+                    resid = R.string.title_rule_flag;
+                    break;
                 case EntityRule.TYPE_IMPORTANCE:
-                    return R.string.title_rule_importance;
+                    resid = R.string.title_rule_importance;
+                    break;
                 case EntityRule.TYPE_KEYWORD:
-                    return R.string.title_rule_keyword;
+                    resid = R.string.title_rule_keyword;
+                    break;
                 case EntityRule.TYPE_MOVE:
-                    return R.string.title_rule_move;
+                    resid = R.string.title_rule_move;
+                    break;
                 case EntityRule.TYPE_COPY:
-                    return R.string.title_rule_copy;
+                    resid = R.string.title_rule_copy;
+                    break;
                 case EntityRule.TYPE_ANSWER:
-                    return R.string.title_rule_answer;
+                    resid = R.string.title_rule_answer;
+                    break;
                 case EntityRule.TYPE_TTS:
-                    return R.string.title_rule_tts;
+                    resid = R.string.title_rule_tts;
+                    break;
                 case EntityRule.TYPE_AUTOMATION:
-                    return R.string.title_rule_automation;
+                    resid = R.string.title_rule_automation;
+                    break;
                 case EntityRule.TYPE_DELETE:
-                    return R.string.title_rule_delete;
+                    resid = R.string.title_rule_delete;
+                    break;
                 case EntityRule.TYPE_SOUND:
-                    return R.string.title_rule_sound;
+                    resid = R.string.title_rule_sound;
+                    break;
                 default:
                     throw new IllegalArgumentException("Unknown action type=" + type);
+            }
+
+
+            if (TextUtils.isEmpty(value))
+                tvAction.setText(resid);
+            else {
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+                ssb.append(context.getString(resid));
+                ssb.append(" \"");
+                int start = ssb.length();
+                ssb.append(value);
+                ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), 0);
+                ssb.append("\"");
+                tvAction.setText(ssb);
             }
         }
     }
