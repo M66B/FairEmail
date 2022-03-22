@@ -2953,6 +2953,8 @@ class Core {
                         message.bimi_selector = helper.getBimiSelector();
                         message.tls = helper.getTLS();
                         message.dkim = MessageHelper.getAuthentication("dkim", authentication);
+                        if (Boolean.TRUE.equals(message.dkim))
+                            message.dkim = helper.checkDKIMRequirements();
                         message.spf = MessageHelper.getAuthentication("spf", authentication);
                         if (message.spf == null && helper.getSPF())
                             message.spf = true;
@@ -3921,6 +3923,8 @@ class Core {
             message.bimi_selector = helper.getBimiSelector();
             message.tls = helper.getTLS();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
+            if (Boolean.TRUE.equals(message.dkim))
+                message.dkim = helper.checkDKIMRequirements();
             message.spf = MessageHelper.getAuthentication("spf", authentication);
             if (message.spf == null && helper.getSPF())
                 message.spf = true;

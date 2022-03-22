@@ -1832,6 +1832,39 @@ public class MessageHelper {
         return (spf.trim().toLowerCase(Locale.ROOT).startsWith("pass"));
     }
 
+    boolean checkDKIMRequirements() throws MessagingException {
+        ensureHeaders();
+
+        String[] headers = imessage.getHeader("DKIM-Signature");
+        if (headers == null || headers.length < 1)
+            return false;
+
+        for (String header : headers) {
+            Map<String, String> kv = getKeyValues(header);
+
+            // Hashed body length
+            Integer l = Helper.parseInt(kv.get("l"));
+            if (l != null && l == 0) {
+                Log.w("DKIM body length=" + l);
+                return false;
+            }
+
+            // Hashed header fields
+            String h = kv.get("h");
+            if (h == null) {
+                Log.w("DKIM header fields missing");
+                return false;
+            }
+
+            if (Arrays.asList(h.split(":")).contains("from")) {
+                Log.i("DKIM headers fields missing 'from'");
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     Address[] getMailFrom(String[] headers) {
         if (headers == null)
             return null;
