@@ -1840,7 +1840,7 @@ public class MessageHelper {
             return false;
 
         for (String header : headers) {
-            Map<String, String> kv = getKeyValues(header);
+            Map<String, String> kv = getKeyValues(MimeUtility.unfold(header));
 
             // Hashed body length
             Integer l = Helper.parseInt(kv.get("l"));
@@ -1856,8 +1856,12 @@ public class MessageHelper {
                 return false;
             }
 
-            if (Arrays.asList(h.split(":")).contains("from")) {
-                Log.i("DKIM headers fields missing 'from'");
+            String[] hs = h
+                    .toLowerCase(Locale.ROOT)
+                    .replaceAll("\\s+", "")
+                    .split(":");
+            if (!Arrays.asList(hs).contains("from")) {
+                Log.i("DKIM headers fields missing 'from' fields=" + h);
                 return false;
             }
         }
