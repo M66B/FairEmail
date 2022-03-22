@@ -2178,17 +2178,21 @@ class Core {
             if (folder.tbc != null) {
                 try {
                     // Prefix folder with namespace
-                    Folder[] ns = istore.getPersonalNamespaces();
-                    if (ns != null && ns.length == 1) {
-                        String n = ns[0].getFullName();
-                        // Typically "" or "INBOX"
-                        if (!TextUtils.isEmpty(n)) {
-                            n += ns[0].getSeparator();
-                            if (!folder.name.startsWith(n)) {
-                                folder.name = n + folder.name;
-                                db.folder().updateFolder(folder);
+                    try {
+                        Folder[] ns = istore.getPersonalNamespaces();
+                        if (ns != null && ns.length == 1) {
+                            String n = ns[0].getFullName();
+                            // Typically "" or "INBOX"
+                            if (!TextUtils.isEmpty(n)) {
+                                n += ns[0].getSeparator();
+                                if (!folder.name.startsWith(n)) {
+                                    folder.name = n + folder.name;
+                                    db.folder().updateFolder(folder);
+                                }
                             }
                         }
+                    } catch (MessagingException ex) {
+                        Log.w(ex);
                     }
 
                     EntityLog.log(context, folder.name + " creating");
