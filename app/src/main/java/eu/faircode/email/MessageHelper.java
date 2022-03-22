@@ -3450,7 +3450,7 @@ public class MessageHelper {
                                     db.attachment().setDownloaded(attachment.id, efile.length());
                                 }
                             } catch (Throwable ex) {
-                                Log.e(ex);
+                                Log.e(new Throwable(local.name, ex));
                                 db.attachment().setWarning(local.id, Log.formatThrowable(ex));
                             }
                         else
@@ -3535,7 +3535,7 @@ public class MessageHelper {
                                     }
                                 }
                             } catch (Throwable ex) {
-                                Log.e(ex);
+                                Log.e(new Throwable(local.name, ex));
                                 // ArchiveException: Unsupported feature encryption used in entry ...
                                 // UnsupportedZipFeatureException: No Archiver found for the stream signature
                                 if (ex instanceof ArchiveException ||
