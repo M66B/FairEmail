@@ -426,7 +426,7 @@ public class FragmentContacts extends FragmentBase {
                         writer.write(vcard);
                 }
 
-                Log.i("Exported data");
+                Log.i("Exported data count=" + vcards.size());
 
                 return null;
             }
