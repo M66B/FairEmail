@@ -1756,6 +1756,7 @@ public class MessageHelper {
         if (header == null)
             return null;
 
+        header = MimeUtility.unfold(header);
         header = header.toLowerCase(Locale.ROOT);
 
         int s = header.indexOf("s=");
@@ -1766,7 +1767,7 @@ public class MessageHelper {
         if (e < 0)
             e = header.length();
 
-        String selector = header.substring(s + 2, e);
+        String selector = header.substring(s + 2, e).trim();
         if (TextUtils.isEmpty(selector))
             return null;
 
