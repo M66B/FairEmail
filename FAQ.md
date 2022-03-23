@@ -643,9 +643,17 @@ Please [see here](#user-content-howto) about how you can delete the account conf
 
 <br />
 
+<a name="faq6-app"></a>
+
 *App specific password*
 
 See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+
+To configure a new Gmail account with an app password, please tap on the wizard button in the main settings screen
+and select *Other provider* (not Gmail!) and follow the steps (paste the app password in the password field).
+
+To configure an existing Gmail account with an app password, please tap on *Manual setup and account options* in the main settings screen,
+tap on *Accounts*, tap on the account and tap on the pencil icon after the password and select *Switch to password authentication* and paste the app password.
 
 <br />
 
