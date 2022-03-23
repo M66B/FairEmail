@@ -421,12 +421,13 @@ public class FragmentContacts extends FragmentBase {
 
                 ContentResolver resolver = context.getContentResolver();
                 try (OutputStream os = resolver.openOutputStream(uri)) {
-                    VCardWriter writer = new VCardWriter(os, VCardVersion.V3_0);
-                    for (VCard vcard : vcards)
-                        writer.write(vcard);
+                    try (VCardWriter writer = new VCardWriter(os, VCardVersion.V3_0)) {
+                        for (VCard vcard : vcards)
+                            writer.write(vcard);
+                    }
                 }
 
-                EntityLog.log(context, "Exported " +
+                EntityLog.log(context, "Exported" +
                         " contacts=" + contacts.size() +
                         " count=" + vcards.size());
 
