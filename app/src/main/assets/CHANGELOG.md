@@ -4,7 +4,7 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next version
+### 1.1860 - 2022-03-23
 
 * Added sent sound selection
 * Small improvements and minor bug fixes
