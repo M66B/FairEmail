@@ -348,6 +348,7 @@ public class Bimi {
                         if (!TextUtils.isEmpty(pct) && !"100".equals(pct))
                             throw new IllegalArgumentException("DMARC invalid pct=" + p);
 
+                        Log.i("BIMI verified");
                         verified = true;
                     } catch (MalformedURLException ex) {
                         Log.i(ex);
