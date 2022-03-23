@@ -521,6 +521,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         NotificationManager nm =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(true).build());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean reply_move = prefs.getBoolean("reply_move", false);
@@ -775,7 +776,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             iservice.close();
             if (lastProgress >= 0) {
                 lastProgress = -1;
-                nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(true).build());
+                nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false).build());
             }
             db.identity().setIdentityState(ident.id, null);
         }
