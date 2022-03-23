@@ -19,8 +19,12 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -67,6 +71,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAttachNew;
     private Spinner spAnswerAction;
     private SwitchCompat swSendPending;
+    private Button btnSound;
 
     private Spinner spComposeFont;
     private SwitchCompat swSeparateReply;
@@ -98,7 +103,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently",
             "alt_re", "alt_fwd",
             "send_reminders", "send_chips", "send_delayed",
-            "attach_new", "answer_action", "send_pending",
+            "attach_new", "answer_action", "send_pending", "sound_sent",
             "compose_font", "prefix_once", "prefix_count", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_new", "signature_reply", "signature_forward",
             "discard_delete", "reply_move",
@@ -133,6 +138,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swAttachNew = view.findViewById(R.id.swAttachNew);
         spAnswerAction = view.findViewById(R.id.spAnswerAction);
         swSendPending = view.findViewById(R.id.swSendPending);
+        btnSound = view.findViewById(R.id.btnSound);
 
         spComposeFont = view.findViewById(R.id.spComposeFont);
         swSeparateReply = view.findViewById(R.id.swSeparateReply);
@@ -313,6 +319,20 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("send_pending", checked).apply();
+            }
+        });
+
+        btnSound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sound = prefs.getString("sound_sent", null);
+                Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION);
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, getString(R.string.title_advanced_sound));
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, true);
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, true);
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, sound == null ? null : Uri.parse(sound));
+                startActivityForResult(Helper.getChooser(getContext(), intent), ActivitySetup.REQUEST_SOUND_OUTBOUND);
             }
         });
 
@@ -634,5 +654,36 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swReceiptLegacy.setChecked(prefs.getBoolean("receipt_legacy", false));
 
         swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case ActivitySetup.REQUEST_SOUND_OUTBOUND:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSelectSound(data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI));
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void onSelectSound(Uri uri) {
+        Log.i("Selected ringtone=" + uri);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        if (uri == null) // no/silent sound
+            prefs.edit().remove("sound_sent").apply();
+        else {
+            if ("content".equals(uri.getScheme()))
+                prefs.edit().putString("sound_sent", uri.toString()).apply();
+            else
+                prefs.edit().remove("sound_sent").apply();
+        }
     }
 }

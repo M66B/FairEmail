@@ -7,13 +7,42 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class MediaPlayerHelper {
+    static final int DEFAULT_SOUND_DURATION = 30; // seconds
     static final int DEFAULT_ALARM_DURATION = 30; // seconds
 
-    static void play(Context context, Uri uri, boolean alarm, int duration) throws IOException {
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "media");
+
+    static void queue(Context context, String uri) {
+        try {
+            queue(context, Uri.parse(uri), false, DEFAULT_SOUND_DURATION);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    static void queue(Context context, Uri uri, boolean alarm, int duration) {
+        Log.i("Queuing sound=" + uri);
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (MediaPlayerHelper.isInCall(context))
+                        return;
+                    MediaPlayerHelper.play(context, uri, alarm, duration);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
+    }
+
+    private static void play(Context context, Uri uri, boolean alarm, int duration) throws IOException {
         Semaphore sem = new Semaphore(0);
 
         AudioAttributes attrs = new AudioAttributes.Builder()

@@ -987,18 +987,7 @@ public class EntityRule {
         message.ui_silent = true;
         db.message().setMessageUiSilent(message.id, message.ui_silent);
 
-        executor.submit(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    if (MediaPlayerHelper.isInCall(context))
-                        return;
-                    MediaPlayerHelper.play(context, uri, alarm, duration);
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        });
+        MediaPlayerHelper.queue(context, uri, alarm, duration);
 
         return true;
     }

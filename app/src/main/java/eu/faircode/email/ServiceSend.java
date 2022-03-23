@@ -90,7 +90,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         EntityLog.log(this, "Service send create");
         super.onCreate();
         startForeground(NotificationHelper.NOTIFICATION_SEND,
-                getNotificationService(false).build());
+                getNotificationService().build());
 
         owner = new TwoStateOwner(this, "send");
 
@@ -110,7 +110,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         NotificationManager nm =
                                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                         nm.notify(NotificationHelper.NOTIFICATION_SEND,
-                                getNotificationService(false).build());
+                                getNotificationService().build());
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
@@ -205,7 +205,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
         startForeground(NotificationHelper.NOTIFICATION_SEND,
-                getNotificationService(false).build());
+                getNotificationService().build());
 
         Log.i("Send intent=" + intent);
         Log.logExtras(intent);
@@ -213,7 +213,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         return START_STICKY;
     }
 
-    NotificationCompat.Builder getNotificationService(boolean alert) {
+    NotificationCompat.Builder getNotificationService() {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "send")
                         .setSmallIcon(R.drawable.baseline_send_white_24)
@@ -221,7 +221,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         .setContentIntent(getPendingIntent(this))
                         .setAutoCancel(false)
                         .setShowWhen(true)
-                        .setOnlyAlertOnce(!alert)
+                        .setOnlyAlertOnce(true)
                         .setDefaults(0) // disable sound on pre Android 8
                         .setLocalOnly(true)
                         .setPriority(NotificationCompat.PRIORITY_MIN)
@@ -334,7 +334,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     NotificationManager nm =
                             (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                     nm.notify(NotificationHelper.NOTIFICATION_SEND,
-                            getNotificationService(false).build());
+                            getNotificationService().build());
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
@@ -521,7 +521,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         NotificationManager nm =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(true).build());
+        nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService().build());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean reply_move = prefs.getBoolean("reply_move", false);
@@ -735,7 +735,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         if (now > last + PROGRESS_UPDATE_INTERVAL) {
                             last = now;
                             lastProgress = progress;
-                            nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false).build());
+                            nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService().build());
                         }
                     }
                 }
@@ -776,7 +776,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             iservice.close();
             if (lastProgress >= 0) {
                 lastProgress = -1;
-                nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false).build());
+                nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService().build());
             }
             db.identity().setIdentityState(ident.id, null);
         }
@@ -826,6 +826,11 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         }
 
         nm.cancel("send:" + message.id, NotificationHelper.NOTIFICATION_TAGGED);
+
+        // Play sent sound
+        String sound = prefs.getString("sound_sent", null);
+        if (!TextUtils.isEmpty(sound))
+            MediaPlayerHelper.queue(ServiceSend.this, sound);
 
         // Check sent message
         if (sid != null) {
