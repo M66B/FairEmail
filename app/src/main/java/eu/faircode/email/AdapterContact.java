@@ -444,7 +444,12 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                         Log.d("Changed @" + position + " #" + count);
                     }
                 });
-                diff.dispatchUpdatesTo(AdapterContact.this);
+
+                try {
+                    diff.dispatchUpdatesTo(AdapterContact.this);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
             }
 
             @Override

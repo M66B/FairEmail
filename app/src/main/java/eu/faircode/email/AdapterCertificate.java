@@ -250,7 +250,12 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
                 Log.d("Changed @" + position + " #" + count);
             }
         });
-        diff.dispatchUpdatesTo(this);
+
+        try {
+            diff.dispatchUpdatesTo(this);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     private static class DiffCallback extends DiffUtil.Callback {

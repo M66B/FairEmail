@@ -674,7 +674,12 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 Log.d("Changed @" + position + " #" + count);
             }
         });
-        diff.dispatchUpdatesTo(this);
+
+        try {
+            diff.dispatchUpdatesTo(this);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     void setCompact(boolean compact) {

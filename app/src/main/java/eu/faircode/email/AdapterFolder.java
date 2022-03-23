@@ -1361,7 +1361,32 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 Log.d("Changed @" + position + " #" + count);
             }
         });
-        diff.dispatchUpdatesTo(this);
+
+        try {
+            diff.dispatchUpdatesTo(this);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                java.lang.IllegalStateException: Cannot call this method while RecyclerView is computing a layout or scrolling eu.faircode.email.FixedRecyclerView{bc0fa01 VFED..... ........ 0,0-1080,1984 #7f0a0533 app:id/rvFolder}, adapter:eu.faircode.email.AdapterFolder@b1cf0a6, layout:androidx.recyclerview.widget.LinearLayoutManager@3093ae7, context:eu.faircode.email.ActivityView@832e020
+                    at androidx.recyclerview.widget.RecyclerView.assertNotInLayoutOrScroll(SourceFile:3)
+                    at androidx.recyclerview.widget.RecyclerView$RecyclerViewDataObserver.onItemRangeChanged(SourceFile:1)
+                    at androidx.recyclerview.widget.RecyclerView$AdapterDataObservable.notifyItemRangeChanged(SourceFile:3)
+                    at androidx.recyclerview.widget.RecyclerView$Adapter.notifyItemRangeChanged(SourceFile:2)
+                    at androidx.recyclerview.widget.AdapterListUpdateCallback.onChanged(SourceFile:1)
+                    at androidx.recyclerview.widget.BatchingListUpdateCallback.dispatchLastEvent(SourceFile:2)
+                    at androidx.recyclerview.widget.BatchingListUpdateCallback.onChanged(SourceFile:4)
+                    at androidx.recyclerview.widget.DiffUtil$DiffResult.dispatchUpdatesTo(SourceFile:34)
+                    at androidx.recyclerview.widget.DiffUtil$DiffResult.dispatchUpdatesTo(SourceFile:1)
+                    at eu.faircode.email.AdapterFolder.set(SourceFile:46)
+                    at eu.faircode.email.FragmentFolders$12.onChanged(SourceFile:3)
+                    at eu.faircode.email.FragmentFolders$12.onChanged(SourceFile:1)
+                    at androidx.lifecycle.LiveData.considerNotify(SourceFile:6)
+                    at androidx.lifecycle.LiveData.dispatchingValue(SourceFile:8)
+                    at androidx.lifecycle.LiveData.setValue(SourceFile:4)
+                    at androidx.lifecycle.LiveData$1.run(SourceFile:5)
+                    at android.os.Handler.handleCallback(Handler.java:938)
+             */
+        }
     }
 
     public void search(String query) {

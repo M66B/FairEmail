@@ -159,7 +159,12 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
                         Log.d("Changed @" + position + " #" + count);
                     }
                 });
-                diff.dispatchUpdatesTo(AdapterLog.this);
+
+                try {
+                    diff.dispatchUpdatesTo(AdapterLog.this);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
             }
 
             @Override

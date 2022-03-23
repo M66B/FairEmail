@@ -357,7 +357,12 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                 Log.d("Changed @" + position + " #" + count);
             }
         });
-        diff.dispatchUpdatesTo(this);
+
+        try {
+            diff.dispatchUpdatesTo(this);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     public void search(String query) {
