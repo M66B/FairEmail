@@ -266,7 +266,8 @@ public class FragmentSetup extends FragmentBase {
                                         .putExtra("id", provider.id)
                                         .putExtra("name", provider.description)
                                         .putExtra("privacy", provider.oauth.privacy)
-                                        .putExtra("askAccount", provider.oauth.askAccount));
+                                        .putExtra("askAccount", provider.oauth.askAccount)
+                                        .putExtra("askTenant", provider.oauth.askTenant()));
                         resid = res.getIdentifier("provider_" + provider.id, "drawable", pkg);
                         if (resid != 0)
                             item.setIcon(resid);

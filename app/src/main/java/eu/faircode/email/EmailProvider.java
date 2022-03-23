@@ -1291,5 +1291,10 @@ public class EmailProvider implements Parcelable {
         String privacy;
         String prompt;
         Map<String, String> parameters;
+
+        boolean askTenant() {
+            return (authorizationEndpoint.contains("{tenant}") ||
+                    tokenEndpoint.contains("{tenant}"));
+        }
     }
 }

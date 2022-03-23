@@ -98,6 +98,7 @@ public class FragmentOAuth extends FragmentBase {
     private String name;
     private String privacy;
     private boolean askAccount;
+    private boolean askTenant;
 
     private String personal;
     private String address;
@@ -137,6 +138,7 @@ public class FragmentOAuth extends FragmentBase {
         name = args.getString("name");
         privacy = args.getString("privacy");
         askAccount = args.getBoolean("askAccount", false);
+        askTenant = args.getBoolean("askTenant", false);
 
         personal = args.getString("personal");
         address = args.getString("address");
@@ -214,7 +216,7 @@ public class FragmentOAuth extends FragmentBase {
         tvTitle.setText(getString(R.string.title_setup_oauth_rationale, name));
         etName.setVisibility(askAccount ? View.VISIBLE : View.GONE);
         etEmail.setVisibility(askAccount ? View.VISIBLE : View.GONE);
-        grpTenant.setVisibility(isOutlook(id) ? View.VISIBLE : View.GONE);
+        grpTenant.setVisibility(askTenant ? View.VISIBLE : View.GONE);
         pbOAuth.setVisibility(View.GONE);
         tvConfiguring.setVisibility(View.GONE);
         tvGmailHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
