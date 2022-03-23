@@ -199,7 +199,10 @@ public class DnsHelper {
                     } else if (record instanceof TXTRecord) {
                         TXTRecord txt = (TXTRecord) record;
                         for (Object content : txt.getStrings())
-                            result.add(new DnsRecord(content.toString(), 0));
+                            if (result.size() > 0)
+                                result.get(0).name += ' ' + content.toString();
+                            else
+                                result.add(new DnsRecord(content.toString(), 0));
                     } else
                         throw new IllegalArgumentException(record.getClass().getName());
                 }
