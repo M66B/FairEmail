@@ -88,6 +88,7 @@
     <string name="title_block_sender_hint">        Blocarea unui expeditor este o funcție gratuită.
         Blocarea unui domeniu de expeditor utilizează reguli de filtrare, ceea ce reprezintă o caracteristică profesională.
     </string>
+    <string name="title_blocked_senders">Expeditori blocați</string>
     <string name="title_junk_filter">Utilizați filtrul de spam local</string>
     <string name="title_junk_filter_hint">Acest lucru poate crește utilizarea bateriei și marchează incorect mesajele ca spam</string>
     <string name="title_junk_blocklist">Utilizați listele de blocare a spam-ului</string>

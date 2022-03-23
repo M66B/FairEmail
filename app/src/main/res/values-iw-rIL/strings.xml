@@ -98,6 +98,7 @@
     <string name="title_block_sender_hint">        חסימת מען היא תכונה חינמית.
         חסימת שם תחום כמען משתמשת בכללי סינון, שזאת יכולת למנויי פרו.
     </string>
+    <string name="title_blocked_senders">שולחים חסומים</string>
     <string name="title_junk_filter">להשתמש במסנן ספאם מקומי</string>
     <string name="title_junk_filter_hint">עשוי להגדיל את צריכת הסלוללה ולסמן הודעות כספאם בשוגג</string>
     <string name="title_junk_blocklist">להשתמש ברשימות חסימת ספאם</string>
