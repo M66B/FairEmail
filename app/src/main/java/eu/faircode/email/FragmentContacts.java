@@ -205,6 +205,8 @@ public class FragmentContacts extends FragmentBase {
     public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
         menu.findItem(R.id.menu_junk).setChecked(junk);
+        menu.findItem(R.id.menu_import).setVisible(!junk);
+        menu.findItem(R.id.menu_export).setVisible(!junk);
     }
 
     @Override
@@ -253,7 +255,12 @@ public class FragmentContacts extends FragmentBase {
     }
 
     private void onMenuDeleteAll() {
-        new FragmentDelete().show(getParentFragmentManager(), "contacts:delete");
+        Bundle args = new Bundle();
+        args.putBoolean("junk", junk);
+
+        FragmentDelete fragment = new FragmentDelete();
+        fragment.setArguments(args);
+        fragment.show(getParentFragmentManager(), "contacts:delete");
     }
 
     @Override
@@ -482,8 +489,13 @@ public class FragmentContacts extends FragmentBase {
                             new SimpleTask<Void>() {
                                 @Override
                                 protected Void onExecute(Context context, Bundle args) {
+                                    boolean junk = (args != null && args.getBoolean("junk"));
+                                    int[] types = (junk
+                                            ? new int[]{EntityContact.TYPE_JUNK, EntityContact.TYPE_NO_JUNK}
+                                            : new int[]{EntityContact.TYPE_FROM, EntityContact.TYPE_TO});
+
                                     DB db = DB.getInstance(context);
-                                    int count = db.contact().clearContacts();
+                                    int count = db.contact().clearContacts(types);
                                     Log.i("Cleared contacts=" + count);
                                     return null;
                                 }
@@ -492,7 +504,7 @@ public class FragmentContacts extends FragmentBase {
                                 protected void onException(Bundle args, Throwable ex) {
                                     Log.unexpectedError(getParentFragmentManager(), ex);
                                 }
-                            }.execute(getContext(), getActivity(), new Bundle(), "contacts:delete");
+                            }.execute(getContext(), getActivity(), getArguments(), "contacts:delete");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)

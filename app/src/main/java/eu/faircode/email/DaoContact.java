@@ -103,7 +103,6 @@ public interface DaoContact {
     int deleteContacts(long before);
 
     @Query("DELETE FROM contact" +
-            " WHERE (type = " + EntityContact.TYPE_TO +
-            " OR type = " + EntityContact.TYPE_FROM + ")")
-    int clearContacts();
+            " WHERE type IN (:types)")
+    int clearContacts(int[] types);
 }
