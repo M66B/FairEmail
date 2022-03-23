@@ -1645,8 +1645,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onManageLocalContacts(Intent intent) {
+        Bundle args = new Bundle();
+        args.putBoolean("junk", intent.getBooleanExtra("junk", false));
+
+        FragmentContacts fragment = new FragmentContacts();
+        fragment.setArguments(args);
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentContacts()).addToBackStack("contacts");
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("contacts");
         fragmentTransaction.commit();
     }
 

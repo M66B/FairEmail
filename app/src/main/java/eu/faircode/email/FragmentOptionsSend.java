@@ -61,6 +61,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSuggestReceived;
     private SwitchCompat swSuggestFrequently;
     private Button btnLocalContacts;
+    private Button btnBlockedSenders;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swPrefixCount;
     private RadioGroup rgRe;
@@ -128,6 +129,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestReceived = view.findViewById(R.id.swSuggestReceived);
         swSuggestFrequently = view.findViewById(R.id.swSuggestFrequently);
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
+        btnBlockedSenders = view.findViewById(R.id.btnBlockedSenders);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swPrefixCount = view.findViewById(R.id.swPrefixCount);
         rgRe = view.findViewById(R.id.rgRe);
@@ -236,6 +238,15 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             public void onClick(View v) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS));
+            }
+        });
+
+        btnBlockedSenders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS)
+                        .putExtra("junk", true));
             }
         });
 

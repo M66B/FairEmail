@@ -99,6 +99,7 @@
         Blocking a sender is a free feature.
         Blocking a sender domain uses filter rules, which is a pro feature.
     </string>
+    <string name="title_blocked_senders">Blocked senders</string>
 
     <string name="title_junk_filter">Use local spam filter</string>
     <string name="title_junk_filter_hint">This can increase battery usage and incorrectly mark messages as spam</string>
