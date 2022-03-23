@@ -157,26 +157,28 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         }
 
         private void wire() {
-            view.post(new Runnable() {
-                @Override
-                public void run() {
-                    int left;
-                    int right;
-                    if (view.getLayoutDirection() == View.LAYOUT_DIRECTION_LTR) {
-                        left = view.getWidth() - view.getWidth() / 3;
-                        right = view.getWidth();
-                    } else {
-                        left = 0;
-                        right = view.getWidth() / 3;
+            if (!settings)
+                view.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        int left;
+                        int right;
+                        if (view.getLayoutDirection() == View.LAYOUT_DIRECTION_LTR) {
+                            left = view.getWidth() - view.getWidth() / 3;
+                            right = view.getWidth();
+                        } else {
+                            left = 0;
+                            right = view.getWidth() / 3;
+                        }
+                        Rect rect = new Rect(
+                                left,
+                                view.getTop(),
+                                right,
+                                view.getBottom());
+                        view.setTouchDelegate(new TouchDelegate(rect, ibInbox));
                     }
-                    Rect rect = new Rect(
-                            left,
-                            view.getTop(),
-                            right,
-                            view.getBottom());
-                    view.setTouchDelegate(new TouchDelegate(rect, ibInbox));
-                }
-            });
+                });
+
             view.setOnClickListener(this);
             view.setOnLongClickListener(this);
             ibInbox.setOnClickListener(this);
