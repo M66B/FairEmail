@@ -86,6 +86,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -363,7 +364,11 @@ public class FragmentOAuth extends FragmentBase {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             prefs.edit().putString("oauth." + provider.id, authState.jsonSerializeString()).apply();
 
-            Map<String, String> params = new HashMap<>();
+            Map<String, String> params = new LinkedHashMap<>();
+
+            if (provider.oauth.parameters != null)
+                for (String key : provider.oauth.parameters.keySet())
+                    params.put(key, provider.oauth.parameters.get(key));
 
             if ("gmail".equals(provider.id))
                 params.put("access_type", "offline");
@@ -397,6 +402,9 @@ public class FragmentOAuth extends FragmentBase {
 
             if (provider.oauth.pcke)
                 authRequestBuilder.setCodeVerifier(CodeVerifierUtil.generateRandomCodeVerifier());
+
+            if (!TextUtils.isEmpty(provider.oauth.prompt))
+                authRequestBuilder.setPrompt(provider.oauth.prompt);
 
             // For offline access
             if ("gmail".equals(provider.id))

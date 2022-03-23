@@ -60,8 +60,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -277,6 +279,13 @@ public class EmailProvider implements Parcelable {
                         provider.oauth.tokenEndpoint = xml.getAttributeValue(null, "tokenEndpoint");
                         provider.oauth.redirectUri = xml.getAttributeValue(null, "redirectUri");
                         provider.oauth.privacy = xml.getAttributeValue(null, "privacy");
+                        provider.oauth.prompt = xml.getAttributeValue(null, "prompt");
+                    } else if ("parameter".equals(name)) {
+                        if (provider.oauth.parameters == null)
+                            provider.oauth.parameters = new LinkedHashMap<>();
+                        provider.oauth.parameters.put(
+                                xml.getAttributeValue(null, "key"),
+                                xml.getAttributeValue(null, "value"));
                     } else
                         throw new IllegalAccessException(name);
                 } else if (eventType == XmlPullParser.END_TAG) {
@@ -1280,5 +1289,7 @@ public class EmailProvider implements Parcelable {
         String tokenEndpoint;
         String redirectUri;
         String privacy;
+        String prompt;
+        Map<String, String> parameters;
     }
 }
