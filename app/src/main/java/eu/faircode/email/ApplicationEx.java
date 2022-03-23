@@ -249,45 +249,49 @@ public class ApplicationEx extends Application
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        switch (key) {
-            case "enabled":
-                ServiceSynchronize.reschedule(this);
-                WorkerCleanup.init(this);
-                ServiceSynchronize.scheduleWatchdog(this);
-                WidgetSync.update(this);
-                break;
-            case "poll_interval":
-            case "schedule":
-            case "schedule_start":
-            case "schedule_end":
-            case "schedule_day0":
-            case "schedule_day1":
-            case "schedule_day2":
-            case "schedule_day3":
-            case "schedule_day4":
-            case "schedule_day5":
-            case "schedule_day6":
-                ServiceSynchronize.reschedule(this);
-                break;
-            case "check_blocklist":
-            case "use_blocklist":
-                DnsBlockList.clearCache();
-                break;
-            case "watchdog":
-                ServiceSynchronize.scheduleWatchdog(this);
-                break;
-            case "secure": // privacy
-            case "load_emoji": // privacy
-            case "shortcuts": // misc
-            case "language": // misc
-            case "wal": // misc
-                // Should be excluded for import
-                restart(this);
-                break;
-            case "debug":
-            case "log_level":
-                Log.setLevel(this);
-                break;
+        try {
+            switch (key) {
+                case "enabled":
+                    ServiceSynchronize.reschedule(this);
+                    WorkerCleanup.init(this);
+                    ServiceSynchronize.scheduleWatchdog(this);
+                    WidgetSync.update(this);
+                    break;
+                case "poll_interval":
+                case "schedule":
+                case "schedule_start":
+                case "schedule_end":
+                case "schedule_day0":
+                case "schedule_day1":
+                case "schedule_day2":
+                case "schedule_day3":
+                case "schedule_day4":
+                case "schedule_day5":
+                case "schedule_day6":
+                    ServiceSynchronize.reschedule(this);
+                    break;
+                case "check_blocklist":
+                case "use_blocklist":
+                    DnsBlockList.clearCache();
+                    break;
+                case "watchdog":
+                    ServiceSynchronize.scheduleWatchdog(this);
+                    break;
+                case "secure": // privacy
+                case "load_emoji": // privacy
+                case "shortcuts": // misc
+                case "language": // misc
+                case "wal": // misc
+                    // Should be excluded for import
+                    restart(this);
+                    break;
+                case "debug":
+                case "log_level":
+                    Log.setLevel(this);
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 
