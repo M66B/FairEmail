@@ -15,6 +15,22 @@
             host="smtp.gmail.com"
             port="465"
             starttls="false" />
+        <oauth
+            askAccount="true"
+            authorizationEndpoint="https://accounts.google.com/o/oauth2/auth"
+            clientId=""
+            clientSecret=""
+            enabled="false"
+            privacy="https://policies.google.com/privacy"
+            prompt="consent"
+            redirectUri="https://oauth.faircode.eu/"
+            scopes="https://mail.google.com/"
+            tokenEndpoint="https://oauth2.googleapis.com/token">
+            <!-- promp=consent offline access -->
+            <parameter
+                key="access_type"
+                value="offline" />
+        </oauth>
         <!-- https://email.faircode.eu/.well-known/assetlinks.json -->
         <!-- /opt/android-studio/jre/bin/keytool -keystore ~/.android/debug.keystore -list -v -->
     </provider>
@@ -102,9 +118,12 @@
             clientSecret="r=o4@SlzU:MA6MlXM6mPG[44i4gYPq[@"
             enabled="true"
             privacy="https://privacy.microsoft.com/privacystatement"
+            prompt="select_account"
             redirectUri="https://oauth.faircode.eu/"
             scopes="profile,openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send"
-            tokenEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token" />
+            tokenEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token"
+            tokenScopes="true" />
+        <!-- https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow -->
         <!-- https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth -->
     </provider>
     <provider
@@ -130,9 +149,11 @@
             clientSecret="k847Q~ZKtIBNp~ls_riKEbFDsvOQEdUA.YDNt"
             enabled="false"
             privacy="https://privacy.microsoft.com/privacystatement"
+            prompt="select_account"
             redirectUri="https://oauth.faircode.eu/"
             scopes="openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send"
-            tokenEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token" />
+            tokenEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token"
+            tokenScopes="true" />
         <!-- https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth -->
     </provider>
     <!-- needs subscription -->
@@ -387,7 +408,14 @@
             privacy="https://yandex.com/legal/confidential/"
             redirectUri="https://oauth.faircode.eu/"
             scopes="mail:imap_full,mail:smtp"
-            tokenEndpoint="https://oauth.yandex.com/token" />
+            tokenEndpoint="https://oauth.yandex.com/token">
+            <parameter
+                key="device_name"
+                value="Android/FairEmail" />
+            <parameter
+                key="force_confirm"
+                value="true" />
+        </oauth>
     </provider>
     <provider
         name="web.de"
@@ -579,7 +607,11 @@
             privacy="https://help.mail.ru/legal/terms/common/privacy"
             redirectUri="https://oauth.faircode.eu/"
             scopes="userinfo mail.imap"
-            tokenEndpoint="https://oauth.mail.ru/token" />
+            tokenEndpoint="https://oauth.mail.ru/token">
+            <parameter
+                key="prompt_force"
+                value="1" />
+        </oauth>
         <!-- https://oauth.mail.ru/docs -->
     </provider>
     <provider

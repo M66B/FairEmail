@@ -277,6 +277,7 @@ public class EmailProvider implements Parcelable {
                         provider.oauth.scopes = xml.getAttributeValue(null, "scopes").split(",");
                         provider.oauth.authorizationEndpoint = xml.getAttributeValue(null, "authorizationEndpoint");
                         provider.oauth.tokenEndpoint = xml.getAttributeValue(null, "tokenEndpoint");
+                        provider.oauth.tokenScopes = getAttributeBooleanValue(xml, "tokenScopes", false);
                         provider.oauth.redirectUri = xml.getAttributeValue(null, "redirectUri");
                         provider.oauth.privacy = xml.getAttributeValue(null, "privacy");
                         provider.oauth.prompt = xml.getAttributeValue(null, "prompt");
@@ -1287,6 +1288,7 @@ public class EmailProvider implements Parcelable {
         String[] scopes;
         String authorizationEndpoint;
         String tokenEndpoint;
+        boolean tokenScopes;
         String redirectUri;
         String privacy;
         String prompt;

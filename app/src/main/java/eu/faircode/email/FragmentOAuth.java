@@ -372,17 +372,6 @@ public class FragmentOAuth extends FragmentBase {
                 for (String key : provider.oauth.parameters.keySet())
                     params.put(key, provider.oauth.parameters.get(key));
 
-            if ("gmail".equals(provider.id))
-                params.put("access_type", "offline");
-
-            if ("yandex".equals(provider.id)) {
-                params.put("device_name", "Android/FairEmail");
-                params.put("force_confirm", "true");
-            }
-
-            if ("mailru".equals(provider.id))
-                params.put("prompt_force", "1");
-
             AuthorizationRequest.Builder authRequestBuilder =
                     new AuthorizationRequest.Builder(
                             serviceConfig,
@@ -407,14 +396,6 @@ public class FragmentOAuth extends FragmentBase {
 
             if (!TextUtils.isEmpty(provider.oauth.prompt))
                 authRequestBuilder.setPrompt(provider.oauth.prompt);
-
-            // For offline access
-            if ("gmail".equals(provider.id))
-                authRequestBuilder.setPrompt("consent");
-
-            // https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow
-            if (isOutlook(provider.id))
-                authRequestBuilder.setPrompt("select_account");
 
             AuthorizationRequest authRequest = authRequestBuilder.build();
 
@@ -478,7 +459,7 @@ public class FragmentOAuth extends FragmentBase {
                     .setAdditionalParameters(Collections.<String, String>emptyMap())
                     .setNonce(auth.request.nonce);
 
-            if (isOutlook(provider.id))
+            if (provider.oauth.tokenScopes)
                 builder.setScope(TextUtils.join(" ", provider.oauth.scopes));
 
             TokenRequest request = builder.build();
@@ -971,7 +952,7 @@ public class FragmentOAuth extends FragmentBase {
         if ("gmail".equals(id))
             tvGmailDraftsHint.setVisibility(View.VISIBLE);
 
-        if (isOutlook(id)) {
+        if ("office365".equals(id) || "outlook".equals(id)) {
             if (ex instanceof AuthenticationFailedException)
                 tvOfficeAuthHint.setVisibility(View.VISIBLE);
         }
@@ -1008,9 +989,5 @@ public class FragmentOAuth extends FragmentBase {
         grpError.setVisibility(View.GONE);
         tvGmailDraftsHint.setVisibility(View.GONE);
         tvOfficeAuthHint.setVisibility(View.GONE);
-    }
-
-    private static boolean isOutlook(String id) {
-        return ("office365".equals(id) || "outlook".equals(id));
     }
 }
