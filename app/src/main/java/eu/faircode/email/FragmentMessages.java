@@ -1950,7 +1950,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             @Override
                             public void run() {
                                 try {
-                                    adapter.notifyItemChanged(pos);
+                                    if (adapter != null)
+                                        adapter.notifyItemChanged(pos);
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                     /*
