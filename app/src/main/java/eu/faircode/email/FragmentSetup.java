@@ -42,6 +42,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -259,7 +260,8 @@ public class FragmentSetup extends FragmentBase {
 
                 for (EmailProvider provider : EmailProvider.loadProfiles(context))
                     if (provider.oauth != null &&
-                            (provider.oauth.enabled || BuildConfig.DEBUG)) {
+                            (provider.oauth.enabled || BuildConfig.DEBUG) &&
+                            !TextUtils.isEmpty(provider.oauth.clientId)) {
                         item = menu
                                 .add(Menu.FIRST, -1, order++, getString(R.string.title_setup_oauth, provider.description))
                                 .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
