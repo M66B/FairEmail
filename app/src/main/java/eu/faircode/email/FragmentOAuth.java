@@ -84,7 +84,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -366,11 +365,9 @@ public class FragmentOAuth extends FragmentBase {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             prefs.edit().putString("oauth." + provider.id, authState.jsonSerializeString()).apply();
 
-            Map<String, String> params = new LinkedHashMap<>();
-
-            if (provider.oauth.parameters != null)
-                for (String key : provider.oauth.parameters.keySet())
-                    params.put(key, provider.oauth.parameters.get(key));
+            Map<String, String> params = (provider.oauth.parameters == null
+                    ? new LinkedHashMap<>()
+                    : provider.oauth.parameters);
 
             AuthorizationRequest.Builder authRequestBuilder =
                     new AuthorizationRequest.Builder(
