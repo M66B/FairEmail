@@ -489,9 +489,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
 
             private View getView(View view, RecyclerView parent, int pos) {
-                if (nav_pinned)
-                    return null;
-
                 if (pos == NO_POSITION)
                     return null;
 
