@@ -4,6 +4,13 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### Next version
+
+* Added account category to navigation menu
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### 1.1860 - 2022-03-23
 
 * Added sent sound selection
