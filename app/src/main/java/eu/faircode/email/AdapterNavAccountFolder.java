@@ -297,6 +297,8 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
             Collections.sort(accounts, new Comparator<TupleAccountFolder>() {
                 @Override
                 public int compare(TupleAccountFolder a1, TupleAccountFolder a2) {
+                    // Account
+
                     int a = Integer.compare(
                             a1.order == null ? -1 : a1.order,
                             a2.order == null ? -1 : a2.order);
@@ -307,9 +309,17 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
                     if (p != 0)
                         return p;
 
+                    int c = collator.compare(
+                            a1.category == null ? "" : a1.category,
+                            a2.category == null ? "" : a2.category);
+                    if (c != 0)
+                        return c;
+
                     int n = collator.compare(a1.name, a2.name);
                     if (n != 0)
                         return n;
+
+                    // Folder
 
                     if (a1.folderName == null && a2.folderName == null)
                         return 0;
@@ -459,6 +469,13 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
     @Override
     public long getItemId(int position) {
         return items.get(position).id;
+    }
+
+    TupleAccountFolder getItemAtPosition(int pos) {
+        if (pos >= 0 && pos < items.size())
+            return items.get(pos);
+        else
+            return null;
     }
 
     @Override
