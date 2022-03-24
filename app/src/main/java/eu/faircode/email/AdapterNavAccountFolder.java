@@ -302,6 +302,14 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
                 public int compare(TupleAccountFolder a1, TupleAccountFolder a2) {
                     // Account
 
+                    if (nav_categories) {
+                        int c = collator.compare(
+                                a1.category == null ? "" : a1.category,
+                                a2.category == null ? "" : a2.category);
+                        if (c != 0)
+                            return c;
+                    }
+
                     int a = Integer.compare(
                             a1.order == null ? -1 : a1.order,
                             a2.order == null ? -1 : a2.order);
@@ -311,14 +319,6 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
                     int p = -Boolean.compare(a1.primary, a2.primary);
                     if (p != 0)
                         return p;
-
-                    if (nav_categories) {
-                        int c = collator.compare(
-                                a1.category == null ? "" : a1.category,
-                                a2.category == null ? "" : a2.category);
-                        if (c != 0)
-                            return c;
-                    }
 
                     int n = collator.compare(a1.name, a2.name);
                     if (n != 0)

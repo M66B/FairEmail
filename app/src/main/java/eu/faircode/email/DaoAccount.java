@@ -74,9 +74,9 @@ public interface DaoAccount {
             " LEFT JOIN folder AS sent ON sent.account = account.id AND sent.type = '" + EntityFolder.SENT + "'" +
             " WHERE :all OR account.synchronize" +
             " GROUP BY account.id" +
-            " ORDER BY account.`order`" +
+            " ORDER BY account.category COLLATE NOCASE" +
+            ", account.`order`" +
             ", account.`primary` DESC" +
-            ", account.category COLLATE NOCASE" +
             ", account.name COLLATE NOCASE")
     LiveData<List<TupleAccountEx>> liveAccountsEx(boolean all);
 
