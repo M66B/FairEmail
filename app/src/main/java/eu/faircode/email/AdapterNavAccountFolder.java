@@ -321,13 +321,6 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
 
                     // Folder
 
-                    if (a1.folderName == null && a2.folderName == null)
-                        return 0;
-                    else if (a1.folderName == null)
-                        return -1;
-                    else if (a2.folderName == null)
-                        return 1;
-
                     int o = Integer.compare(
                             a1.folderOrder == null ? -1 : a1.folderOrder,
                             a2.folderOrder == null ? -1 : a2.folderOrder);
@@ -343,6 +336,13 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
                     int s = -Boolean.compare(a1.folderSync, a2.folderSync);
                     if (s != 0)
                         return s;
+
+                    if (a1.folderName == null && a2.folderName == null)
+                        return 0;
+                    else if (a1.folderName == null)
+                        return -1;
+                    else if (a2.folderName == null)
+                        return 1;
 
                     return collator.compare(a1.getName(context), a2.getName(context));
                 }
