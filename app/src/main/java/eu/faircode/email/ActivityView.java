@@ -223,6 +223,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 " portrait rows=" + portrait2 + " cols=" + portrait2c + " min=" + portrait_min_size +
                 " landscape cols=" + landscape + " min=" + landscape);
         boolean duo = Helper.isSurfaceDuo();
+        boolean nav_categories = prefs.getBoolean("nav_categories", false);
 
         // 1=small, 2=normal, 3=large, 4=xlarge
         if (layout > 0)
@@ -459,70 +460,72 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         adapterNavAccount = new AdapterNavAccountFolder(this, this);
         rvAccount.setAdapter(adapterNavAccount);
 
-        LayoutInflater inflater = LayoutInflater.from(this);
-        DividerItemDecoration categoryDecorator = new DividerItemDecoration(this, llmAccounts.getOrientation()) {
-            @Override
-            public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-                int count = parent.getChildCount();
-                for (int i = 0; i < count; i++) {
-                    View view = parent.getChildAt(i);
-                    int pos = parent.getChildAdapterPosition(view);
+        if (nav_categories) {
+            LayoutInflater inflater = LayoutInflater.from(this);
+            DividerItemDecoration categoryDecorator = new DividerItemDecoration(this, llmAccounts.getOrientation()) {
+                @Override
+                public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                    int count = parent.getChildCount();
+                    for (int i = 0; i < count; i++) {
+                        View view = parent.getChildAt(i);
+                        int pos = parent.getChildAdapterPosition(view);
 
-                    View header = getView(view, parent, pos);
-                    if (header != null) {
-                        canvas.save();
-                        canvas.translate(0, parent.getChildAt(i).getTop() - header.getMeasuredHeight());
-                        header.draw(canvas);
-                        canvas.restore();
+                        View header = getView(view, parent, pos);
+                        if (header != null) {
+                            canvas.save();
+                            canvas.translate(0, parent.getChildAt(i).getTop() - header.getMeasuredHeight());
+                            header.draw(canvas);
+                            canvas.restore();
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                int pos = parent.getChildAdapterPosition(view);
-                View header = getView(view, parent, pos);
-                if (header == null)
-                    outRect.setEmpty();
-                else
-                    outRect.top = header.getMeasuredHeight();
-            }
-
-            private View getView(View view, RecyclerView parent, int pos) {
-                if (pos == NO_POSITION)
-                    return null;
-
-                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    return null;
-
-                TupleAccountFolder prev = adapterNavAccount.getItemAtPosition(pos - 1);
-                TupleAccountFolder account = adapterNavAccount.getItemAtPosition(pos);
-                if (pos > 0 && prev == null)
-                    return null;
-                if (account == null)
-                    return null;
-
-                if (pos > 0) {
-                    if (Objects.equals(prev.category, account.category))
-                        return null;
-                } else {
-                    if (account.category == null)
-                        return null;
+                @Override
+                public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                    int pos = parent.getChildAdapterPosition(view);
+                    View header = getView(view, parent, pos);
+                    if (header == null)
+                        outRect.setEmpty();
+                    else
+                        outRect.top = header.getMeasuredHeight();
                 }
 
-                View header = inflater.inflate(R.layout.item_nav_group, parent, false);
-                TextView tvCategory = header.findViewById(R.id.tvCategory);
+                private View getView(View view, RecyclerView parent, int pos) {
+                    if (pos == NO_POSITION)
+                        return null;
 
-                tvCategory.setText(account.category);
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return null;
 
-                header.measure(View.MeasureSpec.makeMeasureSpec(parent.getWidth(), View.MeasureSpec.EXACTLY),
-                        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
-                header.layout(0, 0, header.getMeasuredWidth(), header.getMeasuredHeight());
+                    TupleAccountFolder prev = adapterNavAccount.getItemAtPosition(pos - 1);
+                    TupleAccountFolder account = adapterNavAccount.getItemAtPosition(pos);
+                    if (pos > 0 && prev == null)
+                        return null;
+                    if (account == null)
+                        return null;
 
-                return header;
-            }
-        };
-        rvAccount.addItemDecoration(categoryDecorator);
+                    if (pos > 0) {
+                        if (Objects.equals(prev.category, account.category))
+                            return null;
+                    } else {
+                        if (account.category == null)
+                            return null;
+                    }
+
+                    View header = inflater.inflate(R.layout.item_nav_group, parent, false);
+                    TextView tvCategory = header.findViewById(R.id.tvCategory);
+
+                    tvCategory.setText(account.category);
+
+                    header.measure(View.MeasureSpec.makeMeasureSpec(parent.getWidth(), View.MeasureSpec.EXACTLY),
+                            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+                    header.layout(0, 0, header.getMeasuredWidth(), header.getMeasuredHeight());
+
+                    return header;
+                }
+            };
+            rvAccount.addItemDecoration(categoryDecorator);
+        }
 
         boolean nav_account = prefs.getBoolean("nav_account", true);
         boolean nav_folder = prefs.getBoolean("nav_folder", true);

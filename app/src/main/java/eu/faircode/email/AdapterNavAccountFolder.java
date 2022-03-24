@@ -59,6 +59,8 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
 
     private boolean nav_count;
     private boolean nav_count_pinned;
+    private boolean nav_categories;
+
 
     private int dp6;
     private int dp12;
@@ -273,6 +275,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.nav_count = prefs.getBoolean("nav_count", false);
         this.nav_count_pinned = prefs.getBoolean("nav_count_pinned", false);
+        this.nav_categories = prefs.getBoolean("nav_categories", false);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
 
@@ -309,11 +312,13 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
                     if (p != 0)
                         return p;
 
-                    int c = collator.compare(
-                            a1.category == null ? "" : a1.category,
-                            a2.category == null ? "" : a2.category);
-                    if (c != 0)
-                        return c;
+                    if (nav_categories) {
+                        int c = collator.compare(
+                                a1.category == null ? "" : a1.category,
+                                a2.category == null ? "" : a2.category);
+                        if (c != 0)
+                            return c;
+                    }
 
                     int n = collator.compare(a1.name, a2.name);
                     if (n != 0)
