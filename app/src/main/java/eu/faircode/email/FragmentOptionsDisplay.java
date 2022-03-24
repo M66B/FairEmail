@@ -72,7 +72,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swShadow;
     private SwitchCompat swShadowHighlight;
     private SwitchCompat swTabularDividers;
-    private SwitchCompat swCategory;
     private SwitchCompat swDate;
     private SwitchCompat swDateFixed;
     private SwitchCompat swDateBold;
@@ -186,7 +185,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup",
             "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_highlight", "dividers",
-            "group_category", "date", "date_fixed", "date_bold",
+            "date", "date_fixed", "date_bold",
             "portrait2", "portrait2c", "landscape", "close_pane", "column_width",
             "nav_options", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
@@ -226,7 +225,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swShadow = view.findViewById(R.id.swShadow);
         swShadowHighlight = view.findViewById(R.id.swShadowHighlight);
         swTabularDividers = view.findViewById(R.id.swTabularDividers);
-        swCategory = view.findViewById(R.id.swCategory);
         swDate = view.findViewById(R.id.swDate);
         swDateFixed = view.findViewById(R.id.swDateFixed);
         swDateBold = view.findViewById(R.id.swDateBold);
@@ -425,13 +423,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("dividers", checked).apply();
-            }
-        });
-
-        swCategory.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("group_category", checked).apply();
             }
         });
 
@@ -1299,7 +1290,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swShadowHighlight.setEnabled(swShadow.isEnabled() && swShadow.isChecked());
         swTabularDividers.setChecked(prefs.getBoolean("dividers", true));
         swTabularDividers.setEnabled(!swCards.isChecked());
-        swCategory.setChecked(prefs.getBoolean("group_category", false));
         swDate.setChecked(prefs.getBoolean("date", true));
         swDateFixed.setChecked(prefs.getBoolean("date_fixed", false));
         swDateFixed.setEnabled(!swDate.isChecked());
