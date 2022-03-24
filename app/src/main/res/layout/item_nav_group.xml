@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:gravity="center_horizontal|bottom"
+            android:gravity="center_horizontal"
             android:text="Category"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toBottomOf="parent"
