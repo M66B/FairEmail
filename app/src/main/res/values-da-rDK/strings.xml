@@ -78,6 +78,7 @@
     <string name="title_block_sender_hint">        Afsenderblokering er en gratisfunktion.
         Afsenderdomæneblokering sker via filterregler og er en Pro-funktion.
     </string>
+    <string name="title_blocked_senders">Blokerede afsender</string>
     <string name="title_junk_filter">Brug lokalt spamfilter</string>
     <string name="title_junk_filter_hint">Dette kan øge strømforbruget samt ukorrekt markere beskeder som spam</string>
     <string name="title_junk_blocklist">Brug spamblokeringslister</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_close_pane">Skjul række eller kolonne, når en samtale lukkes</string>
     <string name="title_advanced_column_width">Beskedkolonnebredde: %1$s %%</string>
     <string name="title_advanced_nav_options">Vis navigeringsmenuindstillinger</string>
+    <string name="title_advanced_nav_categories">Vis kontokategorier i navigeringsmenuen</string>
     <string name="title_advanced_nav_pin">Fastgør navigeringsmenu</string>
     <string name="title_advanced_nav_hide_title">Skjul navigeringsmenuindstillinger?</string>
     <string name="title_advanced_nav_hide_message">Indstillingerne kan genaktivere via skærmindstillingerne</string>

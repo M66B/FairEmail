@@ -78,6 +78,7 @@
     <string name="title_block_sender">مسدود کردن فرستنده</string>
     <string name="title_block_sender_domain">دامنه %1$s را مسدود کن</string>
     <string name="title_block_sender_hint">مسدود کردن فرستنده یک ویژگی رایگان است.        مسدود کردن دامنه فرستنده از قوانین فیلتر استفاده می کند ، که یک ویژگی حرفه ای است.</string>
+    <string name="title_blocked_senders">فرستندگان مسدود شده</string>
     <string name="title_junk_filter">از فیلتر هرزنامه محلی استفاده کنید</string>
     <string name="title_junk_filter_hint">این می تواند استفاده از باتری را افزایش دهد و پیام ها را به صورت نادرست به عنوان اسپم علامت گذاری کند</string>
     <string name="title_junk_blocklist">از فهرست‌های انسداد هرزنامه استفاده کن</string>
@@ -328,6 +329,7 @@
     <string name="title_advanced_min_screen_size">کمترین اندازه صفحه برای تقسیم کردن صفحه</string>
     <string name="title_advanced_column_width">پهنای ستون پیام: %1$s %%</string>
     <string name="title_advanced_nav_options">نشان دادن گزینه‌های منوی ناوبری</string>
+    <string name="title_advanced_nav_categories">دسته‌بندی‌های حساب را در منوی ناوبری نمایش بده</string>
     <string name="title_advanced_nav_pin">سنجاق کردن منوی ناوبری</string>
     <string name="title_advanced_nav_hide_title">پنهان کردن گزینه‌های منوی ناوبری؟</string>
     <string name="title_advanced_nav_hide_message">شما می‌توانید مجددا گزینه‌ها را در تنظیمات نمایش فعال کنید</string>

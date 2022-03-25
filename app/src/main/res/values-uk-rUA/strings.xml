@@ -98,6 +98,7 @@
     <string name="title_block_sender_hint">        Блокування відправника - безкоштовна функція.
         Блокування домену відправника використовує правила фільтрів, які є функцією професійної версії.
     </string>
+    <string name="title_blocked_senders">Заблоковані відправники</string>
     <string name="title_junk_filter">Використовувати локальний фільтр спаму</string>
     <string name="title_junk_filter_hint">Це може збільшити використання заряду акумулятора та неправильно позначати повідомлення як спам</string>
     <string name="title_junk_blocklist">Використовувати списки блокування спаму</string>

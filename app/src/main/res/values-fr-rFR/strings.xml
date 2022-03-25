@@ -375,6 +375,7 @@
     <string name="title_advanced_close_pane">Replier la ligne ou la colonne lors de la fermeture d\'une conversation</string>
     <string name="title_advanced_column_width">Largeur de la colonne des messages : %1$s %%</string>
     <string name="title_advanced_nav_options">Afficher les options du menu de navigation</string>
+    <string name="title_advanced_nav_categories">Afficher les catégories de compte dans le menu de navigation</string>
     <string name="title_advanced_nav_pin">Épingler le menu de navigation</string>
     <string name="title_advanced_nav_hide_title">Masquer les options du menu de navigation ?</string>
     <string name="title_advanced_nav_hide_message">Vous pouvez réactiver les options dans les paramètres d\'affichage</string>

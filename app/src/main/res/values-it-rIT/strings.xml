@@ -78,6 +78,7 @@
     <string name="title_block_sender_hint">        Il blocco di un mittente è una funzionalità gratuita.
         Il blocco del dominio di un mittente usa le regole del filtro, una funzionalità pro.
     </string>
+    <string name="title_blocked_senders">Mittenti bloccati</string>
     <string name="title_junk_filter">Usa filtro spam locale</string>
     <string name="title_junk_filter_hint">Questo può aumentare l\'uso della batteria e contrassegnare erroneamente i messaggi come spam</string>
     <string name="title_junk_blocklist">Usa le blacklist per lo spam</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_close_pane">Comprimi riga o colonna chiudendo una conversazione</string>
     <string name="title_advanced_column_width">Larghezza della colonna del messaggio: %1$s %%</string>
     <string name="title_advanced_nav_options">Mostra le opzioni del menu di navigazione</string>
+    <string name="title_advanced_nav_categories">Mostra le categorie di profili nel menu di navigazione</string>
     <string name="title_advanced_nav_pin">Fissa il menu di navigazione</string>
     <string name="title_advanced_nav_hide_title">Nascondere le opzioni del menu di navigazione?</string>
     <string name="title_advanced_nav_hide_message">Puoi abilitare nuovamente le opzioni nelle impostazioni di visualizzazione</string>

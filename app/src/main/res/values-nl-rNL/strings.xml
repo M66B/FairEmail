@@ -373,11 +373,12 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_close_pane">Rij of kolom samenvouwen bij het sluiten van een gesprek</string>
     <string name="title_advanced_column_width">Breedte berichtkolom: %1$s %%</string>
     <string name="title_advanced_nav_options">Toon navigatiemenu opties</string>
+    <string name="title_advanced_nav_categories">Toon account categorieën in het navigatiemenu</string>
     <string name="title_advanced_nav_pin">Navigatiemenu vastzetten</string>
     <string name="title_advanced_nav_hide_title">Verberg navigatiemenu opties?</string>
     <string name="title_advanced_nav_hide_message">U kunt de opties opnieuw inschakelen in de weergave-instellingen</string>
     <string name="title_advanced_nav_message_count">Toon aantal lokaal opgeslagen berichten in het navigatiemenu</string>
-    <string name="title_advanced_nav_unseen_drafts">Aantal ongelezen concepten in het navigatiemenu tonen</string>
+    <string name="title_advanced_nav_unseen_drafts">Toon het aantal ongelezen concepten in het navigatiemenu</string>
     <string name="title_advanced_nav_pinned_count">Toon het aantal ongelezen berichten in het vastgezette navigatiemenu</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>

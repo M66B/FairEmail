@@ -78,6 +78,7 @@
     <string name="title_block_sender_hint">        Göndərəni əngəlləmə ödənişsiz bir özəllikdir.
         Göndərən domenini əngəlləmə pro özəllik olan filtr qaydalarını istifadə edir.
     </string>
+    <string name="title_blocked_senders">Əngəllənən göndərənlər</string>
     <string name="title_junk_filter">Yerli spam filtrini istifadə et</string>
     <string name="title_junk_filter_hint">Bu, batareya istifadəsini artıra və mesajları səhvən spam olaraq işarələ bilər</string>
     <string name="title_junk_blocklist">Spam əngəlləmə siyahılarını istifadə et</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_close_pane">Bir danışığı bağlayarkən sətri və ya sütunu yığcamlaşdır</string>
     <string name="title_advanced_column_width">Mesaj sütunu eni: %1$s %%</string>
     <string name="title_advanced_nav_options">Naviqasiya menyu seçimlərini göstər</string>
+    <string name="title_advanced_nav_categories">Naviqasiya menyusunda hesab kateqoriyalarını göstər</string>
     <string name="title_advanced_nav_pin">Naviqasiya menyusunu sancaqla</string>
     <string name="title_advanced_nav_hide_title">Naviqasiya menyu seçimləri gizlədilsin?</string>
     <string name="title_advanced_nav_hide_message">Görüntü tənzimləmələrində bu seçimi təkrar fəallaşdıra bilərsiniz</string>
@@ -1047,6 +1049,7 @@
     <string name="title_ask_delete_accept">Mesajların birdəfəlik silənərək geri qaytarıla bilməyəcəyini anlayıram</string>
     <string name="title_ask_delete_answer">Cavab şablonu birdəfəlik silinsin?</string>
     <string name="title_ask_delete_rule">Qayda birdəfəlik silinsin?</string>
+    <string name="title_ask_delete_attachments">Bütün qoşmalar silinsin?</string>
     <string name="title_ask_discard">Qaralama silinsin?</string>
     <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>
     <string name="title_ask_show_html_remark">Orijinal mesajın tünd arxaplanda görüntülənməsi mümkün deyildir, çünki tünd tema mətn və təsvirlərin görünməz olmasına səbəb ola bilər</string>

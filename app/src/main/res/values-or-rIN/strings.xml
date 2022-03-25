@@ -193,6 +193,7 @@
     <string name="title_advanced_min_screen_size">ସ୍କ୍ରିନ୍ ବିଭାଜନ ପାଇଁ ସର୍ବନିମ୍ନ ସ୍କ୍ରିନ୍ ଆକାର</string>
     <string name="title_advanced_close_pane">ବାର୍ତ୍ତାଳାପ ବନ୍ଦ କରିବା ସମୟରେ ଧାଡ଼ି କିମ୍ବା ସ୍ତମ୍ଭକୁ ସଙ୍କୋଚନ କରନ୍ତୁ</string>
     <string name="title_advanced_column_width">ବାର୍ତ୍ତା ସ୍ତମ୍ଭର ପ୍ରସ୍ଥ: %1$s %%</string>
+    <string name="title_advanced_nav_categories">ନାଭିଗେସନ୍ ମେନୁରେ ଆକାଉଣ୍ଟ୍ ବର୍ଗଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_nav_pinned_count">ପିନ୍ ହୋଇଥିବା ନେଭିଗେସନ୍ ମେନୁରେ ପଢ଼ିନଥିବା ବାର୍ତ୍ତାଗୁଡ଼ିକର ସଂଖ୍ୟା ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_cards">ଟାବୁଲାର୍ ଶୈଳୀ ପରିବର୍ତ୍ତେ କାର୍ଡ଼ ଶୈଳୀ ବ୍ୟବହାର କରିବା</string>

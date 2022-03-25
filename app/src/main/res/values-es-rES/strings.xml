@@ -78,6 +78,7 @@
     <string name="title_block_sender_hint">        Bloquear un remitente es una característica gratuita.
         Bloquear un dominio de remitente utiliza reglas de filtro, que es una característica pro.
     </string>
+    <string name="title_blocked_senders">Remitentes bloqueados</string>
     <string name="title_junk_filter">Usar filtro de spam local</string>
     <string name="title_junk_filter_hint">Esto puede aumentar el uso de la batería y marcar incorrectamente mensajes como spam</string>
     <string name="title_junk_blocklist">Usar listas de bloqueo de spam</string>
@@ -373,6 +374,7 @@
     <string name="title_advanced_close_pane">Colapsar fila o columna al cerrar una conversación</string>
     <string name="title_advanced_column_width">Ancho de columna de mensajes: %1$s %%</string>
     <string name="title_advanced_nav_options">Mostrar opciones de menú de navegación</string>
+    <string name="title_advanced_nav_categories">Mostrar categorías de cuentas en el menú de navegación</string>
     <string name="title_advanced_nav_pin">Fijar menú de navegación</string>
     <string name="title_advanced_nav_hide_title">¿Ocultar opciones de menú de navegación?</string>
     <string name="title_advanced_nav_hide_message">Puede activar las opciones de nuevo en la configuración de visualización</string>

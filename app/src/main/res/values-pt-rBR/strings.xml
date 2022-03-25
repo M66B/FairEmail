@@ -374,6 +374,7 @@
     <string name="title_advanced_close_pane">Recolher linha ou coluna ao fechar uma conversa</string>
     <string name="title_advanced_column_width">Largura da coluna da mensagem: %1$s %%</string>
     <string name="title_advanced_nav_options">Mostrar opções de menu de navegação</string>
+    <string name="title_advanced_nav_categories">Mostrar categorias de conta no menu de navegação</string>
     <string name="title_advanced_nav_pin">Fixar menu de navegação</string>
     <string name="title_advanced_nav_hide_title">Ocultar opções do menu de navegação?</string>
     <string name="title_advanced_nav_hide_message">Você pode reativar as opções nas configurações de exibição</string>

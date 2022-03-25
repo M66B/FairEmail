@@ -78,6 +78,7 @@
     <string name="title_block_sender_hint">        Att blockera en avsändare är en gratisfunktion.
         Att blockera en avsändardomän använder filterregler, vilket är en pro-funktion.
     </string>
+    <string name="title_blocked_senders">Blockerade avsändare</string>
     <string name="title_junk_filter">Använd lokalt skräppostfilter</string>
     <string name="title_junk_filter_hint">Detta kan öka batterianvändningen och felaktigt markera meddelanden som skräppost</string>
     <string name="title_junk_blocklist">Använd skräppostblockeringslistor</string>
@@ -370,6 +371,7 @@
     <string name="title_advanced_close_pane">Kollapsa rad eller kolumn när en konversation stängs</string>
     <string name="title_advanced_column_width">Kolumnbredd för meddelande: %1$s %%</string>
     <string name="title_advanced_nav_options">Visa alternativ för navigeringsmeny</string>
+    <string name="title_advanced_nav_categories">Visa kontokategorier i navigeringsmenyn</string>
     <string name="title_advanced_nav_pin">Fäst navigeringsmenyn</string>
     <string name="title_advanced_nav_hide_title">Dölj alternativ för navigeringsmenyn?</string>
     <string name="title_advanced_nav_hide_message">Du kan aktivera alternativen igen i visningsinställningarna</string>

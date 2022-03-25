@@ -78,6 +78,7 @@
     <string name="title_block_sender_hint">        Ο αποκλεισμός ενός αποστολέα είναι μια δωρεάν δυνατότητα.
         Ο αποκλεισμός ενός τομέα αποστολέα χρησιμοποιεί κανόνες φιλτραρίσματος, κάτι που αποτελεί δυνατότητα της έκδοσης Pro.
     </string>
+    <string name="title_blocked_senders">Αποκλεισμένοι αποστολείς</string>
     <string name="title_junk_filter">Χρήση τοπικού φίλτρου ανεπιθ. αλληλογραφίας</string>
     <string name="title_junk_filter_hint">Αυτό μπορεί να αυξήσει τη χρήση της μπαταρίας και να σημάνει εσφαλμένα μηνύματα ως ανεπιθύμητα</string>
     <string name="title_junk_blocklist">Χρήση λιστών αποκλεισμού Ανεπιθύμητων</string>
@@ -373,6 +374,7 @@
     <string name="title_advanced_close_pane">Σύμπτυξη γραμμής ή στήλης κατά το κλείσιμο μιας συζήτησης</string>
     <string name="title_advanced_column_width">Πλάτος της στήλης μηνυμάτων: %1$s %%</string>
     <string name="title_advanced_nav_options">Να προβάλλονται οι επιλογές του μενού πλοήγησης</string>
+    <string name="title_advanced_nav_categories">Να προβάλλονται οι κατηγορίες λογαριασμών στο μενού πλοήγησης</string>
     <string name="title_advanced_nav_pin">Καρφίτσωμα του μενού πλοήγησης</string>
     <string name="title_advanced_nav_hide_title">Απόκρυψη των επιλογών του μενού πλοήγησης;</string>
     <string name="title_advanced_nav_hide_message">Μπορείτε να ενεργοποιήσετε ξανά τις επιλογές στις ρυθμίσεις εμφάνισης</string>

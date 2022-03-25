@@ -88,6 +88,7 @@
     <string name="title_block_sender_hint">        Blokiranje pošiljaoca je besplatna funkcionalnost.
         Blokiranje domene pošiljaoca koristi pravila filtriranja, što predstavlja pro funkcionalnost.
     </string>
+    <string name="title_blocked_senders">Blokirani pošiljaoci</string>
     <string name="title_junk_filter">Koristi lokalni filter za spam poruke</string>
     <string name="title_junk_filter_hint">Ovo može povećati potrošnju baterije i netačno označavati poruke kao spam</string>
     <string name="title_junk_blocklist">Koristi liste blokiranja za spam poruke</string>
@@ -384,6 +385,7 @@
     <string name="title_advanced_close_pane">Suzi red ili kolonu pri zatvaranju konverzacije</string>
     <string name="title_advanced_column_width">Širina popisne kolone: %1$s %%</string>
     <string name="title_advanced_nav_options">Prikaži opcije navigacijskog menija</string>
+    <string name="title_advanced_nav_categories">Prikaži kategorije računa u navigacijskom meniju</string>
     <string name="title_advanced_nav_pin">Zakači navigacijski meni</string>
     <string name="title_advanced_nav_hide_title">Sakriti opcije navigacijskog menija?</string>
     <string name="title_advanced_nav_hide_message">Možete ponovo omogućiti opcije na postavkama ekrana</string>

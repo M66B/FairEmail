@@ -77,6 +77,7 @@
     <string name="title_block_sender_domain">\'%1$s\' alan adını engelle</string>
     <string name="title_block_sender_hint">Bir göndereni engellemek ücretsiz bir özelliktir.
 Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurallarını kullanır.    </string>
+    <string name="title_blocked_senders">Engellenmiş gönderenler</string>
     <string name="title_junk_filter">Yerel spam filtreleri</string>
     <string name="title_junk_filter_hint">Bu, pil kullanımını artırabilir ve iletileri yanlış olarak spam işaretleyebilir</string>
     <string name="title_junk_blocklist">Spam engelleme listelerini kullan</string>
@@ -372,6 +373,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_close_pane">Bir konuşmayı kapatırken satırı veya sütunu daralt</string>
     <string name="title_advanced_column_width">Mesaj sütunu genişliği: %1$s %%</string>
     <string name="title_advanced_nav_options">Gezinme menüsü seçeneklerini göster</string>
+    <string name="title_advanced_nav_categories">Gezinme menüsünde hesap kategorilerini göster</string>
     <string name="title_advanced_nav_pin">Gezinme menüsünü sabitle</string>
     <string name="title_advanced_nav_hide_title">Gezinme menüsü seçenekleri gizlensin mi?</string>
     <string name="title_advanced_nav_hide_message">Seçenekleri ekran ayarlarında tekrar etkinleştirebilirsiniz</string>

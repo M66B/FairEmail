@@ -98,6 +98,7 @@
     <string name="title_block_sender_hint">        Blokowanie nadawcy jest funkcją darmową.
         Blokowanie domeny nadawcy używa zasad filtrowania, co jest funkcją Pro.
     </string>
+    <string name="title_blocked_senders">Zablokowani nadawcy</string>
     <string name="title_junk_filter">Użyj lokalnego filtra spamu</string>
     <string name="title_junk_filter_hint">Może to zwiększyć zużycie baterii i niepoprawnie oznaczać wiadomości jako spam</string>
     <string name="title_junk_blocklist">Użyj listy zablokowanego spamu</string>
@@ -393,6 +394,7 @@
     <string name="title_advanced_close_pane">Zwiń wiersz lub kolumnę podczas zamykania rozmowy</string>
     <string name="title_advanced_column_width">Szerokość kolumny wiadomości: %1$s %%</string>
     <string name="title_advanced_nav_options">Pokaż opcje menu nawigacji</string>
+    <string name="title_advanced_nav_categories">Pokaż kategorie kont w menu nawigacji</string>
     <string name="title_advanced_nav_pin">Przypnij menu nawigacji</string>
     <string name="title_advanced_nav_hide_title">Ukryć opcje menu nawigacji?</string>
     <string name="title_advanced_nav_hide_message">Możesz włączyć opcje ponownie w ustawieniach wyświetlania</string>

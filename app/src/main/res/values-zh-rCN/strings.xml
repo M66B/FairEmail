@@ -364,6 +364,7 @@
     <string name="title_advanced_close_pane">关闭会话时收起行或列</string>
     <string name="title_advanced_column_width">消息列宽：%1$s %%</string>
     <string name="title_advanced_nav_options">显示导航菜单选项</string>
+    <string name="title_advanced_nav_categories">在导航菜单中显示账户类别</string>
     <string name="title_advanced_nav_pin">固定导航菜单</string>
     <string name="title_advanced_nav_hide_title">隐藏导航菜单选项？</string>
     <string name="title_advanced_nav_hide_message">您可以在显示设置中再次启用选项</string>
@@ -377,7 +378,7 @@
     <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
     <string name="title_advanced_cards_shadow_highlight">使用高亮色而不是强调色</string>
     <string name="title_advanced_tabular_dividers">使用表格样式时使用分隔线</string>
-    <string name="title_advanced_category_header">按帐号类别分组</string>
+    <string name="title_advanced_category_header">按账户类别分组</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_date_fixed">在顶部显示固定日期标题</string>
     <string name="title_advanced_date_bold">以粗体显示日期</string>
