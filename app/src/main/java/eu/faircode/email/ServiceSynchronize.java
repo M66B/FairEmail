@@ -2974,6 +2974,36 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     static void scheduleWatchdog(Context context) {
         try {
+            if (Helper.isXiaomi() &&
+                    Build.VERSION.SDK_INT == 30 /* Android 11 */) {
+                /*
+                    java.lang.RuntimeException: Unable to create application eu.faircode.email.ApplicationEx: java.lang.SecurityException: Too many PendingIntent created for uid 10188, aborting Key{startForegroundService pkg=eu.faircode.email intent=act=watchdog cmp=eu.faircode.email/.ServiceSynchronize flags=0x4000000 u=0} requestCode=6
+                        at android.app.ActivityThread.handleBindApplication(ActivityThread.java:7019)
+                        at android.app.ActivityThread.access$1600(ActivityThread.java:263)
+                        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2034)
+                        at android.os.Handler.dispatchMessage(Handler.java:106)
+                        at android.os.Looper.loop(Looper.java:236)
+                        at android.app.ActivityThread.main(ActivityThread.java:8057)
+                        at java.lang.reflect.Method.invoke(Native Method)
+                        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:620)
+                        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1011)
+                    Caused by: java.lang.SecurityException: Too many PendingIntent created for uid 10188, aborting Key{startForegroundService pkg=eu.faircode.email intent=act=watchdog cmp=eu.faircode.email/.ServiceSynchronize flags=0x4000000 u=0} requestCode=6
+                        at android.os.Parcel.createExceptionOrNull(Parcel.java:2376)
+                        at android.os.Parcel.createException(Parcel.java:2360)
+                        at android.os.Parcel.readException(Parcel.java:2343)
+                        at android.os.Parcel.readException(Parcel.java:2285)
+                        at android.app.IActivityManager$Stub$Proxy.getIntentSenderWithFeature(IActivityManager.java:6884)
+                        at android.app.PendingIntent.buildServicePendingIntent(PendingIntent.java:657)
+                        at android.app.PendingIntent.getForegroundService(PendingIntent.java:645)
+                        at eu.faircode.email.PendingIntentCompat.getForegroundService(SourceFile:2)
+                        at eu.faircode.email.ServiceSynchronize.scheduleWatchdog(SourceFile:5)
+                        at eu.faircode.email.ApplicationEx.onCreate(SourceFile:37)
+                        at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1192)
+                        at android.app.ActivityThread.handleBindApplication(ActivityThread.java:7014)
+                 */
+                return;
+            }
+
             Intent intent = new Intent(context, ServiceSynchronize.class)
                     .setAction("watchdog");
             PendingIntent pi;
