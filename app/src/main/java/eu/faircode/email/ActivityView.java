@@ -173,6 +173,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final long UPDATE_DAILY = (BuildConfig.BETA_RELEASE ? 4 : 12) * 3600 * 1000L; // milliseconds
     static final long UPDATE_WEEKLY = 7 * 24 * 3600 * 1000L; // milliseconds
 
+    private static final int REQUEST_RULES_ACCOUNT = 2001;
+    private static final int REQUEST_RULES_FOLDER = 2002;
+
     @Override
     @SuppressLint("MissingSuperCall")
     protected void onCreate(Bundle savedInstanceState) {
@@ -767,6 +770,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
+        menus.add(new NavMenuItem(R.drawable.twotone_filter_alt_24, R.string.title_edit_rules, new Runnable() {
+            @Override
+            public void run() {
+                if (!drawerLayout.isLocked(drawerContainer))
+                    drawerLayout.closeDrawer(drawerContainer);
+                onMenuRulesAccount();
+            }
+        }));
+
         menus.add(new NavMenuItem(R.drawable.twotone_settings_24, R.string.menu_setup, new Runnable() {
             @Override
             public void run() {
@@ -1019,6 +1031,26 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(creceiver);
         super.onDestroy();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_RULES_ACCOUNT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onMenuRulesFolder(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_RULES_FOLDER:
+                    if (resultCode == RESULT_OK && data != null)
+                        onMenuRules(data.getBundleExtra("args"));
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     @Override
@@ -1749,6 +1781,31 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentAnswers()).addToBackStack("answers");
+        fragmentTransaction.commit();
+    }
+
+    private void onMenuRulesAccount() {
+        FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+        fragment.setArguments(new Bundle());
+        fragment.setTargetActivity(this, REQUEST_RULES_ACCOUNT);
+        fragment.show(getSupportFragmentManager(), "rules:account");
+    }
+
+    private void onMenuRulesFolder(Bundle args) {
+        args.putString("title", getString(R.string.title_edit_rules));
+        args.putLongArray("disabled", new long[0]);
+
+        FragmentDialogFolder fragment = new FragmentDialogFolder();
+        fragment.setArguments(args);
+        fragment.setTargetActivity(this, REQUEST_RULES_FOLDER);
+        fragment.show(getSupportFragmentManager(), "rules:folder");
+    }
+
+    private void onMenuRules(Bundle args) {
+        FragmentRules fragment = new FragmentRules();
+        fragment.setArguments(args);
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rules");
         fragmentTransaction.commit();
     }
 
