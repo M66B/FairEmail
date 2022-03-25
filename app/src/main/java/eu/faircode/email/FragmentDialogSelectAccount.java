@@ -110,6 +110,7 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
                         EntityAccount account = adapter.getItem(which);
                         Bundle args = getArguments();
                         args.putLong("account", account.id);
+                        args.putInt("protocol", account.protocol);
                         args.putString("name", account.name);
                         sendResult(RESULT_OK);
                     }
