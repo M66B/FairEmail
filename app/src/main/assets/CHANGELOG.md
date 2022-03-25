@@ -4,7 +4,7 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next version
+### 1.1861 - 2022-03-25
 
 * Added option to show account categories in the navigation menu
 * Added managing filter rules to the navigation menu
