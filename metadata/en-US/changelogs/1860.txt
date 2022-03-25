@@ -6,9 +6,11 @@
 
 ### Next version
 
-* Added account category to navigation menu
+* Added option to show account categories in the navigation menu
+* Added managing filter rules to the navigation menu
 * Small improvements and minor bug fixes
 * Updated AndroidX
+* Updated [Public Suffix List](https://publicsuffix.org/)
 * Updated translations
 
 ### 1.1860 - 2022-03-23
