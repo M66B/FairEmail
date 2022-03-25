@@ -1790,7 +1790,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             protected EntityAccount onExecute(Context context, Bundle args) {
                 DB db = DB.getInstance(context);
 
-                List<EntityAccount> accounts = db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP);
+                List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
                 if (accounts != null && accounts.size() == 1)
                     return accounts.get(0);
 
