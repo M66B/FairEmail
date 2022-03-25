@@ -19,16 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import com.sun.mail.iap.ConnectionException;
-import com.sun.mail.iap.ProtocolException;
-import com.sun.mail.iap.Response;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
-import com.sun.mail.imap.protocol.IMAPProtocol;
-import com.sun.mail.imap.protocol.UID;
 
 import javax.mail.Flags;
-import javax.mail.FolderClosedException;
+import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 
@@ -43,34 +38,6 @@ public class IMAPMessageEx extends IMAPMessage {
 
     @Override
     public synchronized void setFlags(Flags flag, boolean set) throws MessagingException {
-        synchronized (getMessageCacheLock()) {
-            try {
-                IMAPProtocol p = getProtocol();
-                checkExpunged(); // Insure that this message is not expunged
-                if (p.hasCapability("X-UIDONLY") ||
-                        "imap.mail.yahoo.co.jp".equals(p.getInetAddress().getHostName()) ||
-                        (p.hasCapability("UIDPLUS") &&
-                                Boolean.parseBoolean(System.getProperty("fairemail.uid_command")))) {
-                    // Verizon
-                    // Yahoo: NO [CANNOT] STORE It's not possible to perform specified operation
-                    long uid = getUID();
-                    if (uid < 0) {
-                        UID u = p.fetchUID(getSequenceNumber());
-                        if (u != null)
-                            uid = u.uid;
-                    }
-                    Response[] r = p.command("UID STORE " + uid +
-                            " " + (set ? '+' : '-') + "FLAGS " + p.createFlagList(new Flags(flag)), null);
-                    p.notifyResponseHandlers(r);
-                    p.handleResult(r[r.length - 1]);
-                    return;
-                }
-                p.storeFlags(getSequenceNumber(), flag, set);
-            } catch (ConnectionException cex) {
-                throw new FolderClosedException(folder, cex.getMessage());
-            } catch (ProtocolException pex) {
-                throw new MessagingException(pex.getMessage(), pex);
-            }
-        }
+        getFolder().setFlags(new Message[]{this}, flag, set);
     }
 }
