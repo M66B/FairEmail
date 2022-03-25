@@ -53,6 +53,7 @@ import androidx.core.graphics.ColorUtils;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -118,6 +119,30 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 view.setSystemUiVisibility(flags);
             }
         }
+
+        String requestKey = getRequestKey();
+        if (!BuildConfig.PLAY_STORE_RELEASE)
+            EntityLog.log(this, "Listing key=" + requestKey);
+        getSupportFragmentManager().setFragmentResultListener(requestKey, this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                try {
+                    result.setClassLoader(ApplicationEx.class.getClassLoader());
+                    int requestCode = result.getInt("requestCode");
+                    int resultCode = result.getInt("resultCode");
+
+                    EntityLog.log(ActivityBase.this, "Received key=" + requestKey +
+                            " request=" + requestCode +
+                            " result=" + resultCode);
+
+                    Intent data = new Intent();
+                    data.putExtra("args", result);
+                    onActivityResult(requestCode, resultCode, data);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
 
         prefs.registerOnSharedPreferenceChangeListener(this);
 
@@ -351,6 +376,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                   at android.app.Activity.performDestroy(Activity.java:7522)
              */
         }
+    }
+
+    public String getRequestKey() {
+        return this.getClass().getName() + ":activity";
     }
 
     @Override

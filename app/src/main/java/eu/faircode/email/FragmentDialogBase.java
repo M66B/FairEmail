@@ -183,6 +183,11 @@ public class FragmentDialogBase extends DialogFragment {
         targetRequestCode = requestCode;
     }
 
+    public void setTargetActivity(ActivityBase activity, int requestCode){
+        targetRequestKey = activity.getRequestKey();
+        targetRequestCode = requestCode;
+    }
+
     protected void sendResult(int resultCode) {
         EntityLog.log(getContext(), "Sending key=" + targetRequestKey +
                 " request=" + targetRequestCode +
