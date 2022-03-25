@@ -336,7 +336,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         }.execute(this, args, "folder:select");
 
         return new AlertDialog.Builder(context)
-                .setIcon(R.drawable.twotone_drive_file_move_24)
+                .setIcon(R.drawable.twotone_folder_open_24)
                 .setTitle(title)
                 .setView(dview)
                 .setNegativeButton(android.R.string.cancel, null)
