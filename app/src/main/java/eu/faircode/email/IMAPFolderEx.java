@@ -43,12 +43,12 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.UIDFolder;
 
-public class IMAPFolderEX extends IMAPFolder {
-    public IMAPFolderEX(String fullName, char separator, IMAPStore store, Boolean isNamespace) {
+public class IMAPFolderEx extends IMAPFolder {
+    public IMAPFolderEx(String fullName, char separator, IMAPStore store, Boolean isNamespace) {
         super(fullName, separator, store, isNamespace);
     }
 
-    public IMAPFolderEX(ListInfo li, IMAPStore store) {
+    public IMAPFolderEx(ListInfo li, IMAPStore store) {
         super(li, store);
     }
 

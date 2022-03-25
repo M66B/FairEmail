@@ -280,7 +280,7 @@ public class EmailService implements AutoCloseable {
             properties.put("mail." + protocol + ".appendbuffersize", Integer.toString(APPEND_BUFFER_SIZE));
 
             if (!"gimaps".equals(protocol) && BuildConfig.DEBUG)
-                properties.put("mail." + protocol + ".folder.class", IMAPFolderEX.class.getName());
+                properties.put("mail." + protocol + ".folder.class", IMAPFolderEx.class.getName());
 
         } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
