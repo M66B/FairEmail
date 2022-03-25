@@ -105,6 +105,7 @@ public class ActivityEML extends ActivityBase {
     private Uri uri;
     private MessageHelper.AttachmentPart apart;
     private static final int REQUEST_ATTACHMENT = 1;
+    private static final int REQUEST_ACCOUNT = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -500,6 +501,10 @@ public class ActivityEML extends ActivityBase {
                     if (resultCode == RESULT_OK && data != null)
                         onSaveAttachment(data);
                     break;
+                case REQUEST_ACCOUNT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSave(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -591,107 +596,82 @@ public class ActivityEML extends ActivityBase {
     }
 
     private void onMenuSave() {
-        new SimpleTask<List<EntityAccount>>() {
+        Bundle args = new Bundle();
+        args.putInt("type", EntityAccount.TYPE_IMAP);
+
+        FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+        fragment.setArguments(args);
+        fragment.setTargetActivity(this, REQUEST_ACCOUNT);
+        fragment.show(getSupportFragmentManager(), "eml:account");
+    }
+
+    private void onSave(Bundle args) {
+        args.putParcelable("uri", uri);
+        args.putBoolean("junk", junk);
+
+        new SimpleTask<String>() {
             @Override
-            protected List<EntityAccount> onExecute(Context context, Bundle args) {
-                DB db = DB.getInstance(context);
-                return db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP);
+            protected void onPreExecute(Bundle args) {
+                ToastEx.makeText(ActivityEML.this, R.string.title_executing, Toast.LENGTH_LONG).show();
             }
 
             @Override
-            protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
-                ArrayAdapter<EntityAccount> adapter =
-                        new ArrayAdapter<>(ActivityEML.this, R.layout.spinner_item1, android.R.id.text1);
-                for (EntityAccount account : accounts)
-                    adapter.add(account);
+            protected String onExecute(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+                long aid = args.getLong("account");
 
-                new AlertDialog.Builder(ActivityEML.this)
-                        .setIcon(R.drawable.twotone_save_alt_24)
-                        .setTitle(R.string.title_save_eml)
-                        .setAdapter(adapter, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                EntityAccount account = adapter.getItem(which);
+                DB db = DB.getInstance(context);
+                EntityAccount account = db.account().getAccount(aid);
+                if (account == null)
+                    return null;
+                EntityFolder folder = db.folder().getFolderByType(account.id,
+                        junk ? EntityFolder.JUNK : EntityFolder.INBOX);
+                if (folder == null)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
 
-                                Bundle args = new Bundle();
-                                args.putParcelable("uri", uri);
-                                args.putLong("account", account.id);
-                                args.putBoolean("junk", junk);
+                ContentResolver resolver = context.getContentResolver();
+                try (InputStream is = resolver.openInputStream(uri)) {
 
-                                new SimpleTask<String>() {
-                                    @Override
-                                    protected void onPreExecute(Bundle args) {
-                                        ToastEx.makeText(ActivityEML.this, R.string.title_executing, Toast.LENGTH_LONG).show();
-                                    }
+                    Properties props = MessageHelper.getSessionProperties();
+                    Session isession = Session.getInstance(props, null);
+                    MimeMessage imessage = new MimeMessage(isession, is);
 
-                                    @Override
-                                    protected String onExecute(Context context, Bundle args) throws Throwable {
-                                        Uri uri = args.getParcelable("uri");
-                                        long aid = args.getLong("account");
+                    try (EmailService iservice = new EmailService(
+                            context, account.getProtocol(), account.realm, account.encryption, account.insecure, true)) {
+                        iservice.setPartialFetch(account.partial_fetch);
+                        iservice.setIgnoreBodyStructureSize(account.ignore_size);
+                        iservice.connect(account);
 
-                                        DB db = DB.getInstance(context);
-                                        EntityAccount account = db.account().getAccount(aid);
-                                        if (account == null)
-                                            return null;
-                                        EntityFolder folder = db.folder().getFolderByType(account.id,
-                                                junk ? EntityFolder.JUNK : EntityFolder.INBOX);
-                                        if (folder == null)
-                                            throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
+                        IMAPFolder ifolder = (IMAPFolder) iservice.getStore().getFolder(folder.name);
+                        ifolder.open(Folder.READ_WRITE);
 
-                                        ContentResolver resolver = context.getContentResolver();
-                                        try (InputStream is = resolver.openInputStream(uri)) {
+                        if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
+                            imessage.setFlag(Flags.Flag.DRAFT, false);
 
-                                            Properties props = MessageHelper.getSessionProperties();
-                                            Session isession = Session.getInstance(props, null);
-                                            MimeMessage imessage = new MimeMessage(isession, is);
+                        ifolder.appendMessages(new Message[]{imessage});
+                    }
+                }
 
-                                            try (EmailService iservice = new EmailService(
-                                                    context, account.getProtocol(), account.realm, account.encryption, account.insecure, true)) {
-                                                iservice.setPartialFetch(account.partial_fetch);
-                                                iservice.setIgnoreBodyStructureSize(account.ignore_size);
-                                                iservice.connect(account);
+                EntityOperation.sync(context, folder.id, true);
+                ServiceSynchronize.eval(context, "EML");
 
-                                                IMAPFolder ifolder = (IMAPFolder) iservice.getStore().getFolder(folder.name);
-                                                ifolder.open(Folder.READ_WRITE);
+                return account.name + "/" + folder.name;
+            }
 
-                                                if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
-                                                    imessage.setFlag(Flags.Flag.DRAFT, false);
-
-                                                ifolder.appendMessages(new Message[]{imessage});
-                                            }
-                                        }
-
-                                        EntityOperation.sync(context, folder.id, true);
-                                        ServiceSynchronize.eval(context, "EML");
-
-                                        return account.name + "/" + folder.name;
-                                    }
-
-                                    @Override
-                                    protected void onExecuted(Bundle args, String name) {
-                                        ToastEx.makeText(ActivityEML.this, name, Toast.LENGTH_LONG).show();
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, @NonNull Throwable ex) {
-                                        if (ex instanceof IllegalArgumentException)
-                                            Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG)
-                                                    .setGestureInsetBottomIgnored(true).show();
-                                        else
-                                            Log.unexpectedError(getSupportFragmentManager(), ex);
-                                    }
-                                }.execute(ActivityEML.this, args, "eml:store");
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
+            @Override
+            protected void onExecuted(Bundle args, String name) {
+                ToastEx.makeText(ActivityEML.this, name, Toast.LENGTH_LONG).show();
             }
 
             @Override
             protected void onException(Bundle args, @NonNull Throwable ex) {
-                Log.unexpectedError(getSupportFragmentManager(), ex);
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true).show();
+                else
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
             }
-        }.execute(this, new Bundle(), "messages:accounts");
+        }.execute(ActivityEML.this, args, "eml:store");
     }
 
     private class Result {
