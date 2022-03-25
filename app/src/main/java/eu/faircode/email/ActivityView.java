@@ -1785,10 +1785,38 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuRulesAccount() {
-        FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
-        fragment.setArguments(new Bundle());
-        fragment.setTargetActivity(this, REQUEST_RULES_ACCOUNT);
-        fragment.show(getSupportFragmentManager(), "rules:account");
+        new SimpleTask<EntityAccount>() {
+            @Override
+            protected EntityAccount onExecute(Context context, Bundle args) {
+                DB db = DB.getInstance(context);
+
+                List<EntityAccount> accounts = db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP);
+                if (accounts != null && accounts.size() == 1)
+                    return accounts.get(0);
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityAccount account) {
+                if (account == null) {
+                    FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+                    fragment.setArguments(new Bundle());
+                    fragment.setTargetActivity(ActivityView.this, REQUEST_RULES_ACCOUNT);
+                    fragment.show(getSupportFragmentManager(), "rules:account");
+                } else {
+                    args.putLong("account", account.id);
+                    args.putInt("protocol", account.protocol);
+                    args.putString("name", account.name);
+                    onMenuRulesFolder(args);
+                }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getSupportFragmentManager(), ex);
+            }
+        }.execute(this, new Bundle(), "rules:account");
     }
 
     private void onMenuRulesFolder(Bundle args) {
