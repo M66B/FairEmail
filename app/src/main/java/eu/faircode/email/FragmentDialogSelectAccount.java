@@ -83,11 +83,12 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
             @Override
             protected List<EntityAccount> onExecute(Context context, Bundle args) {
                 boolean all = (args != null && args.getBoolean("all"));
+                Integer type = (args == null || !args.containsKey("type") ? null : args.getInt("type"));
 
                 DB db = DB.getInstance(context);
                 return (all
                         ? db.account().getAccounts()
-                        : db.account().getSynchronizingAccounts(null));
+                        : db.account().getSynchronizingAccounts(type));
             }
 
             @Override
