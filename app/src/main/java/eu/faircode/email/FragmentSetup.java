@@ -47,6 +47,7 @@ import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -75,7 +76,6 @@ public class FragmentSetup extends FragmentBase {
 
     private TextView tvPrivacy;
     private TextView tvSupport;
-
     private ImageButton ibWelcome;
     private Group grpWelcome;
 
@@ -790,6 +790,26 @@ public class FragmentSetup extends FragmentBase {
         boolean setup_welcome = prefs.getBoolean("setup_welcome", true);
         ibWelcome.setImageLevel(setup_welcome ? 0 /* less */ : 1 /* more */);
         grpWelcome.setVisibility(setup_welcome ? View.VISIBLE : View.GONE);
+
+        ViewGroup vwWelcome = (ViewGroup) ibWelcome.getParent();
+        if (vwWelcome == null)
+            return;
+
+        vwWelcome.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Rect rect = new Rect(
+                            vwWelcome.getLeft(),
+                            ibWelcome.getTop(),
+                            vwWelcome.getRight(),
+                            ibWelcome.getBottom());
+                    vwWelcome.setTouchDelegate(new TouchDelegate(rect, ibWelcome));
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     private void updateManual() {
@@ -817,6 +837,26 @@ public class FragmentSetup extends FragmentBase {
                 ? View.VISIBLE : View.GONE);
 
         grpExtra.setVisibility(setup_extra ? View.VISIBLE : View.GONE);
+
+        ViewGroup vwExtra = (ViewGroup) ibExtra.getParent();
+        if (vwExtra == null)
+            return;
+
+        vwExtra.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Rect rect = new Rect(
+                            vwExtra.getLeft(),
+                            ibExtra.getTop(),
+                            vwExtra.getRight(),
+                            ibExtra.getBottom());
+                    vwExtra.setTouchDelegate(new TouchDelegate(rect, ibExtra));
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     private void ensureVisible(View child) {
