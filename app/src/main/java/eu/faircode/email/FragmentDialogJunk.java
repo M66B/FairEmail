@@ -246,6 +246,10 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                                         long fid = args.getLong("folder");
 
                                         DB db = DB.getInstance(context);
+
+                                        int count = db.contact().deleteContact(aid, EntityContact.TYPE_JUNK);
+                                        EntityLog.log(context, "Deleted junk contacts=" + count);
+
                                         EntityFolder folder = db.folder().getFolder(fid);
                                         if (folder == null)
                                             return null;
@@ -267,9 +271,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                                                 db.rule().deleteRule(rule.id);
                                             }
                                         }
-
-                                        int count = db.contact().deleteContact(aid, EntityContact.TYPE_JUNK);
-                                        EntityLog.log(context, "Deleted junk contacts=" + count);
 
                                         return null;
                                     }
