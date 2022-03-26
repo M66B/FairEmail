@@ -2396,8 +2396,7 @@ public class HtmlHelper {
         } catch (Throwable ex) {
             Log.e(new Throwable("getQuoteStyle " + start + "..." + end, ex));
         }
-
-        return "border-" + dir + ":3px solid #ccc; padding-" + dir + ":3px;margin-top:0; margin-bottom:0;";
+        return "border-" + dir + ":3px solid #ccc; padding-" + dir + ":10px;margin:0;";
     }
 
     static String getIndentStyle(CharSequence quoted, int start, int end) {
