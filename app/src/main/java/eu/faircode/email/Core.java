@@ -2695,7 +2695,6 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean uid_expunge = prefs.getBoolean("uid_expunge", false);
-        int chunk_size = prefs.getInt("chunk_size", DEFAULT_CHUNK_SIZE);
 
         if (uid_expunge)
             uid_expunge = MessageHelper.hasCapability(ifolder, "UIDPLUS");
@@ -2708,14 +2707,7 @@ class Core {
                 return;
 
             Log.i(ifolder.getName() + " expunging " + TextUtils.join(",", uids));
-            ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-                @Override
-                public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
-                    for (List<Long> list : Helper.chunkList(uids, chunk_size))
-                        protocol.uidexpunge(UIDSet.createUIDSets(Helper.toLongArray(list)));
-                    return null;
-                }
-            });
+            uidExpunge(context, ifolder, uids);
             Log.i(ifolder.getName() + " expunged " + TextUtils.join(",", uids));
         } else
             ifolder.expunge();
@@ -4470,7 +4462,6 @@ class Core {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
         boolean uid_expunge = prefs.getBoolean("uid_expunge", false);
-        int chunk_size = prefs.getInt("chunk_size", DEFAULT_CHUNK_SIZE);
 
         if (!perform_expunge)
             return false;
@@ -4498,15 +4489,7 @@ class Core {
                     }
 
                 Log.i(ifolder.getName() + " expunging " + TextUtils.join(",", uids));
-                ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-                    @Override
-                    public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
-                        // https://datatracker.ietf.org/doc/html/rfc4315#section-2.1
-                        for (List<Long> list : Helper.chunkList(uids, chunk_size))
-                            protocol.uidexpunge(UIDSet.createUIDSets(Helper.toLongArray(list)));
-                        return null;
-                    }
-                });
+                uidExpunge(context, ifolder, uids);
                 Log.i(ifolder.getName() + " expunged " + TextUtils.join(",", uids));
             } else {
                 Log.i(ifolder.getName() + " expunging all");
@@ -4520,6 +4503,21 @@ class Core {
             Log.w(ex);
             return false;
         }
+    }
+
+    private static void uidExpunge(Context context, IMAPFolder ifolder, List<Long> uids) throws MessagingException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int chunk_size = prefs.getInt("chunk_size", DEFAULT_CHUNK_SIZE);
+
+        ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+            @Override
+            public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                // https://datatracker.ietf.org/doc/html/rfc4315#section-2.1
+                for (List<Long> list : Helper.chunkList(uids, chunk_size))
+                    protocol.uidexpunge(UIDSet.createUIDSets(Helper.toLongArray(list)));
+                return null;
+            }
+        });
     }
 
     private static EntityIdentity matchIdentity(Context context, EntityFolder folder, EntityMessage message) {
