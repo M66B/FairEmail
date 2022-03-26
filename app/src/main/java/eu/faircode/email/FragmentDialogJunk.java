@@ -83,6 +83,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_junk, null);
         final TextView tvMessage = view.findViewById(R.id.tvMessage);
         final ImageButton ibInfoProvider = view.findViewById(R.id.ibInfoProvider);
+        final TextView tvPopHint = view.findViewById(R.id.tvPopHint);
         final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
         final CheckBox cbBlockDomain = view.findViewById(R.id.cbBlockDomain);
         final ImageButton ibMore = view.findViewById(R.id.ibMore);
@@ -118,6 +119,8 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                 Helper.viewFAQ(v.getContext(), 92);
             }
         });
+
+        tvPopHint.setVisibility(imap ? View.GONE : View.VISIBLE);
 
         cbBlockSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

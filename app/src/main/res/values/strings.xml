@@ -91,6 +91,10 @@
     </plurals>
     <string name="title_ask_spam_who">Treat message from %1$s as spam?</string>
     <string name="title_junk_hint">Your email provider is responsible for filtering spam. An email app does not have all the data needed to do this reliably.</string>
+    <string name="title_junk_pop_hint">
+        Messages from blocked senders will not be downloaded.
+        If "Leave messages on server" is not enabled, these messages will be lost permanently!
+    </string>
 
     <string name="title_block">Block %1$s</string>
     <string name="title_block_sender">Block sender</string>

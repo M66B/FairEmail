@@ -49,6 +49,18 @@
             app:srcCompat="@drawable/twotone_info_24"
             app:tint="?attr/colorAccent" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvPopHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_junk_pop_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/ibInfoProvider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvJunkHint" />
+
         <CheckBox
             android:id="@+id/cbBlockSender"
             android:layout_width="wrap_content"
@@ -57,7 +69,7 @@
             android:text="@string/title_block_sender"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvJunkHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvPopHint" />
 
         <CheckBox
             android:id="@+id/cbBlockDomain"
