@@ -3025,22 +3025,27 @@ class Core {
                         // No blocklist
 
                         if (message.from != null) {
-                            boolean blocked = false;
+                            EntityContact badboy = null;
                             for (Address from : message.from) {
                                 String email = ((InternetAddress) from).getAddress();
                                 if (TextUtils.isEmpty(email))
                                     continue;
 
-                                EntityContact badboy = db.contact().getContact(message.account, EntityContact.TYPE_JUNK, email);
-                                if (badboy != null) {
-                                    EntityLog.log(context, account.name + " POP blocked=" +
-                                            MessageHelper.formatAddresses(message.from));
-                                    blocked = true;
+                                badboy = db.contact().getContact(message.account, EntityContact.TYPE_JUNK, email);
+                                if (badboy != null)
                                     break;
-                                }
                             }
-                            if (blocked)
+
+                            if (badboy != null) {
+                                badboy.times_contacted++;
+                                badboy.last_contacted = new Date().getTime();
+                                db.contact().updateContact(badboy);
+
+                                EntityLog.log(context, account.name + " POP blocked=" +
+                                        MessageHelper.formatAddresses(message.from));
+
                                 continue;
+                            }
                         }
 
                         boolean needsHeaders = EntityRule.needsHeaders(message, rules);
@@ -4572,23 +4577,31 @@ class Core {
                 }
 
             if (EntityFolder.INBOX.equals(folder.type))
-                if (message.from != null)
+                if (message.from != null) {
+                    EntityContact badboy = null;
                     for (Address from : message.from) {
                         String email = ((InternetAddress) from).getAddress();
                         if (TextUtils.isEmpty(email))
                             continue;
 
-                        EntityContact badboy = db.contact().getContact(message.account, EntityContact.TYPE_JUNK, email);
-                        if (badboy != null) {
-                            EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                            if (junk != null) {
-                                EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
-                                message.ui_hide = true;
-                                executed = true;
-                            }
+                        badboy = db.contact().getContact(message.account, EntityContact.TYPE_JUNK, email);
+                        if (badboy != null)
                             break;
+                    }
+
+                    if (badboy != null) {
+                        badboy.times_contacted++;
+                        badboy.last_contacted = new Date().getTime();
+                        db.contact().updateContact(badboy);
+
+                        EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                        if (junk != null) {
+                            EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
+                            message.ui_hide = true;
+                            executed = true;
                         }
                     }
+                }
 
             if (executed &&
                     !message.hasKeyword(MessageHelper.FLAG_FILTERED))
