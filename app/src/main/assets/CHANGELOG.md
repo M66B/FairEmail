@@ -4,6 +4,10 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### Next version
+
+* Added block sender for POP3 accounts
+
 ### 1.1861 - 2022-03-25
 
 * Added option to show account categories in the navigation menu
