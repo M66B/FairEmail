@@ -104,6 +104,7 @@ public interface DaoContact {
     int deleteContacts(long before);
 
     @Query("DELETE FROM contact" +
-            " WHERE type IN (:types)")
-    int clearContacts(int[] types);
+            " WHERE (:account IS NULL OR account = :account)" +
+            " AND type IN (:types)")
+    int clearContacts(Long account, int[] types);
 }

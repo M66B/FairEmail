@@ -267,6 +267,7 @@ public class FragmentContacts extends FragmentBase {
 
     private void onMenuDeleteAll() {
         Bundle args = new Bundle();
+        args.putLong("account", account == null ? -1L : account);
         args.putBoolean("junk", junk);
 
         FragmentDelete fragment = new FragmentDelete();
@@ -501,13 +502,17 @@ public class FragmentContacts extends FragmentBase {
                             new SimpleTask<Void>() {
                                 @Override
                                 protected Void onExecute(Context context, Bundle args) {
-                                    boolean junk = (args != null && args.getBoolean("junk"));
+                                    Long account = args.getLong("account");
+                                    boolean junk = args.getBoolean("junk");
+
+                                    if (account < 0)
+                                        account = null;
                                     int[] types = (junk
                                             ? new int[]{EntityContact.TYPE_JUNK, EntityContact.TYPE_NO_JUNK}
                                             : new int[]{EntityContact.TYPE_FROM, EntityContact.TYPE_TO});
 
                                     DB db = DB.getInstance(context);
-                                    int count = db.contact().clearContacts(types);
+                                    int count = db.contact().clearContacts(account, types);
                                     Log.i("Cleared contacts=" + count);
                                     return null;
                                 }
