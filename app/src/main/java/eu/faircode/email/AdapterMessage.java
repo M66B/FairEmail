@@ -2069,7 +2069,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     boolean delete = (inTrash || !hasTrash || inJunk || outbox || message.uid == null || pop);
                     boolean forever = (delete && (!pop || !message.accountLeaveDeleted));
-                    boolean report = ((!inJunk && move) || (pop && inInbox));
+                    boolean report = (pop ? inInbox : !inJunk && move);
                     boolean headers = (message.uid != null || (pop && message.headers != null));
 
                     evalProperties(message); // TODO: done again in bindBody
