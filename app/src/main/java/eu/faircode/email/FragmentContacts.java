@@ -75,9 +75,11 @@ public class FragmentContacts extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
-    private long account;
+    private Long account = null;
     private boolean junk = false;
     private String searching = null;
+    private long selected_account;
+
     private AdapterContact adapter;
 
     private static final int REQUEST_ACCOUNT = 1;
@@ -90,7 +92,11 @@ public class FragmentContacts extends FragmentBase {
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
-        this.junk = (args != null && args.getBoolean("junk"));
+        if (args == null)
+            args = new Bundle();
+
+        this.account = (args.containsKey("account") ? args.getLong("account") : null);
+        this.junk = args.getBoolean("junk");
     }
 
     @Override
@@ -127,6 +133,7 @@ public class FragmentContacts extends FragmentBase {
         outState.putLong("fair:account", account);
         outState.putBoolean("fair:junk", junk);
         outState.putString("fair:searching", searching);
+        outState.putLong("fair:selected_account", selected_account);
         super.onSaveInstanceState(outState);
     }
 
@@ -138,12 +145,16 @@ public class FragmentContacts extends FragmentBase {
             account = savedInstanceState.getLong("fair:account");
             junk = savedInstanceState.getBoolean("fair:junk");
             searching = savedInstanceState.getString("fair:searching");
+            selected_account = savedInstanceState.getLong("fair:selected_account");
         }
+
         onMenuJunk(junk);
         adapter.search(searching);
 
-        DB db = DB.getInstance(getContext());
-        db.contact().liveContacts().observe(getViewLifecycleOwner(), new Observer<List<TupleContactEx>>() {
+        final Context context = getContext();
+        DB db = DB.getInstance(context);
+
+        db.contact().liveContacts(account).observe(getViewLifecycleOwner(), new Observer<List<TupleContactEx>>() {
             @Override
             public void onChanged(List<TupleContactEx> contacts) {
                 if (contacts == null)
@@ -156,7 +167,7 @@ public class FragmentContacts extends FragmentBase {
             }
         });
 
-        Shortcuts.update(getContext(), getViewLifecycleOwner());
+        Shortcuts.update(context, getViewLifecycleOwner());
     }
 
     @Override
@@ -292,7 +303,7 @@ public class FragmentContacts extends FragmentBase {
     }
 
     private void onAccountSelected(Bundle args) {
-        account = args.getLong("account");
+        selected_account = args.getLong("account");
         boolean export = args.getBoolean("export");
 
         final Context context = getContext();
@@ -321,7 +332,7 @@ public class FragmentContacts extends FragmentBase {
 
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
-        args.putLong("account", account);
+        args.putLong("account", selected_account);
 
         new SimpleTask<Void>() {
             @Override
@@ -390,7 +401,7 @@ public class FragmentContacts extends FragmentBase {
     private void handleExport(Intent data) {
         Bundle args = new Bundle();
         args.putParcelable("uri", data.getData());
-        args.putLong("account", account);
+        args.putLong("account", selected_account);
 
         new SimpleTask<Void>() {
             @Override
@@ -401,6 +412,7 @@ public class FragmentContacts extends FragmentBase {
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
+                long account = args.getLong("account");
 
                 if (uri == null)
                     throw new FileNotFoundException();

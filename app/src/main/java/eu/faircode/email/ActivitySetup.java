@@ -1646,6 +1646,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
     private void onManageLocalContacts(Intent intent) {
         Bundle args = new Bundle();
+        // All accounts
         args.putBoolean("junk", intent.getBooleanExtra("junk", false));
 
         FragmentContacts fragment = new FragmentContacts();

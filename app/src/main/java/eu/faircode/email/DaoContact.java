@@ -38,8 +38,9 @@ public interface DaoContact {
     @Query("SELECT contact.*, account.name AS accountName" +
             " FROM contact" +
             " JOIN account ON account.id = contact.account" +
+            " WHERE (:account IS NULL OR contact.account = :account)" +
             " ORDER BY times_contacted DESC, last_contacted DESC")
-    LiveData<List<TupleContactEx>> liveContacts();
+    LiveData<List<TupleContactEx>> liveContacts(Long account);
 
     @Query("SELECT email, name, avatar FROM contact" +
             " WHERE state <> " + EntityContact.STATE_IGNORE +

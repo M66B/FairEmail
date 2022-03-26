@@ -1916,8 +1916,11 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuManageLocalContacts() {
+        FragmentContacts fragment = new FragmentContacts();
+        fragment.setArguments(new Bundle()); // all accounts
+
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentContacts()).addToBackStack("contacts");
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("contacts");
         fragmentTransaction.commit();
     }
 

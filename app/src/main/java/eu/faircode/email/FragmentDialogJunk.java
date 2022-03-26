@@ -236,11 +236,13 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Bundle args = new Bundle();
+                                args.putLong("account", account);
                                 args.putLong("folder", folder);
 
                                 new SimpleTask<Void>() {
                                     @Override
                                     protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                        long aid = args.getLong("account");
                                         long fid = args.getLong("folder");
 
                                         DB db = DB.getInstance(context);
@@ -266,7 +268,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                                             }
                                         }
 
-                                        int count = db.contact().deleteContact(account, EntityContact.TYPE_JUNK);
+                                        int count = db.contact().deleteContact(aid, EntityContact.TYPE_JUNK);
                                         EntityLog.log(context, "Deleted junk contacts=" + count);
 
                                         return null;
@@ -313,6 +315,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
+                args.putLong("account", account);
                 args.putBoolean("junk", true);
 
                 FragmentContacts fragment = new FragmentContacts();
