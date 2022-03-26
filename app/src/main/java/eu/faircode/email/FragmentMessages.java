@@ -2684,7 +2684,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             aargs.putLong("folder", message.folder);
             aargs.putString("type", message.folderType);
             aargs.putString("from", DB.Converters.encodeAddresses(message.from));
-            aargs.putBoolean("inJunk", EntityFolder.JUNK.equals(message.folderType));
 
             FragmentDialogJunk ask = new FragmentDialogJunk();
             ask.setArguments(aargs);
@@ -8497,30 +8496,37 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (message == null)
                         return null;
 
-                    EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                    if (junk == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_junk_folder));
-
-                    if (!message.folder.equals(junk.id))
-                        EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
+                    EntityAccount account = db.account().getAccount(message.account);
+                    if (account == null)
+                        return null;
 
                     if (block_sender)
                         EntityContact.update(context,
                                 message.account, message.from,
                                 EntityContact.TYPE_JUNK, message.received);
 
-                    if (block_domain) {
-                        List<EntityRule> rules = EntityRule.blockSender(context, message, junk, block_domain);
-                        for (EntityRule rule : rules) {
-                            if (message.folder.equals(junk.id)) {
-                                EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
-                                if (inbox == null)
-                                    continue;
-                                rule.folder = inbox.id;
+                    if (account.protocol == EntityAccount.TYPE_IMAP) {
+                        EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                        if (junk == null)
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_junk_folder));
+
+                        if (!message.folder.equals(junk.id))
+                            EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
+
+                        if (block_domain) {
+                            List<EntityRule> rules = EntityRule.blockSender(context, message, junk, block_domain);
+                            for (EntityRule rule : rules) {
+                                if (message.folder.equals(junk.id)) {
+                                    EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
+                                    if (inbox == null)
+                                        continue;
+                                    rule.folder = inbox.id;
+                                }
+                                rule.id = db.rule().insertRule(rule);
                             }
-                            rule.id = db.rule().insertRule(rule);
                         }
-                    }
+                    } else
+                        db.message().deleteMessage(message.id);
 
                     db.setTransactionSuccessful();
                 } finally {

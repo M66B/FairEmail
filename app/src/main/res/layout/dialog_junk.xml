@@ -71,7 +71,7 @@
             app:layout_constraintTop_toBottomOf="@id/cbBlockSender" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvBlockHint"
+            android:id="@+id/tvBlockDomainHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -89,7 +89,7 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:padding="3dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBlockHint"
+            app:layout_constraintTop_toBottomOf="@id/tvBlockDomainHint"
             app:srcCompat="@drawable/expander" />
 
         <eu.faircode.email.FixedTextView
@@ -247,20 +247,25 @@
             app:layout_constraintTop_toBottomOf="@id/btnClear" />
 
         <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpInJunk"
+            android:id="@+id/grpBlockDomain"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="
-            tvBlockHint,cbBlockSender,cbBlockDomain,
-            ibMore,tvMore" />
+            app:constraint_referenced_ids="cbBlockDomain,tvBlockDomainHint" />
 
         <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpMore"
+            android:id="@+id/grpFilter"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
             cbJunkFilter,tvJunkFilterHint,ibInfoFilter,
             cbBlocklist,tvBlocklist,tvBlocklistHint,ibInfoBlocklist,
+            btnClear,ibRules,ibManage,tvClearHint" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpManage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="
             btnClear,ibRules,ibManage,tvClearHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

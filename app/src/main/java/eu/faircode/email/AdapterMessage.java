@@ -2047,6 +2047,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean pop = (message.accountProtocol == EntityAccount.TYPE_POP);
                     boolean imap = (message.accountProtocol == EntityAccount.TYPE_IMAP);
 
+                    boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
                     boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
                     boolean inSent = EntityFolder.SENT.equals(message.folderType);
                     boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
@@ -2068,7 +2069,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     boolean delete = (inTrash || !hasTrash || inJunk || outbox || message.uid == null || pop);
                     boolean forever = (delete && (!pop || !message.accountLeaveDeleted));
-
+                    boolean report = ((!inJunk && move) || (pop && inInbox));
                     boolean headers = (message.uid != null || (pop && message.headers != null));
 
                     evalProperties(message); // TODO: done again in bindBody
@@ -2139,7 +2140,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibMove.setVisibility(tools && button_move && move ? View.VISIBLE : View.GONE);
                     ibArchive.setVisibility(tools && button_archive && archive ? View.VISIBLE : View.GONE);
                     ibTrash.setVisibility(outbox || (tools && button_trash && trash) ? View.VISIBLE : View.GONE);
-                    ibJunk.setVisibility(tools && button_junk && !inJunk && move ? View.VISIBLE : View.GONE);
+                    ibJunk.setVisibility(tools && button_junk && report ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
                     ibMore.setVisibility(tools && !outbox ? View.VISIBLE : View.GONE);
                     ibTools.setImageLevel(tools ? 0 : 1);
@@ -5348,7 +5349,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             aargs.putLong("folder", message.folder);
             aargs.putString("type", message.folderType);
             aargs.putString("from", DB.Converters.encodeAddresses(message.from));
-            aargs.putBoolean("inJunk", EntityFolder.JUNK.equals(message.folderType));
 
             FragmentDialogJunk ask = new FragmentDialogJunk();
             ask.setArguments(aargs);

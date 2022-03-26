@@ -3024,6 +3024,23 @@ class Core {
                         // No MX check
                         // No blocklist
 
+                        if (message.from != null) {
+                            boolean blocked = false;
+                            for (Address from : message.from) {
+                                String email = ((InternetAddress) from).getAddress();
+                                if (TextUtils.isEmpty(email))
+                                    continue;
+
+                                EntityContact badboy = db.contact().getContact(message.account, EntityContact.TYPE_JUNK, email);
+                                if (badboy != null) {
+                                    blocked = true;
+                                    break;
+                                }
+                            }
+                            if (blocked)
+                                continue;
+                        }
+
                         boolean needsHeaders = EntityRule.needsHeaders(message, rules);
                         List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
                         String body = parts.getHtml(context, download_plain);

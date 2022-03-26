@@ -76,7 +76,8 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final long folder = args.getLong("folder");
         final String type = args.getString("type");
         final Address[] froms = DB.Converters.decodeAddresses(args.getString("from"));
-        final boolean inJunk = args.getBoolean("inJunk");
+
+        boolean imap = (protocol == EntityAccount.TYPE_IMAP);
 
         final Context context = getContext();
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_junk, null);
@@ -94,8 +95,9 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final Button btnClear = view.findViewById(R.id.btnClear);
         final ImageButton ibRules = view.findViewById(R.id.ibRules);
         final ImageButton ibManage = view.findViewById(R.id.ibManage);
-        final Group grpInJunk = view.findViewById(R.id.grpInJunk);
-        final Group grpMore = view.findViewById(R.id.grpMore);
+        final Group grpBlockDomain = view.findViewById(R.id.grpBlockDomain);
+        final Group grpFilter = view.findViewById(R.id.grpFilter);
+        final Group grpManage = view.findViewById(R.id.grpManage);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean block_sender = prefs.getBoolean("block_sender", true);
@@ -127,12 +129,14 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         View.OnClickListener onMore = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (grpMore.getVisibility() == View.VISIBLE) {
+                if (grpManage.getVisibility() == View.VISIBLE) {
                     ibMore.setImageLevel(1);
-                    grpMore.setVisibility(View.GONE);
+                    grpFilter.setVisibility(View.GONE);
+                    grpManage.setVisibility(View.GONE);
                 } else {
                     ibMore.setImageLevel(0);
-                    grpMore.setVisibility(View.VISIBLE);
+                    grpFilter.setVisibility(imap ? View.VISIBLE : View.GONE);
+                    grpManage.setVisibility(View.VISIBLE);
                 }
             }
         };
@@ -345,21 +349,17 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             }
 
         // Initialize
-        if (inJunk)
-            tvMessage.setText(R.string.title_folder_junk);
-        else {
-            String who = MessageHelper.formatAddresses(froms);
-            String title = getString(R.string.title_ask_spam_who, who);
-            SpannableStringBuilder ssb = new SpannableStringBuilderEx(title);
-            if (who.length() > 0) {
-                int start = title.indexOf(who);
-                if (start > 0) {
-                    int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
-                    ssb.setSpan(new ForegroundColorSpan(textColorPrimary), start, start + who.length(), 0);
-                }
+        String who = MessageHelper.formatAddresses(froms);
+        String title = getString(R.string.title_ask_spam_who, who);
+        SpannableStringBuilder ssb = new SpannableStringBuilderEx(title);
+        if (who.length() > 0) {
+            int start = title.indexOf(who);
+            if (start > 0) {
+                int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
+                ssb.setSpan(new ForegroundColorSpan(textColorPrimary), start, start + who.length(), 0);
             }
-            tvMessage.setText(ssb);
         }
+        tvMessage.setText(ssb);
 
         cbBlockSender.setEnabled(canBlock);
         cbBlockDomain.setEnabled(false);
@@ -376,12 +376,14 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                 cbBlockDomain.setCompoundDrawableTintList(ColorStateList.valueOf(colorWarning));
         }
 
-        cbBlockDomain.setVisibility(domains.size() > 0 ? View.VISIBLE : View.GONE);
         ibMore.setImageLevel(1);
         cbBlocklist.setChecked(check_blocklist && use_blocklist);
         tvBlocklist.setText(TextUtils.join(", ", DnsBlockList.getNamesEnabled(context)));
-        grpInJunk.setVisibility(inJunk ? View.GONE : View.VISIBLE);
-        grpMore.setVisibility(inJunk ? View.VISIBLE : View.GONE);
+
+        cbBlockSender.setVisibility(imap ? View.VISIBLE : View.GONE);
+        grpBlockDomain.setVisibility(domains.size() > 0 && imap ? View.VISIBLE : View.GONE);
+        grpFilter.setVisibility(View.GONE);
+        grpManage.setVisibility(View.GONE);
 
         new SimpleTask<Boolean>() {
             @Override
@@ -429,16 +431,15 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                 .setView(view)
                 .setNegativeButton(android.R.string.cancel, null);
 
-        if (!inJunk)
-            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    prefs.edit().putBoolean("block_sender", cbBlockSender.isChecked()).apply();
-                    getArguments().putBoolean("block_sender", cbBlockSender.isChecked());
-                    getArguments().putBoolean("block_domain", cbBlockDomain.isChecked());
-                    sendResult(Activity.RESULT_OK);
-                }
-            });
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                prefs.edit().putBoolean("block_sender", cbBlockSender.isChecked()).apply();
+                getArguments().putBoolean("block_sender", cbBlockSender.isChecked() || !imap);
+                getArguments().putBoolean("block_domain", cbBlockDomain.isChecked() && imap);
+                sendResult(Activity.RESULT_OK);
+            }
+        });
 
         return builder.create();
     }
