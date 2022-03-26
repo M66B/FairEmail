@@ -625,6 +625,12 @@ public interface DaoMessage {
 
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +
+            " AND ui_deleted" +
+            " AND NOT uid IS NULL")
+    List<Long> getDeletedUids(long folder);
+
+    @Query("SELECT uid FROM message" +
+            " WHERE folder = :folder" +
             " AND NOT ui_busy IS NULL" +
             " AND ui_busy > :time" +
             " AND NOT uid IS NULL")

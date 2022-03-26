@@ -2692,7 +2692,33 @@ class Core {
 
     private static void onExpungeFolder(Context context, JSONArray jargs, EntityFolder folder, IMAPFolder ifolder) throws MessagingException {
         Log.i(folder.name + " expunge");
-        ifolder.expunge();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean uid_expunge = prefs.getBoolean("uid_expunge", false);
+        int chunk_size = prefs.getInt("chunk_size", DEFAULT_CHUNK_SIZE);
+
+        if (uid_expunge)
+            uid_expunge = MessageHelper.hasCapability(ifolder, "UIDPLUS");
+
+        if (uid_expunge) {
+            DB db = DB.getInstance(context);
+
+            List<Long> uids = db.message().getDeletedUids(folder.id);
+            if (uids == null || uids.size() == 0)
+                return;
+
+            Log.i(ifolder.getName() + " expunging " + TextUtils.join(",", uids));
+            ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                @Override
+                public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                    for (List<Long> list : Helper.chunkList(uids, chunk_size))
+                        protocol.uidexpunge(UIDSet.createUIDSets(Helper.toLongArray(list)));
+                    return null;
+                }
+            });
+            Log.i(ifolder.getName() + " expunged " + TextUtils.join(",", uids));
+        } else
+            ifolder.expunge();
     }
 
     private static void onPurgeFolder(Context context, EntityFolder folder) {
