@@ -3033,6 +3033,8 @@ class Core {
 
                                 EntityContact badboy = db.contact().getContact(message.account, EntityContact.TYPE_JUNK, email);
                                 if (badboy != null) {
+                                    EntityLog.log(context, account.name + " POP blocked=" +
+                                            MessageHelper.formatAddresses(message.from));
                                     blocked = true;
                                     break;
                                 }
