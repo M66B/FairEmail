@@ -6060,9 +6060,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (junkOnly == null)
                         junkOnly = false;
 
+                    boolean pop = (account != null && account.protocol == EntityAccount.TYPE_POP);
+
                     ActionData data = new ActionData();
-                    data.delete = (trash == null || junkOnly ||
-                            (account != null && account.protocol == EntityAccount.TYPE_POP));
+                    data.delete = (trash == null || junkOnly || pop);
+                    data.forever = (data.delete && (!pop || !account.leave_deleted));
                     data.trashable = trashable || junkOnly;
                     data.snoozable = snoozable;
                     data.archivable = (archivable && archive != null);
@@ -6085,7 +6087,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     bottom_navigation.setTag(data);
 
                     bottom_navigation.getMenu().findItem(R.id.action_delete).setIcon(
-                            data.delete ? R.drawable.twotone_delete_forever_24 : R.drawable.twotone_delete_24);
+                            data.forever ? R.drawable.twotone_delete_forever_24 : R.drawable.twotone_delete_24);
                     bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data.trashable);
                     bottom_navigation.getMenu().findItem(R.id.action_snooze).setVisible(data.snoozable);
                     bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data.archivable);
@@ -9181,7 +9183,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private static class ActionData {
-        private boolean delete;
+        private boolean delete; // Selects action
+        private boolean forever; // Selects icon
         private boolean trashable;
         private boolean snoozable;
         private boolean archivable;
