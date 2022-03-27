@@ -168,6 +168,10 @@ public class EntityContact implements Serializable {
     }
 
     public static void update(Context context, long account, Address[] addresses, int type, long time) {
+        update(context, account, addresses, null, type, time);
+    }
+
+    public static void update(Context context, long account, Address[] addresses, String group, int type, long time) {
         if (addresses == null)
             return;
 
@@ -192,6 +196,7 @@ public class EntityContact implements Serializable {
                     contact.type = type;
                     contact.email = email;
                     contact.name = name;
+                    contact.group = group;
                     contact.avatar = (avatar == null ? null : avatar.toString());
                     contact.times_contacted = 1;
                     contact.first_contacted = time;
@@ -201,6 +206,8 @@ public class EntityContact implements Serializable {
                 } else {
                     if (contact.name == null && name != null)
                         contact.name = name;
+                    if (contact.group == null && group != null)
+                        contact.group = group;
                     contact.avatar = (avatar == null ? null : avatar.toString());
                     contact.times_contacted++;
                     contact.first_contacted = Math.min(contact.first_contacted, time);

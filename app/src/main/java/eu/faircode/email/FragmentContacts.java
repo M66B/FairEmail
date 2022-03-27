@@ -71,6 +71,7 @@ import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.io.text.VCardReader;
 import ezvcard.io.text.VCardWriter;
+import ezvcard.property.Categories;
 import ezvcard.property.Email;
 import ezvcard.property.FormattedName;
 
@@ -401,6 +402,11 @@ public class FragmentContacts extends FragmentBase {
                         FormattedName fn = vcard.getFormattedName();
                         String name = (fn == null) ? null : fn.getValue();
 
+                        List<String> categories = new ArrayList<>();
+                        if (vcard.getCategories() != null)
+                            categories.addAll(vcard.getCategories().getValues());
+                        String group = (categories.size() < 1 ? null : categories.get(0));
+
                         List<Address> addresses = new ArrayList<>();
                         for (Email email : emails) {
                             String address = email.getValue();
@@ -412,6 +418,7 @@ public class FragmentContacts extends FragmentBase {
                         EntityContact.update(context,
                                 account,
                                 addresses.toArray(new Address[0]),
+                                group,
                                 EntityContact.TYPE_TO,
                                 now);
                     }
@@ -474,6 +481,8 @@ public class FragmentContacts extends FragmentBase {
                         vcard.addEmail(contact.email);
                         if (!TextUtils.isEmpty(contact.name))
                             vcard.setFormattedName(contact.name);
+                        if (!TextUtils.isEmpty(contact.group))
+                            vcard.setCategories(contact.group);
                         vcards.add(vcard);
                     }
 
