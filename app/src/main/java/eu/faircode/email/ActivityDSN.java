@@ -32,6 +32,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.Group;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
@@ -96,6 +97,9 @@ public class ActivityDSN extends ActivityBase {
 
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
+                    if (is == null)
+                        throw new FileNotFoundException(uri.toString());
+
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
                     byte[] buffer = new byte[Helper.BUFFER_SIZE];
                     int length;

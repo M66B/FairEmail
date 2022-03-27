@@ -76,6 +76,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -1191,7 +1192,10 @@ public class FragmentFolders extends FragmentBase {
                 // http://qmail.org./man/man5/mbox.html
                 long last = new Date().getTime();
                 ContentResolver resolver = context.getContentResolver();
-                try (OutputStream out = new BufferedOutputStream(resolver.openOutputStream(uri))) {
+                OutputStream os = resolver.openOutputStream(uri);
+                if (os == null)
+                    throw new FileNotFoundException(uri.toString());
+                try (OutputStream out = new BufferedOutputStream(os)) {
                     for (int i = 0; i < ids.size(); i++)
                         try {
                             long now = new Date().getTime();

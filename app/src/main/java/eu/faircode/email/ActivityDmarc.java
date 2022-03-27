@@ -42,6 +42,7 @@ import androidx.constraintlayout.widget.Group;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.net.InetAddress;
@@ -120,6 +121,8 @@ public class ActivityDmarc extends ActivityBase {
                 String data;
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
+                    if (is == null)
+                        throw new FileNotFoundException(uri.toString());
                     data = Helper.readStream(is);
                 }
 

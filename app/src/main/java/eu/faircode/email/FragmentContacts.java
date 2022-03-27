@@ -415,8 +415,11 @@ public class FragmentContacts extends FragmentBase {
 
                 int count = 0;
                 ContentResolver resolver = context.getContentResolver();
-                try (InputStream is = new BufferedInputStream(resolver.openInputStream(uri))) {
-                    VCardReader reader = new VCardReader(is);
+                InputStream is = resolver.openInputStream(uri);
+                if (is == null)
+                    throw new FileNotFoundException(uri.toString());
+                try (InputStream bis = new BufferedInputStream(is)) {
+                    VCardReader reader = new VCardReader(bis);
                     VCard vcard;
                     while ((vcard = reader.readNext()) != null) {
                         Integer type = null;
@@ -534,6 +537,8 @@ public class FragmentContacts extends FragmentBase {
 
                 ContentResolver resolver = context.getContentResolver();
                 try (OutputStream os = resolver.openOutputStream(uri)) {
+                    if (os == null)
+                        throw new FileNotFoundException(uri.toString());
                     try (VCardWriter writer = new VCardWriter(os, VCardVersion.V3_0)) {
                         for (VCard vcard : vcards)
                             writer.write(vcard);

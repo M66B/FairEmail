@@ -506,6 +506,9 @@ public class FragmentBase extends Fragment {
                     os = context.getContentResolver().openOutputStream(uri);
                     is = new FileInputStream(file);
 
+                    if (os == null)
+                        throw new FileNotFoundException(uri.toString());
+
                     byte[] buffer = new byte[Helper.BUFFER_SIZE];
                     int read;
                     while ((read = is.read(buffer)) != -1)
@@ -591,6 +594,9 @@ public class FragmentBase extends Fragment {
                         try {
                             os = context.getContentResolver().openOutputStream(document.getUri());
                             is = new FileInputStream(file);
+
+                            if (os == null)
+                                throw new FileNotFoundException(uri.toString());
 
                             byte[] buffer = new byte[Helper.BUFFER_SIZE];
                             int read;

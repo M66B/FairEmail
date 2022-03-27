@@ -62,7 +62,9 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -472,7 +474,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             File file = new File(dir, fname);
 
             Log.i("Copying shared file to " + file);
-            Helper.copy(getContentResolver().openInputStream(uri), new FileOutputStream(file));
+            InputStream is = getContentResolver().openInputStream(uri);
+            if (is == null)
+                throw new FileNotFoundException(uri.toString());
+
+            Helper.copy(is, new FileOutputStream(file));
 
             return FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file);
         } catch (Throwable ex) {

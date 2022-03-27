@@ -266,6 +266,8 @@ public class ActivityEML extends ActivityBase {
 
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
+                    if (is == null)
+                        throw new FileNotFoundException(uri.toString());
 
                     Properties props = MessageHelper.getSessionProperties();
                     Session isession = Session.getInstance(props, null);
@@ -534,6 +536,9 @@ public class ActivityEML extends ActivityBase {
                     os = getContentResolver().openOutputStream(uri);
                     is = apart.part.getInputStream();
 
+                    if (os == null)
+                        throw new FileNotFoundException(uri.toString());
+
                     byte[] buffer = new byte[Helper.BUFFER_SIZE];
                     int read;
                     while ((read = is.read(buffer)) != -1)
@@ -631,6 +636,8 @@ public class ActivityEML extends ActivityBase {
 
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
+                    if (is == null)
+                        throw new FileNotFoundException(uri.toString());
 
                     Properties props = MessageHelper.getSessionProperties();
                     Session isession = Session.getInstance(props, null);

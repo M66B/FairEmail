@@ -1917,6 +1917,8 @@ public class Helper {
 
     static long copy(Context context, Uri uri, File file) throws IOException {
         try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+            if (is == null)
+                throw new FileNotFoundException(uri.toString());
             try (OutputStream os = new FileOutputStream(file)) {
                 return copy(is, os);
             }

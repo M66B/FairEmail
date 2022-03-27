@@ -157,6 +157,7 @@ import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -3595,6 +3596,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             try {
                                 is = new FileInputStream(file);
                                 os = resolver.openOutputStream(uri);
+                                if (os == null)
+                                    throw new FileNotFoundException(uri.toString());
                                 Helper.copy(is, os);
                             } finally {
                                 try {

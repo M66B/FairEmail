@@ -519,6 +519,8 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
                         throw new FileNotFoundException();
 
                     try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+                        if (is == null)
+                            throw new FileNotFoundException(uri.toString());
                         return Helper.readBytes(is);
                     }
                 }

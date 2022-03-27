@@ -353,6 +353,8 @@ public class FragmentRules extends FragmentBase {
                 ContentResolver resolver = context.getContentResolver();
                 try (OutputStream os = resolver.openOutputStream(uri)) {
                     Log.i("Writing URI=" + uri);
+                    if (os == null)
+                        throw new FileNotFoundException(uri.toString());
                     os.write(jrules.toString(2).getBytes());
                 }
 
@@ -398,6 +400,8 @@ public class FragmentRules extends FragmentBase {
                 Log.i("Reading URI=" + uri);
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
+                    if (is == null)
+                        throw new FileNotFoundException(uri.toString());
                     BufferedReader reader = new BufferedReader(new InputStreamReader(is));
                     String line;
                     while ((line = reader.readLine()) != null)

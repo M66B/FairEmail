@@ -4084,7 +4084,7 @@ public class FragmentCompose extends FragmentBase {
                 os = new FileOutputStream(file);
 
                 if (is == null)
-                    throw new IOException("Content provider crashed");
+                    throw new FileNotFoundException(uri.toString());
 
                 byte[] buffer = new byte[Helper.BUFFER_SIZE];
                 for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {

@@ -45,6 +45,7 @@ import androidx.webkit.WebViewFeature;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -207,6 +208,8 @@ public class ActivityAMP extends ActivityBase {
                 String html;
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
+                    if (is == null)
+                        throw new FileNotFoundException(uri.toString());
                     html = Helper.readStream(is);
                 }
 

@@ -407,6 +407,8 @@ class ImageHelper {
                     Bitmap bm;
                     int scaleToPixels = res.getDisplayMetrics().widthPixels;
                     try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+                        if (is == null)
+                            throw new FileNotFoundException(uri.toString());
                         bm = getScaledBitmap(is, a.source, null, scaleToPixels);
                         if (bm == null)
                             throw new FileNotFoundException(a.source);

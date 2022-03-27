@@ -732,6 +732,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 DocumentFile file = DocumentFile.fromSingleUri(context, uri);
                 try (OutputStream raw = resolver.openOutputStream(uri)) {
                     Log.i("Writing URI=" + uri + " name=" + file.getName() + " virtual=" + file.isVirtual());
+                    if (raw == null)
+                        throw new FileNotFoundException(uri.toString());
 
                     if (TextUtils.isEmpty(password))
                         raw.write(jexport.toString(2).getBytes());
@@ -857,8 +859,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 StringBuilder data = new StringBuilder();
                 Log.i("Reading URI=" + uri);
                 ContentResolver resolver = context.getContentResolver();
-                try (InputStream raw = new BufferedInputStream(resolver.openInputStream(uri))) {
-
+                InputStream is = resolver.openInputStream(uri);
+                if (is == null)
+                    throw new FileNotFoundException(uri.toString());
+                try (InputStream raw = new BufferedInputStream(is)) {
                     InputStream in;
                     if (TextUtils.isEmpty(password))
                         in = raw;
@@ -1284,10 +1288,13 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                 DB db = DB.getInstance(context);
                 ContentResolver resolver = context.getContentResolver();
-                try (InputStream is = new BufferedInputStream(resolver.openInputStream(uri))) {
+                InputStream is = resolver.openInputStream(uri);
+                if (is == null)
+                    throw new FileNotFoundException(uri.toString());
+                try (InputStream bis = new BufferedInputStream(is)) {
                     XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
                     XmlPullParser xml = factory.newPullParser();
-                    xml.setInput(new InputStreamReader(is));
+                    xml.setInput(new InputStreamReader(bis));
 
                     EntityAccount account = null;
                     EntityIdentity identity = null;
@@ -1504,6 +1511,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     X509Certificate cert;
                     CertificateFactory fact = CertificateFactory.getInstance("X.509");
                     try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+                        if (is == null)
+                            throw new FileNotFoundException(uri.toString());
+
                         if (der)
                             cert = (X509Certificate) fact.generateCertificate(is);
                         else {
@@ -1560,7 +1570,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                 Log.i("Reading URI=" + uri);
                 ContentResolver resolver = context.getContentResolver();
-                EmailProvider.importProfiles(resolver.openInputStream(uri), context);
+                InputStream is = resolver.openInputStream(uri);
+                if (is == null)
+                    throw new FileNotFoundException(uri.toString());
+                EmailProvider.importProfiles(is, context);
 
                 return null;
             }

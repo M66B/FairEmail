@@ -7288,6 +7288,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     os = context.getContentResolver().openOutputStream(uri);
                     is = new FileInputStream(file);
 
+                    if (os == null)
+                        throw new FileNotFoundException(uri.toString());
+
                     byte[] buffer = new byte[Helper.BUFFER_SIZE];
                     int read;
                     while ((read = is.read(buffer)) != -1)
