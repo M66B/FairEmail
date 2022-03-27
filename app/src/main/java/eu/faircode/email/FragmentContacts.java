@@ -72,6 +72,7 @@ import ezvcard.io.text.VCardReader;
 import ezvcard.io.text.VCardWriter;
 import ezvcard.property.Email;
 import ezvcard.property.FormattedName;
+import ezvcard.property.RawProperty;
 
 public class FragmentContacts extends FragmentBase {
     private RecyclerView rvContacts;
@@ -92,6 +93,8 @@ public class FragmentContacts extends FragmentBase {
     private static final int REQUEST_EXPORT = 4;
     static final int REQUEST_EDIT_ACCOUNT = 5;
     static final int REQUEST_EDIT_CONTACT = 6;
+
+    private static final String VCF_TYPE = "X-FAIREMAIL-TYPE";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -239,8 +242,6 @@ public class FragmentContacts extends FragmentBase {
     public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
         menu.findItem(R.id.menu_junk).setChecked(junk);
-        menu.findItem(R.id.menu_import).setVisible(!junk);
-        menu.findItem(R.id.menu_export).setVisible(!junk);
     }
 
     @Override
@@ -409,12 +410,22 @@ public class FragmentContacts extends FragmentBase {
 
                 long now = new Date().getTime();
 
-                Log.i("Reading URI=" + uri);
+                EntityLog.log(context, "Importing " + uri +
+                        " junk=" + junk + " account=" + account);
+
+                int count = 0;
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = new BufferedInputStream(resolver.openInputStream(uri))) {
                     VCardReader reader = new VCardReader(is);
                     VCard vcard;
                     while ((vcard = reader.readNext()) != null) {
+                        Integer type = null;
+                        RawProperty xtype = vcard.getExtendedProperty(VCF_TYPE);
+                        if (xtype != null)
+                            type = Helper.parseInt(xtype.getValue());
+                        if (type == null)
+                            type = EntityContact.TYPE_TO;
+
                         List<Email> emails = vcard.getEmails();
                         if (emails == null)
                             continue;
@@ -439,12 +450,14 @@ public class FragmentContacts extends FragmentBase {
                                 account,
                                 addresses.toArray(new Address[0]),
                                 group,
-                                EntityContact.TYPE_TO,
+                                type,
                                 now);
+
+                        count += addresses.size();
                     }
                 }
 
-                Log.i("Imported contacts");
+                Log.i("Imported contacts=" + count);
 
                 return null;
             }
@@ -467,6 +480,7 @@ public class FragmentContacts extends FragmentBase {
     private void handleExport(Intent data) {
         Bundle args = new Bundle();
         args.putParcelable("uri", data.getData());
+        args.putBoolean("junk", junk);
         args.putLong("account", selected_account);
 
         new SimpleTask<Void>() {
@@ -478,16 +492,27 @@ public class FragmentContacts extends FragmentBase {
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
+                boolean junk = args.getBoolean("junk");
                 long account = args.getLong("account");
 
                 if (uri == null)
                     throw new FileNotFoundException();
 
-                EntityLog.log(context, "Exporting " + uri);
+                EntityLog.log(context, "Exporting " + uri +
+                        " junk=" + junk + " account=" + account);
 
                 if (!"content".equals(uri.getScheme())) {
                     Log.w("Export uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
+
+                List<Integer> types = new ArrayList<>();
+                if (junk) {
+                    types.add(EntityContact.TYPE_JUNK);
+                    types.add(EntityContact.TYPE_NO_JUNK);
+                } else {
+                    types.add(EntityContact.TYPE_TO);
+                    types.add(EntityContact.TYPE_FROM);
                 }
 
                 List<VCard> vcards = new ArrayList<>();
@@ -495,9 +520,10 @@ public class FragmentContacts extends FragmentBase {
                 DB db = DB.getInstance(context);
                 List<EntityContact> contacts = db.contact().getContacts(account);
                 for (EntityContact contact : contacts)
-                    if (contact.type == EntityContact.TYPE_TO ||
-                            contact.type == EntityContact.TYPE_FROM) {
+                    if (contact.account.equals(account) &&
+                            types.contains(contact.type)) {
                         VCard vcard = new VCard();
+                        vcard.addExtendedProperty(VCF_TYPE, Integer.toString(contact.type));
                         vcard.addEmail(contact.email);
                         if (!TextUtils.isEmpty(contact.name))
                             vcard.setFormattedName(contact.name);
@@ -514,9 +540,7 @@ public class FragmentContacts extends FragmentBase {
                     }
                 }
 
-                EntityLog.log(context, "Exported" +
-                        " contacts=" + contacts.size() +
-                        " count=" + vcards.size());
+                EntityLog.log(context, "Exported contact=" + vcards.size() + "/" + contacts.size());
 
                 return null;
             }
