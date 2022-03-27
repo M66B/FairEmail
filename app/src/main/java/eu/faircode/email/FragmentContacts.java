@@ -587,8 +587,13 @@ public class FragmentContacts extends FragmentBase {
                 EntityContact contact;
                 if (id > 0)
                     contact = db.contact().getContact(id);
-                else
-                    contact = new EntityContact();
+                else {
+                    contact = db.contact().getContact(account, type, email);
+                    if (contact == null)
+                        contact = new EntityContact();
+                    else
+                        id = contact.id;
+                }
 
                 contact.account = account;
                 contact.type = type;
