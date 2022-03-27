@@ -3387,8 +3387,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             ssb.setSpan(new StyleSpan(Typeface.BOLD), i, i + count, 0);
                             ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), i, i + count, 0);
                         }
-                        if (!result.accounts.get(account))
-                            ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
+                        //if (!result.accounts.get(account))
+                        //    ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
                         MenuItem item = popupMenu.getMenu().add(Menu.FIRST, R.string.title_move_to_account, order++, ssb)
                                 .setIcon(R.drawable.twotone_drive_file_move_24);
                         item.setIntent(new Intent().putExtra("account", account.id));
