@@ -7,6 +7,9 @@
 ### Next version
 
 * Added block sender for POP3 accounts
+* Added local contact editor
+* Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1861 - 2022-03-25
 
