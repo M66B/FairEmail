@@ -2295,7 +2295,7 @@
         <item>@string/title_editasnew</item>
     </string-array>
 
-    <string-array name="contactTypes" translatable="false">
+    <string-array name="contactTypes">
         <item>Recipient</item>
         <item>Sender</item>
         <item>Blocked</item>
