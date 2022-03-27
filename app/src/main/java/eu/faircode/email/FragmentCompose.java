@@ -1600,8 +1600,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_zoom).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_media).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_compact).setEnabled(state == State.LOADED);
-        menu.findItem(R.id.menu_contact_group).setEnabled(
-                state == State.LOADED && hasPermission(Manifest.permission.READ_CONTACTS));
+        menu.findItem(R.id.menu_contact_group).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_manage_local_contacts).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_answer_insert).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_answer_create).setEnabled(state == State.LOADED);
@@ -6776,22 +6775,22 @@ public class FragmentCompose extends FragmentBase {
                             ContactsContract.Groups.ACCOUNT_TYPE,
                     };
 
-                    Cursor contacts;
-                    try {
-                        ContentResolver resolver = context.getContentResolver();
-                        contacts = resolver.query(
-                                ContactsContract.Groups.CONTENT_SUMMARY_URI,
-                                projection,
-                                // ContactsContract.Groups.GROUP_VISIBLE + " = 1" + " AND " +
-                                ContactsContract.Groups.DELETED + " = 0" +
-                                        " AND " + ContactsContract.Groups.SUMMARY_COUNT + " > 0",
-                                null,
-                                ContactsContract.Groups.TITLE
-                        );
-                    } catch (SecurityException ex) {
-                        Log.w(ex);
-                        contacts = new MatrixCursor(projection);
-                    }
+                    Cursor contacts = new MatrixCursor(projection);
+                    if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
+                        try {
+                            ContentResolver resolver = context.getContentResolver();
+                            contacts = resolver.query(
+                                    ContactsContract.Groups.CONTENT_SUMMARY_URI,
+                                    projection,
+                                    // ContactsContract.Groups.GROUP_VISIBLE + " = 1" + " AND " +
+                                    ContactsContract.Groups.DELETED + " = 0" +
+                                            " AND " + ContactsContract.Groups.SUMMARY_COUNT + " > 0",
+                                    null,
+                                    ContactsContract.Groups.TITLE
+                            );
+                        } catch (SecurityException ex) {
+                            Log.w(ex);
+                        }
 
                     DB db = DB.getInstance(context);
                     Cursor local = db.contact().getGroups(
