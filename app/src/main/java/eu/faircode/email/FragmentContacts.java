@@ -130,7 +130,7 @@ public class FragmentContacts extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putLong("fair:account", account);
+        outState.putLong("fair:account", account == null ? -1L : account);
         outState.putBoolean("fair:junk", junk);
         outState.putString("fair:searching", searching);
         outState.putLong("fair:selected_account", selected_account);
@@ -146,6 +146,9 @@ public class FragmentContacts extends FragmentBase {
             junk = savedInstanceState.getBoolean("fair:junk");
             searching = savedInstanceState.getString("fair:searching");
             selected_account = savedInstanceState.getLong("fair:selected_account");
+
+            if (account < 0)
+                account = null;
         }
 
         onMenuJunk(junk);
