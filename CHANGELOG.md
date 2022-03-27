@@ -6,8 +6,9 @@
 
 ### Next version
 
-* Added block sender for POP3 accounts
 * Added local contact editor
+* Added local contact groups
+* Added block sender for POP3 accounts
 * Small improvements and minor bug fixes
 * Updated translations
 
