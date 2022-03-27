@@ -3782,7 +3782,8 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onContactGroupSelected(Bundle args) {
-        if (args.getInt("target") > 0)
+        final int target = args.getInt("target");
+        if (target > 0)
             grpAddresses.setVisibility(View.VISIBLE);
 
         args.putString("to", etTo.getText().toString().trim());
@@ -3889,11 +3890,27 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityMessage draft) {
-                if (draft != null) {
-                    etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
-                    etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
-                    etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
-                }
+                if (draft == null)
+                    return;
+
+                EditText edit;
+                String text;
+
+                if (target == 0) {
+                    edit = etTo;
+                    text = MessageHelper.formatAddressesCompose(draft.to);
+                } else if (target == 1) {
+                    edit = etCc;
+                    text = MessageHelper.formatAddressesCompose(draft.cc);
+                } else if (target == 2) {
+                    edit = etBcc;
+                    text = MessageHelper.formatAddressesCompose(draft.bcc);
+                } else
+                    return;
+
+                edit.setText(text);
+                edit.setSelection(text.length());
+                edit.requestFocus();
             }
 
             @Override
