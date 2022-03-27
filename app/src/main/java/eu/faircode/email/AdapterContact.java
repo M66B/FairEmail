@@ -478,7 +478,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         this.account = account;
         this.types = junk
                 ? Arrays.asList(EntityContact.TYPE_JUNK, EntityContact.TYPE_NO_JUNK)
-                : new ArrayList<>();
+                : Arrays.asList(EntityContact.TYPE_TO, EntityContact.TYPE_FROM);
         set(all);
     }
 
