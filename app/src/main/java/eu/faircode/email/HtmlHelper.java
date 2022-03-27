@@ -3614,9 +3614,8 @@ public class HtmlHelper {
         }
 
         for (Element line : doc.select("hr")) {
-            Element next = line.nextElementSibling();
-            if (next != null && "br".equals(next.tagName()))
-                next.remove();
+            String style = line.attr("style");
+            line.attr("style", mergeStyles(style, "display:inline;"));
         }
 
         return doc.html();
