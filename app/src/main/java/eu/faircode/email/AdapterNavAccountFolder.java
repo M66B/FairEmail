@@ -447,27 +447,15 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
             TupleAccountFolder a1 = prev.get(oldItemPosition);
             TupleAccountFolder a2 = next.get(newItemPosition);
             return Objects.equals(a1.order, a2.order) &&
+                    // Account
                     a1.primary == a2.primary &&
                     Objects.equals(a1.name, a2.name) &&
                     Objects.equals(a1.color, a2.color) &&
-
-                    Objects.equals(a1.folderId == null ? a1.state : null, a2.folderId == null ? a2.state : null) &&
-                    Objects.equals(a1.folderId == null ? a1.last_connected : null, a2.folderId == null ? a2.last_connected : null) &&
-                    Objects.equals(a1.folderId == null ? a1.error : null, a2.folderId == null ? a2.error : null) &&
-
-                    Objects.equals(a1.folderId, a2.folderId) &&
-                    Objects.equals(a1.folderType, a2.folderType) &&
-                    Objects.equals(a1.folderOrder, a2.folderOrder) &&
-                    Objects.equals(a1.folderName, a2.folderName) &&
-                    Objects.equals(a1.folderDisplay, a2.folderDisplay) &&
-                    Objects.equals(a1.folderColor, a2.folderColor) &&
-                    Objects.equals(a1.folderSync, a2.folderSync) &&
-                    Objects.equals(a1.folderState, a2.folderState) &&
-                    Objects.equals(a1.folderSyncState, a2.folderSyncState) &&
-
-                    a1.executing == a2.executing &&
-                    a1.messages == a2.messages &&
-                    a1.unseen == a2.unseen;
+                    Objects.equals(a1.state, a2.state) &&
+                    Objects.equals(a1.last_connected, a2.last_connected) &&
+                    Objects.equals(a1.error, a2.error) &&
+                    // Folder
+                    a1.equals(a2);
         }
     }
 
