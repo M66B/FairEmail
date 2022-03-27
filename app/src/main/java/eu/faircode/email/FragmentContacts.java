@@ -60,7 +60,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -71,7 +70,6 @@ import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.io.text.VCardReader;
 import ezvcard.io.text.VCardWriter;
-import ezvcard.property.Categories;
 import ezvcard.property.Email;
 import ezvcard.property.FormattedName;
 
@@ -88,11 +86,12 @@ public class FragmentContacts extends FragmentBase {
 
     private AdapterContact adapter;
 
-    private static final int REQUEST_ACCOUNT = 1;
-    private static final int REQUEST_IMPORT = 2;
-    private static final int REQUEST_EXPORT = 3;
-    static final int REQUEST_EDIT_ACCOUNT = 4;
-    static final int REQUEST_EDIT_CONTACT = 5;
+    private static final int REQUEST_FILTER = 1;
+    private static final int REQUEST_ACCOUNT = 2;
+    private static final int REQUEST_IMPORT = 3;
+    private static final int REQUEST_EXPORT = 4;
+    static final int REQUEST_EDIT_ACCOUNT = 5;
+    static final int REQUEST_EDIT_CONTACT = 6;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -159,7 +158,7 @@ public class FragmentContacts extends FragmentBase {
                 account = null;
         }
 
-        onMenuJunk(junk);
+        adapter.filter(account, junk);
         adapter.search(searching);
 
         fabAdd.setOnClickListener(new View.OnClickListener() {
@@ -178,7 +177,7 @@ public class FragmentContacts extends FragmentBase {
         final Context context = getContext();
         DB db = DB.getInstance(context);
 
-        db.contact().liveContacts(account).observe(getViewLifecycleOwner(), new Observer<List<TupleContactEx>>() {
+        db.contact().liveContacts(null).observe(getViewLifecycleOwner(), new Observer<List<TupleContactEx>>() {
             @Override
             public void onChanged(List<TupleContactEx> contacts) {
                 if (contacts == null)
@@ -254,6 +253,9 @@ public class FragmentContacts extends FragmentBase {
             item.setChecked(!item.isChecked());
             onMenuJunk(item.isChecked());
             return true;
+        } else if (itemId == R.id.menu_account) {
+            onMenuAccount();
+            return true;
         } else if (itemId == R.id.menu_import) {
             onMenuVcard(false);
             return true;
@@ -274,19 +276,28 @@ public class FragmentContacts extends FragmentBase {
     private void onMenuJunk(boolean junk) {
         this.junk = junk;
         setSubtitle(junk ? R.string.title_blocked_senders : R.string.menu_contacts);
-        adapter.filter(junk
-                ? Arrays.asList(EntityContact.TYPE_JUNK, EntityContact.TYPE_NO_JUNK)
-                : new ArrayList<>());
+        adapter.filter(account, junk);
+    }
+
+    private void onMenuAccount() {
+        FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+        fragment.setArguments(new Bundle());
+        fragment.setTargetFragment(this, REQUEST_FILTER);
+        fragment.show(getParentFragmentManager(), "contacts:select");
     }
 
     private void onMenuVcard(boolean export) {
         Bundle args = new Bundle();
         args.putBoolean("export", export);
-
-        FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
-        fragment.setArguments(args);
-        fragment.setTargetFragment(this, REQUEST_ACCOUNT);
-        fragment.show(getParentFragmentManager(), "contact:account");
+        if (account == null) {
+            FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+            fragment.setArguments(args);
+            fragment.setTargetFragment(this, REQUEST_ACCOUNT);
+            fragment.show(getParentFragmentManager(), "contacts:vcard");
+        } else {
+            args.putLong("account", account);
+            onAccountSelected(args);
+        }
     }
 
     private void onMenuDeleteAll() {
@@ -307,7 +318,7 @@ public class FragmentContacts extends FragmentBase {
         FragmentContacts.FragmentDialogEditContact fragment = new FragmentContacts.FragmentDialogEditContact();
         fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_EDIT_CONTACT);
-        fragment.show(getParentFragmentManager(), "contact:add");
+        fragment.show(getParentFragmentManager(), "contacts:add");
     }
 
     @Override
@@ -316,6 +327,10 @@ public class FragmentContacts extends FragmentBase {
 
         try {
             switch (requestCode) {
+                case REQUEST_FILTER:
+                    if (resultCode == RESULT_OK && data != null)
+                        onAccountFilter(data.getBundleExtra("args"));
+                    break;
                 case REQUEST_ACCOUNT:
                     if (resultCode == RESULT_OK && data != null)
                         onAccountSelected(data.getBundleExtra("args"));
@@ -340,6 +355,11 @@ public class FragmentContacts extends FragmentBase {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    private void onAccountFilter(Bundle args) {
+        account = args.getLong("account");
+        adapter.filter(account, junk);
     }
 
     private void onAccountSelected(Bundle args) {
@@ -441,7 +461,7 @@ public class FragmentContacts extends FragmentBase {
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "setup:import");
+        }.execute(this, args, "contacts:import");
     }
 
     private void handleExport(Intent data) {
@@ -510,7 +530,7 @@ public class FragmentContacts extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "");
+        }.execute(this, args, "contacts:export");
     }
 
     private void onEditContact(Bundle args) {
@@ -566,7 +586,7 @@ public class FragmentContacts extends FragmentBase {
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "contact:name");
+        }.execute(this, args, "contacts:name");
     }
 
     public static class FragmentDelete extends FragmentDialogBase {

@@ -21,6 +21,11 @@
         android:title="@string/title_spam" />
 
     <item
+        android:id="@+id/menu_account"
+        android:icon="@drawable/twotone_account_circle_24"
+        android:title="@string/title_setup_select_account" />
+
+    <item
         android:id="@+id/menu_import"
         android:icon="@drawable/twotone_unarchive_24"
         android:title="@string/title_import_contacts" />

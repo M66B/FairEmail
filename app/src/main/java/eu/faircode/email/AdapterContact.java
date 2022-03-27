@@ -58,6 +58,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.io.InputStream;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 
@@ -72,6 +73,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     private int textColorSecondary;
 
     private String search = null;
+    private Long account;
     private List<Integer> types = new ArrayList<>();
 
     private List<TupleContactEx> all = new ArrayList<>();
@@ -389,20 +391,23 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
     public void set(@NonNull List<TupleContactEx> contacts) {
         Log.i("Set contacts=" + contacts.size() +
-                " search=" + search + " types=" + types.size());
+                " search=" + search +
+                " account=" + account +
+                " types=" + types.size());
 
         all = contacts;
 
         new SimpleTask<List<TupleContactEx>>() {
             @Override
-            protected List<TupleContactEx> onExecute(Context context, Bundle args) throws Throwable {
+            protected List<TupleContactEx> onExecute(Context context, Bundle args) {
                 List<TupleContactEx> filtered;
-                if (types.size() == 0)
+                if (account == null && types.size() == 0)
                     filtered = contacts;
                 else {
                     filtered = new ArrayList<>();
                     for (TupleContactEx contact : contacts)
-                        if (types.contains(contact.type))
+                        if ((account == null || contact.account.equals(account)) &&
+                                (types.size() == 0 || types.contains(contact.type)))
                             filtered.add(contact);
                 }
 
@@ -469,8 +474,11 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         set(all);
     }
 
-    public void filter(List<Integer> types) {
-        this.types = types;
+    public void filter(Long account, boolean junk) {
+        this.account = account;
+        this.types = junk
+                ? Arrays.asList(EntityContact.TYPE_JUNK, EntityContact.TYPE_NO_JUNK)
+                : new ArrayList<>();
         set(all);
     }
 
