@@ -56,4 +56,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+    <eu.faircode.email.EditTextPlain
+        android:id="@+id/etGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:autofillHints="name"
+        android:hint="@string/title_contact_group"
+        android:imeOptions="actionDone"
+        android:inputType="textPersonName|textCapWords"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

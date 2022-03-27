@@ -84,6 +84,7 @@ public class EntityContact implements Serializable {
     @NonNull
     public String email;
     public String name;
+    public String group;
     public String avatar;
 
     @NonNull
@@ -234,6 +235,7 @@ public class EntityContact implements Serializable {
         json.put("type", type);
         json.put("email", email);
         json.put("name", name);
+        json.put("group", group);
         json.put("avatar", avatar);
         json.put("times_contacted", times_contacted);
         json.put("first_contacted", first_contacted);
@@ -250,6 +252,9 @@ public class EntityContact implements Serializable {
 
         if (json.has("name") && !json.isNull("name"))
             contact.name = json.getString("name");
+
+        if (json.has("group") && !json.isNull("group"))
+            contact.group = json.getString("group");
 
         if (json.has("avatar") && !json.isNull("avatar"))
             contact.avatar = json.getString("avatar");
@@ -270,6 +275,7 @@ public class EntityContact implements Serializable {
                     this.type == other.type &&
                     this.email.equals(other.email) &&
                     Objects.equals(this.name, other.name) &&
+                    Objects.equals(this.group, other.group) &&
                     Objects.equals(this.avatar, other.avatar) &&
                     this.times_contacted.equals(other.times_contacted) &&
                     this.first_contacted.equals(first_contacted) &&

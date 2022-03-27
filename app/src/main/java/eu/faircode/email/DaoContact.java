@@ -63,6 +63,21 @@ public interface DaoContact {
             " AND email = :email COLLATE NOCASE")
     EntityContact getContact(long account, int type, String email);
 
+    @Query("SELECT -1 AS _id, `group` AS title" +
+            ", COUNT(*) AS summ_count" +
+            ", :name AS account_name, :type AS account_type" +
+            " FROM contact" +
+            " WHERE (:account IS NULL OR account = :account)" +
+            " AND `group` IS NOT NULL" +
+            " GROUP BY `group`" +
+            " ORDER BY `group` COLLATE NOCASE")
+    Cursor getGroups(Long account, String name, String type);
+
+    @Query("SELECT * FROM contact" +
+            " WHERE `group` = :group" +
+            " AND type <> " + EntityContact.TYPE_JUNK)
+    List<EntityContact> getContacts(String group);
+
     @Query("SELECT *" +
             " FROM contact" +
             " WHERE (:account IS NULL OR account = :account)" +

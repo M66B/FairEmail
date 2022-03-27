@@ -513,6 +513,7 @@ public class FragmentContacts extends FragmentBase {
                 int type = args.getInt("type");
                 String email = args.getString("email");
                 String name = args.getString("name");
+                String group = args.getString("group");
 
                 if (TextUtils.isEmpty(email))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_email));
@@ -520,6 +521,8 @@ public class FragmentContacts extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
                 if (TextUtils.isEmpty(name))
                     name = null;
+                if (TextUtils.isEmpty(group))
+                    group = null;
 
                 DB db = DB.getInstance(context);
 
@@ -528,10 +531,13 @@ public class FragmentContacts extends FragmentBase {
                     contact = db.contact().getContact(id);
                 else
                     contact = new EntityContact();
+
                 contact.account = account;
                 contact.type = type;
                 contact.email = email;
                 contact.name = name;
+                contact.group = group;
+
                 if (id > 0)
                     db.contact().updateContact(contact);
                 else {
@@ -602,11 +608,13 @@ public class FragmentContacts extends FragmentBase {
             final Spinner spType = view.findViewById(R.id.spType);
             final EditText etEmail = view.findViewById(R.id.etEmail);
             final EditText etName = view.findViewById(R.id.etName);
+            final EditText etGroup = view.findViewById(R.id.etGroup);
 
             final Bundle args = getArguments();
             spType.setSelection(args.getInt("type"));
             etEmail.setText(args.getString("email"));
             etName.setText(args.getString("name"));
+            etGroup.setText(args.getString("group"));
 
             return new AlertDialog.Builder(getContext())
                     .setView(view)
@@ -614,8 +622,9 @@ public class FragmentContacts extends FragmentBase {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             args.putInt("type", spType.getSelectedItemPosition());
-                            args.putString("email", etEmail.getText().toString());
+                            args.putString("email", etEmail.getText().toString().trim());
                             args.putString("name", etName.getText().toString());
+                            args.putString("group", etGroup.getText().toString().trim());
                             sendResult(RESULT_OK);
                         }
                     })

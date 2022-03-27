@@ -153,8 +153,8 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 }
             }
 
-            tvName.setText(contact.name == null ? "-" : contact.name);
-            tvEmail.setText(contact.accountName + "/" + contact.email);
+            tvName.setText(contact.name == null ? "-" : contact.name + (contact.group == null ? "" : "/" + contact.group));
+            tvEmail.setText(contact.email + "/" + contact.accountName);
             tvTimes.setText(NF.format(contact.times_contacted));
             tvLast.setText(contact.last_contacted == null ? null
                     : Helper.getRelativeTimeSpanString(context, contact.last_contacted));
@@ -316,6 +316,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     args.putInt("type", contact.type);
                     args.putString("email", contact.email);
                     args.putString("name", contact.name);
+                    args.putString("group", contact.group);
 
                     FragmentContacts.FragmentDialogEditContact fragment = new FragmentContacts.FragmentDialogEditContact();
                     fragment.setArguments(args);

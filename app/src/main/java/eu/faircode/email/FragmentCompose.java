@@ -42,6 +42,7 @@ import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.MatrixCursor;
+import android.database.MergeCursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -3794,42 +3795,52 @@ public class FragmentCompose extends FragmentBase {
                 long id = args.getLong("id");
                 int target = args.getInt("target");
                 long group = args.getLong("group");
+                String gname = args.getString("name");
                 String to = args.getString("to");
                 String cc = args.getString("cc");
                 String bcc = args.getString("bcc");
 
-                EntityLog.log(context, "Selected group=" + group);
+                EntityLog.log(context, "Selected group=" + group + "/" + gname);
 
                 List<Address> selected = new ArrayList<>();
 
-                try (Cursor cursor = context.getContentResolver().query(
-                        ContactsContract.Data.CONTENT_URI,
-                        new String[]{ContactsContract.Data.CONTACT_ID},
-                        ContactsContract.CommonDataKinds.GroupMembership.GROUP_ROW_ID + "= ?" + " AND "
-                                + ContactsContract.CommonDataKinds.GroupMembership.MIMETYPE + "='"
-                                + ContactsContract.CommonDataKinds.GroupMembership.CONTENT_ITEM_TYPE + "'",
-                        new String[]{String.valueOf(group)}, null)) {
-                    while (cursor != null && cursor.moveToNext()) {
-                        try (Cursor contact = getContext().getContentResolver().query(
-                                ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                                new String[]{
-                                        ContactsContract.Contacts.DISPLAY_NAME,
-                                        ContactsContract.CommonDataKinds.Email.DATA
-                                },
-                                ContactsContract.Data.CONTACT_ID + " = ?",
-                                new String[]{cursor.getString(0)},
-                                null)) {
-                            if (contact != null && contact.moveToNext()) {
-                                String name = contact.getString(0);
-                                String email = contact.getString(1);
-                                Address address = new InternetAddress(email, name, StandardCharsets.UTF_8.name());
-                                EntityLog.log(context, "Selected group=" + group +
-                                        " address=" + MessageHelper.formatAddresses(new Address[]{address}));
-                                selected.add(address);
+                if (group < 0) {
+                    DB db = DB.getInstance(context);
+                    List<EntityContact> contacts = db.contact().getContacts(gname);
+                    if (contacts != null)
+                        for (EntityContact contact : contacts) {
+                            Address address = new InternetAddress(contact.email, contact.name, StandardCharsets.UTF_8.name());
+                            selected.add(address);
+                        }
+                } else
+                    try (Cursor cursor = context.getContentResolver().query(
+                            ContactsContract.Data.CONTENT_URI,
+                            new String[]{ContactsContract.Data.CONTACT_ID},
+                            ContactsContract.CommonDataKinds.GroupMembership.GROUP_ROW_ID + "= ?" + " AND "
+                                    + ContactsContract.CommonDataKinds.GroupMembership.MIMETYPE + "='"
+                                    + ContactsContract.CommonDataKinds.GroupMembership.CONTENT_ITEM_TYPE + "'",
+                            new String[]{String.valueOf(group)}, null)) {
+                        while (cursor != null && cursor.moveToNext()) {
+                            try (Cursor contact = getContext().getContentResolver().query(
+                                    ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                    new String[]{
+                                            ContactsContract.Contacts.DISPLAY_NAME,
+                                            ContactsContract.CommonDataKinds.Email.DATA
+                                    },
+                                    ContactsContract.Data.CONTACT_ID + " = ?",
+                                    new String[]{cursor.getString(0)},
+                                    null)) {
+                                if (contact != null && contact.moveToNext()) {
+                                    String name = contact.getString(0);
+                                    String email = contact.getString(1);
+                                    Address address = new InternetAddress(email, name, StandardCharsets.UTF_8.name());
+                                    EntityLog.log(context, "Selected group=" + group +
+                                            " address=" + MessageHelper.formatAddresses(new Address[]{address}));
+                                    selected.add(address);
+                                }
                             }
                         }
                     }
-                }
 
                 EntityMessage draft;
                 DB db = DB.getInstance(context);
@@ -6725,8 +6736,6 @@ public class FragmentCompose extends FragmentBase {
             int focussed = args.getInt("focussed");
 
             final Context context = getContext();
-            final ContentResolver resolver = context.getContentResolver();
-
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_contact_group, null);
             final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
             final Spinner spGroup = dview.findViewById(R.id.spGroup);
@@ -6739,61 +6748,83 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
-            final String[] projection = new String[]{
-                    ContactsContract.Groups._ID,
-                    ContactsContract.Groups.TITLE,
-                    ContactsContract.Groups.SUMMARY_COUNT,
-                    ContactsContract.Groups.ACCOUNT_NAME,
-                    ContactsContract.Groups.ACCOUNT_TYPE,
-            };
-
-            Cursor groups;
-            try {
-                groups = resolver.query(
-                        ContactsContract.Groups.CONTENT_SUMMARY_URI,
-                        projection,
-                        // ContactsContract.Groups.GROUP_VISIBLE + " = 1" + " AND " +
-                        ContactsContract.Groups.DELETED + " = 0" +
-                                " AND " + ContactsContract.Groups.SUMMARY_COUNT + " > 0",
-                        null,
-                        ContactsContract.Groups.TITLE
-                );
-            } catch (SecurityException ex) {
-                Log.w(ex);
-                groups = new MatrixCursor(projection);
-            }
-
-            SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                    context,
-                    R.layout.spinner_contact_group,
-                    groups,
-                    new String[]{ContactsContract.Groups.TITLE, ContactsContract.Groups.ACCOUNT_NAME},
-                    new int[]{R.id.tvGroup, R.id.tvAccount},
-                    0);
-
-            final NumberFormat NF = NumberFormat.getInstance();
-
-            adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
+            new SimpleTask<Cursor>() {
                 @Override
-                public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-                    if (view.getId() == R.id.tvGroup) {
-                        String title = cursor.getString(1);
-                        if (TextUtils.isEmpty(title))
-                            title = "-";
-                        int count = cursor.getInt(2);
-                        ((TextView) view).setText(context.getString(R.string.title_name_count, title, NF.format(count)));
-                        return true;
-                    } else if (view.getId() == R.id.tvAccount && BuildConfig.DEBUG) {
-                        String account = cursor.getString(3);
-                        String type = cursor.getString(4);
-                        ((TextView) view).setText(account + (BuildConfig.DEBUG ? "/" + type : ""));
-                        return true;
-                    } else
-                        return false;
-                }
-            });
+                protected Cursor onExecute(Context context, Bundle args) {
+                    final String[] projection = new String[]{
+                            ContactsContract.Groups._ID,
+                            ContactsContract.Groups.TITLE,
+                            ContactsContract.Groups.SUMMARY_COUNT,
+                            ContactsContract.Groups.ACCOUNT_NAME,
+                            ContactsContract.Groups.ACCOUNT_TYPE,
+                    };
 
-            spGroup.setAdapter(adapter);
+                    Cursor contacts;
+                    try {
+                        ContentResolver resolver = context.getContentResolver();
+                        contacts = resolver.query(
+                                ContactsContract.Groups.CONTENT_SUMMARY_URI,
+                                projection,
+                                // ContactsContract.Groups.GROUP_VISIBLE + " = 1" + " AND " +
+                                ContactsContract.Groups.DELETED + " = 0" +
+                                        " AND " + ContactsContract.Groups.SUMMARY_COUNT + " > 0",
+                                null,
+                                ContactsContract.Groups.TITLE
+                        );
+                    } catch (SecurityException ex) {
+                        Log.w(ex);
+                        contacts = new MatrixCursor(projection);
+                    }
+
+                    DB db = DB.getInstance(context);
+                    Cursor local = db.contact().getGroups(
+                            null,
+                            context.getString(R.string.app_name),
+                            BuildConfig.APPLICATION_ID);
+
+                    return new MergeCursor(new Cursor[]{contacts, local});
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Cursor cursor) {
+                    SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                            context,
+                            R.layout.spinner_contact_group,
+                            cursor,
+                            new String[]{ContactsContract.Groups.TITLE, ContactsContract.Groups.ACCOUNT_NAME},
+                            new int[]{R.id.tvGroup, R.id.tvAccount},
+                            0);
+
+                    final NumberFormat NF = NumberFormat.getInstance();
+
+                    adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
+                        @Override
+                        public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
+                            if (view.getId() == R.id.tvGroup) {
+                                String title = cursor.getString(1);
+                                if (TextUtils.isEmpty(title))
+                                    title = "-";
+                                int count = cursor.getInt(2);
+                                ((TextView) view).setText(context.getString(R.string.title_name_count, title, NF.format(count)));
+                                return true;
+                            } else if (view.getId() == R.id.tvAccount) {
+                                String account = cursor.getString(3);
+                                String type = cursor.getString(4);
+                                ((TextView) view).setText(account + (BuildConfig.DEBUG ? "/" + type : ""));
+                                return true;
+                            } else
+                                return false;
+                        }
+                    });
+
+                    spGroup.setAdapter(adapter);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(this, new Bundle(), "compose:groups");
 
             spTarget.setSelection(focussed);
 
@@ -6806,11 +6837,13 @@ public class FragmentCompose extends FragmentBase {
                             Cursor cursor = (Cursor) spGroup.getSelectedItem();
                             if (target != INVALID_POSITION && cursor != null) {
                                 long group = cursor.getLong(0);
+                                String name = cursor.getString(1);
 
                                 Bundle args = getArguments();
                                 args.putLong("id", working);
                                 args.putInt("target", target);
                                 args.putLong("group", group);
+                                args.putString("name", name);
 
                                 sendResult(RESULT_OK);
                             } else
