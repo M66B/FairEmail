@@ -239,7 +239,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             popupMenu.getMenu().add(Menu.NONE, R.string.title_share, order++, R.string.title_share); // should be system whitelisted
             if (Shortcuts.can(context))
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_pin, order++, R.string.title_pin);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_edit_name, order++, R.string.title_advanced_edit_name);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_contact, order++, R.string.title_edit_contact);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_search, order++, R.string.title_search);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
 
@@ -256,7 +256,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     } else if (itemId == R.string.title_pin) {
                         onActionPin();
                         return true;
-                    } else if (itemId == R.string.title_advanced_edit_name) {
+                    } else if (itemId == R.string.title_edit_contact) {
                         onActionEdit();
                         return true;
                     } else if (itemId == R.string.title_search) {
@@ -312,12 +312,15 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 private void onActionEdit() {
                     Bundle args = new Bundle();
                     args.putLong("id", contact.id);
+                    args.putLong("account", contact.account);
+                    args.putInt("type", contact.type);
+                    args.putString("email", contact.email);
                     args.putString("name", contact.name);
 
-                    FragmentDialogEditName fragment = new FragmentDialogEditName();
+                    FragmentContacts.FragmentDialogEditContact fragment = new FragmentContacts.FragmentDialogEditContact();
                     fragment.setArguments(args);
-                    fragment.setTargetFragment(parentFragment, FragmentContacts.REQUEST_EDIT_NAME);
-                    fragment.show(parentFragment.getParentFragmentManager(), "contact:name");
+                    fragment.setTargetFragment(parentFragment, FragmentContacts.REQUEST_EDIT_CONTACT);
+                    fragment.show(parentFragment.getParentFragmentManager(), "contact:edit");
                 }
 
                 private void onActionSearch() {

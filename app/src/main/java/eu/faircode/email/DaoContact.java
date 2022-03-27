@@ -53,6 +53,9 @@ public interface DaoContact {
             ", last_contacted DESC")
     Cursor getFrequentlyContacted();
 
+    @Query("SELECT * FROM contact WHERE id = :id")
+    EntityContact getContact(long id);
+
     @Query("SELECT *" +
             " FROM contact" +
             " WHERE account = :account" +
@@ -88,9 +91,6 @@ public interface DaoContact {
             " AND type = :type" +
             " AND email = :email")
     int deleteContact(long account, int type, String email);
-
-    @Query("UPDATE contact SET name = :name WHERE id = :id AND NOT (name IS :name)")
-    int setContactName(long id, String name);
 
     @Query("UPDATE contact SET state = :state WHERE id = :id AND NOT (state IS :state)")
     int setContactState(long id, int state);

@@ -36,6 +36,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -49,6 +51,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
@@ -74,6 +78,7 @@ public class FragmentContacts extends FragmentBase {
     private RecyclerView rvContacts;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
+    private FloatingActionButton fabAdd;
 
     private Long account = null;
     private boolean junk = false;
@@ -85,7 +90,8 @@ public class FragmentContacts extends FragmentBase {
     private static final int REQUEST_ACCOUNT = 1;
     private static final int REQUEST_IMPORT = 2;
     private static final int REQUEST_EXPORT = 3;
-    static final int REQUEST_EDIT_NAME = 4;
+    static final int REQUEST_EDIT_ACCOUNT = 4;
+    static final int REQUEST_EDIT_CONTACT = 5;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -111,6 +117,7 @@ public class FragmentContacts extends FragmentBase {
         rvContacts = view.findViewById(R.id.rvContacts);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
+        fabAdd = view.findViewById(R.id.fabAdd);
 
         // Wire controls
 
@@ -153,6 +160,19 @@ public class FragmentContacts extends FragmentBase {
 
         onMenuJunk(junk);
         adapter.search(searching);
+
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (account == null) {
+                    FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+                    fragment.setArguments(new Bundle());
+                    fragment.setTargetFragment(FragmentContacts.this, REQUEST_EDIT_ACCOUNT);
+                    fragment.show(getParentFragmentManager(), "contact:account");
+                } else
+                    onAdd(account);
+            }
+        });
 
         final Context context = getContext();
         DB db = DB.getInstance(context);
@@ -265,7 +285,7 @@ public class FragmentContacts extends FragmentBase {
         FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
         fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_ACCOUNT);
-        fragment.show(getParentFragmentManager(), "messages:accounts");
+        fragment.show(getParentFragmentManager(), "contact:account");
     }
 
     private void onMenuDeleteAll() {
@@ -276,6 +296,17 @@ public class FragmentContacts extends FragmentBase {
         FragmentDelete fragment = new FragmentDelete();
         fragment.setArguments(args);
         fragment.show(getParentFragmentManager(), "contacts:delete");
+    }
+
+    private void onAdd(long account) {
+        Bundle args = new Bundle();
+        args.putInt("type", junk ? EntityContact.TYPE_JUNK : EntityContact.TYPE_TO);
+        args.putLong("account", account);
+
+        FragmentContacts.FragmentDialogEditContact fragment = new FragmentContacts.FragmentDialogEditContact();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_EDIT_CONTACT);
+        fragment.show(getParentFragmentManager(), "contact:add");
     }
 
     @Override
@@ -296,9 +327,13 @@ public class FragmentContacts extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         handleExport(data);
                     break;
-                case REQUEST_EDIT_NAME:
+                case REQUEST_EDIT_ACCOUNT:
                     if (resultCode == RESULT_OK && data != null)
-                        onEditName(data.getBundleExtra("args"));
+                        onAdd(data.getBundleExtra("args").getLong("account"));
+                    break;
+                case REQUEST_EDIT_CONTACT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onEditContact(data.getBundleExtra("args"));
                     break;
             }
         } catch (Throwable ex) {
@@ -469,25 +504,52 @@ public class FragmentContacts extends FragmentBase {
         }.execute(this, args, "");
     }
 
-    private void onEditName(Bundle args) {
+    private void onEditContact(Bundle args) {
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
+                long account = args.getLong("account");
+                int type = args.getInt("type");
+                String email = args.getString("email");
                 String name = args.getString("name");
 
+                if (TextUtils.isEmpty(email))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_email));
+                if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
+                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
                 if (TextUtils.isEmpty(name))
                     name = null;
 
                 DB db = DB.getInstance(context);
-                db.contact().setContactName(id, name);
+
+                EntityContact contact;
+                if (id > 0)
+                    contact = db.contact().getContact(id);
+                else
+                    contact = new EntityContact();
+                contact.account = account;
+                contact.type = type;
+                contact.email = email;
+                contact.name = name;
+                if (id > 0)
+                    db.contact().updateContact(contact);
+                else {
+                    contact.times_contacted = 0;
+                    contact.first_contacted = new Date().getTime();
+                    contact.last_contacted = contact.first_contacted;
+                    contact.id = db.contact().insertContact(contact);
+                }
 
                 return null;
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                if (ex instanceof IllegalArgumentException)
+                    ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                else
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "contact:name");
     }
@@ -525,6 +587,36 @@ public class FragmentContacts extends FragmentBase {
                                     Log.unexpectedError(getParentFragmentManager(), ex);
                                 }
                             }.execute(getContext(), getActivity(), getArguments(), "contacts:delete");
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+        }
+    }
+
+    public static class FragmentDialogEditContact extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_edit_contact, null);
+            final Spinner spType = view.findViewById(R.id.spType);
+            final EditText etEmail = view.findViewById(R.id.etEmail);
+            final EditText etName = view.findViewById(R.id.etName);
+
+            final Bundle args = getArguments();
+            spType.setSelection(args.getInt("type"));
+            etEmail.setText(args.getString("email"));
+            etName.setText(args.getString("name"));
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            args.putInt("type", spType.getSelectedItemPosition());
+                            args.putString("email", etEmail.getText().toString());
+                            args.putString("name", etName.getText().toString());
+                            sendResult(RESULT_OK);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)

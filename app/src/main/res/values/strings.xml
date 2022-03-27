@@ -1023,6 +1023,8 @@
     <string name="title_delete_channel">Delete notification channel</string>
     <string name="title_insert_contact">Add contact</string>
     <string name="title_edit_contact">Edit contact</string>
+    <string name="title_contact_email">Email</string>
+    <string name="title_contact_name">Name</string>
     <string name="title_import_contacts">Import vCards</string>
     <string name="title_export_contacts">Export vCards</string>
     <string name="title_create_sub_folder">Create sub folder</string>
@@ -2291,6 +2293,13 @@
         <item>@string/title_forward</item>
         <item>@string/title_resend</item>
         <item>@string/title_editasnew</item>
+    </string-array>
+
+    <string-array name="contactTypes" translatable="false">
+        <item>Recipient</item>
+        <item>Sender</item>
+        <item>Blocked</item>
+        <item>Not blocked</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>
