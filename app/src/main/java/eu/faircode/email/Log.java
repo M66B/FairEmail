@@ -2139,6 +2139,17 @@ public class Log {
                                         "\r\n");
                             }
 
+                        List<TupleAccountSwipes> swipes = db.account().getAccountSwipes(account.id);
+                        if (swipes == null)
+                            size += write(os, "<> swipes?\r\n");
+                        else
+                            for (TupleAccountSwipes swipe : swipes) {
+                                size += write(os, "> " + EntityMessage.getSwipeType(swipe.swipe_left) + " " +
+                                        swipe.left_name + ":" + swipe.left_type + "\r\n");
+                                size += write(os, "< " + EntityMessage.getSwipeType(swipe.swipe_right) + " " +
+                                        swipe.right_name + ":" + swipe.right_type + "\r\n");
+                            }
+
                         size += write(os, "\r\n");
                     }
                 }

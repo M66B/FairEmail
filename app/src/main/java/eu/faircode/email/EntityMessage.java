@@ -567,6 +567,32 @@ public class EntityMessage implements Serializable {
         }
     }
 
+    static String getSwipeType(Long type) {
+        if (type == null)
+            return "none";
+        if (type > 0)
+            return "folder";
+        if (SWIPE_ACTION_ASK.equals(type))
+            return "ask";
+        if (SWIPE_ACTION_SEEN.equals(type))
+            return "seen";
+        if (SWIPE_ACTION_SNOOZE.equals(type))
+            return "snooze";
+        if (SWIPE_ACTION_HIDE.equals(type))
+            return "hide";
+        if (SWIPE_ACTION_MOVE.equals(type))
+            return "move";
+        if (SWIPE_ACTION_FLAG.equals(type))
+            return "flag";
+        if (SWIPE_ACTION_DELETE.equals(type))
+            return "delete";
+        if (SWIPE_ACTION_JUNK.equals(type))
+            return "junk";
+        if (SWIPE_ACTION_REPLY.equals(type))
+            return "reply";
+        return "???";
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityMessage) {
