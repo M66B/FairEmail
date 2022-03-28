@@ -131,10 +131,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                     }
                 }
 
-                if (getWidth() == 0)
-                    post(update);
-                else
-                    update.run();
+                post(update);
             }
         });
     }
