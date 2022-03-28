@@ -298,6 +298,9 @@ public class EntityRule {
                     } else if ("$multifrom".equals(keyword)) {
                         if (message.from == null || message.from.length < 2)
                             return false;
+                    } else if ("$automatic".equals(keyword)) {
+                        if (!Boolean.TRUE.equals(message.auto_submitted))
+                            return false;
                     } else {
                         List<String> keywords = new ArrayList<>();
                         keywords.addAll(Arrays.asList(message.keywords));

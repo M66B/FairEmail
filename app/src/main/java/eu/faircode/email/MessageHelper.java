@@ -1691,6 +1691,7 @@ public class MessageHelper {
 
     Boolean getAutoSubmitted() throws MessagingException {
         // https://tools.ietf.org/html/rfc3834
+        // auto-generated, auto-replied
         String header = imessage.getHeader("Auto-Submitted", null);
         if (header == null) {
             // https://www.arp242.net/autoreply.html
