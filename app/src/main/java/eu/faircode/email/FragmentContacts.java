@@ -585,33 +585,44 @@ public class FragmentContacts extends FragmentBase {
                     group = null;
 
                 DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
 
-                EntityContact contact;
-                if (id > 0)
-                    contact = db.contact().getContact(id);
-                else {
-                    contact = db.contact().getContact(account, type, email);
-                    if (contact == null)
-                        contact = new EntityContact();
-                    else
-                        id = contact.id;
-                }
+                    boolean update = false;
+                    EntityContact contact = db.contact().getContact(id);
+                    EntityContact existing = db.contact().getContact(account, type, email);
 
-                contact.account = account;
-                contact.type = type;
-                contact.email = email;
-                contact.name = name;
-                contact.group = group;
+                    if (contact == null) {
+                        if (existing == null)
+                            contact = new EntityContact();
+                        else {
+                            update = true;
+                            contact = existing;
+                        }
+                    } else {
+                        update = true;
+                        if (existing != null && !existing.id.equals(contact.id))
+                            db.contact().deleteContact(existing.id);
+                    }
 
-                if (id > 0)
-                    db.contact().updateContact(contact);
-                else {
+                    contact.account = account;
+                    contact.type = type;
+                    contact.email = email;
+                    contact.name = name;
+                    contact.group = group;
                     contact.times_contacted = 0;
                     contact.first_contacted = new Date().getTime();
                     contact.last_contacted = contact.first_contacted;
-                    contact.id = db.contact().insertContact(contact);
-                }
 
+                    if (update)
+                        db.contact().updateContact(contact);
+                    else
+                        contact.id = db.contact().insertContact(contact);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
                 return null;
             }
 
