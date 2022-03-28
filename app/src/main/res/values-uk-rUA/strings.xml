@@ -202,7 +202,6 @@
     <string name="title_setup_permissions_explanation">Щоб переглянути контактні дані й запропонувати контакти</string>
     <string name="title_setup_permission_import_contacts">Як можна імпортувати контакти?</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
-    <string name="title_setup_doze_remark">Для надійного отримання та надсилання електронної пошти</string>
     <string name="title_setup_doze_explanation">Оптимізація живлення повинна бути вимкнена для додатку, щоб забезпечити надійне надсилання та отримання повідомлень у фоновому режимі</string>
     <string name="title_setup_doze_hint">Хоча це може звучати суперечливо, вимкнення оптимізації заряду акумулятора призведе до меншого використання батареї</string>
     <string name="title_setup_doze_instructions">В наступному діалозі Android змініть в меню \"Додатки без оптимізації\" на \"Усі додатки\", виберіть додаток FairEmail і далі \"Не оптимізувати\"</string>
@@ -866,6 +865,8 @@
     <string name="title_delete_channel">Видалити канал сповіщень</string>
     <string name="title_insert_contact">Додати контакт</string>
     <string name="title_edit_contact">Редагувати контакт</string>
+    <string name="title_contact_email">Email</string>
+    <string name="title_contact_name">Ім\'я</string>
     <string name="title_import_contacts">Імпорт vCards</string>
     <string name="title_export_contacts">Експорт vCards</string>
     <string name="title_create_sub_folder">Створити підтеку</string>
@@ -881,7 +882,6 @@
     <string name="title_delete_operation_flag">Операції відмітки</string>
     <string name="title_delete_operation_delete">Операції видалення</string>
     <string name="title_delete_operation_deleted">%1$d операцій видалено</string>
-    <string name="title_delete_contacts">Видалити всі локальні контакти?</string>
     <string name="title_no_operations">Немає відкладених операцій</string>
     <string name="title_check_operations">Перевірка операцій</string>
     <string name="title_hint_operations">Видалення операцій може призвести до зникнення повідомлень та проблем з синхронізацією</string>
@@ -1857,5 +1857,11 @@
         <item>Середній</item>
         <item>Великий</item>
         <item>Дуже великий</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Одержувач</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Відправником</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Заблоковано</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

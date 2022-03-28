@@ -277,6 +277,8 @@
     <string name="title_empty_trash">إفراغ سلّة المهملات</string>
     <string name="title_edit_properties">تعديل الخصائص</string>
     <string name="title_edit_rules">تعديل القواعد</string>
+    <string name="title_contact_email">البريد الإلكتروني</string>
+    <string name="title_contact_name">الإسم</string>
     <string name="title_folder_name">إسم المجلد</string>
     <string name="title_display_name">الاسم المعروض</string>
     <string name="title_show_folders">اظهار المجلدات المخفية</string>
@@ -606,4 +608,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="contactTypes">
+        <item>Recipient</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">المُرسِل</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">محظور</item>
+        <item>Not blocked</item>
+    </string-array>
 </resources>

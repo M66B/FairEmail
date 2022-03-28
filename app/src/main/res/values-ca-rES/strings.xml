@@ -531,12 +531,13 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_delete_channel">Esborra un canal de notificació</string>
     <string name="title_insert_contact">Afegeix el contacte</string>
     <string name="title_edit_contact">Edita el contacte</string>
+    <string name="title_contact_email">Correu electrònic</string>
+    <string name="title_contact_name">Nom</string>
     <string name="title_create_sub_folder">Crea una nova carpeta</string>
     <string name="title_empty_trash_ask">Voleu eliminar tots els missatges de la paperera definitivament?</string>
     <string name="title_empty_spam_ask">Voleu eliminar tots els missatges de correu brossa definitivament?</string>
     <string name="title_empty_trash_all_ask">Voleu eliminar tots els missatges de la paperera de tots els comptes definitivament?</string>
     <string name="title_empty_spam_all_ask">Voleu eliminar tots els missatges de correu brossa de tots els comptes definitivament?</string>
-    <string name="title_delete_contacts">Esborrar tots els contactes locals?</string>
     <string name="title_no_operations">Sense operacions pendents</string>
     <string name="title_hint_operations">Les operacions d\'esborrar poden provocar la desaparició de missatges i problemes de sincronització</string>
     <string name="title_folder_name">Nom de carpeta</string>
@@ -1284,5 +1285,11 @@ Ambdues opcions es poden desactivar si es desitja.</string>
         <item>Mitjà</item>
         <item>Gran</item>
         <item>Extra gran</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Destinatari</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Remitent</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Bloquejat</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

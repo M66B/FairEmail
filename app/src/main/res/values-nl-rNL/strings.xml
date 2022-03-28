@@ -72,6 +72,9 @@
     </plurals>
     <string name="title_ask_spam_who">Behandel bericht van %1$s als spam?</string>
     <string name="title_junk_hint">Uw e-mailprovider is verantwoordelijk voor het filteren van spam. Een e-mail-app beschikt niet over alle gegevens die nodig zijn om dit betrouwbaar te doen.</string>
+    <string name="title_junk_pop_hint">        Berichten van geblokkeerde afzenders worden niet gedownload.
+        Als \"Laat berichten achter op de server\" niet is ingeschakeld, gaan deze berichten definitief verloren!
+    </string>
     <string name="title_block">Blokkeer %1$s</string>
     <string name="title_block_sender">Blokkeer afzender</string>
     <string name="title_block_sender_domain">Blokkeer domein \'%1$s\'</string>
@@ -180,7 +183,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_permissions_explanation">Contact machtigingen zijn vereist voor het opzoeken van contactinformatie en het voorstellen van contacten</string>
     <string name="title_setup_permission_import_contacts">Hoe kan ik contacten importeren?</string>
     <string name="title_setup_doze">Batterij-optimalisaties uitschakelen</string>
-    <string name="title_setup_doze_remark">Om betrouwbaar e-mail te verzenden en ontvangen</string>
+    <string name="title_setup_doze_remark">Voor het betrouwbaar verzenden en ontvangen van e-mail op de achtergrond</string>
     <string name="title_setup_doze_explanation">Batterij optimalisaties moeten worden uitgeschakeld voor de app om zeker te zijn van het verzenden en ontvangen van berichten op de achtergrond</string>
     <string name="title_setup_doze_hint">Hoewel dit tegenstrijdig kan klinken, zal het uitschakelen van accuoptimalisaties voor deze app resulteren in minder batterijverbruik</string>
     <string name="title_setup_doze_instructions">In het volgende Android dialoogvenster wijzig \"Niet geoptimaliseerd\" naar \"Alle apps\", selecteer deze app en selecteer \"Niet optimaliseren\"</string>
@@ -844,6 +847,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_delete_channel">Meldingskanaal verwijderen</string>
     <string name="title_insert_contact">Contact toevoegen</string>
     <string name="title_edit_contact">Contact bewerken</string>
+    <string name="title_contact_email">E-mail</string>
+    <string name="title_contact_name">Naam</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Groep</string>
     <string name="title_import_contacts">Importeer vCards</string>
     <string name="title_export_contacts">Exporteer vCards</string>
     <string name="title_create_sub_folder">Maak submap</string>
@@ -859,7 +865,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_delete_operation_flag">Vlag bewerkingen</string>
     <string name="title_delete_operation_delete">Verwijder bewerkingen</string>
     <string name="title_delete_operation_deleted">%1$d bewerkingen verwijderd</string>
-    <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
+    <string name="title_delete_contacts">Verwijder zichtbare lokale contacten?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
     <string name="title_check_operations">Controleren op bewerkingen</string>
     <string name="title_hint_operations">Verwijderen van bewerkingen kan leiden tot het verdwijnen van berichten en synchronisatieproblemen</string>
@@ -1829,5 +1835,11 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>Gemiddeld</item>
         <item>Groot</item>
         <item>Extra groot</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Ontvanger</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Afzender</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Geblokkeerd</item>
+        <item>Niet geblokkeerd</item>
     </string-array>
 </resources>

@@ -32,6 +32,9 @@
         <item quantity="other">%1$dଟି ନୂଆ</item>
     </plurals>
     <string name="title_junk_hint">ସ୍ପାମ୍ ଫିଲ୍ଟର୍ କରିବା ପାଇଁ ଆପଣଙ୍କ ଇମେଲ୍ ପ୍ରଦାନକାରୀ ଦାୟୀ। ଏକ ଇମେଲ୍ ଆପ୍ ଏହା ବିଶ୍ୱସନୀୟ ଭାବରେ କରିବା ପାଇଁ ଆବଶ୍ୟକ ସମସ୍ତ ତଥ୍ୟ ନାହିଁ।</string>
+    <string name="title_junk_pop_hint">        ବ୍ଲକ୍ ହୋଇଥିବା ପ୍ରେରକଙ୍କ ଠାରୁ ବାର୍ତ୍ତା ଡାଉନଲୋଡ୍ ହେବ ନାହିଁ।
+        ଯଦି \"ସର୍ଭରରେ ବାର୍ତ୍ତା ଛାଡ଼ିବା\" ସକ୍ଷମ ହୋଇନଥାଏ, ଏହି ବାର୍ତ୍ତାଗୁଡ଼ିକ ସବୁଦିନ ପାଇଁ ହଜିଯିବ!
+    </string>
     <string name="title_block">%1$sକୁ ବ୍ଲକ୍ କରନ୍ତୁ</string>
     <string name="title_block_sender_domain">\'%1$s\' ଡୋମେନଟିକୁ ଅବରୋଧ କରନ୍ତୁ</string>
     <string name="title_block_sender_hint">        ପ୍ରେରକକୁ ଅବରୋଧ କରିବା ଏକ ମାଗଣା ବୈଶିଷ୍ଟ୍ୟ।
@@ -93,7 +96,7 @@
     <string name="title_setup_quick_configure">ନାମ, ରଙ୍ଗ, ସ୍ୱାଇପ୍ କ୍ରିୟା ଇତ୍ୟାଦି ସମ୍ପାଦନ କରିବାକୁ</string>
     <string name="title_setup_manage">ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="title_setup_identity_what">ଏକ ପରିଚୟ କ’ଣ?</string>
-    <string name="title_setup_doze_remark">ବିଶ୍ୱସନୀୟ ଭାବରେ ଇମେଲ୍ ପ୍ରେରଣ ଓ ପ୍ରାପ୍ତ କରିବା ପାଇଁ</string>
+    <string name="title_setup_doze_remark">ପୃଷ୍ଠପଟରେ ବିଶ୍ୱସନୀୟ ଭାବରେ ଇମେଲ୍ ପ୍ରେରଣ ଓ ପ୍ରାପ୍ତ କରିବା ପାଇଁ</string>
     <string name="title_setup_doze_device">ଏହି ଡିଭାଇସ୍ ପାଇଁ ଏହା ବୋଧହୁଏ ଆବଶ୍ୟକୀୟ</string>
     <string name="title_setup_alarm_12">ଆପ୍ କାମ କରିବ ନାହିଁ</string>
     <string name="title_setup_data">ଡାଟା ସେଭର୍ ସକ୍ଷମ ହୋଇଅଛି</string>
@@ -268,7 +271,7 @@
     <string name="title_advanced_subject_threading_hint">କେବଳ %1$d ଘଣ୍ଟା ମଧ୍ୟରେ ପ୍ରାପ୍ତ ହୋଇଥିବା ବାର୍ତ୍ତାଗୁଡ଼ିକ</string>
     <string name="title_advanced_remove_signature_hint">ଏହା ଫଳରେ ବହୁତ କମ୍ କିମ୍ୱା ଅତ୍ୟଧିକ ପାଠ୍ୟ ଅପସାରଣ ହୋଇପାରେ</string>
     <string name="title_advanced_plain_hint">ଏହାକୁ ସକ୍ଷମ କରିବା ଦ୍ୱାରା ଡାଟା ବ୍ୟବହାର ସୀମିତ ହେବ, କିନ୍ତୁ ଶୈଳିକରଣ ବିନା ବାର୍ତ୍ତା ଦେଖାଯିବ</string>
-    <string name="title_advanced_cert_strict_hint">ଏହା ଅକ୍ଷମ କରିବା ଦ୍ୱାରା ସର୍ଭର ସାର୍ଟିଫିକେଟ୍ ଯାଞ୍ଚ କରିବା କୋହଳ ହେବ</string>
+    <string name="title_advanced_cert_strict_hint">ଏହା ଅକ୍ଷମ କରିବା ଦ୍ୱାରା ସର୍ଭର୍ ସାର୍ଟିଫିକେଟ୍ ଯାଞ୍ଚ କରିବା କୋହଳ ହେବ</string>
     <string name="title_advanced_date_hint">ସମୟାନୁସାର ସଜାଯାଇଥିଲେ ହି ବାର୍ତ୍ତାଗୁଡ଼ିକ ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରାଯିବ</string>
     <string name="title_advanced_highlight_hint">ଥିମର ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ହାଇଲାଇଟ୍ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହେବ</string>
     <string name="title_advanced_override_width_hint">ଏହା ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ସଂକୀର୍ଣ୍ଣ କରିପାରେ, କିନ୍ତୁ ଅଦ୍ଭୁତ ଦେଖାଯାଏ</string>
@@ -280,7 +283,7 @@
     <string name="title_identity_name">ଆପଣଙ୍କର ନାମ</string>
     <string name="title_identity_email">ଆପଣଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
     <string name="title_identity_tenant_hint">ଅଧିକାଂଶ ସ୍ଥିତିରେ ଏହି କ୍ଷେତ୍ର ଖାଲି ରହିବା ଉଚିତ୍</string>
-    <string name="title_identity_unicode_remark">ଅଧିକାଂଶ ସର୍ଭର ଏହାକୁ ସମର୍ଥନ କରନ୍ତି ନାହିଁ</string>
+    <string name="title_identity_unicode_remark">ଅଧିକାଂଶ ସର୍ଭର୍ ଏହାକୁ ସମର୍ଥନ କରନ୍ତି ନାହିଁ</string>
     <string name="title_identity_max_size">ସର୍ବାଧିକ ବାର୍ତ୍ତା ଆକାର (MB)</string>
     <string name="title_identity_receipt">ଡିଫଲ୍ଟ ଭାବେ ବିତରଣ/ପଠନ ରସିଦ ଅନୁରୋଧ କରନ୍ତୁ</string>
     <string name="title_identity_receipt_legacy">ପୁରୁଣା ରସିଦ ଅନୁରୋଧ ଶୀର୍ଷଲେଖ ବ୍ୟବହାର କରନ୍ତୁ</string>
@@ -310,6 +313,8 @@
     <string name="title_primary">ପ୍ରାଥମିକ</string>
     <string name="title_primary_account">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ଆକାଉଣ୍ଟ୍)</string>
     <string name="title_primary_identity">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ପରିଚୟ)</string>
+    <string name="title_leave_on_server">ସର୍ଭରରେ ବାର୍ତ୍ତା ଛାଡ଼ିବା</string>
+    <string name="title_leave_deleted">ବିଲୋପିତ ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ସର୍ଭରରେ ଛାଡ଼ିବା</string>
     <string name="title_check">ଯାଞ୍ଚ କର</string>
     <string name="title_no_name">ନାମ ନିଖୋଜ</string>
     <string name="title_no_email">ଇମେଲ୍ ଠିକଣା ନିଖୋଜ</string>
@@ -337,10 +342,14 @@
     <string name="title_expunge_remark">ଏହା ବିଲୋପ ପାଇଁ ଚିହ୍ନିତ ସମସ୍ତ ବାର୍ତ୍ତାକୁ ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବ</string>
     <string name="title_empty_trash">ଆବର୍ଜନା ପାତ୍ର ଖାଲି କରନ୍ତୁ</string>
     <string name="title_edit_properties">ଗୁଣଧର୍ମ ସମ୍ପାଦନା</string>
+    <string name="title_contact_email">ଇମେଲ୍</string>
+    <string name="title_contact_name">ନାମ</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">ଗୋଷ୍ଠୀ</string>
     <string name="title_import_contacts">vCards ଆମଦାନୀ କରନ୍ତୁ</string>
     <string name="title_export_contacts">vCards ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="title_empty_trash_ask">ଆବର୍ଜନା ପାତ୍ରରେ ଥିବା ସମସ୍ତ ବାର୍ତ୍ତା ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବେ କି?</string>
     <string name="title_empty_trash_all_ask">ଆବର୍ଜନା ପାତ୍ରରେ ଥିବା ସମସ୍ତ ଆକାଉଣ୍ଟର ସମସ୍ତ ବାର୍ତ୍ତା ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବେ କି?</string>
+    <string name="title_delete_contacts">ଦୃଶ୍ୟମାନ ସ୍ଥାନୀୟ ସମ୍ପର୍କଗୁଡ଼ିକ ବିଲୋପ କରିବେ କି?</string>
     <string name="title_check_operations">ସଞ୍ଚାଳନ ପାଇଁ ଯାଞ୍ଚ କରୁଛି</string>
     <string name="title_folder_name">ଫୋଲ୍ଡର୍ ନାମ</string>
     <string name="title_display_name">ଦେଖାଇବା ନାମ</string>
@@ -402,7 +411,7 @@
     <string name="title_need_help">ମତେ ସାହାଯ୍ୟ ଦରକାର</string>
     <string name="title_compose">ରଚନା କରନ୍ତୁ</string>
     <string name="title_from">ପ୍ରେରକ:</string>
-    <string name="title_to">ପ୍ରାପ୍ତକର୍ତ୍ତା:</string>
+    <string name="title_to">ପ୍ରାପ୍ତେସୁ:</string>
     <string name="title_received">ପ୍ରାପ୍ତ ହୋଇଛି:</string>
     <string name="title_date">ତାରିଖ:</string>
     <string name="title_size">ଆକାର:</string>
@@ -539,6 +548,7 @@
     <string name="title_legend_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_legend_primary">ପ୍ରାଥମିକ</string>
     <string name="title_legend_thread">ବାର୍ତ୍ତାଳାପ</string>
+    <string name="title_legend_zoom">ପାଠ୍ୟ ଆକାର ବଦଳାନ୍ତୁ</string>
     <string name="title_legend_receipt">ରସିଦ ଅନୁରୋଧ କରାଯାଇଥିଲା</string>
     <string name="title_legend_cc">CC/BCC ଦେଖାଅ</string>
     <string name="title_legend_link">ଲିଙ୍କ୍ ସନ୍ନିବେଶ କର</string>
@@ -563,6 +573,8 @@
     <string name="title_enable">ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_disable">ଅକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_clipboard_copy">କ୍ଲିପବୋର୍ଡରେ କପି କରିନିଅନ୍ତୁ</string>
+    <string name="title_clipboard_copied">କ୍ଲିପବୋର୍ଡରେ କପି କରିନିଆଗଲା</string>
     <string name="title_snooze_now">ସ୍ନୁଜ୍</string>
     <string name="title_go_back">ପଛକୁ ଯାଅ</string>
     <string name="title_icalendar_maybe">ହୋଇପାରେ</string>
@@ -593,6 +605,7 @@
     <string name="title_accessibility_edit">ସମ୍ପାଦନ</string>
     <string name="title_accessibility_attachment">ସଂଲଗ୍ନକରଣ</string>
     <string name="title_accessibility_from">ପ୍ରେରକ</string>
+    <string name="title_accessibility_to">ପ୍ରାପ୍ତେସୁ</string>
     <string-array name="pollIntervalNames">
         <item>ସର୍ବଦା</item>
         <item>ପ୍ରତି ୫ ମିନିଟରେ</item>
@@ -608,7 +621,7 @@
         <item>No</item>
         <item>୧୫ ସେକେଣ୍ଡ</item>
         <item>୩୦ ସେକେଣ୍ଡ</item>
-        <item>୧ ମିନିଟ୍‌</item>
+        <item>୧ ମିନିଟ୍</item>
         <item>୨ ମିନିଟ୍</item>
         <item>୫ ମିନିଟ୍</item>
         <item>୧୦ ମିନିଟ୍</item>
@@ -648,7 +661,7 @@
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
-        <item>ପ୍ରାପ୍ତକର୍ତ୍ତା</item>
+        <item>ପ୍ରାପ୍ତେସୁ</item>
         <item>Cc</item>
         <item>Bcc</item>
     </string-array>
@@ -732,5 +745,11 @@
         <item>ମଧ୍ୟମ</item>
         <item>ବଡ଼</item>
         <item>ଅତିରିକ୍ତ ବଡ଼</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>ପ୍ରାପ୍ତେସୁ</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">ପ୍ରେରକ</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">ବ୍ଲକ୍ ହୋଇଅଛି</item>
+        <item>ବ୍ଲକ୍ ହୋଇନାହିଁ</item>
     </string-array>
 </resources>

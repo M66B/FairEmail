@@ -168,7 +168,6 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_setup_permissions_explanation">Izin kontak diperlukan untuk mencari info kontak dan menyarankan kontak</string>
     <string name="title_setup_permission_import_contacts">Bagaimana saya dapat mengimpor kontak?</string>
     <string name="title_setup_doze">Nonaktifkan pengoptimalan baterai</string>
-    <string name="title_setup_doze_remark">Untuk mengirim dan menerima email secara handal</string>
     <string name="title_setup_doze_explanation">Pengoptimalan baterai harus dinonaktifkan untuk aplikasi guna memastikan pengiriman dan penerimaan pesan yang andal di latar belakang aplikasi</string>
     <string name="title_setup_doze_hint">Meskipun mungkin terdengar kontradiktif, menonaktifkan pengoptimalan baterai untuk aplikasi ini akan mengurangi penggunaan baterai</string>
     <string name="title_setup_doze_instructions">Pada perubahan dialog Android berikutnya \"Tidak dioptimalkan\" menjadi \"Semua Aplikasi\", pilih aplikasi dan pilih \"Jangan Optimalkan\"</string>
@@ -784,6 +783,8 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_delete_channel">Hapus saluran pemberitahuan / notifikasi</string>
     <string name="title_insert_contact">Tambah kontak</string>
     <string name="title_edit_contact">Ubah kontak</string>
+    <string name="title_contact_email">Surel</string>
+    <string name="title_contact_name">Nama</string>
     <string name="title_import_contacts">Impor vCard</string>
     <string name="title_export_contacts">Ekspor vCard</string>
     <string name="title_create_sub_folder">Buat sub folder</string>
@@ -799,7 +800,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_delete_operation_flag">Operasi bersyarat</string>
     <string name="title_delete_operation_delete">Hapus operasi</string>
     <string name="title_delete_operation_deleted">%1$d operasi dihapus</string>
-    <string name="title_delete_contacts">Hapus semua kontak lokal?</string>
     <string name="title_no_operations">Tidak ada operasi yang tertunda</string>
     <string name="title_hint_operations">Menghapus operasi dapat mengakibatkan hilangnya pesan dan masalah sinkronisasi</string>
     <string name="title_op_title_headers">Mengunduh kepala surat</string>
@@ -1738,5 +1738,11 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
         <item>Sedang</item>
         <item>Besar</item>
         <item>Ekstra besar</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Penerima</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Pengirim</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Diblokir</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

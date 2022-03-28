@@ -74,6 +74,9 @@
     </plurals>
     <string name="title_ask_spam_who">برخورد با پیام از طرف %1$s به‌عنوان هرزنامه؟</string>
     <string name="title_junk_hint">فراهم‌کننده شما مسئول پالایش هرزنامه است. برنامه ایمیل داده لازم برای قابل اطمینان بودن این کار را ندارد.</string>
+    <string name="title_junk_pop_hint">        پیام‌های ارسالی از سوی فرستندگان مسدود شده دانلود نخواهد شد.
+        اگر \"پیام‌ها را روی سرور نگه دار\" فعال نباشد، این پیام‌ها برای همیشه از دست خواهند رفت!
+    </string>
     <string name="title_block">%s مسدود شود</string>
     <string name="title_block_sender">مسدود کردن فرستنده</string>
     <string name="title_block_sender_domain">دامنه %1$s را مسدود کن</string>
@@ -172,7 +175,7 @@
     <string name="title_setup_permissions_explanation">اجازه دسترسی به لیست مخاطبین برای جستجوی اطلاعات آنها و پیشنهاد دادن‌شان لازم است</string>
     <string name="title_setup_permission_import_contacts">چگونه می‌توانم مخاطبین را وارد کنم؟</string>
     <string name="title_setup_doze">غیرفعال کردن بهینه سازی باتری</string>
-    <string name="title_setup_doze_remark">برای فرستادن و دریافت مطمئن ایمیل</string>
+    <string name="title_setup_doze_remark">برای فرستادن و دریافت ایمیل به طرز مطمئن در پس‌زمینه</string>
     <string name="title_setup_doze_battery">آیا مصرف باتری زیاد است؟</string>
     <string name="title_setup_doze_stopped">همگام‌سازی متوقف شده؟</string>
     <string name="title_setup_doze_device">این مورد احتمالا برای این دستگاه اجباریست</string>
@@ -582,11 +585,14 @@
     <string name="title_delete_channel">حذف کانال اعلان</string>
     <string name="title_insert_contact">افزودن مخاطب</string>
     <string name="title_edit_contact">ویرایش مخاطب</string>
+    <string name="title_contact_email">ایمیل</string>
+    <string name="title_contact_name">نام</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">گروه</string>
     <string name="title_create_sub_folder">ساخت زیرپوشه</string>
     <string name="title_empty_trash_ask">پیام‌های سطل آشغال برای همیشه پاک شوند?</string>
     <string name="title_empty_spam_ask">پیام‌های هرزنامه برای همیشه پاک شوند؟</string>
     <string name="title_empty_spam_all_ask">همه پیام‌های هرزنامه از همه حساب‌ها برای همیشه حذف شود؟</string>
-    <string name="title_delete_contacts">حذف همه مخاطبین محلی؟</string>
+    <string name="title_delete_contacts">حذف مخاطبین محلی مرئی؟</string>
     <string name="title_no_operations">عملیاتی در انتظار وجود ندارد </string>
     <string name="title_hint_operations">عملیات‌های حذف می‌تواند موجب ناپدید شدن پیام‌ها و مشکلات همگام‌سازی شود</string>
     <string name="title_folder_name">نام پوشه</string>
@@ -1334,5 +1340,11 @@
         <item>متوسط</item>
         <item>بزرگ</item>
         <item>خیلی بزرگ</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>گیرنده</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">فرستنده</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">مسدود شده</item>
+        <item>مسدود نشده</item>
     </string-array>
 </resources>

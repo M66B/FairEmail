@@ -181,7 +181,7 @@
     <string name="title_setup_permissions_explanation">Le autorizzazioni di contatto sono necessarie per cercare informazioni di contatto e suggerire contatti</string>
     <string name="title_setup_permission_import_contacts">Come posso importare i contatti?</string>
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
-    <string name="title_setup_doze_remark">Per inviare e ricevere email in modo affidabile</string>
+    <string name="title_setup_doze_remark">Per inviare e ricevere email affidabilmente in background</string>
     <string name="title_setup_doze_explanation">Le ottimizzazioni della batteria dovrebbero esser disabilitate per l\'app, per assicurare un\'affidabile invio e ricezione dei messaggi in background</string>
     <string name="title_setup_doze_hint">Sebbene questo possa sembrare contraddittorio, disattivare le ottimizzazioni della batteria per quest\'app risulterà in un minore uso della batteria</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra di Android cambia \"Non ottimizzata\" a \"Tutte le app\", seleziona quest\'app e seleziona \"Non ottimizzare\"</string>
@@ -848,6 +848,8 @@
     <string name="title_delete_channel">Elimina il canale di notifica</string>
     <string name="title_insert_contact">Aggiungi contatto</string>
     <string name="title_edit_contact">Modifica contatto</string>
+    <string name="title_contact_email">E-mail</string>
+    <string name="title_contact_name">Nome</string>
     <string name="title_import_contacts">Importa vCard</string>
     <string name="title_export_contacts">Esporta vCard</string>
     <string name="title_create_sub_folder">Crea sottocartella</string>
@@ -863,7 +865,7 @@
     <string name="title_delete_operation_flag">Contrassegna operazioni</string>
     <string name="title_delete_operation_delete">Elimina operazioni</string>
     <string name="title_delete_operation_deleted">%1$d operazioni eliminate</string>
-    <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
+    <string name="title_delete_contacts">Eliminare i contatti locali visibili?</string>
     <string name="title_no_operations">Nessun\'operazione in sospeso</string>
     <string name="title_check_operations">Controllando le operazioni</string>
     <string name="title_hint_operations">Le operazioni di eliminazione possono risultare nella scomparsa di messaggi e problemi di sincronizzazione</string>
@@ -1841,5 +1843,11 @@
         <item>Medio</item>
         <item>Grande</item>
         <item>Molto grande</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Destinatario</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Mittente</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Bloccate</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

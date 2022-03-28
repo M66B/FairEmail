@@ -181,7 +181,7 @@
     <string name="title_setup_permissions_explanation">As permissões de contacto são necessárias para procurar informações de contacto e sugerir contactos</string>
     <string name="title_setup_permission_import_contacts">Como posso importar contactos?</string>
     <string name="title_setup_doze">Desactivar optimização de bateria</string>
-    <string name="title_setup_doze_remark">Para enviar e receber e-mail corretamente</string>
+    <string name="title_setup_doze_remark">Enviar e receber e-mail de forma segura em segundo plano</string>
     <string name="title_setup_doze_explanation">As otimizações da bateria devem ser desativadas para assegurar o envio e a recepção de mensagens confiáveis em segundo plano</string>
     <string name="title_setup_doze_hint">Embora isto possa parecer contraditório, desligar as otimizações de bateria para esta aplicação resultará em menos utilização de bateria</string>
     <string name="title_setup_doze_instructions">No próximo dialogo do sistema Android:
@@ -338,7 +338,7 @@
     <string name="title_advanced_signature_new">Usar assinatura em novas mensagens</string>
     <string name="title_advanced_signature_reply">Usar assinatura quando responder</string>
     <string name="title_advanced_signature_forward">Usar assinatura quando encaminhar</string>
-    <string name="title_advanced_discard_delete">Ao discartar rascunho, apagar permanentemente</string>
+    <string name="title_advanced_discard_delete">Ao descartar um rascunho, elimina-lo permanentemente</string>
     <string name="title_advanced_reply_move">Ao responder a uma mensagem, guarde a resposta na mesma pasta</string>
     <string name="title_advanced_auto_link">Criar ligações automaticamente</string>
     <string name="title_advanced_plain_only">Enviar texto simples por omissão</string>
@@ -574,6 +574,7 @@
     <string name="title_advanced_manual_hint">Se a recepção de mensagens estiver desactivada, continua a ser possível receber mensagens manualmente, deslizando a lista de mensagens para baixo</string>
     <string name="title_advanced_poll_battery">Isto pode causar uma utilização elevada de bateria!</string>
     <string name="title_advanced_poll_hint">A verificação periódica por novas mensagens irá comparar, de todas as vezes, as mensagens locais e no servidor, o que é uma operação \'pesada\' e pode resultar numa utilização de bateria adicional, especialmente se existirem muitas mensagens. A opção \'receber sempre\' irá prevenir isso, ao estar sempre a acompanhar as alterações.</string>
+    <string name="title_advanced_optimize_hint">Isto pode alterar a frequência de sincronização para poupar a utilização de bateria dependendo das capacidades e comportamento dos servidores de correio electrónico</string>
     <string name="title_advanced_schedule_hint">Toque num horário para o definir</string>
     <string name="title_advanced_quick_sync_hint">Isto reduz o uso de dados, mas as novas mensagens podem ser perdidas se o servidor de e-mail não seguir os padrões</string>
     <string name="title_advanced_no_date_hint">Alguns provedores armazenam mensagens com data desconhecida, inválida ou futura como mensagens sem data</string>
@@ -621,6 +622,7 @@
     <string name="title_identity_email">Seu endereço de e-mail</string>
     <string name="title_identity_tenant_hint">Este campo deve estar vazio na maioria dos casos</string>
     <string name="title_identity_unicode">Utilizar comunicação Unicode</string>
+    <string name="title_identity_receipt">Solicitar relatório de entrega/leitura por predefinição</string>
     <string name="title_optional">Opcional</string>
     <string name="title_recommended">Recomendado</string>
     <string name="title_account_linked">Conta associada</string>
@@ -683,6 +685,8 @@
     <string name="title_execute_rules">Executar regras</string>
     <string name="title_insert_contact">Adicionar contacto</string>
     <string name="title_edit_contact">Editar contacto</string>
+    <string name="title_contact_email">E-mail</string>
+    <string name="title_contact_name">Nome</string>
     <string name="title_import_contacts">Importar vCards</string>
     <string name="title_delete_operation_title">Eliminar operações</string>
     <string name="title_delete_operation_fetch">Obter operações</string>
@@ -731,6 +735,7 @@
     <string name="title_no_messages">Sem mensagens</string>
     <string name="title_filters_active">Um ou mais filtros activos</string>
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
+    <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Marcar como lida</string>
@@ -767,14 +772,21 @@
     <string name="title_manage_keywords">Gerir palavras-chave</string>
     <string name="title_manage_labels">Gerir rótulos do Gmail</string>
     <string name="title_add_keyword">Adicionar palavra-chave</string>
+    <string name="title_show_inline">Mostrar anexos incorporados na mensagem</string>
     <string name="title_download_all">Transferir todas</string>
     <string name="title_save_all">Guardar tudo</string>
     <string name="title_save_eml">Guardar ficheiro de mensagem (.eml)</string>
     <string name="title_eml_remark">Para encaminhar mensagens, as mensagens (originais) precisam de ser descarregadas do servidor de e-mail. Requer uma ligação à internet e as mensagens devem ser armazenadas no servidor de e-mail.</string>
     <string name="title_eml_option">Isto pode ser prevenido activando, nas definições de ligação, a opção de transferir os ficheiros de mensagem em bruto</string>
     <string name="title_eml_downloaded">Download de mensagens originais: %1$s</string>
+    <string name="title_buttons">Seleccionar botões</string>
     <string name="title_buttons_hint">As acções actualmente disponíveis dependem do tipo de conta e da configuração</string>
+    <string name="title_button_search">Pesquisar em mensagens</string>
+    <string name="title_button_search_text">Pesquisar no texto da mensagem</string>
+    <string name="title_configure_buttons">Configurar botões &#8230;</string>
     <string name="title_trash">Lixo</string>
+    <string name="title_copy">Copiar &#8230;</string>
+    <string name="title_copy_to">Copiar para &#8230;</string>
     <string name="title_subscribe">Subscrever</string>
     <string name="title_delete">Eliminar</string>
     <string name="title_delete_all">Apagar tudo</string>
@@ -792,10 +804,17 @@
     <string name="title_move_to_account">Mover para %1$s &#8230;</string>
     <string name="title_report_spam">Tratar como spam</string>
     <string name="title_delete_permanently">Eliminar permanentemente</string>
+    <string name="title_snooze">Adiar &#8230;</string>
     <string name="title_archive">Arquivar</string>
     <string name="title_reply">Responder</string>
+    <string name="title_reply_to_sender">Responder ao remetente</string>
+    <string name="title_reply_to_all">Responder a todos</string>
+    <string name="title_reply_list">Responder à lista</string>
+    <string name="title_reply_receipt">Enviar relatório de msg. lida</string>
     <string name="title_move_undo">A mover para %1$s (%2$d)</string>
     <string name="title_open_with">Abrir com</string>
+    <string name="title_receipt_subject">Relatório de leitura: %1$s</string>
+    <string name="title_receipt_text">Este relatório de leitura apenas reconhece que a mensagem foi mostrada. Não existe garantia que o destinatário tenha lido o conteúdo da mensagem.</string>
     <string name="title_no_viewer_name">Nome do conteúdo</string>
     <string name="title_no_viewer_type">Tipo de conteúdo</string>
     <string name="title_no_viewer_search">Procurar aplicação</string>
@@ -809,7 +828,11 @@
     <string name="title_monospaced_pre">Monosespaçado &lt;pre&gt;</string>
     <string name="title_unused_inline">Imagens embutidas não utilizadas serão removidas no envio</string>
     <string name="title_raw_saved">Foi guardada a mensagem original (raw)</string>
+    <string name="title_attachment_saved">Anexo guardado</string>
+    <string name="title_attachments_saved">Anexos guardados</string>
+    <string name="title_ask_save">Guardar as alterações?</string>
     <string name="title_ask_delete_attachments">Remover todos os anexos?</string>
+    <string name="title_ask_discard">Descartar o rascunho?</string>
     <string name="title_ask_show_image_hint">Imagens reconhecidas como imagens de monitorização não serão mostradas</string>
     <string name="title_ask_show_amp">Mostrar a variante AMP da mensagem?</string>
     <string name="title_ask_show_amp_hint">As mensagens AMP são concebidas para serem dinâmicas e para interagirem com a internet e, portanto, podem ser usadas por definição para o acompanhar</string>
@@ -819,14 +842,25 @@
     </string>
     <string name="title_compose">Compor</string>
     <string name="title_submitter">Enviado por:</string>
+    <string name="title_delivered_to">Entregue a:</string>
     <string name="title_from">De:</string>
     <string name="title_to">Para:</string>
+    <string name="title_reply_to">Responder a:</string>
+    <string name="title_cc">CC:</string>
+    <string name="title_bcc">BCC:</string>
+    <string name="title_recipients">%1$d destinatários</string>
+    <string name="title_via_identity">Através de:</string>
     <string name="title_sent">Enviados:</string>
+    <string name="title_received">Recebida:</string>
     <string name="title_date">Data:</string>
+    <string name="title_stored">Guardada:</string>
     <string name="title_size">Tamanho:</string>
     <string name="title_language">Idioma:</string>
     <string name="title_subject">Assunto:</string>
     <string name="title_attachment">Anexo:</string>
+    <string name="title_body_hint">A sua mensagem</string>
+    <string name="title_body_hint_style">Pode seleccionar o texto para formatá-lo</string>
+    <string name="title_discard">Descartar</string>
     <string name="title_save">Guardar</string>
     <string name="title_send">Enviar</string>
     <string name="title_send_now">Enviar agora</string>
@@ -1512,5 +1546,11 @@
         <item>Médio</item>
         <item>Grande</item>
         <item>Muito grande</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Destinatário</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Remetente</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Bloqueado</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

@@ -586,6 +586,8 @@
     <string name="title_delete_channel">Изтриване на канал за известия</string>
     <string name="title_insert_contact">Добавяне на контакт</string>
     <string name="title_edit_contact">Редактиране на контакт</string>
+    <string name="title_contact_email">Имейл</string>
+    <string name="title_contact_name">Име</string>
     <string name="title_create_sub_folder">Създаване на подпапка</string>
     <string name="title_empty_trash_ask">Да се изтрият ли всички съобщения за постоянно?</string>
     <string name="title_empty_spam_ask">Да се изтрият ли всички спам съобщения за постоянно?</string>
@@ -593,7 +595,6 @@
     <string name="title_empty_spam_all_ask">Да се изтрият ли завинаги всички спам съобщения от всички профили?</string>
     <string name="title_delete_operation_title">Изтриване на операции</string>
     <string name="title_delete_operation_delete">Изтриване на операции</string>
-    <string name="title_delete_contacts">Изтрий локалните контакти?</string>
     <string name="title_no_operations">Няма чакащи операции</string>
     <string name="title_hint_operations">Изтриването на операции може да доведе до изчезване на съобщения и проблеми със синхронизацията</string>
     <string name="title_op_title_headers">Изтегляне на заглавките</string>
@@ -1445,5 +1446,11 @@
         <item>Среден</item>
         <item>Голяма</item>
         <item>Много голям</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Получател</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Подател</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Блокиран</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

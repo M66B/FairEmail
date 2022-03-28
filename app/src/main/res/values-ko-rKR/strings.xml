@@ -403,6 +403,8 @@
     <string name="title_execute_rules">규칙 실행</string>
     <string name="title_insert_contact">주소록에 추가</string>
     <string name="title_edit_contact">연락처 수정</string>
+    <string name="title_contact_email">이메일</string>
+    <string name="title_contact_name">이름</string>
     <string name="title_import_contacts">vCard 들여오기</string>
     <string name="title_export_contacts">vCard 내보내기</string>
     <string name="title_folder_name">폴더명</string>
@@ -1017,5 +1019,11 @@
         <item>보통</item>
         <item>크게</item>
         <item>매우 크게</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>수신</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">발신인</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">차단됨</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

@@ -181,7 +181,7 @@
     <string name="title_setup_permissions_explanation">Əlaqə icazələri, əlaqə məlumatlarının axtarışı və əlaqə təklifi üçün tələb olunur</string>
     <string name="title_setup_permission_import_contacts">Əlaqələri necə idxal edə bilərəm?</string>
     <string name="title_setup_doze">Batareya optimallaşdırmasını sıradan çıxart</string>
-    <string name="title_setup_doze_remark">E-poçtların güvənlə göndərilməsi və alınması üçün</string>
+    <string name="title_setup_doze_remark">Arxaplanda güvənli şəkildə e-poçt göndərmək və almaq üçün</string>
     <string name="title_setup_doze_explanation">Arxaplanda mesajların güvənlə göndərilməsi və alınmasını təmin etmək üçün tətbiqin batareya optimallaşdırması sıradan çıxarılmalıdır</string>
     <string name="title_setup_doze_hint">Bu bir az ziddiyyətli görünsə də, bu tətbiq üçün batareya optimallaşdırmasını bağlamaq daha az batareya istifadəsinə səbəb olacaq</string>
     <string name="title_setup_doze_instructions">Növbəti Android dialoq pəncərəsində \"Optimallaşdırılmamış\"ı (və ya Enerjiyə qənaət etmir) \"Bütün tətbiqlər\" olaraq dəyişdirin, bu tətbiqi seçin və \"Optimallaşdırmayın\"ı seçin</string>
@@ -847,6 +847,8 @@
     <string name="title_delete_channel">Bildiriş kanalını sil</string>
     <string name="title_insert_contact">Əlaqə əlavə et</string>
     <string name="title_edit_contact">Əlaqəyə düzəliş et</string>
+    <string name="title_contact_email">E-poçt</string>
+    <string name="title_contact_name">Ad</string>
     <string name="title_import_contacts"> vCard-ları idxal et</string>
     <string name="title_export_contacts">vCard-ları ixrac et</string>
     <string name="title_create_sub_folder">Alt qovluq yarat</string>
@@ -862,7 +864,7 @@
     <string name="title_delete_operation_flag">Əməliyyatları bayraqla</string>
     <string name="title_delete_operation_delete">Əməliyyatları sil</string>
     <string name="title_delete_operation_deleted">%1$d əməliyyatlar silindi</string>
-    <string name="title_delete_contacts">Bütün yerli əlaqələr silinsin?</string>
+    <string name="title_delete_contacts">Görünən yerli əlaqələr silinsin?</string>
     <string name="title_no_operations">Gözləyən heç bir əməliyyat yoxdur</string>
     <string name="title_check_operations">Əməliyyatların yoxlanılması</string>
     <string name="title_hint_operations">Əməliyyatların silinməsi, mesajların görünməməsi və eyniləşdirmə problemlərinin yaranması ilə nəticələnə bilər</string>
@@ -1833,5 +1835,11 @@
         <item>Orta</item>
         <item>Böyük</item>
         <item>Çox böyük</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Alan</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Göndərən</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Əngəlləndi</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

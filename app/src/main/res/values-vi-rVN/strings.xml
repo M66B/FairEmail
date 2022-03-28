@@ -62,12 +62,16 @@
     </plurals>
     <string name="title_ask_spam_who">Coi thư từ %1$s là thư rác?</string>
     <string name="title_junk_hint">Nhà cung cấp email của bạn có trách nhiệm lọc thư rác. Một ứng dụng email không có tất cả dữ liệu cần thiết để làm việc này một cách đáng tin cậy.</string>
+    <string name="title_junk_pop_hint">        Thư từ người gửi bị chặn sẽ không được tải xuống.
+        Nếu \"Để lại thư trên máy chủ\" không bật, các thư này sẽ bị mất vĩnh viễn!
+    </string>
     <string name="title_block">Chặn %1$s</string>
     <string name="title_block_sender">Chặn người gửi</string>
     <string name="title_block_sender_domain">Chặn miền \'%1$s\'</string>
     <string name="title_block_sender_hint">        Chặn người gửi là tính năng miễn phí.
         Chặn tên miền người gửi có sử dụng quy tắc lọc, đó là tính năng pro.
     </string>
+    <string name="title_blocked_senders">Người gửi bị chặn</string>
     <string name="title_junk_filter">Dùng bộ lọc thư rác cục bộ</string>
     <string name="title_junk_filter_hint">Cái này có thể tăng sử dụng pin và đánh dấu thư là thư rác một cách không chính xác</string>
     <string name="title_junk_blocklist">Sử dụng các danh sách chặn thư rác</string>
@@ -170,7 +174,7 @@
     <string name="title_setup_permissions_explanation">Quyền danh bạ được yêu cầu để tra cứu thông tin liên hệ và để đề xuất các liên hệ</string>
     <string name="title_setup_permission_import_contacts">Tôi có thể nhập các liên hệ như thế nào?</string>
     <string name="title_setup_doze">Tắt tối ưu hoá pin</string>
-    <string name="title_setup_doze_remark">Để gửi và nhận email một cách đáng tin cậy</string>
+    <string name="title_setup_doze_remark">Để gửi và nhận email không bị lỗi trong nền</string>
     <string name="title_setup_doze_explanation">Tối ưu hoá pin nên được tắt cho ứng dụng này để đảm bảo việc gửi và nhận thư trong nền được đáng tin cậy</string>
     <string name="title_setup_doze_hint">Điều này có thể nghe mâu thuẫn, nhưng việc tắt tối ưu hoá pin cho ứng dụng này sẽ gây ra sử dụng pin ít hơn</string>
     <string name="title_setup_doze_instructions">Trong hộp thoại Android tiếp theo, chuyển \"Không được tối ưu hoá\" thành \"Tất cả ứng dụng\", chọn ứng dụng này và chọn \"Không tối ưu hoá\"</string>
@@ -363,6 +367,7 @@
     <string name="title_advanced_close_pane">Thu gọn hàng hoặc cột khi đóng cuộc hội thoại</string>
     <string name="title_advanced_column_width">Độ rộng cột thư: %1$s %%</string>
     <string name="title_advanced_nav_options">Hiện các tùy chọn menu điều hướng</string>
+    <string name="title_advanced_nav_categories">Hiện thể loại tài khoản trong menu điều hướng</string>
     <string name="title_advanced_nav_pin">Ghim menu điều hướng</string>
     <string name="title_advanced_nav_hide_title">Ẩn các tùy chọn menu điều hướng?</string>
     <string name="title_advanced_nav_hide_message">Bạn có thể bật lại các tùy chọn trong cài đặt hiển thị</string>
@@ -833,6 +838,8 @@
     <string name="title_delete_channel">Xoá kênh thông báo</string>
     <string name="title_insert_contact">Thêm liên hệ</string>
     <string name="title_edit_contact">Chỉnh sửa liên hệ</string>
+    <string name="title_contact_email">Email</string>
+    <string name="title_contact_name">Tên</string>
     <string name="title_import_contacts">Nhập tệp vCard</string>
     <string name="title_export_contacts">Xuất vCard</string>
     <string name="title_create_sub_folder">Tạo thư mục con</string>
@@ -848,7 +855,7 @@
     <string name="title_delete_operation_flag">Gắn cờ các hoạt động</string>
     <string name="title_delete_operation_delete">Xoá các hoạt động</string>
     <string name="title_delete_operation_deleted">%1$d hoạt động đã xoá</string>
-    <string name="title_delete_contacts">Xoá tất cả liên hệ cục bộ?</string>
+    <string name="title_delete_contacts">Xoá các liên hệ cục bộ có thể nhìn thấy?</string>
     <string name="title_no_operations">Không có hoạt động đang chờ</string>
     <string name="title_check_operations">Đang kiểm tra hoạt động</string>
     <string name="title_hint_operations">Việc xoá các hoạt động có thể dẫn đến biến mất thư và các vấn đề đồng bộ hoá</string>
@@ -1814,5 +1821,11 @@
         <item>Vừa</item>
         <item>Lớn</item>
         <item>Rất lớn</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Người nhận</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Người gửi</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Đã chặn</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

@@ -3,6 +3,7 @@
     <string name="channel_notification">Электронды пошта</string>
     <string name="channel_warning">Ескерту</string>
     <string name="title_junk_clear">Тазалау</string>
+    <string name="title_contact_email">Электронды пошта</string>
     <string name="title_log_clear">Тазалау</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->

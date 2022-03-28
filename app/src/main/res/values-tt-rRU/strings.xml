@@ -44,6 +44,7 @@
     <string name="title_color">Төс</string>
     <string name="title_encryption">Шифрлау</string>
     <string name="title_password">Пароль</string>
+    <string name="title_contact_email">Эл. почта</string>
     <string name="title_months_all">Бөтенесе</string>
     <string name="title_folder_junk">Спам</string>
     <string name="title_folder_sent">Җибәрелгән</string>

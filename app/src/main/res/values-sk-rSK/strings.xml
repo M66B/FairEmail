@@ -200,7 +200,6 @@
     <string name="title_setup_permissions_explanation">Oprávnenie pristupovať ku kontaktom je potrebné na získavanie informácií o kontaktoch a na návrhy príjemcov</string>
     <string name="title_setup_permission_import_contacts">Ako importovať kontakty?</string>
     <string name="title_setup_doze">Vypnite optimalizáciu batérie</string>
-    <string name="title_setup_doze_remark">Aby ste mohli spoľahlivo prijímať a odosielať email</string>
     <string name="title_setup_doze_explanation">Optimalizácie batérie by mali byť zakázané, aby spoľahlivo fungovalo prijímanie a odosielanie správ na pozadí</string>
     <string name="title_setup_doze_hint">Môže sa zdať, že opak je pravdou, no vypnutím optimalizácie ušetríte využitie pri napájaní z batérie</string>
     <string name="title_setup_doze_instructions">V nasledujúsom dialógu systému android zmeňte \"Neoptimalizované\" na \"Všetky aplikácie\", nájdite túto aplikáciu a nastavte \"Neoptimalizovať\"</string>
@@ -862,6 +861,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_delete_channel">Vymazať kanál upozornení</string>
     <string name="title_insert_contact">Pridať kontakt</string>
     <string name="title_edit_contact">Upraviť kontakt</string>
+    <string name="title_contact_email">Email</string>
+    <string name="title_contact_name">Názov</string>
     <string name="title_import_contacts">Importovať vizitky vCard</string>
     <string name="title_export_contacts">Exportovať vizitky vCard</string>
     <string name="title_create_sub_folder">Vytvoriť podpriečinok</string>
@@ -877,7 +878,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_delete_operation_flag">Operácie so značkami</string>
     <string name="title_delete_operation_delete">Operácie mazania</string>
     <string name="title_delete_operation_deleted">Vymazaných %1$d operácií</string>
-    <string name="title_delete_contacts">Odstrániť všetky lokálne kontakty?</string>
     <string name="title_no_operations">Žiadne prebiehajúce operácie</string>
     <string name="title_check_operations">Zisťovanie operácií</string>
     <string name="title_hint_operations">Mazanie operácií môže viesť k miznúcim správam a synchronizačným problémom</string>
@@ -1848,5 +1848,11 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Stredná</item>
         <item>Veľká</item>
         <item>Veľmi veľká</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Adresát</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Odosielateľ</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blokované</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

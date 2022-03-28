@@ -72,6 +72,9 @@
     </plurals>
     <string name="title_ask_spam_who">Αντιμετώπιση του μηνύματος από %1$s ως ανεπιθύμητου;</string>
     <string name="title_junk_hint">Ο προσωπικός σας πάροχος ηλεκτρονικού ταχυδρομείου είναι αρμόδιος για τον έλεγχο της ανεπιθύμητης αλληλογραφίας. Μια εφαρμογή ηλεκτρονικού ταχυδρομείου δεν διαθέτει όλα τα απαραίτητα δεδομένα για να επιτελέσει αυτό το έργο αξιόπιστα.</string>
+    <string name="title_junk_pop_hint">        Τα μηνύματα από αποκλεισμένους αποστολείς δεν θα κατεβαίνουν.
+        Εφόσον η επιλογή \"Να παραμένουν τα μηνύματα στον διακομιστή\" δεν είναι ενεργοποιημένη, τα μηνύματα αυτά θα χαθούν οριστικά!
+    </string>
     <string name="title_block">Αποκλεισμός %1$s</string>
     <string name="title_block_sender">Αποκλεισμός αποστολέα</string>
     <string name="title_block_sender_domain">Αποκλεισμός τομέα \'%1$s\'</string>
@@ -181,7 +184,7 @@
     <string name="title_setup_permissions_explanation">Απαιτείται άδεια πρόσβασης στις επαφές για την αναζήτηση πληροφοριών επικοινωνίας και για προτάσεις επαφών</string>
     <string name="title_setup_permission_import_contacts">Πώς μπορώ να εισαγάγω επαφές;</string>
     <string name="title_setup_doze">Απενεργοποίηση βελτιστοποίησης μπαταρίας</string>
-    <string name="title_setup_doze_remark">Για αξιόπιστη αποστολή και λήψη ηλ. μηνυμάτων</string>
+    <string name="title_setup_doze_remark">Για αξιόπιστη αποστολή και λήψη μηνυμάτων στο παρασκήνιο</string>
     <string name="title_setup_doze_explanation">Οι βελτιστοποιήσεις μπαταρίας θα πρέπει να απενεργοποιηθούν για την εφαρμογή, ώστε να διασφαλιστεί η αξιόπιστη αποστολή και λήψη μηνυμάτων στο παρασκήνιο</string>
     <string name="title_setup_doze_hint">Αν και μπορεί να ακούγεται αντιφατικό, η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για αυτήν την εφαρμογή, θα έχει ως αποτέλεσμα μικρότερη χρήση μπαταρίας</string>
     <string name="title_setup_doze_instructions">Στο επόμενο παράθυρο διαλόγου του Android αλλάζετε το \"Μη βελτιστοποιημένες\" σε \"Όλες οι εφαρμογές\", επιλέγετε αυτήν την εφαρμογή και επιλέγετε \"Να μην γίνεται βελτιστοποίηση\"</string>
@@ -757,8 +760,8 @@
     <string name="title_primary_account">Κύριος (προεπιλεγμένος λογαριασμός)</string>
     <string name="title_primary_identity">Κύρια (προεπιλεγμένη ταυτότητα)</string>
     <string name="title_self_identity">Αφαίρεση διεύθυνσης ηλ. ταχυδρομείου κατά την απάντηση</string>
-    <string name="title_leave_on_server">Να παραμένουν τα μηνύματα στον εξυπηρετητή</string>
-    <string name="title_leave_deleted">Να παραμένουν τα διεγραμμένα μηνύματα στον εξυπηρετητή</string>
+    <string name="title_leave_on_server">Να παραμένουν τα μηνύματα στον διακομιστή</string>
+    <string name="title_leave_deleted">Να παραμένουν τα διεγραμμένα μηνύματα στον διακομιστή</string>
     <string name="title_leave_on_device">Να παραμένουν τα μηνύματα στη συσκευή</string>
     <string name="title_max_messages">Μέγιστος αριθμός μηνυμάτων για κατέβασμα (κενό για όλα)</string>
     <string name="title_keep_poll_interval">Χρονικό διάστημα μεταξύ συγχρονισμών (λεπτά)</string>
@@ -844,6 +847,9 @@
     <string name="title_delete_channel">Διαγραφή καναλιού ειδοποιήσεων</string>
     <string name="title_insert_contact">Προσθήκη επαφής</string>
     <string name="title_edit_contact">Επεξεργασία επαφής</string>
+    <string name="title_contact_email">Ηλεκτρονικό ταχυδρομείο</string>
+    <string name="title_contact_name">Όνομα</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Ομάδα</string>
     <string name="title_import_contacts">Εισαγωγή vCard</string>
     <string name="title_export_contacts">Εξαγωγή vCard</string>
     <string name="title_create_sub_folder">Δημιουργία υποφακέλου</string>
@@ -859,7 +865,7 @@
     <string name="title_delete_operation_flag">Δραστηριότητες επισήμανσης</string>
     <string name="title_delete_operation_delete">Δραστηριότητες διαγραφής</string>
     <string name="title_delete_operation_deleted">%1$d δραστηριότητες διεγράφησαν</string>
-    <string name="title_delete_contacts">Διαγραφή όλων των τοπικών επαφών;</string>
+    <string name="title_delete_contacts">Διαγραφή των ορατών τοπικών επαφών;</string>
     <string name="title_no_operations">Καμία εκκρεμής δραστηριότητα</string>
     <string name="title_check_operations">Έλεγχος για δραστηριότητες</string>
     <string name="title_hint_operations">Η διαγραφή των δραστηριοτήτων μπορεί να οδηγήσει σε εξαφανισμένα μηνύματα και προβλήματα συγχρονισμού</string>
@@ -887,7 +893,7 @@
     <string name="title_sync_days">Συγχρονισμός μηνυμάτων (ημέρες)</string>
     <string name="title_sync_days_remark">Αν αυξηθεί η τιμή αυτή, θα αυξηθεί η χρήση μπαταρίας και δεδομένων</string>
     <string name="title_keep_days">Διατήρηση μηνυμάτων (ημέρες)</string>
-    <string name="title_keep_days_remark">Τα παλιά μηνύματα θα διαγράφονται από τη συσκευή, αλλά θα παραμένουν στο διακομιστή</string>
+    <string name="title_keep_days_remark">Τα παλιά μηνύματα θα διαγράφονται από τη συσκευή, αλλά θα παραμένουν στον διακομιστή</string>
     <string name="title_keep_all">Διατήρηση όλων των μηνυμάτων</string>
     <string name="title_poll_system">Καθόρισε φακέλους συστήματος να ελέγχουν περιοδικά για νέα μηνύματα</string>
     <string name="title_poll_user">Ορισμός φακέλων χρήστη στους οποίους θα γίνεται περιοδικός έλεγχος για νέα μηνύματα</string>
@@ -1833,5 +1839,11 @@
         <item>Μεσαίο</item>
         <item>Μεγάλο</item>
         <item>Πολύ μεγάλο</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Παραλήπτης</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Αποστολέας</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Αποκλεισμένος</item>
+        <item>Μη αποκλεισμένος</item>
     </string-array>
 </resources>

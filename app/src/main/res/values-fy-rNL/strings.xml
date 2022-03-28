@@ -161,7 +161,6 @@
     <string name="title_setup_permissions">Subsydzje tagongsrjochten</string>
     <string name="title_setup_permissions_remark">Om tagong te krijen ta kontaktynformaasje (opsjoneel)</string>
     <string name="title_setup_doze">Batteryoptimalisaasje ûtskeakelje</string>
-    <string name="title_setup_doze_remark">Om betrouber email te ferstjoeren en te ûntfangen</string>
     <string name="title_setup_doze_hint">Hoewol dit miskien tsjinstridich klinkt, sil útskeakeljen fan batterijoptimalisaasjes foar dizze app resultearje yn minder batterijferbrûk</string>
     <string name="title_setup_doze_instructions">Yn it folgjende Android-dialooch feroarje \"Net optimisearre\" nei \"Alle apps\", selektearje dizze app en selektearje \"Net optimalisearje\"</string>
     <string name="title_setup_doze_battery">Hege batterij gebrûk?</string>
@@ -669,6 +668,8 @@
     <string name="title_delete_channel">Notifikaasjekanaal wiskje</string>
     <string name="title_insert_contact">Kontakt tafoegje</string>
     <string name="title_edit_contact">Kontakt bewurkje</string>
+    <string name="title_contact_email">Email</string>
+    <string name="title_contact_name">Namme</string>
     <string name="title_create_sub_folder">Submap oanmeitsje</string>
     <string name="title_empty_trash_ask">Alle jiskefetberjochten permanint wiskje?</string>
     <string name="title_empty_spam_ask">Alle spamberjochten permanint wiskje?</string>
@@ -682,7 +683,6 @@
     <string name="title_delete_operation_flag">Flagge operaasjes</string>
     <string name="title_delete_operation_delete">Bedriuwen wiskje</string>
     <string name="title_delete_operation_deleted">%1$d operaasjes wiske</string>
-    <string name="title_delete_contacts">Alle lokale kontakten wiskje?</string>
     <string name="title_no_operations">Gjin wachtsjende operaasjes</string>
     <string name="title_hint_operations">Wiskjen fan operaasjes kin resultearje yn ferdwine berjochten en syngronisaasjeproblemen</string>
     <string name="title_op_title_headers">Headers downloade</string>
@@ -1555,5 +1555,11 @@
         <item>Medium</item>
         <item>Grutte</item>
         <item>Ekstra grut</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Ûntfanger</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Stjoerder</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blocked</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

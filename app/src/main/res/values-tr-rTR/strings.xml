@@ -72,6 +72,9 @@
     </plurals>
     <string name="title_ask_spam_who">%1$s\' in iletisi istenmeyen posta olarak kabul edilsin mi?</string>
     <string name="title_junk_hint">İstenmeyen (spam) e-postaların filtrelenmesinden servis sağlayıcınız sorumludur. Bir e-posta istemcisi bu işlemi gerçekleştirebilecek veriye sahip değildir.</string>
+    <string name="title_junk_pop_hint">        Engellenen gönderenlerden gelen mesajlar indirilmeyecektir.
+        \"Mesajları sunucuda bırak\" etkin değilse, bu mesajlar kalıcı olarak kaybolacaktır!
+     </string>
     <string name="title_block">Engelle: %1$s</string>
     <string name="title_block_sender">Göndereni engelle</string>
     <string name="title_block_sender_domain">\'%1$s\' alan adını engelle</string>
@@ -180,7 +183,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_permissions_explanation">Kişi bilgilerini aramak ve kişi önermek için kişi izinleri gerekir</string>
     <string name="title_setup_permission_import_contacts">Kişileri nasıl içe aktarabilirim?</string>
     <string name="title_setup_doze">Pil optimizasyonlarını devre dışı bırak</string>
-    <string name="title_setup_doze_remark">Güvenilir bir şekilde e-posta almak için</string>
+    <string name="title_setup_doze_remark">Arka planda güvenilir bir şekilde e-posta göndermek ve almak için</string>
     <string name="title_setup_doze_explanation">Arka planda mesajların güvenilir bir şekilde gönderilmesini ve alınmasını sağlamak için uygulamanın pil optimizasyonları devre dışı bırakılmalıdır</string>
     <string name="title_setup_doze_hint">Bu kulağa çelişkili gelse de, bu uygulama için pil optimizasyonlarını kapatmak daha az pil kullanımına neden olur</string>
     <string name="title_setup_doze_instructions">Bir sonraki Android iletişim kutusunda \"Optimize edilmemiş\" i \"Tüm uygulamalar\" olarak değiştirin, bu uygulamayı seçin ve \"Optimize etme\" yi seçin</string>
@@ -845,6 +848,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_delete_channel">Bildirim kanalını sil</string>
     <string name="title_insert_contact">Kişi ekle</string>
     <string name="title_edit_contact">Kişiyi düzenle</string>
+    <string name="title_contact_email">e-posta</string>
+    <string name="title_contact_name">Ad</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Grup</string>
     <string name="title_import_contacts">vCard\'ları içe aktar</string>
     <string name="title_export_contacts">vCard\'ları dışa aktar</string>
     <string name="title_create_sub_folder">Alt dizin oluştur</string>
@@ -860,7 +866,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_delete_operation_flag">İşaretleme işlemleri</string>
     <string name="title_delete_operation_delete">Silme işlemleri</string>
     <string name="title_delete_operation_deleted">%1$d işlem silindi</string>
-    <string name="title_delete_contacts">Tüm yerel rehber silinsin mi?</string>
+    <string name="title_delete_contacts">Görünür yerel rehber silinsin mi?</string>
     <string name="title_no_operations">Bekleyen işlem yok</string>
     <string name="title_check_operations">İşlemleri kontrol ediyor</string>
     <string name="title_hint_operations">İşlemleri silmek mesajların kaybolmasına ve senkronizasyon sorunlarına neden olabilir</string>
@@ -1833,5 +1839,11 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         <item>Orta</item>
         <item>Büyük</item>
         <item>Ekstra büyük</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Alıcı</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Gönderen</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Engellenen</item>
+        <item>Engellenmemiş</item>
     </string-array>
 </resources>

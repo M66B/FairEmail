@@ -82,6 +82,9 @@
     </plurals>
     <string name="title_ask_spam_who">Tratează mesajul de la %1$s ca spam?</string>
     <string name="title_junk_hint">Furnizorul dumneavoastră de e-mail este responsabil pentru filtrarea spam-ului. O aplicație de e-mail nu are toate datele necesare pentru a face acest lucru în mod fiabil.</string>
+    <string name="title_junk_pop_hint">        Mesajele de la expeditorii blocați nu vor fi descărcate.
+        Dacă opțiunea \"Lasă mesajele pe server\" nu este activată, aceste mesaje vor fi pierdute definitiv!
+    </string>
     <string name="title_block">Blochează %1$s</string>
     <string name="title_block_sender">Blochează expeditor</string>
     <string name="title_block_sender_domain">Blocați domeniul \"%1$s</string>
@@ -191,7 +194,7 @@
     <string name="title_setup_permissions_explanation">Permisiunile de contact sunt necesare pentru a căuta informații de contact și pentru a sugera contacte</string>
     <string name="title_setup_permission_import_contacts">Cum pot importa contacte?</string>
     <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
-    <string name="title_setup_doze_remark">Pentru a trimite și primi e-mail în mod fiabil</string>
+    <string name="title_setup_doze_remark">Pentru a trimite și a primi e-mailuri în mod fiabil în fundal</string>
     <string name="title_setup_doze_explanation">Optimizările bateriei trebuie să fie dezactivate pentru aplicație pentru a asigura trimiterea și primirea sigură a mesajelor în fundal</string>
     <string name="title_setup_doze_hint">Deși poate părea contradictoriu, dezactivarea optimizărilor bateriei pentru această aplicație va duce la o utilizare mai redusă a bateriei</string>
     <string name="title_setup_doze_instructions">În următorul dialog Android schimbați opțiunea \"Nu se optimizează\" în \"Toate aplicațiile\", selectați această aplicație și selectați \"Nu se optimizează\"</string>
@@ -384,6 +387,7 @@
     <string name="title_advanced_close_pane">Restrângerea unui rând sau a unei coloane la închiderea unei conversații</string>
     <string name="title_advanced_column_width">Lățimea coloanei de mesaje: %1$s %%</string>
     <string name="title_advanced_nav_options">Afișați opțiunile din meniul de navigare</string>
+    <string name="title_advanced_nav_categories">Afișați categoriile de conturi în meniul de navigare</string>
     <string name="title_advanced_nav_pin">Meniul de navigare Pin</string>
     <string name="title_advanced_nav_hide_title">Ascundeți opțiunile din meniul de navigare?</string>
     <string name="title_advanced_nav_hide_message">Puteți activa din nou opțiunile în setările de afișare</string>
@@ -855,6 +859,8 @@
     <string name="title_delete_channel">Șterge canal de notificare</string>
     <string name="title_insert_contact">Adaugă contact</string>
     <string name="title_edit_contact">Editare contact</string>
+    <string name="title_contact_email">E-mail</string>
+    <string name="title_contact_name">Nume</string>
     <string name="title_import_contacts">Importă vCards</string>
     <string name="title_export_contacts">Exportați vCards</string>
     <string name="title_create_sub_folder">Creează sub-dosar</string>
@@ -870,7 +876,7 @@
     <string name="title_delete_operation_flag">Operațiuni de marcare</string>
     <string name="title_delete_operation_delete">Operațiuni de ștergere</string>
     <string name="title_delete_operation_deleted">%1$d operațiuni șterse</string>
-    <string name="title_delete_contacts">Ștergeți toate contactele locale?</string>
+    <string name="title_delete_contacts">Ștergeți contactele locale vizibile?</string>
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
     <string name="title_check_operations">Verificarea operațiunilor</string>
     <string name="title_hint_operations">Ștergerea de operațiuni poate duce la dispariția mesajelor și la probleme de sincronizare</string>
@@ -1056,6 +1062,7 @@
     <string name="title_ask_delete_accept">Înțeleg că ștergerea permanentă a mesajelor este ireversibilă</string>
     <string name="title_ask_delete_answer">Se șterge permanent șablonul de răspuns?</string>
     <string name="title_ask_delete_rule">Ștergeți regula definitiv?</string>
+    <string name="title_ask_delete_attachments">Eliminați toate atașamentele?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_html_remark">Afișarea mesajului original pe un fundal închis nu este posibilă pentru că imaginile și textul închise la culoare ar putea sa nu se vadă</string>
@@ -1844,5 +1851,11 @@
         <item>Mediu</item>
         <item>Mare</item>
         <item>Foarte mare</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Destinatar</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Expeditor</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blocat</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

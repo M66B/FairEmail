@@ -72,6 +72,9 @@
     </plurals>
     <string name="title_ask_spam_who">Håndtér besked fra %1$s som spam?</string>
     <string name="title_junk_hint">Din e-mailudbyder er ansvarlig for spamfiltreringen. En e-mail app har ikke alle de nødvendige data for at kunne gøre dette pålideligt.</string>
+    <string name="title_junk_pop_hint">        Beskeder fra blokerede afsendere downloades ikke.
+        Er \"Efterlad beskeder på serveren\" ikke er aktiveret, vil disse beskeder gå tabt permanent!
+    </string>
     <string name="title_block">Blokér %1$s</string>
     <string name="title_block_sender">Blokér afsender</string>
     <string name="title_block_sender_domain">Blokér domænet \'%1$s\'</string>
@@ -181,7 +184,7 @@
     <string name="title_setup_permissions_explanation">Kontakttilladelser kræves for at slå kontaktoplysninger op og foreslå kontaktpersoner</string>
     <string name="title_setup_permission_import_contacts">Hvordan importeres kontakter?</string>
     <string name="title_setup_doze">Deaktivér batterioptimering</string>
-    <string name="title_setup_doze_remark">For at sende og modtage e-mail pålideligt</string>
+    <string name="title_setup_doze_remark">For at sende og modtage e-mail pålideligt i baggrunden</string>
     <string name="title_setup_doze_explanation">Batterioptimeringer bør deaktiveres for appen for at sikre pålidelig baggrundsbeskedafsendelse og -modtagelse</string>
     <string name="title_setup_doze_hint">Selvom dette kan lyde selvmodsigende, vil deaktivering af batterioptimering for denne app resultere i lavere strømforbrug</string>
     <string name="title_setup_doze_instructions">Ændr i næste Android-dialog \"Ikke optimeret\" til \"Alle apps\", vælg denne app og \"Optimér ikke\"</string>
@@ -848,6 +851,9 @@
     <string name="title_delete_channel">Slet notifikationskanal</string>
     <string name="title_insert_contact">Tilføj Kontakt</string>
     <string name="title_edit_contact">Redigér Kontakt</string>
+    <string name="title_contact_email">E-mail</string>
+    <string name="title_contact_name">Navn</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Gruppe</string>
     <string name="title_import_contacts">Importere vCard</string>
     <string name="title_export_contacts">Eksportere vCard</string>
     <string name="title_create_sub_folder">Opret undermappe</string>
@@ -863,7 +869,7 @@
     <string name="title_delete_operation_flag">Flagningsoperationer</string>
     <string name="title_delete_operation_delete">Slet operationer</string>
     <string name="title_delete_operation_deleted">%1$d operationer slettet</string>
-    <string name="title_delete_contacts">Slet alle lokale kontakter?</string>
+    <string name="title_delete_contacts">Slet synlige lokale kontakter?</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>
     <string name="title_hint_operations">Sletning af handlinger kan resultere i forsvundne beskeder og synkroniseringsproblemer</string>
     <string name="title_op_title_headers">Downloader overskrifter</string>
@@ -1840,5 +1846,11 @@
         <item>Mellem</item>
         <item>Stor</item>
         <item>Ekstra stor</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Modtager</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Afsender</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blokeret</item>
+        <item>Ublokeret</item>
     </string-array>
 </resources>

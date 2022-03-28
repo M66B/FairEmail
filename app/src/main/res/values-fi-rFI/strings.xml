@@ -180,7 +180,6 @@
     <string name="title_setup_permissions_explanation">Yhteystietojen käyttöoikeudet tarvitaan yhteystietojen etsimiseen ja ehdottamiseen</string>
     <string name="title_setup_permission_import_contacts">Miten voin tuoda yhteystietoja?</string>
     <string name="title_setup_doze">Ota akun käytön optimointi pois käytöstä</string>
-    <string name="title_setup_doze_remark">Vaaditaan, että sähköpostien lähettäminen ja vastaanottaminen toimii luotettavasti</string>
     <string name="title_setup_doze_explanation">Akun käytön optimointi tulisi poistaa käytöstä sovellukselle, jotta viestejä voidaan lähettää ja vastaanottaa taustalla luotettavasti</string>
     <string name="title_setup_doze_hint">Vaikka tämä saattaa kuulostaa ristiriitaiselta, akun käytön optimoinnin poistaminen tältä sovellukselta vähentää akun käyttöä</string>
     <string name="title_setup_doze_instructions">Muuta seuraavassa Androidin ikkunassa valinta \"Ei-optimoidut sovellukset\" valintaan \"Kaikki sovellukset\", valitse tämä sovellus ja vaihtoehto \"Älä optimoi\"</string>
@@ -841,6 +840,8 @@
     <string name="title_delete_channel">Poista ilmoituskanava</string>
     <string name="title_insert_contact">Lisää yhteystieto</string>
     <string name="title_edit_contact">Muokkaa yhteystietoa</string>
+    <string name="title_contact_email">Sähköposti</string>
+    <string name="title_contact_name">Nimi</string>
     <string name="title_import_contacts">Tuo vCard-yhteystietoja</string>
     <string name="title_export_contacts">Vie vCard-yhteystietoja</string>
     <string name="title_create_sub_folder">Luo alikansio</string>
@@ -856,7 +857,6 @@
     <string name="title_delete_operation_flag">Merkitsemistoimenpiteet</string>
     <string name="title_delete_operation_delete">Poistotoimenpiteet</string>
     <string name="title_delete_operation_deleted">%1$d toimenpidettä poistettu</string>
-    <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
     <string name="title_no_operations">Ei odottavia toimenpiteitä</string>
     <string name="title_check_operations">Tarkistetaan toimenpiteitä</string>
     <string name="title_hint_operations">Toimenpiteiden poisto voi aiheuttaa viestien katoamista ja synkronointiongelmia</string>
@@ -1827,5 +1827,11 @@
         <item>Keskikokoinen</item>
         <item>Suuri</item>
         <item>Erittäin suuri</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Vastaanottaja</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Lähettäjä</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Estetty</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

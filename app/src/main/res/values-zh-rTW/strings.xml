@@ -169,7 +169,6 @@
     <string name="title_setup_permissions_explanation">需要聯絡人權限才能查詢聯絡人資料及建議聯絡人</string>
     <string name="title_setup_permission_import_contacts">如何匯入聯絡人</string>
     <string name="title_setup_doze">停用電池效能最佳化設定</string>
-    <string name="title_setup_doze_remark">為了穩定地接收及傳送電子郵件</string>
     <string name="title_setup_doze_explanation">請停用電池效能最佳化設定，以確保應用程式能可靠地在背景傳送和接收訊息</string>
     <string name="title_setup_doze_hint">雖然可能有點自相矛盾，但關閉此應用的電池效能最佳化設定可節省電池用量</string>
     <string name="title_setup_doze_instructions">在接下來的 Android 對話方塊中，將\"未套用最佳化設定\"更改為\"所有應用程式\"，選取本程式並選擇\"不要最佳化\"</string>
@@ -803,6 +802,8 @@
     <string name="title_delete_channel">刪除通知頻道</string>
     <string name="title_insert_contact">新增聯絡人</string>
     <string name="title_edit_contact">編輯聯絡人</string>
+    <string name="title_contact_email">電子郵件</string>
+    <string name="title_contact_name">名稱</string>
     <string name="title_import_contacts">匯入 vCard</string>
     <string name="title_export_contacts">匯出 vCard</string>
     <string name="title_create_sub_folder">建立子資料夾</string>
@@ -818,7 +819,6 @@
     <string name="title_delete_operation_flag">標記操作</string>
     <string name="title_delete_operation_delete">刪除操作</string>
     <string name="title_delete_operation_deleted">%1$d 操作已刪除</string>
-    <string name="title_delete_contacts">刪除所有本地聯絡人？</string>
     <string name="title_no_operations">無待處理操作</string>
     <string name="title_hint_operations">將操作刪除可能會使得訊息消失並導致同步問題</string>
     <string name="title_op_title_headers">下載標頭中</string>
@@ -1771,5 +1771,11 @@
         <item>中</item>
         <item>大</item>
         <item>超大</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>接收者</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">寄件者</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">已封鎖</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

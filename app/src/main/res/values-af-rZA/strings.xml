@@ -59,6 +59,7 @@
     <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_poll_battery">Hierdie kan verhoogte battery gebruik veroorsaak!</string>
     <string name="title_synchronize_enabled">Sinkroniseer</string>
+    <string name="title_contact_email">Email</string>
     <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
     </string>
     <string name="title_raw_send_message">Message</string>

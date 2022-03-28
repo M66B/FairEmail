@@ -92,6 +92,9 @@
     </plurals>
     <string name="title_ask_spam_who">Zgłosić wiadomość od %1$s jako spam?</string>
     <string name="title_junk_hint">Twój dostawca poczty e-mail jest odpowiedzialny za filtrowanie spamu. Aplikacja poczty e-mail nie ma wystarczających danych, aby wykonać tę operację.</string>
+    <string name="title_junk_pop_hint">        Wiadomości od zablokowanych nadawców nie zostaną pobrane.
+        Jeśli opcja \"Zostaw wiadomości na serwerze\" nie jest włączona, te wiadomości zostaną trwale utracone!
+    </string>
     <string name="title_block">Zablokuj %1$s</string>
     <string name="title_block_sender">Zablokuj nadawcę</string>
     <string name="title_block_sender_domain">Blokuj domenę \'%1$s\'</string>
@@ -201,7 +204,7 @@
     <string name="title_setup_permissions_explanation">Uprawnienia dostępu do listy kontaktów są wymagane, aby wyszukiwać informacje kontaktowe i sugerować kontakty</string>
     <string name="title_setup_permission_import_contacts">Jak mogę zaimportować kontakty?</string>
     <string name="title_setup_doze">Wyłącz optymalizację baterii</string>
-    <string name="title_setup_doze_remark">Dla niezawodnego wysyłania i odbierania wiadomości e-mail</string>
+    <string name="title_setup_doze_remark">Niezawodne wysyłanie i odbieranie wiadomości e-mail w tle</string>
     <string name="title_setup_doze_explanation">Optymalizacja baterii powinna być wyłączona dla aplikacji, aby zapewnić niezawodne wysyłanie i odbieranie wiadomości w tle</string>
     <string name="title_setup_doze_hint">Chociaż może to brzmieć sprzecznie, wyłączenie optymalizacji baterii dla tej aplikacji spowoduje mniejsze zużycie baterii</string>
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym Androida zmień \"Nie zoptymalizowane\" na \"Wszystkie aplikacje\", wybierz tę aplikację i wybierz \"Nie optymalizuj\"</string>
@@ -866,6 +869,9 @@
     <string name="title_delete_channel">Usuń kanał powiadomień</string>
     <string name="title_insert_contact">Dodaj kontakt</string>
     <string name="title_edit_contact">Edytuj kontakt</string>
+    <string name="title_contact_email">E-mail</string>
+    <string name="title_contact_name">Nazwa</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Grupa</string>
     <string name="title_import_contacts">Importuj karty vCards</string>
     <string name="title_export_contacts">Eksportuj karty vCards</string>
     <string name="title_create_sub_folder">Utwórz podfolder</string>
@@ -881,7 +887,7 @@
     <string name="title_delete_operation_flag">Operacje flagowania</string>
     <string name="title_delete_operation_delete">Operacje usuwania</string>
     <string name="title_delete_operation_deleted">Usuniętych operacji - %1$d</string>
-    <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
+    <string name="title_delete_contacts">Usunąć widoczne lokalne kontakty?</string>
     <string name="title_no_operations">Brak oczekujących operacji</string>
     <string name="title_check_operations">Sprawdzanie operacji</string>
     <string name="title_hint_operations">Usuwanie operacji może spowodować znikanie wiadomości i problemy z synchronizacją</string>
@@ -1857,5 +1863,11 @@
         <item>Średnie</item>
         <item>Duże</item>
         <item>Bardzo duży</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Adresat</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Nadawca</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Zablokowane</item>
+        <item>Niezablokowany</item>
     </string-array>
 </resources>

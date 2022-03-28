@@ -584,6 +584,8 @@
     <string name="title_delete_channel">Slett varselkanal</string>
     <string name="title_insert_contact">Legg til kontakt</string>
     <string name="title_edit_contact">Rediger kontakt</string>
+    <string name="title_contact_email">E-post</string>
+    <string name="title_contact_name">Navn</string>
     <string name="title_create_sub_folder">Lag undermappe</string>
     <string name="title_empty_trash_ask">Slette alle forkastede meldinger permanent?</string>
     <string name="title_empty_spam_ask">Slette alle spammeldinger permanent?</string>
@@ -597,7 +599,6 @@
     <string name="title_delete_operation_flag">Flagg operasjoner</string>
     <string name="title_delete_operation_delete">Slett operasjoner</string>
     <string name="title_delete_operation_deleted">%1$d operasjoner er slettet</string>
-    <string name="title_delete_contacts">Slette alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen ventende operasjoner</string>
     <string name="title_hint_operations">Slette operasjoner kan føre til at meldinger og synkroniseringsproblemer forsvinner</string>
     <string name="title_folder_name">Mappenavn</string>
@@ -1417,5 +1418,11 @@
         <item>Medium</item>
         <item>Stor</item>
         <item>Ekstra stor</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Mottaker</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Avsender</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blokkert</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

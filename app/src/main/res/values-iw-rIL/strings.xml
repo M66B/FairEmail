@@ -92,6 +92,9 @@
     </plurals>
     <string name="title_ask_spam_who">להתייחס להודעה מאת %1$s כספאם?</string>
     <string name="title_junk_hint">ספק הדוא״ל שלך אמון על סינון הספאם. ליישומון דוא״ל אין את כל הנתונים הנחוצים לעשות זאת בצורה מהימנה.</string>
+    <string name="title_junk_pop_hint">        הודעות ממוענים חסומים לא תימשכנה.
+        אם האפשרות „להשאיר הודעות על השרת” אינה פעילה, ההודעות הללו תאבדנה לנצח!
+    </string>
     <string name="title_block">חסימת %1$s</string>
     <string name="title_block_sender">חסימת השולח</string>
     <string name="title_block_sender_domain">חסימת שם התחום ‚%1$s’</string>
@@ -201,7 +204,7 @@
     <string name="title_setup_permissions_explanation">נדרשות הרשאות לאנשי הקשר כדי לחפש פרטי אנשי קשר ולהציע אנשי קשר</string>
     <string name="title_setup_permission_import_contacts">איך אפשר לייבא אנשי קשר?</string>
     <string name="title_setup_doze">השבתת מיטובי סוללה</string>
-    <string name="title_setup_doze_remark">כדי לשלוח ולקבל הודעות בצורה מהימנה</string>
+    <string name="title_setup_doze_remark">כדי לשלוח ולקבל הודעות בצורה מהימנה ברקע</string>
     <string name="title_setup_doze_explanation">יש להשבית את מיטובי הסוללה עבור היישומון כדי לוודא ששליחת וקבלת הדוא״ל ברקע מהימנות</string>
     <string name="title_setup_doze_hint">למרות שזה נשמע סותר, כיבוי מיטובי הסוללה ליישומון הזה מצמצם את השימוש בסוללה</string>
     <string name="title_setup_doze_instructions">בחלונית הבאה ב־Android יש לשנות את „לא ממוטב” ל־„כל היישומונים”, יש לבחור ביישומון הזה ולבחור ב־„לא למטב”</string>
@@ -395,6 +398,7 @@
     <string name="title_advanced_close_pane">לצמצם שורה או עמודה בעת סגירת דיון</string>
     <string name="title_advanced_column_width">רוחב עמודת הודעה: %1$s %%</string>
     <string name="title_advanced_nav_options">הצגת אפשרויות תפריט הניווט</string>
+    <string name="title_advanced_nav_categories">להציג את קטגוריות החשבונות בתפריט הניווט</string>
     <string name="title_advanced_nav_pin">נעיצת תפריט הניווט</string>
     <string name="title_advanced_nav_hide_title">להסתיר את אפשרויות תפריט הניווט?</string>
     <string name="title_advanced_nav_hide_message">אפשר להפעיל את האפשרויות שוב בהגדרות התצוגה</string>
@@ -866,6 +870,9 @@
     <string name="title_delete_channel">מחיקת ערוץ התראות</string>
     <string name="title_insert_contact">הוספת איש קשר</string>
     <string name="title_edit_contact">עריכת איש קשר</string>
+    <string name="title_contact_email">דוא״ל</string>
+    <string name="title_contact_name">שם</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">קבוצה</string>
     <string name="title_import_contacts">ייבוא כרטיסי ביקור (vCard)</string>
     <string name="title_export_contacts">ייצוא כרטיסי ביקור (vCard)</string>
     <string name="title_create_sub_folder">יצירת תת־תיקייה</string>
@@ -881,7 +888,7 @@
     <string name="title_delete_operation_flag">פעילויות סימון בדגל</string>
     <string name="title_delete_operation_delete">פעילויות מחיקה</string>
     <string name="title_delete_operation_deleted">%1$d פעילויות נמחקו</string>
-    <string name="title_delete_contacts">למחוק את כל אנשי הקשר המקומיים?</string>
+    <string name="title_delete_contacts">למחוק אנשי קשר מקומיים גלויים?</string>
     <string name="title_no_operations">אין פעילויות ממתינות</string>
     <string name="title_check_operations">הפעולות נבדקות</string>
     <string name="title_hint_operations">פעולות מחיקה יכולות לגרום להודעות שנעלמות ולתקלות סנכרון</string>
@@ -1854,5 +1861,11 @@
         <item>בינוני</item>
         <item>גודל</item>
         <item>גדול במיוחד</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>נמען</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">מוען</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">חסום</item>
+        <item>לא חסום</item>
     </string-array>
 </resources>

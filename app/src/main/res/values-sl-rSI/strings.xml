@@ -486,12 +486,12 @@
     <string name="title_delete_channel">Izbriši kanal za obvestila</string>
     <string name="title_insert_contact">Dodaj stik</string>
     <string name="title_edit_contact">Uredi stik</string>
+    <string name="title_contact_name">Ime</string>
     <string name="title_create_sub_folder">Ustvari podmapo</string>
     <string name="title_empty_trash_ask">Trajno izbriši sporočila iz smeti?</string>
     <string name="title_empty_spam_ask">Trajno izbriši vsiljena sporočila?</string>
     <string name="title_empty_trash_all_ask">Trajno izbriši sporočila iz smeti iz vseh računov?</string>
     <string name="title_empty_spam_all_ask">Trajno izbriši vsiljena sporočila iz vseh računov?</string>
-    <string name="title_delete_contacts">Izbriši vse krajevne stike?</string>
     <string name="title_no_operations">Ni opravil na čakanju.</string>
     <string name="title_hint_operations">Izbris opravil lahko povzroči izginjanje sporočil in težave s sinhronizacijo.</string>
     <string name="title_folder_name">Ime mape</string>
@@ -1222,5 +1222,11 @@
         <item>Srednja</item>
         <item>Velika</item>
         <item>Zelo velika</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Prejemnik</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Pošiljatelju</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blokirano</item>
+        <item>Not blocked</item>
     </string-array>
 </resources>

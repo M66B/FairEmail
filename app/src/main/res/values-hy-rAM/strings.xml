@@ -76,6 +76,7 @@
     <string name="title_advanced_caption_conversation">Դիալոգ</string>
     <string name="title_advanced_caption_message">Նամակ</string>
     <string name="title_synchronize_enabled">Համաժամեցում</string>
+    <string name="title_contact_email">Էլ.հասցե</string>
     <string name="title_raw_send_message">Նամակ</string>
     <string name="title_raw_send_thread">Դիալոգ</string>
     <string name="title_compose">Գրել</string>

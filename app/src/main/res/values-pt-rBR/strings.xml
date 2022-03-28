@@ -72,6 +72,9 @@
     </plurals>
     <string name="title_ask_spam_who">Tratar mensagem de %1$s como spam?</string>
     <string name="title_junk_hint">Seu provedor de e-mail é responsável por filtrar spam. Um aplicativo de e-mail não possui todos os dados necessários para fazer isso de forma confiável.</string>
+    <string name="title_junk_pop_hint">        Mensagens de remetentes bloqueados não irão ser baixadas.
+        Se \"Deixar mensagens no servidor\" não estiver habilitado, essas mensagens irão ser perdidas permanentemente!
+    </string>
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remetente</string>
     <string name="title_block_sender_domain">Bloquear domínio \'%1$s\'</string>
@@ -181,7 +184,7 @@
     <string name="title_setup_permissions_explanation">Permissões de contato são exigidas para procurar por informações de contato e para sugerir contatos</string>
     <string name="title_setup_permission_import_contacts">Como posso importar os contatos?</string>
     <string name="title_setup_doze">Desativar otimizações de bateria</string>
-    <string name="title_setup_doze_remark">Para enviar e receber e-mails corretamente</string>
+    <string name="title_setup_doze_remark">Para enviar e receber email de forma confiável em segundo plano</string>
     <string name="title_setup_doze_explanation">As otimizações de bateria devem estar desativadas para que seja garantido o envio e recebimento de mensagens em segundo plano</string>
     <string name="title_setup_doze_hint">Embora isto possa parecer contraditório, a desativação das otimizações de bateria para este aplicativo resultará em menos uso de bateria</string>
     <string name="title_setup_doze_instructions">Na próxima caixa de diálogo do Android altere \"Não otimizado\" para \"Todos os aplicativos\", selecione este app e confirme \"Não otimizar\"</string>
@@ -846,6 +849,9 @@
     <string name="title_delete_channel">Excluir canal de notificação</string>
     <string name="title_insert_contact">Adicionar contato</string>
     <string name="title_edit_contact">Editar contato</string>
+    <string name="title_contact_email">E-mail</string>
+    <string name="title_contact_name">Nome</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Grupo</string>
     <string name="title_import_contacts">Importar vCards</string>
     <string name="title_export_contacts">Exportar vCards</string>
     <string name="title_create_sub_folder">Criar subpasta</string>
@@ -861,7 +867,7 @@
     <string name="title_delete_operation_flag">Marcar operações</string>
     <string name="title_delete_operation_delete">Excluir operações</string>
     <string name="title_delete_operation_deleted">%1$d operações excluídas</string>
-    <string name="title_delete_contacts">Excluir todos os contatos locais?</string>
+    <string name="title_delete_contacts">Excluir contatos locais visíveis?</string>
     <string name="title_no_operations">Nenhuma operação pendente</string>
     <string name="title_check_operations">Checando operações</string>
     <string name="title_hint_operations">Excluir operações pode resultar no desaparecimento de mensagens e problemas de sincronização</string>
@@ -1836,5 +1842,11 @@
         <item>Médio</item>
         <item>Grande</item>
         <item>Muito grande</item>
+    </string-array>
+    <string-array name="contactTypes">
+        <item>Destinatário</item>
+        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Remetente</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Bloqueado</item>
+        <item>Não bloqueado</item>
     </string-array>
 </resources>
