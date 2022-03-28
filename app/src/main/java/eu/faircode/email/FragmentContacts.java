@@ -36,8 +36,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -316,7 +318,7 @@ public class FragmentContacts extends FragmentBase {
         args.putInt("type", junk ? EntityContact.TYPE_JUNK : EntityContact.TYPE_TO);
         args.putLong("account", account);
 
-        FragmentContacts.FragmentDialogEditContact fragment = new FragmentContacts.FragmentDialogEditContact();
+        FragmentDialogEditContact fragment = new FragmentDialogEditContact();
         fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_EDIT_CONTACT);
         fragment.show(getParentFragmentManager(), "contacts:add");
@@ -667,19 +669,44 @@ public class FragmentContacts extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_edit_contact, null);
+            final Context context = getContext();
+            View view = LayoutInflater.from(context).inflate(R.layout.dialog_edit_contact, null);
             final Spinner spType = view.findViewById(R.id.spType);
             final EditText etEmail = view.findViewById(R.id.etEmail);
             final EditText etName = view.findViewById(R.id.etName);
             final EditText etGroup = view.findViewById(R.id.etGroup);
 
             final Bundle args = getArguments();
+            int type = args.getInt("type");
+
+            boolean junk = (type == EntityContact.TYPE_JUNK || type == EntityContact.TYPE_NO_JUNK);
+            String[] values = getResources().getStringArray(R.array.contactTypes);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, R.layout.spinner_item1, android.R.id.text1, values) {
+                @Override
+                public boolean isEnabled(int position) {
+                    if (junk)
+                        return (position == EntityContact.TYPE_JUNK || position == EntityContact.TYPE_NO_JUNK);
+                    else
+                        return (position == EntityContact.TYPE_TO || position == EntityContact.TYPE_FROM);
+                }
+
+                @Override
+                public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                    View view = super.getDropDownView(position, convertView, parent);
+                    TextView tv = view.findViewById(android.R.id.text1);
+                    tv.setEnabled(isEnabled(position));
+                    return view;
+                }
+            };
+            adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+            spType.setAdapter(adapter);
+
             spType.setSelection(args.getInt("type"));
             etEmail.setText(args.getString("email"));
             etName.setText(args.getString("name"));
             etGroup.setText(args.getString("group"));
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(view)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
