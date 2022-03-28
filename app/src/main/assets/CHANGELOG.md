@@ -4,7 +4,7 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next version
+### 1.1862 - 2022-03-28
 
 * Added local contact editor
 * Added local contact groups
