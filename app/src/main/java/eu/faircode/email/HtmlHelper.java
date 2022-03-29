@@ -3456,9 +3456,9 @@ public class HtmlHelper {
             }
         }, document.body());
 
-        for (LineSpan line : ssb.getSpans(0, ssb.length(), LineSpan.class)){
+        for (LineSpan line : ssb.getSpans(0, ssb.length(), LineSpan.class)) {
             int end = ssb.getSpanEnd(line);
-            if (end<ssb.length()&& ssb.charAt(end)!='\n')
+            if (end < ssb.length() && ssb.charAt(end) != '\n')
                 ssb.insert(end, "\n");
         }
 
