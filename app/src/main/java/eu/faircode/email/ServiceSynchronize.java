@@ -1366,7 +1366,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             state.setBackoff(CONNECT_BACKOFF_START);
             if (account.backoff_until != null)
                 db.account().setAccountBackoff(account.id, null);
-            while (state.isRunning() && currentThread.equals(accountThread)) {
+            while (state.isRunning()) {
                 state.reset();
                 Log.i(account.name + " run thread=" + currentThread);
 
@@ -2454,8 +2454,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 accountThread = db.account().getAccountThread(account.id);
             }
 
-            if (!currentThread.equals(accountThread) && accountThread != null)
-                Log.e(account.name + " orphan thread id=" + currentThread + "/" + accountThread);
+            if (!currentThread.equals(accountThread) && accountThread != null) {
+                String msg = account.name + " orphan thread id=" + currentThread + "/" + accountThread;
+                EntityLog.log(this, msg);
+                Log.e(msg);
+            }
         } finally {
             EntityLog.log(this, EntityLog.Type.Account, account,
                     account.name + " stopped running=" + state.isRunning());
