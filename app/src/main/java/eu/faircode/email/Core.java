@@ -534,7 +534,7 @@ class Core {
                         for (TupleOperationEx s : similar.keySet())
                             ops.remove(s);
                     } catch (Throwable ex) {
-                        iservice.dump();
+                        iservice.dump(account.name + "/" + folder.name);
                         if (ex instanceof OperationCanceledException)
                             Log.i(folder.name, ex);
                         else

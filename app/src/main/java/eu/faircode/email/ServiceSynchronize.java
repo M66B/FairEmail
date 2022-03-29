@@ -2227,7 +2227,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     Log.i(account.name + " done state=" + state);
                 } catch (Throwable ex) {
                     last_fail = ex;
-                    iservice.dump();
+                    iservice.dump(account.name);
                     Log.e(account.name, ex);
                     EntityLog.log(this, EntityLog.Type.Account, account,
                             account.name + " connect " + Log.formatThrowable(ex, false));
