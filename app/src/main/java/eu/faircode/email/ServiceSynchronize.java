@@ -2230,7 +2230,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     iservice.dump(account.name);
                     Log.e(account.name, ex);
                     EntityLog.log(this, EntityLog.Type.Account, account,
-                            account.name + " connect " + Log.formatThrowable(ex, false));
+                            account.name + " connect " + ex + "\n" + android.util.Log.getStackTraceString(ex));
                     db.account().setAccountError(account.id, Log.formatThrowable(ex));
 
                     // Report account connection error
