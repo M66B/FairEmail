@@ -653,6 +653,22 @@ public class HtmlHelper {
                 for (String key : keys) {
                     String value = kv.get(key);
                     switch (key) {
+                        case "background-image":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/background-image
+                            String url = value.replace(" ", "");
+                            int us = url.indexOf("url(");
+                            int ue = url.indexOf(')', us + 4);
+                            if (us >= 0 && ue > us) {
+                                url = url.substring(us + 4, ue);
+                                if ((url.startsWith("'") && url.endsWith("'")) ||
+                                        (url.startsWith("\"") && url.endsWith("\"")))
+                                    url = url.substring(1, url.length() - 1);
+                                Element img = document.createElement("img")
+                                        .attr("src", url);
+                                element.prependElement("br");
+                                element.prependChild(img);
+                            }
+                            break;
                         case "color":
                         case "background":
                         case "background-color":
