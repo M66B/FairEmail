@@ -663,6 +663,7 @@ class Core {
                             // Delete: NO mailbox selected READ-ONLY
                             // Delete: NO Mails not exist!
                             // Flags: NO mailbox selected READ-ONLY
+                            // Flags: BAD Server error: 'NoneType' object has no attribute 'message_id'
                             // Keyword: NO STORE completed
                             // Keyword: NO [CANNOT] Keyword length too long (n.nnn + n.nnn secs).
                             // Search: BAD command syntax error
