@@ -748,7 +748,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             end = new Date().getTime();
             EntityLog.log(this, "Sent " + via + " elapse=" + (end - start) + " ms");
         } catch (MessagingException ex) {
-            iservice.dump();
+            iservice.dump(ident.email);
             Log.e(ex);
 
             if (ex instanceof SMTPSendFailedException) {
@@ -770,7 +770,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
             throw ex;
         } catch (Throwable ex) {
-            iservice.dump();
+            iservice.dump(ident.email);
             throw ex;
         } finally {
             iservice.close();
