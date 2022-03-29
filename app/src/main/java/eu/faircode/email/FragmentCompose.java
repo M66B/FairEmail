@@ -5769,7 +5769,8 @@ public class FragmentCompose extends FragmentBase {
                                 if (attachment.isInline() && attachment.isImage()) {
                                     Log.i("Converting to attachment cid=" + attachment.cid);
                                     attachment.disposition = Part.ATTACHMENT;
-                                    db.attachment().setDisposition(attachment.id, attachment.disposition);
+                                    attachment.cid = null;
+                                    db.attachment().setDisposition(attachment.id, attachment.disposition, attachment.cid);
                                     dirty = true;
                                 }
                         }

@@ -115,10 +115,10 @@ public interface DaoAttachment {
     void setType(long id, String type);
 
     @Query("UPDATE attachment" +
-            " SET disposition = :disposition" +
+            " SET disposition = :disposition, cid = :cid" +
             " WHERE id = :id" +
-            " AND NOT (disposition IS :disposition)")
-    void setDisposition(long id, String disposition);
+            " AND NOT (disposition IS :disposition AND cid IS :cid)")
+    void setDisposition(long id, String disposition, String cid);
 
     @Query("UPDATE attachment" +
             " SET cid = :cid" +
