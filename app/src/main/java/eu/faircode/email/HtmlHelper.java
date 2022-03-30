@@ -40,6 +40,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
@@ -107,7 +108,9 @@ import java.io.InputStream;
 import java.io.StringReader;
 import java.net.URI;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.ParsePosition;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -2659,25 +2662,41 @@ public class HtmlHelper {
             // https://datatracker.ietf.org/doc/html/rfc2821#section-4.4
             final DateFormat DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.MEDIUM);
 
+            MailDateFormat mdf = new MailDateFormat();
             ByteArrayInputStream bis = new ByteArrayInputStream(headers.getBytes());
-            String[] received = new InternetHeaders(bis).getHeader("Received");
+            InternetHeaders iheaders = new InternetHeaders(bis);
+
+            String dh = iheaders.getHeader("Date", null);
+            Date tx = null;
+            try {
+                if (dh != null)
+                    tx = mdf.parse(dh);
+            } catch (ParseException ex) {
+                Log.w(ex);
+            }
+
+            String[] received = iheaders.getHeader("Received");
             if (received != null && received.length > 0) {
                 for (int i = received.length - 1; i >= 0; i--) {
                     ssb.append('\n');
                     String h = MimeUtility.unfold(received[i]);
 
                     int semi = h.lastIndexOf(';');
-                    Date date = null;
+                    Date rx = null;
                     if (semi > 0) {
-                        MailDateFormat mdf = new MailDateFormat();
-                        date = mdf.parse(h, new ParsePosition(semi + 1));
+                        rx = mdf.parse(h, new ParsePosition(semi + 1));
                         h = h.substring(0, semi);
                     }
 
                     int s = ssb.length();
                     ssb.append('#').append(Integer.toString(received.length - i));
-                    if (date != null)
-                        ssb.append(' ').append(DTF.format(date));
+                    if (rx != null) {
+                        ssb.append(' ').append(DTF.format(rx));
+                        if (tx != null) {
+                            long ms = rx.getTime() - tx.getTime();
+                            ssb.append(" \u0394").append(DateUtils.formatElapsedTime(ms / 1000));
+                        }
+                    }
                     ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
 
                     if (blocklist && i == received.length - 1) {
