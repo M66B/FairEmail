@@ -1021,6 +1021,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_EDIT_RULE);
         lbm.registerReceiver(receiver, iff);
 
+        boolean open = drawerLayout.isDrawerOpen(drawerContainer);
+        Log.i("Drawer resume open=" + open);
+        if (open)
+            owner.start();
+
         ServiceSynchronize.state(this, true);
 
         checkUpdate(false);
@@ -1033,6 +1038,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(receiver);
+
+        Log.i("Drawer pause");
+        owner.stop();
 
         ServiceSynchronize.state(this, false);
     }
