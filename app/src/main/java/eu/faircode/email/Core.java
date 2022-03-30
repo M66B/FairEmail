@@ -5751,6 +5751,7 @@ class Core {
         private ConnectionHelper.NetworkState networkState;
         private Thread thread = new Thread();
         private Semaphore semaphore = new Semaphore(0);
+        private boolean started = false;
         private boolean running = true;
         private boolean foreground = false;
         private boolean recoverable = true;
@@ -5859,6 +5860,7 @@ class Core {
 
         void start() {
             thread.start();
+            started = true;
         }
 
         void stop() {
@@ -5867,7 +5869,11 @@ class Core {
         }
 
         boolean isAlive() {
-            return (running && thread.isAlive());
+            if (!started)
+                return true;
+            if (!running)
+                return false;
+            return thread.isAlive();
         }
 
         void join() {
