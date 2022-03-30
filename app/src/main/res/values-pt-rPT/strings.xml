@@ -687,6 +687,7 @@
     <string name="title_edit_contact">Editar contacto</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Nome</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Grupo</string>
     <string name="title_import_contacts">Importar vCards</string>
     <string name="title_delete_operation_title">Eliminar operações</string>
     <string name="title_delete_operation_fetch">Obter operações</string>
@@ -933,6 +934,8 @@
     <string name="title_key_missing">Nenhuma chave para %1$s</string>
     <string name="title_send_dsn">Relatório de mensagem</string>
     <string name="title_noreply_reminder">A enviar para um endereço \'no-reply\'</string>
+    <string name="title_attachment_keywords">anexado,anexo,anexos,incluído</string>
+    <string name="title_attachment_reminder">Tinha a intenção de adicionar um anexo?</string>
     <string name="title_plain_reminder">Todas as formatações serão perdidas</string>
     <string name="title_dsn_reminder">Mensagens devolvidas (Hard Bounce) destrui a reputação do remetente original!</string>
     <string name="title_size_reminder">Mensagem (%1$s) é maior do que o limite de servidor (%2$s)</string>
@@ -979,8 +982,11 @@
         Para procurar também no servidor, clique no botão \'procurar novamente\'.
     </string>
     <string name="title_search_index_hint">A procura é rápida através do índice de pesquisa, mas só encontra palavras inteiras.</string>
+    <string name="title_search_text_hint">A pesquisar por texto nas mensagens, quando existam um grande número de mensagens, talvez não funcione com alguns servidores</string>
     <string name="title_search_text_unsupported">\'%s\' significa que o servidor de email não suporta pesquisa através de textos de mensagens</string>
+    <string name="title_search_size_hint">A pesquisar por mensagens pelo tamanho, quando existam um grande número de mensagens, talvez não funcione com alguns servidores</string>
     <string name="title_search_more">Mais opções</string>
+    <string name="title_search_use_index">Utilizar o índice de pesquisa</string>
     <string name="title_search_with">Limitar pesquisa a</string>
     <string name="title_search_with_unseen">Não lidas</string>
     <string name="title_search_with_flagged">Com estrela</string>
@@ -1551,6 +1557,6 @@
         <item>Destinatário</item>
         <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Remetente</item>
         <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Bloqueado</item>
-        <item>Not blocked</item>
+        <item>Não bloqueado</item>
     </string-array>
 </resources>

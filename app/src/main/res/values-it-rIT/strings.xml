@@ -72,6 +72,9 @@
     </plurals>
     <string name="title_ask_spam_who">Trattare il messaggio da %1$s come spam?</string>
     <string name="title_junk_hint">Il provider della tua email è responsabile del filtraggio dello spam. Un\'app email non ha tutti i dati necessari per farlo in modo affidabile.</string>
+    <string name="title_junk_pop_hint">        I messaggi dei mittenti bloccati non saranno scaricati.
+        Se \"Lascia i messaggi sul server\" non è abilitato, questi messaggi saranno persi permanentemente!
+    </string>
     <string name="title_block">Blocca %1$s</string>
     <string name="title_block_sender">Blocca mittente</string>
     <string name="title_block_sender_domain">Blocca il dominio \'%1$s\'</string>
@@ -848,8 +851,9 @@
     <string name="title_delete_channel">Elimina il canale di notifica</string>
     <string name="title_insert_contact">Aggiungi contatto</string>
     <string name="title_edit_contact">Modifica contatto</string>
-    <string name="title_contact_email">E-mail</string>
+    <string name="title_contact_email">Email</string>
     <string name="title_contact_name">Nome</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Gruppo</string>
     <string name="title_import_contacts">Importa vCard</string>
     <string name="title_export_contacts">Esporta vCard</string>
     <string name="title_create_sub_folder">Crea sottocartella</string>
@@ -1847,7 +1851,7 @@
     <string-array name="contactTypes">
         <item>Destinatario</item>
         <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Mittente</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Bloccate</item>
-        <item>Not blocked</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Bloccato</item>
+        <item>Non bloccato</item>
     </string-array>
 </resources>

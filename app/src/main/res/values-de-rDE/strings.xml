@@ -72,8 +72,9 @@
     </plurals>
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam behandeln?</string>
     <string name="title_junk_hint">Ihr E-Mail-Anbieter ist für das Filtern von Spam zuständig. Eine E-Mail-Anwendung verfügt nicht über alle benötigten Informationen, um das zuverlässig zu gewährleisten.</string>
-    <string name="title_junk_pop_hint">Nachrichten von gesperrten Absendern werden nicht heruntergeladen.
-Wenn „Nachrichten auf dem Server belassen” deaktiviert ist, gehen diese Nachrichten dauerhaft verloren!    </string>
+    <string name="title_junk_pop_hint">        Nachrichten von gesperrten Absendern werden nicht heruntergeladen.
+        Wenn „Nachrichten auf dem Server belassen” deaktiviert ist, gehen diese Nachrichten dauerhaft verloren!
+    </string>
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
     <string name="title_block_sender_domain">Domain „%1$s” sperren</string>
@@ -1843,7 +1844,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string-array name="contactTypes">
         <item>Empfänger</item>
         <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Absender</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blockierte</item>
-        <item>Nicht blockierte</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blockiert</item>
+        <item>Nicht blockiert</item>
     </string-array>
 </resources>

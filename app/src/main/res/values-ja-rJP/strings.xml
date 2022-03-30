@@ -62,7 +62,7 @@
     </plurals>
     <string name="title_ask_spam_who">%1$s からのメッセージを迷惑メールとして扱いますか？</string>
     <string name="title_junk_hint">迷惑メールフィルタリングはメールプロバイダーが行うべきものです。メールクライアントは正しく迷惑メールを区別するために必要な情報を取得することができません。</string>
-    <string name="title_junk_pop_hint">        ブロックされた差出人からのメッセージはダウンロードされません。
+    <string name="title_junk_pop_hint">        ブロックした差出人からのメッセージはダウンロードされません。
         「サーバーにメッセージを残す」が有効になっていない場合、これらのメッセージは永久に失われます！
     </string>
     <string name="title_block">%1$s をブロック</string>
@@ -71,7 +71,7 @@
     <string name="title_block_sender_hint">        差出人のブロックは無料版の機能です。
         差出人のドメインをブロックするにはフィルタールールを使用します。これはプロ版の機能です。
     </string>
-    <string name="title_blocked_senders">ブロックされた差出人</string>
+    <string name="title_blocked_senders">ブロックした差出人</string>
     <string name="title_junk_filter">ローカルの迷惑メールフィルターを使用</string>
     <string name="title_junk_filter_hint">バッテリー使用量が増加します。また、メッセージを誤って迷惑メールと判定する可能性が高まります</string>
     <string name="title_junk_blocklist">迷惑メールブロックリストを使用</string>
@@ -756,8 +756,8 @@
     <string name="title_leave_on_server">サーバーにメッセージを残す</string>
     <string name="title_leave_deleted">削除したメッセージをサーバーに残す</string>
     <string name="title_leave_on_device">デバイスにメッセージを残す</string>
-    <string name="title_max_messages">ダウンロードするメッセージの最大数(すべてをダウンロードするには空白のままにします)</string>
-    <string name="title_keep_poll_interval">更新間隔(分)</string>
+    <string name="title_max_messages">ダウンロードするメッセージの最大数 (空白にするとすべてダウンロードします)</string>
+    <string name="title_keep_poll_interval">ポーリング間隔 (分)</string>
     <string name="title_keep_alive_interval">キープアライブ間隔 (分)</string>
     <string name="title_server_time">サーバーの受信時刻を使用</string>
     <string name="title_received_header">「Received」ヘッダーを使用</string>
@@ -1839,7 +1839,7 @@
     <string-array name="contactTypes">
         <item>宛先</item>
         <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">差出人</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">ブロック</item>
-        <item>ブロックされていません</item>
+        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">ブロック中</item>
+        <item>未ブロック</item>
     </string-array>
 </resources>

@@ -861,6 +861,7 @@
     <string name="title_edit_contact">Editare contact</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Nume</string>
+    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Grup</string>
     <string name="title_import_contacts">Importă vCards</string>
     <string name="title_export_contacts">Exportați vCards</string>
     <string name="title_create_sub_folder">Creează sub-dosar</string>
@@ -1856,6 +1857,6 @@
         <item>Destinatar</item>
         <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Expeditor</item>
         <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blocat</item>
-        <item>Not blocked</item>
+        <item>Nu este blocat</item>
     </string-array>
 </resources>
