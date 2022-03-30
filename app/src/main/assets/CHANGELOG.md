@@ -4,6 +4,12 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### 1.1863 - 2022-03-30
+
+* Converting background images into images (reformatted message view)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1862 - 2022-03-28
 
 * Added local contact editor
