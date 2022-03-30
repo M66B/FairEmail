@@ -1015,6 +1015,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swBrowserZoom.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         swBrowserZoom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {

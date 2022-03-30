@@ -109,7 +109,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
-        boolean browser_zoom = prefs.getBoolean("browser_zoom", false);
+        boolean browser_zoom = prefs.getBoolean("browser_zoom", false) && BuildConfig.DEBUG;
         int message_zoom = prefs.getInt("message_zoom", 100);
         boolean monospaced = prefs.getBoolean("monospaced", false);
         legacy = prefs.getBoolean("webview_legacy", false);
