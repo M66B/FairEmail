@@ -5866,6 +5866,10 @@ class Core {
             semaphore.release();
         }
 
+        boolean isAlive() {
+            return (running && thread.isAlive());
+        }
+
         void join() {
             join(thread);
         }

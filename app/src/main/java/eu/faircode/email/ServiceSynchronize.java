@@ -341,6 +341,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     event = true;
                                     start(current, current.accountState.isEnabled(current.enabled) || sync, force);
                                 }
+                            } else if (current.canRun() && !state.isAlive()) {
+                                Log.e(current + " died");
+                                EntityLog.log(ServiceSynchronize.this, "### died " + current);
+                                event = true;
+                                start(current, current.accountState.isEnabled(current.enabled) || sync, force);
                             } else {
                                 if (state != null) {
                                     Network p = prev.networkState.getActive();
@@ -1247,6 +1252,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         if (lastNetworkState == null || !lastNetworkState.isSuitable())
             updateNetworkState(null, "watchdog");
+
+        onEval(intent);
 
         ServiceSend.boot(this);
 
