@@ -66,7 +66,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -274,6 +276,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
 
         owner = new TwoStateOwner(this, "drawer");
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+            public void onStateChanged() {
+                Log.i("Drawer state=" + owner.getLifecycle().getCurrentState());
+            }
+        });
         drawerLayout = findViewById(R.id.drawer_layout);
 
         final ViewGroup childContent = (ViewGroup) drawerLayout.getChildAt(0);
@@ -305,6 +313,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
+
+                if (BuildConfig.DEBUG)
+                    Log.i("Drawer slide=" + slideOffset);
 
                 if (slideOffset > 0)
                     owner.start();
