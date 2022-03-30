@@ -4,6 +4,10 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### 1.1864 - 2022-03-30
+
+* Fixed starting disabled accounts
+
 ### 1.1863 - 2022-03-30
 
 * Converting background images into images (reformatted message view)
