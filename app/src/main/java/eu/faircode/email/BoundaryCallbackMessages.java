@@ -488,7 +488,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         EntityAccount account = db.account().getAccount(browsable.account);
-        if (account == null)
+        if (account == null || account.protocol != EntityAccount.TYPE_IMAP)
             return 0;
 
         if (state.imessages == null)
