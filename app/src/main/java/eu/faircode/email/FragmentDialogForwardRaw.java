@@ -31,6 +31,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -50,6 +51,8 @@ import java.util.Objects;
 
 public class FragmentDialogForwardRaw extends FragmentDialogBase {
     private boolean enabled;
+
+    private static final long AUTO_CONFIRM_DELAY = 10 * 1000L;
 
     @NonNull
     @Override
@@ -174,8 +177,16 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                             ld.removeObserver(this);
                             getArguments().putLong("account", args.getLong("account"));
                             getArguments().putLongArray("ids", ids);
+
                             enabled = true;
-                            setButtonEnabled(enabled);
+                            Button ok = getPositiveButton();
+                            ok.setEnabled(enabled);
+                            ok.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    getPositiveButton().performClick();
+                                }
+                            }, AUTO_CONFIRM_DELAY);
                         }
                     }
                 });
@@ -208,13 +219,11 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
     @Override
     public void onStart() {
         super.onStart();
-        setButtonEnabled(enabled);
+        getPositiveButton().setEnabled(enabled);
     }
 
-    void setButtonEnabled(boolean enabled) {
-        ((AlertDialog) getDialog())
-                .getButton(AlertDialog.BUTTON_POSITIVE)
-                .setEnabled(enabled);
+    private Button getPositiveButton() {
+        return ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE);
     }
 
     @Override
