@@ -118,7 +118,7 @@ public class FragmentQuickSetup extends FragmentBase {
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
-        update = args.getBoolean("update");
+        update = args.getBoolean("update", true);
     }
 
     @Override

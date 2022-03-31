@@ -98,7 +98,7 @@ public class FragmentGmail extends FragmentBase {
         Bundle args = getArguments();
         personal = args.getString("personal");
         address = args.getString("address");
-        update = args.getBoolean("update");
+        update = args.getBoolean("update", true);
     }
 
     @Override

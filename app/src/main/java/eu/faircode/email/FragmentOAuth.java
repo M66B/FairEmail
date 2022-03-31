@@ -141,7 +141,7 @@ public class FragmentOAuth extends FragmentBase {
 
         personal = args.getString("personal");
         address = args.getString("address");
-        update = args.getBoolean("update");
+        update = args.getBoolean("update", true);
     }
 
     @Override
