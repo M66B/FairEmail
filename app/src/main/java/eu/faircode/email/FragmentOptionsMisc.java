@@ -228,7 +228,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "cc_bcc", "inline_image_hint", "compose_reference", "send_dialog",
             "setup_reminder", "setup_advanced",
             "signature_images_hint",
-            "gmail_checked"
+            "gmail_checked",
+            "eml_auto_confirm"
     };
 
     @Override

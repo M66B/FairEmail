@@ -23,6 +23,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -32,6 +33,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -42,6 +45,7 @@ import androidx.core.content.FileProvider;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
+import androidx.preference.PreferenceManager;
 
 import java.io.File;
 import java.text.NumberFormat;
@@ -52,7 +56,7 @@ import java.util.Objects;
 public class FragmentDialogForwardRaw extends FragmentDialogBase {
     private boolean enabled;
 
-    private static final long AUTO_CONFIRM_DELAY = 10 * 1000L;
+    private static final long AUTO_CONFIRM_DELAY = 2 * 1000L;
 
     @NonNull
     @Override
@@ -64,15 +68,21 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
         if (savedInstanceState != null)
             enabled = savedInstanceState.getBoolean("fair:enabled");
 
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_forward_raw, null);
+        final Context context = getContext();
+        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_forward_raw, null);
         ProgressBar pbDownloaded = dview.findViewById(R.id.pbDownloaded);
         TextView tvRemaining = dview.findViewById(R.id.tvRemaining);
         TextView tvOption = dview.findViewById(R.id.tvOption);
         TextView tvNoInternet = dview.findViewById(R.id.tvNoInternet);
+        CheckBox cbAutoConfirm = dview.findViewById(R.id.cbAutoConfirm);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean eml_auto_confirm = prefs.getBoolean("eml_auto_confirm", false);
 
         pbDownloaded.setProgress(0);
         pbDownloaded.setMax(ids.length);
         tvRemaining.setText(getString(R.string.title_eml_downloaded, "-"));
+        cbAutoConfirm.setChecked(eml_auto_confirm);
 
         tvOption.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +90,13 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                 v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         .putExtra("tab", "connection"));
+            }
+        });
+
+        cbAutoConfirm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("eml_auto_confirm", checked).apply();
             }
         });
 
@@ -158,7 +175,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
 
             @Override
             protected void onExecuted(Bundle args, long[] ids) {
-                DB db = DB.getInstance(getContext());
+                DB db = DB.getInstance(context);
                 LiveData<Integer> ld = db.message().liveRaw(ids);
                 ld.observe(getViewLifecycleOwner(), new Observer<Integer>() {
                     @Override
@@ -181,12 +198,15 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                             enabled = true;
                             Button ok = getPositiveButton();
                             ok.setEnabled(enabled);
-                            ok.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    getPositiveButton().performClick();
-                                }
-                            }, AUTO_CONFIRM_DELAY);
+
+                            boolean eml_auto_confirm = prefs.getBoolean("eml_auto_confirm", false);
+                            if (eml_auto_confirm)
+                                ok.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        getPositiveButton().performClick();
+                                    }
+                                }, AUTO_CONFIRM_DELAY);
                         }
                     }
                 });
@@ -198,7 +218,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
             }
         }.execute(this, getArguments(), "messages:forward");
 
-        return new AlertDialog.Builder(getContext())
+        return new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(R.string.title_send, new DialogInterface.OnClickListener() {
                     @Override
