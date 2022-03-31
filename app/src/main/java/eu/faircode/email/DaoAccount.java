@@ -220,6 +220,12 @@ public interface DaoAccount {
             " AND NOT (password IS :password AND auth_type = :auth_type)")
     int setAccountPassword(long id, String password, int auth_type);
 
+    @Query("UPDATE account" +
+            " SET fingerprint = :fingerprint" +
+            " WHERE id = :id" +
+            " AND NOT (fingerprint IS :fingerprint)")
+    int setAccountFingerprint(long id, String fingerprint);
+
     @Query("UPDATE account SET last_connected = :last_connected WHERE id = :id AND NOT (last_connected IS :last_connected)")
     int setAccountConnected(long id, Long last_connected);
 

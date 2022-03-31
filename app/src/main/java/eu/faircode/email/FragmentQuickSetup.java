@@ -39,9 +39,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -90,6 +92,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private TextView tvSmtpFingerprint;
     private TextView tvSmtpDnsNames;
 
+    private CheckBox cbUpdate;
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
 
@@ -97,6 +100,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private Group grpCertificate;
     private Group grpError;
 
+    private boolean update;
     private EmailProvider bestProvider = null;
     private Bundle bestArgs = null;
 
@@ -107,6 +111,14 @@ public class FragmentQuickSetup extends FragmentBase {
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
         outState.putParcelable("fair:best", bestProvider);
         outState.putParcelable("fair:args", bestArgs);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Bundle args = getArguments();
+        update = args.getBoolean("update");
     }
 
     @Override
@@ -143,6 +155,7 @@ public class FragmentQuickSetup extends FragmentBase {
         tvSmtpFingerprint = view.findViewById(R.id.tvSmtpFingerprint);
         tvSmtpDnsNames = view.findViewById(R.id.tvSmtpDnsNames);
 
+        cbUpdate = view.findViewById(R.id.cbUpdate);
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
 
@@ -234,6 +247,8 @@ public class FragmentQuickSetup extends FragmentBase {
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
         btnHelp.setVisibility(View.GONE);
+        cbUpdate.setChecked(update);
+        cbUpdate.setVisibility(View.GONE);
         btnSave.setVisibility(View.GONE);
         grpSetup.setVisibility(View.GONE);
         grpCertificate.setVisibility(View.GONE);
@@ -254,6 +269,7 @@ public class FragmentQuickSetup extends FragmentBase {
         args.putString("name", etName.getText().toString().trim());
         args.putString("email", etEmail.getText().toString().trim());
         args.putString("password", tilPassword.getEditText().getText().toString());
+        args.putBoolean("update", cbUpdate.isChecked());
         args.putBoolean("check", check);
         args.putParcelable("best", bestProvider);
 
@@ -269,6 +285,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 grpError.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
+                cbUpdate.setVisibility(check ? View.GONE : View.VISIBLE);
                 btnSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 grpSetup.setVisibility(check ? View.GONE : View.VISIBLE);
                 if (check)
@@ -431,89 +448,120 @@ public class FragmentQuickSetup extends FragmentBase {
                             return provider;
                         }
 
+                        EntityAccount update = null;
                         DB db = DB.getInstance(context);
                         try {
                             db.beginTransaction();
 
                             EntityAccount primary = db.account().getPrimaryAccount();
 
-                            // Create account
-                            EntityAccount account = new EntityAccount();
-
-                            account.host = provider.imap.host;
-                            account.encryption = aencryption;
-                            account.port = provider.imap.port;
-                            account.auth_type = AUTH_TYPE_PASSWORD;
-                            account.user = user;
-                            account.password = password;
-                            account.fingerprint = imap_fingerprint;
-
-                            account.name = provider.name + "/" + username;
-
-                            account.synchronize = true;
-                            account.primary = (primary == null);
-
-                            if (provider.keepalive > 0)
-                                account.poll_interval = provider.keepalive;
-
-                            account.partial_fetch = provider.partial;
-
-                            account.created = new Date().getTime();
-                            account.last_connected = account.created;
-
-                            account.id = db.account().insertAccount(account);
-                            args.putLong("account", account.id);
-                            EntityLog.log(context, "Quick added account=" + account.name);
-
-                            // Create folders
-                            for (EntityFolder folder : folders) {
-                                EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
-                                if (existing == null) {
-                                    folder.account = account.id;
-                                    folder.setSpecials(account);
-                                    folder.id = db.folder().insertFolder(folder);
-                                    EntityLog.log(context, "Quick added folder=" + folder.name + " type=" + folder.type);
-                                    if (folder.synchronize)
-                                        EntityOperation.sync(context, folder.id, true);
-                                }
+                            if (args.getBoolean("update")) {
+                                List<EntityAccount> accounts =
+                                        db.account().getAccounts(user, new int[]{AUTH_TYPE_PASSWORD});
+                                if (accounts != null)
+                                    for (EntityAccount existing : accounts)
+                                        if (existing.protocol == EntityAccount.TYPE_IMAP)
+                                            if (update == null)
+                                                update = existing;
+                                            else {
+                                                update = null;
+                                                break;
+                                            }
                             }
 
-                            // Set swipe left/right folder
-                            for (EntityFolder folder : folders)
-                                if (EntityFolder.TRASH.equals(folder.type))
-                                    account.swipe_left = folder.id;
-                                else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                    account.swipe_right = folder.id;
+                            if (update == null) {
+                                // Create account
+                                EntityAccount account = new EntityAccount();
 
-                            db.account().updateAccount(account);
+                                account.host = provider.imap.host;
+                                account.encryption = aencryption;
+                                account.port = provider.imap.port;
+                                account.auth_type = AUTH_TYPE_PASSWORD;
+                                account.user = user;
+                                account.password = password;
+                                account.fingerprint = imap_fingerprint;
 
-                            // Create identity
-                            EntityIdentity identity = new EntityIdentity();
-                            identity.name = name;
-                            identity.email = email;
-                            identity.account = account.id;
+                                account.name = provider.name + "/" + username;
 
-                            identity.host = provider.smtp.host;
-                            identity.encryption = iencryption;
-                            identity.port = provider.smtp.port;
-                            identity.auth_type = AUTH_TYPE_PASSWORD;
-                            identity.user = user;
-                            identity.password = password;
-                            identity.fingerprint = smtp_fingerprint;
-                            identity.use_ip = provider.useip;
-                            identity.synchronize = true;
-                            identity.primary = true;
-                            identity.max_size = max_size;
+                                account.synchronize = true;
+                                account.primary = (primary == null);
 
-                            identity.id = db.identity().insertIdentity(identity);
-                            EntityLog.log(context, "Quick added identity=" + identity.name + " email=" + identity.email);
+                                if (provider.keepalive > 0)
+                                    account.poll_interval = provider.keepalive;
+
+                                account.partial_fetch = provider.partial;
+
+                                account.created = new Date().getTime();
+                                account.last_connected = account.created;
+
+                                account.id = db.account().insertAccount(account);
+                                args.putLong("account", account.id);
+                                EntityLog.log(context, "Quick added account=" + account.name);
+
+                                // Create folders
+                                for (EntityFolder folder : folders) {
+                                    EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
+                                    if (existing == null) {
+                                        folder.account = account.id;
+                                        folder.setSpecials(account);
+                                        folder.id = db.folder().insertFolder(folder);
+                                        EntityLog.log(context, "Quick added folder=" + folder.name + " type=" + folder.type);
+                                        if (folder.synchronize)
+                                            EntityOperation.sync(context, folder.id, true);
+                                    }
+                                }
+
+                                // Set swipe left/right folder
+                                for (EntityFolder folder : folders)
+                                    if (EntityFolder.TRASH.equals(folder.type))
+                                        account.swipe_left = folder.id;
+                                    else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                        account.swipe_right = folder.id;
+
+                                db.account().updateAccount(account);
+
+                                // Create identity
+                                EntityIdentity identity = new EntityIdentity();
+                                identity.name = name;
+                                identity.email = email;
+                                identity.account = account.id;
+
+                                identity.host = provider.smtp.host;
+                                identity.encryption = iencryption;
+                                identity.port = provider.smtp.port;
+                                identity.auth_type = AUTH_TYPE_PASSWORD;
+                                identity.user = user;
+                                identity.password = password;
+                                identity.fingerprint = smtp_fingerprint;
+                                identity.use_ip = provider.useip;
+                                identity.synchronize = true;
+                                identity.primary = true;
+                                identity.max_size = max_size;
+
+                                identity.id = db.identity().insertIdentity(identity);
+                                EntityLog.log(context, "Quick added identity=" + identity.name + " email=" + identity.email);
+                            } else {
+                                args.putLong("account", update.id);
+                                EntityLog.log(context, "Quick setup update account=" + update.name);
+                                db.account().setAccountSynchronize(update.id, true);
+                                db.account().setAccountPassword(update.id, password, AUTH_TYPE_PASSWORD);
+                                db.account().setAccountFingerprint(update.id, imap_fingerprint);
+                                db.identity().setIdentityPassword(update.id, update.user, password, update.auth_type, AUTH_TYPE_PASSWORD);
+                                db.identity().setIdentityFingerprint(update.id, smtp_fingerprint);
+                            }
 
                             db.setTransactionSuccessful();
                         } finally {
                             db.endTransaction();
                         }
 
-                        ServiceSynchronize.eval(context, "quick setup");
+                        if (update == null)
+                            ServiceSynchronize.eval(context, "quick setup");
+                        else {
+                            args.putBoolean("updated", true);
+                            ServiceSynchronize.reload(context, update.id, true, "quick setup");
+                        }
+
                         return provider;
                     } catch (Throwable ex) {
                         Log.w(ex);
@@ -537,10 +585,16 @@ public class FragmentQuickSetup extends FragmentBase {
                     bestArgs = args;
                     showResult(bestProvider, bestArgs);
                 } else {
-                    FragmentDialogAccount fragment = new FragmentDialogAccount();
-                    fragment.setArguments(args);
-                    fragment.setTargetFragment(FragmentQuickSetup.this, ActivitySetup.REQUEST_DONE);
-                    fragment.show(getParentFragmentManager(), "quick:review");
+                    boolean updated = args.getBoolean("updated");
+                    if (updated) {
+                        finish();
+                        ToastEx.makeText(getContext(), R.string.title_setup_oauth_updated, Toast.LENGTH_LONG).show();
+                    } else {
+                        FragmentDialogAccount fragment = new FragmentDialogAccount();
+                        fragment.setArguments(args);
+                        fragment.setTargetFragment(FragmentQuickSetup.this, ActivitySetup.REQUEST_DONE);
+                        fragment.show(getParentFragmentManager(), "quick:review");
+                    }
                 }
             }
 
@@ -663,6 +717,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 imap_certificate == null && smtp_certificate == null
                         ? View.GONE : View.VISIBLE);
 
+        cbUpdate.setVisibility(provider == null ? View.GONE : View.VISIBLE);
         btnSave.setVisibility(provider == null ? View.GONE : View.VISIBLE);
     }
 
