@@ -199,6 +199,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             registerReceiver(dataSaverChanged, new IntentFilter(ConnectivityManager.ACTION_RESTRICT_BACKGROUND_CHANGED));
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            IntentFilter suspend = new IntentFilter();
+            suspend.addAction(Intent.ACTION_MY_PACKAGE_SUSPENDED);
+            suspend.addAction(Intent.ACTION_MY_PACKAGE_UNSUSPENDED);
+            registerReceiver(suspendChanged, suspend);
+        }
+
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         DB db = DB.getInstance(this);
@@ -858,6 +865,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.unregisterOnSharedPreferenceChangeListener(this);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+            unregisterReceiver(suspendChanged);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             unregisterReceiver(dataSaverChanged);
@@ -2631,6 +2641,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             EntityLog.log(context, "Data saver=" + status);
 
             updateNetworkState(null, "datasaver");
+        }
+    };
+
+    private final BroadcastReceiver suspendChanged = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            EntityLog.log(context, intent.getAction() + " " +
+                    TextUtils.join(", ", Log.getExtras(intent.getExtras())));
         }
     };
 
