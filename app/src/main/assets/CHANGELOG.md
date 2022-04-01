@@ -4,6 +4,12 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### 1.1865 - 2022-04-01
+
+* Added searching in rule actions
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1864 - 2022-03-30
 
 * Fixed starting disabled accounts
