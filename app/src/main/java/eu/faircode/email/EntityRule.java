@@ -52,6 +52,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -1119,6 +1120,41 @@ public class EntityRule {
                     Objects.equals(this.last_applied, other.last_applied);
         } else
             return false;
+    }
+
+    boolean matches(String query) {
+        if (this.name.toLowerCase().contains(query))
+            return true;
+
+        try {
+            JSONObject jcondition = new JSONObject(this.condition);
+            JSONObject jaction = new JSONObject(this.action);
+            JSONObject jmerged = new JSONObject();
+            jmerged.put("condition", jcondition);
+            jmerged.put("action", jaction);
+            return contains(jmerged, query);
+        } catch (JSONException ex) {
+            Log.e(ex);
+        }
+
+        return false;
+    }
+
+    private boolean contains(JSONObject jobject, String query) throws JSONException {
+        Iterator<String> keys = jobject.keys();
+        while (keys.hasNext()) {
+            String key = keys.next();
+            Object value = jobject.get(key);
+            if (value instanceof JSONObject) {
+                if (contains((JSONObject) value, query))
+                    return true;
+            } else {
+                if (value.toString().toLowerCase().contains(query))
+                    return true;
+            }
+        }
+
+        return false;
     }
 
     public JSONObject toJSON() throws JSONException {

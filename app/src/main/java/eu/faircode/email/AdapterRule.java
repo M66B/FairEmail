@@ -551,24 +551,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         else {
             items = new ArrayList<>();
             String query = search.toLowerCase().trim();
-            for (TupleRuleEx rule : rules) {
-                if (rule.name.toLowerCase().contains(query))
+            for (TupleRuleEx rule : rules)
+                if (rule.matches(query))
                     items.add(rule);
-                else
-                    try {
-                        JSONObject jcondition = new JSONObject(rule.condition);
-                        Iterator<String> keys = jcondition.keys();
-                        while (keys.hasNext()) {
-                            String key = keys.next();
-                            if (jcondition.get(key).toString().toLowerCase().contains(query)) {
-                                items.add(rule);
-                                break;
-                            }
-                        }
-                    } catch (JSONException ex) {
-                        Log.e(ex);
-                    }
-            }
         }
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(selected, items), false);
