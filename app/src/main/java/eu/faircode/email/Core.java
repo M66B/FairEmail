@@ -2914,7 +2914,7 @@ class Core {
                             continue;
                         }
 
-                        if (msgIdTuple.containsKey(msgid)) {
+                        if (hasUidl ? uidlMsgId.containsKey(uidl) : msgIdTuple.containsKey(msgid)) {
                             _new = false;
                             Log.i(account.name + " POP having " + msgid + "/" + uidl);
 
