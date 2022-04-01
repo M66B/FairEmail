@@ -966,6 +966,7 @@
     <string name="title_eml_remark">若要转发消息，需要从电子邮件服务器下载原始 (原始) 消息。 这需要互联网连接，且消息必须仍存储在电子邮件服务器上。</string>
     <string name="title_eml_option">可通过在连接设置中启用“始终下载原始消息文件”防止发生这种情况</string>
     <string name="title_eml_downloaded">已下载原始消息： %1$s</string>
+    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">几秒后自动确认</string>
     <string name="title_buttons">选择按钮</string>
     <string name="title_buttons_hint">实际操作可行性取决于账户类型和配置</string>
     <string name="title_button_search">搜索消息</string>

@@ -794,6 +794,7 @@
     <string name="title_eml_remark">Para encaminhar mensagens, as mensagens (originais) precisam de ser descarregadas do servidor de e-mail. Requer uma ligação à internet e as mensagens devem ser armazenadas no servidor de e-mail.</string>
     <string name="title_eml_option">Isto pode ser prevenido activando, nas definições de ligação, a opção de transferir os ficheiros de mensagem em bruto</string>
     <string name="title_eml_downloaded">Download de mensagens originais: %1$s</string>
+    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Confirmar automaticamente após alguns segundos</string>
     <string name="title_buttons">Seleccionar botões</string>
     <string name="title_buttons_hint">As acções actualmente disponíveis dependem do tipo de conta e da configuração</string>
     <string name="title_button_search">Pesquisar em mensagens</string>

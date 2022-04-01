@@ -998,6 +998,7 @@
     <string name="title_eml_remark">Aby przesyłać wiadomości, należy pobrać surowe (oryginalne) wiadomości z serwera e-mail. To wymaga połączenia z Internetem, a wiadomości muszą być nadal przechowywane na serwerze e-mail.</string>
     <string name="title_eml_option">Można temu zapobiec poprzez włączanie \"Pobierz nieprzetworzone pliki wiadomości\" w ustawieniach połączenia</string>
     <string name="title_eml_downloaded">Pobrano nieprzetworzone wiadomości: %1$s</string>
+    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Potwierdź automatycznie po kilku sekundach</string>
     <string name="title_buttons">Wybierz przyciski</string>
     <string name="title_buttons_hint">Dostępne działania zależą od typu konta i konfiguracji</string>
     <string name="title_button_search">Szukaj w wiadomościach</string>

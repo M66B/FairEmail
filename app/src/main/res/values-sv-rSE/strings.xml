@@ -159,6 +159,7 @@
     <string name="title_setup_gmail_password">Jag vill auktorisera ett konto med ett lösenord</string>
     <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP inaktiveras av systemadministratören</string>
     <string name="title_setup_oauth_rationale">Auktorisera åtkomst till ditt %1$s konto</string>
+    <string name="title_setup_oauth_update">Auktorisera ett befintligt konto igen (annars skapa ett nytt konto)</string>
     <string name="title_setup_oauth_updated">Kontoauktorisering har uppdaterats</string>
     <string name="title_setup_oauth_authorize">Auktorisera</string>
     <string name="title_setup_select_account">Välj konto</string>
@@ -974,6 +975,7 @@
     <string name="title_eml_remark">För att vidarebefordra meddelanden, måste de råa (ursprungliga) meddelandena laddas ner från e-postservern. Detta kräver en internetanslutning och meddelandena måste fortfarande lagras på e-postservern.</string>
     <string name="title_eml_option">Detta kan förhindras genom att alltid välja att ladda ner råa meddelandefiler i anslutningsinställningarna</string>
     <string name="title_eml_downloaded">Råa meddelanden nedladdade: %1$s</string>
+    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Bekräfta automatiskt efter några sekunder</string>
     <string name="title_buttons">Välj knappar</string>
     <string name="title_buttons_hint">De faktiska åtgärder som är tillgängliga beror på kontotyp och konfiguration</string>
     <string name="title_button_search">Sök i meddelanden</string>
