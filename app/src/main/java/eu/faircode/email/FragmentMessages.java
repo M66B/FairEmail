@@ -2523,11 +2523,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 onSwipeJunk(message);
             } else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
-                    (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType))) {
-                if (!(message.accountLeaveDeleted && EntityFolder.INBOX.equals(message.folderType)))
-                    adapter.notifyItemChanged(pos);
-                onSwipeDelete(message);
-            } else
+                    (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))
+                onSwipeDelete(message, pos);
+            else
                 swipeFolder(message, action);
         }
 
@@ -2619,7 +2617,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     onSwipeJunk(message);
                                     return true;
                                 } else if (itemId == R.string.title_delete_permanently) {
-                                    onSwipeDelete(message);
+                                    onSwipeDelete(message, NO_POSITION);
                                     return true;
                                 }
                                 return false;
@@ -2691,26 +2689,36 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             ask.show(getParentFragmentManager(), "swipe:junk");
         }
 
-        private void onSwipeDelete(@NonNull TupleMessageEx message) {
+        private void onSwipeDelete(@NonNull TupleMessageEx message, int pos) {
+            boolean leave_deleted =
+                    (message.accountProtocol == EntityAccount.TYPE_POP &&
+                            message.accountLeaveDeleted);
+
             Bundle args = new Bundle();
-            args.putString("question", getString(R.string.title_ask_delete));
+            if (leave_deleted)
+                args.putString("question", getResources()
+                        .getQuantityString(R.plurals.title_moving_messages, 1, 1));
+            else
+                args.putString("question", getString(R.string.title_ask_delete));
             args.putString("remark", message.getRemark());
             args.putLong("id", message.id);
             args.putInt("faq", 160);
             args.putString("notagain", "delete_asked");
-            args.putString("accept", getString(R.string.title_ask_delete_accept));
+            if (!leave_deleted)
+                args.putString("accept", getString(R.string.title_ask_delete_accept));
             args.putBoolean("warning", true);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean delete_asked = prefs.getBoolean("delete_asked", false);
-            if (delete_asked ||
-                    (message.accountProtocol == EntityAccount.TYPE_POP &&
-                            message.accountLeaveDeleted)) {
+            if (delete_asked) {
                 Intent data = new Intent();
                 data.putExtra("args", args);
                 onActivityResult(REQUEST_MESSAGE_DELETE, RESULT_OK, data);
                 return;
             }
+
+            if (pos != NO_POSITION)
+                adapter.notifyItemChanged(pos);
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(args);
@@ -3802,14 +3810,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected void onExecuted(Bundle args, final List<Long> ids) {
                 Bundle aargs = new Bundle();
-                aargs.putString("question", getResources()
-                        .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
-                aargs.putString("accept", getString(R.string.title_ask_delete_accept));
+                if (popOnly && leave_delete) {
+                    aargs.putString("question", getResources()
+                            .getQuantityString(R.plurals.title_moving_messages, ids.size(), ids.size()));
+                    aargs.putString("notagain", "delete_asked");
+                } else {
+                    aargs.putString("question", getResources()
+                            .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
+                    aargs.putString("accept", getString(R.string.title_ask_delete_accept));
+                }
                 aargs.putInt("faq", 160);
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
 
-                if (popOnly && leave_delete) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean delete_asked = prefs.getBoolean("delete_asked", false);
+                if (popOnly && leave_delete && delete_asked) {
                     Intent data = new Intent();
                     data.putExtra("args", aargs);
                     onActivityResult(REQUEST_MESSAGES_DELETE, RESULT_OK, data);
@@ -4102,16 +4118,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, List<Long> ids) {
+                boolean leave_deleted = args.getBoolean("leave_deleted");
+
                 Bundle aargs = new Bundle();
-                aargs.putString("question", getResources()
-                        .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
-                aargs.putString("accept", getString(R.string.title_ask_delete_accept));
+                if (leave_deleted) {
+                    aargs.putString("question", getResources()
+                            .getQuantityString(R.plurals.title_moving_messages, ids.size(), ids.size()));
+                    aargs.putString("notagain", "delete_asked");
+                } else {
+                    aargs.putString("question", getResources()
+                            .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
+                    aargs.putString("accept", getString(R.string.title_ask_delete_accept));
+                }
                 aargs.putInt("faq", 160);
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
 
-                boolean leave_deleted = args.getBoolean("leave_deleted");
-                if (leave_deleted) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean delete_asked = prefs.getBoolean("delete_asked", false);
+                if (leave_deleted && delete_asked) {
                     Intent data = new Intent();
                     data.putExtra("args", aargs);
                     onActivityResult(REQUEST_MESSAGES_DELETE, RESULT_OK, data);
