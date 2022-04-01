@@ -166,6 +166,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
             try {
                 JSONObject jaction = new JSONObject(rule.action);
+
+                String to = null;
                 int type = jaction.getInt("type");
                 if (type == EntityRule.TYPE_SNOOZE) {
                     int duration = jaction.optInt("duration", 0);
@@ -184,12 +186,15 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     setAction(type, value);
                 } else if (type == EntityRule.TYPE_KEYWORD) {
                     setAction(type, jaction.optString("keyword"));
+                } else if (type == EntityRule.TYPE_ANSWER) {
+                    to = jaction.optString("to");
+                    if (!TextUtils.isEmpty(to))
+                        setAction(type, to);
                 } else
                     setAction(type, null);
 
-                if (type == EntityRule.TYPE_ANSWER ||
-                        type == EntityRule.TYPE_MOVE ||
-                        type == EntityRule.TYPE_COPY) {
+                if (type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY ||
+                        (type == EntityRule.TYPE_ANSWER && TextUtils.isEmpty(to))) {
                     Bundle args = new Bundle();
                     args.putLong("id", rule.id);
                     args.putInt("type", type);
