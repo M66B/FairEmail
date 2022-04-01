@@ -35,6 +35,7 @@ import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
+import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.OperationCanceledException;
@@ -205,6 +206,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             suspend.addAction(Intent.ACTION_MY_PACKAGE_UNSUSPENDED);
             registerReceiver(suspendChanged, suspend);
         }
+
+        registerReceiver(batteryChanged, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -865,6 +868,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.unregisterOnSharedPreferenceChangeListener(this);
+
+        unregisterReceiver(batteryChanged);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
             unregisterReceiver(suspendChanged);
@@ -2649,6 +2654,20 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         public void onReceive(Context context, Intent intent) {
             EntityLog.log(context, intent.getAction() + " " +
                     TextUtils.join(", ", Log.getExtras(intent.getExtras())));
+        }
+    };
+
+    private final BroadcastReceiver batteryChanged = new BroadcastReceiver() {
+        private Integer lastLevel = null;
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+            if (!Objects.equals(level, lastLevel)) {
+                lastLevel = level;
+                EntityLog.log(context, intent.getAction() + " " +
+                        TextUtils.join(", ", Log.getExtras(intent.getExtras())));
+            }
         }
     };
 
