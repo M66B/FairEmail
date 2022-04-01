@@ -7605,6 +7605,7 @@ public class FragmentCompose extends FragmentBase {
 
         if (TextUtils.isEmpty(result.type) ||
                 "*/*".equals(result.type) ||
+                "application/*".equals(result.type) ||
                 "application/octet-stream".equals(result.type))
             result.type = Helper.guessMimeType(result.name);
 
