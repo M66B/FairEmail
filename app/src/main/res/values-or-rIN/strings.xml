@@ -87,7 +87,6 @@
     <string name="title_setup_pop3">POP3 ଆକାଉଣ୍ଟ୍</string>
     <string name="title_setup_oauth_permission">ଇମେଲ୍ ପ୍ରଦାନକାରୀ କେବଳ Play Store ଏବଂ GitHub ସଂସ୍କରଣ ପାଇଁ OAuth ଅନୁମୋଦନ କରିଛନ୍ତି</string>
     <string name="title_setup_gmail_support">Google ଆକାଉଣ୍ଟଗୁଡ଼ିକର ପ୍ରାଧିକରଣ କେବଳ Play Store ଏବଂ GitHub ସଂସ୍କରଣରେ କାମ କରିବ କାରଣ ଆଣ୍ଡ୍ରଏଡ୍ ଡିଜିଟାଲ୍ ଆପ୍ ସ୍ବାକ୍ଷର ଯାଞ୍ଚ କରେ</string>
-    <string name="title_setup_oauth_update">ବିଦ୍ୟମାନ ଆକାଉଣ୍ଟକୁ ପୁନଃ ପ୍ରାଧିକୃତ କରନ୍ତୁ</string>
     <string name="title_setup_oauth_updated">ଆକାଉଣ୍ଟ୍ ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରାଯାଇଥିଲା</string>
     <string name="title_setup_oauth_authorize">ପ୍ରାଧିକୃତ କରନ୍ତୁ</string>
     <string name="title_setup_select_account">ଆକାଉଣ୍ଟ୍ ବାଛନ୍ତୁ</string>
@@ -344,7 +343,7 @@
     <string name="title_edit_properties">ଗୁଣଧର୍ମ ସମ୍ପାଦନା</string>
     <string name="title_contact_email">ଇମେଲ୍</string>
     <string name="title_contact_name">ନାମ</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">ଗୋଷ୍ଠୀ</string>
+    <string name="title_contact_group">ଗୋଷ୍ଠୀ</string>
     <string name="title_import_contacts">vCards ଆମଦାନୀ କରନ୍ତୁ</string>
     <string name="title_export_contacts">vCards ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="title_empty_trash_ask">ଆବର୍ଜନା ପାତ୍ରରେ ଥିବା ସମସ୍ତ ବାର୍ତ୍ତା ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବେ କି?</string>
@@ -379,6 +378,7 @@
     <string name="title_pin">ସର୍ଟକଟ୍ ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_raw_send_message">ବାର୍ତ୍ତା</string>
     <string name="title_raw_send_thread">ବାର୍ତ୍ତାଳାପ</string>
+    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">କିଛି ସେକେଣ୍ଡ ପରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ନିଶ୍ଚିତ କରିବା</string>
     <string name="title_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_delete">ବିଲୋପ</string>
     <string name="title_delete_all">ସବୁ ବିଲୋପ କରନ୍ତୁ</string>
@@ -748,8 +748,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>ପ୍ରାପ୍ତେସୁ</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">ପ୍ରେରକ</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">ବ୍ଲକ୍ ହୋଇଅଛି</item>
+        <item>ପ୍ରେରକ</item>
+        <item>ବ୍ଲକ୍ ହୋଇଅଛି</item>
         <item>ବ୍ଲକ୍ ହୋଇନାହିଁ</item>
     </string-array>
 </resources>

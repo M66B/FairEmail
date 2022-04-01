@@ -153,7 +153,6 @@
     <string name="title_setup_gmail_password">Quero autorizar unha conta con un contrasinal</string>
     <string name="title_setup_office_auth">O erro \'AUTHENTICATE failed\' pode estar causado porque IMAP/SMTP estea desactivado polo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar o acceso á súa conta %1$s</string>
-    <string name="title_setup_oauth_update">Autorizar outra vez unha conta xa existente</string>
     <string name="title_setup_oauth_updated">A autorización da conta foi actualizada</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Seleccionar conta</string>
@@ -1822,8 +1821,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatario</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Remitente</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blocked</item>
+        <item>Remitente</item>
+        <item>Blocked</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

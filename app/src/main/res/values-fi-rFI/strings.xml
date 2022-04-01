@@ -155,7 +155,6 @@
     <string name="title_setup_gmail_password">Haluan käyttää salasanaa tilin valtuuttamiseen</string>
     <string name="title_setup_office_auth">Virhe \'AUTHENTICATE failed\' voi aiheutua siitä, että järjestelmän ylläpitäjän on poistanut IMAP/SMTP-protokollat käytöstä</string>
     <string name="title_setup_oauth_rationale">Valtuuta pääsy tilillesi %1$s</string>
-    <string name="title_setup_oauth_update">Valtuuta olemassa oleva tili uudelleen</string>
     <string name="title_setup_oauth_updated">Tilin valtuutus päivitettiin</string>
     <string name="title_setup_oauth_authorize">Valtuuta</string>
     <string name="title_setup_select_account">Valitse tili</string>
@@ -1830,8 +1829,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Vastaanottaja</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Lähettäjä</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Estetty</item>
+        <item>Lähettäjä</item>
+        <item>Estetty</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

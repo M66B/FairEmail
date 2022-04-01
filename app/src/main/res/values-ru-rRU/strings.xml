@@ -179,7 +179,7 @@
     <string name="title_setup_gmail_password">Я хочу авторизоваться в учётной записи паролем</string>
     <string name="title_setup_office_auth">Ошибка \"AUTHENTICATE failed\" может быть вызвана отключением IMAP/SMTP системным администратором</string>
     <string name="title_setup_oauth_rationale">Авторизовать доступ к вашей учётной записи %1$s</string>
-    <string name="title_setup_oauth_update">Повторная авторизация учётной записи</string>
+    <string name="title_setup_oauth_update">Авторизация существующей учётной записи (или создание новой)</string>
     <string name="title_setup_oauth_updated">Авторизация учётной записи обновлена</string>
     <string name="title_setup_oauth_authorize">Авторизироваться</string>
     <string name="title_setup_select_account">Выбрать учётную запись</string>
@@ -872,7 +872,7 @@
     <string name="title_edit_contact">Изменить контакт</string>
     <string name="title_contact_email">Эл. почта</string>
     <string name="title_contact_name">Имя</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Группа</string>
+    <string name="title_contact_group">Группа</string>
     <string name="title_import_contacts">Импорт vCard</string>
     <string name="title_export_contacts">Экспорт vCard</string>
     <string name="title_create_sub_folder">Создать вложенную папку</string>
@@ -1000,6 +1000,7 @@
     <string name="title_eml_remark">Для пересылки исходные (оригинальные) сообщения необходимо загрузить с сервера электронной почты. Это требует подключения к интернету, а сами сообщения должны храниться на сервере.</string>
     <string name="title_eml_option">Это можно предотвратить, включив загрузку исходных сообщений в настройках подключения</string>
     <string name="title_eml_downloaded">Загружены исходные сообщения: %1$s</string>
+    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Автоматическое подтверждение через несколько секунд</string>
     <string name="title_buttons">Выбрать кнопки</string>
     <string name="title_buttons_hint">Доступные действия зависят от типа учётной записи и конфигурации</string>
     <string name="title_button_search">Поиск в сообщениях</string>
@@ -1870,8 +1871,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Получатель</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Отправитель</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Заблокировано</item>
+        <item>Отправитель</item>
+        <item>Заблокировано</item>
         <item>Не заблокировано</item>
     </string-array>
 </resources>

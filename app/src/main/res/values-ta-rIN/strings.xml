@@ -125,6 +125,7 @@
     <string name="title_setup_options">விருப்பங்கள்</string>
     <string name="title_advanced_section_synchronize">பெறுபவை</string>
     <string name="title_advanced_section_send">அனுப்புபவை</string>
+    <string name="title_advanced_section_privacy">தனியுரிமை</string>
     <string name="title_advanced_section_notifications">அறிவிப்புகள்</string>
     <string name="title_advanced_caption_general">பொது</string>
     <string name="title_advanced_caption_conversation">உரையாடல்</string>
@@ -132,6 +133,7 @@
     <string name="title_advanced_notify_action_delete">அழி</string>
     <string name="title_advanced_cleanup">சுத்தமாக்கு</string>
     <string name="title_synchronize_enabled">ஒத்திசைத்தல்</string>
+    <string name="title_contact_email">மின்னஞ்சல்</string>
     <string name="title_raw_send_message">அஞ்சல்</string>
     <string name="title_raw_send_thread">உரையாடல்</string>
     <string name="title_delete">அழி</string>
@@ -154,6 +156,12 @@
     <string name="title_log_clear">அகற்று</string>
     <string name="title_debug_info_remark">தயவுசெய்து சிக்கலை விளக்க மற்றும் பிரச்சினையின் நேரம் என்பதை குறிப்பிடவும்:</string>
     <!-- Thunderbird -->
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Primary account folders</item>
+        <item>கணக்குகள்</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
@@ -162,8 +170,8 @@
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
     <string-array name="contactTypes">
         <item>Recipient</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Sender</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">தடுக்கப்பட்டவை</item>
+        <item>Sender</item>
+        <item>தடுக்கப்பட்டவை</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

@@ -158,7 +158,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_gmail_password">Ik wil een account met een wachtwoord autoriseren</string>
     <string name="title_setup_office_auth">De fout \'AUTHENTICATE failed\' kan worden veroorzaakt doordat IMAP/SMTP door de systeemadministrator is uitgeschakeld</string>
     <string name="title_setup_oauth_rationale">Autoriseer toegang tot uw %1$s account</string>
-    <string name="title_setup_oauth_update">Autoriseer bestaande account opnieuw</string>
+    <string name="title_setup_oauth_update">Autoriseer een bestaand account opnieuw (anders een nieuwe account aanmaken)</string>
     <string name="title_setup_oauth_updated">Accountautorisatie is bijgewerkt</string>
     <string name="title_setup_oauth_authorize">Autoriseren</string>
     <string name="title_setup_select_account">Selecteer account</string>
@@ -849,7 +849,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_edit_contact">Contact bewerken</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Naam</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Groep</string>
+    <string name="title_contact_group">Groep</string>
     <string name="title_import_contacts">Importeer vCards</string>
     <string name="title_export_contacts">Exporteer vCards</string>
     <string name="title_create_sub_folder">Maak submap</string>
@@ -976,6 +976,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_eml_remark">Om berichten door te sturen, moeten de ruwe (originele) berichten worden gedownload van de mailserver. Dit vereist een internetverbinding en de berichten dienen nog opgeslagen te zijn op de mailserver.</string>
     <string name="title_eml_option">Dit kan worden voorkomen door het altijd downloaden van ruwe berichtbestanden in de verbindingsinstellingen in te schakelen</string>
     <string name="title_eml_downloaded">Ruwe berichten om te downloaden: %1$s</string>
+    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Automatisch bevestigen na enkele seconden</string>
     <string name="title_buttons">Selecteer knoppen</string>
     <string name="title_buttons_hint">De daadwerkelijk beschikbare acties hangen af van het accounttype en de configuratie</string>
     <string name="title_button_search">Zoeken in berichten</string>
@@ -1838,8 +1839,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     </string-array>
     <string-array name="contactTypes">
         <item>Ontvanger</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Afzender</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Geblokkeerd</item>
+        <item>Afzender</item>
+        <item>Geblokkeerd</item>
         <item>Niet geblokkeerd</item>
     </string-array>
 </resources>

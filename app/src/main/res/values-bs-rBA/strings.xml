@@ -169,7 +169,6 @@
     <string name="title_setup_gmail_password">Želim autorizovati račun s lozinkom</string>
     <string name="title_setup_office_auth">Greška \'PROVJERA nije uspjela\' može biti uzrokovana postavkama IMAP/SMTP-a koje je isključio sistemski administrator</string>
     <string name="title_setup_oauth_rationale">Autorizuj pristup vašem%1$s računu</string>
-    <string name="title_setup_oauth_update">Autorizuj postojeći račun opet</string>
     <string name="title_setup_oauth_updated">Autorizacija računa je ažurirana</string>
     <string name="title_setup_oauth_authorize">Autorizuj</string>
     <string name="title_setup_select_account">Izaberite račun</string>
@@ -862,7 +861,7 @@
     <string name="title_edit_contact">Uredi kontakt</string>
     <string name="title_contact_email">E-pošta</string>
     <string name="title_contact_name">Naziv</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Grupa</string>
+    <string name="title_contact_group">Grupa</string>
     <string name="title_import_contacts">Uvezi vCards-e</string>
     <string name="title_export_contacts">Izvezi vCards-e</string>
     <string name="title_create_sub_folder">Kreiraj podfolder</string>
@@ -1853,8 +1852,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Primalac</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Pošiljalac</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blokiran</item>
+        <item>Pošiljalac</item>
+        <item>Blokiran</item>
         <item>Deblokiran</item>
     </string-array>
 </resources>

@@ -156,7 +156,6 @@
     <string name="title_setup_gmail_password">Bir hesaba bir şifrə ilə səlahiyyət vermək istəyirəm</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem administratorunun IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza müraciət üçün səlahiyyət verin</string>
-    <string name="title_setup_oauth_update">Mövcud hesaba təkrar səlahiyyət verin</string>
     <string name="title_setup_oauth_updated">Hesab səlahiyyətləndirmə yeniləndi</string>
     <string name="title_setup_oauth_authorize">Səlahiyyət ver</string>
     <string name="title_setup_select_account">Hesab seç</string>
@@ -1838,8 +1837,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Alan</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Göndərən</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Əngəlləndi</item>
+        <item>Göndərən</item>
+        <item>Əngəlləndi</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

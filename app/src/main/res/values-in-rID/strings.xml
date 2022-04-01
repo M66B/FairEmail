@@ -143,7 +143,6 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_setup_gmail_password">Saya ingin mengotorisasi akun dengan kata sandi</string>
     <string name="title_setup_office_auth">Kesalahan \'AUTHENTICATE Failed\' bisa disebabkan oleh IMAP/SMTP yang dinon-aktifkan oleh administrator sistem.</string>
     <string name="title_setup_oauth_rationale">Izinkan akses ke akun %1$s Anda</string>
-    <string name="title_setup_oauth_update">Mengotorisasi akun yang sudah ada</string>
     <string name="title_setup_oauth_updated">Ulang kembali otorisasi akun</string>
     <string name="title_setup_oauth_authorize">Perizinan</string>
     <string name="title_setup_select_account">Pilih Akun</string>
@@ -1741,8 +1740,8 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     </string-array>
     <string-array name="contactTypes">
         <item>Penerima</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Pengirim</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Diblokir</item>
+        <item>Pengirim</item>
+        <item>Diblokir</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

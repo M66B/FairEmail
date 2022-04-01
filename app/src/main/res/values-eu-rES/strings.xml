@@ -1396,8 +1396,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Hartzailea</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Igorlea</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blokeatua</item>
+        <item>Igorlea</item>
+        <item>Blokeatua</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

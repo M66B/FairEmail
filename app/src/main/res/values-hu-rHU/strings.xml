@@ -155,7 +155,6 @@
     <string name="title_setup_gmail_password">Szeretnék egy fiókot hitelesíteni jelszóval</string>
     <string name="title_setup_office_auth">Az \'AUTHENTICATE failed\' hibának oka lehet hogy a rendszeradminisztrátor kikapcsolta az IMAP/SMTP-t</string>
     <string name="title_setup_oauth_rationale">Engedélyezze a hozzáférést a %1$s fiókjához</string>
-    <string name="title_setup_oauth_update">Ismételt autorizáció meglévő fiókhoz</string>
     <string name="title_setup_oauth_updated">A fiókhitelesítés frissült</string>
     <string name="title_setup_oauth_authorize">Engedélyezés</string>
     <string name="title_setup_select_account">Válasszon fiókot</string>
@@ -1795,8 +1794,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Címzett</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Feladó</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Letiltva</item>
+        <item>Feladó</item>
+        <item>Letiltva</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

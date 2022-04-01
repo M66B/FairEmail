@@ -158,7 +158,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_gmail_password">Bir hesabı bir şifre ile yetkilendirmek istiyorum</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
-    <string name="title_setup_oauth_update">Mevcut hesabı tekrar yetkilendirin</string>
+    <string name="title_setup_oauth_update">Mevcut bir hesabı yeniden yetkilendir (aksi takdirde yeni bir hesap oluştur)</string>
     <string name="title_setup_oauth_updated">Hesap yetkilendirme güncellendi</string>
     <string name="title_setup_oauth_authorize">Yetkilendir</string>
     <string name="title_setup_select_account">Hesap seç</string>
@@ -850,7 +850,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_edit_contact">Kişiyi düzenle</string>
     <string name="title_contact_email">e-posta</string>
     <string name="title_contact_name">Ad</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Grup</string>
+    <string name="title_contact_group">Grup</string>
     <string name="title_import_contacts">vCard\'ları içe aktar</string>
     <string name="title_export_contacts">vCard\'ları dışa aktar</string>
     <string name="title_create_sub_folder">Alt dizin oluştur</string>
@@ -1842,8 +1842,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     </string-array>
     <string-array name="contactTypes">
         <item>Alıcı</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Gönderen</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Engellenen</item>
+        <item>Gönderen</item>
+        <item>Engellenen</item>
         <item>Engellenmemiş</item>
     </string-array>
 </resources>

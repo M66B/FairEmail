@@ -179,7 +179,7 @@
     <string name="title_setup_gmail_password">ארצה לאמת חשבון עם סיסמה</string>
     <string name="title_setup_office_auth">השגיאה ‚AUTHENTICATE נכשל’ עלולה להיגרם עקב IMAP/SMTP שהושבתו על ידי הנהלת המערכת</string>
     <string name="title_setup_oauth_rationale">להרשות גישה לחשבון %1$s שלך</string>
-    <string name="title_setup_oauth_update">אישור חשבון קיים שוב</string>
+    <string name="title_setup_oauth_update">אימות חשבון קיים שוב (אחרת ליצור חשבון חדש)</string>
     <string name="title_setup_oauth_updated">אישור החשבון עודכן</string>
     <string name="title_setup_oauth_authorize">להרשות</string>
     <string name="title_setup_select_account">בחירת חשבון</string>
@@ -872,7 +872,7 @@
     <string name="title_edit_contact">עריכת איש קשר</string>
     <string name="title_contact_email">דוא״ל</string>
     <string name="title_contact_name">שם</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">קבוצה</string>
+    <string name="title_contact_group">קבוצה</string>
     <string name="title_import_contacts">ייבוא כרטיסי ביקור (vCard)</string>
     <string name="title_export_contacts">ייצוא כרטיסי ביקור (vCard)</string>
     <string name="title_create_sub_folder">יצירת תת־תיקייה</string>
@@ -1864,8 +1864,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>נמען</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">מוען</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">חסום</item>
+        <item>מוען</item>
+        <item>חסום</item>
         <item>לא חסום</item>
     </string-array>
 </resources>

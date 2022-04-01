@@ -159,7 +159,7 @@
     <string name="title_setup_gmail_password">Je veux autoriser un compte avec un mot de passe</string>
     <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur système</string>
     <string name="title_setup_oauth_rationale">Autoriser l\'accès à votre compte %1$s</string>
-    <string name="title_setup_oauth_update">Autoriser à nouveau le compte existant</string>
+    <string name="title_setup_oauth_update">Autoriser à nouveau un compte existant (sinon créer un nouveau compte)</string>
     <string name="title_setup_oauth_updated">L\'autorisation du compte a été mise à jour</string>
     <string name="title_setup_oauth_authorize">Autoriser</string>
     <string name="title_setup_select_account">Sélectionner un compte</string>
@@ -853,7 +853,7 @@
     <string name="title_edit_contact">Modifier un contact</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Nom</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Groupe</string>
+    <string name="title_contact_group">Groupe</string>
     <string name="title_import_contacts">Importer des vCards</string>
     <string name="title_export_contacts">Exporter des vCards</string>
     <string name="title_create_sub_folder">Créer un sous-dossier</string>
@@ -981,6 +981,7 @@
     <string name="title_eml_remark">Pour transférer des messages, les messages bruts (originaux) doivent être téléchargés depuis le serveur de messagerie. Ceci nécessite une connexion Internet et les messages doivent cependant être stockés sur le serveur de messagerie.</string>
     <string name="title_eml_option">Ceci peut être évité en activant le téléchargement systématique des fichiers de messages originaux dans les paramètres de connexion</string>
     <string name="title_eml_downloaded">Messages originaux téléchargés : %1$s</string>
+    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Confirmer automatiquement après quelques secondes</string>
     <string name="title_buttons">Sélectionner les boutons</string>
     <string name="title_buttons_hint">Les actions réellement disponibles dépendent du type de compte et de la configuration</string>
     <string name="title_button_search">Rechercher dans les messages</string>
@@ -1850,8 +1851,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Destinataire</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Expéditeur</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Bloqué</item>
+        <item>Expéditeur</item>
+        <item>Bloqué</item>
         <item>Non bloqué</item>
     </string-array>
 </resources>

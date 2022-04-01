@@ -154,7 +154,7 @@
     <string name="title_setup_gmail_drafts">اگر پوشه پیش‌نویس‌ها به‌وسیله IMAP قابل دسترسی نیست، می‌توان آن را در تنظیمات برچسب‌های جیمیل درست کرد</string>
     <string name="title_setup_office_auth">خطای \'AUTHENTICATE failed\' می‌تواند به‌دلیل غیرفعال بودن IMAP/SMTP به‌ دست مدیر سیستم باشد</string>
     <string name="title_setup_oauth_rationale">برای دسترسی به %1$s حسابتان اجازه دهید</string>
-    <string name="title_setup_oauth_update">تایید دوباره هویت حساب موجود</string>
+    <string name="title_setup_oauth_update">به یک حساب موجود اجازه بدهید (در غیر این صورت یک حساب جدید بسازید)</string>
     <string name="title_setup_oauth_updated">تایید هویت حساب به روز شد</string>
     <string name="title_setup_oauth_authorize">اجازه دهید</string>
     <string name="title_setup_select_account">انتخاب حساب</string>
@@ -587,7 +587,7 @@
     <string name="title_edit_contact">ویرایش مخاطب</string>
     <string name="title_contact_email">ایمیل</string>
     <string name="title_contact_name">نام</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">گروه</string>
+    <string name="title_contact_group">گروه</string>
     <string name="title_create_sub_folder">ساخت زیرپوشه</string>
     <string name="title_empty_trash_ask">پیام‌های سطل آشغال برای همیشه پاک شوند?</string>
     <string name="title_empty_spam_ask">پیام‌های هرزنامه برای همیشه پاک شوند؟</string>
@@ -1343,8 +1343,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>گیرنده</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">فرستنده</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">مسدود شده</item>
+        <item>فرستنده</item>
+        <item>مسدود شده</item>
         <item>مسدود نشده</item>
     </string-array>
 </resources>

@@ -175,7 +175,6 @@
     <string name="title_setup_gmail_password">Chcem si autorizovať účet zadaním hesla</string>
     <string name="title_setup_office_auth">Chyba \"OVERENIE zlyhalo\" môže byť zapríčinená zakázanými IMAP/SMTP správcom systému</string>
     <string name="title_setup_oauth_rationale">Autorizovať prístup do vášho %1$s účtu</string>
-    <string name="title_setup_oauth_update">Znovu autorizovať existujúci účet</string>
     <string name="title_setup_oauth_updated">Autorizácia účtu bola aktualizovaná</string>
     <string name="title_setup_oauth_authorize">Autorizovať</string>
     <string name="title_setup_select_account">Vybrať účet</string>
@@ -1851,8 +1850,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     </string-array>
     <string-array name="contactTypes">
         <item>Adresát</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Odosielateľ</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blokované</item>
+        <item>Odosielateľ</item>
+        <item>Blokované</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

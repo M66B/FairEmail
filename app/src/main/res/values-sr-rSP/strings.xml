@@ -1059,8 +1059,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Прималац</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Пошиљаоцу</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Блокирано</item>
+        <item>Пошиљаоцу</item>
+        <item>Блокирано</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

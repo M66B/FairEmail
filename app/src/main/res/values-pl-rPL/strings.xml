@@ -179,7 +179,7 @@
     <string name="title_setup_gmail_password">Chcę autoryzować konto hasłem</string>
     <string name="title_setup_office_auth">Błąd \"AUTHENTICATE failed\" może być spowodowany wyłączeniem protokołu IMAP/SMTP przez administratora systemu</string>
     <string name="title_setup_oauth_rationale">Autoryzuj dostęp do Twojego konta %1$s</string>
-    <string name="title_setup_oauth_update">Ponownie autoryzuj istniejące konto</string>
+    <string name="title_setup_oauth_update">Autoryzuj istniejące konto ponownie (w przeciwnym razie utwórz nowe konto)</string>
     <string name="title_setup_oauth_updated">Autoryzacja konta została zaktualizowana</string>
     <string name="title_setup_oauth_authorize">Autoryzuj</string>
     <string name="title_setup_select_account">Wybierz konto</string>
@@ -871,7 +871,7 @@
     <string name="title_edit_contact">Edytuj kontakt</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Nazwa</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Grupa</string>
+    <string name="title_contact_group">Grupa</string>
     <string name="title_import_contacts">Importuj karty vCards</string>
     <string name="title_export_contacts">Eksportuj karty vCards</string>
     <string name="title_create_sub_folder">Utwórz podfolder</string>
@@ -1866,8 +1866,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Adresat</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Nadawca</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Zablokowane</item>
+        <item>Nadawca</item>
+        <item>Zablokowane</item>
         <item>Niezablokowany</item>
     </string-array>
 </resources>

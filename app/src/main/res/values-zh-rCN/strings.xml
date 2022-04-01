@@ -149,7 +149,7 @@
     <string name="title_setup_gmail_password">我想通过密码来授权一个账户</string>
     <string name="title_setup_office_auth">\"认证失败\" 的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
-    <string name="title_setup_oauth_update">再次授权现有账户</string>
+    <string name="title_setup_oauth_update">重新授权现有账户（否则请新建账户）</string>
     <string name="title_setup_oauth_updated">账户授权已更新</string>
     <string name="title_setup_oauth_authorize">授权</string>
     <string name="title_setup_select_account">选择账户</string>
@@ -840,7 +840,7 @@
     <string name="title_edit_contact">编辑联系人</string>
     <string name="title_contact_email">电子邮件</string>
     <string name="title_contact_name">名称</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">组</string>
+    <string name="title_contact_group">组</string>
     <string name="title_import_contacts">从 vCard 文件导入</string>
     <string name="title_export_contacts">导出为 vCard 文件</string>
     <string name="title_create_sub_folder">创建子文件夹</string>
@@ -1830,8 +1830,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>收件人</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">发件人</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">已拦截</item>
+        <item>发件人</item>
+        <item>已拦截</item>
         <item>未屏蔽</item>
     </string-array>
 </resources>

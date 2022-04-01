@@ -149,7 +149,7 @@
     <string name="title_setup_gmail_password">パスワードでアカウントを認証したい</string>
     <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によって IMAP/SMTP が無効にされていることが原因である可能性があります</string>
     <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可する</string>
-    <string name="title_setup_oauth_update">登録済みのアカウントをもう一度認証する</string>
+    <string name="title_setup_oauth_update">設定済みのアカウントをもう一度認証する (設定されていない場合、新しいアカウントを作成します)</string>
     <string name="title_setup_oauth_updated">アカウントの認証情報が更新されました</string>
     <string name="title_setup_oauth_authorize">認証</string>
     <string name="title_setup_select_account">アカウントを選択</string>
@@ -842,7 +842,7 @@
     <string name="title_edit_contact">連絡先を編集</string>
     <string name="title_contact_email">メール</string>
     <string name="title_contact_name">名前</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">グループ</string>
+    <string name="title_contact_group">グループ</string>
     <string name="title_import_contacts">vCard をインポート</string>
     <string name="title_export_contacts">vCard をエクスポート</string>
     <string name="title_create_sub_folder">サブフォルダーを作成</string>
@@ -1154,7 +1154,7 @@
     <string name="title_translating">翻訳しています&#8230;</string>
     <string name="title_translate_formal">書き言葉を使用</string>
     <string name="title_translate_small">ソーステキストに小さなフォントを使用する</string>
-    <string name="title_translate_usage">使用: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_usage">利用文字数: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">テキストをタップして翻訳</string>
     <string name="title_edit_plain_text">プレーンテキストとして編集</string>
     <string name="title_edit_formatted_text">再フォーマットされたテキストとして編集</string>
@@ -1838,8 +1838,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>宛先</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">差出人</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">ブロック中</item>
+        <item>差出人</item>
+        <item>ブロック中</item>
         <item>未ブロック</item>
     </string-array>
 </resources>

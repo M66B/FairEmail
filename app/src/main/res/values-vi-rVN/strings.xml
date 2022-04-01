@@ -149,7 +149,6 @@
     <string name="title_setup_gmail_password">Tôi muốn uỷ quyền một tài khoản với mật khẩu</string>
     <string name="title_setup_office_auth">Lỗi \'XÁC THỰC thất bại\' có thể gây ra bởi IMAP/SMTP bị vô hiệu hoá bởi quản trị viên hệ thống</string>
     <string name="title_setup_oauth_rationale">Cấp quyền truy cập vào tài khoản %1$s của bạn</string>
-    <string name="title_setup_oauth_update">Uỷ quyền lại tài khoản đang tồn tại</string>
     <string name="title_setup_oauth_updated">Việc uỷ quyền tài khoản đã được cập nhật</string>
     <string name="title_setup_oauth_authorize">Uỷ quyền</string>
     <string name="title_setup_select_account">Chọn tài khoản</string>
@@ -840,6 +839,7 @@
     <string name="title_edit_contact">Chỉnh sửa liên hệ</string>
     <string name="title_contact_email">Email</string>
     <string name="title_contact_name">Tên</string>
+    <string name="title_contact_group">Nhóm</string>
     <string name="title_import_contacts">Nhập tệp vCard</string>
     <string name="title_export_contacts">Xuất vCard</string>
     <string name="title_create_sub_folder">Tạo thư mục con</string>
@@ -1824,8 +1824,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Người nhận</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Người gửi</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Đã chặn</item>
-        <item>Not blocked</item>
+        <item>Người gửi</item>
+        <item>Đã chặn</item>
+        <item>Không bị chặn</item>
     </string-array>
 </resources>

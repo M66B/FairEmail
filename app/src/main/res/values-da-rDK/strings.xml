@@ -159,7 +159,7 @@
     <string name="title_setup_gmail_password">Jeg ønsker at godkende en konto med en adgangskode</string>
     <string name="title_setup_office_auth">Fejlen \'GODKENDELSE mislykkedes\' kan skyldes, at IMAP/SMTP er deaktiveret af systemadministratoren</string>
     <string name="title_setup_oauth_rationale">Godkend adgang til din %1$s-konto</string>
-    <string name="title_setup_oauth_update">Godkend eksisterende konto igen</string>
+    <string name="title_setup_oauth_update">Godkend en eksisterende konto igen (ellers opret en ny konto)</string>
     <string name="title_setup_oauth_updated">Kontogodkendelsen blev opdateret</string>
     <string name="title_setup_oauth_authorize">Godkend</string>
     <string name="title_setup_select_account">Vælg konto</string>
@@ -853,7 +853,7 @@
     <string name="title_edit_contact">Redigér Kontakt</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Navn</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Gruppe</string>
+    <string name="title_contact_group">Gruppe</string>
     <string name="title_import_contacts">Importere vCard</string>
     <string name="title_export_contacts">Eksportere vCard</string>
     <string name="title_create_sub_folder">Opret undermappe</string>
@@ -1849,8 +1849,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Modtager</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Afsender</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blokeret</item>
+        <item>Afsender</item>
+        <item>Blokeret</item>
         <item>Ublokeret</item>
     </string-array>
 </resources>

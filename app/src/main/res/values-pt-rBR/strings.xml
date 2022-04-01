@@ -159,7 +159,7 @@
     <string name="title_setup_gmail_password">Quero autorizar uma conta com uma senha</string>
     <string name="title_setup_office_auth">O erro \'Falha de Autenticação\' pode ser causadado por desativação do IMAP/SMTP pelo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar acesso à sua conta %1$s</string>
-    <string name="title_setup_oauth_update">Autorizar conta existente novamente</string>
+    <string name="title_setup_oauth_update">Autorizar uma conta existente novamente (caso contrário, crie uma nova conta)</string>
     <string name="title_setup_oauth_updated">Autorização da conta foi atualizada</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Selecionar conta</string>
@@ -851,7 +851,7 @@
     <string name="title_edit_contact">Editar contato</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Nome</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Grupo</string>
+    <string name="title_contact_group">Grupo</string>
     <string name="title_import_contacts">Importar vCards</string>
     <string name="title_export_contacts">Exportar vCards</string>
     <string name="title_create_sub_folder">Criar subpasta</string>
@@ -1845,8 +1845,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatário</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Remetente</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Bloqueado</item>
+        <item>Remetente</item>
+        <item>Bloqueado</item>
         <item>Não bloqueado</item>
     </string-array>
 </resources>

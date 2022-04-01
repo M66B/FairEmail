@@ -158,7 +158,7 @@
     <string name="title_setup_gmail_password">Ich möchte ein Konto mit einem Passwort autorisieren</string>
     <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
-    <string name="title_setup_oauth_update">Vorhandenes Konto erneut autorisieren</string>
+    <string name="title_setup_oauth_update">Ein bestehendes Konto erneut autorisieren (andernfalls erstellen Sie ein neues Konto)</string>
     <string name="title_setup_oauth_updated">Kontoautorisierung wurde aktualisiert</string>
     <string name="title_setup_oauth_authorize">Autorisieren</string>
     <string name="title_setup_select_account">Konto wählen</string>
@@ -850,7 +850,7 @@
     <string name="title_edit_contact">Kontakt bearbeiten</string>
     <string name="title_contact_email">Neue E-Mail</string>
     <string name="title_contact_name">Name</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Gruppe</string>
+    <string name="title_contact_group">Gruppe</string>
     <string name="title_import_contacts">vCards importieren</string>
     <string name="title_export_contacts">vCards exportieren</string>
     <string name="title_create_sub_folder">Unterordner erstellen</string>
@@ -1843,8 +1843,8 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     </string-array>
     <string-array name="contactTypes">
         <item>Empfänger</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Absender</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blockiert</item>
+        <item>Absender</item>
+        <item>Blockiert</item>
         <item>Nicht blockiert</item>
     </string-array>
 </resources>

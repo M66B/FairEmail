@@ -124,7 +124,6 @@
     <string name="title_setup_gmail_password">Želim lozinkom odobriti račun</string>
     <string name="title_setup_office_auth">Greška \'AUTHENTICATE failed\' se može pojaviti ako je IMAP/SMTP isključen od strane administratora</string>
     <string name="title_setup_oauth_rationale">Autorizirajte pristup vašem %1$s računu</string>
-    <string name="title_setup_oauth_update">Ponovo odobri postoječi račun</string>
     <string name="title_setup_oauth_authorize">Autoriziraj</string>
     <string name="title_setup_select_account">Odaberi račun</string>
     <string name="title_setup_instructions">Upute za postavljanje</string>
@@ -1162,8 +1161,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Primatelj</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Pošiljatelj</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blokirano</item>
+        <item>Pošiljatelj</item>
+        <item>Blokirano</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

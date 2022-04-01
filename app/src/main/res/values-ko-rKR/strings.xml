@@ -1022,8 +1022,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>수신</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">발신인</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">차단됨</item>
+        <item>발신인</item>
+        <item>차단됨</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

@@ -146,8 +146,8 @@
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
     <string-array name="contactTypes">
         <item>Recipient</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Sender</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">অবরুদ্ধ</item>
+        <item>Sender</item>
+        <item>অবরুদ্ধ</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

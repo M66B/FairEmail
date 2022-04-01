@@ -179,7 +179,6 @@
     <string name="title_setup_gmail_password">Chci autorizovat účet pomocí hesla</string>
     <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
-    <string name="title_setup_oauth_update">Znovu autorizovat již existující účet</string>
     <string name="title_setup_oauth_updated">Autorizace účtu byla aktualizována</string>
     <string name="title_setup_oauth_authorize">Autorizovat</string>
     <string name="title_setup_select_account">Vybrat účet</string>
@@ -871,7 +870,7 @@
     <string name="title_edit_contact">Upravit kontakt</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Název</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Skupina</string>
+    <string name="title_contact_group">Skupina</string>
     <string name="title_import_contacts">Importovat vCard</string>
     <string name="title_export_contacts">Exportovat vCard</string>
     <string name="title_create_sub_folder">Vytvořit podsložku</string>
@@ -1866,8 +1865,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Příjemce</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Odesílatel</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blokováno</item>
+        <item>Odesílatel</item>
+        <item>Blokováno</item>
         <item>Neblokováno</item>
     </string-array>
 </resources>

@@ -144,7 +144,6 @@
     <string name="title_setup_gmail_password">我想要使用密碼來授權帳戶</string>
     <string name="title_setup_office_auth">“驗證失敗”錯誤可能是由系統管理員停用 IMAP/SMTP 所致</string>
     <string name="title_setup_oauth_rationale">授權存取您的 %1$s 帳戶</string>
-    <string name="title_setup_oauth_update">再次授權現有帳戶</string>
     <string name="title_setup_oauth_updated">帳戶授權已更新</string>
     <string name="title_setup_oauth_authorize">授權</string>
     <string name="title_setup_select_account">選擇帳戶</string>
@@ -1774,8 +1773,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>接收者</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">寄件者</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">已封鎖</item>
+        <item>寄件者</item>
+        <item>已封鎖</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

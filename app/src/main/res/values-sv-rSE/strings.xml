@@ -159,7 +159,6 @@
     <string name="title_setup_gmail_password">Jag vill auktorisera ett konto med ett lösenord</string>
     <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP inaktiveras av systemadministratören</string>
     <string name="title_setup_oauth_rationale">Auktorisera åtkomst till ditt %1$s konto</string>
-    <string name="title_setup_oauth_update">Auktorisera befintligt konto igen</string>
     <string name="title_setup_oauth_updated">Kontoauktorisering har uppdaterats</string>
     <string name="title_setup_oauth_authorize">Auktorisera</string>
     <string name="title_setup_select_account">Välj konto</string>
@@ -848,7 +847,7 @@
     <string name="title_edit_contact">Redigera kontakt</string>
     <string name="title_contact_email">E-post</string>
     <string name="title_contact_name">Namn</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Grupp</string>
+    <string name="title_contact_group">Grupp</string>
     <string name="title_import_contacts">Importera vCards</string>
     <string name="title_export_contacts">Exportera vCard</string>
     <string name="title_create_sub_folder">Skapa undermapp</string>
@@ -1841,8 +1840,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Mottagare</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Avsändaren</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blockerade</item>
+        <item>Avsändaren</item>
+        <item>Blockerade</item>
         <item>Inte blockerad</item>
     </string-array>
 </resources>

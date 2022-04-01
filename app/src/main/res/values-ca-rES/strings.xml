@@ -1288,8 +1288,8 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatari</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Remitent</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Bloquejat</item>
+        <item>Remitent</item>
+        <item>Bloquejat</item>
         <item>Not blocked</item>
     </string-array>
 </resources>

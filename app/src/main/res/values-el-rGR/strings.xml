@@ -159,7 +159,7 @@
     <string name="title_setup_gmail_password">Θέλω να εξουσιοδοτήσω έναν λογαριασμό με έναν κωδικό πρόσβασης</string>
     <string name="title_setup_office_auth">Το σφάλμα \'ΠΙΣΤΟΠΟΙΗΣΗ απέτυχε\' μπορεί να προκληθεί επειδή το IMAP/SMTP έχει απενεργοποιηθεί από το διαχειριστή του συστήματος</string>
     <string name="title_setup_oauth_rationale">Παραχωρήστε πρόσβαση στον λογαριασμό σας %1$s</string>
-    <string name="title_setup_oauth_update">Εκ νέου εξουσιοδότηση υπάρχοντος λογαριασμού</string>
+    <string name="title_setup_oauth_update">Εκ νέου εξουσιοδότηση ενός ήδη υπάρχοντος λογαριασμού (διαφορετικά, δημιουργήστε έναν καινούργιο λογαριασμό)</string>
     <string name="title_setup_oauth_updated">Η εξουσιοδότηση λογαριασμού ενημερώθηκε</string>
     <string name="title_setup_oauth_authorize">Εξουσιοδότηση</string>
     <string name="title_setup_select_account">Επιλογή λογαριασμού</string>
@@ -849,7 +849,7 @@
     <string name="title_edit_contact">Επεξεργασία επαφής</string>
     <string name="title_contact_email">Ηλεκτρονικό ταχυδρομείο</string>
     <string name="title_contact_name">Όνομα</string>
-    <string name="title_contact_group" comment="title_contact_group&#10;Local contact group name">Ομάδα</string>
+    <string name="title_contact_group">Ομάδα</string>
     <string name="title_import_contacts">Εισαγωγή vCard</string>
     <string name="title_export_contacts">Εξαγωγή vCard</string>
     <string name="title_create_sub_folder">Δημιουργία υποφακέλου</string>
@@ -1842,8 +1842,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Παραλήπτης</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Αποστολέας</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Αποκλεισμένος</item>
+        <item>Αποστολέας</item>
+        <item>Αποκλεισμένος</item>
         <item>Μη αποκλεισμένος</item>
     </string-array>
 </resources>

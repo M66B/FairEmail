@@ -120,7 +120,6 @@
     <string name="title_setup_gmail_password">Jeg ønsker å godkjenne en konto med et passord</string>
     <string name="title_setup_office_auth">Feilen \'AUTHENTICATE failed\' kan skyldes at IMAP/SMTP er deaktivert av systemadministratoren</string>
     <string name="title_setup_oauth_rationale">Autoriser tilgang til din %1$s konto</string>
-    <string name="title_setup_oauth_update">Autoriser eksisterende konto på nytt</string>
     <string name="title_setup_oauth_updated">Konto autorisasjon ble oppdatert</string>
     <string name="title_setup_oauth_authorize">Godkjenne</string>
     <string name="title_setup_select_account">Velg konto</string>
@@ -1421,8 +1420,8 @@
     </string-array>
     <string-array name="contactTypes">
         <item>Mottaker</item>
-        <item comment="contact types: sender&#10;As in &quot;this is a sender&quot;">Avsender</item>
-        <item comment="contact types: blocked sender&#10;As in &quot;This sender is blocked&quot;">Blokkert</item>
+        <item>Avsender</item>
+        <item>Blokkert</item>
         <item>Not blocked</item>
     </string-array>
 </resources>
