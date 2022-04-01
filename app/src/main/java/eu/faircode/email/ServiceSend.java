@@ -620,7 +620,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 message.subject = helper.getSubject(); // Subject encryption
                 message.encrypt = parts.getEncryption();
                 message.ui_encrypt = message.encrypt;
-                message.received = new Date().getTime();
+                message.received = message.sent; // now
                 message.seen = true;
                 message.ui_seen = true;
                 message.ui_hide = true;
