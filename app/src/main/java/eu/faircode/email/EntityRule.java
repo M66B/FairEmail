@@ -539,6 +539,8 @@ public class EntityRule {
                     String to = jargs.optString("to");
                     if (TextUtils.isEmpty(to))
                         throw new IllegalArgumentException(context.getString(R.string.title_rule_answer_missing));
+                    else if (!Helper.EMAIL_ADDRESS.matcher(to).matches())
+                        throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, to));
                 } else {
                     EntityAnswer answer = db.answer().getAnswer(aid);
                     if (answer == null)
