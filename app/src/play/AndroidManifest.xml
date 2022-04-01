@@ -310,7 +310,7 @@
             android:name=".ActivityEML"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:launchMode="singleTask">
+            android:launchMode="singleInstance">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -344,7 +344,7 @@
             android:name=".ActivityDSN"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:launchMode="singleTask">
+            android:launchMode="singleInstance">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -364,7 +364,7 @@
             android:name=".ActivityAMP"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:launchMode="singleTask">
+            android:launchMode="singleInstance">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -383,7 +383,7 @@
             android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:launchMode="singleTask">
+            android:launchMode="singleInstance">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
