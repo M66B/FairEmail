@@ -2916,7 +2916,9 @@ class Core {
 
                         if (hasUidl ? uidlMsgId.containsKey(uidl) : msgIdTuple.containsKey(msgid)) {
                             _new = false;
-                            Log.i(account.name + " POP having " + msgid + "/" + uidl);
+                            Log.i(account.name + " POP having " +
+                                    msgid + "=" + msgIdTuple.containsKey(msgid) + "/" +
+                                    uidl + "=" + uidlMsgId.containsKey(uidl));
 
                             if (download_eml)
                                 try {
