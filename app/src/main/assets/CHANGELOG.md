@@ -4,6 +4,11 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### 1.1866 - 2022-04-02
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1865 - 2022-04-01
 
 * Added searching in rule actions
