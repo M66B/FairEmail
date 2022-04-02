@@ -981,6 +981,7 @@
     <string name="title_eml_remark">Per inoltrare i messaggi, quelli non elaborati (originali) devono esser scaricati dal server email. Questo richiede una connessione a Internet e i messaggi devono ancora esser memorizzati sul server email.</string>
     <string name="title_eml_option">Questo può esser impedito abilitando sempre il download dei file dei messaggi non elaborati nelle impostazioni di connessione</string>
     <string name="title_eml_downloaded">Messaggi non elaborati scaricati: %1$s</string>
+    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Conferma automaticamente dopo alcuni secondi</string>
     <string name="title_buttons">Seleziona i pulsanti</string>
     <string name="title_buttons_hint">Le azioni effettive disponibili dipendono dal tipo di profilo e dalla configurazione</string>
     <string name="title_button_search">Cerca nei messaggi</string>

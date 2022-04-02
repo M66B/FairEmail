@@ -169,6 +169,7 @@
     <string name="title_setup_gmail_password">Želim autorizovati račun s lozinkom</string>
     <string name="title_setup_office_auth">Greška \'PROVJERA nije uspjela\' može biti uzrokovana postavkama IMAP/SMTP-a koje je isključio sistemski administrator</string>
     <string name="title_setup_oauth_rationale">Autorizuj pristup vašem%1$s računu</string>
+    <string name="title_setup_oauth_update">Autorizuj postojeći račun opet (u suprotnom, kreiraj novi račun)</string>
     <string name="title_setup_oauth_updated">Autorizacija računa je ažurirana</string>
     <string name="title_setup_oauth_authorize">Autorizuj</string>
     <string name="title_setup_select_account">Izaberite račun</string>
@@ -989,6 +990,7 @@
     <string name="title_eml_remark">Za prosljeđivanje poruka, izvorne (raw) poruke se trebaju prvo preuzeti s e-mail servera. Ovo zahtijeva internet konekciju i poruke se još uvijek moraju čuvati na e-mail serveru.</string>
     <string name="title_eml_option">Ovo se može spriječiti uključivanjem opcije \'uvijek preuzimaj datoteke raw poruka\' u postavkama konekcije</string>
     <string name="title_eml_downloaded">Preuzetih raw poruka: %1$s</string>
+    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Automatski potvrdi nakon par sekundi</string>
     <string name="title_buttons">Izaberi dugmad</string>
     <string name="title_buttons_hint">Aktualne radnje su dostupne u zavisnosti od vrste i podešavanja računa</string>
     <string name="title_button_search">Pretraži u porukama</string>

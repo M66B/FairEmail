@@ -980,6 +980,7 @@
     <string name="title_eml_remark">Beskedvideresendelse kræver download af de rå (originale) beskeder fra e-mailserveren. Dette kræver Internetforbindelse, og beskederne skal stadig lagres på e-mailserveren.</string>
     <string name="title_eml_option">Dette kan forhindres ved i forbindelsesindstillingerne at aktivere Download altid rå beskedfiler</string>
     <string name="title_eml_downloaded">Rå beskeder downloadet: %1$s</string>
+    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Auto-bekræft efter et par sekunder</string>
     <string name="title_buttons">Vælg knapper</string>
     <string name="title_buttons_hint">De faktisk tilgængelige handlinger afhænger af kontotype og opsætning</string>
     <string name="title_button_search">Søg i beskeder</string>
