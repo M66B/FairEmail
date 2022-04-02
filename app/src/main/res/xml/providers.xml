@@ -1550,4 +1550,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Vodafone Hungary"
+        domain="vodafone\\.hu">
+        <imap
+            host="mail.vodamail.hu"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.vodamail.hu"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
