@@ -44,4 +44,4 @@ FairEmail **is** [GDPR compliant](https://gdpr.eu/) because no data is collected
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Copyright &copy; 2018-2022 Marcel Bokhorst.
