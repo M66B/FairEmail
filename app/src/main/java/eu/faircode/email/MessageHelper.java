@@ -1524,18 +1524,18 @@ public class MessageHelper {
                 }
         }
 
-        if (thread == null && BuildConfig.DEBUG) {
+        if (thread == null && !TextUtils.isEmpty(BuildConfig.DEV_DOMAIN)) {
             String awsses = imessage.getHeader("X-SES-Outgoing", null);
             if (!TextUtils.isEmpty(awsses)) {
                 Address[] froms = getFrom();
                 if (froms != null && froms.length > 0) {
                     String from = ((InternetAddress) froms[0]).getAddress();
-                    if (!TextUtils.isEmpty(from) && from.endsWith("@faircode.eu")) {
+                    if (!TextUtils.isEmpty(from) && from.endsWith("@" + BuildConfig.DEV_DOMAIN)) {
                         Address[] rr = getReply();
                         Address[] tos = (rr != null && rr.length > 0 ? rr : getTo());
                         if (tos != null && tos.length > 0) {
                             String email = ((InternetAddress) tos[0]).getAddress();
-                            if (!TextUtils.isEmpty(email) && !email.endsWith("@faircode.eu"))
+                            if (!TextUtils.isEmpty(email) && !email.endsWith("@" + BuildConfig.DEV_DOMAIN))
                                 thread = "ses:" + email;
                         }
                     }
