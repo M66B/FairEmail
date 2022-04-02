@@ -1535,7 +1535,7 @@ public class MessageHelper {
                         Address[] tos = (rr != null && rr.length > 0 ? rr : getTo());
                         if (tos != null && tos.length > 0) {
                             String email = ((InternetAddress) tos[0]).getAddress();
-                            if (!TextUtils.isEmpty(email))
+                            if (!TextUtils.isEmpty(email) && !email.endsWith("@faircode.eu"))
                                 thread = "ses:" + email;
                         }
                     }
