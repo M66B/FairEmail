@@ -7382,7 +7382,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 InputStream in = null;
                 OutputStream out = null;
                 boolean inline = false;
-                File plain = File.createTempFile("plain", "." + message.id, context.getCacheDir());
+
+                File tmp = new File(context.getFilesDir(), "encryption");
+                if (!tmp.exists())
+                    tmp.mkdir();
+                File plain = new File(tmp, message.id + ".pgp_out");
 
                 // Find encrypted data
                 for (EntityAttachment attachment : attachments)
