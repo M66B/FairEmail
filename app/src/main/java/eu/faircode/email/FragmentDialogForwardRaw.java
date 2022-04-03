@@ -196,7 +196,11 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                             getArguments().putLongArray("ids", ids);
 
                             enabled = true;
+
                             Button ok = getPositiveButton();
+                            if (ok == null)
+                                return;
+
                             ok.setEnabled(enabled);
 
                             boolean eml_auto_confirm = prefs.getBoolean("eml_auto_confirm", false);
@@ -204,7 +208,15 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                                 ok.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        getPositiveButton().performClick();
+                                        try {
+                                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                                return;
+                                            Button ok = getPositiveButton();
+                                            if (ok != null)
+                                                ok.performClick();
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                        }
                                     }
                                 }, AUTO_CONFIRM_DELAY);
                         }
@@ -239,7 +251,9 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
     @Override
     public void onStart() {
         super.onStart();
-        getPositiveButton().setEnabled(enabled);
+        Button ok = getPositiveButton();
+        if (ok != null)
+            ok.setEnabled(enabled);
     }
 
     private Button getPositiveButton() {
