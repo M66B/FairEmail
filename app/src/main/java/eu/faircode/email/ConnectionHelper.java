@@ -468,6 +468,33 @@ public class ConnectionHelper {
         return (status == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
     }
 
+    static String getDataSaving(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+            return null;
+
+        try {
+            ConnectivityManager cm =
+                    (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (cm == null)
+                return null;
+
+            int status = cm.getRestrictBackgroundStatus();
+            switch (status) {
+                case ConnectivityManager.RESTRICT_BACKGROUND_STATUS_DISABLED:
+                    return "disabled";
+                case ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED:
+                    return "enabled";
+                case ConnectivityManager.RESTRICT_BACKGROUND_STATUS_WHITELISTED:
+                    return "whitelisted";
+                default:
+                    return Integer.toString(status);
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
+        }
+    }
+
     static boolean vpnActive(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null)

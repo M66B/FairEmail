@@ -2059,6 +2059,7 @@ public class Log {
                 boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
                 boolean schedule = prefs.getBoolean("schedule", false);
 
+                String ds = ConnectionHelper.getDataSaving(context);
                 boolean vpn = ConnectionHelper.vpnActive(context);
                 boolean ng = Helper.isInstalled(context, "eu.faircode.netguard");
                 boolean tc = Helper.isInstalled(context, "net.kollnig.missioncontrol");
@@ -2066,6 +2067,7 @@ public class Log {
                 size += write(os, "enabled=" + enabled + (enabled ? "" : " !!!") +
                         " interval=" + pollInterval + "\r\n" +
                         "metered=" + metered + (metered ? "" : " !!!") +
+                        " restricted=" + ds + ("enabled".equals(ds) ? " !!!" : "") +
                         " vpn=" + vpn + (vpn ? " !!!" : "") +
                         " ng=" + ng + " tc=" + tc + "\r\n" +
                         "optimizing=" + (ignoring == null ? null : !ignoring) + (Boolean.FALSE.equals(ignoring) ? " !!!" : "") +
