@@ -18,6 +18,7 @@ if (rootProject.file("local.properties").exists())
 android {
     compileSdkVersion 32
 
+    // https://apilevels.com/
     defaultConfig {
         applicationId "eu.faircode.email"
         minSdkVersion 21
@@ -185,7 +186,7 @@ android {
         }
         play {
             dimension "all"
-            //minSdkVersion 23
+            minSdkVersion 23
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
@@ -204,7 +205,7 @@ android {
         }
         amazon {
             dimension "all"
-            //minSdkVersion 23
+            minSdkVersion 23
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
