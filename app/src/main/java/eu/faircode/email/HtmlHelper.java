@@ -531,7 +531,7 @@ public class HtmlHelper {
         if (disable_tracking)
             removeTrackingPixels(context, document);
 
-        // Font
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font
         for (Element font : document.select("font")) {
             // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font
             String style = font.attr("style");
