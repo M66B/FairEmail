@@ -497,7 +497,7 @@ public class HtmlHelper {
             sheets = parseStyles(parsed.head().select("style"));
 
         Safelist safelist = Safelist.relaxed()
-                .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt")
+                .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt", "mark")
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
                 .addAttributes("span", "dir")
@@ -2910,6 +2910,7 @@ public class HtmlHelper {
 
         final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         final int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        final int colorHighlight = Helper.resolveColor(context, R.attr.colorHighlight);
         final int colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
         final int colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
         int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
@@ -3372,6 +3373,9 @@ public class HtmlHelper {
                                     setSpan(ssb, new NumberSpan(bulletIndent, bulletGap, colorAccent, textSize, level, index, ltype), start, ssb.length());
                                 }
 
+                                break;
+                            case "mark":
+                                setSpan(ssb, new BackgroundColorSpan(colorHighlight), start, ssb.length());
                                 break;
                             case "pre":
                             case "tt":
