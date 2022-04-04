@@ -844,6 +844,12 @@ public class HtmlHelper {
                             sb.append(key).append(":").append(value).append(";");
                             break;
 
+                        case "font-style":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/font-style
+                            if (value.contains("italic") || value.contains("oblique"))
+                                sb.append(key).append(":").append("italic").append(";");
+                            break;
+
                         case "text-decoration":
                         case "text-decoration-line":
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
@@ -3150,6 +3156,10 @@ public class HtmlHelper {
                                         }
                                     } else
                                         setSpan(ssb, StyleHelper.getTypefaceSpan(value, context), start, ssb.length());
+                                    break;
+                                case "font-style":
+                                    if ("italic".equals(value))
+                                        setSpan(ssb, new StyleSpan(Typeface.ITALIC), start, ssb.length());
                                     break;
                                 case "text-decoration":
                                     if ("line-through".equals(value))
