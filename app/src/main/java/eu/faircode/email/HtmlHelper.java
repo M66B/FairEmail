@@ -997,6 +997,16 @@ public class HtmlHelper {
                             if (!view)
                                 sb.append(key).append(':').append(value).append(';');
                             break;
+
+                        case "visibility":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/visibility
+                            if (element.parent() != null &&
+                                    ("hidden".equals(value) || "collapse".equals(value)))
+                                if (display_hidden)
+                                    sb.append("text-decoration:line-through;");
+                                else
+                                    sb.append(key).append(':').append("hidden").append(';');
+                            break;
                     }
                 }
 
@@ -3196,6 +3206,10 @@ public class HtmlHelper {
                                     }
                                     if (alignment != null)
                                         setSpan(ssb, new AlignmentSpan.Standard(alignment), start, ssb.length());
+                                    break;
+                                case "visibility":
+                                    if ("hidden".equals(value))
+                                        setSpan(ssb, new ForegroundColorSpan(Color.TRANSPARENT), start, ssb.length());
                                     break;
                             }
                         }
