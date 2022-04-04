@@ -1599,6 +1599,7 @@
     <string name="title_rule_answer_subject">Use template name as subject</string>
     <string name="title_rule_original_text">Include original message text</string>
     <string name="title_rule_forward_to">Forward to</string>
+    <string name="title_rule_resend">Resend</string>
     <string name="title_rule_cc">Reply to CC addresses</string>
     <string name="title_rule_with_attachments">With attachments</string>
     <string name="title_rule_answer_remark">Only one reply will be sent for any conversation, to avoid reply loops</string>

@@ -638,6 +638,7 @@ public class EntityRule {
     private boolean onActionAnswer(Context context, EntityMessage message, JSONObject jargs) {
         DB db = DB.getInstance(context);
         String to = jargs.optString("to");
+        boolean resend = jargs.optBoolean("resend");
         boolean attachments = jargs.optBoolean("attachments");
 
         if (TextUtils.isEmpty(to) &&
@@ -660,6 +661,11 @@ public class EntityRule {
                     complete = false;
                     EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
                 }
+
+        if (resend && message.headers == null) {
+            complete = false;
+            EntityOperation.queue(context, message, EntityOperation.HEADERS);
+        }
 
         if (!complete) {
             EntityOperation.queue(context, message, EntityOperation.RULE, this.id);
@@ -692,6 +698,7 @@ public class EntityRule {
         boolean original_text = jargs.optBoolean("original_text", true);
         boolean attachments = jargs.optBoolean("attachments");
         String to = jargs.optString("to");
+        boolean resend = jargs.optBoolean("resend");
         boolean cc = jargs.optBoolean("cc");
 
         boolean isReply = TextUtils.isEmpty(to);
@@ -707,7 +714,7 @@ public class EntityRule {
             throw new IllegalArgumentException("Rule identity not found name=" + rule.name);
 
         EntityAnswer answer;
-        if (aid < 0) {
+        if (aid < 0 || resend) {
             if (isReply)
                 throw new IllegalArgumentException("Rule template missing name=" + rule.name);
 
@@ -753,7 +760,11 @@ public class EntityRule {
             reply.thread = message.thread;
             reply.to = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
         } else {
-            reply.wasforwardedfrom = message.msgid;
+            if (resend) {
+                reply.resend = true;
+                reply.headers = message.headers;
+            } else
+                reply.wasforwardedfrom = message.msgid;
             reply.thread = reply.msgid; // new thread
             reply.to = MessageHelper.parseAddresses(context, to);
         }
@@ -761,12 +772,16 @@ public class EntityRule {
         reply.from = from;
         if (cc)
             reply.cc = message.cc;
-        reply.unsubscribe = "mailto:" + identity.email;
+        if (isReply)
+            reply.unsubscribe = "mailto:" + identity.email;
         reply.auto_submitted = true;
-        reply.subject = EntityMessage.getSubject(context,
-                message.language,
-                answer_subject ? answer.name : message.subject,
-                !isReply);
+        if (resend)
+            reply.subject = message.subject;
+        else
+            reply.subject = EntityMessage.getSubject(context,
+                    message.language,
+                    answer_subject ? answer.name : message.subject,
+                    !isReply);
         reply.received = new Date().getTime();
         reply.sender = MessageHelper.getSortKey(reply.from);
 
@@ -775,29 +790,34 @@ public class EntityRule {
 
         reply.id = db.message().insertMessage(reply);
 
-        String body = answer.getHtml(message.from);
+        String body;
+        if (resend)
+            body = Helper.readText(message.getFile(context));
+        else {
+            body = answer.getHtml(message.from);
 
-        if (original_text) {
-            Document msg = JsoupEx.parse(body);
+            if (original_text) {
+                Document msg = JsoupEx.parse(body);
 
-            Element div = msg.createElement("div");
+                Element div = msg.createElement("div");
 
-            Element p = message.getReplyHeader(context, msg, separate_reply, extended_reply);
-            div.appendChild(p);
+                Element p = message.getReplyHeader(context, msg, separate_reply, extended_reply);
+                div.appendChild(p);
 
-            Document answering = JsoupEx.parse(message.getFile(context));
-            Element e = answering.body();
-            if (quote) {
-                String style = e.attr("style");
-                style = HtmlHelper.mergeStyles(style, HtmlHelper.getQuoteStyle(e));
-                e.tagName("blockquote").attr("style", style);
-            } else
-                e.tagName("p");
-            div.appendChild(e);
+                Document answering = JsoupEx.parse(message.getFile(context));
+                Element e = answering.body();
+                if (quote) {
+                    String style = e.attr("style");
+                    style = HtmlHelper.mergeStyles(style, HtmlHelper.getQuoteStyle(e));
+                    e.tagName("blockquote").attr("style", style);
+                } else
+                    e.tagName("p");
+                div.appendChild(e);
 
-            msg.body().appendChild(div);
+                msg.body().appendChild(div);
 
-            body = msg.outerHtml();
+                body = msg.outerHtml();
+            }
         }
 
         File file = reply.getFile(context);
@@ -812,7 +832,7 @@ public class EntityRule {
                 reply.preview,
                 null);
 
-        if (attachments)
+        if (attachments || resend)
             EntityAttachment.copy(context, message.id, reply.id);
 
         EntityOperation.queue(context, reply, EntityOperation.SEND);
