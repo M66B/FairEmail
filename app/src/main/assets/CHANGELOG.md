@@ -6,6 +6,7 @@
 
 ### 1.1866 - 2022-04-02
 
+* Added highlighting (marking) of text
 * Small improvements and minor bug fixes
 * Updated translations
 

@@ -134,8 +134,17 @@
     </item>
 
     <group
-        android:id="@+id/group_style_strikethrough"
+        android:id="@+id/group_style_mark"
         android:orderInCategory="9">
+        <item
+            android:id="@+id/menu_style_mark"
+            android:icon="@drawable/twotone_border_color_24"
+            android:title="@string/title_style_mark" />
+    </group>
+
+    <group
+        android:id="@+id/group_style_strikethrough"
+        android:orderInCategory="10">
         <item
             android:id="@+id/menu_style_strikethrough"
             android:icon="@drawable/twotone_format_strikethrough_24"
@@ -144,7 +153,7 @@
 
     <group
         android:id="@+id/group_style_code"
-        android:orderInCategory="10">
+        android:orderInCategory="11">
         <item
             android:id="@+id/menu_style_code"
             android:icon="@drawable/baseline_code_24"
@@ -153,7 +162,7 @@
 
     <group
         android:id="@+id/group_style_clear"
-        android:orderInCategory="11">
+        android:orderInCategory="12">
         <item
             android:id="@+id/menu_style_clear"
             android:icon="@drawable/twotone_format_clear_24"

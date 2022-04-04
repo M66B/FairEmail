@@ -228,6 +228,8 @@ public class StyleHelper {
                                 return setBlockQuote(item);
                             } else if (groupId == R.id.group_style_indentation) {
                                 return setIndentation(item);
+                            } else if (groupId == R.id.group_style_mark) {
+                                return setMark(item);
                             } else if (groupId == R.id.group_style_strikethrough) {
                                 return setStrikeThrough(item);
                             } else if (groupId == R.id.group_style_code) {
@@ -605,6 +607,32 @@ public class StyleHelper {
 
                         etBody.setText(edit);
                         etBody.setSelection(paragraph.first, paragraph.second);
+
+                        return true;
+                    }
+
+                    private boolean setMark(MenuItem item) {
+                        Log.breadcrumb("style", "action", "strike");
+
+                        Context context = etBody.getContext();
+
+                        boolean has = false;
+                        MarkSpan[] spans = edit.getSpans(start, end, MarkSpan.class);
+                        for (MarkSpan span : spans) {
+                            int s = edit.getSpanStart(span);
+                            int e = edit.getSpanEnd(span);
+                            int f = edit.getSpanFlags(span);
+                            edit.removeSpan(span);
+                            if (splitSpan(edit, start, end, s, e, f, true,
+                                    new MarkSpan(), new MarkSpan()))
+                                has = true;
+                        }
+
+                        if (!has)
+                            edit.setSpan(new MarkSpan(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        etBody.setText(edit);
+                        etBody.setSelection(end);
 
                         return true;
                     }
