@@ -4,9 +4,14 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### 1.1866 - 2022-04-02
+### 1.1867 - 2022-04-04
 
 * Added highlighting (marking) of text
+* Small improvements and minor bug fixes
+* Updated translations
+
+### 1.1866 - 2022-04-02
+
 * Small improvements and minor bug fixes
 * Updated translations
 
