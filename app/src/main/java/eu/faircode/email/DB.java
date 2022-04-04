@@ -1617,8 +1617,7 @@ public abstract class DB extends RoomDatabase {
                         logMigration(startVersion, endVersion);
                         db.execSQL("CREATE VIEW IF NOT EXISTS `account_view` AS " +
                                 TupleAccountView.query.replace(", category", ""));
-                        db.execSQL("CREATE VIEW IF NOT EXISTS `identity_view` AS " +
-                                TupleIdentityView.query.replace(", account", ""));
+                        db.execSQL("CREATE VIEW IF NOT EXISTS `identity_view` AS " + TupleIdentityView.query);
                         db.execSQL("CREATE VIEW IF NOT EXISTS `folder_view` AS " + TupleFolderView.query);
                     }
                 })
