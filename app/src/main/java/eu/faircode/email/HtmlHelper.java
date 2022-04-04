@@ -3208,8 +3208,13 @@ public class HtmlHelper {
                                         setSpan(ssb, new AlignmentSpan.Standard(alignment), start, ssb.length());
                                     break;
                                 case "visibility":
-                                    if ("hidden".equals(value))
+                                    if ("hidden".equals(value)) {
+                                        for (ForegroundColorSpan span : ssb.getSpans(start, ssb.length(), ForegroundColorSpan.class))
+                                            ssb.removeSpan(span);
+                                        for (BackgroundColorSpan span : ssb.getSpans(start, ssb.length(), BackgroundColorSpan.class))
+                                            ssb.removeSpan(span);
                                         setSpan(ssb, new ForegroundColorSpan(Color.TRANSPARENT), start, ssb.length());
+                                    }
                                     break;
                             }
                         }
