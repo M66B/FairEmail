@@ -970,6 +970,7 @@
     <string name="title_eml_remark">メッセージを転送するには、メールサーバーから元のメッセージをダウンロードする必要があります。これにはインターネットへの接続が必要で、元のメッセージがメールサーバーに保存されている必要があります。</string>
     <string name="title_eml_option">接続設定で常に元のメッセージファイルをダウンロードすることで、これを防ぐことができます。</string>
     <string name="title_eml_downloaded">元のメッセージをダウンロード: %1$s</string>
+    <string name="title_auto_confirm">数秒後に自動で確認</string>
     <string name="title_buttons">ボタンを選択</string>
     <string name="title_buttons_hint">実際に利用可能なアクションは、アカウントの種類と構成によって異なります</string>
     <string name="title_button_search">メッセージを検索</string>
@@ -1364,6 +1365,7 @@
     <string name="title_rule_answer_subject">テンプレート名を件名として使用</string>
     <string name="title_rule_original_text">元のメッセージ本文を含める</string>
     <string name="title_rule_forward_to">転送先</string>
+    <string name="title_rule_resend">再送</string>
     <string name="title_rule_cc">CC アドレスへ返信</string>
     <string name="title_rule_with_attachments">添付ファイルも含める</string>
     <string name="title_rule_answer_remark">自動返信のループを回避するために、それぞれの会話に対して 1 度だけ返信します</string>

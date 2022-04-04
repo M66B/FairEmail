@@ -1358,6 +1358,7 @@
     <string name="title_rule_answer_subject">Sử dụng tên mẫu làm chủ đề</string>
     <string name="title_rule_original_text">Bao gồm văn bản thư gốc</string>
     <string name="title_rule_forward_to">Chuyển tiếp đến</string>
+    <string name="title_rule_resend">Gửi lại</string>
     <string name="title_rule_cc">Trả lời đến các địa chỉ CC</string>
     <string name="title_rule_with_attachments">Có tệp đính kèm</string>
     <string name="title_rule_answer_remark">Chỉ có một thư trả lời sẽ được gửi đối với bất kỳ cuộc hội thoại nào, để tránh các vòng lặp trả lời</string>

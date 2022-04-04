@@ -976,7 +976,7 @@
     <string name="title_eml_remark">Για να προωθήσετε μηνύματα, τα ακατέργαστα (αρχικά) μηνύματα πρέπει να κατέβουν από τον διακομιστή ηλεκτρονικού ταχυδρομείου. Απαιτείται σύνδεση στο διαδίκτυο για αυτό και τα μηνύματα πρέπει να εξακολουθούν να είναι αποθηκευμένα στον διακομιστή ηλ. ταχυδρομείου.</string>
     <string name="title_eml_option">Αυτό μπορεί να αποφευχθεί, ενεργοποιώντας να γίνεται πάντα λήψη των αρχείων αρχικών μηνυμάτων στις ρυθμίσεις σύνδεσης</string>
     <string name="title_eml_downloaded">Αρχικά μηνύματα που κατέβηκαν: %1$s</string>
-    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Αυτόματη επιβεβαίωση μετά από μερικά δευτερόλεπτα</string>
+    <string name="title_auto_confirm">Αυτόματη επιβεβαίωση μετά από μερικά δευτερόλεπτα</string>
     <string name="title_buttons">Επιλέξτε κουμπιά</string>
     <string name="title_buttons_hint">Οι όντως διαθέσιμες ενέργειες εξαρτώνται από τον τύπο και τη ρύθμιση του λογαριασμού</string>
     <string name="title_button_search">Αναζήτηση στα μηνύματα</string>
@@ -1129,6 +1129,7 @@
     <string name="title_style_font_default">Προεπιλογή</string>
     <string name="title_style_blockquote">Παράθεμα με εσοχή</string>
     <string name="title_style_indentation">Εσοχή</string>
+    <string name="title_style_mark">Επισήμανση</string>
     <string name="title_style_strikethrough">Διακριτή διαγραφή</string>
     <string name="title_style_clear">Εκκαθάριση μορφοποίησης</string>
     <string name="title_style_link">Εισαγωγή συνδέσμου</string>
@@ -1369,6 +1370,7 @@
     <string name="title_rule_answer_subject">Να χρησιμοποιηθεί το όνομα του προτύπου ως θέμα</string>
     <string name="title_rule_original_text">Να συμπεριληφθεί το κείμενο του αρχικού μηνύματος</string>
     <string name="title_rule_forward_to">Προώθηση σε</string>
+    <string name="title_rule_resend">Επαναποστολή</string>
     <string name="title_rule_cc">Απάντηση στις διευθύνσεις Κοιν.</string>
     <string name="title_rule_with_attachments">Με συνημμένα</string>
     <string name="title_rule_answer_remark">Θα αποστέλλεται μόνο μία απάντηση ανά συζήτηση, για να αποφευχθεί ένας ατέρμονος κύκλος απαντήσεων</string>
@@ -1522,6 +1524,7 @@
     <string name="title_hint_support">Αν έχετε μία ερώτηση ή ένα πρόβλημα, παρακαλώ χρησιμοποιήστε το μενού \"Υποστήριξη\" για να λάβετε βοήθεια</string>
     <string name="title_hint_message_actions">Σάρωση αριστερά για απορρίμματα• σάρωση δεξιά για αρχειοθέτηση (αν είναι διαθέσιμη)• μπορείτε να ρυθμίσετε τις ενέργειες σάρωσης στις ρυθμίσεις του λογαριασμού</string>
     <string name="title_hint_message_selection">Πατήστε παρατεταμένα σε ένα μήνυμα για να αρχίσετε να επιλέγετε πολλαπλά μηνύματα. Συνεχίστε το πάτημα και σύρετε προς τα πάνω ή κάτω για να επιλέξετε περισσότερα μηνύματα</string>
+    <string name="title_hint_message_junk">Τα μηνύματα αυτά βρίσκονται στον φάκελο ανεπιθύμητων του διακομιστή ηλ. ταχυδρομείου. Προφανώς, η εφαρμογή δεν μπορεί να εμποδίσει την αποστολή ανεπιθύμητων μηνυμάτων προς εσάς.</string>
     <string name="title_hint_important">Σημαντικό</string>
     <string name="title_hint_sync">Το κατέβασμα των μηνυμάτων μπορεί να διαρκέσει κάποιο διάστημα, ανάλογα με την ταχύτητα του παρόχου, της σύνδεσης, της συσκευής και τον αριθμό των μηνυμάτων. Ενόσω κατεβαίνουν τα μηνύματα, η εφαρμογή ίσως να ανταποκρίνεται πιο αργά.</string>
     <string name="title_hint_sync_note">Από προεπιλογή, δεν θα κατέβουν όλα τα μηνύματα, για περιορισμό αποθηκευτικού χώρου και χρήσης μπαταρίας και δεδομένων. Μπορείτε να αλλάξετε αυτή τη ρύθμιση, με παρατεταμένο πάτημα πάνω σε έναν φάκελο στη λίστα φακέλων και επιλέγοντας «Συγχρονισμός περισσοτέρων».</string>

@@ -1355,6 +1355,7 @@
     <string name="title_rule_answer_subject">Käytä viestipohjan nimeä otsikkona</string>
     <string name="title_rule_original_text">Sisällytä alkuperäinen viestin teksti</string>
     <string name="title_rule_forward_to">Lähetä edelleen vastaanottajalle</string>
+    <string name="title_rule_resend">Uudelleenlähetä</string>
     <string name="title_rule_cc">Vastaa kopio-osoitteisiin</string>
     <string name="title_rule_with_attachments">Liitteiden kanssa</string>
     <string name="title_rule_answer_remark">Vain yksi vastaus lähetetään yhteen keskusteluun, jotta voidaan välttää vastausten loputon toistaminen</string>

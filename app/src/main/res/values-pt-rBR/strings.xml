@@ -978,7 +978,7 @@
     <string name="title_eml_remark">Para encaminhar mensagens, as mensagens brutas (originais) precisam ser baixadas do servidor de e-mail. Isso requer uma conexão com a internet e as mensagens ainda devem ser armazenadas no servidor de e-mail.</string>
     <string name="title_eml_option">Isso pode ser impedido ao ativar sempre baixar arquivos de mensagens brutas nas configurações de conexão</string>
     <string name="title_eml_downloaded">Mensagens não baixadas: %1$s</string>
-    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Confirmar automaticamente após alguns segundos</string>
+    <string name="title_auto_confirm">Confirmar automaticamente após alguns segundos</string>
     <string name="title_buttons">Selecionar botões</string>
     <string name="title_buttons_hint">As ações disponíveis dependem do tipo de conta e configuração</string>
     <string name="title_button_search">Buscar nas mensagens</string>
@@ -1132,6 +1132,7 @@
     <string name="title_style_font_default">Padrão</string>
     <string name="title_style_blockquote">Citação em bloco</string>
     <string name="title_style_indentation">Indentação</string>
+    <string name="title_style_mark">Realçar</string>
     <string name="title_style_strikethrough">Riscar</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir link</string>
@@ -1372,6 +1373,7 @@
     <string name="title_rule_answer_subject">Usar o nome do modelo como assunto</string>
     <string name="title_rule_original_text">Incluir texto original da mensagem</string>
     <string name="title_rule_forward_to">Encaminhar para</string>
+    <string name="title_rule_resend">Reenviar</string>
     <string name="title_rule_cc">Resposta para endereços CC</string>
     <string name="title_rule_with_attachments">Com anexos</string>
     <string name="title_rule_answer_remark">Apenas uma resposta será enviada para qualquer conversa, para evitar repetição de resposta</string>
@@ -1525,6 +1527,7 @@
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para a lixeira; Deslize para a direita para o arquivo (se disponível); As ações de deslize podem ser configuradas nas configurações da conta</string>
     <string name="title_hint_message_selection">Pressione uma mensagem para começar a selecionar múltiplas mensagens; segure e deslize para cima ou para baixo para selecionar mais mensagens</string>
+    <string name="title_hint_message_junk">Estas mensagens estão na pasta de spam do servidor de e-mail. Obviamente, o aplicativo não pode impedir que mensagens de spam sejam enviadas para você.</string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Baixar mensagens pode levar algum tempo, dependendo da velocidade do provedor, da conexão de internet e do dispositivo, e o número de mensagens. Enquanto estiver baixando as mensagens o app pode responder mais devagar.</string>
     <string name="title_hint_sync_note">Por padrão, nem todas as mensagens serão baixadas para limitar o espaço de armazenamento e o uso de bateria e dados. Você pode alterar isso pressionando longamente uma pasta na lista de pastas e selecionando \'Sincronizar mais\'.</string>

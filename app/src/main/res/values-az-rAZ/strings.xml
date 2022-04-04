@@ -72,6 +72,9 @@
     </plurals>
     <string name="title_ask_spam_who">%1$s göndərən mesaj spam hesab edilsin?</string>
     <string name="title_junk_hint">Spamların filtrlənməsinə görə e-poçt təchizatçınız məsuliyyət daşıyır. Bir e-poçt tətbiqi, bunu təhlükəsiz olaraq etmək üçün lazım olan bütün verilənlərə sahib deyil.</string>
+    <string name="title_junk_pop_hint">        Əngəllənmiş göndərənlərdən gələn mesajlar endirilməyəcək.
+        \"Mesajları serverdə burax\" seçimi fəal deyilsə, bu mesajlar birdəfəlik itəcək!
+    </string>
     <string name="title_block">%1$s əngəllə</string>
     <string name="title_block_sender">Göndərəni əngəllə</string>
     <string name="title_block_sender_domain">\"%1$s\" domenini əngəllə</string>
@@ -156,6 +159,7 @@
     <string name="title_setup_gmail_password">Bir hesaba bir şifrə ilə səlahiyyət vermək istəyirəm</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem administratorunun IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza müraciət üçün səlahiyyət verin</string>
+    <string name="title_setup_oauth_update">Mövcud bir hesaba yenidən səlahiyyət verin (əks halda yeni bir hesab yaradın)</string>
     <string name="title_setup_oauth_updated">Hesab səlahiyyətləndirmə yeniləndi</string>
     <string name="title_setup_oauth_authorize">Səlahiyyət ver</string>
     <string name="title_setup_select_account">Hesab seç</string>
@@ -848,6 +852,7 @@
     <string name="title_edit_contact">Əlaqəyə düzəliş et</string>
     <string name="title_contact_email">E-poçt</string>
     <string name="title_contact_name">Ad</string>
+    <string name="title_contact_group">Qrup</string>
     <string name="title_import_contacts"> vCard-ları idxal et</string>
     <string name="title_export_contacts">vCard-ları ixrac et</string>
     <string name="title_create_sub_folder">Alt qovluq yarat</string>
@@ -975,6 +980,7 @@
     <string name="title_eml_remark">Mesajları yönləndirmək üçün, xam (orijinal) mesajlar, e-poçt serverindən endirilməlidir. Bu, internet bağlantısı tələb edir və mesajlar, e-poçt serverdə saxlanılacaq.</string>
     <string name="title_eml_option">Bunun qarşısı, bağlantı tənzimləmələrində xam mesajlarının endirilməsi həmişəlik fəallaşdırılaraq alına bilər</string>
     <string name="title_eml_downloaded">Xam mesajlar endirildi: %1$s</string>
+    <string name="title_auto_confirm">Bir neçə saniyə sonra avtomatik təsdiqlənsin</string>
     <string name="title_buttons">Düymələri seçin</string>
     <string name="title_buttons_hint">Aktual əməliyyatlar, hesab növündən və konfiqurasiyadan asılıdır</string>
     <string name="title_button_search">Mesajlarda axtar</string>
@@ -1369,6 +1375,7 @@
     <string name="title_rule_answer_subject">Şablon adını mövzu olaraq istifadə et</string>
     <string name="title_rule_original_text">Orijinal mesaj mətnini daxil et</string>
     <string name="title_rule_forward_to">Yönləndir</string>
+    <string name="title_rule_resend">Təkrar göndər</string>
     <string name="title_rule_cc">CC ünvanlarını cavabla</string>
     <string name="title_rule_with_attachments">Qoşmalar ilə</string>
     <string name="title_rule_answer_remark">Cavab dövrlərinin qarşısını almaq üçün istənilən danışıq üçün yalnız bir cavab göndəriləcək</string>
@@ -1836,9 +1843,9 @@
         <item>Çox böyük</item>
     </string-array>
     <string-array name="contactTypes">
-        <item>Alan</item>
+        <item>Alıcı</item>
         <item>Göndərən</item>
         <item>Əngəlləndi</item>
-        <item>Not blocked</item>
+        <item>Əngəllənmədi</item>
     </string-array>
 </resources>

@@ -1000,6 +1000,7 @@
     <string name="title_eml_remark">כדי להעביר הודעה, יש להוריד את ההודעות (המקוריות) הגולמיות משרת הדוא״ל. פעולה זו דורשת חיבור לאינטרנט ושההודעה תהיה מאוחסת בשרת הדוא״ל.</string>
     <string name="title_eml_option">אפשר למנוע את זה באמצעות הפעלת הורדת קובצי הודעות גולמיות תמיד בהגדרות החיבור</string>
     <string name="title_eml_downloaded">הודעות גולמיות התקבלו: %1$s</string>
+    <string name="title_auto_confirm">לאשר אוטומטית לאחר מספר שניות</string>
     <string name="title_buttons">בחירת כפתורים</string>
     <string name="title_buttons_hint">הפעולות שזמינות בפועל תלויות בסוג החשבון וההגדרות</string>
     <string name="title_button_search">חיפוש בהודעות</string>
@@ -1154,6 +1155,7 @@
     <string name="title_style_font_default">ברירת מחדל</string>
     <string name="title_style_blockquote">ציטוט</string>
     <string name="title_style_indentation">הזחה</string>
+    <string name="title_style_mark">הדגשה</string>
     <string name="title_style_strikethrough">קו חוצה</string>
     <string name="title_style_clear">הסרת עיצוב</string>
     <string name="title_style_link">הוספת קישור</string>
@@ -1394,6 +1396,7 @@
     <string name="title_rule_answer_subject">להשתמש בשם התבנית כנושא</string>
     <string name="title_rule_original_text">לכלול את תוכן ההודעה המקורית</string>
     <string name="title_rule_forward_to">העברה אל</string>
+    <string name="title_rule_resend">שליחה מחדש</string>
     <string name="title_rule_cc">להגיב לכתובות של עותק</string>
     <string name="title_rule_with_attachments">עם קבצים מצורפים</string>
     <string name="title_rule_answer_remark">יישלח מענה אחד לכל דיון, כדי להימנע מלולאות מענה</string>
@@ -1547,6 +1550,7 @@
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
     <string name="title_hint_message_selection">לחיצה ארוכה על הודעה מתחילה בחירה במגוון הודעות, יש להחזיק ולהחליק כלפי מעלה או מטה כדי לבחור הודעות נוספות</string>
+    <string name="title_hint_message_junk">ההודעות האלו נמצאות בתיקיית הספאם בשרת הדוא״ל. כמובן שהיישומון לא יכול למנוע מהודעות ספאם להישלח אליך.</string>
     <string name="title_hint_important">חשוב</string>
     <string name="title_hint_sync">משיכת הודעות עשויה לארוך זמן מה כתלות במהירות הספק, חיבור האינטרנט, המכשיר ומספר ההודעות. היישומון עשוי להגיב בכבדות בזמן משיכת ההודעות.</string>
     <string name="title_hint_sync_note">כבררת מחדל, לא כל ההודעות תימשכנה כדי להגביל את ניצולת האחסון והסוללה. אפשר לשנות את זה בלחיצה ארוכה על תיקייה ברשימת התיקיות ובחירה ב‚סנכרון עוד’.</string>

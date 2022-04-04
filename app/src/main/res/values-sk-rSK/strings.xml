@@ -1374,6 +1374,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_answer_subject">Uviesť názov šablóny v poli predmet</string>
     <string name="title_rule_original_text">Zahrnúť text pôvodnej správy</string>
     <string name="title_rule_forward_to">Preposlať na</string>
+    <string name="title_rule_resend">Znovu odoslať</string>
     <string name="title_rule_cc">Odpovedať na adresy v poli kópia</string>
     <string name="title_rule_with_attachments">S prílohami</string>
     <string name="title_rule_answer_remark">Len jedna odpoveď bude odoslaná pre ľubovoľnú konverzáciu aby sa zamedzilo odpovedacím slučkám</string>

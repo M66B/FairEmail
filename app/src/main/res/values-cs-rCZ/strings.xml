@@ -1389,6 +1389,7 @@
     <string name="title_rule_answer_subject">Použít název šablony jako předmět</string>
     <string name="title_rule_original_text">Zahrnout text původní zprávy</string>
     <string name="title_rule_forward_to">Přeposlat na</string>
+    <string name="title_rule_resend">Odeslat znovu</string>
     <string name="title_rule_cc">Odpovědět na adresy kopie</string>
     <string name="title_rule_with_attachments">S přílohami</string>
     <string name="title_rule_answer_remark">Aby se zabránilo smyčkám odpovědí, bude na každou konverzaci odeslána pouze jedna odpověď</string>

@@ -1347,6 +1347,7 @@
     <string name="title_rule_answer_subject">Usar o nome do patrón como asunto</string>
     <string name="title_rule_original_text">Incluír o texto orixinal da mensaxe</string>
     <string name="title_rule_forward_to">Reenviar a</string>
+    <string name="title_rule_resend">Reenviar</string>
     <string name="title_rule_cc">Responder a enderezos CC</string>
     <string name="title_rule_with_attachments">Con anexos</string>
     <string name="title_rule_answer_remark">Enviarase só unha resposta para cada conversa, co fin de evitar bucles de respostas</string>

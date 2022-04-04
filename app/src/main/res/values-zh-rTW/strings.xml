@@ -1304,6 +1304,7 @@
     <string name="title_rule_identity">身分</string>
     <string name="title_rule_template">回覆模板</string>
     <string name="title_rule_forward_to">轉寄至</string>
+    <string name="title_rule_resend">重新寄出</string>
     <string name="title_rule_cc">回覆至副本地址</string>
     <string name="title_rule_with_attachments">包含附件</string>
     <string name="title_rule_answer_remark">對於任一會話，僅有一個回覆會被傳送以避免回覆循環</string>

@@ -1277,6 +1277,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_identity">Identitas</string>
     <string name="title_rule_template">Balas dengan template</string>
     <string name="title_rule_forward_to">Diteruskan kepada</string>
+    <string name="title_rule_resend">Kirim ulang</string>
     <string name="title_rule_cc">Balas ke alamat CC</string>
     <string name="title_rule_with_attachments">Dengan lampiran</string>
     <string name="title_rule_answer_remark">Hanya satu balasan yang akan dikirim ke percakapan manapun, untuk menghindari berputarnya balasan</string>

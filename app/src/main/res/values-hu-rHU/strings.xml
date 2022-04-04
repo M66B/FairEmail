@@ -1321,6 +1321,7 @@
     <string name="title_rule_identity">Identitás</string>
     <string name="title_rule_template">Válaszsablon</string>
     <string name="title_rule_forward_to">Továbbítás neki...</string>
+    <string name="title_rule_resend">Újraküldés</string>
     <string name="title_rule_cc">Válasz a másolatok címzetteinek</string>
     <string name="title_rule_with_attachments">Mellékletekkel</string>
     <string name="title_rule_answer_remark">A válaszhurkok elkerülése érdekében minden beszélgetéshez csak egy válasz lesz elküldve</string>

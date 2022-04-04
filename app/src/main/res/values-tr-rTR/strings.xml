@@ -976,7 +976,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_eml_remark">Mesajları iletmek için ham (orijinal) mesajların e-posta sunucusundan indirilmesi gerekir. Bunun için internet bağlantısı gerekir ve mesajların yine de e-posta sunucusunda saklanması gerekir.</string>
     <string name="title_eml_option">Bu, bağlantı ayarlarında her zaman ham mesaj dosyalarının indirilmesini etkinleştirerek önlenebilir</string>
     <string name="title_eml_downloaded">İndirilen ham iletiler: %1$s</string>
-    <string name="title_auto_confirm" comment="title_auto_confirm&#10;Option title for checkbox to auto close (confirm) dialogs.">Birkaç saniye sonra otomatik olarak onayla</string>
+    <string name="title_auto_confirm">Birkaç saniye sonra otomatik olarak onayla</string>
     <string name="title_buttons">Seçim düğmeleri</string>
     <string name="title_buttons_hint">Gerçek eylemler, hesap türüne ve yapılandırmaya bağlıdır</string>
     <string name="title_button_search">Mesajlarda ara</string>
@@ -1369,6 +1369,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_answer_subject">Konu olarak şablon adını kullan</string>
     <string name="title_rule_original_text">Orijinal mesaj metnini dahil et</string>
     <string name="title_rule_forward_to">İlet</string>
+    <string name="title_rule_resend">Tekrar gönder</string>
     <string name="title_rule_cc">CC adreslerini yanıtlayın</string>
     <string name="title_rule_with_attachments">Eklerle Birlikte</string>
     <string name="title_rule_answer_remark">Cevap döngülerinden kaçınmak için herhangi bir konuşma için yalnızca bir cevap gönderilecektir</string>
