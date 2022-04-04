@@ -30,7 +30,7 @@ import java.util.Objects;
         value = TupleIdentityView.query
 )
 public class TupleIdentityView {
-    static final String query = "SELECT id, name, email, display, color, synchronize FROM identity";
+    static final String query = "SELECT id, name, email, account, display, color, synchronize FROM identity";
 
     @NonNull
     public Long id;
@@ -38,6 +38,8 @@ public class TupleIdentityView {
     public String name;
     @NonNull
     public String email;
+    @NonNull
+    public Long account;
     public String display;
     public Integer color;
     @NonNull

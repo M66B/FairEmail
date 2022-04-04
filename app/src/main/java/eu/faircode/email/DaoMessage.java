@@ -163,7 +163,7 @@ public interface DaoMessage {
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " JOIN folder_view AS f ON f.id = :folder" +
-            " WHERE (message.account = f.account OR " + is_outbox + ")" +
+            " WHERE (message.account = f.account OR message.account = identity.account OR " + is_outbox + ")" +
             " AND (:threading OR folder.id = :folder)" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR message.ui_found = :found)" +
