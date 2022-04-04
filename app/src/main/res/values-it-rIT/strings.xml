@@ -1531,6 +1531,7 @@
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>
     <string name="title_hint_message_selection">Tieni premuto un messaggio per iniziare a selezionare più messaggi: Tieni premuto e scorri in su o in giù per selezionare più messaggi</string>
+    <string name="title_hint_message_junk">Questi messaggi sono nella cartella di spam del server email. Ovviamente, l\'app non può prevenire che ti siano inviati i messaggi spam.</string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere un po\' di tempo, in base alla velocità del provider, la connessione internet, il dispositivo e il numero di messaggi. Durante il download dei messaggi l\'app potrebbe rispondere più lentamente.</string>
     <string name="title_hint_sync_note">Di default, non tutti i messaggi saranno scaricati per limitare l\'uso dello spazio d\'archiviazione, della batteria e dei dati. Puoi modificare ciò tenendo premuta una cartella nell\'elenco delle cartelle e selezionando \'Sincronizza altri\'.</string>
