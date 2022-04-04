@@ -690,9 +690,9 @@ public class EntityRule {
         long aid = jargs.getLong("answer");
         boolean answer_subject = jargs.optBoolean("answer_subject", false);
         boolean original_text = jargs.optBoolean("original_text", true);
+        boolean attachments = jargs.optBoolean("attachments");
         String to = jargs.optString("to");
         boolean cc = jargs.optBoolean("cc");
-        boolean attachments = jargs.optBoolean("attachments");
 
         boolean isReply = TextUtils.isEmpty(to);
 

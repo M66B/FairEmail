@@ -142,10 +142,10 @@ public class FragmentRule extends FragmentBase {
     private Spinner spAnswer;
     private CheckBox cbAnswerSubject;
     private CheckBox cbOriginalText;
+    private CheckBox cbWithAttachments;
     private EditText etTo;
     private ImageButton ibTo;
     private CheckBox cbCc;
-    private CheckBox cbWithAttachments;
 
     private Button btnTtsSetup;
     private Button btnTtsData;
@@ -294,10 +294,10 @@ public class FragmentRule extends FragmentBase {
         spAnswer = view.findViewById(R.id.spAnswer);
         cbAnswerSubject = view.findViewById(R.id.cbAnswerSubject);
         cbOriginalText = view.findViewById(R.id.cbOriginalText);
+        cbWithAttachments = view.findViewById(R.id.cbWithAttachments);
         etTo = view.findViewById(R.id.etTo);
         ibTo = view.findViewById(R.id.ibTo);
         cbCc = view.findViewById(R.id.cbCc);
-        cbWithAttachments = view.findViewById(R.id.cbWithAttachments);
 
         btnTtsSetup = view.findViewById(R.id.btnTtsSetup);
         btnTtsData = view.findViewById(R.id.btnTtsData);
@@ -1143,10 +1143,10 @@ public class FragmentRule extends FragmentBase {
 
                                     cbAnswerSubject.setChecked(jaction.optBoolean("answer_subject", false));
                                     cbOriginalText.setChecked(jaction.optBoolean("original_text", true));
+                                    cbWithAttachments.setChecked(jaction.optBoolean("attachments"));
 
                                     etTo.setText(jaction.optString("to"));
                                     cbCc.setChecked(jaction.optBoolean("cc"));
-                                    cbWithAttachments.setChecked(jaction.optBoolean("attachments"));
                                     break;
 
                                 case EntityRule.TYPE_SOUND:
@@ -1486,9 +1486,9 @@ public class FragmentRule extends FragmentBase {
                     jaction.put("answer", answer == null || answer.id == null ? -1 : answer.id);
                     jaction.put("answer_subject", cbAnswerSubject.isChecked());
                     jaction.put("original_text", cbOriginalText.isChecked());
+                    jaction.put("attachments", cbWithAttachments.isChecked());
                     jaction.put("to", etTo.getText().toString().trim());
                     jaction.put("cc", cbCc.isChecked());
-                    jaction.put("attachments", cbWithAttachments.isChecked());
                     break;
 
                 case EntityRule.TYPE_SOUND:
