@@ -8921,6 +8921,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (message.isPlainOnly() && monospaced_pre)
                     HtmlHelper.restorePre(document);
 
+                HtmlHelper.markText(document);
+
                 HtmlHelper.embedInlineImages(context, id, document, true);
 
                 // onPageFinished will not be called if not all images can be loaded

@@ -2811,6 +2811,15 @@ public class HtmlHelper {
         return document;
     }
 
+    static Document markText(Document document) {
+        for (Element mark : document.select("mark")) {
+            String style = mark.attr("style");
+            mark.attr("style", mergeStyles(style, "font-style: italic;"));
+        }
+
+        return document;
+    }
+
     static void cleanup(Document d) {
         // https://www.chromestatus.com/feature/5756335865987072
         // Some messages contain 100 thousands of Apple spaces
