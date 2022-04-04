@@ -127,7 +127,9 @@ public class FragmentOptions extends FragmentBase {
     ));
 
     static String[] OPTIONS_RESTART = new String[]{
-            "first", "app_support", "notify_archive", "message_swipe", "message_select", "folder_actions", "folder_sync",
+            "first", "app_support", "notify_archive",
+            "message_swipe", "message_select", "message_junk",
+            "folder_actions", "folder_sync",
             "subscriptions",
             "check_authentication", "check_tls", "check_reply_domain", "check_mx", "check_blocklist",
             "send_pending",

@@ -135,6 +135,39 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHintSelect" />
 
+            <eu.faircode.email.FixedTextView
+                android:id="@+id/tvHintJunk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="36dp"
+                android:padding="6dp"
+                android:text="@string/title_hint_message_junk"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toStartOf="@+id/ibHintJunk"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
+
+            <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibHintJunk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_legend_close_hint"
+                android:padding="9dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvHintJunk"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvHintJunk"
+                app:srcCompat="@drawable/twotone_close_24" />
+
+            <View
+                android:id="@+id/vSeparatorHintJunk"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvHintJunk" />
+
             <include
                 android:id="@+id/inGroup"
                 layout="@layout/item_group"
@@ -142,7 +175,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintJunk" />
 
             <eu.faircode.email.ViewTextDelayed
                 android:id="@+id/tvNoEmail"
@@ -389,6 +422,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="tvHintSelect,ibHintSelect,vSeparatorHintSelect" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpHintJunk"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvHintJunk,ibHintJunk,vSeparatorHintJunk" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpReady"

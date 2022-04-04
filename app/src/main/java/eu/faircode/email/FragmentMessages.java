@@ -259,6 +259,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
+    private ImageButton ibHintJunk;
     private TextView tvNoEmail;
     private TextView tvNoEmailHint;
     private FixedRecyclerView rvMessage;
@@ -279,6 +280,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private Group grpHintSupport;
     private Group grpHintSwipe;
     private Group grpHintSelect;
+    private Group grpHintJunk;
     private Group grpReady;
     private Group grpOutbox;
     private FloatingActionButton fabReply;
@@ -512,6 +514,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
+        ibHintJunk = view.findViewById(R.id.ibHintJunk);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         tvNoEmailHint = view.findViewById(R.id.tvNoEmailHint);
         rvMessage = view.findViewById(R.id.rvMessage);
@@ -533,6 +536,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
         grpHintSelect = view.findViewById(R.id.grpHintSelect);
+        grpHintJunk = view.findViewById(R.id.grpHintJunk);
         grpReady = view.findViewById(R.id.grpReady);
         grpOutbox = view.findViewById(R.id.grpOutbox);
 
@@ -588,6 +592,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             public void onClick(View v) {
                 prefs.edit().putBoolean("message_select", true).apply();
                 grpHintSelect.setVisibility(View.GONE);
+            }
+        });
+
+        ibHintJunk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putBoolean("message_junk", true).apply();
+                grpHintJunk.setVisibility(View.GONE);
             }
         });
 
@@ -4205,15 +4217,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         boolean hints = (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
+        boolean junk = EntityFolder.JUNK.equals(type);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean app_support = prefs.getBoolean("app_support", false);
         boolean message_swipe = prefs.getBoolean("message_swipe", false);
         boolean message_select = prefs.getBoolean("message_select", false);
+        boolean message_junk = prefs.getBoolean("message_junk", false);
         boolean send_pending = prefs.getBoolean("send_pending", true);
 
-        grpHintSupport.setVisibility(app_support || !hints ? View.GONE : View.VISIBLE);
-        grpHintSwipe.setVisibility(message_swipe || !hints ? View.GONE : View.VISIBLE);
-        grpHintSelect.setVisibility(message_select || !hints ? View.GONE : View.VISIBLE);
+        grpHintSupport.setVisibility(app_support || !hints || junk ? View.GONE : View.VISIBLE);
+        grpHintSwipe.setVisibility(message_swipe || !hints || junk ? View.GONE : View.VISIBLE);
+        grpHintSelect.setVisibility(message_select || !hints || junk ? View.GONE : View.VISIBLE);
+        grpHintJunk.setVisibility(message_junk || !junk ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());
 
