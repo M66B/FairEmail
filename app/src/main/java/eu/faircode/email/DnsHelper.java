@@ -200,7 +200,7 @@ public class DnsHelper {
                         TXTRecord txt = (TXTRecord) record;
                         for (Object content : txt.getStrings())
                             if (result.size() > 0)
-                                result.get(0).name += ' ' + content.toString();
+                                result.get(0).name += content.toString();
                             else
                                 result.add(new DnsRecord(content.toString(), 0));
                     } else
