@@ -83,7 +83,12 @@ import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnsupportedCharsetException;
+import java.security.KeyFactory;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.security.spec.X509EncodedKeySpec;
 import java.text.Normalizer;
 import java.text.ParsePosition;
 import java.util.ArrayList;
@@ -1869,6 +1874,219 @@ public class MessageHelper {
         }
 
         return true;
+    }
+
+    boolean verifyDKIM(Context context) throws MessagingException {
+        ensureHeaders();
+
+        // https://datatracker.ietf.org/doc/html/rfc6376/
+        String[] dkims = imessage.getHeader("DKIM-Signature");
+        if (dkims == null || dkims.length < 1)
+            return false;
+
+        Address[] from = getFrom();
+        if (from == null || from.length != 1 || !(from[0] instanceof InternetAddress))
+            return false;
+
+        String sender = ((InternetAddress) from[0]).getAddress();
+        String dsender = UriHelper.getEmailDomain(sender);
+        if (TextUtils.isEmpty(dsender))
+            return false;
+
+        boolean verified = false;
+        for (String dkim : dkims)
+            try {
+                String udkim = MimeUtility.unfold(dkim);
+                //String udkim = dkim.replaceAll("\\r?\\n[ \\t]", " ");
+                Log.i("DKIM " + udkim.replaceAll("\\r?\\n", "|"));
+                Map<String, String> kv = getKeyValues(udkim);
+
+                String v = kv.get("v"); // version
+                if (TextUtils.isEmpty(v))
+                    throw new IllegalArgumentException("DKIM v missing");
+                if (!"1".equals(v))
+                    throw new IllegalArgumentException("DKIM v invalid=" + v);
+
+                String a = kv.get("a"); // algorithm
+                if (TextUtils.isEmpty(a))
+                    throw new IllegalArgumentException("DKIM a missing");
+
+                String algo;
+                String hash;
+                String sign;
+                if ("rsa-sha1".equalsIgnoreCase(a)) {
+                    algo = "RSA";
+                    hash = "SHA-1";
+                    sign = "SHA1withRSA";
+                } else if ("rsa-sha256".equalsIgnoreCase(a)) {
+                    algo = "RSA";
+                    hash = "SHA-256";
+                    sign = "SHA256withRSA";
+                } else
+                    throw new IllegalArgumentException("DKIM a unsupported=" + a);
+
+                Log.i("DKIM algo=" + algo + " hash=" + hash + " sign=" + sign);
+
+                String q = kv.get("q");
+                if (!TextUtils.isEmpty(q) && !"dns/txt".equals(q))
+                    throw new IllegalArgumentException("DKIM q invalid=" + q);
+
+                String c = kv.get("c"); // canonicalization
+                if (TextUtils.isEmpty(c))
+                    throw new IllegalArgumentException("DKIM c missing");
+
+                String[] canon = c.split("/");
+                if (canon.length != 2)
+                    throw new IllegalArgumentException("DKIM c invalid=" + c);
+
+                String s = kv.get("s"); // selector
+                if (TextUtils.isEmpty(s))
+                    throw new IllegalArgumentException("DKIM s missing");
+
+                // TODO: check
+                // TODO: i
+                String d = kv.get("d"); // domain
+                if (TextUtils.isEmpty(d))
+                    throw new IllegalArgumentException("DKIM d missing");
+
+                if (!dsender.equalsIgnoreCase(d) && false) {
+                    Log.w("DKIM domain=" + dsender + "/" + d);
+                    continue;
+                }
+
+                // TODO: t
+
+                String h = kv.get("h"); // signed headers
+                if (TextUtils.isEmpty(h))
+                    throw new IllegalArgumentException("DKIM h missing");
+                h = h.replaceAll("\\s+", "");
+                Log.i("DKIM headers=" + h);
+
+                String bh = kv.get("bh"); // Body hash
+                if (TextUtils.isEmpty(bh))
+                    throw new IllegalArgumentException("DKIM bh missing");
+                bh = bh.replaceAll("\\s+", "");
+
+                String b = kv.get("b"); // signature
+                if (TextUtils.isEmpty(b))
+                    throw new IllegalArgumentException("DKIM b missing");
+
+                b = b.replaceAll("\\s+", "");
+                Log.i("DKIM signature=" + b);
+
+                // Lookup public key
+                String dns = s + "._domainkey." + d;
+                Log.i("DKIM lookup " + dns);
+                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, dns, "txt");
+                if (records.length == 0)
+                    throw new IllegalArgumentException("DKIM domain key missing");
+
+                Log.i("DKIM got " + records[0].name);
+                Map<String, String> dk = getKeyValues(records[0].name);
+
+                String p = dk.get("p");
+                if (TextUtils.isEmpty(p))
+                    throw new IllegalArgumentException("DKIM public key missing");
+
+                p = p.replaceAll("\\s+", "");
+                Log.i("DKIM pubkey=" + p);
+
+                // Build headers
+                List<String> names = new ArrayList<>();
+                for (String name : h.split(":"))
+                    if (!names.contains(name) && !"DKIM-Signature".equalsIgnoreCase(name))
+                        names.add(name);
+                names.add("DKIM-Signature");
+
+                StringBuilder headers = new StringBuilder();
+                for (String name : names) {
+                    String[] mh = ("DKIM-Signature".equals(name)
+                            ? new String[]{udkim}
+                            : imessage.getHeader(name));
+
+                    if (mh == null || mh.length == 0) {
+                        Log.w("DKIM header missing='" + name + "'");
+                        continue;
+                    }
+
+                    for (int i = mh.length - 1; i >= 0; i--) {
+                        String value = mh[i];
+                        if ("DKIM-Signature".equals(name)) {
+                            int idx = value.lastIndexOf("b=");
+                            if (idx < 0)
+                                throw new IllegalArgumentException("DKIM b missing");
+                            value = value.substring(0, idx + 2);
+                        }
+
+                        if ("simple".equals(canon[0]))
+                            headers.append(name).append(": ")
+                                    .append(value);
+                        else if ("relaxed".equals(canon[0])) {
+                            value = MimeUtility.unfold(value);
+                            headers.append(name.trim().toLowerCase()).append(':')
+                                    .append(value.replaceAll("\\s+", " ").trim());
+                        } else
+                            throw new IllegalArgumentException("DKIM header/c invalid=" + canon[0]);
+
+                        if (!"DKIM-Signature".equals(name))
+                            headers.append("\r\n");
+                    }
+                }
+                Log.i("DKIM hash=" + headers.toString().replaceAll("\\r?\\n", "|"));
+
+                // Get body
+                // TODO l
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                Helper.copy(imessage.getRawInputStream(), bos);
+                String body = bos.toString(StandardCharsets.UTF_8.name());
+
+                if ("simple".equals(canon[1])) {
+                    if (TextUtils.isEmpty(body))
+                        body = "\r\n";
+                    else if (!body.endsWith("\r\n"))
+                        body += "\r\n";
+                    else {
+                        while (body.endsWith("\r\n\r\n"))
+                            body = body.substring(0, body.length() - 2);
+                    }
+                } else if ("relaxed".equals(canon[1])) {
+                    if (TextUtils.isEmpty(body))
+                        body = "";
+                    else {
+                        body = body.replaceAll("[ \\t]+\r\n", "\r\n");
+                        body = body.replaceAll("[ \\t]+", " ");
+                        while (body.endsWith("\r\n\r\n"))
+                            body = body.substring(0, body.length() - 2);
+                        if ("\r\n".equals(body))
+                            body = "";
+                    }
+                } else
+                    throw new IllegalArgumentException("DKIM header/c invalid=" + canon[1]);
+
+                byte[] _lbh = MessageDigest.getInstance(hash).digest(body.getBytes(StandardCharsets.UTF_8.name()));
+                String lbh = Base64.encodeToString(_lbh, Base64.NO_WRAP);
+                if (!bh.equals(lbh))
+                    throw new IllegalArgumentException("DKIM bh invalid " + lbh + "/" + bh);
+
+                X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(Base64.decode(p, Base64.DEFAULT));
+                KeyFactory keyFactory = KeyFactory.getInstance(algo);
+                PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
+                Signature sig = Signature.getInstance(sign);
+                sig.initVerify(pubKey);
+                sig.update(headers.toString().getBytes());
+                boolean valid = sig.verify(Base64.decode(b, Base64.DEFAULT));
+                Log.i("DKIM valid=" + valid);
+                if (valid)
+                    verified = true;
+                else
+                    throw new IllegalArgumentException("DKIM invalid");
+            } catch (Throwable ex) {
+                Log.e("DKIM", ex);
+                return false;
+            }
+
+        Log.i("DKIM verified=" + verified);
+        return verified;
     }
 
     Address[] getMailFrom(String[] headers) {

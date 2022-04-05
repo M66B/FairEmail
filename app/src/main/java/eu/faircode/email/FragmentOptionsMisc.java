@@ -171,6 +171,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swLogarithmicBackoff;
     private SwitchCompat swExactAlarms;
     private SwitchCompat swInfra;
+    private SwitchCompat swDkimVerify;
     private SwitchCompat swDupMsgId;
     private SwitchCompat swTestIab;
     private Button btnImportProviders;
@@ -211,7 +212,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "use_modseq", "uid_command", "perform_expunge", "uid_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop",
             "keep_alive_poll", "empty_pool", "idle_done", "logarithmic_backoff",
-            "exact_alarms", "infra", "dup_msgids", "test_iab"
+            "exact_alarms", "infra", "dkim_verify", "dup_msgids", "test_iab"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -336,6 +337,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swLogarithmicBackoff = view.findViewById(R.id.swLogarithmicBackoff);
         swExactAlarms = view.findViewById(R.id.swExactAlarms);
         swInfra = view.findViewById(R.id.swInfra);
+        swDkimVerify = view.findViewById(R.id.swDkimVerify);
         swDupMsgId = view.findViewById(R.id.swDupMsgId);
         swTestIab = view.findViewById(R.id.swTestIab);
         btnImportProviders = view.findViewById(R.id.btnImportProviders);
@@ -1136,6 +1138,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swDkimVerify.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        swDkimVerify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("dkim_verify", checked).apply();
+            }
+        });
+
         swDupMsgId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1727,6 +1737,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swLogarithmicBackoff.setChecked(prefs.getBoolean("logarithmic_backoff", true));
         swExactAlarms.setChecked(prefs.getBoolean("exact_alarms", true));
         swInfra.setChecked(prefs.getBoolean("infra", false));
+        swDkimVerify.setChecked(prefs.getBoolean("dkim_verify", false));
         swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
         swTestIab.setChecked(prefs.getBoolean("test_iab", false));
 

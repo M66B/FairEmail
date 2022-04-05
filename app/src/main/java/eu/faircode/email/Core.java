@@ -3818,6 +3818,7 @@ class Core {
         boolean download_plain = prefs.getBoolean("download_plain", false);
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean experiments = prefs.getBoolean("experiments", false);
+        boolean dkim_verify = prefs.getBoolean("dkim_verify", false);
         boolean pro = ActivityBilling.isPro(context);
 
         long uid = ifolder.getUID(imessage);
@@ -3971,7 +3972,10 @@ class Core {
             message.tls = helper.getTLS();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
             if (Boolean.TRUE.equals(message.dkim))
-                message.dkim = helper.checkDKIMRequirements();
+                if (!BuildConfig.PLAY_STORE_RELEASE && dkim_verify)
+                    message.dkim = helper.verifyDKIM(context);
+                else
+                    message.dkim = helper.checkDKIMRequirements();
             message.spf = MessageHelper.getAuthentication("spf", authentication);
             if (message.spf == null && helper.getSPF())
                 message.spf = true;
