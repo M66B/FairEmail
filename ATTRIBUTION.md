@@ -42,4 +42,3 @@ FairEmail uses:
 * [Lato font](https://fonts.google.com/specimen/Lato). By Łukasz Dziedzic. [Apache License 2.0](https://fonts.google.com/specimen/Lato#license).
 * [Caladea font](https://fonts.google.com/specimen/Caladea). By Andrés Torresi, Carolina Giovanolli. [Apache License 2.0](https://fonts.google.com/specimen/Caladea#license).
 * [Apache Commons Compress](https://commons.apache.org/proper/commons-compress/). Copyright © 2002-2021 The Apache Software Foundation. All Rights Reserved. [Apache License 2.0](https://www.apache.org/licenses/).
-* [Apache JAMES jDKIM](https://github.com/Bedework/apache-jdkim). Copyright 2009-2010 The Apache Software Foundation. [Apache License 2.0](https://github.com/Bedework/apache-jdkim/blob/master/LICENSE)

@@ -55,12 +55,6 @@ import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveStreamFactory;
 import org.apache.commons.compress.archivers.zip.UnsupportedZipFeatureException;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
-import org.apache.james.jdkim.DKIMVerifier;
-import org.apache.james.jdkim.api.Headers;
-import org.apache.james.jdkim.api.PublicKeyRecordRetriever;
-import org.apache.james.jdkim.api.SignatureRecord;
-import org.apache.james.jdkim.exceptions.PermFailException;
-import org.apache.james.jdkim.exceptions.TempFailException;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -1877,69 +1871,7 @@ public class MessageHelper {
     }
 
     boolean verifyDKIM(Context context) throws MessagingException {
-        ensureHeaders();
-
-        try {
-            // https://datatracker.ietf.org/doc/html/rfc6376/
-            DKIMVerifier jdkim = new DKIMVerifier(new PublicKeyRecordRetriever() {
-                @Override
-                public List<String> getRecords(CharSequence methodAndOptions, CharSequence selector, CharSequence token)
-                        throws TempFailException, PermFailException {
-                    if (methodAndOptions == null ||
-                            !"dns/txt".equalsIgnoreCase(methodAndOptions.toString()))
-                        throw new PermFailException("Query method=" + methodAndOptions);
-                    try {
-                        String query = selector + "._domainkey." + token;
-                        DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, query, "txt");
-                        List<String> result = new ArrayList<>();
-                        for (DnsHelper.DnsRecord record : records)
-                            result.add(record.name);
-                        return result;
-                    } catch (Exception ex) {
-                        Log.w(ex);
-                        throw new PermFailException("dns/lookup", ex);
-                    }
-                }
-            });
-            List<SignatureRecord> records = jdkim.verify(new Headers() {
-                @Override
-                public List<String> getFields() {
-                    Log.e("DKIM getFields");
-                    throw new IllegalArgumentException("getFields");
-                }
-
-                @Override
-                public List<String> getFields(String name) {
-                    try {
-                        List<String> result = new ArrayList<>();
-                        String[] headers = imessage.getHeader(name);
-                        if (headers != null)
-                            for (String header : headers)
-                                result.add(name + ": " + header);
-                        return result;
-                    } catch (MessagingException ex) {
-                        Log.e(ex);
-                        return new ArrayList<>();
-                    }
-                }
-            }, imessage.getRawInputStream());
-
-            if (records == null)
-                return false;
-
-            for (SignatureRecord record : records) {
-                String hash = record.getHashAlgo().toString();
-                if ("sha-1".equalsIgnoreCase(hash))
-                    throw new IllegalArgumentException("hash=" + hash);
-                if (!"sha-256".equalsIgnoreCase(hash))
-                    Log.w("DKIM hash=" + hash);
-            }
-
-            return (records.size() > 0);
-        } catch (Throwable ex) {
-            Log.e("DKIM", ex);
-            return false;
-        }
+        return true;
     }
 
     Address[] getMailFrom(String[] headers) {
