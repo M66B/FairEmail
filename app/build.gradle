@@ -99,12 +99,14 @@ android {
                     'META-INF/COPYRIGHT.html',
                     'META-INF/LICENSE.gpl.txt',
                     'META-INF/LICENSE.commercial.txt',
+                    'META-INF/README',
+                    'META-INF/DEPENDENCIES',
+                    'META-INF/INDEX.LIST',
                     'LICENSE-2.0.txt',
                     'RELEASE.txt'
             ]
         }
     }
-
 
     // https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.SigningConfig.html
     signingConfigs {
@@ -582,4 +584,10 @@ dependencies {
     // https://commons.apache.org/proper/commons-compress/
     // https://mvnrepository.com/artifact/org.apache.commons/commons-compress
     implementation "org.apache.commons:commons-compress:$compress_version"
+
+    implementation("org.bedework:apache-jdkim:0.6") {
+        exclude group: "org.apache.geronimo.specs", module: "geronimo-activation_1.1_spec"
+        exclude group: "org.apache.geronimo.javamail", module: "geronimo-javamail_1.4_mail"
+        exclude group: "dnsjava", module: "dnsjava"
+    }
 }
