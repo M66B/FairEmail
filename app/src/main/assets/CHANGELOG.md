@@ -4,6 +4,13 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### 1.1868 - 2022-04-06
+
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://publicsuffix.org/)
+* Updated build tools
+* Updated translations
+
 ### 1.1867 - 2022-04-04
 
 * Added highlighting (marking) of text
