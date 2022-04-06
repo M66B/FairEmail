@@ -47,6 +47,7 @@ import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.DeadObjectException;
@@ -1737,11 +1738,24 @@ public class Log {
             View dview = inflater.inflate(R.layout.dialog_unexpected, null);
             TextView tvError = dview.findViewById(R.id.tvError);
 
-            tvError.setText(Log.formatThrowable(ex, false));
+            String message = Log.formatThrowable(ex, false);
+            tvError.setText(message);
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setView(dview)
-                    .setPositiveButton(android.R.string.cancel, null);
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setPositiveButton(R.string.menu_faq, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Uri uri = Helper.getSupportUri(context);
+                            if (!TextUtils.isEmpty(message))
+                                uri = uri
+                                        .buildUpon()
+                                        .appendQueryParameter("message", "Unexpected: " + message)
+                                        .build();
+                            Helper.view(context, uri, true);
+                        }
+                    });
 
             if (report)
                 builder.setNeutralButton(R.string.title_report, new DialogInterface.OnClickListener() {
