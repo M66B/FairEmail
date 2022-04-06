@@ -3972,7 +3972,7 @@ class Core {
             message.tls = helper.getTLS();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
             if (Boolean.TRUE.equals(message.dkim))
-                if (!BuildConfig.PLAY_STORE_RELEASE && dkim_verify)
+                if (BuildConfig.DEBUG && dkim_verify)
                     message.dkim = helper.verifyDKIM(context);
                 else
                     message.dkim = helper.checkDKIMRequirements();
