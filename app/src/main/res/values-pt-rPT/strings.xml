@@ -610,6 +610,7 @@
     <string name="title_advanced_placeholders_hint">Apenas se aplica a mensagens reformatadas</string>
     <string name="compressed">O conteúdo dos ficheiros comprimidos (%1$s) com mais de %2$s ficheiros ou com ficheiros maiores do que %3$s não será mostrado</string>
     <string name="title_advanced_parse_classes_hint">Mostrará as mensagens com maior precisão, mas com um possível atraso</string>
+    <string name="title_advanced_language_detection_hint">Suporte de detecção de idioma depende do fabricante do dispositivo</string>
     <string name="title_advanced_display_harmful_hint">A desactivação desta opção pode ser lesiva para a sua privacidade</string>
     <string name="title_advanced_display_hidden_hint">Pode resultar em textos mal formatados e em duplicado</string>
     <string name="title_advanced_display_pin_hint">O PIN tem prioridade relativamente à autenticação biométrica</string>
@@ -625,6 +626,7 @@
     <string name="title_advanced_cleanup_attachments_hint">Quando houver uma limpeza manual, isto fará com que os anexos, das mensagens que já não são sincronizadas, sejam removidos</string>
     <string name="title_advanced_cleanup_hint">Isto irá eliminar todos os ficheiros temporários</string>
     <string name="title_advanced_never_favorite">Nunca colocar como favorito</string>
+    <string name="title_advanced_swipe_actions_hint">Isto definirá a acção de deslizar para a esquerda e para a direita para todas as contas IMAP</string>
     <string name="title_select">Seleccionar &#8230;</string>
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
@@ -698,6 +700,9 @@
     <string name="title_contact_name">Nome</string>
     <string name="title_contact_group">Grupo</string>
     <string name="title_import_contacts">Importar vCards</string>
+    <string name="title_empty_trash_ask">Eliminar todas as mensagens no \"lixo\" permanentemente?</string>
+    <string name="title_empty_trash_all_ask">Eliminar todas as mensagens no \"lixo\" de todas as contas permanentemente?</string>
+    <string name="title_empty_all">Esta acção irá eliminar todas as mensagens do dispositivo e do servidor</string>
     <string name="title_delete_operation_title">Eliminar operações</string>
     <string name="title_delete_operation_error">Com uma mensagem de erro</string>
     <string name="title_delete_operation_fetch">Obter operações</string>

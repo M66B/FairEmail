@@ -773,6 +773,7 @@
     <string name="title_legend_r">답장</string>
     <string name="title_legend_s">선택/선택 해제</string>
     <string name="title_legend_t">글자에 포커스</string>
+    <string name="title_hint_message_junk">이 메시지들은 이메일 서버의 스팸함에 들어 있습니다. 본 앱에서 스팸 수신 자체를 막지는 못합니다.</string>
     <string name="title_hint_important">중요</string>
     <string name="title_open_link">링크 열기</string>
     <string name="title_image_link">이미지 링크</string>
