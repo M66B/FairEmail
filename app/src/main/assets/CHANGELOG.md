@@ -4,6 +4,10 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### Next version
+
+* Added DeepL HTML support
+
 ### 1.1868 - 2022-04-06
 
 * Small improvements and minor bug fixes
