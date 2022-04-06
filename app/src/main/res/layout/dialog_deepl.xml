@@ -90,6 +90,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFormal" />
 
+        <CheckBox
+            android:id="@+id/cbHtml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_translate_html"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbSmall" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvHtml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_translate_html_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbHtml" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvUsage"
             android:layout_width="wrap_content"
@@ -98,7 +117,7 @@
             android:text="Usage"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSmall" />
+            app:layout_constraintTop_toBottomOf="@id/tvHtml" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvPrivacy"

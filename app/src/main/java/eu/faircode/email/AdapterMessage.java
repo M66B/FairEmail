@@ -8155,7 +8155,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
                                     String text = args.getString("text");
                                     String target = args.getString("target");
-                                    return DeepL.translate(text, target, context);
+                                    return DeepL.translate(text, false, target, context);
                                 }
 
                                 @Override

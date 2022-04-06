@@ -2141,12 +2141,14 @@ public class FragmentCompose extends FragmentBase {
                 if (paragraph == null)
                     return;
 
+                etBody.clearComposingText();
+
                 Editable edit = etBody.getText();
-                String text = edit.subSequence(paragraph.first, paragraph.second).toString();
+                CharSequence text = edit.subSequence(paragraph.first, paragraph.second);
 
                 Bundle args = new Bundle();
                 args.putString("target", target);
-                args.putString("text", text);
+                args.putCharSequence("text", text);
 
                 new SimpleTask<DeepL.Translation>() {
                     private Object highlightSpan;
@@ -2169,8 +2171,8 @@ public class FragmentCompose extends FragmentBase {
                     @Override
                     protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
                         String target = args.getString("target");
-                        String text = args.getString("text");
-                        return DeepL.translate(text, target, context);
+                        CharSequence text = args.getCharSequence("text");
+                        return DeepL.translate(text, true, target, context);
                     }
 
                     @Override
@@ -2206,7 +2208,8 @@ public class FragmentCompose extends FragmentBase {
                              at android.text.SpannableStringBuilder.insert(SpannableStringBuilder.java:38)
                          */
                         int len = 2 + translation.translated_text.length();
-                        edit.insert(paragraph.second, "\n\n" + translation.translated_text);
+                        edit.insert(paragraph.second, translation.translated_text);
+                        edit.insert(paragraph.second, "\n\n");
                         StyleHelper.markAsTranslated(edit, paragraph.second, paragraph.second + len);
 
                         etBody.setSelection(paragraph.second + len);

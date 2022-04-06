@@ -28,7 +28,10 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.RelativeSizeSpan;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +48,7 @@ import androidx.preference.PreferenceManager;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.nodes.Document;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -190,20 +194,40 @@ public class DeepL {
         return null;
     }
 
-    public static Translation translate(String text, String target, Context context) throws IOException, JSONException {
+    public static Translation translate(CharSequence text, boolean html, String target, Context context) throws IOException, JSONException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean formality = prefs.getBoolean("deepl_formal", true);
-        return translate(text, target, formality, context);
+        boolean deepl_formal = prefs.getBoolean("deepl_formal", true);
+        boolean deepl_html = prefs.getBoolean("deepl_html", false);
+        return translate(text, html && deepl_html, target, deepl_formal, context);
     }
 
-    public static Translation translate(String text, String target, boolean formality, Context context) throws IOException, JSONException {
+    public static Translation translate(CharSequence text, boolean html, String target, boolean formality, Context context) throws IOException, JSONException {
         if (!ConnectionHelper.getNetworkState(context).isConnected())
             throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean small = prefs.getBoolean("deepl_small", false);
+        String key = prefs.getString("deepl_key", null);
+
+        String input;
+        if (html) {
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(text);
+            if (small)
+                for (RelativeSizeSpan span : ssb.getSpans(0, ssb.length(), RelativeSizeSpan.class))
+                    if (span.getSizeChange() == HtmlHelper.FONT_SMALL)
+                        ssb.removeSpan(span);
+            input = HtmlHelper.toHtml(ssb, context);
+        } else
+            input = text.toString();
+
         // https://www.deepl.com/docs-api/translating-text/request/
         String request =
-                "text=" + URLEncoder.encode(text, StandardCharsets.UTF_8.name()) +
+                "text=" + URLEncoder.encode(input, StandardCharsets.UTF_8.name()) +
                         "&target_lang=" + URLEncoder.encode(target, StandardCharsets.UTF_8.name());
+
+        // https://www.deepl.com/docs-api/handling-html-(beta)/
+        if (html)
+            request += "&tag_handling=html";
 
         ensureLanguages(context);
         for (int i = 0; i < jlanguages.length(); i++) {
@@ -215,9 +239,6 @@ public class DeepL {
                 break;
             }
         }
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String key = prefs.getString("deepl_key", null);
 
         URL url = new URL(getBaseUri(context) + "translate?auth_key=" + key);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -258,7 +279,15 @@ public class DeepL {
             Translation result = new Translation();
             result.target_language = target;
             result.detected_language = jtranslation.getString("detected_source_language");
-            result.translated_text = jtranslation.getString("text");
+
+            String output = jtranslation.getString("text");
+
+            if (html) {
+                Document document = HtmlHelper.sanitizeCompose(context, output, false);
+                result.translated_text = HtmlHelper.fromDocument(context, document, null, null);
+            } else
+                result.translated_text = output;
+
             return result;
         } finally {
             connection.disconnect();
@@ -335,7 +364,7 @@ public class DeepL {
     public static class Translation {
         public String detected_language;
         public String target_language;
-        public String translated_text;
+        public CharSequence translated_text;
     }
 
     public static class FragmentDialogDeepL extends FragmentDialogBase {
@@ -348,6 +377,7 @@ public class DeepL {
             boolean pro = prefs.getBoolean("deepl_pro", false);
             boolean formal = prefs.getBoolean("deepl_formal", true);
             boolean small = prefs.getBoolean("deepl_small", false);
+            boolean html = prefs.getBoolean("deepl_html", false);
             int subscription = prefs.getInt("deepl_subscription", BuildConfig.DEBUG ? 17 : 0);
 
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
@@ -357,6 +387,7 @@ public class DeepL {
             final CheckBox cbFormal = view.findViewById(R.id.cbFormal);
             final TextView tvFormal = view.findViewById(R.id.tvFormal);
             final CheckBox cbSmall = view.findViewById(R.id.cbSmall);
+            final CheckBox cbHtml = view.findViewById(R.id.cbHtml);
             final TextView tvUsage = view.findViewById(R.id.tvUsage);
             final TextView tvPrivacy = view.findViewById(R.id.tvPrivacy);
 
@@ -398,6 +429,7 @@ public class DeepL {
             }
 
             cbSmall.setChecked(small);
+            cbHtml.setChecked(html);
 
             tvUsage.setVisibility(View.GONE);
 
@@ -460,6 +492,7 @@ public class DeepL {
                             editor.putBoolean("deepl_pro", cbPro.isChecked());
                             editor.putBoolean("deepl_formal", cbFormal.isChecked());
                             editor.putBoolean("deepl_small", cbSmall.isChecked());
+                            editor.putBoolean("deepl_html", cbHtml.isChecked());
                             editor.apply();
                         }
                     })
