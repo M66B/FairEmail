@@ -595,7 +595,7 @@ public class FragmentCompose extends FragmentBase {
         etBody.addTextChangedListener(new TextWatcher() {
             private Integer added = null;
             private Integer removed = null;
-            private Integer replaced = null;
+            private Integer translated = null;
 
             @Override
             public void beforeTextChanged(CharSequence text, int start, int count, int after) {
@@ -603,9 +603,20 @@ public class FragmentCompose extends FragmentBase {
                     Log.i("Removed=" + start);
                     removed = start;
                 }
-                if (BuildConfig.DEBUG && count - after == 1) {
-                    replaced = start + after;
-                    Log.i("Replaced=" + replaced);
+
+                if (BuildConfig.DEBUG && count - after == 1 && start + after > 0) {
+                    int replaced = start + after;
+                    Spanned spanned = ((Spanned) text);
+                    StyleHelper.TranslatedSpan[] spans =
+                            spanned.getSpans(replaced, replaced, StyleHelper.TranslatedSpan.class);
+                    for (StyleHelper.TranslatedSpan span : spans) {
+                        int end = spanned.getSpanEnd(span);
+                        Log.i("Replaced=" + replaced);
+                        if (end - 1 == replaced) {
+                            translated = end - 1;
+                            break;
+                        }
+                    }
                 }
             }
 
@@ -745,20 +756,17 @@ public class FragmentCompose extends FragmentBase {
                     removed = null;
                 }
 
-                if (replaced != null && replaced > 0) {
-                    StyleHelper.TranslatedSpan[] nc =
-                            text.getSpans(replaced - 1, replaced, StyleHelper.TranslatedSpan.class);
-                    if (nc != null)
-                        for (StyleHelper.TranslatedSpan p : nc) {
-                            int start = text.getSpanStart(p);
-                            int end = text.getSpanEnd(p);
-                            if (end == replaced) {
-                                text.delete(start, end);
-                                text.removeSpan(p);
-                            }
+                if (translated != null) {
+                    StyleHelper.TranslatedSpan[] spans =
+                            text.getSpans(translated, translated, StyleHelper.TranslatedSpan.class);
+                    for (StyleHelper.TranslatedSpan span : spans) {
+                        int start = text.getSpanStart(span);
+                        int end = text.getSpanEnd(span);
+                        if (end == translated) {
+                            text.delete(start, end);
+                            text.removeSpan(span);
                         }
-
-                    replaced = null;
+                    }
                 }
 
                 if (lp != null)
