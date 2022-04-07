@@ -3972,10 +3972,7 @@ class Core {
             message.tls = helper.getTLS();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
             if (Boolean.TRUE.equals(message.dkim))
-                if (BuildConfig.DEBUG && dkim_verify)
-                    message.dkim = helper.verifyDKIM(context);
-                else
-                    message.dkim = helper.checkDKIMRequirements();
+                message.dkim = helper.checkDKIMRequirements();
             message.spf = MessageHelper.getAuthentication("spf", authentication);
             if (message.spf == null && helper.getSPF())
                 message.spf = true;

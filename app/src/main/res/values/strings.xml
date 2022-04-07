@@ -742,7 +742,6 @@
     <string name="title_advanced_empty_pool" translatable="false">Empty connection pool</string>
     <string name="title_advanced_exact_alarms" translatable="false">Use exact timers</string>
     <string name="title_advanced_infra" translatable="false">Show infrastructure</string>
-    <string name="title_advanced_dkim_verify" translatable="false">DKIM verification</string>
     <string name="title_advanced_dup_msgid" translatable="false">Duplicates by message ID</string>
     <string name="title_advanced_test_iab" translatable="false">Test IAB</string>
     <string name="title_advanced_import_providers" translatable="false">Import providers</string>

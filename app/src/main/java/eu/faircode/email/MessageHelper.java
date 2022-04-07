@@ -1868,10 +1868,6 @@ public class MessageHelper {
         return true;
     }
 
-    boolean verifyDKIM(Context context) throws MessagingException {
-        return true;
-    }
-
     Address[] getMailFrom(String[] headers) {
         if (headers == null)
             return null;
