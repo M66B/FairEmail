@@ -871,6 +871,10 @@
     <string name="title_ask_review_rationale">        Está a utilizar o FairEmail há algum tempo.
         Gostaríamos que avaliasse o FairEmail na Play Store.
     </string>
+    <string name="title_need_help">Preciso de ajuda</string>
+    <string name="title_ask_once">Esta mensagem só aparecerá uma vez, a menos que seleccione \'Mais tarde\'</string>
+    <string name="title_third_party">Está a usar uma versão de proveniência externa</string>
+    <string name="title_expand_warning">Expandir esta mensagem fará a transferência de %1$s</string>
     <string name="title_download_message">A transferir &#8230;</string>
     <string name="title_compose">Compor</string>
     <string name="title_submitter">Enviado por:</string>
@@ -953,6 +957,8 @@
     <string name="title_translating">A traduzir &#8230;</string>
     <string name="title_translate_formal">Utilizar o formulário formal</string>
     <string name="title_translate_small">Utilizar um tipo de letra pequeno para o texto original</string>
+    <string name="title_translate_html" comment="title_translate_html&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Guardar formatação</string>
+    <string name="title_translate_html_hint" comment="title_translate_html_hint&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Esta opção consumirá mais caracteres</string>
     <string name="title_translate_usage">Utilização: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Toque no texto a ser traduzido</string>
     <string name="title_edit_plain_text">Editar como texto simples</string>
@@ -1085,6 +1091,9 @@
     <string name="title_edit_signature_remark">Embora o Android não consiga mostrar todo o conteúdo HTML, a mensagem será enviada em HTML</string>
     <string name="title_edit_signature_text">Texto da assinatura</string>
     <string name="title_edit_signature_image">Inserir imagem</string>
+    <string name="title_edit_signature_image_hint">        Quando enviar uma mensagem, a imagem é copiada para a mensagem a partir do local seleccionado.
+        Por isso, não elimine o ficheiro da imagem!
+    </string>
     <string name="title_answer_caption">Editar modelo</string>
     <string name="title_answer_reply">Modelo de resposta</string>
     <string name="title_answer_name">Nome do modelo</string>

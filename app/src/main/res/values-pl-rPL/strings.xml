@@ -1182,6 +1182,8 @@
     <string name="title_translating">Tłumaczenie &#8230;</string>
     <string name="title_translate_formal">Użyj stylu formalnego</string>
     <string name="title_translate_small">Użyj małej czcionki dla tekstu źródłowego</string>
+    <string name="title_translate_html" comment="title_translate_html&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Zachowaj formatowanie</string>
+    <string name="title_translate_html_hint" comment="title_translate_html_hint&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Spowoduje to zużycie większej liczby znaków</string>
     <string name="title_translate_usage">Składnia: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Dotknij tekstu, aby przetłumaczyć</string>
     <string name="title_edit_plain_text">Edytuj jako zwykły tekst</string>

@@ -656,6 +656,7 @@
     <string name="title_importance_high">بالا</string>
     <string name="title_search_in_text">جستجو در متن &#8230;</string>
     <string name="title_forward">هدایت</string>
+    <string name="title_resend">ارسال مجدد</string>
     <string name="title_new_message">پیام جدید</string>
     <string name="title_editasnew">ویرایش به‌عنوان جدید</string>
     <string name="title_create_rule">ساخت قانون &#8230;</string>
