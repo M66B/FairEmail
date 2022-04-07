@@ -4405,6 +4405,7 @@ DeepL offers free translation of 500,000 characters (~100,000 words; ~250 pages)
 This feature requires an internet connection.
 
 Note that you can't use [the regular pro plans](https://www.deepl.com/pro).
+The error *403 forbidden* means that the key and/or plan in invalid.
 
 Note that when reading a message, you can use the horizontal three-dots menu to translate too.
 If you use this frequently, you can configure a button for this.
