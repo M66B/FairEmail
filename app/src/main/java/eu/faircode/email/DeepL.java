@@ -49,6 +49,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -216,9 +218,16 @@ public class DeepL {
                 for (RelativeSizeSpan span : ssb.getSpans(0, ssb.length(), RelativeSizeSpan.class))
                     if (span.getSizeChange() == HtmlHelper.FONT_SMALL)
                         ssb.removeSpan(span);
-            input = HtmlHelper.toHtml(ssb, context);
+            String h = HtmlHelper.toHtml(ssb, context);
+            Elements content = JsoupEx.parse(h).body().children();
+            Element last = (content.size() == 0 ? null : content.get(content.size() - 1));
+            if (last != null && "br".equals(last.tagName()))
+                content.remove(last);
+            input = content.outerHtml();
         } else
             input = text.toString();
+
+        Log.i("DeepL input=" + input.replaceAll("\\r?\\n", "|"));
 
         // https://www.deepl.com/docs-api/translating-text/request/
         String request =
@@ -282,11 +291,15 @@ public class DeepL {
 
             String output = jtranslation.getString("text");
 
+            Log.i("DeepL output=" + output.replaceAll("\\r?\\n", "|"));
+
             if (html) {
-                Document document = HtmlHelper.sanitizeCompose(context, output, false);
+                Document document = JsoupEx.parse(output);
                 result.translated_text = HtmlHelper.fromDocument(context, document, null, null);
             } else
                 result.translated_text = output;
+
+            Log.i("DeepL result=" + result.translated_text.toString().replaceAll("\\r?\\n", "|"));
 
             return result;
         } finally {
