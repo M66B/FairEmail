@@ -4,9 +4,12 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
-### Next version
+### 1.1869 - 2022-04-07
 
-* Added DeepL HTML support
+* Added [DeepL HTML support](https://www.deepl.com/docs-api/handling-html-(beta)/)
+* Fixed inline image handling for external drafts
+* Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1868 - 2022-04-06
 
