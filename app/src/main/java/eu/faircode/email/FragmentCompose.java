@@ -767,6 +767,8 @@ public class FragmentCompose extends FragmentBase {
                             text.removeSpan(span);
                         }
                     }
+
+                    translated = null;
                 }
 
                 if (lp != null)
