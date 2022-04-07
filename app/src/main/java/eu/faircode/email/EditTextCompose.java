@@ -55,6 +55,7 @@ import androidx.preference.PreferenceManager;
 import androidx.room.EntityInsertionAdapter;
 
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -460,11 +461,11 @@ public class EditTextCompose extends FixedEditText {
 
     private SpannableStringBuilder getSpanned(Context context, String html) {
         Document document = HtmlHelper.sanitizeCompose(context, html, false);
-        Spanned paste = HtmlHelper.fromDocument(context, document, new Html.ImageGetter() {
+        Spanned paste = HtmlHelper.fromDocument(context, document, new HtmlHelper.ImageGetterEx() {
             @Override
-            public Drawable getDrawable(String source) {
+            public Drawable getDrawable(Element element) {
                 return ImageHelper.decodeImage(context,
-                        -1, source, true, 0, 1.0f, EditTextCompose.this);
+                        -1, element, true, 0, 1.0f, EditTextCompose.this);
             }
         }, null);
 

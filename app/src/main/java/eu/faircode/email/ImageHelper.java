@@ -59,6 +59,8 @@ import androidx.preference.PreferenceManager;
 
 import com.caverock.androidsvg.SVG;
 
+import org.jsoup.nodes.Element;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -302,6 +304,20 @@ class ImageHelper {
     }
 
     static Drawable decodeImage(final Context context, final long id, String source, boolean show, int zoom, final float scale, final TextView view) {
+        return decodeImage(context, id, source, 0, 0, false, show, zoom, scale, view);
+    }
+
+    static Drawable decodeImage(final Context context, final long id, Element img, boolean show, int zoom, final float scale, final TextView view) {
+        String source = img.attr("src");
+        Integer w = Helper.parseInt(img.attr("width"));
+        Integer h = Helper.parseInt(img.attr("height"));
+        boolean tracking = !TextUtils.isEmpty(img.attr("x-tracking"));
+        return decodeImage(context, id, source, w == null ? 0 : w, h == null ? 0 : h, tracking, show, zoom, scale, view);
+    }
+
+    private static Drawable decodeImage(final Context context, final long id,
+                                        String source, final int aw, final int ah, boolean tracking,
+                                        boolean show, int zoom, final float scale, final TextView view) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean inline = prefs.getBoolean("inline_images", false);
 
@@ -309,24 +325,22 @@ class ImageHelper {
         final Resources res = context.getResources();
 
         try {
-            final AnnotatedSource a = new AnnotatedSource(source);
-
-            if (TextUtils.isEmpty(a.source)) {
+            if (TextUtils.isEmpty(source)) {
                 Drawable d = context.getDrawable(R.drawable.twotone_broken_image_24);
                 d.setBounds(0, 0, px, px);
                 return d;
             }
 
-            boolean embedded = a.source.startsWith("cid:");
-            boolean data = a.source.startsWith("data:");
-            boolean content = a.source.startsWith("content:");
+            boolean embedded = source.startsWith("cid:");
+            boolean data = source.startsWith("data:");
+            boolean content = source.startsWith("content:");
 
-            Log.d("Image show=" + show + " inline=" + inline + " source=" + a.source);
+            Log.d("Image show=" + show + " inline=" + inline + " source=" + source);
 
             // Embedded images
             if (embedded && (show || inline)) {
                 DB db = DB.getInstance(context);
-                String cid = "<" + a.source.substring(4) + ">";
+                String cid = "<" + source.substring(4) + ">";
                 EntityAttachment attachment = db.attachment().getAttachment(id, cid);
                 if (attachment == null) {
                     Log.i("Image not found CID=" + cid);
@@ -347,7 +361,7 @@ class ImageHelper {
                                     attachment.getMimeType(),
                                     scaleToPixels);
                             if (view != null)
-                                fitDrawable(d, a, scale, view);
+                                fitDrawable(d, aw, ah, scale, view);
                             return d;
                         } catch (IOException ex) {
                             Log.w(ex);
@@ -369,7 +383,7 @@ class ImageHelper {
                             Drawable d = new BitmapDrawable(res, bm);
                             d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
                             if (view != null)
-                                fitDrawable(d, a, scale, view);
+                                fitDrawable(d, aw, ah, scale, view);
                             return d;
                         }
                     }
@@ -377,11 +391,11 @@ class ImageHelper {
             }
 
             // Data URI
-            if (data && (show || inline || a.tracking))
+            if (data && (show || inline || tracking))
                 try {
                     int scaleToPixels = res.getDisplayMetrics().widthPixels;
-                    String mimeType = getDataUriType(a.source);
-                    ByteArrayInputStream bis = getDataUriStream(a.source);
+                    String mimeType = getDataUriType(source);
+                    ByteArrayInputStream bis = getDataUriStream(source);
                     Bitmap bm = getScaledBitmap(bis, "data:" + mimeType, mimeType, scaleToPixels);
                     if (bm == null)
                         throw new IllegalArgumentException("decode byte array failed");
@@ -390,7 +404,7 @@ class ImageHelper {
                     d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
 
                     if (view != null)
-                        fitDrawable(d, a, scale, view);
+                        fitDrawable(d, aw, ah, scale, view);
                     return d;
                 } catch (IllegalArgumentException ex) {
                     Log.i(ex);
@@ -401,7 +415,7 @@ class ImageHelper {
 
             if (content && (show || inline))
                 try {
-                    Uri uri = Uri.parse(a.source);
+                    Uri uri = Uri.parse(source);
                     Log.i("Loading image source=" + uri);
 
                     Bitmap bm;
@@ -409,16 +423,16 @@ class ImageHelper {
                     try (InputStream is = context.getContentResolver().openInputStream(uri)) {
                         if (is == null)
                             throw new FileNotFoundException(uri.toString());
-                        bm = getScaledBitmap(is, a.source, null, scaleToPixels);
+                        bm = getScaledBitmap(is, source, null, scaleToPixels);
                         if (bm == null)
-                            throw new FileNotFoundException(a.source);
+                            throw new FileNotFoundException(source);
                     }
 
                     Drawable d = new BitmapDrawable(res, bm);
                     d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
 
                     if (view != null)
-                        fitDrawable(d, a, scale, view);
+                        fitDrawable(d, aw, ah, scale, view);
                     return d;
                 } catch (Throwable ex) {
                     // FileNotFound, Security
@@ -437,7 +451,7 @@ class ImageHelper {
             }
 
             // Check cache
-            Drawable cached = getCachedImage(context, id, a.source);
+            Drawable cached = getCachedImage(context, id, source);
             if (cached != null || view == null) {
                 if (view == null)
                     if (cached == null) {
@@ -447,7 +461,7 @@ class ImageHelper {
                     } else
                         return cached;
                 else
-                    fitDrawable(cached, a, scale, view);
+                    fitDrawable(cached, aw, ah, scale, view);
                 return cached;
             }
 
@@ -486,17 +500,17 @@ class ImageHelper {
                 public void run() {
                     try {
                         // Check cache again
-                        Drawable cached = getCachedImage(context, id, a.source);
+                        Drawable cached = getCachedImage(context, id, source);
                         if (cached != null) {
-                            fitDrawable(cached, a, scale, view);
-                            post(cached, a.source);
+                            fitDrawable(cached, aw, ah, scale, view);
+                            post(cached, source);
                             return;
                         }
 
                         // Download image
-                        Drawable d = downloadImage(context, id, a.source, null);
-                        fitDrawable(d, a, scale, view);
-                        post(d, a.source);
+                        Drawable d = downloadImage(context, id, source, null);
+                        fitDrawable(d, aw, ah, scale, view);
+                        post(d, source);
                     } catch (Throwable ex) {
                         // Show broken icon
                         Log.i(ex);
@@ -505,7 +519,7 @@ class ImageHelper {
                                 : R.drawable.twotone_broken_image_24);
                         Drawable d = context.getDrawable(resid);
                         d.setBounds(0, 0, px, px);
-                        post(d, a.source);
+                        post(d, source);
                     }
                 }
 
@@ -547,7 +561,7 @@ class ImageHelper {
 
     private static Map<Drawable, Rect> drawableBounds = new WeakHashMap<>();
 
-    static void fitDrawable(final Drawable d, final AnnotatedSource a, float scale, final View view) {
+    static void fitDrawable(final Drawable d, int aw, int ah, float scale, final View view) {
         synchronized (drawableBounds) {
             if (drawableBounds.containsKey(d))
                 d.setBounds(drawableBounds.get(d));
@@ -559,15 +573,15 @@ class ImageHelper {
         int w = Math.round(Helper.dp2pixels(view.getContext(), bounds.width()) * scale);
         int h = Math.round(Helper.dp2pixels(view.getContext(), bounds.height()) * scale);
 
-        if (a.width == 0 && a.height != 0)
-            a.width = Math.round(a.height * w / (float) h);
-        if (a.height == 0 && a.width != 0)
-            a.height = Math.round(a.width * h / (float) w);
+        if (aw == 0 && ah != 0)
+            aw = Math.round(ah * w / (float) h);
+        if (ah == 0 && aw != 0)
+            ah = Math.round(aw * h / (float) w);
 
-        if (a.width != 0 && a.height != 0) {
-            boolean swap = ((w > h) != (a.width > a.height)) && false;
-            w = Math.round(Helper.dp2pixels(view.getContext(), swap ? a.height : a.width) * scale);
-            h = Math.round(Helper.dp2pixels(view.getContext(), swap ? a.width : a.height) * scale);
+        if (aw != 0 && ah != 0) {
+            boolean swap = ((w > h) != (aw > ah)) && false;
+            w = Math.round(Helper.dp2pixels(view.getContext(), swap ? ah : aw) * scale);
+            h = Math.round(Helper.dp2pixels(view.getContext(), swap ? aw : ah) * scale);
         }
 
         float width = view.getContext().getResources().getDisplayMetrics().widthPixels;
@@ -930,56 +944,5 @@ class ImageHelper {
             }
 
         return (lum / n);
-    }
-
-    static class AnnotatedSource {
-        private String source;
-        private int width = 0;
-        private int height = 0;
-        private boolean tracking = false;
-
-        // Encapsulate some ugliness
-
-        AnnotatedSource(String source) {
-            this.source = source;
-
-            if (source != null && source.endsWith("###")) {
-                int pos = source.substring(0, source.length() - 3).lastIndexOf("###");
-                if (pos > 0) {
-                    int x = source.indexOf("x", pos + 3);
-                    int s = source.indexOf(":", pos + 3);
-                    if (x > 0 && s > x)
-                        try {
-                            this.width = Integer.parseInt(source.substring(pos + 3, x));
-                            this.height = Integer.parseInt(source.substring(x + 1, s));
-                            this.tracking = Boolean.parseBoolean(source.substring(s + 1, source.length() - 3));
-                            this.source = source.substring(0, pos);
-                        } catch (NumberFormatException ex) {
-                            Log.e(ex);
-                        }
-                }
-            }
-        }
-
-        AnnotatedSource(String source, int width, int height, boolean tracking) {
-            this.source = source;
-            this.width = width;
-            this.height = height;
-            this.tracking = tracking;
-        }
-
-        public String getSource() {
-            return this.source;
-        }
-
-        public boolean isTracking() {
-            return this.tracking;
-        }
-
-        String getAnnotated() {
-            return (width == 0 && height == 0
-                    ? source
-                    : source + "###" + width + "x" + height + ":" + tracking + "###");
-        }
     }
 }

@@ -56,6 +56,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 public class FragmentAnswer extends FragmentBase {
     private ViewGroup view;
@@ -247,12 +248,14 @@ public class FragmentAnswer extends FragmentBase {
                     if (html == null)
                         etText.setText(null);
                     else
-                        etText.setText(HtmlHelper.fromHtml(html, new Html.ImageGetter() {
+                        etText.setText(HtmlHelper.fromHtml(html, new HtmlHelper.ImageGetterEx() {
                             @Override
-                            public Drawable getDrawable(String source) {
-                                if (source != null && source.startsWith("cid:"))
-                                    source = null;
-                                return ImageHelper.decodeImage(context, -1, source, true, 0, 1.0f, etText);
+                            public Drawable getDrawable(Element element) {
+                                String source = element.attr("src");
+                                if (source.startsWith("cid:"))
+                                    element.attr("src", "cid:");
+                                return ImageHelper.decodeImage(context,
+                                        -1, element, true, 0, 1.0f, etText);
                             }
                         }, null, context));
                 }

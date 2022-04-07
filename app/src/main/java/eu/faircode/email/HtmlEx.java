@@ -406,7 +406,19 @@ public class HtmlEx {
                 if (style[j] instanceof ImageSpan) {
                     out.append("<img src=\"");
                     out.append(((ImageSpan) style[j]).getSource());
-                    out.append("\">");
+                    out.append("\"");
+
+                    if (style[j] instanceof ImageSpanEx) {
+                        ImageSpanEx img = (ImageSpanEx) style[j];
+                        int w = img.getWidth();
+                        if (w > 0)
+                            out.append(" width=\"").append(w).append("\"");
+                        int h = img.getHeight();
+                        if (h > 0)
+                            out.append(" height=\"").append(h).append("\"");
+                    }
+
+                    out.append(">");
 
                     // Don't output the dummy character underlying the image.
                     i = next;

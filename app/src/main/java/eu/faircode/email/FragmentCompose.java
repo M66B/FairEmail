@@ -2018,12 +2018,14 @@ public class FragmentCompose extends FragmentBase {
 
                                 String html = EntityAnswer.replacePlaceholders(answer.text, to);
 
-                                Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
+                                Spanned spanned = HtmlHelper.fromHtml(html, new HtmlHelper.ImageGetterEx() {
                                     @Override
-                                    public Drawable getDrawable(String source) {
-                                        if (source != null && source.startsWith("cid:"))
-                                            source = null;
-                                        return ImageHelper.decodeImage(getContext(), working, source, true, zoom, 1.0f, etBody);
+                                    public Drawable getDrawable(Element element) {
+                                        String source = element.attr("src");
+                                        if (source.startsWith("cid:"))
+                                            element.attr("src", "cid:");
+                                        return ImageHelper.decodeImage(getContext(),
+                                                working, element, true, zoom, 1.0f, etBody);
                                     }
                                 }, null, getContext());
 
@@ -2886,10 +2888,11 @@ public class FragmentCompose extends FragmentBase {
                     Helper.writeText(file, doc.html());
                 }
 
-                return HtmlHelper.fromHtml(html, new Html.ImageGetter() {
+                return HtmlHelper.fromHtml(html, new HtmlHelper.ImageGetterEx() {
                     @Override
-                    public Drawable getDrawable(String source) {
-                        return ImageHelper.decodeImage(context, id, source, true, zoom, 1.0f, etBody);
+                    public Drawable getDrawable(Element element) {
+                        return ImageHelper.decodeImage(context,
+                                id, element, true, zoom, 1.0f, etBody);
                     }
                 }, null, getContext());
             }
@@ -6382,10 +6385,11 @@ public class FragmentCompose extends FragmentBase {
 
                 doc = HtmlHelper.sanitizeCompose(context, doc.html(), true);
 
-                Spanned spannedBody = HtmlHelper.fromDocument(context, doc, new Html.ImageGetter() {
+                Spanned spannedBody = HtmlHelper.fromDocument(context, doc, new HtmlHelper.ImageGetterEx() {
                     @Override
-                    public Drawable getDrawable(String source) {
-                        return ImageHelper.decodeImage(context, id, source, true, zoom, 1.0f, etBody);
+                    public Drawable getDrawable(Element element) {
+                        return ImageHelper.decodeImage(context,
+                                id, element, true, zoom, 1.0f, etBody);
                     }
                 }, null);
 
@@ -6412,10 +6416,11 @@ public class FragmentCompose extends FragmentBase {
                     HtmlHelper.autoLink(dref);
                     Document quote = HtmlHelper.sanitizeView(context, dref, show_images);
                     spannedRef = HtmlHelper.fromDocument(context, quote,
-                            new Html.ImageGetter() {
+                            new HtmlHelper.ImageGetterEx() {
                                 @Override
-                                public Drawable getDrawable(String source) {
-                                    return ImageHelper.decodeImage(context, id, source, show_images, zoom, 1.0f, tvReference);
+                                public Drawable getDrawable(Element element) {
+                                    return ImageHelper.decodeImage(context,
+                                            id, element, show_images, zoom, 1.0f, tvReference);
                                 }
                             },
                             null);
@@ -6616,10 +6621,11 @@ public class FragmentCompose extends FragmentBase {
 
             Spanned signature = null;
             if (identity != null && !TextUtils.isEmpty(identity.signature))
-                signature = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
+                signature = HtmlHelper.fromHtml(identity.signature, new HtmlHelper.ImageGetterEx() {
                     @Override
-                    public Drawable getDrawable(String source) {
-                        return ImageHelper.decodeImage(getContext(), working, source, true, 0, 1.0f, tvSignature);
+                    public Drawable getDrawable(Element element) {
+                        return ImageHelper.decodeImage(getContext(),
+                                working, element, true, 0, 1.0f, tvSignature);
                     }
                 }, null, getContext());
             tvSignature.setText(signature);

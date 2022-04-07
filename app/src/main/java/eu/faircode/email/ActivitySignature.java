@@ -54,6 +54,7 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.util.Objects;
 
@@ -272,12 +273,14 @@ public class ActivitySignature extends ActivityBase {
         else if (etText.isRaw())
             etText.setText(html);
         else
-            etText.setText(HtmlHelper.fromHtml(html, new Html.ImageGetter() {
+            etText.setText(HtmlHelper.fromHtml(html, new HtmlHelper.ImageGetterEx() {
                 @Override
-                public Drawable getDrawable(String source) {
-                    if (source != null && source.startsWith("cid:"))
-                        source = null;
-                    return ImageHelper.decodeImage(ActivitySignature.this, -1, source, true, 0, 1.0f, etText);
+                public Drawable getDrawable(Element element) {
+                    String source = element.attr("src");
+                    if (source.startsWith("cid:"))
+                        element.attr("src", "cid:");
+                    return ImageHelper.decodeImage(ActivitySignature.this,
+                            -1, element, true, 0, 1.0f, etText);
                 }
             }, null, this));
         loaded = true;

@@ -528,8 +528,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Spanned spanned = (Spanned) tvBody.getText();
                         for (ImageSpan img : spanned.getSpans(0, spanned.length(), ImageSpan.class)) {
                             Drawable d = img.getDrawable();
-                            ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(img.getSource());
-                            ImageHelper.fitDrawable(d, a, scale, tvBody);
+                            int w = 0;
+                            int h = 0;
+                            if (img instanceof ImageSpanEx) {
+                                w = ((ImageSpanEx) img).getWidth();
+                                h = ((ImageSpanEx) img).getHeight();
+                            }
+                            ImageHelper.fitDrawable(d, w, h, scale, tvBody);
                         }
 
                         // Feedback
@@ -584,8 +589,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (!show_images) {
                                 ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
                                 if (image.length > 0 && image[0].getSource() != null) {
-                                    ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(image[0].getSource());
-                                    Uri uri = Uri.parse(a.getSource());
+                                    Uri uri = Uri.parse(image[0].getSource());
                                     if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
                                         ripple(event);
                                         if (onOpenLink(uri, null, false))
@@ -613,15 +617,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
                             if (image.length > 0) {
-                                ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(image[0].getSource());
-                                String source = a.getSource();
-                                if (!TextUtils.isEmpty(source)) {
-                                    if (!a.isTracking()) {
-                                        ripple(event);
-                                        onOpenImage(message.id, source);
-                                    }
+                                if (image[0] instanceof ImageSpanEx &&
+                                        ((ImageSpanEx) image[0]).getTracking())
                                     return true;
-                                }
+
+                                ripple(event);
+                                onOpenImage(message.id, image[0].getSource());
+                                return true;
                             }
 
                             DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
@@ -2815,10 +2817,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             HtmlHelper.collapseQuotes(document);
 
                         // Draw images
-                        SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, document, new Html.ImageGetter() {
+                        SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, document, new HtmlHelper.ImageGetterEx() {
                             @Override
-                            public Drawable getDrawable(String source) {
-                                Drawable drawable = ImageHelper.decodeImage(context, message.id, source, show_images, zoom, scale, tvBody);
+                            public Drawable getDrawable(Element element) {
+                                Drawable drawable = ImageHelper.decodeImage(context,
+                                        message.id, element, show_images, zoom, scale, tvBody);
 
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                                     if (drawable instanceof AnimatedImageDrawable)
@@ -5664,13 +5667,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onOpenImage(long id, @NonNull String source) {
             Log.i("Viewing image source=" + source);
 
-            ImageHelper.AnnotatedSource annotated = new ImageHelper.AnnotatedSource(source);
-            Uri uri = Uri.parse(annotated.getSource());
+            Uri uri = Uri.parse(source);
             String scheme = uri.getScheme();
 
             Bundle args = new Bundle();
             args.putLong("id", id);
-            args.putString("source", annotated.getSource());
+            args.putString("source", source);
             args.putInt("zoom", zoom);
 
             if ("cid".equals(scheme))

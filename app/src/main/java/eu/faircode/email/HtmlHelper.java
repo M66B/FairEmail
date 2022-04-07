@@ -110,7 +110,6 @@ import java.net.URI;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -1371,38 +1370,6 @@ public class HtmlHelper {
                             .attr("x-font-size-abs", Integer.toString(textSizeSmall));
                     img.appendChild(a);
                 }
-
-            // Annotate source with width and height
-            if (!TextUtils.isEmpty(src)) {
-                int width = 0;
-                int height = 0;
-
-                // Relative sizes (%) = use image size
-
-                String awidth = img.attr("width").replace(" ", "");
-                for (int i = 0; i < awidth.length(); i++)
-                    if (Character.isDigit(awidth.charAt(i)))
-                        width = width * 10 + (byte) awidth.charAt(i) - (byte) '0';
-                    else {
-                        width = 0;
-                        break;
-                    }
-
-                String aheight = img.attr("height").replace(" ", "");
-                for (int i = 0; i < aheight.length(); i++)
-                    if (Character.isDigit(aheight.charAt(i)))
-                        height = height * 10 + (byte) aheight.charAt(i) - (byte) '0';
-                    else {
-                        height = 0;
-                        break;
-                    }
-
-                if (width != 0 || height != 0) {
-                    ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(
-                            src, width, height, !TextUtils.isEmpty(tracking));
-                    img.attr("src", a.getAnnotated());
-                }
-            }
         }
 
         // Selective new lines
@@ -2928,7 +2895,7 @@ public class HtmlHelper {
 
     static SpannableStringBuilder fromDocument(
             Context context, @NonNull Document document,
-            @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+            @Nullable ImageGetterEx imageGetter, @Nullable Html.TagHandler tagHandler) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
         boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
@@ -3350,9 +3317,9 @@ public class HtmlHelper {
                                 if (!TextUtils.isEmpty(src)) {
                                     Drawable d = (imageGetter == null
                                             ? context.getDrawable(R.drawable.twotone_broken_image_24)
-                                            : imageGetter.getDrawable(src));
+                                            : imageGetter.getDrawable(element));
                                     ssb.insert(start, "\uFFFC"); // Object replacement character
-                                    setSpan(ssb, new ImageSpan(d, src), start, start + 1);
+                                    setSpan(ssb, new ImageSpanEx(d, element), start, start + 1);
                                 }
                                 break;
                             case "li":
@@ -3608,7 +3575,7 @@ public class HtmlHelper {
         return fromHtml(html, null, null, context);
     }
 
-    static Spanned fromHtml(@NonNull String html, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler, Context context) {
+    static Spanned fromHtml(@NonNull String html, @Nullable ImageGetterEx imageGetter, @Nullable Html.TagHandler tagHandler, Context context) {
         Document document = JsoupEx.parse(html);
         return fromDocument(context, document, imageGetter, tagHandler);
     }
@@ -3715,5 +3682,9 @@ public class HtmlHelper {
                         spanned.getSpanEnd(spans[i]),
                         spanned.getSpanFlags(spans[i]));
         return reverse;
+    }
+
+    interface ImageGetterEx {
+        Drawable getDrawable(Element element);
     }
 }
