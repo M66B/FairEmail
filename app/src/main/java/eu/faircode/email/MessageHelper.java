@@ -1836,12 +1836,19 @@ public class MessageHelper {
     boolean checkDKIMRequirements() throws MessagingException {
         ensureHeaders();
 
+        // https://datatracker.ietf.org/doc/html/rfc6376/
         String[] headers = imessage.getHeader("DKIM-Signature");
         if (headers == null || headers.length < 1)
             return false;
 
         for (String header : headers) {
             Map<String, String> kv = getKeyValues(MimeUtility.unfold(header));
+
+            // Algorithm
+            // https://tools.ietf.org/id/draft-ietf-dcrup-dkim-usage-03.html#rfc.section.4.3
+            String a = kv.get("a");
+            if ("rsa-sha1".equals(a))
+                return false;
 
             // Hashed body length
             Integer l = Helper.parseInt(kv.get("l"));
@@ -1854,15 +1861,6 @@ public class MessageHelper {
             String h = kv.get("h");
             if (h == null) {
                 Log.w("DKIM header fields missing");
-                return false;
-            }
-
-            String[] hs = h
-                    .toLowerCase(Locale.ROOT)
-                    .replaceAll("\\s+", "")
-                    .split(":");
-            if (!Arrays.asList(hs).contains("from")) {
-                Log.i("DKIM headers fields missing 'from' fields=" + h);
                 return false;
             }
         }
