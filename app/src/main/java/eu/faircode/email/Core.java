@@ -4745,7 +4745,9 @@ class Core {
             }
 
             for (EntityAttachment attachment : attachments)
-                if (!attachment.available && TextUtils.isEmpty(attachment.error))
+                if (!attachment.available &&
+                        attachment.subsequence == null &&
+                        TextUtils.isEmpty(attachment.error))
                     if (state.getNetworkState().isUnmetered() ||
                             (attachment.size != null && attachment.size < maxSize))
                         try {

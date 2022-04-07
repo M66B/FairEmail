@@ -3604,8 +3604,13 @@ public class MessageHelper {
                     attachment.disposition = Part.ATTACHMENT;
                     attachment.id = db.attachment().insertAttachment(attachment);
 
-                    Helper.writeText(attachment.getFile(context), subject);
-                    db.attachment().setDownloaded(attachment.id, (long) subject.length());
+                    try {
+                        Helper.writeText(attachment.getFile(context), subject);
+                        db.attachment().setDownloaded(attachment.id, (long) subject.length());
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        db.attachment().setError(attachment.id, Log.formatThrowable(ex));
+                    }
                 }
 
                 String body = msg.getBody();
@@ -3629,9 +3634,14 @@ public class MessageHelper {
                         attachment.disposition = Part.ATTACHMENT;
                         attachment.id = db.attachment().insertAttachment(attachment);
 
-                        byte[] data = attr.getData();
-                        Helper.writeText(attachment.getFile(context), new String(data));
-                        db.attachment().setDownloaded(attachment.id, (long) data.length);
+                        try {
+                            byte[] data = attr.getData();
+                            Helper.writeText(attachment.getFile(context), new String(data));
+                            db.attachment().setDownloaded(attachment.id, (long) data.length);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                            db.attachment().setError(attachment.id, Log.formatThrowable(ex));
+                        }
                     }
                 } else {
                     EntityAttachment attachment = new EntityAttachment();
@@ -3643,30 +3653,35 @@ public class MessageHelper {
                     attachment.disposition = Part.ATTACHMENT;
                     attachment.id = db.attachment().insertAttachment(attachment);
 
-                    Helper.writeText(attachment.getFile(context), body);
-                    db.attachment().setDownloaded(attachment.id, (long) body.length());
+                    try {
+                        Helper.writeText(attachment.getFile(context), body);
+                        db.attachment().setDownloaded(attachment.id, (long) body.length());
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        db.attachment().setError(attachment.id, Log.formatThrowable(ex));
+                    }
                 }
 
-                for (org.apache.poi.hmef.Attachment at : msg.getAttachments())
+                for (org.apache.poi.hmef.Attachment at : msg.getAttachments()) {
+                    String filename = at.getLongFilename();
+                    if (filename == null)
+                        filename = at.getFilename();
+                    if (filename == null) {
+                        String ext = at.getExtension();
+                        if (ext != null)
+                            filename = "document." + ext;
+                    }
+
+                    EntityAttachment attachment = new EntityAttachment();
+                    attachment.message = local.message;
+                    attachment.sequence = local.sequence;
+                    attachment.subsequence = ++subsequence;
+                    attachment.name = filename;
+                    attachment.type = Helper.guessMimeType(attachment.name);
+                    attachment.disposition = Part.ATTACHMENT;
+                    attachment.id = db.attachment().insertAttachment(attachment);
+
                     try {
-                        String filename = at.getLongFilename();
-                        if (filename == null)
-                            filename = at.getFilename();
-                        if (filename == null) {
-                            String ext = at.getExtension();
-                            if (ext != null)
-                                filename = "document." + ext;
-                        }
-
-                        EntityAttachment attachment = new EntityAttachment();
-                        attachment.message = local.message;
-                        attachment.sequence = local.sequence;
-                        attachment.subsequence = ++subsequence;
-                        attachment.name = filename;
-                        attachment.type = Helper.guessMimeType(attachment.name);
-                        attachment.disposition = Part.ATTACHMENT;
-                        attachment.id = db.attachment().insertAttachment(attachment);
-
                         byte[] data = at.getContents();
                         try (OutputStream os = new FileOutputStream(attachment.getFile(context))) {
                             os.write(data);
@@ -3676,7 +3691,9 @@ public class MessageHelper {
                     } catch (Throwable ex) {
                         // java.lang.IllegalArgumentException: Attachment corrupt - no Data section
                         Log.e(ex);
+                        db.attachment().setError(attachment.id, Log.formatThrowable(ex));
                     }
+                }
 
                 StringBuilder sb = new StringBuilder();
                 for (org.apache.poi.hmef.attribute.TNEFAttribute attr : msg.getMessageAttributes())
@@ -3695,8 +3712,13 @@ public class MessageHelper {
                     attachment.disposition = Part.ATTACHMENT;
                     attachment.id = db.attachment().insertAttachment(attachment);
 
-                    Helper.writeText(attachment.getFile(context), sb.toString());
-                    db.attachment().setDownloaded(attachment.id, (long) sb.length());
+                    try {
+                        Helper.writeText(attachment.getFile(context), sb.toString());
+                        db.attachment().setDownloaded(attachment.id, (long) sb.length());
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        db.attachment().setError(attachment.id, Log.formatThrowable(ex));
+                    }
                 }
             } catch (Throwable ex) {
                 Log.w(ex);

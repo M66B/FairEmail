@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
@@ -207,8 +209,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 if (attachment.available)
                     onShare(attachment);
                 else {
-                    if (attachment.progress == null && attachment.subsequence == null)
-                        onDownload(attachment);
+                    if (attachment.progress == null)
+                        if (attachment.subsequence == null)
+                            onDownload(attachment);
+                        else if (!TextUtils.isEmpty(attachment.error))
+                            ToastEx.makeText(context, attachment.error, Toast.LENGTH_LONG).show();
                 }
             }
         }
