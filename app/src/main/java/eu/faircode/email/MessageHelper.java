@@ -30,7 +30,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 
 import androidx.annotation.NonNull;
-import androidx.core.net.MailTo;
 import androidx.core.util.PatternsCompat;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;

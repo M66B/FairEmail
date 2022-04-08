@@ -30,7 +30,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 
 import androidx.core.app.TaskStackBuilder;
-import androidx.core.net.MailTo;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
