@@ -24,6 +24,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import androidx.core.net.MailTo;
 import androidx.preference.PreferenceManager;
 
 import java.net.Inet4Address;

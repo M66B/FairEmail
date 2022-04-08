@@ -25,6 +25,7 @@ import android.net.Uri;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
+import androidx.core.net.MailTo;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
