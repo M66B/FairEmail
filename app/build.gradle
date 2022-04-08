@@ -185,7 +185,7 @@ android {
         }
         play {
             dimension "all"
-            minSdkVersion 23
+            //minSdkVersion 23
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
