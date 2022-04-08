@@ -491,6 +491,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("usenet_signature", checked).apply();
+                if (checked)
+                    prefs.edit().putInt("signature_location", 2).apply();
             }
         });
 
