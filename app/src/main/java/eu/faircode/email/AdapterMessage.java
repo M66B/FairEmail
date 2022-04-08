@@ -1074,8 +1074,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAddContact.setOnClickListener(null);
 
                 if (BuildConfig.DEBUG) {
-                    ibPinContact.setOnClickListener(null);
-                    ibAddContact.setOnClickListener(null);
+                    ibPinContact.setOnLongClickListener(null);
+                    ibAddContact.setOnLongClickListener(null);
                 }
 
                 ibCopyHeaders.setOnClickListener(null);
