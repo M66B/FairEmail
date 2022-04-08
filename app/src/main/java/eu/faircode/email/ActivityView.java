@@ -781,7 +781,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        menus.add(new NavMenuItem(R.drawable.twotone_filter_alt_24, R.string.title_edit_rules, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_filter_alt_24, R.string.menu_rules, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))

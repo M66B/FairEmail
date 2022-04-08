@@ -131,6 +131,7 @@
     <string name="title_factor_minutes">%1$d minutes</string>
 
     <string name="menu_answers">Templates</string>
+    <string name="menu_rules">Rules</string>
     <string name="menu_operations">Operations</string>
     <string name="menu_contacts">Local contacts</string>
     <string name="menu_setup">Settings</string>
