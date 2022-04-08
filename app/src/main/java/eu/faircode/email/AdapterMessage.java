@@ -959,8 +959,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibNotifyContact.setOnClickListener(this);
                 ibPinContact.setOnClickListener(this);
                 ibAddContact.setOnClickListener(this);
-                if (BuildConfig.DEBUG)
+
+                if (BuildConfig.DEBUG) {
+                    ibPinContact.setOnLongClickListener(this);
                     ibAddContact.setOnLongClickListener(this);
+                }
 
                 ibCopyHeaders.setOnClickListener(this);
                 ibCloseHeaders.setOnClickListener(this);
@@ -1068,9 +1071,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSearchContact.setOnClickListener(null);
                 ibNotifyContact.setOnClickListener(null);
                 ibPinContact.setOnClickListener(null);
-                ibAddContact.setOnLongClickListener(null);
-                if (BuildConfig.DEBUG)
+                ibAddContact.setOnClickListener(null);
+
+                if (BuildConfig.DEBUG) {
+                    ibPinContact.setOnClickListener(null);
                     ibAddContact.setOnClickListener(null);
+                }
 
                 ibCopyHeaders.setOnClickListener(null);
                 ibCloseHeaders.setOnClickListener(null);
@@ -4006,7 +4012,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onMenuColoredStar(message);
                 return true;
             } else if (id == R.id.ibAddContact) {
-                onGpa(message);
+                onInfo(message, true);
+                return true;
+            } else if (id == R.id.ibPinContact) {
+                onInfo(message, false);
                 return true;
             } else if (id == R.id.tvFolder) {
                 onGotoFolder(message);
@@ -4360,7 +4369,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:flag");
         }
 
-        private void onGpa(TupleMessageEx message) {
+        private void onInfo(TupleMessageEx message, boolean gpa) {
             Address[] from;
             if (message.reply == null || message.reply.length == 0)
                 from = (isOutgoing(message) ? message.to : message.from);
@@ -4371,9 +4380,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             String email = ((InternetAddress) from[0]).getAddress();
             if (TextUtils.isEmpty(email))
                 return;
-            Uri uri = Uri.parse(BuildConfig.GPA_URI).buildUpon()
-                    .appendQueryParameter("search", email)
-                    .build();
+            Uri uri;
+            if (gpa)
+                uri = Uri.parse(BuildConfig.GPA_URI).buildUpon()
+                        .appendQueryParameter("search", email)
+                        .build();
+            else
+                uri = Uri.parse(BuildConfig.INFO_URI).buildUpon()
+                        .appendQueryParameter("email", email)
+                        .build();
             Helper.view(context, uri, true);
         }
 
