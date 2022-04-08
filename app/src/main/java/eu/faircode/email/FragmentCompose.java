@@ -2750,9 +2750,9 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onAddImage(boolean photo) {
+        PackageManager pm = getContext().getPackageManager();
         if (photo) {
             // https://developer.android.com/training/camera/photobasics
-            PackageManager pm = getContext().getPackageManager();
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             if (intent.resolveActivity(pm) == null) { // action whitelisted
                 Snackbar snackbar = Snackbar.make(view, getString(R.string.title_no_camera), Snackbar.LENGTH_LONG)
@@ -2779,15 +2779,24 @@ public class FragmentCompose extends FragmentBase {
                 }
             }
         } else {
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.addCategory(Intent.CATEGORY_OPENABLE);
-            intent.setType("image/*");
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-            PackageManager pm = getContext().getPackageManager();
-            if (intent.resolveActivity(pm) == null) // GET_CONTENT whitelisted
-                noStorageAccessFramework();
-            else
-                startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_IMAGE_FILE);
+            // https://developer.android.com/reference/android/provider/MediaStore#ACTION_PICK_IMAGES
+            // Android 12: cmd device_config put storage_native_boot picker_intent_enabled true
+            Intent picker = new Intent("android.provider.action.PICK_IMAGES");
+            picker.putExtra("android.provider.extra.PICK_IMAGES_MAX", 10);
+            picker.setType("image/*");
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.S_V2 &&
+                    picker.resolveActivity(pm) != null)
+                startActivityForResult(picker, REQUEST_IMAGE_FILE);
+            else {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("image/*");
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                if (intent.resolveActivity(pm) == null) // GET_CONTENT whitelisted
+                    noStorageAccessFramework();
+                else
+                    startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_IMAGE_FILE);
+            }
         }
     }
 
