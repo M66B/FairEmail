@@ -632,7 +632,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
                             EntityFolder left = (EntityFolder) spLeft.getSelectedItem();
                             EntityFolder right = (EntityFolder) spRight.getSelectedItem();
 
-                            final Context context = getContext();
+                            if ((left != null && EntityMessage.SWIPE_ACTION_HIDE.equals(left.id)) ||
+                                    (right != null && EntityMessage.SWIPE_ACTION_HIDE.equals(right.id)))
+                                prefs.edit().putBoolean("button_hide", true).apply();
 
                             Bundle args = new Bundle();
                             args.putLong("left", left == null ? 0 : left.id);
@@ -666,7 +668,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
                                 @Override
                                 protected void onExecuted(Bundle args, Void data) {
-                                    ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
+                                    ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
