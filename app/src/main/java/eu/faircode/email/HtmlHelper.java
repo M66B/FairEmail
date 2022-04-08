@@ -1450,7 +1450,7 @@ public class HtmlHelper {
                         Element parent = (Element) node.parentNode();
                         if ("faircode_txn_id".equals(parent.className())) {
                             Element a = document.createElement("a");
-                            a.attr("href", BuildConfig.PAYPAL_URI + text.trim());
+                            a.attr("href", BuildConfig.TX_URI + text.trim());
                             a.text(text);
                             tnode.before(a);
                             tnode.text("");

@@ -161,7 +161,7 @@ android {
             buildConfigField "String", "LIBRAVATAR_DNS", "\"_avatars-sec._tcp,_avatars._tcp\""
             buildConfigField "String", "LIBRAVATAR_URI", "\"https://seccdn.libravatar.org/avatar/\""
             buildConfigField "String", "LIBRAVATAR_INFO", "\"https://libravatar.org/\""
-            buildConfigField "String", "PAYPAL_URI", localProperties.getProperty("paypal.uri", "\"\"")
+            buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
             buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
             buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
             buildConfigField "String", "DEV_DOMAIN", localProperties.getProperty("dev.domain", "\"\"")
@@ -180,7 +180,7 @@ android {
             buildConfigField "String", "LIBRAVATAR_DNS", "\"_avatars-sec._tcp,_avatars._tcp\""
             buildConfigField "String", "LIBRAVATAR_URI", "\"https://seccdn.libravatar.org/avatar/\""
             buildConfigField "String", "LIBRAVATAR_INFO", "\"https://libravatar.org/\""
-            buildConfigField "String", "PAYPAL_URI", "\"\""
+            buildConfigField "String", "TX_URI", "\"\""
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
             buildConfigField "String", "DEV_DOMAIN", "\"\""
@@ -200,7 +200,7 @@ android {
             buildConfigField "String", "LIBRAVATAR_DNS", "\"\""
             buildConfigField "String", "LIBRAVATAR_URI", "\"\""
             buildConfigField "String", "LIBRAVATAR_INFO", "\"\""
-            buildConfigField "String", "PAYPAL_URI", "\"\""
+            buildConfigField "String", "TX_URI", "\"\""
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
             buildConfigField "String", "DEV_DOMAIN", "\"\""
@@ -220,7 +220,7 @@ android {
             buildConfigField "String", "LIBRAVATAR_DNS", "\"\""
             buildConfigField "String", "LIBRAVATAR_URI", "\"\""
             buildConfigField "String", "LIBRAVATAR_INFO", "\"\""
-            buildConfigField "String", "PAYPAL_URI", "\"\""
+            buildConfigField "String", "TX_URI", "\"\""
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
             buildConfigField "String", "DEV_DOMAIN", "\"\""
