@@ -288,7 +288,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
 * [(132) Why are new message notifications silent?](#user-content-faq132)
 * [(133) Why is ActiveSync not supported?](#user-content-faq133)
-* [(134) Can you add deleting local messages?](#user-content-faq134)
+* [(134) Can you add leave messages on the server?](#user-content-faq134)
 * [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
 * [(136) How can I delete an account/identity/folder?](#user-content-faq136)
 * [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
@@ -3712,26 +3712,29 @@ that non-standard protocols, like Microsoft Exchange Web Services and Microsoft 
 <br />
 
 <a name="faq134"></a>
-**(134) Can you add deleting local messages?**
+**(134) Can you add leave messages on the server?**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq134)
 
 *POP3*
 
-In the account settings (Settings, tap Manual setup, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
+In the account settings (Settings, tap Manual setup, tap Accounts, tap account) you can enable *Leave messages on server* and *Leave deleted messages on server*.
 
 *IMAP*
 
 Since the IMAP protocol is meant to synchronize two ways,
-deleting a message from the device would result in fetching the message again when synchronizing again.
+trashing (=move to trash) and (permanently) deleting messages will be performed on the email server too,
+so that the message list is the same for all connected clients.
+Deleting a messages from the device only won't work because it would be synchronized again later.
 
 However, FairEmail supports hiding messages,
-either via the three-dots menu in the action bar just above the message text
+either via the three-dots menu in the action bar just above the message text (you can configure a button for this via the same menu)
 or by multiple selecting messages in the message list.
 Basically this is the same as "leave on server" of the POP3 protocol
 with the advantage that you can show the messages again when needed.
 
 Note that it is possible to set the swipe left or right action to hide a message.
+There is a button in the behavior settings to quickly configure the swipe left and right actions for all IMAP account.
 
 <br />
 
