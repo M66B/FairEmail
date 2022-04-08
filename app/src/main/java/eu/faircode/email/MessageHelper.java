@@ -924,8 +924,10 @@ public class MessageHelper {
 
         // When sending message
         if (identity != null && send) {
-            if (auto_link)
+            if (auto_link) {
+                HtmlHelper.guessSchemes(document);
                 HtmlHelper.autoLink(document);
+            }
 
             if (!TextUtils.isEmpty(compose_font)) {
                 List<Node> childs = new ArrayList<>();
