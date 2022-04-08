@@ -4,6 +4,12 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### 1.1870 - 2022-04-08
+
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated translations
+
 ### 1.1869 - 2022-04-07
 
 * Added [DeepL HTML support](https://www.deepl.com/docs-api/handling-html-(beta)/)
