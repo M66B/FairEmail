@@ -1506,15 +1506,16 @@ public class HtmlHelper {
                                     a.attr("href", BuildConfig.GPA_URI + group);
                                 else {
                                     String url = (email ? "mailto:" : "") + group;
-                                    try {
-                                        Uri uri = Uri.parse(url);
-                                        if (outbound)
-                                            uri = UriHelper.guessScheme(uri);
-                                        a.attr("href", uri.toString());
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
+                                    if (outbound)
+                                        try {
+                                            Uri uri = UriHelper.guessScheme(Uri.parse(url));
+                                            a.attr("href", uri.toString());
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                            a.attr("href", url);
+                                        }
+                                    else
                                         a.attr("href", url);
-                                    }
                                 }
                                 a.text(group);
                                 span.appendChild(a);
