@@ -926,7 +926,7 @@ public class MessageHelper {
         if (identity != null && send) {
             if (auto_link) {
                 HtmlHelper.guessSchemes(document);
-                HtmlHelper.autoLink(document);
+                HtmlHelper.autoLink(document, true);
             }
 
             if (!TextUtils.isEmpty(compose_font)) {

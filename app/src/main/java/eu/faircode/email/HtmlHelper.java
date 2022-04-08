@@ -1415,6 +1415,10 @@ public class HtmlHelper {
     }
 
     static void autoLink(Document document) {
+        autoLink(document, false);
+    }
+
+    static void autoLink(Document document, boolean outbound) {
         // https://en.wikipedia.org/wiki/List_of_URI_schemes
         // xmpp:[<user>]@<host>[:<port>]/[<resource>][?<query>]
         // geo:<lat>,<lon>[,<alt>][;u=<uncertainty>]
@@ -1500,8 +1504,18 @@ public class HtmlHelper {
                                 Element a = document.createElement("a");
                                 if (BuildConfig.DEBUG && GPA_PATTERN.matcher(group).matches())
                                     a.attr("href", BuildConfig.GPA_URI + group);
-                                else
-                                    a.attr("href", (email ? "mailto:" : "") + group);
+                                else {
+                                    String url = (email ? "mailto:" : "") + group;
+                                    try {
+                                        Uri uri = Uri.parse(url);
+                                        if (outbound)
+                                            uri = UriHelper.guessScheme(uri);
+                                        a.attr("href", uri.toString());
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                        a.attr("href", url);
+                                    }
+                                }
                                 a.text(group);
                                 span.appendChild(a);
 
