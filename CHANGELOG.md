@@ -4,6 +4,11 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### 1.1872 - 2022-04-09
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1871 - 2022-04-09
 
 * Small improvements and minor bug fixes
