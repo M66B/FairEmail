@@ -108,7 +108,7 @@ public class ContactInfo {
     private static final ExecutorService executorFavicon =
             Helper.getBackgroundExecutor(0, "favicon");
 
-    private static final int GENERATED_ICON_SIZE = 96; // dp
+    private static final int GENERATED_ICON_SIZE = 48; // dp
     private static final int FAVICON_ICON_SIZE = 64; // dp
     private static final int GRAVATAR_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
