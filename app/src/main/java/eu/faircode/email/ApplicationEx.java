@@ -603,6 +603,10 @@ public class ApplicationEx extends Application
         } else if (version < 1855) {
             if (!prefs.contains("preview_lines"))
                 editor.putInt("preview_lines", 2);
+        } else if (version < 1874) {
+            boolean cards = prefs.getBoolean("cards", true);
+            if (!cards)
+                editor.remove("view_padding");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

@@ -4752,7 +4752,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
-        int padding = prefs.getInt("view_padding", compact ? 0 : 1);
+        int padding = prefs.getInt("view_padding", compact || !cards ? 0 : 1);
         boolean quick_filter = prefs.getBoolean("quick_filter", false);
 
         boolean folder =
@@ -4862,7 +4862,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom), false);
 
         menu.findItem(R.id.menu_padding).setTitle(ssbPadding);
-        menu.findItem(R.id.menu_padding).setVisible(cards);
         PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_padding), false);
 
         menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
@@ -5286,7 +5285,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void onMenuPadding() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean compact = prefs.getBoolean("compact", false);
-        int padding = prefs.getInt("view_padding", compact ? 0 : 1);
+        int padding = prefs.getInt("view_padding", compact || !cards ? 0 : 1);
         padding = ++padding % 3;
         prefs.edit().putInt("view_padding", padding).apply();
         clearMeasurements();
@@ -5300,7 +5299,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         prefs.edit().putBoolean("compact", compact).apply();
 
         int zoom = (compact ? 0 : 1);
-        int padding = (compact ? 0 : 1);
+        int padding = (compact || !cards ? 0 : 1);
         prefs.edit()
                 .putInt("view_zoom", zoom)
                 .putInt("view_padding", padding)

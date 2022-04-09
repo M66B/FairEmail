@@ -2,6 +2,10 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### Next version
+
+* Added padding option for tabular view
+
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
 ### 1.1873 - 2022-04-09

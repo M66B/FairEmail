@@ -381,7 +381,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCards.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("cards", checked).apply();
+                prefs.edit()
+                        .putBoolean("cards", checked)
+                        .remove("view_padding")
+                        .apply();
                 swBeige.setEnabled(checked);
                 swTabularBackground.setEnabled(!checked);
                 swShadow.setEnabled(checked);
