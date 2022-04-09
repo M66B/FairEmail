@@ -2034,6 +2034,8 @@ public class Log {
                     Object value = settings.get(key);
                     if ("wipe_mnemonic".equals(key) && value != null)
                         value = "[redacted]";
+                    if (key != null && key.startsWith("oauth."))
+                        value = "[redacted]";
                     size += write(os, key + "=" + value + "\r\n");
                 }
             }
