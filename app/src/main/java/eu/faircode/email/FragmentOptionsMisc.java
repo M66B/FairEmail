@@ -1569,7 +1569,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 editor.remove(option);
 
                         for (String key : prefs.getAll().keySet())
-                            if ((key.startsWith("translated_") && cbGeneral.isChecked()) ||
+                            if ((!BuildConfig.DEBUG &&
+                                    key.startsWith("translated_") && cbGeneral.isChecked()) ||
                                     (key.endsWith(".show_full") && cbFull.isChecked()) ||
                                     (key.endsWith(".show_images") && cbImages.isChecked()) ||
                                     (key.endsWith(".confirm_link") && cbLinks.isChecked())) {
