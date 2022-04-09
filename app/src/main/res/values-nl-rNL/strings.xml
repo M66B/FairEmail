@@ -97,6 +97,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_notification_redacted">Redactie: biometrische of pincodeverificatie ingeschakeld</string>
     <string name="title_factor_minutes">%1$d minuten</string>
     <string name="menu_answers">Sjablonen</string>
+    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">Regels</string>
     <string name="menu_operations">Bewerkingen</string>
     <string name="menu_contacts">Lokale contacten</string>
     <string name="menu_setup">Instellingen</string>
@@ -1160,8 +1161,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_translating">Vertalen &#8230;</string>
     <string name="title_translate_formal">Gebruik formele vorm</string>
     <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
-    <string name="title_translate_html" comment="title_translate_html&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Opmaak behouden</string>
-    <string name="title_translate_html_hint" comment="title_translate_html_hint&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Dit zal meer tekens verbruiken</string>
+    <string name="title_translate_html">Opmaak behouden</string>
+    <string name="title_translate_html_hint">Dit zal meer tekens verbruiken</string>
     <string name="title_translate_usage">Gebruik: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tik op de te vertalen tekst</string>
     <string name="title_edit_plain_text">Bewerk als platte tekst</string>

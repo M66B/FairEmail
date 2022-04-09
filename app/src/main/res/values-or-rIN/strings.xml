@@ -46,6 +46,7 @@
     <string name="title_notification_failed">\'%1$s\' ବିଫଳ ହେଲା</string>
     <string name="title_notification_sending_failed">%1$sକୁ ପଠାଇବା ବିଫଳ ହେଲା</string>
     <string name="title_factor_minutes">%1$d ମିନିଟ୍</string>
+    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">ନିୟମ</string>
     <string name="menu_setup">ସେଟିଂସମୂହ</string>
     <string name="menu_faq">ସମର୍ଥନ</string>
     <string name="menu_translate">ଅନୁବାଦ କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ</string>
@@ -450,8 +451,8 @@
     <string name="title_manage_local_contacts">ସ୍ଥାନୀୟ ସମ୍ପର୍କଗୁଡ଼ିକୁ ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="title_translate">ଅନୁବାଦ କର</string>
     <string name="title_translate_formal">ଆନୁଷ୍ଠାନିକ ଶବ୍ଦରୂପ ବ୍ୟବହାର କରିବା</string>
-    <string name="title_translate_html" comment="title_translate_html&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">ଫର୍ମାଟିଂ ବଜାୟ ରଖିବା</string>
-    <string name="title_translate_html_hint" comment="title_translate_html_hint&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">ଏହା ଅଧିକ ବର୍ଣ୍ଣ ବ୍ୟବହାର କରିବ</string>
+    <string name="title_translate_html">ଫର୍ମାଟିଂ ବଜାୟ ରଖିବା</string>
+    <string name="title_translate_html_hint">ଏହା ଅଧିକ ବର୍ଣ୍ଣ ବ୍ୟବହାର କରିବ</string>
     <string name="title_send_dsn">ସ୍ଥିତି ରିପୋର୍ଟ୍</string>
     <string name="title_send_receipt">ରସିଦ ଅନୁରୋଧ କରିବା</string>
     <string name="title_send_receipt_remark">ଅଧିକାଂଶ ପ୍ରଦାନକାରୀ ଏବଂ ଇମେଲ୍ ଗ୍ରାହକମାନେ ରସିଦ ଅନୁରୋଧକୁ ଅଣଦେଖା କରନ୍ତି</string>

@@ -118,6 +118,7 @@
     <string name="title_notification_redacted">Требуется биометрическая аутентификация или ввод PIN-кода</string>
     <string name="title_factor_minutes">%1$d мин.</string>
     <string name="menu_answers">Шаблоны</string>
+    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">Правила</string>
     <string name="menu_operations">Операции</string>
     <string name="menu_contacts">Локальные контакты</string>
     <string name="menu_setup">Настройки</string>
@@ -1185,8 +1186,8 @@
     <string name="title_translating">Перевод&#8230;</string>
     <string name="title_translate_formal">Использовать формальный стиль</string>
     <string name="title_translate_small">Использовать мелкий шрифт для исходного текста</string>
-    <string name="title_translate_html" comment="title_translate_html&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Сохранять форматирование</string>
-    <string name="title_translate_html_hint" comment="title_translate_html_hint&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Будет использоваться больше символов</string>
+    <string name="title_translate_html">Сохранять форматирование</string>
+    <string name="title_translate_html_hint">Будет использоваться больше символов</string>
     <string name="title_translate_usage">Использование: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Нажмите на текст для перевода</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>

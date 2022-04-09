@@ -97,6 +97,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_notification_redacted">Düzeltildi: biyometrik veya PIN kimlik doğrulaması etkin</string>
     <string name="title_factor_minutes">%1$d dakika</string>
     <string name="menu_answers">Kalıplar</string>
+    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">Kurallar</string>
     <string name="menu_operations">İşlemler</string>
     <string name="menu_contacts">Yerel rehber</string>
     <string name="menu_setup">Ayarlar</string>
@@ -1161,8 +1162,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_translating">Tercüme ediliyor&#8230;</string>
     <string name="title_translate_formal">Resmi formu kullan</string>
     <string name="title_translate_small">Kaynak metin için küçük bir yazı tipi kullan</string>
-    <string name="title_translate_html" comment="title_translate_html&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Biçimlendirmeyi koru</string>
-    <string name="title_translate_html_hint" comment="title_translate_html_hint&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Bu daha fazla karakter tüketecek</string>
+    <string name="title_translate_html">Biçimlendirmeyi koru</string>
+    <string name="title_translate_html_hint">Bu daha fazla karakter tüketecek</string>
     <string name="title_translate_usage">Kullanım: %1$s/%2$s (%3$d %%)</string>
     <string name="title_translate_tap">Çevrilecek metne dokunun</string>
     <string name="title_edit_plain_text">Düz metin olarak düzenle</string>

@@ -118,6 +118,7 @@
     <string name="title_notification_redacted">בוצע שינוי: אימות ביומטרי או בקוד אישי הופעל</string>
     <string name="title_factor_minutes">%1$d דקות</string>
     <string name="menu_answers">תבניות</string>
+    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">כללים</string>
     <string name="menu_operations">פעולות</string>
     <string name="menu_contacts">אנשי קשר מקומיים</string>
     <string name="menu_setup">הגדרות</string>
@@ -1186,8 +1187,8 @@
     <string name="title_translating">מתורגם&#8230;</string>
     <string name="title_translate_formal">להשתמש בשפה רשמית</string>
     <string name="title_translate_small">להשתמש בגופן קטן לטקסט המקור</string>
-    <string name="title_translate_html" comment="title_translate_html&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">שימור עיצוב</string>
-    <string name="title_translate_html_hint" comment="title_translate_html_hint&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">יצרוך יותר תווים</string>
+    <string name="title_translate_html">שימור עיצוב</string>
+    <string name="title_translate_html_hint">יצרוך יותר תווים</string>
     <string name="title_translate_usage">שימוש: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">נא לגעת בטקסט לתרגום</string>
     <string name="title_edit_plain_text">עריכה כטקסט פשוט</string>

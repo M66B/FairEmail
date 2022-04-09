@@ -98,6 +98,7 @@
     <string name="title_notification_redacted">Redatto: autenticazione biometrica o PIN abilitata</string>
     <string name="title_factor_minutes">%1$d minuti</string>
     <string name="menu_answers">Modelli</string>
+    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">Regole</string>
     <string name="menu_operations">Operazioni</string>
     <string name="menu_contacts">Contatti locali</string>
     <string name="menu_setup">Impostazioni</string>
@@ -1167,8 +1168,8 @@
     <string name="title_translating">Traducendo&#8230;</string>
     <string name="title_translate_formal">Usa il modulo formale</string>
     <string name="title_translate_small">Usa caratteri piccoli per il testo sorgente</string>
-    <string name="title_translate_html" comment="title_translate_html&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Preserva formattazione</string>
-    <string name="title_translate_html_hint" comment="title_translate_html_hint&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">Questo consumerà più caratteri</string>
+    <string name="title_translate_html">Preserva formattazione</string>
+    <string name="title_translate_html_hint">Questo consumerà più caratteri</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tocca il testo da tradurre</string>
     <string name="title_edit_plain_text">Modifica come testo semplice</string>

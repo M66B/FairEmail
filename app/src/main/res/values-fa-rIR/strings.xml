@@ -98,6 +98,7 @@
     <string name="title_notification_redacted">تنظیم شد: فعال‌سازی تایید هویت به وسیله پین یا بیومتریک</string>
     <string name="title_factor_minutes">%1$d دقیقه</string>
     <string name="menu_answers">الگوها</string>
+    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">قوانین</string>
     <string name="menu_operations">عملیات ها</string>
     <string name="menu_contacts">مخاطبین محلی</string>
     <string name="menu_setup">تنظیمات</string>
@@ -800,8 +801,8 @@
     <string name="title_media_toolbar">نوار ابزار رسانه</string>
     <string name="title_insert_contact_group">درج گروه مخاطبین</string>
     <string name="title_insert_template">درج قالب</string>
-    <string name="title_translate_html" comment="title_translate_html&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">قالب‌بندی را حفظ کن</string>
-    <string name="title_translate_html_hint" comment="title_translate_html_hint&#10;Option to enable preserving formatting (styling, HTML) when translating text, at the expense of consuming more characters.&#10;&#10;https://www.deepl.com/docs-api/handling-html-(beta)/&#10;">این، کاراکترهای بیشتری را به کار خواهد برد</string>
+    <string name="title_translate_html">قالب‌بندی را حفظ کن</string>
+    <string name="title_translate_html_hint">این، کاراکترهای بیشتری را به کار خواهد برد</string>
     <string name="title_edit_plain_text">ویرایش مانند متن ساده</string>
     <string name="title_select_certificate">انتخاب کلید عمومی</string>
     <string name="title_certificate_missing">کلید عمومی برای %1$s نیست</string>
