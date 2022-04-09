@@ -4,6 +4,12 @@
 
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
+### 1.1873 - 2022-04-09
+
+* Fix scroll stuttering in some case
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1872 - 2022-04-09
 
 * Small improvements and minor bug fixes
