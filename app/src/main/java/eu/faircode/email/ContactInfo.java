@@ -110,7 +110,10 @@ public class ContactInfo {
 
     private static final int GENERATED_ICON_SIZE = 48; // dp
     private static final int FAVICON_ICON_SIZE = 64; // dp
-    private static final int GRAVATAR_TIMEOUT = 5 * 1000; // milliseconds
+    private static final int GRAVATAR_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
+    private static final int GRAVATAR_READ_TIMEOUT = 10 * 1000; // milliseconds
+    private static final int LIBRAVATAR_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
+    private static final int LIBRAVATAR_READ_TIMEOUT = 10 * 1000; // milliseconds
     private static final int FAVICON_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_READ_TIMEOUT = 10 * 1000; // milliseconds
     private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
@@ -391,8 +394,8 @@ public class ContactInfo {
 
                                     HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                                     urlConnection.setRequestMethod("GET");
-                                    urlConnection.setReadTimeout(GRAVATAR_TIMEOUT);
-                                    urlConnection.setConnectTimeout(GRAVATAR_TIMEOUT);
+                                    urlConnection.setReadTimeout(GRAVATAR_READ_TIMEOUT);
+                                    urlConnection.setConnectTimeout(GRAVATAR_CONNECT_TIMEOUT);
                                     urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
                                     urlConnection.connect();
 
@@ -434,8 +437,8 @@ public class ContactInfo {
 
                                     HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                                     urlConnection.setRequestMethod("GET");
-                                    urlConnection.setReadTimeout(GRAVATAR_TIMEOUT);
-                                    urlConnection.setConnectTimeout(GRAVATAR_TIMEOUT);
+                                    urlConnection.setReadTimeout(LIBRAVATAR_READ_TIMEOUT);
+                                    urlConnection.setConnectTimeout(LIBRAVATAR_CONNECT_TIMEOUT);
                                     urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
                                     urlConnection.connect();
 
