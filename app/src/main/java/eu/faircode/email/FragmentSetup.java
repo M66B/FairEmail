@@ -488,13 +488,21 @@ public class FragmentSetup extends FragmentBase {
             @RequiresApi(api = Build.VERSION_CODES.M)
             public void onClick(View v) {
                 if (hasPermission(Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)) {
-                    Intent intent = new Intent();
-                    if (Boolean.FALSE.equals(Helper.isIgnoringOptimizations(v.getContext())))
-                        intent.setAction(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
+                    if (Boolean.FALSE.equals(Helper.isIgnoringOptimizations(v.getContext()))) {
+                        Intent intent = new Intent()
+                                .setAction(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
                                 .setData(Uri.parse("package:" + v.getContext().getPackageName()));
-                    else
-                        intent.setAction(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
-                    v.getContext().startActivity(intent);
+
+                        PackageManager pm = v.getContext().getPackageManager();
+                        if (intent.resolveActivity(pm) == null)
+                            new FragmentDialogDoze().show(getParentFragmentManager(), "setup:doze");
+                        else
+                            v.getContext().startActivity(intent);
+                    } else {
+                        Intent intent = new Intent()
+                                .setAction(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
+                        v.getContext().startActivity(intent);
+                    }
                 } else
                     new FragmentDialogDoze().show(getParentFragmentManager(), "setup:doze");
             }
