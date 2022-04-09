@@ -634,6 +634,7 @@
     <string name="title_identity_tenant_hint">Este campo deve estar vazio na maioria dos casos</string>
     <string name="title_identity_unicode">Utilizar comunicação Unicode</string>
     <string name="title_identity_receipt">Solicitar relatório de entrega/leitura por predefinição</string>
+    <string name="title_identity_receipt_legacy">Usar o cabeçalho clássico para solicitar o recibo de leitura</string>
     <string name="title_optional">Opcional</string>
     <string name="title_recommended">Recomendado</string>
     <string name="title_account_linked">Conta associada</string>
@@ -877,6 +878,10 @@
     <string name="title_third_party">Está a usar uma versão de proveniência externa</string>
     <string name="title_expand_warning">Expandir esta mensagem fará a transferência de %1$s</string>
     <string name="title_download_message">A transferir &#8230;</string>
+    <string name="title_reformatted">        Esta é a visualização de mensagem reformatada.
+        Pode tocar no ícone &#x26F6; para ver a mensagem original e ocultar esta mensagem.
+        A reformatação de mensagens leva algum tempo, dependendo do tamanho da mensagem e da velocidade do seu dispositivo.
+    </string>
     <string name="title_compose">Compor</string>
     <string name="title_submitter">Enviado por:</string>
     <string name="title_delivered_to">Entregue a:</string>
@@ -900,8 +905,11 @@
     <string name="title_discard">Descartar</string>
     <string name="title_save">Guardar</string>
     <string name="title_send">Enviar</string>
+    <string name="title_sending">A enviar &#8230;</string>
     <string name="title_send_now">Enviar agora</string>
     <string name="title_send_via">Enviar via</string>
+    <string name="title_send_at">Enviar para &#8230;</string>
+    <string name="title_send_auto_archive">Arquivar mensagens de resposta</string>
     <string name="title_send_encryption">Encriptação</string>
     <string name="title_send_priority">Prioridade</string>
     <string name="title_send_sensitivity">Sensibilidade</string>
@@ -971,7 +979,11 @@
     <string name="title_invalid_key">Chave privada inválida</string>
     <string name="title_unknown_key">A chave privada não corresponde a nenhuma chave de criptografia</string>
     <string name="title_key_missing">Nenhuma chave para %1$s</string>
+    <string name="title_send_reminder_remark">Os lembretes podem ser reactivados nas definições de envio</string>
+    <string name="title_send_plain_text">Apenas texto simples</string>
     <string name="title_send_dsn">Relatório de mensagem</string>
+    <string name="title_send_receipt">Pedir recibo de leitura</string>
+    <string name="title_send_receipt_remark">A maioria dos fornecedores e clientes de correio electrónico ignoram as solicitações dos recibos de leitura</string>
     <string name="title_noreply_reminder">A enviar para um endereço \'no-reply\'</string>
     <string name="title_attachment_keywords">anexado,anexo,anexos,incluído</string>
     <string name="title_attachment_reminder">Tinha a intenção de adicionar um anexo?</string>
