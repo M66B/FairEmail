@@ -4315,6 +4315,8 @@ This will be necessary when classification for a folder is enabled or disabled (
 because classification is based on comparision.
 
 [Filter rules](#user-content-faq71) will be executed before classification.
+If one or more filter rules were executed for a message, message classification will be skipped
+because it is assumed that the message will be processed by the filter rules in this case.
 
 Message classification is a pro feature, except for the spam folder.
 
