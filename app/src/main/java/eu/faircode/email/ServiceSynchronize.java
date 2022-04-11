@@ -1661,6 +1661,30 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         at com.sun.mail.imap.protocol.IMAPProtocol.select(SourceFile:19)
                                         at com.sun.mail.imap.IMAPFolder.open(SourceFile:16)
                                  */
+                                /*
+                                    Search javax.mail.MessagingException: DAE2 NO [CANNOT] Invalid mailbox name: Name must not have '/' characters (0.000 + 0.000 secs).;
+                                      nested exception is:
+                                        com.sun.mail.iap.CommandFailedException: DAE2 NO [CANNOT] Invalid mailbox name: Name must not have '/' characters (0.000 + 0.000 secs).
+                                    javax.mail.MessagingException: DAE2 NO [CANNOT] Invalid mailbox name: Name must not have '/' characters (0.000 + 0.000 secs).;
+                                      nested exception is:
+                                        com.sun.mail.iap.CommandFailedException: DAE2 NO [CANNOT] Invalid mailbox name: Name must not have '/' characters (0.000 + 0.000 secs).
+                                        at com.sun.mail.imap.IMAPFolder.open(SourceFile:61)
+                                        at com.sun.mail.imap.IMAPFolder.open(SourceFile:1)
+                                        at eu.faircode.email.BoundaryCallbackMessages.load_server(SourceFile:17)
+                                        at eu.faircode.email.BoundaryCallbackMessages.access$500(SourceFile:1)
+                                        at eu.faircode.email.BoundaryCallbackMessages$3.run(SourceFile:20)
+                                        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:462)
+                                        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+                                        at eu.faircode.email.Helper$PriorityFuture.run(SourceFile:1)
+                                        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+                                        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+                                        at java.lang.Thread.run(Thread.java:920)
+                                    Caused by: com.sun.mail.iap.CommandFailedException: DAE2 NO [CANNOT] Invalid mailbox name: Name must not have '/' characters (0.000 + 0.000 secs).
+                                        at com.sun.mail.iap.Protocol.handleResult(SourceFile:8)
+                                        at com.sun.mail.imap.protocol.IMAPProtocol.select(SourceFile:19)
+                                        at com.sun.mail.imap.IMAPFolder.open(SourceFile:16)
+                                        ... 10 more
+                                  */
                             }
 
                             db.folder().setFolderState(folder.id, "connected");
