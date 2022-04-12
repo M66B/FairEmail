@@ -805,11 +805,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         @Override
         public void onFragmentViewDestroyed(@NonNull FragmentManager fm, @NonNull Fragment f) {
             log(fm, f, "onFragmentViewDestroyed");
-        }
-
-        @Override
-        public void onFragmentDestroyed(@NonNull FragmentManager fm, @NonNull Fragment f) {
-            log(fm, f, "onFragmentDestroyed");
             if (BuildConfig.PLAY_STORE_RELEASE)
                 return;
             try {
@@ -825,6 +820,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             } catch (Throwable ex) {
                 Log.w(ex);
             }
+        }
+
+        @Override
+        public void onFragmentDestroyed(@NonNull FragmentManager fm, @NonNull Fragment f) {
+            log(fm, f, "onFragmentDestroyed");
         }
 
         @Override
