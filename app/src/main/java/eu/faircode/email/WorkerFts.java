@@ -100,7 +100,7 @@ public class WorkerFts extends Worker {
 
                         indexed++;
 
-                        if (ids.size() > INDEX_BATCH_SIZE)
+                        if (ids.size() >= INDEX_BATCH_SIZE)
                             markIndexed(db, ids);
                     } catch (Throwable ex) {
                         Log.e(ex);
