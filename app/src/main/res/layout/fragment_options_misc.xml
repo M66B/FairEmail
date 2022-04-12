@@ -1454,6 +1454,17 @@
                     app:layout_constraintTop_toBottomOf="@id/tvStorageUsage" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvContactInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_advanced_contact_info"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textIsSelectable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCursorWindow" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvSuffixes"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1462,7 +1473,7 @@
                     android:textIsSelectable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCursorWindow" />
+                    app:layout_constraintTop_toBottomOf="@id/tvContactInfo" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAndroidId"

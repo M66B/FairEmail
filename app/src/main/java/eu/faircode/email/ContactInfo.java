@@ -1038,6 +1038,12 @@ public class ContactInfo {
         return all;
     }
 
+    static int[] getStats() {
+        synchronized (emailContactInfo) {
+            return new int[]{emailLookup.size(), emailContactInfo.size()};
+        }
+    }
+
     private static class Lookup {
         Uri uri;
         String displayName;
