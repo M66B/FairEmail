@@ -124,14 +124,15 @@ public class FtsDbHelper extends SQLiteOpenHelper {
     static List<String> getSuggestions(SQLiteDatabase db, String query, int max) {
         List<String> result = new ArrayList<>();
 
-        Cursor cursor = db.query(
+        try (Cursor cursor = db.query(
                 "SELECT term FROM message_terms" +
                         " WHERE term LIKE ?" +
                         " ORDER BY cnt" +
                         " LIMIT " + max,
-                new Object[]{query});
-        while (cursor != null && cursor.moveToNext())
-            result.add(cursor.getString(0));
+                new Object[]{query})) {
+            while (cursor != null && cursor.moveToNext())
+                result.add(cursor.getString(0));
+        }
 
         return result;
     }

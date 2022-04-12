@@ -1109,7 +1109,7 @@ public class FragmentCompose extends FragmentBase {
 
                     boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
                     if (contacts) {
-                        Cursor cursor = resolver.query(
+                        try (Cursor cursor = resolver.query(
                                 ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                                 new String[]{
                                         ContactsContract.Contacts.DISPLAY_NAME,
@@ -1122,20 +1122,21 @@ public class FragmentCompose extends FragmentBase {
                                         " OR LOWER(" + ContactsContract.Contacts.DISPLAY_NAME + ") GLOB ?" +
                                         " OR " + ContactsContract.CommonDataKinds.Email.DATA + " LIKE ?)",
                                 new String[]{wildcard, glob, wildcard},
-                                null);
+                                null)) {
 
-                        while (cursor != null && cursor.moveToNext()) {
-                            EntityContact item = new EntityContact();
-                            item.id = 0L;
-                            item.name = cursor.getString(0);
-                            item.email = cursor.getString(1);
-                            item.avatar = cursor.getString(2);
-                            item.times_contacted = (cursor.getInt(3) == 0 ? 0 : Integer.MAX_VALUE);
-                            item.last_contacted = 0L;
-                            EntityContact existing = map.get(item.email);
-                            if (existing == null ||
-                                    (existing.avatar == null && item.avatar != null))
-                                map.put(item.email, item);
+                            while (cursor != null && cursor.moveToNext()) {
+                                EntityContact item = new EntityContact();
+                                item.id = 0L;
+                                item.name = cursor.getString(0);
+                                item.email = cursor.getString(1);
+                                item.avatar = cursor.getString(2);
+                                item.times_contacted = (cursor.getInt(3) == 0 ? 0 : Integer.MAX_VALUE);
+                                item.last_contacted = 0L;
+                                EntityContact existing = map.get(item.email);
+                                if (existing == null ||
+                                        (existing.avatar == null && item.avatar != null))
+                                    map.put(item.email, item);
+                            }
                         }
                     }
 
