@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -664,6 +663,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         .putBoolean("crash_reports", checked)
                         .apply();
                 Log.setCrashReporting(checked);
+                Log.setupLeakCanary(checked);
             }
         });
 

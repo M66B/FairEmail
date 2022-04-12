@@ -385,6 +385,7 @@ dependencies {
     def rxjava2_version = "2.2.21"
     def svg_version = "1.4"
     def compress_version = "1.21"
+    def canary_version = "2.8.1"
 
     // https://developer.android.com/jetpack/androidx/releases/startup
     implementation "androidx.startup:startup-runtime:$startup_version"
@@ -585,4 +586,9 @@ dependencies {
     // https://commons.apache.org/proper/commons-compress/
     // https://mvnrepository.com/artifact/org.apache.commons/commons-compress
     implementation "org.apache.commons:commons-compress:$compress_version"
+
+    // https://github.com/square/leakcanary
+    // https://square.github.io/leakcanary/getting_started/
+    // https://mvnrepository.com/artifact/com.squareup.leakcanary/leakcanary-android
+    implementation "com.squareup.leakcanary:leakcanary-android:$canary_version"
 }

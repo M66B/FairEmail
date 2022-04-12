@@ -1288,11 +1288,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         PendingIntent piWhy = PendingIntentCompat.getActivity(
                 this, ActivityView.PI_WHY, why, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        Intent dump = new Intent(this, ServiceUI.class).setAction("dump");
+        PendingIntent piDump = PendingIntentCompat.getService(
+                this, ServiceUI.PI_DUMP, dump, PendingIntent.FLAG_UPDATE_CURRENT);
+
         // Build notification
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "service")
                         .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
-                        .setContentIntent(piWhy)
+                        .setContentIntent(BuildConfig.DEBUG ? piDump : piWhy)
                         .setAutoCancel(false)
                         .setShowWhen(false)
                         .setPriority(NotificationCompat.PRIORITY_MIN)
