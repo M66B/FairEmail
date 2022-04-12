@@ -2311,6 +2311,15 @@
         <item>Not blocked</item>
     </string-array>
 
+    <string-array name="contactGroupTypes">
+        <item>Any</item>
+        <item>Home</item>
+        <item>Work</item>
+        <item>Other</item>
+        <item>Mobile</item>
+    </string-array>
+
+
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>
     <string name="fingerprint_fdroid" translatable="false">77CD40058858DC3A38523E01C227A39AA019F88B</string>
     <string name="fingerprint_amazon" translatable="false">200D0AA43A8ADBC7BB8237023C1553F4753CA7D2</string>

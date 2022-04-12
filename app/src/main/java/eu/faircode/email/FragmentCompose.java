@@ -3822,6 +3822,7 @@ public class FragmentCompose extends FragmentBase {
                 int target = args.getInt("target");
                 long group = args.getLong("group");
                 String gname = args.getString("name");
+                int type = args.getInt("type");
                 String to = args.getString("to");
                 String cc = args.getString("cc");
                 String bcc = args.getString("bcc");
@@ -3847,11 +3848,13 @@ public class FragmentCompose extends FragmentBase {
                                     + ContactsContract.CommonDataKinds.GroupMembership.CONTENT_ITEM_TYPE + "'",
                             new String[]{String.valueOf(group)}, null)) {
                         while (cursor != null && cursor.moveToNext()) {
+                            // https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email
                             try (Cursor contact = getContext().getContentResolver().query(
                                     ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                                     new String[]{
                                             ContactsContract.Contacts.DISPLAY_NAME,
-                                            ContactsContract.CommonDataKinds.Email.DATA
+                                            ContactsContract.CommonDataKinds.Email.DATA,
+                                            ContactsContract.CommonDataKinds.Email.TYPE,
                                     },
                                     ContactsContract.Data.CONTACT_ID + " = ?",
                                     new String[]{cursor.getString(0)},
@@ -3859,10 +3862,12 @@ public class FragmentCompose extends FragmentBase {
                                 if (contact != null && contact.moveToNext()) {
                                     String name = contact.getString(0);
                                     String email = contact.getString(1);
+                                    int etype = contact.getInt(2);
                                     Address address = new InternetAddress(email, name, StandardCharsets.UTF_8.name());
-                                    EntityLog.log(context, "Selected group=" + group +
-                                            " address=" + MessageHelper.formatAddresses(new Address[]{address}));
-                                    selected.add(address);
+                                    EntityLog.log(context, "Selected group=" + group + ":" + type +
+                                            " address=" + MessageHelper.formatAddresses(new Address[]{address}) + ":" + etype);
+                                    if (type == 0 || etype == type)
+                                        selected.add(address);
                                 }
                             }
                         }
@@ -6786,6 +6791,7 @@ public class FragmentCompose extends FragmentBase {
             final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
             final Spinner spGroup = dview.findViewById(R.id.spGroup);
             final Spinner spTarget = dview.findViewById(R.id.spTarget);
+            final Spinner spType = dview.findViewById(R.id.spType);
 
             ibInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -6890,6 +6896,7 @@ public class FragmentCompose extends FragmentBase {
                                 args.putInt("target", target);
                                 args.putLong("group", group);
                                 args.putString("name", name);
+                                args.putInt("type", spType.getSelectedItemPosition());
 
                                 sendResult(RESULT_OK);
                             } else
