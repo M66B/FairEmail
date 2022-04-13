@@ -98,7 +98,7 @@
     <string name="title_notification_redacted">Düzəldildi: biometrik və ya PIN kimlik təsdiqləməsi fəaldır</string>
     <string name="title_factor_minutes">%1$d dəqiqə</string>
     <string name="menu_answers">Şablonlar</string>
-    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">Qaydalar</string>
+    <string name="menu_rules">Qaydalar</string>
     <string name="menu_operations">Əməliyyatlar</string>
     <string name="menu_contacts">Yerli əlaqələr</string>
     <string name="menu_setup">Tənzimləmələr</string>
@@ -1852,5 +1852,12 @@
         <item>Göndərən</item>
         <item>Əngəlləndi</item>
         <item>Əngəllənmədi</item>
+    </string-array>
+    <string-array name="contactGroupTypes">
+        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Any</item>
+        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
+        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">İş</item>
+        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Digər</item>
+        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
     </string-array>
 </resources>

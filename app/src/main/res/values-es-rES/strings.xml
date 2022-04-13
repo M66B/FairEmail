@@ -98,7 +98,7 @@
     <string name="title_notification_redacted">Redactado: autenticación biométrica o PIN habilitada</string>
     <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_answers">Plantillas</string>
-    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">Reglas</string>
+    <string name="menu_rules">Reglas</string>
     <string name="menu_operations">Operaciones</string>
     <string name="menu_contacts">Contactos locales</string>
     <string name="menu_setup">Ajustes</string>
@@ -1853,5 +1853,12 @@
         <item>Remitente</item>
         <item>Bloqueado</item>
         <item>No bloqueado</item>
+    </string-array>
+    <string-array name="contactGroupTypes">
+        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Cualquier</item>
+        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
+        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Trabajo</item>
+        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Otros</item>
+        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
     </string-array>
 </resources>

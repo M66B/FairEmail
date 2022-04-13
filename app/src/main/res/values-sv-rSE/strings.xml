@@ -98,6 +98,7 @@
     <string name="title_notification_redacted">Redigering: biometrisk autentisering eller PIN-kod aktiverad</string>
     <string name="title_factor_minutes">%1$d minuter</string>
     <string name="menu_answers">Mallar</string>
+    <string name="menu_rules">Regler</string>
     <string name="menu_operations">Åtgärder</string>
     <string name="menu_contacts">Lokala kontakter</string>
     <string name="menu_setup">Inställningar</string>
@@ -1159,6 +1160,8 @@
     <string name="title_translating">Översätter &#8230;</string>
     <string name="title_translate_formal">Använd formell form</string>
     <string name="title_translate_small">Använd ett litet typsnitt för källtexten</string>
+    <string name="title_translate_html">Behåll formatering</string>
+    <string name="title_translate_html_hint">Detta kommer att använda fler tecken</string>
     <string name="title_translate_usage">Användning: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tryck på texten som ska översättas</string>
     <string name="title_edit_plain_text">Redigera som oformaterad text</string>
@@ -1848,5 +1851,12 @@
         <item>Avsändaren</item>
         <item>Blockerade</item>
         <item>Inte blockerad</item>
+    </string-array>
+    <string-array name="contactGroupTypes">
+        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Någon</item>
+        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
+        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Arbete</item>
+        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Övrigt</item>
+        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
     </string-array>
 </resources>

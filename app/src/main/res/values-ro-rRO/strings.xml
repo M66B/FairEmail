@@ -108,7 +108,7 @@
     <string name="title_notification_redacted">Cenzurat: autentificare biometrică sau PIN activată</string>
     <string name="title_factor_minutes">%1$d minute</string>
     <string name="menu_answers">Șabloane</string>
-    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">Reguli</string>
+    <string name="menu_rules">Reguli</string>
     <string name="menu_operations">Operaţii</string>
     <string name="menu_contacts">Contacte locale</string>
     <string name="menu_setup">Setări</string>
@@ -1865,5 +1865,12 @@
         <item>Expeditor</item>
         <item>Blocat</item>
         <item>Nu este blocat</item>
+    </string-array>
+    <string-array name="contactGroupTypes">
+        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Oricare</item>
+        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
+        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Serviciu</item>
+        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Altele</item>
+        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
     </string-array>
 </resources>

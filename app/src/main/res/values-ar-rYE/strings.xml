@@ -614,4 +614,11 @@
         <item>محظور</item>
         <item>Not blocked</item>
     </string-array>
+    <string-array name="contactGroupTypes">
+        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Any</item>
+        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
+        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Work</item>
+        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">أخرى</item>
+        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
+    </string-array>
 </resources>

@@ -88,7 +88,7 @@
     <string name="title_notification_redacted">削除済み: 生体認証または PIN 認証が有効です</string>
     <string name="title_factor_minutes">%1$d 分</string>
     <string name="menu_answers">テンプレート</string>
-    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">ルール</string>
+    <string name="menu_rules">ルール</string>
     <string name="menu_operations">操作</string>
     <string name="menu_contacts">ローカルの連絡先</string>
     <string name="menu_setup">設定</string>
@@ -1848,5 +1848,12 @@
         <item>差出人</item>
         <item>ブロック中</item>
         <item>未ブロック</item>
+    </string-array>
+    <string-array name="contactGroupTypes">
+        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Any</item>
+        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
+        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">ワーク</item>
+        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">その他</item>
+        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
     </string-array>
 </resources>

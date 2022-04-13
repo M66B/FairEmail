@@ -98,7 +98,7 @@
     <string name="title_notification_redacted">Αφαιρέθηκε: Ενεργοποίηση ταυτοποίησης με PIN ή βιομετρικά στοιχεια</string>
     <string name="title_factor_minutes">%1$d λεπτά</string>
     <string name="menu_answers">Πρότυπα</string>
-    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">Κανόνες</string>
+    <string name="menu_rules">Κανόνες</string>
     <string name="menu_operations">Δραστηριότητες</string>
     <string name="menu_contacts">Τοπικές επαφές</string>
     <string name="menu_setup">Ρυθμίσεις</string>
@@ -1852,5 +1852,12 @@
         <item>Αποστολέας</item>
         <item>Αποκλεισμένος</item>
         <item>Μη αποκλεισμένος</item>
+    </string-array>
+    <string-array name="contactGroupTypes">
+        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Any</item>
+        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
+        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Δουλειά</item>
+        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Άλλες</item>
+        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
     </string-array>
 </resources>

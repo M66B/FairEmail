@@ -97,7 +97,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_notification_redacted">Düzeltildi: biyometrik veya PIN kimlik doğrulaması etkin</string>
     <string name="title_factor_minutes">%1$d dakika</string>
     <string name="menu_answers">Kalıplar</string>
-    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">Kurallar</string>
+    <string name="menu_rules">Kurallar</string>
     <string name="menu_operations">İşlemler</string>
     <string name="menu_contacts">Yerel rehber</string>
     <string name="menu_setup">Ayarlar</string>
@@ -1852,5 +1852,12 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         <item>Gönderen</item>
         <item>Engellenen</item>
         <item>Engellenmemiş</item>
+    </string-array>
+    <string-array name="contactGroupTypes">
+        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Herhangi Biri</item>
+        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
+        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">İş</item>
+        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Diğer</item>
+        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
     </string-array>
 </resources>

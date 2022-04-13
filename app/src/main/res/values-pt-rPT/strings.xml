@@ -95,7 +95,7 @@
     <string name="title_notification_redacted">Informação suprimida: a autenticação biométrica / PIN está activa</string>
     <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_answers">Modelos</string>
-    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">Regras</string>
+    <string name="menu_rules">Regras</string>
     <string name="menu_operations">Operações</string>
     <string name="menu_contacts">Contactos locais</string>
     <string name="menu_setup">Definições</string>
@@ -449,6 +449,7 @@
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
     <string name="title_advanced_bundled_fonts">Usar tipos de letra embutidos</string>
     <string name="title_advanced_parse_classes">Usar folhas de estilo</string>
+    <string name="title_advanced_authentication_hint">As verificações subjacentes podem ser configuradas nas definições de recepção</string>
     <string name="title_advanced_authentication_none">Sem autenticação</string>
     <string name="title_advanced_authentication_some">Autenticação parcial</string>
     <string name="title_advanced_authentication_all">Autenticação concluída</string>
@@ -482,6 +483,7 @@
     <string name="title_advanced_reset_importance">Reverter importância ao mover mensagens</string>
     <string name="title_advanced_notifications">Gerir notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>
+    <string name="title_advanced_notifications_service">Canal \'Recebido\'</string>
     <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
     <string name="title_advanced_badge">Mostrar o número de novas mensagens no ícone do launcher</string>
@@ -512,6 +514,7 @@
     <string name="title_advanced_light">Usar luz de notificações</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_confirm_links">Pedir confirmação ao abrir hiperligações</string>
+    <string name="title_advanced_check_links_dbl">Verificar listas de bloqueio de domínios para hiperligações suspeitas</string>
     <string name="title_advanced_browse_links">Delegar abertura de links para o Android</string>
     <string name="title_advanced_ask_images">Confirmar a exibição de imagens</string>
     <string name="title_advanced_confirm_html">Mostrar mensagens reformatadas por padrão</string>
@@ -531,6 +534,7 @@
     <string name="title_advanced_disconnect_links">Utilizar listas para avisar sobre hiperligações que monitorizam</string>
     <string name="title_advanced_disconnect_images">Utilizar listas para reconhecer imagens de monitorização</string>
     <string name="title_advanced_mnemonic">Eliminar dados remotamente</string>
+    <string name="title_advanced_mnemonic_hint">A recepção de qualquer correio electrónico com as palavras abaixo indicadas no assunto irá, de forma automática e imediata, eliminar todos os dados da aplicação</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
     <string name="title_advanced_auto_decrypt">Desencriptar mensagens automaticamente</string>
@@ -660,6 +664,7 @@
     <string name="title_password_storage">Como são armazenadas as palavras-passe?</string>
     <string name="title_case_sensitive">Nomes de utilizador e palavras-passe habitualmente diferenciam maiúsculas de minúsculas</string>
     <string name="title_primary">Principal</string>
+    <string name="title_received_header">Usar o cabeçalho \'Recebido\'</string>
     <string name="title_check">Verificar</string>
     <string name="title_no_email">Endereço de correio eletrónico ausente</string>
     <string name="title_email_invalid">Endereço de correio eletrónico inválido: \'%1$s\'</string>
@@ -724,6 +729,7 @@
     <string name="title_apply_to_all">Aplicar a tudo</string>
     <string name="title_edit_account_name">Editar nome da conta</string>
     <string name="title_unified_folder">Mostrar na cx. entrada unificada</string>
+    <string name="title_poll_folder">Verificar periodicamente em vez da sincronização contínua</string>
     <string name="title_poll_folder_remark">A maioria dos servidores de e-mail apenas permite mensagens push em determinadas pastas!</string>
     <string name="title_download_folder">Transferir automaticamente todos os textos e anexos das mensagens</string>
     <string name="title_notify_folder">Notificação de novas mensagens</string>
@@ -984,6 +990,8 @@
     <string name="title_send_dsn">Relatório de mensagem</string>
     <string name="title_send_receipt">Pedir recibo de leitura</string>
     <string name="title_send_receipt_remark">A maioria dos fornecedores e clientes de correio electrónico ignoram as solicitações dos recibos de leitura</string>
+    <string name="title_pgp_reminder">Chaves PGP disponíveis</string>
+    <string name="title_smime_reminder">Chaves S/MIME disponíveis</string>
     <string name="title_noreply_reminder">A enviar para um endereço \'no-reply\'</string>
     <string name="title_attachment_keywords">anexado,anexo,anexos,incluído</string>
     <string name="title_attachment_reminder">Tinha a intenção de adicionar um anexo?</string>
@@ -1629,5 +1637,12 @@
         <item>Remetente</item>
         <item>Bloqueado</item>
         <item>Não bloqueado</item>
+    </string-array>
+    <string-array name="contactGroupTypes">
+        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Any</item>
+        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
+        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Trabalho</item>
+        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Outro</item>
+        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
     </string-array>
 </resources>

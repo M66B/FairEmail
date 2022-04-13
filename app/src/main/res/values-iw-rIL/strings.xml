@@ -118,7 +118,7 @@
     <string name="title_notification_redacted">בוצע שינוי: אימות ביומטרי או בקוד אישי הופעל</string>
     <string name="title_factor_minutes">%1$d דקות</string>
     <string name="menu_answers">תבניות</string>
-    <string name="menu_rules" comment="menu_rules&#10;Preferably one word to keep this consistent with the other navigation menu items.&#10;">כללים</string>
+    <string name="menu_rules">כללים</string>
     <string name="menu_operations">פעולות</string>
     <string name="menu_contacts">אנשי קשר מקומיים</string>
     <string name="menu_setup">הגדרות</string>
@@ -1874,5 +1874,12 @@
         <item>מוען</item>
         <item>חסום</item>
         <item>לא חסום</item>
+    </string-array>
+    <string-array name="contactGroupTypes">
+        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Any</item>
+        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
+        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">עבודה</item>
+        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">אחר</item>
+        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
     </string-array>
 </resources>
