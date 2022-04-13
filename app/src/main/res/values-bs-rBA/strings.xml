@@ -1865,10 +1865,10 @@
         <item>Deblokiran</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Any</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
+        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Bilo koji</item>
+        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Kućni</item>
         <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Posao</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Other</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
+        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Drugi</item>
+        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobilni</item>
     </string-array>
 </resources>
