@@ -533,6 +533,9 @@ public class ConnectionHelper {
     }
 
     static boolean isNumericAddress(String host) {
+        // IPv4-mapped IPv6 can be 45 characters
+        if (host == null || host.length() > 64)
+            return false;
         return ConnectionHelper.jni_is_numeric_address(host);
     }
 
