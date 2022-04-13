@@ -13,7 +13,7 @@
 
 void log_android(int prio, const char *fmt, ...) {
     if (prio >= ANDROID_LOG_DEBUG) {
-        char line[1024];
+        char line[4096];
         va_list argptr;
         va_start(argptr, fmt);
         vsprintf(line, fmt, argptr);
