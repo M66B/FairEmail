@@ -658,12 +658,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit()
-                        .remove("crash_reports_asked")
                         .remove("crash_report_count")
                         .putBoolean("crash_reports", checked)
                         .apply();
                 Log.setCrashReporting(checked);
-                Log.setupLeakCanary(checked);
+                CoalMine.setup(checked);
             }
         });
 

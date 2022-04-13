@@ -154,7 +154,6 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 
 import io.requery.android.database.CursorWindowAllocationException;
-import leakcanary.LeakCanary;
 
 public class Log {
     private static Context ctx;
@@ -568,18 +567,6 @@ public class Log {
                   at java.util.Date.toString(Date.java:1066)
              */
         }
-    }
-
-    static void setupLeakCanary(boolean enabled) {
-        LeakCanary.Config config = LeakCanary.getConfig().newBuilder()
-                .dumpHeap(enabled && BuildConfig.DEBUG)
-                .build();
-        LeakCanary.setConfig(config);
-        LeakCanary.INSTANCE.showLeakDisplayActivityLauncherIcon(BuildConfig.DEBUG);
-    }
-
-    static void checkCanary() {
-        LeakCanary.INSTANCE.dumpHeap();
     }
 
     static void logExtras(Intent intent) {

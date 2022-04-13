@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.RemoteInput;
@@ -177,7 +178,7 @@ public class ServiceUI extends IntentService {
                     break;
 
                 case "dump":
-                    Log.checkCanary();
+                    CoalMine.check();
                     break;
 
                 default:

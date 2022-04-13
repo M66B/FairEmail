@@ -246,6 +246,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                         }
                     }
                 });
+                CoalMine.watch(SimpleTask.this, "Task done=" + name);
             }
         });
 

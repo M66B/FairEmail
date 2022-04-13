@@ -182,7 +182,7 @@ public class ApplicationEx extends Application
         });
 
         Log.setup(this);
-        Log.setupLeakCanary(crash_reports);
+        CoalMine.setup(crash_reports);
 
         upgrade(this);
 
