@@ -571,7 +571,7 @@ public class FragmentAnswer extends FragmentBase {
         if (action == R.id.menu_link) {
             Uri uri = null;
 
-            ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipboardManager cbm = Helper.getSystemService(getContext(), ClipboardManager.class);
             if (cbm != null && cbm.hasPrimaryClip()) {
                 String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
                 uri = Uri.parse(link);

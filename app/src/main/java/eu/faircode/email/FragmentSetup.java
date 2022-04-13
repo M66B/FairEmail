@@ -743,7 +743,7 @@ public class FragmentSetup extends FragmentBase {
         updateManual();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
             cm.registerDefaultNetworkCallback(networkCallback);
         }
 
@@ -770,8 +770,7 @@ public class FragmentSetup extends FragmentBase {
         tvDoze12.setVisibility(!canScheduleExact && !isIgnoring ? View.VISIBLE : View.GONE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            ActivityManager am =
-                    (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+            ActivityManager am = Helper.getSystemService(getContext(), ActivityManager.class);
             grpBackgroundRestricted.setVisibility(am.isBackgroundRestricted()
                     ? View.VISIBLE : View.GONE);
         }
@@ -788,7 +787,7 @@ public class FragmentSetup extends FragmentBase {
         super.onPause();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
             cm.unregisterNetworkCallback(networkCallback);
         }
     }

@@ -175,7 +175,7 @@ public class ConnectionHelper {
 
     static NetworkInfo getNetworkInfo(Context context, Network network) {
         try {
-            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
             return (cm == null ? null : cm.getNetworkInfo(network));
         } catch (Throwable ex) {
             Log.e(ex);
@@ -197,7 +197,7 @@ public class ConnectionHelper {
             state.suitable = (isMetered != null && (metered || !isMetered));
             state.active = getActiveNetwork(context);
 
-            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
 
             if (state.connected && !roaming) {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
@@ -215,7 +215,7 @@ public class ConnectionHelper {
 
                 if (state.roaming != null && state.roaming && rlah)
                     try {
-                        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+                        TelephonyManager tm = Helper.getSystemService(context, TelephonyManager.class);
                         if (tm != null) {
                             String sim = tm.getSimCountryIso();
                             String network = tm.getNetworkCountryIso();
@@ -242,7 +242,7 @@ public class ConnectionHelper {
         boolean require_validated = prefs.getBoolean("require_validated", false);
         boolean vpn_only = prefs.getBoolean("vpn_only", false);
 
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
         if (cm == null) {
             Log.i("isMetered: no connectivity manager");
             return null;
@@ -381,7 +381,7 @@ public class ConnectionHelper {
     }
 
     static Network getActiveNetwork(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
         if (cm == null)
             return null;
 
@@ -456,8 +456,7 @@ public class ConnectionHelper {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
             return false;
 
-        ConnectivityManager cm =
-                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
         if (cm == null)
             return false;
 
@@ -473,8 +472,7 @@ public class ConnectionHelper {
             return null;
 
         try {
-            ConnectivityManager cm =
-                    (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
             if (cm == null)
                 return null;
 
@@ -496,7 +494,7 @@ public class ConnectionHelper {
     }
 
     static boolean vpnActive(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
         if (cm == null)
             return false;
 

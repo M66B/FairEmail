@@ -629,8 +629,7 @@ public class FragmentPop extends FragmentBase {
                 ServiceSynchronize.eval(context, "POP3");
 
                 if (!synchronize) {
-                    NotificationManager nm =
-                            (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
                     nm.cancel("receive:" + account.id, NotificationHelper.NOTIFICATION_TAGGED);
                     nm.cancel("alert:" + account.id, NotificationHelper.NOTIFICATION_TAGGED);
                 }

@@ -189,8 +189,7 @@ class Core {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             int chunk_size = prefs.getInt("chunk_size", DEFAULT_CHUNK_SIZE);
 
-            NotificationManager nm =
-                    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
 
             int retry = 0;
             boolean group = true;
@@ -2072,7 +2071,7 @@ class Core {
             PendingIntent piExists = PendingIntentCompat.getForegroundService(
                     context, ServiceSynchronize.PI_EXISTS, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            AlarmManager am = Helper.getSystemService(context, AlarmManager.class);
             AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, next, piExists);
             return;
         }
@@ -4810,7 +4809,7 @@ class Core {
         if (messages == null)
             messages = new ArrayList<>();
 
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
         if (nm == null)
             return;
 
@@ -5034,7 +5033,7 @@ class Core {
 
         if (notify_screen_on && flash) {
             Log.i("Notify screen on");
-            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            PowerManager pm = Helper.getSystemService(context, PowerManager.class);
             PowerManager.WakeLock wakeLock = pm.newWakeLock(
                     PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP,
                     BuildConfig.APPLICATION_ID + ":notification");
@@ -5057,7 +5056,7 @@ class Core {
         // = 0: unified
         // > 0: account
 
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
         if (messages == null || messages.size() == 0 || nm == null)
             return notifications;
 
@@ -6029,7 +6028,7 @@ class Core {
             // Get existing notifications
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                 try {
-                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
                     for (StatusBarNotification sbn : nm.getActiveNotifications()) {
                         String tag = sbn.getTag();
                         if (tag != null && tag.startsWith("unseen.")) {

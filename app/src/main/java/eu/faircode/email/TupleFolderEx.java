@@ -88,7 +88,7 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     void createNotificationChannel(Context context) {
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
 
         NotificationChannelGroup group = new NotificationChannelGroup("group." + accountId, accountName);
         nm.createNotificationChannelGroup(group);
@@ -105,7 +105,7 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     void deleteNotificationChannel(Context context) {
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
         nm.deleteNotificationChannel(getNotificationChannelId(id));
     }
 

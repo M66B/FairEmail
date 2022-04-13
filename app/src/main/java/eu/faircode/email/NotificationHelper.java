@@ -61,7 +61,7 @@ class NotificationHelper {
     @RequiresApi(api = Build.VERSION_CODES.O)
     static void createNotificationChannels(Context context) {
         // https://issuetracker.google.com/issues/65108694
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
 
         // Sync
         NotificationChannel service = new NotificationChannel(
@@ -151,7 +151,7 @@ class NotificationHelper {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     static void clear(Context context) {
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
         for (NotificationChannel channel : nm.getNotificationChannels()) {
             String id = channel.getId();
             if (!PERSISTENT_IDS.contains(id)) {

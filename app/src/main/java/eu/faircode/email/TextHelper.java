@@ -147,8 +147,7 @@ public class TextHelper {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
             return null;
 
-        TextClassificationManager tcm =
-                (TextClassificationManager) context.getSystemService(Context.TEXT_CLASSIFICATION_SERVICE);
+        TextClassificationManager tcm = Helper.getSystemService(context, TextClassificationManager.class);
         if (tcm == null)
             return null;
 

@@ -55,7 +55,7 @@ public class AlarmManagerCompatEx {
             return true;
         try {
             // https://developer.android.com/about/versions/12/behavior-changes-12#exact-alarm-permission
-            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            AlarmManager am = Helper.getSystemService(context, AlarmManager.class);
             return am.canScheduleExactAlarms();
         } catch (Throwable ex) {
             Log.e(ex);

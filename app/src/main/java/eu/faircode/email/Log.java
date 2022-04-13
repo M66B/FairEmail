@@ -423,7 +423,7 @@ public class Log {
             config.setDiscardClasses(ignore);
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
 
             String no_internet = context.getString(R.string.title_no_internet);
 
@@ -678,7 +678,7 @@ public class Log {
 
     static void logMemory(Context context, String message) {
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
-        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager activityManager = Helper.getSystemService(context, ActivityManager.class);
         activityManager.getMemoryInfo(mi);
         int mb = Math.round(mi.availMem / 0x100000L);
         int perc = Math.round(mi.availMem / (float) mi.totalMem * 100.0f);
@@ -1859,7 +1859,7 @@ public class Log {
 
         sb.append(String.format("Processors: %d\r\n", Runtime.getRuntime().availableProcessors()));
 
-        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
         sb.append(String.format("Memory class: %d/%d MB Total: %s\r\n",
@@ -1906,7 +1906,7 @@ public class Log {
         sb.append("\r\n");
 
 
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = Helper.getSystemService(context, WindowManager.class);
         Display display = wm.getDefaultDisplay();
         Point dim = new Point();
         display.getSize(dim);
@@ -1964,7 +1964,7 @@ public class Log {
                 ignoring == null ? null : Boolean.toString(!ignoring),
                 Boolean.FALSE.equals(ignoring) ? "!!!" : ""));
 
-        PowerManager power = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        PowerManager power = Helper.getSystemService(context, PowerManager.class);
         boolean psaving = power.isPowerSaveMode();
         sb.append(String.format("Battery saving: %s %s\r\n", psaving, psaving ? "!!!" : ""));
 
@@ -1973,7 +1973,7 @@ public class Log {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             // https://developer.android.com/reference/android/app/usage/UsageStatsManager
-            UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+            UsageStatsManager usm = Helper.getSystemService(context, UsageStatsManager.class);
             int bucket = usm.getAppStandbyBucket();
             boolean inactive = usm.isAppInactive(BuildConfig.APPLICATION_ID);
             sb.append(String.format("Standby bucket: %d-%b-%s %s\r\n",
@@ -2282,7 +2282,7 @@ public class Log {
             long size = 0;
             File file = attachment.getFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
 
                 NetworkInfo ani = cm.getActiveNetworkInfo();
                 if (ani != null)
@@ -2512,7 +2512,7 @@ public class Log {
             long size = 0;
             File file = attachment.getFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
 
 
                 String name;
@@ -2639,7 +2639,7 @@ public class Log {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     try {
                         // https://developer.android.com/reference/android/app/ApplicationExitInfo
-                        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+                        ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
                         List<ApplicationExitInfo> infos = am.getHistoricalProcessExitReasons(
                                 context.getPackageName(), 0, 20);
                         for (ApplicationExitInfo info : infos)
@@ -2657,7 +2657,7 @@ public class Log {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
                     try {
-                        UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+                        UsageStatsManager usm = Helper.getSystemService(context, UsageStatsManager.class);
                         UsageEvents events = usm.queryEventsForSelf(now - 12 * 3600L, now);
                         UsageEvents.Event event = new UsageEvents.Event();
                         while (events != null && events.hasNextEvent()) {

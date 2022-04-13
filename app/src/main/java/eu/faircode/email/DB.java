@@ -447,7 +447,7 @@ public abstract class DB extends RoomDatabase {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             int sqlite_cache = prefs.getInt("sqlite_cache", DEFAULT_CACHE_SIZE);
 
-            ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
             int class_mb = am.getMemoryClass();
             int cache_size = sqlite_cache * class_mb * 1024 / 100;
 

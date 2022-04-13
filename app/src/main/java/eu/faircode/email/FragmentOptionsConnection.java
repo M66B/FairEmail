@@ -325,7 +325,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     public void onResume() {
         super.onResume();
 
-        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
         if (cm == null)
             return;
 
@@ -338,7 +338,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
     @Override
     public void onPause() {
-        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
         if (cm == null)
             return;
 
@@ -439,7 +439,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         if ((debug || BuildConfig.DEBUG) &&
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             try {
-                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
                 Network active = (cm == null ? null : cm.getActiveNetwork());
                 if (active != null) {
                     NetworkInfo ni = cm.getNetworkInfo(active);

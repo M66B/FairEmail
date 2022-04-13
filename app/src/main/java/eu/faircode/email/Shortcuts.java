@@ -75,7 +75,7 @@ class Shortcuts {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean enabled = prefs.getBoolean("shortcuts", true);
 
-                ShortcutManager sm = (ShortcutManager) context.getSystemService(Context.SHORTCUT_SERVICE);
+                ShortcutManager sm = Helper.getSystemService(context, ShortcutManager.class);
                 int app = sm.getMaxShortcutCountPerActivity();
                 int manifest = sm.getManifestShortcuts().size();
                 int count = Math.min(app - manifest, MAX_SHORTCUTS);

@@ -384,7 +384,7 @@ public class FixedTextView extends AppCompatTextView {
         try {
             if (id == android.R.id.copy) {
                 Context context = getContext();
-                ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
 
                 int start = getSelectionStart();
                 int end = getSelectionEnd();

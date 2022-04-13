@@ -557,7 +557,7 @@ public class EntityMessage implements Serializable {
         PendingIntent pi = PendingIntentCompat.getForegroundService(
                 context, ServiceSynchronize.PI_UNSNOOZE, snoozed, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager am = Helper.getSystemService(context, AlarmManager.class);
         if (wakeup == null || wakeup == Long.MAX_VALUE) {
             Log.i("Cancel snooze id=" + id);
             am.cancel(pi);

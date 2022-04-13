@@ -467,7 +467,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                     prefs.edit().putString("wipe_mnemonic", mnemonic).apply();
                     tvMnemonic.setText(mnemonic);
 
-                    ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
                     if (cbm == null)
                         return;
 

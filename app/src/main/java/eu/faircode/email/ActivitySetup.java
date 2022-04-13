@@ -609,7 +609,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                 Log.i("Collecting data");
                 DB db = DB.getInstance(context);
-                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
 
                 // Accounts
                 JSONArray jaccounts = new JSONArray();
@@ -898,7 +898,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 JSONObject jimport = new JSONObject(json);
 
                 DB db = DB.getInstance(context);
-                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
                 try {
                     db.beginTransaction();
 

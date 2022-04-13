@@ -592,7 +592,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         super.onResume();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationManager nm = Helper.getSystemService(getContext(), NotificationManager.class);
 
             NotificationChannel notification = nm.getNotificationChannel("notification");
             if (notification != null) {

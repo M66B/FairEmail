@@ -164,7 +164,7 @@ public class WorkerCleanup extends Worker {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     Log.i("Checking notification channels");
-                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
                     for (NotificationChannel channel : nm.getNotificationChannels()) {
                         String cid = channel.getId();
                         Log.i("Notification channel id=" + cid + " name=" + channel.getName());

@@ -388,7 +388,7 @@ public class EmailService implements AutoCloseable {
         if (bind_socket &&
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             try {
-                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
                 Network active = cm.getActiveNetwork();
                 if (active != null) {
                     EntityLog.log(context, EntityLog.Type.Network, "Binding to" +

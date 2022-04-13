@@ -873,7 +873,7 @@ public class ContactInfo {
 
     private static boolean isRecoverable(Throwable ex, Context context) {
         if (ex instanceof SocketTimeoutException) {
-            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
             NetworkInfo ni = (cm == null ? null : cm.getActiveNetworkInfo());
             return (ni == null || !ni.isConnected());
         }

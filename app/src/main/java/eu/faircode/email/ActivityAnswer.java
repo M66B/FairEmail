@@ -86,7 +86,7 @@ public class ActivityAnswer extends ActivityBase {
                 String html = answer.getHtml(null);
                 String text = HtmlHelper.getText(context, html);
 
-                ClipboardManager cbm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager cbm = Helper.getSystemService(ActivityAnswer.this, ClipboardManager.class);
                 cbm.setPrimaryClip(ClipData.newHtmlText(getString(R.string.app_name), text, html));
                 ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
 

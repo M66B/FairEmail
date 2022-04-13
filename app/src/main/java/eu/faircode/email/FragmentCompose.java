@@ -798,8 +798,7 @@ public class FragmentCompose extends FragmentBase {
                 if (identity == null || TextUtils.isEmpty(identity.signature))
                     return;
 
-                ClipboardManager clipboard =
-                        (ClipboardManager) v.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager clipboard = Helper.getSystemService(v.getContext(), ClipboardManager.class);
                 if (clipboard == null)
                     return;
 
@@ -1345,8 +1344,7 @@ public class FragmentCompose extends FragmentBase {
                 if (context == null)
                     return;
 
-                ClipboardManager clipboard =
-                        (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager clipboard = Helper.getSystemService(context, ClipboardManager.class);
                 if (clipboard == null)
                     return;
 
@@ -1477,7 +1475,7 @@ public class FragmentCompose extends FragmentBase {
     public void onResume() {
         super.onResume();
 
-        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         cm.registerNetworkCallback(builder.build(), networkCallback);
@@ -1493,7 +1491,7 @@ public class FragmentCompose extends FragmentBase {
             onAction(R.id.action_save, extras, "pause");
         }
 
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
         cm.unregisterNetworkCallback(networkCallback);
 
         super.onPause();
@@ -2347,7 +2345,7 @@ public class FragmentCompose extends FragmentBase {
 
         if (uri == null)
             try {
-                ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager cbm = Helper.getSystemService(getContext(), ClipboardManager.class);
                 if (cbm != null && cbm.hasPrimaryClip()) {
                     String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
                     uri = Uri.parse(link);
@@ -6295,7 +6293,7 @@ public class FragmentCompose extends FragmentBase {
             if (addresses == null)
                 return;
 
-            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
             NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
             if (ani != null && ani.isConnected())
                 DnsHelper.checkMx(context, addresses);

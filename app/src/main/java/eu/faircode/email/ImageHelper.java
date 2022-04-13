@@ -482,7 +482,7 @@ class ImageHelper {
                     // H+ HSPA+ ~14.4 Mbps-23.0 Mbps
                     // 4G LTE ~50 Mbps
                     // 4G LTE-A ~500 Mbps
-                    ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                    ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
                     Network active = (cm == null ? null : cm.getActiveNetwork());
                     NetworkCapabilities caps = (active == null ? null : cm.getNetworkCapabilities(active));
                     if (caps != null) {

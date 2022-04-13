@@ -3061,8 +3061,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                         private void onCopy() {
-                            ClipboardManager clipboard =
-                                    (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipboardManager clipboard = Helper.getSystemService(context, ClipboardManager.class);
                             if (clipboard == null)
                                 return;
 
@@ -4457,8 +4456,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 private void onCopy() {
-                    ClipboardManager clipboard =
-                            (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipboardManager clipboard = Helper.getSystemService(context, ClipboardManager.class);
                     if (clipboard == null)
                         return;
 
@@ -4556,7 +4554,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         @TargetApi(Build.VERSION_CODES.O)
         private void onNotifyContact(final TupleMessageEx message) {
-            final NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            final NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
             final String channelId = message.getNotificationChannelId();
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibNotifyContact);
@@ -4617,7 +4615,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 private void onActionDeleteChannel() {
-                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
                     nm.deleteNotificationChannel(channelId);
                 }
             });
@@ -4795,8 +4793,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (TextUtils.isEmpty(message.notes))
                 return;
 
-            ClipboardManager clipboard =
-                    (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipboardManager clipboard = Helper.getSystemService(context, ClipboardManager.class);
             if (clipboard == null)
                 return;
 
@@ -6339,8 +6336,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onCopyHeaders(TupleMessageEx message) {
-            ClipboardManager clipboard =
-                    (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipboardManager clipboard = Helper.getSystemService(context, ClipboardManager.class);
             if (clipboard == null)
                 return;
 
@@ -8232,7 +8228,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         public void onClick(DialogInterface dialog, int which) {
                             String html = HtmlHelper.toHtml((Spanned) tvText.getText(), context);
                             String text = HtmlHelper.getText(context, html);
-                            ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
                             cbm.setPrimaryClip(ClipData.newHtmlText(getString(R.string.app_name), text, html));
                             ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
                         }

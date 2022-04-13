@@ -1163,8 +1163,7 @@ public class FragmentFolders extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
 
-                NotificationManager nm =
-                        (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(context, "progress")
                                 .setSmallIcon(R.drawable.baseline_get_app_white_24)

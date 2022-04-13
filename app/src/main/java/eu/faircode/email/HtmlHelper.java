@@ -406,7 +406,7 @@ public class HtmlHelper {
     }
 
     private static int getMaxFormatTextSize(Context context) {
-        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
         int mc = am.getMemoryClass();
         if (mc >= 256)
             return MAX_FORMAT_TEXT_SIZE;

@@ -81,8 +81,7 @@ public class MediaPlayerHelper {
     }
 
     static boolean isInCall(Context context) {
-        AudioManager am =
-                (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        AudioManager am = Helper.getSystemService(context, AudioManager.class);
         if (am == null)
             return false;
 

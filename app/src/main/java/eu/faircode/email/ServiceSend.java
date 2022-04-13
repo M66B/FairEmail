@@ -94,7 +94,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         owner = new TwoStateOwner(this, "send");
 
-        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        PowerManager pm = Helper.getSystemService(this, PowerManager.class);
         wlOutbox = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":send");
 
         // Observe unsent count
@@ -107,8 +107,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     EntityLog.log(ServiceSend.this, "Unsent=" + (unsent == null ? null : unsent.count));
 
                     try {
-                        NotificationManager nm =
-                                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        NotificationManager nm = Helper.getSystemService(ServiceSend.this, NotificationManager.class);
                         nm.notify(NotificationHelper.NOTIFICATION_SEND,
                                 getNotificationService(false).build());
                     } catch (Throwable ex) {
@@ -157,7 +156,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         if (lastSuitable)
             owner.start();
 
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = Helper.getSystemService(this, ConnectivityManager.class);
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         cm.registerNetworkCallback(builder.build(), networkCallback);
@@ -178,7 +177,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         unregisterReceiver(connectionChangedReceiver);
 
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = Helper.getSystemService(this, ConnectivityManager.class);
         cm.unregisterNetworkCallback(networkCallback);
 
         getMainHandler().removeCallbacks(_checkConnectivity);
@@ -188,8 +187,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         stopForeground(true);
 
-        NotificationManager nm =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
         nm.cancel(NotificationHelper.NOTIFICATION_SEND);
 
         super.onDestroy();
@@ -331,8 +329,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 EntityLog.log(ServiceSend.this, "Service send suitable=" + suitable);
 
                 try {
-                    NotificationManager nm =
-                            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    NotificationManager nm = Helper.getSystemService(ServiceSend.this, NotificationManager.class);
                     nm.notify(NotificationHelper.NOTIFICATION_SEND,
                             getNotificationService(false).build());
                 } catch (Throwable ex) {
@@ -432,7 +429,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
                             try {
                                 int tries_left = (unrecoverable ? 0 : RETRY_MAX - op.tries);
-                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
                                 nm.notify("send:" + message.id,
                                         NotificationHelper.NOTIFICATION_TAGGED,
                                         getNotificationError(
@@ -467,7 +464,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     }
 
     private void onSync(EntityFolder outbox) {
-        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
 
         DB db = DB.getInstance(this);
         try {
@@ -519,8 +516,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             db.message().setMessageLastAttempt(message.id, message.last_attempt);
         }
 
-        NotificationManager nm =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
         nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(true).build());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -895,7 +891,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 context, PI_SEND, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         long trigger = System.currentTimeMillis() + delay;
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager am = Helper.getSystemService(context, AlarmManager.class);
         am.cancel(pi);
         AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, trigger, pi);
     }

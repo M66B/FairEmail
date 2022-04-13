@@ -123,7 +123,7 @@ public class EditTextPlain extends FixedEditText {
         try {
             if (id == android.R.id.paste) {
                 Context context = getContext();
-                ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
                 if (cbm != null && cbm.hasPrimaryClip()) {
                     ClipData data = cbm.getPrimaryClip();
                     ClipData.Item item = (data == null ? null : data.getItemAt(0));

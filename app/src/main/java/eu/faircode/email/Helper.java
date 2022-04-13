@@ -27,6 +27,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AlarmManager;
 import android.app.KeyguardManager;
 import android.app.UiModeManager;
 import android.app.usage.UsageStatsManager;
@@ -456,7 +457,7 @@ public class Helper {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
             return null;
 
-        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        PowerManager pm = Helper.getSystemService(context, PowerManager.class);
         if (pm == null)
             return null;
 
@@ -465,7 +466,7 @@ public class Helper {
 
     static Integer getBatteryLevel(Context context) {
         try {
-            BatteryManager bm = (BatteryManager) context.getSystemService(Context.BATTERY_SERVICE);
+            BatteryManager bm = Helper.getSystemService(context, BatteryManager.class);
             if (bm == null)
                 return null;
             return bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
@@ -479,7 +480,7 @@ public class Helper {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
             return false;
         try {
-            BatteryManager bm = (BatteryManager) context.getSystemService(Context.BATTERY_SERVICE);
+            BatteryManager bm = Helper.getSystemService(context, BatteryManager.class);
             if (bm == null)
                 return false;
             return bm.isCharging();
@@ -520,7 +521,7 @@ public class Helper {
                 int enabled = Settings.System.getInt(resolver, Settings.Secure.LOCK_PATTERN_ENABLED, 0);
                 return (enabled != 0);
             } else {
-                KeyguardManager kgm = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+                KeyguardManager kgm = Helper.getSystemService(context, KeyguardManager.class);
                 return (kgm != null && kgm.isDeviceSecure());
             }
         } catch (Throwable ex) {
@@ -591,8 +592,7 @@ public class Helper {
 
     static boolean isAccessibilityEnabled(Context context) {
         try {
-            AccessibilityManager am =
-                    (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
+            AccessibilityManager am = Helper.getSystemService(context, AccessibilityManager.class);
             return (am != null && am.isEnabled());
         } catch (Throwable ex) {
             Log.e(ex);
@@ -617,6 +617,10 @@ public class Helper {
             default:
                 return Integer.toString(bucket);
         }
+    }
+
+    static <T extends Object> T getSystemService(Context context, Class<T> type) {
+        return ContextCompat.getSystemService(context.getApplicationContext(), type);
     }
 
     // View
@@ -1123,8 +1127,7 @@ public class Helper {
 
     static String getUiModeType(Context context) {
         try {
-            UiModeManager uimm =
-                    (UiModeManager) context.getSystemService(Context.UI_MODE_SERVICE);
+            UiModeManager uimm = Helper.getSystemService(context, UiModeManager.class);
             int uiModeType = uimm.getCurrentModeType();
             switch (uiModeType) {
                 case Configuration.UI_MODE_TYPE_UNDEFINED:

@@ -214,8 +214,7 @@ public class ServiceUI extends IntentService {
         // https://issuetracker.google.com/issues/159152393
         String tag = "unseen." + group + ":" + id;
 
-        NotificationManager nm =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
         nm.cancel(tag, NotificationHelper.NOTIFICATION_TAGGED);
     }
 

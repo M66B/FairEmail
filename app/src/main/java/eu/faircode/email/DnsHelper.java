@@ -157,7 +157,7 @@ public class DnsHelper {
                         }
 
                         if (ex == null) {
-                            //ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                            //ConnectivityManager cm = getSystemService(context, ConnectivityManager.class);
                             //Network active = (cm == null ? null : cm.getActiveNetwork());
                             //LinkProperties props = (active == null ? null : cm.getLinkProperties(active));
                             //Log.i("DNS private=" + (props == null ? null : props.isPrivateDnsActive()));
@@ -215,7 +215,7 @@ public class DnsHelper {
     }
 
     private static String getDnsServer(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
         if (cm == null)
             return DEFAULT_DNS;
 

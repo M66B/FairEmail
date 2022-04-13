@@ -72,7 +72,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
 
         final Context context = getContext();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        final InputMethodManager imm = Helper.getSystemService(context, InputMethodManager.class);
 
         List<String> selected_folders = new ArrayList<>();
         String json = prefs.getString("selected_folders", "[]");

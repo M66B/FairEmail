@@ -360,7 +360,7 @@ public class EditTextCompose extends FixedEditText {
                 }
 
                 Context context = getContext();
-                ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
                 if (start != end && cbm != null) {
                     CharSequence selected = getEditableText().subSequence(start, end);
                     if (selected instanceof Spanned) {
@@ -373,7 +373,7 @@ public class EditTextCompose extends FixedEditText {
             } else if (id == android.R.id.paste) {
                 final Context context = getContext();
 
-                ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
                 if (cbm == null || !cbm.hasPrimaryClip())
                     return false;
 
