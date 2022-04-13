@@ -4961,6 +4961,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 public void onDestroyed() {
                     try {
                         dialog.dismiss();
+                        owner.getLifecycle().removeObserver(this);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
@@ -7482,6 +7483,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             public void onDestroyed() {
                 Log.d(AdapterMessage.this + " parent destroyed");
                 AdapterMessage.this.parentFragment = null;
+                owner.getLifecycle().removeObserver(this);
             }
         });
     }
