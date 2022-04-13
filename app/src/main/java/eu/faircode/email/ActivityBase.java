@@ -814,6 +814,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                             RecyclerView.Adapter.class.isAssignableFrom(type)) {
                         Log.i("Clearing " + f.getClass().getSimpleName() + ":" + field.getName());
                         field.setAccessible(true);
+
+                        if (Animator.class.isAssignableFrom(type))
+                            ((Animator) field.get(f)).setTarget(null);
+
                         field.set(f, null);
                     }
                 }

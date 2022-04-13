@@ -661,7 +661,6 @@ public class Helper {
             public void onDestroyed() {
                 try {
                     animator.removeUpdateListener(listener);
-                    fab.setAlpha(1.0f);
                     owner.getLifecycle().removeObserver(this);
                 } catch (Throwable ex) {
                     Log.e(ex);
