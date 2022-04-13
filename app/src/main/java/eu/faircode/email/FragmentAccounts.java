@@ -330,11 +330,11 @@ public class FragmentAccounts extends FragmentBase {
 
                         if (accounts.size() == 0) {
                             fab.setCustomSize(Helper.dp2pixels(context, 2 * 56));
-                            if (!animator.isStarted())
+                            if (animator != null && !animator.isStarted())
                                 animator.start();
                         } else {
                             fab.clearCustomSize();
-                            if (animator.isStarted())
+                            if (animator != null && animator.isStarted())
                                 animator.end();
                         }
                     }

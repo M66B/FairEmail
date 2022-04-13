@@ -1446,16 +1446,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     criteria.with_notes ||
                     criteria.with_types != null) {
                 fabSearch.hide();
-                if (animator.isStarted())
+                if (animator != null && animator.isStarted())
                     animator.end();
             } else {
                 fabSearch.show();
-                if (!animator.isStarted())
+                if (animator != null && !animator.isStarted())
                     animator.start();
             }
         } else {
             fabSearch.hide();
-            if (animator.isStarted())
+            if (animator != null && animator.isStarted())
                 animator.end();
         }
 

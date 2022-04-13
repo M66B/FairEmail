@@ -640,11 +640,7 @@ public class Helper {
     }
 
     static ObjectAnimator getFabAnimator(View fab, LifecycleOwner owner) {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(fab, "alpha", 0.9f, 1.0f);
-        animator.setDuration(750L);
-        animator.setRepeatCount(ValueAnimator.INFINITE);
-        animator.setRepeatMode(ValueAnimator.REVERSE);
-        animator.addUpdateListener(new ObjectAnimator.AnimatorUpdateListener() {
+        ObjectAnimator.AnimatorUpdateListener listener = new ObjectAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 if (!owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
@@ -652,7 +648,27 @@ public class Helper {
                 fab.setScaleX((float) animation.getAnimatedValue());
                 fab.setScaleY((float) animation.getAnimatedValue());
             }
+        };
+
+        ObjectAnimator animator = ObjectAnimator.ofFloat(fab, "alpha", 0.9f, 1.0f);
+        animator.setDuration(750L);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setRepeatMode(ValueAnimator.REVERSE);
+        animator.addUpdateListener(listener);
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                try {
+                    animator.removeUpdateListener(listener);
+                    fab.setAlpha(1.0f);
+                    owner.getLifecycle().removeObserver(this);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
         });
+
         return animator;
     }
 
