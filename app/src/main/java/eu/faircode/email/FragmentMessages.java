@@ -3503,6 +3503,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private long[] getSelection() {
+        if (selectionTracker == null)
+            return new long[0];
+
         Selection<Long> selection = selectionTracker.getSelection();
 
         long[] ids = new long[selection.size()];
@@ -3609,7 +3612,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putLongArray("ids", getSelection());
         args.putBoolean("hide", hide);
 
-        selectionTracker.clearSelection();
+        if (selectionTracker != null)
+            selectionTracker.clearSelection();
 
         new SimpleTask<Void>() {
             @Override
@@ -3658,7 +3662,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putBoolean("threading", threading &&
                 (id == null || viewType != AdapterMessage.ViewType.THREAD));
 
-        //selectionTracker.clearSelection();
+        //if (selectionTracker != null)
+        //    selectionTracker.clearSelection();
 
         new SimpleTask<Void>() {
             @Override
@@ -3774,7 +3779,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putLongArray("ids", getSelection());
         args.putBoolean("threads", false);
 
-        selectionTracker.clearSelection();
+        if (selectionTracker != null)
+            selectionTracker.clearSelection();
 
         FragmentDialogForwardRaw ask = new FragmentDialogForwardRaw();
         ask.setArguments(args);
@@ -3859,7 +3865,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onActionJunkSelection() {
         Bundle aargs = new Bundle();
-        aargs.putInt("count", selectionTracker.getSelection().size());
+        aargs.putInt("count", getSelection().length);
 
         FragmentDialogAskSpam ask = new FragmentDialogAskSpam();
         ask.setArguments(aargs);
@@ -5330,6 +5336,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 view.post(new Runnable() {
                     @Override
                     public void run() {
+                        if (selectionTracker == null)
+                            return;
                         selectionTracker.clearSelection();
                         for (long id : ids)
                             selectionTracker.select(id);
@@ -5632,7 +5640,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             fabMore.show();
 
             Context context = tvSelectedCount.getContext();
-            int count = selectionTracker.getSelection().size();
+            int count = getSelection().length;
             tvSelectedCount.setText(NF.format(count));
             if (count > (BuildConfig.DEBUG ? 10 : MAX_MORE)) {
                 int ts = Math.round(tvSelectedCount.getTextSize());
@@ -8753,7 +8761,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putLong("wakeup", duration == 0 ? -1 : time);
         args.putLongArray("ids", getSelection());
 
-        selectionTracker.clearSelection();
+        if (selectionTracker != null)
+            selectionTracker.clearSelection();
 
         new SimpleTask<Void>() {
             @Override

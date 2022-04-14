@@ -60,6 +60,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
@@ -811,6 +812,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     Class<?> type = field.getType();
                     if (View.class.isAssignableFrom(type) ||
                             Animator.class.isAssignableFrom(type) ||
+                            SelectionTracker.class.isAssignableFrom(type) ||
+                            SelectionTracker.SelectionPredicate.class.isAssignableFrom(type) ||
                             RecyclerView.Adapter.class.isAssignableFrom(type)) {
                         Log.i("Clearing " + f.getClass().getSimpleName() + ":" + field.getName());
                         field.setAccessible(true);
