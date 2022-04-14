@@ -853,6 +853,8 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void run() {
                 try {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
                     Rect rect = new Rect(
                             vwExtra.getLeft(),
                             ibExtra.getTop(),
