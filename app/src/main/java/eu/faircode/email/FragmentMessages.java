@@ -547,7 +547,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabSearch = view.findViewById(R.id.fabSearch);
         fabError = view.findViewById(R.id.fabError);
 
-        animator = Helper.getFabAnimator(fabSearch, this);
+        animator = Helper.getFabAnimator(fabSearch, getViewLifecycleOwner());
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
