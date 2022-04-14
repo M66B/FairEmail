@@ -119,9 +119,9 @@ class Shortcuts {
                 List<String> remove = new ArrayList<>();
 
                 if (BuildConfig.DEBUG && false)
-                    ShortcutManagerCompat.removeAllDynamicShortcuts(context);
+                    ShortcutManagerCompat.removeAllDynamicShortcuts(context.getApplicationContext());
 
-                List<ShortcutInfoCompat> existing = ShortcutManagerCompat.getDynamicShortcuts(context);
+                List<ShortcutInfoCompat> existing = ShortcutManagerCompat.getDynamicShortcuts(context.getApplicationContext());
 
                 for (ShortcutInfoCompat shortcut : shortcuts) {
                     boolean exists = false;
@@ -153,11 +153,11 @@ class Shortcuts {
                         " remove=" + remove.size());
 
                 if (remove.size() > 0)
-                    ShortcutManagerCompat.removeDynamicShortcuts(context, remove);
+                    ShortcutManagerCompat.removeDynamicShortcuts(context.getApplicationContext(), remove);
 
                 for (ShortcutInfoCompat shortcut : add) {
                     Log.i("Push shortcut id=" + shortcut.getId());
-                    ShortcutManagerCompat.pushDynamicShortcut(context, shortcut);
+                    ShortcutManagerCompat.pushDynamicShortcut(context.getApplicationContext(), shortcut);
                 }
             }
 
@@ -346,6 +346,10 @@ class Shortcuts {
     }
 
     static boolean can(Context context) {
-        return ShortcutManagerCompat.isRequestPinShortcutSupported(context);
+        return ShortcutManagerCompat.isRequestPinShortcutSupported(context.getApplicationContext());
+    }
+
+    static void requestPinShortcut(Context context, ShortcutInfoCompat info){
+        ShortcutManagerCompat.requestPinShortcut(context.getApplicationContext(), info, null);
     }
 }

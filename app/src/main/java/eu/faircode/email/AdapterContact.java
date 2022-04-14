@@ -45,7 +45,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.content.pm.ShortcutInfoCompat;
-import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -308,7 +307,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
                 private void onActionPin() {
                     ShortcutInfoCompat.Builder builder = Shortcuts.getShortcut(context, contact);
-                    ShortcutManagerCompat.requestPinShortcut(context, builder.build(), null);
+                    Shortcuts.requestPinShortcut(context, builder.build());
                 }
 
                 private void onActionEdit() {
