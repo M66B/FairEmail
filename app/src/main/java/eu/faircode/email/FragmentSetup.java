@@ -916,7 +916,7 @@ public class FragmentSetup extends FragmentBase {
 
     private void setContactsPermission(boolean granted) {
         if (granted)
-            ContactInfo.init(getContext());
+            ContactInfo.init(getContext().getApplicationContext());
 
         tvPermissionsDone.setText(granted ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvPermissionsDone.setTextColor(granted ? textColorPrimary : colorWarning);
