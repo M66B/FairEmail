@@ -403,6 +403,8 @@ only suggesting contacts won't work without contacts permissions.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq2)
 
+First of all, the "*monitoring*" status bar notification can be turned off without side effects, not directly by the app, but via the Android app settings, please read on.
+
 A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown
 to prevent Android from killing the service that takes care of continuous receiving email.
 This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)),
@@ -415,7 +417,7 @@ with the "side effect" that new messages are often not or late being reported an
 Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore.
 In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+The status bar notification can be disabled, without side effects, via the notification settings of FairEmail:
 
 * Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
