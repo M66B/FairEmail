@@ -176,7 +176,7 @@ public class CharsetHelper {
 
             Log.i("compact_enc_det sample=" + sample.length);
             DetectResult detected = jni_detect_charset(sample,
-                    ref == null ? null : ref.name(),
+                    ref == null ? StandardCharsets.ISO_8859_1.name() : ref.name(),
                     Locale.getDefault().getLanguage());
 
             if (TextUtils.isEmpty(detected.charset)) {
