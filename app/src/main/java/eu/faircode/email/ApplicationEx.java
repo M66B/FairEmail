@@ -158,6 +158,7 @@ public class ApplicationEx extends Application
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean crash_reports = prefs.getBoolean("crash_reports", false);
+        final boolean leak_canary = prefs.getBoolean("leak_canary", false);
         final boolean load_emoji = prefs.getBoolean("load_emoji", BuildConfig.PLAY_STORE_RELEASE);
 
         prev = Thread.getDefaultUncaughtExceptionHandler();
@@ -182,7 +183,7 @@ public class ApplicationEx extends Application
         });
 
         Log.setup(this);
-        CoalMine.setup(crash_reports);
+        CoalMine.setup(leak_canary);
 
         upgrade(this);
 

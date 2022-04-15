@@ -121,6 +121,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvExperimentsHint;
     private SwitchCompat swCrashReports;
     private TextView tvUuid;
+    private SwitchCompat swCanary;
     private Button btnReset;
     private SwitchCompat swCleanupAttachments;
     private Button btnCleanup;
@@ -203,7 +204,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "classification", "class_min_probability", "class_min_difference",
             "language", "deepl_enabled", "watchdog",
             "updates", "weekly", "show_changelog",
-            "experiments", "crash_reports", "cleanup_attachments",
+            "experiments", "crash_reports", "leak_canary", "cleanup_attachments",
             "protocol", "debug", "log_level", "test1", "test2", "test3", "test4", "test5",
             "work_manager", // "external_storage",
             "query_threads", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_cache",
@@ -287,6 +288,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         tvUuid = view.findViewById(R.id.tvUuid);
+        swCanary = view.findViewById(R.id.swCanary);
         btnReset = view.findViewById(R.id.btnReset);
         swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
         btnCleanup = view.findViewById(R.id.btnCleanup);
@@ -662,6 +664,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         .putBoolean("crash_reports", checked)
                         .apply();
                 Log.setCrashReporting(checked);
+            }
+        });
+
+        swCanary.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        swCanary.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("leak_canary", checked).apply();
                 CoalMine.setup(checked);
             }
         });
@@ -1671,6 +1681,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExperiments.setChecked(prefs.getBoolean("experiments", false));
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));
+        swCanary.setChecked(prefs.getBoolean("leak_canary", false));
         swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
