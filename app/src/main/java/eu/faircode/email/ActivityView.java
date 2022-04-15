@@ -1047,10 +1047,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     @Override
     protected void onDestroy() {
-        if (lastSnackbar != null) {
-            lastSnackbar.setAction(null, null);
-            lastSnackbar = null;
-        }
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(creceiver);
         super.onDestroy();

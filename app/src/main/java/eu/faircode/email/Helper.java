@@ -23,6 +23,7 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
 
 import android.Manifest;
+import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
@@ -108,6 +109,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -1268,6 +1270,35 @@ public class Helper {
         }
 
         return fragment.getClass().getName() + ":result:" + who;
+    }
+
+    static void clearViews(Object instance) {
+        try {
+            for (Field field : instance.getClass().getDeclaredFields()) {
+                Class<?> type = field.getType();
+                if (View.class.isAssignableFrom(type) ||
+                        Animator.class.isAssignableFrom(type) ||
+                        Snackbar.class.isAssignableFrom(type) ||
+                        SelectionTracker.class.isAssignableFrom(type) ||
+                        SelectionTracker.SelectionPredicate.class.isAssignableFrom(type) ||
+                        RecyclerView.Adapter.class.isAssignableFrom(type)) {
+                    Log.i("Clearing " + instance.getClass().getSimpleName() + ":" + field.getName());
+
+                    field.setAccessible(true);
+
+                    if (Animator.class.isAssignableFrom(type))
+                        ((Animator) field.get(instance)).setTarget(null);
+
+                    if (Snackbar.class.isAssignableFrom(type)) {
+                        ((Snackbar) field.get(instance)).setAction(null, null);
+                    }
+
+                    field.set(instance, null);
+                }
+            }
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
     }
 
     // Graphics

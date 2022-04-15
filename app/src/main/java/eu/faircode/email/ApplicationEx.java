@@ -766,6 +766,8 @@ public class ApplicationEx extends Application
         @Override
         public void onActivityDestroyed(@NonNull Activity activity) {
             log(activity, "onActivityDestroyed");
+            Helper.clearViews(activity);
+
         }
 
         @Override
