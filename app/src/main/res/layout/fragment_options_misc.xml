@@ -533,15 +533,55 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvCleanupHint" />
 
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpUpdates"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="swUpdates,swWeekly" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAdvanced"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="?attr/colorCardBackground"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardGeneral">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="12dp">
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvCaptionAdvanced"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/title_setup_advanced"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swProtocol"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableStart="@drawable/twotone_list_alt_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_protocol"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLastCleanup"
+                    app:layout_constraintTop_toBottomOf="@id/tvCaptionAdvanced"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
@@ -562,6 +602,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableStart="@drawable/twotone_bug_report_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_log_info"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -573,6 +615,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableStart="@drawable/twotone_logo_dev_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_debug"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -653,12 +697,6 @@
                     app:switchPadding="12dp" />
 
                 <androidx.constraintlayout.widget.Group
-                    android:id="@+id/grpUpdates"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:constraint_referenced_ids="swUpdates,swWeekly" />
-
-                <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpTest"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -678,7 +716,7 @@
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardGeneral">
+            app:layout_constraintTop_toBottomOf="@id/cardAdvanced">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

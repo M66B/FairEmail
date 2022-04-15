@@ -697,6 +697,21 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swProtocol.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("protocol", checked).apply();
+                if (checked)
+                    prefs.edit()
+                            .putLong("protocol_since", new Date().getTime())
+                            .putInt("log_level", android.util.Log.INFO)
+                            .apply();
+                else
+                    EntityLog.clear(compoundButton.getContext());
+            }
+        });
+
+
         swLogInfo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1001,17 +1016,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 // Do nothing
-            }
-        });
-
-        swProtocol.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("protocol", checked).apply();
-                if (checked)
-                    prefs.edit().putLong("protocol_since", new Date().getTime()).apply();
-                else
-                    EntityLog.clear(compoundButton.getContext());
             }
         });
 
