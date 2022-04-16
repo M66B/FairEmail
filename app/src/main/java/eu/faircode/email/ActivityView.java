@@ -1284,8 +1284,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         int undo_timeout = prefs.getInt("undo_timeout", 5000);
 
         if (undo_timeout == 0) {
-            if (move != null)
+            if (move != null) {
                 move.execute(this, args, "undo:move");
+                show.cancel(this);
+            }
         } else
             undo(undo_timeout, title, args, move, show);
     }
@@ -1293,8 +1295,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void undo(long undo_timeout, String title, final Bundle args, final SimpleTask move, final SimpleTask show) {
         if (drawerLayout == null || drawerLayout.getChildCount() == 0) {
             Log.e("Undo: drawer missing");
-            if (show != null)
+            if (show != null) {
                 show.execute(this, args, "undo:show");
+                move.cancel(this);
+            }
             return;
         }
 
@@ -1310,8 +1314,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void run() {
                 Log.i("Undo timeout");
                 snackbar.dismiss();
-                if (move != null)
+                if (move != null) {
                     move.execute(ActivityView.this, args, "undo:move");
+                    show.cancel(ActivityView.this);
+                }
             }
         };
 
@@ -1321,8 +1327,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 Log.i("Undo cancel");
                 content.removeCallbacks(timeout);
                 snackbar.dismiss();
-                if (show != null)
+                if (show != null) {
                     show.execute(ActivityView.this, args, "undo:show");
+                    move.cancel(ActivityView.this);
+                }
             }
         });
 
