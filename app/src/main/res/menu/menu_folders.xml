@@ -53,6 +53,12 @@
             android:checkable="true"
             android:title="@string/title_sort_unread_atop"
             app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_hide_read"
+            android:checkable="true"
+            android:title="@string/title_hide_read"
+            app:showAsAction="never" />
     </group>
 
     <group android:id="@+id/group_operations">
