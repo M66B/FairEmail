@@ -403,31 +403,6 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swExperiments"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_experiments"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swChangelog"
-                    app:switchPadding="12dp" />
-
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvExperimentsHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:drawableEnd="@drawable/twotone_open_in_new_12"
-                    android:drawablePadding="6dp"
-                    android:drawableTint="?android:attr/textColorLink"
-                    android:text="@string/title_advanced_experiments_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?android:attr/textColorLink"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swExperiments" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swCrashReports"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -435,7 +410,7 @@
                     android:text="@string/title_advanced_crash_reports"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvExperimentsHint"
+                    app:layout_constraintTop_toBottomOf="@id/swChangelog"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
@@ -561,6 +536,31 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swExperiments"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_experiments"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCaptionAdvanced"
+                    app:switchPadding="12dp" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvExperimentsHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?android:attr/textColorLink"
+                    android:text="@string/title_advanced_experiments_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swExperiments" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swProtocol"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -570,7 +570,7 @@
                     android:text="@string/title_advanced_protocol"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCaptionAdvanced"
+                    app:layout_constraintTop_toBottomOf="@id/tvExperimentsHint"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
