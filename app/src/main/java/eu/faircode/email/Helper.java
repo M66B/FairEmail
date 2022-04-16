@@ -1286,11 +1286,16 @@ public class Helper {
 
                     field.setAccessible(true);
 
-                    if (Animator.class.isAssignableFrom(type))
-                        ((Animator) field.get(instance)).setTarget(null);
+                    if (Animator.class.isAssignableFrom(type)) {
+                        Animator animator = (Animator) field.get(instance);
+                        if (animator != null)
+                            animator.setTarget(null);
+                    }
 
                     if (Snackbar.class.isAssignableFrom(type)) {
-                        ((Snackbar) field.get(instance)).setAction(null, null);
+                        Snackbar snackbar = (Snackbar) field.get(instance);
+                        if (snackbar != null)
+                            snackbar.setAction(null, null);
                     }
 
                     field.set(instance, null);
