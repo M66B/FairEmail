@@ -670,8 +670,9 @@ public class FragmentFolders extends FragmentBase {
         menu.findItem(R.id.menu_theme).setVisible(account < 0 || primary);
         menu.findItem(R.id.menu_show_hidden).setChecked(show_hidden);
         menu.findItem(R.id.menu_show_flagged).setChecked(show_flagged);
-        menu.findItem(R.id.menu_subscribed_only).setChecked(subscribed_only);
-        menu.findItem(R.id.menu_subscribed_only).setVisible(subscriptions);
+        menu.findItem(R.id.menu_subscribed_only)
+                .setChecked(subscribed_only)
+                .setVisible(subscriptions);
         menu.findItem(R.id.menu_sort_unread_atop).setChecked(sort_unread_atop);
         menu.findItem(R.id.menu_hide_read)
                 .setChecked(folder_hide_read)
