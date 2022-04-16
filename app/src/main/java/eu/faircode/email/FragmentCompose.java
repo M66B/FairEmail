@@ -6689,6 +6689,10 @@ public class FragmentCompose extends FragmentBase {
                     long id = args.getLong("id");
                     long iid = args.getLong("identity");
 
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean sign_default = prefs.getBoolean("sign_default", false);
+                    boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
+
                     DB db = DB.getInstance(context);
 
                     EntityMessage draft = db.message().getMessage(id);
@@ -6699,9 +6703,9 @@ public class FragmentCompose extends FragmentBase {
                     if (identity == null)
                         return draft.ui_encrypt;
 
-                    if (identity.encrypt_default)
+                    if (encrypt_default || identity.encrypt_default)
                         draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
-                    else if (identity.sign_default)
+                    else if (sign_default || identity.sign_default)
                         draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
                     else
                         draft.ui_encrypt = null;
