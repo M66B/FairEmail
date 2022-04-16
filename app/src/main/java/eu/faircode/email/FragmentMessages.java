@@ -6527,75 +6527,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return;
                 }
 
-                SimpleTask<Void> move = new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) {
-                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            for (MessageTarget target : result) {
-                                EntityMessage message = db.message().getMessage(target.id);
-                                if (message == null || !message.ui_hide)
-                                    continue;
-
-                                Log.i("Move id=" + target.id + " target=" + target.targetFolder.name);
-                                db.message().setMessageUiBusy(target.id, null);
-                                db.message().setMessageLastAttempt(target.id, new Date().getTime());
-                                EntityOperation.queue(context, message, EntityOperation.MOVE, target.targetFolder.id);
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        ServiceSynchronize.eval(context, "move");
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.e(ex);
-                    }
-                };
-
-                SimpleTask<Void> show = new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) {
-                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            for (MessageTarget target : result) {
-                                Log.i("Move undo id=" + target.id);
-                                db.message().setMessageUiBusy(target.id, null);
-                                db.message().setMessageUiHide(target.id, false);
-                                db.message().setMessageFound(target.id, target.found);
-                                db.message().setMessageLastAttempt(target.id, new Date().getTime());
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.e(ex);
-                    }
-                };
-
                 String title = getString(R.string.title_move_undo, getNames(result, true), result.size());
-                ((ActivityView) activity).undo(title, args, move, show);
+                ((ActivityView) activity).undo(title, args, taskUndoMove, taskUndoShow);
             }
 
             @Override
@@ -6604,6 +6537,73 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         }.execute(this, args, "undo:hide");
     }
+
+    private static final SimpleTask<Void> taskUndoMove = new SimpleTask<Void>() {
+        @Override
+        protected Void onExecute(Context context, Bundle args) {
+            ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
+
+            DB db = DB.getInstance(context);
+            try {
+                db.beginTransaction();
+
+                for (MessageTarget target : result) {
+                    EntityMessage message = db.message().getMessage(target.id);
+                    if (message == null || !message.ui_hide)
+                        continue;
+
+                    Log.i("Move id=" + target.id + " target=" + target.targetFolder.name);
+                    db.message().setMessageUiBusy(target.id, null);
+                    db.message().setMessageLastAttempt(target.id, new Date().getTime());
+                    EntityOperation.queue(context, message, EntityOperation.MOVE, target.targetFolder.id);
+                }
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+
+            ServiceSynchronize.eval(context, "move");
+
+            return null;
+        }
+
+        @Override
+        protected void onException(Bundle args, Throwable ex) {
+            Log.e(ex);
+        }
+    };
+
+    private static final SimpleTask<Void> taskUndoShow = new SimpleTask<Void>() {
+        @Override
+        protected Void onExecute(Context context, Bundle args) {
+            ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
+
+            DB db = DB.getInstance(context);
+            try {
+                db.beginTransaction();
+
+                for (MessageTarget target : result) {
+                    Log.i("Move undo id=" + target.id);
+                    db.message().setMessageUiBusy(target.id, null);
+                    db.message().setMessageUiHide(target.id, false);
+                    db.message().setMessageFound(target.id, target.found);
+                    db.message().setMessageLastAttempt(target.id, new Date().getTime());
+                }
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onException(Bundle args, Throwable ex) {
+            Log.e(ex);
+        }
+    };
 
     private static String getNames(ArrayList<MessageTarget> result, boolean dest) {
         boolean across = false;
