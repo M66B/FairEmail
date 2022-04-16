@@ -36,6 +36,7 @@ import shark.ObjectReporter;
 public class CoalMine {
     static void setup(boolean enabled) {
         List<ObjectInspector> inspectors = new ArrayList<>(LeakCanary.getConfig().getObjectInspectors());
+
         inspectors.add(new ObjectInspector() {
             @Override
             public void inspect(@NonNull ObjectReporter reporter) {
@@ -59,6 +60,25 @@ public class CoalMine {
                 });
             }
         });
+
+        inspectors.add(new ObjectInspector() {
+            @Override
+            public void inspect(@NonNull ObjectReporter reporter) {
+                String clazz = TwoStateOwner.class.getName();
+                reporter.whenInstanceOf(clazz, new Function2<ObjectReporter, HeapObject.HeapInstance, Unit>() {
+                    @Override
+                    public Unit invoke(ObjectReporter reporter, HeapObject.HeapInstance instance) {
+                        HeapField fname = instance.get(clazz, "name");
+                        if (fname != null) {
+                            String name = fname.getValue().readAsJavaString();
+                            reporter.getNotLeakingReasons().add("name=" + name);
+                        }
+                        return null;
+                    }
+                });
+            }
+        });
+
         LeakCanary.Config config = LeakCanary.getConfig().newBuilder()
                 .dumpHeap(enabled && BuildConfig.DEBUG)
                 .objectInspectors(inspectors)
