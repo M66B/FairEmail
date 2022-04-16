@@ -125,6 +125,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swCleanupAttachments;
     private Button btnCleanup;
     private TextView tvLastCleanup;
+
+    private CardView cardAdvanced;
     private SwitchCompat swProtocol;
     private SwitchCompat swLogInfo;
     private SwitchCompat swDebug;
@@ -292,6 +294,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
         btnCleanup = view.findViewById(R.id.btnCleanup);
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
+
+        cardAdvanced = view.findViewById(R.id.cardAdvanced);
         swProtocol = view.findViewById(R.id.swProtocol);
         swLogInfo = view.findViewById(R.id.swLogInfo);
         swDebug = view.findViewById(R.id.swDebug);
@@ -719,7 +723,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     view.post(new Runnable() {
                         @Override
                         public void run() {
-                            view.scrollTo(0, swDebug.getTop());
+                            try {
+                                view.scrollTo(0, cardAdvanced.getTop() + swDebug.getTop());
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
                         }
                     });
             }
