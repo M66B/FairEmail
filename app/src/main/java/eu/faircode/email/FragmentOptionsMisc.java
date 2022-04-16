@@ -121,7 +121,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvExperimentsHint;
     private SwitchCompat swCrashReports;
     private TextView tvUuid;
-    private SwitchCompat swCanary;
     private Button btnReset;
     private SwitchCompat swCleanupAttachments;
     private Button btnCleanup;
@@ -129,6 +128,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swProtocol;
     private SwitchCompat swLogInfo;
     private SwitchCompat swDebug;
+    private SwitchCompat swCanary;
     private SwitchCompat swTest1;
     private SwitchCompat swTest2;
     private SwitchCompat swTest3;
@@ -204,8 +204,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "classification", "class_min_probability", "class_min_difference",
             "language", "deepl_enabled", "watchdog",
             "updates", "weekly", "show_changelog",
-            "experiments", "crash_reports", "leak_canary", "cleanup_attachments",
-            "protocol", "debug", "log_level", "test1", "test2", "test3", "test4", "test5",
+            "experiments", "crash_reports", "cleanup_attachments",
+            "protocol", "log_level", "debug", "leak_canary", "test1", "test2", "test3", "test4", "test5",
             "work_manager", // "external_storage",
             "query_threads", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_cache",
             "chunk_size", "thread_range", "undo_manager", "webview_legacy", "browser_zoom",
@@ -288,7 +288,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         tvUuid = view.findViewById(R.id.tvUuid);
-        swCanary = view.findViewById(R.id.swCanary);
         btnReset = view.findViewById(R.id.btnReset);
         swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
         btnCleanup = view.findViewById(R.id.btnCleanup);
@@ -296,6 +295,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swProtocol = view.findViewById(R.id.swProtocol);
         swLogInfo = view.findViewById(R.id.swLogInfo);
         swDebug = view.findViewById(R.id.swDebug);
+        swCanary = view.findViewById(R.id.swCanary);
         swTest1 = view.findViewById(R.id.swTest1);
         swTest2 = view.findViewById(R.id.swTest2);
         swTest3 = view.findViewById(R.id.swTest3);
@@ -667,15 +667,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swCanary.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-        swCanary.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("leak_canary", checked).apply();
-                CoalMine.setup(checked);
-            }
-        });
-
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -731,6 +722,15 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                             view.scrollTo(0, swDebug.getTop());
                         }
                     });
+            }
+        });
+
+        swCanary.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        swCanary.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("leak_canary", checked).apply();
+                CoalMine.setup(checked);
             }
         });
 
@@ -1685,12 +1685,12 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExperiments.setChecked(prefs.getBoolean("experiments", false));
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));
-        swCanary.setChecked(prefs.getBoolean("leak_canary", false));
         swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
         swLogInfo.setChecked(prefs.getInt("log_level", Log.getDefaultLogLevel()) <= android.util.Log.INFO);
         swDebug.setChecked(prefs.getBoolean("debug", false));
+        swCanary.setChecked(prefs.getBoolean("leak_canary", false));
         swTest1.setChecked(prefs.getBoolean("test1", false));
         swTest2.setChecked(prefs.getBoolean("test2", false));
         swTest3.setChecked(prefs.getBoolean("test3", false));

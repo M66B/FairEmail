@@ -453,19 +453,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swCrashReports" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swCanary"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:drawableStart="@drawable/leakcanary"
-                    android:drawablePadding="6dp"
-                    android:text="@string/title_advanced_canary"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvUuid"
-                    app:switchPadding="12dp" />
-
                 <Button
                     android:id="@+id/btnReset"
                     style="?android:attr/buttonStyleSmall"
@@ -476,7 +463,7 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_setup_reset_questions"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swCanary" />
+                    app:layout_constraintTop_toBottomOf="@id/tvUuid" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swCleanupAttachments"
@@ -639,6 +626,19 @@
                     app:layout_constraintTop_toBottomOf="@id/swDebug" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swCanary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableStart="@drawable/leakcanary"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_advanced_canary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDebugHint"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swTest1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -647,7 +647,7 @@
                     android:text="@string/title_advanced_test1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDebugHint"
+                    app:layout_constraintTop_toBottomOf="@id/swCanary"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
