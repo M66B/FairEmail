@@ -1857,6 +1857,24 @@ public class Log {
         sb.append(String.format("uid: %d\r\n", android.os.Process.myUid()));
         sb.append("\r\n");
 
+        int[] contacts = ContactInfo.getStats();
+        sb.append(String.format("Contact lookup: %d cached: %d\r\n",
+                contacts[0], contacts[1]));
+
+        Locale slocale = Resources.getSystem().getConfiguration().locale;
+        String language = prefs.getString("language", null);
+        sb.append(String.format("Locale: def=%s sys=%s lang=%s\r\n",
+                Locale.getDefault(), slocale, language));
+
+        String charset = MimeUtility.getDefaultJavaCharset();
+        sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
+
+        sb.append("Transliterate: ")
+                .append(TextHelper.canTransliterate())
+                .append("\r\n");
+
+        sb.append("\r\n");
+
         sb.append(String.format("Processors: %d\r\n", Runtime.getRuntime().availableProcessors()));
 
         ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
@@ -1886,25 +1904,6 @@ public class Log {
         }
 
         sb.append("\r\n");
-
-        int[] contacts = ContactInfo.getStats();
-        sb.append(String.format("Contact lookup: %d cached: %s\r\n",
-                contacts[0], contacts[1]));
-
-        Locale slocale = Resources.getSystem().getConfiguration().locale;
-        String language = prefs.getString("language", null);
-        sb.append(String.format("Locale: def=%s sys=%s lang=%s\r\n",
-                Locale.getDefault(), slocale, language));
-
-        String charset = MimeUtility.getDefaultJavaCharset();
-        sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
-
-        sb.append("Transliterate: ")
-                .append(TextHelper.canTransliterate())
-                .append("\r\n");
-
-        sb.append("\r\n");
-
 
         WindowManager wm = Helper.getSystemService(context, WindowManager.class);
         Display display = wm.getDefaultDisplay();
