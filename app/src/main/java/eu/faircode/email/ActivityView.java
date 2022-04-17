@@ -92,6 +92,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.Callable;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -797,9 +798,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                 onMenuSetup();
             }
-        }, new Runnable() {
+        }, new Callable<Boolean>() {
             @Override
-            public void run() {
+            public Boolean call() {
                 if (BuildConfig.DEBUG)
                     try {
                         DnsBlockList.clearCache();
@@ -808,6 +809,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     } catch (Throwable ex) {
                         Log.unexpectedError(getSupportFragmentManager(), ex);
                     }
+                return BuildConfig.DEBUG;
             }
         }));
 
@@ -833,12 +835,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                 onMenuFAQ();
             }
-        }, new Runnable() {
+        }, new Callable<Boolean>() {
             @Override
-            public void run() {
+            public Boolean call() {
                 if (!drawerLayout.isLocked(drawerContainer))
                     drawerLayout.closeDrawer(drawerContainer);
                 onDebugInfo();
+                return true;
             }
         }).setExternal(true));
 
@@ -849,12 +852,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                 onMenuIssue();
             }
-        }, new Runnable() {
+        }, new Callable<Boolean>() {
             @Override
-            public void run() {
+            public Boolean call() {
                 Intent canary = CoalMine.getIntent();
                 if (canary != null)
                     startActivity(canary);
+                return (canary != null);
             }
         }).setExternal(true));
 
@@ -891,14 +895,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void run() {
                 onMenuAbout();
             }
-        }, new Runnable() {
+        }, new Callable<Boolean>() {
             @Override
-            public void run() {
-                if (!Helper.isPlayStoreInstall()) {
+            public Boolean call() {
+                boolean play = Helper.isPlayStoreInstall();
+                if (!play) {
                     if (!drawerLayout.isLocked(drawerContainer))
                         drawerLayout.closeDrawer(drawerContainer);
                     checkUpdate(true);
                 }
+                return !play;
             }
         }).setSeparated().setSubtitle(BuildConfig.VERSION_NAME));
 

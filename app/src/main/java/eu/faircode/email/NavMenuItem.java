@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import java.util.Objects;
+import java.util.concurrent.Callable;
 
 public class NavMenuItem {
     private int icon;
@@ -31,7 +32,7 @@ public class NavMenuItem {
     private boolean warning = false;
     private boolean separated = false;
     private Runnable click;
-    private Runnable longClick;
+    private Callable<Boolean> longClick;
 
     NavMenuItem(int icon, int title, Runnable click) {
         this.icon = icon;
@@ -39,7 +40,7 @@ public class NavMenuItem {
         this.click = click;
     }
 
-    NavMenuItem(int icon, int title, Runnable click, Runnable longClick) {
+    NavMenuItem(int icon, int title, Runnable click, Callable<Boolean> longClick) {
         this.icon = icon;
         this.title = title;
         this.click = click;
@@ -124,13 +125,11 @@ public class NavMenuItem {
 
     boolean onLongClick() {
         try {
-            if (longClick != null)
-                longClick.run();
-            return (longClick != null);
+            return longClick.call();
         } catch (Throwable ex) {
             Log.e(ex);
-            return false;
         }
+        return false;
     }
 
     @Override
