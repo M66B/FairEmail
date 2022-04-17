@@ -90,7 +90,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private boolean show_flagged;
     private boolean subscribed_only;
     private boolean sort_unread_atop;
-    private boolean folder_hide_read;
     private IFolderSelectedListener listener;
 
     private Context context;
@@ -1195,7 +1194,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.subscriptions = prefs.getBoolean("subscriptions", false);
         this.subscribed_only = prefs.getBoolean("subscribed_only", false) && subscriptions;
         this.sort_unread_atop = prefs.getBoolean("sort_unread_atop", false);
-        this.folder_hide_read = prefs.getBoolean("folder_hide_read", false);
 
         this.dp3 = Helper.dp2pixels(context, 3);
         this.dp12 = Helper.dp2pixels(context, 12);
@@ -1254,45 +1252,27 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
     }
 
-    void setHideRead(boolean folder_hide_read) {
-        if (this.folder_hide_read != folder_hide_read) {
-            this.folder_hide_read = folder_hide_read;
-            set(all);
-        }
-    }
-
     void setDisabled(List<Long> ids) {
         disabledIds = ids;
     }
 
     public void set(@NonNull List<TupleFolderEx> folders) {
-        Log.i("Set folders=" + folders.size() + " search=" + search +
-                " atop=" + sort_unread_atop + " hide=" + folder_hide_read);
+        Log.i("Set folders=" + folders.size() + " search=" + search);
         all = folders;
 
         List<TupleFolderEx> hierarchical;
         if (account < 0 && !primary) {
-            List<TupleFolderEx> selected;
-            if (folder_hide_read) {
-                selected = new ArrayList<>();
-                for (TupleFolderEx folder : folders)
-                    if (folder.unseen > 0)
-                        selected.add(folder);
-            } else
-                selected = folders;
-
-            if (selected.size() > 0)
-                Collections.sort(selected, folders.get(0).getComparator(context));
+            if (folders.size() > 0)
+                Collections.sort(folders, folders.get(0).getComparator(context));
+            hierarchical = folders;
 
             if (sort_unread_atop)
-                Collections.sort(selected, new Comparator<TupleFolderEx>() {
+                Collections.sort(hierarchical, new Comparator<TupleFolderEx>() {
                     @Override
                     public int compare(TupleFolderEx f1, TupleFolderEx f2) {
                         return -Boolean.compare(f1.unseen > 0, f2.unseen > 0);
                     }
                 });
-
-            hierarchical = selected;
         } else {
             List<TupleFolderEx> parents = new ArrayList<>();
             Map<Long, TupleFolderEx> idFolder = new HashMap<>();

@@ -663,7 +663,6 @@ public class FragmentFolders extends FragmentBase {
         boolean subscriptions = prefs.getBoolean("subscriptions", false);
         boolean subscribed_only = prefs.getBoolean("subscribed_only", false);
         boolean sort_unread_atop = prefs.getBoolean("sort_unread_atop", false);
-        boolean folder_hide_read = prefs.getBoolean("folder_hide_read", false);
 
         menu.findItem(R.id.menu_unified).setVisible(account < 0 || primary);
         menu.findItem(R.id.menu_compact).setChecked(compact);
@@ -674,9 +673,6 @@ public class FragmentFolders extends FragmentBase {
                 .setChecked(subscribed_only)
                 .setVisible(subscriptions);
         menu.findItem(R.id.menu_sort_unread_atop).setChecked(sort_unread_atop);
-        menu.findItem(R.id.menu_hide_read)
-                .setChecked(folder_hide_read)
-                .setVisible(account < 0 && !primary);
         menu.findItem(R.id.menu_apply_all).setVisible(account >= 0 && imap);
         menu.findItem(R.id.menu_edit_account_name).setVisible(account >= 0);
 
@@ -709,9 +705,6 @@ public class FragmentFolders extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_sort_unread_atop) {
             onMenuSortUnreadAtop();
-            return true;
-        } else if (itemId == R.id.menu_hide_read) {
-            onMenuHideRead();
             return true;
         } else if (itemId == R.id.menu_search_folder) {
             onMenuSearchFolder(item);
@@ -815,14 +808,6 @@ public class FragmentFolders extends FragmentBase {
         prefs.edit().putBoolean("sort_unread_atop", sort_unread_atop).apply();
         invalidateOptionsMenu();
         adapter.setSortUnreadAtop(sort_unread_atop);
-    }
-
-    private void onMenuHideRead() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean folder_hide_read = !prefs.getBoolean("folder_hide_read", false);
-        prefs.edit().putBoolean("folder_hide_read", folder_hide_read).apply();
-        invalidateOptionsMenu();
-        adapter.setHideRead(folder_hide_read);
     }
 
     private void onMenuSearchFolder(MenuItem item) {
