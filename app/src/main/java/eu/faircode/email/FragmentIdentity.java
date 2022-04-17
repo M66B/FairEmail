@@ -57,6 +57,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
@@ -552,7 +553,7 @@ public class FragmentIdentity extends FragmentBase {
         cbTrust.setChecked(false);
 
         etUser.setEnabled(auth == AUTH_TYPE_PASSWORD);
-        tilPassword.setEnabled(auth == AUTH_TYPE_PASSWORD);
+        tilPassword.getEditText().setEnabled(auth == AUTH_TYPE_PASSWORD);
         btnCertificate.setEnabled(auth == AUTH_TYPE_PASSWORD);
     }
 
@@ -701,7 +702,7 @@ public class FragmentIdentity extends FragmentBase {
                 Helper.setViewsEnabled(view, true);
                 if (auth != AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);
-                    tilPassword.setEnabled(false);
+                    tilPassword.getEditText().setEnabled(false);
                     btnCertificate.setEnabled(false);
                 }
                 pbSave.setVisibility(View.GONE);
@@ -1218,8 +1219,41 @@ public class FragmentIdentity extends FragmentBase {
 
                 if (auth != AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);
-                    tilPassword.setEnabled(false);
+                    tilPassword.getEditText().setEnabled(false);
                     btnCertificate.setEnabled(false);
+
+                    tilPassword.setEndIconDrawable(R.drawable.twotone_edit_24);
+                    tilPassword.setEndIconOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), FragmentIdentity.this, view);
+
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_account_auth_password, 1, R.string.title_account_auth_password);
+
+                            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                @Override
+                                public boolean onMenuItemClick(MenuItem item) {
+                                    int id = item.getItemId();
+                                    if (id == R.string.title_account_auth_password) {
+                                        onPassword();
+                                        return true;
+                                    } else
+                                        return false;
+                                }
+
+                                private void onPassword() {
+                                    auth = AUTH_TYPE_PASSWORD;
+                                    etUser.setEnabled(true);
+                                    tilPassword.getEditText().setText(null);
+                                    tilPassword.getEditText().setEnabled(true);
+                                    tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
+                                    tilPassword.requestFocus();
+                                }
+                            });
+
+                            popupMenu.show();
+                        }
+                    });
                 }
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
