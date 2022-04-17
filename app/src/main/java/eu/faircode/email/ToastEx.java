@@ -21,7 +21,9 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Looper;
+import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,23 +41,26 @@ public class ToastEx extends Toast {
 
     public static ToastEx makeText(Context context, CharSequence text, int duration) {
         ToastEx toast = new ToastEx(context);
-        LayoutInflater inflater = LayoutInflater.from(context);
+
+        Context ctx = getThemedContext(context);
+
+        LayoutInflater inflater = LayoutInflater.from(ctx);
         View view = inflater.inflate(R.layout.toast, null);
-        view.setBackground(context.getDrawable(R.drawable.toast_background));
+        view.setBackground(ctx.getDrawable(R.drawable.toast_background));
 
         TextView tv = view.findViewById(android.R.id.message);
-        tv.setTextColor(Helper.resolveColor(context, R.attr.colorInfoForeground));
+        tv.setTextColor(Helper.resolveColor(ctx, R.attr.colorInfoForeground));
         tv.setText(text);
         toast.setView(view);
         toast.setDuration(duration);
 
         // <dimen name="design_bottom_navigation_height">56dp</dimen>
-        int resId = context.getResources().getIdentifier(
-                "design_bottom_navigation_height", "dimen", context.getPackageName());
-        int px = Helper.dp2pixels(context, 2 * 56);
+        int resId = ctx.getResources().getIdentifier(
+                "design_bottom_navigation_height", "dimen", ctx.getPackageName());
+        int px = Helper.dp2pixels(ctx, 2 * 56);
         if (resId > 0)
             try {
-                px = 2 * context.getResources().getDimensionPixelSize(resId);
+                px = 2 * ctx.getResources().getDimensionPixelSize(resId);
             } catch (Throwable ex) {
                 Log.e(ex);
             }
@@ -65,16 +70,30 @@ public class ToastEx extends Toast {
 
     public static ToastEx makeTextBw(Context context, CharSequence text, int duration) {
         ToastEx toast = new ToastEx(context);
-        LayoutInflater inflater = LayoutInflater.from(context);
+
+        Context ctx = getThemedContext(context);
+
+        LayoutInflater inflater = LayoutInflater.from(ctx);
         View view = inflater.inflate(R.layout.toast, null);
-        view.setBackgroundColor(Helper.resolveColor(context, android.R.attr.textColorPrimary));
+        view.setBackgroundColor(Helper.resolveColor(ctx, android.R.attr.textColorPrimary));
 
         TextView tv = view.findViewById(android.R.id.message);
-        tv.setTextColor(Helper.resolveColor(context, android.R.attr.textColorPrimaryInverse)); // primary_text_default_material_light
+        tv.setTextColor(Helper.resolveColor(ctx, android.R.attr.textColorPrimaryInverse)); // primary_text_default_material_light
         tv.setText(text);
         toast.setView(view);
         toast.setDuration(duration);
         return toast;
+    }
+
+    private static Context getThemedContext(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            return new ContextThemeWrapper(context.getApplicationContext(), context.getTheme());
+
+        if (context instanceof ActivityBase)
+            return new ContextThemeWrapper(context.getApplicationContext(),
+                    FragmentDialogTheme.getTheme((ActivityBase) context));
+
+        return context;
     }
 
     @Override
