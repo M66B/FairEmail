@@ -71,7 +71,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 230,
+        version = 231,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2306,6 +2306,12 @@ public abstract class DB extends RoomDatabase {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `hide_seen` INTEGER NOT NULL DEFAULT 0");
                         db.execSQL("UPDATE `folder` SET hide = 0 WHERE unified");
+                    }
+                }).addMigrations(new Migration(230, 231) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("UPDATE `message` SET thread = account || ':' || thread");
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override

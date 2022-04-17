@@ -1548,11 +1548,11 @@ public class MessageHelper {
         if (thread == null && refs.size() > 0) {
             String ref = refs.get(0);
             if (!Objects.equals(ref, msgid))
-                thread = ref;
+                thread = account + ":" + ref;
         }
 
         if (thread == null)
-            thread = getHash() + ":" + uid;
+            thread = account + ":" + getHash() + ":" + uid;
 
         // Sent before
         for (TupleThreadInfo info : infos)
