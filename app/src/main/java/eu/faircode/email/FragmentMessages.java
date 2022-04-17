@@ -5336,11 +5336,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 view.post(new Runnable() {
                     @Override
                     public void run() {
-                        if (selectionTracker == null)
-                            return;
-                        selectionTracker.clearSelection();
-                        for (long id : ids)
-                            selectionTracker.select(id);
+                        try {
+                            if (selectionTracker == null)
+                                return;
+                            selectionTracker.clearSelection();
+                            for (long id : ids)
+                                selectionTracker.select(id);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                     }
                 });
             }
