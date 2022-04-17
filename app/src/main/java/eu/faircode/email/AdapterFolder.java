@@ -226,7 +226,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private void bindTo(final TupleFolderEx folder) {
             boolean disabled = isDisabled(folder);
-            boolean hide_seen = (folder.hide_seen && folder.unseen + folder.childs_unseen == 0);
+            boolean hide_seen = (account < 0 && !primary &&
+                    folder.hide_seen && folder.unseen + folder.childs_unseen == 0);
 
             int p = (show_compact && all.size() < DENSE_ITEMS_THRESHOLD ? dp3 : 0);
             view.setPadding(p, p, p, p);
@@ -1265,9 +1266,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         if (account < 0 && !primary) {
             List<TupleFolderEx> filtered = new ArrayList<>();
             for (TupleFolderEx folder : folders)
-                if (show_hidden ||
-                        !(folder.hide ||
-                                (folder.hide_seen && folder.unseen + folder.childs_unseen == 0)))
+                if (show_hidden || !folder.hide_seen || folder.unseen + folder.childs_unseen > 0)
                     filtered.add(folder);
 
             if (filtered.size() > 0)
@@ -1473,9 +1472,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
             }
 
-            if (parent.hide_seen && parent.unseen + parent.childs_unseen == 0 && !show_hidden)
-                continue;
-
             if (!subscribed_only ||
                     EntityFolder.INBOX.equals(parent.type) ||
                     parent.accountProtocol != EntityAccount.TYPE_IMAP ||
@@ -1532,9 +1528,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             TupleFolderEx p2 = f2.parent_ref;
             while (p1 != null && p2 != null) {
                 if (p1.hide != p2.hide)
-                    return false;
-                if ((p1.hide_seen && p1.unseen + p1.childs_unseen == 0) !=
-                        (p2.hide_seen && p2.unseen + p2.childs_unseen == 0))
                     return false;
 
                 if (p1.collapsed != p2.collapsed)

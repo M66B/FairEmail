@@ -2305,7 +2305,6 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `hide_seen` INTEGER NOT NULL DEFAULT 0");
-                        db.execSQL("UPDATE `folder` SET hide = 0 WHERE unified");
                     }
                 }).addMigrations(new Migration(230, 231) {
                     @Override
