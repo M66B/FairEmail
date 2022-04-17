@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Intent;
+
 public class CoalMine {
     static void setup(boolean enabled) {
     }
@@ -27,5 +29,9 @@ public class CoalMine {
     }
 
     static void watch(Object object, String reason) {
+    }
+
+    static Intent getIntent() {
+        return null;
     }
 }

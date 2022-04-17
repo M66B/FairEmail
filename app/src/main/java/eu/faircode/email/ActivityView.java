@@ -849,6 +849,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                 onMenuIssue();
             }
+        }, new Runnable() {
+            @Override
+            public void run() {
+                Intent canary = CoalMine.getIntent();
+                if (canary != null)
+                    startActivity(canary);
+            }
         }).setExternal(true));
 
         extra.add(new NavMenuItem(R.drawable.twotone_language_24, R.string.menu_translate, new Runnable() {

@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Intent;
+
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
@@ -84,7 +86,7 @@ public class CoalMine {
                 .objectInspectors(inspectors)
                 .build();
         LeakCanary.setConfig(config);
-        LeakCanary.INSTANCE.showLeakDisplayActivityLauncherIcon(BuildConfig.DEBUG);
+        LeakCanary.INSTANCE.showLeakDisplayActivityLauncherIcon(false);
     }
 
     static void check() {
@@ -93,5 +95,9 @@ public class CoalMine {
 
     static void watch(Object object, String reason) {
         //AppWatcher.INSTANCE.getObjectWatcher().expectWeaklyReachable(object, reason);
+    }
+
+    static Intent getIntent() {
+        return LeakCanary.INSTANCE.newLeakDisplayActivityIntent();
     }
 }
