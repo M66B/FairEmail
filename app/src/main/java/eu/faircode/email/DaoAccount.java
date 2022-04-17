@@ -155,9 +155,10 @@ public interface DaoAccount {
 
     @Query("SELECT * FROM account" +
             " WHERE user = :user" +
+            " AND pop = :protocol" +
             " AND auth_type IN (:auth_type)" +
             " AND tbd IS NULL")
-    List<EntityAccount> getAccounts(String user, int[] auth_type);
+    List<EntityAccount> getAccounts(String user, int protocol, int[] auth_type);
 
     @Query("SELECT * FROM account WHERE `primary`")
     EntityAccount getPrimaryAccount();

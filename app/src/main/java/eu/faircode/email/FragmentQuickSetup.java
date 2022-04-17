@@ -457,16 +457,11 @@ public class FragmentQuickSetup extends FragmentBase {
 
                             if (args.getBoolean("update")) {
                                 List<EntityAccount> accounts =
-                                        db.account().getAccounts(user, new int[]{AUTH_TYPE_PASSWORD});
-                                if (accounts != null)
-                                    for (EntityAccount existing : accounts)
-                                        if (existing.protocol == EntityAccount.TYPE_IMAP)
-                                            if (update == null)
-                                                update = existing;
-                                            else {
-                                                update = null;
-                                                break;
-                                            }
+                                        db.account().getAccounts(user,
+                                                EntityAccount.TYPE_IMAP,
+                                                new int[]{AUTH_TYPE_PASSWORD});
+                                if (accounts != null && accounts.size() == 1)
+                                    update = accounts.get(0);
                             }
 
                             if (update == null) {

@@ -765,7 +765,9 @@ public class FragmentOAuth extends FragmentBase {
 
                     if (args.getBoolean("update")) {
                         List<EntityAccount> accounts =
-                                db.account().getAccounts(username, new int[]{AUTH_TYPE_OAUTH, AUTH_TYPE_PASSWORD});
+                                db.account().getAccounts(username,
+                                        pop ? EntityAccount.TYPE_POP : EntityAccount.TYPE_IMAP,
+                                        new int[]{AUTH_TYPE_OAUTH, AUTH_TYPE_PASSWORD});
                         if (accounts != null && accounts.size() == 1)
                             update = accounts.get(0);
                     }
