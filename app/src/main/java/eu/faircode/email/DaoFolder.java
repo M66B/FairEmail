@@ -316,6 +316,7 @@ public interface DaoFolder {
             ", navigation = :navigation" +
             ", notify = :notify" +
             ", hide = :hide" +
+            ", hide_seen = :hide_seen" +
             ", synchronize = :synchronize" +
             ", poll = :poll" +
             ", poll_factor = :poll_factor" +
@@ -328,7 +329,8 @@ public interface DaoFolder {
             " WHERE id = :id")
     int setFolderProperties(
             long id, String rename,
-            String display, Integer color, boolean unified, boolean navigation, boolean notify, boolean hide,
+            String display, Integer color, boolean unified, boolean navigation, boolean notify,
+            boolean hide, boolean hide_seen,
             boolean synchronize, boolean poll, int poll_factor, boolean download,
             boolean auto_classify_source, boolean auto_classify_target,
             int sync_days, int keep_days, boolean auto_delete);

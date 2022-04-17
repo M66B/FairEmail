@@ -226,11 +226,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private void bindTo(final TupleFolderEx folder) {
             boolean disabled = isDisabled(folder);
+            boolean hide_seen = (folder.hide_seen && folder.unseen + folder.childs_unseen == 0);
 
             int p = (show_compact && all.size() < DENSE_ITEMS_THRESHOLD ? dp3 : 0);
             view.setPadding(p, p, p, p);
             view.setActivated(folder.tbc != null || folder.rename != null || folder.tbd != null);
-            view.setAlpha(folder.hide || disabled ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(folder.hide || hide_seen || disabled ? Helper.LOW_LIGHT : 1.0f);
 
             if (listener == null && selectedModel != null)
                 itemView.setBackgroundColor(
@@ -1262,17 +1263,25 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         List<TupleFolderEx> hierarchical;
         if (account < 0 && !primary) {
-            if (folders.size() > 0)
-                Collections.sort(folders, folders.get(0).getComparator(context));
-            hierarchical = folders;
+            List<TupleFolderEx> filtered = new ArrayList<>();
+            for (TupleFolderEx folder : folders)
+                if (show_hidden ||
+                        !(folder.hide ||
+                                (folder.hide_seen && folder.unseen + folder.childs_unseen == 0)))
+                    filtered.add(folder);
+
+            if (filtered.size() > 0)
+                Collections.sort(filtered, filtered.get(0).getComparator(context));
 
             if (sort_unread_atop)
-                Collections.sort(hierarchical, new Comparator<TupleFolderEx>() {
+                Collections.sort(filtered, new Comparator<TupleFolderEx>() {
                     @Override
                     public int compare(TupleFolderEx f1, TupleFolderEx f2) {
                         return -Boolean.compare(f1.unseen > 0, f2.unseen > 0);
                     }
                 });
+
+            hierarchical = filtered;
         } else {
             List<TupleFolderEx> parents = new ArrayList<>();
             Map<Long, TupleFolderEx> idFolder = new HashMap<>();
@@ -1464,6 +1473,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
             }
 
+            if (parent.hide_seen && parent.unseen + parent.childs_unseen == 0 && !show_hidden)
+                continue;
+
             if (!subscribed_only ||
                     EntityFolder.INBOX.equals(parent.type) ||
                     parent.accountProtocol != EntityAccount.TYPE_IMAP ||
@@ -1520,6 +1532,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             TupleFolderEx p2 = f2.parent_ref;
             while (p1 != null && p2 != null) {
                 if (p1.hide != p2.hide)
+                    return false;
+                if ((p1.hide_seen && p1.unseen + p1.childs_unseen == 0) !=
+                        (p2.hide_seen && p2.unseen + p2.childs_unseen == 0))
                     return false;
 
                 if (p1.collapsed != p2.collapsed)

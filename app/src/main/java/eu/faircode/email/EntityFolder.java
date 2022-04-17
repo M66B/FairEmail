@@ -108,6 +108,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     @NonNull
     public Boolean hide = false;
     @NonNull
+    public Boolean hide_seen = false;
+    @NonNull
     public Boolean collapsed = false;
     @NonNull
     public Boolean unified = false;
@@ -605,6 +607,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
                     Objects.equals(this.color, other.color) &&
                     Objects.equals(this.order, other.order) &&
                     this.hide == other.hide &&
+                    this.hide_seen == other.hide_seen &&
                     this.collapsed == other.collapsed &&
                     this.unified == other.unified &&
                     this.navigation == other.navigation &&
@@ -652,6 +655,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         json.put("display", display);
         json.put("color", color);
         json.put("hide", hide);
+        json.put("hide_seen", hide_seen);
         json.put("collapsed", collapsed);
         json.put("unified", unified);
         json.put("navigation", navigation);
@@ -715,6 +719,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
         if (json.has("hide"))
             folder.hide = json.getBoolean("hide");
+
+        if (json.has("hide_seen"))
+            folder.hide_seen = json.getBoolean("hide_seen");
 
         if (json.has("collapsed"))
             folder.collapsed = json.getBoolean("collapsed");

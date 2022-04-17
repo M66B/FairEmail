@@ -62,6 +62,7 @@ public class FragmentFolder extends FragmentBase {
     private EditText etDisplay;
     private ViewButtonColor btnColor;
     private CheckBox cbHide;
+    private CheckBox cbHideSeen;
     private CheckBox cbUnified;
     private CheckBox cbNavigation;
     private CheckBox cbNotify;
@@ -127,6 +128,7 @@ public class FragmentFolder extends FragmentBase {
         etDisplay = view.findViewById(R.id.etDisplay);
         btnColor = view.findViewById(R.id.btnColor);
         cbHide = view.findViewById(R.id.cbHide);
+        cbHideSeen = view.findViewById(R.id.cbHideSeen);
         cbUnified = view.findViewById(R.id.cbUnified);
         cbNavigation = view.findViewById(R.id.cbNavigation);
         cbNotify = view.findViewById(R.id.cbNotify);
@@ -166,6 +168,13 @@ public class FragmentFolder extends FragmentBase {
                 fragment.setArguments(args);
                 fragment.setTargetFragment(FragmentFolder.this, REQUEST_COLOR);
                 fragment.show(getParentFragmentManager(), "account:color");
+            }
+        });
+
+        cbHide.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                cbHideSeen.setEnabled(!isChecked);
             }
         });
 
@@ -307,6 +316,7 @@ public class FragmentFolder extends FragmentBase {
                     etDisplay.setHint(folder == null ? null : EntityFolder.localizeName(getContext(), folder.name));
                     btnColor.setColor(folder == null ? null : folder.color);
                     cbHide.setChecked(folder == null ? false : folder.hide);
+                    cbHideSeen.setChecked(folder == null ? false : folder.hide_seen);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     cbNavigation.setChecked(folder == null ? false : folder.navigation);
                     cbNotify.setChecked(folder == null ? false : folder.notify);
@@ -326,6 +336,8 @@ public class FragmentFolder extends FragmentBase {
                 }
 
                 Helper.setViewsEnabled(view, true);
+
+                cbHideSeen.setEnabled(!cbHide.isChecked());
 
                 boolean canAutoClassify = (imap && MessageClassifier.isEnabled(getContext()));
                 boolean canAutoDelete = (imap && (folder == null || !folder.read_only));
@@ -449,6 +461,7 @@ public class FragmentFolder extends FragmentBase {
         args.putString("display", etDisplay.getText().toString());
         args.putInt("color", btnColor.getColor());
         args.putBoolean("hide", cbHide.isChecked());
+        args.putBoolean("hide_seen", cbHideSeen.isChecked());
         args.putBoolean("unified", cbUnified.isChecked());
         args.putBoolean("navigation", cbNavigation.isChecked());
         args.putBoolean("notify", cbNotify.isChecked());
@@ -493,6 +506,7 @@ public class FragmentFolder extends FragmentBase {
                 String display = args.getString("display");
                 Integer color = args.getInt("color");
                 boolean hide = args.getBoolean("hide");
+                boolean hide_seen = args.getBoolean("hide_seen");
                 boolean unified = args.getBoolean("unified");
                 boolean navigation = args.getBoolean("navigation");
                 boolean notify = args.getBoolean("notify");
@@ -553,6 +567,8 @@ public class FragmentFolder extends FragmentBase {
                             return true;
                         if (!Objects.equals(folder.hide, hide))
                             return true;
+                        if (!Objects.equals(folder.hide_seen, hide_seen))
+                            return true;
                         if (!Objects.equals(folder.synchronize, synchronize))
                             return true;
                         if (imap) {
@@ -605,6 +621,7 @@ public class FragmentFolder extends FragmentBase {
                         create.navigation = navigation;
                         create.notify = notify;
                         create.hide = hide;
+                        create.hide_seen = hide;
                         create.synchronize = synchronize;
                         create.poll = poll;
                         create.poll_factor = poll_factor;
@@ -631,7 +648,8 @@ public class FragmentFolder extends FragmentBase {
                         Log.i("Updating folder=" + folder.name);
                         db.folder().setFolderProperties(id,
                                 folder.name.equals(name) ? null : name,
-                                display, color, unified, navigation, notify, hide,
+                                display, color, unified, navigation, notify,
+                                hide, hide_seen,
                                 synchronize, poll, poll_factor, download,
                                 auto_classify_source, auto_classify_target,
                                 sync_days, keep_days, auto_delete);
