@@ -46,12 +46,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.iap.Argument;
@@ -1867,16 +1864,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         public void delegate() {
                             cowner.value = new TwoStateOwner(ServiceSynchronize.this, account.name);
                             cowner.value.start();
-
-                            Lifecycle registry = cowner.value.getLifecycle();
-                            registry.addObserver(new LifecycleObserver() {
-                                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-                                public void onDestroyed() {
-                                    Log.i("Canceling pending purge");
-                                    getMainHandler().removeCallbacks(purge);
-                                    registry.removeObserver(this);
-                                }
-                            });
 
                             db.operation().liveOperations(account.id).observe(cowner.value, new Observer<List<TupleOperationEx>>() {
                                 private DutyCycle dc = new DutyCycle(account.name + " operations");
