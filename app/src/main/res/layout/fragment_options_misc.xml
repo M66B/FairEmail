@@ -345,18 +345,6 @@
                     app:layout_constraintTop_toBottomOf="@id/ibDeepL" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swWatchdog"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_watchdog"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSdcard"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swUpdates"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -365,7 +353,7 @@
                     android:text="@string/title_advanced_updates"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swWatchdog"
+                    app:layout_constraintTop_toBottomOf="@id/tvSdcard"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedImageButton
@@ -536,6 +524,20 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swWatchdog"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:drawableStart="@drawable/twotone_check_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_advanced_watchdog"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCaptionAdvanced"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swExperiments"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -545,7 +547,7 @@
                     android:text="@string/title_advanced_experiments"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCaptionAdvanced"
+                    app:layout_constraintTop_toBottomOf="@id/swWatchdog"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView

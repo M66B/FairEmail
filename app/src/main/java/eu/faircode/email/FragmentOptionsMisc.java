@@ -112,7 +112,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swDeepL;
     private ImageButton ibDeepL;
     private TextView tvSdcard;
-    private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
     private ImageButton ibChannelUpdated;
     private SwitchCompat swCheckWeekly;
@@ -125,6 +124,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvLastCleanup;
 
     private CardView cardAdvanced;
+    private SwitchCompat swWatchdog;
     private SwitchCompat swExperiments;
     private TextView tvExperimentsHint;
     private SwitchCompat swProtocol;
@@ -204,10 +204,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "deepl_enabled", "watchdog",
+            "language", "deepl_enabled",
             "updates", "weekly", "show_changelog",
             "crash_reports", "cleanup_attachments",
-            "experiments", "protocol", "log_level", "debug", "leak_canary", "test1", "test2", "test3", "test4", "test5",
+            "watchdog", "experiments", "protocol", "log_level", "debug", "leak_canary", "test1",
+            "test2", "test3", "test4", "test5",
             "work_manager", // "external_storage",
             "query_threads", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_cache",
             "chunk_size", "thread_range", "undo_manager", "webview_legacy", "browser_zoom",
@@ -281,7 +282,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDeepL = view.findViewById(R.id.swDeepL);
         ibDeepL = view.findViewById(R.id.ibDeepL);
         tvSdcard = view.findViewById(R.id.tvSdcard);
-        swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
         ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
         swCheckWeekly = view.findViewById(R.id.swWeekly);
@@ -294,6 +294,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
 
         cardAdvanced = view.findViewById(R.id.cardAdvanced);
+        swWatchdog = view.findViewById(R.id.swWatchdog);
         swExperiments = view.findViewById(R.id.swExperiments);
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
         swProtocol = view.findViewById(R.id.swProtocol);
@@ -599,13 +600,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swWatchdog.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("watchdog", checked).apply();
-            }
-        });
-
         swUpdates.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -674,6 +668,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View view) {
                 onCleanup();
+            }
+        });
+
+        swWatchdog.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("watchdog", checked).apply();
             }
         });
 
@@ -1684,7 +1685,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             spLanguage.setSelection(selected);
 
         swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
-        swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());
@@ -1694,6 +1694,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvUuid.setText(prefs.getString("uuid", null));
         swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
+        swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
         swLogInfo.setChecked(prefs.getInt("log_level", Log.getDefaultLogLevel()) <= android.util.Log.INFO);
         swDebug.setChecked(prefs.getBoolean("debug", false));
