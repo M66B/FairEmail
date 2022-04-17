@@ -197,13 +197,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         return;
                     }
 
-                    if (intf != null)
-                        ApplicationEx.getMainHandler().post(new Runnable() {
-                            @Override
-                            public void run() {
+                    ApplicationEx.getMainHandler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (intf != null)
                                 intf.onLoading();
-                            }
-                        });
+                        }
+                    });
                     if (server)
                         try {
                             found = load_server(state);
@@ -222,13 +222,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 } catch (final Throwable ex) {
                     state.error = true;
                     Log.e("Boundary", ex);
-                    if (intf != null)
-                        ApplicationEx.getMainHandler().post(new Runnable() {
-                            @Override
-                            public void run() {
+                    ApplicationEx.getMainHandler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (intf != null)
                                 intf.onException(ex);
-                            }
-                        });
+                        }
+                    });
                 } finally {
                     state.queued--;
                     Log.i("Boundary queued -" + state.queued);
@@ -237,15 +237,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     crumb.put("free", Integer.toString(Log.getFreeMemMb()));
                     Log.breadcrumb("Boundary done", crumb);
 
-                    if (intf != null) {
-                        final int f = found;
-                        ApplicationEx.getMainHandler().post(new Runnable() {
-                            @Override
-                            public void run() {
+                    final int f = found;
+                    ApplicationEx.getMainHandler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (intf != null)
                                 intf.onLoaded(f);
-                            }
-                        });
-                    }
+                        }
+                    });
                 }
             }
         });
