@@ -79,6 +79,13 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
         }
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        removeCallbacks(delayedDisable);
+        removeCallbacks(delayedMute);
+    }
+
     private final Runnable delayedDisable = new Runnable() {
         @Override
         public void run() {
