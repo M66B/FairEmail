@@ -558,67 +558,16 @@ public class FragmentPop extends FragmentBase {
                             account.deleteNotificationChannel(context);
                     }
 
-                    EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
-                    if (inbox == null) {
-                        inbox = new EntityFolder();
-                        inbox.account = account.id;
-                        inbox.name = "INBOX";
-                        inbox.type = EntityFolder.INBOX;
-                        inbox.synchronize = true;
-                        inbox.unified = true;
-                        inbox.notify = true;
-                        inbox.sync_days = Integer.MAX_VALUE;
-                        inbox.keep_days = Integer.MAX_VALUE;
-                        inbox.initialize = 0;
-                        inbox.id = db.folder().insertFolder(inbox);
+                    for (EntityFolder folder : EntityFolder.getPopFolders(context)) {
+                        EntityFolder existing = db.folder().getFolderByType(account.id, folder.type);
+                        if (existing == null) {
+                            folder.account = account.id;
+                            folder.id = db.folder().insertFolder(folder);
+                            existing = folder;
+                        }
 
-                        if (account.synchronize)
-                            EntityOperation.sync(context, inbox.id, true);
-                    }
-
-                    EntityFolder drafts = db.folder().getFolderByType(account.id, EntityFolder.DRAFTS);
-                    if (drafts == null) {
-                        drafts = new EntityFolder();
-                        drafts.account = account.id;
-                        drafts.name = context.getString(R.string.title_folder_drafts);
-                        drafts.type = EntityFolder.DRAFTS;
-                        drafts.synchronize = false;
-                        drafts.unified = false;
-                        drafts.notify = false;
-                        drafts.sync_days = Integer.MAX_VALUE;
-                        drafts.keep_days = Integer.MAX_VALUE;
-                        drafts.initialize = 0;
-                        drafts.id = db.folder().insertFolder(drafts);
-                    }
-
-                    EntityFolder sent = db.folder().getFolderByType(account.id, EntityFolder.SENT);
-                    if (sent == null) {
-                        sent = new EntityFolder();
-                        sent.account = account.id;
-                        sent.name = context.getString(R.string.title_folder_sent);
-                        sent.type = EntityFolder.SENT;
-                        sent.synchronize = false;
-                        sent.unified = false;
-                        sent.notify = false;
-                        sent.sync_days = Integer.MAX_VALUE;
-                        sent.keep_days = Integer.MAX_VALUE;
-                        sent.initialize = 0;
-                        sent.id = db.folder().insertFolder(sent);
-                    }
-
-                    EntityFolder trash = db.folder().getFolderByType(account.id, EntityFolder.TRASH);
-                    if (trash == null) {
-                        trash = new EntityFolder();
-                        trash.account = account.id;
-                        trash.name = context.getString(R.string.title_folder_trash);
-                        trash.type = EntityFolder.TRASH;
-                        trash.synchronize = false;
-                        trash.unified = false;
-                        trash.notify = false;
-                        trash.sync_days = Integer.MAX_VALUE;
-                        trash.keep_days = Integer.MAX_VALUE;
-                        trash.initialize = 0;
-                        trash.id = db.folder().insertFolder(trash);
+                        if (account.synchronize && existing.synchronize)
+                            EntityOperation.sync(context, existing.id, true);
                     }
 
                     db.setTransactionSuccessful();

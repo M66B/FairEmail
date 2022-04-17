@@ -305,6 +305,56 @@ public class EntityFolder extends EntityOrder implements Serializable {
         return (sync < 0 || EntityFolder.SYSTEM_FOLDER_POLL.get(sync));
     }
 
+    static List<EntityFolder> getPopFolders(Context context) {
+        List<EntityFolder> result = new ArrayList<>();
+
+        EntityFolder inbox = new EntityFolder();
+        inbox.name = "INBOX";
+        inbox.type = EntityFolder.INBOX;
+        inbox.synchronize = true;
+        inbox.unified = true;
+        inbox.notify = true;
+        inbox.sync_days = Integer.MAX_VALUE;
+        inbox.keep_days = Integer.MAX_VALUE;
+        inbox.initialize = 0;
+        result.add(inbox);
+
+        EntityFolder drafts = new EntityFolder();
+        drafts.name = context.getString(R.string.title_folder_drafts);
+        drafts.type = EntityFolder.DRAFTS;
+        drafts.synchronize = false;
+        drafts.unified = false;
+        drafts.notify = false;
+        drafts.sync_days = Integer.MAX_VALUE;
+        drafts.keep_days = Integer.MAX_VALUE;
+        drafts.initialize = 0;
+        result.add(drafts);
+
+        EntityFolder sent = new EntityFolder();
+        sent.name = context.getString(R.string.title_folder_sent);
+        sent.type = EntityFolder.SENT;
+        sent.synchronize = false;
+        sent.unified = false;
+        sent.notify = false;
+        sent.sync_days = Integer.MAX_VALUE;
+        sent.keep_days = Integer.MAX_VALUE;
+        sent.initialize = 0;
+        result.add(sent);
+
+        EntityFolder trash = new EntityFolder();
+        trash.name = context.getString(R.string.title_folder_trash);
+        trash.type = EntityFolder.TRASH;
+        trash.synchronize = false;
+        trash.unified = false;
+        trash.notify = false;
+        trash.sync_days = Integer.MAX_VALUE;
+        trash.keep_days = Integer.MAX_VALUE;
+        trash.initialize = 0;
+        result.add(trash);
+
+        return result;
+    }
+
     static EntityFolder getOutbox() {
         EntityFolder outbox = new EntityFolder();
         outbox.name = "OUTBOX";
