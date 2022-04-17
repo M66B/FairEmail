@@ -202,8 +202,9 @@
     </provider>
     <!-- no IMAP IDLE -->
     <provider
-        name="Yahoo/AT&amp;T"
+        name="Yahoo"
         appPassword="true"
+        description="Yahoo/AT&amp;T"
         domain="yahoo\\..*"
         id="yahoo"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88"
