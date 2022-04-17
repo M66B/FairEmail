@@ -191,6 +191,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         nm.cancel(NotificationHelper.NOTIFICATION_SEND);
 
         super.onDestroy();
+        CoalMine.watch(this, getClass().getSimpleName() + "#onDestroy()");
     }
 
     @Override

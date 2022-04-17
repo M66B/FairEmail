@@ -72,7 +72,6 @@ public class TwoStateOwner implements LifecycleOwner {
                 owned = false;
                 destroy();
                 owner.getLifecycle().removeObserver(this);
-                CoalMine.watch(TwoStateOwner.this, "State done=" + aname);
             }
         });
     }

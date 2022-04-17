@@ -19,21 +19,21 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import android.content.Intent;
+public abstract class RunnableEx implements Runnable {
+    public String name;
 
-import androidx.annotation.NonNull;
-
-public class CoalMine {
-    static void setup(boolean enabled) {
+    public RunnableEx(String name) {
+        this.name = name;
     }
 
-    static void check() {
+    @Override
+    public void run() {
+        try {
+            delegate();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
-    static void watch(@NonNull Object object, String reason) {
-    }
-
-    static Intent getIntent() {
-        return null;
-    }
+    protected abstract void delegate();
 }

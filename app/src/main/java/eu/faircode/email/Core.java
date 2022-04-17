@@ -5882,6 +5882,7 @@ class Core {
 
         void join() {
             join(thread);
+            CoalMine.watch(thread, getClass().getSimpleName() + "#join()");
         }
 
         void ensureRunning(String reason) throws OperationCanceledException {

@@ -29,6 +29,7 @@ import java.util.List;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
+import leakcanary.AppWatcher;
 import leakcanary.LeakCanary;
 import shark.HeapField;
 import shark.HeapObject;
@@ -81,6 +82,24 @@ public class CoalMine {
             }
         });
 
+        inspectors.add(new ObjectInspector() {
+            @Override
+            public void inspect(@NonNull ObjectReporter reporter) {
+                String clazz = RunnableEx.class.getName();
+                reporter.whenInstanceOf(clazz, new Function2<ObjectReporter, HeapObject.HeapInstance, Unit>() {
+                    @Override
+                    public Unit invoke(ObjectReporter reporter, HeapObject.HeapInstance instance) {
+                        HeapField fname = instance.get(clazz, "name");
+                        if (fname != null) {
+                            String name = fname.getValue().readAsJavaString();
+                            reporter.getNotLeakingReasons().add("name=" + name);
+                        }
+                        return null;
+                    }
+                });
+            }
+        });
+
         LeakCanary.Config config = LeakCanary.getConfig().newBuilder()
                 .dumpHeap(enabled && BuildConfig.DEBUG)
                 .objectInspectors(inspectors)
@@ -93,8 +112,9 @@ public class CoalMine {
         LeakCanary.INSTANCE.dumpHeap();
     }
 
-    static void watch(Object object, String reason) {
-        //AppWatcher.INSTANCE.getObjectWatcher().expectWeaklyReachable(object, reason);
+    static void watch(@NonNull Object object, String reason) {
+        Log.i("Watching " + object.getClass() + " because " + reason);
+        AppWatcher.INSTANCE.getObjectWatcher().expectWeaklyReachable(object, reason);
     }
 
     static Intent getIntent() {

@@ -430,9 +430,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
             private void init(final TupleAccountNetworkState accountNetworkState) {
-                queue.submit(new Runnable() {
+                queue.submit(new RunnableEx("state#init") {
                     @Override
-                    public void run() {
+                    public void delegate() {
                         try {
                             wl.acquire();
 
@@ -473,9 +473,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         "Service start=" + accountNetworkState + " sync=" + sync + " force=" + force);
 
                 final Core.State astate = new Core.State(accountNetworkState.networkState);
-                astate.runnable(new Runnable() {
+                astate.runnable(new RunnableEx("state#monitor") {
                     @Override
-                    public void run() {
+                    public void delegate() {
                         try {
                             monitorAccount(accountNetworkState.accountState, astate, sync, force);
                         } catch (Throwable ex) {
@@ -485,9 +485,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 }, "sync.account." + accountNetworkState.accountState.id);
                 coreStates.put(accountNetworkState.accountState.id, astate);
 
-                queue.submit(new Runnable() {
+                queue.submit(new RunnableEx("state#start") {
                     @Override
-                    public void run() {
+                    public void delegate() {
                         try {
                             wl.acquire();
 
@@ -522,9 +522,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                         "Service stop=" + accountNetworkState);
 
-                queue.submit(new Runnable() {
+                queue.submit(new RunnableEx("state#stop") {
                     @Override
-                    public void run() {
+                    public void delegate() {
                         try {
                             wl.acquire();
 
@@ -556,9 +556,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                         "Service delete=" + accountNetworkState);
 
-                queue.submit(new Runnable() {
+                queue.submit(new RunnableEx("state#delete") {
                     @Override
-                    public void run() {
+                    public void delegate() {
                         try {
                             wl.acquire();
 
@@ -579,9 +579,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
             private void quit(final Integer eventId) {
-                queue.submit(new Runnable() {
+                queue.submit(new RunnableEx("state#quit") {
                     @Override
-                    public void run() {
+                    public void delegate() {
                         try {
                             wl.acquire();
 
@@ -631,12 +631,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 });
             }
 
-            private final Runnable backup = new Runnable() {
+            private final Runnable backup = new RunnableEx("state#backup") {
                 @Override
-                public void run() {
-                    queue.submit(new Runnable() {
+                public void delegate() {
+                    queue.submit(new RunnableEx("state#backup#exec") {
                         @Override
-                        public void run() {
+                        public void delegate() {
                             try {
                                 wl.acquire();
 
@@ -734,9 +734,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             @Override
             public void onChanged(final List<TupleMessageEx> messages) {
-                executor.submit(new Runnable() {
+                executor.submit(new RunnableEx("liveUnseenNotify") {
                     @Override
-                    public void run() {
+                    public void delegate() {
                         try {
                             Core.notifyMessages(ServiceSynchronize.this, messages, notificationData, foreground);
                         } catch (SecurityException ex) {
@@ -919,6 +919,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         nm.cancel(NotificationHelper.NOTIFICATION_SYNCHRONIZE);
 
         super.onDestroy();
+        CoalMine.watch(this, getClass().getSimpleName() + "#onDestroy()");
     }
 
     @Override
@@ -1059,9 +1060,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         String action = intent.getAction();
         long id = Long.parseLong(action.split(":")[1]);
 
-        executor.submit(new Runnable() {
+        executor.submit(new RunnableEx("unsnooze") {
             @Override
-            public void run() {
+            public void delegate() {
                 try {
                     EntityFolder folder;
 
@@ -1178,9 +1179,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         String action = intent.getAction();
         long id = Long.parseLong(action.split(":")[1]);
 
-        executor.submit(new Runnable() {
+        executor.submit(new RunnableEx("exists") {
             @Override
-            public void run() {
+            public void delegate() {
                 try {
                     DB db = DB.getInstance(ServiceSynchronize.this);
 
@@ -1214,9 +1215,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private void onPoll(Intent intent) {
-        executor.submit(new Runnable() {
+        executor.submit(new RunnableEx("poll") {
             @Override
-            public void run() {
+            public void delegate() {
                 try {
                     DB db = DB.getInstance(ServiceSynchronize.this);
                     try {
@@ -1758,9 +1759,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             });
 
                             // Idle folder
-                            Thread idler = new Thread(new Runnable() {
+                            Thread idler = new Thread(new RunnableEx("idle") {
                                 @Override
-                                public void run() {
+                                public void delegate() {
                                     try {
                                         Log.i(folder.name + " start idle");
                                         while (ifolder.isOpen() && state.isRunning() && state.isRecoverable()) {
@@ -1833,12 +1834,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     forced = true;
 
-                    final Runnable purge = new Runnable() {
+                    final Runnable purge = new RunnableEx("purge") {
                         @Override
-                        public void run() {
-                            executor.submit(new Runnable() {
+                        public void delegate() {
+                            executor.submit(new RunnableEx("purge#exec") {
                                 @Override
-                                public void run() {
+                                public void delegate() {
                                     try {
                                         wlAccount.acquire();
 
@@ -1858,9 +1859,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     final long serial = state.getSerial();
 
                     Log.i(account.name + " observing operations");
-                    getMainHandler().post(new Runnable() {
+                    getMainHandler().post(new RunnableEx("observe#start") {
                         @Override
-                        public void run() {
+                        public void delegate() {
                             cowner.value = new TwoStateOwner(ServiceSynchronize.this, account.name);
                             cowner.value.start();
 
@@ -2317,9 +2318,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     Log.i(account.name + " stop watching operations");
                     final TwoStateOwner _owner = cowner.value;
                     if (_owner != null)
-                        getMainHandler().post(new Runnable() {
+                        getMainHandler().post(new RunnableEx("observe#stop") {
                             @Override
-                            public void run() {
+                            public void delegate() {
                                 try {
                                     _owner.destroy();
                                 } catch (Throwable ex) {
@@ -2694,9 +2695,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     };
 
     private void updateNetworkState(final Network network, final String reason) {
-        getMainHandler().post(new Runnable() {
+        getMainHandler().post(new RunnableEx("network") {
             @Override
-            public void run() {
+            public void delegate() {
                 try {
                     Network active = ConnectionHelper.getActiveNetwork(ServiceSynchronize.this);
 
@@ -2845,9 +2846,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     static void boot(final Context context) {
-        executor.submit(new Runnable() {
+        executor.submit(new RunnableEx("boot") {
             @Override
-            public void run() {
+            public void delegate() {
                 try {
                     EntityLog.log(context, "Boot sync service");
 

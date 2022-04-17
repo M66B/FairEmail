@@ -131,6 +131,12 @@ public class ServicePowerControl extends ControlsProviderService {
         }
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        CoalMine.watch(this, getClass().getSimpleName() + "#onDestroy()");
+    }
+
     private PendingIntent getPendingIntent() {
         Context context = getBaseContext();
         return PendingIntentCompat.getActivity(
