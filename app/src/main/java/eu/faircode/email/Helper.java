@@ -111,6 +111,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -1275,27 +1276,31 @@ public class Helper {
     static void clearViews(Object instance) {
         try {
             for (Field field : instance.getClass().getDeclaredFields()) {
-                Class<?> type = field.getType();
+                Class<?> ftype = field.getType();
+                Class<?> type = (ftype.isArray() ? ftype.getComponentType() : ftype);
                 if (View.class.isAssignableFrom(type) ||
                         Animator.class.isAssignableFrom(type) ||
                         Snackbar.class.isAssignableFrom(type) ||
                         SelectionTracker.class.isAssignableFrom(type) ||
                         SelectionTracker.SelectionPredicate.class.isAssignableFrom(type) ||
+                        PagerAdapter.class.isAssignableFrom(type) ||
                         RecyclerView.Adapter.class.isAssignableFrom(type)) {
                     Log.i("Clearing " + instance.getClass().getSimpleName() + ":" + field.getName());
 
                     field.setAccessible(true);
 
-                    if (Animator.class.isAssignableFrom(type)) {
-                        Animator animator = (Animator) field.get(instance);
-                        if (animator != null)
-                            animator.setTarget(null);
-                    }
+                    if (!ftype.isArray()) {
+                        if (Animator.class.isAssignableFrom(type)) {
+                            Animator animator = (Animator) field.get(instance);
+                            if (animator != null)
+                                animator.setTarget(null);
+                        }
 
-                    if (Snackbar.class.isAssignableFrom(type)) {
-                        Snackbar snackbar = (Snackbar) field.get(instance);
-                        if (snackbar != null)
-                            snackbar.setAction(null, null);
+                        if (Snackbar.class.isAssignableFrom(type)) {
+                            Snackbar snackbar = (Snackbar) field.get(instance);
+                            if (snackbar != null)
+                                snackbar.setAction(null, null);
+                        }
                     }
 
                     field.set(instance, null);
