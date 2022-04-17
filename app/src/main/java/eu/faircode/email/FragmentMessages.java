@@ -6164,6 +6164,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void updateExpanded() {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
         if (scrolling && !accessibility)
             fabReply.hide();
