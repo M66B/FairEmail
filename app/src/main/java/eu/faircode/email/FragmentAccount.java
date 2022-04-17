@@ -680,6 +680,11 @@ public class FragmentAccount extends FragmentBase {
                 saving = false;
                 invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, true);
+                if (auth != AUTH_TYPE_PASSWORD) {
+                    etUser.setEnabled(false);
+                    tilPassword.getEditText().setEnabled(false);
+                    btnCertificate.setEnabled(false);
+                }
                 pbCheck.setVisibility(View.GONE);
             }
 
@@ -719,11 +724,6 @@ public class FragmentAccount extends FragmentBase {
                 CheckResult result = new CheckResult();
                 result.account = db.account().getAccount(id);
                 result.folders = new ArrayList<>();
-
-                if (result.account != null &&
-                        result.account.auth_type != AUTH_TYPE_PASSWORD &&
-                        !Objects.equals(result.account.password, password))
-                    auth = AUTH_TYPE_PASSWORD;
 
                 // Check IMAP server / get folders
                 String protocol = "imap" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
@@ -911,6 +911,11 @@ public class FragmentAccount extends FragmentBase {
                 saving = false;
                 invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, true);
+                if (auth != AUTH_TYPE_PASSWORD) {
+                    etUser.setEnabled(false);
+                    tilPassword.getEditText().setEnabled(false);
+                    btnCertificate.setEnabled(false);
+                }
                 pbSave.setVisibility(View.GONE);
             }
 
@@ -988,11 +993,6 @@ public class FragmentAccount extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 EntityAccount account = db.account().getAccount(id);
-
-                if (account != null &&
-                        account.auth_type != AUTH_TYPE_PASSWORD &&
-                        !Objects.equals(account.password, password))
-                    auth = AUTH_TYPE_PASSWORD;
 
                 if (should) {
                     if (account == null)
@@ -1641,8 +1641,11 @@ public class FragmentAccount extends FragmentBase {
                                 }
 
                                 private void onPassword() {
+                                    auth = AUTH_TYPE_PASSWORD;
+                                    etUser.setEnabled(true);
                                     tilPassword.getEditText().setText(null);
                                     tilPassword.getEditText().setEnabled(true);
+                                    tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
                                     tilPassword.requestFocus();
                                 }
                             });
