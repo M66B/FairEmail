@@ -773,6 +773,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     void destroy(State state) {
         state.destroyed = true;
+        this.intf = null;
         Log.i("Boundary destroy");
 
         executor.submit(new Runnable() {

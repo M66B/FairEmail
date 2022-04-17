@@ -603,6 +603,7 @@ public class ViewModelMessages extends ViewModel {
                     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                     public void onDestroyed() {
                         boundary.destroy(state);
+                        boundary = null;
                         owner.getLifecycle().removeObserver(this);
                     }
                 });
