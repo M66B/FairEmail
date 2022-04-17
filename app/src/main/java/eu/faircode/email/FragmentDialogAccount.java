@@ -91,6 +91,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
 
         Bundle args = getArguments();
         final long account = args.getLong("account");
+        final boolean pop = args.getBoolean("pop");
 
         ibEditName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,7 +142,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
                 lbm.sendBroadcast(
                         new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
                                 .putExtra("id", account)
-                                .putExtra("protocol", EntityAccount.TYPE_IMAP));
+                                .putExtra("protocol", pop ? EntityAccount.TYPE_POP : EntityAccount.TYPE_IMAP));
                 dismiss();
             }
         });
@@ -174,14 +175,34 @@ public class FragmentDialogAccount extends FragmentDialogBase {
             @Override
             public void onChanged(List<TupleAccountSwipes> swipes) {
                 if (swipes != null && swipes.size() == 1) {
-                    String left = swipes.get(0).left_name;
-                    String right = swipes.get(0).right_name;
+                    String left;
+                    if (swipes.get(0).swipe_left != null && swipes.get(0).swipe_left < 0)
+                        left = getSwipeTitle(context, (long) swipes.get(0).swipe_left);
+                    else
+                        left = swipes.get(0).left_name;
+
+                    String right;
+                    if (swipes.get(0).swipe_right != null && swipes.get(0).swipe_right < 0)
+                        right = getSwipeTitle(context, (long) swipes.get(0).swipe_right);
+                    else
+                        right = swipes.get(0).right_name;
+
                     tvLeft.setText(left == null ? "-" : left);
                     tvRight.setText(right == null ? "-" : right);
                 } else {
                     tvLeft.setText("?");
                     tvRight.setText("?");
                 }
+            }
+
+            private String getSwipeTitle(Context context, long type) {
+                if (type == EntityMessage.SWIPE_ACTION_SEEN)
+                    return context.getString(R.string.title_seen);
+
+                if (type == EntityMessage.SWIPE_ACTION_DELETE)
+                    return context.getString(R.string.title_delete_permanently);
+
+                return "???";
             }
         });
 

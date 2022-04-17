@@ -108,6 +108,7 @@ public class FragmentPop extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
 
     private long id = -1;
+    private int auth = AUTH_TYPE_PASSWORD;
     private boolean saving = false;
 
     private static final int REQUEST_COLOR = 1;
@@ -303,6 +304,7 @@ public class FragmentPop extends FragmentBase {
         args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
+        args.putInt("auth", auth);
         args.putString("user", etUser.getText().toString());
         args.putString("password", tilPassword.getEditText().getText().toString());
 
@@ -353,6 +355,7 @@ public class FragmentPop extends FragmentBase {
                 int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
                 String port = args.getString("port");
+                int auth = args.getInt("auth");
                 String user = args.getString("user").trim();
                 String password = args.getString("password");
 
@@ -483,7 +486,7 @@ public class FragmentPop extends FragmentBase {
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.connect(
                                 host, Integer.parseInt(port),
-                                AUTH_TYPE_PASSWORD, null,
+                                auth, null,
                                 user, password,
                                 null, null);
                     }
@@ -495,7 +498,7 @@ public class FragmentPop extends FragmentBase {
                     if (account != null && !account.password.equals(password)) {
                         String domain = UriHelper.getParentDomain(context, account.host);
                         String match = (Objects.equals(account.host, domain) ? account.host : "%." + domain);
-                        int count = db.identity().setIdentityPassword(account.id, account.user, password, AUTH_TYPE_PASSWORD, match);
+                        int count = db.identity().setIdentityPassword(account.id, account.user, password, auth, match);
                         Log.i("Updated passwords=" + count + " match=" + match);
                     }
 
@@ -508,7 +511,7 @@ public class FragmentPop extends FragmentBase {
                     account.encryption = encryption;
                     account.insecure = insecure;
                     account.port = Integer.parseInt(port);
-                    account.auth_type = AUTH_TYPE_PASSWORD;
+                    account.auth_type = auth;
                     account.user = user;
                     account.password = password;
 
@@ -647,6 +650,7 @@ public class FragmentPop extends FragmentBase {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
+        outState.putInt("fair:auth", auth);
         super.onSaveInstanceState(outState);
     }
 
@@ -726,6 +730,8 @@ public class FragmentPop extends FragmentBase {
                             spRight.setSelection(pos);
                     }
 
+                    auth = (account == null ? AUTH_TYPE_PASSWORD : account.auth_type);
+
                     new SimpleTask<EntityAccount>() {
                         @Override
                         protected EntityAccount onExecute(Context context, Bundle args) {
@@ -745,9 +751,15 @@ public class FragmentPop extends FragmentBase {
                     }.execute(FragmentPop.this, new Bundle(), "account:primary");
                 } else {
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
+                    auth = savedInstanceState.getInt("fair:auth");
                 }
 
                 Helper.setViewsEnabled(view, true);
+
+                if (auth != AUTH_TYPE_PASSWORD) {
+                    etUser.setEnabled(false);
+                    tilPassword.setEnabled(false);
+                }
 
                 cbOnDemand.setEnabled(cbSynchronize.isChecked());
                 cbPrimary.setEnabled(cbSynchronize.isChecked());

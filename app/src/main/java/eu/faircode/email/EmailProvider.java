@@ -90,6 +90,7 @@ public class EmailProvider implements Parcelable {
     public String link;
     public Server imap = new Server();
     public Server smtp = new Server();
+    public Server pop;
     public OAuth oauth;
     public UserType user = UserType.EMAIL;
     public String username;
@@ -267,6 +268,11 @@ public class EmailProvider implements Parcelable {
                         provider.smtp.host = xml.getAttributeValue(null, "host");
                         provider.smtp.port = getAttributeIntValue(xml, "port", 0);
                         provider.smtp.starttls = getAttributeBooleanValue(xml, "starttls", false);
+                    } else if ("pop".equals(name)) {
+                        provider.pop = new Server();
+                        provider.pop.host = xml.getAttributeValue(null, "host");
+                        provider.pop.port = getAttributeIntValue(xml, "port", 0);
+                        provider.pop.starttls = getAttributeBooleanValue(xml, "starttls", false);
                     } else if ("oauth".equals(name)) {
                         provider.oauth = new OAuth();
                         provider.oauth.enabled = getAttributeBooleanValue(xml, "enabled", false);

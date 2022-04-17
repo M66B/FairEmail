@@ -16,6 +16,10 @@
             host="smtp.gmail.com"
             port="465"
             starttls="false" />
+        <!--pop
+            host="pop.gmail.com"
+            port="995"
+            starttls="false" /-->
         <oauth
             askAccount="true"
             authorizationEndpoint="https://accounts.google.com/o/oauth2/auth"
@@ -112,6 +116,11 @@
             host="smtp.office365.com"
             port="587"
             starttls="true" />
+        <!--pop
+            host="outlook.office365.com"
+            port="995"
+            starttls="false" /-->
+        <!-- https://outlook.office.com/POP.AccessAsUser.All -->
         <oauth
             askAccount="true"
             authorizationEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize"
@@ -143,6 +152,11 @@
             host="smtp.office365.com"
             port="587"
             starttls="true" />
+        <!--pop
+            host="outlook.office365.com"
+            port="995"
+            starttls="false" /-->
+        <!-- https://outlook.office.com/POP.AccessAsUser.All -->
         <oauth
             askAccount="true"
             authorizationEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize"
@@ -202,6 +216,10 @@
             host="smtp.mail.yahoo.com"
             port="465"
             starttls="false" />
+        <!--pop
+            host="pop.mail.yahoo.com"
+            port="995"
+            starttls="false" /-->
         <oauth
             askAccount="true"
             authorizationEndpoint="https://api.login.yahoo.com/oauth2/request_auth"
@@ -400,6 +418,10 @@
             host="smtp.yandex.com"
             port="465"
             starttls="false" />
+        <!--pop
+            host="pop.yandex.ru"
+            port="995"
+            starttls="false" /-->
         <oauth
             askAccount="true"
             authorizationEndpoint="https://oauth.yandex.com/authorize"
@@ -599,6 +621,10 @@
             host="smtp.mail.ru"
             port="465"
             starttls="false" />
+        <!--pop
+            host="pop.mail.ru"
+            port="995"
+            starttls="false" /-->
         <oauth
             askAccount="false"
             authorizationEndpoint="https://oauth.mail.ru/login"
