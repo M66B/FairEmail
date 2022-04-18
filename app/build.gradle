@@ -590,5 +590,5 @@ dependencies {
     // https://github.com/square/leakcanary
     // https://square.github.io/leakcanary/getting_started/
     // https://mvnrepository.com/artifact/com.squareup.leakcanary/leakcanary-android
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:$canary_version"
+    debugImplementation "com.squareup.leakcanary:leakcanary-android-startup:$canary_version"
 }
