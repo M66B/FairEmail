@@ -6875,12 +6875,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return (up && onReply(context));
                 case KeyEvent.KEYCODE_PAGE_UP:
                 case KeyEvent.KEYCODE_DPAD_UP:
-                    return (down && onScroll(context, true,
-                            viewType == AdapterMessage.ViewType.THREAD ? 0.125f : 0.25f));
+                    if (viewType == AdapterMessage.ViewType.THREAD)
+                        return (down && onScroll(context, true, 0.125f));
+                    break;
                 case KeyEvent.KEYCODE_PAGE_DOWN:
                 case KeyEvent.KEYCODE_DPAD_DOWN:
-                    return (down && onScroll(context, false,
-                            viewType == AdapterMessage.ViewType.THREAD ? 0.125f : 0.25f));
+                    if (viewType == AdapterMessage.ViewType.THREAD)
+                        return (down && onScroll(context, false, 0.125f));
+                    break;
             }
 
             if (!up)
