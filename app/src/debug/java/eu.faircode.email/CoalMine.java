@@ -105,7 +105,7 @@ public class CoalMine {
                 .objectInspectors(inspectors)
                 .build();
         LeakCanary.setConfig(config);
-        LeakCanary.INSTANCE.showLeakDisplayActivityLauncherIcon(false);
+        LeakCanary.INSTANCE.showLeakDisplayActivityLauncherIcon(true);
     }
 
     static void check() {

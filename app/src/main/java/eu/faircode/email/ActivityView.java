@@ -855,10 +855,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }, new Callable<Boolean>() {
             @Override
             public Boolean call() {
-                Intent canary = CoalMine.getIntent();
-                if (canary != null)
-                    startActivity(canary);
-                return (canary != null);
+                CoalMine.check();
+                return true;
             }
         }).setExternal(true));
 
