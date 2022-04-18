@@ -479,6 +479,15 @@ public class ContactInfo {
                                     }
                                 }));
 
+                                int dot = host.indexOf('.');
+                                host = host.substring(dot + 1);
+                            }
+
+                            host = domain;
+                            while (host.indexOf('.') > 0) {
+                                final URL base = new URL("https://" + host);
+                                final URL www = new URL("https://www." + host);
+
                                 futures.add(executorFavicon.submit(new Callable<Favicon>() {
                                     @Override
                                     public Favicon call() throws Exception {
@@ -502,25 +511,28 @@ public class ContactInfo {
                         for (Future<Favicon> future : futures)
                             try {
                                 Favicon favicon = future.get();
-                                if (favicon != null) {
-                                    float lum = 0; // ImageHelper.getLuminance(favicon.bitmap);
-                                    if (lum < MIN_FAVICON_LUMINANCE) {
-                                        Bitmap bitmap = Bitmap.createBitmap(
-                                                favicon.bitmap.getWidth(),
-                                                favicon.bitmap.getHeight(),
-                                                favicon.bitmap.getConfig());
-                                        bitmap.eraseColor(Color.WHITE);
-                                        Canvas canvas = new Canvas(bitmap);
-                                        canvas.drawBitmap(favicon.bitmap, 0, 0, null);
-                                        favicon.bitmap.recycle();
-                                        favicon.bitmap = bitmap;
-                                    }
+                                Log.i("Using favicon source=" + (favicon == null ? null : favicon.source));
 
-                                    info.bitmap = favicon.bitmap;
-                                    info.type = favicon.type;
-                                    info.verified = favicon.verified;
-                                    break;
+                                if (favicon == null)
+                                    continue;
+
+                                float lum = 0; // ImageHelper.getLuminance(favicon.bitmap);
+                                if (lum < MIN_FAVICON_LUMINANCE) {
+                                    Bitmap bitmap = Bitmap.createBitmap(
+                                            favicon.bitmap.getWidth(),
+                                            favicon.bitmap.getHeight(),
+                                            favicon.bitmap.getConfig());
+                                    bitmap.eraseColor(Color.WHITE);
+                                    Canvas canvas = new Canvas(bitmap);
+                                    canvas.drawBitmap(favicon.bitmap, 0, 0, null);
+                                    favicon.bitmap.recycle();
+                                    favicon.bitmap = bitmap;
                                 }
+
+                                info.bitmap = favicon.bitmap;
+                                info.type = favicon.type;
+                                info.verified = favicon.verified;
+                                break;
                             } catch (ExecutionException exex) {
                                 ex = exex.getCause();
                             } catch (Throwable exex) {
@@ -865,7 +877,7 @@ public class ContactInfo {
             Bitmap bitmap = ImageHelper.getScaledBitmap(connection.getInputStream(), url.toString(), mimeType, scaleToPixels);
             if (bitmap == null)
                 throw new FileNotFoundException("decodeStream");
-            return new Favicon(bitmap);
+            return new Favicon(bitmap, url.toString());
         } finally {
             connection.disconnect();
         }
@@ -1053,15 +1065,18 @@ public class ContactInfo {
         private Bitmap bitmap;
         private String type;
         private boolean verified;
+        private String source;
 
-        private Favicon(@NonNull Bitmap bitmap) {
+        private Favicon(@NonNull Bitmap bitmap, String source) {
             this(bitmap, "favicon", false);
+            this.source = source;
         }
 
         private Favicon(@NonNull Bitmap bitmap, String type, boolean verified) {
             this.bitmap = bitmap;
             this.type = type;
             this.verified = verified;
+            this.source = type;
         }
     }
 }
