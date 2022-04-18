@@ -28,7 +28,6 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.AlarmManager;
 import android.app.KeyguardManager;
 import android.app.UiModeManager;
 import android.app.usage.UsageStatsManager;

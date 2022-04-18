@@ -32,7 +32,6 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.Editable;
-import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.QuoteSpan;
@@ -52,7 +51,6 @@ import androidx.core.view.inputmethod.EditorInfoCompat;
 import androidx.core.view.inputmethod.InputConnectionCompat;
 import androidx.core.view.inputmethod.InputContentInfoCompat;
 import androidx.preference.PreferenceManager;
-import androidx.room.EntityInsertionAdapter;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

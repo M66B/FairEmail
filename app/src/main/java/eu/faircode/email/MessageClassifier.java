@@ -25,7 +25,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.JsonReader;
 import android.util.JsonWriter;
-import android.util.MalformedJsonException;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
