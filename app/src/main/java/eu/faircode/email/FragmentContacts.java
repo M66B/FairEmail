@@ -453,6 +453,7 @@ public class FragmentContacts extends FragmentBase {
 
                         EntityContact.update(context,
                                 account,
+                                null,
                                 addresses.toArray(new Address[0]),
                                 group,
                                 type,

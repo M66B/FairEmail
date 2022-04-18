@@ -6446,7 +6446,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (target.block &&
                                 EntityFolder.JUNK.equals(target.targetFolder.type))
                             EntityContact.update(context,
-                                    message.account, message.from,
+                                    message.account, message.identity, message.from,
                                     EntityContact.TYPE_JUNK, message.received);
                     }
 
@@ -8562,7 +8562,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     if (block_sender)
                         EntityContact.update(context,
-                                message.account, message.from,
+                                message.account, message.identity, message.from,
                                 EntityContact.TYPE_JUNK, message.received);
 
                     if (account.protocol == EntityAccount.TYPE_IMAP) {

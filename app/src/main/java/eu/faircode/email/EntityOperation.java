@@ -273,8 +273,10 @@ public class EntityOperation {
                         if (rule.isBlockingSender(message, source))
                             db.rule().deleteRule(rule.id);
 
-                    EntityContact.delete(context, message.account, message.from, EntityContact.TYPE_JUNK);
-                    EntityContact.update(context, message.account, message.from, EntityContact.TYPE_NO_JUNK, message.received);
+                    EntityContact.delete(context, message.account, message.from,
+                            EntityContact.TYPE_JUNK);
+                    EntityContact.update(context, message.account, message.identity, message.from,
+                            EntityContact.TYPE_NO_JUNK, message.received);
                 }
 
                 if (EntityFolder.JUNK.equals(target.type))

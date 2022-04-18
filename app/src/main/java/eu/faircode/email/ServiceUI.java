@@ -297,7 +297,7 @@ public class ServiceUI extends IntentService {
 
             if (block_sender)
                 EntityContact.update(this,
-                        message.account, message.from,
+                        message.account, message.identity, message.from,
                         EntityContact.TYPE_JUNK, message.received);
 
             db.setTransactionSuccessful();

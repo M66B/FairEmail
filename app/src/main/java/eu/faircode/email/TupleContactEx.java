@@ -19,15 +19,19 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import java.util.Objects;
+
 public class TupleContactEx extends EntityContact {
     public String accountName;
+    public String identityEmail;
 
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof TupleContactEx) {
             TupleContactEx other = (TupleContactEx) obj;
             return (super.equals(obj) &&
-                    accountName.equals(other.accountName));
+                    accountName.equals(other.accountName) &&
+                    Objects.equals(this.identityEmail, other.identityEmail));
         } else
             return false;
     }

@@ -79,6 +79,7 @@ public class EntityContact implements Serializable {
     public Long id;
     @NonNull
     public Long account;
+    public Long identity; // no foreign key, no index
     @NonNull
     public int type;
     @NonNull
@@ -164,14 +165,14 @@ public class EntityContact implements Serializable {
                 addresses.addAll(Arrays.asList(message.bcc));
         }
 
-        update(context, folder.account, addresses.toArray(new Address[0]), type, message.received);
+        update(context, folder.account, message.identity, addresses.toArray(new Address[0]), type, message.received);
     }
 
-    public static void update(Context context, long account, Address[] addresses, int type, long time) {
-        update(context, account, addresses, null, type, time);
+    public static void update(Context context, long account, Long identity, Address[] addresses, int type, long time) {
+        update(context, account, identity, addresses, null, type, time);
     }
 
-    public static void update(Context context, long account, Address[] addresses, String group, int type, long time) {
+    public static void update(Context context, long account, Long identity, Address[] addresses, String group, int type, long time) {
         if (addresses == null)
             return;
 
@@ -193,6 +194,7 @@ public class EntityContact implements Serializable {
                 if (contact == null) {
                     contact = new EntityContact();
                     contact.account = account;
+                    contact.identity = identity;
                     contact.type = type;
                     contact.email = email;
                     contact.name = name;
@@ -204,6 +206,7 @@ public class EntityContact implements Serializable {
                     contact.id = db.contact().insertContact(contact);
                     Log.i("Inserted contact=" + contact + " type=" + type);
                 } else {
+                    contact.identity = identity;
                     if (contact.name == null && name != null)
                         contact.name = name;
                     if (contact.group == null && group != null)
@@ -239,6 +242,7 @@ public class EntityContact implements Serializable {
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);
+        json.put("identity", identity);
         json.put("type", type);
         json.put("email", email);
         json.put("name", name);
@@ -254,6 +258,9 @@ public class EntityContact implements Serializable {
     public static EntityContact fromJSON(JSONObject json) throws JSONException {
         EntityContact contact = new EntityContact();
         // id
+        if (json.has("identity") && !json.isNull("identity"))
+            contact.identity = json.getLong("identity");
+
         contact.type = json.getInt("type");
         contact.email = json.getString("email");
 
@@ -279,6 +286,7 @@ public class EntityContact implements Serializable {
         if (obj instanceof EntityContact) {
             EntityContact other = (EntityContact) obj;
             return (this.account.equals(other.account) &&
+                    Objects.equals(this.identity, other.identity) &&
                     this.type == other.type &&
                     this.email.equals(other.email) &&
                     Objects.equals(this.name, other.name) &&

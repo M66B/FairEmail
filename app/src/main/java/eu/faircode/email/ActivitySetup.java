@@ -1080,6 +1080,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                         JSONObject jcontact = (JSONObject) jcontacts.get(c);
                                         EntityContact contact = EntityContact.fromJSON(jcontact);
                                         contact.account = account.id;
+                                        contact.identity = xIdentity.get(contact.identity);
                                         if (db.contact().getContact(contact.account, contact.type, contact.email) == null)
                                             contact.id = db.contact().insertContact(contact);
                                     }

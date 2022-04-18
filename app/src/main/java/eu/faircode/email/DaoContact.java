@@ -35,9 +35,10 @@ public interface DaoContact {
             " WHERE account = :account")
     List<EntityContact> getContacts(long account);
 
-    @Query("SELECT contact.*, account.name AS accountName" +
+    @Query("SELECT contact.*, account.name AS accountName, identity.email AS identityEmail" +
             " FROM contact" +
             " JOIN account ON account.id = contact.account" +
+            " LEFT JOIN identity ON identity.id = contact.identity" +
             " WHERE (:account IS NULL OR contact.account = :account)" +
             " ORDER BY times_contacted DESC, last_contacted DESC")
     LiveData<List<TupleContactEx>> liveContacts(Long account);
