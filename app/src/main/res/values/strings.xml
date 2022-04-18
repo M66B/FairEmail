@@ -1066,7 +1066,7 @@
     <string name="title_apply_to_all">Apply to all</string>
     <string name="title_edit_account_name">Edit account name</string>
     <string name="title_hide_folder">Hide folder</string>
-    <string name="title_hide_seen_folder">Hide if all messages are read</string>
+    <string name="title_hide_seen_folder">Hide folder if all messages are read</string>
     <string name="title_hide_seen_folder_hint">Only in the folder list shown on the start screen</string>
     <string name="title_unified_folder">Show in unified inbox</string>
     <string name="title_navigation_folder">Show in navigation menu</string>
