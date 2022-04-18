@@ -276,7 +276,7 @@ public class FragmentGmail extends FragmentBase {
     }
 
     private void onNoAccountSelected(int resultCode, Intent data) {
-        AccountManager am = AccountManager.get(getContext());
+        AccountManager am = AccountManager.get(getContext().getApplicationContext());
         Account[] accounts = am.getAccountsByType(TYPE_GOOGLE);
         if (accounts.length == 0)
             Log.e("newChooseAccountIntent without result=" + resultCode + " data=" + data);
@@ -296,7 +296,7 @@ public class FragmentGmail extends FragmentBase {
         final String disabled = getString(R.string.title_setup_advanced_protection);
 
         boolean found = false;
-        AccountManager am = AccountManager.get(getContext());
+        AccountManager am = AccountManager.get(getContext().getApplicationContext());
         Account[] accounts = am.getAccountsByType(type);
         for (final Account account : accounts)
             if (name.equalsIgnoreCase(account.name)) {
