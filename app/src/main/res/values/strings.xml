@@ -406,6 +406,7 @@
     <string name="title_advanced_signature_location">Signature position</string>
     <string name="title_advanced_signature_new">Use signature for new messages</string>
     <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_reply_once">Only for the first reply</string>
     <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_discard_delete">On discard draft permanently delete draft</string>
     <string name="title_advanced_reply_move">On replying to a message, save the reply in the same folder</string>

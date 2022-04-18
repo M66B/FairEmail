@@ -4926,6 +4926,26 @@ public class FragmentCompose extends FragmentBase {
                     if (drafts == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
 
+                    boolean signature_once = prefs.getBoolean("signature_reply_once", false);
+                    if (signature_once && data.draft.signature &&
+                            ref != null && ref.thread != null &&
+                            ("reply".equals(action) || "reply_all".equals(action))) {
+                        List<EntityMessage> outbound = new ArrayList<>();
+
+                        EntityFolder sent = db.folder().getFolderByType(drafts.account, EntityFolder.SENT);
+                        if (sent != null)
+                            outbound.addAll(db.message().getMessagesByThread(drafts.account, ref.thread, null, sent.id));
+
+                        EntityFolder outbox = db.folder().getOutbox();
+                        if (outbox != null)
+                            outbound.addAll(db.message().getMessagesByThread(drafts.account, ref.thread, null, outbox.id));
+
+                        if (outbound.size() > 0) {
+                            Log.i("Signature suppressed");
+                            data.draft.signature = false;
+                        }
+                    }
+
                     data.draft.account = drafts.account;
                     data.draft.folder = drafts.id;
                     data.draft.identity = selected.id;

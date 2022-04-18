@@ -84,6 +84,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Spinner spSignatureLocation;
     private SwitchCompat swSignatureNew;
     private SwitchCompat swSignatureReply;
+    private SwitchCompat swSignatureReplyOnce;
     private SwitchCompat swSignatureForward;
     private Button btnEditSignature;
     private SwitchCompat swDiscardDelete;
@@ -106,7 +107,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "send_reminders", "send_chips", "send_delayed",
             "attach_new", "answer_action", "send_pending", "sound_sent",
             "compose_font", "prefix_once", "prefix_count", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
-            "signature_location", "signature_new", "signature_reply", "signature_forward",
+            "signature_location", "signature_new", "signature_reply", "signature_reply_once", "signature_forward",
             "discard_delete", "reply_move",
             "auto_link", "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
             "receipt_default", "receipt_type", "receipt_legacy", "lookup_mx"
@@ -152,6 +153,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spSignatureLocation = view.findViewById(R.id.spSignatureLocation);
         swSignatureNew = view.findViewById(R.id.swSignatureNew);
         swSignatureReply = view.findViewById(R.id.swSignatureReply);
+        swSignatureReplyOnce = view.findViewById(R.id.swSignatureReplyOnce);
         swSignatureForward = view.findViewById(R.id.swSignatureForward);
         btnEditSignature = view.findViewById(R.id.btnEditSignature);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
@@ -434,6 +436,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("signature_reply", checked).apply();
+                swSignatureReplyOnce.setEnabled(checked);
+            }
+        });
+
+        swSignatureReplyOnce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("signature_reply_once", checked).apply();
             }
         });
 
@@ -650,6 +660,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         swSignatureNew.setChecked(prefs.getBoolean("signature_new", true));
         swSignatureReply.setChecked(prefs.getBoolean("signature_reply", true));
+        swSignatureReplyOnce.setChecked(prefs.getBoolean("signature_reply_once", false));
+        swSignatureReplyOnce.setEnabled(swSignatureReply.isChecked());
         swSignatureForward.setChecked(prefs.getBoolean("signature_forward", true));
         swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", true));
         swReplyMove.setChecked(prefs.getBoolean("reply_move", false));
