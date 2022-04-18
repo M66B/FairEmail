@@ -2321,27 +2321,25 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Stop watching operations
                     Log.i(account.name + " stop watching operations");
-                    final TwoStateOwner _owner = cowner.value;
-                    if (_owner != null) {
-                        final CountDownLatch latch = new CountDownLatch(1);
-                        getMainHandler().post(new RunnableEx("observe#stop") {
-                            @Override
-                            public void delegate() {
-                                try {
-                                    _owner.destroy();
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
-                                } finally {
-                                    latch.countDown();
-                                }
-                            }
-                        });
+                    final CountDownLatch latch = new CountDownLatch(1);
 
-                        try {
-                            latch.await(5000L, TimeUnit.MILLISECONDS);
-                        } catch (InterruptedException ex) {
-                            Log.w(ex);
+                    getMainHandler().post(new RunnableEx("observe#stop") {
+                        @Override
+                        public void delegate() {
+                            try {
+                                cowner.value.destroy();
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            } finally {
+                                latch.countDown();
+                            }
                         }
+                    });
+
+                    try {
+                        latch.await(5000L, TimeUnit.MILLISECONDS);
+                    } catch (InterruptedException ex) {
+                        Log.w(ex);
                     }
 
                     // Stop executing operations
