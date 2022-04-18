@@ -2314,12 +2314,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     EntityLog.log(this, EntityLog.Type.Account, account,
                             account.name + " closing");
 
+                    // Cancel purge
                     getMainHandler().removeCallbacks(purge);
 
                     // Stop watching operations
                     Log.i(account.name + " stop watching operations");
                     final TwoStateOwner _owner = cowner.value;
-                    if (_owner != null)
+                    if (_owner != null) {
+                        cowner.value = null;
                         getMainHandler().post(new RunnableEx("observe#stop") {
                             @Override
                             public void delegate() {
@@ -2330,6 +2332,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 }
                             }
                         });
+                    }
 
                     // Stop executing operations
                     Log.i(account.name + " stop executing operations");
