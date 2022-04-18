@@ -1275,42 +1275,54 @@ public class Helper {
 
     static void clearViews(Object instance) {
         try {
+            String cname = instance.getClass().getSimpleName();
             for (Field field : instance.getClass().getDeclaredFields()) {
+                String fname = cname + ":" + field.getName();
+
                 Class<?> ftype = field.getType();
                 Class<?> type = (ftype.isArray() ? ftype.getComponentType() : ftype);
+
+                if (type == null) {
+                    Log.e(fname + "=null");
+                    continue;
+                }
+
                 if (View.class.isAssignableFrom(type) ||
                         Animator.class.isAssignableFrom(type) ||
                         Snackbar.class.isAssignableFrom(type) ||
                         SelectionTracker.class.isAssignableFrom(type) ||
                         SelectionTracker.SelectionPredicate.class.isAssignableFrom(type) ||
                         PagerAdapter.class.isAssignableFrom(type) ||
-                        RecyclerView.Adapter.class.isAssignableFrom(type)) {
-                    Log.i("Clearing " + instance.getClass().getSimpleName() + ":" + field.getName());
+                        RecyclerView.Adapter.class.isAssignableFrom(type))
+                    try {
+                        Log.i("Clearing " + fname);
 
-                    field.setAccessible(true);
+                        field.setAccessible(true);
 
-                    if (!ftype.isArray()) {
-                        if (Animator.class.isAssignableFrom(type)) {
-                            Animator animator = (Animator) field.get(instance);
-                            if (animator != null) {
-                                if (animator.isStarted())
-                                    animator.cancel();
-                                animator.setTarget(null);
+                        if (!ftype.isArray()) {
+                            if (Animator.class.isAssignableFrom(type)) {
+                                Animator animator = (Animator) field.get(instance);
+                                if (animator != null) {
+                                    if (animator.isStarted())
+                                        animator.cancel();
+                                    animator.setTarget(null);
+                                }
+                            }
+
+                            if (Snackbar.class.isAssignableFrom(type)) {
+                                Snackbar snackbar = (Snackbar) field.get(instance);
+                                if (snackbar != null)
+                                    snackbar.setAction(null, null);
                             }
                         }
 
-                        if (Snackbar.class.isAssignableFrom(type)) {
-                            Snackbar snackbar = (Snackbar) field.get(instance);
-                            if (snackbar != null)
-                                snackbar.setAction(null, null);
-                        }
+                        field.set(instance, null);
+                    } catch (Throwable ex) {
+                        Log.e(new Throwable(fname, ex));
                     }
-
-                    field.set(instance, null);
-                }
             }
         } catch (Throwable ex) {
-            Log.w(ex);
+            Log.e(ex);
         }
     }
 
