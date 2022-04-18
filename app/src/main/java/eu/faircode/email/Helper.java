@@ -1292,8 +1292,11 @@ public class Helper {
                     if (!ftype.isArray()) {
                         if (Animator.class.isAssignableFrom(type)) {
                             Animator animator = (Animator) field.get(instance);
-                            if (animator != null)
+                            if (animator != null) {
+                                if (animator.isStarted())
+                                    animator.cancel();
                                 animator.setTarget(null);
+                            }
                         }
 
                         if (Snackbar.class.isAssignableFrom(type)) {
