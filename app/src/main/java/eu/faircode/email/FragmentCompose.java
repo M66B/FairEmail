@@ -105,6 +105,7 @@ import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -285,6 +286,7 @@ public class FragmentCompose extends FragmentBase {
 
     private long working = -1;
     private State state = State.NONE;
+    private boolean identity_selectable = false;
     private boolean show_images = false;
     private Integer last_plain_only = null;
     private List<EntityAttachment> last_attachments = null;
@@ -1219,6 +1221,33 @@ public class FragmentCompose extends FragmentBase {
         etCc.setAdapter(cadapter);
         etBcc.setAdapter(cadapter);
 
+        etTo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Cursor cursor = (Cursor) adapterView.getAdapter().getItem(position);
+                int colEmail = cursor.getColumnIndex("email");
+                selectIdentityForEmail(colEmail < 0 ? null : cursor.getString(colEmail));
+            }
+        });
+
+        etTo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence text, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence text, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable text) {
+                if (TextUtils.isEmpty(text.toString().trim()))
+                    identity_selectable = true;
+            }
+        });
+
         grpAddresses.setVisibility(cc_bcc ? View.VISIBLE : View.GONE);
 
         ibRemoveAttachments.setVisibility(View.GONE);
@@ -1246,6 +1275,64 @@ public class FragmentCompose extends FragmentBase {
         tvNoInternetAttachments.setVisibility(View.GONE);
 
         return view;
+    }
+
+    private void selectIdentityForEmail(String email) {
+        if (!identity_selectable)
+            return;
+        if (TextUtils.isEmpty(email))
+            return;
+
+        Bundle args = new Bundle();
+        args.putString("email", email);
+
+        new SimpleTask<Long>() {
+            @Override
+            protected Long onExecute(Context context, Bundle args) throws Throwable {
+                String email = args.getString("email");
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
+                boolean suggest_received = prefs.getBoolean("suggest_received", false);
+
+                List<Integer> types = new ArrayList<>();
+                if (suggest_sent)
+                    types.add(EntityContact.TYPE_TO);
+                if (suggest_received)
+                    types.add(EntityContact.TYPE_FROM);
+
+                if (types.size() == 0)
+                    return null;
+
+                DB db = DB.getInstance(context);
+                List<Long> identities = db.contact().getIdentities(email, types);
+                if (identities != null && identities.size() == 1)
+                    return identities.get(0);
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Long identity) {
+                if (identity == null)
+                    return;
+
+                SpinnerAdapter adapter = spIdentity.getAdapter();
+                for (int pos = 0; pos < adapter.getCount(); pos++) {
+                    EntityIdentity item = (EntityIdentity) adapter.getItem(pos);
+                    if (item.id.equals(identity)) {
+                        spIdentity.setSelection(pos);
+                        identity_selectable = false;
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(FragmentCompose.this, args, "compose:contact");
     }
 
     private void onReferenceEdit() {
@@ -2650,6 +2737,8 @@ public class FragmentCompose extends FragmentBase {
                             String email = MessageHelper.sanitizeEmail(cursor.getString(colEmail));
                             String name = cursor.getString(colName);
 
+                            args.putString("email", email);
+
                             try {
                                 db.beginTransaction();
 
@@ -2697,6 +2786,9 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityMessage draft) {
+                if (requestCode == REQUEST_CONTACT_TO)
+                    selectIdentityForEmail(args.getString("email"));
+
                 if (draft != null) {
                     etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
                     etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
@@ -5219,6 +5311,8 @@ public class FragmentCompose extends FragmentBase {
                         break;
                     }
                 }
+
+            identity_selectable = (data.draft.to == null || data.draft.to.length == 0);
 
             etExtra.setText(data.draft.extra);
             etTo.setText(MessageHelper.formatAddressesCompose(data.draft.to));

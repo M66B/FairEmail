@@ -57,6 +57,12 @@ public interface DaoContact {
     @Query("SELECT * FROM contact WHERE id = :id")
     EntityContact getContact(long id);
 
+    @Query("SELECT DISTINCT identity FROM contact" +
+            " WHERE email = :email" +
+            " AND type IN (:types)" +
+            " AND NOT identity IS NULL")
+    List<Long> getIdentities(String email, List<Integer> types);
+
     @Query("SELECT *" +
             " FROM contact" +
             " WHERE account = :account" +
