@@ -1459,6 +1459,28 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
                 });
 
+                final Runnable purge = new RunnableEx("purge") {
+                    @Override
+                    public void delegate() {
+                        executor.submit(new RunnableEx("purge#exec") {
+                            @Override
+                            public void delegate() {
+                                try {
+                                    wlAccount.acquire();
+
+                                    // Close cached connections
+                                    Log.i(account.name + " Empty connection pool");
+                                    ((IMAPStore) iservice.getStore()).emptyConnectionPool(false);
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                } finally {
+                                    wlAccount.release();
+                                }
+                            }
+                        });
+                    }
+                };
+
                 final Map<EntityFolder, IMAPFolder> mapFolders = new LinkedHashMap<>();
                 List<Thread> idlers = new ArrayList<>();
                 try {
@@ -1833,28 +1855,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
 
                     forced = true;
-
-                    final Runnable purge = new RunnableEx("purge") {
-                        @Override
-                        public void delegate() {
-                            executor.submit(new RunnableEx("purge#exec") {
-                                @Override
-                                public void delegate() {
-                                    try {
-                                        wlAccount.acquire();
-
-                                        // Close cached connections
-                                        Log.i(account.name + " Empty connection pool");
-                                        ((IMAPStore) istore).emptyConnectionPool(false);
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
-                                    } finally {
-                                        wlAccount.release();
-                                    }
-                                }
-                            });
-                        }
-                    };
 
                     final long serial = state.getSerial();
 
@@ -2313,6 +2313,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     // Update state
                     EntityLog.log(this, EntityLog.Type.Account, account,
                             account.name + " closing");
+
+                    getMainHandler().removeCallbacks(purge);
 
                     // Stop watching operations
                     Log.i(account.name + " stop watching operations");
