@@ -65,6 +65,17 @@ public class CoalMine {
                                         reporter.getLabels().add("started=" + label);
                                     }
                                 }
+                            } else if (className.equals(TwoStateOwner.class.getName())) {
+                                HeapField hfState = instance.get(className, "state");
+                                if (hfState != null) {
+                                    String state = hfState.getValue().readAsJavaString();
+                                    reporter.getLabels().add("state=" + state);
+                                }
+                                HeapField hfOwned = instance.get(className, "owned");
+                                if (hfOwned != null) {
+                                    Boolean owned = hfOwned.getValue().getAsBoolean();
+                                    reporter.getLabels().add("owned=" + owned);
+                                }
                             }
 
                             return null;
