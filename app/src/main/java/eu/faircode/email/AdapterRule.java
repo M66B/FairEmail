@@ -118,44 +118,51 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             ivStop.setVisibility(rule.stop ? View.VISIBLE : View.INVISIBLE);
 
             try {
-                List<Pair<String, String>> conditions = new ArrayList<>();
+                List<Condition> conditions = new ArrayList<>();
                 JSONObject jcondition = new JSONObject(rule.condition);
                 if (jcondition.has("sender"))
-                    conditions.add(new Pair<>(context.getString(R.string.title_rule_sender),
-                            jcondition.getJSONObject("sender").optString("value")));
+                    conditions.add(new Condition(context.getString(R.string.title_rule_sender),
+                            jcondition.getJSONObject("sender").optString("value"),
+                            jcondition.getJSONObject("sender").optBoolean("regex")));
                 if (jcondition.has("recipient"))
-                    conditions.add(new Pair<>(context.getString(R.string.title_rule_recipient),
-                            jcondition.getJSONObject("recipient").optString("value")));
+                    conditions.add(new Condition(context.getString(R.string.title_rule_recipient),
+                            jcondition.getJSONObject("recipient").optString("value"),
+                            jcondition.getJSONObject("recipient").optBoolean("regex")));
                 if (jcondition.has("subject"))
-                    conditions.add(new Pair<>(context.getString(R.string.title_rule_subject),
-                            jcondition.getJSONObject("subject").optString("value")));
+                    conditions.add(new Condition(context.getString(R.string.title_rule_subject),
+                            jcondition.getJSONObject("subject").optString("value"),
+                            jcondition.getJSONObject("subject").optBoolean("regex")));
                 if (jcondition.optBoolean("attachments"))
-                    conditions.add(new Pair<>(context.getString(R.string.title_rule_attachments),
-                            null));
+                    conditions.add(new Condition(context.getString(R.string.title_rule_attachments),
+                            null, null));
                 if (jcondition.has("header"))
-                    conditions.add(new Pair<>(context.getString(R.string.title_rule_header),
-                            jcondition.getJSONObject("header").optString("value")));
+                    conditions.add(new Condition(context.getString(R.string.title_rule_header),
+                            jcondition.getJSONObject("header").optString("value"),
+                            jcondition.getJSONObject("header").optBoolean("regex")));
                 if (jcondition.has("body"))
-                    conditions.add(new Pair<>(context.getString(R.string.title_rule_body),
-                            jcondition.getJSONObject("body").optString("value")));
+                    conditions.add(new Condition(context.getString(R.string.title_rule_body),
+                            jcondition.getJSONObject("body").optString("value"),
+                            jcondition.getJSONObject("body").optBoolean("regex")));
                 if (jcondition.has("date"))
-                    conditions.add(new Pair<>(context.getString(R.string.title_rule_time_abs),
-                            null));
+                    conditions.add(new Condition(context.getString(R.string.title_rule_time_abs),
+                            null, null));
                 if (jcondition.has("schedule"))
-                    conditions.add(new Pair<>(context.getString(R.string.title_rule_time_rel),
-                            null));
+                    conditions.add(new Condition(context.getString(R.string.title_rule_time_rel),
+                            null, null));
 
                 SpannableStringBuilder ssb = new SpannableStringBuilderEx();
-                for (Pair<String, String> condition : conditions) {
+                for (Condition condition : conditions) {
                     if (ssb.length() > 0)
                         ssb.append("\n");
-                    ssb.append(condition.first);
-                    if (!TextUtils.isEmpty(condition.second)) {
+                    ssb.append(condition.name);
+                    if (!TextUtils.isEmpty(condition.condition)) {
                         ssb.append(" \"");
                         int start = ssb.length();
-                        ssb.append(condition.second);
+                        ssb.append(condition.condition);
                         ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), 0);
                         ssb.append("\"");
+                        if (Boolean.TRUE.equals(condition.regex))
+                            ssb.append(" (*)");
                     }
                 }
 
@@ -507,6 +514,18 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     return R.string.title_rule_sound;
                 default:
                     throw new IllegalArgumentException("Unknown action type=" + type);
+            }
+        }
+
+        private class Condition {
+            private final String name;
+            private final String condition;
+            private final Boolean regex;
+
+            Condition(String name, String condition, Boolean regex) {
+                this.name = name;
+                this.condition = condition;
+                this.regex = regex;
             }
         }
     }
