@@ -2,6 +2,17 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
+
+### Next version
+
+* Added option to add signature to first reply only
+* Added option to hide folders with all read messages (start screen only)
+* Fixed memory leaks
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
 
 ### 1.1875 - 2022-04-13
