@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="false"
-    android:descendantFocusability="beforeDescendants"
+    android:descendantFocusability="blocksDescendants"
     android:focusable="true"
     android:focusableInTouchMode="true">
 
