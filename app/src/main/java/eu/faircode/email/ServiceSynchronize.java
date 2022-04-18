@@ -74,8 +74,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Folder;
@@ -2321,7 +2323,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     Log.i(account.name + " stop watching operations");
                     final TwoStateOwner _owner = cowner.value;
                     if (_owner != null) {
-                        cowner.value = null;
+                        final CountDownLatch latch = new CountDownLatch(1);
                         getMainHandler().post(new RunnableEx("observe#stop") {
                             @Override
                             public void delegate() {
@@ -2329,9 +2331,17 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     _owner.destroy();
                                 } catch (Throwable ex) {
                                     Log.e(ex);
+                                } finally {
+                                    latch.countDown();
                                 }
                             }
                         });
+
+                        try {
+                            latch.await(5000L, TimeUnit.MILLISECONDS);
+                        } catch (InterruptedException ex) {
+                            Log.w(ex);
+                        }
                     }
 
                     // Stop executing operations
