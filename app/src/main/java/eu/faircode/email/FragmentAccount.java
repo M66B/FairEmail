@@ -1763,7 +1763,7 @@ public class FragmentAccount extends FragmentBase {
                                 scroll.smoothScrollTo(0, (save ? btnSave : btnCheck).getBottom());
                             }
                         });
-                        if (save)
+                        if (save || !cbSynchronize.isChecked())
                             onSave(false);
                         else
                             onCheck();
