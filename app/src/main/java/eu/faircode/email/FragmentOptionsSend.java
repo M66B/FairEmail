@@ -62,6 +62,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSuggestFrequently;
     private Button btnLocalContacts;
     private Button btnBlockedSenders;
+    private SwitchCompat swAutoIdentity;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swPrefixCount;
     private RadioGroup rgRe;
@@ -102,7 +103,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "keyboard_no_fullscreen",
-            "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently",
+            "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently", "auto_identity",
             "alt_re", "alt_fwd",
             "send_reminders", "send_chips", "send_delayed",
             "attach_new", "answer_action", "send_pending", "sound_sent",
@@ -131,6 +132,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestFrequently = view.findViewById(R.id.swSuggestFrequently);
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         btnBlockedSenders = view.findViewById(R.id.btnBlockedSenders);
+        swAutoIdentity = view.findViewById(R.id.swAutoIdentity);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swPrefixCount = view.findViewById(R.id.swPrefixCount);
         rgRe = view.findViewById(R.id.rgRe);
@@ -249,6 +251,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS)
                         .putExtra("junk", true));
+            }
+        });
+
+        swAutoIdentity.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auto_identity", checked).apply();
+                swPrefixCount.setEnabled(checked);
             }
         });
 
@@ -607,6 +617,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
         swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
         swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
+        swAutoIdentity.setChecked(prefs.getBoolean("auto_identity", true));
 
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
         swPrefixCount.setChecked(prefs.getBoolean("prefix_count", false));

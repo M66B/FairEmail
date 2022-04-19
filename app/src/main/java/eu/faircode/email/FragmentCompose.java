@@ -1293,9 +1293,13 @@ public class FragmentCompose extends FragmentBase {
             protected Long onExecute(Context context, Bundle args) throws Throwable {
                 String email = args.getString("email");
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean auto_identity = prefs.getBoolean("auto_identity", true);
                 boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
                 boolean suggest_received = prefs.getBoolean("suggest_received", false);
+
+                if (!auto_identity)
+                    return null;
 
                 List<Integer> types = new ArrayList<>();
                 if (suggest_sent)

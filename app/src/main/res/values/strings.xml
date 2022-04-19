@@ -395,6 +395,7 @@
     <string name="title_advanced_send_pending">Show non-obtrusive send delayed icon</string>
 
     <string name="title_advanced_compose_font">Default font</string>
+    <string name="title_advanced_auto_identity">Automatically select identities for new messages</string>
     <string name="title_advanced_prefix_once">Prefix subject only once on replying or forwarding</string>
     <string name="title_advanced_prefix_count">Add count to reply prefix</string>
     <string name="title_advanced_separate_reply">Insert a horizontal line before a reply/forward header</string>
@@ -787,6 +788,7 @@
 
     <string name="title_advanced_suggest_names_hint">If disabled, only email addresses will be used when selecting contacts</string>
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
+    <string name="title_advanced_auto_identity_hint">This will select the last identity used for the first recipient of new messages</string>
     <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>
     <string name="title_advanced_reply_move_hint">The email server could still add the messages to the sent message folder</string>
     <string name="title_advanced_usenet_hint">Insert \'-- \' between the text and the signature</string>
