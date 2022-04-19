@@ -6,6 +6,7 @@
 
 ### Next version
 
+* Added auto select same identity for same recipient for new messages
 * Added option to add signature to first reply only
 * Added option to hide folders with all read messages (start screen only)
 * Fixed memory leaks
