@@ -330,6 +330,7 @@
     <string name="title_advanced_signature_location">署名の位置</string>
     <string name="title_advanced_signature_new">新しいメッセージに署名を使用</string>
     <string name="title_advanced_signature_reply">返信に署名を使用</string>
+    <string name="title_advanced_signature_reply_once">最初の返信のみ</string>
     <string name="title_advanced_signature_forward">転送に署名を使用</string>
     <string name="title_advanced_discard_delete">下書きを破棄するときに下書きを完全に削除</string>
     <string name="title_advanced_reply_move">メッセージに返信したときに返信を同じフォルダーに保存</string>
@@ -619,6 +620,7 @@
     <string name="title_advanced_check_reply_hint">差出人のドメイン名と返信先アドレスのドメイン名が同じかどうかを確認します</string>
     <string name="title_advanced_lookup_mx_hint">DNS MX レコードが存在するかどうかを確認します</string>
     <string name="title_advanced_sync_delay_hint">メッセージの同期が遅くなります</string>
+    <string name="title_advanced_folder_nav_hint">常にメッセージリストから関連するアカウントのフォルダーリストに戻ります</string>
     <string name="title_advanced_suggest_names_hint">無効にすると、連絡先を選択する際にメールアドレスのみが使用されます</string>
     <string name="title_advanced_suggest_local_hint">Android のローカル連絡先を追加します。有効にすると、新しく送受信されたメッセージの連絡先データが保存されます。</string>
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
@@ -821,6 +823,7 @@
     <string name="title_synchronize_more_hint2">        メッセージはメールサーバーの配信と同時にフェッチされ、デバイスに可及的速やかに保存・インデックスされます。
         デバイスの内部ストレージの速度はしばしば制約となります。
     </string>
+    <string name="title_synchronize_more_hint3">多くのメッセージ（1 万通以上）をデバイスに保存すると、内部ストレージ容量の制約により遅延を引き起こす可能性がありますのでご注意ください。</string>
     <string name="title_synchronize_enabled">同期</string>
     <string name="title_synchronize_batch_enable">同期を有効にする</string>
     <string name="title_synchronize_batch_disable">同期を無効にする</string>
@@ -875,6 +878,7 @@
     <string name="title_apply_to_all">すべてに適用</string>
     <string name="title_edit_account_name">アカウント名を編集</string>
     <string name="title_hide_folder">フォルダーを非表示</string>
+    <string name="title_hide_seen_folder_hint">スタート画面に表示されるフォルダ一覧にのみ表示されます</string>
     <string name="title_unified_folder">統合受信トレイに表示</string>
     <string name="title_navigation_folder">ナビゲーションメニューに表示</string>
     <string name="title_synchronize_folder">同期 (メッセージを受信)</string>
@@ -1850,10 +1854,10 @@
         <item>未ブロック</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Any</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
-        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">ワーク</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">その他</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
+        <item>すべて</item>
+        <item>家</item>
+        <item>仕事</item>
+        <item>その他</item>
+        <item>携帯</item>
     </string-array>
 </resources>

@@ -648,6 +648,7 @@
     <string name="title_advanced_check_reply_hint">Spowoduje to sprawdzenie, czy nazwa domeny nadawcy i adres odpowiedzi są takie same</string>
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
     <string name="title_advanced_sync_delay_hint">Wydłuży to synchronizację wiadomości</string>
+    <string name="title_advanced_folder_nav_hint">Spowoduje to zawsze powrót z listy wiadomości do listy folderów powiązanego konta</string>
     <string name="title_advanced_suggest_names_hint">Jeśli wyłączone, tylko adresy e-mail będą używane podczas wybierania kontaktów</string>
     <string name="title_advanced_suggest_local_hint">Oprócz kontaktów dostarczanych przez Androida. Dane kontaktowe będą przechowywane dla nowo wysłanych lub odebranych wiadomości tylko kiedy włączone.</string>
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
@@ -850,6 +851,7 @@
     <string name="title_synchronize_more_hint2">        Wiadomości będą pobierane tak szybko, jak serwer poczty e-mail może je dostarczyć i przechowywane tak szybko, jak urządzenie może je przechowywać oraz indeksować.
         Czynnikiem ograniczającym jest zwykle szybkość wewnętrznej pamięci urządzenia.
     </string>
+    <string name="title_synchronize_more_hint3">Należy pamiętać, że przechowywanie dużej liczby wiadomości (10 tysięcy lub więcej) na Twoim urządzeniu może powodować opóźnienia, ponieważ wewnętrzna pamięć masowa nie jest nieskończenie szybka.</string>
     <string name="title_synchronize_enabled">Synchronizuj</string>
     <string name="title_synchronize_batch_enable">Włącz synchronizację</string>
     <string name="title_synchronize_batch_disable">Wyłącz synchronizację</string>
@@ -1878,10 +1880,10 @@
         <item>Niezablokowany</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Dowolny</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Domowy</item>
-        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Praca</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Inne</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Komórkowy</item>
+        <item>Dowolny</item>
+        <item>Domowy</item>
+        <item>Praca</item>
+        <item>Inne</item>
+        <item>Komórkowy</item>
     </string-array>
 </resources>

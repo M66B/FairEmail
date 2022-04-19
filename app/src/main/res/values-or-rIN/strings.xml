@@ -104,6 +104,7 @@
     <string name="title_setup_inbox">ଇନବକ୍ସ କୁ ଯାଆନ୍ତୁ</string>
     <string name="title_setup_done">ହୋଇଗଲା</string>
     <string name="title_setup_error">ତ୍ରୁଟି</string>
+    <string name="title_setup_pop">POP3 ବ୍ୟବହାର କରିବା (ସୁପାରିଶ କରୁନାହୁଁ)</string>
     <string name="title_setup_configuring">ଆକାଉଣ୍ଟ୍ ବିନ୍ୟାସ କରୁଅଛି &#8230;</string>
     <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‍ୱାର୍ଡ଼ ବ୍ୟବହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
     <string name="title_setup_extra">ଅତିରିକ୍ତ</string>
@@ -184,7 +185,8 @@
     <string name="title_advanced_answer_action">ଉତ୍ତର ବଟନ୍ ଉପରେ ଦୀର୍ଘ ପ୍ରେସ୍ କଲେ:</string>
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
     <string name="title_advanced_prefix_count">ପ୍ରତ୍ୟୁତ୍ତର ଉପସର୍ଗ ରେ ଗଣନା ଯୋଡ଼ନ୍ତୁ</string>
-    <string name="title_advanced_reply_move">ଏକ ବାର୍ତ୍ତାକୁ ପ୍ରତ୍ୟୁତ୍ତର ଦେବା ପରେ, ସମାନ ଫୋଲ୍ଡରରେ ପ୍ରତ୍ୟୁତ୍ତର ସଞ୍ଚୟ କରନ୍ତୁ</string>
+    <string name="title_advanced_signature_reply_once">କେବଳ ପ୍ରଥମ ପ୍ରତ୍ୟୁତ୍ତର ପାଇଁ</string>
+    <string name="title_advanced_reply_move">ଗୋଟେ ବାର୍ତ୍ତାର ପ୍ରତ୍ୟୁତ୍ତର ଦେବା ପରେ, ସେହି ଫୋଲ୍ଡରରେ ପ୍ରତ୍ୟୁତ୍ତରଟି ସଞ୍ଚୟ କରନ୍ତୁ</string>
     <string name="title_advanced_receipt">ଏକ ରସିଦ ଅନୁରୋଧ କରିବା ସମୟରେ</string>
     <string name="title_advanced_download_plain">ଡିଫଲ୍ଟ ଭାବେ କେବଳ ସାଧା ପାଠ୍ୟ ଥିବା ଅଂଶଗୁଡ଼ିକୁ ଡାଉନଲୋଡ୍ କରିବା (ଯଦି ଉପଲବ୍ଧ ଥାଏ)</string>
     <string name="title_advanced_cert_strict">କଠୋର ସାର୍ଟିଫିକେଟ୍ ଯାଞ୍ଚ</string>
@@ -198,7 +200,7 @@
     <string name="title_advanced_column_width">ବାର୍ତ୍ତା ସ୍ତମ୍ଭର ପ୍ରସ୍ଥ: %1$s %%</string>
     <string name="title_advanced_nav_categories">ନାଭିଗେସନ୍ ମେନୁରେ ଆକାଉଣ୍ଟ୍ ବର୍ଗଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_nav_pinned_count">ପିନ୍ ହୋଇଥିବା ନେଭିଗେସନ୍ ମେନୁରେ ପଢ଼ିନଥିବା ବାର୍ତ୍ତାଗୁଡ଼ିକର ସଂଖ୍ୟା ଦେଖାନ୍ତୁ</string>
-    <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାନ୍ତୁ</string>
+    <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାଅ</string>
     <string name="title_advanced_cards">ଟାବୁଲାର୍ ଶୈଳୀ ପରିବର୍ତ୍ତେ କାର୍ଡ଼ ଶୈଳୀ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_cards_beige">କାର୍ଡ଼ ଶୈଳୀ ବ୍ୟବହାର କଲାବେଳେ ବେଜ୍ ପୃଷ୍ଠପଟ ବ୍ୟବହାର କରିବା (କେବଳ ହାଲୁକା ଥିମ୍ ପାଇଁ ପ୍ରଯୁଜ୍ୟ)</string>
     <string name="title_advanced_tabular_background">ଟାବୁଲାର୍ ଶୈଳୀ ବ୍ୟବହାର କଲାବେଳେ କାର୍ଡ଼ ରଙ୍ଗକୁ ପୃଷ୍ଠପଟ ରଙ୍ଗ ଭାବେ ବ୍ୟବହାର କରିବା</string>
@@ -229,7 +231,7 @@
     <string name="title_advanced_conversation_actions_replies">ପ୍ରତ୍ୟୁତ୍ତର ପାଠ୍ୟ ପରାମର୍ଶ ଦିଅନ୍ତୁ (ଆଣ୍ଡ୍ରଏଡ୍ 10+)</string>
     <string name="title_advanced_pull_refresh">ସତେଜ କରିବାକୁ ତଳକୁ ଟାଣନ୍ତୁ</string>
     <string name="title_advanced_undo">ପୂର୍ବବତ୍ ସମୟ ଶେଷ</string>
-    <string name="title_advanced_folder_nav">ଏକ ବାର୍ତ୍ତା ତାଲିକାରୁ ସର୍ବଦା ଫୋଲ୍ଡର ତାଲିକାକୁ ଫେରିବା</string>
+    <string name="title_advanced_folder_nav">ଗୋଟେ ବାର୍ତ୍ତା ତାଲିକାରୁ ସର୍ବଦା ଫୋଲ୍ଡର ତାଲିକାକୁ ଫେରିବା</string>
     <string name="title_advanced_swipe_reply">ପ୍ରତ୍ୟୁତ୍ତର ଦେବା ପାଇଁ ସମ୍ପ୍ରସାରିତ ବାର୍ତ୍ତାଗୁଡ଼ିକ ଡାହାଣକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_default_snooze">ଡିଫଲ୍ଟ ସ୍ନୁଜ୍/ବିଳମ୍ବ ସମୟ</string>
     <string name="title_advanced_notify_preview_all">ସମସ୍ତ ପାଠ୍ୟକୁ ପୂର୍ବାବଲୋକନ କରନ୍ତୁ</string>
@@ -269,6 +271,7 @@
     <string name="title_advanced_more">ଅଧିକ ବିକଳ୍ପ</string>
     <string name="title_advanced_poll_battery">ଏହା ଅଧିକ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ର କାରଣ ହୋଇପାରେ!</string>
     <string name="title_advanced_subject_threading_hint">କେବଳ %1$d ଘଣ୍ଟା ମଧ୍ୟରେ ପ୍ରାପ୍ତ ହୋଇଥିବା ବାର୍ତ୍ତାଗୁଡ଼ିକ</string>
+    <string name="title_advanced_folder_nav_hint">ଏହା ସର୍ବଦା ଗୋଟେ ବାର୍ତ୍ତା ତାଲିକାରୁ ସମ୍ବନ୍ଧୀୟ ଆକାଉଣ୍ଟର ଫୋଲ୍ଡର୍ ତାଲିକାକୁ ଫେରିବ</string>
     <string name="title_advanced_remove_signature_hint">ଏହା ଫଳରେ ବହୁତ କମ୍ କିମ୍ୱା ଅତ୍ୟଧିକ ପାଠ୍ୟ ଅପସାରଣ ହୋଇପାରେ</string>
     <string name="title_advanced_plain_hint">ଏହାକୁ ସକ୍ଷମ କରିବା ଦ୍ୱାରା ଡାଟା ବ୍ୟବହାର ସୀମିତ ହେବ, କିନ୍ତୁ ଶୈଳିକରଣ ବିନା ବାର୍ତ୍ତା ଦେଖାଯିବ</string>
     <string name="title_advanced_cert_strict_hint">ଏହା ଅକ୍ଷମ କରିବା ଦ୍ୱାରା ସର୍ଭର୍ ସାର୍ଟିଫିକେଟ୍ ଯାଞ୍ଚ କରିବା କୋହଳ ହେବ</string>
@@ -357,6 +360,7 @@
     <string name="title_search_folder">ଫୋଲ୍ଡର୍ ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="title_edit_account_name">ଆକାଉଣ୍ଟ୍ ନାମ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_hide_folder">ଫୋଲ୍ଡର୍ ଲୁଚାନ୍ତୁ</string>
+    <string name="title_hide_seen_folder">ଯଦି ସବୁ ବାର୍ତ୍ତା ପଠନ କରାଯାଏ ତେବେ ଫୋଲ୍ଡର୍ ଲୁଚାଅ</string>
     <string name="title_auto_classify_target">ସ୍ୱତଃସ୍ପୃତ ଭାବେ ବର୍ଗୀକୃତ ବାର୍ତ୍ତାଗୁଡ଼ିକ ଏହି ଫୋଲ୍ଡରକୁ ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_folder_name_missing">ଫୋଲ୍ଡର୍ ନାମ ନିଖୋଜ</string>
     <string name="title_months">ମାସ</string>
@@ -502,8 +506,8 @@
     <string name="title_previous">ପୂର୍ବବର୍ତ୍ତୀ</string>
     <string name="title_next">ପରବର୍ତ୍ତୀ</string>
     <string name="title_edit_signature_image">ପ୍ରତିଛବି ସନ୍ନିବେଶ କର</string>
-    <string name="title_edit_signature_image_hint">        ଏକ ବାର୍ତ୍ତା ପଠାଇବାବେଳେ, ପ୍ରତିଛବି ମନୋନୀତ ସ୍ଥାନରୁ ସନ୍ଦେଶରେ କପି କରାଯାଇଥାଏ।
-        ତେଣୁ, ପ୍ରତିଛବିର ଫାଇଲକୁ ବିଲୋପ କରନ୍ତୁ ନାହିଁ!
+    <string name="title_edit_signature_image_hint">        ଗୋଟିଏ ବାର୍ତ୍ତା ପଠାଇବାବେଳେ, ପ୍ରତିଛବି ମନୋନୀତ ସ୍ଥାନରୁ ସନ୍ଦେଶରେ କପି କରାଯାଇଥାଏ।
+        ତେଣୁ, ପ୍ରତିଛବିର ଫାଇଲକୁ ବିଲୋପ କରନ୍ତୁନି!
     </string>
     <string name="title_answer_caption">ଟେମ୍ପଲେଟ୍ ସମ୍ପାଦନା</string>
     <string name="title_answer_reply">ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟ୍</string>
@@ -606,6 +610,7 @@
     <string name="title_accessibility_seen">ପଠିତ</string>
     <string name="title_accessibility_unseen">ଅପଠିତ</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label2">କର୍ମସ୍ଥଳ</string>
     <string name="title_accessibility_flagged">ତାରାଙ୍କିତ</string>
     <string name="title_accessibility_collapse">ସଙ୍କୋଚନ</string>
     <string name="title_accessibility_expand">ପ୍ରସାରଣ</string>
@@ -761,10 +766,10 @@
         <item>ବ୍ଲକ୍ ହୋଇନାହିଁ</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">ଯେକୌଣସି</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">ଘରପରିବାର</item>
-        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">କର୍ମସ୍ଥଳ</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">ଅନ୍ୟ</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">ମୋବାଇଲ୍</item>
+        <item>ଯେକୌଣସି</item>
+        <item>ଘରପରିବାର</item>
+        <item>କର୍ମସ୍ଥଳ</item>
+        <item>ଅନ୍ୟ</item>
+        <item>ମୋବାଇଲ୍</item>
     </string-array>
 </resources>

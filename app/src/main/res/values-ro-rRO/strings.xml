@@ -213,6 +213,7 @@
     <string name="title_setup_done">Gata</string>
     <string name="title_setup_still">Încă de făcut</string>
     <string name="title_setup_error">Eroare</string>
+    <string name="title_setup_pop">Utilizați POP3 (nerecomandat)</string>
     <string name="title_setup_configuring">Configurare cont &#8230;</string>
     <string name="title_setup_app_password">Este posibil să fie nevoie să folosiți o parolă de aplicație</string>
     <string name="title_setup_extra">Suplimentar</string>
@@ -349,6 +350,7 @@
     <string name="title_advanced_signature_location">Poziție semnătură</string>
     <string name="title_advanced_signature_new">Utilizați semnătura pentru mesajele noi</string>
     <string name="title_advanced_signature_reply">Utilizați semnătura la răspuns</string>
+    <string name="title_advanced_signature_reply_once">Doar pentru primul răspuns</string>
     <string name="title_advanced_signature_forward">Utilizați semnătura la redirecționare</string>
     <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>
     <string name="title_advanced_reply_move">Când răspundeți la un mesaj, salvați răspunsul în același dosar</string>
@@ -638,6 +640,7 @@
     <string name="title_advanced_check_reply_hint">Acest lucru va verifica dacă numele de domeniu al expeditorului și adresa de răspuns sunt aceleași</string>
     <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>
+    <string name="title_advanced_folder_nav_hint">Se va reveni întotdeauna la lista de dosare a contului asociat dintr-o listă de mesaje</string>
     <string name="title_advanced_suggest_names_hint">Dacă este dezactivată, numai adresele de e-mail vor fi folosite la selectarea contactelor</string>
     <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android. Datele contactelor vor fi memorate pentru mesajele nou trimise sau primite doar când este activată.</string>
     <string name="title_advanced_send_reminders_hint">Arată o avertizare atunci când textul mesajului sau subiectul e gol sau când atașamentul s-ar putea să lipsească</string>
@@ -840,6 +843,7 @@
     <string name="title_synchronize_more_hint2">        Mesajele vor fi preluate atât de repede cât le poate livra serverul de e-mail și stocate atât de repede cât le poate stoca și indexa dispozitivul.
         Factorul limitativ este, de obicei, viteza spațiului de stocare intern al dispozitivului.
     </string>
+    <string name="title_synchronize_more_hint3">Vă rugăm să reţineţi că stocarea multor mesaje (zece mii sau mai mult) pe dispozitivul dumneavoastră poate provoca întârzieri, deoarece spaţiul de stocare intern nu este infinit de rapid.</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
     <string name="title_synchronize_batch_enable">Activează sincronizarea</string>
     <string name="title_synchronize_batch_disable">Dezactivează sincronizarea</string>
@@ -894,6 +898,7 @@
     <string name="title_apply_to_all">Aplică la toate</string>
     <string name="title_edit_account_name">Editează numele contului</string>
     <string name="title_hide_folder">Ascunde dosar</string>
+    <string name="title_hide_seen_folder_hint">Numai în lista de dosare afișată pe ecranul de pornire</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_navigation_folder">Arată în meniul de navigație</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
@@ -1867,10 +1872,10 @@
         <item>Nu este blocat</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Oricare</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
-        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Serviciu</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Altele</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
+        <item>Oricare</item>
+        <item>Acasă</item>
+        <item>Serviciu</item>
+        <item>Altele</item>
+        <item>Mobil</item>
     </string-array>
 </resources>

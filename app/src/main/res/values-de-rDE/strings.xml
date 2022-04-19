@@ -202,6 +202,7 @@
     <string name="title_setup_done">Fertig</string>
     <string name="title_setup_still">Noch zu tun</string>
     <string name="title_setup_error">Fehler</string>
+    <string name="title_setup_pop">POP3 verwenden (nicht empfohlen)</string>
     <string name="title_setup_configuring">Konto wird konfiguriert &#8230;</string>
     <string name="title_setup_app_password">Möglicherweise müssen Sie ein App-Passwort verwenden</string>
     <string name="title_setup_extra">Extra</string>
@@ -338,6 +339,7 @@
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_new">Signatur für neue Nachrichten verwenden</string>
     <string name="title_advanced_signature_reply">Signatur beim Antworten verwenden</string>
+    <string name="title_advanced_signature_reply_once">Nur bei der ersten Antwort (in einer Unterhaltung)</string>
     <string name="title_advanced_signature_forward">Signatur beim Weiterleiten hinzufügen</string>
     <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>
     <string name="title_advanced_reply_move">Beim Antworten auf eine Nachricht die Antwort im selben Ordner speichern</string>
@@ -627,6 +629,7 @@
     <string name="title_advanced_check_reply_hint">Überprüft, ob die Domain des Absenders und der Antwort-An-Adresse gleich sind</string>
     <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS-MX-Einträge vorhanden sind</string>
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
+    <string name="title_advanced_folder_nav_hint">Damit kehren Sie von einer Nachrichtenliste immer zur Ordnerliste des betreffenden Kontos zurück.</string>
     <string name="title_advanced_suggest_names_hint">Wenn deaktiviert, werden nur E-Mail-Adressen bei der Auswahl von Kontakten verwendet</string>
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
     <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
@@ -829,6 +832,7 @@
     <string name="title_synchronize_more_hint2">        Nachrichten werden so schnell abgerufen, wie der E-Mail-Server sie ausliefern, und so schnell gespeichert, wie das Gerät sie speichern kann.
         Der beschränkende Faktor ist normalerweise die Geschwindigkeit des internen Speicherplatzes des Gerätes.
     </string>
+    <string name="title_synchronize_more_hint3">Bitte bedenken Sie, dass das Speichern vieler Nachrichten (zehntausend oder mehr) auf Ihrem Gerät zu Verzögerungen führen kann, da der interne Speicherplatz nicht unendlich schnell ist.</string>
     <string name="title_synchronize_enabled">Synchronisieren</string>
     <string name="title_synchronize_batch_enable">Synchronisation aktivieren</string>
     <string name="title_synchronize_batch_disable">Synchronisierung deaktivieren</string>
@@ -883,6 +887,7 @@
     <string name="title_apply_to_all">Für alle übernehmen</string>
     <string name="title_edit_account_name">Kontoname ändern</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
+    <string name="title_hide_seen_folder_hint">Nur in der auf dem Startbildschirm angezeigten Ordnerliste</string>
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_navigation_folder">Im Navigationsmenü anzeigen</string>
     <string name="title_synchronize_folder">Synchronisieren (E-Mails empfangen)</string>
@@ -1855,10 +1860,10 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>Nicht blockiert</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Beliebig(e)</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Privat</item>
-        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Arbeit</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Andere</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobil</item>
+        <item>Beliebig(e)</item>
+        <item>Privat</item>
+        <item>Arbeit</item>
+        <item>Andere</item>
+        <item>Mobil</item>
     </string-array>
 </resources>

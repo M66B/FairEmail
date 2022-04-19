@@ -203,6 +203,7 @@
     <string name="title_setup_done">Έγινε</string>
     <string name="title_setup_still">Απομένουν να γίνουν</string>
     <string name="title_setup_error">Σφάλμα</string>
+    <string name="title_setup_pop">Χρήση POP3 (δεν συνιστάται)</string>
     <string name="title_setup_configuring">Ρύθμιση λογαριασμού &#8230;</string>
     <string name="title_setup_app_password">Ίσως χρειαστεί να χρησιμοποιήσετε έναν κωδικό πρόσβασης εφαρμογής</string>
     <string name="title_setup_extra">Επιπλέον επιλογές</string>
@@ -339,6 +340,7 @@
     <string name="title_advanced_signature_location">Θέση της υπογραφής</string>
     <string name="title_advanced_signature_new">Χρήση υπογραφής για νέα μηνύματα</string>
     <string name="title_advanced_signature_reply">Χρήση υπογραφής κατά την απάντηση</string>
+    <string name="title_advanced_signature_reply_once">Μόνο για την πρώτη απάντηση</string>
     <string name="title_advanced_signature_forward">Χρήση υπογραφής κατά την προώθηση</string>
     <string name="title_advanced_discard_delete">Οριστική διαγραφή ενός προσχεδίου όταν αυτό απορρίπτεται</string>
     <string name="title_advanced_reply_move">Κατά την απάντηση ενός μηνύματος, να αποθηκεύεται η απάντηση μέσα στον ίδιο φάκελο</string>
@@ -626,6 +628,7 @@
     <string name="title_advanced_check_reply_hint">Ελέγχει αν το το όνομα τομέα του αποστολέα και η διεύθυνση απάντησης είναι ίδια</string>
     <string name="title_advanced_lookup_mx_hint">Ελέγχει αν υπάρχουν καταγραφές DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Η επιλογή αυτή θα επιβραδύνει τον συγχρονισμό των μηνυμάτων</string>
+    <string name="title_advanced_folder_nav_hint">Έτσι, θα επιστρέφετε πάντα από μια λίστα μηνυμάτων στη λίστα φακέλων του σχετικού λογαριασμού</string>
     <string name="title_advanced_suggest_names_hint">Εάν απενεργοποιηθεί, θα χρησιμοποιούνται μόνο διευθύνσεις ηλ. ταχυδρομείου κατά την επιλογή επαφών</string>
     <string name="title_advanced_suggest_local_hint">Επιπρόσθετα στις παρεχόμενες από το Android επαφές, θα αποθηκεύονται πληροφορίες επαφών για πρόσφατα απεσταλμένα ή ειλημμένα μηνύματα, μόνον εφόσον οι σχετικές δυνατότητες έχουν ενεργοποιηθεί.</string>
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
@@ -828,6 +831,7 @@
     <string name="title_synchronize_more_hint2">        Τα μηνύματα θα ανακτώνται τόσο γρήγορα όσο ο διακομιστής ηλ. ταχυδρομείου μπορεί να τα παραδίδει, και θα αποθηκεύονται τόσο γρήγορα όσο η συσκευή μπορεί να τα αποθηκεύει και να τα ευρετηριάζει.
         Ο περιοριστικός παράγοντας συνήθως είναι η ταχύτητα του εσωτερικού χώρου αποθήκευσης της συσκευής.
     </string>
+    <string name="title_synchronize_more_hint3">Παρακαλούμε, λάβετε υπόψη ότι η αποθήκευση πολλών μηνυμάτων (δέκα χιλιάδων ή περισσότερων) στη συσκευή σας, ενδέχεται να προκαλέσει καθυστερήσεις, καθώς ο εσωτερικός χώρος αποθήκευσης δεν έχει απεριόριστη ταχύτητα.</string>
     <string name="title_synchronize_enabled">Συγχρονισμός</string>
     <string name="title_synchronize_batch_enable">Ενεργοποίηση συγχρονισμού</string>
     <string name="title_synchronize_batch_disable">Απενεργοποίηση συγχρονισμού</string>
@@ -882,6 +886,8 @@
     <string name="title_apply_to_all">Εφαρμογή σε όλα</string>
     <string name="title_edit_account_name">Επεξεργασία ονόματος λογαριασμού</string>
     <string name="title_hide_folder">Απόκρυψη φακέλου</string>
+    <string name="title_hide_seen_folder">Απόκρυψη φακέλου, εφόσον όλα τα μηνύματα έχουν διαβαστεί</string>
+    <string name="title_hide_seen_folder_hint">Μόνο για τη λίστα φακέλων που εμφανίζεται στην οθόνη έναρξης</string>
     <string name="title_unified_folder">Προβολή στα ενοποιημένα εισερχόμενα</string>
     <string name="title_navigation_folder">Προβολή στο μενού πλοήγησης</string>
     <string name="title_synchronize_folder">Συγχρονισμός (λήψη μηνυμάτων)</string>
@@ -1854,10 +1860,10 @@
         <item>Μη αποκλεισμένος</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Όλες</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Οικία</item>
-        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Εργασία</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Άλλες</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Κινητό</item>
+        <item>Όλες</item>
+        <item>Οικία</item>
+        <item>Εργασία</item>
+        <item>Άλλες</item>
+        <item>Κινητό</item>
     </string-array>
 </resources>

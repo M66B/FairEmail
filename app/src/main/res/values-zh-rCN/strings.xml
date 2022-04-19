@@ -193,6 +193,7 @@
     <string name="title_setup_done">完成</string>
     <string name="title_setup_still">仍待处理</string>
     <string name="title_setup_error">出错</string>
+    <string name="title_setup_pop">使用 POP3（不推荐）</string>
     <string name="title_setup_configuring">正在配置账户 &#8230;</string>
     <string name="title_setup_app_password">您可能需要使用 app 密码</string>
     <string name="title_setup_extra">更多</string>
@@ -329,6 +330,7 @@
     <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_new">为新消息使用签名</string>
     <string name="title_advanced_signature_reply">回复时使用签名</string>
+    <string name="title_advanced_signature_reply_once">仅用于第一次回复</string>
     <string name="title_advanced_signature_forward">转发时使用签名</string>
     <string name="title_advanced_discard_delete">舍弃草稿时将其永久删除</string>
     <string name="title_advanced_reply_move">回复邮件时，将回复保存在相同文件夹中</string>
@@ -618,6 +620,7 @@
     <string name="title_advanced_check_reply_hint">这会检查发送者的域名和回复地址是否相同</string>
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
+    <string name="title_advanced_folder_nav_hint">这将总是从邮件列表返回到相关帐户的文件夹列表</string>
     <string name="title_advanced_suggest_names_hint">如果禁用，选择联系人时将只使用电子邮件地址</string>
     <string name="title_advanced_suggest_local_hint">这不包括 Android 提供的联系人。应用仅在此选项启用后存储新的接收或发送消息的联系人。</string>
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
@@ -819,6 +822,7 @@
     <string name="title_synchronize_more_hint">这只会导致一次旧消息的下载，因此它不会造成日常使用的更多电池消耗</string>
     <string name="title_synchronize_more_hint2">        邮件将以电子邮件服务器的传送速度被快速提取，并根据设备存储和索引能力尽快进行存储
         限制因素通常是设备内部存储的读写速度    </string>
+    <string name="title_synchronize_more_hint3">请记住，在设备上存储大量邮件（上万甚至更多）可能会导致延迟，因为内部存储空间不是无限快的</string>
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_synchronize_batch_enable">启用同步</string>
     <string name="title_synchronize_batch_disable">禁用同步</string>
@@ -873,6 +877,8 @@
     <string name="title_apply_to_all">应用到全部</string>
     <string name="title_edit_account_name">编辑账户名称</string>
     <string name="title_hide_folder">隐藏文件夹</string>
+    <string name="title_hide_seen_folder">隐藏所有邮件都已读的文件夹</string>
+    <string name="title_hide_seen_folder_hint">仅在开始屏幕上显示的文件夹列表</string>
     <string name="title_unified_folder">在聚合收件箱中显示</string>
     <string name="title_navigation_folder">在导航菜单中显示</string>
     <string name="title_synchronize_folder">同步(接收邮件)</string>
@@ -1842,10 +1848,10 @@
         <item>未屏蔽</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">任意一天</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
-        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">工作</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">其他</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
+        <item>任意一天</item>
+        <item>家</item>
+        <item>工作</item>
+        <item>其他</item>
+        <item>手机</item>
     </string-array>
 </resources>

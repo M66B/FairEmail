@@ -203,6 +203,7 @@
     <string name="title_setup_done">Feito</string>
     <string name="title_setup_still">Ainda por fazer</string>
     <string name="title_setup_error">Erro</string>
+    <string name="title_setup_pop">Usar POP3 (não recomendado)</string>
     <string name="title_setup_configuring">Configurando conta &#8230;</string>
     <string name="title_setup_app_password">Talvez seja necessário usar uma senha do app</string>
     <string name="title_setup_extra">Extra</string>
@@ -339,6 +340,7 @@
     <string name="title_advanced_signature_location">Posição da assinatura</string>
     <string name="title_advanced_signature_new">Usar assinatura para novas mensagens</string>
     <string name="title_advanced_signature_reply">Usar assinatura quando responder</string>
+    <string name="title_advanced_signature_reply_once">Somente para a primeira resposta</string>
     <string name="title_advanced_signature_forward">Usar assinatura quando encaminhar</string>
     <string name="title_advanced_discard_delete">No rascunho de descarte, excluir permanentemente o rascunho</string>
     <string name="title_advanced_reply_move">Ao responder a uma mensagem, salve a resposta na mesma pasta</string>
@@ -628,6 +630,7 @@
     <string name="title_advanced_check_reply_hint">Isto irá verificar se o nome do domínio do remetente e o endereço de resposta são os mesmos</string>
     <string name="title_advanced_lookup_mx_hint">Isto irá verificar se existem registros DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
+    <string name="title_advanced_folder_nav_hint">Isto sempre irá retornar para lista de pastas da conta relacionada de uma lista de mensagens</string>
     <string name="title_advanced_suggest_names_hint">Se desativado, somente endereços de email serão utilizados ao selecionar contatos</string>
     <string name="title_advanced_suggest_local_hint">Além dos contatos fornecidos pelo Android. Os dados de contato serão armazenados para novas mensagens enviadas ou recebidas somente quando ativados.</string>
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo puder estar ausente</string>
@@ -830,6 +833,7 @@
     <string name="title_synchronize_more_hint2">        As mensagens serão buscadas tão rápido quanto o servidor de e-mail pode entregá-las e armazenadas o mais rápido possível que o dispositivo possa armazená-las e indexá-las.
         O fator limitante é geralmente a velocidade do espaço de armazenamento interno do dispositivo.
     </string>
+    <string name="title_synchronize_more_hint3">Por favor, mantenha em mente que armazenar muitas mensagens (dezena de centenas ou mais) no seu dispositivo pode causar atrasos, porque o espaço do armazenamento interno não é infinitamente rápido.</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_synchronize_batch_enable">Habilitar sincronização</string>
     <string name="title_synchronize_batch_disable">Desativar sincronização</string>
@@ -884,6 +888,8 @@
     <string name="title_apply_to_all">Aplicar a todos</string>
     <string name="title_edit_account_name">Editar nome da conta</string>
     <string name="title_hide_folder">Ocultar pasta</string>
+    <string name="title_hide_seen_folder">Ocultar pasta se todas as mensagens estiverem lidas</string>
+    <string name="title_hide_seen_folder_hint">Somente na lista de pastas mostrada na tela inicial</string>
     <string name="title_unified_folder">Mostrar na caixa de entrada unificada</string>
     <string name="title_navigation_folder">Mostrar no menu de navegação</string>
     <string name="title_synchronize_folder">Sincronizar (receber mensagens)</string>
@@ -1857,10 +1863,10 @@
         <item>Não bloqueado</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Qualquer um</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Casa</item>
-        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Trabalho</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Outros</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Móvel</item>
+        <item>Qualquer um</item>
+        <item>Casa</item>
+        <item>Trabalho</item>
+        <item>Outros</item>
+        <item>Móvel</item>
     </string-array>
 </resources>

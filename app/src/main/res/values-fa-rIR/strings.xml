@@ -191,6 +191,7 @@
     <string name="title_setup_done">انجام شد</string>
     <string name="title_setup_still">هنوز باید انجام شود</string>
     <string name="title_setup_error">خطا</string>
+    <string name="title_setup_pop">استفاده از POP3 (توصیه نمی‌شود)</string>
     <string name="title_setup_configuring">در حال تنظیم حساب &#8230;</string>
     <string name="title_setup_app_password">شاید لازم باشد که از یک رمزعبور اپلیکیشن استفاده کنید</string>
     <string name="title_setup_extra">سایر</string>
@@ -304,6 +305,7 @@
     <string name="title_advanced_signature_location">موقعیت امضاء</string>
     <string name="title_advanced_signature_new">برای پیام‌های جدید از امضا استفاده کن</string>
     <string name="title_advanced_signature_reply">هنگام پاسخ از امضا استفاده کن</string>
+    <string name="title_advanced_signature_reply_once">تنها برای اولین پاسخ</string>
     <string name="title_advanced_signature_forward">هنگام هدایت کردن از امضا استفاده کن</string>
     <string name="title_advanced_discard_delete">هنگام دورانداختن پیش‌نویس، پیش‌نویس را برای همیشه حذف کن</string>
     <string name="title_advanced_auto_link">ایجاد خودکار لینک</string>
@@ -477,6 +479,7 @@
     <string name="title_advanced_schedule_hint">برای تنظیم زمان روی زمان ضربه بزنید</string>
     <string name="title_advanced_lookup_mx_hint">این بررسی خواهد کرد که آیا سابقه DNS MX وجود دارد</string>
     <string name="title_advanced_sync_delay_hint">این سرعت همگام‌سازی پیام‌ها را کاهش خواهد داد</string>
+    <string name="title_advanced_folder_nav_hint">این همیشه به فهرست پوشه‌ مرتبط با حساب از یک لیست پیام‌ برخواهد گشت</string>
     <string name="title_advanced_send_reminders_hint">هنگامی که موضوع یا متن پیام خالی است یا یک پیوست ممکن است وجود نداشته باشد، یک هشدار نشان بده</string>
     <string name="title_advanced_usenet_hint">بین متن و امضا \'-- \' درج کنید</string>
     <string name="title_advanced_metered_hint">اتصال‌های حجمی عموما شبکه‌های موبایل یا یک هات اسپات غیر رایگان می‌باشند</string>
@@ -574,6 +577,7 @@
     <string name="title_service_port">لطفا شماره درگاه را دوباره بررسی کنید</string>
     <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>
     <string name="title_synchronize_now">هم اکنون همگام سازی شود</string>
+    <string name="title_synchronize_more_hint3">لطفا به یاد داشته باشید که نگهداری تعداد بسیار زیادی (بیش از هزاران) پیام روی دستگاهتان می‌تواند موجب کندی شود زیرا فضای ذخیره‌سازی داخلی به طرز نامحدودی سریع نیست.</string>
     <string name="title_synchronize_enabled">همگام‌سازی</string>
     <string name="title_delete_local">حذف پیام های داخلی</string>
     <string name="title_delete_browsed">حذف پیام‌های مرور شده/جستجو شده</string>
@@ -602,6 +606,8 @@
     <string name="title_show_flagged">نمایش شمار پیام‌های ستاره‌دار</string>
     <string name="title_subscribed_only">تنها مشترک شده</string>
     <string name="title_hide_folder">پنهان‌سازی پوشه</string>
+    <string name="title_hide_seen_folder">در صورتی که همه پیام‌ها خوانده شده‌اند پوشه را پنهان کن</string>
+    <string name="title_hide_seen_folder_hint">تنها در فهرست پوشه‌‌های نمایش داده شده در صفحه شروع</string>
     <string name="title_unified_folder">نمایش در صندوق دریافت یکپارچه</string>
     <string name="title_navigation_folder">نمایش در منوی ناوبری</string>
     <string name="title_synchronize_folder">همگام سازی (دریافت پیام‌ها)</string>
@@ -1356,10 +1362,10 @@
         <item>مسدود نشده</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">هر</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">خانه</item>
-        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">محل کار</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">ساير</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">تلفن همراه</item>
+        <item>هر</item>
+        <item>خانه</item>
+        <item>محل کار</item>
+        <item>ساير</item>
+        <item>تلفن همراه</item>
     </string-array>
 </resources>

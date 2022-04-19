@@ -203,6 +203,7 @@
     <string name="title_setup_done">Udført</string>
     <string name="title_setup_still">Resterer stadig</string>
     <string name="title_setup_error">Fejl</string>
+    <string name="title_setup_pop">Brug POP3 (anbefales ikke)</string>
     <string name="title_setup_configuring">Opsætter konto &#8230;</string>
     <string name="title_setup_app_password">En app-adgangskode skal muligvis benyttes</string>
     <string name="title_setup_extra">Ekstra</string>
@@ -340,6 +341,7 @@
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_new">Brug signatur til nye beskeder</string>
     <string name="title_advanced_signature_reply">Benyt signatur i svar</string>
+    <string name="title_advanced_signature_reply_once">Kun i det første svar</string>
     <string name="title_advanced_signature_forward">Benyt signatur ved videresendelse</string>
     <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>
     <string name="title_advanced_reply_move">Ved beskedbesvarelse, gem svaret i pågældende mappe</string>
@@ -630,6 +632,7 @@
     <string name="title_advanced_check_reply_hint">Dette tjekker, om domænenavnet for afsender- og svaradresser er ens</string>
     <string name="title_advanced_lookup_mx_hint">Dette tjekker, om der findes DNS MX-poster</string>
     <string name="title_advanced_sync_delay_hint">Dette vil forøge beskedsynkroniseringstiden</string>
+    <string name="title_advanced_folder_nav_hint">Dette vil altid returnere til den relaterede kontos mappeliste fra en beskedliste</string>
     <string name="title_advanced_suggest_names_hint">Hvis deaktiveret, bruges kun e-mailadresser ved valg af kontakter</string>
     <string name="title_advanced_suggest_local_hint">Ud over kontakter fra Android. Kontaktdata gemmes kun for nyligt afsendte eller modtagne beskeder, når aktiveret.</string>
     <string name="title_advanced_send_reminders_hint">Vis en advarsel, når beskedtekst eller emne er tomt, eller en vedhæftet fil muligvis mangler</string>
@@ -832,6 +835,7 @@
     <string name="title_synchronize_more_hint2">        Beskeder vil blive hentet så hurtigt som e-mail-serveren kan levere dem og gemt så hurtigt som enheden kan gemme og indeksere dem.
         Den begrænsende faktor er normalt hastigheden af enhedens interne lagerplads.
     </string>
+    <string name="title_synchronize_more_hint3">Husk, at opbevaring af en masse beskeder (ti tusinde eller flere) på enheden kan forårsage forsinkelser, da den interne lagerplads ikke er lynende hurtigt.</string>
     <string name="title_synchronize_enabled">Synkroniserer</string>
     <string name="title_synchronize_batch_enable">Aktivér synkronisering</string>
     <string name="title_synchronize_batch_disable">Deaktivér synkronisering</string>
@@ -885,6 +889,8 @@
     <string name="title_apply_to_all">Anvend på alle</string>
     <string name="title_edit_account_name">Redigér kontonavn</string>
     <string name="title_hide_folder">Skjul mappe</string>
+    <string name="title_hide_seen_folder">Skjul, hvis alle beskeder er læst</string>
+    <string name="title_hide_seen_folder_hint">Kun i mappelisten, der vises på startskærmen</string>
     <string name="title_unified_folder">Vis i samlet indbakke</string>
     <string name="title_navigation_folder">Vis i navigationsmenu</string>
     <string name="title_synchronize_folder">Synkronisér (modtag beskeder)</string>
@@ -1861,10 +1867,10 @@
         <item>Ublokeret</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Enhver</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Hjem</item>
-        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Arbejde</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">Anden</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobil</item>
+        <item>Enhver</item>
+        <item>Hjem</item>
+        <item>Arbejde</item>
+        <item>Anden</item>
+        <item>Mobil</item>
     </string-array>
 </resources>

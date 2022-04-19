@@ -7,6 +7,7 @@
     <string name="app_exit">اذهب إلى \"الوراء\" مجددًا للإغلاق</string>
     <string name="app_cake">مساحة تخزين غير كافية</string>
     <string name="app_updated">آخر تحديث: %1$s</string>
+    <string name="app_download">نُزّل من: %1$s</string>
     <string name="channel_service">إستلام</string>
     <string name="channel_send">أرسل</string>
     <string name="channel_notification">البريد الإلكتروني</string>
@@ -552,10 +553,10 @@
         <item>Not blocked</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item comment="contactGroupTypes&#10;Any contact type for inserting contact groups">Any</item>
-        <item comment="contactGroupTypes&#10;&quot;Home&quot; contact type for inserting contact groups">Home</item>
-        <item comment="contactGroupTypes&#10;&quot;Work&quot; contact type for inserting contact groups&#10;">Work</item>
-        <item comment="contactGroupTypes&#10;&quot;Other&quot; contact type for inserting contact groups&#10;">أخرى</item>
-        <item comment="contactGroupTypes&#10;&quot;Mobile&quot; contact type for inserting contact groups&#10;">Mobile</item>
+        <item>Any</item>
+        <item>Home</item>
+        <item>Work</item>
+        <item>أخرى</item>
+        <item>Mobile</item>
     </string-array>
 </resources>
