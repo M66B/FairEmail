@@ -1278,10 +1278,12 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void selectIdentityForEmail(String email) {
-        if (!identity_selectable)
-            return;
         if (TextUtils.isEmpty(email))
             return;
+
+        if (!identity_selectable)
+            return;
+        identity_selectable = false;
 
         Bundle args = new Bundle();
         args.putString("email", email);
@@ -1322,7 +1324,6 @@ public class FragmentCompose extends FragmentBase {
                     EntityIdentity item = (EntityIdentity) adapter.getItem(pos);
                     if (item.id.equals(identity)) {
                         spIdentity.setSelection(pos);
-                        identity_selectable = false;
                         break;
                     }
                 }
