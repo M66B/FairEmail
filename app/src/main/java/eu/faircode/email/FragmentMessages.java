@@ -1892,6 +1892,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     @Override
                     public void run() {
                         try {
+                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                return;
                             for (Integer pos : changed)
                                 adapter.notifyItemChanged(pos);
                         } catch (Throwable ex) {
@@ -1938,6 +1940,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     @Override
                     public void run() {
                         try {
+                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                return;
                             adapter.notifyItemChanged(p);
                         } catch (Throwable ex) {
                             Log.e(ex);
