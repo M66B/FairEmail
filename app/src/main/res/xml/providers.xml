@@ -217,10 +217,10 @@
             host="smtp.mail.yahoo.com"
             port="465"
             starttls="false" />
-        <!--pop
+        <pop
             host="pop.mail.yahoo.com"
             port="995"
-            starttls="false" /-->
+            starttls="false" />
         <oauth
             askAccount="true"
             authorizationEndpoint="https://api.login.yahoo.com/oauth2/request_auth"
@@ -232,6 +232,7 @@
             redirectUri="https://oauth.faircode.eu/"
             scopes="mail-w"
             tokenEndpoint="https://api.login.yahoo.com/oauth2/get_token" />
+        <!-- https://developer.yahoo.com/oauth2/guide/ -->
     </provider>
     <provider
         name="Sky.com"
@@ -423,6 +424,7 @@
             host="pop.yandex.ru"
             port="995"
             starttls="false" /-->
+        <!-- No OAuth/POP3 support -->
         <oauth
             askAccount="true"
             authorizationEndpoint="https://oauth.yandex.com/authorize"
@@ -440,6 +442,7 @@
                 key="force_confirm"
                 value="true" />
         </oauth>
+        <!-- https://yandex.com/dev/id/doc/dg/imap/index.html -->
     </provider>
     <provider
         name="web.de"
@@ -626,6 +629,7 @@
             host="pop.mail.ru"
             port="995"
             starttls="false" /-->
+        <!-- No OAuth/POP3 support -->
         <oauth
             askAccount="false"
             authorizationEndpoint="https://oauth.mail.ru/login"
