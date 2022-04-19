@@ -235,6 +235,11 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
             popupMenu.getMenu().add(Menu.NONE, 0, order++, ss).setEnabled(false);
 
+            if (!TextUtils.isEmpty(contact.identityEmail)) {
+                String via = context.getString(R.string.title_via, contact.identityEmail);
+                popupMenu.getMenu().add(Menu.NONE, 0, order++, via).setEnabled(false);
+            }
+
             if (contact.state != EntityContact.STATE_IGNORE)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_never_favorite, order++, R.string.title_advanced_never_favorite);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_share, order++, R.string.title_share); // should be system whitelisted
