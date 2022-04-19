@@ -258,6 +258,35 @@ public class EntityAttachment {
         if ("odp".equals(extension))
             return "application/vnd.oasis.opendocument.presentation";
 
+        // Images
+
+        if ("avif".equals(extension))
+            return "image/avif";
+
+        if ("bmp".equals(extension))
+            return "image/bmp";
+
+        if ("heic".equals(extension))
+            return "image/heic";
+
+        if ("heif".equals(extension))
+            return "image/heif";
+
+        if ("gif".equals(extension))
+            return "image/gif";
+
+        if ("jpg".equals(extension) || "jpeg".equals(extension))
+            return "image/jpeg";
+
+        if ("png".equals(extension))
+            return "image/png";
+
+        if ("svg".equals(extension))
+            return "image/svg+xml";
+
+        if ("webp".equals(extension))
+            return "image/webp";
+
         // Other
 
         if ("zip".equals(extension) ||
