@@ -320,6 +320,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
         try {
             super.onDestroy();
+            originalContext = null;
         } catch (Throwable ex) {
             Log.w(ex);
             /*
