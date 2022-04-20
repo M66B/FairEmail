@@ -4,7 +4,7 @@
 
 ### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
 
-### Next version
+### 1.1876 - 2022-04-20
 
 * Added auto select same identity for same recipient for new messages
 * Added option to add signature to first reply only
