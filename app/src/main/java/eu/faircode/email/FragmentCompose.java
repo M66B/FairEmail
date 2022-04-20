@@ -3026,47 +3026,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                // External app sending absolute file
-                if (ex instanceof NoStreamException)
-                    ((NoStreamException) ex).report(getActivity());
-                else if (ex instanceof FileNotFoundException ||
-                        ex instanceof IllegalArgumentException ||
-                        ex instanceof IllegalStateException) {
-                    /*
-                        java.lang.IllegalStateException: Failed to mount
-                          at android.os.Parcel.createException(Parcel.java:2079)
-                          at android.os.Parcel.readException(Parcel.java:2039)
-                          at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:188)
-                          at android.database.DatabaseUtils.readExceptionWithFileNotFoundExceptionFromParcel(DatabaseUtils.java:151)
-                          at android.content.ContentProviderProxy.openTypedAssetFile(ContentProviderNative.java:705)
-                          at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:1687)
-                          at android.content.ContentResolver.openAssetFileDescriptor(ContentResolver.java:1503)
-                          at android.content.ContentResolver.openInputStream(ContentResolver.java:1187)
-                          at eu.faircode.email.FragmentCompose.addAttachment(SourceFile:27)
-                     */
-                    Snackbar.make(view, ex.toString(), Snackbar.LENGTH_LONG)
-                            .setGestureInsetBottomIgnored(true).show();
-                } else {
-                    if (ex instanceof IOException &&
-                            ex.getCause() instanceof ErrnoException &&
-                            ((ErrnoException) ex.getCause()).errno == ENOSPC)
-                        ex = new IOException(getContext().getString(R.string.app_cake), ex);
-                    Log.unexpectedError(getParentFragmentManager(), ex,
-                            !(ex instanceof IOException || ex.getCause() instanceof IOException));
-                    /*
-                        java.lang.IllegalStateException: java.io.IOException: Failed to redact /storage/emulated/0/Download/97203830-piston-vecteur-icône-simple-symbole-plat-sur-fond-blanc.jpg
-                          at android.os.Parcel.createExceptionOrNull(Parcel.java:2381)
-                          at android.os.Parcel.createException(Parcel.java:2357)
-                          at android.os.Parcel.readException(Parcel.java:2340)
-                          at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:190)
-                          at android.database.DatabaseUtils.readExceptionWithFileNotFoundExceptionFromParcel(DatabaseUtils.java:153)
-                          at android.content.ContentProviderProxy.openTypedAssetFile(ContentProviderNative.java:804)
-                          at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:2002)
-                          at android.content.ContentResolver.openAssetFileDescriptor(ContentResolver.java:1817)
-                          at android.content.ContentResolver.openInputStream(ContentResolver.java:1494)
-                          at eu.faircode.email.FragmentCompose.addAttachment(SourceFile:27)
-                     */
-                }
+                handleException(ex);
             }
         }.setExecutor(executor).execute(this, args, "compose:attachment:add");
     }
@@ -3122,10 +3082,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof NoStreamException)
-                    ((NoStreamException) ex).report(getActivity());
-                else
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                handleException(ex);
             }
         }.execute(this, args, "compose:shared");
     }
@@ -5565,16 +5522,8 @@ public class FragmentCompose extends FragmentBase {
         protected void onException(Bundle args, Throwable ex) {
             pbWait.setVisibility(View.GONE);
 
-            // External app sending absolute file
             if (ex instanceof MessageRemovedException)
                 finish();
-            if (ex instanceof NoStreamException)
-                ((NoStreamException) ex).report(getActivity());
-            else if (ex instanceof FileNotFoundException ||
-                    ex instanceof IllegalArgumentException ||
-                    ex instanceof IllegalStateException)
-                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
-                        .setGestureInsetBottomIgnored(true).show();
             else if (ex instanceof OperationCanceledException) {
                 Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE)
                         .setGestureInsetBottomIgnored(true);
@@ -5589,9 +5538,58 @@ public class FragmentCompose extends FragmentBase {
                 });
                 snackbar.show();
             } else
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                handleException(ex);
         }
     }.setExecutor(executor);
+
+    private void handleException(Throwable ex) {
+        // External app sending absolute file
+        if (ex instanceof NoStreamException)
+            ((NoStreamException) ex).report(getActivity());
+        else if (ex instanceof FileNotFoundException ||
+                ex instanceof IllegalArgumentException ||
+                ex instanceof IllegalStateException) {
+                    /*
+                        java.lang.IllegalStateException: Failed to mount
+                          at android.os.Parcel.createException(Parcel.java:2079)
+                          at android.os.Parcel.readException(Parcel.java:2039)
+                          at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:188)
+                          at android.database.DatabaseUtils.readExceptionWithFileNotFoundExceptionFromParcel(DatabaseUtils.java:151)
+                          at android.content.ContentProviderProxy.openTypedAssetFile(ContentProviderNative.java:705)
+                          at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:1687)
+                          at android.content.ContentResolver.openAssetFileDescriptor(ContentResolver.java:1503)
+                          at android.content.ContentResolver.openInputStream(ContentResolver.java:1187)
+                          at eu.faircode.email.FragmentCompose.addAttachment(SourceFile:27)
+                     */
+            Snackbar.make(view, ex.toString(), Snackbar.LENGTH_LONG)
+                    .setGestureInsetBottomIgnored(true).show();
+        } else {
+            if (ex instanceof IOException &&
+                    ex.getCause() instanceof ErrnoException &&
+                    ((ErrnoException) ex.getCause()).errno == ENOSPC)
+                ex = new IOException(getContext().getString(R.string.app_cake), ex);
+
+            // External app didn't grant URI permissions
+            if (ex instanceof SecurityException)
+                ex = new Throwable(getString(R.string.title_no_permissions), ex);
+
+            Log.unexpectedError(getParentFragmentManager(), ex,
+                    !(ex instanceof IOException || ex.getCause() instanceof IOException));
+                    /*
+                        java.lang.IllegalStateException: java.io.IOException: Failed to redact /storage/emulated/0/Download/97203830-piston-vecteur-icône-simple-symbole-plat-sur-fond-blanc.jpg
+                          at android.os.Parcel.createExceptionOrNull(Parcel.java:2381)
+                          at android.os.Parcel.createException(Parcel.java:2357)
+                          at android.os.Parcel.readException(Parcel.java:2340)
+                          at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:190)
+                          at android.database.DatabaseUtils.readExceptionWithFileNotFoundExceptionFromParcel(DatabaseUtils.java:153)
+                          at android.content.ContentProviderProxy.openTypedAssetFile(ContentProviderNative.java:804)
+                          at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:2002)
+                          at android.content.ContentResolver.openAssetFileDescriptor(ContentResolver.java:1817)
+                          at android.content.ContentResolver.openInputStream(ContentResolver.java:1494)
+                          at eu.faircode.email.FragmentCompose.addAttachment(SourceFile:27)
+                     */
+        }
+    }
 
     private SimpleTask<EntityMessage> actionLoader = new SimpleTask<EntityMessage>() {
         @Override

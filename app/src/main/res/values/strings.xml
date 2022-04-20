@@ -1230,6 +1230,7 @@
     <string name="title_no_saf">Storage access framework not available</string>
     <string name="title_no_stream">FairEmail does not have permission to read this file directly</string>
     <string name="title_no_stream_help">This can be solved by selecting the file with a more modern file manager app or by granting permission to read files</string>
+    <string name="title_no_permissions">The app used to select a file did not grant permission to read the file</string>
     <string name="title_no_internet">No or no suitable internet connection</string>
     <string name="title_no_connection">Connecting to one or more accounts &#8230;</string>
     <string name="title_no_folder">Folder does not exist</string>
