@@ -384,7 +384,6 @@
     <string name="title_advanced_cards_shadow">カード形式のとき、未読メッセージにシャドウを使用</string>
     <string name="title_advanced_cards_shadow_highlight">アクセントカラーの代わりにハイライトカラーを使用</string>
     <string name="title_advanced_tabular_dividers">表形式のとき、区切り線を表示</string>
-    <string name="title_advanced_category_header">アカウントのカテゴリーでグループ化</string>
     <string name="title_advanced_date_header">日付でグループ化</string>
     <string name="title_advanced_date_fixed">日付を上部に固定表示</string>
     <string name="title_advanced_date_bold">日付を太字で表示</string>
@@ -451,6 +450,7 @@
     <string name="title_advanced_seekbar">ドットで相対的な会話の位置を表示</string>
     <string name="title_advanced_actionbar">会話アクションバーを表示</string>
     <string name="title_advanced_actionbar_color">会話アクションバーの背景色としてアカウントの色を使用</string>
+    <string name="title_advanced_category_header">アカウントのカテゴリーでグループ化</string>
     <string name="title_advanced_navbar_colorize">Android ナビゲーションバーに色を付ける</string>
     <string name="title_advanced_bundled_fonts">バンドルされたフォントを使用</string>
     <string name="title_advanced_parse_classes">スタイルシートを解析</string>

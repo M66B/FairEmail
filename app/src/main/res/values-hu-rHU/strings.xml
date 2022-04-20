@@ -374,7 +374,6 @@
     <string name="title_advanced_tabular_background">A kártya szín használata háttér színnek táblás megjelenítésnél</string>
     <string name="title_advanced_cards_shadow">Árnyék használata olvasatlan üzenetekhez kártya-stílus használata esetén</string>
     <string name="title_advanced_cards_shadow_highlight">Kiemelt színek használata pasztell színek helyett</string>
-    <string name="title_advanced_category_header">Csoportosítás fiókkategória szerint</string>
     <string name="title_advanced_date_header">Csoportosítás dátum szerint</string>
     <string name="title_advanced_date_fixed">Fixált dátum mutatása a felső fejlécben</string>
     <string name="title_advanced_date_bold">Dátum megjelenítése félkövérben</string>
@@ -438,6 +437,7 @@
     <string name="title_advanced_seekbar">Relatív beszélgetés-pozíció ponttal váló megjelenítése</string>
     <string name="title_advanced_actionbar">Beszélgetési művelet sáv megjelenítése</string>
     <string name="title_advanced_actionbar_color">Fiókszín használata háttérszínnek a beszélgetés művelet sávjánál</string>
+    <string name="title_advanced_category_header">Csoportosítás fiókkategória szerint</string>
     <string name="title_advanced_navbar_colorize">Az Android navigációs sor színezése</string>
     <string name="title_advanced_parse_classes">Stílus lapok beolvasása</string>
     <string name="title_advanced_authentication">Hitelesítési figyelmezetetések mutatása</string>

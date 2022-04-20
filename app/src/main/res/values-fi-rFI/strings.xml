@@ -392,7 +392,6 @@
     <string name="title_advanced_cards_shadow">Käytä varjoa lukemattomiin viesteihin korttityylissä</string>
     <string name="title_advanced_cards_shadow_highlight">Käytä valittua korostusväriä teeman korostusvärin sijaan</string>
     <string name="title_advanced_tabular_dividers">Käytä jakoviivoja taulukkotyylissä</string>
-    <string name="title_advanced_category_header">Ryhmittele tilin luokan mukaan</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_date_fixed">Näytä kiinteä päivämäärän tunnistekenttä yläreunassa</string>
     <string name="title_advanced_date_bold">Näytä päivämäärä lihavoituna</string>
@@ -459,6 +458,7 @@
     <string name="title_advanced_seekbar">Näytä suhteellinen sijainti keskustelussa pisteellä</string>
     <string name="title_advanced_actionbar">Näytä keskustelun toimintopalkki</string>
     <string name="title_advanced_actionbar_color">Käytä tilin väriä taustavärinä keskustelun toimintopalkissa</string>
+    <string name="title_advanced_category_header">Ryhmittele tilin luokan mukaan</string>
     <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
     <string name="title_advanced_bundled_fonts">Käytä mukaan paketoituja kirjasimia</string>
     <string name="title_advanced_parse_classes">Jäsennä tyylisäännöstöt</string>

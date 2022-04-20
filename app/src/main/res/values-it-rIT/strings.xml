@@ -203,7 +203,7 @@
     <string name="title_setup_done">Fatto</string>
     <string name="title_setup_still">Ancora da fare</string>
     <string name="title_setup_error">Errore</string>
-    <string name="title_setup_pop">Usa POP3 (non consigliato)</string>
+    <string name="title_setup_pop">Usa POP3 (sconsigliato)</string>
     <string name="title_setup_configuring">Configurazione del profilo &#8230;</string>
     <string name="title_setup_app_password">Potresti dover usare la password di un\'app</string>
     <string name="title_setup_extra">Extra</string>
@@ -329,6 +329,7 @@
     <string name="title_advanced_answer_action">La pressione prolungata sul pulsante di risposta:</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
     <string name="title_advanced_compose_font">Font predefinito</string>
+    <string name="title_advanced_auto_identity">Seleziona automaticamente le identità per i nuovi messaggi</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta alla risposta o l\'inoltro</string>
     <string name="title_advanced_prefix_count">Aggiungi conteggio al prefisso di risposta</string>
     <string name="title_advanced_separate_reply">Inserisci una riga orizzontale prima di un\'intestazione di risposta/inoltro</string>
@@ -395,7 +396,6 @@
     <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi non letti usando lo stile della carta</string>
     <string name="title_advanced_cards_shadow_highlight">Usa il colore d\'evidenziazione invece del colore secondario</string>
     <string name="title_advanced_tabular_dividers">Usa le linee divisorie usando lo stile tabulare</string>
-    <string name="title_advanced_category_header">Raggruppa per categoria del profilo</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_date_fixed">Mostra l\'intestazione a data fissa in cima</string>
     <string name="title_advanced_date_bold">Mostra la data in grassetto</string>
@@ -462,6 +462,7 @@
     <string name="title_advanced_seekbar">Mostra la posizione relativa della conversazione con un puntino</string>
     <string name="title_advanced_actionbar">Mostra barra d\'azione della conversazione</string>
     <string name="title_advanced_actionbar_color">Usa il colore del profilo come colore di sfondo per la barra d\'azione della conversazione</string>
+    <string name="title_advanced_category_header">Raggruppa per categoria del profilo</string>
     <string name="title_advanced_navbar_colorize">Colora la barra di navigazione di Android</string>
     <string name="title_advanced_bundled_fonts">Usa font impacchettati</string>
     <string name="title_advanced_parse_classes">Analizza fogli di stile</string>
@@ -635,6 +636,7 @@
     <string name="title_advanced_folder_nav_hint">Questo tornerà sempre all\'elenco delle cartelle del profilo correlato da un elenco di messaggi</string>
     <string name="title_advanced_suggest_names_hint">Se disabilitato, solo gli indirizzi email saranno usati selezionando i contatti</string>
     <string name="title_advanced_suggest_local_hint">In aggiunta ai contatti forniti da Android. I dati di contatto saranno memorizzati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
+    <string name="title_advanced_auto_identity_hint">Questo selezionerà l\'ultima identità usata per il primo destinatario dei nuovi messaggi</string>
     <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo o l\'oggetto del messaggio sono vuoti o quando un allegato potrebbe mancare</string>
     <string name="title_advanced_reply_move_hint">Il server email potrebbe ancora aggiungere i messaggi alla cartella dei messaggi inviati</string>
     <string name="title_advanced_usenet_hint">Inserisci \'--\' tra il testo e la firma</string>

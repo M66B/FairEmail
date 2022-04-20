@@ -328,6 +328,7 @@
     <string name="title_advanced_answer_action">Pressionar longamente o botão de resposta irá:</string>
     <string name="title_advanced_send_pending">Mostrar ícones de filtro rápido não obtrusivos</string>
     <string name="title_advanced_compose_font">Fonte padrão</string>
+    <string name="title_advanced_auto_identity">Selecionar automaticamente identidades para novas mensagens</string>
     <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>
     <string name="title_advanced_prefix_count">Adicionar contagem ao prefixo de resposta</string>
     <string name="title_advanced_separate_reply">Insira uma linha horizontal antes de um cabeçalho de resposta</string>
@@ -394,7 +395,6 @@
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>
     <string name="title_advanced_cards_shadow_highlight">Use a cor de destaque em vez da cor do realce</string>
     <string name="title_advanced_tabular_dividers">Use linhas divisórias ao usar o estilo tabular</string>
-    <string name="title_advanced_category_header">Agrupar por categoria de conta</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_date_fixed">Mostrar cabeçalho de data fixo no topo</string>
     <string name="title_advanced_date_bold">Exibir a data em negrito</string>
@@ -461,6 +461,7 @@
     <string name="title_advanced_seekbar">Mostrar posição relativa da conversa com um ponto</string>
     <string name="title_advanced_actionbar">Mostrar barra de ação de conversa</string>
     <string name="title_advanced_actionbar_color">Usar cor da conta como cor de fundo para barra de ação de conversa</string>
+    <string name="title_advanced_category_header">Agrupar por categoria de conta</string>
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
     <string name="title_advanced_bundled_fonts">Usar fontes embutidas</string>
     <string name="title_advanced_parse_classes">Analisar folhas de estilo</string>
@@ -633,6 +634,7 @@
     <string name="title_advanced_folder_nav_hint">Isto sempre irá retornar para lista de pastas da conta relacionada de uma lista de mensagens</string>
     <string name="title_advanced_suggest_names_hint">Se desativado, somente endereços de email serão utilizados ao selecionar contatos</string>
     <string name="title_advanced_suggest_local_hint">Além dos contatos fornecidos pelo Android. Os dados de contato serão armazenados para novas mensagens enviadas ou recebidas somente quando ativados.</string>
+    <string name="title_advanced_auto_identity_hint">Isso selecionará a última identidade usada para o primeiro destinatário de novas mensagens</string>
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo puder estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de e-mail ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_usenet_hint">Inserir \'-- \' entre o texto e a assinatura</string>
@@ -1036,6 +1038,7 @@
     <string name="title_no_saf">Storage access framework não disponivel</string>
     <string name="title_no_stream">O FairEmail não tem permissão para ler este arquivo diretamente</string>
     <string name="title_no_stream_help">Isso pode ser resolvido selecionando o arquivo com um aplicativo de gerenciamento de arquivos mais moderno ou concedendo permissão para ler arquivos</string>
+    <string name="title_no_permissions">O aplicativo usado para selecionar um arquivo não concedeu permissão para ler o arquivo</string>
     <string name="title_no_internet">Não ou nenhuma conexão de internet adequada</string>
     <string name="title_no_connection">Conectando-se a uma ou mais contas &#8230;</string>
     <string name="title_no_folder">A pasta não existe</string>

@@ -207,7 +207,6 @@
     <string name="title_advanced_cards_shadow">କାର୍ଡ଼ ଶୈଳୀ ବ୍ୟବହାର କଲାବେଳେ ପଢ଼ିନଥିବା ବାର୍ତ୍ତାଗୁଡ଼ିକ ପାଇଁ ଛାୟା ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_cards_shadow_highlight">ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ବଦଳରେ ହାଇଲାଇଟ୍ ରଙ୍ଗ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_tabular_dividers">ଟାବୁଲାର୍ ଶୈଳୀ ବ୍ୟବହାର କଲାବେଳେ ଡିଭାଇଡର୍ ଲାଇନ୍ ବ୍ୟବହାର କରିବା</string>
-    <string name="title_advanced_category_header">ଆକାଉଣ୍ଟ୍ ବର୍ଗ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_date_header">ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_libravatars">ଲିବ୍ରଅବତାରଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
@@ -221,6 +220,7 @@
     <string name="title_advanced_text_size">ପାଠ୍ୟ ଆକାର ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_text_font">ଫଣ୍ଟ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_text_align">ପାଠ୍ୟ ଶ୍ରେଣୀବଦ୍ଧତା ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_advanced_category_header">ଆକାଉଣ୍ଟ୍ ବର୍ଗ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_bundled_fonts">ବଣ୍ଡଲ୍ ହୋଇଥିବା ଫଣ୍ଟ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_parse_classes">CSS କୁ ବିଶ୍ଳେଷଣ କରନ୍ତୁ</string>
     <string name="title_advanced_authentication_indicator">ପ୍ରାମାଣିକରଣ ସ୍ଥିତି ସୂଚକ ଦେଖାନ୍ତୁ</string>
@@ -406,6 +406,7 @@
     <string name="title_no_viewer_type">ବିଷୟବସ୍ତୁ ପ୍ରକାର</string>
     <string name="title_no_viewer_search">ଆପ୍‌ ଖୋଜନ୍ତୁ</string>
     <string name="title_no_recorder">କୌଣସି ଉପଯୁକ୍ତ ଅଡ଼ିଓ ରେକର୍ଡର୍ ଆପ୍ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="title_no_permissions">ଏକ ଫାଇଲ୍ ବାଛିବା ପାଇଁ ବ୍ୟବହୃତ ଆପଟି ଫାଇଲକୁ ପଢ଼ିବା ଅନୁମତି ଦେଲାନାହିଁ</string>
     <string name="title_no_folder">ଫୋଲ୍ଡର୍ ବିଦ୍ୟମାନ ନାହିଁ</string>
     <string name="title_insufficient_memory">ଉପଲବ୍ଧ ମେମୋରୀ ଅପେକ୍ଷା ବାର୍ତ୍ତା ଅଧିକ ବଡ଼ ଅଟେ (%1$d)</string>
     <string name="title_show_full">ପୂର୍ଣ୍ଣ ବାର୍ତ୍ତା ଦେଖାନ୍ତୁ</string>

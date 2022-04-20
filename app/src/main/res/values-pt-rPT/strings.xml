@@ -327,6 +327,7 @@
     <string name="title_advanced_answer_action">Pressionar e segurar o botão de resposta irá:</string>
     <string name="title_advanced_send_pending">Mostrar ícone não-intrusivo de envio atrasado</string>
     <string name="title_advanced_compose_font">Letra predefinida</string>
+    <string name="title_advanced_auto_identity">Selecionar automaticamente identidades para novas mensagens</string>
     <string name="title_advanced_prefix_once">Prefixo do assunto único ao responder ou encaminhar</string>
     <string name="title_advanced_prefix_count">Adicionar contador ao prefixo de resposta</string>
     <string name="title_advanced_separate_reply">Insira uma linha horizontal antes de um cabeçalho de resposta/redirecionamento</string>
@@ -383,7 +384,6 @@
     <string name="title_advanced_startup">Mostrar no ecrã de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>
-    <string name="title_advanced_category_header">Agrupar por categoria de conta</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_date_fixed">Mostrar cabeçalho de data fixo no topo</string>
     <string name="title_advanced_date_bold">Mostrar data em negrito</string>
@@ -447,6 +447,7 @@
     <string name="title_advanced_seekbar">Mostrar a posição relativa da conversa com um ponto</string>
     <string name="title_advanced_actionbar">Mostrar barra de acção de conversa</string>
     <string name="title_advanced_actionbar_color">Usar cor da conta como cor de fundo para a barra de acção de conversa</string>
+    <string name="title_advanced_category_header">Agrupar por categoria de conta</string>
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
     <string name="title_advanced_bundled_fonts">Usar tipos de letra embutidos</string>
     <string name="title_advanced_parse_classes">Usar folhas de estilo</string>
@@ -601,6 +602,7 @@
     <string name="title_advanced_folder_nav_hint">Isto fará com que, ao pressionar \'voltar\' a partir da lista de mensagens, retorne sempre à lista de pastas da respectiva conta</string>
     <string name="title_advanced_suggest_names_hint">Com a opção desactiva, ao seleccionar um contacto apenas os endereços de e-mail serão utilizados</string>
     <string name="title_advanced_suggest_local_hint">Em complemento aos contactos fornecidos pelo Android. Apenas só será guardada informação de contactos nas mensagens recém-enviadas ou recebidas caso esta função esteja activa.</string>
+    <string name="title_advanced_auto_identity_hint">Isto selecionará a última identidade utilizada para o primeiro destinatário de novas mensagens</string>
     <string name="title_advanced_usenet_hint">Coloca \'-- \' entre o texto e a assinatura</string>
     <string name="title_advanced_remove_signature_hint">Pode resultar na remoção de pouco ou de demasiado texto</string>
     <string name="title_advanced_metered_warning">Desactivar esta opção fará com que não sejam recebidas e enviadas mensagens em ligações móveis de Internet</string>

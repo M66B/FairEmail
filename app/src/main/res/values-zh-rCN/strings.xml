@@ -384,7 +384,6 @@
     <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
     <string name="title_advanced_cards_shadow_highlight">使用高亮色而不是强调色</string>
     <string name="title_advanced_tabular_dividers">使用表格样式时使用分隔线</string>
-    <string name="title_advanced_category_header">按账户类别分组</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_date_fixed">在顶部显示固定日期标题</string>
     <string name="title_advanced_date_bold">以粗体显示日期</string>
@@ -451,6 +450,7 @@
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
     <string name="title_advanced_actionbar">显示对话操作栏</string>
     <string name="title_advanced_actionbar_color">使用账户颜色作为对话操作栏的背景色</string>
+    <string name="title_advanced_category_header">按账户类别分组</string>
     <string name="title_advanced_navbar_colorize">导航栏着色</string>
     <string name="title_advanced_bundled_fonts">使用捆绑的字体</string>
     <string name="title_advanced_parse_classes">解析样式表</string>

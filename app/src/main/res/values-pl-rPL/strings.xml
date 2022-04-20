@@ -223,6 +223,7 @@
     <string name="title_setup_done">Gotowe</string>
     <string name="title_setup_still">Nadal do wykonania</string>
     <string name="title_setup_error">Błąd</string>
+    <string name="title_setup_pop">Użyj POP3 (nie zalecane)</string>
     <string name="title_setup_configuring">Konfigurowanie konta &#8230;</string>
     <string name="title_setup_app_password">Może być konieczne użycie hasła aplikacji</string>
     <string name="title_setup_extra">Dodatkowe opcje</string>
@@ -347,6 +348,7 @@
     <string name="title_advanced_answer_action">Długie naciśnięcie przycisku odpowiedzi spowoduje:</string>
     <string name="title_advanced_send_pending">Pokaż nieprzeszkadzającą ikonę wysłania z opóźnieniem</string>
     <string name="title_advanced_compose_font">Domyślna czcionka</string>
+    <string name="title_advanced_auto_identity">Automatycznie wybierz tożsamości dla nowych wiadomości</string>
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
     <string name="title_advanced_prefix_count">Dodaj liczbę do prefiksu odpowiedzi</string>
     <string name="title_advanced_separate_reply">Wstaw poziomą linię przed nagłówkiem odpowiedzi/przekazania</string>
@@ -359,6 +361,7 @@
     <string name="title_advanced_signature_location">Pozycja podpisu</string>
     <string name="title_advanced_signature_new">Użyj podpisu dla nowych wiadomości</string>
     <string name="title_advanced_signature_reply">Użyj podpisu podczas odpowiadania</string>
+    <string name="title_advanced_signature_reply_once">Tylko dla pierwszej odpowiedzi</string>
     <string name="title_advanced_signature_forward">Użyj podpisu podczas przesyłania dalej</string>
     <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej usuń ją trwale</string>
     <string name="title_advanced_reply_move">Przy odpowiadaniu na wiadomość, zapisz odpowiedź w tym samym folderze</string>
@@ -412,7 +415,6 @@
     <string name="title_advanced_cards_shadow">Użyj cienia do nieprzeczytanych wiadomości, jeśli używasz stylu karty</string>
     <string name="title_advanced_cards_shadow_highlight">Użyj koloru podświetlenia zamiast koloru akcentu</string>
     <string name="title_advanced_tabular_dividers">Używaj linii oddzielających podczas używania stylu tabelarycznego</string>
-    <string name="title_advanced_category_header">Grupuj według kategorii konta</string>
     <string name="title_advanced_date_header">Grupuj według daty</string>
     <string name="title_advanced_date_fixed">Pokaż stały nagłówek daty na górze</string>
     <string name="title_advanced_date_bold">Pokaż datę pogrubioną</string>
@@ -479,6 +481,7 @@
     <string name="title_advanced_seekbar">Pokaż względną pozycję rozmowy za pomocą kropki</string>
     <string name="title_advanced_actionbar">Pokaż pasek akcji konwersacji</string>
     <string name="title_advanced_actionbar_color">Użyj koloru konta jako koloru tła dla paska akcji rozmowy</string>
+    <string name="title_advanced_category_header">Grupuj według kategorii konta</string>
     <string name="title_advanced_navbar_colorize">Koloruj pasek nawigacji Androida</string>
     <string name="title_advanced_bundled_fonts">Użyj dołączonych czcionek</string>
     <string name="title_advanced_parse_classes">Parsowanie arkuszy stylów</string>
@@ -651,6 +654,7 @@
     <string name="title_advanced_folder_nav_hint">Spowoduje to zawsze powrót z listy wiadomości do listy folderów powiązanego konta</string>
     <string name="title_advanced_suggest_names_hint">Jeśli wyłączone, tylko adresy e-mail będą używane podczas wybierania kontaktów</string>
     <string name="title_advanced_suggest_local_hint">Oprócz kontaktów dostarczanych przez Androida. Dane kontaktowe będą przechowywane dla nowo wysłanych lub odebranych wiadomości tylko kiedy włączone.</string>
+    <string name="title_advanced_auto_identity_hint">Spowoduje to wybranie ostatniej tożsamości używanej jako pierwszy odbiorca nowych wiadomości</string>
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_reply_move_hint">Serwer e-mail może nadal dodawać wiadomości do folderu wysłanych wiadomości</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>
@@ -906,6 +910,8 @@
     <string name="title_apply_to_all">Zastosuj dla wszystkich</string>
     <string name="title_edit_account_name">Edytuj nazwę konta</string>
     <string name="title_hide_folder">Ukryj folder</string>
+    <string name="title_hide_seen_folder">Ukryj folder, jeśli wszystkie wiadomości zostały przeczytane</string>
+    <string name="title_hide_seen_folder_hint">Tylko na liście folderów wyświetlanej na ekranie startowym</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce</string>
     <string name="title_navigation_folder">Pokaż w menu nawigacji</string>
     <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
@@ -1052,6 +1058,7 @@
     <string name="title_no_saf">Brak dostępu do plików</string>
     <string name="title_no_stream">FairEmail nie ma uprawnień do bezpośredniego odczytu tego pliku</string>
     <string name="title_no_stream_help">Można to rozwiązać, wybierając plik za pomocą bardziej nowoczesnej aplikacji menedżera plików lub przyznając uprawnienia do odczytu plików</string>
+    <string name="title_no_permissions">Aplikacja użyta do wybrania pliku nie przyznała uprawnień do odczytu pliku</string>
     <string name="title_no_internet">Brak lub brak odpowiedniego połączenia internetowego</string>
     <string name="title_no_connection">Łączenie z jednym lub kilkoma kontami &#8230;</string>
     <string name="title_no_folder">Folder nie istnieje</string>
@@ -1399,6 +1406,7 @@
     <string name="title_rule_original_text">Dołącz oryginalny tekst wiadomości</string>
     <string name="title_rule_forward_to">Przekaż do</string>
     <string name="title_rule_resend">Wyślij ponownie</string>
+    <string name="title_rule_attached">Dołącz nieprzetworzony plik wiadomości</string>
     <string name="title_rule_cc">Odpowiedz na adresy CC</string>
     <string name="title_rule_with_attachments">Z załącznikami</string>
     <string name="title_rule_answer_remark">Dla każdej rozmowy zostanie wysłana tylko jedna odpowiedź, aby uniknąć zapętlenia odpowiedzi</string>

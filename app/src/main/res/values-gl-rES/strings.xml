@@ -379,7 +379,6 @@
     <string name="title_advanced_cards_shadow">Usar sombras para as mensaxes sen ler cando se estea a usar o estilo de carta</string>
     <string name="title_advanced_cards_shadow_highlight">Usar color de resaltado na vez do color de acentuado</string>
     <string name="title_advanced_tabular_dividers">Empregar liñas de división cando se use o estilo de táboa</string>
-    <string name="title_advanced_category_header">Agrupar por categoría de conta</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_date_fixed">Amosar a cabeceira de data fixa na parte superior</string>
     <string name="title_advanced_date_bold">Mostrar a data en fonte grosa</string>
@@ -446,6 +445,7 @@
     <string name="title_advanced_seekbar">Mostrar a posición relativa nunha conversa cun punto</string>
     <string name="title_advanced_actionbar">Mostrar a barra de accións de conversa</string>
     <string name="title_advanced_actionbar_color">Usar a cor da conta coma a cor de fondo para a barra de acción de conversa</string>
+    <string name="title_advanced_category_header">Agrupar por categoría de conta</string>
     <string name="title_advanced_navbar_colorize">Dar cor á barra de navegación de Android</string>
     <string name="title_advanced_bundled_fonts">Usar as fontes internas</string>
     <string name="title_advanced_parse_classes">Interpretar as follas de estilo</string>

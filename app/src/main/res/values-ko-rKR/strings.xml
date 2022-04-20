@@ -255,7 +255,6 @@
     <string name="title_advanced_close_pane">대화 상자를 닫을 때 행 또는 열 축소</string>
     <string name="title_advanced_nav_pinned_count">고정된 내비게이션 메뉴에 읽지 않은 메시지 수 표시</string>
     <string name="title_advanced_tabular_dividers">태블릿 스타일 사용 중 구분선 표시</string>
-    <string name="title_advanced_category_header">계정 카테고리로 묶기</string>
     <string name="title_advanced_date_header">날짜로 묶기</string>
     <string name="title_advanced_date_fixed">상단 헤더에서 수정일 표시</string>
     <string name="title_advanced_date_bold">날짜를 굵게 표시</string>
@@ -281,6 +280,7 @@
     <string name="title_advanced_text_font">글꼴 사용</string>
     <string name="title_advanced_text_align">글자 정렬 사용</string>
     <string name="title_advanced_text_separators">구분선 사용</string>
+    <string name="title_advanced_category_header">계정 카테고리로 묶기</string>
     <string name="title_advanced_bundled_fonts">번들 글꼴 사용</string>
     <string name="title_advanced_parse_classes">CSS 구문 분석</string>
     <string name="title_advanced_double_back">2번 눌러 종료</string>
