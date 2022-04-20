@@ -403,36 +403,35 @@ only suggesting contacts won't work without contacts permissions.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq2)
 
-First of all, the "*monitoring*" status bar notification can be turned off without side effects, not directly by the app, but via the Android app settings, please read on.
+*If you came here by clicking on the "monitoring" notification, you should know that the next click will open the unified inbox.*
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown
-to prevent Android from killing the service that takes care of continuous receiving email.
-This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)),
-but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary.
-Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+To reliably receive messages in the background the app needs to start a service,
+which will let Android display a status bar notification notifying you about potential battery usage.
 
-Most, if not all, other email apps don't show a notification
-with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
-
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore.
-In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
-
-The status bar notification can be disabled, without side effects, via the notification settings of FairEmail:
+The service can't be started without a notification and the app can't disable the notification either.
+However, you can disable the notification yourself, without side effects, via the notification settings of FairEmail:
 
 * Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
-* Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
+* Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting first
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power.
+You can also switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power.
 See [here](#user-content-faq39) for more details about battery usage.
 
 Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*.
 Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification,
-but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages.
-The first is not going to happen and the last would have significant privacy implications.
+*Background*
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
+The service is a [foreground service](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification))
+and is needed to prevent Android from stopping the service when the device is sleeping
+([doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)).
+
+Most, if not all, other email apps don't show a notification
+with as "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+
+Some other email apps download all your messages to their servers first and push messages via
+[Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) to your device.
+For your privacy this is not a nice solution ...
 
 <br />
 
