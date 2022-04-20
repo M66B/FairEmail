@@ -470,7 +470,6 @@
     <string name="title_advanced_cards_shadow">Use shadow for unread messages when using card style</string>
     <string name="title_advanced_cards_shadow_highlight">Use highlight color instead of accent color</string>
     <string name="title_advanced_tabular_dividers">Use divider lines when using tabular style</string>
-    <string name="title_advanced_category_header">Group by account category</string>
     <string name="title_advanced_date_header">Group by date</string>
     <string name="title_advanced_date_fixed">Show fixed date header at the top</string>
     <string name="title_advanced_date_bold">Show date in bold</string>
@@ -542,6 +541,7 @@
     <string name="title_advanced_seekbar">Show relative conversation position with a dot</string>
     <string name="title_advanced_actionbar">Show conversation action bar</string>
     <string name="title_advanced_actionbar_color">Use account color as background color for conversation action bar</string>
+    <string name="title_advanced_category_header">Group by account category</string>
     <string name="title_advanced_navbar_colorize">Colorize the Android navigation bar</string>
     <string name="title_advanced_bundled_fonts">Use bundled fonts</string>
     <string name="title_advanced_parse_classes">Parse style sheets</string>

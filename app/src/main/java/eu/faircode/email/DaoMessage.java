@@ -102,6 +102,7 @@ public interface DaoMessage {
             " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0)" +
             " ORDER BY -IFNULL(message.importance, 1)" +
+            ", CASE WHEN :group_category THEN account.category ELSE '' END COLLATE NOCASE" +
             ", CASE" +
             "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
             "   WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
@@ -116,7 +117,7 @@ public interface DaoMessage {
             ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
     DataSource.Factory<Integer, TupleMessageEx> pagedUnified(
             String type,
-            boolean threading,
+            boolean threading, boolean group_category,
             String sort, boolean ascending,
             boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed, boolean filter_deleted, String filter_language,
             boolean found,

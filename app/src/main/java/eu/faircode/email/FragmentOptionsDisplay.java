@@ -96,6 +96,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swSeekbar;
     private SwitchCompat swActionbar;
     private SwitchCompat swActionbarColor;
+    private SwitchCompat swCategory;
 
     private SwitchCompat swHighlightUnread;
     private ViewButtonColor btnHighlightColor;
@@ -189,7 +190,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "date", "date_fixed", "date_bold",
             "portrait2", "portrait2c", "landscape", "close_pane", "column_width",
             "nav_options", "nav_categories", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
-            "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
+            "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color", "group_category",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
             "avatars", "bimi", "gravatars", "libravatars", "favicons", "favicons_partial", "generated_icons", "identicons",
             "circular", "saturation", "brightness", "threshold",
@@ -250,6 +251,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swSeekbar = view.findViewById(R.id.swSeekbar);
         swActionbar = view.findViewById(R.id.swActionbar);
         swActionbarColor = view.findViewById(R.id.swActionbarColor);
+        swCategory = view.findViewById(R.id.swCategory);
 
         swHighlightUnread = view.findViewById(R.id.swHighlightUnread);
         btnHighlightColor = view.findViewById(R.id.btnHighlightColor);
@@ -619,6 +621,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("actionbar_color", checked).apply();
+            }
+        });
+
+        swCategory.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("group_category", checked).apply();
             }
         });
 
@@ -1334,6 +1343,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
         swActionbarColor.setChecked(prefs.getBoolean("actionbar_color", false));
         swActionbarColor.setEnabled(swActionbar.isChecked());
+        swCategory.setChecked(prefs.getBoolean("group_category", false));
 
         swHighlightUnread.setChecked(prefs.getBoolean("highlight_unread", true));
 

@@ -123,6 +123,7 @@ public class ViewModelMessages extends ViewModel {
                             db.message().pagedUnified(
                                     args.type,
                                     args.threading,
+                                    args.group_category,
                                     args.sort, args.ascending,
                                     args.filter_seen,
                                     args.filter_unflagged,
@@ -182,7 +183,7 @@ public class ViewModelMessages extends ViewModel {
                         builder = new LivePagedListBuilder<>(
                                 db.message().pagedUnified(
                                         null,
-                                        args.threading,
+                                        args.threading, false,
                                         "time", false,
                                         false, false, false, false, false,
                                         null,
@@ -486,6 +487,7 @@ public class ViewModelMessages extends ViewModel {
         private boolean server;
 
         private boolean threading;
+        private boolean group_category;
         private String sort;
         private boolean ascending;
         private boolean filter_seen;
@@ -517,6 +519,7 @@ public class ViewModelMessages extends ViewModel {
             boolean outbox = EntityFolder.OUTBOX.equals(type);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            this.group_category = prefs.getBoolean("group_category", false);
             this.sort = prefs.getString(FragmentMessages.getSort(context, viewType, type), "time");
             this.ascending = prefs.getBoolean(FragmentMessages.getSortOrder(context, viewType, type), outbox);
             this.filter_seen = prefs.getBoolean(FragmentMessages.getFilter(context, "seen", viewType, type), false);
@@ -545,6 +548,7 @@ public class ViewModelMessages extends ViewModel {
                         this.server == other.server &&
 
                         this.threading == other.threading &&
+                        this.group_category == other.group_category &&
                         Objects.equals(this.sort, other.sort) &&
                         this.ascending == other.ascending &&
                         this.filter_seen == other.filter_seen &&
@@ -566,6 +570,7 @@ public class ViewModelMessages extends ViewModel {
                     " thread=" + thread + ":" + id +
                     " criteria=" + criteria + ":" + server + "" +
                     " threading=" + threading +
+                    " category=" + group_category +
                     " sort=" + sort + ":" + ascending +
                     " filter seen=" + filter_seen +
                     " unflagged=" + filter_unflagged +

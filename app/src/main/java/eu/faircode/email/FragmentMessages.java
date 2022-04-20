@@ -313,6 +313,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private boolean cards;
     private boolean dividers;
+    private boolean category;
     private boolean date;
     private boolean date_fixed;
     private boolean date_bold;
@@ -448,6 +449,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         swipenav = prefs.getBoolean("swipenav", true);
         cards = prefs.getBoolean("cards", true);
         dividers = prefs.getBoolean("dividers", true);
+        category = prefs.getBoolean("group_category", false);
         date = prefs.getBoolean("date", true);
         date_fixed = (!date && prefs.getBoolean("date_fixed", false));
         date_bold = prefs.getBoolean("date_bold", false);
@@ -843,9 +845,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (message == null)
                     return null;
 
+                boolean ch = (category &&
+                        viewType == AdapterMessage.ViewType.UNIFIED &&
+                        (pos == 0
+                                ? message.accountCategory != null
+                                : !Objects.equals(prev.accountCategory, message.accountCategory)));
                 boolean dh = (date && !date_fixed && SORT_DATE_HEADER.contains(adapter.getSort()));
 
-                if (!dh)
+                if (!ch && !dh)
                     return null;
 
                 if (pos > 0) {
@@ -861,14 +868,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         dh = false;
                 }
 
-                if (!dh)
+                if (!ch && !dh)
                     return null;
 
                 View header = inflater.inflate(R.layout.item_group, parent, false);
                 TextView tvCategory = header.findViewById(R.id.tvCategory);
                 TextView tvDate = header.findViewById(R.id.tvDate);
-                tvCategory.setVisibility(View.GONE);
+                tvCategory.setVisibility(ch ? View.VISIBLE : View.GONE);
                 tvDate.setVisibility(dh ? View.VISIBLE : View.GONE);
+
+                if (ch) {
+                    tvCategory.setText(message.accountCategory);
+                    if (date_bold)
+                        tvCategory.setTypeface(Typeface.DEFAULT_BOLD);
+                }
 
                 if (dh) {
                     int zoom = adapter.getZoom();
