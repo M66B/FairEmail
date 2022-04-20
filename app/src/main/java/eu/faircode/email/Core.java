@@ -293,7 +293,8 @@ class Core {
                                             account.protocol == EntityAccount.TYPE_IMAP) {
                                         JSONArray jnext = new JSONArray(next.args);
                                         // Same target
-                                        if (jargs.getLong(0) == jnext.getLong(0)) {
+                                        if (jargs.getLong(0) == jnext.getLong(0) &&
+                                                jargs.optBoolean(4) == jnext.optBoolean(4)) {
                                             EntityMessage m = db.message().getMessage(next.message);
                                             if (m != null && m.uid != null)
                                                 similar.put(next, m);
@@ -1368,6 +1369,7 @@ class Core {
         long id = jargs.getLong(0);
         boolean seen = jargs.optBoolean(1);
         boolean unflag = jargs.optBoolean(3);
+        boolean delete = jargs.optBoolean(4);
 
         Flags flags = ifolder.getPermanentFlags();
 
@@ -1507,7 +1509,7 @@ class Core {
         }
 
         // Fetch appended/copied when needed
-        boolean fetch = (copy ||
+        boolean fetch = (copy || delete ||
                 !"connected".equals(target.state) ||
                 !MessageHelper.hasCapability(ifolder, "IDLE"));
         if (draft || fetch)
@@ -1516,6 +1518,7 @@ class Core {
                 itarget.open(READ_WRITE);
 
                 boolean sync = false;
+                List<Message> ideletes = new ArrayList<>();
                 for (EntityMessage message : map.values())
                     try {
                         String msgid = msgids.get(message);
@@ -1547,7 +1550,12 @@ class Core {
                                 icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
                         }
 
-                        if (fetch) {
+                        if (delete) {
+                            Log.i(target.name + " Deleting uid=" + uid);
+                            Message idelete = itarget.getMessageByUID(uid);
+                            idelete.setFlag(Flags.Flag.DELETED, true);
+                            ideletes.add(idelete);
+                        } else if (fetch) {
                             Log.i(target.name + " Fetching uid=" + uid);
                             JSONArray fargs = new JSONArray();
                             fargs.put(uid);
@@ -1561,6 +1569,8 @@ class Core {
                         if (fetch)
                             sync = true;
                     }
+
+                expunge(context, itarget, ideletes);
 
                 if (sync)
                     EntityOperation.sync(context, target.id, false);
