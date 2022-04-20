@@ -846,7 +846,7 @@ public class EntityRule {
         if (!resend && attached) {
             EntityAttachment attachment = new EntityAttachment();
             attachment.message = reply.id;
-            attachment.sequence = 1;
+            attachment.sequence = db.attachment().getAttachmentSequence(reply.id) + 1;
             attachment.name = "email.eml";
             attachment.type = "message/rfc822";
             attachment.disposition = Part.ATTACHMENT;
