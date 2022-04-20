@@ -62,6 +62,7 @@ import java.util.regex.Pattern;
 import javax.mail.Address;
 import javax.mail.Header;
 import javax.mail.MessagingException;
+import javax.mail.Part;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.InternetHeaders;
@@ -639,6 +640,7 @@ public class EntityRule {
         DB db = DB.getInstance(context);
         String to = jargs.optString("to");
         boolean resend = jargs.optBoolean("resend");
+        boolean attached = jargs.optBoolean("attached");
         boolean attachments = jargs.optBoolean("attachments");
 
         if (TextUtils.isEmpty(to) &&
@@ -665,6 +667,11 @@ public class EntityRule {
         if (resend && message.headers == null) {
             complete = false;
             EntityOperation.queue(context, message, EntityOperation.HEADERS);
+        }
+
+        if (!resend && attached && !Boolean.TRUE.equals(message.raw)) {
+            complete = false;
+            EntityOperation.queue(context, message, EntityOperation.RAW);
         }
 
         if (!complete) {
@@ -699,6 +706,7 @@ public class EntityRule {
         boolean attachments = jargs.optBoolean("attachments");
         String to = jargs.optString("to");
         boolean resend = jargs.optBoolean("resend");
+        boolean attached = jargs.optBoolean("attached");
         boolean cc = jargs.optBoolean("cc");
 
         boolean isReply = TextUtils.isEmpty(to);
@@ -834,6 +842,22 @@ public class EntityRule {
 
         if (attachments || resend)
             EntityAttachment.copy(context, message.id, reply.id);
+
+        if (!resend && attached) {
+            EntityAttachment attachment = new EntityAttachment();
+            attachment.message = reply.id;
+            attachment.sequence = 1;
+            attachment.name = "email.eml";
+            attachment.type = "message/rfc822";
+            attachment.disposition = Part.ATTACHMENT;
+            attachment.progress = 0;
+            attachment.id = db.attachment().insertAttachment(attachment);
+
+            File source = message.getRawFile(context);
+            File target = attachment.getFile(context);
+            Helper.copy(source, target);
+            db.attachment().setDownloaded(attachment.id, target.length());
+        }
 
         EntityOperation.queue(context, reply, EntityOperation.SEND);
 

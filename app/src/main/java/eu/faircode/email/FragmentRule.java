@@ -148,6 +148,7 @@ public class FragmentRule extends FragmentBase {
     private EditText etTo;
     private ImageButton ibTo;
     private CheckBox cbResend;
+    private CheckBox cbAttached;
     private CheckBox cbCc;
 
     private Button btnTtsSetup;
@@ -301,6 +302,7 @@ public class FragmentRule extends FragmentBase {
         etTo = view.findViewById(R.id.etTo);
         ibTo = view.findViewById(R.id.ibTo);
         cbResend = view.findViewById(R.id.cbResend);
+        cbAttached = view.findViewById(R.id.cbAttached);
         cbCc = view.findViewById(R.id.cbCc);
 
         btnTtsSetup = view.findViewById(R.id.btnTtsSetup);
@@ -652,6 +654,7 @@ public class FragmentRule extends FragmentBase {
                 cbAnswerSubject.setEnabled(!checked);
                 cbOriginalText.setEnabled(!checked);
                 cbWithAttachments.setEnabled(!checked);
+                cbAttached.setEnabled(false);
             }
         });
 
@@ -1177,6 +1180,7 @@ public class FragmentRule extends FragmentBase {
 
                                     etTo.setText(jaction.optString("to"));
                                     cbResend.setChecked(jaction.optBoolean("resend"));
+                                    cbAttached.setChecked(jaction.optBoolean("attached"));
                                     cbCc.setChecked(jaction.optBoolean("cc"));
                                     break;
 
@@ -1520,6 +1524,7 @@ public class FragmentRule extends FragmentBase {
                     jaction.put("attachments", cbWithAttachments.isChecked());
                     jaction.put("to", etTo.getText().toString().trim());
                     jaction.put("resend", cbResend.isChecked());
+                    jaction.put("attached", cbAttached.isChecked());
                     jaction.put("cc", cbCc.isChecked());
                     break;
 
