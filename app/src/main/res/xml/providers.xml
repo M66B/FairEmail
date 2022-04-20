@@ -446,7 +446,7 @@
     </provider>
     <provider
         name="web.de"
-        documentation="Please check if &lt;a href=&quot;https://hilfe.web.de/email/einstellungen/pop3-imap-einschalten.html&quot;&gt;IMAP is enabled&lt;/a&gt;"
+        documentation="Ist &lt;a href=&quot;https://hilfe.web.de/email/einstellungen/pop3-imap-einschalten.html&quot;&gt;IMAP aktiviert&lt;/a&gt;? Die Zwei-Faktor-Authentifizierung erfordert &lt;a href=&quot;https://web.de/email/sicherheit/zwei-faktor-authentifizierung/&quot;&gt;ein Anwendungsspezifische Passwort&lt;/a&gt;!"
         domain="web\\.de"
         keepalive="12"
         link="https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html"
