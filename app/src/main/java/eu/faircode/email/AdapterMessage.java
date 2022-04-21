@@ -2953,10 +2953,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         properties.scrollTo(getAdapterPosition(), 0);
 
                     boolean auto_decrypt = prefs.getBoolean("auto_decrypt", false);
-                    if (auto_decrypt &&
+                    boolean auto_decrypted = properties.getValue("auto_decrypted", message.id);
+                    if (auto_decrypt && !auto_decrypted &&
                             (EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
-                                    EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)))
+                                    EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))) {
+                        properties.setValue("auto_decrypted", message.id, true);
                         onActionDecrypt(message, true);
+                    }
                 }
 
                 @Override
