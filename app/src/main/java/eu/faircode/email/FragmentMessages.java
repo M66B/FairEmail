@@ -9137,7 +9137,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 return;
                             }
 
-                            PrintManager printManager = Helper.getSystemService(context, PrintManager.class);
+                            PrintManager printManager = (PrintManager) context.getSystemService(Context.PRINT_SERVICE);
                             String jobName = getString(R.string.app_name);
                             if (!TextUtils.isEmpty(data[0]))
                                 jobName += " - " + data[0];
