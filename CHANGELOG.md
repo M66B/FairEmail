@@ -4,6 +4,13 @@
 
 ### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
 
+### 1.1878 - 2022-04-21
+
+* Fixed printing
+* Fixed signature verification in some cases
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1877 - 2022-04-21
 
 * Small improvements and minor bug fixes
