@@ -318,6 +318,7 @@
     <string name="title_advanced_answer_action">长按回复按钮动作：</string>
     <string name="title_advanced_send_pending">显示不显眼的 \"延迟发送\" 图标 (页面左下角)</string>
     <string name="title_advanced_compose_font">默认字体</string>
+    <string name="title_advanced_auto_identity">自动选择新邮件的身份</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_prefix_count">在邮件主题的前缀“回复(Re)”后显示计数</string>
     <string name="title_advanced_separate_reply">在回复/转发标题之前插入一条水平线</string>
@@ -623,6 +624,7 @@
     <string name="title_advanced_folder_nav_hint">这将总是从邮件列表返回到相关帐户的文件夹列表</string>
     <string name="title_advanced_suggest_names_hint">如果禁用，选择联系人时将只使用电子邮件地址</string>
     <string name="title_advanced_suggest_local_hint">这不包括 Android 提供的联系人。应用仅在此选项启用后存储新的接收或发送消息的联系人。</string>
+    <string name="title_advanced_auto_identity_hint">将选择新邮件第一个收件人使用得最后一个身份</string>
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
     <string name="title_advanced_reply_move_hint">邮件服务器仍可能将邮件添加到“已发送”文件夹</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
@@ -1024,6 +1026,7 @@
     <string name="title_no_saf">存储访问框架不可用</string>
     <string name="title_no_stream">FairEmail 无权直接读取此文件</string>
     <string name="title_no_stream_help">这可以通过使用更现代的文件管理器选择文件或授予文件读取权限来解决</string>
+    <string name="title_no_permissions">用于选择文件的应用未授予文件读取权限</string>
     <string name="title_no_internet">没有或没有合适的网络连接</string>
     <string name="title_no_connection">正在连接到一个或多个账户 &#8230;</string>
     <string name="title_no_folder">文件夹不存在</string>
@@ -1370,6 +1373,7 @@
     <string name="title_rule_original_text">包含原始消息文本</string>
     <string name="title_rule_forward_to">转发给</string>
     <string name="title_rule_resend">重新发送</string>
+    <string name="title_rule_attached">附加原始邮件文件</string>
     <string name="title_rule_cc">回信给邮件抄送地址</string>
     <string name="title_rule_with_attachments">含附件</string>
     <string name="title_rule_answer_remark">(设置自动回复后)任何会话将仅发送一个回复，以避免回复循环</string>

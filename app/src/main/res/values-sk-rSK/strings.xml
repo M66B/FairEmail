@@ -118,6 +118,7 @@
     <string name="title_notification_redacted">Obmedzené: Povolené biometrické overenie, alebo overenie kódom pin</string>
     <string name="title_factor_minutes">%1$d minút</string>
     <string name="menu_answers">Šablóny</string>
+    <string name="menu_rules">Pravidlá</string>
     <string name="menu_operations">Operácie</string>
     <string name="menu_contacts">Lokálne kontakty</string>
     <string name="menu_setup">Nastavenia</string>
@@ -222,6 +223,7 @@
     <string name="title_setup_done">Hotovo</string>
     <string name="title_setup_still">Zostáva dokončiť</string>
     <string name="title_setup_error">Chyba</string>
+    <string name="title_setup_pop">Používať POP3 protokol (neodporúča sa)</string>
     <string name="title_setup_configuring">Nastavenie účtu &#8230;</string>
     <string name="title_setup_app_password">Možno budete potrebovať použiť heslo aplikácie</string>
     <string name="title_setup_extra">Viac</string>
@@ -346,6 +348,7 @@
     <string name="title_advanced_answer_action">Akcia pri dlhom stlačení odpovedať:</string>
     <string name="title_advanced_send_pending">Zobrazovať nevtieravú ikonu oneskoreného odosielania</string>
     <string name="title_advanced_compose_font">Predvolené písmo</string>
+    <string name="title_advanced_auto_identity">Automaticky nastaviť totožnosť pre nové správy</string>
     <string name="title_advanced_prefix_once">Pri odpovedaní alebo preposielaní pridať do predmetu len jednu predponu</string>
     <string name="title_advanced_prefix_count">Pridať počet do prefixu pre odpoveď</string>
     <string name="title_advanced_separate_reply">Vložiť vodorovnú čiaru pred hlavičkou odpovedanej / preposlanej správy</string>
@@ -358,6 +361,7 @@
     <string name="title_advanced_signature_location">Umiestnenie podpisu</string>
     <string name="title_advanced_signature_new">V nových správať používať podpis</string>
     <string name="title_advanced_signature_reply">Používať podpis pri odpovedi</string>
+    <string name="title_advanced_signature_reply_once">Len pre prvú odpoveď</string>
     <string name="title_advanced_signature_forward">Používať podpis pri preposielaní</string>
     <string name="title_advanced_discard_delete">Pri odstránení konceptu nepoužívať kôš</string>
     <string name="title_advanced_reply_move">Ukladať odpovede v priečinku s pôvodnou správou</string>
@@ -647,8 +651,10 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_check_reply_hint">Skontroluje, či sa doména adresy pre odpoveď zhoduje s doménou odosielateľa</string>
     <string name="title_advanced_lookup_mx_hint">Skontroluje, či existujú MX záznamy v systéme DNS</string>
     <string name="title_advanced_sync_delay_hint">Spomalí synchronizáciu správ</string>
+    <string name="title_advanced_folder_nav_hint">Týmto vždy prejdete zo zoznamu správ do zoznamu priečinkov pridruženého účtu</string>
     <string name="title_advanced_suggest_names_hint">Ak je to zakázané, pri výbere kontaktov sa budú používať len emailové adresy</string>
     <string name="title_advanced_suggest_local_hint">Okrem kontaktov poskytnutých systémom. Zaznamenané budú kontaktné údaje z prijatých a odoslaných správ, len ak je to povolené.</string>
+    <string name="title_advanced_auto_identity_hint">Týmto nastavíte naposledy použitú totožnosť podľa prvého príjemcu nových správ</string>
     <string name="title_advanced_send_reminders_hint">Zobraziť varovanie, ak je text správy alebo predmet prázdny alebo môže chýbať príloha</string>
     <string name="title_advanced_reply_move_hint">Poštový server môže stále umiestniť správy v priečinku s odoslanou poštou</string>
     <string name="title_advanced_usenet_hint">Oddeliť podpis od textu správy znakmi \'-- \'</string>
@@ -849,6 +855,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_synchronize_more_hint2">        Správy budú prevzaté tak rýchlo, ako rýchlo bude fungovať preberanie z poštového servera a uložené a zaindexované budú tak rýchlo, ako to umožní úložisko zariadenia.
         Limitujúci faktor je zvyčajne rýchlosť interného úložiska v zariadení.
     </string>
+    <string name="title_synchronize_more_hint3">Prosím, majte na pamäti, že uchovávanie veľkého množstva správ v zariadení (viac než 10000) môže spôsobovať ťažkopádne správanie alebo zdržanie, pretože interné úložisko nie je nekonečne rýchle.</string>
     <string name="title_synchronize_enabled">Synchronizovať</string>
     <string name="title_synchronize_batch_enable">Povoliť synchronizáciu</string>
     <string name="title_synchronize_batch_disable">Zakázať synchronizáciu</string>
@@ -903,6 +910,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_apply_to_all">Použiť pre všetky</string>
     <string name="title_edit_account_name">Upraviť názov účtu</string>
     <string name="title_hide_folder">Skryť priečinok</string>
+    <string name="title_hide_seen_folder">Skryť priečinok, keď sú všetky správy prečítané</string>
+    <string name="title_hide_seen_folder_hint">Len v zozname priečinkov na úvodnej obrazovke</string>
     <string name="title_unified_folder">Zobraziť v spoločnej doručenej pošte</string>
     <string name="title_navigation_folder">Zobrazovať v navigačnom menu</string>
     <string name="title_synchronize_folder">Synchronizovať (prijať správy)</string>
@@ -1049,6 +1058,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_no_saf">Nie je dostupný Storage access framework</string>
     <string name="title_no_stream">FairEmail nemá povolenie na priamy prístup k tomuto súboru</string>
     <string name="title_no_stream_help">Vyriešiť túto situáciu môžete vyhľadaním súboru cez modernejšieho správcu súborov alebo udelením oprávnenia čítať súbory</string>
+    <string name="title_no_permissions">Aplikácia, ktorú ste použili na výber súboru neudelila oprávnenie na jeho čítanie</string>
     <string name="title_no_internet">Žiadny alebo nedostačujúci prístup na internet</string>
     <string name="title_no_connection">Pripájanie k jednému alebo viacerým účtom &#8230;</string>
     <string name="title_no_folder">Priečinok neexistuje</string>
@@ -1182,6 +1192,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_translating">Preklad &#8230;</string>
     <string name="title_translate_formal">Používať formálny jazyk</string>
     <string name="title_translate_small">Zdrojový text malým písmom</string>
+    <string name="title_translate_html">Zachovať formátovanie</string>
+    <string name="title_translate_html_hint">Zaberie viac znakov</string>
     <string name="title_translate_usage">Použitie: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Klepnite na text, ktorý si želáte preložiť</string>
     <string name="title_edit_plain_text">Upraviť ako obyčajný text</string>
@@ -1392,6 +1404,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_original_text">Zahrnúť text pôvodnej správy</string>
     <string name="title_rule_forward_to">Preposlať na</string>
     <string name="title_rule_resend">Znovu odoslať</string>
+    <string name="title_rule_attached">Priložiť súbor so surovou správov</string>
     <string name="title_rule_cc">Odpovedať na adresy v poli kópia</string>
     <string name="title_rule_with_attachments">S prílohami</string>
     <string name="title_rule_answer_remark">Len jedna odpoveď bude odoslaná pre ľubovoľnú konverzáciu aby sa zamedzilo odpovedacím slučkám</string>
@@ -1874,10 +1887,10 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Neblokovaný</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item>Any</item>
-        <item>Home</item>
+        <item>Ktorýkoľvek</item>
+        <item>Domov</item>
         <item>Práca</item>
         <item>Iné</item>
-        <item>Mobile</item>
+        <item>Mobil</item>
     </string-array>
 </resources>
