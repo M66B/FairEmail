@@ -4,6 +4,12 @@
 
 ### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
 
+### 1.1877 - 2022-04-21
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### 1.1876 - 2022-04-20
 
 * Added auto select same identity for same recipient for new messages
