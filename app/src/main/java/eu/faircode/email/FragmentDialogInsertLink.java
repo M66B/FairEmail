@@ -41,7 +41,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putString("fair:link", etLink.getText().toString());
+        outState.putString("fair:link", etLink == null ? null : etLink.getText().toString());
         super.onSaveInstanceState(outState);
     }
 

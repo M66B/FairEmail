@@ -649,7 +649,7 @@ public class FragmentPop extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putString("fair:password", tilPassword.getEditText().getText().toString());
+        outState.putString("fair:password", tilPassword == null ? null : tilPassword.getEditText().getText().toString());
         outState.putInt("fair:auth", auth);
         super.onSaveInstanceState(outState);
     }
