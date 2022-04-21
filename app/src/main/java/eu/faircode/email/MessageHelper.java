@@ -3328,7 +3328,7 @@ public class MessageHelper {
 
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 apart.part.writeTo(bos);
-                String raw = new String(bos.toByteArray());
+                String raw = new String(bos.toByteArray(), StandardCharsets.ISO_8859_1);
                 String[] parts = raw.split("\\r?\\n" + Pattern.quote("--" + boundary) + "\\r?\\n");
                 if (parts.length < 2)
                     throw new ParseException("Signed part missing");
@@ -3341,7 +3341,7 @@ public class MessageHelper {
                     c = c.replaceAll(" +$", ""); // trim trailing spaces
 
                 try (OutputStream os = new FileOutputStream(file)) {
-                    os.write(c.getBytes());
+                    os.write(c.getBytes(StandardCharsets.ISO_8859_1));
                 }
 
                 db.attachment().setDownloaded(local.id, file.length());
