@@ -225,19 +225,23 @@ public class WorkerCleanup extends Worker {
             // Cleanup message files
             Log.i("Cleanup message files");
             for (File file : files)
-                if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
-                    String name = file.getName().split("\\.")[0];
-                    int us = name.indexOf('_');
-                    if (us > 0)
-                        name = name.substring(0, us);
-                    long id = Long.parseLong(name);
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message == null || !message.content) {
-                        Log.i("Deleting " + file);
-                        if (!file.delete())
-                            Log.w("Error deleting " + file);
+                if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
+                    try {
+                        String name = file.getName().split("\\.")[0];
+                        int us = name.indexOf('_');
+                        if (us > 0)
+                            name = name.substring(0, us);
+                        long id = Long.parseLong(name);
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null || !message.content) {
+                            Log.i("Deleting " + file);
+                            if (!file.delete())
+                                Log.w("Error deleting " + file);
+                        }
+                    } catch (NumberFormatException ex) {
+                        Log.e(file.getAbsolutePath(), ex);
+                        file.delete();
                     }
-                }
 
             // Cleanup raw message files
             if (!download_eml) {
@@ -245,22 +249,26 @@ public class WorkerCleanup extends Worker {
                 File[] raws = new File(context.getFilesDir(), "raw").listFiles();
                 if (raws != null)
                     for (File file : raws)
-                        if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
-                            long id = Long.parseLong(file.getName().split("\\.")[0]);
-                            EntityMessage message = db.message().getMessage(id);
-                            if (manual && cleanup_attachments && message != null) {
-                                EntityAccount account = db.account().getAccount(message.account);
-                                if (account != null && account.protocol == EntityAccount.TYPE_IMAP) {
-                                    message.raw = false;
-                                    db.message().setMessageRaw(message.id, message.raw);
+                        if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
+                            try {
+                                long id = Long.parseLong(file.getName().split("\\.")[0]);
+                                EntityMessage message = db.message().getMessage(id);
+                                if (manual && cleanup_attachments && message != null) {
+                                    EntityAccount account = db.account().getAccount(message.account);
+                                    if (account != null && account.protocol == EntityAccount.TYPE_IMAP) {
+                                        message.raw = false;
+                                        db.message().setMessageRaw(message.id, message.raw);
+                                    }
                                 }
+                                if (message == null || message.raw == null || !message.raw) {
+                                    Log.i("Deleting " + file);
+                                    if (!file.delete())
+                                        Log.w("Error deleting " + file);
+                                }
+                            } catch (NumberFormatException ex) {
+                                Log.e(file.getAbsolutePath(), ex);
+                                file.delete();
                             }
-                            if (message == null || message.raw == null || !message.raw) {
-                                Log.i("Deleting " + file);
-                                if (!file.delete())
-                                    Log.w("Error deleting " + file);
-                            }
-                        }
             }
 
             // Cleanup attachment files
@@ -268,31 +276,39 @@ public class WorkerCleanup extends Worker {
             File[] attachments = new File(context.getFilesDir(), "attachments").listFiles();
             if (attachments != null)
                 for (File file : attachments)
-                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
-                        long id = Long.parseLong(file.getName().split("\\.")[0]);
-                        EntityAttachment attachment = db.attachment().getAttachment(id);
-                        if (attachment == null || !attachment.available) {
-                            Log.i("Deleting " + file);
-                            if (!file.delete())
-                                Log.w("Error deleting " + file);
+                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
+                        try {
+                            long id = Long.parseLong(file.getName().split("\\.")[0]);
+                            EntityAttachment attachment = db.attachment().getAttachment(id);
+                            if (attachment == null || !attachment.available) {
+                                Log.i("Deleting " + file);
+                                if (!file.delete())
+                                    Log.w("Error deleting " + file);
+                            }
+                        } catch (NumberFormatException ex) {
+                            Log.e(file.getAbsolutePath(), ex);
+                            file.delete();
                         }
-                    }
 
             // Cleanup cached images
             Log.i("Cleanup cached image files");
             File[] images = new File(context.getCacheDir(), "images").listFiles();
             if (images != null)
                 for (File file : images)
-                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
-                        long id = Long.parseLong(file.getName().split("[_\\.]")[0]);
-                        EntityMessage message = db.message().getMessage(id);
-                        if (manual || message == null ||
-                                file.lastModified() + KEEP_IMAGES_DURATION < now) {
-                            Log.i("Deleting " + file);
-                            if (!file.delete())
-                                Log.w("Error deleting " + file);
+                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
+                        try {
+                            long id = Long.parseLong(file.getName().split("[_\\.]")[0]);
+                            EntityMessage message = db.message().getMessage(id);
+                            if (manual || message == null ||
+                                    file.lastModified() + KEEP_IMAGES_DURATION < now) {
+                                Log.i("Deleting " + file);
+                                if (!file.delete())
+                                    Log.w("Error deleting " + file);
+                            }
+                        } catch (NumberFormatException ex) {
+                            Log.e(file.getAbsolutePath(), ex);
+                            file.delete();
                         }
-                    }
 
             // Cleanup shared files
             File[] shared = new File(context.getCacheDir(), "shared").listFiles();
