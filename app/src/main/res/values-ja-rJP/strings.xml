@@ -193,6 +193,7 @@
     <string name="title_setup_done">完了</string>
     <string name="title_setup_still">実行中です</string>
     <string name="title_setup_error">エラー</string>
+    <string name="title_setup_pop">POP3 を使用する (非推奨)</string>
     <string name="title_setup_configuring">アカウントを設定しています&#8230;</string>
     <string name="title_setup_app_password">アプリパスワードを使用する必要があるかもしれません</string>
     <string name="title_setup_extra">その他</string>
@@ -318,6 +319,7 @@
     <string name="title_advanced_answer_action">返信ボタンを長押ししたときのアクション:</string>
     <string name="title_advanced_send_pending">目立たない送信遅延アイコンを表示</string>
     <string name="title_advanced_compose_font">デフォルトのフォント</string>
+    <string name="title_advanced_auto_identity">新規作成するメッセージを送信する ID を自動で選択</string>
     <string name="title_advanced_prefix_once">返信/転送のプレフィックスを 1 つだけにする</string>
     <string name="title_advanced_prefix_count">返信のプレフィックスにカウントを追加</string>
     <string name="title_advanced_separate_reply">返信/転送の見出しの前に水平線を挿入</string>
@@ -623,6 +625,7 @@
     <string name="title_advanced_folder_nav_hint">常にメッセージリストから関連するアカウントのフォルダーリストに戻ります</string>
     <string name="title_advanced_suggest_names_hint">無効にすると、連絡先を選択する際にメールアドレスのみが使用されます</string>
     <string name="title_advanced_suggest_local_hint">Android のローカル連絡先を追加します。有効にすると、新しく送受信されたメッセージの連絡先データが保存されます。</string>
+    <string name="title_advanced_auto_identity_hint">新規メッセージの筆頭の宛先にメールを送信するとき、最後に使用した ID を選択します</string>
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
     <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加できます</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「--」を挿入します</string>
@@ -765,7 +768,7 @@
     <string name="title_server_time">サーバーの受信時刻を使用</string>
     <string name="title_received_header">「Received」ヘッダーを使用</string>
     <string name="title_date_header">「Date」ヘッダーを使用 (送信時刻)</string>
-    <string name="title_date_remark">変更は新しいメッセージにのみ適用されます</string>
+    <string name="title_date_remark">変更は新着メッセージにのみ適用されます</string>
     <string name="title_related_identity">関連 ID (SMTPサーバー) を追加</string>
     <string name="title_check">確認</string>
     <string name="title_trust">フィンガープリント %1$s でサーバー証明書を信頼する</string>
@@ -878,6 +881,7 @@
     <string name="title_apply_to_all">すべてに適用</string>
     <string name="title_edit_account_name">アカウント名を編集</string>
     <string name="title_hide_folder">フォルダーを非表示</string>
+    <string name="title_hide_seen_folder">すべてのメッセージが既読のとき、フォルダーを非表示にする</string>
     <string name="title_hide_seen_folder_hint">スタート画面に表示されるフォルダ一覧にのみ表示されます</string>
     <string name="title_unified_folder">統合受信トレイに表示</string>
     <string name="title_navigation_folder">ナビゲーションメニューに表示</string>
@@ -886,7 +890,7 @@
     <string name="title_poll_folder_remark">ほとんどのメールサーバーでは、一部のフォルダーに対してのみプッシュメッセージを許可しています</string>
     <string name="title_download_folder">本文と添付ファイルを自動的にダウンロード</string>
     <string name="title_notify_folder">新着メッセージを通知</string>
-    <string name="title_auto_classify_source">このフォルダーに新しいメッセージを分類</string>
+    <string name="title_auto_classify_source">このフォルダーに新着メッセージを分類</string>
     <string name="title_auto_classify_target">このフォルダーに分類されたメッセージを自動的に移動</string>
     <string name="title_sync_days">メッセージの同期 (日)</string>
     <string name="title_sync_days_remark">この値を増やすとバッテリーとデータ使用量が増加します</string>
@@ -1026,6 +1030,7 @@
     <string name="title_no_saf">ストレージアクセスフレームワークが利用できません</string>
     <string name="title_no_stream">FairEmail にはこのファイルディレクトリを読み込む権限がありません</string>
     <string name="title_no_stream_help">これは、よりモダンなファイルマネージャーアプリからファイルを選択するか、ファイルを読み取る権限を付与することで解決できます</string>
+    <string name="title_no_permissions">ファイルを選択するために使用されたアプリに、読み取り権限が付与されていませんでした</string>
     <string name="title_no_internet">安定したインターネット接続を確立できません</string>
     <string name="title_no_connection">1 つ以上のアカウントへ接続しています&#8230;</string>
     <string name="title_no_folder">フォルダーが存在しません</string>
@@ -1374,6 +1379,7 @@
     <string name="title_rule_original_text">元のメッセージ本文を含める</string>
     <string name="title_rule_forward_to">転送先</string>
     <string name="title_rule_resend">再送</string>
+    <string name="title_rule_attached">元のメッセージファイルを添付</string>
     <string name="title_rule_cc">CC アドレスへ返信</string>
     <string name="title_rule_with_attachments">添付ファイルも含める</string>
     <string name="title_rule_answer_remark">自動返信のループを回避するために、それぞれの会話に対して 1 度だけ返信します</string>
@@ -1656,7 +1662,7 @@
     <string name="title_widget_padding">余白サイズ</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>
     <string name="title_widget_refresh">メッセージ更新ボタンを表示</string>
-    <string name="title_widget_compose">新規メッセージ作成ボタンを表示</string>
+    <string name="title_widget_compose">メッセージ新規作成ボタンを表示</string>
     <string name="title_widget_background">背景色</string>
     <string name="title_accessibility_collapsed">折りたたみました</string>
     <string name="title_accessibility_expanded">展開しました</string>

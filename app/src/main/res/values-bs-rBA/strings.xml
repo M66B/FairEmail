@@ -339,6 +339,7 @@
     <string name="title_advanced_answer_action">Dugo pritiskanje tipke \'odgovor\' će:</string>
     <string name="title_advanced_send_pending">Prikaži nenametljivu ikonicu za odgođeno slanje</string>
     <string name="title_advanced_compose_font">Zadani font</string>
+    <string name="title_advanced_auto_identity">Automatski izbor identiteta za nove poruke</string>
     <string name="title_advanced_prefix_once">Prefiks predmeta samo jedanput pri odgovoru ili prosljeđenju</string>
     <string name="title_advanced_prefix_count">Dodaj brojač prefiksu odgovora</string>
     <string name="title_advanced_separate_reply">Ubaci vodoravnu liniju prije zaglavlja odgovora/prosljeđenja</string>
@@ -644,6 +645,7 @@
     <string name="title_advanced_folder_nav_hint">Ovim će se uvijek vraćati sa spiska poruka na spisak foldera povezanog računa</string>
     <string name="title_advanced_suggest_names_hint">Ako je isključeno, koristit će se samo e-mail adrese pri izboru kontakata</string>
     <string name="title_advanced_suggest_local_hint">Pored kontakata koje pruža Android. Kontaktni podaci bit će čuvani za nove poslane ili primljene poruke samo kada je opcija uključena.</string>
+    <string name="title_advanced_auto_identity_hint">Ovim će se izabrati posljednji identitet korišten kao prvi primalac u novim porukama</string>
     <string name="title_advanced_send_reminders_hint">Prikazuje upozorenje kada su tekst poruke ili predmet prazni ili kada nedostaje prilog</string>
     <string name="title_advanced_reply_move_hint">E-mail server još može dodavati poruke u folder za poslane poruke</string>
     <string name="title_advanced_usenet_hint">Ubaci \'-- \' između teksta i potpisa</string>
@@ -1048,6 +1050,7 @@
     <string name="title_no_saf">Framework za pristup skladišti nije dostupan</string>
     <string name="title_no_stream">FairEmail nema dozvolu za direktno čitanje ove datoteke</string>
     <string name="title_no_stream_help">Ovo se može riješiti tako da se izabere datoteka pomoću modernijeg upravljača datotekama ili odobravanjem dozvole za čitanje datoteka</string>
+    <string name="title_no_permissions">Aplikacija koja je označila datoteku nije odobrila njeno čitanje</string>
     <string name="title_no_internet">Bez ikakve ili prihvatljive internet konekcije</string>
     <string name="title_no_connection">Povezivanje na jedan ili više računa &#8230;</string>
     <string name="title_no_folder">Folder ne postoji</string>
@@ -1396,6 +1399,7 @@
     <string name="title_rule_original_text">Uvrsti tekst izvorne poruke</string>
     <string name="title_rule_forward_to">Proslijedi za</string>
     <string name="title_rule_resend">Ponovljeno slanje</string>
+    <string name="title_rule_attached">Priloži datoteku RAW poruke</string>
     <string name="title_rule_cc">Odgovori na CC adrese</string>
     <string name="title_rule_with_attachments">S prilozima</string>
     <string name="title_rule_answer_remark">Samo jedan odgovor će se poslati za bilo koju konverzaciju, radi sprječavanja zapetljavanja odgovora</string>

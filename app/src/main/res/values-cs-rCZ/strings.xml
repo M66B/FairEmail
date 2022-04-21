@@ -359,6 +359,7 @@
     <string name="title_advanced_signature_location">Umístění podpisu</string>
     <string name="title_advanced_signature_new">Použít podpis pro nové zprávy</string>
     <string name="title_advanced_signature_reply">Použít podpis při odpovědi</string>
+    <string name="title_advanced_signature_reply_once">Pouze pro první odpověď</string>
     <string name="title_advanced_signature_forward">Použít podpis při přeposlání</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej natrvalo smazat</string>
     <string name="title_advanced_reply_move">Při odpovědi na zprávu uložit odpověď do stejné složky</string>
@@ -648,8 +649,10 @@
     <string name="title_advanced_check_reply_hint">Ověří, zda je název domény odesílatele totožný s adresou pro odpověď</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
+    <string name="title_advanced_folder_nav_hint">Toto vás vždy vrátí do seznamu složek příslušného účtu ze seznamu zpráv</string>
     <string name="title_advanced_suggest_names_hint">Je-li vypnuto, budou při výběru kontaktů použity pouze e-mailové adresy</string>
     <string name="title_advanced_suggest_local_hint">Jako dodatek ke kontaktům poskytnutých Androidem. Je-li povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
+    <string name="title_advanced_auto_identity_hint">Toto zvolí poslední identitu použitou pro prvního příjemce nových zpráv</string>
     <string name="title_advanced_send_reminders_hint">Zobrazí upozornění, je-li text zprávy či předmět prázdný nebo chybí-li pravděpodobně příloha</string>
     <string name="title_advanced_reply_move_hint">E-mailový server stále může zprávy ukládat i do složky odeslané</string>
     <string name="title_advanced_usenet_hint">Vložit „-- “ mezi text a podpis</string>
@@ -850,6 +853,7 @@
     <string name="title_synchronize_more_hint2">        Zprávy budou načteny tak rychle, jak je může e-mailový server doručit a uloženy tak rychle, jak je může zařízení uložit a indexovat.
         Omezující faktor je obvykle rychlost vnitřního úložného prostoru zařízení.
     </string>
+    <string name="title_synchronize_more_hint3">Mějte prosím na paměti, že uložení spousty zpráv (deset tisíc nebo více) na vašem zařízení může způsobit zpoždění, protože vnitřní úložný prostor není nekonečně rychlý.</string>
     <string name="title_synchronize_enabled">Synchronizovat</string>
     <string name="title_synchronize_batch_enable">Povolit synchronizaci</string>
     <string name="title_synchronize_batch_disable">Zakázat synchronizaci</string>
@@ -904,6 +908,8 @@
     <string name="title_apply_to_all">Použít na vše</string>
     <string name="title_edit_account_name">Upravit název účtu</string>
     <string name="title_hide_folder">Skrýt složku</string>
+    <string name="title_hide_seen_folder">Skrýt složku, pokud jsou přečteny všechny zprávy</string>
+    <string name="title_hide_seen_folder_hint">Pouze v seznamu složek zobrazeném na úvodní obrazovce</string>
     <string name="title_unified_folder">Zobrazit ve sjednocené doručené poště</string>
     <string name="title_navigation_folder">Zobrazit v navigačním menu</string>
     <string name="title_synchronize_folder">Synchronizovat (přijímat zprávy)</string>
@@ -1050,6 +1056,7 @@
     <string name="title_no_saf">Rozhraní přístupu k úložišti není k dispozici</string>
     <string name="title_no_stream">FairEmail nemá oprávnění k přímému čtení tohoto souboru</string>
     <string name="title_no_stream_help">To lze vyřešit výběrem souboru s modernější aplikací pro správu souborů nebo udělením oprávnění ke čtení souborů</string>
+    <string name="title_no_permissions">Aplikace použitá pro výběr souboru nemá udělileno oprávnění ke čtení</string>
     <string name="title_no_internet">Žádné nebo nevyhovující internetové připojení</string>
     <string name="title_no_connection">Připojování k jednomu nebo více účtům &#8230;</string>
     <string name="title_no_folder">Složka neexistuje</string>
@@ -1396,6 +1403,7 @@
     <string name="title_rule_original_text">Zahrnout text původní zprávy</string>
     <string name="title_rule_forward_to">Přeposlat na</string>
     <string name="title_rule_resend">Odeslat znovu</string>
+    <string name="title_rule_attached">Připojit soubor zdrojové zprávy</string>
     <string name="title_rule_cc">Odpovědět na adresy kopie</string>
     <string name="title_rule_with_attachments">S přílohami</string>
     <string name="title_rule_answer_remark">Aby se zabránilo smyčkám odpovědí, bude na každou konverzaci odeslána pouze jedna odpověď</string>
@@ -1878,10 +1886,10 @@
         <item>Neblokováno</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item>Any</item>
-        <item>Home</item>
+        <item>Všechny</item>
+        <item>Domov</item>
         <item>Pracovní</item>
         <item>Další</item>
-        <item>Mobile</item>
+        <item>Mobilní</item>
     </string-array>
 </resources>

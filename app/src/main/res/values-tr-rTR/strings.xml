@@ -1036,6 +1036,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_no_saf">Depolama erişim çerçevesi mevcut değil</string>
     <string name="title_no_stream">FairEmail\'in bu dosyayı doğrudan okuma izni yok</string>
     <string name="title_no_stream_help">Bu, dosyayı daha modern bir dosya yöneticisi uygulamasıyla seçerek veya dosyaları okuma izni vererek çözülebilir</string>
+    <string name="title_no_permissions">Dosyayı seçmek için kullanılan uygulama, dosyayı okuma izni vermedi</string>
     <string name="title_no_internet">Uygun internet bağlantısı veya internet yok</string>
     <string name="title_no_connection">Bir veya daha fazla hesaba bağlanılıyor &#8230;</string>
     <string name="title_no_folder">Klasör yok</string>
@@ -1382,6 +1383,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_original_text">Orijinal mesaj metnini dahil et</string>
     <string name="title_rule_forward_to">İlet</string>
     <string name="title_rule_resend">Tekrar gönder</string>
+    <string name="title_rule_attached">Ham mesaj dosyasını ekle</string>
     <string name="title_rule_cc">CC adreslerini yanıtlayın</string>
     <string name="title_rule_with_attachments">Eklerle Birlikte</string>
     <string name="title_rule_answer_remark">Cevap döngülerinden kaçınmak için herhangi bir konuşma için yalnızca bir cevap gönderilecektir</string>

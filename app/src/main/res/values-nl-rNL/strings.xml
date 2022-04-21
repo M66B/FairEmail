@@ -1036,7 +1036,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_no_saf">Storage access framework niet beschikbaar</string>
     <string name="title_no_stream">FairEmail heeft geen toestemming om dit bestand direct te lezen</string>
     <string name="title_no_stream_help">Dit kan worden opgelost door het bestand te selecteren met een modernere bestandsbeheerder app of door toestemming te geven om bestanden te lezen</string>
-    <string name="title_no_permissions">De app die werd gebruikt om een bestand te selecteren, gaf geen toestemming om het bestand te lezen</string>
+    <string name="title_no_permissions">De app die werd gebruikt om het bestand te selecteren gaf geen toestemming om het te lezen</string>
     <string name="title_no_internet">Geen of geen geschikte internet-verbinding</string>
     <string name="title_no_connection">Verbinding maken met één of meer accounts &#8230;</string>
     <string name="title_no_folder">Map bestaat niet</string>

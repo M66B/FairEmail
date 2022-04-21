@@ -1038,7 +1038,7 @@
     <string name="title_no_saf">Storage access framework não disponivel</string>
     <string name="title_no_stream">O FairEmail não tem permissão para ler este arquivo diretamente</string>
     <string name="title_no_stream_help">Isso pode ser resolvido selecionando o arquivo com um aplicativo de gerenciamento de arquivos mais moderno ou concedendo permissão para ler arquivos</string>
-    <string name="title_no_permissions">O aplicativo usado para selecionar um arquivo não concedeu permissão para ler o arquivo</string>
+    <string name="title_no_permissions">O aplicativo usado para selecionar o arquivo não concedeu permissão para lê-lo</string>
     <string name="title_no_internet">Não ou nenhuma conexão de internet adequada</string>
     <string name="title_no_connection">Conectando-se a uma ou mais contas &#8230;</string>
     <string name="title_no_folder">A pasta não existe</string>
@@ -1386,6 +1386,7 @@
     <string name="title_rule_original_text">Incluir texto original da mensagem</string>
     <string name="title_rule_forward_to">Encaminhar para</string>
     <string name="title_rule_resend">Reenviar</string>
+    <string name="title_rule_attached">Anexar arquivo de mensagem bruta</string>
     <string name="title_rule_cc">Resposta para endereços CC</string>
     <string name="title_rule_with_attachments">Com anexos</string>
     <string name="title_rule_answer_remark">Apenas uma resposta será enviada para qualquer conversa, para evitar repetição de resposta</string>

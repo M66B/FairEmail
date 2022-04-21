@@ -1060,7 +1060,7 @@
     <string name="title_no_saf">Нет метода доступа к хранилищу</string>
     <string name="title_no_stream">У FairEmail нет разрешения на чтение этого файла</string>
     <string name="title_no_stream_help">Это можно решить, выбрав файл с помощью современного приложения файлового менеджера или предоставив разрешение на чтение файлов</string>
-    <string name="title_no_permissions">Приложение для выбора файла не выдало разрешение на чтение файла</string>
+    <string name="title_no_permissions">Приложение для выбора файлов не выдало разрешение на чтение файла</string>
     <string name="title_no_internet">Нет подходящего интернет-подключения</string>
     <string name="title_no_connection">Подключение к одной или нескольким учётным записям&#8230;</string>
     <string name="title_no_folder">Папка не существует</string>
@@ -1408,6 +1408,7 @@
     <string name="title_rule_original_text">Включить текст исходного сообщения</string>
     <string name="title_rule_forward_to">Переслать</string>
     <string name="title_rule_resend">Перенаправить</string>
+    <string name="title_rule_attached">Прикрепить оригинальный файл сообщения</string>
     <string name="title_rule_cc">Ответить на адреса копий (CC)</string>
     <string name="title_rule_with_attachments">С вложениями</string>
     <string name="title_rule_answer_remark">Только один ответ будет отправлен в каждый диалог, чтобы избежать петель ответов</string>

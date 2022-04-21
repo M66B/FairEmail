@@ -1058,7 +1058,6 @@
     <string name="title_no_saf">Brak dostępu do plików</string>
     <string name="title_no_stream">FairEmail nie ma uprawnień do bezpośredniego odczytu tego pliku</string>
     <string name="title_no_stream_help">Można to rozwiązać, wybierając plik za pomocą bardziej nowoczesnej aplikacji menedżera plików lub przyznając uprawnienia do odczytu plików</string>
-    <string name="title_no_permissions">Aplikacja użyta do wybrania pliku nie przyznała uprawnień do odczytu pliku</string>
     <string name="title_no_internet">Brak lub brak odpowiedniego połączenia internetowego</string>
     <string name="title_no_connection">Łączenie z jednym lub kilkoma kontami &#8230;</string>
     <string name="title_no_folder">Folder nie istnieje</string>

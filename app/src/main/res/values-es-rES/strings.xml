@@ -1038,6 +1038,7 @@
     <string name="title_no_saf">Framework de acceso a almacenamiento no disponible</string>
     <string name="title_no_stream">FairEmail no tiene permiso para leer este archivo directamente</string>
     <string name="title_no_stream_help">Esto puede resolverse seleccionando el archivo con una app de gestión de archivos más moderna u otorgando permiso para leer archivos</string>
+    <string name="title_no_permissions">La aplicación utilizada para seleccionar el archivo no concedió permiso para leerlo</string>
     <string name="title_no_internet">No o ninguna conexión adecuada de Internet</string>
     <string name="title_no_connection">Conectando a una o más cuentas &#8230;</string>
     <string name="title_no_folder">La carpeta no existe</string>
@@ -1383,6 +1384,7 @@
     <string name="title_rule_original_text">Incluir el texto del mensaje original</string>
     <string name="title_rule_forward_to">Reenviar a</string>
     <string name="title_rule_resend">Reenviar</string>
+    <string name="title_rule_attached">Adjuntar archivo de mensaje sin procesar</string>
     <string name="title_rule_cc">Responder a direcciones en CC</string>
     <string name="title_rule_with_attachments">Con adjuntos</string>
     <string name="title_rule_answer_remark">Sólo se enviará una respuesta por conversación, para evitar bucles de respuesta</string>

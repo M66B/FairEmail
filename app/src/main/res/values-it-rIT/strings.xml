@@ -1041,6 +1041,7 @@
     <string name="title_no_saf">Framework di accesso all\'archiviazione non disponibile</string>
     <string name="title_no_stream">FairEmail non è autorizzato a leggere direttamente questo file</string>
     <string name="title_no_stream_help">Ciò è risolvibile selezionando il file con un\'app di gestione dei file più moderna o concedendo l\'autorizzazione a leggere i file</string>
+    <string name="title_no_permissions">L\'app utilizzata per selezionare il file non ha l\'autorizzazione di leggerlo</string>
     <string name="title_no_internet">Nessuna o inadeguata connessione a Internet</string>
     <string name="title_no_connection">Connessione a uno o più profili&#8230;</string>
     <string name="title_no_folder">La cartella non esiste</string>
@@ -1389,6 +1390,7 @@
     <string name="title_rule_original_text">Includi il testo del messaggio originale</string>
     <string name="title_rule_forward_to">Inoltra a</string>
     <string name="title_rule_resend">Reinvia</string>
+    <string name="title_rule_attached">Allega il file del messaggio non elaborato</string>
     <string name="title_rule_cc">Rispondi agli indirizzi CC</string>
     <string name="title_rule_with_attachments">Con allegati</string>
     <string name="title_rule_answer_remark">Sarà inviata solo una risposta per ogni conversazione, per evitarne ripetizioni</string>

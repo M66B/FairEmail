@@ -1036,6 +1036,7 @@
     <string name="title_no_saf">Πλαίσιο πρόσβασης αποθήκευσης δεν είναι διαθέσιμο</string>
     <string name="title_no_stream">Το FairEmail δεν έχει άδεια να διαβάσει αυτό το αρχείο απευθείας</string>
     <string name="title_no_stream_help">Αυτό μπορεί να επιλυθεί επιλέγοντας το αρχείο με μια πιο σύγχρονη εφαρμογή διαχείρισης αρχείων, ή χορηγώντας άδεια για την ανάγνωση αρχείων</string>
+    <string name="title_no_permissions">Η χρησιμοποιούμενη εφαρμογή για την επιλογή του αρχείου δεν έχει την άδεια για την ανάγνωσή του</string>
     <string name="title_no_internet">Καθόλου σύνδεση ή καμία κατάλληλη σύνδεση διαδικτύου</string>
     <string name="title_no_connection">Σύνδεση σε έναν ή περισσότερους λογαριασμούς &#8230;</string>
     <string name="title_no_folder">Ο φάκελος δεν υπάρχει</string>
@@ -1382,6 +1383,7 @@
     <string name="title_rule_original_text">Να συμπεριληφθεί το κείμενο του αρχικού μηνύματος</string>
     <string name="title_rule_forward_to">Προώθηση σε</string>
     <string name="title_rule_resend">Επαναποστολή</string>
+    <string name="title_rule_attached">Επισύναψη αρχείου αρχικού μηνύματος</string>
     <string name="title_rule_cc">Απάντηση στις διευθύνσεις Κοιν.</string>
     <string name="title_rule_with_attachments">Με συνημμένα</string>
     <string name="title_rule_answer_remark">Θα αποστέλλεται μόνο μία απάντηση ανά συζήτηση, για να αποφευχθεί ένας ατέρμονος κύκλος απαντήσεων</string>

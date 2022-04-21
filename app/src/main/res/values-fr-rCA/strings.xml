@@ -1041,7 +1041,7 @@
     <string name="title_no_saf">Programme d\'accès au stockage non disponible</string>
     <string name="title_no_stream">FairEmail n\'a pas la permission de lire ce fichier directement</string>
     <string name="title_no_stream_help">Ceci peut être résolu en sélectionnant le fichier avec une application plus moderne de gestion de fichiers ou en accordant la permission de lire les fichiers</string>
-    <string name="title_no_permissions">L\'application utilisée pour sélectionner un fichier n\'a pas autorisé la lecture du fichier</string>
+    <string name="title_no_permissions">L\'application utilisée pour sélectionner le fichier n\'a pas l\'autorisation de le lire</string>
     <string name="title_no_internet">Aucune connexion Internet ou connexion non appropriée</string>
     <string name="title_no_connection">Connexion à un ou plusieurs comptes&#8230;</string>
     <string name="title_no_folder">Le dossier n’existe pas</string>

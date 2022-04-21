@@ -1040,6 +1040,7 @@
     <string name="title_no_saf">Storage access framework ikke tilgængelig</string>
     <string name="title_no_stream">FairEmail har ikke tilladelse til at læse denne fil direkte</string>
     <string name="title_no_stream_help">Dette kan løses ved at vælge filen via en mere moderne filhånderings-app eller ved at give den fillæsningstilladelse</string>
+    <string name="title_no_permissions">Appen, brugt til valg af filen, gav ikke tilladelse til at læse den</string>
     <string name="title_no_internet">Ingen (passende) dataforbindelse</string>
     <string name="title_no_connection">Opretter forbindelse til én eller flere konti &#8230;</string>
     <string name="title_no_folder">Mappe findes ikke</string>

@@ -722,6 +722,7 @@
     <string name="title_no_saf">چارچوب دسترسی ذخیره سازی موجود نیست</string>
     <string name="title_no_stream">FairEmail اجازه خواندن این فایل را به طور مستقیم ندارد</string>
     <string name="title_no_stream_help">با انتخاب فایل به وسیله یک برنامه مدیریت فایل به‌روزتر یا با دادن اجازه دسترسی برای خوانش فایل‌ها، این مشکل می‌تواند حل شود</string>
+    <string name="title_no_permissions">اپلیکیشنی که برای انتخاب فایل به کار رفت اجازه دسترسی برای خواندن آن را پیدا نکرد</string>
     <string name="title_no_internet">اینترنت یا اتصال سازگاری در دسترس نیست</string>
     <string name="title_no_connection">در حال اتصال به یک یا چند حساب &#8230;</string>
     <string name="title_no_folder">پوشه وجود ندارد</string>
@@ -963,6 +964,7 @@
     <string name="title_rule_identity">هویت</string>
     <string name="title_rule_template">الگوی پاسخ</string>
     <string name="title_rule_resend">ارسال مجدد</string>
+    <string name="title_rule_attached">الصاق فایل پیام خام</string>
     <string name="title_rule_cc">پاسخ به نشانی گیرنده رونوشت</string>
     <string name="title_rule_name_missing">نام دستور موجود نیست</string>
     <string name="title_rule_condition_missing">فاقد شرایط</string>

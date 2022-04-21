@@ -907,6 +907,7 @@
     <string name="title_attachment_eml">Mensagem anexada</string>
     <string name="title_attachment_saved">Anexo guardado</string>
     <string name="title_attachments_saved">Anexos guardados</string>
+    <string name="title_attachments_incomplete">Alguns anexos ou imagens não foram transferidos e não puderam ser adicionados</string>
     <string name="title_ask_save">Guardar as alterações?</string>
     <string name="title_ask_delete">Eliminar mensagem permanentemente?</string>
     <string name="title_ask_delete_accept">Entendo que a eliminação permanente de mensagens é irreversível</string>
@@ -915,10 +916,13 @@
     <string name="title_ask_delete_attachments">Remover todos os anexos?</string>
     <string name="title_ask_discard">Descartar o rascunho?</string>
     <string name="title_ask_show_html">Mostrar a mensagem original pode resultar na fuga de informação confidencial</string>
+    <string name="title_ask_show_html_remark">Mostrar a mensagem original num fundo escuro não é possível já que pode tornar os textos e as imagens escuras invisíveis</string>
+    <string name="title_ask_show_html_images">Mostrar sempre as imagens nas mensagens originais</string>
     <string name="title_ask_show_image">Mostrar as imagens pode resultar na fuga de informação confidencial</string>
     <string name="title_ask_show_image_hint">Imagens reconhecidas como imagens de monitorização não serão mostradas</string>
     <string name="title_ask_show_amp">Mostrar a variante AMP da mensagem?</string>
     <string name="title_ask_show_amp_hint">As mensagens AMP são concebidas para serem dinâmicas e para interagirem com a internet e, portanto, podem ser usadas por definição para o acompanhar</string>
+    <string name="title_ask_delete_local">Eliminar mensagens locais? As mensagens irão permanecer no servidor remoto.</string>
     <string name="title_ask_help">Ajude a melhorar o FairEmail</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_reporting_why">A comunicação de erros ajudará a melhorar o FairEmail</string>
@@ -1213,7 +1217,11 @@
     <string name="title_rule_header">Cabeçalho contém</string>
     <string name="title_rule_body">Texto contém</string>
     <string name="title_rule_skip_quotes">Ignorar o texto citado</string>
+    <string name="title_rule_body_remark">Utilizar esta condição irá sempre transferir o texto da mensagem, o que poderá causar lentidão na sincronização da lista de mensagens</string>
+    <string name="title_rule_time_abs">Tempo absoluto (recebido) entre</string>
+    <string name="title_rule_time_after">Recebida após</string>
     <string name="title_rule_time_before">Recebida antes de</string>
+    <string name="title_rule_time_rel">Tempo relativo (recebido) entre</string>
     <string name="title_rule_action">Acção</string>
     <string name="title_rule_action_remark">Esta acção será aplicada às novas mensagens que chegam à pasta %1$s</string>
     <string name="title_rule_hours">Horas</string>
