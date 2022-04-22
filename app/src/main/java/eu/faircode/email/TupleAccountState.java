@@ -50,6 +50,7 @@ public class TupleAccountState extends EntityAccount {
                     this.ignore_size.equals(other.ignore_size) &&
                     this.use_date.equals(other.use_date) &&
                     this.use_received.equals(other.use_received) &&
+                    Objects.equals(this.conditions, other.conditions) &&
                     this.folders == other.folders &&
                     Objects.equals(this.tbd, other.tbd));
         } else

@@ -24,6 +24,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.json.JSONObject;
+
 public class TupleAccountNetworkState {
     public boolean enabled;
     @NonNull
@@ -32,6 +34,8 @@ public class TupleAccountNetworkState {
     public ConnectionHelper.NetworkState networkState;
     @NonNull
     public TupleAccountState accountState;
+
+    private JSONObject jconditions;
 
     public TupleAccountNetworkState(
             boolean enabled,
@@ -42,9 +46,21 @@ public class TupleAccountNetworkState {
         this.command = command;
         this.networkState = networkState;
         this.accountState = accountState;
+
+        this.jconditions = new JSONObject();
+        if (this.accountState.conditions != null)
+            try {
+                jconditions = new JSONObject(this.accountState.conditions);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
     }
 
     public boolean canRun() {
+        boolean unmetered = jconditions.optBoolean("unmetered");
+        if (unmetered && !this.networkState.isUnmetered())
+            return false;
+
         return (this.networkState.isSuitable() && this.accountState.shouldRun(enabled));
     }
 

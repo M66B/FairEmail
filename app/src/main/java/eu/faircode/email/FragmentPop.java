@@ -60,6 +60,8 @@ import androidx.lifecycle.Lifecycle;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -94,6 +96,7 @@ public class FragmentPop extends FragmentBase {
     private CheckBox cbLeaveDevice;
     private EditText etMax;
     private EditText etInterval;
+    private CheckBox cbUnmetered;
 
     private ArrayAdapter<EntityFolder> adapterSwipe;
     private Spinner spLeft;
@@ -159,6 +162,7 @@ public class FragmentPop extends FragmentBase {
         cbLeaveDevice = view.findViewById(R.id.cbLeaveDevice);
         etMax = view.findViewById(R.id.etMax);
         etInterval = view.findViewById(R.id.etInterval);
+        cbUnmetered = view.findViewById(R.id.cbUnmeteredOnly);
 
         spLeft = view.findViewById(R.id.spLeft);
         spRight = view.findViewById(R.id.spRight);
@@ -323,6 +327,7 @@ public class FragmentPop extends FragmentBase {
         args.putBoolean("leave_device", cbLeaveDevice.isChecked());
         args.putString("max", etMax.getText().toString());
         args.putString("interval", etInterval.getText().toString());
+        args.putBoolean("unmetered", cbUnmetered.isChecked());
 
         args.putLong("left", ((EntityFolder) spLeft.getSelectedItem()).id);
         args.putLong("right", ((EntityFolder) spRight.getSelectedItem()).id);
@@ -373,6 +378,7 @@ public class FragmentPop extends FragmentBase {
                 boolean leave_device = args.getBoolean("leave_device");
                 String max = args.getString("max");
                 String interval = args.getString("interval");
+                boolean unmetered = args.getBoolean("unmetered");
 
                 long left = args.getLong("left");
                 long right = args.getLong("right");
@@ -410,6 +416,14 @@ public class FragmentPop extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 EntityAccount account = db.account().getAccount(id);
+
+                JSONObject jconditions = new JSONObject();
+                if (account != null && account.conditions != null)
+                    try {
+                        jconditions = new JSONObject(account.conditions);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
 
                 if (should) {
                     if (account == null)
@@ -452,6 +466,8 @@ public class FragmentPop extends FragmentBase {
                     if (!Objects.equals(account.max_messages, max_messages))
                         return true;
                     if (!Objects.equals(account.poll_interval, poll_interval))
+                        return true;
+                    if (unmetered != jconditions.optBoolean("unmetered"))
                         return true;
 
                     if (!Objects.equals(account.swipe_left, left))
@@ -529,6 +545,9 @@ public class FragmentPop extends FragmentBase {
                     account.leave_on_device = leave_device;
                     account.max_messages = max_messages;
                     account.poll_interval = poll_interval;
+
+                    jconditions.put("unmetered", unmetered);
+                    account.conditions = jconditions.toString();
 
                     account.swipe_left = left;
                     account.swipe_right = right;
@@ -713,6 +732,16 @@ public class FragmentPop extends FragmentBase {
                                 ? EntityAccount.DEFAULT_MAX_MESSAGES : account.max_messages));
 
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
+
+                    JSONObject jcondition = new JSONObject();
+                    try {
+                        if (account != null && account.conditions != null)
+                            jcondition = new JSONObject(account.conditions);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                    cbUnmetered.setChecked(jcondition.optBoolean("unmetered"));
+
                     cbIdentity.setChecked(account == null);
 
                     List<EntityFolder> folders = getSwipeActions();
