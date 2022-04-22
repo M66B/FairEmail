@@ -17,6 +17,30 @@
             android:layout_height="match_parent">
 
             <eu.faircode.email.FixedTextView
+                android:id="@+id/tvAirplane"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawableStart="@drawable/twotone_flight_24"
+                android:drawablePadding="6dp"
+                android:drawableTint="?android:attr/textColorPrimary"
+                android:padding="6dp"
+                android:text="@string/title_hint_airplane"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="?android:attr/textColorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vSeparatorAirplane"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAirplane" />
+
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvSupport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -26,7 +50,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/vSeparatorAirplane" />
 
             <View
                 android:id="@+id/vSeparatorSupport"
@@ -398,6 +422,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:menu="@menu/action_messages" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpAirplane"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvAirplane,vSeparatorAirplane" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpSupport"

@@ -255,6 +255,7 @@ import me.everything.android.ui.overscroll.adapters.RecyclerViewOverScrollDecorA
 public class FragmentMessages extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private ViewGroup view;
     private SwipeRefreshLayoutEx swipeRefresh;
+    private TextView tvAirplane;
     private TextView tvSupport;
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
@@ -276,6 +277,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private TextViewAutoCompleteAction etSearch;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
+    private Group grpAirplane;
     private Group grpSupport;
     private Group grpHintSupport;
     private Group grpHintSwipe;
@@ -512,6 +514,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         // Get controls
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
+        tvAirplane = view.findViewById(R.id.tvAirplane);
         tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
@@ -534,6 +537,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
         pbWait = view.findViewById(R.id.pbWait);
+        grpAirplane = view.findViewById(R.id.grpAirplane);
         grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
@@ -562,6 +566,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onRefresh() {
                 onSwipeRefresh();
+            }
+        });
+
+        grpAirplane.setVisibility(View.GONE);
+        tvAirplane.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.provider.Settings.ACTION_AIRPLANE_MODE_SETTINGS)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                v.getContext().startActivity(intent);
             }
         });
 
@@ -4396,6 +4410,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         cm.registerNetworkCallback(builder.build(), networkCallback);
 
+        updateAirplaneMode(ConnectionHelper.airplaneMode(getContext()));
+        getContext().registerReceiver(airplanemode, new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED));
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
@@ -4455,6 +4472,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.unregisterOnSharedPreferenceChangeListener(this);
 
+        getContext().unregisterReceiver(airplanemode);
+
         ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
         cm.unregisterNetworkCallback(networkCallback);
 
@@ -4497,10 +4516,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return;
                     if (!rvMessage.isComputingLayout())
                         adapter.checkInternet();
+                    updateAirplaneMode(ConnectionHelper.airplaneMode(getContext()));
                 }
             });
         }
     };
+
+    private BroadcastReceiver airplanemode = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            boolean on = intent.getBooleanExtra("state", false);
+            updateAirplaneMode(on);
+        }
+    };
+
+    private void updateAirplaneMode(boolean on) {
+        on = on && !ConnectionHelper.getNetworkState(getContext()).isConnected();
+        grpAirplane.setVisibility(on ? View.VISIBLE : View.GONE);
+    }
 
     private boolean checkDoze() {
         if (viewType != AdapterMessage.ViewType.UNIFIED)
