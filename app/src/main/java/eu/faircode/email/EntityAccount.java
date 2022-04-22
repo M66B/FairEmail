@@ -60,6 +60,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     static final int DEFAULT_POLL_INTERVAL = 15; // minutes
     static final int DEFAULT_MAX_MESSAGES = 250; // POP3
 
+    static final int QUOTA_WARNING = 95; // percent
+
     static final int TYPE_IMAP = 0;
     static final int TYPE_POP = 1;
 

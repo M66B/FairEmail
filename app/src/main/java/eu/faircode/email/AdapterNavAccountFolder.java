@@ -76,8 +76,6 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
     private NumberFormat NF = NumberFormat.getNumberInstance();
     private DateFormat TF;
 
-    private static final int QUOTA_WARNING = 95; // percent
-
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private ImageView ivItem;
@@ -182,7 +180,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
                 ivWarning.setImageResource(R.drawable.twotone_warning_24);
                 ivWarning.setVisibility(expanded ? View.VISIBLE : View.GONE);
                 view.setBackgroundColor(expanded ? Color.TRANSPARENT : colorWarning);
-            } else if (percent != null && percent > QUOTA_WARNING && account.folderName == null) {
+            } else if (percent != null && percent > EntityAccount.QUOTA_WARNING && account.folderName == null) {
                 ivWarning.setImageResource(R.drawable.twotone_disc_full_24);
                 ivWarning.setVisibility(expanded ? View.VISIBLE : View.GONE);
                 view.setBackgroundColor(expanded ? Color.TRANSPARENT : colorWarning);

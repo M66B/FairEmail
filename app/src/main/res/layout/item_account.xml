@@ -204,6 +204,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
+                android:drawablePadding="6dp"
+                android:drawableTint="?attr/colorWarning"
                 android:ellipsize="start"
                 android:singleLine="true"
                 android:text="123/456 MB"
