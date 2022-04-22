@@ -64,7 +64,7 @@ public class EntityLog {
     @NonNull
     public String data;
 
-    enum Type {General, Statistics, Scheduling, Network, Account, Protocol, Classification, Notification, Rules}
+    enum Type {General, Statistics, Scheduling, Network, Account, Protocol, Classification, Notification, Rules, Debug}
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "log");
@@ -110,6 +110,9 @@ public class EntityLog {
         Log.i(data);
 
         if (context == null)
+            return;
+        if (type == Type.Debug &&
+                !(BuildConfig.DEBUG || BuildConfig.TEST_RELEASE))
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -220,6 +223,8 @@ public class EntityLog {
                 return ContextCompat.getColor(context, R.color.solarizedBlue);
             case Rules:
                 return ContextCompat.getColor(context, R.color.solarizedCyan);
+            case Debug:
+                return Helper.resolveColor(context, R.attr.colorWarning);
             default:
                 return null;
         }
