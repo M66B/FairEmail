@@ -512,8 +512,13 @@ public class ConnectionHelper {
     }
 
     static boolean airplaneMode(Context context) {
-        return Settings.Global.getInt(context.getContentResolver(),
-                Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+        try {
+            return (Settings.Global.getInt(context.getContentResolver(),
+                    Settings.Global.AIRPLANE_MODE_ON, 0) != 0);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 
     static InetAddress from6to4(InetAddress addr) {
