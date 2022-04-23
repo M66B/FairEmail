@@ -67,6 +67,15 @@
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/twotone_playlist_add_24" />
 
+    <eu.faircode.email.ViewImageHint
+        android:id="@+id/ivRaw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        app:layout_constraintStart_toEndOf="@id/ivBrowsed"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
+        app:srcCompat="@drawable/twotone_raw_on_24" />
+
     <eu.faircode.email.FixedImageButton
         android:id="@+id/ibSearchContact"
         android:layout_width="wrap_content"
@@ -120,7 +129,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="ivPlain,ibReceipt,ivAutoSubmitted,ivBrowsed,ibSearchContact,ibNotifyContact,ibPinContact,ibAddContact" />
+        app:constraint_referenced_ids="ivPlain,ibReceipt,ivAutoSubmitted,ivBrowsed,ivRaw,ibSearchContact,ibNotifyContact,ibPinContact,ibAddContact" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvSubmitterTitle"
