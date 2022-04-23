@@ -252,6 +252,8 @@ public class ConnectionHelper {
             NetworkInfo ani = cm.getActiveNetworkInfo();
             if (ani == null || !ani.isConnected())
                 return null;
+            if (vpn_only && !vpnActive(context))
+                return null;
             return cm.isActiveNetworkMetered();
         }
 
