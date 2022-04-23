@@ -3827,7 +3827,6 @@ class Core {
         boolean download_plain = prefs.getBoolean("download_plain", false);
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean experiments = prefs.getBoolean("experiments", false);
-        boolean dkim_verify = prefs.getBoolean("dkim_verify", false);
         boolean pro = ActivityBilling.isPro(context);
 
         long uid = ifolder.getUID(imessage);
