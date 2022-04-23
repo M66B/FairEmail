@@ -2637,6 +2637,7 @@ In the receive settings you can enable scheduling and set a time period and the 
 Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
 
 Since version 1.1880 is is possible to exclude accounts from scheduling in the advanced account settings.
+This means you can synchronize a business account during business hours only and make an exception for personal accounts.
 
 Automation, see below, can be used for more advanced schedules,
 like for example multiple synchronization periods per day or different synchronization periods for different days.
