@@ -637,6 +637,9 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable text) {
+                if (etBody == null)
+                    return;
+
                 LogPrinter lp = null;
                 if (BuildConfig.DEBUG &&
                         (added != null || removed != null))

@@ -181,6 +181,9 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
             @Override
             public void afterTextChanged(Editable editable) {
+                if (cbSecure == null)
+                    return;
+
                 Uri uri = Uri.parse(editable.toString());
 
                 boolean secure = UriHelper.isSecure(uri);

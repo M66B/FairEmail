@@ -356,6 +356,9 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable s) {
+                if (tilPassword == null)
+                    return;
+
                 String password = s.toString();
                 boolean warning = (Helper.containsWhiteSpace(password) ||
                         Helper.containsControlChars(password));

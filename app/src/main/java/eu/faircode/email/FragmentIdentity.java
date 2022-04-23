@@ -304,6 +304,9 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable editable) {
+                if (etDomain == null)
+                    return;
+
                 String[] email = editable.toString().split("@");
                 etDomain.setText(email.length < 2 ? null : email[1]);
             }
@@ -324,6 +327,9 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable s) {
+                if (tilPassword == null)
+                    return;
+
                 checkPassword(s.toString());
             }
         });

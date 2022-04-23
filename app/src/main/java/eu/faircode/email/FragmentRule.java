@@ -634,6 +634,9 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable s) {
+                if (cbResend == null)
+                    return;
+
                 cbResend.setEnabled(!TextUtils.isEmpty(s.toString()));
             }
         });

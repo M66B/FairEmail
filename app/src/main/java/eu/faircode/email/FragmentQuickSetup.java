@@ -199,6 +199,9 @@ public class FragmentQuickSetup extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable s) {
+                if (tvCharacters == null)
+                    return;
+
                 String password = s.toString();
                 boolean warning = (Helper.containsWhiteSpace(password) ||
                         Helper.containsControlChars(password));

@@ -65,6 +65,9 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
 
             @Override
             public void afterTextChanged(Editable editable) {
+                if (tvInsecure == null)
+                    return;
+
                 Uri uri = Uri.parse(editable.toString());
                 tvInsecure.setVisibility(!uri.isOpaque() &&
                         "http".equals(uri.getScheme()) ? View.VISIBLE : View.GONE);
