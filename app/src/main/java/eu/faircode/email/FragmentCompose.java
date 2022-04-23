@@ -6822,6 +6822,9 @@ public class FragmentCompose extends FragmentBase {
                     if (draft == null)
                         return null;
 
+                    if (draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn))
+                        return null;
+
                     EntityIdentity identity = db.identity().getIdentity(iid);
                     if (identity == null)
                         return draft.ui_encrypt;
