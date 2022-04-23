@@ -76,9 +76,12 @@ import org.json.JSONObject;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FilterOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -94,6 +97,7 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 public class FragmentFolders extends FragmentBase {
     private ViewGroup view;
@@ -1218,7 +1222,18 @@ public class FragmentFolders extends FragmentBase {
 
                             out.write(("From " + email + " " + df.format(message.received) + "\n").getBytes());
 
-                            Message imessage = MessageHelper.from(context, message, null, isession, false);
+                            Message imessage = null;
+
+                            if (Boolean.TRUE.equals(message.raw))
+                                try (InputStream is = new FileInputStream(message.getRawFile(context))) {
+                                    imessage = new MimeMessage(isession, is);
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+
+                            if (imessage == null)
+                                imessage = MessageHelper.from(context, message, null, isession, false);
+
                             imessage.writeTo(new FilterOutputStream(out) {
                                 private boolean cr = false;
                                 private ByteArrayOutputStream buffer = new ByteArrayOutputStream(998);
