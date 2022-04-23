@@ -4,6 +4,13 @@
 
 ### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
 
+### 1.1879 - 2022-04-23
+
+* Added warning about airplane mode enabled
+* Added advanced account option to connect via unmetered networks only
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1878 - 2022-04-21
 
 * Fixed printing
