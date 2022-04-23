@@ -268,11 +268,10 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     void cancel(Context context) {
-        if (future != null)
-            if (future.cancel(false)) {
-                Log.i("Cancelled task=" + name);
-                cleanup(context);
-            }
+        if (future != null && future.cancel(false)) {
+            Log.i("Cancelled task=" + name);
+            cleanup(context);
+        }
     }
 
     private void cleanup(Context context) {
