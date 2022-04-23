@@ -780,6 +780,7 @@
     <string name="title_received_header">Usa intestazione \'Ricevuto\'</string>
     <string name="title_date_header">Usa intestazione \'Data\' (ora di invio)</string>
     <string name="title_date_remark">Le modifiche saranno applicate solo ai nuovi messaggi</string>
+    <string name="title_unmetered_only">Connetti solo tramite reti non a consumo</string>
     <string name="title_related_identity">Aggiungi identità correlata (server SMTP)</string>
     <string name="title_check">Controlla</string>
     <string name="title_trust">Certificato server affidabile con impronta digitale: %1$s</string>
@@ -1541,6 +1542,7 @@
     <string name="title_legend_t">Focalizza testo</string>
     <string name="title_hint_folder_actions">Tieni premuta una cartella per le opzioni, come aggiungere una cartella al menu di navigazione per l\'accesso rapido</string>
     <string name="title_hint_folder_sync">Per limitare l\'uso della batteria e di rete, non tutte le cartelle e messaggi saranno sincronizzati di default</string>
+    <string name="title_hint_airplane">Modalità aereo attivata</string>
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>
     <string name="title_hint_message_selection">Tieni premuto un messaggio per iniziare a selezionare più messaggi: Tieni premuto e scorri in su o in giù per selezionare più messaggi</string>

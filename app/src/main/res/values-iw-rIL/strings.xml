@@ -1060,6 +1060,7 @@
     <string name="title_no_saf">תשתית גישה לאחסון אינה זמינה</string>
     <string name="title_no_stream">ל־FairEmail אין הרשאה לקרוא את הקובץ הזה ישירות</string>
     <string name="title_no_stream_help">אפשר לפתור את זה על ידי בחירת הקובץ עם מנהל קבצים עדכני יותר או על ידי הענקת הרשאה לקריאת קבצים</string>
+    <string name="title_no_permissions">היישום שמשמש לבחירת הקובץ לא העניק הרשאה לקרוא אותו</string>
     <string name="title_no_internet">לא או שחיבור האינטרנט אינו מתאים</string>
     <string name="title_no_connection">מתבצע חיבור לחשבון אחד או יותר&#8230;</string>
     <string name="title_no_folder">התיקייה אינה קיימת</string>
@@ -1408,6 +1409,7 @@
     <string name="title_rule_original_text">לכלול את תוכן ההודעה המקורית</string>
     <string name="title_rule_forward_to">העברה אל</string>
     <string name="title_rule_resend">שליחה מחדש</string>
+    <string name="title_rule_attached">צירוף קובץ הודעה גולמית</string>
     <string name="title_rule_cc">להגיב לכתובות של עותק</string>
     <string name="title_rule_with_attachments">עם קבצים מצורפים</string>
     <string name="title_rule_answer_remark">יישלח מענה אחד לכל דיון, כדי להימנע מלולאות מענה</string>
@@ -1558,6 +1560,7 @@
     <string name="title_legend_t">התמקדות על טקסט</string>
     <string name="title_hint_folder_actions">לחיצה ארוכה על תיקייה מציגה אפשרויות כגון הוספת התיקייה לתפריט הניווט לגישה מהירה</string>
     <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כבררת מחדל</string>
+    <string name="title_hint_airplane">מצב טיסה מופעל</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
     <string name="title_hint_message_selection">לחיצה ארוכה על הודעה מתחילה בחירה במגוון הודעות, יש להחזיק ולהחליק כלפי מעלה או מטה כדי לבחור הודעות נוספות</string>

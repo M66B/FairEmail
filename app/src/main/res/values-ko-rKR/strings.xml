@@ -172,8 +172,10 @@
     <string name="title_setup_password_missing">비밀번호 누락</string>
     <string name="title_setup_password_invalid">유효하지 않은 비밀번호</string>
     <string name="title_setup_import_delete">기존 계정을 먼저 삭제하십시오</string>
+    <string name="title_setup_import_settings">가져오기 옵션</string>
     <string name="title_setup_exported">설정 내보냄</string>
     <string name="title_setup_imported">설정 불러옴</string>
+    <string name="title_importing_account">계정 %1$s</string>
     <string name="title_setup_reorder_accounts">계정 정렬</string>
     <string name="title_setup_reorder_folders">폴더 정렬</string>
     <string name="title_reset_order">정렬 초기화</string>

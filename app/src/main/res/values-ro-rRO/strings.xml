@@ -338,6 +338,7 @@
     <string name="title_advanced_answer_action">Apăsarea îndelungată a butonului de răspuns va:</string>
     <string name="title_advanced_send_pending">Arată pictograma neobstructivă de trimitere întârziată</string>
     <string name="title_advanced_compose_font">Font prestabilit</string>
+    <string name="title_advanced_auto_identity">Selectarea automată a identităților pentru mesajele noi</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_prefix_count">Adăugați numărul la prefixul de răspuns</string>
     <string name="title_advanced_separate_reply">Introduceți o linie orizontală înaintea unui antet răspuns/forward</string>
@@ -643,6 +644,7 @@
     <string name="title_advanced_folder_nav_hint">Se va reveni întotdeauna la lista de dosare a contului asociat dintr-o listă de mesaje</string>
     <string name="title_advanced_suggest_names_hint">Dacă este dezactivată, numai adresele de e-mail vor fi folosite la selectarea contactelor</string>
     <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android. Datele contactelor vor fi memorate pentru mesajele nou trimise sau primite doar când este activată.</string>
+    <string name="title_advanced_auto_identity_hint">Aceasta va selecta ultima identitate utilizată pentru primul destinatar al mesajelor noi</string>
     <string name="title_advanced_send_reminders_hint">Arată o avertizare atunci când textul mesajului sau subiectul e gol sau când atașamentul s-ar putea să lipsească</string>
     <string name="title_advanced_reply_move_hint">Serverul de e-mail ar putea adăuga mesajele la folderul de mesaje trimise</string>
     <string name="title_advanced_usenet_hint">Inserează \'-- \' între text și semnătură</string>
@@ -898,6 +900,7 @@
     <string name="title_apply_to_all">Aplică la toate</string>
     <string name="title_edit_account_name">Editează numele contului</string>
     <string name="title_hide_folder">Ascunde dosar</string>
+    <string name="title_hide_seen_folder">Ascundeți folderul dacă toate mesajele sunt citite</string>
     <string name="title_hide_seen_folder_hint">Numai în lista de dosare afișată pe ecranul de pornire</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_navigation_folder">Arată în meniul de navigație</string>
@@ -1045,6 +1048,7 @@
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
     <string name="title_no_stream">FairEmail nu are permisiunea de a citi direct acest fișier</string>
     <string name="title_no_stream_help">Acest lucru poate fi rezolvat prin selectarea fișierului cu o aplicație mai modernă de gestionare a fișierelor sau prin acordarea permisiunii de citire a fișierelor</string>
+    <string name="title_no_permissions">Aplicația utilizată pentru a selecta fișierul nu a acordat permisiunea de a-l citi</string>
     <string name="title_no_internet">Nu există o conexiune viabilă la Internet</string>
     <string name="title_no_connection">Conectare la unul sau mai multe conturi &#8230;</string>
     <string name="title_no_folder">Dosarul nu există</string>
@@ -1391,6 +1395,7 @@
     <string name="title_rule_original_text">Includeți textul original al mesajului</string>
     <string name="title_rule_forward_to">Redirecţionează către</string>
     <string name="title_rule_resend">Retrimite</string>
+    <string name="title_rule_attached">Atașați fișierul mesajului brut</string>
     <string name="title_rule_cc">Răspuns la adresa CC</string>
     <string name="title_rule_with_attachments">Cu atașamente</string>
     <string name="title_rule_answer_remark">Doar un singur răspuns va fi trimis pentru orice conversație, pentru a evita bucle de răspuns</string>
@@ -1541,6 +1546,7 @@
     <string name="title_legend_t">Focalizare text</string>
     <string name="title_hint_folder_actions">Atingeți lung un dosar pentru opțiuni, precum adăugarea la meniul de navigare pentru acces rapid</string>
     <string name="title_hint_folder_sync">Pentru a limita utilizarea bateriei şi a conexiunii, nu vor fi sincronizate în mod implicit toate dosarele si mesajele</string>
+    <string name="title_hint_airplane">Modul Avion este activat</string>
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
     <string name="title_hint_message_actions">Glisați stânga pentru Gunoi sau dreapta pentru Arhivă (dacă este disponibilă). Acțiunile de glisare se pot configura în setările contului</string>
     <string name="title_hint_message_selection">Atingeți lung un mesaj pentru a începe selecția multiplă. Țineți și glisați sus sau jos pentru a selecta mai multe mesaje</string>

@@ -104,7 +104,7 @@
     <string name="menu_faq">Suporte</string>
     <string name="menu_translate">Ajude a traduzir</string>
     <string name="menu_issue">Comunicar um problema</string>
-    <string name="menu_attribution">Atribuição</string>
+    <string name="menu_attribution">Agradecimentos</string>
     <string name="menu_privacy">Privacidade</string>
     <string name="menu_about">Sobre</string>
     <string name="menu_pro">Funcionalidades Pro</string>
@@ -265,7 +265,7 @@
     <string name="title_setup_defaults">Repor predefinições</string>
     <string name="title_setup_reset_questions">Repor perguntas</string>
     <string name="title_setup_reset_general">Perguntas gerais</string>
-    <string name="title_setup_reset_full">Mostrar mensagem originais</string>
+    <string name="title_setup_reset_full">Mostrar mensagens originais</string>
     <string name="title_setup_reset_images">Mostrar imagens</string>
     <string name="title_setup_reset_links">Confirmar hiperligações</string>
     <string name="title_check_gmail_oauth">As suas contas de Gmail continuarão a funcionar após 30 de maio de 2022</string>
@@ -534,12 +534,13 @@
     <string name="title_advanced_autolock">Bloquear quando o ecrã se desligar</string>
     <string name="title_advanced_autolock_nav">Bloquear ao sair da aplicação</string>
     <string name="title_advanced_generic_user_agent">Utilizar \'user agent\' de navegador genérico</string>
-    <string name="title_advanced_load_emoji">Carregar emoji atualizado do Google Play Services</string>
+    <string name="title_advanced_load_emoji">Carregar Emoji actualizados dos Serviços do Google Play</string>
     <string name="title_advanced_disconnect_auto_update">Actualizar automaticamente as listas semanalmente</string>
     <string name="title_advanced_disconnect_links">Utilizar listas para avisar sobre hiperligações que monitorizam</string>
     <string name="title_advanced_disconnect_images">Utilizar listas para reconhecer imagens de monitorização</string>
     <string name="title_advanced_mnemonic">Eliminar dados remotamente</string>
     <string name="title_advanced_mnemonic_hint">A recepção de qualquer correio electrónico com as palavras abaixo indicadas no assunto irá, de forma automática e imediata, eliminar todos os dados da aplicação</string>
+    <string name="title_advanced_clear_all">Eliminar os dados da aplicação</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
     <string name="title_advanced_auto_decrypt">Desencriptar mensagens automaticamente</string>
@@ -1383,6 +1384,7 @@
     <string name="title_legend_t">Texto em destaque</string>
     <string name="title_hint_folder_actions">Toque e mantenha premida uma pasta para opções como adicionar uma pasta ao menu de navegação para um acesso rápido</string>
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e rede, por predefinição, nem todas as pastas e mensagens serão sincronizadas</string>
+    <string name="title_hint_airplane">O modo de avião está ligado</string>
     <string name="title_hint_support">Se tiver alguma questão ou um problema, por favor utilize o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para o lixo; Deslize para a direita para o arquivo (se disponível); As acções de deslizar pode ser configuradas nas definições de conta</string>
     <string name="title_hint_message_selection">Pressione e segure uma mensagem para começar a seleccionar múltiplas mensagens; Segure e deslize para cima ou para baixo para seleccionar mais mensagens</string>

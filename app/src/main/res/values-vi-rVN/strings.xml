@@ -88,6 +88,7 @@
     <string name="title_notification_redacted">Đã rút lại: xác thực sinh trắc học hoặc mã PIN được bật</string>
     <string name="title_factor_minutes">%1$d phút</string>
     <string name="menu_answers">Mẫu</string>
+    <string name="menu_rules">Quy tắc</string>
     <string name="menu_operations">Hoạt động</string>
     <string name="menu_contacts">Liên hệ cục bộ</string>
     <string name="menu_setup">Cài đặt</string>
@@ -192,6 +193,7 @@
     <string name="title_setup_done">Xong</string>
     <string name="title_setup_still">Vẫn cần làm</string>
     <string name="title_setup_error">Lỗi</string>
+    <string name="title_setup_pop">Sử dụng POP3 (không khuyến cáo)</string>
     <string name="title_setup_configuring">Đang thiết lập tài khoản &#8230;</string>
     <string name="title_setup_app_password">Bạn có thể cần phải sử dụng mật khẩu ứng dụng</string>
     <string name="title_setup_extra">Thêm</string>
@@ -316,6 +318,7 @@
     <string name="title_advanced_answer_action">Giữ phím trả lời sẽ:</string>
     <string name="title_advanced_send_pending">Hiện biểu tượng gửi được trì hoãn không gây phiền</string>
     <string name="title_advanced_compose_font">Phông chữ mặc định</string>
+    <string name="title_advanced_auto_identity">Tự động chọn danh tính cho thư mới</string>
     <string name="title_advanced_prefix_once">Chỉ đặt tiền tố cho chủ đề một lần khi trả lời hoặc chuyển tiếp</string>
     <string name="title_advanced_prefix_count">Thêm số đếm vào tiền tố trả lời</string>
     <string name="title_advanced_separate_reply">Chèn một đường thẳng ngang trước tiêu đề trả lời/chuyển tiếp</string>
@@ -328,6 +331,7 @@
     <string name="title_advanced_signature_location">Vị trí chữ ký</string>
     <string name="title_advanced_signature_new">Sử dụng chữ ký cho thư mới</string>
     <string name="title_advanced_signature_reply">Sử dụng chữ ký khi trả lời</string>
+    <string name="title_advanced_signature_reply_once">Chỉ cho thư trả lời đầu tiên</string>
     <string name="title_advanced_signature_forward">Sử dụng chữ ký khi chuyển tiếp</string>
     <string name="title_advanced_discard_delete">Khi bỏ thư nháp vĩnh viễn xoá thư nháp</string>
     <string name="title_advanced_reply_move">Khi trả lời thư, lưu thư trả lời trong thư mục đó</string>
@@ -616,8 +620,10 @@
     <string name="title_advanced_check_reply_hint">Cái này sẽ kiểm tra xem tên miền của người gửi và địa chỉ trả lời có như nhau không</string>
     <string name="title_advanced_lookup_mx_hint">Cái này sẽ kiểm tra xem các bản ghi DNS MX có tồn tại không</string>
     <string name="title_advanced_sync_delay_hint">Cái này sẽ làm chậm việc đồng bộ hóa thư</string>
+    <string name="title_advanced_folder_nav_hint">Việc này sẽ quay về danh sách thư mục của tài khoản có liên quan từ danh sách thư</string>
     <string name="title_advanced_suggest_names_hint">Nếu bị tắt, chỉ có các địa chỉ email sẽ được sử dụng khi chọn các liên hệ</string>
     <string name="title_advanced_suggest_local_hint">Bên cạnh các liên hệ được Android cung cấp. Dữ liệu liên hệ sẽ được lưu trữ cho các thư mới được gửi hoặc nhận chỉ khi được bật.</string>
+    <string name="title_advanced_auto_identity_hint">Việc này sẽ chọn danh tính sử dụng lần cuối cho người nhận thư đầu tiên</string>
     <string name="title_advanced_send_reminders_hint">Hiện một lời cảnh báo khi văn bản thư hoặc chủ đề trống hoặc khi một tệp đính kèm có thể đang thiếu</string>
     <string name="title_advanced_reply_move_hint">Máy chủ email vẫn có thể thêm thư vào thư mục thư đã gửi</string>
     <string name="title_advanced_usenet_hint">Chèn \'-- \' giữa văn bản và chữ ký</string>
@@ -761,6 +767,7 @@
     <string name="title_received_header">Sử dụng tiêu đề \'Received\'</string>
     <string name="title_date_header">Sử dụng tiêu đề \'Date\' (thời gian gửi)</string>
     <string name="title_date_remark">Các thay đổi sẽ chỉ áp dụng cho các thư mới</string>
+    <string name="title_unmetered_only">Chỉ kết nối qua mạng không trả phí</string>
     <string name="title_related_identity">Thêm danh tính có liên quan (máy chủ SMTP)</string>
     <string name="title_check">Kiểm tra</string>
     <string name="title_trust">Tin tưởng chứng chỉ máy chủ có mã xác minh %1$s</string>
@@ -818,6 +825,7 @@
     <string name="title_synchronize_more_hint2">        Thư sẽ được lấy với tốc độ bằng với tốc độ máy chủ email có thể gửi thư và được lưu trữ với tốc độ bằng với tốc độ thiết bị có thể lưu trữ và tạo mục lục cho chúng.
         Yếu tố giới hạn thường là tốc độ của không gian bộ nhớ trong của thiết bị.
     </string>
+    <string name="title_synchronize_more_hint3">Vui lòng chú ý rằng việc lưu trữ nhiều thư (mười nghìn hoặc nhiều hơn) trên thiết bị có thể gây ra độ trễ bởi vì dung lượng bộ nhớ trong không phải là nhanh vô tận.</string>
     <string name="title_synchronize_enabled">Đồng bộ hoá</string>
     <string name="title_synchronize_batch_enable">Bật đồng bộ hoá</string>
     <string name="title_synchronize_batch_disable">Tắt đồng bộ hoá</string>
@@ -872,6 +880,8 @@
     <string name="title_apply_to_all">Áp dụng cho tất cả</string>
     <string name="title_edit_account_name">Sửa tên tài khoản</string>
     <string name="title_hide_folder">Ẩn thư mục</string>
+    <string name="title_hide_seen_folder">Ẩn thư mục nếu tất cả thư đã được đọc</string>
+    <string name="title_hide_seen_folder_hint">Chỉ ở danh sách thư mục hiện ở màn hình bắt đầu</string>
     <string name="title_unified_folder">Hiện trong hộp thư đến hợp nhất</string>
     <string name="title_navigation_folder">Hiện trong menu điều hướng</string>
     <string name="title_synchronize_folder">Đồng bộ hoá (nhận thư)</string>
@@ -1018,6 +1028,7 @@
     <string name="title_no_saf">Storage access framework không có sẵn</string>
     <string name="title_no_stream">FairEmail không có quyền đọc tệp này trực tiếp</string>
     <string name="title_no_stream_help">Việc này có thể giải quyết bằng cách chọn tệp bằng ứng dụng quản lý tệp hiện đại hơn hoặc bằng cách cấp quyền đọc tệp</string>
+    <string name="title_no_permissions">Ứng dụng được dùng để chọn tệp đã không cấp quyền đọc nó</string>
     <string name="title_no_internet">Không có hoặc không có kết nối internet phù hợp</string>
     <string name="title_no_connection">Đang kết nối đến một hoặc nhiều tài khoản &#8230;</string>
     <string name="title_no_folder">Thư mục không tồn tại</string>
@@ -1151,6 +1162,8 @@
     <string name="title_translating">Đang dịch &#8230;</string>
     <string name="title_translate_formal">Sử dụng dạng trang trọng</string>
     <string name="title_translate_small">Sử dụng phông chữ nhỏ cho văn bản nguồn</string>
+    <string name="title_translate_html">Giữ lại định dạng</string>
+    <string name="title_translate_html_hint">Việc này sẽ tiêu tốn nhiều kí tự hơn</string>
     <string name="title_translate_usage">Sử dụng: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Nhấn văn bản để được dịch</string>
     <string name="title_edit_plain_text">Chỉnh sửa dưới dạng văn bản thường</string>
@@ -1362,6 +1375,7 @@
     <string name="title_rule_original_text">Bao gồm văn bản thư gốc</string>
     <string name="title_rule_forward_to">Chuyển tiếp đến</string>
     <string name="title_rule_resend">Gửi lại</string>
+    <string name="title_rule_attached">Đính kèm tệp thư thô</string>
     <string name="title_rule_cc">Trả lời đến các địa chỉ CC</string>
     <string name="title_rule_with_attachments">Có tệp đính kèm</string>
     <string name="title_rule_answer_remark">Chỉ có một thư trả lời sẽ được gửi đối với bất kỳ cuộc hội thoại nào, để tránh các vòng lặp trả lời</string>
@@ -1512,6 +1526,7 @@
     <string name="title_legend_t">Tập trung văn bản</string>
     <string name="title_hint_folder_actions">Nhấn giữ một thư mục để xem các tuỳ chọn, như là thêm thư mục vào menu điều hướng để truy cập nhanh</string>
     <string name="title_hint_folder_sync">Để giới hạn sử dụng pin và mạng, không phải tất cả thư mục và thư sẽ được đồng bộ hoá theo mặc định</string>
+    <string name="title_hint_airplane">Đang bật chế độ máy bay</string>
     <string name="title_hint_support">Nếu bạn có câu hỏi hoặc vấn đề, hãy sử dụng menu hỗ trợ để có trợ giúp</string>
     <string name="title_hint_message_actions">Vuốt trái để đưa vào thùng rác; Vuốt phải để lưu trữ (nếu có); Các hành động vuốt có thể được thiết lập trong cài đặt tài khoản</string>
     <string name="title_hint_message_selection">Nhấn giữ một thư để bắt đầu chọn nhiều thư; Giữ và vuốt lên hoặc xuống để chọn thêm thư</string>
@@ -1834,10 +1849,10 @@
         <item>Không bị chặn</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item>Any</item>
-        <item>Home</item>
+        <item>Bất kỳ</item>
+        <item>Nhà</item>
         <item>Công việc</item>
         <item>Khác</item>
-        <item>Mobile</item>
+        <item>Di động</item>
     </string-array>
 </resources>

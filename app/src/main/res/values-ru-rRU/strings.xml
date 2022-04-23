@@ -799,6 +799,7 @@
     <string name="title_received_header">Использовать заголовок \"Received\"</string>
     <string name="title_date_header">Использовать заголовок \"Date\" (время отправки)</string>
     <string name="title_date_remark">Изменения будут применены только к новым сообщениям</string>
+    <string name="title_unmetered_only">Подключаться только через безлимитные сети</string>
     <string name="title_related_identity">Добавить связанный идентификатор (сервер SMTP)</string>
     <string name="title_check">Проверить</string>
     <string name="title_trust">Доверять сертификату сервера с отпечатком %1$s</string>
@@ -1559,6 +1560,7 @@
     <string name="title_legend_t">Фокус на тексте</string>
     <string name="title_hint_folder_actions">Длительное нажатие на папку откроет другие действия, например, добавление папки в меню навигации для быстрого доступа.</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика по умолчанию синхронизируются не все папки и сообщения.</string>
+    <string name="title_hint_airplane">Режим полета включён</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи.</string>
     <string name="title_hint_message_actions">Смахните влево, чтобы поместить в корзину; смахните вправо, чтобы поместить в архив (если имеется); действия жестов можно изменить в настройках учётной записи.</string>
     <string name="title_hint_message_selection">Длительное нажатие на сообщение начинает выбор нескольких сообщений; удерживайте нажатие и смахните вверх или вниз, чтобы выбрать больше сообщений.</string>

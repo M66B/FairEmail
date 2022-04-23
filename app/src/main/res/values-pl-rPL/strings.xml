@@ -1058,6 +1058,7 @@
     <string name="title_no_saf">Brak dostępu do plików</string>
     <string name="title_no_stream">FairEmail nie ma uprawnień do bezpośredniego odczytu tego pliku</string>
     <string name="title_no_stream_help">Można to rozwiązać, wybierając plik za pomocą bardziej nowoczesnej aplikacji menedżera plików lub przyznając uprawnienia do odczytu plików</string>
+    <string name="title_no_permissions">Aplikacja użyta do wybrania pliku nie przyznała uprawnień do odczytu pliku</string>
     <string name="title_no_internet">Brak lub brak odpowiedniego połączenia internetowego</string>
     <string name="title_no_connection">Łączenie z jednym lub kilkoma kontami &#8230;</string>
     <string name="title_no_folder">Folder nie istnieje</string>
@@ -1556,6 +1557,7 @@
     <string name="title_legend_t">Skoncentruj na tekście</string>
     <string name="title_hint_folder_actions">Naciśnij długo folder, aby wyświetlić opcje, takie jak dodanie folderu do menu nawigacji w celu szybkiego dostępu</string>
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
+    <string name="title_hint_airplane">Tryb samolotowy jest włączony</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
     <string name="title_hint_message_selection">Naciśnij długo wiadomość, aby rozpocząć wybieranie wielu wiadomości; Przytrzymaj i przeciągnij w górę lub w dół, aby wybrać więcej wiadomości</string>

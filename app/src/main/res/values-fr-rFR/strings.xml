@@ -780,6 +780,7 @@
     <string name="title_received_header">Utiliser l\'en-tête « Reçu »</string>
     <string name="title_date_header">Utiliser l\'en-tête « Date » (heure d\'envoi)</string>
     <string name="title_date_remark">Les modifications seront appliquées uniquement aux nouveaux messages</string>
+    <string name="title_unmetered_only">Se connecter uniquement via des réseaux non limités</string>
     <string name="title_related_identity">Ajouter une identité liée (serveur SMTP)</string>
     <string name="title_check">Vérifier</string>
     <string name="title_trust">Faire confiance au certificat du serveur avec l\'empreinte digitale %1$s</string>
@@ -1541,6 +1542,7 @@
     <string name="title_legend_t">Sélection sur le texte</string>
     <string name="title_hint_folder_actions">Appuyez longuement sur un dossier pour afficher les options comme ajouter un dossier au menu de navigation pour un accès rapide</string>
     <string name="title_hint_folder_sync">Afin de limiter l’utilisation de la batterie et du réseau, les dossiers et messages ne seront pas tous synchronisés par défaut</string>
+    <string name="title_hint_airplane">Le mode avion est activé</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu « Assistance » pour obtenir de l’aide</string>
     <string name="title_hint_message_actions">Balayez vers la gauche pour mettre à la corbeille ; balayez vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
     <string name="title_hint_message_selection">Appuyez longuement sur un message pour activer la sélection multiple ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner davantage de messages</string>

@@ -203,6 +203,7 @@
     <string name="title_setup_done">Klar</string>
     <string name="title_setup_still">Fortfarande att göra</string>
     <string name="title_setup_error">Fel</string>
+    <string name="title_setup_pop">Använd POP3 (rekommenderas inte)</string>
     <string name="title_setup_configuring">Konfigurerar konto &#8230;</string>
     <string name="title_setup_app_password">Du kan behöva använda ett applösenord</string>
     <string name="title_setup_extra">Extra</string>
@@ -324,6 +325,7 @@
     <string name="title_advanced_answer_action">Långtryck på svarsknappen kommer:</string>
     <string name="title_advanced_send_pending">Visa icke-påträngande försenad leveransikon</string>
     <string name="title_advanced_compose_font">Standardtypsnitt</string>
+    <string name="title_advanced_auto_identity">Välj identiteter automatiskt för nya meddelanden</string>
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
     <string name="title_advanced_prefix_count">Lägg till antal svar till svarsprefix</string>
     <string name="title_advanced_separate_reply">Infoga en horisontell linje innan ett svar/framåt sidhuvud</string>
@@ -336,6 +338,7 @@
     <string name="title_advanced_signature_location">Signaturens position</string>
     <string name="title_advanced_signature_new">Använd signatur för nya meddelanden</string>
     <string name="title_advanced_signature_reply">Använd signatur vid svar</string>
+    <string name="title_advanced_signature_reply_once">Endast för det första svaret</string>
     <string name="title_advanced_signature_forward">Använd signatur vid vidarebefordran</string>
     <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
     <string name="title_advanced_reply_move">När du svarar på ett meddelande, spara svaret i samma mapp</string>
@@ -625,8 +628,10 @@
     <string name="title_advanced_check_reply_hint">Detta kommer att kontrollera om domännamnet för avsändaren och svarsadressen är samma</string>
     <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
     <string name="title_advanced_sync_delay_hint">Detta kommer att sakta ner synkronisering av meddelanden</string>
+    <string name="title_advanced_folder_nav_hint">Detta kommer alltid att återgå till mapplistan över det relaterade kontot från en meddelandelista</string>
     <string name="title_advanced_suggest_names_hint">Om inaktiverad, kommer endast e-postadresser att användas vid val av kontakter</string>
     <string name="title_advanced_suggest_local_hint">Förutom kontakter som tillhandahålls av Android. Kontaktdata lagras endast för nyligen skickade eller mottagna meddelanden när det aktiverat.</string>
+    <string name="title_advanced_auto_identity_hint">Detta kommer att välja den sista identiteten som används för den första mottagaren av nya meddelanden</string>
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
     <string name="title_advanced_reply_move_hint">E-postservern kan fortfarande lägga till meddelanden till skickade mail mappen</string>
     <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
@@ -827,6 +832,7 @@
     <string name="title_synchronize_more_hint2">        Meddelanden kommer att hämtas så snabbt som e-postservern kan leverera dem och lagras så snabbt som enheten kan lagra och indexera dem.
         Den begränsande faktorn är vanligtvis hastigheten på enhetens interna lagringsutrymme.
     </string>
+    <string name="title_synchronize_more_hint3">Tänk på att lagring av många meddelanden (10 000 eller fler) på din enhet kan orsaka fördröjningar eftersom det interna lagringsutrymmet inte är särskilt snabbt.</string>
     <string name="title_synchronize_enabled">Synkronisera</string>
     <string name="title_synchronize_batch_enable">Aktivera synkronisering</string>
     <string name="title_synchronize_batch_disable">Inaktivera synkronisering</string>
@@ -881,6 +887,8 @@
     <string name="title_apply_to_all">Tillämpa för alla</string>
     <string name="title_edit_account_name">Redigera kontonamn</string>
     <string name="title_hide_folder">Dölj mapp</string>
+    <string name="title_hide_seen_folder">Dölj mapp om alla meddelanden har lästs</string>
+    <string name="title_hide_seen_folder_hint">Endast i mapplistan som visas på startskärmen</string>
     <string name="title_unified_folder">Visa i en samlad inkorg</string>
     <string name="title_navigation_folder">Visa i navigeringsmenyn</string>
     <string name="title_synchronize_folder">Synkronisera (hämta meddelanden)</string>
@@ -1373,6 +1381,7 @@
     <string name="title_rule_original_text">Inkludera ursprunglig meddelandetext</string>
     <string name="title_rule_forward_to">Vidarebefordra till</string>
     <string name="title_rule_resend">Skicka igen</string>
+    <string name="title_rule_attached">Bifoga meddelandefil i källformat</string>
     <string name="title_rule_cc">Svar till CC-adresser</string>
     <string name="title_rule_with_attachments">Med bilagor</string>
     <string name="title_rule_answer_remark">Endast ett svar kommer att skickas för någon konversation, för att undvika svarsloopar</string>
@@ -1523,6 +1532,7 @@
     <string name="title_legend_t">Fokus på text</string>
     <string name="title_hint_folder_actions">Tryck länge på en mapp för alternativ, som att lägga till en mapp till navigationsmenyn för snabb åtkomst</string>
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
+    <string name="title_hint_airplane">Flygplansläge är på</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_message_actions">Dra åt vänster för att kasta; Svep åt höger för att arkivera (om tillgängligt); Svepåtgärderna kan konfigureras i kontoinställningarna</string>
     <string name="title_hint_message_selection">Långt tryck på ett meddelande för att börja välja flera meddelanden; håll och svep uppåt eller nedåt för att välja fler meddelanden</string>
@@ -1854,9 +1864,9 @@
     </string-array>
     <string-array name="contactGroupTypes">
         <item>Någon</item>
-        <item>Home</item>
+        <item>Hem</item>
         <item>Arbete</item>
         <item>Övrigt</item>
-        <item>Mobile</item>
+        <item>Mobil</item>
     </string-array>
 </resources>

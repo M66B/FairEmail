@@ -777,6 +777,7 @@
     <string name="title_received_header">Received-Kopfzeile verwenden</string>
     <string name="title_date_header">Date-Kopfzeile verwenden (Sendezeit)</string>
     <string name="title_date_remark">Änderungen werden nur auf neue Nachrichten angewendet</string>
+    <string name="title_unmetered_only">Verbindung nur über nicht getaktete Netzwerke</string>
     <string name="title_related_identity">Zugehörige Identität hinzufügen (SMTP-Server)</string>
     <string name="title_check">Prüfen</string>
     <string name="title_trust">Serverzertifikat mit Fingerabdruck %1$s vertrauen</string>
@@ -1535,6 +1536,7 @@
     <string name="title_legend_t">Text fokussieren</string>
     <string name="title_hint_folder_actions">Drücken Sie lange auf einen Ordner für Optionen, wie das Hinzufügen eines Ordners in die Navigation für schnellen Zugriff</string>
     <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden standardmäßig nicht alle Ordner und E-Mails synchronisiert</string>
+    <string name="title_hint_airplane">Flugzeugmodus aktiviert</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Standard: Wische links zum Papierkorb; Wische rechts zum Archiv (falls verfügbar); Diese Wischgesten können aber in den Kontoeinstellungen auch individuell anders konfiguriert werden</string>
     <string name="title_hint_message_selection">Um mehrere Nachrichten auszuwählen, drücken Sie zunächst lange auf eine Nachricht, halten und wischen Sie sodann nach oben oder unten, um weitere Nachrichten auszuwählen</string>

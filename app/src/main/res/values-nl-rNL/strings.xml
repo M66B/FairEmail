@@ -777,6 +777,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_received_header">Gebruik de kop \'Received\'</string>
     <string name="title_date_header">Gebruik de kop \'Date\' (verzonden tijd)</string>
     <string name="title_date_remark">Wijzigingen worden alleen toegepast op nieuwe berichten</string>
+    <string name="title_unmetered_only">Verbind alleen via ongemeten netwerken</string>
     <string name="title_related_identity">Voeg een gerelateerde identiteit toe (SMTP-server)</string>
     <string name="title_check">Controleer</string>
     <string name="title_trust">Vertrouw server certificaat met de vingerafdruk %1$s</string>
@@ -1531,6 +1532,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_legend_t">Focus tekst</string>
     <string name="title_hint_folder_actions">Druk lang op de map voor opties, zoals het toevoegen van een map aan het navigatiemenu voor snelle toegang</string>
     <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
+    <string name="title_hint_airplane">Vliegtuigmodus is ingeschakeld</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veegacties kunnen worden geconfigureerd in de accountinstellingen</string>
     <string name="title_hint_message_selection">Druk lang op een bericht om meerdere berichten te selecteren; Hou vast en veeg omhoog of omlaag om meer berichten te selecteren</string>
