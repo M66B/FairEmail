@@ -4071,6 +4071,8 @@ which might be useful to save sent messages if the email server doesn't.
 If you want to import an mbox file to an existing email account,
 you can use Thunderbird on a desktop computer and the [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) add-on.
 
+Note that in case of IMAP all messages on your device are also on the email server.
+
 <br />
 
 <a name="faq152"></a>
