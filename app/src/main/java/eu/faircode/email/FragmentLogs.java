@@ -196,10 +196,14 @@ public class FragmentLogs extends FragmentBase {
     private void onMenuShow() {
         final Context context = getContext();
 
-        SpannableStringBuilder[] titles = new SpannableStringBuilder[EntityLog.Type.values().length];
-        boolean[] states = new boolean[EntityLog.Type.values().length];
+        int len = EntityLog.Type.values().length;
+        if (!BuildConfig.DEBUG)
+            len--;
+
+        SpannableStringBuilder[] titles = new SpannableStringBuilder[len];
+        boolean[] states = new boolean[len];
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        for (int i = 0; i < EntityLog.Type.values().length; i++) {
+        for (int i = 0; i < len; i++) {
             EntityLog.Type type = EntityLog.Type.values()[i];
             titles[i] = new SpannableStringBuilderEx(type.toString());
             Integer color = EntityLog.getColor(context, type);
