@@ -113,6 +113,8 @@ public class ApplicationEx extends Application
                 " process=" + android.os.Process.myPid());
         Log.logMemory(this, "App");
 
+        CoalMine.install(this);
+
         registerActivityLifecycleCallbacks(lifecycleCallbacks);
 
         getMainLooper().setMessageLogging(new Printer() {

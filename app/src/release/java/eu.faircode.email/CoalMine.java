@@ -19,11 +19,15 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Application;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
 
 public class CoalMine {
+    static void install(@NonNull Application app) {
+    }
+
     static void setup(boolean enabled) {
     }
 
