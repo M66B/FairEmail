@@ -86,7 +86,6 @@ public class ServiceTileUnseen extends TileService {
     public void onDestroy() {
         owner.destroy();
         super.onDestroy();
-        CoalMine.watch(this, getClass().getSimpleName() + "#onDestroy()");
     }
 
     public void onStartListening() {

@@ -28,10 +28,4 @@ public class ServiceTileClear extends TileService {
     public void onClick() {
         startActivityAndCollapse(ActivityClear.getIntent(this));
     }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        CoalMine.watch(this, getClass().getSimpleName() + "#onDestroy()");
-    }
 }

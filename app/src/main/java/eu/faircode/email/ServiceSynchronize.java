@@ -923,7 +923,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         nm.cancel(NotificationHelper.NOTIFICATION_SYNCHRONIZE);
 
         super.onDestroy();
-        CoalMine.watch(this, getClass().getSimpleName() + "#onDestroy()");
     }
 
     @Override
