@@ -2128,10 +2128,12 @@ public class Log {
                         }
 
                         boolean unmetered = false;
+                        boolean ignore_schedule = false;
                         try {
                             if (account.conditions != null) {
                                 JSONObject jconditions = new JSONObject(account.conditions);
                                 unmetered = jconditions.optBoolean("unmetered");
+                                ignore_schedule = jconditions.optBoolean("ignore_schedule");
                             }
                         } catch (Throwable ignored) {
                         }
@@ -2145,6 +2147,7 @@ public class Log {
                                 " ondemand=" + account.ondemand +
                                 " msgs=" + content + "/" + messages +
                                 " ops=" + db.operation().getOperationCount(account.id) +
+                                " ischedule=" + ignore_schedule + (ignore_schedule ? " !!!" : "") +
                                 " unmetered=" + unmetered + (unmetered ? " !!!" : "") +
                                 " " + account.state +
                                 (account.last_connected == null ? "" : " " + dtf.format(account.last_connected)) +
