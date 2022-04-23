@@ -4,6 +4,12 @@
 
 ### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
 
+### Next version
+
+* Added advanced account option to sync outside schedule
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1879 - 2022-04-23
 
 * Added warning about airplane mode enabled

@@ -39,6 +39,7 @@ public class TupleAccountNetworkState {
 
     public TupleAccountNetworkState(
             boolean enabled,
+            boolean scheduled,
             @NonNull Bundle command,
             @NonNull ConnectionHelper.NetworkState networkState,
             @NonNull TupleAccountState accountState) {
@@ -54,6 +55,9 @@ public class TupleAccountNetworkState {
             } catch (Throwable ex) {
                 Log.e(ex);
             }
+
+        if (!scheduled && !jconditions.optBoolean("ignore_schedule"))
+            this.enabled = false;
     }
 
     public boolean canRun() {

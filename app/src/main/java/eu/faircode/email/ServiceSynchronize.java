@@ -59,6 +59,8 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;
 
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -1221,17 +1223,32 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             @Override
             public void delegate() {
                 try {
+                    long now = new Date().getTime();
+                    long[] schedule = ServiceSynchronize.getSchedule(ServiceSynchronize.this);
+                    boolean scheduled = (schedule == null || (now >= schedule[0] && now < schedule[1]));
+
+                    boolean work = false;
                     DB db = DB.getInstance(ServiceSynchronize.this);
                     try {
                         db.beginTransaction();
 
                         List<EntityAccount> accounts = db.account().getPollAccounts(null);
                         for (EntityAccount account : accounts) {
-                            List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
-                            if (folders.size() > 0)
-                                Collections.sort(folders, folders.get(0).getComparator(ServiceSynchronize.this));
-                            for (EntityFolder folder : folders)
-                                EntityOperation.poll(ServiceSynchronize.this, folder.id);
+                            JSONObject jcondition = new JSONObject();
+                            try {
+                                jcondition = new JSONObject(account.conditions);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+
+                            if (scheduled || jcondition.optBoolean("ignore_schedule")) {
+                                work = true;
+                                List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
+                                if (folders.size() > 0)
+                                    Collections.sort(folders, folders.get(0).getComparator(ServiceSynchronize.this));
+                                for (EntityFolder folder : folders)
+                                    EntityOperation.poll(ServiceSynchronize.this, folder.id);
+                            }
                         }
 
                         db.setTransactionSuccessful();
@@ -1239,10 +1256,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         db.endTransaction();
                     }
 
-                    long now = new Date().getTime();
-                    long[] schedule = ServiceSynchronize.getSchedule(ServiceSynchronize.this);
-                    boolean scheduled = (schedule == null || (now >= schedule[0] && now < schedule[1]));
-                    schedule(ServiceSynchronize.this, scheduled, true, null);
+                    schedule(ServiceSynchronize.this, work, true, null);
 
                     // Prevent service stop
                     eval(ServiceSynchronize.this, "poll");
@@ -2826,7 +2840,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 List<TupleAccountNetworkState> result = new ArrayList<>();
                 for (TupleAccountState accountState : accountStates)
                     result.add(new TupleAccountNetworkState(
-                            enabled && (pollInterval == 0 || accountState.isExempted(ServiceSynchronize.this)) && scheduled,
+                            enabled && (pollInterval == 0 || accountState.isExempted(ServiceSynchronize.this)),
+                            scheduled,
                             command,
                             networkState,
                             accountState));
@@ -2899,15 +2914,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(pi);
 
-        boolean scheduled;
-        Long at = null;
-        long[] schedule = getSchedule(context);
-        if (schedule == null)
-            scheduled = true;
-        else {
-            long now = new Date().getTime();
+        long now = new Date().getTime();
+        long[] schedule = ServiceSynchronize.getSchedule(context);
+        boolean scheduled = (schedule == null || (now >= schedule[0] && now < schedule[1]));
+
+        if (schedule != null) {
             long next = (now < schedule[0] ? schedule[0] : schedule[1]);
-            scheduled = (now >= schedule[0] && now < schedule[1]);
 
             Log.i("Schedule now=" + new Date(now));
             Log.i("Schedule start=" + new Date(schedule[0]));
@@ -2916,14 +2928,37 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             Log.i("Schedule scheduled=" + scheduled);
 
             AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, next, pi);
-
-            if (scheduled && polled) {
-                at = now + 30 * 1000L;
-                Log.i("Sync at schedule start=" + new Date(at));
-            }
         }
 
-        schedule(context, scheduled, polled, at);
+        executor.submit(new RunnableEx("schedule") {
+            @Override
+            protected void delegate() {
+                boolean work = false;
+                DB db = DB.getInstance(context);
+                List<EntityAccount> accounts = db.account().getPollAccounts(null);
+                for (EntityAccount account : accounts) {
+                    JSONObject jcondition = new JSONObject();
+                    try {
+                        jcondition = new JSONObject(account.conditions);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+
+                    if (scheduled || jcondition.optBoolean("ignore_schedule")) {
+                        work = true;
+                        break;
+                    }
+                }
+
+                Long at = null;
+                if (scheduled && polled) {
+                    at = now + 30 * 1000L;
+                    Log.i("Sync at schedule start=" + new Date(at));
+                }
+
+                schedule(context, work, polled, at);
+            }
+        });
     }
 
     private static void schedule(Context context, boolean scheduled, boolean polled, Long at) {

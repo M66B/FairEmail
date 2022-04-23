@@ -2636,6 +2636,8 @@ so there is little room for performance improvements.
 In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*.
 Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
 
+Since version 1.1880 is is possible to exclude accounts from scheduling in the advanced account settings.
+
 Automation, see below, can be used for more advanced schedules,
 like for example multiple synchronization periods per day or different synchronization periods for different days.
 

@@ -951,6 +951,7 @@
     <string name="title_date_header">Use \'Date\' header (sent time)</string>
     <string name="title_date_remark">Changes will be applied to new messages only</string>
     <string name="title_unmetered_only">Connect only via unmetered networks</string>
+    <string name="title_ignore_schedule">Sync outside the schedule</string>
     <string name="title_related_identity">Add related identity (SMTP server)</string>
     <string name="title_check">Check</string>
     <string name="title_trust">Trust server certificate with fingerprint %1$s</string>
