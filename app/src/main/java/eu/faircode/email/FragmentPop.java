@@ -518,6 +518,8 @@ public class FragmentPop extends FragmentBase {
                     }
                 }
 
+                boolean reschedule = (ignore_schedule != jconditions.optBoolean("ignore_schedule"));
+
                 try {
                     db.beginTransaction();
 
@@ -608,7 +610,10 @@ public class FragmentPop extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "POP3");
+                if (reschedule)
+                    ServiceSynchronize.reschedule(context);
+                else
+                    ServiceSynchronize.eval(context, "POP3");
 
                 if (!synchronize) {
                     NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);

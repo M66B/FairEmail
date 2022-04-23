@@ -1161,6 +1161,8 @@ public class FragmentAccount extends FragmentBase {
                     }
                 }
 
+                boolean reschedule = (ignore_schedule != jconditions.optBoolean("ignore_schedule"));
+
                 try {
                     db.beginTransaction();
 
@@ -1340,7 +1342,10 @@ public class FragmentAccount extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "save account");
+                if (reschedule)
+                    ServiceSynchronize.reschedule(context);
+                else
+                    ServiceSynchronize.eval(context, "save account");
 
                 if (!synchronize) {
                     NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);

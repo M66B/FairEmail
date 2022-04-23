@@ -1224,7 +1224,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             public void delegate() {
                 try {
                     long now = new Date().getTime();
-                    long[] schedule = ServiceSynchronize.getSchedule(ServiceSynchronize.this);
+                    long[] schedule = getSchedule(ServiceSynchronize.this);
                     boolean scheduled = (schedule == null || (now >= schedule[0] && now < schedule[1]));
 
                     boolean work = false;
@@ -2350,7 +2350,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     try {
                         latch.await(5000L, TimeUnit.MILLISECONDS);
                     } catch (InterruptedException ex) {
-                        Log.w(ex);
+                        Log.i(ex);
                     }
 
                     // Stop executing operations
@@ -2915,7 +2915,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         am.cancel(pi);
 
         long now = new Date().getTime();
-        long[] schedule = ServiceSynchronize.getSchedule(context);
+        long[] schedule = getSchedule(context);
         boolean scheduled = (schedule == null || (now >= schedule[0] && now < schedule[1]));
 
         if (schedule != null) {
