@@ -388,7 +388,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         account.ignore_size = json.optBoolean("ignore_size", false);
         account.use_date = json.optBoolean("use_date", false);
         account.use_received = json.optBoolean("use_received", false);
-        account.conditions = json.optString("conditions");
+        account.conditions = json.optString("conditions", null);
 
         return account;
     }

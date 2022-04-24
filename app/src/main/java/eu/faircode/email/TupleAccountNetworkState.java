@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -49,7 +50,7 @@ public class TupleAccountNetworkState {
         this.accountState = accountState;
 
         this.jconditions = new JSONObject();
-        if (this.accountState.conditions != null)
+        if (!TextUtils.isEmpty(this.accountState.conditions))
             try {
                 jconditions = new JSONObject(this.accountState.conditions);
             } catch (Throwable ex) {
