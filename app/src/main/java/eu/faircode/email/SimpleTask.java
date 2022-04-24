@@ -173,7 +173,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                     if (log)
                         Log.i("Executing task=" + name);
                     long start = new Date().getTime();
-                    data = onExecute(context, args);
+                    data = onExecute(context.getApplicationContext(), args);
                     elapsed = new Date().getTime() - start;
                     if (log)
                         Log.i("Executed task=" + name + " elapsed=" + elapsed + " ms");
