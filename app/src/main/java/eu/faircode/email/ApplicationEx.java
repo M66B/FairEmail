@@ -142,12 +142,15 @@ public class ApplicationEx extends Application
                             StackTraceElement[] stack = v.getStackTrace();
                             for (StackTraceElement ste : stack) {
                                 String clazz = ste.getClassName();
+                                if (clazz == null)
+                                    continue;
+                                if (clazz.startsWith("leakcanary."))
+                                    return;
                                 if ("com.sun.mail.util.WriteTimeoutSocket".equals(clazz))
                                     return;
-                                if (clazz != null &&
-                                        (clazz.startsWith("org.chromium") ||
-                                                clazz.startsWith("com.android.webview.chromium") ||
-                                                clazz.startsWith("androidx.appcompat.widget")))
+                                if (clazz.startsWith("org.chromium") ||
+                                        clazz.startsWith("com.android.webview.chromium") ||
+                                        clazz.startsWith("androidx.appcompat.widget"))
                                     return;
                             }
 
