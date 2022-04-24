@@ -835,6 +835,9 @@ public class Helper {
     }
 
     static void customTabsWarmup(Context context) {
+        if (context == null)
+            return;
+
         try {
             CustomTabsClient.bindCustomTabsService(context, "com.android.chrome", new CustomTabsServiceConnection() {
                 @Override
