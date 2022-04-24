@@ -5009,7 +5009,7 @@ class Core {
             for (NotificationCompat.Builder builder : notifications) {
                 long id = builder.getExtras().getLong("id", 0);
                 if ((id == 0 && !prev.equals(current)) || add.contains(id)) {
-                    // https://developer.android.com/training/wearables/notifications/creating
+                    // https://developer.android.com/training/wearables/notifications/bridger#non-bridged
                     if (id == 0) {
                         if (!notify_summary)
                             builder.setLocalOnly(true);
