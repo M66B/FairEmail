@@ -620,6 +620,7 @@ public class ActivityEML extends ActivityBase {
             @Override
             protected String onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
+                boolean junk = args.getBoolean("junk");
                 long aid = args.getLong("account");
 
                 DB db = DB.getInstance(context);
