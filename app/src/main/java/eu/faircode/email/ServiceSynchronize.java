@@ -1235,7 +1235,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         for (EntityAccount account : accounts) {
                             JSONObject jcondition = new JSONObject();
                             try {
-                                jcondition = new JSONObject(account.conditions);
+                                if (!TextUtils.isEmpty(account.conditions))
+                                    jcondition = new JSONObject(account.conditions);
                             } catch (Throwable ex) {
                                 Log.e(ex);
                             }
@@ -2938,7 +2939,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 for (EntityAccount account : accounts) {
                     JSONObject jcondition = new JSONObject();
                     try {
-                        jcondition = new JSONObject(account.conditions);
+                        if (!TextUtils.isEmpty(account.conditions))
+                            jcondition = new JSONObject(account.conditions);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
