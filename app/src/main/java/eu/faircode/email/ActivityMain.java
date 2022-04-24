@@ -82,7 +82,6 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 protected EntityMessage onExecute(Context context, Bundle args) {
                     Uri data = args.getParcelable("data");
                     long id;
-                    String f = data.getFragment();
                     if ("email.faircode.eu".equals(data.getHost()))
                         id = Long.parseLong(data.getFragment());
                     else {
