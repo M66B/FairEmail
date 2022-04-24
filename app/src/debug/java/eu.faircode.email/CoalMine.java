@@ -27,6 +27,7 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
@@ -39,7 +40,7 @@ import shark.ObjectReporter;
 
 public class CoalMine {
     static void install(@NonNull Application app) {
-        AppWatcher.INSTANCE.manualInstall(app, 10000);
+        AppWatcher.INSTANCE.manualInstall(app, TimeUnit.SECONDS.toMillis(5));
     }
 
     static void setup(boolean enabled) {
