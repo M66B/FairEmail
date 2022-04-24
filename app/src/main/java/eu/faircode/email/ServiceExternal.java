@@ -137,7 +137,8 @@ public class ServiceExternal extends Service {
                         .setPriority(NotificationCompat.PRIORITY_MIN)
                         .setCategory(NotificationCompat.CATEGORY_SERVICE)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET)
-                        .setLocalOnly(true);
+                        .setLocalOnly(true)
+                        .setOngoing(true);
 
         return builder;
     }

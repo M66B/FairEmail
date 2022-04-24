@@ -1314,7 +1314,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         .setDefaults(0) // disable sound on pre Android 8
                         .setCategory(NotificationCompat.CATEGORY_SERVICE)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET)
-                        .setLocalOnly(true);
+                        .setLocalOnly(true)
+                        .setOngoing(true);
 
         if (lastAccounts > 0)
             builder.setContentTitle(getResources().getQuantityString(
