@@ -46,6 +46,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.BufferedOutputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -894,6 +895,7 @@ public class ContactInfo {
                 (ex instanceof UnknownHostException &&
                         ex.getMessage() != null &&
                         ex.getMessage().contains("No address associated with hostname")) ||
+                ex instanceof EOFException ||
                 ex instanceof FileNotFoundException ||
                 ex instanceof SSLPeerUnverifiedException ||
                 (ex instanceof SSLException &&
