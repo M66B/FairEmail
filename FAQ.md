@@ -3816,6 +3816,8 @@ The confusing Microsoft specific server error *User is authenticated but not con
 * External access was administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) about how an administrator can enable it again
 * SMTP was administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how an administrator can enable it again
 * Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
+* There were too many login attempts in a too short time, for example by using multiple email clients at the same time
+* There is a problem with the Exchange server license: it might be expired or for another server edition
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
