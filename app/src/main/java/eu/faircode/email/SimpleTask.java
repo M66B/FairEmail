@@ -148,6 +148,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         LifecycleObserver watcher = new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroy() {
+                EntityLog.log(context, EntityLog.Type.Debug, "Owner gone task=" + name);
                 destroyed = true;
                 owner.getLifecycle().removeObserver(this);
             }
