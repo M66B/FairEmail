@@ -199,7 +199,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (tvCharacters == null)
+                if (tvCharacters == null || tilPassword == null)
                     return;
 
                 String password = s.toString();
