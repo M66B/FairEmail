@@ -74,7 +74,7 @@
             android:autofillHints="emailAddress"
             android:hint="@string/title_identity_tenant"
             android:imeOptions="actionNext"
-            android:inputType="textEmailAddress"
+            android:inputType="textNoSuggestions"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
