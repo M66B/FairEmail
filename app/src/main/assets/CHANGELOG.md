@@ -4,7 +4,7 @@
 
 ### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
 
-### Next version
+### 1.1880 - 2022-04-24
 
 * Added advanced account option to sync outside schedule
 * Small improvements and minor bug fixes
