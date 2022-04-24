@@ -607,6 +607,7 @@
     <string name="title_advanced_poll_hint">定期检索新消息每次都要比较本地消息与远程消息，这比较耗时并可能消耗更多电量，尤其是消息非常多时。始终接收则通过保持‘关注消息的变化来防止此情况。</string>
     <string name="title_advanced_optimize_hint">这可能会改变同步频率以节省电池用量，取决于电子邮件服务器的功能和行为</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
+    <string name="title_advanced_schedule_ignore">可在高级帐户设置中禁用计划任务</string>
     <string name="title_advanced_quick_sync_hint">这有助于减少流量使用量，但搭配不遵守该标准的邮件服务器时可能错过新消息。</string>
     <string name="title_advanced_no_date_hint">某些供应商将未知、无效或未来日期的消息存储为不含日期的消息</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
@@ -768,6 +769,8 @@
     <string name="title_received_header">使用“已接收”标头</string>
     <string name="title_date_header">使用“日期”标头 (发送时间)</string>
     <string name="title_date_remark">更改将仅会应用于新消息</string>
+    <string name="title_unmetered_only">仅通过不计量的网络连接</string>
+    <string name="title_ignore_schedule">计划任务之外依旧同步</string>
     <string name="title_related_identity">添加相关身份 (SMTP 服务器)</string>
     <string name="title_check">检查</string>
     <string name="title_trust">信任具有指纹 %1$s的服务器证书</string>
@@ -1524,6 +1527,7 @@
     <string name="title_legend_t">聚焦文本</string>
     <string name="title_hint_folder_actions">长按文件夹查看选项，例如将文件夹添加到导航菜单以便快速访问</string>
     <string name="title_hint_folder_sync">为了降低电量和网络流量的消耗，默认不会同步全部的文件夹和消息</string>
+    <string name="title_hint_airplane">飞行模式已开启</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑移动到回收站；向右滑存档（如果支持） ；可在账户设置中配置滑动操作</string>
     <string name="title_hint_message_selection">长按进行多选；按住的同时并上下滑动可选择多个邮件</string>

@@ -619,6 +619,7 @@
     <string name="title_advanced_poll_hint">Periodisk tjek for nye beskeder sammenligner lokal- og fjernbeskeder hver gang, hvilket er en kostbar handling, der kan resultere i ekstra batteriforbrug, især hvis der er mange beskeder. Modtag altid vilforhindre dette ved løbende at følge ændringer.</string>
     <string name="title_advanced_optimize_hint">Dette kan ændre synkfrekvensen for at spare strøm afhængigt af e-mailserverens funktioner og adfærd</string>
     <string name="title_advanced_schedule_hint">Tryk på et tidspunkt for at angive et tidspunkt</string>
+    <string name="title_advanced_schedule_ignore">Tidsplaner kan deaktiveres under avancerede kontoindstillinger</string>
     <string name="title_advanced_quick_sync_hint">Dette reducerer dataforbruget, men nye beskeder kan blive overset på e-mailservere, som ikke følger standarderne</string>
     <string name="title_advanced_no_date_hint">Visse udbydere gemmer beskeder med en ukendt, ugyldig eller fremtidig dato som beskeder uden en dato</string>
     <string name="title_advanced_unseen_hint">Visse udbydere understøtter ikke dette ordentligt, hvilket kan forårsage synkronisering af ingen eller alle beskeder</string>
@@ -780,6 +781,8 @@
     <string name="title_received_header">Benyt \"Modtaget\"-overskrift</string>
     <string name="title_date_header">Benyt \'Dato\'-overskrift (afsendelsestid)</string>
     <string name="title_date_remark">Ændringer effektueres kun for nye beskeder</string>
+    <string name="title_unmetered_only">Tilslut kun via ikke-forbrugsafregnede netværk</string>
+    <string name="title_ignore_schedule">Synk også uden for tidsplanen</string>
     <string name="title_related_identity">Tilføj relateret identitet (SMTP-server)</string>
     <string name="title_check">Tjek</string>
     <string name="title_trust">Gør servercertifikat betroet med fingeraftryk %1$s</string>

@@ -628,6 +628,7 @@
     <string name="title_advanced_poll_hint">Povremeno provjeravanje novih poruka će uporediti lokalne i udaljene poruke svaki put, što je zahtjevna radnja, koja može uticati na povećanu potrošnju baterije, posebno ukoliko ima mnogo poruka. Stalni prijem će spriječiti ovo tako što će se stalno pratiti promjene.</string>
     <string name="title_advanced_optimize_hint">Ovo može promijeniti učestalost sinhronizacija kako bi se smanjila potrošnja baterije, u zavisnosti od mogućnosti i ponašanja e-mail servera</string>
     <string name="title_advanced_schedule_hint">Dodirnite za postavljanje vremena</string>
+    <string name="title_advanced_schedule_ignore">Rasporedi se mogu isključiti u naprednim postavkama računa</string>
     <string name="title_advanced_quick_sync_hint">Ovo smanjuje potrošnju podataka, ali nove poruke mogu nedostajati ukoliko e-mail server ne prati standarde</string>
     <string name="title_advanced_no_date_hint">Neki provajderi čuvaju kao poruke bez datuma poruke s nepoznatim, nevažećim ili nekim budućim datumom</string>
     <string name="title_advanced_unseen_hint">Neki provajderi ne podržavaju ovo kako treba, što može uzrokovati prestanak ili potpunu sinhronizaciju poruka</string>
@@ -789,6 +790,8 @@
     <string name="title_received_header">Koristi zaglavlje za \'primljeno\'</string>
     <string name="title_date_header">Koristi zaglavlje za \'datum\' (vrijeme slanja)</string>
     <string name="title_date_remark">Promjene će biti primijenjene samo na nove poruke</string>
+    <string name="title_unmetered_only">Poveži se samo preko neograničenih mreža</string>
+    <string name="title_ignore_schedule">Sinhronizuj također van rasporeda</string>
     <string name="title_related_identity">Dodaj povezani identitet (SMTP server)</string>
     <string name="title_check">Provjeri</string>
     <string name="title_trust">Odobri certifikat servera pomoću otiska prsta %1$s</string>
@@ -1550,6 +1553,7 @@
     <string name="title_legend_t">Fokus na tekst</string>
     <string name="title_hint_folder_actions">Dugi dodir na folder za opcije, poput dodavanja foldera u navigacijski meni za brzi pristup</string>
     <string name="title_hint_folder_sync">Da bi ograničili potrošnju baterije i podataka, po zadanom neće biti sinhronizirani svi folderi i poruke</string>
+    <string name="title_hint_airplane">Način rada u avionu je uključen</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevucite lijevo za otpad; Prevucite desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>

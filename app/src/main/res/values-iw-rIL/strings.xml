@@ -799,6 +799,8 @@
     <string name="title_received_header">להשתמש בכותרת ‚קבלה’</string>
     <string name="title_date_header">להשתמש בכותרת ‚תאריך’ (זמן השליחה)</string>
     <string name="title_date_remark">השינויים יחולו על הודעות חדשות בלבד</string>
+    <string name="title_unmetered_only">להתחבר רק דרך רשתות בלתי מוגבלות</string>
+    <string name="title_ignore_schedule">לסנכרן גם מחוץ ללו״ז</string>
     <string name="title_related_identity">הוספת זהות תואמת (שרת SMTP)</string>
     <string name="title_check">בדיקה</string>
     <string name="title_trust">לתת אמון באישור שרת עם טביעת האצבע %1$s</string>

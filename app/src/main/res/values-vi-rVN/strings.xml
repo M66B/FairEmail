@@ -606,6 +606,7 @@
     <string name="title_advanced_poll_hint">Việc kiểm tra thư mới định kỳ sẽ so sánh thư cục bộ và thư trên mạng mỗi lần kiểm tra, nó là một hoạt động tốn kém có thể dẫn đến sử dụng thêm pin, đặc biệt là nếu có nhiều thư. Luôn nhận sẽ ngăn chặn điều này bằng cách liên tục theo dõi các thay đổi.</string>
     <string name="title_advanced_optimize_hint">Điều này có thể thay đổi tần số đồng bộ hoá để tiết kiệm pin tuỳ thuộc vào khả năng và hành vi của các máy chủ email</string>
     <string name="title_advanced_schedule_hint">Nhấn vào thời gian để đặt thời gian</string>
+    <string name="title_advanced_schedule_ignore">Bạn có thể tắt lịch trình trong cài đặt tài khoản nâng cao</string>
     <string name="title_advanced_quick_sync_hint">Cái này làm giảm sử dụng dữ liệu, nhưng các thư mới có thể bị bỏ lỡ nếu máy chủ email không theo tiêu chuẩn</string>
     <string name="title_advanced_no_date_hint">Một số nhà cung cấp lưu trữ các thư có ngày không xác định, không hợp lệ hoặc trong tương lai là thư không có ngày</string>
     <string name="title_advanced_unseen_hint">Một số nhà cung cấp không hỗ trợ điều này đúng cách, điều đó có thể gây ra không đồng bộ hoá thư nào hoặc đồng bộ tất cả thư</string>
@@ -768,6 +769,7 @@
     <string name="title_date_header">Sử dụng tiêu đề \'Date\' (thời gian gửi)</string>
     <string name="title_date_remark">Các thay đổi sẽ chỉ áp dụng cho các thư mới</string>
     <string name="title_unmetered_only">Chỉ kết nối qua mạng không trả phí</string>
+    <string name="title_ignore_schedule">Cũng đồng bộ ngoài lịch</string>
     <string name="title_related_identity">Thêm danh tính có liên quan (máy chủ SMTP)</string>
     <string name="title_check">Kiểm tra</string>
     <string name="title_trust">Tin tưởng chứng chỉ máy chủ có mã xác minh %1$s</string>

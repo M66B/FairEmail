@@ -9,6 +9,7 @@
     <string name="app_exit">再一次執行‘返回’操作以退出</string>
     <string name="app_cake">剩餘儲存空間不足</string>
     <string name="app_updated">最近更新於: %1$s</string>
+    <string name="app_download">下載自：%1$s</string>
     <string name="channel_service">接收</string>
     <string name="channel_send">寄送</string>
     <string name="channel_notification">電子郵件</string>
@@ -61,12 +62,16 @@
     </plurals>
     <string name="title_ask_spam_who">您要將來自 %1$s 的訊息作垃圾郵件處理嗎？</string>
     <string name="title_junk_hint">您的電子郵件供應商負責篩選垃圾郵件。電子郵件程式並不擁有所有用於可靠地處理此操作的數據。</string>
+    <string name="title_junk_pop_hint">程式不會下載來自被封鎖發送者的訊息。
+如果未啟用“將訊息留在服務器上”選項，這些訊息將永久丟失！
+    </string>
     <string name="title_block">封鎖 %1$s</string>
     <string name="title_block_sender">封鎖寄件者</string>
     <string name="title_block_sender_domain">封鎖域名 \'%1$s\'</string>
     <string name="title_block_sender_hint">        封鎖寄件者是一項免費功能。
         使用篩選器規則封鎖寄件者網域則是一項專業版功能。
     </string>
+    <string name="title_blocked_senders">已封鎖的寄件者</string>
     <string name="title_junk_filter">使用本地垃圾郵件篩選器</string>
     <string name="title_junk_filter_hint">這可能會增大電池的用量，並導致訊息被錯誤地標記為垃圾郵件</string>
     <string name="title_junk_blocklist">使用垃圾郵件封鎖清單</string>
@@ -83,6 +88,7 @@
     <string name="title_notification_redacted">已隱去敏感內容： 生物特徵辨識或 PIN 碼驗證已啟用。</string>
     <string name="title_factor_minutes">%1$d 分鐘</string>
     <string name="menu_answers">模板</string>
+    <string name="menu_rules">規則</string>
     <string name="menu_operations">操作</string>
     <string name="menu_contacts">本地聯絡人</string>
     <string name="menu_setup">設定</string>
@@ -144,6 +150,7 @@
     <string name="title_setup_gmail_password">我想要使用密碼來授權帳戶</string>
     <string name="title_setup_office_auth">“驗證失敗”錯誤可能是由系統管理員停用 IMAP/SMTP 所致</string>
     <string name="title_setup_oauth_rationale">授權存取您的 %1$s 帳戶</string>
+    <string name="title_setup_oauth_update">重新授權現有帳戶 (否則請新建帳戶)</string>
     <string name="title_setup_oauth_updated">帳戶授權已更新</string>
     <string name="title_setup_oauth_authorize">授權</string>
     <string name="title_setup_select_account">選擇帳戶</string>
@@ -168,6 +175,7 @@
     <string name="title_setup_permissions_explanation">需要聯絡人權限才能查詢聯絡人資料及建議聯絡人</string>
     <string name="title_setup_permission_import_contacts">如何匯入聯絡人</string>
     <string name="title_setup_doze">停用電池效能最佳化設定</string>
+    <string name="title_setup_doze_remark">更可靠地在後台收發電子郵件</string>
     <string name="title_setup_doze_explanation">請停用電池效能最佳化設定，以確保應用程式能可靠地在背景傳送和接收訊息</string>
     <string name="title_setup_doze_hint">雖然可能有點自相矛盾，但關閉此應用的電池效能最佳化設定可節省電池用量</string>
     <string name="title_setup_doze_instructions">在接下來的 Android 對話方塊中，將\"未套用最佳化設定\"更改為\"所有應用程式\"，選取本程式並選擇\"不要最佳化\"</string>
@@ -185,8 +193,10 @@
     <string name="title_setup_done">已完成</string>
     <string name="title_setup_still">仍待處理</string>
     <string name="title_setup_error">錯誤</string>
+    <string name="title_setup_pop">使用POP3 (不推薦)</string>
     <string name="title_setup_configuring">正在配置帳戶 &#8230;</string>
     <string name="title_setup_app_password">您可能需要使用應用程式密碼</string>
+    <string name="title_setup_extra">額外設定</string>
     <string name="title_setup_close">關閉設定介面</string>
     <string name="title_setup_export">匯出設定</string>
     <string name="title_setup_import">匯入設定</string>
@@ -202,6 +212,7 @@
     <string name="title_setup_password_different">密碼不匹配</string>
     <string name="title_setup_password_invalid">密碼無效</string>
     <string name="title_setup_import_accounts">匯入帳戶和身分</string>
+    <string name="title_setup_import_delete">先刪除現有帳戶</string>
     <string name="title_setup_import_rules">匯入篩選規則</string>
     <string name="title_setup_import_contacts">匯入本地聯絡人</string>
     <string name="title_setup_import_answers">匯入回覆模板</string>
@@ -227,6 +238,8 @@
     <string name="title_setup_theme_red_green">紅色/綠色</string>
     <string name="title_setup_theme_grey">灰色</string>
     <string name="title_setup_theme_black">黑色</string>
+    <string name="title_setup_theme_white">白</string>
+    <string name="title_setup_theme_black_or_white">白或黑</string>
     <string name="title_setup_theme_black_and_white">黑色與白色</string>
     <string name="title_setup_theme_reverse">互換顏色</string>
     <string name="title_setup_theme_light">亮色主題</string>
@@ -247,6 +260,7 @@
     <string name="title_setup_reset_images">顯示圖片</string>
     <string name="title_setup_reset_links">確認連結</string>
     <string name="title_check_gmail_oauth">你的Gmail帳號將會在2022年5月30日後持續運作</string>
+    <string name="title_check_gmail_password">您的部分 Gmail 帳戶可能會在 2022 年 5 月 30 日之後不可使用</string>
     <string name="title_advanced_hint_title">更高階的選項</string>
     <string name="title_advanced_hint_message">        您正在訪問更高階的選項。
         所有選項都有常用的標準值，除非您有不同的偏好，否則您不需要變更這些選項。
@@ -298,11 +312,14 @@
     <string name="title_advanced_suggest_received">建議在已接收訊息中發現的地址</string>
     <string name="title_advanced_suggest_frequently">按使用頻率對建議的地址進行排序</string>
     <string name="title_advanced_alt_re_fwd">可替代的回覆/轉寄前綴</string>
+    <string name="title_advanced_send_chips">卡片化顯示地址</string>
     <string name="title_advanced_send_reminders">顯示提醒</string>
     <string name="title_advanced_send_delayed">延後傳送訊息</string>
     <string name="title_advanced_attach_new">將分享的檔案加至新建草稿中</string>
+    <string name="title_advanced_answer_action">長按答覆按鈕以</string>
     <string name="title_advanced_send_pending">顯示低存在感的傳送延後圖示</string>
     <string name="title_advanced_compose_font">預設字型</string>
+    <string name="title_advanced_auto_identity">自動選擇新郵件的身份</string>
     <string name="title_advanced_prefix_once">在回覆或轉寄時，主題前綴只出現一次</string>
     <string name="title_advanced_prefix_count">在回覆前綴顯示計數</string>
     <string name="title_advanced_separate_reply">在回覆/轉寄標頭前插入水平線</string>
@@ -315,8 +332,10 @@
     <string name="title_advanced_signature_location">簽名位置</string>
     <string name="title_advanced_signature_new">套用簽名至新訊息</string>
     <string name="title_advanced_signature_reply">當回覆時使用簽名</string>
+    <string name="title_advanced_signature_reply_once">僅用於第一次回覆</string>
     <string name="title_advanced_signature_forward">當轉寄時使用簽名</string>
     <string name="title_advanced_discard_delete">丟棄草稿的同時也永久刪除草稿</string>
+    <string name="title_advanced_reply_move">在回信時，將回覆保存在同一資料夾中</string>
     <string name="title_advanced_auto_link">自動建立連結</string>
     <string name="title_advanced_plain_only">預設傳送純文字</string>
     <string name="title_advanced_flow">為純文字使用\"format=flowed\"</string>
@@ -330,11 +349,13 @@
     <string name="title_advanced_rlah">像在家一樣漫遊</string>
     <string name="title_advanced_download_headers">下載全部的訊息標頭</string>
     <string name="title_advanced_download_eml">下載元訊息檔</string>
+    <string name="title_advanced_download_plain">預設只下載純文字部分 (如果可用)</string>
     <string name="title_advanced_validated">需要經過驗證 (檢查) 的連線</string>
     <string name="title_advanced_vpn_only">僅透過 VPN 連線</string>
     <string name="title_advanced_timeout">連線時限 (秒)</string>
     <string name="title_advanced_prefer_ip4">偏好使用 IPv4 而非 IPv6</string>
     <string name="title_advanced_ssl_harden">加固 SSL 連線</string>
+    <string name="title_advanced_cert_strict">嚴格的憑證檢查</string>
     <string name="title_advanced_manage_connectivity">管理網路連線</string>
     <string name="title_advanced_caption_general">一般</string>
     <string name="title_advanced_caption_checks">檢查</string>
@@ -1776,7 +1797,7 @@
         <item>接收者</item>
         <item>寄件者</item>
         <item>已封鎖</item>
-        <item>Not blocked</item>
+        <item>未封鎖的</item>
     </string-array>
     <string-array name="contactGroupTypes">
         <item>Any</item>

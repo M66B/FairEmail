@@ -777,6 +777,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_received_header">\'Recieved\' başlığını kullan</string>
     <string name="title_date_header">\'Date\' başlığını kullan (gönderme zamanı)</string>
     <string name="title_date_remark">Değişiklikler sadece yeni mesajlara uygulanacaktır</string>
+    <string name="title_unmetered_only">Yalnızca ölçülmeyen ağlar üzerinden bağlan</string>
     <string name="title_related_identity">İlgili kimliği ekleyin (SMTP sunucusu)</string>
     <string name="title_check">Kontrol et</string>
     <string name="title_trust">%1$s parmak izine sahip sunucu sertifikasına güven</string>

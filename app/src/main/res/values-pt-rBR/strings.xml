@@ -617,6 +617,7 @@
     <string name="title_advanced_poll_hint">A verificação periódica por novas mensagens irá sempre comparar mensagens locais e remotas todas as vezes, o que é uma operação pesada e que pode resultar em uso extra de bateria, especialmente se houver muitas mensagens. A opção \'sempre receber\' irá prevenir isso por meio da busca contínua por mudanças.</string>
     <string name="title_advanced_optimize_hint">Isto pode alterar a frequência de sincronização para economizar o uso da bateria, dependendo dos recursos e comportamento dos servidores de e-mail</string>
     <string name="title_advanced_schedule_hint">Toque uma vez para definir um tempo</string>
+    <string name="title_advanced_schedule_ignore">Agendamento pode ser desabilitado nas configurações avançadas da conta</string>
     <string name="title_advanced_quick_sync_hint">Isto reduz o uso de dados, mas novas mensagens podem ser perdidas se o servidor de e-mail não seguir os padrões</string>
     <string name="title_advanced_no_date_hint">Alguns provedores armazenam mensagens com data desconhecida, inválida ou com data futura como mensagens sem data</string>
     <string name="title_advanced_unseen_hint">Alguns provedores não suportam isso adequadamente, o que pode causar a sincronização de nenhuma ou de todas as mensagens</string>
@@ -778,6 +779,8 @@
     <string name="title_received_header">Usar cabeçalho de \'recebimento\'</string>
     <string name="title_date_header">Usar cabeçalho de \'Data\' (horário de envio)</string>
     <string name="title_date_remark">As alterações serão aplicadas apenas a novas mensagens</string>
+    <string name="title_unmetered_only">Conectar apenas por redes ilimitadas</string>
+    <string name="title_ignore_schedule">Sincronizar fora do agendado também</string>
     <string name="title_related_identity">Adicionar identidade relacionada (servidor SMTP)</string>
     <string name="title_check">Verificar</string>
     <string name="title_trust">Confiar no certificado do servidor com impressão digital %1$s</string>

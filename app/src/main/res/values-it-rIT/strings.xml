@@ -619,6 +619,7 @@
     <string name="title_advanced_poll_hint">Cercare periodicamente i nuovi messaggi confronterà i messaggi locali e remoti ogni volta, che è un\'operazione costosa che potrebbe risultare in un uso extra della batteria, specialmente se ci sono molti messaggi. Ricevere sempre lo impedirà seguendo continuamento le modifiche.</string>
     <string name="title_advanced_optimize_hint">Questo potrebbe cambiare la frequenza di sincronizzazione per risparmiare sull\'uso della batteria in base alle capacità e il comportamento dei server email</string>
     <string name="title_advanced_schedule_hint">Tocca sull\'orario per impostarlo</string>
+    <string name="title_advanced_schedule_ignore">La pianificazione può essere disabilitata nelle impostazioni avanzate dell\'account</string>
     <string name="title_advanced_quick_sync_hint">Questo riduce l\'uso dei dati, ma i nuovi messaggi potrebbero esser perduti se il server email non segue gli standard</string>
     <string name="title_advanced_no_date_hint">Alcuni provider memorizzano i messaggi con una data sconosciuta, non valida o futura come messaggi senza data</string>
     <string name="title_advanced_unseen_hint">Alcuni provider non lo supportano propriamente, il che potrebbe causare la sincronizzazione di tutti o nessun messaggio</string>
@@ -781,6 +782,7 @@
     <string name="title_date_header">Usa intestazione \'Data\' (ora di invio)</string>
     <string name="title_date_remark">Le modifiche saranno applicate solo ai nuovi messaggi</string>
     <string name="title_unmetered_only">Connetti solo tramite reti non a consumo</string>
+    <string name="title_ignore_schedule">Sincronizza anche al di fuori della pianificazione</string>
     <string name="title_related_identity">Aggiungi identità correlata (server SMTP)</string>
     <string name="title_check">Controlla</string>
     <string name="title_trust">Certificato server affidabile con impronta digitale: %1$s</string>
