@@ -638,6 +638,7 @@
     <string name="title_advanced_poll_hint">בדיקה רציפה לאיתור הודעות חדשות תשווה את ההודעות המקומיות והמרוחקות בכל פעם, זאת עשויה להיות פעולה יקרה שתוביל להגברת ניצולת הסוללה, במיוחד אם יש הודעות רבות. לקבל תמיד ימנע את המצב הזה על ידי מעקב רציף אחר השינויים.</string>
     <string name="title_advanced_optimize_hint">עשוי לשנות את תדירות הסנכרון כדי לחסוך בתצרוכת סוללה בהתאם ליכולות והתנהגות שרתי הדוא״ל</string>
     <string name="title_advanced_schedule_hint">יש לגעת בשעה כדי להגדיר שעה</string>
+    <string name="title_advanced_schedule_ignore">אפשר להשבית לוחות זמנים בהגדרות התקדמות של החשבון</string>
     <string name="title_advanced_quick_sync_hint">מפחית את תצרוכת הנתונים אך יכול להיות שהודעות חדשות יפוספסו אם שרת הדוא״ל לא עוקב אחר התקנים</string>
     <string name="title_advanced_no_date_hint">חלק מהספקים מאחסנים הודעות עם תאריך לא ידוע, שגוי או עתידי עבור הודעות ללא תאריך</string>
     <string name="title_advanced_unseen_hint">חלק מהספקים לא תומכים באפשרות הזאת כראוי, מה שעשוי לגרום לסנכרון אף אחת מההודעות או כולן</string>
