@@ -273,14 +273,6 @@ public class ViewModelMessages extends ViewModel {
             return;
         }
 
-        ObjectHolder<Boolean> alive = new ObjectHolder<>(true);
-        owner.getLifecycle().addObserver(new LifecycleObserver() {
-            @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
-            public void onAny() {
-                alive.value = owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED);
-            }
-        });
-
         Log.i("Observe previous/next id=" + id);
         //model.list.getValue().loadAround(lpos);
         model.list.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
@@ -354,6 +346,9 @@ public class ViewModelMessages extends ViewModel {
                         long id = args.getLong("id");
                         int lpos = args.getInt("lpos");
 
+                        if (!isAlive())
+                            return null;
+
                         PagedList<TupleMessageEx> plist = model.list.getValue();
                         if (plist == null)
                             return null;
@@ -372,7 +367,7 @@ public class ViewModelMessages extends ViewModel {
                                     return getPair(plist, ds, count, from + j);
                         }
 
-                        for (int i = 0; i < count && alive.value; i += CHUNK_SIZE) {
+                        for (int i = 0; i < count && isAlive(); i += CHUNK_SIZE) {
                             Log.i("Observe previous/next load" +
                                     " range=" + i + "/#" + count);
                             List<TupleMessageEx> messages = ds.loadRange(i, Math.min(CHUNK_SIZE, count - i));
@@ -431,7 +426,7 @@ public class ViewModelMessages extends ViewModel {
                         Log.i("Observe previous/next fallback=" + result);
                         return result;
                     }
-                }.setOptional(true).execute(context, owner, args, "model:fallback");
+                }.execute(context, owner, args, "model:fallback");
             }
         });
     }
@@ -449,13 +444,16 @@ public class ViewModelMessages extends ViewModel {
             protected List<Long> onExecute(Context context, Bundle args) {
                 List<Long> ids = new ArrayList<>();
 
+                if (!isAlive())
+                    return ids;
+
                 PagedList<TupleMessageEx> plist = model.list.getValue();
                 if (plist == null)
                     return ids;
 
                 LimitOffsetDataSource<TupleMessageEx> ds = (LimitOffsetDataSource<TupleMessageEx>) plist.getDataSource();
                 int count = ds.countItems();
-                for (int i = 0; i < count; i += 100)
+                for (int i = 0; i < count && isAlive(); i += 100)
                     for (TupleMessageEx message : ds.loadRange(i, Math.min(100, count - i)))
                         if ((message.uid != null && !message.folderReadOnly) ||
                                 message.accountProtocol != EntityAccount.TYPE_IMAP)

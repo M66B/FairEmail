@@ -71,6 +71,12 @@ public class CoalMine {
                                         reporter.getLabels().add("started=" + label);
                                     }
                                 }
+                                HeapField hfDestroyed = instance.get(className, "destroyed");
+                                if (hfDestroyed != null) {
+                                    Boolean destroyed = hfDestroyed.getValue().getAsBoolean();
+                                    if (destroyed != null)
+                                        reporter.getLabels().add("destroyed=" + destroyed);
+                                }
                             } else if (className.equals(TwoStateOwner.class.getName())) {
                                 HeapField hfState = instance.get(className, "state");
                                 if (hfState != null) {

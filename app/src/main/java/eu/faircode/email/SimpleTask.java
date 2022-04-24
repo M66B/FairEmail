@@ -49,10 +49,10 @@ import java.util.concurrent.Future;
 public abstract class SimpleTask<T> implements LifecycleObserver {
     private boolean log = true;
     private boolean count = true;
-    private boolean optional = false;
 
     private String name;
     private long started;
+    private boolean destroyed;
     private boolean reported;
     private Lifecycle.State state;
     private Future<?> future;
@@ -76,11 +76,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     public SimpleTask<T> setCount(boolean count) {
         this.count = count;
-        return this;
-    }
-
-    public SimpleTask<T> setOptional(boolean optional) {
-        this.optional = optional;
         return this;
     }
 
@@ -153,8 +148,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         LifecycleObserver watcher = new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroy() {
-                EntityLog.log(context, EntityLog.Type.Debug, "Cancelling task=" + name);
-                cancel(context);
+                destroyed = true;
                 owner.getLifecycle().removeObserver(this);
             }
         };
@@ -197,8 +191,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                             // No delivery
                             cleanup(context);
                         } else {
-                            if (optional)
-                                owner.getLifecycle().removeObserver(watcher);
+                            owner.getLifecycle().removeObserver(watcher);
 
                             if (state.isAtLeast(Lifecycle.State.RESUMED)) {
                                 // Inline delivery
@@ -269,10 +262,13 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             }
         });
 
-        if (optional)
-            owner.getLifecycle().addObserver(watcher);
+        owner.getLifecycle().addObserver(watcher);
 
         updateTaskCount(context);
+    }
+
+    public boolean isAlive() {
+        return !this.destroyed;
     }
 
     void cancel(Context context) {
