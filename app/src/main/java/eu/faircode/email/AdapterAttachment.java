@@ -261,11 +261,13 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
 
+                    EntityAttachment attachment;
+
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
-                        EntityAttachment attachment = db.attachment().getAttachment(id);
+                        attachment = db.attachment().getAttachment(id);
                         if (attachment == null)
                             return null;
 
