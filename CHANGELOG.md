@@ -4,7 +4,7 @@
 
 ### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
 
-### 1.1880 - 2022-04-24
+### 1.1881 - 2022-04-24
 
 * Added advanced account option to sync outside schedule
 * Small improvements and minor bug fixes
