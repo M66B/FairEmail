@@ -1009,45 +1009,45 @@ public class StyleHelper {
                     .replace("\"", ""));
 
         if (faces.contains("fairemail"))
-            return ResourcesCompat.getFont(context, R.font.fantasy);
+            return ResourcesCompat.getFont(context.getApplicationContext(), R.font.fantasy);
 
         if (bundled_fonts) {
             if (faces.contains("montserrat") ||
                     faces.contains("gotham") ||
                     faces.contains("proxima nova"))
-                return ResourcesCompat.getFont(context, R.font.montserrat);
+                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.montserrat);
 
             if (faces.contains("arimo") ||
                     faces.contains("arial") ||
                     faces.contains("verdana") ||
                     faces.contains("helvetica") ||
                     faces.contains("helvetica neue"))
-                return ResourcesCompat.getFont(context, R.font.arimo);
+                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.arimo);
 
             if (faces.contains("tinos") ||
                     faces.contains("times") ||
                     faces.contains("times new roman"))
-                return ResourcesCompat.getFont(context, R.font.tinos);
+                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.tinos);
 
             if (faces.contains("cousine") ||
                     faces.contains("courier") ||
                     faces.contains("courier new"))
-                return ResourcesCompat.getFont(context, R.font.cousine);
+                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.cousine);
 
             if (faces.contains("lato") ||
                     faces.contains("carlito") ||
                     faces.contains("calibri"))
-                return ResourcesCompat.getFont(context, R.font.lato);
+                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.lato);
 
             if (faces.contains("caladea") ||
                     faces.contains("cambo") ||
                     faces.contains("cambria"))
-                return ResourcesCompat.getFont(context, R.font.caladea);
+                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.caladea);
 
             if (faces.contains("opendyslexic") ||
                     faces.contains("comic sans") ||
                     faces.contains("comic sans ms"))
-                return ResourcesCompat.getFont(context, R.font.opendyslexic);
+                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.opendyslexic);
         }
 
         for (String face : faces) {
