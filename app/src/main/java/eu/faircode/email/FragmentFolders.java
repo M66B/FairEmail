@@ -23,6 +23,7 @@ import static android.app.Activity.RESULT_OK;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 
 import android.app.Dialog;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -1174,12 +1175,12 @@ public class FragmentFolders extends FragmentBase {
                                 .setSmallIcon(R.drawable.baseline_get_app_white_24)
                                 .setContentTitle(getString(R.string.title_export_messages))
                                 .setAutoCancel(false)
-                                .setOngoing(true)
                                 .setShowWhen(false)
-                                .setLocalOnly(true)
                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                 .setCategory(NotificationCompat.CATEGORY_PROGRESS)
-                                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+                                .setVisibility(NotificationCompat.VISIBILITY_SECRET)
+                                .setLocalOnly(true)
+                                .setOngoing(true);
 
                 DB db = DB.getInstance(context);
                 List<Long> ids = db.message().getMessageIdsByFolder(fid);
@@ -1206,7 +1207,9 @@ public class FragmentFolders extends FragmentBase {
                             if (now - last > EXPORT_PROGRESS_INTERVAL) {
                                 last = now;
                                 builder.setProgress(ids.size(), i, false);
-                                nm.notify("export", NotificationHelper.NOTIFICATION_TAGGED, builder.build());
+                                Notification notification = builder.build();
+                                notification.flags |= Notification.FLAG_NO_CLEAR;
+                                nm.notify("export", NotificationHelper.NOTIFICATION_TAGGED, notification);
                             }
 
                             long id = ids.get(i);

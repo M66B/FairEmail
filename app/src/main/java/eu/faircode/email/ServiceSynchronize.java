@@ -23,6 +23,7 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 import android.app.AlarmManager;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -183,7 +184,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             stopForeground(true);
         else
             startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
-                    getNotificationService(null, null).build());
+                    getNotificationService(null, null));
 
         // Listen for network changes
         ConnectivityManager cm = Helper.getSystemService(this, ConnectivityManager.class);
@@ -405,7 +406,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             try {
                                 NotificationManager nm = Helper.getSystemService(ServiceSynchronize.this, NotificationManager.class);
                                 nm.notify(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
-                                        getNotificationService(lastAccounts, lastOperations).build());
+                                        getNotificationService(lastAccounts, lastOperations));
                             } catch (Throwable ex) {
 /*
                             java.lang.NullPointerException: Attempt to invoke interface method 'java.util.Iterator java.lang.Iterable.iterator()' on a null object reference
@@ -947,7 +948,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 stopForeground(true);
             else
                 startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
-                        getNotificationService(null, null).build());
+                        getNotificationService(null, null));
 
             if (action != null) {
                 switch (action.split(":")[0]) {
@@ -1290,7 +1291,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         scheduleWatchdog(this);
     }
 
-    private NotificationCompat.Builder getNotificationService(Integer accounts, Integer operations) {
+    private Notification getNotificationService(Integer accounts, Integer operations) {
         if (accounts != null)
             this.lastAccounts = accounts;
         if (operations != null)
@@ -1310,8 +1311,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         .setContentIntent(piWhy)
                         .setAutoCancel(false)
                         .setShowWhen(false)
-                        .setPriority(NotificationCompat.PRIORITY_MIN)
                         .setDefaults(0) // disable sound on pre Android 8
+                        .setPriority(NotificationCompat.PRIORITY_MIN)
                         .setCategory(NotificationCompat.CATEGORY_SERVICE)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                         .setLocalOnly(true)
@@ -1330,7 +1331,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (lastSuitable == null || !lastSuitable)
             builder.setSubText(getString(R.string.title_notification_waiting));
 
-        return builder;
+        Notification notification = builder.build();
+        notification.flags |= Notification.FLAG_NO_CLEAR;
+        return notification;
     }
 
     private NotificationCompat.Builder getNotificationAlert(EntityAccount account, String message) {
@@ -2762,7 +2765,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             try {
                                 NotificationManager nm = Helper.getSystemService(ServiceSynchronize.this, NotificationManager.class);
                                 nm.notify(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
-                                        getNotificationService(lastAccounts, lastOperations).build());
+                                        getNotificationService(lastAccounts, lastOperations));
                             } catch (Throwable ex) {
                                 Log.w(ex);
                             }

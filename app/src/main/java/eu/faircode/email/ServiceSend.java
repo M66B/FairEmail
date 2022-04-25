@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.app.AlarmManager;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -89,8 +90,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     public void onCreate() {
         EntityLog.log(this, "Service send create");
         super.onCreate();
-        startForeground(NotificationHelper.NOTIFICATION_SEND,
-                getNotificationService(false).build());
+        startForeground(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
 
         owner = new TwoStateOwner(this, "send");
 
@@ -108,8 +108,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
                     try {
                         NotificationManager nm = Helper.getSystemService(ServiceSend.this, NotificationManager.class);
-                        nm.notify(NotificationHelper.NOTIFICATION_SEND,
-                                getNotificationService(false).build());
+                        nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
@@ -202,8 +201,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        startForeground(NotificationHelper.NOTIFICATION_SEND,
-                getNotificationService(false).build());
+        startForeground(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
 
         Log.i("Send intent=" + intent);
         Log.logExtras(intent);
@@ -211,7 +209,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         return START_STICKY;
     }
 
-    NotificationCompat.Builder getNotificationService(boolean alert) {
+    private Notification getNotificationService(boolean alert) {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "send")
                         .setSmallIcon(R.drawable.baseline_send_white_24)
@@ -221,11 +219,11 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         .setShowWhen(true)
                         .setOnlyAlertOnce(!alert)
                         .setDefaults(0) // disable sound on pre Android 8
-                        .setLocalOnly(true)
-                        .setOngoing(true)
                         .setPriority(NotificationCompat.PRIORITY_MIN)
                         .setCategory(NotificationCompat.CATEGORY_SERVICE)
-                        .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+                        .setVisibility(NotificationCompat.VISIBILITY_SECRET)
+                        .setLocalOnly(true)
+                        .setOngoing(true);
 
         if (lastUnsent != null && lastUnsent.count != null)
             builder.setContentText(getResources().getQuantityString(
@@ -237,7 +235,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         if (lastProgress >= 0)
             builder.setProgress(100, lastProgress, false);
 
-        return builder;
+        Notification notification = builder.build();
+        notification.flags |= Notification.FLAG_NO_CLEAR;
+        return notification;
     }
 
     NotificationCompat.Builder getNotificationError(String recipient, Throwable ex, int tries_left) {
@@ -331,8 +331,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
                 try {
                     NotificationManager nm = Helper.getSystemService(ServiceSend.this, NotificationManager.class);
-                    nm.notify(NotificationHelper.NOTIFICATION_SEND,
-                            getNotificationService(false).build());
+                    nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
@@ -518,7 +517,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         }
 
         NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
-        nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(true).build());
+        nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(true));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean reply_move = prefs.getBoolean("reply_move", false);
@@ -732,7 +731,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         if (now > last + PROGRESS_UPDATE_INTERVAL) {
                             last = now;
                             lastProgress = progress;
-                            nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false).build());
+                            nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
                         }
                     }
                 }
@@ -773,7 +772,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             iservice.close();
             if (lastProgress >= 0) {
                 lastProgress = -1;
-                nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false).build());
+                nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
             }
             db.identity().setIdentityState(ident.id, null);
         }
