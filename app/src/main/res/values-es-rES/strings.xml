@@ -327,6 +327,7 @@
     <string name="title_advanced_attach_new">Añadir archivos compartidos a un nuevo borrador</string>
     <string name="title_advanced_answer_action">Una pulsación larga en el botón de respuesta:</string>
     <string name="title_advanced_send_pending">Mostrar icono de envío diferido no obtrusivo</string>
+    <string name="title_advanced_auto_save" comment="title_advanced_auto_save&#10;Title of option to turn off automatically saving of drafts (silently) after pressing enter.">Guardar automáticamente después de nuevos párrafos</string>
     <string name="title_advanced_compose_font">Fuente por defecto</string>
     <string name="title_advanced_auto_identity">Seleccionar automáticamente identidades para nuevos mensajes</string>
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
@@ -617,6 +618,7 @@
     <string name="title_advanced_poll_hint">Comprobar periódicamente si hay nuevos mensajes comparará los mensajes locales y remotos cada vez, lo que es una operación costosa que puede resultar en un uso adicional de la batería, especialmente si hay muchos mensajes. Siempre recibir evitará esto siguiendo continuamente los cambios.</string>
     <string name="title_advanced_optimize_hint">Esto podría cambiar la frecuencia de sincronización para ahorrar batería dependiendo de las capacidades y el comportamiento de los servidores de correo electrónico</string>
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
+    <string name="title_advanced_schedule_ignore">Los programas pueden desactivarse en la configuración avanzada de la cuenta</string>
     <string name="title_advanced_quick_sync_hint">Esto reduce el uso de datos, pero los nuevos mensajes pueden perderse si el servidor de correo no sigue los estándares</string>
     <string name="title_advanced_no_date_hint">Algunos proveedores almacenan mensajes con una fecha desconocida, inválida o futura como mensajes sin fecha</string>
     <string name="title_advanced_unseen_hint">Algunos proveedores no soportan esto correctamente, lo que puede causar la sincronización de ninguno o todos los mensajes</string>
@@ -778,6 +780,8 @@
     <string name="title_received_header">Usar encabezado \'Received\'</string>
     <string name="title_date_header">Usar encabezado \'Date\' (fecha de envío)</string>
     <string name="title_date_remark">Los cambios sólo se aplicarán a nuevos mensajes</string>
+    <string name="title_unmetered_only">Conectar solo a través de redes ilimitadas</string>
+    <string name="title_ignore_schedule">Sincronizar también fuera del programa</string>
     <string name="title_related_identity">Añadir identidad relacionada (servidor SMTP)</string>
     <string name="title_check">Verificar</string>
     <string name="title_trust">Confiar en el certificado del servidor con huella digital %1$s</string>
@@ -1535,6 +1539,7 @@
     <string name="title_legend_t">Enfocar texto</string>
     <string name="title_hint_folder_actions">Mantenga pulsada una carpeta para las opciones, como añadir una carpeta al menú de navegación para acceso rápido</string>
     <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
+    <string name="title_hint_airplane">El modo avión está activado</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Desliza a la izquierda para enviar a la papelera; Desliza a la derecha para archivar (si está disponible); las acciones de deslizamiento pueden configurarse en la configuración de la cuenta</string>
     <string name="title_hint_message_selection">Mantenga pulsado un mensaje para empezar a seleccionar varios mensajes; mantenga pulsado y deslice hacia arriba o abajo para seleccionar más mensajes</string>

@@ -317,6 +317,7 @@
     <string name="title_advanced_attach_new">Thêm các tệp được chia sẻ vào bản nháp mới</string>
     <string name="title_advanced_answer_action">Giữ phím trả lời sẽ:</string>
     <string name="title_advanced_send_pending">Hiện biểu tượng gửi được trì hoãn không gây phiền</string>
+    <string name="title_advanced_auto_save" comment="title_advanced_auto_save&#10;Title of option to turn off automatically saving of drafts (silently) after pressing enter.">Tự đông lưu sau đoạn văn mới</string>
     <string name="title_advanced_compose_font">Phông chữ mặc định</string>
     <string name="title_advanced_auto_identity">Tự động chọn danh tính cho thư mới</string>
     <string name="title_advanced_prefix_once">Chỉ đặt tiền tố cho chủ đề một lần khi trả lời hoặc chuyển tiếp</string>

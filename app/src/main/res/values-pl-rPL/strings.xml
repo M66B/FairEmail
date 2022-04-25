@@ -347,6 +347,7 @@
     <string name="title_advanced_attach_new">Dodaj udostępnione pliki do nowego szkicu</string>
     <string name="title_advanced_answer_action">Długie naciśnięcie przycisku odpowiedzi spowoduje:</string>
     <string name="title_advanced_send_pending">Pokaż nieprzeszkadzającą ikonę wysłania z opóźnieniem</string>
+    <string name="title_advanced_auto_save" comment="title_advanced_auto_save&#10;Title of option to turn off automatically saving of drafts (silently) after pressing enter.">Automatycznie zapisuj po nowych akapitach</string>
     <string name="title_advanced_compose_font">Domyślna czcionka</string>
     <string name="title_advanced_auto_identity">Automatycznie wybierz tożsamości dla nowych wiadomości</string>
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>

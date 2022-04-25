@@ -328,6 +328,7 @@
     <string name="title_advanced_attach_new">Ajouter des fichiers partagés à un nouveau brouillon</string>
     <string name="title_advanced_answer_action">Un appui long sur le bouton de réponse va:</string>
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
+    <string name="title_advanced_auto_save" comment="title_advanced_auto_save&#10;Title of option to turn off automatically saving of drafts (silently) after pressing enter.">Enregistrer automatiquement après de nouveaux paragraphes</string>
     <string name="title_advanced_compose_font">Police de caractères par défaut</string>
     <string name="title_advanced_auto_identity">Sélectionner automatiquement les identités pour les nouveaux messages</string>
     <string name="title_advanced_prefix_once">Ne préfixer l’objet qu’une seule fois lors de la réponse ou du transfert</string>

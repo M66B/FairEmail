@@ -614,6 +614,7 @@
     <string name="title_advanced_poll_hint">Genom att regelbundet kontrollera efter nya meddelanden kommer att jämföra lokala- och fjärrmeddelanden varje gång, detta är en drastisk åtgärd som kan leda till extra batterianvändning, särskilt om det finns många meddelanden. Genom att alltid ta emot kommer att förhindra detta genom att kontinuerligt följa förändringar.</string>
     <string name="title_advanced_optimize_hint">Detta kan ändra synkroniseringsfrekvensen för att spara på batteriet, beroende på e-postservrarnas funktioner och beteende</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
+    <string name="title_advanced_schedule_ignore">Scheman kan inaktiveras i avancerade kontoinställningar</string>
     <string name="title_advanced_quick_sync_hint">Detta minskar dataanvändningen, men nya meddelanden kan missas om e-postservern inte följer standarderna</string>
     <string name="title_advanced_no_date_hint">Vissa leverantörer lagrar meddelanden med ett okänt, ogiltigt eller framtida datum som meddelanden utan datum</string>
     <string name="title_advanced_unseen_hint">Vissa leverantörer stödjer inte detta korrekt, vilket kan orsaka synkronisering av inga eller alla meddelanden</string>
@@ -775,6 +776,8 @@
     <string name="title_received_header">Använd \'Mottagen\' i header</string>
     <string name="title_date_header">Använd \'Datum\' i header (skickad tid)</string>
     <string name="title_date_remark">Ändringar kommer endast att tillämpas på nya meddelanden</string>
+    <string name="title_unmetered_only">Anslut endast via obegränsade nätverk</string>
+    <string name="title_ignore_schedule">Synkronisera även utanför schemat</string>
     <string name="title_related_identity">Lägg till relaterad identitet (SMTP-server)</string>
     <string name="title_check">Kontrollera</string>
     <string name="title_trust">Lita på servercertifikat med fingeravtryck %1$s</string>
