@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.view.ContextThemeWrapper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -154,6 +155,10 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             }
         };
 
+        Context themedContext = new ContextThemeWrapper(
+                context.getApplicationContext(),
+                FragmentDialogTheme.getTheme(context));
+
         future = getExecutor(context).submit(new Runnable() {
             private Object data;
             private long elapsed;
@@ -168,7 +173,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                     if (log)
                         Log.i("Executing task=" + name);
                     long start = new Date().getTime();
-                    data = onExecute(context.getApplicationContext(), args);
+                    data = onExecute(themedContext, args);
                     elapsed = new Date().getTime() - start;
                     if (log)
                         Log.i("Executed task=" + name + " elapsed=" + elapsed + " ms");

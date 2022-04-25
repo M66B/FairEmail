@@ -335,16 +335,16 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                 .create();
     }
 
-    static int getTheme(ActivityBase activity) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+    static int getTheme(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String theme = prefs.getString("theme", "blue_orange_system");
         boolean composer_light = prefs.getBoolean("composer_light", false);
 
-        boolean night = Helper.isNight(activity);
-        boolean light = (composer_light && activity instanceof ActivityCompose);
+        boolean night = Helper.isNight(context);
+        boolean light = (composer_light && context instanceof ActivityCompose);
         if (light)
             night = false;
-        EntityLog.log(activity, "Activity theme=" + theme +
+        EntityLog.log(context, "Activity theme=" + theme +
                 "light = " + light + " night=" + night);
 
         switch (theme) {
