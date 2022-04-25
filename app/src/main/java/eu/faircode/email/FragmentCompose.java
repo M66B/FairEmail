@@ -755,7 +755,9 @@ public class FragmentCompose extends FragmentBase {
                         if (renum)
                             StyleHelper.renumber(text, false, etBody.getContext());
 
-                        if (save && auto_save) {
+                        if (save && auto_save &&
+                                getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+
                             etBody.setTag(null);
 
                             Bundle extras = new Bundle();
