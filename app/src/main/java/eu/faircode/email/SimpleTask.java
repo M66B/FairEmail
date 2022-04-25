@@ -62,6 +62,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     private static PowerManager.WakeLock wl = null;
     private static ExecutorService globalExecutor = null;
+    private static int themeId = -1;
     @SuppressLint("StaticFieldLeak")
     private static Context themedContext = null;
     private static final List<SimpleTask> tasks = new ArrayList<>();
@@ -158,10 +159,11 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             }
         };
 
-        if (themedContext == null)
-            themedContext = new ContextThemeWrapper(
-                    context.getApplicationContext(),
-                    FragmentDialogTheme.getTheme(context));
+        int themeId = FragmentDialogTheme.getTheme(context);
+        if (themedContext == null || SimpleTask.themeId != themeId) {
+            SimpleTask.themeId = themeId;
+            themedContext = new ContextThemeWrapper(context.getApplicationContext(), themeId);
+        }
 
         future = getExecutor(context).submit(new Runnable() {
             private Object data;
