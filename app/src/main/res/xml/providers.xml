@@ -1594,4 +1594,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Bbox/Bouygues"
+        domain="bbox\\.fr">
+        <imap
+            host="imap.bbox.fr"
+            port="993"
+            starttls="false" />
+        <!-- port 587 is SSL/TLS ! -->
+        <smtp
+            host="smtp.bbox.fr"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
