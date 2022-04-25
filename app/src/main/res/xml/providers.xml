@@ -1608,4 +1608,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="ILJ Mail"
+        domain="ilj\\.com,tidetalk\\.com,whatacool\\.com,righttackle\\.com,friday\\.tv,saturday\\.tv,militaryproud\\.com,oicu812\\.com,1fj\\.com,ilovejesus\\.com,christianman\\.com,christianlady\\.com"
+        link="https://www.iljmail.com/knowledge-base/incoming-outgoing-mail-server-settings-2/">
+        <imap
+            host="secure.iljmail.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="secure.iljmail.com"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
