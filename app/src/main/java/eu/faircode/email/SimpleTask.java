@@ -61,6 +61,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     private static PowerManager.WakeLock wl = null;
     private static ExecutorService globalExecutor = null;
+    private static Context themedContext = null;
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
     private static final int MAX_WAKELOCK = 30 * 60 * 1000; // milliseconds
@@ -155,9 +156,10 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             }
         };
 
-        Context themedContext = new ContextThemeWrapper(
-                context.getApplicationContext(),
-                FragmentDialogTheme.getTheme(context));
+        if (themedContext == null)
+            themedContext = new ContextThemeWrapper(
+                    context.getApplicationContext(),
+                    FragmentDialogTheme.getTheme(context));
 
         future = getExecutor(context).submit(new Runnable() {
             private Object data;
