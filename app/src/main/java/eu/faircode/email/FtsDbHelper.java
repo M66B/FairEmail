@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -37,6 +38,7 @@ import io.requery.android.database.sqlite.SQLiteOpenHelper;
 public class FtsDbHelper extends SQLiteOpenHelper {
     private Context context;
 
+    @SuppressLint("StaticFieldLeak")
     private static FtsDbHelper instance = null;
 
     private static final int DATABASE_VERSION = 5;

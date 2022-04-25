@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -61,6 +62,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     private static PowerManager.WakeLock wl = null;
     private static ExecutorService globalExecutor = null;
+    @SuppressLint("StaticFieldLeak")
     private static Context themedContext = null;
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
