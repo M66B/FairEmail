@@ -679,6 +679,7 @@
     <string name="title_client_certificate">Certificado do cliente</string>
     <string name="title_primary">Principal</string>
     <string name="title_received_header">Usar o cabeçalho \'Recebido\'</string>
+    <string name="title_unmetered_only">Conectar somente através de redes ilimitadas</string>
     <string name="title_check">Verificar</string>
     <string name="title_no_name">Nome em falta</string>
     <string name="title_no_email">Endereço de correio eletrónico ausente</string>

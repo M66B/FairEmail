@@ -637,6 +637,7 @@
     <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
     <string name="title_advanced_optimize_hint">Może to zmienić częstotliwość synchronizacji, aby zaoszczędzić zużycie baterii w zależności od możliwości i zachowania serwerów e-mail</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
+    <string name="title_advanced_schedule_ignore">Harmonogramy mogą być wyłączone w zaawansowanych ustawieniach konta</string>
     <string name="title_advanced_quick_sync_hint">Zmniejsza to zużycie danych, ale nowe wiadomości mogą zostać pominięte, jeśli serwer poczty e-mail nie spełnia standardów</string>
     <string name="title_advanced_no_date_hint">Niektórzy dostawcy przechowują wiadomości z nieznaną, niepoprawną lub przyszłą datą jako wiadomości bez daty</string>
     <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co może powodować brak synchronizacji lub synchronizację wszystkich wiadomości</string>
@@ -798,6 +799,8 @@
     <string name="title_received_header">Użyj nagłówka \'Odbiorca\'</string>
     <string name="title_date_header">Użyj nagłówka \'Data\' (wysłany czas)</string>
     <string name="title_date_remark">Zmiany zostaną zastosowane tylko do nowych wiadomości</string>
+    <string name="title_unmetered_only">Połącz tylko przez sieci bez limitu transferu</string>
+    <string name="title_ignore_schedule">Synchronizuj również poza harmonogramem</string>
     <string name="title_related_identity">Dodaj powiązaną tożsamość (serwer SMTP)</string>
     <string name="title_check">Sprawdź</string>
     <string name="title_trust">Zaufaj certyfikatowi serwera za pomocą odcisku palca %1$s</string>

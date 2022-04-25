@@ -616,6 +616,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_poll_hint">Yeni mesajların periyodik olarak kontrol edilmesi, her seferinde yerel ve uzak mesajları karşılaştıracaktır; bu, özellikle çok fazla mesaj varsa ekstra pil kullanımına neden olabilecek pahalı bir işlemdir. Her zaman al, değişiklikleri sürekli takip ederek bunu önleyecektir.</string>
     <string name="title_advanced_optimize_hint">Bu, e-posta sunucularının özelliklerine ve davranışına bağlı olarak pil kullanımından tasarruf etmek için senkronizasyon sıklığını değiştirebilir.</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
+    <string name="title_advanced_schedule_ignore">Zamanlamalar, gelişmiş hesap ayarlarından devre dışı bırakılabilir</string>
     <string name="title_advanced_quick_sync_hint">Bu, veri kullanımını azaltır, ancak e-posta sunucusu standartlara uymazsa yeni mesajlar kaçırılabilir</string>
     <string name="title_advanced_no_date_hint">Bazı sağlayıcılar bilinmeyen, geçersiz veya ileri tarihli mesajları tarih içermeyen mesajlar olarak saklar.</string>
     <string name="title_advanced_unseen_hint">Bazı sağlayıcılar bunu düzgün bir şekilde desteklememektedir, bu durum mesajların hiç birinin senkronize edilmemesine ya da hepsinin senkronize edilmesine sebep olmaktadır</string>
@@ -778,6 +779,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_date_header">\'Date\' başlığını kullan (gönderme zamanı)</string>
     <string name="title_date_remark">Değişiklikler sadece yeni mesajlara uygulanacaktır</string>
     <string name="title_unmetered_only">Yalnızca ölçülmeyen ağlar üzerinden bağlan</string>
+    <string name="title_ignore_schedule">Zamanlamanın dışında da senkronize et</string>
     <string name="title_related_identity">İlgili kimliği ekleyin (SMTP sunucusu)</string>
     <string name="title_check">Kontrol et</string>
     <string name="title_trust">%1$s parmak izine sahip sunucu sertifikasına güven</string>
