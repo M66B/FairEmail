@@ -752,35 +752,37 @@ public class FragmentCompose extends FragmentBase {
                         added = null;
                     }
 
-                if (removed != null) {
-                    ParagraphStyle[] ps = text.getSpans(removed, removed + 1, ParagraphStyle.class);
-                    if (ps != null)
-                        for (ParagraphStyle p : ps) {
-                            int start = text.getSpanStart(p);
-                            int end = text.getSpanEnd(p);
-                            if (start >= removed && end <= removed + 1)
-                                text.removeSpan(p);
-                        }
+                if (removed != null)
+                    try {
+                        ParagraphStyle[] ps = text.getSpans(removed, removed + 1, ParagraphStyle.class);
+                        if (ps != null)
+                            for (ParagraphStyle p : ps) {
+                                int start = text.getSpanStart(p);
+                                int end = text.getSpanEnd(p);
+                                if (start >= removed && end <= removed + 1)
+                                    text.removeSpan(p);
+                            }
 
-                    StyleHelper.renumber(text, true, etBody.getContext());
-
-                    removed = null;
-                }
-
-                if (translated != null) {
-                    StyleHelper.TranslatedSpan[] spans =
-                            text.getSpans(translated, translated, StyleHelper.TranslatedSpan.class);
-                    for (StyleHelper.TranslatedSpan span : spans) {
-                        int start = text.getSpanStart(span);
-                        int end = text.getSpanEnd(span);
-                        if (end == translated) {
-                            text.delete(start, end);
-                            text.removeSpan(span);
-                        }
+                        StyleHelper.renumber(text, true, etBody.getContext());
+                    } finally {
+                        removed = null;
                     }
 
-                    translated = null;
-                }
+                if (translated != null)
+                    try {
+                        StyleHelper.TranslatedSpan[] spans =
+                                text.getSpans(translated, translated, StyleHelper.TranslatedSpan.class);
+                        for (StyleHelper.TranslatedSpan span : spans) {
+                            int start = text.getSpanStart(span);
+                            int end = text.getSpanEnd(span);
+                            if (end == translated) {
+                                text.delete(start, end);
+                                text.removeSpan(span);
+                            }
+                        }
+                    } finally {
+                        translated = null;
+                    }
 
                 if (lp != null)
                     TextUtils.dumpSpans(text, lp, "---after>");
