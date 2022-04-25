@@ -41,6 +41,8 @@ public class WidgetUnified extends AppWidgetProvider {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
+        int lightColorSeparator = context.getResources().getColor(R.color.lightColorSeparator);
+        int darkColorSeparator = context.getResources().getColor(R.color.darkColorSeparator);
 
         for (int appWidgetId : appWidgetIds) {
             String name = prefs.getString("widget." + appWidgetId + ".name", null);
@@ -138,6 +140,7 @@ public class WidgetUnified extends AppWidgetProvider {
                     views.setInt(R.id.background, "setBackgroundColor", background);
 
                 views.setTextColor(R.id.title, colorWidgetForeground);
+                views.setInt(R.id.separator, "setBackgroundColor", lightColorSeparator);
                 views.setImageViewResource(R.id.refresh, R.drawable.twotone_sync_24_white);
                 views.setImageViewResource(R.id.compose, R.drawable.twotone_edit_24_white);
             } else {
@@ -150,6 +153,8 @@ public class WidgetUnified extends AppWidgetProvider {
 
                 int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
                 views.setTextColor(R.id.title, fg);
+                views.setInt(R.id.separator, "setBackgroundColor",
+                        lum > 0.7f ? darkColorSeparator : lightColorSeparator);
                 views.setImageViewResource(R.id.refresh, lum > 0.7f
                         ? R.drawable.twotone_sync_24_black : R.drawable.twotone_sync_24_white);
                 views.setImageViewResource(R.id.compose, lum > 0.7f

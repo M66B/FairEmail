@@ -116,6 +116,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         if (lum > 0.7f) {
             colorWidgetForeground = ColorUtils.blendARGB(colorWidgetForeground, Color.BLACK, 1.0f);
             colorWidgetRead = ColorUtils.blendARGB(colorWidgetRead, Color.BLACK, 1.0f);
+            colorSeparator = ContextCompat.getColor(context, R.color.darkColorSeparator);
         }
 
         pro = ActivityBilling.isPro(context);
@@ -232,6 +233,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             views.setTextColor(idTime, textColor);
             views.setTextColor(idSubject, textColor);
             views.setTextColor(idAccount, textColor);
+            views.setInt(R.id.separator, "setBackgroundColor", colorSeparator);
 
             views.setViewVisibility(idAccount, account < 0 ? View.VISIBLE : View.GONE);
 

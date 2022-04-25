@@ -54,14 +54,13 @@
             android:id="@+id/separator"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/colorWidgetRead" />
+            android:background="@color/grey" />
 
         <ListView
             android:id="@+id/lv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
-            android:divider="@color/colorWidgetRead"
-            android:dividerHeight="1dp" />
+            android:divider="@null" />
     </LinearLayout>
 </FrameLayout>
