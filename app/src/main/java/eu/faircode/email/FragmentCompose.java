@@ -607,6 +607,7 @@ public class FragmentCompose extends FragmentBase {
 
         // https://developer.android.com/reference/android/text/TextWatcher
         etBody.addTextChangedListener(new TextWatcher() {
+            private boolean save = false;
             private Integer added = null;
             private Integer removed = null;
             private Integer translated = null;
@@ -644,6 +645,7 @@ public class FragmentCompose extends FragmentBase {
                 if (count - before == 1 && index > 0 && text.charAt(index) == '\n') {
                     Log.i("Added=" + index);
                     added = index;
+                    save = (text.charAt(index - 1) != '\n');
                 }
             }
 
@@ -753,7 +755,7 @@ public class FragmentCompose extends FragmentBase {
                         if (renum)
                             StyleHelper.renumber(text, false, etBody.getContext());
 
-                        if (auto_save) {
+                        if (save && auto_save) {
                             etBody.setTag(null);
 
                             Bundle extras = new Bundle();
