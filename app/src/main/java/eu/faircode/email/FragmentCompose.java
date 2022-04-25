@@ -395,6 +395,18 @@ public class FragmentCompose extends FragmentBase {
 
         resolver = getContext().getContentResolver();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final boolean auto_save = prefs.getBoolean("auto_save", true);
+        final boolean keyboard_no_fullscreen = prefs.getBoolean("keyboard_no_fullscreen", false);
+        final boolean suggest_names = prefs.getBoolean("suggest_names", true);
+        final boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
+        final boolean suggest_received = prefs.getBoolean("suggest_received", false);
+        final boolean suggest_frequently = prefs.getBoolean("suggest_frequently", false);
+        final boolean cc_bcc = prefs.getBoolean("cc_bcc", false);
+        final boolean circular = prefs.getBoolean("circular", true);
+
+        final float dp3 = Helper.dp2pixels(getContext(), 3);
+
         // Wire controls
         spIdentity.setOnItemSelectedListener(identitySelected);
 
@@ -743,9 +755,11 @@ public class FragmentCompose extends FragmentBase {
 
                         etBody.setTag(null);
 
-                        Bundle extras = new Bundle();
-                        extras.putBoolean("silent", true);
-                        onAction(R.id.action_save, extras, "paragraph");
+                        if (auto_save) {
+                            Bundle extras = new Bundle();
+                            extras.putBoolean("silent", true);
+                            onAction(R.id.action_save, extras, "paragraph");
+                        }
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
@@ -960,8 +974,6 @@ public class FragmentCompose extends FragmentBase {
         setHasOptionsMenu(true);
         FragmentDialogTheme.setBackground(getContext(), view, true);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean keyboard_no_fullscreen = prefs.getBoolean("keyboard_no_fullscreen", false);
         if (keyboard_no_fullscreen) {
             // https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_FULLSCREEN
             etExtra.setImeOptions(etExtra.getImeOptions() | IME_FLAG_NO_FULLSCREEN);
@@ -1002,14 +1014,6 @@ public class FragmentCompose extends FragmentBase {
         Helper.setViewsEnabled(view, false);
 
         final DB db = DB.getInstance(getContext());
-
-        final boolean suggest_names = prefs.getBoolean("suggest_names", true);
-        final boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
-        final boolean suggest_received = prefs.getBoolean("suggest_received", false);
-        final boolean suggest_frequently = prefs.getBoolean("suggest_frequently", false);
-        final boolean cc_bcc = prefs.getBoolean("cc_bcc", false);
-        final boolean circular = prefs.getBoolean("circular", true);
-        final float dp3 = Helper.dp2pixels(getContext(), 3);
 
         SimpleCursorAdapter cadapter = new SimpleCursorAdapter(
                 getContext(),
