@@ -29,6 +29,8 @@ import android.os.Build;
 
 import androidx.annotation.NonNull;
 
+import org.xbill.DNS.AAAARecord;
+import org.xbill.DNS.ARecord;
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.MXRecord;
 import org.xbill.DNS.Message;
@@ -91,6 +93,12 @@ public class DnsHelper {
                 break;
             case "txt":
                 rtype = Type.TXT;
+                break;
+            case "a":
+                rtype = Type.A;
+                break;
+            case "aaaa":
+                rtype = Type.AAAA;
                 break;
             default:
                 throw new IllegalArgumentException(type);
@@ -203,6 +211,12 @@ public class DnsHelper {
                                 result.get(0).name += content.toString();
                             else
                                 result.add(new DnsRecord(content.toString(), 0));
+                    } else if (record instanceof ARecord) {
+                        ARecord a = (ARecord) record;
+                        result.add(new DnsRecord(a.getAddress().getHostAddress()));
+                    } else if (record instanceof AAAARecord) {
+                        AAAARecord aaaa = (AAAARecord) record;
+                        result.add(new DnsRecord(aaaa.getAddress().getHostAddress()));
                     } else
                         throw new IllegalArgumentException(record.getClass().getName());
                 }

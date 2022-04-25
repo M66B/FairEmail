@@ -46,6 +46,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -280,7 +281,30 @@ public class ActivityDmarc extends ActivityBase {
                                                                     valid = true;
                                                                     break;
                                                                 }
-                                                            }
+                                                            } else if ("mx".equals(ip))
+                                                                try {
+                                                                    DnsHelper.DnsRecord[] mxs =
+                                                                            DnsHelper.lookup(context, p.first, "mx");
+                                                                    for (DnsHelper.DnsRecord mx : mxs) {
+                                                                        List<DnsHelper.DnsRecord> as = new ArrayList<>();
+                                                                        try {
+                                                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.name, "a")));
+                                                                        } catch (UnknownHostException ignored) {
+                                                                        }
+                                                                        try {
+                                                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.name, "aaaa")));
+                                                                        } catch (UnknownHostException ignored) {
+                                                                        }
+                                                                        for (DnsHelper.DnsRecord a : as)
+                                                                            if (text.equals(a.name)) {
+                                                                                valid = true;
+                                                                                break;
+                                                                            }
+                                                                        if (valid)
+                                                                            break;
+                                                                    }
+                                                                } catch (UnknownHostException ignored) {
+                                                                }
                                                         }
                                                         if (valid)
                                                             break;
@@ -419,10 +443,16 @@ public class ActivityDmarc extends ActivityBase {
                                         }
 
                                         List<DnsHelper.DnsRecord> records = new ArrayList<>();
-                                        records.addAll(Arrays.asList(
-                                                DnsHelper.lookup(context, "_dmarc." + lastDomain, "txt")));
-                                        records.addAll(Arrays.asList(
-                                                DnsHelper.lookup(context, "default._bimi." + lastDomain, "txt")));
+                                        try {
+                                            records.addAll(Arrays.asList(
+                                                    DnsHelper.lookup(context, "_dmarc." + lastDomain, "txt")));
+                                        } catch (UnknownHostException ignored) {
+                                        }
+                                        try {
+                                            records.addAll(Arrays.asList(
+                                                    DnsHelper.lookup(context, "default._bimi." + lastDomain, "txt")));
+                                        } catch (UnknownHostException ignored) {
+                                        }
                                         for (DnsHelper.DnsRecord r : records)
                                             ssb.append(r.name).append("\n");
                                         ssb.append("\n");
