@@ -138,6 +138,8 @@ public class WidgetUnified extends AppWidgetProvider {
                     views.setInt(R.id.background, "setBackgroundColor", background);
 
                 views.setTextColor(R.id.title, colorWidgetForeground);
+                views.setImageViewResource(R.id.refresh, R.drawable.twotone_sync_24_white);
+                views.setImageViewResource(R.id.compose, R.drawable.twotone_edit_24_white);
             } else {
                 float lum = (float) ColorUtils.calculateLuminance(background);
 
@@ -148,6 +150,10 @@ public class WidgetUnified extends AppWidgetProvider {
 
                 int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
                 views.setTextColor(R.id.title, fg);
+                views.setImageViewResource(R.id.refresh, lum > 0.7f
+                        ? R.drawable.twotone_sync_24_black : R.drawable.twotone_sync_24_white);
+                views.setImageViewResource(R.id.compose, lum > 0.7f
+                        ? R.drawable.twotone_edit_24_black : R.drawable.twotone_edit_24_white);
             }
 
             int dp6 = Helper.dp2pixels(context, 6);
