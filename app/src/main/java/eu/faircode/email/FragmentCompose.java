@@ -740,6 +740,12 @@ public class FragmentCompose extends FragmentBase {
 
                         if (renum)
                             StyleHelper.renumber(text, false, etBody.getContext());
+
+                        etBody.setTag(null);
+
+                        Bundle extras = new Bundle();
+                        extras.putBoolean("silent", true);
+                        onAction(R.id.action_save, extras, "paragraph");
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
@@ -4113,7 +4119,6 @@ public class FragmentCompose extends FragmentBase {
         args.putBoolean("ime", ime);
         args.putBundle("extras", extras);
 
-
         Log.i("Run execute id=" + working + " reason=" + reason);
         actionLoader.execute(this, args, "compose:action:" + getActionName(action));
     }
@@ -5597,11 +5602,17 @@ public class FragmentCompose extends FragmentBase {
     private SimpleTask<EntityMessage> actionLoader = new SimpleTask<EntityMessage>() {
         @Override
         protected void onPreExecute(Bundle args) {
+            if (args.getBundle("extras").getBoolean("silent"))
+                return;
+
             setBusy(true);
         }
 
         @Override
         protected void onPostExecute(Bundle args) {
+            if (args.getBundle("extras").getBoolean("silent"))
+                return;
+
             int action = args.getInt("action");
             boolean needsEncryption = args.getBoolean("needsEncryption");
             if (action != R.id.action_check || needsEncryption)
@@ -5626,6 +5637,8 @@ public class FragmentCompose extends FragmentBase {
             boolean empty = args.getBoolean("empty");
             boolean notext = args.getBoolean("notext");
             Bundle extras = args.getBundle("extras");
+
+            boolean silent = extras.getBoolean("silent");
 
             boolean dirty = false;
             String body = HtmlHelper.toHtml(spanned, context);
@@ -5800,7 +5813,7 @@ public class FragmentCompose extends FragmentBase {
                     Elements ref = doc.select("div[fairemail=reference]");
                     ref.remove();
 
-                    if (extras != null && extras.containsKey("html"))
+                    if (extras.containsKey("html"))
                         dirty = true;
 
                     if (below != write_below &&
@@ -5832,7 +5845,7 @@ public class FragmentCompose extends FragmentBase {
 
                         // Get saved body
                         Document d;
-                        if (extras != null && extras.containsKey("html")) {
+                        if (extras.containsKey("html")) {
                             // Save current revision
                             Document c = JsoupEx.parse(body);
 
@@ -5945,6 +5958,12 @@ public class FragmentCompose extends FragmentBase {
                         draft.sent = draft.received;
                         db.message().setMessageReceived(draft.id, draft.received);
                         db.message().setMessageSent(draft.id, draft.sent);
+                    }
+
+                    if (silent) {
+                        // Skip storing on the server, etc
+                        db.setTransactionSuccessful();
+                        return draft;
                     }
 
                     // Execute action
@@ -6268,6 +6287,12 @@ public class FragmentCompose extends FragmentBase {
             if (draft == null)
                 return;
 
+            bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
+            bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
+
+            if (args.getBundle("extras").getBoolean("silent"))
+                return;
+
             boolean needsEncryption = args.getBoolean("needsEncryption");
             int action = args.getInt("action");
             Log.i("Loaded action id=" + draft.id +
@@ -6297,9 +6322,6 @@ public class FragmentCompose extends FragmentBase {
             boolean refedit = extras.getBoolean("refedit");
             if (show)
                 showDraft(draft, refedit, null, -1);
-
-            bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
-            bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
 
             if (needsEncryption) {
                 if (ActivityBilling.isPro(getContext()) ||
