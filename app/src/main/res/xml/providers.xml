@@ -1596,7 +1596,8 @@
     </provider>
     <provider
         name="Bbox/Bouygues"
-        domain="bbox\\.fr">
+        domain="bbox\\.fr"
+        link="https://www.assistance.bouyguestelecom.fr/s/article/logiciel-messagerie-emails-bbox">
         <imap
             host="imap.bbox.fr"
             port="993"
