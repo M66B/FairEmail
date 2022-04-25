@@ -753,9 +753,9 @@ public class FragmentCompose extends FragmentBase {
                         if (renum)
                             StyleHelper.renumber(text, false, etBody.getContext());
 
-                        etBody.setTag(null);
-
                         if (auto_save) {
+                            etBody.setTag(null);
+
                             Bundle extras = new Bundle();
                             extras.putBoolean("silent", true);
                             onAction(R.id.action_save, extras, "paragraph");
