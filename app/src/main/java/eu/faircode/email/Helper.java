@@ -2247,7 +2247,7 @@ public class Helper {
 
                         @Override
                         public void onAuthenticationError(final int errorCode, @NonNull final CharSequence errString) {
-                            if (isCancelled(errorCode))
+                            if (isCancelled(errorCode) || errorCode == BiometricPrompt.ERROR_UNABLE_TO_PROCESS)
                                 Log.w("Authenticate biometric error " + errorCode + ": " + errString);
                             else
                                 Log.e("Authenticate biometric error " + errorCode + ": " + errString);
