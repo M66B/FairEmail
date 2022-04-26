@@ -614,6 +614,7 @@
     <string name="title_advanced_layout_hint">Pode mudar para um layout mais compacto e alterar o tamanho do texto da mensagem no menu da barra de acção presente na parte superior da vista de mensagens</string>
     <string name="title_advanced_navbar_colorize_hint">O funcionamento disto depende da versão e variante do Android</string>
     <string name="title_advanced_split_hint">Esta opção divide o ecrã em partes</string>
+    <string name="title_advanced_privacy_risk">Pode haver um risco de privacidade</string>
     <string name="title_advanced_preview_hint">Apenas disponível quando o texto da mensagem for transferido</string>
     <string name="title_advanced_preview_lines_hint">Máximo %s caracteres no total</string>
     <string name="title_advanced_preview_issue">O movimento de deslizar pode ser lento devido a um erro em algumas versões Android, quando o número de linhas é superior a uma</string>

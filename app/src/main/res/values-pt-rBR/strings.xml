@@ -1667,6 +1667,7 @@
     <string name="title_widget_folder_unified">Pastas da caixa de entrada unificadas</string>
     <string name="title_widget_unseen">Apenas mensagens não lidas</string>
     <string name="title_widget_flagged">Apenas mensagens com estrela</string>
+    <string name="title_widget_highlight_remark">A cor do destaque pode ser selecionada nas configurações de exibição</string>
     <string name="title_widget_font_size">Tamanho do texto</string>
     <string name="title_widget_padding">Tamanho do preenchimento</string>
     <string name="title_widget_semi_transparent">Fundo semi-transparente</string>

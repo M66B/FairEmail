@@ -1672,6 +1672,7 @@
     <string name="title_widget_folder_unified">Cartelle in arrivo unificate</string>
     <string name="title_widget_unseen">Solo messaggi non letti</string>
     <string name="title_widget_flagged">Solo messaggi stellati</string>
+    <string name="title_widget_highlight_remark">Il colore d\'evidenziazione può essere selezionato nelle impostazioni di visualizzazione</string>
     <string name="title_widget_font_size">Dimensione testo</string>
     <string name="title_widget_padding">Dimensione del rientro</string>
     <string name="title_widget_semi_transparent">Sfondo semitrasparente</string>
