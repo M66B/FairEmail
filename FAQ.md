@@ -4693,7 +4693,7 @@ Templates can have the following options:
 **(180) Can you add support for Gravatar / Libravatar?**
 
 FairEmail supported both Gravatar and Libravatar until version 1.1883,
-but [Google forced removal](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86800137) of these features,
+but [Google forced removal](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86800867) of these features,
 even though they were never present in the Play store version of the app.
 
 <br />
