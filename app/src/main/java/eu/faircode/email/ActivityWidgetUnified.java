@@ -56,6 +56,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private Spinner spFolder;
     private CheckBox cbUnseen;
     private CheckBox cbFlagged;
+    private CheckBox cbHighlight;
     private CheckBox cbSemiTransparent;
     private ViewButtonColor btnColor;
     private Spinner spFontSize;
@@ -89,6 +90,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
         boolean unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         boolean flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
+        boolean highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
         boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
         int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
@@ -104,6 +106,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         spFolder = findViewById(R.id.spFolder);
         cbUnseen = findViewById(R.id.cbUnseen);
         cbFlagged = findViewById(R.id.cbFlagged);
+        cbHighlight = findViewById(R.id.cbHighlight);
         cbSemiTransparent = findViewById(R.id.cbSemiTransparent);
         btnColor = findViewById(R.id.btnColor);
         spFontSize = findViewById(R.id.spFontSize);
@@ -173,6 +176,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putString("widget." + appWidgetId + ".type", folder == null ? null : folder.type);
                 editor.putBoolean("widget." + appWidgetId + ".unseen", cbUnseen.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
+                editor.putBoolean("widget." + appWidgetId + ".highlight", cbHighlight.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
                 editor.putInt("widget." + appWidgetId + ".font", tinyOut(font));
@@ -292,6 +296,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         // Initialize
         cbUnseen.setChecked(unseen);
         cbFlagged.setChecked(flagged);
+        cbHighlight.setChecked(highlight);
         cbSemiTransparent.setChecked(semi);
         btnColor.setColor(background);
         spFontSize.setSelection(tinyIn(font));

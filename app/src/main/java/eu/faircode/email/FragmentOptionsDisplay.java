@@ -659,6 +659,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                             public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
                                 prefs.edit().putInt("highlight_color", selectedColor).apply();
                                 btnHighlightColor.setColor(selectedColor);
+                                WidgetUnified.updateData(context);
                             }
                         })
                         .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
@@ -666,6 +667,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                             public void onClick(DialogInterface dialog, int which) {
                                 prefs.edit().remove("highlight_color").apply();
                                 btnHighlightColor.setColor(Helper.resolveColor(context, R.attr.colorAccent));
+                                WidgetUnified.updateData(context);
                             }
                         });
 
