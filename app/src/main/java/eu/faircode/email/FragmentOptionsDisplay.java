@@ -633,7 +633,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onClick(View v) {
                 Context context = getContext();
                 int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
-                int highlightColor = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorAccent));
+                int highlightColor = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
 
                 ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
                         .with(context)
@@ -656,7 +656,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 prefs.edit().remove("highlight_color").apply();
-                                btnHighlightColor.setColor(Helper.resolveColor(context, R.attr.colorAccent));
+                                btnHighlightColor.setColor(Helper.resolveColor(context, R.attr.colorUnreadHighlight));
                                 WidgetUnified.updateData(context);
                             }
                         });
