@@ -184,7 +184,6 @@ public class Helper {
     static final String ID_COMMAND_URI = "https://datatracker.ietf.org/doc/html/rfc2971#section-3.1";
     static final String AUTH_RESULTS_URI = "https://datatracker.ietf.org/doc/html/rfc7601";
     static final String FAVICON_PRIVACY_URI = "https://en.wikipedia.org/wiki/Favicon";
-    static final String GRAVATAR_PRIVACY_URI = "https://en.wikipedia.org/wiki/Gravatar";
     static final String LICENSE_URI = "https://www.gnu.org/licenses/gpl-3.0.html";
     static final String DONTKILL_URI = "https://dontkillmyapp.com/";
     static final String URI_SUPPORT_RESET_OPEN = "https://support.google.com/pixelphone/answer/6271667";
