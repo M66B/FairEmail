@@ -1036,6 +1036,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public boolean onLongClick(View view) {
                 DB.shrinkMemory(view.getContext());
+                new ViewModelProvider(getActivity()).get(ViewModelMessages.class).cleanup();
                 view.postDelayed(new Runnable() {
                     @Override
                     public void run() {

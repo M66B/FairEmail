@@ -475,6 +475,16 @@ public class ViewModelMessages extends ViewModel {
         }.execute(context, owner, new Bundle(), "model:ids");
     }
 
+    void cleanup() {
+        dump();
+        for (AdapterMessage.ViewType viewType : new ArrayList<>(models.keySet())) {
+            if (viewType != last && !models.get(viewType).list.hasObservers()) {
+                Log.i("Cleanup model viewType=" + viewType);
+                models.remove(viewType);
+            }
+        }
+    }
+
     private class Args {
         private long account;
         private String type;
