@@ -4,6 +4,12 @@
 
 ### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
 
+### 1.1884 - 2022-04-26
+
+* Added option to highlight unread messages in the message list widget
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1883 - 2022-04-25
 
 * Added auto save draft for every new paragraph (can be turned off in the send settings)
