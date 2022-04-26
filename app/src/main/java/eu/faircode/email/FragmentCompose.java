@@ -6298,7 +6298,7 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
 
             if (args.getBundle("extras").getBoolean("silent")) {
-                etBody.setTag(etBody.getText());
+                etBody.setTag(null);
                 return;
             }
 

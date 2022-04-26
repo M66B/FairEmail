@@ -4409,6 +4409,12 @@ class Core {
                 try {
                     db.beginTransaction();
 
+                    EntityMessage existing = db.message().getMessage(message.id);
+                    if (existing != null) {
+                        message.revision = existing.revision;
+                        message.revisions = existing.revisions;
+                    }
+
                     db.message().updateMessage(message);
 
                     if (process)
