@@ -68,7 +68,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private boolean distinguish_contacts;
     private int colorStripeWidth;
     private int colorWidgetForeground;
-    private int colorUnreadHighlight;
+    private int colorWidgetUnread;
     private int colorWidgetRead;
     private int colorSeparator;
     private boolean pro;
@@ -113,8 +113,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
 
         colorWidgetForeground = ContextCompat.getColor(context, R.color.colorWidgetForeground);
-        colorUnreadHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
-        colorUnreadHighlight = ColorUtils.setAlphaComponent(colorUnreadHighlight, 255);
+        int highlight_color = prefs.getInt("highlight_color", colorWidgetForeground);
+        colorWidgetUnread = ColorUtils.setAlphaComponent(highlight_color, 255);
         colorWidgetRead = ContextCompat.getColor(context, R.color.colorWidgetRead);
         colorSeparator = ContextCompat.getColor(context, R.color.lightColorSeparator);
 
@@ -233,10 +233,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             views.setTextViewText(idSubject, ssSubject);
             views.setTextViewText(idAccount, ssAccount);
 
-            int textColor = (message.ui_seen
-                    ? colorWidgetRead
-                    : (highlight ? colorUnreadHighlight : colorWidgetForeground));
-
+            int textColor = (message.ui_seen ? colorWidgetRead : colorWidgetUnread);
             views.setTextColor(idFrom, textColor);
             views.setTextColor(idTime, textColor);
             views.setTextColor(idSubject, textColor);

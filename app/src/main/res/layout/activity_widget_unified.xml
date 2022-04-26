@@ -75,6 +75,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbFlagged" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvHighlightHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_widget_highlight_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbHighlight" />
+
         <CheckBox
             android:id="@+id/cbSemiTransparent"
             android:layout_width="wrap_content"
@@ -83,7 +95,7 @@
             android:checked="true"
             android:text="@string/title_widget_semi_transparent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbHighlight" />
+            app:layout_constraintTop_toBottomOf="@id/tvHighlightHint" />
 
         <eu.faircode.email.ViewButtonColor
             android:id="@+id/btnColor"
