@@ -290,6 +290,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name) {
             public void onDrawerClosed(View view) {
                 Log.i("Drawer closed");
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
+
                 owner.stop();
 
                 drawerLayout.setDrawerLockMode(LOCK_MODE_UNLOCKED);
@@ -302,6 +305,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 super.onDrawerOpened(drawerView);
 
                 Log.i("Drawer opened");
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
+
                 owner.start();
 
                 if (nav_pinned) {
@@ -317,6 +323,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 if (BuildConfig.DEBUG)
                     Log.i("Drawer slide=" + slideOffset);
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
 
                 if (slideOffset > 0)
                     owner.start();
