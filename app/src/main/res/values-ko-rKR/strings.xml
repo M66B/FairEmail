@@ -234,7 +234,7 @@
     <string name="title_advanced_send_chips">주소 풍선 표시</string>
     <string name="title_advanced_send_reminders">리마인더 표시</string>
     <string name="title_advanced_send_delayed">메일 전송 지연</string>
-    <string name="title_advanced_auto_save" comment="title_advanced_auto_save&#10;Title of option to turn off automatically saving of drafts (silently) after pressing enter.">새 문단 생성 후 자동 저장</string>
+    <string name="title_advanced_auto_save">새 문단 생성 후 자동 저장</string>
     <string name="title_advanced_compose_font">기본 글꼴</string>
     <string name="title_advanced_signature_location">서명 위치</string>
     <string name="title_advanced_signature_reply">답장 시 서명 사용</string>

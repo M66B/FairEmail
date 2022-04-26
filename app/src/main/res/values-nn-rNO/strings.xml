@@ -435,6 +435,7 @@
     <string name="title_advanced_navbar_colorize_hint">Om dette fungerer avhenger av Android-versjonen og varianten</string>
     <string name="title_advanced_threading_hint">Gruppemeldinger knyttet til hverandre</string>
     <string name="title_advanced_highlight_hint">Farge på temaet vil bli brukt for å framheve</string>
+    <string name="title_advanced_privacy_risk">Det kan være en personvernrisiko</string>
     <string name="title_advanced_preview_hint">Kun tilgjengelig når meldingstekst ble lastet ned</string>
     <string name="title_advanced_preview_issue">Rullingen kan gå tregt på grunn av en feil i noen Android-versjoner når antall linjer er mer enn én</string>
     <string name="title_advanced_overview_mode_hint">Dette kan resultere i veldig liten skrift</string>

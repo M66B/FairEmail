@@ -598,6 +598,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_split_min_hint">Keadaan ini ditujukan untuk perangkat yang bisa dilipat</string>
     <string name="title_advanced_threading_hint">Pesan grup terkait satu sama lain</string>
     <string name="title_advanced_highlight_hint">Warna aksen untuk tema ini akan digunakan untuk menyorot</string>
+    <string name="title_advanced_privacy_risk">Mungkin ada risiko privasi</string>
     <string name="title_advanced_name_email_hint">Nama akan ditampilkan jika tersedia</string>
     <string name="title_advanced_preview_hint">Hanya tersedia jika teks pesan sudah diunduh</string>
     <string name="title_advanced_preview_lines_hint">%s total karakter maksimum</string>

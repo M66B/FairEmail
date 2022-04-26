@@ -677,6 +677,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_split_min_hint">Táto podmienka je určená výsuvné zariadenia</string>
     <string name="title_advanced_threading_hint">Zoskupiť vzájomne súvisiace správy</string>
     <string name="title_advanced_highlight_hint">Na vysvietenie sa použije farba akcent z použitej témy</string>
+    <string name="title_advanced_privacy_risk">Môže predstavovať potenciálny risk straty súkromia</string>
     <string name="title_advanced_name_email_hint">Mená sa zobrazia, len ak budú k dispozícii</string>
     <string name="title_advanced_preview_hint">Dostupné len v prípade, že bol prevzatý text správy</string>
     <string name="title_advanced_preview_lines_hint">Maximálny počet %s znakov</string>

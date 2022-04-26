@@ -623,6 +623,7 @@
     <string name="title_advanced_split_min_hint">Ez a kondíció az összecsukható eszközökhöz készült</string>
     <string name="title_advanced_threading_hint">Egymáshoz kapcsolódó üzenetek csoportosítása</string>
     <string name="title_advanced_highlight_hint">A téma kiemelőszíne a kiemeléshez lesz használva</string>
+    <string name="title_advanced_privacy_risk">Adatvédelmi szempontból aggályos a használata</string>
     <string name="title_advanced_name_email_hint">Név csak akkor jelenik meg, ha elérhető</string>
     <string name="title_advanced_preview_hint">Csak az üzenetek szövegének letöltése után elérhető</string>
     <string name="title_advanced_preview_lines_hint">Legfeljebb %s karakter összesen</string>

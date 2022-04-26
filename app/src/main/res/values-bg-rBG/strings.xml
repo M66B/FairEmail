@@ -447,6 +447,7 @@
     <string name="title_advanced_navbar_colorize_hint">За да работи това зависи от версията и варианта на Android</string>
     <string name="title_advanced_threading_hint">Групови съобщения, свързани помежду си</string>
     <string name="title_advanced_highlight_hint">Акцентираният цвят на темата ще бъде използван за подчертаване</string>
+    <string name="title_advanced_privacy_risk">Възможно е да съществува риск за поверителността</string>
     <string name="title_advanced_preview_hint">Достъпно е само когато текстът на съобщението е изтеглен</string>
     <string name="title_advanced_preview_issue">Превъртането може да е бавно поради грешка в някои версии на Android, когато броят на линиите е повече от един</string>
     <string name="title_advanced_inline_hint">Вградените изображения са изображения, включени в съобщението</string>

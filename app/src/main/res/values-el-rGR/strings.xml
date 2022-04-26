@@ -327,7 +327,7 @@
     <string name="title_advanced_attach_new">Προσθήκη κοινόχρηστων αρχείων σε ένα νέο προσχέδιο</string>
     <string name="title_advanced_answer_action">Το παρατεταμένο πάτημα στο κουμπί απάντησης θα:</string>
     <string name="title_advanced_send_pending">Προβολή διακριτικού εικονιδίου για απεσταλμένα με χρονοκαθυστέρηση</string>
-    <string name="title_advanced_auto_save" comment="title_advanced_auto_save&#10;Title of option to turn off automatically saving of drafts (silently) after pressing enter.">Αυτόματη αποθήκευση μετά από νέες παραγράφους</string>
+    <string name="title_advanced_auto_save">Αυτόματη αποθήκευση μετά από νέες παραγράφους</string>
     <string name="title_advanced_compose_font">Προεπιλεγμένη γραμματοσειρά</string>
     <string name="title_advanced_auto_identity">Αυτόματη επιλογή ταυτοτήτων για νέα μηνύματα</string>
     <string name="title_advanced_prefix_once">Μόνο ένα πρόθεμα κατά την απάντηση ή προώθηση μηνύματος</string>
@@ -657,6 +657,7 @@
     <string name="title_advanced_split_min_hint">Αυτή είναι μια συνθήκη που αφορά αναδιπλούμενες συσκευές</string>
     <string name="title_advanced_threading_hint">Ομαδοποίηση των μηνυμάτων που σχετίζονται αναμεταξύ τους</string>
     <string name="title_advanced_highlight_hint">Το χρώμα έμφασης του θέματος θα χρησιμοποιηθεί για την επισήμανση</string>
+    <string name="title_advanced_privacy_risk">Το προσωπικό σας απόρρητο μπορεί να τεθεί σε κίνδυνο</string>
     <string name="title_advanced_name_email_hint">Τα ονόματα θα εμφανίζονται μόνον όταν είναι διαθέσιμα</string>
     <string name="title_advanced_preview_hint">Διαθέσιμο μόνον εφόσον το κείμενο του μηνύματος έχει κατέβει</string>
     <string name="title_advanced_preview_lines_hint">Μέγιστο %s χαρακτήρες συνολικά</string>

@@ -317,7 +317,7 @@
     <string name="title_advanced_attach_new">将共享文件添加到新草稿</string>
     <string name="title_advanced_answer_action">长按回复按钮动作：</string>
     <string name="title_advanced_send_pending">显示不显眼的 \"延迟发送\" 图标 (页面左下角)</string>
-    <string name="title_advanced_auto_save" comment="title_advanced_auto_save&#10;Title of option to turn off automatically saving of drafts (silently) after pressing enter.">出现新段落后自动保存</string>
+    <string name="title_advanced_auto_save">出现新段落后自动保存</string>
     <string name="title_advanced_compose_font">默认字体</string>
     <string name="title_advanced_auto_identity">自动选择新邮件的身份</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
@@ -649,6 +649,7 @@
     <string name="title_advanced_split_min_hint">这是一个用于可折叠设备的条件</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
     <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
+    <string name="title_advanced_privacy_risk">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">名称仅在可用时显示</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_preview_lines_hint">总共最多 %s 个字符</string>

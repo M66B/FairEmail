@@ -679,6 +679,7 @@
     <string name="title_advanced_split_min_hint">זה תנאי שמיועד למכשירים מתקפלים</string>
     <string name="title_advanced_threading_hint">קיבוץ הודעות שקשורות זו לזו</string>
     <string name="title_advanced_highlight_hint">הצבע המשני של ערכת הנושא ישמש להדגשה</string>
+    <string name="title_advanced_privacy_risk">עלול להיות סיכון לפרטיות</string>
     <string name="title_advanced_name_email_hint">השמות יופיעו רק כשהם זמינים</string>
     <string name="title_advanced_preview_hint">זמין רק כאשר טקסט של הודעה התקבל</string>
     <string name="title_advanced_preview_lines_hint">%s תווים לכל היותר בסך הכול</string>

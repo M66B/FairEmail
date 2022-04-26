@@ -651,6 +651,7 @@
     <string name="title_advanced_split_min_hint">Tämä ehto on tarkoitettu kokoontaitettaville laitteille</string>
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
     <string name="title_advanced_highlight_hint">Teeman korostusväriä käytetään korostamiseen</string>
+    <string name="title_advanced_privacy_risk">Mahdollinen uhka yksityisyydelle</string>
     <string name="title_advanced_name_email_hint">Nimet näytetään vain, kun ne ovat saatavilla</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
     <string name="title_advanced_preview_lines_hint">Enintään %s merkkiä</string>

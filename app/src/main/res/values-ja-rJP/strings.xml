@@ -648,6 +648,7 @@
     <string name="title_advanced_split_min_hint">これは折りたたみデバイス向けの条件です</string>
     <string name="title_advanced_threading_hint">互いに関連するメッセージをグループ化します</string>
     <string name="title_advanced_highlight_hint">テーマのアクセントカラーをハイライトカラーに使用します</string>
+    <string name="title_advanced_privacy_risk">プライバシーリスクが有るかもしれません</string>
     <string name="title_advanced_name_email_hint">名前は利用可能な場合のみ表示されます</string>
     <string name="title_advanced_preview_hint">本文がダウンロードできた場合のみ使用できます</string>
     <string name="title_advanced_preview_lines_hint">合計 %s 文字</string>

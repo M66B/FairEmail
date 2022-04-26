@@ -328,7 +328,7 @@
     <string name="title_advanced_attach_new">Føj delte filer til et nyt udkast</string>
     <string name="title_advanced_answer_action">Langt tryk på svarknappen vil:</string>
     <string name="title_advanced_send_pending">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
-    <string name="title_advanced_auto_save" comment="title_advanced_auto_save&#10;Title of option to turn off automatically saving of drafts (silently) after pressing enter.">Gem automatisk efter nye afsnit</string>
+    <string name="title_advanced_auto_save">Gem automatisk efter nye afsnit</string>
     <string name="title_advanced_compose_font">Standardskrifttype</string>
     <string name="title_advanced_auto_identity">Vælg automatisk identiteter for nye beskeder</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
@@ -661,6 +661,7 @@
     <string name="title_advanced_split_min_hint">Dette er en betingelse beregnet til foldbare enheder</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
     <string name="title_advanced_highlight_hint">Temaets accentfarve benyttes til fremhævning</string>
+    <string name="title_advanced_privacy_risk">Der kan være en fortrolighedsrisiko</string>
     <string name="title_advanced_name_email_hint">Navne vises kun, hvis tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
     <string name="title_advanced_preview_lines_hint">Maks. %s tegn i alt</string>

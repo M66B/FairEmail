@@ -203,6 +203,7 @@
     <string name="title_setup_done">Hazırdır</string>
     <string name="title_setup_still">Hələ ediləcəklər var</string>
     <string name="title_setup_error">Xəta</string>
+    <string name="title_setup_pop">POP3 istifadə et (tövsiyə edilmir)</string>
     <string name="title_setup_configuring">Konfiqurasiya edilir &#8230;</string>
     <string name="title_setup_app_password">Bir tətbiq şifrəsi istifadə etməyiniz lazım gələ bilər</string>
     <string name="title_setup_extra">Ekstra</string>
@@ -327,7 +328,9 @@
     <string name="title_advanced_attach_new">Yeni bir qaralamaya paylaşılan faylları əlavə edin</string>
     <string name="title_advanced_answer_action">Cavab düyməsinə uzun basanda:</string>
     <string name="title_advanced_send_pending">Narahat edici olmayan gecikməli göndərmə nişanını göstər</string>
+    <string name="title_advanced_auto_save">Yeni paraqraflardan sonra avtomatik saxla</string>
     <string name="title_advanced_compose_font">İlkin şrift</string>
+    <string name="title_advanced_auto_identity">Yeni mesajlar üçün kimlikləri avtomatik seç</string>
     <string name="title_advanced_prefix_once">Mövzunu yalnız bir dəfə cavablayarkən və ya yönləndirərkən prefiks</string>
     <string name="title_advanced_prefix_count">Prefiksi cavablandırmaq üçün sayğac əlavə et</string>
     <string name="title_advanced_separate_reply">Cavablama/yönləndirmə başlığından əvvəl üfüqi bir xətt əlavə et</string>
@@ -340,6 +343,7 @@
     <string name="title_advanced_signature_location">İmza mövqeyi</string>
     <string name="title_advanced_signature_new">Yeni mesajlar üçün imza istifadə edin</string>
     <string name="title_advanced_signature_reply">Cavablayanda imza istifadə et</string>
+    <string name="title_advanced_signature_reply_once">Yalnız ilk cavab üçün</string>
     <string name="title_advanced_signature_forward">Yönləndirəndə imza istifadə et</string>
     <string name="title_advanced_discard_delete">Qaralamanı ləğv edəndə, onu birdəfəlik sil</string>
     <string name="title_advanced_reply_move">Bir mesaja cavab verəndə, cavabı eyni qovluqda saxla</string>
@@ -613,6 +617,7 @@
     <string name="title_advanced_poll_hint">Yeni mesajların vaxtaşırı yoxlanılması, hər dəfəsində yerli və uzaq mesajları müqayisə edəcək; bu, xüsusilə də həddən çox mesaj olanda əlavə batareya istifadəsinə səbəb olacaq bahalı bir əməliyyatdır. \"Həmişə al\", dəyişiklikləri davamlı izləyərək bunun qarşısını alacaq.</string>
     <string name="title_advanced_optimize_hint">Bu, e-poçt serverlərinin imkan və davranışlarından asılı olaraq batareya istifadəsinə qənaət etmək üçün eyniləşdirmə tezliyini dəyişdirə bilər</string>
     <string name="title_advanced_schedule_hint">Bir vaxt təyin etmək üçün vaxta toxun</string>
+    <string name="title_advanced_schedule_ignore">Cədvəllər, qabaqcıl hesab tənzimləmələrində sıradan çıxarıla bilər</string>
     <string name="title_advanced_quick_sync_hint">Bu, verilənlər istifadəsini azaldır, ancaq e-poçt serveri standartlara uyğun olmasa yeni mesajlar buraxıla bilər</string>
     <string name="title_advanced_no_date_hint">Bəzi təchizatçılar bilinməyən, etibarsız və ya irəli tarixli mesajları tarixsiz mesajlar kimi saxlayır</string>
     <string name="title_advanced_unseen_hint">Bəzi təchizatçılar bunu doğru formada dəstəkləmir, bu da ya heç bir mesajın eyniləşdirilməməsinə, ya da bütün mesajların eyniləşdirilməsinə səbəb ola bilər</string>
@@ -627,8 +632,10 @@
     <string name="title_advanced_check_reply_hint">Bu, göndərənin domen adı ilə cavab ünvanının eyni olub-olmadığını yoxlayacaq</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX qeydlərinin mövcudluğunu yoxlayacaq</string>
     <string name="title_advanced_sync_delay_hint">Bu, mesajların eyniləşdirilməsini yavaşlandırır</string>
+    <string name="title_advanced_folder_nav_hint">Bu, hər zaman bir mesaj siyahısından əlaqəli hesabın qovluq siyahısına qayıdacaq</string>
     <string name="title_advanced_suggest_names_hint">Əgər sıradan çıxarılsa, əlaqələr seçiləndə yalnız e-poçt ünvanları istifadə ediləcək</string>
     <string name="title_advanced_suggest_local_hint">Android tərəfindən təmin edilən əlaqələrə əlavə olaraq. Əlaqə verilənləri, yeni göndərilən və alınan mesajlar üçün yalnız fəal olanda saxlanılacaq.</string>
+    <string name="title_advanced_auto_identity_hint">Bu, yeni mesajların ilk alıcısı üçün istifadə edilən son kimliyi seçəcək</string>
     <string name="title_advanced_send_reminders_hint">Mesaj mətni və ya mövzu boş olanda və ya bir qoşma əskik olanda bir xəbərdarlıq göstər</string>
     <string name="title_advanced_reply_move_hint">E-poçt serveri, mesajları yenə də göndərilən mesaj qovluğuna əlavə edə bilər</string>
     <string name="title_advanced_usenet_hint">Mətn və imza arasına \'-- \' əlavə et</string>
@@ -653,6 +660,7 @@
     <string name="title_advanced_split_min_hint">Bu, qatlana bilən cihazlar üçün nəzərdə tutulmuş bir şərtdir</string>
     <string name="title_advanced_threading_hint">Bir-biri ilə əlaqəli qrup mesajları</string>
     <string name="title_advanced_highlight_hint">Temanın vurğu rəngi, vurğulamaq üçün istifadə olunacaq</string>
+    <string name="title_advanced_privacy_risk">Bir gizlilik riski ola bilər</string>
     <string name="title_advanced_name_email_hint">Adlar, yalnız mövcud olanda göstəriləcək</string>
     <string name="title_advanced_preview_hint">Yalnız mesaj mətni endiriləndə əlçatandır</string>
     <string name="title_advanced_preview_lines_hint">Cəmi maksimum %s simvol</string>
@@ -771,6 +779,8 @@
     <string name="title_received_header">\"Alındı\" başlığı istifadə et</string>
     <string name="title_date_header">\"Tarix\" başlığı istifadə et (göndərilən vaxt)</string>
     <string name="title_date_remark">Dəyişikliklər yalnız yeni mesajlara tətbiq ediləcək</string>
+    <string name="title_unmetered_only">Yalnız ölçülməyən şəbəkələr vasitəsilə bağlan</string>
+    <string name="title_ignore_schedule">Cədvəlin xaricində də eyniləşdir</string>
     <string name="title_related_identity">Əlaqəli kimliyi əlavə et (SMTP serveri)</string>
     <string name="title_check">Yoxla</string>
     <string name="title_trust">%1$s barmaq izinə sahib server sertifikatına güvən</string>
@@ -828,6 +838,7 @@
     <string name="title_synchronize_more_hint2">        Mesajlar, e-poçt serverinin çatdıra biləcəyi qədər sürətli gətiriləcək və saxlaya və indeksləyə biləcəyi qədər sürətli saxlayacaq.
         Limitləyici faktor adətən cihazın daxili anbar sahəsinin sürətidir.
     </string>
+    <string name="title_synchronize_more_hint3">Zəhmət olmasa yadda saxlayın ki, cihazınızın anbarında çox sayda (on min və ya daha çox) mesaj saxlamaq gecikmələrə səbəb ola bilər. Çünki daxili anbar sahəsi sonsuz sürətə malik deyil.</string>
     <string name="title_synchronize_enabled">Eyniləşdirmə</string>
     <string name="title_synchronize_batch_enable">Eyniləşdirməni fəallaşdır</string>
     <string name="title_synchronize_batch_disable">Eyniləşdirməni sıradan çıxart</string>
@@ -882,6 +893,8 @@
     <string name="title_apply_to_all">Hamısına tətbiq et</string>
     <string name="title_edit_account_name">Hesab adına düzəliş et</string>
     <string name="title_hide_folder">Qovluğu gizlət</string>
+    <string name="title_hide_seen_folder">Bütün mesajlar oxunubsa qovluğu gizlət</string>
+    <string name="title_hide_seen_folder_hint">Yalnız başlanğıc ekranında göstərilən qovluq siyahısında</string>
     <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
     <string name="title_navigation_folder">Naviqasiya menyusunda göstər</string>
     <string name="title_synchronize_folder">Eyniləşdir (mesajları al)</string>
@@ -1029,6 +1042,7 @@
     <string name="title_no_saf">Anbar müraciət çərçivəsi mövcud deyil</string>
     <string name="title_no_stream">FairEmail-in bu faylı birbaşa oxumaq icazəsi yoxdur</string>
     <string name="title_no_stream_help">Bu, bir çox müasir fayl menecer tətbiqi ilə faylı seçərək və ya faylları oxuma icazəsi verərək həll edilə bilər</string>
+    <string name="title_no_permissions">Faylı seçmək üçün istifadə olunan tətbiq, faylı oxumaq icazəsi vermədi</string>
     <string name="title_no_internet">Uyğun bir internet bağlantısı yoxdur</string>
     <string name="title_no_connection">Bir və ya bir neçə hesabla bağlantı qurulur &#8230;</string>
     <string name="title_no_folder">Qovluq mövcud deyil</string>
@@ -1377,6 +1391,7 @@
     <string name="title_rule_original_text">Orijinal mesaj mətnini daxil et</string>
     <string name="title_rule_forward_to">Yönləndir</string>
     <string name="title_rule_resend">Təkrar göndər</string>
+    <string name="title_rule_attached">Xam mesaj faylını əlavə et</string>
     <string name="title_rule_cc">CC ünvanlarını cavabla</string>
     <string name="title_rule_with_attachments">Qoşmalar ilə</string>
     <string name="title_rule_answer_remark">Cavab dövrlərinin qarşısını almaq üçün istənilən danışıq üçün yalnız bir cavab göndəriləcək</string>
@@ -1527,6 +1542,7 @@
     <string name="title_legend_t">Mətnə fokuslan</string>
     <string name="title_hint_folder_actions">Cəld müraciət üçün bir qovluğu naviqasiya menyusuna əlavə etmək kimi, seçimlər üçün bir qovluğa uzun basın</string>
     <string name="title_hint_folder_sync">Batareya və şəbəkə istifadəsini məhdudlaşdırmaq üçün bütün qovluqlar və bütün mesajlar ilkin olaraq eyniləşdirilməyəcək</string>
+    <string name="title_hint_airplane">Təyyarə rejimi açıqdır</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantıya atmaq üçün sola sürüşdürün; (əgər varsa) arxivləmək üçün sağa; Sürüşdürmə əməliyyatları hesab tənzimləmələrindən konfiqurasiya edilə bilər</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın; daha çox mesaj seçmək üçün basıb yuxarı və ya aşağı sürüşdürün</string>

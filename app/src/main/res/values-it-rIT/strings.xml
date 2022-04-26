@@ -328,7 +328,7 @@
     <string name="title_advanced_attach_new">Aggiungi i file condivisi a una nuova bozza</string>
     <string name="title_advanced_answer_action">La pressione prolungata sul pulsante di risposta:</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
-    <string name="title_advanced_auto_save" comment="title_advanced_auto_save&#10;Title of option to turn off automatically saving of drafts (silently) after pressing enter.">Salva automaticamente dopo nuovi paragrafi</string>
+    <string name="title_advanced_auto_save">Salva automaticamente dopo nuovi paragrafi</string>
     <string name="title_advanced_compose_font">Font predefinito</string>
     <string name="title_advanced_auto_identity">Seleziona automaticamente le identità per i nuovi messaggi</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta alla risposta o l\'inoltro</string>
@@ -661,6 +661,7 @@
     <string name="title_advanced_split_min_hint">Questa è una condizione destinata ai dispositivi pieghevoli</string>
     <string name="title_advanced_threading_hint">Raggruppa i messaggi correlati</string>
     <string name="title_advanced_highlight_hint">Il colore secondario del tema sarà usato per l\'evidenziazione</string>
+    <string name="title_advanced_privacy_risk">Potrebbe esistere un rischio per la privacy</string>
     <string name="title_advanced_name_email_hint">I nomi saranno mostrati solo quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando il testo del messaggio è stato scaricato</string>
     <string name="title_advanced_preview_lines_hint">%s caratteri massimi in totale</string>

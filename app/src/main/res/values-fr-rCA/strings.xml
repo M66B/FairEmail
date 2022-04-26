@@ -328,7 +328,7 @@
     <string name="title_advanced_attach_new">Ajouter des fichiers partagés à un nouveau brouillon</string>
     <string name="title_advanced_answer_action">Un appui long sur le bouton de réponse va:</string>
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
-    <string name="title_advanced_auto_save" comment="title_advanced_auto_save&#10;Title of option to turn off automatically saving of drafts (silently) after pressing enter.">Enregistrer automatiquement après de nouveaux paragraphes</string>
+    <string name="title_advanced_auto_save">Enregistrer automatiquement après de nouveaux paragraphes</string>
     <string name="title_advanced_compose_font">Police de caractères par défaut</string>
     <string name="title_advanced_auto_identity">Sélectionner automatiquement les identités pour les nouveaux messages</string>
     <string name="title_advanced_prefix_once">Ne préfixer l’objet qu’une seule fois lors de la réponse ou du transfert</string>
@@ -661,6 +661,7 @@
     <string name="title_advanced_split_min_hint">Ceci est une condition destinée aux appareils pliables</string>
     <string name="title_advanced_threading_hint">Regrouper les messages liés les uns aux autres</string>
     <string name="title_advanced_highlight_hint">La couleur d’accentuation du thème sera utilisée pour la surbrillance</string>
+    <string name="title_advanced_privacy_risk">Ceci pourrait présenter un risque pour la confidentialité</string>
     <string name="title_advanced_name_email_hint">Les noms ne seront affichés que s\'ils sont disponibles</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_preview_lines_hint">Maximum %s caractères au total</string>

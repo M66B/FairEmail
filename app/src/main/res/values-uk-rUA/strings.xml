@@ -670,6 +670,7 @@
     <string name="title_advanced_split_min_hint">Ця умова, призначена для пристроїв котрі можуть бути зігнуті</string>
     <string name="title_advanced_threading_hint">Групові повідомлення, пов\'язані один з одним</string>
     <string name="title_advanced_highlight_hint">Акцентований колір теми буде використаний для виділення</string>
+    <string name="title_advanced_privacy_risk">Там може бути ризик приватності</string>
     <string name="title_advanced_name_email_hint">Імена показуватимуться лише за наявності</string>
     <string name="title_advanced_preview_hint">Доступно тільки коли повідомлення буде завантажено</string>
     <string name="title_advanced_preview_lines_hint">Максимум: %s символів</string>

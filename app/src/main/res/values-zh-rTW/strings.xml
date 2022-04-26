@@ -630,6 +630,7 @@
     <string name="title_advanced_split_min_hint">這個條件是爲可摺叠設備而設的</string>
     <string name="title_advanced_threading_hint">將彼此相關的訊息分組</string>
     <string name="title_advanced_highlight_hint">主題的強調色將用於突出顯示</string>
+    <string name="title_advanced_privacy_risk">可能存在隱私風險</string>
     <string name="title_advanced_name_email_hint">姓名僅於可用時顯示</string>
     <string name="title_advanced_preview_hint">僅在訊息本文被下載後可用</string>
     <string name="title_advanced_preview_lines_hint">總計最多 %s 字元</string>

@@ -440,6 +440,7 @@
     <string name="title_advanced_navbar_colorize_hint">Hau funtzionatzea Android bertsioa eta aldaeraren araberakoa da</string>
     <string name="title_advanced_threading_hint">Harremana duten mezuak taldekatu</string>
     <string name="title_advanced_highlight_hint">Azalaren azentuatzeko kolorea erabiliko da nabarmentzeko</string>
+    <string name="title_advanced_privacy_risk">Pribatutasun-arriskua egon daiteke</string>
     <string name="title_advanced_preview_hint">Eskuragarri soilik mezuaren testua deskargatu bada</string>
     <string name="title_advanced_preview_issue">Desplazamendua motela izan daiteke, Android-en bertsio batzuetan errorea gertatu delako linea-kopurua bat baino gehiago denean</string>
     <string name="title_advanced_overview_mode_hint">Honek oso letra tamaina txikiak ekar ditzake</string>
