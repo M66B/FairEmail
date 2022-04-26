@@ -257,7 +257,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_highlight_unread">Ressalteu els missatges sense llegir</string>
     <string name="title_advanced_color_stripe">Mostra la franja de color</string>
     <string name="title_advanced_avatars">Mostra les fotos dels contactes</string>
-    <string name="title_advanced_gravatars">Mostra Gravatars</string>
     <string name="title_advanced_favicons">Mostra els favicon</string>
     <string name="title_advanced_generated_icons">Mostra les icones generades</string>
     <string name="title_advanced_identicons">Mostra identicons</string>
@@ -408,7 +407,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_navbar_colorize_hint">Si això funciona depèn de la versió i la versió d\'Android</string>
     <string name="title_advanced_threading_hint">Agrupa missatges relacionats entre ells</string>
     <string name="title_advanced_highlight_hint">El color de l’accent del tema s’utilitzarà per ressaltar</string>
-    <string name="title_advanced_gravatars_hint">Pot haver-hi un risc de privadesa</string>
     <string name="title_advanced_preview_hint">Només disponible quan s\'ha descarregat el text del missatge</string>
     <string name="title_advanced_preview_issue">El desplaçament pot ser lent a causa d\'un error en algunes versions d\'Android quan el nombre de línies és superior a una</string>
     <string name="title_advanced_inline_hint">Les imatges en línia són imatges incloses al missatge</string>

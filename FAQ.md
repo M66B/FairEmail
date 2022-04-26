@@ -334,6 +334,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(177) What does 'Sensitivity' mean?](#user-content-faq177)
 * [(178) Why are widgets not updating?](#user-content-faq178)
 * [(179) What are reply templates?](#user-content-faq179)
+* [(180) Can you add support for Gravatar / Libravatar?](#user-content-faq180)
 
 [I have another question.](#user-content-get-support)
 
@@ -4554,7 +4555,6 @@ Related questions:
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq173)
 
 * The Play store version does not support Android Auto, see [this FAQ](#user-content-faq165) for more information
-* The Play store version does not support [Gravatars](https://gravatar.com/) and [Libravatars](https://www.libravatar.org/), see [here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-85226179) for the reason
 * The Play store version does not support Amazon devices with Android 5 Lollipop because there are critical bugs in this Android version of Amazon
 * The GitHub version will check for [updates on GitHub](https://github.com/M66B/FairEmail/releases) and is updated more frequently
 * The GitHub version has some different links, some more options (like sharing the HTML of a message) and some different default values (more geared to advanced users)
@@ -4686,6 +4686,15 @@ Templates can have the following options:
 * *Favorite*: template will be added in the main reply popup menu
 * *Snippet*: template will be used as text fragment (since version 1.1857)
 * *Hide from menus*: template will be hidden (disabled)
+
+<br />
+
+<a name="faq180"></a>
+**(180) Can you add support for Gravatar / Libravatar?**
+
+FairEmail supported both Gravatar and Libravatar until version 1.1883,
+but [Google forced removal](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86800137) of these features,
+even though they were never present in the Play store version of the app.
 
 <br />
 

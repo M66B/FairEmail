@@ -389,8 +389,6 @@
     <string name="title_advanced_color_stripe">Mostrar a banda de cor</string>
     <string name="title_advanced_color_stripe_wide">Usar barra de cor longa</string>
     <string name="title_advanced_avatars">Mostrar as fotos dos contactos</string>
-    <string name="title_advanced_gravatars">Mostrar Gravatars</string>
-    <string name="title_advanced_libravatars">Mostrar Libravatars</string>
     <string name="title_advanced_bimi_unverified">Remitente non verificado</string>
     <string name="title_advanced_bimi_verified">Remitente verificado</string>
     <string name="title_advanced_favicons">Mostrar favicons</string>
@@ -639,7 +637,6 @@
     <string name="title_advanced_split_min_hint">Isto está pensado para aparellos pregables</string>
     <string name="title_advanced_threading_hint">Agrupar mensaxes relacionadas</string>
     <string name="title_advanced_highlight_hint">A cor de resalto do tema será empregada para salientar</string>
-    <string name="title_advanced_gravatars_hint">Podería haber un risco de privacidade</string>
     <string name="title_advanced_name_email_hint">Os nomes so se mostran cando estean dispoñibles</string>
     <string name="title_advanced_preview_hint">Soamente estará dispoñible cando o texto da mensaxe estea baixado</string>
     <string name="title_advanced_preview_lines_hint">Maximo de %s caracteres en total</string>

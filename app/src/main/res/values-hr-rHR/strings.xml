@@ -411,8 +411,6 @@
     <string name="title_advanced_color_stripe">Pokaži prugu boje</string>
     <string name="title_advanced_color_stripe_wide">Koristi široku traku u boji</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
-    <string name="title_advanced_gravatars">Prikaži gravatare</string>
-    <string name="title_advanced_libravatars">Prikaži Libravatare</string>
     <string name="title_advanced_bimi_unverified">Nepotvrđeni pošiljatelj</string>
     <string name="title_advanced_bimi_verified">Potvrđeni pošiljatelj</string>
     <string name="title_advanced_favicons">Pokaži ikone</string>
@@ -560,7 +558,6 @@
     <string name="title_advanced_date_hint">Poruke su grupirane po datumu samo ako su sortirane po vremenu</string>
     <string name="title_advanced_navbar_colorize_hint">Hoće li ovo raditi ovisi o verziji i varijante Androida</string>
     <string name="title_advanced_threading_hint">Grupiranje međusobno povezane poruke</string>
-    <string name="title_advanced_gravatars_hint">Može postojati rizik za privatnost</string>
     <string name="title_advanced_preview_hint">Dostupno samo kada je preuzet tekst poruke</string>
     <string name="title_advanced_preview_issue">Pomicanje može biti sporo zbog pogreške u nekim verzijama Androida kada je broj linija veći od jedan</string>
     <string name="title_advanced_inline_hint">Inline slike su slike uključene u poruku</string>

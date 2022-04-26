@@ -481,8 +481,6 @@
     <string name="title_advanced_color_stripe">Show color stripe</string>
     <string name="title_advanced_color_stripe_wide">Use wide color stripe</string>
     <string name="title_advanced_avatars">Show contact photos</string>
-    <string name="title_advanced_gravatars">Show Gravatars</string>
-    <string name="title_advanced_libravatars">Show Libravatars</string>
     <string name="title_advanced_bimi" translatable="false">Show Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_unverified">Unverified sender</string>
     <string name="title_advanced_bimi_verified">Verified sender</string>
@@ -818,7 +816,7 @@
     <string name="title_advanced_split_min_hint">This is a condition intended for foldable devices</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_highlight_hint">The accent color of the theme will be used for highlighting</string>
-    <string name="title_advanced_gravatars_hint">There might be a privacy risk</string>
+    <string name="title_advanced_privacy_risk">There might be a privacy risk</string>
     <string name="title_advanced_name_email_hint">Names will only be shown when available</string>
     <string name="title_advanced_preview_hint">Only available when message text has been downloaded</string>
     <string name="title_advanced_preview_lines_hint">Maximum %s characters in total</string>

@@ -396,8 +396,6 @@
     <string name="title_advanced_color_stripe">Hiện dải màu</string>
     <string name="title_advanced_color_stripe_wide">Sử dụng dải màu rộng</string>
     <string name="title_advanced_avatars">Hiện ảnh liên hệ</string>
-    <string name="title_advanced_gravatars">Hiện Gravatar</string>
-    <string name="title_advanced_libravatars">Hiện Libravatar</string>
     <string name="title_advanced_bimi_unverified">Người gửi chưa được xác minh</string>
     <string name="title_advanced_bimi_verified">Người gửi đã được xác minh</string>
     <string name="title_advanced_favicons">Hiện biểu tượng yêu thích</string>
@@ -650,7 +648,6 @@
     <string name="title_advanced_split_min_hint">Đây là điều kiện dành cho thiết bị màn hình gập</string>
     <string name="title_advanced_threading_hint">Nhóm các thư liên quan đến nhau</string>
     <string name="title_advanced_highlight_hint">Màu nổi bật của chủ đề sẽ được sử dụng để đánh dấu</string>
-    <string name="title_advanced_gravatars_hint">Có thể có rủi ro về sự riêng tư</string>
     <string name="title_advanced_name_email_hint">Tên sẽ chỉ được hiện khi có sẵn</string>
     <string name="title_advanced_preview_hint">Chỉ có khi văn bản thư đã được tải xuống</string>
     <string name="title_advanced_preview_lines_hint">Tổng cộng tối đa %s kí tự</string>

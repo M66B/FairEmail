@@ -407,8 +407,6 @@
     <string name="title_advanced_color_stripe">Mostra striscia di colore</string>
     <string name="title_advanced_color_stripe_wide">Usa un\'ampia striscia di colore</string>
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
-    <string name="title_advanced_gravatars">Mostra Gravatar</string>
-    <string name="title_advanced_libravatars">Mostra Libravatar</string>
     <string name="title_advanced_bimi_unverified">Mittente non verificato</string>
     <string name="title_advanced_bimi_verified">Mittente verificato</string>
     <string name="title_advanced_favicons">Mostra favicon</string>
@@ -663,7 +661,6 @@
     <string name="title_advanced_split_min_hint">Questa è una condizione destinata ai dispositivi pieghevoli</string>
     <string name="title_advanced_threading_hint">Raggruppa i messaggi correlati</string>
     <string name="title_advanced_highlight_hint">Il colore secondario del tema sarà usato per l\'evidenziazione</string>
-    <string name="title_advanced_gravatars_hint">Potrebbe esistere un rischio per la privacy</string>
     <string name="title_advanced_name_email_hint">I nomi saranno mostrati solo quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando il testo del messaggio è stato scaricato</string>
     <string name="title_advanced_preview_lines_hint">%s caratteri massimi in totale</string>

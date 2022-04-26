@@ -396,8 +396,6 @@
     <string name="title_advanced_color_stripe">头像前显示一条色带</string>
     <string name="title_advanced_color_stripe_wide">使用宽色条</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
-    <string name="title_advanced_gravatars">显示 Gravatars 头像</string>
-    <string name="title_advanced_libravatars">显示 Libravatars 头像</string>
     <string name="title_advanced_bimi_unverified">未验证的发送者</string>
     <string name="title_advanced_bimi_verified">已验证的发送者</string>
     <string name="title_advanced_favicons">显示网页图标</string>
@@ -651,7 +649,6 @@
     <string name="title_advanced_split_min_hint">这是一个用于可折叠设备的条件</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
     <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
-    <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">名称仅在可用时显示</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_preview_lines_hint">总共最多 %s 个字符</string>

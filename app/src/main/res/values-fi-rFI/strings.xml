@@ -402,8 +402,6 @@
     <string name="title_advanced_color_stripe">Näytä väriliuska</string>
     <string name="title_advanced_color_stripe_wide">Käytä leveää väriraitaa</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
-    <string name="title_advanced_gravatars">Näytä Gravatarit</string>
-    <string name="title_advanced_libravatars">Näytä Libravatarit</string>
     <string name="title_advanced_bimi_unverified">Vahvistamaton lähettäjä</string>
     <string name="title_advanced_bimi_verified">Vahvistettu lähettäjä</string>
     <string name="title_advanced_favicons">Näytä sivustokuvakkeet</string>
@@ -653,7 +651,6 @@
     <string name="title_advanced_split_min_hint">Tämä ehto on tarkoitettu kokoontaitettaville laitteille</string>
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
     <string name="title_advanced_highlight_hint">Teeman korostusväriä käytetään korostamiseen</string>
-    <string name="title_advanced_gravatars_hint">Mahdollinen uhka yksityisyydelle</string>
     <string name="title_advanced_name_email_hint">Nimet näytetään vain, kun ne ovat saatavilla</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
     <string name="title_advanced_preview_lines_hint">Enintään %s merkkiä</string>

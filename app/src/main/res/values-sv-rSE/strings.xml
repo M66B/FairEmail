@@ -402,8 +402,6 @@
     <string name="title_advanced_color_stripe">Visa färgrand</string>
     <string name="title_advanced_color_stripe_wide">Använd bred färgrand</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
-    <string name="title_advanced_gravatars">Visa Gravatars</string>
-    <string name="title_advanced_libravatars">Visa Libravatars</string>
     <string name="title_advanced_bimi_unverified">Overifierad avsändare</string>
     <string name="title_advanced_bimi_verified">Verifierad avsändare</string>
     <string name="title_advanced_favicons">Visa favicons</string>
@@ -657,7 +655,6 @@
     <string name="title_advanced_split_min_hint">Detta är ett villkor för ihopfällbara enheter</string>
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
     <string name="title_advanced_highlight_hint">Accentfärgen på temat kommer att användas för markering</string>
-    <string name="title_advanced_gravatars_hint">Det kan finnas en integritetsrisk</string>
     <string name="title_advanced_name_email_hint">Namnen visas endast när de är tillgängliga</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
     <string name="title_advanced_preview_lines_hint">Max %s tecken totalt</string>

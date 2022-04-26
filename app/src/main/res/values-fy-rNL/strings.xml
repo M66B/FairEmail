@@ -303,7 +303,6 @@
     <string name="title_advanced_highlight_unread">Unlês berjochten markearje</string>
     <string name="title_advanced_color_stripe">Sjoch lit streep</string>
     <string name="title_advanced_avatars">Sjoch kontaktfoto\'s</string>
-    <string name="title_advanced_gravatars">Sjoch gravatars</string>
     <string name="title_advanced_favicons">Lit favicons sjen</string>
     <string name="title_advanced_generated_icons">Sjoch generearre ikoanen</string>
     <string name="title_advanced_identicons">Sjoch identykons</string>
@@ -499,7 +498,6 @@
     <string name="title_advanced_split_hint">Dit sil it skerm yn dielen diele</string>
     <string name="title_advanced_threading_hint">Groepberjochten relatearre oan elkoar</string>
     <string name="title_advanced_highlight_hint">Berjochten wurde allinich op datum groepeare as se binne op tiid binne sorteare</string>
-    <string name="title_advanced_gravatars_hint">D\'r kin in privacy risiko wêze</string>
     <string name="title_advanced_preview_hint">Allinich beskikber as berjochttekst is ynladen</string>
     <string name="title_advanced_preview_lines_hint">Maksimum %s karakters yn totaal</string>
     <string name="title_advanced_preview_issue">Scrollen kin stadich wêze fanwegen in flater yn guon Android-ferzjes as it oantal rigels mear dan ien is</string>

@@ -394,8 +394,6 @@
     <string name="title_advanced_color_stripe">Mostrar faixa de cores</string>
     <string name="title_advanced_color_stripe_wide">Usar ampla faixa de cores</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
-    <string name="title_advanced_gravatars">Mostrar Gravatar</string>
-    <string name="title_advanced_libravatars">Mostrar Libravatars</string>
     <string name="title_advanced_bimi_unverified">Remetente não verificado</string>
     <string name="title_advanced_bimi_verified">Remetente verificado</string>
     <string name="title_advanced_favicons">Mostrar \"favicons\"</string>

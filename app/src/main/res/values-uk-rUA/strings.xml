@@ -421,8 +421,6 @@
     <string name="title_advanced_color_stripe">Показати смугу кольорів</string>
     <string name="title_advanced_color_stripe_wide">Використовувати широку смугу кольорів</string>
     <string name="title_advanced_avatars">Показувати фото контактів</string>
-    <string name="title_advanced_gravatars">Показувати Gravatars</string>
-    <string name="title_advanced_libravatars">Показувати Libr-аватари</string>
     <string name="title_advanced_bimi_unverified">Неперевірений відправник</string>
     <string name="title_advanced_bimi_verified">Перевірений відправник</string>
     <string name="title_advanced_favicons">Показати піктограми сайтів</string>
@@ -672,7 +670,6 @@
     <string name="title_advanced_split_min_hint">Ця умова, призначена для пристроїв котрі можуть бути зігнуті</string>
     <string name="title_advanced_threading_hint">Групові повідомлення, пов\'язані один з одним</string>
     <string name="title_advanced_highlight_hint">Акцентований колір теми буде використаний для виділення</string>
-    <string name="title_advanced_gravatars_hint">Там може бути ризик приватності</string>
     <string name="title_advanced_name_email_hint">Імена показуватимуться лише за наявності</string>
     <string name="title_advanced_preview_hint">Доступно тільки коли повідомлення буде завантажено</string>
     <string name="title_advanced_preview_lines_hint">Максимум: %s символів</string>

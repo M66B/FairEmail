@@ -426,8 +426,6 @@
     <string name="title_advanced_color_stripe">הצגת פס צבע</string>
     <string name="title_advanced_color_stripe_wide">להשתמש בפס צבע רחב</string>
     <string name="title_advanced_avatars">הצגת תמונות אנשי קשר</string>
-    <string name="title_advanced_gravatars">הצגת Gravatarים</string>
-    <string name="title_advanced_libravatars">הצגת Libravatarים</string>
     <string name="title_advanced_bimi_unverified">מוען בלתי מאומת</string>
     <string name="title_advanced_bimi_verified">מוען מאומת</string>
     <string name="title_advanced_favicons">הצגת סמלי אתרים</string>
@@ -681,7 +679,6 @@
     <string name="title_advanced_split_min_hint">זה תנאי שמיועד למכשירים מתקפלים</string>
     <string name="title_advanced_threading_hint">קיבוץ הודעות שקשורות זו לזו</string>
     <string name="title_advanced_highlight_hint">הצבע המשני של ערכת הנושא ישמש להדגשה</string>
-    <string name="title_advanced_gravatars_hint">עלול להיות סיכון לפרטיות</string>
     <string name="title_advanced_name_email_hint">השמות יופיעו רק כשהם זמינים</string>
     <string name="title_advanced_preview_hint">זמין רק כאשר טקסט של הודעה התקבל</string>
     <string name="title_advanced_preview_lines_hint">%s תווים לכל היותר בסך הכול</string>

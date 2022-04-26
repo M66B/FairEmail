@@ -91,7 +91,7 @@ import javax.net.ssl.SSLSession;
 public class ContactInfo {
     private String email;
     private Bitmap bitmap;
-    private String type; // contact, vmc, gravatar, libravatar, favicon, identicon, letter, unknown
+    private String type; // contact, vmc, favicon, identicon, letter, unknown
     private boolean verified;
     private String displayName;
     private Uri lookupUri;
@@ -111,10 +111,6 @@ public class ContactInfo {
 
     private static final int GENERATED_ICON_SIZE = 48; // dp
     private static final int FAVICON_ICON_SIZE = 64; // dp
-    private static final int GRAVATAR_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
-    private static final int GRAVATAR_READ_TIMEOUT = 10 * 1000; // milliseconds
-    private static final int LIBRAVATAR_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
-    private static final int LIBRAVATAR_READ_TIMEOUT = 10 * 1000; // milliseconds
     private static final int FAVICON_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_READ_TIMEOUT = 10 * 1000; // milliseconds
     private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
@@ -163,20 +159,12 @@ public class ContactInfo {
         return lookupUri;
     }
 
-    boolean isEmailBased() {
-        return ("gravatar".equals(type) || "libravatar".equals(type));
-    }
-
     boolean isKnown() {
         return known;
     }
 
     private boolean isExpired() {
         return (new Date().getTime() - time > CACHE_CONTACT_DURATION);
-    }
-
-    static boolean canGravatars() {
-        return !BuildConfig.PLAY_STORE_RELEASE;
     }
 
     static void cleanup(Context context) {
@@ -265,8 +253,6 @@ public class ContactInfo {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean avatars = prefs.getBoolean("avatars", true);
         boolean bimi = prefs.getBoolean("bimi", false);
-        boolean gravatars = prefs.getBoolean("gravatars", false);
-        boolean libravatars = prefs.getBoolean("libravatars", false);
         boolean favicons = prefs.getBoolean("favicons", false);
         boolean generated = prefs.getBoolean("generated_icons", true);
         boolean identicons = prefs.getBoolean("identicons", false);
@@ -316,8 +302,7 @@ public class ContactInfo {
 
         // Favicon
         if (info.bitmap == null &&
-                !EntityFolder.JUNK.equals(folderType) &&
-                (bimi || (canGravatars() && (gravatars || libravatars)) || favicons)) {
+                !EntityFolder.JUNK.equals(folderType) && (bimi || favicons)) {
             String d = UriHelper.getEmailDomain(info.email);
             if (d != null) {
                 // Prevent using Doodles
@@ -343,13 +328,6 @@ public class ContactInfo {
                 try {
                     // check cache
                     File[] files = null;
-                    if (gravatars && canGravatars()) {
-                        File f = new File(dir, email + ".gravatar");
-                        if (!f.exists())
-                            f = new File(dir, email + ".libravatar");
-                        if (f.exists())
-                            files = new File[]{f};
-                    }
                     if (files == null)
                         files = dir.listFiles(new FilenameFilter() {
                             @Override
@@ -382,81 +360,6 @@ public class ContactInfo {
                                     Pair<Bitmap, Boolean> bimi =
                                             Bimi.get(context, domain, selector, scaleToPixels);
                                     return (bimi == null ? null : new Favicon(bimi.first, "vmc", bimi.second));
-                                }
-                            }));
-
-                        if (gravatars && canGravatars())
-                            futures.add(executorFavicon.submit(new Callable<Favicon>() {
-                                @Override
-                                public Favicon call() throws Exception {
-                                    String hash = Helper.md5(email.getBytes());
-                                    URL url = new URL(BuildConfig.GRAVATAR_URI + hash + "?d=404");
-                                    Log.i("Gravatar key=" + email + " url=" + url);
-
-                                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                                    urlConnection.setRequestMethod("GET");
-                                    urlConnection.setReadTimeout(GRAVATAR_READ_TIMEOUT);
-                                    urlConnection.setConnectTimeout(GRAVATAR_CONNECT_TIMEOUT);
-                                    urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
-                                    urlConnection.connect();
-
-                                    try {
-                                        int status = urlConnection.getResponseCode();
-                                        if (status == HttpURLConnection.HTTP_OK) {
-                                            // Positive reply
-                                            Bitmap bitmap = ImageHelper.getScaledBitmap(urlConnection.getInputStream(), url.toString(), null, scaleToPixels);
-                                            return (bitmap == null ? null : new Favicon(bitmap, "gravatar", false));
-                                        } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
-                                            // Negative reply
-                                            return null;
-                                        } else
-                                            throw new IOException("Error " + status + ": " + urlConnection.getResponseMessage());
-                                    } finally {
-                                        urlConnection.disconnect();
-                                    }
-                                }
-                            }));
-
-                        if (libravatars && canGravatars())
-                            futures.add(executorFavicon.submit(new Callable<Favicon>() {
-                                @Override
-                                public Favicon call() throws Exception {
-                                    // https://wiki.libravatar.org/api/
-                                    String baseUrl = BuildConfig.LIBRAVATAR_URI;
-                                    for (String dns : BuildConfig.LIBRAVATAR_DNS.split(",")) {
-                                        DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, dns + "." + domain, "srv");
-                                        if (records.length > 0) {
-                                            baseUrl = (records[0].port == 443 ? "https" : "http") + "://" + records[0].name + "/avatar/";
-                                            break;
-                                        }
-                                    }
-
-                                    String hash = Helper.md5(email.getBytes());
-
-                                    URL url = new URL(baseUrl + hash + "?d=404");
-                                    Log.i("Libravatar key=" + email + " url=" + url);
-
-                                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                                    urlConnection.setRequestMethod("GET");
-                                    urlConnection.setReadTimeout(LIBRAVATAR_READ_TIMEOUT);
-                                    urlConnection.setConnectTimeout(LIBRAVATAR_CONNECT_TIMEOUT);
-                                    urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
-                                    urlConnection.connect();
-
-                                    try {
-                                        int status = urlConnection.getResponseCode();
-                                        if (status == HttpURLConnection.HTTP_OK) {
-                                            // Positive reply
-                                            Bitmap bitmap = ImageHelper.getScaledBitmap(urlConnection.getInputStream(), url.toString(), null, scaleToPixels);
-                                            return (bitmap == null ? null : new Favicon(bitmap, "libravatar", false));
-                                        } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
-                                            // Negative reply
-                                            return null;
-                                        } else
-                                            throw new IOException("Error " + status + ": " + urlConnection.getResponseMessage());
-                                    } finally {
-                                        urlConnection.disconnect();
-                                    }
                                 }
                             }));
 
@@ -548,7 +451,7 @@ public class ContactInfo {
 
                         // Add to cache
                         File output = new File(dir,
-                                (info.isEmailBased() ? email : domain) +
+                                domain +
                                         "." + info.type +
                                         (info.verified ? "_verified" : ""));
                         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(output))) {

@@ -286,7 +286,6 @@
     <string name="title_advanced_highlight_unread">Маркирай непрочетените съобщения</string>
     <string name="title_advanced_color_stripe">Показване на цветна ивица</string>
     <string name="title_advanced_avatars">Покажи снимка на контакт</string>
-    <string name="title_advanced_gravatars">Покажи Gravatars</string>
     <string name="title_advanced_bimi_unverified">Непроверен подател</string>
     <string name="title_advanced_favicons">Показване на фаворити</string>
     <string name="title_advanced_generated_icons">Показване на генерираните икони</string>
@@ -448,7 +447,6 @@
     <string name="title_advanced_navbar_colorize_hint">За да работи това зависи от версията и варианта на Android</string>
     <string name="title_advanced_threading_hint">Групови съобщения, свързани помежду си</string>
     <string name="title_advanced_highlight_hint">Акцентираният цвят на темата ще бъде използван за подчертаване</string>
-    <string name="title_advanced_gravatars_hint">Възможно е да съществува риск за поверителността</string>
     <string name="title_advanced_preview_hint">Достъпно е само когато текстът на съобщението е изтеглен</string>
     <string name="title_advanced_preview_issue">Превъртането може да е бавно поради грешка в някои версии на Android, когато броят на линиите е повече от един</string>
     <string name="title_advanced_inline_hint">Вградените изображения са изображения, включени в съобщението</string>

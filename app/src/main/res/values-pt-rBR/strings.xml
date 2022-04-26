@@ -405,8 +405,6 @@
     <string name="title_advanced_color_stripe">Mostrar faixa de cores</string>
     <string name="title_advanced_color_stripe_wide">Use faixa de cores largas</string>
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
-    <string name="title_advanced_gravatars">Mostrar Gravatares</string>
-    <string name="title_advanced_libravatars">Mostrar Libravatars</string>
     <string name="title_advanced_bimi_unverified">Remetente não verificado</string>
     <string name="title_advanced_bimi_verified">Remetente verificado</string>
     <string name="title_advanced_favicons">Mostrar ícone de favoritos</string>
@@ -660,7 +658,6 @@
     <string name="title_advanced_split_min_hint">Esta é uma condição destinada a dispositivos dobráveis</string>
     <string name="title_advanced_threading_hint">Agrupe as mensagens relacionadas entre si</string>
     <string name="title_advanced_highlight_hint">A cor de destaque do tema será usada para destacar</string>
-    <string name="title_advanced_gravatars_hint">Pode haver um risco na privacidade</string>
     <string name="title_advanced_name_email_hint">Nomes apenas serão exibidos quando disponíveis</string>
     <string name="title_advanced_preview_hint">Somente disponível quando o texto da mensagem for baixado</string>
     <string name="title_advanced_preview_lines_hint">Máximo de %s caracteres no total</string>
