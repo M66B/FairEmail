@@ -27,11 +27,13 @@ Google API Services are used only to authenticate Gmail accounts though OAuth.
 FairEmail **can use** these services if they are explicitly enabled (off by default) or are explicitly used by you:
 
 * [ipinfo.io](https://ipinfo.io/) &#8211; [Privacy policy](https://ipinfo.io/privacy-policy)
-* [Gravatar](https://gravatar.com/) &#8211; [Privacy policy](https://automattic.com/privacy/)
+* [Gravatar](https://gravatar.com/) &#8211; [Privacy policy](https://automattic.com/privacy/) (this feature is not available in the Play store version)
+* [Libravatar](https://www.libravatar.org/) &#8211; [Privacy policy](https://www.libravatar.org/privacy/) (this feature is not available in the Play store version)
 * [Spamhaus](https://www.spamhaus.org/) &#8211; [Privacy policy](https://www.spamhaus.org/organization/privacy/)
 * [Spamcop](https://www.spamcop.net/) &#8211; [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
 * [Barracuda](https://www.barracudacentral.org/rbl/how-to-use) &#8211; [Privacy policy](https://www.barracuda.com/company/legal/trust-center/data-privacy/privacy-policy)
 * [Thunderbird autoconfiguration](https://developer.mozilla.org/docs/Mozilla/Thunderbird/Autoconfiguration) &#8211; [Privacy policy](https://www.mozilla.org/privacy/)
+
 
 FairEmail **can access** the websites at the domain names of email addresses
 if [Brand Indicators for Message Identification](https://en.wikipedia.org/wiki/Brand_Indicators_for_Message_Identification) (BIMI)
