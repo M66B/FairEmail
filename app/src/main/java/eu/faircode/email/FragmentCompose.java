@@ -757,9 +757,6 @@ public class FragmentCompose extends FragmentBase {
 
                         if (save && auto_save &&
                                 getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-
-                            etBody.setTag(null);
-
                             Bundle extras = new Bundle();
                             extras.putBoolean("silent", true);
                             onAction(R.id.action_save, extras, "paragraph");
@@ -6300,8 +6297,10 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
 
-            if (args.getBundle("extras").getBoolean("silent"))
+            if (args.getBundle("extras").getBoolean("silent")) {
+                etBody.setTag(etBody.getText());
                 return;
+            }
 
             boolean needsEncryption = args.getBoolean("needsEncryption");
             int action = args.getInt("action");
