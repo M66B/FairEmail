@@ -211,6 +211,16 @@ public class ViewModelMessages extends ViewModel {
         }
 
         owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+            public void onPaused() {
+                Log.i("Paused model=" + viewType + " last=" + last);
+            }
+
+            @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+            public void onResumed() {
+                Log.i("Resumed model=" + viewType + " last=" + last);
+            }
+
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
                 Log.i("Destroy model=" + viewType);
