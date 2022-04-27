@@ -134,7 +134,8 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
                 return;
 
             NavMenuItem menu = items.get(pos);
-            menu.onClick();
+            if (menu != null)
+                menu.onClick();
         }
 
         @Override
@@ -144,7 +145,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
                 return false;
 
             NavMenuItem menu = items.get(pos);
-            return menu.onLongClick();
+            return (menu != null && menu.onLongClick());
         }
     }
 
