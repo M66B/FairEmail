@@ -113,8 +113,6 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
 
         colorWidgetForeground = ContextCompat.getColor(context, R.color.colorWidgetForeground);
-        int highlight_color = prefs.getInt("highlight_color", colorWidgetForeground);
-        colorWidgetUnread = ColorUtils.setAlphaComponent(highlight_color, 255);
         colorWidgetRead = ContextCompat.getColor(context, R.color.colorWidgetRead);
         colorSeparator = ContextCompat.getColor(context, R.color.lightColorSeparator);
 
@@ -124,6 +122,9 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             colorWidgetRead = ColorUtils.blendARGB(colorWidgetRead, Color.BLACK, 1.0f);
             colorSeparator = ContextCompat.getColor(context, R.color.darkColorSeparator);
         }
+
+        int highlight_color = prefs.getInt("highlight_color", colorWidgetForeground);
+        colorWidgetUnread = ColorUtils.setAlphaComponent(highlight_color, 255);
 
         pro = ActivityBilling.isPro(context);
 
