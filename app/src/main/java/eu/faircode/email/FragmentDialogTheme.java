@@ -344,8 +344,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         boolean light = (composer_light && context instanceof ActivityCompose);
         if (light)
             night = false;
-        EntityLog.log(context, "Activity theme=" + theme +
-                "light = " + light + " night=" + night);
+        Log.i("Activity theme=" + theme + " light=" + light + " night=" + night);
 
         switch (theme) {
             // Light
