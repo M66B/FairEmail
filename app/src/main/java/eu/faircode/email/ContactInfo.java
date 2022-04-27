@@ -253,6 +253,7 @@ public class ContactInfo {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean avatars = prefs.getBoolean("avatars", true);
         boolean bimi = prefs.getBoolean("bimi", false);
+        boolean efavicons = (prefs.getBoolean("efavicons", false) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean favicons = prefs.getBoolean("favicons", false);
         boolean generated = prefs.getBoolean("generated_icons", true);
         boolean identicons = prefs.getBoolean("identicons", false);
@@ -302,7 +303,7 @@ public class ContactInfo {
 
         // Favicon
         if (info.bitmap == null &&
-                !EntityFolder.JUNK.equals(folderType) && (bimi || favicons)) {
+                !EntityFolder.JUNK.equals(folderType) && (bimi || efavicons || favicons)) {
             String d = UriHelper.getEmailDomain(info.email);
             if (d != null) {
                 // Prevent using Doodles
@@ -328,6 +329,11 @@ public class ContactInfo {
                 try {
                     // check cache
                     File[] files = null;
+                    if (efavicons) {
+                        File f = new File(dir, email + ".extra");
+                        if (f.exists())
+                            files = new File[]{f};
+                    }
                     if (files == null)
                         files = dir.listFiles(new FilenameFilter() {
                             @Override
@@ -362,6 +368,11 @@ public class ContactInfo {
                                     return (bimi == null ? null : new Favicon(bimi.first, "vmc", bimi.second));
                                 }
                             }));
+
+                        if (efavicons) {
+                            futures.add(executorFavicon.submit(Extra.getG(email, scaleToPixels, context)));
+                            futures.add(executorFavicon.submit(Extra.getL(email, scaleToPixels, context)));
+                        }
 
                         if (favicons) {
                             String host = domain;
@@ -451,7 +462,7 @@ public class ContactInfo {
 
                         // Add to cache
                         File output = new File(dir,
-                                domain +
+                                ("extra".equals(info.type) ? email : domain) +
                                         "." + info.type +
                                         (info.verified ? "_verified" : ""));
                         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(output))) {
@@ -966,7 +977,7 @@ public class ContactInfo {
         String displayName;
     }
 
-    private static class Favicon {
+    static class Favicon {
         private Bitmap bitmap;
         private String type;
         private boolean verified;
@@ -977,7 +988,7 @@ public class ContactInfo {
             this.source = source;
         }
 
-        private Favicon(@NonNull Bitmap bitmap, String type, boolean verified) {
+        Favicon(@NonNull Bitmap bitmap, String type, boolean verified) {
             this.bitmap = bitmap;
             this.type = type;
             this.verified = verified;

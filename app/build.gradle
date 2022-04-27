@@ -48,16 +48,16 @@ android {
 
     sourceSets {
         github {
-            java.srcDirs = ['src/main/java', 'src/play/java']
+            java.srcDirs = ['src/main/java', 'src/play/java', 'src/extra/java']
         }
         fdroid {
-            java.srcDirs = ['src/main/java', 'src/fdroid/java']
+            java.srcDirs = ['src/main/java', 'src/fdroid/java', 'src/extra/java']
         }
         play {
-            java.srcDirs = ['src/main/java', 'src/play/java']
+            java.srcDirs = ['src/main/java', 'src/play/java', 'src/dummy/java']
         }
         amazon {
-            java.srcDirs = ['src/main/java', 'src/amazon/java']
+            java.srcDirs = ['src/main/java', 'src/amazon/java', 'src/extra/java']
         }
         main.res.srcDirs += 'src/main/resExtra'
     }

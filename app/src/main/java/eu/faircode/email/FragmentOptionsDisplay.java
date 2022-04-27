@@ -107,6 +107,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private TextView tvBimiHint;
     private TextView tvBimiUnverified;
     private SwitchCompat swBimi;
+    private SwitchCompat swEFavicons;
     private SwitchCompat swFavicons;
     private SwitchCompat swFaviconsPartial;
     private TextView tvFaviconsHint;
@@ -187,7 +188,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "nav_options", "nav_categories", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color", "group_category",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
-            "avatars", "bimi", "favicons", "favicons_partial", "generated_icons", "identicons",
+            "avatars", "bimi", "efavicons", "favicons", "favicons_partial", "generated_icons", "identicons",
             "circular", "saturation", "brightness", "threshold",
             "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients",
             "font_size_sender", "sender_ellipsize",
@@ -257,6 +258,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         tvBimiHint = view.findViewById(R.id.tvBimiHint);
         tvBimiUnverified = view.findViewById(R.id.tvBimiUnverified);
         ibBimi = view.findViewById(R.id.ibBimi);
+        swEFavicons = view.findViewById(R.id.swEFavicons);
         swFavicons = view.findViewById(R.id.swFavicons);
         swFaviconsPartial = view.findViewById(R.id.swFaviconsPartial);
         tvFaviconsHint = view.findViewById(R.id.tvFaviconsHint);
@@ -710,6 +712,15 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onClick(View v) {
                 Helper.view(v.getContext(), Uri.parse("https://bimigroup.org/"), true);
+            }
+        });
+
+        swEFavicons.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        swEFavicons.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("efavicons", checked).apply();
+                ContactInfo.clearCache(compoundButton.getContext());
             }
         });
 
@@ -1315,6 +1326,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         //swColorStripeWide.setEnabled(swColorStripe.isChecked());
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swBimi.setChecked(prefs.getBoolean("bimi", false));
+        swEFavicons.setChecked(prefs.getBoolean("efavicons", false));
         swFavicons.setChecked(prefs.getBoolean("favicons", false));
         swFaviconsPartial.setChecked(prefs.getBoolean("favicons_partial", true));
         swFaviconsPartial.setEnabled(swFavicons.isChecked());

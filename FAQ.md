@@ -334,7 +334,6 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(177) What does 'Sensitivity' mean?](#user-content-faq177)
 * [(178) Why are widgets not updating?](#user-content-faq178)
 * [(179) What are reply templates?](#user-content-faq179)
-* [(180) Can you add support for Gravatar / Libravatar?](#user-content-faq180)
 
 [I have another question.](#user-content-get-support)
 
@@ -4686,15 +4685,6 @@ Templates can have the following options:
 * *Favorite*: template will be added in the main reply popup menu
 * *Snippet*: template will be used as text fragment (since version 1.1857)
 * *Hide from menus*: template will be hidden (disabled)
-
-<br />
-
-<a name="faq180"></a>
-**(180) Can you add support for Gravatar / Libravatar?**
-
-FairEmail supported both Gravatar and Libravatar until version 1.1883,
-but [Google forced removal](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86800867) of these features,
-even though they were never present in the Play store version of the app.
 
 <br />
 
