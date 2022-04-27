@@ -642,10 +642,18 @@ public class FragmentCompose extends FragmentBase {
                     activity.onUserInteraction();
 
                 int index = start + before;
-                if (count - before == 1 && index > 0 && text.charAt(index) == '\n') {
-                    Log.i("Added=" + index);
-                    added = index;
-                    save = (text.charAt(index - 1) != '\n');
+
+                if (count - before == 1 && index > 0) {
+                    char c = text.charAt(index);
+                    char b = text.charAt(index - 1);
+                    save = (c == '\n' && b != '\n') || (isDot(c) && !isDot(b));
+                    if (save)
+                        Log.i("Save=" + index);
+
+                    if (c == '\n') {
+                        Log.i("Added=" + index);
+                        added = index;
+                    }
                 }
             }
 
@@ -754,13 +762,6 @@ public class FragmentCompose extends FragmentBase {
 
                         if (renum)
                             StyleHelper.renumber(text, false, etBody.getContext());
-
-                        if (save && auto_save &&
-                                getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                            Bundle extras = new Bundle();
-                            extras.putBoolean("silent", true);
-                            onAction(R.id.action_save, extras, "paragraph");
-                        }
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
@@ -799,8 +800,24 @@ public class FragmentCompose extends FragmentBase {
                         translated = null;
                     }
 
+                if (save && auto_save)
+                    try {
+                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                            Bundle extras = new Bundle();
+                            extras.putBoolean("silent", true);
+                            onAction(R.id.action_save, extras, "paragraph");
+                        }
+                    } finally {
+                        save = false;
+                    }
+
                 if (lp != null)
                     TextUtils.dumpSpans(text, lp, "---after>");
+            }
+
+            private boolean isDot(char c) {
+                return BuildConfig.DEBUG &&
+                        (c == '.' /* Latin */ || c == '。' /* Chinese */);
             }
         });
 
