@@ -98,7 +98,7 @@ public class ContactInfo {
     private boolean known;
     private long time;
 
-    static final int FAVICON_READ_BYTES = 5000;
+    static final int FAVICON_READ_BYTES = 50 * 1024;
 
     private static Map<String, Lookup> emailLookup = new ConcurrentHashMap<>();
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();

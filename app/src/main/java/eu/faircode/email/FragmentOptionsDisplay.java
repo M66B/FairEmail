@@ -1216,7 +1216,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
         swFaviconsPartial.setText(getString(R.string.title_advanced_favicons_partial,
-                Helper.humanReadableByteCount(ContactInfo.FAVICON_READ_BYTES)));
+                Helper.humanReadableByteCount(ContactInfo.FAVICON_READ_BYTES, false)));
         grpUnzip.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
         tvBimiUnverified.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
