@@ -1621,4 +1621,16 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="NIC/gov.in"
+        domain="nic\\.in,.*\\.nic\\.in">
+        <imap
+            host="imap.mail.gov.in"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.mail.gov.in"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
