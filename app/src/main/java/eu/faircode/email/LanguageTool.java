@@ -33,6 +33,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -44,7 +45,9 @@ public class LanguageTool {
         // https://languagetool.org/http-api/swagger-ui/#!/default/post_check
         String request =
                 "text=" + URLEncoder.encode(text.toString(), StandardCharsets.UTF_8.name()) +
-                        "&language=auto";
+                        "&language=auto" +
+                        "&preferredVariants=" + Locale.getDefault().toLanguageTag();
+        Log.i("LT request=" + request);
 
         URL url = new URL(LT_URI + "check");
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -75,6 +78,7 @@ public class LanguageTool {
             }
 
             String response = Helper.readStream(connection.getInputStream());
+            Log.i("LT response=" + response);
 
             List<Suggestion> result = new ArrayList<>();
 
