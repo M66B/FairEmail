@@ -317,7 +317,6 @@
     <string name="title_advanced_attach_new">将共享文件添加到新草稿</string>
     <string name="title_advanced_answer_action">长按回复按钮动作：</string>
     <string name="title_advanced_send_pending">显示不显眼的 \"延迟发送\" 图标 (页面左下角)</string>
-    <string name="title_advanced_auto_save">出现新段落后自动保存</string>
     <string name="title_advanced_compose_font">默认字体</string>
     <string name="title_advanced_auto_identity">自动选择新邮件的身份</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>

@@ -326,7 +326,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_attach_new">Yeni bir taslağa paylaşılan dosyalar ekleyin</string>
     <string name="title_advanced_answer_action">Cevap düğmesine uzun basmak:</string>
     <string name="title_advanced_send_pending">Rahatsız edici olmayan gecikmeli gönderme simgesini göster</string>
-    <string name="title_advanced_auto_save">Yeni paragraflardan sonra otomatik olarak kaydet</string>
     <string name="title_advanced_compose_font">Varsayılan yazı tipi</string>
     <string name="title_advanced_auto_identity">Yeni mesajlar için kimlikleri otomatik olarak seç</string>
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
@@ -1664,6 +1663,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_widget_folder_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>
     <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
+    <string name="title_widget_highlight_remark">Vurgu rengi ekran ayarlarından seçilebilir</string>
     <string name="title_widget_font_size">Metin boyutu</string>
     <string name="title_widget_padding">Boşluk boyutu</string>
     <string name="title_widget_semi_transparent">Yarı saydam arka plan</string>

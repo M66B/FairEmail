@@ -327,7 +327,6 @@
     <string name="title_advanced_attach_new">Adicionar arquivos compartilhados a um novo rascunho</string>
     <string name="title_advanced_answer_action">Pressionar longamente o botão de resposta irá:</string>
     <string name="title_advanced_send_pending">Mostrar ícones de filtro rápido não obtrusivos</string>
-    <string name="title_advanced_auto_save">Salvar automaticamente após novos parágrafos</string>
     <string name="title_advanced_compose_font">Fonte padrão</string>
     <string name="title_advanced_auto_identity">Selecionar automaticamente identidades para novas mensagens</string>
     <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>

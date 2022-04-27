@@ -328,7 +328,6 @@
     <string name="title_advanced_attach_new">Ajouter des fichiers partagés à un nouveau brouillon</string>
     <string name="title_advanced_answer_action">Un appui long sur le bouton de réponse va:</string>
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
-    <string name="title_advanced_auto_save">Enregistrer automatiquement après de nouveaux paragraphes</string>
     <string name="title_advanced_compose_font">Police de caractères par défaut</string>
     <string name="title_advanced_auto_identity">Sélectionner automatiquement les identités pour les nouveaux messages</string>
     <string name="title_advanced_prefix_once">Ne préfixer l’objet qu’une seule fois lors de la réponse ou du transfert</string>
@@ -409,6 +408,7 @@
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_bimi_unverified">Expéditeur non vérifié</string>
     <string name="title_advanced_bimi_verified">Expéditeur vérifié</string>
+    <string name="title_advanced_efavicons">Afficher les avatars</string>
     <string name="title_advanced_favicons">Afficher l\'icône des sites web</string>
     <string name="title_advanced_favicons_partial">Inspecter uniquement les premiers %1$s de la page web</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées</string>

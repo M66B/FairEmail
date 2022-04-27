@@ -326,7 +326,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_attach_new">Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_answer_action">Lang drukken van de antwoordknop zal:</string>
     <string name="title_advanced_send_pending">Toon niet-opdringerig pictogram voor vertraagd verzenden</string>
-    <string name="title_advanced_auto_save">Automatisch opslaan na nieuwe alinea\'s</string>
+    <string name="title_advanced_auto_save_paragraph">Automatisch een concept opslaan na elke alinea</string>
+    <string name="title_advanced_auto_save_dot">Automatisch een concept opslaan na elke zin</string>
     <string name="title_advanced_compose_font">Standaard lettertype</string>
     <string name="title_advanced_auto_identity">Automatisch identiteiten voor nieuwe berichten selecteren</string>
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
@@ -407,6 +408,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_bimi_unverified">Niet-geverifieerde afzender</string>
     <string name="title_advanced_bimi_verified">Geverifieerde afzender</string>
+    <string name="title_advanced_efavicons">Toon avatars</string>
     <string name="title_advanced_favicons">Toon favicons</string>
     <string name="title_advanced_favicons_partial">Alleen de eerste %1$s van de webpagina scannen</string>
     <string name="title_advanced_generated_icons">Toon gegenereerde iconen</string>

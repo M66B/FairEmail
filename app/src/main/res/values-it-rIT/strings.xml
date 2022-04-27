@@ -328,7 +328,6 @@
     <string name="title_advanced_attach_new">Aggiungi i file condivisi a una nuova bozza</string>
     <string name="title_advanced_answer_action">La pressione prolungata sul pulsante di risposta:</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
-    <string name="title_advanced_auto_save">Salva automaticamente dopo nuovi paragrafi</string>
     <string name="title_advanced_compose_font">Font predefinito</string>
     <string name="title_advanced_auto_identity">Seleziona automaticamente le identità per i nuovi messaggi</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta alla risposta o l\'inoltro</string>
@@ -409,6 +408,7 @@
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
     <string name="title_advanced_bimi_unverified">Mittente non verificato</string>
     <string name="title_advanced_bimi_verified">Mittente verificato</string>
+    <string name="title_advanced_efavicons">Mostra avatar</string>
     <string name="title_advanced_favicons">Mostra favicon</string>
     <string name="title_advanced_favicons_partial">Scansiona solo il primo %1$s della pagina web</string>
     <string name="title_advanced_generated_icons">Mostra le icone generate</string>

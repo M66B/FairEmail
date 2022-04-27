@@ -327,7 +327,6 @@
     <string name="title_advanced_attach_new">Προσθήκη κοινόχρηστων αρχείων σε ένα νέο προσχέδιο</string>
     <string name="title_advanced_answer_action">Το παρατεταμένο πάτημα στο κουμπί απάντησης θα:</string>
     <string name="title_advanced_send_pending">Προβολή διακριτικού εικονιδίου για απεσταλμένα με χρονοκαθυστέρηση</string>
-    <string name="title_advanced_auto_save">Αυτόματη αποθήκευση μετά από νέες παραγράφους</string>
     <string name="title_advanced_compose_font">Προεπιλεγμένη γραμματοσειρά</string>
     <string name="title_advanced_auto_identity">Αυτόματη επιλογή ταυτοτήτων για νέα μηνύματα</string>
     <string name="title_advanced_prefix_once">Μόνο ένα πρόθεμα κατά την απάντηση ή προώθηση μηνύματος</string>
@@ -1664,6 +1663,7 @@
     <string name="title_widget_folder_unified">Φάκελοι ενοποιημένων εισερχομένων</string>
     <string name="title_widget_unseen">Μη αναγνωσμένα μηνύματα μόνο</string>
     <string name="title_widget_flagged">Μηνύματα με αστέρι μόνο</string>
+    <string name="title_widget_highlight_remark">Το χρώμα επισήμανσης μπορεί να επιλεγεί στις ρυθμίσεις εμφάνισης</string>
     <string name="title_widget_font_size">Μέγεθος κειμένου</string>
     <string name="title_widget_padding">Μέγεθος διαστήματος μεταξύ μηνυμάτων</string>
     <string name="title_widget_semi_transparent">Ημιδιαφανές φόντο</string>

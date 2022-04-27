@@ -1680,6 +1680,7 @@
     <string name="title_widget_folder_unified">Folderi objedinjenog inbox-a</string>
     <string name="title_widget_unseen">Samo nepročitane poruke</string>
     <string name="title_widget_flagged">Samo poruke sa zvjezdicom</string>
+    <string name="title_widget_highlight_remark">Boja za markiranje može se izabrati u postavkama prikaza</string>
     <string name="title_widget_font_size">Veličina teksta</string>
     <string name="title_widget_padding">Veličina razmaka</string>
     <string name="title_widget_semi_transparent">Poluprovidna pozadina</string>

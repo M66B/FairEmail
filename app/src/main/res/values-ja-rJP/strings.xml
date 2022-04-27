@@ -606,6 +606,7 @@
     <string name="title_advanced_poll_hint">新着メッセージを定期的に確認すると、ローカルのメッセージとサーバーのメッセージが毎回比較されます。これは負荷のかかる操作であり、特にメッセージが多い場合は、バッテリー使用量が大幅に増加する可能性があります。常に受信すると変更を継続的に追跡するため、このような問題はありません。</string>
     <string name="title_advanced_optimize_hint">バッテリー使用量を節約するために、メールサーバーの機能と動作に応じて同期頻度を変更することがあります</string>
     <string name="title_advanced_schedule_hint">時間をタップして設定</string>
+    <string name="title_advanced_schedule_ignore">アカウント設定の詳細でスケジュールを無効にすることができます</string>
     <string name="title_advanced_quick_sync_hint">データ使用量が減少しますが、メールサーバーが標準に従わない場合、新着メッセージが見逃される可能性があります</string>
     <string name="title_advanced_no_date_hint">一部のプロバイダーは存在しない日付や無効な日付、将来の日付のメッセージを日付のないメッセージとして取り扱います</string>
     <string name="title_advanced_unseen_hint">一部のプロバイダーでは適切にサポートされていないため、メッセージがまったく同期されないかすべて同期されてしまう場合があります</string>
@@ -767,6 +768,8 @@
     <string name="title_received_header">「Received」ヘッダーを使用</string>
     <string name="title_date_header">「Date」ヘッダーを使用 (送信時刻)</string>
     <string name="title_date_remark">変更は新着メッセージにのみ適用されます</string>
+    <string name="title_unmetered_only">従量制課金接続を使用しない</string>
+    <string name="title_ignore_schedule">スケジュール外でも同期する</string>
     <string name="title_related_identity">関連 ID (SMTPサーバー) を追加</string>
     <string name="title_check">確認</string>
     <string name="title_trust">フィンガープリント %1$s でサーバー証明書を信頼する</string>
@@ -1528,6 +1531,7 @@
     <string name="title_legend_t">テキストにフォーカス</string>
     <string name="title_hint_folder_actions">フォルダーを長押して、ナビゲーションメニューにフォルダーのショートカットを表示するなどの設定ができます</string>
     <string name="title_hint_folder_sync">バッテリーとネットワークの使用を抑えるためにデフォルトでは一部のフォルダーとメッセージのみ同期されます</string>
+    <string name="title_hint_airplane">機内モードが ON です</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてゴミ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>
     <string name="title_hint_message_selection">メッセージを長押しして、複数のメッセージを選択します。そのまま上または下にスワイプすると、まとめてメッセージを選択できます</string>
@@ -1656,6 +1660,7 @@
     <string name="title_widget_folder_unified">統合受信トレイフォルダー</string>
     <string name="title_widget_unseen">未読メッセージのみ</string>
     <string name="title_widget_flagged">スター付きメッセージのみ</string>
+    <string name="title_widget_highlight_remark">背景色はディスプレイ設定で選択できます</string>
     <string name="title_widget_font_size">テキストサイズ</string>
     <string name="title_widget_padding">余白サイズ</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>

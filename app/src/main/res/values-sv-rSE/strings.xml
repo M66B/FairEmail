@@ -324,7 +324,6 @@
     <string name="title_advanced_attach_new">Lägg till delade filer till ett nytt utkast</string>
     <string name="title_advanced_answer_action">Långtryck på svarsknappen kommer:</string>
     <string name="title_advanced_send_pending">Visa icke-påträngande försenad leveransikon</string>
-    <string name="title_advanced_auto_save">Spara automatiskt efter nya stycken</string>
     <string name="title_advanced_compose_font">Standardtypsnitt</string>
     <string name="title_advanced_auto_identity">Välj identiteter automatiskt för nya meddelanden</string>
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
@@ -1662,6 +1661,7 @@
     <string name="title_widget_folder_unified">Samlade inkorgsmappar</string>
     <string name="title_widget_unseen">Endast olästa meddelanden</string>
     <string name="title_widget_flagged">Endast stjärnmärkta meddelanden</string>
+    <string name="title_widget_highlight_remark">Markeringsfärgen kan väljas i visningsinställningarna</string>
     <string name="title_widget_font_size">Textstorlek</string>
     <string name="title_widget_padding">Utfyllnadsstorlek</string>
     <string name="title_widget_semi_transparent">Semi transparent bakgrund</string>
