@@ -461,15 +461,26 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swAutoSave"
+                    android:id="@+id/swAutoSaveParagraph"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:checked="true"
-                    android:text="@string/title_advanced_auto_save"
+                    android:text="@string/title_advanced_auto_save_paragraph"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvCaptionMessage"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAutoSaveDot"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_auto_save_dot"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAutoSaveParagraph"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
@@ -483,7 +494,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAutoSave" />
+                    app:layout_constraintTop_toBottomOf="@id/swAutoSaveDot" />
 
                 <Spinner
                     android:id="@+id/spComposeFont"

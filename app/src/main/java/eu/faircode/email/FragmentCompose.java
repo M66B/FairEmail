@@ -396,7 +396,8 @@ public class FragmentCompose extends FragmentBase {
         resolver = getContext().getContentResolver();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        final boolean auto_save = prefs.getBoolean("auto_save", true);
+        final boolean auto_save_paragraph = prefs.getBoolean("auto_save_paragraph", true);
+        final boolean auto_save_dot = prefs.getBoolean("auto_save_dot", false);
         final boolean keyboard_no_fullscreen = prefs.getBoolean("keyboard_no_fullscreen", false);
         final boolean suggest_names = prefs.getBoolean("suggest_names", true);
         final boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
@@ -646,7 +647,8 @@ public class FragmentCompose extends FragmentBase {
                 if (count - before == 1 && index > 0) {
                     char c = text.charAt(index);
                     char b = text.charAt(index - 1);
-                    save = (c == '\n' && b != '\n') || (isDot(c) && !isDot(b));
+                    save = (auto_save_paragraph && c == '\n' && b != '\n') ||
+                            (auto_save_dot && Helper.isDot(c) && !Helper.isDot(b));
                     if (save)
                         Log.i("Save=" + index);
 
@@ -800,7 +802,7 @@ public class FragmentCompose extends FragmentBase {
                         translated = null;
                     }
 
-                if (save && auto_save)
+                if (save)
                     try {
                         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                             Bundle extras = new Bundle();
@@ -813,11 +815,6 @@ public class FragmentCompose extends FragmentBase {
 
                 if (lp != null)
                     TextUtils.dumpSpans(text, lp, "---after>");
-            }
-
-            private boolean isDot(char c) {
-                return BuildConfig.DEBUG &&
-                        (c == '.' /* Latin */ || c == '。' /* Chinese */);
             }
         });
 

@@ -75,7 +75,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSendPending;
     private Button btnSound;
 
-    private SwitchCompat swAutoSave;
+    private SwitchCompat swAutoSaveParagraph;
+    private SwitchCompat swAutoSaveDot;
     private Spinner spComposeFont;
     private SwitchCompat swSeparateReply;
     private SwitchCompat swExtendedReply;
@@ -108,7 +109,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "alt_re", "alt_fwd",
             "send_reminders", "send_chips", "send_delayed",
             "attach_new", "answer_action", "send_pending", "sound_sent",
-            "auto_save", "compose_font", "prefix_once", "prefix_count", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
+            "auto_save_paragraph", "auto_save_dot",
+            "compose_font", "prefix_once", "prefix_count", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_new", "signature_reply", "signature_reply_once", "signature_forward",
             "discard_delete", "reply_move",
             "auto_link", "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
@@ -146,7 +148,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSendPending = view.findViewById(R.id.swSendPending);
         btnSound = view.findViewById(R.id.btnSound);
 
-        swAutoSave = view.findViewById(R.id.swAutoSave);
+        swAutoSaveParagraph = view.findViewById(R.id.swAutoSaveParagraph);
+        swAutoSaveDot = view.findViewById(R.id.swAutoSaveDot);
         spComposeFont = view.findViewById(R.id.spComposeFont);
         swSeparateReply = view.findViewById(R.id.swSeparateReply);
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
@@ -361,10 +364,17 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swAutoSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swAutoSaveParagraph.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("auto_save", checked).apply();
+                prefs.edit().putBoolean("auto_save_paragraph", checked).apply();
+            }
+        });
+
+        swAutoSaveDot.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auto_save_dot", checked).apply();
             }
         });
 
@@ -651,7 +661,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         swSendPending.setChecked(prefs.getBoolean("send_pending", true));
 
-        swAutoSave.setChecked(prefs.getBoolean("auto_save", true));
+        swAutoSaveParagraph.setChecked(prefs.getBoolean("auto_save_paragraph", true));
+        swAutoSaveDot.setChecked(prefs.getBoolean("auto_save_dot", false));
 
         String compose_font = prefs.getString("compose_font", "");
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());

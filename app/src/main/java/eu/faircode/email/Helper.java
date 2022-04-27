@@ -1861,6 +1861,10 @@ public class Helper {
         };
     }
 
+    static boolean isDot(char c) {
+        return (c == '.' /* Latin */ || c == '。' /* Chinese */);
+    }
+
     // Files
 
     static String sanitizeFilename(String name) {
