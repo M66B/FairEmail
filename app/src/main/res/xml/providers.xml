@@ -1633,4 +1633,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Cytanet"
+        domain="cablenet\\.com\\.cy"
+        link="https://www.eworkswsi.com.cy/eworkswsi-cyprus-internet-marketing-blog/using-your-own-smtp-server-with-a-cytanet-e-mail-account-in-cyprus-1">
+        <imap
+            host="mail.cytanet.com.cy"
+            port="143"
+            starttls="true" />
+        <smtp
+            host="mail-out.cytanet.com.cy"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
