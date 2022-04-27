@@ -31,7 +31,7 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [Spamcop](https://www.spamcop.net/) &#8211; [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
 * [Barracuda](https://www.barracudacentral.org/rbl/how-to-use) &#8211; [Privacy policy](https://www.barracuda.com/company/legal/trust-center/data-privacy/privacy-policy)
 * [Thunderbird autoconfiguration](https://developer.mozilla.org/docs/Mozilla/Thunderbird/Autoconfiguration) &#8211; [Privacy policy](https://www.mozilla.org/privacy/)
-
+* [LanguageTool](https://languagetool.org/) &#8211; [Privacy policy](https://languagetool.org/legal/privacy)
 
 FairEmail **can access** the websites at the domain names of email addresses
 if [Brand Indicators for Message Identification](https://en.wikipedia.org/wiki/Brand_Indicators_for_Message_Identification) (BIMI)

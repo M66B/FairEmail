@@ -81,6 +81,7 @@ import android.text.style.ImageSpan;
 import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
+import android.text.style.SuggestionSpan;
 import android.text.style.URLSpan;
 import android.util.LogPrinter;
 import android.util.Pair;
@@ -1814,6 +1815,15 @@ public class FragmentCompose extends FragmentBase {
         for (int i = 0; i < m.size(); i++)
             bottom_navigation.findViewById(m.getItem(i).getItemId()).setOnLongClickListener(null);
 
+        if (!BuildConfig.PLAY_STORE_RELEASE)
+            bottom_navigation.findViewById(R.id.action_save).setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    onLanguageTool();
+                    return true;
+                }
+            });
+
         bottom_navigation.findViewById(R.id.action_send).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -2377,6 +2387,53 @@ public class FragmentCompose extends FragmentBase {
         });
 
         popupMenu.showWithIcons(context, anchor);
+    }
+
+    private void onLanguageTool() {
+        etBody.clearComposingText();
+
+        Bundle args = new Bundle();
+        args.putCharSequence("text", etBody.getText());
+
+        new SimpleTask<List<LanguageTool.Suggestion>>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                setBusy(true);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                setBusy(false);
+            }
+
+            @Override
+            protected List<LanguageTool.Suggestion> onExecute(Context context, Bundle args) throws Throwable {
+                CharSequence text = args.getCharSequence("text").toString();
+                return LanguageTool.getSuggestions(context, text);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<LanguageTool.Suggestion> suggestions) {
+                // https://developer.android.com/reference/android/text/style/SuggestionSpan
+                final Context context = getContext();
+                Editable edit = etBody.getText();
+
+                for (LanguageTool.Suggestion suggestion : suggestions) {
+                    Log.i("LT suggestion=" + suggestion);
+                    SuggestionSpan span = new SuggestionSpan(context,
+                            suggestion.replacements.toArray(new String[0]),
+                            SuggestionSpan.FLAG_MISSPELLED);
+                    int start = suggestion.offset;
+                    int end = start + suggestion.length;
+                    edit.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
+                }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "compose:lt");
     }
 
     private boolean onActionStyle(int action, View anchor) {
