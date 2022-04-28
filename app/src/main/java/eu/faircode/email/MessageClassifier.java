@@ -124,8 +124,8 @@ public class MessageClassifier {
                     db.endTransaction();
                 }
 
-                if (message.ui_hide)
-                    accountMsgIds.get(folder.account).add(message.msgid);
+                //if (message.ui_hide)
+                //    accountMsgIds.get(folder.account).add(message.msgid);
             }
 
             dirty = true;
