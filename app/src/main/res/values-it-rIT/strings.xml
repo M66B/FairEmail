@@ -328,6 +328,8 @@
     <string name="title_advanced_attach_new">Aggiungi i file condivisi a una nuova bozza</string>
     <string name="title_advanced_answer_action">La pressione prolungata sul pulsante di risposta:</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
+    <string name="title_advanced_auto_save_paragraph">Salva automaticamente una bozza dopo ogni paragrafo</string>
+    <string name="title_advanced_auto_save_dot">Salva automaticamente una bozza dopo ogni frase</string>
     <string name="title_advanced_compose_font">Font predefinito</string>
     <string name="title_advanced_auto_identity">Seleziona automaticamente le identità per i nuovi messaggi</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta alla risposta o l\'inoltro</string>
@@ -1183,6 +1185,8 @@
     <string name="title_translate_html_hint">Questo consumerà più caratteri</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tocca il testo da tradurre</string>
+    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Verificando&#8230;</string>
+    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Nessun suggerimento</string>
     <string name="title_edit_plain_text">Modifica come testo semplice</string>
     <string name="title_edit_formatted_text">Modifica come testo riformattato</string>
     <string name="title_select_certificate">Seleziona chiave pubblica</string>

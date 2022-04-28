@@ -95,7 +95,7 @@
     <string name="title_notification_sending_left">Forsøg resterer: %1$d</string>
     <string name="title_notification_sending_retry">Afsendelse gentages ved Internetforbindelsesændringer eller et træk nedad på udbakken</string>
     <string name="title_notification_sending_failed">Afsendelse til %1$s mislykkedes</string>
-    <string name="title_notification_redacted">Redigeret: Biometrisk eller PIN-godkendelse aktiveret</string>
+    <string name="title_notification_redacted">Skjult: Biometrisk eller PIN-godkendelse aktiveret</string>
     <string name="title_factor_minutes">%1$d minutter</string>
     <string name="menu_answers">Skabeloner</string>
     <string name="menu_rules">Regler</string>
@@ -140,7 +140,7 @@
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
     <string name="title_setup_quick_certificates">Servercertifikater</string>
     <string name="title_setup_wizard">Guide</string>
-    <string name="title_setup_wizard_multiple">Guiden kan også anvendes ved fremtidige kontoopsætninger</string>
+    <string name="title_setup_wizard_multiple">Guiden kan anvendes igen ved fremtidige kontoopsætninger</string>
     <string name="title_setup_wizard_new">Jeg behøver en ny e-mailadresse</string>
     <string name="title_setup_manual">Manuel opsætning og kontoindstillinger</string>
     <string name="title_setup_classic">Klassisk opsætning</string>
@@ -328,6 +328,8 @@
     <string name="title_advanced_attach_new">Føj delte filer til et nyt udkast</string>
     <string name="title_advanced_answer_action">Langt tryk på svarknappen vil:</string>
     <string name="title_advanced_send_pending">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
+    <string name="title_advanced_auto_save_paragraph">Gem automatisk udkast efter hvert afsnit</string>
+    <string name="title_advanced_auto_save_dot">Gem automatisk udkast efter hver sætning</string>
     <string name="title_advanced_compose_font">Standardskrifttype</string>
     <string name="title_advanced_auto_identity">Vælg automatisk identiteter for nye beskeder</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
@@ -408,6 +410,7 @@
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
     <string name="title_advanced_bimi_unverified">Ubekræftet afsender</string>
     <string name="title_advanced_bimi_verified">Bekræftet afsender</string>
+    <string name="title_advanced_efavicons">Vis avatarer</string>
     <string name="title_advanced_favicons">Vis favoritkoner</string>
     <string name="title_advanced_favicons_partial">Skan kun de første %1$s af websiden</string>
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
@@ -460,7 +463,7 @@
     <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
     <string name="title_advanced_actionbar_color">Benyt kontofarve som baggrundsfarve til samtalens handlingsbjælke</string>
-    <string name="title_advanced_category_header">Gruppere efter kontokategori</string>
+    <string name="title_advanced_category_header">Gruppering efter kontokategori</string>
     <string name="title_advanced_navbar_colorize">Farvelæg Android-navigeringsbjælken</string>
     <string name="title_advanced_bundled_fonts">Brug bundtede skrifttyper</string>
     <string name="title_advanced_parse_classes">CSS-fortolkning</string>
@@ -835,8 +838,8 @@
     <string name="title_synchronize_subfolders">Undermapper</string>
     <string name="title_synchronize_more">Hent flere beskeder</string>
     <string name="title_synchronize_more_hint">Dette vil resultere i en enkelt download af ældre beskeder uden større strømforbrug end alm. hverdagsbrug</string>
-    <string name="title_synchronize_more_hint2">        Beskeder vil blive hentet så hurtigt som e-mail-serveren kan levere dem og gemt så hurtigt som enheden kan gemme og indeksere dem.
-        Den begrænsende faktor er normalt hastigheden af enhedens interne lagerplads.
+    <string name="title_synchronize_more_hint2">        Beskeder hentes så hurtigt, som e-mail-serveren kan levere dem, og gemmes så hurtigt som enheden kan gemme og indeksere dem.
+        Den begrænsende faktor er normalt hastigheden på enhedens interne lagerplads.
     </string>
     <string name="title_synchronize_more_hint3">Husk, at opbevaring af en masse beskeder (ti tusinde eller flere) på enheden kan forårsage forsinkelser, da den interne lagerplads ikke er lynende hurtigt.</string>
     <string name="title_synchronize_enabled">Synkroniserer</string>
@@ -879,6 +882,7 @@
     <string name="title_delete_operation_deleted">%1$d operationer slettet</string>
     <string name="title_delete_contacts">Slet synlige lokale kontakter?</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>
+    <string name="title_check_operations">Tjekker handlinger</string>
     <string name="title_hint_operations">Sletning af handlinger kan resultere i forsvundne beskeder og synkroniseringsproblemer</string>
     <string name="title_op_title_headers">Downloader overskrifter</string>
     <string name="title_op_title_raw">Downloader besked i råformat</string>
@@ -1035,7 +1039,7 @@
     <string name="title_no_viewer_caption">Ingen fremviser-app tilgængelig</string>
     <string name="title_no_viewer_name">Indholdsnavn</string>
     <string name="title_no_viewer_type">Indholdstype</string>
-    <string name="title_no_viewer_search">Søg efter app</string>
+    <string name="title_no_viewer_search">Søg app</string>
     <string name="title_no_recorder">Ingen passende lydoptager-app tilgængelig</string>
     <string name="title_no_camera">Ingen passende kamera-app tilgængelig</string>
     <string name="title_no_saf">Storage access framework ikke tilgængelig</string>
@@ -1181,6 +1185,8 @@
     <string name="title_translate_html_hint">Dette vil betyde et forøget antal tegn</string>
     <string name="title_translate_usage">Forbrug: %1$s/%2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tryk på teksten, der skal oversættes</string>
+    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Tjekker &#8230;</string>
+    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Ingen forslag</string>
     <string name="title_edit_plain_text">Redigér som almindelig tekst</string>
     <string name="title_edit_formatted_text">Redigér som omformateret tekst</string>
     <string name="title_select_certificate">Vælg offentlig nøgle</string>
@@ -1390,6 +1396,7 @@
     <string name="title_rule_original_text">Medtag oprindelig beskedtekst</string>
     <string name="title_rule_forward_to">Videresend til</string>
     <string name="title_rule_resend">Send igen</string>
+    <string name="title_rule_attached">Vedhæft råbeskedfil</string>
     <string name="title_rule_cc">Svar til Cc-adresser</string>
     <string name="title_rule_with_attachments">Med vedhæftninger</string>
     <string name="title_rule_answer_remark">For at undgå svarsløjfer, sendes kun ét svar til en given samtale</string>

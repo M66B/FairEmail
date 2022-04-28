@@ -326,6 +326,8 @@
     <string name="title_advanced_attach_new">Freigegebene Dateien zu einem neuen Entwurf hinzufügen</string>
     <string name="title_advanced_answer_action">Lange drücken auf die Antwort-Schaltfläche wird:</string>
     <string name="title_advanced_send_pending">Nicht aufdringliches Symbol für verzögertes Senden anzeigen</string>
+    <string name="title_advanced_auto_save_paragraph">Entwurf nach jedem Absatz automatisch speichern</string>
+    <string name="title_advanced_auto_save_dot">Entwurf nach jedem Satz automatisch speichern</string>
     <string name="title_advanced_compose_font">Standardschriftart</string>
     <string name="title_advanced_auto_identity">Identitäten für neue Nachrichten automatisch auswählen</string>
     <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>

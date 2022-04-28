@@ -347,6 +347,8 @@
     <string name="title_advanced_attach_new">Создавать новый черновик для файлов, которыми поделились</string>
     <string name="title_advanced_answer_action">Долгое нажатие на кнопку ответа:</string>
     <string name="title_advanced_send_pending">Показывать ненавязчивый значок задержки отправки</string>
+    <string name="title_advanced_auto_save_paragraph">Автоматически сохранять черновик после каждого абзаца</string>
+    <string name="title_advanced_auto_save_dot">Автоматически сохранять черновик после каждого предложения</string>
     <string name="title_advanced_compose_font">Шрифт по умолчанию</string>
     <string name="title_advanced_auto_identity">Автоматически выбирать идентификаторы для новых сообщений</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
@@ -427,6 +429,7 @@
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_bimi_unverified">Непроверенный отправитель</string>
     <string name="title_advanced_bimi_verified">Проверенный отправитель</string>
+    <string name="title_advanced_efavicons">Показывать аватары</string>
     <string name="title_advanced_favicons">Показывать значки сайтов</string>
     <string name="title_advanced_favicons_partial">Сканировать только %1$s в начале веб-страницы</string>
     <string name="title_advanced_generated_icons">Показывать сгенерированные значки</string>
@@ -1200,6 +1203,8 @@
     <string name="title_translate_html_hint">Будет использоваться больше символов</string>
     <string name="title_translate_usage">Использование: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Нажмите на текст для перевода</string>
+    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Проверка&#8230;</string>
+    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Нет предложений</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>
     <string name="title_select_certificate">Выбор публичного ключа</string>

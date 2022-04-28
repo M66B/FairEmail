@@ -324,9 +324,11 @@
     <string name="title_advanced_send_chips">Προβολή διευθύνσεων μέσα σε φυσαλίδες</string>
     <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
     <string name="title_advanced_send_delayed">Καθυστέρηση στην αποστολή μηνυμάτων</string>
-    <string name="title_advanced_attach_new">Προσθήκη κοινόχρηστων αρχείων σε ένα νέο προσχέδιο</string>
+    <string name="title_advanced_attach_new">Προσθήκη κοινόχρηστων αρχείων σε ένα νέο πρόχειρο</string>
     <string name="title_advanced_answer_action">Το παρατεταμένο πάτημα στο κουμπί απάντησης θα:</string>
     <string name="title_advanced_send_pending">Προβολή διακριτικού εικονιδίου για απεσταλμένα με χρονοκαθυστέρηση</string>
+    <string name="title_advanced_auto_save_paragraph">Αυτόματη αποθήκευση ενός προχείρου μετά από κάθε παράγραφο</string>
+    <string name="title_advanced_auto_save_dot">Αυτόματη αποθήκευση ενός προχείρου μετά από κάθε πρόταση</string>
     <string name="title_advanced_compose_font">Προεπιλεγμένη γραμματοσειρά</string>
     <string name="title_advanced_auto_identity">Αυτόματη επιλογή ταυτοτήτων για νέα μηνύματα</string>
     <string name="title_advanced_prefix_once">Μόνο ένα πρόθεμα κατά την απάντηση ή προώθηση μηνύματος</string>
@@ -343,7 +345,7 @@
     <string name="title_advanced_signature_reply">Χρήση υπογραφής κατά την απάντηση</string>
     <string name="title_advanced_signature_reply_once">Μόνο για την πρώτη απάντηση</string>
     <string name="title_advanced_signature_forward">Χρήση υπογραφής κατά την προώθηση</string>
-    <string name="title_advanced_discard_delete">Οριστική διαγραφή ενός προσχεδίου όταν αυτό απορρίπτεται</string>
+    <string name="title_advanced_discard_delete">Οριστική διαγραφή ενός προχείρου όταν αυτό απορρίπτεται</string>
     <string name="title_advanced_reply_move">Κατά την απάντηση ενός μηνύματος, να αποθηκεύεται η απάντηση μέσα στον ίδιο φάκελο</string>
     <string name="title_advanced_auto_link">Αυτόματη δημιουργία συνδέσμων</string>
     <string name="title_advanced_plain_only">Αποστολή απλού κειμένου από προεπιλογή</string>
@@ -386,7 +388,7 @@
     <string name="title_advanced_nav_hide_title">Απόκρυψη των επιλογών του μενού πλοήγησης;</string>
     <string name="title_advanced_nav_hide_message">Μπορείτε να ενεργοποιήσετε ξανά τις επιλογές στις ρυθμίσεις εμφάνισης</string>
     <string name="title_advanced_nav_message_count">Να προβάλλεται ο αριθμός των τοπικά αποθηκευμένων μηνυμάτων στο μενού πλοήγησης</string>
-    <string name="title_advanced_nav_unseen_drafts">Να προβάλλεται ο αριθμός των μη αναγνωσμένων προσχεδίων στο μενού πλοήγησης</string>
+    <string name="title_advanced_nav_unseen_drafts">Να προβάλλεται ο αριθμός των μη αναγνωσμένων προχείρων στο μενού πλοήγησης</string>
     <string name="title_advanced_nav_pinned_count">Να προβάλλεται ο αριθμός των μη αναγνωσμένων μηνυμάτων στο καρφιτσωμένο μενού πλοήγησης</string>
     <string name="title_advanced_startup">Εμφάνιση στην οθόνη έναρξης</string>
     <string name="title_advanced_cards">Προβολή σε στιλ κάρτας αντί σε στιλ πίνακα</string>
@@ -407,6 +409,7 @@
     <string name="title_advanced_avatars">Προβολή φωτογραφιών επαφών</string>
     <string name="title_advanced_bimi_unverified">Μη επαληθευμένος αποστολέας</string>
     <string name="title_advanced_bimi_verified">Επαληθευμένος αποστολέας</string>
+    <string name="title_advanced_efavicons">Προβολή άβαταρ</string>
     <string name="title_advanced_favicons">Προβολή favicon</string>
     <string name="title_advanced_favicons_partial">Να σαρωθεί μόνο το πρώτο %1$s της ιστοσελίδας</string>
     <string name="title_advanced_generated_icons">Να προβάλλονται εικονίδια που δημιουργούνται αυτόματα</string>

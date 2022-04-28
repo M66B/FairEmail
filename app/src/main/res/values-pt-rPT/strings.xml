@@ -396,6 +396,7 @@
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_bimi_unverified">Remetente não verificado</string>
     <string name="title_advanced_bimi_verified">Remetente verificado</string>
+    <string name="title_advanced_efavicons">Mostrar avatars</string>
     <string name="title_advanced_favicons">Mostrar \"favicons\"</string>
     <string name="title_advanced_favicons_partial">Digitalize apenas a primeira %1$s da página web</string>
     <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>

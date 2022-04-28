@@ -347,6 +347,8 @@
     <string name="title_advanced_attach_new">Dodaj udostępnione pliki do nowego szkicu</string>
     <string name="title_advanced_answer_action">Długie naciśnięcie przycisku odpowiedzi spowoduje:</string>
     <string name="title_advanced_send_pending">Pokaż nieprzeszkadzającą ikonę wysłania z opóźnieniem</string>
+    <string name="title_advanced_auto_save_paragraph">Automatycznie zapisuj wersję roboczą po każdym akapicie</string>
+    <string name="title_advanced_auto_save_dot">Automatycznie zapisuj wersję roboczą po każdym zdaniu</string>
     <string name="title_advanced_compose_font">Domyślna czcionka</string>
     <string name="title_advanced_auto_identity">Automatycznie wybierz tożsamości dla nowych wiadomości</string>
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
@@ -427,6 +429,7 @@
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_bimi_unverified">Niezweryfikowany nadawca</string>
     <string name="title_advanced_bimi_verified">Zweryfikowany nadawca</string>
+    <string name="title_advanced_efavicons">Pokaż awatary</string>
     <string name="title_advanced_favicons">Pokaż favikony</string>
     <string name="title_advanced_favicons_partial">Skanuj tylko pierwsze %1$s strony internetowej</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
@@ -1197,6 +1200,8 @@
     <string name="title_translate_html_hint">Spowoduje to zużycie większej liczby znaków</string>
     <string name="title_translate_usage">Składnia: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Dotknij tekstu, aby przetłumaczyć</string>
+    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Sprawdzanie &#8230;</string>
+    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Brak podpowiedzi</string>
     <string name="title_edit_plain_text">Edytuj jako zwykły tekst</string>
     <string name="title_edit_formatted_text">Edytuj jako sformatowany tekst</string>
     <string name="title_select_certificate">Wybierz klucz publiczny</string>

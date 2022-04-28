@@ -297,6 +297,8 @@
     <string name="title_advanced_suggest_frequently">مرتب‌سازی نشانی‌های پیشنهادی در دفعات استفاده</string>
     <string name="title_advanced_send_reminders">نمایش یادآورها</string>
     <string name="title_advanced_send_delayed">وقفه ارسال پیام‌ها</string>
+    <string name="title_advanced_auto_save_paragraph">پس از هر پاراگراف، پیش‌نویس را خودکار ذخیره کن</string>
+    <string name="title_advanced_auto_save_dot">پس از هر جمله، پیش‌نویس را خودکار ذخیره کن</string>
     <string name="title_advanced_compose_font">قلم پیشفرض</string>
     <string name="title_advanced_auto_identity">برای پیام‌های جدید، هویت را خودکار انتخاب کن</string>
     <string name="title_advanced_write_above">در بالای نوشته فرستنده بنویسید</string>
@@ -349,6 +351,7 @@
     <string name="title_advanced_color_stripe">نمایش نوار رنگ</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_advanced_bimi_verified">فرستنده تایید شده</string>
+    <string name="title_advanced_efavicons">نمایش اواتارها</string>
     <string name="title_advanced_favicons">نمایش فاوآیکون‌ها</string>
     <string name="title_advanced_favicons_partial">تنها %1$s صفحه اول از صفحات وب را اسکن کن</string>
     <string name="title_advanced_generated_icons">نمایس آیکون‌های تولید شده</string>
