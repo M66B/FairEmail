@@ -9290,6 +9290,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
+        if (manager.isDestroyed())
+            return;
+
         Bundle args = new Bundle();
         args.putLong("account", account);
         args.putLong("folder", folder);
