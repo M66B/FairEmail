@@ -4,10 +4,10 @@
 
 ### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
 
-### Next version
+### 1.1886 - 2022-04-28
 
 * Added option to auto save after entering a dot
-* Added LanguageTool support (long press *Save* button)
+* Added LanguageTool support (long press the 'Save' button)
 * Small improvements and minor bug fixes
 * Updated translations
 
