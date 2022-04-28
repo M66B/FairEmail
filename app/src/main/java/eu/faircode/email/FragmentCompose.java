@@ -71,6 +71,7 @@ import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.ArrowKeyMovementMethod;
@@ -2392,17 +2393,25 @@ public class FragmentCompose extends FragmentBase {
     private void onLanguageTool() {
         etBody.clearComposingText();
 
+        Log.i("LT running enabled=" + etBody.isSuggestionsEnabled());
+
         Bundle args = new Bundle();
         args.putCharSequence("text", etBody.getText());
 
         new SimpleTask<List<LanguageTool.Suggestion>>() {
+            private Toast toast = null;
+
             @Override
             protected void onPreExecute(Bundle args) {
+                toast = ToastEx.makeText(getContext(), R.string.title_suggestions_check, Toast.LENGTH_LONG);
+                toast.show();
                 setBusy(true);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
+                if (toast != null)
+                    toast.cancel();
                 setBusy(false);
             }
 
@@ -2414,18 +2423,29 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, List<LanguageTool.Suggestion> suggestions) {
-                // https://developer.android.com/reference/android/text/style/SuggestionSpan
-                final Context context = getContext();
+                if (suggestions == null || suggestions.size() == 0) {
+                    ToastEx.makeText(getContext(), R.string.title_suggestions_none, Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 Editable edit = etBody.getText();
+                if (edit == null)
+                    return;
+
+                // https://developer.android.com/reference/android/text/style/SuggestionSpan
+                for (SuggestionSpanEx span : edit.getSpans(0, edit.length(), SuggestionSpanEx.class)) {
+                    Log.i("LT removing=" + span);
+                    edit.removeSpan(span);
+                }
 
                 for (LanguageTool.Suggestion suggestion : suggestions) {
-                    Log.i("LT suggestion=" + suggestion);
-                    SuggestionSpan span = new SuggestionSpan(context,
+                    Log.i("LT adding=" + suggestion);
+                    SuggestionSpan span = new SuggestionSpanEx(getContext(),
                             suggestion.replacements.toArray(new String[0]),
                             SuggestionSpan.FLAG_MISSPELLED);
                     int start = suggestion.offset;
                     int end = start + suggestion.length;
-                    edit.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
+                    edit.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
             }
 
@@ -2435,6 +2455,20 @@ public class FragmentCompose extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), exex, false);
             }
         }.execute(this, args, "compose:lt");
+    }
+
+    private static class SuggestionSpanEx extends SuggestionSpan {
+        private final int textColorHighlight;
+
+        public SuggestionSpanEx(Context context, String[] suggestions, int flags) {
+            super(context, suggestions, flags);
+            textColorHighlight = Helper.resolveColor(context, android.R.attr.textColorHighlight);
+        }
+
+        @Override
+        public void updateDrawState(TextPaint tp) {
+            tp.bgColor = textColorHighlight;
+        }
     }
 
     private boolean onActionStyle(int action, View anchor) {
