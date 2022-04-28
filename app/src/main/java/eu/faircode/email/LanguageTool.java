@@ -45,9 +45,29 @@ public class LanguageTool {
         // https://languagetool.org/http-api/swagger-ui/#!/default/post_check
         String request =
                 "text=" + URLEncoder.encode(text.toString(), StandardCharsets.UTF_8.name()) +
-                        "&language=auto" +
-                        "&preferredVariants=" + Locale.getDefault().toLanguageTag();
-        Log.i("LT request=" + request);
+                        "&language=auto";
+
+        // curl -X GET --header 'Accept: application/json' 'https://api.languagetool.org/v2/languages
+        String code = null;
+        JSONArray jlanguages;
+        Locale locale = Locale.getDefault();
+        try (InputStream is = context.getAssets().open("languagetool.json")) {
+            String json = Helper.readStream(is);
+            jlanguages = new JSONArray(json);
+        }
+        for (int i = 0; i < jlanguages.length(); i++) {
+            JSONObject jlanguage = jlanguages.getJSONObject(i);
+            String c = jlanguage.optString("longCode");
+            if (locale.toLanguageTag().equals(c) && c.contains("-")) {
+                code = c;
+                break;
+            }
+        }
+
+        if (code != null)
+            request += "&preferredVariants=" + code;
+
+        Log.i("LT locale=" + locale + " request=" + request);
 
         URL url = new URL(LT_URI + "check");
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
