@@ -607,6 +607,8 @@ Some people ask:
 >
 > Alternatively, you can use an app password, please see below.
 >
+> **Note that other email apps, possibly on other devices, which still use your account password could cause your account to be blocked!**
+>
 
 If you use the Play store or GitHub version of FairEmail,
 you can use the quick setup wizard to easily setup a Gmail account and identity.
