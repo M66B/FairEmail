@@ -2296,6 +2296,7 @@ public class FragmentCompose extends FragmentBase {
 
                 new SimpleTask<DeepL.Translation>() {
                     private Object highlightSpan;
+                    private Toast toast;
 
                     @Override
                     protected void onPreExecute(Bundle args) {
@@ -2303,13 +2304,16 @@ public class FragmentCompose extends FragmentBase {
                         highlightSpan = new BackgroundColorSpan(textColorHighlight);
                         etBody.getText().setSpan(highlightSpan, paragraph.first, paragraph.second,
                                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
-                        ToastEx.makeText(context, R.string.title_translating, Toast.LENGTH_SHORT).show();
+                        toast = ToastEx.makeText(context, R.string.title_translating, Toast.LENGTH_SHORT);
+                        toast.show();
                     }
 
                     @Override
                     protected void onPostExecute(Bundle args) {
                         if (highlightSpan != null)
                             etBody.getText().removeSpan(highlightSpan);
+                        if (toast != null)
+                            toast.cancel();
                     }
 
                     @Override
