@@ -181,9 +181,11 @@ public class MessageClassifier {
         DB db = DB.getInstance(context);
         for (String clazz : new ArrayList<>(classMessages.get(message.account).keySet())) {
             EntityFolder folder = db.folder().getFolderByName(message.account, clazz);
-            if (folder == null) {
+            if (folder == null || !folder.auto_classify_source) {
                 EntityLog.log(context, EntityLog.Type.Classification, message,
-                        "Classifier deleting folder class=" + message.account + ":" + clazz);
+                        "Classifier deleting folder" +
+                                " class=" + message.account + ":" + clazz +
+                                " exists=" + (folder != null));
                 classMessages.get(message.account).remove(clazz);
                 for (String word : wordClassFrequency.get(message.account).keySet())
                     wordClassFrequency.get(message.account).get(word).remove(clazz);
