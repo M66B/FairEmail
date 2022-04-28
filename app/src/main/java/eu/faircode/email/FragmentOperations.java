@@ -152,9 +152,18 @@ public class FragmentOperations extends FragmentBase {
                             args.putBoolean("delete", cbDelete.isChecked());
 
                             new SimpleTask<Integer>() {
+                                private Toast toast = null;
+
                                 @Override
                                 protected void onPostExecute(Bundle args) {
-                                    ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG).show();
+                                    toast = ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG);
+                                    toast.show();
+                                }
+
+                                @Override
+                                protected void onPreExecute(Bundle args) {
+                                    if (toast != null)
+                                        toast.cancel();
                                 }
 
                                 @Override

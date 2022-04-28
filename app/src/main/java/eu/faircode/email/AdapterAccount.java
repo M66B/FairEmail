@@ -571,11 +571,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
                     new SimpleTask<Void>() {
                         @Override
-                        protected void onPostExecute(Bundle args) {
-                            ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
-                        }
-
-                        @Override
                         protected Void onExecute(Context context, Bundle args) throws Throwable {
                             long id = args.getLong("id");
 
@@ -583,6 +578,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             db.account().resetCreated(id);
 
                             return null;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Void data) {
+                            ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
                         }
 
                         @Override

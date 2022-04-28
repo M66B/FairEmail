@@ -906,14 +906,18 @@ public class FragmentFolders extends FragmentBase {
 
     private void onDeleteLocal(Bundle args) {
         new SimpleTask<Void>() {
+            private Toast toast = null;
+
             @Override
             protected void onPreExecute(Bundle args) {
-                ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+                toast = ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG);
+                toast.show();
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
-                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                if (toast != null)
+                    toast.cancel();
             }
 
             @Override
@@ -962,6 +966,11 @@ public class FragmentFolders extends FragmentBase {
                 WorkerCleanup.cleanup(context, false);
 
                 return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -1062,9 +1071,18 @@ public class FragmentFolders extends FragmentBase {
 
     private void onExecuteRules(Bundle args) {
         new SimpleTask<Integer>() {
+            private Toast toast = null;
+
             @Override
             protected void onPreExecute(Bundle args) {
-                ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+                toast = ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG);
+                toast.show();
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                if (toast != null)
+                    toast.cancel();
             }
 
             @Override
@@ -1149,14 +1167,18 @@ public class FragmentFolders extends FragmentBase {
         args.putParcelable("uri", uri);
 
         new SimpleTask<Void>() {
+            private Toast toast = null;
+
             @Override
             protected void onPreExecute(Bundle args) {
-                ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+                toast = ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG);
+                toast.show();
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
-                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                if (toast != null)
+                    toast.cancel();
             }
 
             @Override
@@ -1297,6 +1319,11 @@ public class FragmentFolders extends FragmentBase {
                 }
 
                 return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
             }
 
             @Override

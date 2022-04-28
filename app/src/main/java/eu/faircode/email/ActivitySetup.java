@@ -590,9 +590,18 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         args.putString("password", this.password);
 
         new SimpleTask<Void>() {
+            private Toast toast = null;
+
             @Override
             protected void onPreExecute(Bundle args) {
-                ToastEx.makeText(ActivitySetup.this, R.string.title_executing, Toast.LENGTH_LONG).show();
+                toast = ToastEx.makeText(ActivitySetup.this, R.string.title_executing, Toast.LENGTH_LONG);
+                toast.show();
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                if (toast != null)
+                    toast.cancel();
             }
 
             @Override

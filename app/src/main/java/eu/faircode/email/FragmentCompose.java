@@ -2296,7 +2296,7 @@ public class FragmentCompose extends FragmentBase {
 
                 new SimpleTask<DeepL.Translation>() {
                     private Object highlightSpan;
-                    private Toast toast;
+                    private Toast toast = null;
 
                     @Override
                     protected void onPreExecute(Bundle args) {

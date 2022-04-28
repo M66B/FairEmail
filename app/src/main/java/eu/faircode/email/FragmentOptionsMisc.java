@@ -790,7 +790,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                     @Override
                                     protected void onPostExecute(Bundle args) {
                                         prefs.edit().remove("debug").apply();
-                                        ToastEx.makeText(v.getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
                                     }
 
                                     @Override
@@ -829,6 +828,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
                                     @Override
                                     protected void onExecuted(Bundle args, Void data) {
+                                        ToastEx.makeText(v.getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
                                         ServiceSynchronize.reload(v.getContext(), null, true, "repair");
                                     }
 
@@ -1613,22 +1613,31 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private void onCleanup() {
         new SimpleTask<Void>() {
+            private Toast toast = null;
+
             @Override
             protected void onPreExecute(Bundle args) {
                 btnCleanup.setEnabled(false);
-                ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+                toast = ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG);
+                toast.show();
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
                 btnCleanup.setEnabled(true);
-                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                if (toast != null)
+                    toast.cancel();
             }
 
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 WorkerCleanup.cleanup(context, true);
                 return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
             }
 
             @Override
