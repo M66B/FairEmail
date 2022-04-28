@@ -1254,6 +1254,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     @Override
     public void onBackStackChanged() {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if (count == 0)
             finish();
