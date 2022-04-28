@@ -1385,7 +1385,7 @@ class Core {
         // De-classify
         if (!copy)
             for (EntityMessage message : messages)
-                MessageClassifier.classify(message, folder, target, context);
+                MessageClassifier.classify(message, folder, false, context);
 
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
@@ -1997,7 +1997,7 @@ class Core {
                 plain_only,
                 message.preview,
                 parts.getWarnings(message.warning));
-        MessageClassifier.classify(message, folder, null, context);
+        MessageClassifier.classify(message, folder, true, context);
 
         if (body != null)
             EntityLog.log(context, "Operation body size=" + body.length());
@@ -4261,7 +4261,7 @@ class Core {
                                     parts.isPlainOnly(download_plain),
                                     message.preview,
                                     parts.getWarnings(message.warning));
-                            MessageClassifier.classify(message, folder, null, context);
+                            MessageClassifier.classify(message, folder, true, context);
 
                             if (stats != null && body != null)
                                 stats.content += body.length();
@@ -4428,7 +4428,7 @@ class Core {
 
             if (process) {
                 EntityContact.received(context, account, folder, message);
-                MessageClassifier.classify(message, folder, null, context);
+                MessageClassifier.classify(message, folder, true, context);
             } else
                 Log.d(folder.name + " unchanged uid=" + uid);
 
@@ -4746,7 +4746,7 @@ class Core {
                             parts.isPlainOnly(),
                             message.preview,
                             parts.getWarnings(message.warning));
-                    MessageClassifier.classify(message, folder, null, context);
+                    MessageClassifier.classify(message, folder, true, context);
 
                     if (stats != null && body != null)
                         stats.content += body.length();
