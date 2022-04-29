@@ -88,9 +88,11 @@ public class MessageClassifier {
             long elapsed = new Date().getTime() - start;
             EntityLog.log(context, EntityLog.Type.Classification, message,
                     "Classifier" +
-                            " folder=" + folder.name +
+                            " folder=" + folder.account + ":" + folder.name + ":" + folder.type +
                             " added=" + added +
-                            " message=" + message.id +
+                            " message=" + message.id + "/" + !TextUtils.isEmpty(message.msgid) +
+                            " keyword=" + message.hasKeyword(MessageHelper.FLAG_CLASSIFIED) +
+                            " filtered=" + message.hasKeyword(MessageHelper.FLAG_FILTERED) +
                             "@" + new Date(message.received) +
                             ":" + message.subject +
                             " class=" + classified +
