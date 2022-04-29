@@ -317,6 +317,8 @@
     <string name="title_advanced_attach_new">将共享文件添加到新草稿</string>
     <string name="title_advanced_answer_action">长按回复按钮动作：</string>
     <string name="title_advanced_send_pending">显示不显眼的 \"延迟发送\" 图标 (页面左下角)</string>
+    <string name="title_advanced_auto_save_paragraph">在每一段后自动保存草稿</string>
+    <string name="title_advanced_auto_save_dot">每句后自动保存草稿</string>
     <string name="title_advanced_compose_font">默认字体</string>
     <string name="title_advanced_auto_identity">自动选择新邮件的身份</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
@@ -397,6 +399,7 @@
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_bimi_unverified">未验证的发送者</string>
     <string name="title_advanced_bimi_verified">已验证的发送者</string>
+    <string name="title_advanced_efavicons">显示头像</string>
     <string name="title_advanced_favicons">显示网页图标</string>
     <string name="title_advanced_favicons_partial">只扫描网页的前 %1$s 数据</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
@@ -1165,6 +1168,8 @@
     <string name="title_translate_html_hint">这将耗费更多字符</string>
     <string name="title_translate_usage">用量： %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">点击要翻译的文本</string>
+    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">正在检查 &#8230;</string>
+    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">无建议</string>
     <string name="title_edit_plain_text">以纯文本形式编辑</string>
     <string name="title_edit_formatted_text">编辑为重新格式化的文本</string>
     <string name="title_select_certificate">选择公钥</string>

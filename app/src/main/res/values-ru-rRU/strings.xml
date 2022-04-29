@@ -1203,7 +1203,7 @@
     <string name="title_translate_html_hint">Будет использоваться больше символов</string>
     <string name="title_translate_usage">Использование: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Нажмите на текст для перевода</string>
-    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Проверка&#8230;</string>
+    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Проверка &#8230;</string>
     <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Нет предложений</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>

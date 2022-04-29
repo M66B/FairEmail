@@ -816,6 +816,7 @@
     <string name="title_insert_template">درج قالب</string>
     <string name="title_translate_html">قالب‌بندی را حفظ کن</string>
     <string name="title_translate_html_hint">این، کاراکترهای بیشتری را به کار خواهد برد</string>
+    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">بدون پیشنهاد</string>
     <string name="title_edit_plain_text">ویرایش مانند متن ساده</string>
     <string name="title_select_certificate">انتخاب کلید عمومی</string>
     <string name="title_certificate_missing">کلید عمومی برای %1$s نیست</string>
