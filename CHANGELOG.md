@@ -4,6 +4,11 @@
 
 ### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
 
+### 1.1887 - 2022-04-29
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1886 - 2022-04-28
 
 * Added option to auto save after entering a dot
