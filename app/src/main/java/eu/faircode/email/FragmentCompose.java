@@ -2402,7 +2402,7 @@ public class FragmentCompose extends FragmentBase {
         Bundle args = new Bundle();
         args.putCharSequence("text", etBody.getText());
 
-        new SimpleTask<List<LanguageTool.Suggestion>>() {
+        new SimpleTask<List<LT.Suggestion>>() {
             private Toast toast = null;
 
             @Override
@@ -2420,13 +2420,13 @@ public class FragmentCompose extends FragmentBase {
             }
 
             @Override
-            protected List<LanguageTool.Suggestion> onExecute(Context context, Bundle args) throws Throwable {
+            protected List<LT.Suggestion> onExecute(Context context, Bundle args) throws Throwable {
                 CharSequence text = args.getCharSequence("text").toString();
-                return LanguageTool.getSuggestions(context, text);
+                return LT.getSuggestions(context, text);
             }
 
             @Override
-            protected void onExecuted(Bundle args, List<LanguageTool.Suggestion> suggestions) {
+            protected void onExecuted(Bundle args, List<LT.Suggestion> suggestions) {
                 if (suggestions == null || suggestions.size() == 0) {
                     ToastEx.makeText(getContext(), R.string.title_suggestions_none, Toast.LENGTH_LONG).show();
                     return;
@@ -2442,7 +2442,7 @@ public class FragmentCompose extends FragmentBase {
                     edit.removeSpan(span);
                 }
 
-                for (LanguageTool.Suggestion suggestion : suggestions) {
+                for (LT.Suggestion suggestion : suggestions) {
                     Log.i("LT adding=" + suggestion);
                     SuggestionSpan span = new SuggestionSpanEx(getContext(),
                             suggestion.replacements.toArray(new String[0]),

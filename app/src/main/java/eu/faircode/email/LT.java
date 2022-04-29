@@ -37,9 +37,8 @@ import java.util.Locale;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class LanguageTool {
+public class LT {
     private static final int LT_TIMEOUT = 20; // seconds
-    private static final String LT_URI = "https://api.languagetool.org/v2/";
 
     static List<Suggestion> getSuggestions(Context context, CharSequence text) throws IOException, JSONException {
         // https://languagetool.org/http-api/swagger-ui/#!/default/post_check
@@ -51,7 +50,7 @@ public class LanguageTool {
         String code = null;
         JSONArray jlanguages;
         Locale locale = Locale.getDefault();
-        try (InputStream is = context.getAssets().open("languagetool.json")) {
+        try (InputStream is = context.getAssets().open("lt.json")) {
             String json = Helper.readStream(is);
             jlanguages = new JSONArray(json);
         }
@@ -69,7 +68,7 @@ public class LanguageTool {
 
         Log.i("LT locale=" + locale + " request=" + request);
 
-        URL url = new URL(LT_URI + "check");
+        URL url = new URL(BuildConfig.LT_URI + "check");
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
