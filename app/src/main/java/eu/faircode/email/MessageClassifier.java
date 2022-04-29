@@ -263,9 +263,6 @@ public class MessageClassifier {
         if (BuildConfig.DEBUG)
             Log.i("Classifier words=" + state.words.size() + " " + TextUtils.join(", ", state.words));
 
-        if (chances.size() <= 1)
-            return null;
-
         // Sort classes by chance
         Collections.sort(chances, new Comparator<Chance>() {
             @Override
@@ -277,6 +274,22 @@ public class MessageClassifier {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         double class_min_chance = prefs.getInt("class_min_probability", 15) / 100.0;
         double class_min_difference = prefs.getInt("class_min_difference", 50) / 100.0;
+
+        // Special case: pick first best target class
+        if (class_min_difference == 0) {
+            for (Chance chance : chances)
+                if (chance.chance > class_min_chance) {
+                    EntityFolder target = db.folder().getFolderByName(message.account, chance.clazz);
+                    if (target != null && target.auto_classify_target) {
+                        Log.i("Classifier current=" + currentClass + " classified=" + chance.clazz);
+                        return chance.clazz;
+                    }
+                }
+            return null;
+        }
+
+        if (chances.size() <= 1)
+            return null;
 
         // Select best class
         String classification = null;
