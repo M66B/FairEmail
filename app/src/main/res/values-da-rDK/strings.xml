@@ -140,7 +140,7 @@
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
     <string name="title_setup_quick_certificates">Servercertifikater</string>
     <string name="title_setup_wizard">Guide</string>
-    <string name="title_setup_wizard_multiple">Guiden kan anvendes igen ved fremtidige kontoopsætninger</string>
+    <string name="title_setup_wizard_multiple">Guiden kan anvendes ved hver ny kontoopsætning</string>
     <string name="title_setup_wizard_new">Jeg behøver en ny e-mailadresse</string>
     <string name="title_setup_manual">Manuel opsætning og kontoindstillinger</string>
     <string name="title_setup_classic">Klassisk opsætning</string>

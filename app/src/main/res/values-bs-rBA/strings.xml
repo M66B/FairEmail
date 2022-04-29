@@ -338,6 +338,8 @@
     <string name="title_advanced_attach_new">Dodaj dijeljene datoteke u novi nacrt</string>
     <string name="title_advanced_answer_action">Dugo pritiskanje tipke \'odgovor\' će:</string>
     <string name="title_advanced_send_pending">Prikaži nenametljivu ikonicu za odgođeno slanje</string>
+    <string name="title_advanced_auto_save_paragraph">Automatski sačuvaj nacrt nakon svakog paragrafa</string>
+    <string name="title_advanced_auto_save_dot">Automatski sačuvaj nacrt nakon svake rečenice</string>
     <string name="title_advanced_compose_font">Zadani font</string>
     <string name="title_advanced_auto_identity">Automatski izbor identiteta za nove poruke</string>
     <string name="title_advanced_prefix_once">Prefiks predmeta samo jedanput pri odgovoru ili prosljeđenju</string>
@@ -418,6 +420,7 @@
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_bimi_unverified">Nepotvrđeni pošiljalac</string>
     <string name="title_advanced_bimi_verified">Potvrđeni pošiljalac</string>
+    <string name="title_advanced_efavicons">Prikaži avatare</string>
     <string name="title_advanced_favicons">Prikaži fav ikonice</string>
     <string name="title_advanced_favicons_partial">Skeniraj samo prva(ih) %1$s web stranice</string>
     <string name="title_advanced_generated_icons">Prikaži generisane ikonice</string>
@@ -1191,6 +1194,8 @@
     <string name="title_translate_html_hint">Ovo će zauzimati više znakova</string>
     <string name="title_translate_usage">Iskorištenje: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Dodirnite tekst za prevođenje</string>
+    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Provjera &#8230;</string>
+    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Bez prijedloga</string>
     <string name="title_edit_plain_text">Uredi kao obični tekst</string>
     <string name="title_edit_formatted_text">Uredi kao preformatirani tekst</string>
     <string name="title_select_certificate">Izaberi javni ključ</string>
