@@ -4323,6 +4323,7 @@ Considering the default option values:
 * Apples 50 % and bananas 20 % would result in selecting apples
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+This is also why only folders of the same account will be considered.
 
 You can delete all classification data by turning classification in the miscellaneous settings three times off.
 This will be necessary when classification for a folder is enabled or disabled (or when a folder is deleted)
