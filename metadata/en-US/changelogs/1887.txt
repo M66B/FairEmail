@@ -2,6 +2,15 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### Next version
+
+* Added quick actions for selected messages
+* Added widget option to disable separator lines
+* Added widget highlight color selection
+* Added search for sender for single selected message
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### [Hulsanpes](https://en.wikipedia.org/wiki/Hulsanpes)
 
 ### 1.1887 - 2022-04-29
