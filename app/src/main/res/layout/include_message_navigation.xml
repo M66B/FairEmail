@@ -244,10 +244,10 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_search"
+            android:contentDescription="@string/title_search_sender"
             android:padding="6dp"
             android:scaleType="fitCenter"
-            android:tooltipText="@string/title_search"
+            android:tooltipText="@string/title_search_sender"
             app:srcCompat="@drawable/twotone_search_24"
             tools:ignore="MissingConstraints" />
 

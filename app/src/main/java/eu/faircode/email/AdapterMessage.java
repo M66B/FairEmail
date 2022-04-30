@@ -4489,71 +4489,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onSearchContact(TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
-
-            new SimpleTask<Address[]>() {
-                @Override
-                protected Address[] onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message == null)
-                        return null;
-
-                    EntityFolder folder = db.folder().getFolder(message.folder);
-                    if (folder == null)
-                        return null;
-
-                    boolean ingoing = false;
-                    boolean outgoing = EntityFolder.isOutgoing(folder.type);
-
-                    if (message.identity != null) {
-                        EntityIdentity identity = db.identity().getIdentity(message.identity);
-                        if (identity == null)
-                            return null;
-
-                        if (message.to != null)
-                            for (Address recipient : message.to)
-                                if (identity.similarAddress(recipient)) {
-                                    ingoing = true;
-                                    break;
-                                }
-
-                        if (message.from != null)
-                            for (Address sender : message.from)
-                                if (identity.similarAddress(sender)) {
-                                    outgoing = true;
-                                    break;
-                                }
-                    }
-
-                    if (outgoing && ingoing && message.reply != null)
-                        return message.reply;
-
-                    return (outgoing ? message.to : message.from);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, Address[] addresses) {
-                    if (addresses == null || addresses.length == 0)
-                        return;
-
-                    String query = ((InternetAddress) addresses[0]).getAddress();
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                    lbm.sendBroadcast(
-                            new Intent(ActivityView.ACTION_SEARCH_ADDRESS)
-                                    .putExtra("account", -1L)
-                                    .putExtra("folder", -1L)
-                                    .putExtra("query", query));
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:search");
+            FragmentMessages.searchSender(context, owner, parentFragment.getParentFragmentManager(), message.id);
         }
 
         @TargetApi(Build.VERSION_CODES.O)

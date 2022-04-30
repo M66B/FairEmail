@@ -3453,6 +3453,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     popupMenu.getMenu().add(Menu.FIRST, R.string.title_copy_to, order++, R.string.title_copy_to)
                             .setIcon(R.drawable.twotone_file_copy_24);
 
+                if (ids.length == 1)
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_search_sender, order++, R.string.title_search_sender)
+                            .setIcon(R.drawable.twotone_search_24);
+
                 popupMenu.insertIcons(context);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -3518,6 +3522,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             return true;
                         } else if (itemId == R.string.title_copy_to) {
                             onActionMoveSelectionAccount(result.copyto.id, true, result.folders);
+                            return true;
+                        } else if (itemId == R.string.title_search_sender) {
+                            long[] ids = getSelection();
+                            if (ids.length != 1)
+                                return false;
+                            searchSender(getContext(), getViewLifecycleOwner(), getParentFragmentManager(), ids[0]);
                             return true;
                         }
                         return false;
@@ -9305,6 +9315,74 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
         fragmentTransaction.commit();
+    }
+
+    static void searchSender(Context context, LifecycleOwner owner, FragmentManager fm, long message) {
+        Bundle args = new Bundle();
+        args.putLong("id", message);
+
+        new SimpleTask<Address[]>() {
+            @Override
+            protected Address[] onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                EntityMessage message = db.message().getMessage(id);
+                if (message == null)
+                    return null;
+
+                EntityFolder folder = db.folder().getFolder(message.folder);
+                if (folder == null)
+                    return null;
+
+                boolean ingoing = false;
+                boolean outgoing = EntityFolder.isOutgoing(folder.type);
+
+                if (message.identity != null) {
+                    EntityIdentity identity = db.identity().getIdentity(message.identity);
+                    if (identity == null)
+                        return null;
+
+                    if (message.to != null)
+                        for (Address recipient : message.to)
+                            if (identity.similarAddress(recipient)) {
+                                ingoing = true;
+                                break;
+                            }
+
+                    if (message.from != null)
+                        for (Address sender : message.from)
+                            if (identity.similarAddress(sender)) {
+                                outgoing = true;
+                                break;
+                            }
+                }
+
+                if (outgoing && ingoing && message.reply != null)
+                    return message.reply;
+
+                return (outgoing ? message.to : message.from);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Address[] addresses) {
+                if (addresses == null || addresses.length == 0)
+                    return;
+
+                String query = ((InternetAddress) addresses[0]).getAddress();
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_SEARCH_ADDRESS)
+                                .putExtra("account", -1L)
+                                .putExtra("folder", -1L)
+                                .putExtra("query", query));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(fm, ex);
+            }
+        }.execute(context, owner, args, "message:search");
     }
 
     private static class ActionData {
