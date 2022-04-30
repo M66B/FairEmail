@@ -1427,7 +1427,7 @@ class Core {
                 for (Message imessage : map.keySet()) {
                     EntityMessage message = map.get(imessage);
 
-                    File file = File.createTempFile("draft", "." + message.id, context.getCacheDir());
+                    File file = new File(message.getFile(context).getAbsoluteFile() + ".copy");
                     try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                         imessage.writeTo(os);
                     }
