@@ -500,6 +500,66 @@
         app:layout_anchor="@id/fabMore"
         app:layout_anchorGravity="center_horizontal|bottom" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:alpha="0.6"
+        app:cardBackgroundColor="?attr/colorActionBackground"
+        app:cardCornerRadius="3dp"
+        app:layout_anchor="@+id/fabMore"
+        app:layout_anchorGravity="center_vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="3dp">
+
+            <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibArchive"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_archive"
+                android:padding="3dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_archive"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_archive_24" />
+
+            <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibJunk"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_folder_junk"
+                android:padding="3dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_folder_junk"
+                app:layout_constraintEnd_toStartOf="@id/ibArchive"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_report_24" />
+
+            <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibTrash"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_delete"
+                android:padding="3dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_delete"
+                app:layout_constraintEnd_toStartOf="@id/ibJunk"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_delete_24" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabSearch"
         android:layout_width="wrap_content"

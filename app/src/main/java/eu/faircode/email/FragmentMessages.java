@@ -125,6 +125,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.MenuCompat;
@@ -289,6 +290,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private FloatingActionButton fabCompose;
     private FloatingActionButton fabMore;
     private TextView tvSelectedCount;
+    private CardView cardMore;
+    private ImageButton ibArchive;
+    private ImageButton ibJunk;
+    private ImageButton ibTrash;
     private FloatingActionButton fabSearch;
     private FloatingActionButton fabError;
     private ObjectAnimator animator;
@@ -416,7 +421,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             "time", "unread", "starred", "priority"
     ));
 
-    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "decrypt");
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "messages");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -550,6 +555,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabCompose = view.findViewById(R.id.fabCompose);
         fabMore = view.findViewById(R.id.fabMore);
         tvSelectedCount = view.findViewById(R.id.tvSelectedCount);
+        cardMore = view.findViewById(R.id.cardMore);
+        ibArchive = view.findViewById(R.id.ibArchive);
+        ibJunk = view.findViewById(R.id.ibJunk);
+        ibTrash = view.findViewById(R.id.ibTrash);
         fabSearch = view.findViewById(R.id.fabSearch);
         fabError = view.findViewById(R.id.fabError);
 
@@ -1276,6 +1285,27 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
+        ibArchive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionMoveSelection(EntityFolder.ARCHIVE, false);
+            }
+        });
+
+        ibJunk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionJunkSelection();
+            }
+        });
+
+        ibTrash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionMoveSelection(EntityFolder.TRASH, false);
+            }
+        });
+
         fabSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1489,6 +1519,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         fabMore.hide();
         tvSelectedCount.setVisibility(View.GONE);
+        cardMore.setVisibility(View.GONE);
+        ibArchive.setVisibility(View.GONE);
+        ibJunk.setVisibility(View.GONE);
+        ibTrash.setVisibility(View.GONE);
         fabError.hide();
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
@@ -5719,9 +5753,77 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             } else
                 tvSelectedCount.setCompoundDrawablesRelative(null, null, null, null);
             tvSelectedCount.setVisibility(View.VISIBLE);
+
+            Bundle args = new Bundle();
+            args.putLongArray("ids", getSelection());
+
+            new SimpleTask<Boolean[]>() {
+                @Override
+                protected Boolean[] onExecute(Context context, Bundle args) {
+                    long[] ids = args.getLongArray("ids");
+
+                    Boolean[] result = new Boolean[3];
+                    result[0] = false;
+                    result[1] = false;
+                    result[2] = false;
+
+                    DB db = DB.getInstance(context);
+
+                    for (long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            continue;
+
+                        EntityFolder folder = db.folder().getFolder(message.folder);
+                        if (folder == null)
+                            continue;
+
+                        if (!result[0] &&
+                                !EntityFolder.ARCHIVE.equals(folder.type)) {
+                            EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+                            result[0] = (archive != null && archive.selectable);
+                        }
+
+                        if (!result[1] &&
+                                !EntityFolder.JUNK.equals(folder.type) &&
+                                !EntityFolder.DRAFTS.equals(folder.type)) {
+                            EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                            result[1] = (junk != null && junk.selectable);
+                        }
+
+                        if (!result[2] &&
+                                !EntityFolder.TRASH.equals(folder.type) &&
+                                !EntityFolder.JUNK.equals(folder.type)) {
+                            EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                            result[2] = (trash != null && trash.selectable);
+                        }
+
+                        if (result[0] && result[1] && result[2])
+                            break;
+                    }
+
+                    return result;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Boolean[] result) {
+                    cardMore.setVisibility(fabMore.isOrWillBeShown() &&
+                            (result[0] || result[1] || result[2])
+                            ? View.VISIBLE : View.GONE);
+                    ibArchive.setVisibility(result[0] ? View.VISIBLE : View.GONE);
+                    ibJunk.setVisibility(result[1] ? View.VISIBLE : View.GONE);
+                    ibTrash.setVisibility(result[2] ? View.VISIBLE : View.GONE);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.setExecutor(executor).execute(this, args, "fabs");
         } else {
             fabMore.hide();
             tvSelectedCount.setVisibility(View.GONE);
+            cardMore.setVisibility(View.GONE);
         }
     }
 
