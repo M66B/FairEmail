@@ -5881,6 +5881,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void onLoading() {
             loading = true;
+            initialized = true;
             updateListState("Loading", SimpleTask.getCount(), adapter == null ? 0 : adapter.getItemCount());
         }
 
@@ -5948,7 +5949,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             updateExpanded();
 
-            initialized = true;
+            if (viewType != AdapterMessage.ViewType.SEARCH)
+                initialized = true;
             updateListState("Observed", SimpleTask.getCount(), messages.size());
 
             grpReady.setVisibility(View.VISIBLE);
