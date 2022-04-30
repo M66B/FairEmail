@@ -40,6 +40,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
 import android.os.Environment;
+import android.os.storage.StorageManager;
 import android.provider.Settings;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -1811,7 +1812,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
             new SimpleTask<StorageData>() {
                 @Override
-                protected StorageData onExecute(Context context, Bundle args) throws Throwable {
+                protected StorageData onExecute(Context context, Bundle args) {
                     StorageData data = new StorageData();
                     Runtime rt = Runtime.getRuntime();
                     data.hused = rt.totalMemory() - rt.freeMemory();
@@ -1820,6 +1821,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     data.available = Helper.getAvailableStorageSpace();
                     data.total = Helper.getTotalStorageSpace();
                     data.used = Helper.getSize(context.getFilesDir());
+                    data.cache = Helper.getCacheSize(context);
                     return data;
                 }
 
@@ -1833,7 +1835,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     tvStorageUsage.setText(getString(R.string.title_advanced_storage_usage,
                             Helper.humanReadableByteCount(data.total - data.available),
                             Helper.humanReadableByteCount(data.total),
-                            Helper.humanReadableByteCount(data.used)));
+                            Helper.humanReadableByteCount(data.used),
+                            data.cache > 0 ? Helper.humanReadableByteCount(data.cache) : "-"));
 
                     getView().postDelayed(new Runnable() {
                         @Override
@@ -1989,5 +1992,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         private long available;
         private long total;
         private long used;
+        private long cache;
     }
 }

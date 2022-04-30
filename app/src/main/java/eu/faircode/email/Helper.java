@@ -54,6 +54,7 @@ import android.os.LocaleList;
 import android.os.Parcel;
 import android.os.PowerManager;
 import android.os.StatFs;
+import android.os.storage.StorageManager;
 import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
@@ -2016,6 +2017,18 @@ public class Helper {
     static long getTotalStorageSpace() {
         StatFs stats = new StatFs(Environment.getDataDirectory().getAbsolutePath());
         return stats.getTotalBytes();
+    }
+
+    static long getCacheSize(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            try {
+                StorageManager sm = Helper.getSystemService(context, StorageManager.class);
+                File cache = context.getCacheDir();
+                return sm.getCacheQuotaBytes(sm.getUuidForPath(cache));
+            } catch (IOException ex) {
+                Log.w(ex);
+            }
+        return -1;
     }
 
     static long getSize(File dir) {

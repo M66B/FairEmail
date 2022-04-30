@@ -1886,10 +1886,12 @@ public class Log {
         long storage_available = Helper.getAvailableStorageSpace();
         long storage_total = Helper.getTotalStorageSpace();
         long storage_used = Helper.getSize(context.getFilesDir());
-        sb.append(String.format("Storage space: %s/%s App: %s\r\n",
+        long cache = Helper.getCacheSize(context);
+        sb.append(String.format("Storage space: %s/%s App: %s cache: %s\r\n",
                 Helper.humanReadableByteCount(storage_total - storage_available),
                 Helper.humanReadableByteCount(storage_total),
-                Helper.humanReadableByteCount(storage_used)));
+                Helper.humanReadableByteCount(storage_used),
+                cache > 0 ? Helper.humanReadableByteCount(cache) : "-"));
 
         Runtime rt = Runtime.getRuntime();
         long hused = (rt.totalMemory() - rt.freeMemory()) / 1024L / 1024L;
