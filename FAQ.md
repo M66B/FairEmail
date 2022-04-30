@@ -1025,6 +1025,7 @@ Searching on the server might be case sensitive or case insensitive and might be
 
 Some servers cannot handle searching in the message text when there are a large number of messages.
 For this case there is an option to disable searching in the message text.
+Since version 1.1888 a popup message will be shown and the search will automatically be retried without searching in the message text.
 
 It is possible to use Gmail search operators by prefixing a search command with *raw:*.
 If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox.
