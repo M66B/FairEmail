@@ -5789,6 +5789,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
+        public void onWarning(String message) {
+            ToastEx.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+        }
+
+        @Override
         public void onException(@NonNull Throwable ex) {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                 if (ex instanceof IllegalStateException) {
