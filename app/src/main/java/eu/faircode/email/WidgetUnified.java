@@ -49,6 +49,7 @@ public class WidgetUnified extends AppWidgetProvider {
             long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
             long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
             String type = prefs.getString("widget." + appWidgetId + ".type", null);
+            boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
             boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
             int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
             int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
@@ -167,6 +168,8 @@ public class WidgetUnified extends AppWidgetProvider {
                         ? R.drawable.twotone_edit_24_black
                         : R.drawable.twotone_edit_24_white);
             }
+
+            views.setViewVisibility(R.id.separator, separators ? View.VISIBLE : View.GONE);
 
             int dp6 = Helper.dp2pixels(context, 6);
             views.setViewPadding(R.id.content, dp6, 0, dp6, 0);

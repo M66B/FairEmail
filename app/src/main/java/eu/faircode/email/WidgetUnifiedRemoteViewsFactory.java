@@ -59,6 +59,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private boolean unseen;
     private boolean flagged;
     private boolean highlight;
+    private boolean separators;
     private boolean semi;
     private int background;
     private int font;
@@ -101,6 +102,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
         highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
+        separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
         semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
         font = prefs.getInt("widget." + appWidgetId + ".font", 0);
@@ -239,7 +241,9 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             views.setTextColor(idTime, textColor);
             views.setTextColor(idSubject, textColor);
             views.setTextColor(idAccount, textColor);
+
             views.setInt(R.id.separator, "setBackgroundColor", colorSeparator);
+            views.setViewVisibility(R.id.separator, separators ? View.VISIBLE : View.GONE);
 
             views.setViewVisibility(idAccount, account < 0 ? View.VISIBLE : View.GONE);
 
