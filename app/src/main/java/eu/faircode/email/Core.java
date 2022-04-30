@@ -2912,10 +2912,10 @@ class Core {
                             msgid = helper.getMessageID();
 
                             if (TextUtils.isEmpty(msgid)) {
-                                Long time = helper.getReceived();
+                                Long time = helper.getSent();
                                 if (time == null)
-                                    time = helper.getSent();
-                                if (time != null)
+                                    msgid = helper.getHash();
+                                else
                                     msgid = Long.toString(time);
                             }
                         }
@@ -3943,6 +3943,8 @@ class Core {
                 if (received == null || received == 0 || received > future)
                     received = helper.getReceivedHeader();
             }
+            if (received == null || received == 0)
+                received = sent;
             if (received == null)
                 received = 0L;
 
