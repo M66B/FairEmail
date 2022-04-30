@@ -1420,7 +1420,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         new SimpleTask<Long>() {
             @Override
             protected Long onExecute(Context context, Bundle args) throws Throwable {
-                File file = new File(context.getCacheDir(), "crash.log");
+                File file = new File(context.getFilesDir(), "crash.log");
                 if (file.exists()) {
                     StringBuilder sb = new StringBuilder();
                     try {

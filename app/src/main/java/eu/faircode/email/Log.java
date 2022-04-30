@@ -1628,7 +1628,7 @@ public class Log {
     }
 
     static void writeCrashLog(Context context, Throwable ex) {
-        File file = new File(context.getCacheDir(), "crash.log");
+        File file = new File(context.getFilesDir(), "crash.log");
         Log.w("Writing exception to " + file);
 
         try (FileWriter out = new FileWriter(file, true)) {
