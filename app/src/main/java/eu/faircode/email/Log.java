@@ -1886,7 +1886,7 @@ public class Log {
         long storage_available = Helper.getAvailableStorageSpace();
         long storage_total = Helper.getTotalStorageSpace();
         long storage_used = Helper.getSize(context.getFilesDir());
-        long cache = Helper.getCacheSize(context);
+        long cache = Helper.getCacheQuota(context);
         sb.append(String.format("Storage space: %s/%s App: %s cache: %s\r\n",
                 Helper.humanReadableByteCount(storage_total - storage_available),
                 Helper.humanReadableByteCount(storage_total),

@@ -40,7 +40,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
 import android.os.Environment;
-import android.os.storage.StorageManager;
 import android.provider.Settings;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -1821,7 +1820,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     data.available = Helper.getAvailableStorageSpace();
                     data.total = Helper.getTotalStorageSpace();
                     data.used = Helper.getSize(context.getFilesDir());
-                    data.cache = Helper.getCacheSize(context);
+                    data.cache = Helper.getCacheQuota(context);
                     return data;
                 }
 

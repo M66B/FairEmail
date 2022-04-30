@@ -2019,7 +2019,8 @@ public class Helper {
         return stats.getTotalBytes();
     }
 
-    static long getCacheSize(Context context) {
+    static long getCacheQuota(Context context) {
+        // https://developer.android.com/reference/android/content/Context#getCacheDir()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             try {
                 StorageManager sm = Helper.getSystemService(context, StorageManager.class);
