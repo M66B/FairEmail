@@ -65,7 +65,6 @@ import org.simplejavamail.outlookmessageparser.model.OutlookFileAttachment;
 import org.simplejavamail.outlookmessageparser.model.OutlookMessage;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -140,8 +139,6 @@ public class MessageHelper {
     private String hash = null;
     private String threadId = null;
     private InternetHeaders reportHeaders = null;
-
-    private static File cacheDir = null;
 
     static final int SMALL_MESSAGE_SIZE = 192 * 1024; // bytes
     static final int DEFAULT_DOWNLOAD_SIZE = 4 * 1024 * 1024; // bytes
@@ -1172,8 +1169,6 @@ public class MessageHelper {
         if (cake < Helper.MIN_REQUIRED_SPACE)
             throw new IOException(context.getString(R.string.app_cake),
                     new ErrnoException(context.getPackageName(), ENOSPC));
-        if (cacheDir == null)
-            cacheDir = context.getCacheDir();
         this.imessage = message;
     }
 
@@ -4243,23 +4238,18 @@ public class MessageHelper {
                         });
 
                     Log.w("Fetching raw message");
-                    File file = File.createTempFile("serverbug", null, cacheDir);
-                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                        imessage.writeTo(os);
-                    }
+                    Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
+                    imessage.writeTo(bos);
 
-                    if (file.length() == 0)
+                    ByteArrayInputStream bis = bos.getInputStream();
+                    if (bis.available() == 0)
                         throw new IOException("NIL");
 
                     Properties props = MessageHelper.getSessionProperties();
                     Session isession = Session.getInstance(props, null);
 
                     Log.w("Decoding raw message");
-                    try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                        imessage = new MimeMessageEx(isession, is, imessage);
-                    }
-
-                    file.delete();
+                    imessage = new MimeMessageEx(isession, bis, imessage);
                 } catch (IOException ex1) {
                     Log.e(ex1);
                     throw ex;

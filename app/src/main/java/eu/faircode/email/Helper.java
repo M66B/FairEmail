@@ -117,6 +117,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.openintents.openpgp.util.OpenPgpApi;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -2083,6 +2084,22 @@ public class Helper {
                 urlConnection.disconnect();
                 throw ex;
             }
+        }
+    }
+
+    static class ByteArrayInOutStream extends ByteArrayOutputStream {
+        public ByteArrayInOutStream() {
+            super();
+        }
+
+        public ByteArrayInOutStream(int size) {
+            super(size);
+        }
+
+        public ByteArrayInputStream getInputStream() {
+            ByteArrayInputStream in = new ByteArrayInputStream(this.buf, 0, this.count);
+            this.buf = null;
+            return in;
         }
     }
 
