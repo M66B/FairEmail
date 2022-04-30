@@ -595,7 +595,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             if (ex instanceof ProtocolException &&
                                                     ex.getMessage() != null &&
                                                     ex.getMessage().contains("full text search not supported")) {
-                                                intf.onWarning(context.getString(R.string.title_service_auth, ex.toString()));
+                                                String msg = context.getString(R.string.title_service_auth, ex.toString());
+                                                ApplicationEx.getMainHandler().post(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        if (intf != null)
+                                                            intf.onWarning(msg);
+                                                    }
+                                                });
                                                 criteria.in_message = false;
                                             }
                                         }
