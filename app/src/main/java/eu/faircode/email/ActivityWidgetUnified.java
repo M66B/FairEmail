@@ -32,6 +32,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -57,6 +58,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private CheckBox cbUnseen;
     private CheckBox cbFlagged;
     private CheckBox cbHighlight;
+    private ViewButtonColor btnHighlight;
     private CheckBox cbSeparatorLines;
     private CheckBox cbSemiTransparent;
     private ViewButtonColor btnColor;
@@ -92,6 +94,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         boolean unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         boolean flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
         boolean highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
+        int highlight_color = prefs.getInt("widget." + appWidgetId + ".highlight_color", Color.TRANSPARENT);
         boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
         boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
@@ -109,6 +112,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         cbUnseen = findViewById(R.id.cbUnseen);
         cbFlagged = findViewById(R.id.cbFlagged);
         cbHighlight = findViewById(R.id.cbHighlight);
+        btnHighlight = findViewById(R.id.btnHighlight);
         cbSeparatorLines = findViewById(R.id.cbSeparatorLines);
         cbSemiTransparent = findViewById(R.id.cbSemiTransparent);
         btnColor = findViewById(R.id.btnColor);
@@ -122,6 +126,43 @@ public class ActivityWidgetUnified extends ActivityBase {
 
         final Intent resultValue = new Intent();
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+
+        cbHighlight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                btnHighlight.setVisibility(checked ? View.VISIBLE : View.GONE);
+            }
+        });
+
+        btnHighlight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int editTextColor = Helper.resolveColor(ActivityWidgetUnified.this, android.R.attr.editTextColor);
+
+                ColorPickerDialogBuilder
+                        .with(ActivityWidgetUnified.this)
+                        .setTitle(R.string.title_advanced_highlight_color)
+                        .showColorEdit(true)
+                        .setColorEditTextColor(editTextColor)
+                        .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                        .density(6)
+                        .lightnessSliderOnly()
+                        .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                                btnHighlight.setColor(selectedColor);
+                            }
+                        })
+                        .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                btnHighlight.setColor(Color.TRANSPARENT);
+                            }
+                        })
+                        .build()
+                        .show();
+            }
+        });
 
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,6 +221,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putBoolean("widget." + appWidgetId + ".unseen", cbUnseen.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".highlight", cbHighlight.isChecked());
+                editor.putInt("widget." + appWidgetId + ".highlight_color", btnHighlight.getColor());
                 editor.putBoolean("widget." + appWidgetId + ".separators", cbSeparatorLines.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
@@ -301,6 +343,8 @@ public class ActivityWidgetUnified extends ActivityBase {
         cbUnseen.setChecked(unseen);
         cbFlagged.setChecked(flagged);
         cbHighlight.setChecked(highlight);
+        btnHighlight.setVisibility(highlight ? View.VISIBLE : View.GONE);
+        btnHighlight.setColor(highlight_color);
         cbSeparatorLines.setChecked(separators);
         cbSemiTransparent.setChecked(semi);
         btnColor.setColor(background);

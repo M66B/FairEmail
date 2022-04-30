@@ -59,6 +59,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private boolean unseen;
     private boolean flagged;
     private boolean highlight;
+    private int highlight_color;
     private boolean separators;
     private boolean semi;
     private int background;
@@ -102,6 +103,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
         highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
+        highlight_color = prefs.getInt("widget." + appWidgetId + ".highlight_color", Color.TRANSPARENT);
         separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
         semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
@@ -125,8 +127,12 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             colorSeparator = ContextCompat.getColor(context, R.color.darkColorSeparator);
         }
 
-        int highlight_color = prefs.getInt("highlight_color", colorWidgetForeground);
-        colorWidgetUnread = ColorUtils.setAlphaComponent(highlight_color, 255);
+        if (highlight) {
+            if (highlight_color == Color.TRANSPARENT)
+                highlight_color = prefs.getInt("highlight_color", colorWidgetForeground);
+            colorWidgetUnread = ColorUtils.setAlphaComponent(highlight_color, 255);
+        } else
+            colorWidgetUnread = colorWidgetForeground;
 
         pro = ActivityBilling.isPro(context);
 

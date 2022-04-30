@@ -75,15 +75,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbFlagged" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvHighlightHint"
-            android:layout_width="0dp"
+        <eu.faircode.email.ViewButtonColor
+            android:id="@+id/btnHighlight"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_widget_highlight_remark"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="6dp"
+            android:tag="disable"
+            android:text="@string/title_advanced_highlight_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbHighlight" />
 
@@ -95,7 +96,7 @@
             android:checked="true"
             android:text="@string/title_widget_separator_lines"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHighlightHint" />
+            app:layout_constraintTop_toBottomOf="@id/btnHighlight" />
 
         <CheckBox
             android:id="@+id/cbSemiTransparent"
