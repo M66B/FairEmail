@@ -4510,6 +4510,9 @@ public class FragmentCompose extends FragmentBase {
             boolean receipt_default = prefs.getBoolean("receipt_default", false);
             boolean write_below = prefs.getBoolean("write_below", false);
             boolean save_drafts = prefs.getBoolean("save_drafts", true);
+            boolean auto_identity = prefs.getBoolean("auto_identity", true);
+            boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
+            boolean suggest_received = prefs.getBoolean("suggest_received", false);
 
             Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
 
@@ -4610,6 +4613,27 @@ public class FragmentCompose extends FragmentBase {
                                         }
                         }
                     }
+
+                    if (selected == null && auto_identity)
+                        try {
+                            Address[] tos = MessageHelper.parseAddresses(context, to);
+                            if (tos != null && tos.length > 0) {
+                                String email = ((InternetAddress) tos[0]).getAddress();
+                                List<Integer> types = new ArrayList<>();
+                                if (suggest_sent)
+                                    types.add(EntityContact.TYPE_TO);
+                                if (suggest_received)
+                                    types.add(EntityContact.TYPE_FROM);
+                                List<Long> identities = db.contact().getIdentities(email, types);
+                                if (identities != null && identities.size() == 1) {
+                                    EntityIdentity identity = db.identity().getIdentity(identities.get(0));
+                                    if (identity != null)
+                                        selected = identity;
+                                }
+                            }
+                        } catch (AddressException ex) {
+                            Log.i(ex);
+                        }
 
                     if (selected == null)
                         for (EntityIdentity identity : data.identities)
