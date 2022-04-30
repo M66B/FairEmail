@@ -1383,7 +1383,9 @@ class Core {
             throw new IllegalArgumentException("not selectable type=" + target.type);
 
         // De-classify
-        if (!copy)
+        if (!copy &&
+                !EntityFolder.TRASH.equals(target.type) &&
+                !EntityFolder.ARCHIVE.equals(target.type))
             for (EntityMessage message : messages)
                 MessageClassifier.classify(message, folder, false, context);
 
