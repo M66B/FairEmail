@@ -75,6 +75,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private int colorSeparator;
     private boolean pro;
     private boolean hasColor;
+    private boolean allColors;
     private List<TupleMessageWidget> messages = new ArrayList<>();
 
     WidgetUnifiedRemoteViewsFactory(final Context context, Intent intent) {
@@ -151,12 +152,13 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         }
 
         hasColor = false;
+        allColors = color_stripe;
         if (account < 0)
             for (TupleMessageWidget message : messages)
-                if (message.accountColor != null) {
+                if (message.accountColor == null)
+                    allColors = false;
+                else
                     hasColor = true;
-                    break;
-                }
     }
 
     @Override
@@ -251,7 +253,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             views.setInt(R.id.separator, "setBackgroundColor", colorSeparator);
             views.setViewVisibility(R.id.separator, separators ? View.VISIBLE : View.GONE);
 
-            views.setViewVisibility(idAccount, account < 0 ? View.VISIBLE : View.GONE);
+            views.setViewVisibility(idAccount, account < 0 && !allColors ? View.VISIBLE : View.GONE);
 
         } catch (Throwable ex) {
             Log.e(ex);
