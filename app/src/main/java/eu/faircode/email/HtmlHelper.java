@@ -150,6 +150,7 @@ public class HtmlHelper {
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
     private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
     private static final String LINE = "----------------------------------------";
+    private static final String W3NS = "http://www.w3.org/";
 
     private static final HashMap<String, Integer> x11ColorMap = new HashMap<>();
 
@@ -1564,19 +1565,22 @@ public class HtmlHelper {
         // <o:p>&nbsp;</o:p></span>
 
         // Default XHTML namespace: http://www.w3.org/1999/xhtml
+        // https://developer.mozilla.org/en-US/docs/Related/IMSC/Namespaces
 
         String ns = null;
         for (Element h : parsed.select("html"))
             for (Attribute a : h.attributes()) {
                 String key = a.getKey();
                 String value = a.getValue();
-                if (value != null &&
-                        key.startsWith("xmlns:") &&
-                        value.startsWith("http://www.w3.org/")) {
+                if ("xmlns".equals(key) && value.startsWith(W3NS)) {
+                    ns = key;
+                    break;
+                } else if (key.startsWith("xmlns:") && value.startsWith(W3NS)) {
                     ns = key.split(":")[1];
                     break;
                 }
             }
+
         for (Element e : parsed.select("*")) {
             String tag = e.tagName();
             if (tag.contains(":")) {
@@ -1593,6 +1597,17 @@ public class HtmlHelper {
                 } else {
                     e.remove();
                     Log.i("Removed tag=" + tag);
+                }
+            }
+
+            String xmlns = e.attr("xmlns");
+            if (!TextUtils.isEmpty(xmlns) && !xmlns.startsWith(W3NS)) {
+                if (display_hidden) {
+                    String style = e.attr("style");
+                    e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
+                } else {
+                    e.remove();
+                    Log.i("Removed tag=" + tag + "xmlns=" + xmlns);
                 }
             }
         }
