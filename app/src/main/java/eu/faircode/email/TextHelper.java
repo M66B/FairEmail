@@ -60,6 +60,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 public class TextHelper {
+    private static final int MIN_WORDS = 10;
     private static final int MAX_DETECT_SAMPLE_SIZE = 8192;
     private static final float MIN_DETECT_PROBABILITY = 0.80f;
     private static final String TRANSLITERATOR = "Any-Latin; Latin-ASCII";
@@ -80,6 +81,9 @@ public class TextHelper {
         // https://developers.google.com/ml-kit/terms
 
         if (TextUtils.isEmpty(text))
+            return null;
+
+        if (text.split("\\s+").length < MIN_WORDS)
             return null;
 
         byte[] octets = text.getBytes();
