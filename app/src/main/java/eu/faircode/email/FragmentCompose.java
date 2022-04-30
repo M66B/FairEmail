@@ -4432,18 +4432,23 @@ public class FragmentCompose extends FragmentBase {
                         resized = rotated;
                     }
 
-                    File tmp = File.createTempFile("image", ".resized", context.getCacheDir());
+                    File tmp = new File(file.getAbsolutePath() + ".tmp");
                     try (OutputStream out = new BufferedOutputStream(new FileOutputStream(tmp))) {
-                        resized.compress("image/jpeg".equals(attachment.type)
-                                        ? Bitmap.CompressFormat.JPEG
-                                        : Bitmap.CompressFormat.PNG,
-                                REDUCED_IMAGE_QUALITY, out);
+                        Bitmap.CompressFormat format = ("image/jpeg".equals(attachment.type)
+                                ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG);
+                        if (!resized.compress(format, REDUCED_IMAGE_QUALITY, out))
+                            throw new IOException("compress");
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                        tmp.delete();
                     } finally {
                         resized.recycle();
                     }
 
-                    file.delete();
-                    tmp.renameTo(file);
+                    if (tmp.exists() && tmp.length() > 0) {
+                        file.delete();
+                        tmp.renameTo(file);
+                    }
 
                     DB db = DB.getInstance(context);
                     db.attachment().setDownloaded(attachment.id, file.length());
