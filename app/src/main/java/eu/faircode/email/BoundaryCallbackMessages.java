@@ -595,7 +595,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             if (ex instanceof ProtocolException &&
                                                     ex.getMessage() != null &&
                                                     ex.getMessage().contains("full text search not supported")) {
-                                                String msg = context.getString(R.string.title_service_auth, ex.toString());
+                                                String msg = context.getString(R.string.title_service_auth,
+                                                        account.host + ": " + getMessage(ex));
                                                 ApplicationEx.getMainHandler().post(new Runnable() {
                                                     @Override
                                                     public void run() {
@@ -614,7 +615,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     if (ex instanceof ProtocolException)
                                         pex = new ProtocolException(
                                                 context.getString(R.string.title_service_auth,
-                                                        account.host + ": " + ex.getMessage()),
+                                                        account.host + ": " + getMessage(ex)),
                                                 ex.getCause());
                                     else
                                         pex = new ProtocolException("Search " + account.host, ex);
@@ -733,6 +734,16 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         Log.i("Boundary server done memory=" + Log.getFreeMemMb());
         return found;
+    }
+
+    private String getMessage(Throwable ex) {
+        if (ex instanceof ProtocolException) {
+            Response r = ((ProtocolException) ex).getResponse();
+            if (r != null && !TextUtils.isEmpty(r.getRest()))
+                return r.getRest();
+        }
+
+        return ex.toString();
     }
 
     private Message[] search(boolean utf8, String[] keywords, IMAPProtocol protocol, State state) throws IOException, MessagingException, ProtocolException {
