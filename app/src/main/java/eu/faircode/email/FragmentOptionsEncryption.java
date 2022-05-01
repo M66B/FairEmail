@@ -79,7 +79,8 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 
-public class FragmentOptionsEncryption extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class FragmentOptionsEncryption extends FragmentBase
+        implements SharedPreferences.OnSharedPreferenceChangeListener, OpenPgpServiceConnection.OnBound {
     private ImageButton ibInfo;
     private SwitchCompat swSign;
     private SwitchCompat swEncrypt;
@@ -613,32 +614,33 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             if (pgpService != null && pgpService.isBound())
                 pgpService.unbindFromService();
 
-            tvOpenPgpStatus.setText("Connecting to " + pkg);
-            pgpService = new OpenPgpServiceConnection(getContext(), pkg, new OpenPgpServiceConnection.OnBound() {
-                @Override
-                public void onBound(IOpenPgpService2 service) {
-                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                        return;
-
-                    tvOpenPgpStatus.setText("Connected to " + pkg);
-                }
-
-                @Override
-                public void onError(Exception ex) {
-                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                        return;
-
-                    if ("bindService() returned false!".equals(ex.getMessage()))
-                        tvOpenPgpStatus.setText("Not connected");
-                    else {
-                        Log.e(ex);
-                        tvOpenPgpStatus.setText(ex.toString());
-                    }
-                }
-            });
+            tvOpenPgpStatus.setText("Connecting");
+            pgpService = new OpenPgpServiceConnection(getContext(), pkg, this);
             pgpService.bindToService();
         } catch (Throwable ex) {
             Log.e(ex);
+            tvOpenPgpStatus.setText(Log.formatThrowable(ex, false));
+        }
+    }
+
+    @Override
+    public void onBound(IOpenPgpService2 service) {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
+        tvOpenPgpStatus.setText("Connected");
+    }
+
+    @Override
+    public void onError(Exception ex) {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
+        if ("bindService() returned false!".equals(ex.getMessage()))
+            tvOpenPgpStatus.setText("Not connected");
+        else {
+            Log.e(ex);
+            tvOpenPgpStatus.setText(ex.toString());
         }
     }
 }
