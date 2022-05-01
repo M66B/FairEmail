@@ -426,6 +426,8 @@ public class EmailProvider implements Parcelable {
                         candidates.addAll(_fromDomain(context, target, email, discover));
                         int dot = target.indexOf('.');
                         target = target.substring(dot + 1);
+                        if (UriHelper.isTld(context, target))
+                            break;
                     }
                 }
 

@@ -94,6 +94,18 @@ public class UriHelper {
         return (host != null && _getSuffix(context, host) != null);
     }
 
+    static boolean isTld(Context context, String host) {
+        ensureSuffixList(context);
+
+        synchronized (suffixList) {
+            int d = host.indexOf('.');
+            String w = (d < 0 ? null : '*' + host.substring(d));
+            return (!suffixList.contains('!' + host) &&
+                    !suffixList.contains(w) &&
+                    suffixList.contains(host));
+        }
+    }
+
     private static String _getSuffix(Context context, @NonNull String host) {
         ensureSuffixList(context);
 
