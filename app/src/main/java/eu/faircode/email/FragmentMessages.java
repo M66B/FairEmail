@@ -1520,9 +1520,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabMore.hide();
         tvSelectedCount.setVisibility(View.GONE);
         cardMore.setVisibility(View.GONE);
-        ibArchive.setVisibility(View.GONE);
-        ibJunk.setVisibility(View.GONE);
-        ibTrash.setVisibility(View.GONE);
         fabError.hide();
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
@@ -5807,12 +5804,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected void onExecuted(Bundle args, Boolean[] result) {
-                    cardMore.setVisibility(fabMore.isOrWillBeShown() &&
-                            (result[0] || result[1] || result[2])
-                            ? View.VISIBLE : View.GONE);
                     ibArchive.setVisibility(result[0] ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(result[1] ? View.VISIBLE : View.GONE);
                     ibTrash.setVisibility(result[2] ? View.VISIBLE : View.GONE);
+                    cardMore.setVisibility(fabMore.isOrWillBeShown() &&
+                            (result[0] || result[1] || result[2])
+                            ? View.VISIBLE : View.GONE);
                 }
 
                 @Override
