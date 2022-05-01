@@ -2,7 +2,9 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
-### Next version
+### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
+
+### 1.1888 - 2022-05-01
 
 * Added quick actions for selected messages
 * Added widget option to disable separator lines
