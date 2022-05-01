@@ -9111,7 +9111,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 HtmlHelper.embedInlineImages(context, id, document, true);
 
                 // onPageFinished will not be called if not all images can be loaded
-                File dir = new File(context.getCacheDir(), "images");
+                File dir = new File(context.getFilesDir(), "images");
                 List<Future<Void>> futures = new ArrayList<>();
                 Elements imgs = document.select("img");
                 for (int i = 0; i < imgs.size(); i++) {

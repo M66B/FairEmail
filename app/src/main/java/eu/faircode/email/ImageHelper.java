@@ -798,7 +798,7 @@ class ImageHelper {
 
     @NonNull
     static File getCacheFile(Context context, long id, String source, String extension) {
-        File dir = new File(context.getCacheDir(), "images");
+        File dir = new File(context.getFilesDir(), "images");
         if (!dir.exists())
             dir.mkdir();
         return new File(dir, id + "_" + Math.abs(source.hashCode()) + extension);

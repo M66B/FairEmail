@@ -2987,7 +2987,7 @@ public class FragmentCompose extends FragmentBase {
                 });
                 snackbar.show();
             } else {
-                File dir = new File(getContext().getCacheDir(), "photo");
+                File dir = new File(getContext().getFilesDir(), "photo");
                 if (!dir.exists())
                     dir.mkdir();
                 File file = new File(dir, working + ".jpg");
@@ -4327,7 +4327,7 @@ public class FragmentCompose extends FragmentBase {
 
             if (BuildConfig.APPLICATION_ID.equals(uri.getAuthority())) {
                 // content://eu.faircode.email/photo/nnn.jpg
-                File tmp = new File(context.getCacheDir(), uri.getPath());
+                File tmp = new File(context.getFilesDir(), uri.getPath());
                 Log.i("Deleting " + tmp);
                 if (!tmp.delete())
                     Log.w("Error deleting " + tmp);

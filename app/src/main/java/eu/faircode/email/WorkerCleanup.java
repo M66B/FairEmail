@@ -206,8 +206,8 @@ public class WorkerCleanup extends Worker {
             File[] revision = new File(context.getFilesDir(), "revision").listFiles();
             File[] references = new File(context.getFilesDir(), "references").listFiles();
             File[] encryption = new File(context.getFilesDir(), "encryption").listFiles();
-            File[] photos = new File(context.getCacheDir(), "photo").listFiles();
-            File[] calendars = new File(context.getCacheDir(), "calendar").listFiles();
+            File[] photos = new File(context.getFilesDir(), "photo").listFiles();
+            File[] calendars = new File(context.getFilesDir(), "calendar").listFiles();
 
             if (messages != null)
                 files.addAll(Arrays.asList(messages));
@@ -292,7 +292,7 @@ public class WorkerCleanup extends Worker {
 
             // Cleanup cached images
             Log.i("Cleanup cached image files");
-            File[] images = new File(context.getCacheDir(), "images").listFiles();
+            File[] images = new File(context.getFilesDir(), "images").listFiles();
             if (images != null)
                 for (File file : images)
                     if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
@@ -311,7 +311,7 @@ public class WorkerCleanup extends Worker {
                         }
 
             // Cleanup shared files
-            File[] shared = new File(context.getCacheDir(), "shared").listFiles();
+            File[] shared = new File(context.getFilesDir(), "shared").listFiles();
             if (shared != null)
                 for (File file : shared)
                     if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {

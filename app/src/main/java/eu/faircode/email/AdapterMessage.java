@@ -3495,7 +3495,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             response.setMethod(Method.REPLY);
                             response.addEvent(ev);
 
-                            File dir = new File(context.getCacheDir(), "calendar");
+                            File dir = new File(context.getFilesDir(), "calendar");
                             if (!dir.exists())
                                 dir.mkdir();
                             File ics = new File(dir, message.id + ".ics");
@@ -6362,7 +6362,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             element.attr("x-computed", computed);
                     }
 
-                    File dir = new File(context.getCacheDir(), "shared");
+                    File dir = new File(context.getFilesDir(), "shared");
                     if (!dir.exists())
                         dir.mkdir();
 

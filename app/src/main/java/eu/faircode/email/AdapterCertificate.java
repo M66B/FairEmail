@@ -132,7 +132,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
                             if (certificate == null)
                                 return null;
 
-                            File dir = new File(context.getCacheDir(), "shared");
+                            File dir = new File(context.getFilesDir(), "shared");
                             if (!dir.exists())
                                 dir.mkdir();
 

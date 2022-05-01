@@ -172,7 +172,7 @@ public class ContactInfo {
 
         // Favicons
         Log.i("Cleanup favicons");
-        File[] favicons = new File(context.getCacheDir(), "favicons").listFiles();
+        File[] favicons = new File(context.getFilesDir(), "favicons").listFiles();
         if (favicons != null)
             for (File file : favicons)
                 if (file.lastModified() + CACHE_FAVICON_DURATION < now) {
@@ -194,7 +194,7 @@ public class ContactInfo {
         if (!files)
             return;
 
-        final File dir = new File(context.getCacheDir(), "favicons");
+        final File dir = new File(context.getFilesDir(), "favicons");
         executorFavicon.submit(new Runnable() {
             @Override
             public void run() {
@@ -322,7 +322,7 @@ public class ContactInfo {
                 final String domain = d.toLowerCase(Locale.ROOT);
                 final String email = info.email.toLowerCase(Locale.ROOT);
 
-                File dir = new File(context.getCacheDir(), "favicons");
+                File dir = new File(context.getFilesDir(), "favicons");
                 if (!dir.exists())
                     dir.mkdir();
 

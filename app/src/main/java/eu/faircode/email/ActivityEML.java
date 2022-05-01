@@ -187,7 +187,7 @@ public class ActivityEML extends ActivityBase {
                         if (uri == null)
                             throw new FileNotFoundException();
 
-                        File dir = new File(context.getCacheDir(), "shared");
+                        File dir = new File(context.getFilesDir(), "shared");
                         if (!dir.exists())
                             dir.mkdir();
 
