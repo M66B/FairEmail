@@ -259,29 +259,30 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             public void onClick(View v) {
                 final boolean biometrics = prefs.getBoolean("biometrics", false);
 
-                Helper.authenticate(getActivity(), getViewLifecycleOwner(), biometrics, new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            boolean pro = ActivityBilling.isPro(getContext());
-                            if (pro) {
-                                SharedPreferences.Editor editor = prefs.edit();
-                                if (!biometrics)
-                                    editor.remove("pin");
-                                editor.putBoolean("biometrics", !biometrics);
-                                editor.apply();
-                            } else
-                                startActivity(new Intent(getContext(), ActivityBilling.class));
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                    }
-                }, new Runnable() {
-                    @Override
-                    public void run() {
-                        // Do nothing
-                    }
-                });
+                Helper.authenticate(getActivity(), getViewLifecycleOwner(), biometrics,
+                        new RunnableEx("auth:setup") {
+                            @Override
+                            public void delegate() {
+                                try {
+                                    boolean pro = ActivityBilling.isPro(getContext());
+                                    if (pro) {
+                                        SharedPreferences.Editor editor = prefs.edit();
+                                        if (!biometrics)
+                                            editor.remove("pin");
+                                        editor.putBoolean("biometrics", !biometrics);
+                                        editor.apply();
+                                    } else
+                                        startActivity(new Intent(getContext(), ActivityBilling.class));
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+                            }
+                        }, new RunnableEx("auth:nothing") {
+                            @Override
+                            public void delegate() {
+                                // Do nothing
+                            }
+                        });
             }
         });
 

@@ -246,9 +246,9 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
             if (Helper.shouldAuthenticate(this, false))
                 Helper.authenticate(ActivityMain.this, ActivityMain.this, null,
-                        new Runnable() {
+                        new RunnableEx("auth:succeeded") {
                             @Override
-                            public void run() {
+                            public void delegate() {
                                 Intent intent = getIntent();
                                 Bundle args = new Bundle();
                                 if (intent.hasExtra("intent"))
@@ -256,9 +256,9 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                 boot.execute(ActivityMain.this, args, "main:accounts");
                             }
                         },
-                        new Runnable() {
+                        new RunnableEx("auth:cancelled") {
                             @Override
-                            public void run() {
+                            public void delegate() {
                                 try {
                                     finish();
                                 } catch (Throwable ex) {

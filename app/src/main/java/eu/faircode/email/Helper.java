@@ -2293,9 +2293,9 @@ public class Helper {
                             }
 
                             if (!isCancelled(errorCode))
-                                ApplicationEx.getMainHandler().post(new Runnable() {
+                                ApplicationEx.getMainHandler().post(new RunnableEx("auth:error") {
                                     @Override
-                                    public void run() {
+                                    public void delegate() {
                                         ToastEx.makeText(activity,
                                                 "Error " + errorCode + ": " + errString,
                                                 Toast.LENGTH_LONG).show();
@@ -2335,9 +2335,9 @@ public class Helper {
 
             prompt.authenticate(info.build());
 
-            final Runnable cancelPrompt = new Runnable() {
+            final Runnable cancelPrompt = new RunnableEx("auth:cancelprompt") {
                 @Override
-                public void run() {
+                public void delegate() {
                     try {
                         prompt.cancelAuthentication();
                     } catch (Throwable ex) {
@@ -2352,7 +2352,12 @@ public class Helper {
                 @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                 public void onDestroy() {
                     Log.i("Authenticate destroyed");
-                    ApplicationEx.getMainHandler().post(cancelPrompt);
+                    ApplicationEx.getMainHandler().removeCallbacks(cancelPrompt);
+                    try {
+                        prompt.cancelAuthentication();
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                     owner.getLifecycle().removeObserver(this);
                 }
             });
