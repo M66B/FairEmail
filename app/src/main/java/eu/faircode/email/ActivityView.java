@@ -864,7 +864,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public Boolean call() {
                 CoalMine.check();
-                return true;
+                return BuildConfig.DEBUG;
             }
         }).setExternal(true));
 
