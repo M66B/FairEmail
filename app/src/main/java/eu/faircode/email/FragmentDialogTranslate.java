@@ -1,0 +1,299 @@
+package eu.faircode.email;
+
+/*
+    This file is part of FairEmail.
+
+    FairEmail is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FairEmail is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
+
+    Copyright 2018-2022 by Marcel Bokhorst (M66B)
+*/
+
+import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.method.ArrowKeyMovementMethod;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
+import android.util.TypedValue;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.preference.PreferenceManager;
+
+import org.jsoup.nodes.Document;
+
+import java.io.File;
+import java.util.List;
+import java.util.Locale;
+
+public class FragmentDialogTranslate extends FragmentDialogBase {
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        final Context context = getContext();
+        final View view = LayoutInflater.from(context).inflate(R.layout.dialog_translate, null);
+        final Spinner spLanguage = view.findViewById(R.id.spLanguage);
+        final TextView tvText = view.findViewById(R.id.tvText);
+        final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean compact = prefs.getBoolean("compact", false);
+        int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
+        int message_zoom = prefs.getInt("message_zoom", 100);
+
+        float textSize = Helper.getTextSize(context, zoom) * message_zoom / 100f;
+        tvText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+
+        List<DeepL.Language> languages = DeepL.getTargetLanguages(context, false);
+        ArrayAdapter<DeepL.Language> adapter = new ArrayAdapter<DeepL.Language>(context, android.R.layout.simple_spinner_item, android.R.id.text1, languages) {
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                return _getView(position, super.getView(position, convertView, parent));
+            }
+
+            @Override
+            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                return _getView(position, super.getDropDownView(position, convertView, parent));
+            }
+
+            private View _getView(int position, View view) {
+                DeepL.Language language = getItem(position);
+                if (language != null) {
+                    TextView tv = view.findViewById(android.R.id.text1);
+
+                    Drawable icon = context.getDrawable(language.icon);
+                    int iconSize = context.getResources()
+                            .getDimensionPixelSize(R.dimen.menu_item_icon_size);
+                    icon.setBounds(0, 0, iconSize, iconSize);
+                    ImageSpan imageSpan = new CenteredImageSpan(icon);
+
+                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(language.name);
+                    ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
+                    ssb.setSpan(imageSpan, 0, 1, 0);
+
+                    tv.setText(ssb);
+                }
+
+                return view;
+            }
+        };
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spLanguage.setAdapter(adapter);
+
+        String current = prefs.getString("deepl_target", null);
+
+        for (int pos = 0; pos < languages.size(); pos++)
+            if (languages.get(pos).target.equals(current)) {
+                spLanguage.setSelection(pos);
+                break;
+            }
+
+        spLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                prefs.edit().putString("deepl_target", languages.get(position).target).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("deepl_target").apply();
+            }
+        });
+
+        tvText.setText(null);
+
+        new SimpleTask<String>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                pbWait.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                pbWait.setVisibility(View.GONE);
+            }
+
+            @Override
+            protected String onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                EntityMessage message = db.message().getMessage(id);
+
+                File file = EntityMessage.getFile(context, id);
+                String html = Helper.readText(file);
+                Document d = HtmlHelper.sanitizeCompose(context, html, false);
+
+                d.select("blockquote").remove();
+
+                HtmlHelper.truncate(d, HtmlHelper.MAX_TRANSLATABLE_TEXT_SIZE);
+
+                SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
+
+                if (message != null && message.subject != null) {
+                    ssb.insert(0, "\n\n");
+                    ssb.insert(0, message.subject);
+                }
+
+                return ssb.toString()
+                        .replace("\uFFFC", "") // Object replacement character
+                        .replaceAll("\n\\s+\n", "\n")
+                        .replaceAll("\n+", "\n\n");
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, String text) {
+                tvText.setText(text);
+
+                tvText.setMovementMethod(new ArrowKeyMovementMethod() {
+                    @Override
+                    public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_UP)
+                            translate(widget, buffer, event);
+                        return super.onTouchEvent(widget, buffer, event);
+                    }
+
+                    private void translate(TextView widget, Spannable buffer, MotionEvent event) {
+                        int off = Helper.getOffset(widget, buffer, event);
+
+                        int start = off;
+                        while (start > 0 && buffer.charAt(start - 1) != '\n')
+                            start--;
+
+                        int end = off;
+                        while (end < buffer.length() && buffer.charAt(end - 1) != '\n')
+                            end++;
+
+                        if (end <= start)
+                            return;
+
+                        StyleSpan[] spans = buffer.getSpans(start, end, StyleSpan.class);
+                        if (spans != null && spans.length > 0)
+                            return;
+
+                        final StyleSpan mark = new StyleSpan(Typeface.ITALIC);
+                        buffer.setSpan(mark, start, end, 0);
+
+                        DeepL.Language language = (DeepL.Language) spLanguage.getSelectedItem();
+                        if (language == null)
+                            return;
+
+                        Bundle args = new Bundle();
+                        args.putString("target", language.target);
+                        args.putString("text", buffer.subSequence(start, end).toString());
+
+                        new SimpleTask<DeepL.Translation>() {
+                            @Override
+                            protected void onPreExecute(Bundle args) {
+                                pbWait.setVisibility(View.VISIBLE);
+                            }
+
+                            @Override
+                            protected void onPostExecute(Bundle args) {
+                                pbWait.setVisibility(View.GONE);
+                            }
+
+                            @Override
+                            protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
+                                String text = args.getString("text");
+                                String target = args.getString("target");
+                                return DeepL.translate(text, false, target, context);
+                            }
+
+                            @Override
+                            protected void onExecuted(Bundle args, DeepL.Translation translation) {
+                                SpannableStringBuilder ssb = new SpannableStringBuilderEx(tvText.getText());
+                                int start = ssb.getSpanStart(mark);
+                                int end = ssb.getSpanEnd(mark);
+                                int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
+
+                                ssb.removeSpan(mark);
+
+                                ssb = ssb.replace(start, end, translation.translated_text);
+                                end = start + translation.translated_text.length();
+
+                                ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new ForegroundColorSpan(textColorPrimary), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                                Locale source = Locale.forLanguageTag(translation.detected_language);
+                                Locale target = Locale.forLanguageTag(args.getString("target"));
+
+                                String lang = "[" + source.getDisplayLanguage(target) + "] ";
+                                ssb.insert(start, lang);
+
+                                ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, start + lang.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, start + lang.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                                tvText.setText(ssb);
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                SpannableStringBuilder ssb = new SpannableStringBuilderEx(tvText.getText());
+                                ssb.removeSpan(mark);
+                                tvText.setText(ssb);
+
+                                Throwable exex = new Throwable("DeepL", ex);
+                                ToastEx.makeText(context, Log.formatThrowable(exex), Toast.LENGTH_LONG).show();
+                            }
+                        }.execute(FragmentDialogTranslate.this, args, "paragraph:translate");
+                    }
+                });
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                tvText.setText(ex.toString());
+            }
+        }.execute(this, getArguments(), "message:translate");
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                .setView(view)
+                .setPositiveButton(android.R.string.cancel, null)
+                .setNeutralButton(R.string.title_copy_btn, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String html = HtmlHelper.toHtml((Spanned) tvText.getText(), context);
+                        String text = HtmlHelper.getText(context, html);
+                        ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
+                        cbm.setPrimaryClip(ClipData.newHtmlText(getString(R.string.app_name), text, html));
+                        ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        return builder.create();
+    }
+}
