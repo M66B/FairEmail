@@ -43,6 +43,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +56,7 @@ import androidx.preference.PreferenceManager;
 import org.jsoup.nodes.Document;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
@@ -64,6 +66,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final Context context = getContext();
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_translate, null);
+        final ImageButton ibAll = view.findViewById(R.id.ibAll);
         final Spinner spLanguage = view.findViewById(R.id.spLanguage);
         final TextView tvText = view.findViewById(R.id.tvText);
         final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
@@ -75,6 +78,64 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
 
         float textSize = Helper.getTextSize(context, zoom) * message_zoom / 100f;
         tvText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+
+        ibAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DeepL.Language language = (DeepL.Language) spLanguage.getSelectedItem();
+                if (language == null)
+                    return;
+
+                Bundle args = new Bundle();
+                args.putLong("id", getArguments().getLong("id"));
+                args.putString("target", language.target);
+
+                new SimpleTask<DeepL.Translation>() {
+                    @Override
+                    protected void onPreExecute(Bundle args) {
+                        ibAll.setEnabled(false);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Bundle args) {
+                        ibAll.setEnabled(true);
+                    }
+
+                    @Override
+                    protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
+                        long id = args.getLong("id");
+                        String target = args.getString("target");
+                        String text = processMessage(id, context);
+                        return DeepL.translate(text, false, target, context);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, DeepL.Translation translation) {
+                        int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
+                        SpannableStringBuilder ssb = new SpannableStringBuilderEx(translation.translated_text);
+
+                        ssb.setSpan(new StyleSpan(Typeface.ITALIC), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        ssb.setSpan(new ForegroundColorSpan(textColorPrimary), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        Locale source = Locale.forLanguageTag(translation.detected_language);
+                        Locale target = Locale.forLanguageTag(args.getString("target"));
+
+                        String lang = "[" + source.getDisplayLanguage(target) + "]\n\n";
+                        ssb.insert(0, lang);
+
+                        ssb.setSpan(new StyleSpan(Typeface.ITALIC), 0, lang.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, lang.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        tvText.setText(ssb);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        tvText.setText(ex.toString());
+                    }
+                }.execute(FragmentDialogTranslate.this, args, "translate:all");
+            }
+        });
 
         List<DeepL.Language> languages = DeepL.getTargetLanguages(context, false);
         ArrayAdapter<DeepL.Language> adapter = new ArrayAdapter<DeepL.Language>(context, android.R.layout.simple_spinner_item, android.R.id.text1, languages) {
@@ -149,29 +210,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
             @Override
             protected String onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-                EntityMessage message = db.message().getMessage(id);
-
-                File file = EntityMessage.getFile(context, id);
-                String html = Helper.readText(file);
-                Document d = HtmlHelper.sanitizeCompose(context, html, false);
-
-                d.select("blockquote").remove();
-
-                HtmlHelper.truncate(d, HtmlHelper.MAX_TRANSLATABLE_TEXT_SIZE);
-
-                SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
-
-                if (message != null && message.subject != null) {
-                    ssb.insert(0, "\n\n");
-                    ssb.insert(0, message.subject);
-                }
-
-                return ssb.toString()
-                        .replace("\uFFFC", "") // Object replacement character
-                        .replaceAll("\n\\s+\n", "\n")
-                        .replaceAll("\n+", "\n\n");
+                return processMessage(id, context);
             }
 
             @Override
@@ -295,5 +334,30 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
                 });
 
         return builder.create();
+    }
+
+    private static String processMessage(long id, Context context) throws IOException {
+        DB db = DB.getInstance(context);
+        EntityMessage message = db.message().getMessage(id);
+
+        File file = EntityMessage.getFile(context, id);
+        String html = Helper.readText(file);
+        Document d = HtmlHelper.sanitizeCompose(context, html, false);
+
+        d.select("blockquote").remove();
+
+        HtmlHelper.truncate(d, HtmlHelper.MAX_TRANSLATABLE_TEXT_SIZE);
+
+        SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
+
+        if (message != null && message.subject != null) {
+            ssb.insert(0, "\n\n");
+            ssb.insert(0, message.subject);
+        }
+
+        return ssb.toString()
+                .replace("\uFFFC", "") // Object replacement character
+                .replaceAll("\n\\s+\n", "\n")
+                .replaceAll("\n+", "\n\n");
     }
 }
