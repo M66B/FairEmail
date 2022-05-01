@@ -2029,16 +2029,16 @@ public class Helper {
             } catch (IOException ex) {
                 Log.w(ex);
             }
-        return -1;
+        return 0;
     }
 
-    static long getSize(File dir) {
+    static long getSizeUsed(File dir) {
         long size = 0;
         File[] listed = dir.listFiles();
         if (listed != null)
             for (File file : listed)
                 if (file.isDirectory())
-                    size += getSize(file);
+                    size += getSizeUsed(file);
                 else
                     size += file.length();
         return size;

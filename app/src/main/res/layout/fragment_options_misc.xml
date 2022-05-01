@@ -1497,6 +1497,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvMemoryUsage" />
 
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvCacheUsage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_advanced_storage_usage"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvStorageUsage" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvCursorWindow"
                     android:layout_width="0dp"
@@ -1506,7 +1517,7 @@
                     android:textIsSelectable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvStorageUsage" />
+                    app:layout_constraintTop_toBottomOf="@id/tvCacheUsage" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvContactInfo"
