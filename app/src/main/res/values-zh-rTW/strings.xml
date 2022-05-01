@@ -1228,6 +1228,7 @@
     <string name="title_search_device">在裝置上搜尋</string>
     <string name="title_search_server">在伺服器上搜尋</string>
     <string name="title_search_in">搜尋</string>
+    <string name="title_search_sender">搜尋寄件者</string>
     <string name="title_sort_on">排序</string>
     <string name="title_sort_on_time">時間</string>
     <string name="title_sort_on_unread">未讀取</string>

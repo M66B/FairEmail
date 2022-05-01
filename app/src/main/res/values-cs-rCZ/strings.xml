@@ -1297,6 +1297,7 @@
     <string name="title_search_device">Hledat v zařízení</string>
     <string name="title_search_server">Hledat na serveru</string>
     <string name="title_search_in">Hledat v</string>
+    <string name="title_search_sender">Hledat odesílatele</string>
     <string name="title_search_delete">Smazat uložené vyhledávání?</string>
     <string name="title_sort_on">Řadit dle</string>
     <string name="title_sort_on_time">Čas</string>

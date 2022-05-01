@@ -1276,6 +1276,7 @@
     <string name="title_search_device">デバイス上を検索</string>
     <string name="title_search_server">サーバーを検索</string>
     <string name="title_search_in">検索場所</string>
+    <string name="title_search_sender">差出人を検索</string>
     <string name="title_search_delete">保存した検索を削除しますか？</string>
     <string name="title_sort_on">並べ替え</string>
     <string name="title_sort_on_time">時間</string>
@@ -1660,7 +1661,6 @@
     <string name="title_widget_folder_unified">統合受信トレイフォルダー</string>
     <string name="title_widget_unseen">未読メッセージのみ</string>
     <string name="title_widget_flagged">スター付きメッセージのみ</string>
-    <string name="title_widget_highlight_remark">背景色はディスプレイ設定で選択できます</string>
     <string name="title_widget_font_size">テキストサイズ</string>
     <string name="title_widget_padding">余白サイズ</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>

@@ -764,6 +764,7 @@
     <string name="title_search_device">Išči na napravi</string>
     <string name="title_search_server">Išči na strežniku</string>
     <string name="title_search_in">Išči v</string>
+    <string name="title_search_sender">Išči pošiljatelja</string>
     <string name="title_sort_on">Razvrsti po</string>
     <string name="title_sort_on_time">Času</string>
     <string name="title_sort_on_unread">Neprebrano</string>

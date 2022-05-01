@@ -1283,6 +1283,7 @@
     <string name="title_search_device">Пошук на пристрої</string>
     <string name="title_search_server">Пошук на сервері</string>
     <string name="title_search_in">Пошук у</string>
+    <string name="title_search_sender">Пошук відправника</string>
     <string name="title_search_delete">Видалити збережений пошук?</string>
     <string name="title_sort_on">Сортувати за</string>
     <string name="title_sort_on_time">Часом</string>

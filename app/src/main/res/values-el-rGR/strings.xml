@@ -1178,8 +1178,8 @@
     <string name="title_translate_html_hint">Για αυτό θα χρειαστούν περισσότεροι χαρακτήρες</string>
     <string name="title_translate_usage">Χρήση: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Πατήστε στο κείμενο για να μεταφραστεί</string>
-    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Έλεγχος &#8230;</string>
-    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Καμία πρόταση</string>
+    <string name="title_suggestions_check">Έλεγχος &#8230;</string>
+    <string name="title_suggestions_none">Καμία πρόταση</string>
     <string name="title_edit_plain_text">Επεξεργασία ως απλό κείμενο</string>
     <string name="title_edit_formatted_text">Επεξεργασία ως αναμορφοποιημένο κείμενο</string>
     <string name="title_select_certificate">Επιλογή δημοσίου κλειδιού</string>
@@ -1285,6 +1285,7 @@
     <string name="title_search_device">Αναζήτηση στη συσκευή</string>
     <string name="title_search_server">Αναζήτηση στο διακομιστή</string>
     <string name="title_search_in">Αναζήτηση σε</string>
+    <string name="title_search_sender">Αναζήτηση αποστολέα</string>
     <string name="title_search_delete">Διαγραφή αποθηκευμένης αναζήτησης;</string>
     <string name="title_sort_on">Ταξινόμηση κατά</string>
     <string name="title_sort_on_time">Ημερομηνία</string>
@@ -1668,9 +1669,9 @@
     <string name="title_widget_folder_unified">Φάκελοι ενοποιημένων εισερχομένων</string>
     <string name="title_widget_unseen">Μη αναγνωσμένα μηνύματα μόνο</string>
     <string name="title_widget_flagged">Μηνύματα με αστέρι μόνο</string>
-    <string name="title_widget_highlight_remark">Το χρώμα επισήμανσης μπορεί να επιλεγεί στις ρυθμίσεις εμφάνισης</string>
     <string name="title_widget_font_size">Μέγεθος κειμένου</string>
     <string name="title_widget_padding">Μέγεθος διαστήματος μεταξύ μηνυμάτων</string>
+    <string name="title_widget_separator_lines">Προβολή διαχωριστικών γραμμών</string>
     <string name="title_widget_semi_transparent">Ημιδιαφανές φόντο</string>
     <string name="title_widget_refresh">Προβολή κουμπιού ανανέωσης μηνυμάτων</string>
     <string name="title_widget_compose">Να εμφανίζεται το κουμπί σύνταξης νέου μηνύματος</string>

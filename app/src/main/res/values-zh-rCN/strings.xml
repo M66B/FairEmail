@@ -1168,8 +1168,8 @@
     <string name="title_translate_html_hint">这将耗费更多字符</string>
     <string name="title_translate_usage">用量： %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">点击要翻译的文本</string>
-    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">正在检查 &#8230;</string>
-    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">无建议</string>
+    <string name="title_suggestions_check">正在检查 &#8230;</string>
+    <string name="title_suggestions_none">无建议</string>
     <string name="title_edit_plain_text">以纯文本形式编辑</string>
     <string name="title_edit_formatted_text">编辑为重新格式化的文本</string>
     <string name="title_select_certificate">选择公钥</string>
@@ -1275,6 +1275,7 @@
     <string name="title_search_device">在设备上搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
     <string name="title_search_in">搜索范围</string>
+    <string name="title_search_sender">搜索发件人</string>
     <string name="title_search_delete">删除已保存的搜索？</string>
     <string name="title_sort_on">排序方式</string>
     <string name="title_sort_on_time">时间</string>
@@ -1657,9 +1658,9 @@
     <string name="title_widget_folder_unified">聚合收件箱文件夹</string>
     <string name="title_widget_unseen">仅未读信息</string>
     <string name="title_widget_flagged">仅带有星标的邮件</string>
-    <string name="title_widget_highlight_remark">可以在显示设置中选择高亮颜色</string>
     <string name="title_widget_font_size">文本大小</string>
     <string name="title_widget_padding">内边距尺寸</string>
+    <string name="title_widget_separator_lines">显示分隔符行</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
     <string name="title_widget_refresh">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>

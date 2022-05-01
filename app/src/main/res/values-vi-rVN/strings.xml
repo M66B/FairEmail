@@ -317,6 +317,8 @@
     <string name="title_advanced_attach_new">Thêm các tệp được chia sẻ vào bản nháp mới</string>
     <string name="title_advanced_answer_action">Giữ phím trả lời sẽ:</string>
     <string name="title_advanced_send_pending">Hiện biểu tượng gửi được trì hoãn không gây phiền</string>
+    <string name="title_advanced_auto_save_paragraph">Tự đông lưu bản nháp sau mỗi đoạn văn</string>
+    <string name="title_advanced_auto_save_dot">Tự đông lưu bản nháp sau mỗi câu</string>
     <string name="title_advanced_compose_font">Phông chữ mặc định</string>
     <string name="title_advanced_auto_identity">Tự động chọn danh tính cho thư mới</string>
     <string name="title_advanced_prefix_once">Chỉ đặt tiền tố cho chủ đề một lần khi trả lời hoặc chuyển tiếp</string>
@@ -1167,6 +1169,8 @@
     <string name="title_translate_html_hint">Việc này sẽ tiêu tốn nhiều kí tự hơn</string>
     <string name="title_translate_usage">Sử dụng: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Nhấn văn bản để được dịch</string>
+    <string name="title_suggestions_check">Đang kiểm tra &#8230;</string>
+    <string name="title_suggestions_none">Không có đề xuất</string>
     <string name="title_edit_plain_text">Chỉnh sửa dưới dạng văn bản thường</string>
     <string name="title_edit_formatted_text">Chỉnh sửa dưới dạng văn bản được định dạng lại</string>
     <string name="title_select_certificate">Chọn mã khoá công khai</string>
@@ -1272,6 +1276,7 @@
     <string name="title_search_device">Tìm kiếm trên thiết bị</string>
     <string name="title_search_server">Tìm kiếm trên máy chủ</string>
     <string name="title_search_in">Tìm kiếm trong</string>
+    <string name="title_search_sender">Tìm kiếm người gửi</string>
     <string name="title_search_delete">Xóa mục tìm kiếm đã lưu?</string>
     <string name="title_sort_on">Sắp xếp theo</string>
     <string name="title_sort_on_time">Thời gian</string>
@@ -1655,9 +1660,9 @@
     <string name="title_widget_folder_unified">Các thư mục trong hộp thư đến hợp nhất</string>
     <string name="title_widget_unseen">Chỉ thư chưa đọc</string>
     <string name="title_widget_flagged">Chỉ thư gắn sao</string>
-    <string name="title_widget_highlight_remark">Màu đánh dấu có thể được chọn trong cài đặt hiển thị</string>
     <string name="title_widget_font_size">Cỡ chữ</string>
     <string name="title_widget_padding">Kích cỡ lùi</string>
+    <string name="title_widget_separator_lines">Hiện đường thẳng chia tách</string>
     <string name="title_widget_semi_transparent">Nền bán trong suốt</string>
     <string name="title_widget_refresh">Hiện nút làm mới thư</string>
     <string name="title_widget_compose">Hiện nút soạn thư mới</string>

@@ -1031,6 +1031,7 @@
     <string name="title_search_device">Sykje op apparaat</string>
     <string name="title_search_server">Sykje op server</string>
     <string name="title_search_in">Sykje yn</string>
+    <string name="title_search_sender">Sykje nei stjoerder</string>
     <string name="title_sort_on">Sortearje op</string>
     <string name="title_sort_on_time">Tiid</string>
     <string name="title_sort_on_unread">Net lêzen</string>

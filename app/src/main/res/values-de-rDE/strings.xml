@@ -1178,8 +1178,8 @@
     <string name="title_translate_html_hint">Dadurch sind mehr Zeichen erforderlich</string>
     <string name="title_translate_usage">Verwendung: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tippen Sie auf den zu übersetzenden Text</string>
-    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Wird überprüft &#8230;</string>
-    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Keine Vorschläge</string>
+    <string name="title_suggestions_check">Wird überprüft &#8230;</string>
+    <string name="title_suggestions_none">Keine Vorschläge</string>
     <string name="title_edit_plain_text">Als einfachen Text bearbeiten</string>
     <string name="title_edit_formatted_text">Als umformatierten Text bearbeiten</string>
     <string name="title_select_certificate">Öffentlichen Schlüssel auswählen</string>
@@ -1286,6 +1286,7 @@
     <string name="title_search_device">Gerät durchsuchen</string>
     <string name="title_search_server">Auf dem Server suchen</string>
     <string name="title_search_in">Suchen in</string>
+    <string name="title_search_sender">Nach Absender suchen</string>
     <string name="title_search_delete">Gespeicherte Suchanfragen löschen?</string>
     <string name="title_sort_on">Sortieren nach</string>
     <string name="title_sort_on_time">Datum/Uhrzeit</string>
@@ -1669,9 +1670,9 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_widget_folder_unified">Sammeleingangsordner</string>
     <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>
     <string name="title_widget_flagged">Nur markierte Nachrichten</string>
-    <string name="title_widget_highlight_remark">Die Hervorhebungsfarbe kann in den Anzeigeeinstellungen ausgewählt werden</string>
     <string name="title_widget_font_size">Schriftgröße</string>
     <string name="title_widget_padding">Abstand zwischen den Texten</string>
+    <string name="title_widget_separator_lines">Trennlinien anzeigen</string>
     <string name="title_widget_semi_transparent">Halbtransparenter Hintergrund</string>
     <string name="title_widget_refresh">Schaltfläche „Nachrichten aktualisieren“ anzeigen</string>
     <string name="title_widget_compose">Schaltfläche „Neue Nachricht verfassen” anzeigen</string>

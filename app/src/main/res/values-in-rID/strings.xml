@@ -1183,6 +1183,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_search_device">Penelusuran di perangkat</string>
     <string name="title_search_server">Penelusuran di server</string>
     <string name="title_search_in">Pencarian di</string>
+    <string name="title_search_sender">Telusuri berdasarkan pengirim</string>
     <string name="title_sort_on">Urutkan berdasarkan</string>
     <string name="title_sort_on_time">Waktu</string>
     <string name="title_sort_on_unread">Belum dibaca</string>

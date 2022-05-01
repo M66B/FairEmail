@@ -910,6 +910,7 @@
     <string name="title_search_device">Søk på enheten</string>
     <string name="title_search_server">Søk på tjener</string>
     <string name="title_search_in">Søk i</string>
+    <string name="title_search_sender">Søk etter avsender</string>
     <string name="title_sort_on">Sorter på</string>
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Ulest</string>

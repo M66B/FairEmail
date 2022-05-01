@@ -1185,8 +1185,8 @@
     <string name="title_translate_html_hint">Questo consumerà più caratteri</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tocca il testo da tradurre</string>
-    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Verificando&#8230;</string>
-    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Nessun suggerimento</string>
+    <string name="title_suggestions_check">Verificando&#8230;</string>
+    <string name="title_suggestions_none">Nessun suggerimento</string>
     <string name="title_edit_plain_text">Modifica come testo semplice</string>
     <string name="title_edit_formatted_text">Modifica come testo riformattato</string>
     <string name="title_select_certificate">Seleziona chiave pubblica</string>
@@ -1292,6 +1292,7 @@
     <string name="title_search_device">Cerca sul dispositivo</string>
     <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_in">Cerca in</string>
+    <string name="title_search_sender">Cerca mittente</string>
     <string name="title_search_delete">Eliminare la ricerca salvata?</string>
     <string name="title_sort_on">Ordina per</string>
     <string name="title_sort_on_time">Ora</string>
@@ -1676,9 +1677,9 @@
     <string name="title_widget_folder_unified">Cartelle in arrivo unificate</string>
     <string name="title_widget_unseen">Solo messaggi non letti</string>
     <string name="title_widget_flagged">Solo messaggi stellati</string>
-    <string name="title_widget_highlight_remark">Il colore d\'evidenziazione può essere selezionato nelle impostazioni di visualizzazione</string>
     <string name="title_widget_font_size">Dimensione testo</string>
     <string name="title_widget_padding">Dimensione del rientro</string>
+    <string name="title_widget_separator_lines">Mostra linee di separazione</string>
     <string name="title_widget_semi_transparent">Sfondo semitrasparente</string>
     <string name="title_widget_refresh">Mostra il pulsante ricarica messaggi</string>
     <string name="title_widget_compose">Mostra il pulsante componi nuovo messaggio</string>

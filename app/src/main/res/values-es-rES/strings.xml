@@ -1180,8 +1180,8 @@
     <string name="title_translate_html_hint">Esto consumirá más caracteres</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Toque el texto para traducirlo</string>
-    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Comprobando &#8230;</string>
-    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">No hay sugerencias</string>
+    <string name="title_suggestions_check">Comprobando &#8230;</string>
+    <string name="title_suggestions_none">No hay sugerencias</string>
     <string name="title_edit_plain_text">Editar como texto plano</string>
     <string name="title_edit_formatted_text">Editar como texto con formato</string>
     <string name="title_select_certificate">Seleccionar clave pública</string>
@@ -1286,6 +1286,7 @@
     <string name="title_search_device">Buscar en dispositivo</string>
     <string name="title_search_server">Buscar en el servidor</string>
     <string name="title_search_in">Buscar en</string>
+    <string name="title_search_sender">Buscar por remitente</string>
     <string name="title_search_delete">¿Borrar búsqueda guardada?</string>
     <string name="title_sort_on">Ordenar por</string>
     <string name="title_sort_on_time">Tiempo</string>
@@ -1669,7 +1670,6 @@
     <string name="title_widget_folder_unified">Carpetas de bandeja de entrada unificadas</string>
     <string name="title_widget_unseen">Sólo mensajes no leídos</string>
     <string name="title_widget_flagged">Sólo mensajes destacados</string>
-    <string name="title_widget_highlight_remark">El color del resaltado puede ser seleccionado en los ajustes de la pantalla</string>
     <string name="title_widget_font_size">Tamaño del texto</string>
     <string name="title_widget_padding">Tamaño de margen interno</string>
     <string name="title_widget_semi_transparent">Fondo semi transparente</string>

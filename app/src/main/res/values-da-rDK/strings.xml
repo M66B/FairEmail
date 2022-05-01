@@ -1185,8 +1185,8 @@
     <string name="title_translate_html_hint">Dette vil betyde et forøget antal tegn</string>
     <string name="title_translate_usage">Forbrug: %1$s/%2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tryk på teksten, der skal oversættes</string>
-    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Tjekker &#8230;</string>
-    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Ingen forslag</string>
+    <string name="title_suggestions_check">Tjekker &#8230;</string>
+    <string name="title_suggestions_none">Ingen forslag</string>
     <string name="title_edit_plain_text">Redigér som almindelig tekst</string>
     <string name="title_edit_formatted_text">Redigér som omformateret tekst</string>
     <string name="title_select_certificate">Vælg offentlig nøgle</string>
@@ -1292,6 +1292,7 @@
     <string name="title_search_device">Søg på enhed</string>
     <string name="title_search_server">Søg på server</string>
     <string name="title_search_in">Søg i</string>
+    <string name="title_search_sender">Søg efter afsender</string>
     <string name="title_search_delete">Slet gemt søgning?</string>
     <string name="title_sort_on">Sortér efter</string>
     <string name="title_sort_on_time">Tid</string>
@@ -1676,9 +1677,9 @@
     <string name="title_widget_folder_unified">Samlede Indbakkemapper</string>
     <string name="title_widget_unseen">Kun ulæste beskeder</string>
     <string name="title_widget_flagged">Kun stjerne-beskeder</string>
-    <string name="title_widget_highlight_remark">Fremhævningsfarven kan vælges i visningsindstillingerne</string>
     <string name="title_widget_font_size">Tekststørrelse</string>
     <string name="title_widget_padding">Polstringsstørrelse</string>
+    <string name="title_widget_separator_lines">Vis separatorlinjer</string>
     <string name="title_widget_semi_transparent">Halvgennemsigtig baggrund</string>
     <string name="title_widget_refresh">Vis Opfrisk beskeder-knap</string>
     <string name="title_widget_compose">Vis Skriv ny besked-knap</string>

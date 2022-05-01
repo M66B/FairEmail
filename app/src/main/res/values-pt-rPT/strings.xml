@@ -450,7 +450,9 @@
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
     <string name="title_advanced_bundled_fonts">Usar tipos de letra embutidos</string>
     <string name="title_advanced_parse_classes">Usar folhas de estilo</string>
+    <string name="title_advanced_authentication">Mostrar avisos de autenticação</string>
     <string name="title_advanced_authentication_hint">As verificações subjacentes podem ser configuradas nas definições de recepção</string>
+    <string name="title_advanced_authentication_indicator">Mostrar indicador do estado de autenticação</string>
     <string name="title_advanced_authentication_none">Sem autenticação</string>
     <string name="title_advanced_authentication_some">Autenticação parcial</string>
     <string name="title_advanced_authentication_all">Autenticação concluída</string>
@@ -468,6 +470,7 @@
     <string name="title_advanced_swipe_close">Deslize para baixo para fechar uma conversa</string>
     <string name="title_advanced_swipe_move">Deslize para cima para mover conversa</string>
     <string name="title_advanced_autoexpand">Expandir mensagens automaticamente</string>
+    <string name="title_advanced_expand_first">Expandir automaticamente a primeira mensagem ao ler uma conversa</string>
     <string name="title_advanced_expand_all">Expandir automaticamente todas as mensagens lidas</string>
     <string name="title_advanced_expand_one">Expandir apenas uma mensagem de cada vez</string>
     <string name="title_advanced_collapse_multiple">Esconder mensagens numa conversa com múltiplas mensagens ao \'voltar\'</string>
@@ -484,13 +487,17 @@
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao mover mensagens</string>
     <string name="title_advanced_auto_important">Marcar automaticamente mensagens com estrela como importantes</string>
     <string name="title_advanced_reset_importance">Reverter importância ao mover mensagens</string>
+    <string name="title_advanced_swipe_reply">Deslizar para a direita para responder em mensagens expandidas</string>
+    <string name="title_advanced_default_snooze">Tempo pré-definido de repetição/adiamento</string>
     <string name="title_advanced_notifications">Gerir notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>
     <string name="title_advanced_notifications_service">Canal \'Recebido\'</string>
+    <string name="title_advanced_notifications_newest_first">Mostrar notificações mais recentes primeiro</string>
     <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
     <string name="title_advanced_badge">Mostrar o número de novas mensagens no ícone do launcher</string>
     <string name="title_advanced_unseen_ignored">Corresponder o número de novas mensagens ao número de notificações</string>
+    <string name="title_advanced_notify_background">Mostrar notificações apenas em segundo plano</string>
     <string name="title_advanced_notify_known">Mostrar notificações apenas para contactos</string>
     <string name="title_advanced_notify_summary">Mostrar apenas resumo na notificação</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
@@ -635,7 +642,7 @@
     <string name="title_advanced_notify_manage_service_hint">Para desactivar a notificação \'a monitorizar\'</string>
     <string name="title_advanced_notify_preview_all_hint">Para dispositivos móveis (wearables) que consigam mostrar o texto completo (até 5.000 caracteres)</string>
     <string name="title_advanced_notify_preview_only_hint">Adia o aparecimento de notificações até que o texto da mensagem tenha sido transferido</string>
-    <string name="title_advanced_wearable_hint">As notificações apenas são enviadas para um dispositivo móvel (rabear) depois de a mensagem de texto ter sido transferida</string>
+    <string name="title_advanced_wearable_hint">As notificações apenas são enviadas para um dispositivo móvel (wearable) após a mensagem de texto ter sido transferida</string>
     <string name="title_advanced_fts_hint">Activar esta função melhora o desempenho da pesquisa, porém aumenta o consumo de bateria e a utilização de espaço do armazenamento</string>
     <string name="title_advanced_english_hint">Mudar esta definição reiniciará a aplicação</string>
     <string name="title_advanced_protocol_hint">Isto irá aumentar significativamente o uso de bateria e do espaço de armazenamento!</string>
@@ -643,6 +650,7 @@
     <string name="title_advanced_cleanup_attachments_hint">Quando houver uma limpeza manual, isto fará com que os anexos, das mensagens que já não são sincronizadas, sejam removidos</string>
     <string name="title_advanced_cleanup_hint">Isto irá eliminar todos os ficheiros temporários</string>
     <string name="title_advanced_never_favorite">Nunca colocar como favorito</string>
+    <string name="title_advanced_edit_name">Editar nome</string>
     <string name="title_advanced_swipe_actions_hint">Isto definirá a acção de deslizar para a esquerda e para a direita para todas as contas IMAP</string>
     <string name="title_select">Seleccionar &#8230;</string>
     <string name="title_identity_name">Seu Nome</string>
@@ -700,6 +708,7 @@
     <string name="title_pop_support">O protocolo POP3 só pode descarregar e eliminar mensagens da caixa de entrada. Não é possível marcar as mensagens como lidas, denunciar spam, mover mensagens, etc. Considere a utilização do protocolo IMAP sempre que possível.</string>
     <string name="title_review">Rever</string>
     <string name="title_hint_accounts">Toque e mantenha premido numa conta para ver as opções, por exemplo, para desactivar ou eliminar uma conta</string>
+    <string name="title_service_token">O gestor de conta Android pode ser bloqueado, por exemplo, por uma VPN, firewall ou bloqueador de anúncios, impedindo-o de obter o token de acesso</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
     <string name="title_synchronize_subfolders">Subpastas</string>
     <string name="title_synchronize_more">Obter mais mensagens</string>
@@ -727,6 +736,7 @@
     <string name="title_contact_name">Nome</string>
     <string name="title_contact_group">Grupo</string>
     <string name="title_import_contacts">Importar vCards</string>
+    <string name="title_export_contacts">Exportar vCards</string>
     <string name="title_create_sub_folder">Criar subpasta</string>
     <string name="title_empty_trash_ask">Eliminar todas as mensagens no \"lixo\" permanentemente?</string>
     <string name="title_empty_spam_ask">Eliminar definitivamente todas as mensagens de \'spam\'?</string>
@@ -1029,8 +1039,8 @@
     <string name="title_translate_html_hint">Esta opção consumirá mais caracteres</string>
     <string name="title_translate_usage">Utilização: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Toque no texto a ser traduzido</string>
-    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">A verificar &#8230;</string>
-    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Sem sugestões</string>
+    <string name="title_suggestions_check">A verificar &#8230;</string>
+    <string name="title_suggestions_none">Sem sugestões</string>
     <string name="title_edit_plain_text">Editar como texto simples</string>
     <string name="title_edit_formatted_text">Editar como texto reformatado</string>
     <string name="title_select_certificate">Seleccionar chave pública</string>
@@ -1136,6 +1146,7 @@
     <string name="title_search_device">Pesquisar no dispositivo</string>
     <string name="title_search_server">Pesquisar no servidor</string>
     <string name="title_search_in">Pesquisar em</string>
+    <string name="title_search_sender">Pesquisar por remetente</string>
     <string name="title_search_delete">Eliminar a pesquisa guardada?</string>
     <string name="title_sort_on">Ordenar por</string>
     <string name="title_sort_on_time">Data</string>

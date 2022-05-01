@@ -1295,6 +1295,7 @@
     <string name="title_search_device">Căutare pe dispozitiv</string>
     <string name="title_search_server">Căutare pe server</string>
     <string name="title_search_in">Căutare în</string>
+    <string name="title_search_sender">Căutare expeditor</string>
     <string name="title_search_delete">Ștergeți căutarea salvată?</string>
     <string name="title_sort_on">Sortare</string>
     <string name="title_sort_on_time">Dată</string>
@@ -1678,7 +1679,6 @@
     <string name="title_widget_folder_unified">Dosare unificate</string>
     <string name="title_widget_unseen">Numai mesajele necitite</string>
     <string name="title_widget_flagged">Numai mesajele cu stea</string>
-    <string name="title_widget_highlight_remark">Culoarea de evidențiere poate fi selectată în setările de afișare</string>
     <string name="title_widget_font_size">Mărime text</string>
     <string name="title_widget_padding">Mărime spațiu liber</string>
     <string name="title_widget_semi_transparent">Fundal semi transparent</string>

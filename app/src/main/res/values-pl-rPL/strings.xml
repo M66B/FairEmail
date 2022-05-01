@@ -1200,8 +1200,8 @@
     <string name="title_translate_html_hint">Spowoduje to zużycie większej liczby znaków</string>
     <string name="title_translate_usage">Składnia: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Dotknij tekstu, aby przetłumaczyć</string>
-    <string name="title_suggestions_check" comment="title_suggestions_check&#10;Show when checking grammar, etc">Sprawdzanie &#8230;</string>
-    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">Brak podpowiedzi</string>
+    <string name="title_suggestions_check">Sprawdzanie &#8230;</string>
+    <string name="title_suggestions_none">Brak podpowiedzi</string>
     <string name="title_edit_plain_text">Edytuj jako zwykły tekst</string>
     <string name="title_edit_formatted_text">Edytuj jako sformatowany tekst</string>
     <string name="title_select_certificate">Wybierz klucz publiczny</string>
@@ -1307,6 +1307,7 @@
     <string name="title_search_device">Szukaj na urządzeniu</string>
     <string name="title_search_server">Szukaj na serwerze</string>
     <string name="title_search_in">Szukaj w</string>
+    <string name="title_search_sender">Szukaj nadawcy</string>
     <string name="title_search_delete">Usunąć zapisane wyszukiwanie?</string>
     <string name="title_sort_on">Sortuj wg</string>
     <string name="title_sort_on_time">Czas</string>
@@ -1690,9 +1691,9 @@
     <string name="title_widget_folder_unified">Foldery wspólnej skrzynki odbiorczej</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
     <string name="title_widget_flagged">Tylko oznaczone</string>
-    <string name="title_widget_highlight_remark">Kolor podświetlenia można wybrać w ustawieniach wyświetlania</string>
     <string name="title_widget_font_size">Rozmiar tekstu</string>
     <string name="title_widget_padding">Rozmiar wypełnienia</string>
+    <string name="title_widget_separator_lines">Pokaż linie rozdzielające</string>
     <string name="title_widget_semi_transparent">Półprzezroczyste tło</string>
     <string name="title_widget_refresh">Pokaż przycisk odświeżania wiadomości</string>
     <string name="title_widget_compose">Pokaż przycisk tworzenia nowej wiadomości</string>

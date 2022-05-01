@@ -1179,6 +1179,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_translate_html_hint">Bu daha fazla karakter tüketecek</string>
     <string name="title_translate_usage">Kullanım: %1$s/%2$s (%3$d %%)</string>
     <string name="title_translate_tap">Çevrilecek metne dokunun</string>
+    <string name="title_suggestions_check">Kontrol ediliyor &#8230;</string>
+    <string name="title_suggestions_none">Öneri yok</string>
     <string name="title_edit_plain_text">Düz metin olarak düzenle</string>
     <string name="title_edit_formatted_text">Yeniden biçimlendirilmiş metin olarak düzenle</string>
     <string name="title_select_certificate">Genel anahtar seç</string>
@@ -1283,6 +1285,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_search_device">Cihazda ara</string>
     <string name="title_search_server">Sunucuda ara</string>
     <string name="title_search_in">İçinde ara</string>
+    <string name="title_search_sender">Göndereni ara</string>
     <string name="title_search_delete">Kayıtlı arama silinsin mi?</string>
     <string name="title_sort_on">Sırala</string>
     <string name="title_sort_on_time">Zaman</string>
@@ -1666,7 +1669,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_widget_folder_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>
     <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
-    <string name="title_widget_highlight_remark">Vurgu rengi ekran ayarlarından seçilebilir</string>
     <string name="title_widget_font_size">Metin boyutu</string>
     <string name="title_widget_padding">Boşluk boyutu</string>
     <string name="title_widget_semi_transparent">Yarı saydam arka plan</string>

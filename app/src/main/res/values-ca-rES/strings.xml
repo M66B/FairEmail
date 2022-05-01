@@ -824,6 +824,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_search_device">Cerca al dispositiu</string>
     <string name="title_search_server">Cerca en el servidor remot</string>
     <string name="title_search_in">Cerca en</string>
+    <string name="title_search_sender">Cerca correu</string>
     <string name="title_sort_on">Ordena per</string>
     <string name="title_sort_on_time">Data</string>
     <string name="title_sort_on_unread">Sense llegir</string>

@@ -918,6 +918,7 @@
     <string name="title_search_device">Търсене в устройството</string>
     <string name="title_search_server">Търсене в сървъра</string>
     <string name="title_search_in">Търсене в</string>
+    <string name="title_search_sender">Търсене на подател</string>
     <string name="title_sort_on">Сортирай по</string>
     <string name="title_sort_on_time">Време</string>
     <string name="title_sort_on_unread">Непрочетени</string>

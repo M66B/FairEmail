@@ -1298,6 +1298,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_device">Hľadať v zariadení</string>
     <string name="title_search_server">Hľadať na servery</string>
     <string name="title_search_in">Hľadať v</string>
+    <string name="title_search_sender">Hľadať odosielateľa</string>
     <string name="title_search_delete">Vymazať uložené hľadanie?</string>
     <string name="title_sort_on">Zotriediť</string>
     <string name="title_sort_on_time">Čas</string>

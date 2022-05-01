@@ -324,6 +324,8 @@
     <string name="title_advanced_attach_new">Lägg till delade filer till ett nytt utkast</string>
     <string name="title_advanced_answer_action">Långtryck på svarsknappen kommer:</string>
     <string name="title_advanced_send_pending">Visa icke-påträngande försenad leveransikon</string>
+    <string name="title_advanced_auto_save_paragraph">Spara utkast automatiskt efter varje stycke</string>
+    <string name="title_advanced_auto_save_dot">Spara utkast automatiskt efter varje mening</string>
     <string name="title_advanced_compose_font">Standardtypsnitt</string>
     <string name="title_advanced_auto_identity">Välj identiteter automatiskt för nya meddelanden</string>
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
@@ -404,6 +406,7 @@
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_bimi_unverified">Overifierad avsändare</string>
     <string name="title_advanced_bimi_verified">Verifierad avsändare</string>
+    <string name="title_advanced_efavicons">Visa avatarer</string>
     <string name="title_advanced_favicons">Visa favicons</string>
     <string name="title_advanced_favicons_partial">Skanna bara den första %1$s av webbsidan</string>
     <string name="title_advanced_generated_icons">Visa genererade ikoner</string>
@@ -1173,6 +1176,8 @@
     <string name="title_translate_html_hint">Detta kommer att använda fler tecken</string>
     <string name="title_translate_usage">Användning: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tryck på texten som ska översättas</string>
+    <string name="title_suggestions_check">Kontrollerar &#8230;</string>
+    <string name="title_suggestions_none">Inga förslag</string>
     <string name="title_edit_plain_text">Redigera som oformaterad text</string>
     <string name="title_edit_formatted_text">Redigera som formaterad text</string>
     <string name="title_select_certificate">Välj publik nyckel</string>
@@ -1278,6 +1283,7 @@
     <string name="title_search_device">Sök på enheten</string>
     <string name="title_search_server">Sök på servern</string>
     <string name="title_search_in">Sök i</string>
+    <string name="title_search_sender">Sök efter avsändare</string>
     <string name="title_search_delete">Ta bort sparad sökning?</string>
     <string name="title_sort_on">Sortera på</string>
     <string name="title_sort_on_time">Tid</string>
@@ -1661,7 +1667,6 @@
     <string name="title_widget_folder_unified">Samlade inkorgsmappar</string>
     <string name="title_widget_unseen">Endast olästa meddelanden</string>
     <string name="title_widget_flagged">Endast stjärnmärkta meddelanden</string>
-    <string name="title_widget_highlight_remark">Markeringsfärgen kan väljas i visningsinställningarna</string>
     <string name="title_widget_font_size">Textstorlek</string>
     <string name="title_widget_padding">Utfyllnadsstorlek</string>
     <string name="title_widget_semi_transparent">Semi transparent bakgrund</string>

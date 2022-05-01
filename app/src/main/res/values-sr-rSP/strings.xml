@@ -633,6 +633,7 @@
     <string name="title_search_device">Претражи на уређају</string>
     <string name="title_search_server">Претражи на серверу</string>
     <string name="title_search_in">Претражи у</string>
+    <string name="title_search_sender">Претражи пошиљаоца</string>
     <string name="title_sort_on">Сортирај по</string>
     <string name="title_sort_on_time">Времену</string>
     <string name="title_sort_on_unread">Непрочитаним</string>

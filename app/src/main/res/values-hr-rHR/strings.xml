@@ -1039,6 +1039,7 @@
     <string name="title_search_flag_attachments">prilozi</string>
     <string name="title_search_server">Traži na poslužitelju</string>
     <string name="title_search_in">Traži u</string>
+    <string name="title_search_sender">Traži pošiljatelja</string>
     <string name="title_sort_on">Poredaj na</string>
     <string name="title_sort_on_time">Vrijeme</string>
     <string name="title_sort_on_unread">Nepročitano</string>

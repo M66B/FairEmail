@@ -979,6 +979,7 @@
     <string name="title_search_device">Bilatu gailuan</string>
     <string name="title_search_server">Bilatu zerbitzarian</string>
     <string name="title_search_in">Bilatu hemen</string>
+    <string name="title_search_sender">Bilatu igorlea</string>
     <string name="title_search_delete">Gordetako bilaketa ezabatu?</string>
     <string name="title_sort_on">Ordenatzeko irizpidea</string>
     <string name="title_sort_on_time">Denbora</string>

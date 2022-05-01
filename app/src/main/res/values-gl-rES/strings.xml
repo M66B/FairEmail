@@ -1243,6 +1243,7 @@
     <string name="title_search_device">Buscar en dispositivo</string>
     <string name="title_search_server">Buscar en servidor</string>
     <string name="title_search_in">Buscar en</string>
+    <string name="title_search_sender">Procurar remitente</string>
     <string name="title_sort_on">Ordenar por</string>
     <string name="title_sort_on_time">Data</string>
     <string name="title_sort_on_unread">Sen ler</string>

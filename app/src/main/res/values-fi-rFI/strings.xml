@@ -1270,6 +1270,7 @@
     <string name="title_search_device">Hae laitteesta</string>
     <string name="title_search_server">Hae palvelimelta</string>
     <string name="title_search_in">Hae kohteesta</string>
+    <string name="title_search_sender">Hae lähettäjää</string>
     <string name="title_search_delete">Poistetaanko tallennettu haku?</string>
     <string name="title_sort_on">Järjestys</string>
     <string name="title_sort_on_time">Aika</string>

@@ -133,6 +133,7 @@
     <string name="title_compose">ᱠᱚᱢᱯᱚᱡᱽ</string>
     <string name="title_send">ᱠᱩᱞ ᱢᱮ</string>
     <string name="title_manage_local_contacts">ᱞᱚᱠᱟᱞ ᱠᱚᱱᱴᱟᱠᱴ ᱢᱮᱱᱮᱡᱽ ᱢᱮ</string>
+    <string name="title_search_sender">ᱠᱩᱞᱤᱡ ᱞᱟᱹᱜᱤᱫ ᱥᱮᱸᱫᱽᱨᱟᱭ ᱢᱮ </string>
     <string name="title_legend_section_synchronize">ᱥᱤᱝᱠᱨᱳᱱᱟᱤᱡᱽ</string>
     <string name="title_legend_section_folders">ᱯᱷᱚᱞᱰᱟᱨ ᱠᱚ</string>
     <string name="title_legend_section_messages">ᱢᱮᱥᱮᱡᱽ</string>
@@ -140,6 +141,7 @@
     <string name="title_legend_thread">ᱨᱚᱯᱚᱲ</string>
     <string name="title_legend_c">ᱠᱚᱢᱯᱚᱡᱽ</string>
     <string name="title_log_clear">ᱯᱷᱟᱨᱪᱟᱭ ᱢᱮ</string>
+    <string name="title_widget_separator_lines">ᱵᱷᱮᱜᱟᱨ ᱯᱟᱸᱛᱮ ᱠᱚ ᱫᱮᱠᱷᱟᱣ ᱢᱮ </string>
     <!-- Thunderbird -->
     <string-array name="pollIntervalNames">
         <item>Always</item>

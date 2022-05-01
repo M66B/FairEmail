@@ -816,7 +816,7 @@
     <string name="title_insert_template">درج قالب</string>
     <string name="title_translate_html">قالب‌بندی را حفظ کن</string>
     <string name="title_translate_html_hint">این، کاراکترهای بیشتری را به کار خواهد برد</string>
-    <string name="title_suggestions_none" comment="title_suggestions_none&#10;Shown when no grammar improvement suggestions, etc">بدون پیشنهاد</string>
+    <string name="title_suggestions_none">بدون پیشنهاد</string>
     <string name="title_edit_plain_text">ویرایش مانند متن ساده</string>
     <string name="title_select_certificate">انتخاب کلید عمومی</string>
     <string name="title_certificate_missing">کلید عمومی برای %1$s نیست</string>
@@ -894,6 +894,7 @@
     <string name="title_search_device">جستجو بر روی دستگاه‌</string>
     <string name="title_search_server">جستجو بر روی سرور</string>
     <string name="title_search_in">جستجو در</string>
+    <string name="title_search_sender">جستجو برای فرستنده</string>
     <string name="title_search_delete">جستجوی ذخیره شده پاک شود؟</string>
     <string name="title_sort_on">مرتب‌سازی براساس</string>
     <string name="title_sort_on_time">زمان</string>
@@ -1179,9 +1180,9 @@
     <string name="title_widget_folder_unified">پوشه های صندوق پستی یکپارچه</string>
     <string name="title_widget_unseen">فقط پیام‌های خوانده نشده</string>
     <string name="title_widget_flagged">فقط پیام‌های ستاره‌دار</string>
-    <string name="title_widget_highlight_remark">در قسمت تنظیمات نمایش می‌شود رنگ هایلایت را انتخاب کرد</string>
     <string name="title_widget_font_size">اندازه متن</string>
     <string name="title_widget_padding">اندازه لایه‌گذاری</string>
+    <string name="title_widget_separator_lines">نمایش خطوط جدا کننده</string>
     <string name="title_widget_semi_transparent">پس‌زمینه نیمه شفاف</string>
     <string name="title_widget_background">رنگ پس‌زمینه</string>
     <string name="title_accessibility_collapsed">جمع شده</string>

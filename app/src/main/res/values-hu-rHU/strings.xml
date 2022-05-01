@@ -1226,6 +1226,7 @@
     <string name="title_search_device">Keresés az eszközön</string>
     <string name="title_search_server">Keresés a szerveren</string>
     <string name="title_search_in">Keresés a következőben</string>
+    <string name="title_search_sender">Keresés feladó alapján</string>
     <string name="title_sort_on">Rendezés ez által</string>
     <string name="title_sort_on_time">Idő</string>
     <string name="title_sort_on_unread">Olvasatlan</string>
