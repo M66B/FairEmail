@@ -514,15 +514,15 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="3dp">
+            android:paddingHorizontal="6dp">
 
             <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibArchive"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_archive"
-                android:padding="3dp"
+                android:padding="6dp"
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_archive"
@@ -532,11 +532,11 @@
 
             <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibJunk"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_folder_junk"
-                android:padding="3dp"
+                android:padding="6dp"
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_folder_junk"
@@ -546,11 +546,11 @@
 
             <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibTrash"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_delete"
-                android:padding="3dp"
+                android:padding="6dp"
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_delete"
