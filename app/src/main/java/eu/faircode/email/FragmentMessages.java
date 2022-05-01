@@ -291,6 +291,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private FloatingActionButton fabMore;
     private TextView tvSelectedCount;
     private CardView cardMore;
+    private ImageButton ibInbox;
     private ImageButton ibArchive;
     private ImageButton ibJunk;
     private ImageButton ibTrash;
@@ -556,6 +557,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabMore = view.findViewById(R.id.fabMore);
         tvSelectedCount = view.findViewById(R.id.tvSelectedCount);
         cardMore = view.findViewById(R.id.cardMore);
+        ibInbox = view.findViewById(R.id.ibInbox);
         ibArchive = view.findViewById(R.id.ibArchive);
         ibJunk = view.findViewById(R.id.ibJunk);
         ibTrash = view.findViewById(R.id.ibTrash);
@@ -1282,6 +1284,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 onMore();
+            }
+        });
+
+        ibInbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onActionMoveSelection(EntityFolder.INBOX, false);
             }
         });
 
@@ -5759,10 +5768,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 protected Boolean[] onExecute(Context context, Bundle args) {
                     long[] ids = args.getLongArray("ids");
 
-                    Boolean[] result = new Boolean[3];
+                    Boolean[] result = new Boolean[4];
                     result[0] = false;
                     result[1] = false;
                     result[2] = false;
+                    result[3] = false;
 
                     DB db = DB.getInstance(context);
 
@@ -5771,31 +5781,43 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (message == null)
                             continue;
 
+                        EntityAccount account = db.account().getAccount(message.account);
+                        if (account == null || account.protocol != EntityAccount.TYPE_IMAP)
+                            continue;
+
                         EntityFolder folder = db.folder().getFolder(message.folder);
                         if (folder == null)
                             continue;
 
                         if (!result[0] &&
-                                !EntityFolder.ARCHIVE.equals(folder.type)) {
-                            EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-                            result[0] = (archive != null && archive.selectable);
+                                (EntityFolder.ARCHIVE.equals(folder.type) ||
+                                        EntityFolder.JUNK.equals(folder.type) ||
+                                        EntityFolder.TRASH.equals(folder.type))) {
+                            EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
+                            result[0] = (inbox != null && inbox.selectable);
                         }
 
                         if (!result[1] &&
-                                !EntityFolder.JUNK.equals(folder.type) &&
-                                !EntityFolder.DRAFTS.equals(folder.type)) {
-                            EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                            result[1] = (junk != null && junk.selectable);
+                                !EntityFolder.ARCHIVE.equals(folder.type)) {
+                            EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+                            result[1] = (archive != null && archive.selectable);
                         }
 
                         if (!result[2] &&
+                                !EntityFolder.JUNK.equals(folder.type) &&
+                                !EntityFolder.DRAFTS.equals(folder.type)) {
+                            EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                            result[2] = (junk != null && junk.selectable);
+                        }
+
+                        if (!result[3] &&
                                 !EntityFolder.TRASH.equals(folder.type) &&
                                 !EntityFolder.JUNK.equals(folder.type)) {
                             EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                            result[2] = (trash != null && trash.selectable);
+                            result[3] = (trash != null && trash.selectable);
                         }
 
-                        if (result[0] && result[1] && result[2])
+                        if (result[0] && result[1] && result[2] || result[3])
                             break;
                     }
 
@@ -5804,11 +5826,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected void onExecuted(Bundle args, Boolean[] result) {
-                    ibArchive.setVisibility(result[0] ? View.VISIBLE : View.GONE);
-                    ibJunk.setVisibility(result[1] ? View.VISIBLE : View.GONE);
-                    ibTrash.setVisibility(result[2] ? View.VISIBLE : View.GONE);
+                    ibInbox.setVisibility(result[0] ? View.VISIBLE : View.GONE);
+                    ibArchive.setVisibility(result[1] ? View.VISIBLE : View.GONE);
+                    ibJunk.setVisibility(result[2] ? View.VISIBLE : View.GONE);
+                    ibTrash.setVisibility(result[3] ? View.VISIBLE : View.GONE);
                     cardMore.setVisibility(fabMore.isOrWillBeShown() &&
-                            (result[0] || result[1] || result[2])
+                            (result[1] || result[2] || result[3] || result[4])
                             ? View.VISIBLE : View.GONE);
                 }
 
