@@ -159,11 +159,18 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             }
         };
 
-        int themeId = FragmentDialogTheme.getTheme(context);
-        if (themedContext == null || SimpleTask.themeId != themeId) {
-            SimpleTask.themeId = themeId;
-            themedContext = new ContextThemeWrapper(context.getApplicationContext(), themeId);
-        }
+        Context tcontext;
+        if (context instanceof ActivityBase) {
+            int themeId = ((ActivityBase) context).getThemeId();
+            if (themeId == 0)
+                themeId = context.getApplicationInfo().theme;
+            if (SimpleTask.themedContext == null || SimpleTask.themeId != themeId) {
+                SimpleTask.themeId = themeId;
+                SimpleTask.themedContext = new ContextThemeWrapper(context.getApplicationContext(), themeId);
+            }
+            tcontext = SimpleTask.themedContext;
+        } else
+            tcontext = context.getApplicationContext();
 
         future = getExecutor(context).submit(new Runnable() {
             private Object data;
@@ -179,7 +186,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                     if (log)
                         Log.i("Executing task=" + name);
                     long start = new Date().getTime();
-                    data = onExecute(themedContext, args);
+                    data = onExecute(tcontext, args);
                     elapsed = new Date().getTime() - start;
                     if (log)
                         Log.i("Executed task=" + name + " elapsed=" + elapsed + " ms");
