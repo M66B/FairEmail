@@ -3654,6 +3654,8 @@ class Core {
                                 if (full.contains(isub[j]))
                                     try {
                                         Date received = isub[j].getReceivedDate();
+                                        if (received == null || received.getTime() == 0)
+                                            received = isub[j].getSentDate();
                                         boolean unseen = (sync_unseen && !isub[j].isSet(Flags.Flag.SEEN));
                                         boolean flagged = (sync_flagged && isub[j].isSet(Flags.Flag.FLAGGED));
                                         if (received != null && received.getTime() < keep_time && !unseen && !flagged) {
