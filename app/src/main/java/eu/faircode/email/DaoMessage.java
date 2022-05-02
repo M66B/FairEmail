@@ -607,8 +607,9 @@ public interface DaoMessage {
             " AND (NOT :flagged OR message.ui_flagged)" +
             " GROUP BY account.id" +
             ", CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
-            " ORDER BY message.received DESC")
-    List<TupleMessageWidget> getWidgetUnified(Long account, Long folder, boolean threading, boolean unseen, boolean flagged);
+            " ORDER BY message.received DESC" +
+            " LIMIT :limit")
+    List<TupleMessageWidget> getWidgetUnified(Long account, Long folder, boolean threading, boolean unseen, boolean flagged, int limit);
 
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +

@@ -77,6 +77,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private boolean allColors;
     private List<TupleMessageWidget> messages = new ArrayList<>();
 
+    private static final int MAX_WIDGET_MESSAGES = 500;
+
     WidgetUnifiedRemoteViewsFactory(final Context context, Intent intent) {
         this.context = context;
         this.appWidgetId = intent.getIntExtra(
@@ -143,7 +145,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             messages = db.message().getWidgetUnified(
                     account < 0 ? null : account,
                     folder < 0 ? null : folder,
-                    threading, unseen, flagged);
+                    threading, unseen, flagged,
+                    MAX_WIDGET_MESSAGES);
 
             db.setTransactionSuccessful();
         } finally {
