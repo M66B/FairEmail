@@ -257,12 +257,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ViewGroup view;
     private SwipeRefreshLayoutEx swipeRefresh;
     private TextView tvAirplane;
-    private TextView tvLastSync;
     private TextView tvSupport;
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
     private ImageButton ibHintJunk;
+    private TextView tvLastSync;
     private TextView tvNoEmail;
     private TextView tvNoEmailHint;
     private FixedRecyclerView rvMessage;
@@ -526,12 +526,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         // Get controls
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
         tvAirplane = view.findViewById(R.id.tvAirplane);
-        tvLastSync = view.findViewById(R.id.tvLastSync);
         tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
         ibHintJunk = view.findViewById(R.id.ibHintJunk);
+        tvLastSync = view.findViewById(R.id.tvLastSync);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         tvNoEmailHint = view.findViewById(R.id.tvNoEmailHint);
         rvMessage = view.findViewById(R.id.rvMessage);

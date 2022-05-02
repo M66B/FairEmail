@@ -41,27 +41,6 @@
                 app:layout_constraintTop_toBottomOf="@id/tvAirplane" />
 
             <eu.faircode.email.FixedTextView
-                android:id="@+id/tvLastSync"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:text="@string/title_last_connected"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="?android:attr/textColorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorAirplane" />
-
-            <View
-                android:id="@+id/vSeparatorLastSync"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?attr/colorSeparator"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvLastSync" />
-
-            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvSupport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,7 +50,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vSeparatorLastSync" />
+                app:layout_constraintTop_toBottomOf="@+id/vSeparatorAirplane" />
 
             <View
                 android:id="@+id/vSeparatorSupport"
@@ -213,6 +192,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHintJunk" />
 
+            <eu.faircode.email.FixedTextView
+                android:id="@+id/tvLastSync"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:text="@string/title_last_connected"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintJunk" />
+
+            <View
+                android:id="@+id/vSeparatorLastSync"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLastSync" />
+
             <include
                 android:id="@+id/inGroup"
                 layout="@layout/item_group"
@@ -220,7 +219,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintJunk" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorLastSync" />
 
             <eu.faircode.email.ViewTextDelayed
                 android:id="@+id/tvNoEmail"
