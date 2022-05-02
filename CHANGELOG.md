@@ -4,7 +4,7 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
-### Next version
+### 1.1888 - 2022-05-02
 
 * Added translate all button
 * Small improvements and minor bug fixes
