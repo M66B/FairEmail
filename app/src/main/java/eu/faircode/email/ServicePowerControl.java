@@ -142,4 +142,10 @@ public class ServicePowerControl extends ControlsProviderService {
                         .putExtra("tab", "misc"),
                 PendingIntent.FLAG_UPDATE_CURRENT);
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        CoalMine.watch(this, this.getClass().getName() + "#onDestroy");
+    }
 }

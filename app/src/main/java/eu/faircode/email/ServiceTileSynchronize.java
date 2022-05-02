@@ -84,4 +84,10 @@ public class ServiceTileSynchronize extends TileService implements SharedPrefere
         boolean enabled = !prefs.getBoolean("enabled", true);
         prefs.edit().putBoolean("enabled", enabled).apply();
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        CoalMine.watch(this, this.getClass().getName() + "#onDestroy");
+    }
 }

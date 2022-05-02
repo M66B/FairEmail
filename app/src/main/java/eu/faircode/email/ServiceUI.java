@@ -77,6 +77,7 @@ public class ServiceUI extends IntentService {
     public void onDestroy() {
         Log.i("Service UI destroy");
         super.onDestroy();
+        CoalMine.watch(this, this.getClass().getName() + "#onDestroy");
     }
 
     @Override

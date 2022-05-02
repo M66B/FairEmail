@@ -67,6 +67,7 @@ public class ServiceExternal extends Service {
         Log.i("Service external destroy");
         stopForeground(true);
         super.onDestroy();
+        CoalMine.watch(this, this.getClass().getName() + "#onDestroy");
     }
 
     @Override
