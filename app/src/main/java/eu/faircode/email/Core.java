@@ -348,7 +348,6 @@ class Core {
                         crumb.put("tries", Integer.toString(op.tries));
                         crumb.put("similar", TextUtils.join(",", sids));
                         crumb.put("thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
-                        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
                         Log.breadcrumb("start operation", crumb);
 
                         try {
@@ -514,7 +513,6 @@ class Core {
                         }
 
                         crumb.put("thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
-                        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
                         Log.breadcrumb("end operation", crumb);
 
                         // Operation succeeded
@@ -3639,7 +3637,6 @@ class Core {
                         crumb.put("folder", folder.id + ":" + folder.type);
                         crumb.put("start", Integer.toString(from));
                         crumb.put("end", Integer.toString(i));
-                        crumb.put("free", Integer.toString(free));
                         crumb.put("partial", Boolean.toString(account.partial_fetch));
                         Log.breadcrumb("sync", crumb);
                         Log.i("Sync " + from + ".." + i + " free=" + free);
@@ -3758,7 +3755,6 @@ class Core {
                     crumb.put("folder", folder.id + ":" + folder.type);
                     crumb.put("start", Integer.toString(from));
                     crumb.put("end", Integer.toString(i));
-                    crumb.put("free", Integer.toString(free));
                     crumb.put("partial", Boolean.toString(account.partial_fetch));
                     Log.breadcrumb("download", crumb);
                     Log.i("Download " + from + ".." + i + " free=" + free);

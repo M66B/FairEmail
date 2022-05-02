@@ -500,7 +500,6 @@ public class EntityOperation {
         crumb.put("folder", op.account + ":" + op.folder);
         if (op.message != null)
             crumb.put("message", Long.toString(op.message));
-        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
         Log.breadcrumb("queued", crumb);
     }
 

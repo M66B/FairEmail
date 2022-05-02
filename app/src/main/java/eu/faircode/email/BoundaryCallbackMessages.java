@@ -183,7 +183,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 int free = Log.getFreeMemMb();
                 Map<String, String> crumb = new HashMap<>();
-                crumb.put("free", Integer.toString(free));
+                crumb.put("queued", Integer.toString(state.queued));
                 Log.breadcrumb("Boundary run", crumb);
 
                 Log.i("Boundary run free=" + free);
@@ -236,7 +236,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     Log.i("Boundary queued -" + state.queued);
                     Helper.gc();
 
-                    crumb.put("free", Integer.toString(Log.getFreeMemMb()));
+                    crumb.put("queued", Integer.toString(state.queued));
                     Log.breadcrumb("Boundary done", crumb);
 
                     final int f = found;

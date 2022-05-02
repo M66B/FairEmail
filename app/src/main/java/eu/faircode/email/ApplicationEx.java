@@ -314,7 +314,6 @@ public class ApplicationEx extends Application
         Log.logMemory(this, "Trim memory level=" + level);
         Map<String, String> crumb = new HashMap<>();
         crumb.put("level", Integer.toString(level));
-        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
         Log.breadcrumb("trim", crumb);
         super.onTrimMemory(level);
     }

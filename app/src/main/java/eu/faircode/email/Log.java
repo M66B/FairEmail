@@ -333,6 +333,8 @@ public class Log {
 
     public static void breadcrumb(String name, Map<String, String> crumb) {
         try {
+            crumb.put("free", Integer.toString(Log.getFreeMemMb()));
+
             StringBuilder sb = new StringBuilder();
             sb.append("Breadcrumb ").append(name);
             Map<String, Object> ocrumb = new HashMap<>();

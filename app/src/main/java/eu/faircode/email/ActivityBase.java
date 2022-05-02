@@ -250,7 +250,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         crumb.put("name", this.getClass().getName());
         crumb.put("before", Integer.toString(before));
         crumb.put("after", Integer.toString(after));
-        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
         Log.breadcrumb("onSaveInstanceState", crumb);
 
         for (String key : outState.keySet())
