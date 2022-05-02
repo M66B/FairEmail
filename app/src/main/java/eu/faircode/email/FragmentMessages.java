@@ -5837,7 +5837,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     ibJunk.setVisibility(result[2] ? View.VISIBLE : View.GONE);
                     ibTrash.setVisibility(result[3] ? View.VISIBLE : View.GONE);
                     cardMore.setVisibility(fabMore.isOrWillBeShown() &&
-                            (result[1] || result[2] || result[3] || result[4])
+                            (result[0] || result[1] || result[2] || result[3])
                             ? View.VISIBLE : View.GONE);
                 }
 
