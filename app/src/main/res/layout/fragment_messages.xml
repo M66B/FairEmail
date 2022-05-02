@@ -26,7 +26,7 @@
                 android:drawableTint="?android:attr/textColorPrimary"
                 android:padding="6dp"
                 android:text="@string/title_hint_airplane"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="?android:attr/textColorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
