@@ -1436,6 +1436,17 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swLastSync"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_show_last_sync"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swDupMsgId"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swTestIab"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1443,7 +1454,7 @@
                     android:text="@string/title_advanced_test_iab"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swDupMsgId"
+                    app:layout_constraintTop_toBottomOf="@id/swLastSync"
                     app:switchPadding="12dp" />
 
                 <Button

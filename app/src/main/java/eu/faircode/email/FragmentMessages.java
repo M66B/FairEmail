@@ -257,6 +257,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ViewGroup view;
     private SwipeRefreshLayoutEx swipeRefresh;
     private TextView tvAirplane;
+    private TextView tvLastSync;
     private TextView tvSupport;
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
@@ -279,6 +280,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpAirplane;
+    private Group grpLastSync;
     private Group grpSupport;
     private Group grpHintSupport;
     private Group grpHintSwipe;
@@ -336,6 +338,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean quick_scroll;
     private boolean addresses;
     private boolean swipe_reply;
+    private boolean last_sync_time;
 
     private int colorPrimary;
     private int colorAccent;
@@ -472,6 +475,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         quick_scroll = prefs.getBoolean("quick_scroll", true);
         addresses = prefs.getBoolean("addresses", false);
         swipe_reply = prefs.getBoolean("swipe_reply", false);
+        last_sync_time = prefs.getBoolean("last_sync_time", false);
 
         colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
         colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
@@ -521,6 +525,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         // Get controls
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
         tvAirplane = view.findViewById(R.id.tvAirplane);
+        tvLastSync = view.findViewById(R.id.tvLastSync);
         tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
@@ -544,6 +549,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         pbWait = view.findViewById(R.id.pbWait);
         grpAirplane = view.findViewById(R.id.grpAirplane);
+        grpLastSync = view.findViewById(R.id.grpLastSync);
         grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
@@ -580,7 +586,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        grpAirplane.setVisibility(View.GONE);
         tvAirplane.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1479,6 +1484,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
+        grpAirplane.setVisibility(View.GONE);
+        grpLastSync.setVisibility(View.GONE);
         tvNoEmail.setVisibility(View.GONE);
         tvNoEmailHint.setVisibility(View.GONE);
         etSearch.setVisibility(View.GONE);
@@ -5732,6 +5739,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (unseen > 0)
             name = getString(R.string.title_name_count, name, NF.format(unseen));
         setSubtitle(name);
+
+        if (viewType == AdapterMessage.ViewType.FOLDER &&
+                folders.size() == 1 &&
+                folders.get(0).last_sync != null) {
+            tvLastSync.setText(DateUtils.getRelativeTimeSpanString(context,
+                    folders.get(0).last_sync, true));
+            grpLastSync.setVisibility(View.VISIBLE);
+        } else
+            grpLastSync.setVisibility(View.GONE);
 
         fabError.setTag(accountErrors);
         if (folderErrors || accountErrors)

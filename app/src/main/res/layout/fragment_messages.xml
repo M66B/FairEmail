@@ -41,6 +41,27 @@
                 app:layout_constraintTop_toBottomOf="@id/tvAirplane" />
 
             <eu.faircode.email.FixedTextView
+                android:id="@+id/tvLastSync"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:text="@string/title_last_connected"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="?android:attr/textColorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorAirplane" />
+
+            <View
+                android:id="@+id/vSeparatorLastSync"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLastSync" />
+
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvSupport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,7 +71,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vSeparatorAirplane" />
+                app:layout_constraintTop_toBottomOf="@+id/vSeparatorLastSync" />
 
             <View
                 android:id="@+id/vSeparatorSupport"
@@ -428,6 +449,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="tvAirplane,vSeparatorAirplane" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpLastSync"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvLastSync,vSeparatorLastSync" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpSupport"
