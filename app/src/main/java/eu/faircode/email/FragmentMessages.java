@@ -384,6 +384,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int MAX_SEND_RAW = 50; // messages
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
     private static final float LUMINANCE_THRESHOLD = 0.7f;
+    private static final int ITEM_CACHE_SIZE = 10; // Default: 2 items
 
     private static final int REQUEST_RAW = 1;
     private static final int REQUEST_OPENPGP = 4;
@@ -633,7 +634,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         int threads = prefs.getInt("query_threads", DB.DEFAULT_QUERY_THREADS);
         if (threads >= 4)
-            rvMessage.setItemViewCacheSize(10); // Default: 2
+            rvMessage.setItemViewCacheSize(ITEM_CACHE_SIZE);
         //rvMessage.getRecycledViewPool().setMaxRecycledViews(0, 10); // Default 5
 
         final LinearLayoutManager llm = new LinearLayoutManager(getContext()) {
@@ -2262,6 +2263,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 @Override
                 public void run() {
                     try {
+                        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                            return;
+                        rvMessage.setItemViewCacheSize(0);
+                        rvMessage.getRecycledViewPool().clear();
+                        rvMessage.setItemViewCacheSize(ITEM_CACHE_SIZE);
                         adapter.notifyDataSetChanged();
                     } catch (Throwable ex) {
                         Log.e(ex);
@@ -7119,18 +7125,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (collapse_multiple && expanded > 0 && count > 1) {
                 values.get("expanded").clear();
                 updateExpanded();
-                rvMessage.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                                return;
-                            adapter.notifyDataSetChanged();
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
-                    }
-                });
+                iProperties.refresh();
                 return true;
             }
 
@@ -7356,16 +7351,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onKeywords(Intent intent) {
-        rvMessage.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    adapter.notifyDataSetChanged();
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        });
+        iProperties.refresh();
     }
 
     @Override
@@ -7478,7 +7464,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         onPickContact(data.getData());
                     break;
                 case REQUEST_BUTTONS:
-                    adapter.notifyDataSetChanged();
+                    iProperties.refresh();
                     break;
                 case REQUEST_ALL_READ:
                     if (resultCode == RESULT_OK)
