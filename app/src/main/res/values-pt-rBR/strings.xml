@@ -114,6 +114,7 @@
     <string name="menu_rate">Avalie este aplicativo</string>
     <string name="title_welcome">Bem-vindo(a)</string>
     <string name="title_eula">Contrato de Licença de Usuário Final</string>
+    <string name="title_license">Licenças de código aberto</string>
     <string name="title_contributors">Contribuintes</string>
     <string name="title_agree">Eu concordo</string>
     <string name="title_disagree">Eu discordo</string>

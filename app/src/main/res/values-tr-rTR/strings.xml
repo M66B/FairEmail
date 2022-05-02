@@ -113,6 +113,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="menu_rate">Bu uygulamaya puan verin</string>
     <string name="title_welcome">Hoşgeldiniz</string>
     <string name="title_eula">Son Kullanıcı Lisans Sözleşmesi</string>
+    <string name="title_license">Açık kaynak lisansı</string>
     <string name="title_contributors">Katkıda bulunanlar</string>
     <string name="title_agree">Kabul ediyorum</string>
     <string name="title_disagree">Kabul etmiyorum</string>
@@ -1671,6 +1672,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
     <string name="title_widget_font_size">Metin boyutu</string>
     <string name="title_widget_padding">Boşluk boyutu</string>
+    <string name="title_widget_separator_lines">Ayırıcı çizgileri göster</string>
     <string name="title_widget_semi_transparent">Yarı saydam arka plan</string>
     <string name="title_widget_refresh">Mesajları yenile düğmesini göster</string>
     <string name="title_widget_compose">Yeni mesaj oluştur düğmesini göster</string>

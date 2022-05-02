@@ -114,6 +114,7 @@
     <string name="menu_rate">Αξιολογήστε αυτή την εφαρμογή</string>
     <string name="title_welcome">Καλώς ορίσατε</string>
     <string name="title_eula">Άδεια χρήσης τελικού χρήστη</string>
+    <string name="title_license">Άδεια ανοικτού κώδικα</string>
     <string name="title_contributors">Συνεισέφεραν</string>
     <string name="title_agree">Συμφωνώ</string>
     <string name="title_disagree">Διαφωνώ</string>

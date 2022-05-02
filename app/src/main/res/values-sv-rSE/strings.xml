@@ -114,6 +114,7 @@
     <string name="menu_rate">Betygsätt denna app</string>
     <string name="title_welcome">Välkommen</string>
     <string name="title_eula">Licensavtal för slutanvändare</string>
+    <string name="title_license">Öppen källkodslicens</string>
     <string name="title_contributors">Bidragsgivare</string>
     <string name="title_agree">Jag samtycker</string>
     <string name="title_disagree">Jag samtycker inte</string>
@@ -1669,6 +1670,7 @@
     <string name="title_widget_flagged">Endast stjärnmärkta meddelanden</string>
     <string name="title_widget_font_size">Textstorlek</string>
     <string name="title_widget_padding">Utfyllnadsstorlek</string>
+    <string name="title_widget_separator_lines">Visa avgränsare</string>
     <string name="title_widget_semi_transparent">Semi transparent bakgrund</string>
     <string name="title_widget_refresh">Visa knappen för att uppdatera meddelanden</string>
     <string name="title_widget_compose">Visa knapp för nytt meddelande</string>

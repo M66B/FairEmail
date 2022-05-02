@@ -114,6 +114,7 @@
     <string name="menu_rate">Bedøm denne app</string>
     <string name="title_welcome">Velkommen</string>
     <string name="title_eula">Slutbrugerlicensaftale</string>
+    <string name="title_license">Open-source licens</string>
     <string name="title_contributors">Bidragsydere</string>
     <string name="title_agree">Jeg accepterer</string>
     <string name="title_disagree">Jeg accepterer ikke</string>

@@ -113,6 +113,7 @@
     <string name="menu_rate">App bewerten</string>
     <string name="title_welcome">Willkommen</string>
     <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
+    <string name="title_license">Quelloffene Lizenz</string>
     <string name="title_contributors">Unterstützer</string>
     <string name="title_agree">Ich stimme zu</string>
     <string name="title_disagree">Ich stimme nicht zu</string>

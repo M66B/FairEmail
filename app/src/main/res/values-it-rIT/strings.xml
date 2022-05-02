@@ -114,6 +114,7 @@
     <string name="menu_rate">Valuta quest\'app</string>
     <string name="title_welcome">Benvenuto</string>
     <string name="title_eula">Accordo di licenza dell\'utente finale</string>
+    <string name="title_license">Licenza open source</string>
     <string name="title_contributors">Contributori</string>
     <string name="title_agree">Acconsento</string>
     <string name="title_disagree">Nego il consenso</string>
@@ -620,7 +621,7 @@
     <string name="title_advanced_poll_hint">Cercare periodicamente i nuovi messaggi confronterà i messaggi locali e remoti ogni volta, che è un\'operazione costosa che potrebbe risultare in un uso extra della batteria, specialmente se ci sono molti messaggi. Ricevere sempre lo impedirà seguendo continuamento le modifiche.</string>
     <string name="title_advanced_optimize_hint">Questo potrebbe cambiare la frequenza di sincronizzazione per risparmiare sull\'uso della batteria in base alle capacità e il comportamento dei server email</string>
     <string name="title_advanced_schedule_hint">Tocca sull\'orario per impostarlo</string>
-    <string name="title_advanced_schedule_ignore">La pianificazione può essere disabilitata nelle impostazioni avanzate dell\'account</string>
+    <string name="title_advanced_schedule_ignore">Le pianificazioni possono esser disabilitate nelle impostazioni avanzate del profilo</string>
     <string name="title_advanced_quick_sync_hint">Questo riduce l\'uso dei dati, ma i nuovi messaggi potrebbero esser perduti se il server email non segue gli standard</string>
     <string name="title_advanced_no_date_hint">Alcuni provider memorizzano i messaggi con una data sconosciuta, non valida o futura come messaggi senza data</string>
     <string name="title_advanced_unseen_hint">Alcuni provider non lo supportano propriamente, il che potrebbe causare la sincronizzazione di tutti o nessun messaggio</string>
@@ -1045,7 +1046,7 @@
     <string name="title_no_saf">Framework di accesso all\'archiviazione non disponibile</string>
     <string name="title_no_stream">FairEmail non è autorizzato a leggere direttamente questo file</string>
     <string name="title_no_stream_help">Ciò è risolvibile selezionando il file con un\'app di gestione dei file più moderna o concedendo l\'autorizzazione a leggere i file</string>
-    <string name="title_no_permissions">L\'app utilizzata per selezionare il file non ha l\'autorizzazione di leggerlo</string>
+    <string name="title_no_permissions">L\'app usata per selezionare il file non ha concesso l\'autorizzazione a leggerlo</string>
     <string name="title_no_internet">Nessuna o inadeguata connessione a Internet</string>
     <string name="title_no_connection">Connessione a uno o più profili&#8230;</string>
     <string name="title_no_folder">La cartella non esiste</string>
@@ -1292,7 +1293,7 @@
     <string name="title_search_device">Cerca sul dispositivo</string>
     <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_in">Cerca in</string>
-    <string name="title_search_sender">Cerca mittente</string>
+    <string name="title_search_sender">Cerca per mittente</string>
     <string name="title_search_delete">Eliminare la ricerca salvata?</string>
     <string name="title_sort_on">Ordina per</string>
     <string name="title_sort_on_time">Ora</string>
@@ -1548,7 +1549,7 @@
     <string name="title_legend_t">Focalizza testo</string>
     <string name="title_hint_folder_actions">Tieni premuta una cartella per le opzioni, come aggiungere una cartella al menu di navigazione per l\'accesso rapido</string>
     <string name="title_hint_folder_sync">Per limitare l\'uso della batteria e di rete, non tutte le cartelle e messaggi saranno sincronizzati di default</string>
-    <string name="title_hint_airplane">Modalità aereo attivata</string>
+    <string name="title_hint_airplane">La modalità offline è attivata</string>
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>
     <string name="title_hint_message_selection">Tieni premuto un messaggio per iniziare a selezionare più messaggi: Tieni premuto e scorri in su o in giù per selezionare più messaggi</string>

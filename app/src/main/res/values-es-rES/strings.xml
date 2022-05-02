@@ -114,6 +114,7 @@
     <string name="menu_rate">Califique esta app</string>
     <string name="title_welcome">Bienvenido</string>
     <string name="title_eula">Acuerdo de licencia de usuario</string>
+    <string name="title_license">Licencia de código abierto</string>
     <string name="title_contributors">Colaboradores</string>
     <string name="title_agree">Acepto</string>
     <string name="title_disagree">Rechazo</string>
@@ -1672,6 +1673,7 @@
     <string name="title_widget_flagged">Sólo mensajes destacados</string>
     <string name="title_widget_font_size">Tamaño del texto</string>
     <string name="title_widget_padding">Tamaño de margen interno</string>
+    <string name="title_widget_separator_lines">Mostrar líneas separadoras</string>
     <string name="title_widget_semi_transparent">Fondo semi transparente</string>
     <string name="title_widget_refresh">Mostrar botón de actualizar mensajes</string>
     <string name="title_widget_compose">Mostrar botón de redactar nuevo mensaje</string>

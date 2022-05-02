@@ -114,6 +114,7 @@
     <string name="menu_rate">Noter cette application</string>
     <string name="title_welcome">Bienvenue</string>
     <string name="title_eula">Contrat de licence d\'utilisateur final</string>
+    <string name="title_license">Licence Open source</string>
     <string name="title_contributors">Contributeurs</string>
     <string name="title_agree">J\'accepte</string>
     <string name="title_disagree">Je refuse</string>
