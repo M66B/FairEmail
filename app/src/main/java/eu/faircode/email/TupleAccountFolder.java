@@ -34,6 +34,7 @@ public class TupleAccountFolder extends EntityAccount {
     public boolean folderSync;
     public String folderState;
     public String folderSyncState;
+    public Long folderLastSync;
     public int executing;
     public int messages;
     public int unseen;
@@ -73,6 +74,7 @@ public class TupleAccountFolder extends EntityAccount {
                     this.folderSync == other.folderSync &&
                     Objects.equals(this.folderState, other.folderState) &&
                     Objects.equals(this.folderSyncState, other.folderSyncState) &&
+                    Objects.equals(this.folderLastSync, other.folderLastSync) &&
                     this.executing == other.executing &&
                     this.messages == other.messages &&
                     this.unseen == other.unseen);

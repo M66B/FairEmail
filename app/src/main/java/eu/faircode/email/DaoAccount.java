@@ -84,7 +84,8 @@ public interface DaoAccount {
             ", NULL AS folderId, NULL AS folderSeparator" +
             ", NULL AS folderType, -1 AS folderOrder" +
             ", NULL AS folderName, NULL AS folderDisplay, NULL AS folderColor" +
-            ", 0 AS folderSync, NULL AS folderState, NULL AS folderSyncState" +
+            ", 0 AS folderSync, NULL AS folderState" +
+            ", NULL AS folderSyncState, NULL AS folderLastSync" +
             ", 0 AS executing" +
             ", 0 AS messages" +
             ", (SELECT COUNT(DISTINCT" +
@@ -110,7 +111,8 @@ public interface DaoAccount {
             ", folder.id AS folderId, folder.separator AS folderSeparator" +
             ", folder.type AS folderType, folder.`order` AS folderOrder" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.color AS folderColor" +
-            ", folder.synchronize AS folderSync, folder.state AS foldeState, folder.sync_state AS folderSyncState" +
+            ", folder.synchronize AS folderSync, folder.state AS foldeState" +
+            ", folder.sync_state AS folderSyncState, folder.last_sync AS folderLastSync" +
             ", (SELECT COUNT(operation.id) FROM operation" +
             "   WHERE operation.folder = folder.id" +
             "   AND state = 'executing') AS executing" +

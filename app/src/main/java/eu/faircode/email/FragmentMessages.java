@@ -262,7 +262,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
     private ImageButton ibHintJunk;
-    private TextView tvLastSync;
     private TextView tvNoEmail;
     private TextView tvNoEmailHint;
     private FixedRecyclerView rvMessage;
@@ -280,7 +279,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpAirplane;
-    private Group grpLastSync;
     private Group grpSupport;
     private Group grpHintSupport;
     private Group grpHintSwipe;
@@ -338,7 +336,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean quick_scroll;
     private boolean addresses;
     private boolean swipe_reply;
-    private boolean last_sync_time;
 
     private int colorPrimary;
     private int colorAccent;
@@ -372,7 +369,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private Boolean lastRefreshing;
     private Boolean lastFolderErrors;
     private Boolean lastAccountErrors;
-    private Long lastSyncTime;
 
     final private Map<String, String> kv = new HashMap<>();
     final private Map<String, List<Long>> values = new HashMap<>();
@@ -388,7 +384,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int MAX_SEND_RAW = 50; // messages
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
     private static final float LUMINANCE_THRESHOLD = 0.7f;
-    private static final long MAX_SYNC_AGE = 24 * 3600 * 1000L;
 
     private static final int REQUEST_RAW = 1;
     private static final int REQUEST_OPENPGP = 4;
@@ -477,7 +472,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         quick_scroll = prefs.getBoolean("quick_scroll", true);
         addresses = prefs.getBoolean("addresses", false);
         swipe_reply = prefs.getBoolean("swipe_reply", false);
-        last_sync_time = prefs.getBoolean("last_sync_time", false);
 
         colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
         colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
@@ -532,7 +526,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
         ibHintJunk = view.findViewById(R.id.ibHintJunk);
-        tvLastSync = view.findViewById(R.id.tvLastSync);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         tvNoEmailHint = view.findViewById(R.id.tvNoEmailHint);
         rvMessage = view.findViewById(R.id.rvMessage);
@@ -551,7 +544,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         pbWait = view.findViewById(R.id.pbWait);
         grpAirplane = view.findViewById(R.id.grpAirplane);
-        grpLastSync = view.findViewById(R.id.grpLastSync);
         grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
@@ -1487,7 +1479,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
         grpAirplane.setVisibility(View.GONE);
-        grpLastSync.setVisibility(View.GONE);
         tvNoEmail.setVisibility(View.GONE);
         tvNoEmailHint.setVisibility(View.GONE);
         etSearch.setVisibility(View.GONE);
@@ -5705,20 +5696,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         }
 
-        Long syncTime = null;
-        if (viewType == AdapterMessage.ViewType.FOLDER &&
-                last_sync_time && folders.size() == 1) {
-            syncTime = folders.get(0).last_sync;
-            if (syncTime != null &&
-                    new Date().getTime() - syncTime < MAX_SYNC_AGE)
-                syncTime = null;
-        }
-
         if (Objects.equals(lastUnseen, unseen) &&
                 Objects.equals(lastRefreshing, refreshing) &&
                 Objects.equals(lastFolderErrors, folderErrors) &&
-                Objects.equals(lastAccountErrors, accountErrors) &&
-                Objects.equals(lastSyncTime, syncTime)) {
+                Objects.equals(lastAccountErrors, accountErrors)) {
             Log.i("Folder state unchanged");
             return;
         }
@@ -5727,7 +5708,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         lastRefreshing = refreshing;
         lastFolderErrors = folderErrors;
         lastAccountErrors = accountErrors;
-        lastSyncTime = syncTime;
 
         // Get name
         String name;
@@ -5752,10 +5732,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (unseen > 0)
             name = getString(R.string.title_name_count, name, NF.format(unseen));
         setSubtitle(name);
-
-        tvLastSync.setText(syncTime == null ? null
-                : DateUtils.getRelativeTimeSpanString(context, syncTime, true));
-        grpLastSync.setVisibility(syncTime == null ? View.GONE : View.VISIBLE);
 
         fabError.setTag(accountErrors);
         if (folderErrors || accountErrors)
