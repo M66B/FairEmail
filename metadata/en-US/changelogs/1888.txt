@@ -4,6 +4,12 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### Next version
+
+* Added translate all button
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1888 - 2022-05-01
 
 * Added quick actions for selected messages
