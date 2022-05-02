@@ -366,4 +366,19 @@ public class UriHelper {
         return (!uri.isOpaque() &&
                 ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())));
     }
+
+    static void test(Context context) {
+        String[] hosts = new String[]{
+                "child.parent.example.com", "parent.example.com", "example.com", "com",
+                "child.parent.co.uk", "parent.co.uk", "co.uk", "uk",
+                "child.parent.aaa.ck", "parent.aaa.ck", "aaa.ck", "ck",
+                "child.parent.www.ck", "parent.www.ck", "www.ck", "ck"
+        };
+
+        for (String host : hosts)
+            Log.i("PSL " + host + ":" +
+                    " tld=" + getTld(context, host) +
+                    " root=" + getRootDomain(context, host) +
+                    " parent=" + getParentDomain(context, host));
+    }
 }

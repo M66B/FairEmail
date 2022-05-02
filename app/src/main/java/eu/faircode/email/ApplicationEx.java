@@ -113,6 +113,9 @@ public class ApplicationEx extends Application
                 " process=" + android.os.Process.myPid());
         Log.logMemory(this, "App");
 
+        if (BuildConfig.DEBUG)
+            UriHelper.test(this);
+
         CoalMine.install(this);
 
         registerActivityLifecycleCallbacks(lifecycleCallbacks);
