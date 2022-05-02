@@ -750,7 +750,6 @@
     <string name="title_advanced_exact_alarms" translatable="false">Use exact timers</string>
     <string name="title_advanced_infra" translatable="false">Show infrastructure</string>
     <string name="title_advanced_dup_msgid" translatable="false">Duplicates by message ID</string>
-    <string name="title_advanced_show_last_sync" translatable="false">Show last sync time</string>
     <string name="title_advanced_test_iab" translatable="false">Test IAB</string>
     <string name="title_advanced_import_providers" translatable="false">Import providers</string>
     <string name="title_advanced_processors" translatable="false">Processors: %1$d</string>

@@ -62,7 +62,6 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
     private boolean nav_count_pinned;
     private boolean nav_unseen_drafts;
     private boolean nav_categories;
-    private boolean last_sync_time;
 
     private int dp6;
     private int dp12;
@@ -167,20 +166,17 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
             tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
             tvItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
 
-            if (account.folderName == null || last_sync_time) {
-                Long last_connected = (account.folderName == null
-                        ? account.last_connected
-                        : account.folderLastSync);
-                if (last_connected != null && expanded) {
+            if (account.folderName == null) {
+                if (account.last_connected != null && expanded) {
                     Calendar cal = Calendar.getInstance();
                     cal.set(Calendar.HOUR_OF_DAY, 0);
                     cal.set(Calendar.MINUTE, 0);
                     cal.set(Calendar.SECOND, 0);
                     cal.set(Calendar.MILLISECOND, 0);
-                    if (last_connected < cal.getTimeInMillis())
-                        tvItemExtra.setText(DF.format(last_connected));
+                    if (account.last_connected < cal.getTimeInMillis())
+                        tvItemExtra.setText(DF.format(account.last_connected));
                     else
-                        tvItemExtra.setText(TF.format(last_connected));
+                        tvItemExtra.setText(TF.format(account.last_connected));
                     tvItemExtra.setVisibility(View.VISIBLE);
                 } else
                     tvItemExtra.setVisibility(View.GONE);
@@ -292,7 +288,6 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
         this.nav_count_pinned = prefs.getBoolean("nav_count_pinned", false);
         this.nav_unseen_drafts = prefs.getBoolean("nav_unseen_drafts", false);
         this.nav_categories = prefs.getBoolean("nav_categories", false);
-        this.last_sync_time = prefs.getBoolean("last_sync_time", false);
 
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));

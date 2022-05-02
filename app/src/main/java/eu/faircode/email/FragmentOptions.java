@@ -157,8 +157,7 @@ public class FragmentOptions extends FragmentBase {
             "quick_filter", "quick_scroll",
             "experiments", "debug", "log_level", "test1", "test2", "test3", "test4", "test5", "webview_legacy",
             "biometrics",
-            "default_light",
-            "last_sync_time"
+            "default_light"
     };
 
     @Override

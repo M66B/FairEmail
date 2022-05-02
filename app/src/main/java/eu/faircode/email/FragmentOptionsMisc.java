@@ -174,7 +174,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExactAlarms;
     private SwitchCompat swInfra;
     private SwitchCompat swDupMsgId;
-    private SwitchCompat swLastSync;
     private SwitchCompat swTestIab;
     private Button btnImportProviders;
     private TextView tvProcessors;
@@ -217,7 +216,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "use_modseq", "uid_command", "perform_expunge", "uid_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop",
             "keep_alive_poll", "empty_pool", "idle_done", "logarithmic_backoff",
-            "exact_alarms", "infra", "dkim_verify", "dup_msgids", "last_sync_time", "test_iab"
+            "exact_alarms", "infra", "dkim_verify", "dup_msgids", "test_iab"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -346,7 +345,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExactAlarms = view.findViewById(R.id.swExactAlarms);
         swInfra = view.findViewById(R.id.swInfra);
         swDupMsgId = view.findViewById(R.id.swDupMsgId);
-        swLastSync = view.findViewById(R.id.swLastSync);
         swTestIab = view.findViewById(R.id.swTestIab);
         btnImportProviders = view.findViewById(R.id.btnImportProviders);
         tvProcessors = view.findViewById(R.id.tvProcessors);
@@ -1170,13 +1168,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swLastSync.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("last_sync_time", checked).apply();
-            }
-        });
-
         swTestIab.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1774,7 +1765,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExactAlarms.setChecked(prefs.getBoolean("exact_alarms", true));
         swInfra.setChecked(prefs.getBoolean("infra", false));
         swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
-        swLastSync.setChecked(prefs.getBoolean("last_sync_time", false));
         swTestIab.setChecked(prefs.getBoolean("test_iab", false));
 
         tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));
