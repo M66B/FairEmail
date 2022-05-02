@@ -4440,7 +4440,7 @@ public class MessageHelper {
         return true;
     }
 
-    static String[] equalDomain(Context context, Address[] a1, Address[] a2) {
+    static String[] equalRootDomain(Context context, Address[] a1, Address[] a2) {
         if (a1 == null || a1.length == 0)
             return null;
         if (a2 == null || a2.length == 0)
@@ -4450,13 +4450,17 @@ public class MessageHelper {
             String r = UriHelper.getEmailDomain(((InternetAddress) _a1).getAddress());
             if (r == null)
                 continue;
-            String d1 = UriHelper.getParentDomain(context, r);
+            String d1 = UriHelper.getRootDomain(context, r);
+            if (d1 == null)
+                continue;
 
             for (Address _a2 : a2) {
                 String f = UriHelper.getEmailDomain(((InternetAddress) _a2).getAddress());
                 if (f == null)
                     continue;
-                String d2 = UriHelper.getParentDomain(context, f);
+                String d2 = UriHelper.getRootDomain(context, f);
+                if (d2 == null)
+                    continue;
 
                 if (!d1.equalsIgnoreCase(d2))
                     return new String[]{d2, d1};

@@ -92,7 +92,7 @@ public class Bimi {
         DnsHelper.DnsRecord record = lookupBimi(context, selector, domain);
         if (record == null) {
             String parent = UriHelper.getParentDomain(context, domain);
-            if (domain.equals(parent))
+            if (parent == null)
                 return null;
             domain = parent;
             record = lookupBimi(context, selector, domain);
@@ -328,7 +328,7 @@ public class Bimi {
                         DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, txt, "txt");
                         if (records.length == 0) {
                             String parent = UriHelper.getParentDomain(context, domain);
-                            if (!domain.equals(parent)) {
+                            if (parent != null) {
                                 txt = "_dmarc." + parent;
                                 records = DnsHelper.lookup(context, txt, "txt");
                             }

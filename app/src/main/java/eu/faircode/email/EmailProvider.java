@@ -413,9 +413,9 @@ public class EmailProvider implements Parcelable {
                                     break;
                                 }
 
-                        String mxparent = UriHelper.getParentDomain(context, target);
-                        String pdomain = UriHelper.getParentDomain(context, provider.imap.host);
-                        if (mxparent.equalsIgnoreCase(pdomain)) {
+                        String mxroot = UriHelper.getRootDomain(context, target);
+                        String proot = UriHelper.getRootDomain(context, provider.imap.host);
+                        if (mxroot != null && mxroot.equalsIgnoreCase(proot)) {
                             EntityLog.log(context, "From MX host=" + provider.imap.host);
                             candidates.add(provider);
                             break;

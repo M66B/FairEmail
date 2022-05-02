@@ -119,7 +119,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             String t = title.replaceAll("\\s+", "");
             Uri u = Uri.parse(title.contains("://") ? t : "http://" + t);
             String host = u.getHost(); // Capture1.PNG
-            uriTitle = (UriHelper.hasParentDomain(context, host) ? u : null);
+            uriTitle = (UriHelper.hasTld(context, host) ? u : null);
         } else
             uriTitle = null;
 

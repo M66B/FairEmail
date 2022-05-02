@@ -337,11 +337,11 @@ public class EntityMessage implements Serializable {
     }
 
     String[] checkFromDomain(Context context) {
-        return MessageHelper.equalDomain(context, from, smtp_from);
+        return MessageHelper.equalRootDomain(context, from, smtp_from);
     }
 
     String[] checkReplyDomain(Context context) {
-        return MessageHelper.equalDomain(context, reply, from);
+        return MessageHelper.equalRootDomain(context, reply, from);
     }
 
     static String getSubject(Context context, String language, String subject, boolean forward) {

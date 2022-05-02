@@ -4232,10 +4232,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (Boolean.FALSE.equals(message.from_domain) && message.smtp_from != null)
                 for (Address smtp_from : message.smtp_from) {
-                    if (sb.length() > 0)
-                        sb.append('\n');
                     String domain = UriHelper.getEmailDomain(((InternetAddress) smtp_from).getAddress());
-                    sb.append(context.getString(R.string.title_via, UriHelper.getParentDomain(context, domain)));
+                    String root = UriHelper.getRootDomain(context, domain);
+                    if (root != null) {
+                        if (sb.length() > 0)
+                            sb.append('\n');
+                        sb.append(context.getString(R.string.title_via, root));
+                    }
                 }
 
             if (Boolean.FALSE.equals(message.reply_domain)) {
