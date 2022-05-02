@@ -388,6 +388,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int MAX_SEND_RAW = 50; // messages
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
     private static final float LUMINANCE_THRESHOLD = 0.7f;
+    private static final long MAX_SYNC_AGE = 24 * 3600 * 1000L;
 
     private static final int REQUEST_RAW = 1;
     private static final int REQUEST_OPENPGP = 4;
@@ -5705,8 +5706,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         Long syncTime = null;
-        if (viewType == AdapterMessage.ViewType.FOLDER && folders.size() == 1)
+        if (viewType == AdapterMessage.ViewType.FOLDER &&
+                last_sync_time && folders.size() == 1) {
             syncTime = folders.get(0).last_sync;
+            if (syncTime != null &&
+                    new Date().getTime() - syncTime < MAX_SYNC_AGE)
+                syncTime = null;
+        }
 
         if (Objects.equals(lastUnseen, unseen) &&
                 Objects.equals(lastRefreshing, refreshing) &&
