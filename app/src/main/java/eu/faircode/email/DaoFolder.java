@@ -273,6 +273,11 @@ public interface DaoFolder {
     @Query("UPDATE folder SET total = :total WHERE id = :id AND NOT (total IS :total)")
     int setFolderTotal(long id, Integer total);
 
+    @Query("UPDATE folder SET total = :total, last_sync = :last_sync" +
+            " WHERE id = :id" +
+            " AND NOT (total IS :total AND last_sync IS :last_sync)")
+    int setFolderTotal(long id, Integer total, Long last_sync);
+
     @Query("UPDATE folder SET error = :error WHERE id = :id AND NOT (error IS :error)")
     int setFolderError(long id, String error);
 

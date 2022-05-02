@@ -1505,7 +1505,7 @@ class Core {
             expunge(context, ifolder, deleted);
         } else {
             int count = MessageHelper.getMessageCount(ifolder);
-            db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
+            db.folder().setFolderTotal(folder.id, count < 0 ? null : count, new Date().getTime());
         }
 
         // Fetch appended/copied when needed
@@ -1703,7 +1703,7 @@ class Core {
             db.message().deleteMessage(folder.id, uid);
         } finally {
             int count = MessageHelper.getMessageCount(ifolder);
-            db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
+            db.folder().setFolderTotal(folder.id, count < 0 ? null : count, new Date().getTime());
         }
     }
 
@@ -1814,7 +1814,7 @@ class Core {
             }
         } finally {
             int count = MessageHelper.getMessageCount(ifolder);
-            db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
+            db.folder().setFolderTotal(folder.id, count < 0 ? null : count, new Date().getTime());
         }
     }
 

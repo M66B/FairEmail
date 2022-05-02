@@ -372,6 +372,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private Boolean lastRefreshing;
     private Boolean lastFolderErrors;
     private Boolean lastAccountErrors;
+    private Long lastSyncTime;
 
     final private Map<String, String> kv = new HashMap<>();
     final private Map<String, List<Long>> values = new HashMap<>();
@@ -5703,10 +5704,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         }
 
+        Long syncTime = null;
+        if (viewType == AdapterMessage.ViewType.FOLDER && folders.size() == 1)
+            syncTime = folders.get(0).last_sync;
+
         if (Objects.equals(lastUnseen, unseen) &&
                 Objects.equals(lastRefreshing, refreshing) &&
                 Objects.equals(lastFolderErrors, folderErrors) &&
-                Objects.equals(lastAccountErrors, accountErrors)) {
+                Objects.equals(lastAccountErrors, accountErrors) &&
+                Objects.equals(lastSyncTime, syncTime)) {
             Log.i("Folder state unchanged");
             return;
         }
@@ -5715,6 +5721,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         lastRefreshing = refreshing;
         lastFolderErrors = folderErrors;
         lastAccountErrors = accountErrors;
+        lastSyncTime = syncTime;
 
         // Get name
         String name;
@@ -5740,14 +5747,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             name = getString(R.string.title_name_count, name, NF.format(unseen));
         setSubtitle(name);
 
-        if (viewType == AdapterMessage.ViewType.FOLDER &&
-                folders.size() == 1 &&
-                folders.get(0).last_sync != null) {
-            tvLastSync.setText(DateUtils.getRelativeTimeSpanString(context,
-                    folders.get(0).last_sync, true));
-            grpLastSync.setVisibility(View.VISIBLE);
-        } else
-            grpLastSync.setVisibility(View.GONE);
+        tvLastSync.setText(syncTime == null ? null
+                : DateUtils.getRelativeTimeSpanString(context, syncTime, true));
+        grpLastSync.setVisibility(syncTime == null ? View.GONE : View.VISIBLE);
 
         fabError.setTag(accountErrors);
         if (folderErrors || accountErrors)
