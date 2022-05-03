@@ -82,7 +82,7 @@ public class StyleHelper {
             StrikethroughSpan.class,
             URLSpan.class,
             TypefaceSpan.class, CustomTypefaceSpan.class,
-            TranslatedSpan.class
+            InsertedSpan.class
     ));
 
     static boolean apply(int action, LifecycleOwner owner, View anchor, EditText etBody, Object... args) {
@@ -956,13 +956,13 @@ public class StyleHelper {
         }
     }
 
-    static void markAsTranslated(Editable text, int start, int end) {
-        for (TranslatedSpan span : text.getSpans(0, text.length(), TranslatedSpan.class))
+    static void markAsInserted(Editable text, int start, int end) {
+        for (InsertedSpan span : text.getSpans(0, text.length(), InsertedSpan.class))
             text.removeSpan(span);
-        text.setSpan(new TranslatedSpan(), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        text.setSpan(new InsertedSpan(), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
-    static class TranslatedSpan implements NoCopySpan {
+    static class InsertedSpan implements NoCopySpan {
     }
 
     static String getFamily(String family) {

@@ -613,7 +613,7 @@ public class FragmentCompose extends FragmentBase {
             private boolean save = false;
             private Integer added = null;
             private Integer removed = null;
-            private Integer translated = null;
+            private Integer inserted = null;
 
             @Override
             public void beforeTextChanged(CharSequence text, int start, int count, int after) {
@@ -625,13 +625,13 @@ public class FragmentCompose extends FragmentBase {
                 if (BuildConfig.DEBUG && count - after == 1 && start + after > 0) {
                     int replaced = start + after;
                     Spanned spanned = ((Spanned) text);
-                    StyleHelper.TranslatedSpan[] spans =
-                            spanned.getSpans(replaced, replaced, StyleHelper.TranslatedSpan.class);
-                    for (StyleHelper.TranslatedSpan span : spans) {
+                    StyleHelper.InsertedSpan[] spans =
+                            spanned.getSpans(replaced, replaced, StyleHelper.InsertedSpan.class);
+                    for (StyleHelper.InsertedSpan span : spans) {
                         int end = spanned.getSpanEnd(span);
                         Log.i("Replaced=" + replaced);
                         if (end - 1 == replaced) {
-                            translated = end - 1;
+                            inserted = end - 1;
                             break;
                         }
                     }
@@ -788,20 +788,20 @@ public class FragmentCompose extends FragmentBase {
                         removed = null;
                     }
 
-                if (translated != null)
+                if (inserted != null)
                     try {
-                        StyleHelper.TranslatedSpan[] spans =
-                                text.getSpans(translated, translated, StyleHelper.TranslatedSpan.class);
-                        for (StyleHelper.TranslatedSpan span : spans) {
+                        StyleHelper.InsertedSpan[] spans =
+                                text.getSpans(inserted, inserted, StyleHelper.InsertedSpan.class);
+                        for (StyleHelper.InsertedSpan span : spans) {
                             int start = text.getSpanStart(span);
                             int end = text.getSpanEnd(span);
-                            if (end == translated) {
+                            if (end == inserted) {
                                 text.delete(start, end);
                                 text.removeSpan(span);
                             }
                         }
                     } finally {
-                        translated = null;
+                        inserted = null;
                     }
 
                 if (save)
@@ -2192,6 +2192,8 @@ public class FragmentCompose extends FragmentBase {
                                     if (pos >= 0)
                                         etBody.setSelection(pos);
                                 }
+
+                                StyleHelper.markAsInserted(etBody.getText(), start, start + spanned.length());
                             }
 
                             @Override
@@ -2358,7 +2360,7 @@ public class FragmentCompose extends FragmentBase {
                         int len = 2 + translation.translated_text.length();
                         edit.insert(paragraph.second, translation.translated_text);
                         edit.insert(paragraph.second, "\n\n");
-                        StyleHelper.markAsTranslated(edit, paragraph.second, paragraph.second + len);
+                        StyleHelper.markAsInserted(edit, paragraph.second, paragraph.second + len);
 
                         etBody.setSelection(paragraph.second + len);
 
