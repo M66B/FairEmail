@@ -74,6 +74,7 @@ import java.util.List;
 public class FragmentSetup extends FragmentBase {
     private ViewGroup view;
 
+    private TextView tvWelcome;
     private TextView tvPrivacy;
     private TextView tvSupport;
     private ImageButton ibWelcome;
@@ -115,6 +116,7 @@ public class FragmentSetup extends FragmentBase {
     private TextView tvSyncStopped;
 
     private CardView cardExtra;
+    private TextView tvExtra;
     private Button btnApp;
     private Button btnNotification;
     private Button btnDelete;
@@ -149,6 +151,7 @@ public class FragmentSetup extends FragmentBase {
 
         // Get controls
 
+        tvWelcome = view.findViewById(R.id.tvWelcome);
         tvPrivacy = view.findViewById(R.id.tvPrivacy);
         tvSupport = view.findViewById(R.id.tvSupport);
         ibWelcome = view.findViewById(R.id.ibWelcome);
@@ -190,6 +193,7 @@ public class FragmentSetup extends FragmentBase {
         tvSyncStopped = view.findViewById(R.id.tvSyncStopped);
 
         cardExtra = view.findViewById(R.id.cardExtra);
+        tvExtra = view.findViewById(R.id.tvExtra);
         btnApp = view.findViewById(R.id.btnApp);
         btnNotification = view.findViewById(R.id.btnNotification);
         btnDelete = view.findViewById(R.id.btnDelete);
@@ -203,6 +207,15 @@ public class FragmentSetup extends FragmentBase {
         grpExtra = view.findViewById(R.id.grpExtra);
 
         // Wire controls
+
+        tvWelcome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ibWelcome.setPressed(true);
+                ibWelcome.setPressed(false);
+                ibWelcome.performClick();
+            }
+        });
 
         tvPrivacy.setPaintFlags(tvPrivacy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvPrivacy.setOnClickListener(new View.OnClickListener() {
@@ -594,6 +607,15 @@ public class FragmentSetup extends FragmentBase {
                 }
             });
         }
+
+        tvExtra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ibExtra.setPressed(true);
+                ibExtra.setPressed(false);
+                ibExtra.performClick();
+            }
+        });
 
         final Intent app = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         app.setData(Uri.parse("package:" + getContext().getPackageName()));

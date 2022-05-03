@@ -38,7 +38,7 @@
                 android:tag="nosuggest">
 
                 <eu.faircode.email.FixedTextView
-                    android:id="@+id/welcome"
+                    android:id="@+id/tvWelcome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/title_welcome"
@@ -58,7 +58,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/welcome" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/simple"
