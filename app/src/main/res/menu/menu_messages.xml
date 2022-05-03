@@ -191,6 +191,12 @@
 
     <group android:id="@+id/group_special">
         <item
+            android:id="@+id/menu_sync"
+            android:icon="@drawable/twotone_compare_arrows_24"
+            android:title="@string/title_synchronize_now"
+            app:showAsAction="never" />
+
+        <item
             android:id="@+id/menu_sync_more"
             android:icon="@drawable/twotone_save_alt_24"
             android:title="@string/title_synchronize_more"

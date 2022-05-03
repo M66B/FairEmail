@@ -364,6 +364,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private Long closeId = null;
     private int autoCloseCount = 0;
     private boolean autoExpanded = true;
+    private Long lastSync = null;
 
     private Integer lastUnseen;
     private Boolean lastRefreshing;
@@ -4381,8 +4382,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     @Override
                     public void onChanged(@Nullable TupleFolderEx folder) {
                         List<TupleFolderEx> folders = new ArrayList<>();
-                        if (folder != null)
+                        if (folder != null) {
+                            lastSync = folder.last_sync;
                             folders.add(folder);
+                        }
 
                         updateState(folders);
                     }
@@ -4987,6 +4990,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_view_thread).setVisible(viewType == AdapterMessage.ViewType.THREAD && !threading);
 
+        MenuItem menuSync = menu.findItem(R.id.menu_sync);
+        if (lastSync == null)
+            menuSync.setVisible(false);
+        else {
+            CharSequence title = DateUtils.getRelativeTimeSpanString(
+                    lastSync,
+                    new Date().getTime(),
+                    DateUtils.MINUTE_IN_MILLIS,
+                    DateUtils.FORMAT_ABBREV_RELATIVE);
+            menuSync.setTitle(title)
+                    .setVisible(lastSync != null);
+            PopupMenuLifecycle.insertIcon(context, menuSync, false);
+        }
+
         menu.findItem(R.id.menu_sync_more).setVisible(folder);
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
         menu.findItem(R.id.menu_force_send).setVisible(outbox);
@@ -5116,6 +5133,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return true;
         } else if (itemId == R.id.menu_view_thread) {
             onMenuViewThread();
+            return true;
+        } else if (itemId == R.id.menu_sync) {
+            refresh(false);
             return true;
         } else if (itemId == R.id.menu_sync_more) {
             onMenuSyncMore();
