@@ -135,7 +135,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivAutoAdd;
         private TextView tvName;
         private TextView tvMessages;
-        private ImageView ivMessages;
+        private ImageButton ibMessages;
 
         private ImageView ivType;
         private TextView tvType;
@@ -145,7 +145,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private TextView tvKeywords;
         private TextView tvFlagged;
-        private ImageView ibFlagged;
+        private ImageButton ibFlagged;
 
         private TextView tvError;
         private Button btnHelp;
@@ -174,7 +174,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivAutoAdd = itemView.findViewById(R.id.ivAutoAdd);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
-            ivMessages = itemView.findViewById(R.id.ivMessages);
+            ibMessages = itemView.findViewById(R.id.ibMessages);
 
             ivType = itemView.findViewById(R.id.ivType);
             tvType = itemView.findViewById(R.id.tvType);
@@ -200,6 +200,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             view.setOnClickListener(this);
             view.setOnLongClickListener(this);
             ibExpander.setOnClickListener(this);
+            if (tvMessages != null)
+                tvMessages.setOnClickListener(this);
+            if (ibMessages != null)
+                ibMessages.setOnClickListener(this);
             if (tvFlagged != null)
                 tvFlagged.setOnClickListener(this);
             if (ibFlagged != null)
@@ -214,6 +218,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             view.setOnClickListener(null);
             view.setOnLongClickListener(null);
             ibExpander.setOnClickListener(null);
+            if (tvMessages != null)
+                tvMessages.setOnClickListener(null);
+            if (ibMessages != null)
+                ibMessages.setOnClickListener(null);
             if (tvFlagged != null)
                 tvFlagged.setOnClickListener(null);
             if (ibFlagged != null)
@@ -340,7 +348,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
                 tvMessages.setText(sb.toString());
 
-                ivMessages.setImageResource(folder.download || EntityFolder.OUTBOX.equals(folder.type)
+                ibMessages.setImageResource(folder.download || EntityFolder.OUTBOX.equals(folder.type)
                         ? R.drawable.twotone_mail_24 : R.drawable.twotone_mail_outline_24);
             }
 
@@ -408,8 +416,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvFlagged.setText(NF.format(folder.flagged));
                 ibFlagged.setImageResource(folder.flagged == 0
                         ? R.drawable.twotone_star_border_24 : R.drawable.twotone_star_24);
-                tvFlagged.setEnabled(folder.flagged > 0);
-                ibFlagged.setEnabled(folder.flagged > 0);
 
                 tvError.setText(folder.error);
                 tvError.setVisibility(folder.error != null ? View.VISIBLE : View.GONE);
@@ -437,6 +443,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 int id = view.getId();
                 if (id == R.id.ibExpander) {
                     onCollapse(folder, pos);
+                } else if (show_flagged &&
+                        (id == R.id.tvMessages || id == R.id.ibMessages)) {
+                    onUnread(folder);
                 } else if (id == R.id.tvFlagged || id == R.id.ibFlagged) {
                     onFlagged(folder);
                 } else if (id == R.id.ibSync) {
@@ -498,6 +507,20 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }.execute(context, owner, args, "folder:collapse");
         }
 
+        private void onUnread(TupleFolderEx folder) {
+            BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
+            criteria.in_senders = false;
+            criteria.in_recipients = false;
+            criteria.in_subject = false;
+            criteria.in_keywords = false;
+            criteria.in_message = false;
+            criteria.in_notes = false;
+            criteria.with_unseen = true;
+            FragmentMessages.search(
+                    context, owner, parentFragment.getParentFragmentManager(),
+                    folder.account, folder.id, false, criteria);
+        }
+
         private void onFlagged(TupleFolderEx folder) {
             BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
             criteria.in_senders = false;
@@ -506,8 +529,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             criteria.in_keywords = false;
             criteria.in_message = false;
             criteria.in_notes = false;
-            criteria.in_headers = false;
-            criteria.in_html = false;
             criteria.with_flagged = true;
             FragmentMessages.search(
                     context, owner, parentFragment.getParentFragmentManager(),

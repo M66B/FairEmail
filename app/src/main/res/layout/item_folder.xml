@@ -145,14 +145,15 @@
                 android:text="123"
                 android:textAppearance="@android:style/TextAppearance.Small"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
-                app:layout_constraintEnd_toStartOf="@+id/ivMessages"
+                app:layout_constraintEnd_toStartOf="@+id/ibMessages"
                 app:layout_constraintTop_toTopOf="@+id/tvName" />
 
-            <eu.faircode.email.FixedImageView
-                android:id="@+id/ivMessages"
+            <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibMessages"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
@@ -247,7 +248,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
                 app:layout_constraintTop_toTopOf="@+id/tvKeywords" />
 
-            <eu.faircode.email.FixedImageView
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibFlagged"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
