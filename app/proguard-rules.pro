@@ -141,4 +141,5 @@
 -keepattributes *Annotation*
 
 #Misc
+-dontwarn org.slf4j.impl.StaticLoggerBinder
 -dontwarn edu.umd.cs.findbugs.annotations.SuppressFBWarnings
