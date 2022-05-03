@@ -5000,7 +5000,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     DateUtils.MINUTE_IN_MILLIS,
                     DateUtils.FORMAT_ABBREV_RELATIVE);
             menuSync.setTitle(title)
-                    .setVisible(lastSync != null);
+                    .setVisible(true);
             PopupMenuLifecycle.insertIcon(context, menuSync, false);
         }
 
