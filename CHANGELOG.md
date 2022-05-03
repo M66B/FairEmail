@@ -4,6 +4,11 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### 1.1889 - 2022-05-03
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1888 - 2022-05-02
 
 * Added translate all button
