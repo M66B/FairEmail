@@ -116,6 +116,7 @@ public class FragmentSetup extends FragmentBase {
 
     private CardView cardExtra;
     private Button btnApp;
+    private Button btnNotification;
     private Button btnDelete;
     private Button btnMore;
     private Button btnSupport;
@@ -190,6 +191,7 @@ public class FragmentSetup extends FragmentBase {
 
         cardExtra = view.findViewById(R.id.cardExtra);
         btnApp = view.findViewById(R.id.btnApp);
+        btnNotification = view.findViewById(R.id.btnNotification);
         btnDelete = view.findViewById(R.id.btnDelete);
         btnMore = view.findViewById(R.id.btnMore);
         btnSupport = view.findViewById(R.id.btnSupport);
@@ -616,6 +618,18 @@ public class FragmentSetup extends FragmentBase {
                 fragment.setArguments(args);
                 fragment.setTargetFragment(FragmentSetup.this, ActivitySetup.REQUEST_DELETE_ACCOUNT);
                 fragment.show(getParentFragmentManager(), "setup:delete");
+            }
+        });
+
+        final Intent channelService = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
+                .putExtra(Settings.EXTRA_CHANNEL_ID, "service");
+
+        btnNotification.setEnabled(channelService.resolveActivity(pm) != null); // system whitelisted
+        btnNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(channelService);
             }
         });
 
