@@ -14,7 +14,7 @@
     <string name="app_updated">Last update: %1$s</string>
     <string name="app_download">Downloaded from: %1$s</string>
 
-    <string name="channel_service">Receive</string>
+    <string name="channel_service">Monitor</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">Email</string>
     <string name="channel_progress">Progress</string>
@@ -590,7 +590,7 @@
 
     <string name="title_advanced_notifications">Manage notifications</string>
     <string name="title_advanced_notifications_default">Default channel</string>
-    <string name="title_advanced_notifications_service">Receive channel</string>
+    <string name="title_advanced_notifications_service">Monitoring channel</string>
     <string name="title_advanced_notifications_newest_first">Show newest notifications first</string>
     <string name="title_advanced_notifications_background">Use background service to synchronize messages</string>
     <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
