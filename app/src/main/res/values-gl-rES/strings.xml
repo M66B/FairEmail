@@ -10,7 +10,6 @@
     <string name="app_cake">Non hai espazo abondo</string>
     <string name="app_updated">Última actualización: %1$s</string>
     <string name="app_download">Descargado desde: %1$s</string>
-    <string name="channel_service">Recibir</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Correo</string>
     <string name="channel_progress">Progreso</string>
@@ -488,7 +487,6 @@
     <string name="title_advanced_default_snooze">Tempo predeterminado do adiamento/retardo</string>
     <string name="title_advanced_notifications">Xestionar notificacións</string>
     <string name="title_advanced_notifications_default">Canal por omisión</string>
-    <string name="title_advanced_notifications_service">Canal de recepción</string>
     <string name="title_advanced_notifications_newest_first">Amosar as notificacións novas primeiro</string>
     <string name="title_advanced_notifications_background">Usar o servizo de fondo para sincronizar as mensaxes</string>
     <string name="title_advanced_notifications_background_hint">Un servizo de fondo pode ser detido por Android en calquera momento, pero non require unha notificación na barra de estado</string>

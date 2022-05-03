@@ -6,7 +6,6 @@
     <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_exit">বের হওয়ার জন্য \'ব্যাক\' করুন</string>
     <string name="app_cake">অপর্যাপ্ত জায়গা খালি রয়েছে</string>
-    <string name="channel_service">প্রাপ্তি</string>
     <string name="channel_send">পাঠান</string>
     <string name="channel_update">আপডেট</string>
     <string name="channel_warning">সতর্কতা</string>

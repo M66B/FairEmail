@@ -10,7 +10,6 @@
     <string name="app_cake">Nedovoljno prostora za pohranu</string>
     <string name="app_updated">Posljednje ažuriranje: %1$s</string>
     <string name="app_download">Preuzeto sa: %1$s</string>
-    <string name="channel_service">Prijem</string>
     <string name="channel_send">Slanje</string>
     <string name="channel_notification">E-pošta</string>
     <string name="channel_progress">Napredak</string>
@@ -519,7 +518,6 @@
     <string name="title_advanced_default_snooze">Zadano vrijeme odlaganja/odgađanja</string>
     <string name="title_advanced_notifications">Upravljaj obavještenjima</string>
     <string name="title_advanced_notifications_default">Zadani kanal</string>
-    <string name="title_advanced_notifications_service">Prijemni kanal</string>
     <string name="title_advanced_notifications_newest_first">Prikaži prvo najnovija obavještenja</string>
     <string name="title_advanced_notifications_background">Koristi pozadinski servis za sinhronizaciju poruka</string>
     <string name="title_advanced_notifications_background_hint">Android može zaustaviti pozadinski servis bilo kada, ali on ne zahtijeva obavještenje na statusnoj traci</string>

@@ -10,7 +10,7 @@
     <string name="app_cake">Espace de stockage restant insuffisant</string>
     <string name="app_updated">Dernière mise à jour : %1$s</string>
     <string name="app_download">Téléchargé depuis : %1$s</string>
-    <string name="channel_service">Réception</string>
+    <string name="channel_service" comment="channel_service&#10;Title of &quot;Synchronizing and monitoring of accounts&quot; notification channel showing the &quot;Monitoring&quot; status bar notification, etc.">Moniteur</string>
     <string name="channel_send">Envoi</string>
     <string name="channel_notification">Courriel</string>
     <string name="channel_progress">Progression</string>
@@ -509,7 +509,7 @@
     <string name="title_advanced_default_snooze">Durée de report par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
     <string name="title_advanced_notifications_default">Canal par défaut</string>
-    <string name="title_advanced_notifications_service">Canal « Réception »</string>
+    <string name="title_advanced_notifications_service" comment="title_advanced_notifications_service&#10;Title of button to manage the notification channel &quot;Synchronizing and monitoring of accounts&quot;">Canal de surveillance</string>
     <string name="title_advanced_notifications_newest_first">Afficher les notifications les plus récentes en premier</string>
     <string name="title_advanced_notifications_background">Utiliser le service d\'arrière-plan pour synchroniser les messages</string>
     <string name="title_advanced_notifications_background_hint">Un service en arrière-plan peut être arrêté par Android à tout moment, mais ne nécessite pas de notification dans la barre d\'état</string>

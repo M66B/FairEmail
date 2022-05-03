@@ -10,7 +10,6 @@
     <string name="app_cake">Nincs elég tárhely</string>
     <string name="app_updated">Utoljára frissítve: %1$s</string>
     <string name="app_download">Letöltve innen: %1$s</string>
-    <string name="channel_service">Fogadás</string>
     <string name="channel_send">Küldés</string>
     <string name="channel_notification">Email</string>
     <string name="channel_progress">Előrehaladás</string>
@@ -479,7 +478,6 @@
     <string name="title_advanced_default_snooze">Alapértelmezett elhalasztás/késleltetés időtartama</string>
     <string name="title_advanced_notifications">Értesítések kezelése</string>
     <string name="title_advanced_notifications_default">Alapértelmezett csatorna</string>
-    <string name="title_advanced_notifications_service">Értesítési szolgáltatás</string>
     <string name="title_advanced_notifications_newest_first">A legújabb értesítések mutatása először</string>
     <string name="title_advanced_notifications_background">Háttérfolyamat használata üzenetek szinkronizálásához</string>
     <string name="title_advanced_notifications_background_hint">Egy háttérfolyamat leállítható az Android által bármikor, de nem szükséges státusz sor értesítés hozzá</string>

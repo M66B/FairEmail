@@ -10,7 +10,7 @@
     <string name="app_cake">Unzureichender Speicherplatz</string>
     <string name="app_updated">Letzte Aktualisierung: %1$s</string>
     <string name="app_download">Heruntergeladen von: %1$s</string>
-    <string name="channel_service">Empfangen</string>
+    <string name="channel_service" comment="channel_service&#10;Title of &quot;Synchronizing and monitoring of accounts&quot; notification channel showing the &quot;Monitoring&quot; status bar notification, etc.">Überwachen</string>
     <string name="channel_send">Senden</string>
     <string name="channel_notification">Neue E-Mail</string>
     <string name="channel_progress">Fortschritt</string>
@@ -507,7 +507,7 @@
     <string name="title_advanced_default_snooze">Standardzeit für Zurückstellen/Verzögern</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
-    <string name="title_advanced_notifications_service">Empfangskanal</string>
+    <string name="title_advanced_notifications_service" comment="title_advanced_notifications_service&#10;Title of button to manage the notification channel &quot;Synchronizing and monitoring of accounts&quot;">Überwachungskanal</string>
     <string name="title_advanced_notifications_newest_first">Neueste Benachrichtigungen zuerst anzeigen</string>
     <string name="title_advanced_notifications_background">Hintergrunddienst verwenden, um Nachrichten zu synchronisieren</string>
     <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android angehalten werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>

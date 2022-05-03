@@ -63,7 +63,6 @@
     <string name="title_advanced_caption_message">Mesazh</string>
     <string name="title_advanced_date_header">Grupo sipas datës</string>
     <string name="title_advanced_notifications_default">Kanali i parazgjedhur</string>
-    <string name="title_advanced_notifications_service">Kanali marrës</string>
     <string name="title_advanced_notify_action_archive">Arkiva</string>
     <string name="title_advanced_notify_action_move">Zhvendos</string>
     <string name="title_advanced_notify_action_reply">Përgjigju</string>

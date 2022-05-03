@@ -10,7 +10,6 @@
     <string name="app_cake">לא נותר די שטח אחסון</string>
     <string name="app_updated">עדכון אחרון: %1$s</string>
     <string name="app_download">מקור ההורדה: %1$s</string>
-    <string name="channel_service">קבלה</string>
     <string name="channel_send">שליחה</string>
     <string name="channel_notification">דוא״ל</string>
     <string name="channel_progress">התקדמות</string>
@@ -529,7 +528,6 @@
     <string name="title_advanced_default_snooze">זמן בררת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_notifications">ניהול התראות</string>
     <string name="title_advanced_notifications_default">ערוץ בררת מחדל</string>
-    <string name="title_advanced_notifications_service">ערוץ קבלה</string>
     <string name="title_advanced_notifications_newest_first">הצגת ההתראות החדשות ביותר בהתחלה</string>
     <string name="title_advanced_notifications_background">להשתמש בשירות רקע לסנכרון הודעות</string>
     <string name="title_advanced_notifications_background_hint">שירות רקע יכול להיעצר על ידי Android בכל רגע נתון, אך אינו דורש התראה בשורת המצב</string>

@@ -10,7 +10,7 @@
     <string name="app_cake">Onvoldoende opslagruimte over</string>
     <string name="app_updated">Laatst bijgewerkt: %1$s</string>
     <string name="app_download">Gedownload van: %1$s</string>
-    <string name="channel_service">Ontvangen</string>
+    <string name="channel_service" comment="channel_service&#10;Title of &quot;Synchronizing and monitoring of accounts&quot; notification channel showing the &quot;Monitoring&quot; status bar notification, etc.">Bewaken</string>
     <string name="channel_send">Verzenden</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Voortgang</string>
@@ -507,7 +507,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_default_snooze">Standaard sluimer/vertragingstijd</string>
     <string name="title_advanced_notifications">Beheer meldingen</string>
     <string name="title_advanced_notifications_default">Standaardkanaal</string>
-    <string name="title_advanced_notifications_service">Ontvangstkanaal</string>
+    <string name="title_advanced_notifications_service" comment="title_advanced_notifications_service&#10;Title of button to manage the notification channel &quot;Synchronizing and monitoring of accounts&quot;">Bewakingskanaal</string>
     <string name="title_advanced_notifications_newest_first">Laat nieuwste meldingen eerst zien</string>
     <string name="title_advanced_notifications_background">Gebruik achtergrondservice om berichten te synchroniseren</string>
     <string name="title_advanced_notifications_background_hint">Een achtergrondservice kan op elk gewenst moment worden gestopt door Android, maar vereist geen melding in de statusbalk</string>

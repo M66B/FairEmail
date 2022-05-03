@@ -9,7 +9,6 @@
     <string name="app_cake">저장 공간 부족</string>
     <string name="app_updated">최근 업데이트: %1$s</string>
     <string name="app_download">%1$s에서 다운로드 완료</string>
-    <string name="channel_service">수신</string>
     <string name="channel_send">발신</string>
     <string name="channel_notification">이메일</string>
     <string name="channel_progress">진행</string>
@@ -299,7 +298,6 @@
     <string name="title_advanced_folder_nav">항상 메시지 목록에서 폴더 목록으로 돌아가기</string>
     <string name="title_advanced_notifications">알림 관리</string>
     <string name="title_advanced_notifications_default">기본 채널</string>
-    <string name="title_advanced_notifications_service">수신 채널</string>
     <string name="title_advanced_notifications_newest_first">새 알림을 먼저 표시</string>
     <string name="title_advanced_notifications_background">메시지 동기화를 위해 백그라운드 서비스 사용</string>
     <string name="title_advanced_notifications_background_hint">백그라운드 서비스는 안드로이드에 의해 언제든 중단될 수 있지만, 상태표시줄 알림이 없어도 구동됩니다.</string>

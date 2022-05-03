@@ -9,7 +9,6 @@
     <string name="app_exit">Gaan weer \'terug\' om uit te gaan</string>
     <string name="app_cake">onvoldoende stoorplek oor</string>
     <string name="app_updated">Laaste opdatering: %1$s</string>
-    <string name="channel_service">Receive</string>
     <string name="channel_send">stuur</string>
     <string name="channel_notification">Email</string>
     <string name="channel_progress">Progress</string>

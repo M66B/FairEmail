@@ -10,7 +10,6 @@
     <string name="app_cake">Spațiu de stocare insuficient rămas</string>
     <string name="app_updated">Ultima actualizare: %1$s</string>
     <string name="app_download">Descărcat de la: %1$s</string>
-    <string name="channel_service">Primește</string>
     <string name="channel_send">Trimite</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Progres</string>
@@ -518,7 +517,6 @@
     <string name="title_advanced_default_snooze">Timpul implicit de amânare/prelungire</string>
     <string name="title_advanced_notifications">Gestionarea notificărilor</string>
     <string name="title_advanced_notifications_default">Canal implicit</string>
-    <string name="title_advanced_notifications_service">Canal primire</string>
     <string name="title_advanced_notifications_newest_first">Arată mai întâi cele mai noi notificări</string>
     <string name="title_advanced_notifications_background">Folosește serviciul de fundal pentru a sincroniza mesajele</string>
     <string name="title_advanced_notifications_background_hint">Un serviciu de fundal poate fi oprit de Android în orice moment, dar nu necesită o notificare în bara de stare</string>

@@ -9,7 +9,6 @@
     <string name="app_exit">Դուրս գալու համար նորից \"հետ\" գնացեք</string>
     <string name="app_cake">Չկա բավարար պահեստային տարածք</string>
     <string name="app_updated">Վերջին թարմացումը` %1$s</string>
-    <string name="channel_service">Ստացում</string>
     <string name="channel_send">Ուղարկում</string>
     <string name="channel_notification">Էլ.հասցե</string>
     <string name="channel_progress">Ընթանում է</string>

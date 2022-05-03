@@ -4,7 +4,6 @@
     <string name="app_changelog">Dnevnik sprememb</string>
     <string name="app_welcome">FairEmail je odprtokodni program za e-pošto, ki se osredotoča na zasebnost in varnost.  Zaradi tega lahko nekatere značilnosti delujejo drugače, kot ste navajeni.</string>
     <string name="app_exit">Za izhod še enkrat pritisnite \'Nazaj\'.</string>
-    <string name="channel_service">Prejemanje</string>
     <string name="channel_send">Pošlji</string>
     <string name="channel_update">Posodobitve</string>
     <string name="channel_warning">Opozorila</string>

@@ -10,7 +10,6 @@
     <string name="app_cake">Ez dago biltegiratze toki nahiko</string>
     <string name="app_updated">Azken eguneratzea: %1$s</string>
     <string name="app_download">Hemendik deskargatua: %1$s</string>
-    <string name="channel_service">Jaso</string>
     <string name="channel_send">Bidali</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Aurrerapena</string>

@@ -10,7 +10,6 @@
     <string name="app_cake">Espaço insuficiente</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Descarregada via: %1$s</string>
-    <string name="channel_service">Receber</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Progresso</string>
@@ -492,7 +491,6 @@
     <string name="title_advanced_default_snooze">Tempo pré-definido de repetição/adiamento</string>
     <string name="title_advanced_notifications">Gerir notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>
-    <string name="title_advanced_notifications_service">Canal \'Recebido\'</string>
     <string name="title_advanced_notifications_newest_first">Mostrar notificações mais recentes primeiro</string>
     <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>

@@ -9,7 +9,6 @@
     <string name="app_exit">बाहर निकलने के लिए फिर से \'वापस\' पर क्लिक करें।</string>
     <string name="app_cake">नाकाफी स्टोरेज 	जगह</string>
     <string name="app_updated">अंतिम अपडेट: %1$s</string>
-    <string name="channel_service">प्राप्त करें</string>
     <string name="channel_send">भेजें</string>
     <string name="channel_notification">ईमेल</string>
     <string name="channel_progress">प्रगति</string>

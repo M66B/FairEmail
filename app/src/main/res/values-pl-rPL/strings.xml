@@ -10,7 +10,6 @@
     <string name="app_cake">Za mało miejsca w pamięci</string>
     <string name="app_updated">Ostatnia aktualizacja: %1$s</string>
     <string name="app_download">Pobrano z: %1$s</string>
-    <string name="channel_service">Odbierz</string>
     <string name="channel_send">Wyślij</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Postęp</string>
@@ -528,7 +527,6 @@
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia/opóźnienia</string>
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>
     <string name="title_advanced_notifications_default">Domyślny kanał</string>
-    <string name="title_advanced_notifications_service">Kanał odbioru</string>
     <string name="title_advanced_notifications_newest_first">Pokaż najpierw najnowsze powiadomienia</string>
     <string name="title_advanced_notifications_background">Użyj usługi w tle do synchronizacji wiadomości</string>
     <string name="title_advanced_notifications_background_hint">Usługa w tle może być w dowolnym momencie zatrzymana przez Androida, ale nie wymaga powiadomienia na pasku stanu</string>

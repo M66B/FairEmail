@@ -8,7 +8,6 @@
     <string name="app_exit">ପ୍ରସ୍ଥାନ କରିବା ପାଇଁ ପୁଣି \'ବ୍ୟାକ୍\' ଯାଆନ୍ତୁ</string>
     <string name="app_updated">ଗତ ଅପଡେଟ୍: %1$s</string>
     <string name="app_download">ଏଠାରୁ ଡାଉନଲୋଡ୍ ହୋଇଛି: %1$s</string>
-    <string name="channel_service">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
     <string name="channel_send">ପଠାନ୍ତୁ</string>
     <string name="channel_notification">ଇମେଲ୍</string>
     <string name="channel_progress">ପ୍ରଗତି</string>

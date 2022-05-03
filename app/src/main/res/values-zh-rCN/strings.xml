@@ -10,7 +10,6 @@
     <string name="app_cake">剩余存储空间不足</string>
     <string name="app_updated">上次更新：%1$s</string>
     <string name="app_download">下载自：%1$s</string>
-    <string name="channel_service">接收</string>
     <string name="channel_send">发送</string>
     <string name="channel_notification">电子邮件</string>
     <string name="channel_progress">进度</string>
@@ -498,7 +497,6 @@
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">默认频道</string>
-    <string name="title_advanced_notifications_service">接收频道</string>
     <string name="title_advanced_notifications_newest_first">最新通知显示在前</string>
     <string name="title_advanced_notifications_background">使用后台服务来同步消息</string>
     <string name="title_advanced_notifications_background_hint">后台服务不会显示状态栏通知，但随时可能会被 Android 终止</string>

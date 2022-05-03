@@ -5,7 +5,6 @@
     <string name="app_welcome">FairEmail er en åpen kildekode e-postprogram som er fokusert på personvern og sikkerhet. Av denne grunn kan noen funksjoner virke annerledes enn det du er vant til.</string>
     <string name="app_exit">Gå \'tilbake\' igjen for å avslutte</string>
     <string name="app_cake">Ikke nok lagringsplass igjen</string>
-    <string name="channel_service">Tak imot</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">E-post</string>
     <string name="channel_update">Oppdateringer</string>
@@ -330,7 +329,6 @@
     <string name="title_advanced_reset_importance">Tilbakestill viktigheten for å flytte meldinger</string>
     <string name="title_advanced_notifications">Administrer varsler</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
-    <string name="title_advanced_notifications_service">Motta kanal</string>
     <string name="title_advanced_notifications_newest_first">Vis de nyeste varslene først</string>
     <string name="title_advanced_notifications_background">Bruk bakgrunnstjeneste for å synkronisere meldinger</string>
     <string name="title_advanced_notifications_background_hint">En bakgrunnstjeneste kan stanses av Android når som helst, men krever ikke en statuslinje varsel</string>

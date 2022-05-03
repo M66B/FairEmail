@@ -9,7 +9,6 @@
     <string name="app_exit">Ketuk \'Kembali\' untuk keluar</string>
     <string name="app_cake">Sisa ruang penyimpanan tidak mencukupi</string>
     <string name="app_updated">Pembaharuan terakhir: %1$s</string>
-    <string name="channel_service">Menerima</string>
     <string name="channel_send">Kirim</string>
     <string name="channel_notification">Surel</string>
     <string name="channel_progress">Pekembangan</string>
@@ -457,7 +456,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_default_snooze">Waktu tunda/jeda bawaan</string>
     <string name="title_advanced_notifications">Kelola pemberitahuan</string>
     <string name="title_advanced_notifications_default">Standar Pemberitahuan</string>
-    <string name="title_advanced_notifications_service">Terima saluran</string>
     <string name="title_advanced_notifications_newest_first">Menampilkan pemberitahuan terbaru terlebih dahulu</string>
     <string name="title_advanced_notifications_background">Gunakan layanan latar belakang untuk menyinkronkan pesan</string>
     <string name="title_advanced_notifications_background_hint">Layanan latar belakang dapat dihentikan oleh Android kapan saja, tetapi tidak memerlukan pemberitahuan pada bilah status.</string>

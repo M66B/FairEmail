@@ -10,7 +10,6 @@
     <string name="app_cake">Залишилося недостатньо вільного місця для зберігання</string>
     <string name="app_updated">Останнє оновлення: %1$s</string>
     <string name="app_download">Завантажено з: %1$s</string>
-    <string name="channel_service">Отримання</string>
     <string name="channel_send">Надсилання</string>
     <string name="channel_notification">Email</string>
     <string name="channel_progress">Прогрес</string>
@@ -520,7 +519,6 @@
     <string name="title_advanced_default_snooze">Час повторного нагадування за замовчуванням</string>
     <string name="title_advanced_notifications">Керування сповіщеннями</string>
     <string name="title_advanced_notifications_default">Канал за замовчуванням</string>
-    <string name="title_advanced_notifications_service">Канал отримання</string>
     <string name="title_advanced_notifications_newest_first">Показувати спочатку нові сповіщення</string>
     <string name="title_advanced_notifications_background">Використовувати фонову службу для синхронізації повідомлень</string>
     <string name="title_advanced_notifications_background_hint">Фоновий сервіс може бути зупинений Android в будь-який час, що не вимагає сповіщення в рядку стану</string>

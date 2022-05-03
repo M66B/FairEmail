@@ -10,7 +10,6 @@
     <string name="app_cake">剩餘儲存空間不足</string>
     <string name="app_updated">最近更新於: %1$s</string>
     <string name="app_download">下載自：%1$s</string>
-    <string name="channel_service">接收</string>
     <string name="channel_send">寄送</string>
     <string name="channel_notification">電子郵件</string>
     <string name="channel_progress">進度</string>
@@ -486,7 +485,6 @@
     <string name="title_advanced_default_snooze">預設延後/延遲時間</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">預設頻道</string>
-    <string name="title_advanced_notifications_service">接收頻道</string>
     <string name="title_advanced_notifications_newest_first">優先顯示最新通知</string>
     <string name="title_advanced_notifications_background">使用背景服務同步訊息</string>
     <string name="title_advanced_notifications_background_hint">無狀態列通知的背景服務可隨時被 Android 停止</string>

@@ -8,7 +8,6 @@
     <string name="app_cake">مساحة تخزين غير كافية</string>
     <string name="app_updated">آخر تحديث: %1$s</string>
     <string name="app_download">نُزّل من: %1$s</string>
-    <string name="channel_service">إستلام</string>
     <string name="channel_send">أرسل</string>
     <string name="channel_notification">البريد الإلكتروني</string>
     <string name="channel_progress">التفدم</string>

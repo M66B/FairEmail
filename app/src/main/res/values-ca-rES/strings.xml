@@ -8,7 +8,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="app_exit">Premeu «Enrere» novament per sortir</string>
     <string name="app_cake">Espai d’emmagatzematge insuficient</string>
     <string name="app_updated">Darrera actualització: %1$s</string>
-    <string name="channel_service">Rebre</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Correu electrònic</string>
     <string name="channel_progress">Progrés</string>

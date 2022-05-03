@@ -10,7 +10,6 @@
     <string name="app_cake">Anbar sahəsi yetərsizdir</string>
     <string name="app_updated">Son yeniləmə: %1$s</string>
     <string name="app_download">%1$s üzərindən endirildi</string>
-    <string name="channel_service">Al</string>
     <string name="channel_send">Göndər</string>
     <string name="channel_notification">E-poçt</string>
     <string name="channel_progress">İrəliləyiş</string>
@@ -508,7 +507,6 @@
     <string name="title_advanced_default_snooze">İlkin ertələmə/gecikmə vaxtı</string>
     <string name="title_advanced_notifications">Bildirişləri idarə et</string>
     <string name="title_advanced_notifications_default">İlkin kanal</string>
-    <string name="title_advanced_notifications_service">Kanal al</string>
     <string name="title_advanced_notifications_newest_first">Əvvəlcə ən yeni bildirişləri göstər</string>
     <string name="title_advanced_notifications_background">Mesajları eyniləşdirmək üçün arxaplan xidməti istifadə et</string>
     <string name="title_advanced_notifications_background_hint">Bir arxaplan xidməti istənilən vaxt Android tərəfindən dayandırıla bilər, ancaq vəziyyət sətri bildirişini tələb etmir</string>

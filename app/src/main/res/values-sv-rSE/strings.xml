@@ -10,7 +10,6 @@
     <string name="app_cake">Otillräckligt lagringsutrymme kvar</string>
     <string name="app_updated">Senast uppdaterad: %1$s</string>
     <string name="app_download">Hämtad från: %1$s</string>
-    <string name="channel_service">Ta emot</string>
     <string name="channel_send">Skicka</string>
     <string name="channel_notification">E-post</string>
     <string name="channel_progress">Förlopp</string>
@@ -505,7 +504,6 @@
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
-    <string name="title_advanced_notifications_service">Mottagningskanal</string>
     <string name="title_advanced_notifications_newest_first">Visa nyaste aviseringar först</string>
     <string name="title_advanced_notifications_background">Använd en bakgrundstjänst för att synkronisera meddelanden</string>
     <string name="title_advanced_notifications_background_hint">En bakgrundstjänst kan stoppas av Android när som helst, men kräver inte ett meddelande i statusfältet</string>

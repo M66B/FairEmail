@@ -10,7 +10,6 @@
     <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
     <string name="app_updated">Päivitetty viimeksi: %1$s</string>
     <string name="app_download">Ladattu palvelusta: %1$s</string>
-    <string name="channel_service">Vastaanottaminen</string>
     <string name="channel_send">Lähettäminen</string>
     <string name="channel_notification">Sähköposti</string>
     <string name="channel_progress">Edistyminen</string>
@@ -501,7 +500,6 @@
     <string name="title_advanced_default_snooze">Torkun/viiveen oletusaika</string>
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
     <string name="title_advanced_notifications_default">Oletuskanava</string>
-    <string name="title_advanced_notifications_service">Vastaanottokanava</string>
     <string name="title_advanced_notifications_newest_first">Näytä uusimmat ilmoitukset ensin</string>
     <string name="title_advanced_notifications_background">Käytä taustapalvelua viestien synkronointiin</string>
     <string name="title_advanced_notifications_background_hint">Android voi lopettaa taustapalvelun koska tahansa, mutta taustapalvelu ei tarvitse tilapalkki-ilmoitusta</string>

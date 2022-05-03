@@ -10,7 +10,6 @@
     <string name="app_cake">Ανεπαρκής χώρος αποθήκευσης</string>
     <string name="app_updated">Τελευταία ενημέρωση: %1$s</string>
     <string name="app_download">Λήφθηκε από: %1$s</string>
-    <string name="channel_service">Λήψη</string>
     <string name="channel_send">Αποστολή</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Πρόοδος</string>
@@ -508,7 +507,6 @@
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής/καθυστέρησης</string>
     <string name="title_advanced_notifications">Διαχείριση ειδοποιήσεων</string>
     <string name="title_advanced_notifications_default">Προεπιλεγμένο κανάλι</string>
-    <string name="title_advanced_notifications_service">Κανάλι λήψης</string>
     <string name="title_advanced_notifications_newest_first">Να προβάλλονται πρώτα οι πιο πρόσφατες ειδοποιήσεις</string>
     <string name="title_advanced_notifications_background">Χρήση υπηρεσίας στο παρασκήνιο για το συγχρονισμό των μηνυμάτων</string>
     <string name="title_advanced_notifications_background_hint">Μια υπηρεσία που εκτελείται στο παρασκήνιο αλλά δεν απαιτεί κάποια ειδοποίηση στη γραμμή κατάστασης, μπορεί να τερματιστεί από το Android οποιαδήποτε στιγμή</string>

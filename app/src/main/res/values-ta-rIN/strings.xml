@@ -8,7 +8,6 @@
     <string name="app_cake">சேமிப்பிடம் போதுமானதாகயில்லை</string>
     <string name="app_updated">கடைசி புதுப்பிப்பு: %1$s</string>
     <string name="app_download">%1$s-லிருந்து பதிவிறக்கப்பட்டது</string>
-    <string name="channel_service">பெறுபவை</string>
     <string name="channel_send">அனுப்புபவை</string>
     <string name="channel_notification">மின்னஞ்சல்</string>
     <string name="channel_progress">முன்னேற்றங்கள்</string>

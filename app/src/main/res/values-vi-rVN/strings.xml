@@ -10,7 +10,6 @@
     <string name="app_cake">Không đủ không gian bộ nhớ còn lại</string>
     <string name="app_updated">Lần cập nhật cuối: %1$s</string>
     <string name="app_download">Được tải xuống từ: %1$s</string>
-    <string name="channel_service">Nhận</string>
     <string name="channel_send">Gửi</string>
     <string name="channel_notification">Email</string>
     <string name="channel_progress">Tiến trình</string>
@@ -497,7 +496,6 @@
     <string name="title_advanced_default_snooze">Thời gian trễ/báo lại mặc định</string>
     <string name="title_advanced_notifications">Quản lý thông báo</string>
     <string name="title_advanced_notifications_default">Kênh mặc định</string>
-    <string name="title_advanced_notifications_service">Kênh nhận</string>
     <string name="title_advanced_notifications_newest_first">Hiện thông báo mới nhất trước</string>
     <string name="title_advanced_notifications_background">Sử dụng dịch vụ nền để đồng bộ thư</string>
     <string name="title_advanced_notifications_background_hint">Một dịch vụ nền có thể bị dừng bởi Android bất kỳ lúc nào, nhưng không yêu cầu thông báo trên tranh trạng thái</string>

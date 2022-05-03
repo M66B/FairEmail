@@ -10,7 +10,7 @@
     <string name="app_cake">Utilstrækkelig tilgængelig lagerplads</string>
     <string name="app_updated">Senest opdateret: %1$s</string>
     <string name="app_download">Downloadet fra: %1$s</string>
-    <string name="channel_service">Modtagelse</string>
+    <string name="channel_service" comment="channel_service&#10;Title of &quot;Synchronizing and monitoring of accounts&quot; notification channel showing the &quot;Monitoring&quot; status bar notification, etc.">Monitering</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Status</string>
@@ -509,7 +509,6 @@
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
-    <string name="title_advanced_notifications_service">Modtagekanal</string>
     <string name="title_advanced_notifications_newest_first">Vis seneste notifikationer først</string>
     <string name="title_advanced_notifications_background">Benyt baggrundstjeneste til beskedsynkronisering</string>
     <string name="title_advanced_notifications_background_hint">En baggrundstjeneste kan til enhver tid stoppes af Android, men behøver ingen statusbjælkenotifikation</string>
