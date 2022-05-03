@@ -959,7 +959,8 @@ public class StyleHelper {
     static void markAsInserted(Editable text, int start, int end) {
         for (InsertedSpan span : text.getSpans(0, text.length(), InsertedSpan.class))
             text.removeSpan(span);
-        text.setSpan(new InsertedSpan(), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        if (start >= 0 && start < end && end <= text.length())
+            text.setSpan(new InsertedSpan(), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
     static class InsertedSpan implements NoCopySpan {
