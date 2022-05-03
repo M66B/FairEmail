@@ -129,7 +129,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
             tvItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
 
-            tvItemExtra.setText(NF.format(count));
+            tvItemExtra.setText(NF.format(folder.messages));
             tvItemExtra.setVisibility(nav_count && expanded ? View.VISIBLE : View.GONE);
 
             ivExtra.setVisibility(View.GONE);
