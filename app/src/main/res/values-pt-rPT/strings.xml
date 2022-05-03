@@ -687,6 +687,10 @@
     <string name="title_case_sensitive">Nomes de utilizador e palavras-passe habitualmente diferenciam maiúsculas de minúsculas</string>
     <string name="title_client_certificate">Certificado do cliente</string>
     <string name="title_primary">Principal</string>
+    <string name="title_leave_on_server">Deixar as mensagens no servidor</string>
+    <string name="title_leave_deleted">Deixar as mensagens eliminadas no servidor</string>
+    <string name="title_leave_on_device">Deixar as mensagens no dispositivo</string>
+    <string name="title_max_messages">Número máximo de mensagens a serem transferidas (espaço em branco para todas)</string>
     <string name="title_received_header">Usar o cabeçalho \'Recebido\'</string>
     <string name="title_unmetered_only">Conectar somente através de redes ilimitadas</string>
     <string name="title_check">Verificar</string>
@@ -698,6 +702,9 @@
     <string name="title_no_user">Nome do utilizador em falta</string>
     <string name="title_no_password">Palavra-passe em falta</string>
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
+    <string name="title_no_standard">Este provedor utiliza um protocolo de correio eletrónico proprietário, o que impossibilita a utilização de clientes de correio eletrónico de terceiros</string>
+    <string name="title_no_idle">Este provedor não suporta mensagens \'push\'. Isto atrasará a recepção de novas mensagens e aumentará o uso da bateria.</string>
+    <string name="title_no_utf8">Este provedor de correio eletrónico não suporta UTF-8</string>
     <string name="title_account_auth_update">Atualizar autorização</string>
     <string name="title_account_auth_password">Mudar para autenticação de palavra-passe</string>
     <string name="title_delete_account">Eliminar conta</string>
@@ -731,6 +738,9 @@
     <string name="title_edit_properties">Editar propriedades</string>
     <string name="title_edit_rules">Editar regras</string>
     <string name="title_execute_rules">Executar regras</string>
+    <string name="title_create_channel">Criar canal de notificação</string>
+    <string name="title_edit_channel">Editar canal de notificação</string>
+    <string name="title_delete_channel">Eliminar canal de notificação</string>
     <string name="title_insert_contact">Adicionar contacto</string>
     <string name="title_edit_contact">Editar contacto</string>
     <string name="title_contact_email">E-mail</string>
