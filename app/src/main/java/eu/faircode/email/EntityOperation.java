@@ -631,6 +631,12 @@ public class EntityOperation {
             }
         }
 
+        if (MOVE.equals(name)) {
+            int count = db.operation().deleteOperation(folder, PURGE);
+            if (count > 0)
+                sync(context, folder, false);
+        }
+
         if (MOVE.equals(name) ||
                 ADD.equals(name) ||
                 RAW.equals(name))
