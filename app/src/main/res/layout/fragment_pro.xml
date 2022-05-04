@@ -195,6 +195,18 @@
             app:layout_constraintTop_toBottomOf="@id/tvFamilyHint" />
 
         <Button
+            android:id="@+id/btnSupport"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_support_24"
+            android:drawablePadding="6dp"
+            android:text="@string/menu_faq"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRestoreHint" />
+
+        <Button
             android:id="@+id/btnConsume"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -202,7 +214,7 @@
             android:layout_marginTop="12dp"
             android:text="Consume"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRestoreHint" />
+            app:layout_constraintTop_toBottomOf="@id/btnSupport" />
 
         <eu.faircode.email.FixedImageView
             android:id="@+id/ivConnected"

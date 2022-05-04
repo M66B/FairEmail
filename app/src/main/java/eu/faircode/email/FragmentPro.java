@@ -65,6 +65,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private TextView tvPriceHint;
     private TextView tvFamilyHint;
     private TextView tvRestoreHint;
+    private Button btnSupport;
     private Button btnConsume;
     private ImageView ivConnected;
 
@@ -94,6 +95,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvPriceHint = view.findViewById(R.id.tvPriceHint);
         tvFamilyHint = view.findViewById(R.id.tvFamilyHint);
         tvRestoreHint = view.findViewById(R.id.tvRestoreHint);
+        btnSupport = view.findViewById(R.id.btnSupport);
         btnConsume = view.findViewById(R.id.btnConsume);
         ivConnected = view.findViewById(R.id.ivConnected);
 
@@ -160,6 +162,13 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             }
         });
 
+        btnSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+            }
+        });
+
         btnConsume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,6 +197,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
                         ? View.VISIBLE : View.GONE);
         tvFamilyHint.setVisibility(play ? View.VISIBLE : View.GONE);
         tvRestoreHint.setVisibility(play ? View.VISIBLE : View.GONE);
+        btnSupport.setVisibility(play ? View.VISIBLE : View.GONE);
         btnConsume.setEnabled(false);
         btnConsume.setVisibility(ActivityBilling.isTesting(getContext()) ? View.VISIBLE : View.GONE);
         ivConnected.setVisibility(View.GONE);
