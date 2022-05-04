@@ -1034,6 +1034,7 @@
     </provider>
     <provider
         name="Laposte.net"
+        documentation="19 avril 2022 La Posté a désactivé l'accès externe en raison de problèmes techniques. Veuillez consulter le site Web de La Poste pour plus d'informations."
         domain="laposte\\.net"
         link="https://www.laposte.fr/votre-vie-digitale/conseils-pratiques/configuration-webmail-laposte.net">
         <imap
