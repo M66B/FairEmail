@@ -108,7 +108,7 @@ public class ActivityBilling extends ActivityBase
 
         if (Helper.isPlayStoreInstall() || isTesting(this)) {
             Log.i("IAB start");
-            billingClient = BillingClient.newBuilder(this)
+            billingClient = BillingClient.newBuilder(getApplicationContext())
                     .enablePendingPurchases()
                     .setListener(this)
                     .build();
