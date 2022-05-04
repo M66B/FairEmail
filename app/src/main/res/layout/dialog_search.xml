@@ -8,7 +8,7 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <eu.faircode.email.ConstraintLayoutEx
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -560,5 +560,5 @@
             cbSearchIndex,tvSearchIndexHint,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,tvSearchTextHint,tvSearchTextUnsupported,cbNotes,
             tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbAttachments,
             btnAfter,btnBefore,tvBefore,tvAfter,cbSearchDevice" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </eu.faircode.email.ConstraintLayoutEx>
 </eu.faircode.email.ScrollViewEx>

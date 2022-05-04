@@ -8,7 +8,7 @@
     android:scrollbarStyle="outsideOverlay"
     tools:context="eu.faircode.email.ActivityMain">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <eu.faircode.email.ConstraintLayoutEx
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -44,5 +44,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnCancel"
             app:layout_constraintTop_toBottomOf="@id/inEula" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </eu.faircode.email.ConstraintLayoutEx>
 </eu.faircode.email.ScrollViewEx>

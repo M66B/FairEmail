@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<eu.faircode.email.CoordinatorLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="eu.faircode.email.BehaviorBottomMargin">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <eu.faircode.email.ConstraintLayoutEx
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -470,7 +470,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="ibOutbox,tvOutboxCount" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </eu.faircode.email.ConstraintLayoutEx>
     </eu.faircode.email.SwipeRefreshLayoutEx>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -511,7 +511,7 @@
         app:layout_anchor="@+id/fabMore"
         app:layout_anchorGravity="center_vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <eu.faircode.email.ConstraintLayoutEx
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="6dp">
@@ -571,7 +571,7 @@
                 app:layout_constraintEnd_toStartOf="@id/ibJunk"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_delete_24" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </eu.faircode.email.ConstraintLayoutEx>
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -609,4 +609,4 @@
         app:backgroundTint="?attr/colorWarning"
         app:srcCompat="@drawable/twotone_warning_24"
         app:tint="?attr/colorFabForeground" />
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</eu.faircode.email.CoordinatorLayoutEx>

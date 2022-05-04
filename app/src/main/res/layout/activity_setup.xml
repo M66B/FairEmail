@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context="eu.faircode.email.ActivitySetup">
 
-    <FrameLayout
+    <eu.faircode.email.FrameLayoutEx
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <eu.faircode.email.ConstraintLayoutEx
         android:id="@+id/drawer_container"
         android:layout_width="270dp"
         android:layout_height="match_parent"
@@ -26,5 +26,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </eu.faircode.email.ConstraintLayoutEx>
 </androidx.drawerlayout.widget.DrawerLayout>

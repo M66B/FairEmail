@@ -6,7 +6,7 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <eu.faircode.email.ConstraintLayoutEx
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -54,5 +54,5 @@
             app:layout_constraintStart_toEndOf="@id/btnInfo"
             app:layout_constraintTop_toTopOf="@id/btnInfo"
             app:srcCompat="@drawable/twotone_open_in_new_24" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </eu.faircode.email.ConstraintLayoutEx>
 </eu.faircode.email.ScrollViewEx>

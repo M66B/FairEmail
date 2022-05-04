@@ -1,4 +1,4 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<eu.faircode.email.ConstraintLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <eu.faircode.email.ConstraintLayoutEx
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -45,7 +45,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHint">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <eu.faircode.email.ConstraintLayoutEx
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="6dp"
@@ -257,7 +257,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </eu.faircode.email.ConstraintLayoutEx>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -273,7 +273,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cardMessage">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <eu.faircode.email.ConstraintLayoutEx
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="6dp"
@@ -303,7 +303,7 @@
                         app:layout_constraintBottom_toBottomOf="@id/tvStructure"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:srcCompat="@drawable/baseline_code_24" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </eu.faircode.email.ConstraintLayoutEx>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -319,7 +319,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cardStructure">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <eu.faircode.email.ConstraintLayoutEx
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="6dp"
@@ -338,7 +338,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </eu.faircode.email.ConstraintLayoutEx>
             </androidx.cardview.widget.CardView>
 
             <androidx.constraintlayout.widget.Group
@@ -346,7 +346,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="cardMessage,cardStructure" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </eu.faircode.email.ConstraintLayoutEx>
     </eu.faircode.email.ScrollViewEx>
 
     <eu.faircode.email.ContentLoadingProgressBar
@@ -359,4 +359,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</eu.faircode.email.ConstraintLayoutEx>

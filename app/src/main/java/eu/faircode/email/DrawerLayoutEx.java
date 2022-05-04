@@ -78,6 +78,16 @@ public class DrawerLayoutEx extends DrawerLayout {
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        try {
+            return super.dispatchTouchEvent(ev);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return false;
+        }
+    }
+
+    @Override
     public boolean dispatchGenericMotionEvent(MotionEvent ev) {
         if (isLocked()) {
             View content = getChildAt(0);
@@ -89,7 +99,12 @@ public class DrawerLayoutEx extends DrawerLayout {
                 return content.dispatchGenericMotionEvent(ev);
         }
 
-        return super.dispatchGenericMotionEvent(ev);
+        try {
+            return super.dispatchGenericMotionEvent(ev);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return false;
+        }
     }
 
     @Override

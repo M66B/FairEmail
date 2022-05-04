@@ -12,7 +12,7 @@
     android:scrollbarStyle="outsideOverlay"
     tools:context=".ActivitySetup">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <eu.faircode.email.ConstraintLayoutEx
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="24dp">
@@ -46,7 +46,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDefault">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <eu.faircode.email.ConstraintLayoutEx
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="6dp"
@@ -334,7 +334,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swAutoLockNav" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -350,7 +350,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardGeneral">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <eu.faircode.email.ConstraintLayoutEx
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="6dp"
@@ -689,7 +689,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="swSafeBrowsing,tvSafeBrowsingHint,ibSafeBrowsing" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </eu.faircode.email.ConstraintLayoutEx>
 </eu.faircode.email.ScrollViewEx>

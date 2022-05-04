@@ -1,4 +1,4 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<eu.faircode.email.ConstraintLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,4 +26,4 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="wvAmp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</eu.faircode.email.ConstraintLayoutEx>

@@ -1,4 +1,4 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<eu.faircode.email.ConstraintLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <eu.faircode.email.ConstraintLayoutEx
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -31,7 +31,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <eu.faircode.email.ConstraintLayoutEx
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="6dp"
@@ -101,8 +101,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/btnPassword"
                         app:srcCompat="@drawable/twotone_info_24" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </eu.faircode.email.ConstraintLayoutEx>
             </androidx.cardview.widget.CardView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </eu.faircode.email.ConstraintLayoutEx>
     </eu.faircode.email.ScrollViewEx>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</eu.faircode.email.ConstraintLayoutEx>

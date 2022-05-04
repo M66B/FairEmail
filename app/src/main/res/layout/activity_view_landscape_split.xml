@@ -12,7 +12,7 @@
         android:focusableInTouchMode="false"
         android:orientation="horizontal">
 
-        <FrameLayout
+        <eu.faircode.email.FrameLayoutEx
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:background="?attr/colorSeparator" />
 
-        <FrameLayout
+        <eu.faircode.email.FrameLayoutEx
             android:id="@+id/content_pane"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

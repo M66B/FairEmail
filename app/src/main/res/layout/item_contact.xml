@@ -1,9 +1,9 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<eu.faircode.email.FrameLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <eu.faircode.email.ConstraintLayoutEx
         android:id="@+id/clItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -91,5 +91,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ivAvatar"
             app:srcCompat="@drawable/twotone_star_24" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+    </eu.faircode.email.ConstraintLayoutEx>
+</eu.faircode.email.FrameLayoutEx>

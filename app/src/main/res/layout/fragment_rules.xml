@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<eu.faircode.email.CoordinatorLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="eu.faircode.email.ActivityView">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <eu.faircode.email.ConstraintLayoutEx
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -40,7 +40,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="rvRule" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </eu.faircode.email.ConstraintLayoutEx>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -53,4 +53,4 @@
         app:backgroundTint="?attr/colorFabBackground"
         app:srcCompat="@drawable/twotone_add_24"
         app:tint="?attr/colorFabForeground" />
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</eu.faircode.email.CoordinatorLayoutEx>

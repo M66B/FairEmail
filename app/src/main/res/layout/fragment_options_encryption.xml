@@ -12,7 +12,7 @@
     android:scrollbarStyle="outsideOverlay"
     tools:context=".ActivitySetup">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <eu.faircode.email.ConstraintLayoutEx
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="24dp">
@@ -46,7 +46,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDefault">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <eu.faircode.email.ConstraintLayoutEx
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="6dp"
@@ -117,7 +117,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swAutoDecrypt"
                     app:switchPadding="12dp" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -133,7 +133,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardGeneral">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <eu.faircode.email.ConstraintLayoutEx
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="6dp"
@@ -231,7 +231,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swAutocryptMutual"
                     app:switchPadding="12dp" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -247,7 +247,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardPgp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <eu.faircode.email.ConstraintLayoutEx
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="6dp"
@@ -400,7 +400,7 @@
                     android:text="@string/title_advanced_ca"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvManageKeysHint" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -417,7 +417,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardSmine">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <eu.faircode.email.ConstraintLayoutEx
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="6dp"
@@ -463,7 +463,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvKeySize" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </eu.faircode.email.ConstraintLayoutEx>
 </eu.faircode.email.ScrollViewEx>

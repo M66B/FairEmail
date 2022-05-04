@@ -8,7 +8,7 @@
     android:scrollbarStyle="outsideOverlay"
     tools:context="eu.faircode.email.ActivityWidgetUnified">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <eu.faircode.email.ConstraintLayoutEx
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -207,5 +207,5 @@
         cbUnseen,cbFlagged,
         cbSemiTransparent,btnColor,
         tvFontSize,spFontSize,tvPadding,spPadding,btnSave" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </eu.faircode.email.ConstraintLayoutEx>
 </eu.faircode.email.ScrollViewEx>
