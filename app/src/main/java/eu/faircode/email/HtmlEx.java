@@ -392,7 +392,7 @@ public class HtmlEx {
                 if (style[j] instanceof UnderlineSpan) {
                     out.append("<u>");
                 }
-                if (style[j] instanceof MarkSpan) {
+                if (style[j] instanceof StyleHelper.MarkSpan) {
                     out.append("<mark>");
                 }
                 if (style[j] instanceof StrikethroughSpan) {
@@ -444,7 +444,7 @@ public class HtmlEx {
                     out.append(String.format("<span style=\"color:%s;\">",
                             eu.faircode.email.HtmlHelper.encodeWebColor(color)));
                 }
-                if (style[j] instanceof BackgroundColorSpan && !(style[j] instanceof MarkSpan)) {
+                if (style[j] instanceof BackgroundColorSpan && !(style[j] instanceof StyleHelper.MarkSpan)) {
                     int color = ((BackgroundColorSpan) style[j]).getBackgroundColor();
                     //out.append(String.format("<span style=\"background-color:#%06X;\">",
                     //        0xFFFFFF & color));
@@ -456,7 +456,7 @@ public class HtmlEx {
             withinStyle(out, text, i, next);
 
             for (int j = style.length - 1; j >= 0; j--) {
-                if (style[j] instanceof BackgroundColorSpan && !(style[j] instanceof MarkSpan)) {
+                if (style[j] instanceof BackgroundColorSpan && !(style[j] instanceof StyleHelper.MarkSpan)) {
                     out.append("</span>");
                 }
                 if (style[j] instanceof ForegroundColorSpan) {
@@ -474,7 +474,7 @@ public class HtmlEx {
                 if (style[j] instanceof StrikethroughSpan) {
                     out.append("</span>");
                 }
-                if (style[j] instanceof MarkSpan) {
+                if (style[j] instanceof StyleHelper.MarkSpan) {
                     out.append("</mark>");
                 }
                 if (style[j] instanceof UnderlineSpan) {

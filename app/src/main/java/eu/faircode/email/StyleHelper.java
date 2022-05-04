@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.text.Editable;
@@ -31,6 +32,7 @@ import android.text.NoCopySpan;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
@@ -82,6 +84,7 @@ public class StyleHelper {
             StrikethroughSpan.class,
             URLSpan.class,
             TypefaceSpan.class, CustomTypefaceSpan.class,
+            MarkSpan.class,
             InsertedSpan.class
     ));
 
@@ -964,6 +967,18 @@ public class StyleHelper {
     }
 
     static class InsertedSpan implements NoCopySpan {
+    }
+
+    static class MarkSpan extends BackgroundColorSpan {
+        public MarkSpan() {
+            super(Color.YELLOW);
+        }
+
+        @Override
+        public void updateDrawState(@NonNull TextPaint textPaint) {
+            super.updateDrawState(textPaint);
+            textPaint.setColor(Color.BLACK);
+        }
     }
 
     static String getFamily(String family) {

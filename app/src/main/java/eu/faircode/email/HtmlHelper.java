@@ -3409,7 +3409,7 @@ public class HtmlHelper {
 
                                 break;
                             case "mark":
-                                setSpan(ssb, new MarkSpan(), start, ssb.length());
+                                setSpan(ssb, new StyleHelper.MarkSpan(), start, ssb.length());
                                 break;
                             case "pre":
                             case "tt":
