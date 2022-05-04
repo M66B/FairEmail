@@ -117,9 +117,9 @@ public class FragmentSetup extends FragmentBase {
 
     private CardView cardExtra;
     private TextView tvExtra;
-    private Button btnApp;
     private Button btnNotification;
     private Button btnDelete;
+    private Button btnApp;
     private Button btnMore;
     private Button btnSupport;
     private ImageButton ibExtra;
@@ -194,9 +194,9 @@ public class FragmentSetup extends FragmentBase {
 
         cardExtra = view.findViewById(R.id.cardExtra);
         tvExtra = view.findViewById(R.id.tvExtra);
-        btnApp = view.findViewById(R.id.btnApp);
         btnNotification = view.findViewById(R.id.btnNotification);
         btnDelete = view.findViewById(R.id.btnDelete);
+        btnApp = view.findViewById(R.id.btnApp);
         btnMore = view.findViewById(R.id.btnMore);
         btnSupport = view.findViewById(R.id.btnSupport);
         ibExtra = view.findViewById(R.id.ibExtra);
@@ -617,19 +617,6 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        final Intent app = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        app.setData(Uri.parse("package:" + getContext().getPackageName()));
-        btnApp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    getContext().startActivity(app);
-                } catch (Throwable ex) {
-                    Helper.reportNoViewer(getContext(), app, ex);
-                }
-            }
-        });
-
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -652,6 +639,19 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void onClick(View view) {
                 startActivity(channelService);
+            }
+        });
+
+        final Intent app = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        app.setData(Uri.parse("package:" + getContext().getPackageName()));
+        btnApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    getContext().startActivity(app);
+                } catch (Throwable ex) {
+                    Helper.reportNoViewer(getContext(), app, ex);
+                }
             }
         });
 
