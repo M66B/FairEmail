@@ -1885,7 +1885,7 @@
         FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <string name="title_pro_whichever">Whichever features are chosen as pro features, there is always someone who complains that a feature should be free. Please don\'t be that person.</string>
-    <string name="title_pro_google">The app initiates a Play Store purchase, but Google manages the purchase process. So please don\'t blame the app in case of problems!</string>
+    <string name="title_pro_google">FairEmail initiates a Play Store purchase, but ultimately Google manages the entire purchase process. So please don\'t blame the app in case of any problems!</string>
     <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Buying pro features will allow you to use all current and future pro features, will keep this app maintained, and supported.</string>
     <string name="title_pro_price">Why are the pro features so expensive?</string>
