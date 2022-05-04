@@ -116,6 +116,8 @@ import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.FileStore;
+import java.nio.file.FileSystems;
 import java.security.KeyStore;
 import java.security.Provider;
 import java.security.Security;
@@ -1912,6 +1914,25 @@ public class Log {
         }
 
         sb.append("\r\n");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            try {
+                for (FileStore store : FileSystems.getDefault().getFileStores())
+                    if (!store.isReadOnly() &&
+                            store.getUsableSpace() != 0 &&
+                            !"tmpfs".equals(store.type())) {
+                        long total = store.getTotalSpace();
+                        long unalloc = store.getUnallocatedSpace();
+                        sb.append(String.format("%s %s %s/%s\r\n",
+                                store,
+                                store.type(),
+                                Helper.humanReadableByteCount(total - unalloc),
+                                Helper.humanReadableByteCount(total)));
+                    }
+                sb.append("\r\n");
+            } catch (IOException ex) {
+                sb.append(ex).append("\r\n");
+            }
 
         WindowManager wm = Helper.getSystemService(context, WindowManager.class);
         Display display = wm.getDefaultDisplay();
