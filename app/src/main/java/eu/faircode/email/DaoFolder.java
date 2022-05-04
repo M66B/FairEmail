@@ -178,6 +178,7 @@ public interface DaoFolder {
     List<EntityFolder> getChildFolders(long parent);
 
     @Query("SELECT folder.type" +
+            ", COUNT(DISTINCT folder.id) AS folders" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +
             ", CASE WHEN folder.account IS NULL THEN folder.sync_state ELSE NULL END AS sync_state" +

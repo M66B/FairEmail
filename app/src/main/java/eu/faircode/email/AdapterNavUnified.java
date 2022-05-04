@@ -93,7 +93,9 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
 
         private void bindTo(TupleFolderUnified folder) {
             if (EntityFolder.INBOX.equals(folder.type))
-                ivItem.setImageResource(R.drawable.twotone_all_inbox_24);
+                ivItem.setImageResource(folder.folders > 1
+                        ? R.drawable.twotone_all_inbox_24
+                        : R.drawable.twotone_move_to_inbox_24);
             else if (EntityFolder.OUTBOX.equals(folder.type)) {
                 if ("syncing".equals(folder.sync_state))
                     ivItem.setImageResource(R.drawable.twotone_compare_arrows_24);
@@ -149,6 +151,10 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             if (EntityFolder.OUTBOX.equals(folder.type))
                 lbm.sendBroadcast(new Intent(ActivityView.ACTION_VIEW_OUTBOX));
+            else if (folder.folders > 1)
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                .putExtra("type", folder.type));
             else {
                 Bundle args = new Bundle();
                 args.putString("type", folder.type);
