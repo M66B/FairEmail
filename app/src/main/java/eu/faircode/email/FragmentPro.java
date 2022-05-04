@@ -59,8 +59,9 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private TextView tvList;
     private Button btnPurchase;
     private ImageView ivExternal;
-    private TextView tvNoPlay;
     private TextView tvPrice;
+    private TextView tvGoogle;
+    private TextView tvNoPlay;
     private TextView tvPriceHint;
     private TextView tvFamilyHint;
     private TextView tvRestoreHint;
@@ -87,8 +88,9 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvList = view.findViewById(R.id.tvList);
         btnPurchase = view.findViewById(R.id.btnPurchase);
         ivExternal = view.findViewById(R.id.ivExternal);
-        tvNoPlay = view.findViewById(R.id.tvNoPlay);
         tvPrice = view.findViewById(R.id.tvPrice);
+        tvGoogle = view.findViewById(R.id.tvGoogle);
+        tvNoPlay = view.findViewById(R.id.tvNoPlay);
         tvPriceHint = view.findViewById(R.id.tvPriceHint);
         tvFamilyHint = view.findViewById(R.id.tvFamilyHint);
         tvRestoreHint = view.findViewById(R.id.tvRestoreHint);
@@ -180,6 +182,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         btnPurchase.setEnabled(!play);
         ivExternal.setVisibility(play ? View.GONE : View.VISIBLE);
         tvPrice.setVisibility(View.GONE);
+        tvGoogle.setVisibility(play ? View.VISIBLE : View.GONE);
         tvNoPlay.setVisibility(
                 BuildConfig.PLAY_STORE_RELEASE && !Helper.hasPlayStore(getContext())
                         ? View.VISIBLE : View.GONE);
