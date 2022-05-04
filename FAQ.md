@@ -4197,6 +4197,7 @@ Oddly, most audio recorders seem not to support this standard Android action.
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq159)
 
 Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
+For the last updates, please [see here](https://github.com/disconnectme/disconnect-tracking-protection/commits).
 
 After downloading the lists in the privacy settings, the lists can optionally be used:
 
