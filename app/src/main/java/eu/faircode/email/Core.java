@@ -2763,6 +2763,8 @@ class Core {
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean download_eml = prefs.getBoolean("download_eml", false);
         boolean download_plain = prefs.getBoolean("download_plain", false);
+        boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
+        boolean use_blocklist_pop = prefs.getBoolean("use_blocklist_pop", false);
         boolean pro = ActivityBilling.isPro(context);
 
         boolean force = jargs.optBoolean(5, false);
@@ -3052,7 +3054,26 @@ class Core {
 
                         // No reply_domain
                         // No MX check
-                        // No blocklist
+
+                        if (check_blocklist && use_blocklist_pop) {
+                            message.blocklist = DnsBlockList.isJunk(context,
+                                    imessage.getHeader("Received"));
+
+                            if (message.blocklist == null || !message.blocklist) {
+                                List<Address> senders = new ArrayList<>();
+                                if (message.reply != null)
+                                    senders.addAll(Arrays.asList(message.reply));
+                                if (message.from != null)
+                                    senders.addAll(Arrays.asList(message.from));
+                                message.blocklist = DnsBlockList.isJunk(context, senders);
+                            }
+
+                            if (Boolean.TRUE.equals(message.blocklist)) {
+                                EntityLog.log(context, account.name + " POP blocklist=" +
+                                        MessageHelper.formatAddresses(message.from));
+                                continue;
+                            }
+                        }
 
                         if (message.from != null) {
                             EntityContact badboy = null;

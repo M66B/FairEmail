@@ -102,6 +102,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swCheckMx;
     private SwitchCompat swCheckBlocklist;
     private SwitchCompat swUseBlocklist;
+    private SwitchCompat swUseBlocklistPop;
     private RecyclerView rvBlocklist;
     private AdapterBlocklist badapter;
 
@@ -115,7 +116,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept",
             "gmail_thread_id", "outlook_thread_id", "subject_threading",
             "sync_folders", "sync_folders_poll", "sync_shared_folders", "subscriptions",
-            "check_authentication", "check_tls", "check_reply_domain", "check_mx", "check_blocklist", "use_blocklist",
+            "check_authentication", "check_tls", "check_reply_domain", "check_mx",
+            "check_blocklist", "use_blocklist", "use_blocklist_pop",
             "tune_keep_alive"
     };
 
@@ -177,6 +179,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swCheckMx = view.findViewById(R.id.swCheckMx);
         swCheckBlocklist = view.findViewById(R.id.swCheckBlocklist);
         swUseBlocklist = view.findViewById(R.id.swUseBlocklist);
+        swUseBlocklistPop = view.findViewById(R.id.swUseBlocklistPop);
         rvBlocklist = view.findViewById(R.id.rvBlocklist);
 
         grpExempted = view.findViewById(R.id.grpExempted);
@@ -454,6 +457,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("check_blocklist", checked).apply();
                 swUseBlocklist.setEnabled(checked);
+                swUseBlocklistPop.setEnabled(checked);
             }
         });
 
@@ -461,6 +465,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("use_blocklist", checked).apply();
+            }
+        });
+
+        swUseBlocklistPop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("use_blocklist_pop", checked).apply();
             }
         });
 
@@ -575,6 +586,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swCheckBlocklist.setChecked(prefs.getBoolean("check_blocklist", false));
         swUseBlocklist.setChecked(prefs.getBoolean("use_blocklist", false));
         swUseBlocklist.setEnabled(swCheckBlocklist.isChecked());
+        swUseBlocklistPop.setChecked(prefs.getBoolean("use_blocklist_pop", false));
+        swUseBlocklistPop.setEnabled(swCheckBlocklist.isChecked());
     }
 
     private String formatHour(Context context, int minutes) {

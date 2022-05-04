@@ -926,6 +926,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tvCheckBlocklistWarning"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swUseBlocklistPop"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_use_blocklist_pop3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swUseBlocklist"
+                    app:switchPadding="12dp" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvBlocklist"
                     android:layout_width="0dp"
@@ -935,7 +947,7 @@
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swUseBlocklist" />
+                    app:layout_constraintTop_toBottomOf="@id/swUseBlocklistPop" />
             </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
     </eu.faircode.email.ConstraintLayoutEx>
