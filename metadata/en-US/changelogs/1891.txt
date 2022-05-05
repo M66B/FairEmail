@@ -4,15 +4,14 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
-### Next version
+### 1.1891b - 2022-05-05
 
 * Added avatars option to message list widget
 * Added option to use blocklists for POP3
 * Small improvements and minor bug fixes
 * Updated translations
 
-
-### 1.1891 - 2022-05-03
+### 1.1891a - 2022-05-03
 
 * Fixed unified folders nav menu message count
 * Small improvements and minor bug fixes
