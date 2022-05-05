@@ -57,6 +57,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private Spinner spFolder;
     private CheckBox cbUnseen;
     private CheckBox cbFlagged;
+    private CheckBox cbDayNight;
     private CheckBox cbHighlight;
     private ViewButtonColor btnHighlight;
     private CheckBox cbSeparatorLines;
@@ -94,6 +95,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
         boolean unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         boolean flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
+        boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         boolean highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
         int highlight_color = prefs.getInt("widget." + appWidgetId + ".highlight_color", Color.TRANSPARENT);
         boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
@@ -113,6 +115,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         spFolder = findViewById(R.id.spFolder);
         cbUnseen = findViewById(R.id.cbUnseen);
         cbFlagged = findViewById(R.id.cbFlagged);
+        cbDayNight = findViewById(R.id.cbDayNight);
         cbHighlight = findViewById(R.id.cbHighlight);
         btnHighlight = findViewById(R.id.btnHighlight);
         cbSeparatorLines = findViewById(R.id.cbSeparatorLines);
@@ -130,10 +133,20 @@ public class ActivityWidgetUnified extends ActivityBase {
         final Intent resultValue = new Intent();
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
 
+        cbDayNight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                cbHighlight.setEnabled(!checked);
+                btnHighlight.setEnabled(cbHighlight.isChecked() && !checked);
+                cbSemiTransparent.setEnabled(!checked);
+                btnColor.setEnabled(!checked);
+            }
+        });
+
         cbHighlight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                btnHighlight.setVisibility(checked ? View.VISIBLE : View.GONE);
+                btnHighlight.setVisibility(checked && cbHighlight.isEnabled() ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -222,6 +235,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putLong("widget." + appWidgetId + ".folder", folder == null ? -1L : folder.id);
                 editor.putString("widget." + appWidgetId + ".type", folder == null ? null : folder.type);
                 editor.putBoolean("widget." + appWidgetId + ".unseen", cbUnseen.isChecked());
+                editor.putBoolean("widget." + appWidgetId + ".daynight", cbDayNight.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".highlight", cbHighlight.isChecked());
                 editor.putInt("widget." + appWidgetId + ".highlight_color", btnHighlight.getColor());
@@ -346,12 +360,17 @@ public class ActivityWidgetUnified extends ActivityBase {
         // Initialize
         cbUnseen.setChecked(unseen);
         cbFlagged.setChecked(flagged);
+        cbDayNight.setChecked(daynight);
         cbHighlight.setChecked(highlight);
+        cbHighlight.setEnabled(!daynight);
         btnHighlight.setVisibility(highlight ? View.VISIBLE : View.GONE);
         btnHighlight.setColor(highlight_color);
+        btnHighlight.setEnabled(highlight && !daynight);
         cbSeparatorLines.setChecked(separators);
         cbSemiTransparent.setChecked(semi);
+        cbSemiTransparent.setEnabled(!daynight);
         btnColor.setColor(background);
+        btnColor.setEnabled(!daynight);
         spFontSize.setSelection(tinyIn(font));
         spPadding.setSelection(tinyIn(padding));
         cbAvatars.setChecked(avatars);

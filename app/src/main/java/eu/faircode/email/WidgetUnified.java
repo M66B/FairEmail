@@ -49,6 +49,7 @@ public class WidgetUnified extends AppWidgetProvider {
             long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
             long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
             String type = prefs.getString("widget." + appWidgetId + ".type", null);
+            boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
             boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
             boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
             int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
@@ -132,42 +133,43 @@ public class WidgetUnified extends AppWidgetProvider {
 
             boolean syncing = prefs.getBoolean("widget." + appWidgetId + ".syncing", false);
 
-            if (background == Color.TRANSPARENT) {
-                if (semi)
-                    views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
-                else
+            if (!daynight)
+                if (background == Color.TRANSPARENT) {
+                    if (semi)
+                        views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
+                    else
+                        views.setInt(R.id.background, "setBackgroundColor", background);
+
+                    views.setTextColor(R.id.title, colorWidgetForeground);
+                    views.setInt(R.id.separator, "setBackgroundColor", lightColorSeparator);
+                    views.setImageViewResource(R.id.refresh, syncing
+                            ? R.drawable.twotone_compare_arrows_24_white
+                            : R.drawable.twotone_sync_24_white);
+                    views.setImageViewResource(R.id.compose, R.drawable.twotone_edit_24_white);
+                } else {
+                    float lum = (float) ColorUtils.calculateLuminance(background);
+
+                    if (semi)
+                        background = ColorUtils.setAlphaComponent(background, 127);
+
                     views.setInt(R.id.background, "setBackgroundColor", background);
 
-                views.setTextColor(R.id.title, colorWidgetForeground);
-                views.setInt(R.id.separator, "setBackgroundColor", lightColorSeparator);
-                views.setImageViewResource(R.id.refresh, syncing
-                        ? R.drawable.twotone_compare_arrows_24_white
-                        : R.drawable.twotone_sync_24_white);
-                views.setImageViewResource(R.id.compose, R.drawable.twotone_edit_24_white);
-            } else {
-                float lum = (float) ColorUtils.calculateLuminance(background);
-
-                if (semi)
-                    background = ColorUtils.setAlphaComponent(background, 127);
-
-                views.setInt(R.id.background, "setBackgroundColor", background);
-
-                int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
-                views.setTextColor(R.id.title, fg);
-                views.setInt(R.id.separator, "setBackgroundColor",
-                        lum > 0.7f ? darkColorSeparator : lightColorSeparator);
-                if (syncing)
-                    views.setImageViewResource(R.id.refresh, lum > 0.7f
-                            ? R.drawable.twotone_compare_arrows_24_black
-                            : R.drawable.twotone_compare_arrows_24_white);
-                else
-                    views.setImageViewResource(R.id.refresh, lum > 0.7f
-                            ? R.drawable.twotone_sync_24_black
-                            : R.drawable.twotone_sync_24_white);
-                views.setImageViewResource(R.id.compose, lum > 0.7f
-                        ? R.drawable.twotone_edit_24_black
-                        : R.drawable.twotone_edit_24_white);
-            }
+                    int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
+                    views.setTextColor(R.id.title, fg);
+                    views.setInt(R.id.separator, "setBackgroundColor",
+                            lum > 0.7f ? darkColorSeparator : lightColorSeparator);
+                    if (syncing)
+                        views.setImageViewResource(R.id.refresh, lum > 0.7f
+                                ? R.drawable.twotone_compare_arrows_24_black
+                                : R.drawable.twotone_compare_arrows_24_white);
+                    else
+                        views.setImageViewResource(R.id.refresh, lum > 0.7f
+                                ? R.drawable.twotone_sync_24_black
+                                : R.drawable.twotone_sync_24_white);
+                    views.setImageViewResource(R.id.compose, lum > 0.7f
+                            ? R.drawable.twotone_edit_24_black
+                            : R.drawable.twotone_edit_24_white);
+                }
 
             views.setViewVisibility(R.id.separator, separators ? View.VISIBLE : View.GONE);
 

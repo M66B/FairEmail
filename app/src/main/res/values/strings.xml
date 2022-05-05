@@ -1939,6 +1939,7 @@
     <string name="title_widget_refresh">Show refresh messages button</string>
     <string name="title_widget_compose">Show compose new message button</string>
     <string name="title_widget_background">Background color</string>
+    <string name="title_widget_day_night">Use day/night mode (if available)</string>
 
     <string name="title_accessibility_collapsed">Collapsed</string>
     <string name="title_accessibility_expanded">Expanded</string>

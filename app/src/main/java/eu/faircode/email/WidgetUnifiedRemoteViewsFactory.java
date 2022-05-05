@@ -57,6 +57,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private long account;
     private boolean unseen;
     private boolean flagged;
+    private boolean daynight = true;
     private boolean highlight;
     private int highlight_color;
     private boolean separators;
@@ -106,6 +107,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
+        daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
         highlight_color = prefs.getInt("widget." + appWidgetId + ".highlight_color", Color.TRANSPARENT);
         separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
@@ -256,13 +258,16 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             views.setTextViewText(idSubject, ssSubject);
             views.setTextViewText(idAccount, ssAccount);
 
-            int textColor = (message.ui_seen ? colorWidgetRead : colorWidgetUnread);
-            views.setTextColor(idFrom, textColor);
-            views.setTextColor(idTime, textColor);
-            views.setTextColor(idSubject, textColor);
-            views.setTextColor(idAccount, textColor);
+            if (!daynight) {
+                int textColor = (message.ui_seen ? colorWidgetRead : colorWidgetUnread);
+                views.setTextColor(idFrom, textColor);
+                views.setTextColor(idTime, textColor);
+                views.setTextColor(idSubject, textColor);
+                views.setTextColor(idAccount, textColor);
+            }
 
-            views.setInt(R.id.separator, "setBackgroundColor", colorSeparator);
+            if (!daynight)
+                views.setInt(R.id.separator, "setBackgroundColor", colorSeparator);
             views.setViewVisibility(R.id.separator, separators ? View.VISIBLE : View.GONE);
 
             views.setViewVisibility(idAccount, account < 0 && !allColors ? View.VISIBLE : View.GONE);

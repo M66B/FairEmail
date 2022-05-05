@@ -4,7 +4,8 @@
     android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/widget_background">
+    android:background="?android:colorBackground"
+    android:theme="@style/Theme.AppCompat.DayNight">
 
     <LinearLayout
         android:id="@+id/content"
@@ -28,7 +29,7 @@
                 android:padding="6dp"
                 android:text="@string/title_widget_title_list"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorWidgetForeground"
+                android:textColor="?android:textColorPrimary"
                 android:textStyle="bold" />
 
             <ImageView
@@ -38,8 +39,10 @@
                 android:layout_weight="0"
                 android:contentDescription="@string/tile_synchronize"
                 android:padding="6dp"
-                android:src="@drawable/twotone_sync_24_white"
-                android:visibility="gone" />
+                android:src="@drawable/twotone_sync_24"
+                android:tint="?android:textColorPrimary"
+                android:visibility="visible"
+                app:tint="?android:textColorPrimary" />
 
             <ImageView
                 android:id="@+id/compose"
@@ -48,15 +51,17 @@
                 android:layout_weight="0"
                 android:contentDescription="@string/title_compose"
                 android:padding="6dp"
-                android:src="@drawable/twotone_edit_24_white"
-                android:visibility="gone" />
+                android:src="@drawable/twotone_edit_24"
+                android:tint="?android:textColorPrimary"
+                android:visibility="visible"
+                app:tint="?android:textColorPrimary" />
         </LinearLayout>
 
         <FrameLayout
             android:id="@+id/separator"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/grey" />
+            android:background="?android:colorControlNormal" />
 
         <ListView
             android:id="@+id/lv"
