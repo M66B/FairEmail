@@ -46,6 +46,7 @@ import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.MessageSet;
 import com.sun.mail.util.ASCIIUtility;
 import com.sun.mail.util.BASE64DecoderStream;
+import com.sun.mail.util.DecodingException;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
 
@@ -2989,6 +2990,10 @@ public class MessageHelper {
                         Log.e(content.getClass().getName());
                         result = content.toString();
                     }
+                } catch (DecodingException ex) {
+                    Log.e(ex);
+                    warnings.add(Log.formatThrowable(ex, false));
+                    return null;
                 } catch (IOException | FolderClosedException | MessageRemovedException ex) {
                     throw ex;
                 } catch (Throwable ex) {
