@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -133,43 +134,57 @@ public class WidgetUnified extends AppWidgetProvider {
 
             boolean syncing = prefs.getBoolean("widget." + appWidgetId + ".syncing", false);
 
-            if (!daynight)
-                if (background == Color.TRANSPARENT) {
-                    if (semi)
-                        views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
-                    else
-                        views.setInt(R.id.background, "setBackgroundColor", background);
+            if (!daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                views.setColorStateListAttr(R.id.background, "setBackgroundTintList", 0);
+                views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", 0);
+            }
 
-                    views.setTextColor(R.id.title, colorWidgetForeground);
-                    views.setInt(R.id.separator, "setBackgroundColor", lightColorSeparator);
-                    views.setImageViewResource(R.id.refresh, syncing
-                            ? R.drawable.twotone_compare_arrows_24_white
-                            : R.drawable.twotone_sync_24_white);
-                    views.setImageViewResource(R.id.compose, R.drawable.twotone_edit_24_white);
-                } else {
-                    float lum = (float) ColorUtils.calculateLuminance(background);
-
-                    if (semi)
-                        background = ColorUtils.setAlphaComponent(background, 127);
-
+            if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                views.setInt(R.id.background, "setBackgroundColor", Color.WHITE);
+                views.setColorStateListAttr(R.id.background, "setBackgroundTintList", android.R.attr.colorBackground);
+                views.setColorStateListAttr(R.id.title, "setTextColor", android.R.attr.textColorPrimary);
+                views.setInt(R.id.separator, "setBackgroundColor", Color.WHITE);
+                views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", android.R.attr.colorControlNormal);
+                views.setImageViewResource(R.id.refresh, syncing
+                        ? R.drawable.twotone_compare_arrows_24_dn
+                        : R.drawable.twotone_sync_24_dn);
+                views.setImageViewResource(R.id.compose, R.drawable.twotone_edit_24_dn);
+            } else if (background == Color.TRANSPARENT) {
+                if (semi)
+                    views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
+                else
                     views.setInt(R.id.background, "setBackgroundColor", background);
 
-                    int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
-                    views.setTextColor(R.id.title, fg);
-                    views.setInt(R.id.separator, "setBackgroundColor",
-                            lum > 0.7f ? darkColorSeparator : lightColorSeparator);
-                    if (syncing)
-                        views.setImageViewResource(R.id.refresh, lum > 0.7f
-                                ? R.drawable.twotone_compare_arrows_24_black
-                                : R.drawable.twotone_compare_arrows_24_white);
-                    else
-                        views.setImageViewResource(R.id.refresh, lum > 0.7f
-                                ? R.drawable.twotone_sync_24_black
-                                : R.drawable.twotone_sync_24_white);
-                    views.setImageViewResource(R.id.compose, lum > 0.7f
-                            ? R.drawable.twotone_edit_24_black
-                            : R.drawable.twotone_edit_24_white);
-                }
+                views.setTextColor(R.id.title, colorWidgetForeground);
+                views.setInt(R.id.separator, "setBackgroundColor", lightColorSeparator);
+                views.setImageViewResource(R.id.refresh, syncing
+                        ? R.drawable.twotone_compare_arrows_24_white
+                        : R.drawable.twotone_sync_24_white);
+                views.setImageViewResource(R.id.compose, R.drawable.twotone_edit_24_white);
+            } else {
+                float lum = (float) ColorUtils.calculateLuminance(background);
+
+                if (semi)
+                    background = ColorUtils.setAlphaComponent(background, 127);
+
+                views.setInt(R.id.background, "setBackgroundColor", background);
+
+                int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
+                views.setTextColor(R.id.title, fg);
+                views.setInt(R.id.separator, "setBackgroundColor",
+                        lum > 0.7f ? darkColorSeparator : lightColorSeparator);
+                if (syncing)
+                    views.setImageViewResource(R.id.refresh, lum > 0.7f
+                            ? R.drawable.twotone_compare_arrows_24_black
+                            : R.drawable.twotone_compare_arrows_24_white);
+                else
+                    views.setImageViewResource(R.id.refresh, lum > 0.7f
+                            ? R.drawable.twotone_sync_24_black
+                            : R.drawable.twotone_sync_24_white);
+                views.setImageViewResource(R.id.compose, lum > 0.7f
+                        ? R.drawable.twotone_edit_24_black
+                        : R.drawable.twotone_edit_24_white);
+            }
 
             views.setViewVisibility(R.id.separator, separators ? View.VISIBLE : View.GONE);
 

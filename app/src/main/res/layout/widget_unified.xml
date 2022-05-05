@@ -40,9 +40,7 @@
                 android:contentDescription="@string/tile_synchronize"
                 android:padding="6dp"
                 android:src="@drawable/twotone_sync_24"
-                android:tint="?android:textColorPrimary"
-                android:visibility="visible"
-                app:tint="?android:textColorPrimary" />
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/compose"
@@ -52,9 +50,7 @@
                 android:contentDescription="@string/title_compose"
                 android:padding="6dp"
                 android:src="@drawable/twotone_edit_24"
-                android:tint="?android:textColorPrimary"
-                android:visibility="visible"
-                app:tint="?android:textColorPrimary" />
+                android:visibility="gone" />
         </LinearLayout>
 
         <FrameLayout
