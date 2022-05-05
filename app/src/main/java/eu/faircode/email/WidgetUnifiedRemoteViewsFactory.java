@@ -64,6 +64,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private int background;
     private int font;
     private int padding;
+    private boolean avatars;
     private boolean prefer_contact;
     private boolean only_contact;
     private boolean distinguish_contacts;
@@ -100,6 +101,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         subject_top = prefs.getBoolean("subject_top", false);
         subject_italic = prefs.getBoolean("subject_italic", true);
         color_stripe = prefs.getBoolean("color_stripe", true);
+
         account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
         folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
@@ -111,6 +113,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
         font = prefs.getInt("widget." + appWidgetId + ".font", 0);
         padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
+        avatars = prefs.getBoolean("widget." + appWidgetId + ".avatars", false);
+
         prefer_contact = prefs.getBoolean("prefer_contact", false);
         only_contact = prefs.getBoolean("only_contact", false);
         distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
@@ -213,6 +217,12 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
                 views.setViewLayoutWidth(R.id.stripe, colorStripeWidth, TypedValue.COMPLEX_UNIT_PX);
             views.setInt(R.id.stripe, "setBackgroundColor", colorBackground);
             views.setViewVisibility(R.id.stripe, hasColor && color_stripe ? View.VISIBLE : View.GONE);
+
+            if (avatars) {
+                ContactInfo[] info = ContactInfo.get(context, message.account, null, message.bimi_selector, message.from);
+                views.setImageViewBitmap(R.id.avatar, info.length == 0 ? null : info[0].getPhotoBitmap());
+            }
+            views.setViewVisibility(R.id.avatar, avatars ? View.VISIBLE : View.GONE);
 
             Address[] recipients = ContactInfo.fillIn(message.from, prefer_contact, only_contact);
             boolean known = (distinguish_contacts && ContactInfo.getLookupUri(message.from) != null);

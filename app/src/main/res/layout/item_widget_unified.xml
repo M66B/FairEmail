@@ -17,6 +17,17 @@
             android:layout_marginEnd="3dp"
             android:background="@color/grey" />
 
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="3dp"
+            android:adjustViewBounds="true"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

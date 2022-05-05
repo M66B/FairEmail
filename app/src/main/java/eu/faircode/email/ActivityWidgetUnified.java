@@ -64,6 +64,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private ViewButtonColor btnColor;
     private Spinner spFontSize;
     private Spinner spPadding;
+    private CheckBox cbAvatars;
     private CheckBox cbRefresh;
     private CheckBox cbCompose;
     private Button btnSave;
@@ -102,6 +103,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
         boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
         boolean compose = prefs.getBoolean("widget." + appWidgetId + ".compose", false);
+        boolean avatars = prefs.getBoolean("widget." + appWidgetId + ".avatars", false);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(R.string.title_widget_title_list);
@@ -118,6 +120,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         btnColor = findViewById(R.id.btnColor);
         spFontSize = findViewById(R.id.spFontSize);
         spPadding = findViewById(R.id.spPadding);
+        cbAvatars = findViewById(R.id.cbAvatars);
         cbRefresh = findViewById(R.id.cbRefresh);
         cbCompose = findViewById(R.id.cbCompose);
         btnSave = findViewById(R.id.btnSave);
@@ -227,6 +230,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
                 editor.putInt("widget." + appWidgetId + ".font", tinyOut(font));
                 editor.putInt("widget." + appWidgetId + ".padding", tinyOut(padding));
+                editor.putBoolean("widget." + appWidgetId + ".avatars", cbAvatars.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".refresh", cbRefresh.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".compose", cbCompose.isChecked());
                 editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
@@ -350,6 +354,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         btnColor.setColor(background);
         spFontSize.setSelection(tinyIn(font));
         spPadding.setSelection(tinyIn(padding));
+        cbAvatars.setChecked(avatars);
         cbRefresh.setChecked(refresh);
         cbCompose.setChecked(compose);
 
