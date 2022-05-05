@@ -49,7 +49,7 @@
                     android:maxLines="1"
                     android:text="From"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/colorWidgetForeground" />
+                    android:textColor="?android:textColorPrimary" />
 
                 <TextView
                     android:id="@+id/tvTime"
@@ -59,7 +59,7 @@
                     android:maxLines="1"
                     android:text="12:34"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/colorWidgetForeground" />
+                    android:textColor="?android:textColorPrimary" />
             </LinearLayout>
 
             <LinearLayout
@@ -76,7 +76,7 @@
                     android:maxLines="1"
                     android:text="Subject"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/colorWidgetForeground" />
+                    android:textColor="?android:textColorPrimary" />
 
                 <TextView
                     android:id="@+id/tvAccount"
@@ -86,7 +86,7 @@
                     android:maxLines="1"
                     android:text="Account"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/colorWidgetForeground" />
+                    android:textColor="?android:textColorPrimary" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -95,5 +95,5 @@
         android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/grey" />
+        android:background="?android:colorControlNormal" />
 </LinearLayout>
