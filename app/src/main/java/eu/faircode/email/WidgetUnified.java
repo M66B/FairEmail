@@ -91,8 +91,7 @@ public class WidgetUnified extends AppWidgetProvider {
             PendingIntent piCompose = PendingIntentCompat.getActivity(
                     context, appWidgetId, edit, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            RemoteViews views = new RemoteViews(context.getPackageName(),
-                    daynight ? R.layout.widget_unified_dn : R.layout.widget_unified);
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
 
             views.setTextViewTextSize(R.id.title, TypedValue.COMPLEX_UNIT_SP, getFontSizeSp(font));
 

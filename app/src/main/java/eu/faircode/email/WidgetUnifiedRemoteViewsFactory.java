@@ -181,9 +181,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
     @Override
     public RemoteViews getViewAt(int position) {
-        RemoteViews views = new RemoteViews(context.getPackageName(),
-                daynight ? R.layout.item_widget_unified_dn : R.layout.item_widget_unified);
-
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.item_widget_unified);
         int idFrom = (subject_top ? R.id.tvSubject : R.id.tvFrom);
         int idTime = (subject_top ? R.id.tvAccount : R.id.tvTime);
         int idSubject = (subject_top ? R.id.tvFrom : R.id.tvSubject);
