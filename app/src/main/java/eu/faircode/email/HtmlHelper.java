@@ -150,7 +150,7 @@ public class HtmlHelper {
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
     private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
     private static final String LINE = "----------------------------------------";
-    private static final String W3NS = "http://www.w3.org/";
+    private static final String W3NS = /* http/https */ "://www.w3.org/";
 
     private static final HashMap<String, Integer> x11ColorMap = new HashMap<>();
 
@@ -1571,11 +1571,11 @@ public class HtmlHelper {
         for (Element h : parsed.select("html"))
             for (Attribute a : h.attributes()) {
                 String key = a.getKey();
-                String value = a.getValue();
-                if ("xmlns".equals(key) && value.startsWith(W3NS)) {
+                String value = a.getValue().toLowerCase(Locale.ROOT);
+                if ("xmlns".equals(key) && value.contains(W3NS)) {
                     ns = key;
                     break;
-                } else if (key.startsWith("xmlns:") && value.startsWith(W3NS)) {
+                } else if (key.startsWith("xmlns:") && value.contains(W3NS)) {
                     ns = key.split(":")[1];
                     break;
                 }
@@ -1600,14 +1600,14 @@ public class HtmlHelper {
                 }
             }
 
-            String xmlns = e.attr("xmlns");
-            if (!TextUtils.isEmpty(xmlns) && !xmlns.startsWith(W3NS)) {
+            String xmlns = e.attr("xmlns").toLowerCase(Locale.ROOT);
+            if (!TextUtils.isEmpty(xmlns) && !xmlns.contains(W3NS)) {
                 if (display_hidden) {
                     String style = e.attr("style");
                     e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
                 } else {
                     e.remove();
-                    Log.i("Removed tag=" + tag + "xmlns=" + xmlns);
+                    Log.i("Removed tag=" + tag + " xmlns=" + xmlns);
                 }
             }
         }
