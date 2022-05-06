@@ -110,9 +110,9 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
         highlight_color = prefs.getInt("widget." + appWidgetId + ".highlight_color", Color.TRANSPARENT);
-        separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
         semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+        separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
         font = prefs.getInt("widget." + appWidgetId + ".font", 0);
         padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
         avatars = prefs.getBoolean("widget." + appWidgetId + ".avatars", false);

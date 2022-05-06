@@ -79,6 +79,7 @@
             android:id="@+id/cbHighlight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:checked="true"
             android:text="@string/title_advanced_highlight_unread"
@@ -99,6 +100,30 @@
             app:layout_constraintTop_toBottomOf="@id/cbHighlight" />
 
         <CheckBox
+            android:id="@+id/cbSemiTransparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_widget_semi_transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnHighlight" />
+
+        <eu.faircode.email.ViewButtonColor
+            android:id="@+id/btnColor"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="6dp"
+            android:tag="disable"
+            android:text="@string/title_widget_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbSemiTransparent" />
+
+        <CheckBox
             android:id="@+id/cbSeparatorLines"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,29 +131,7 @@
             android:checked="true"
             android:text="@string/title_widget_separator_lines"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnHighlight" />
-
-        <CheckBox
-            android:id="@+id/cbSemiTransparent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:checked="true"
-            android:text="@string/title_widget_semi_transparent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSeparatorLines" />
-
-        <eu.faircode.email.ViewButtonColor
-            android:id="@+id/btnColor"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:paddingHorizontal="6dp"
-            android:tag="disable"
-            android:text="@string/title_widget_background"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSemiTransparent" />
+            app:layout_constraintTop_toBottomOf="@id/btnColor" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvFontSize"
@@ -138,7 +141,7 @@
             android:text="@string/title_widget_font_size"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnColor" />
+            app:layout_constraintTop_toBottomOf="@id/cbSeparatorLines" />
 
         <Spinner
             android:id="@+id/spFontSize"

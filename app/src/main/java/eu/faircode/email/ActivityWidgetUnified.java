@@ -61,9 +61,9 @@ public class ActivityWidgetUnified extends ActivityBase {
     private CheckBox cbDayNight;
     private CheckBox cbHighlight;
     private ViewButtonColor btnHighlight;
-    private CheckBox cbSeparatorLines;
     private CheckBox cbSemiTransparent;
     private ViewButtonColor btnColor;
+    private CheckBox cbSeparatorLines;
     private Spinner spFontSize;
     private Spinner spPadding;
     private CheckBox cbAvatars;
@@ -99,9 +99,9 @@ public class ActivityWidgetUnified extends ActivityBase {
         boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         boolean highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
         int highlight_color = prefs.getInt("widget." + appWidgetId + ".highlight_color", Color.TRANSPARENT);
-        boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
         boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+        boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
         int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
         int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
         boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
@@ -119,9 +119,9 @@ public class ActivityWidgetUnified extends ActivityBase {
         cbDayNight = findViewById(R.id.cbDayNight);
         cbHighlight = findViewById(R.id.cbHighlight);
         btnHighlight = findViewById(R.id.btnHighlight);
-        cbSeparatorLines = findViewById(R.id.cbSeparatorLines);
         cbSemiTransparent = findViewById(R.id.cbSemiTransparent);
         btnColor = findViewById(R.id.btnColor);
+        cbSeparatorLines = findViewById(R.id.cbSeparatorLines);
         spFontSize = findViewById(R.id.spFontSize);
         spPadding = findViewById(R.id.spPadding);
         cbAvatars = findViewById(R.id.cbAvatars);
@@ -240,9 +240,9 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".highlight", cbHighlight.isChecked());
                 editor.putInt("widget." + appWidgetId + ".highlight_color", btnHighlight.getColor());
-                editor.putBoolean("widget." + appWidgetId + ".separators", cbSeparatorLines.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
+                editor.putBoolean("widget." + appWidgetId + ".separators", cbSeparatorLines.isChecked());
                 editor.putInt("widget." + appWidgetId + ".font", tinyOut(font));
                 editor.putInt("widget." + appWidgetId + ".padding", tinyOut(padding));
                 editor.putBoolean("widget." + appWidgetId + ".avatars", cbAvatars.isChecked());
@@ -368,11 +368,11 @@ public class ActivityWidgetUnified extends ActivityBase {
         btnHighlight.setVisibility(highlight ? View.VISIBLE : View.GONE);
         btnHighlight.setColor(highlight_color);
         btnHighlight.setEnabled(highlight && !daynight);
-        cbSeparatorLines.setChecked(separators);
         cbSemiTransparent.setChecked(semi);
         cbSemiTransparent.setEnabled(!daynight);
         btnColor.setColor(background);
         btnColor.setEnabled(!daynight);
+        cbSeparatorLines.setChecked(separators);
         spFontSize.setSelection(tinyIn(font));
         spPadding.setSelection(tinyIn(padding));
         cbAvatars.setChecked(avatars);

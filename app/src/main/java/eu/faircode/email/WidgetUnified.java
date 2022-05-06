@@ -51,9 +51,9 @@ public class WidgetUnified extends AppWidgetProvider {
             long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
             String type = prefs.getString("widget." + appWidgetId + ".type", null);
             boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
-            boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
             boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
             int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+            boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
             int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
             int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
             boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
@@ -134,6 +134,7 @@ public class WidgetUnified extends AppWidgetProvider {
 
             boolean syncing = prefs.getBoolean("widget." + appWidgetId + ".syncing", false);
 
+            // https://developer.android.com/guide/topics/ui/look-and-feel/darktheme
             if (!daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 views.setColorStateListAttr(R.id.background, "setBackgroundTintList", 0);
                 views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", 0);
