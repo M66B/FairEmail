@@ -1584,7 +1584,8 @@ public class HtmlHelper {
         for (Element e : parsed.select("*")) {
             String tag = e.tagName();
             if (tag.contains(":")) {
-                boolean show = ("body".equals(tag) || ns == null || tag.startsWith(ns));
+                boolean show = (ns == null || tag.startsWith(ns) ||
+                        tag.startsWith("html:") || tag.startsWith("body:"));
                 if (display_hidden || show) {
                     String[] nstag = tag.split(":");
                     e.tagName(nstag[nstag.length > 1 ? 1 : 0]);
@@ -1598,16 +1599,16 @@ public class HtmlHelper {
                     e.remove();
                     Log.i("Removed tag=" + tag);
                 }
-            }
-
-            String xmlns = e.attr("xmlns").toLowerCase(Locale.ROOT);
-            if (!TextUtils.isEmpty(xmlns) && !xmlns.contains(W3NS)) {
-                if (display_hidden) {
-                    String style = e.attr("style");
-                    e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
-                } else {
-                    e.remove();
-                    Log.i("Removed tag=" + tag + " xmlns=" + xmlns);
+            } else if (!"html".equals(tag) && !"body".equals(tag)) {
+                String xmlns = e.attr("xmlns").toLowerCase(Locale.ROOT);
+                if (!TextUtils.isEmpty(xmlns) && !xmlns.contains(W3NS)) {
+                    if (display_hidden) {
+                        String style = e.attr("style");
+                        e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
+                    } else {
+                        e.remove();
+                        Log.i("Removed tag=" + tag + " xmlns=" + xmlns);
+                    }
                 }
             }
         }
