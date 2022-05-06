@@ -19,6 +19,7 @@
             android:layout_marginTop="12dp"
             android:checked="true"
             android:text="@string/title_widget_day_night"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
