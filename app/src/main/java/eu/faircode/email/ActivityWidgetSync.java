@@ -24,10 +24,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import androidx.preference.PreferenceManager;
 
@@ -38,6 +40,7 @@ import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 public class ActivityWidgetSync extends ActivityBase {
     private int appWidgetId;
 
+    private CheckBox cbDayNight;
     private CheckBox cbSemiTransparent;
     private ViewButtonColor btnColor;
     private Button btnSave;
@@ -56,19 +59,31 @@ public class ActivityWidgetSync extends ActivityBase {
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+
+        daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(R.string.title_widget_title_sync);
         setContentView(R.layout.activity_widget_sync);
 
+        cbDayNight = findViewById(R.id.cbDayNight);
         cbSemiTransparent = findViewById(R.id.cbSemiTransparent);
         btnColor = findViewById(R.id.btnColor);
         btnSave = findViewById(R.id.btnSave);
 
         final Intent resultValue = new Intent();
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+
+        cbDayNight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                cbSemiTransparent.setEnabled(!checked);
+                btnColor.setEnabled(!checked);
+            }
+        });
 
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +121,7 @@ public class ActivityWidgetSync extends ActivityBase {
             public void onClick(View view) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityWidgetSync.this);
                 SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("widget." + appWidgetId + ".daynight", cbDayNight.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
                 editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
@@ -119,8 +135,12 @@ public class ActivityWidgetSync extends ActivityBase {
         });
 
         // Initialize
+        cbDayNight.setChecked(daynight);
+        cbDayNight.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.S ? View.GONE : View.VISIBLE);
         cbSemiTransparent.setChecked(semi);
+        cbSemiTransparent.setEnabled(!daynight);
         btnColor.setColor(background);
+        btnColor.setEnabled(!daynight);
 
         setResult(RESULT_CANCELED, resultValue);
     }

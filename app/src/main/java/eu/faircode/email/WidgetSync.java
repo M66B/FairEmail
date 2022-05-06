@@ -26,7 +26,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Build;
 import android.widget.RemoteViews;
 
 import androidx.core.graphics.ColorUtils;
@@ -48,6 +50,7 @@ public class WidgetSync extends AppWidgetProvider {
             int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
 
             for (int appWidgetId : appWidgetIds) {
+                boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
                 boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
                 int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
                 int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
@@ -57,9 +60,18 @@ public class WidgetSync extends AppWidgetProvider {
 
                 RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_sync);
                 views.setOnClickPendingIntent(R.id.ivSync, pi);
-                views.setImageViewResource(R.id.ivSync, enabled ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
 
-                if (background == Color.TRANSPARENT) {
+                if (!daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    views.setColorStateListAttr(R.id.background, "setBackgroundTintList", 0);
+                    views.setImageViewResource(R.id.ivSync, enabled ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
+                } else
+                    views.setImageViewResource(R.id.ivSync, enabled ? R.drawable.twotone_sync_24_dn : R.drawable.twotone_sync_disabled_24_dn);
+
+                if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    views.setInt(R.id.background, "setBackgroundColor", Color.WHITE);
+                    views.setColorStateListAttr(R.id.background, "setBackgroundTintList", android.R.attr.colorBackground);
+                    views.setColorAttr(R.id.ivSync, "setColorFilter", android.R.attr.textColorPrimary);
+                } else if (background == Color.TRANSPARENT) {
                     if (semi)
                         views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
                     else
