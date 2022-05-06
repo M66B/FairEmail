@@ -120,8 +120,11 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveUnified(String type);
 
-    @Query("SELECT account, id AS folder, unified, sync_state FROM folder" +
-            " WHERE sync_state IS NOT NULL" +
+    @Query("SELECT folder.account, folder.id AS folder, unified, sync_state" +
+            " FROM folder" +
+            " JOIN account ON account.id = folder.account" +
+            " WHERE account.`synchronize`" +
+            " AND sync_state IS NOT NULL" +
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'")
     LiveData<List<TupleFolderSync>> liveSynchronizing();
 
