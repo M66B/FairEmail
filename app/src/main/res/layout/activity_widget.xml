@@ -30,21 +30,34 @@
             app:layout_constraintTop_toBottomOf="@id/tvAccount" />
 
         <CheckBox
+            android:id="@+id/cbDayNight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_widget_day_night"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spAccount" />
+
+        <CheckBox
             android:id="@+id/cbSemiTransparent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:checked="true"
             android:text="@string/title_widget_semi_transparent"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spAccount" />
+            app:layout_constraintTop_toBottomOf="@id/cbDayNight" />
 
         <eu.faircode.email.ViewButtonColor
             android:id="@+id/btnColor"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:paddingHorizontal="6dp"
             android:tag="disable"

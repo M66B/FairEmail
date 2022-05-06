@@ -4,7 +4,8 @@
     android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/widget_background">
+    android:background="?android:colorBackground"
+    android:theme="@style/Theme.AppCompat.DayNight">
 
     <RelativeLayout
         android:id="@+id/content"

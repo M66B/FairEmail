@@ -25,6 +25,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -51,6 +52,7 @@ public class ActivityWidget extends ActivityBase {
     private int appWidgetId;
 
     private Spinner spAccount;
+    private CheckBox cbDayNight;
     private CheckBox cbSemiTransparent;
     private ViewButtonColor btnColor;
     private View inOld;
@@ -78,15 +80,19 @@ public class ActivityWidget extends ActivityBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
+        boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
         int layout = prefs.getInt("widget." + appWidgetId + ".layout", 1 /* new */);
+
+        daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(R.string.title_widget_title_count);
         setContentView(R.layout.activity_widget);
 
         spAccount = findViewById(R.id.spAccount);
+        cbDayNight = findViewById(R.id.cbDayNight);
         cbSemiTransparent = findViewById(R.id.cbSemiTransparent);
         btnColor = findViewById(R.id.btnColor);
         inOld = findViewById(R.id.inOld);
@@ -99,6 +105,14 @@ public class ActivityWidget extends ActivityBase {
 
         final Intent resultValue = new Intent();
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+
+        cbDayNight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                cbSemiTransparent.setEnabled(!checked);
+                btnColor.setEnabled(!checked);
+            }
+        });
 
         cbSemiTransparent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -167,6 +181,7 @@ public class ActivityWidget extends ActivityBase {
                 else
                     editor.remove("widget." + appWidgetId + ".name");
                 editor.putLong("widget." + appWidgetId + ".account", account == null ? -1L : account.id);
+                editor.putBoolean("widget." + appWidgetId + ".daynight", cbDayNight.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
                 editor.putInt("widget." + appWidgetId + ".layout", rbNew.isChecked() ? 1 : 0);
@@ -188,8 +203,12 @@ public class ActivityWidget extends ActivityBase {
         ((TextView) inOld.findViewById(R.id.tvCount)).setText("12");
         ((TextView) inNew.findViewById(R.id.tvCount)).setText("12");
 
+        cbDayNight.setChecked(daynight);
+        cbDayNight.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.S ? View.GONE : View.VISIBLE);
         cbSemiTransparent.setChecked(semi);
+        cbSemiTransparent.setEnabled(!daynight);
         btnColor.setColor(background);
+        btnColor.setEnabled(!daynight);
         rbOld.setChecked(layout != 1);
         rbNew.setChecked(layout == 1);
         setBackground();
