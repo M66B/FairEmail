@@ -108,6 +108,8 @@ public class ActivityWidgetUnified extends ActivityBase {
         boolean compose = prefs.getBoolean("widget." + appWidgetId + ".compose", false);
         boolean avatars = prefs.getBoolean("widget." + appWidgetId + ".avatars", false);
 
+        daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(R.string.title_widget_title_list);
         setContentView(R.layout.activity_widget_unified);
