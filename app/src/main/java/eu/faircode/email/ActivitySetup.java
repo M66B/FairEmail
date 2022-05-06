@@ -1560,6 +1560,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
                     // DecoderException: unable to decode base64 string: invalid characters encountered in base64 data
+                    if (ex instanceof DecoderException)
+                        ex = new Throwable("Are you trying to import a PGP key as an S/MIME key?", ex);
                     boolean expected =
                             (ex instanceof IllegalArgumentException ||
                                     ex instanceof FileNotFoundException ||
