@@ -1894,6 +1894,14 @@ public class Helper {
         String extension = Helper.getExtension(filename);
         if (extension != null) {
             extension = extension.toLowerCase(Locale.ROOT);
+
+            if (extension.endsWith(")")) {
+                int p = extension.lastIndexOf('(');
+                if (p > 0 && p < extension.length() - 1)
+                    if (TextUtils.isDigitsOnly(extension.substring(p + 1, extension.length() - 1)))
+                        extension = extension.substring(0, p).trim();
+            }
+
             type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
         }
 
