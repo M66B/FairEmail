@@ -164,11 +164,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                         int left;
                         int right;
                         if (view.getLayoutDirection() == View.LAYOUT_DIRECTION_LTR) {
-                            left = view.getWidth() - view.getWidth() / 3;
+                            left = view.getWidth() - view.getWidth() / 4;
                             right = view.getWidth();
                         } else {
                             left = 0;
-                            right = view.getWidth() / 3;
+                            right = view.getWidth() / 4;
                         }
                         Rect rect = new Rect(
                                 left,
