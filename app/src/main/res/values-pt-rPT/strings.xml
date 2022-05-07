@@ -10,6 +10,7 @@
     <string name="app_cake">Espaço insuficiente</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Descarregada via: %1$s</string>
+    <string name="channel_service">Monitorização</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Progresso</string>
@@ -311,6 +312,7 @@
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente ao sincronizar mensagens</string>
     <string name="title_advanced_check_blocklist">Verificar se o nome do domínio do remetente faz parte de uma lista de bloqueio de spam</string>
     <string name="title_advanced_use_blocklist">Mover mensagens de domínios numa lista de bloqueios para a pasta de ‘spam’</string>
+    <string name="title_advanced_use_blocklist_pop3">Ignorar mensagens de domínios numa lista de blocos (só POP3)</string>
     <string name="title_advanced_tune_keep_alive">Ajustar automaticamente o intervalo de ligação \'keep-alive\'</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
     <string name="title_advanced_keyboard_no_fullscreen">Prevenir teclado em modo ecrã inteiro</string>
@@ -326,6 +328,8 @@
     <string name="title_advanced_attach_new">Adicionar ficheiros partilhados a um novo rascunho</string>
     <string name="title_advanced_answer_action">Pressionar e segurar o botão de resposta irá:</string>
     <string name="title_advanced_send_pending">Mostrar ícone não-intrusivo de envio atrasado</string>
+    <string name="title_advanced_auto_save_paragraph">Guardar automaticamente o rascunho a cada novo parágrafo</string>
+    <string name="title_advanced_auto_save_dot">Guardar automaticamente o rascunho a cada nova frase</string>
     <string name="title_advanced_compose_font">Letra predefinida</string>
     <string name="title_advanced_auto_identity">Selecionar automaticamente identidades para novas mensagens</string>
     <string name="title_advanced_prefix_once">Prefixo do assunto único ao responder ou encaminhar</string>
@@ -340,6 +344,7 @@
     <string name="title_advanced_signature_location">Posição da assinatura</string>
     <string name="title_advanced_signature_new">Usar assinatura em novas mensagens</string>
     <string name="title_advanced_signature_reply">Usar assinatura quando responder</string>
+    <string name="title_advanced_signature_reply_once">Apenas na primeira resposta</string>
     <string name="title_advanced_signature_forward">Usar assinatura quando encaminhar</string>
     <string name="title_advanced_discard_delete">Ao descartar um rascunho, elimina-lo permanentemente</string>
     <string name="title_advanced_reply_move">Ao responder a uma mensagem, guarde a resposta na mesma pasta</string>
@@ -491,6 +496,7 @@
     <string name="title_advanced_default_snooze">Tempo pré-definido de repetição/adiamento</string>
     <string name="title_advanced_notifications">Gerir notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>
+    <string name="title_advanced_notifications_service">Canal de monitorização</string>
     <string name="title_advanced_notifications_newest_first">Mostrar notificações mais recentes primeiro</string>
     <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
@@ -546,6 +552,7 @@
     <string name="title_advanced_mnemonic">Eliminar dados remotamente</string>
     <string name="title_advanced_mnemonic_hint">A recepção de qualquer correio electrónico com as palavras abaixo indicadas no assunto irá, de forma automática e imediata, eliminar todos os dados da aplicação</string>
     <string name="title_advanced_clear_all">Eliminar os dados da aplicação</string>
+    <string name="title_advanced_clear_all_remark">Os dados da aplicação serão definitivamente eliminados!</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
     <string name="title_advanced_auto_decrypt">Desencriptar mensagens automaticamente</string>
@@ -567,11 +574,13 @@
     <string name="title_advanced_manage_keys_hint">        Isto abrirá as configurações de segurança do Android.
         As chaves e os certificados geralmente podem ser encontrados em Dados biométricos e segurança > Outras definições de segurança.
     </string>
+    <string name="title_advanced_power_menu">Adicionar às acções disponíveis no menu de encerramento</string>
     <string name="title_advanced_external_search">Permitir a pesquisa de mensagens por parte de aplicações externas</string>
     <string name="title_advanced_sort_answers">Ordenar modelos de respostas por frequência de utilização</string>
     <string name="title_advanced_shortcuts">Mostrar contactos usados com frequência no menu de partilha do Android</string>
     <string name="title_advanced_fts">Construir índice de pesquisa</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
+    <string name="title_advanced_classification">Classificar mensagens</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_sdcard">Quero utilizar um cartão SD</string>
@@ -609,6 +618,7 @@
     <string name="title_advanced_suggest_names_hint">Com a opção desactiva, ao seleccionar um contacto apenas os endereços de e-mail serão utilizados</string>
     <string name="title_advanced_suggest_local_hint">Em complemento aos contactos fornecidos pelo Android. Apenas só será guardada informação de contactos nas mensagens recém-enviadas ou recebidas caso esta função esteja activa.</string>
     <string name="title_advanced_auto_identity_hint">Isto selecionará a última identidade utilizada para o primeiro destinatário de novas mensagens</string>
+    <string name="title_advanced_reply_move_hint">O servidor de correio electrónico ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_usenet_hint">Coloca \'-- \' entre o texto e a assinatura</string>
     <string name="title_advanced_remove_signature_hint">Pode resultar na remoção de pouco ou de demasiado texto</string>
     <string name="title_advanced_metered_warning">Desactivar esta opção fará com que não sejam recebidas e enviadas mensagens em ligações móveis de Internet</string>
@@ -638,26 +648,36 @@
     <string name="title_advanced_safe_browsing_hint">O servidor do Google reconhece quais endereços estão a ser visitados</string>
     <string name="title_advanced_notify_action_hint">No máximo serão mostradas três acções</string>
     <string name="title_advanced_notify_remove_hint">Novas notificações de mensagens serão sempre removidas ao serem arrastadas e ao serem marcadas como lidas</string>
+    <string name="title_advanced_notify_manage_default_hint">Para definir o som padrão, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Para desactivar a notificação \'a monitorizar\'</string>
+    <string name="title_advanced_notify_separate_hint">Como faço para configurar notificações para contas, pastas e remetentes?</string>
     <string name="title_advanced_notify_preview_all_hint">Para dispositivos móveis (wearables) que consigam mostrar o texto completo (até 5.000 caracteres)</string>
     <string name="title_advanced_notify_preview_only_hint">Adia o aparecimento de notificações até que o texto da mensagem tenha sido transferido</string>
     <string name="title_advanced_wearable_hint">As notificações apenas são enviadas para um dispositivo móvel (wearable) após a mensagem de texto ter sido transferida</string>
+    <string name="title_advanced_messaging_hint">Isto é necessário para suporte ao Android Auto</string>
+    <string name="title_advanced_move_hint">A pasta de destino pode ser configurada nas definições de conta</string>
+    <string name="title_advanced_notify_no_grouping">Esta versão do Android não suporta agrupamento de notificações</string>
+    <string name="title_advanced_notify_no_channels">Esta versão do Android não suporta canais de notificação</string>
     <string name="title_advanced_fts_hint">Activar esta função melhora o desempenho da pesquisa, porém aumenta o consumo de bateria e a utilização de espaço do armazenamento</string>
     <string name="title_advanced_english_hint">Mudar esta definição reiniciará a aplicação</string>
+    <string name="title_advanced_experiments_hint">Lista das funcionalidades experimentais actuais</string>
     <string name="title_advanced_protocol_hint">Isto irá aumentar significativamente o uso de bateria e do espaço de armazenamento!</string>
     <string name="title_advanced_debug_hint">Em vários locais serão mostradas informações de depuração inestéticas</string>
     <string name="title_advanced_cleanup_attachments_hint">Quando houver uma limpeza manual, isto fará com que os anexos, das mensagens que já não são sincronizadas, sejam removidos</string>
     <string name="title_advanced_cleanup_hint">Isto irá eliminar todos os ficheiros temporários</string>
     <string name="title_advanced_never_favorite">Nunca colocar como favorito</string>
     <string name="title_advanced_edit_name">Editar nome</string>
+    <string name="title_advanced_swipe_actions">Definir acções de deslizar</string>
     <string name="title_advanced_swipe_actions_hint">Isto definirá a acção de deslizar para a esquerda e para a direita para todas as contas IMAP</string>
     <string name="title_select">Seleccionar &#8230;</string>
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
     <string name="title_identity_tenant_hint">Este campo deve estar vazio na maioria dos casos</string>
+    <string name="title_identity_reply_to">Responder para o endereço</string>
     <string name="title_identity_unicode">Utilizar comunicação Unicode</string>
     <string name="title_identity_receipt">Solicitar relatório de entrega/leitura por predefinição</string>
     <string name="title_identity_receipt_legacy">Usar o cabeçalho clássico para solicitar o recibo de leitura</string>
+    <string name="title_identity_self_hint">Também impede que possa responder a si próprio</string>
     <string name="title_optional">Opcional</string>
     <string name="title_recommended">Recomendado</string>
     <string name="title_account_linked">Conta associada</string>
@@ -685,6 +705,7 @@
     <string name="title_case_sensitive">Nomes de utilizador e palavras-passe habitualmente diferenciam maiúsculas de minúsculas</string>
     <string name="title_client_certificate">Certificado do cliente</string>
     <string name="title_primary">Principal</string>
+    <string name="title_self_identity">Remover o endereço de correio electrónico ao responder</string>
     <string name="title_leave_on_server">Deixar as mensagens no servidor</string>
     <string name="title_leave_deleted">Deixar as mensagens eliminadas no servidor</string>
     <string name="title_leave_on_device">Deixar as mensagens no dispositivo</string>
@@ -703,6 +724,7 @@
     <string name="title_no_standard">Este provedor utiliza um protocolo de correio eletrónico proprietário, o que impossibilita a utilização de clientes de correio eletrónico de terceiros</string>
     <string name="title_no_idle">Este provedor não suporta mensagens \'push\'. Isto atrasará a recepção de novas mensagens e aumentará o uso da bateria.</string>
     <string name="title_no_utf8">Este provedor de correio eletrónico não suporta UTF-8</string>
+    <string name="title_reply_domain">O remetente (%1$s) e o domínio de resposta (%2$s) são diferentes</string>
     <string name="title_account_auth_update">Atualizar autorização</string>
     <string name="title_account_auth_password">Mudar para autenticação de palavra-passe</string>
     <string name="title_delete_account">Eliminar conta</string>
@@ -714,6 +736,7 @@
     <string name="title_pop_support">O protocolo POP3 só pode descarregar e eliminar mensagens da caixa de entrada. Não é possível marcar as mensagens como lidas, denunciar spam, mover mensagens, etc. Considere a utilização do protocolo IMAP sempre que possível.</string>
     <string name="title_review">Rever</string>
     <string name="title_hint_accounts">Toque e mantenha premido numa conta para ver as opções, por exemplo, para desactivar ou eliminar uma conta</string>
+    <string name="title_service_vpn">Isto pode ser causado pela VPN que está a ser utilizada</string>
     <string name="title_service_token">O gestor de conta Android pode ser bloqueado, por exemplo, por uma VPN, firewall ou bloqueador de anúncios, impedindo-o de obter o token de acesso</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
     <string name="title_synchronize_subfolders">Subpastas</string>
@@ -893,6 +916,7 @@
     <string name="title_reply_to_all">Responder a todos</string>
     <string name="title_reply_list">Responder à lista</string>
     <string name="title_reply_receipt">Enviar relatório de msg. lida</string>
+    <string name="title_reply_hard_bounce">Enviar uma notificação de mensagem devolvida (hard bounce)</string>
     <string name="title_reply_template">Responder com modelo</string>
     <string name="title_move_undo">A mover para %1$s (%2$d)</string>
     <string name="title_open_with">Abrir com</string>
@@ -910,6 +934,7 @@
     <string name="title_no_saf">A framework de acesso ao armazenamento não está disponível</string>
     <string name="title_no_stream">O FairEmail não tem permissão para ler este ficheiro</string>
     <string name="title_no_stream_help">Isto pode ser resolvido selecionando o ficheiro com uma aplicação de gestão de ficheiros mais moderna ou concedendo permissão ao FairEmail para ler ficheiros</string>
+    <string name="title_no_permissions">A aplicação utilizada para seleccionar o ficheiro não concedeu permissão para ler o mesmo</string>
     <string name="title_no_internet">Sem ligação à Internet ou a ligação não é válida</string>
     <string name="title_no_connection">A ligar-se a uma ou mais contas &#8230;</string>
     <string name="title_no_folder">A pasta não existe</string>
@@ -924,6 +949,7 @@
     <string name="title_disable_widths">Desativar larguras</string>
     <string name="title_monospaced_pre">Monosespaçado &lt;pre&gt;</string>
     <string name="title_unused_inline">Imagens embutidas não utilizadas serão removidas no envio</string>
+    <string name="title_accross_remark">Mensagens movidas entre contas serão transferidas novamente, resultando numa utilização adicional de dados</string>
     <string name="title_raw_saved">Foi guardada a mensagem original (raw)</string>
     <string name="title_attachment_eml">Mensagem anexada</string>
     <string name="title_attachment_saved">Anexo guardado</string>
@@ -1498,6 +1524,7 @@
         O FairEmail mostra uma pequena mensagem a recorda-lo disto, que será removida caso adquira as funcionalidades pro.
     </string>
     <string name="title_pro_whichever">Independentemente das funcionalidades escolhidas como parte do pacote pro, há sempre alguém que se queixa acerca de uma qualquer funcionalidade que deveria ser gratuita. Por favor, não seja essa pessoa.</string>
+    <string name="title_pro_google">O FairEmail inicia a compra na Play Store, todavia é a Google, vendo bem as coisas, que gere todo o processo de compra. Por isso, por favor não culpe a aplicação caso haja algum problema!</string>
     <string name="title_pro_hide">Ocultar mensagem pequena por %1$d semana(s)</string>
     <string name="title_pro_hint">Comprar o pacote pro permitirá que utilize todas as funcionalidades pro actuais e futuras, como contribui para a manutenção e suporte desta aplicação.</string>
     <string name="title_pro_price">Porque razão o pacote pro é tão caro?</string>
@@ -1538,7 +1565,9 @@
     <string name="title_widget_flagged">Apenas mensagens com estrela</string>
     <string name="title_widget_font_size">Tamanho do texto</string>
     <string name="title_widget_padding">Tamanho do espaçamento</string>
+    <string name="title_widget_separator_lines">Mostrar linhas a separar</string>
     <string name="title_widget_semi_transparent">Fundo semi-transparente</string>
+    <string name="title_widget_avatars">Mostrar avatares dos contactos</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>
     <string name="title_widget_background">Cor do fundo</string>

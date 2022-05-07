@@ -10,6 +10,7 @@
     <string name="app_cake">לא נותר די שטח אחסון</string>
     <string name="app_updated">עדכון אחרון: %1$s</string>
     <string name="app_download">מקור ההורדה: %1$s</string>
+    <string name="channel_service">מעקב</string>
     <string name="channel_send">שליחה</string>
     <string name="channel_notification">דוא״ל</string>
     <string name="channel_progress">התקדמות</string>
@@ -333,6 +334,7 @@
     <string name="title_advanced_check_mx">לבדוק את כתובות הדוא״ל של המוענים בעת סנכרון הודעות</string>
     <string name="title_advanced_check_blocklist">לבדוק אם שם התחום של המוען הוא ברשימת חסימת ספאם</string>
     <string name="title_advanced_use_blocklist">העברת הודעות משמות תחום שברשימת החסימה לתיקיית הספאם</string>
+    <string name="title_advanced_use_blocklist_pop3">דילוג על הודעות משמות תחום ברשימת החסימה (POP3 בלבד)</string>
     <string name="title_advanced_tune_keep_alive">כוונון משך ה־keep-alive אוטומטית</string>
     <string name="title_advanced_keyboard">הצגת מקלדת כברירת מחדל</string>
     <string name="title_advanced_keyboard_no_fullscreen">מניעת מקלדת במסך מלא</string>
@@ -528,6 +530,7 @@
     <string name="title_advanced_default_snooze">זמן בררת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_notifications">ניהול התראות</string>
     <string name="title_advanced_notifications_default">ערוץ בררת מחדל</string>
+    <string name="title_advanced_notifications_service">ערוץ מעקב</string>
     <string name="title_advanced_notifications_newest_first">הצגת ההתראות החדשות ביותר בהתחלה</string>
     <string name="title_advanced_notifications_background">להשתמש בשירות רקע לסנכרון הודעות</string>
     <string name="title_advanced_notifications_background_hint">שירות רקע יכול להיעצר על ידי Android בכל רגע נתון, אך אינו דורש התראה בשורת המצב</string>
@@ -1657,6 +1660,7 @@
         FairEmail מציג הודעה קטנה כדי להזכיר לך על כך, היא תוסר עם רכישת יכולות המקצוענים.
     </string>
     <string name="title_pro_whichever">לא משנה אילו יכולות נבחרות כיכולות מקצועיות, תמיד יש מי שיתלונן שהיכולת הזאת אמורה להיות בחינם. זה באמת שיח מיותר, אפשר לחסוך את זה ממני.</string>
+    <string name="title_pro_google">FairEmail יוזם רכישה ב־Play Store אך בסופו של דבר Google מנהלים את כל תהליך הרכישה. לכן, אין טעם להאשים את היישומון אם יש תקלות כלשהן!</string>
     <string name="title_pro_hide">הסתרת הודעה קטנה למשך %1$d שבועות</string>
     <string name="title_pro_hint">רכישת יכולות מקצועיות תאפשר לך להשתמש בכל היכולות הנוכחיות והעתידיות, לדאוג לעדכניות היישומון הזה ולקבל תמיכה.</string>
     <string name="title_pro_price">מדוע התכונות המקצועיות כה יקרות?</string>
@@ -1699,9 +1703,11 @@
     <string name="title_widget_padding">גודל ריפוד</string>
     <string name="title_widget_separator_lines">הצגת קווים מפרידים</string>
     <string name="title_widget_semi_transparent">רקע שקוף למחצה</string>
+    <string name="title_widget_avatars">הצגת תמונות אנשי קשר</string>
     <string name="title_widget_refresh">הצגת כפתור רענון הודעות</string>
     <string name="title_widget_compose">הצגת כפתור כתיבת הודעה חדשה</string>
     <string name="title_widget_background">צבע הרקע</string>
+    <string name="title_widget_day_night">התחקות אחר ערכת העיצוב הכהה של המערכת</string>
     <string name="title_accessibility_collapsed">מצומצם</string>
     <string name="title_accessibility_expanded">מורחב</string>
     <string name="title_accessibility_seen">נקראה</string>

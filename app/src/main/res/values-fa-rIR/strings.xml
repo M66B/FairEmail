@@ -10,6 +10,7 @@
     <string name="app_cake">فضای ذخیره سازی کافی باقی نمانده است</string>
     <string name="app_updated">آخرین به روز رسانی: %1$s</string>
     <string name="app_download">در حال دانلود از %1$s</string>
+    <string name="channel_service">نظارت</string>
     <string name="channel_send">ارسال</string>
     <string name="channel_notification">ایمیل</string>
     <string name="channel_progress">پیش رفتن</string>
@@ -286,6 +287,7 @@
     <string name="title_advanced_subscriptions">مدیریت اشتراکات پوشه</string>
     <string name="title_advanced_check_authentication">اصالت پیام را بررسی کنید</string>
     <string name="title_advanced_check_mx">نشانی‌های ایمیل فرستنده را هنگام همگام‌سازی پیام‌ها بررسی کن</string>
+    <string name="title_advanced_use_blocklist_pop3">پیام‌هایی را که از طرف دامنه‌های درون لیست سیاه هستند در نظر نگیر (تنها برای POP3)</string>
     <string name="title_advanced_tune_keep_alive">وقفه زنده-نگه‌داشتن را خودکار کوک کن</string>
     <string name="title_advanced_keyboard">نمایش صفحه کلید به‌صورت پیش‌فرض</string>
     <string name="title_advanced_keyboard_no_fullscreen">از اجرای تمام صفحه صفحه‌کلید جلوگیری کن</string>
@@ -412,6 +414,7 @@
     <string name="title_advanced_autounstar">هنگام انتقال پیام‌ها ستاره‌ها را خودکار از پیام‌ها حذف کن</string>
     <string name="title_advanced_notifications">مدیریت اعلان‌ها</string>
     <string name="title_advanced_notifications_default">کانال پیش‌فرض</string>
+    <string name="title_advanced_notifications_service">کانال نظارت</string>
     <string name="title_advanced_notifications_newest_first">ابتدا اطلاع‌رسانی‌های جدید را نشان بده</string>
     <string name="title_advanced_notifications_background">استفاده از سرویس پس‌زمینه برای همگام‌سازی پیام‌ها</string>
     <string name="title_advanced_notifications_background_hint">یک سرویس پس‌زمینه می‌تواند هر هنگام توسط اندروید متوقف شود، ولی نیاز به اعلان نوار وضعیت ندارد</string>
@@ -1154,6 +1157,7 @@
         برای حفظ و پشتیبانی FairEmail در طولانی مدت، برخی از امکانات و ویژگی‌های پیشرفته برای استفاده رایگان نیستند.
         FairEmail پیام کوچکی را برای یادآوری این مورد نشان می دهد که در صورت خرید ویژگی‌های حرفه‌ای حذف خواهد شد.
     </string>
+    <string name="title_pro_google">ایمیل‌فلیر یک پروسه خرید را روی پلی‌استور آغاز می‌کند، ولی در نهایت این گوگل است که کل فرآیند خرید را مدیریت می‌کند. از این رو، در صورت بروز هرگونه مشکل، اپلیکیشن ما را مقصر ندانید!</string>
     <string name="title_pro_hide">پیام‌های کوچک را برای %1$d هفته پنهان کن</string>
     <string name="title_pro_hint">خرید نسخه حرفه‌ای به شما اجازه استفاده از تمامی ویژگی‌های حرفه‌ای فعلی و آینده را خواهد داد. همچنین موجب حفظ و پشتیبانی آن می‌شود</string>
     <string name="title_pro_pending">خرید در انتظار</string>
@@ -1182,7 +1186,9 @@
     <string name="title_widget_padding">اندازه لایه‌گذاری</string>
     <string name="title_widget_separator_lines">نمایش خطوط جدا کننده</string>
     <string name="title_widget_semi_transparent">پس‌زمینه نیمه شفاف</string>
+    <string name="title_widget_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_widget_background">رنگ پس‌زمینه</string>
+    <string name="title_widget_day_night">بر اساس تم تاریک سیستم</string>
     <string name="title_accessibility_collapsed">جمع شده</string>
     <string name="title_accessibility_expanded">گسترش یافته</string>
     <string name="title_accessibility_seen">خوانده شده</string>

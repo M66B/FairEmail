@@ -231,6 +231,7 @@
     <string name="title_advanced_sync_folders">동기화 폴더 목록</string>
     <string name="title_advanced_sync_shared_folders">동기화 공유 폴더 목록</string>
     <string name="title_advanced_check_authentication">메시지 인증 확인하기</string>
+    <string name="title_advanced_use_blocklist_pop3">차단 목록의 도메인에서 온 메시지 건너뛰기 (POP3 전용)</string>
     <string name="title_advanced_send_chips">주소 풍선 표시</string>
     <string name="title_advanced_send_reminders">리마인더 표시</string>
     <string name="title_advanced_send_delayed">메일 전송 지연</string>
@@ -833,6 +834,7 @@
         FairEmail을 장기적으로 유지하기 위하여, 일부 편의성과 고급 기능은 유료로 사용해야 하도록 했습니다.
         FairEmail은 이에 대한 알림을 표시하며, Pro 기능을 구매하면 사라집니다.
     </string>
+    <string name="title_pro_google">FairEmail에서 Play Store 결제가 시작되는 건 맞으나, 전체 결제 과정은 Google에서 관리합니다. 문제가 발생하더라도 앱을 비난하지 말아주세요!</string>
     <string name="title_pro_price">프로 기능들이 왜 이렇게 비싼가요?</string>
     <string name="title_pro_family">Google Play 가족 콘텐츠 라이브러리를 사용할 수 있나요?</string>
     <string name="title_boundary_retry">재시도</string>
@@ -855,6 +857,7 @@
     <string name="title_widget_folder">폴더</string>
     <string name="title_widget_font_size">글씨 크기</string>
     <string name="title_widget_padding">여백 크기</string>
+    <string name="title_widget_avatars">연락처 아바타 표시</string>
     <string name="title_widget_background">배경 색</string>
     <string name="title_accessibility_collapsed">접음</string>
     <string name="title_accessibility_expanded">펼침</string>

@@ -10,6 +10,7 @@
     <string name="app_cake">ストレージの空き容量が不足しています</string>
     <string name="app_updated">最終更新: %1$s</string>
     <string name="app_download">ダウンロード元: %1$s</string>
+    <string name="channel_service">モニター</string>
     <string name="channel_send">送信</string>
     <string name="channel_notification">メール</string>
     <string name="channel_progress">進捗</string>
@@ -303,6 +304,7 @@
     <string name="title_advanced_check_mx">メッセージを同期するときに差出人メールアドレスを確認</string>
     <string name="title_advanced_check_blocklist">差出人のドメインが迷惑メールブロックリストにあるかどうかを確認</string>
     <string name="title_advanced_use_blocklist">ブロックリストにあるドメインから送信されたメッセージを迷惑メールフォルダーに移動</string>
+    <string name="title_advanced_use_blocklist_pop3">ブロックリストにあるドメインから送信されたメッセージをスキップ (POP3 のみ)</string>
     <string name="title_advanced_tune_keep_alive">キープアライブ間隔を自動的に調整</string>
     <string name="title_advanced_keyboard">デフォルトでキーボードを表示</string>
     <string name="title_advanced_keyboard_no_fullscreen">全画面キーボードを無効にする</string>
@@ -498,6 +500,7 @@
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ/遅延時間</string>
     <string name="title_advanced_notifications">通知を管理</string>
     <string name="title_advanced_notifications_default">デフォルトチャンネル</string>
+    <string name="title_advanced_notifications_service">チャンネルをモニターしています</string>
     <string name="title_advanced_notifications_newest_first">最新の通知を最初に表示</string>
     <string name="title_advanced_notifications_background">メッセージの同期にバックグラウンドサービスを使用</string>
     <string name="title_advanced_notifications_background_hint">バックグラウンドサービスは Android によって停止される可能性がありますが、ステータスバーに通知が表示されなくなります</string>
@@ -1627,6 +1630,7 @@
          FairEmail は、これについて小さなリマインダーを表示します。これは、プロ版を購入すると削除されます。
     </string>
     <string name="title_pro_whichever">どの機能がプロ版の機能に選ばれても、無料であるべきであると文句を言う人が必ずいます。そのような人にならないでください。</string>
+    <string name="title_pro_google">FairEmail は Play ストアの購入を開始しますが、最終的には Google が購入プロセス全体を管理します。購入に関する問題が発生してもアプリを非難しないでください！</string>
     <string name="title_pro_hide">メッセージを %1$d 週間非表示にする</string>
     <string name="title_pro_hint">プロ版を購入すると、現在および将来すべてのプロ版の機能を使用できるようになり、アプリの開発とサポートを継続する支援になります</string>
     <string name="title_pro_price">なぜプロ版はそんなに高価なのですか？</string>
@@ -1669,9 +1673,11 @@
     <string name="title_widget_padding">余白サイズ</string>
     <string name="title_widget_separator_lines">区切り線を表示</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>
+    <string name="title_widget_avatars">連絡先のアバターを表示</string>
     <string name="title_widget_refresh">メッセージ更新ボタンを表示</string>
     <string name="title_widget_compose">メッセージ新規作成ボタンを表示</string>
     <string name="title_widget_background">背景色</string>
+    <string name="title_widget_day_night">システムのダークテーマに従う</string>
     <string name="title_accessibility_collapsed">折りたたみました</string>
     <string name="title_accessibility_expanded">展開しました</string>
     <string name="title_accessibility_seen">既読</string>

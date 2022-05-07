@@ -1656,6 +1656,7 @@
     <string name="title_widget_refresh">Näytä painike viestien päivittämiselle</string>
     <string name="title_widget_compose">Näytä painike uudelle viestille</string>
     <string name="title_widget_background">Taustaväri</string>
+    <string name="title_widget_day_night">Noudata järjestelmän tummaa teemaa</string>
     <string name="title_accessibility_collapsed">Tiivistetty</string>
     <string name="title_accessibility_expanded">Laajennettu</string>
     <string name="title_accessibility_seen">Luettu</string>

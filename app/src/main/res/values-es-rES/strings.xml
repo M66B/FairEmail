@@ -10,7 +10,7 @@
     <string name="app_cake">Espacio de almacenamiento insuficiente</string>
     <string name="app_updated">Última actualización: %1$s</string>
     <string name="app_download">Descargado de: %1$s</string>
-    <string name="channel_service" comment="channel_service&#10;Title of &quot;Synchronizing and monitoring of accounts&quot; notification channel showing the &quot;Monitoring&quot; status bar notification, etc.">Monitor</string>
+    <string name="channel_service">Monitor</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Correo electrónico</string>
     <string name="channel_progress">Progreso</string>
@@ -313,6 +313,7 @@
     <string name="title_advanced_check_mx">Compruebe las direcciones de correo electrónico de remitentes al sincronizar mensajes</string>
     <string name="title_advanced_check_blocklist">Comprobar si el nombre de dominio del remitente está en una lista de bloqueo de spam</string>
     <string name="title_advanced_use_blocklist">Mover mensajes de dominios en lista de bloqueo a la carpeta de spam</string>
+    <string name="title_advanced_use_blocklist_pop3">Omitir mensajes de dominios en una lista de bloqueo (sólo POP3)</string>
     <string name="title_advanced_tune_keep_alive">Ajustar automáticamente el intervalo de keep-alive</string>
     <string name="title_advanced_keyboard">Mostrar teclado por defecto</string>
     <string name="title_advanced_keyboard_no_fullscreen">Evitar teclado de pantalla completa</string>
@@ -508,7 +509,7 @@
     <string name="title_advanced_default_snooze">Tiempo de posponer/retraso por defecto</string>
     <string name="title_advanced_notifications">Administrar notificaciones</string>
     <string name="title_advanced_notifications_default">Canal por defecto</string>
-    <string name="title_advanced_notifications_service" comment="title_advanced_notifications_service&#10;Title of button to manage the notification channel &quot;Synchronizing and monitoring of accounts&quot;">Canal de monitoreo</string>
+    <string name="title_advanced_notifications_service">Canal de monitoreo</string>
     <string name="title_advanced_notifications_newest_first">Mostrar notificaciones más recientes primero</string>
     <string name="title_advanced_notifications_background">Usar servicio en segundo plano para sincronizar mensajes</string>
     <string name="title_advanced_notifications_background_hint">Un servicio en segundo plano puede ser detenido por Android en cualquier momento, pero no requiere una notificación de la barra de estado</string>
@@ -1633,6 +1634,7 @@
         FairEmail muestra un pequeño mensaje para recordarle esto, que se eliminará si adquiere las características Pro.
     </string>
     <string name="title_pro_whichever">Independientemente de las funciones que sean elegidas como funciones pro, siempre hay alguien que se queja de que una función debería ser gratuita. Por favor, no seas esa persona.</string>
+    <string name="title_pro_google">FairEmail inicia una compra en Play Store, pero en última instancia Google gestiona todo el proceso de compra. ¡Así que por favor no culpe a la aplicación en caso de cualquier problema!</string>
     <string name="title_pro_hide">Ocultar mensaje pequeño durante %1$d semanas</string>
     <string name="title_pro_hint">La compra de características Pro le permitirá usar todas las características Pro actuales y futuras, y ayudará al mantenimiento y desarrollo de esta aplicación</string>
     <string name="title_pro_price">¿Por qué las características pro son tan caras?</string>
@@ -1675,9 +1677,11 @@
     <string name="title_widget_padding">Tamaño de margen interno</string>
     <string name="title_widget_separator_lines">Mostrar líneas separadoras</string>
     <string name="title_widget_semi_transparent">Fondo semi transparente</string>
+    <string name="title_widget_avatars">Mostrar avatares de contactos</string>
     <string name="title_widget_refresh">Mostrar botón de actualizar mensajes</string>
     <string name="title_widget_compose">Mostrar botón de redactar nuevo mensaje</string>
     <string name="title_widget_background">Color de fondo</string>
+    <string name="title_widget_day_night">Seguir tema oscuro del sistema</string>
     <string name="title_accessibility_collapsed">Oculto</string>
     <string name="title_accessibility_expanded">Expandido</string>
     <string name="title_accessibility_seen">Leído</string>

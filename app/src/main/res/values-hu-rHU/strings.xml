@@ -77,6 +77,7 @@
     <string name="title_block_sender_hint">        Egy küldő letiltása ingyenes funkció.
         Egy küldő domain letiltása szűrőszabályokat használ, ami pro funkció.
     </string>
+    <string name="title_blocked_senders">Tiltott küldők</string>
     <string name="title_junk_filter">Lokális spam-filter használata</string>
     <string name="title_junk_filter_hint">Ez növelni tudja az akkumlátor használatát, és hamisan megjelöl üzeneteket spamként</string>
     <string name="title_junk_blocklist">Spamblokkoló listák használata</string>
@@ -93,6 +94,7 @@
     <string name="title_notification_redacted">A Biometrikus vagy PIN authentikáció aktiválva van</string>
     <string name="title_factor_minutes">%1$d perc</string>
     <string name="menu_answers">Sablonok</string>
+    <string name="menu_rules">Szabályok</string>
     <string name="menu_operations">Műveletek</string>
     <string name="menu_contacts">Helyi névjegyzék</string>
     <string name="menu_setup">Beállítások</string>
@@ -108,6 +110,7 @@
     <string name="menu_rate">Alkalmazás értékelése</string>
     <string name="title_welcome">Üdvözöljük</string>
     <string name="title_eula">Végfelhasználói licencszerződés</string>
+    <string name="title_license">Nyílt forráskódú licenc</string>
     <string name="title_contributors">Közreműködők</string>
     <string name="title_agree">Elfogadom</string>
     <string name="title_disagree">Nem fogadom el</string>
@@ -195,8 +198,10 @@
     <string name="title_setup_done">Kész</string>
     <string name="title_setup_still">Még meg kell csinálni</string>
     <string name="title_setup_error">Hiba</string>
+    <string name="title_setup_pop">POP3 használata (nem ajánlott)</string>
     <string name="title_setup_configuring">Felhasználói fiók beállítása &#8230;</string>
     <string name="title_setup_app_password">Szüksége lehet egy applikáció jelszóra</string>
+    <string name="title_setup_extra">Extra</string>
     <string name="title_setup_close">Beállítások bezárása</string>
     <string name="title_setup_export">Beállítások exportálása</string>
     <string name="title_setup_import">Beállítások importálása</string>
@@ -212,6 +217,7 @@
     <string name="title_setup_password_different">A jelszavak nem egyeznek</string>
     <string name="title_setup_password_invalid">Érvénytelen jelszó</string>
     <string name="title_setup_import_accounts">Fiókok és identitások importálása</string>
+    <string name="title_setup_import_delete">Előbb töröld a létező fiókokat</string>
     <string name="title_setup_import_rules">Szűrőszabályok importálása</string>
     <string name="title_setup_import_contacts">Helyi névjegyek importálása</string>
     <string name="title_setup_import_answers">Válaszsablonok importálása</string>
@@ -325,6 +331,7 @@
     <string name="title_advanced_signature_location">Aláírás pozíció</string>
     <string name="title_advanced_signature_new">Aláírás használata az új üzenetekhez</string>
     <string name="title_advanced_signature_reply">Aláírás használata válaszoláskor</string>
+    <string name="title_advanced_signature_reply_once">Csak az első válasznál</string>
     <string name="title_advanced_signature_forward">Aláírás használata toivábbításkor</string>
     <string name="title_advanced_discard_delete">Piszkozat végleges törlése annak elvetésekor</string>
     <string name="title_advanced_auto_link">Automatikus link létrehozása</string>
@@ -386,6 +393,7 @@
     <string name="title_advanced_bimi_unverified">Nem ellenőrzött küldő</string>
     <string name="title_advanced_bimi_verified">Ellenőrzött küldő</string>
     <string name="title_advanced_favicons">Faviconok megjelenítése</string>
+    <string name="title_advanced_favicons_partial">Csak az első %1$s-t olvassa be a weboldalnak</string>
     <string name="title_advanced_generated_icons">Generált ikonok megjelenítése</string>
     <string name="title_advanced_identicons">Azonosító-ikonok megjelenítése</string>
     <string name="title_advanced_circular">Megjelenített ikonok lekerekítése</string>
@@ -532,6 +540,8 @@
     <string name="title_advanced_disconnect_auto_update">Listák automatikus frissítése hetente</string>
     <string name="title_advanced_disconnect_links">Feketelisták használata követőkódok felismeréséhez</string>
     <string name="title_advanced_disconnect_images">Feketelisták használata követőpixelek felismeréséhez</string>
+    <string name="title_advanced_clear_all">Alkalmazásadatok törlése</string>
+    <string name="title_advanced_clear_all_remark">Az alkalmazásadatok visszavonhatatlanul törölve lesznek!</string>
     <string name="title_advanced_sign_default">Aláírás alapértelmezés szerint</string>
     <string name="title_advanced_encrypt_default">Titkosítás alapértelmezés szerint</string>
     <string name="title_advanced_auto_decrypt">Üzenetek automatikus visszafejtése</string>

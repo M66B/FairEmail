@@ -10,6 +10,7 @@
     <string name="app_cake">Spazio di archiviazione rimanente insufficiente</string>
     <string name="app_updated">Ultimo aggiornamento: %1$s</string>
     <string name="app_download">Scaricata da: %1$s</string>
+    <string name="channel_service">Monitoraggio</string>
     <string name="channel_send">Invia</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Avanzamento</string>
@@ -313,6 +314,7 @@
     <string name="title_advanced_check_mx">Controlla gli indirizzi email del mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_blocklist">Controlla se il nome del dominio del mittente è in una lista di blocco dello spam</string>
     <string name="title_advanced_use_blocklist">Sposta i messaggi dai domini su un elenco di blocchi nella cartella di spam</string>
+    <string name="title_advanced_use_blocklist_pop3">Salta i messaggi dai domini su un elenco di blocco (solo POP3)</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo mantieni-in-vita</string>
     <string name="title_advanced_keyboard">Mostra la tastiera di default</string>
     <string name="title_advanced_keyboard_no_fullscreen">Impedisci la tastiera a schermo intero</string>
@@ -508,6 +510,7 @@
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
     <string name="title_advanced_notifications_default">Canale predefinito</string>
+    <string name="title_advanced_notifications_service">Canale di monitoraggio</string>
     <string name="title_advanced_notifications_newest_first">Mostra prima le notifiche più recenti</string>
     <string name="title_advanced_notifications_background">Usa il servizio in background per sincronizzare i messaggi</string>
     <string name="title_advanced_notifications_background_hint">Un servizio in background è interrompibile in qualsiasi momento da Android, ma non richiede una notifica della barra di stato</string>
@@ -1638,6 +1641,7 @@
         FairEmail mostra un piccolo messaggio per ricordartene, che sarà rimosso se acquisti le funzionalità pro.
     </string>
     <string name="title_pro_whichever">Qualsiasi caratteristica sia scelta come funzionalità pro, c\'è sempre qualcuno che si lamenta del fatto che dovrebbe esser gratuita. Per favore, non essere quella persona.</string>
+    <string name="title_pro_google">FairEmail avvia un acquisto del Play Store ma, infine, Google gestisce l\'intero processo d\'acquisto. Quindi, seii pregato di non incolpare l\'app in caso di qualsiasi problema!</string>
     <string name="title_pro_hide">Nascondi il piccolo messaggio per %1$d settimane</string>
     <string name="title_pro_hint">Acquistare le funzionalità pro ti consentirà di usare tutte le funzionalità pro correnti e future, aiuterà a mantenere e supportare quest\'app.</string>
     <string name="title_pro_price">Perché le funzionalità pro sono così costose?</string>
@@ -1680,9 +1684,11 @@
     <string name="title_widget_padding">Dimensione del rientro</string>
     <string name="title_widget_separator_lines">Mostra linee di separazione</string>
     <string name="title_widget_semi_transparent">Sfondo semitrasparente</string>
+    <string name="title_widget_avatars">Mostra gli avatar del contatto</string>
     <string name="title_widget_refresh">Mostra il pulsante ricarica messaggi</string>
     <string name="title_widget_compose">Mostra il pulsante componi nuovo messaggio</string>
     <string name="title_widget_background">Colore di sfondo</string>
+    <string name="title_widget_day_night">Applica il tema scuro di sistema</string>
     <string name="title_accessibility_collapsed">Compresso</string>
     <string name="title_accessibility_expanded">Espanso</string>
     <string name="title_accessibility_seen">Letto</string>

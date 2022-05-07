@@ -10,6 +10,7 @@
     <string name="app_cake">Ανεπαρκής χώρος αποθήκευσης</string>
     <string name="app_updated">Τελευταία ενημέρωση: %1$s</string>
     <string name="app_download">Λήφθηκε από: %1$s</string>
+    <string name="channel_service">Παρακολούθηση</string>
     <string name="channel_send">Αποστολή</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Πρόοδος</string>
@@ -259,7 +260,7 @@
     <string name="title_setup_theme_html_light">Φωτεινό φόντο για την προβολή του αρχικού μηνύματος</string>
     <string name="title_setup_theme_composer_light">Φωτεινό φόντο κατά τη σύνταξη μηνυμάτων</string>
     <string name="title_setup_theme_you_hint">Τα χρώματα \"Material You\" μπορούν να ρυθμιστούν στις ρυθμίσεις του Android: \"Ταπετσαρίες &amp; στιλ\"</string>
-    <string name="title_setup_theme_system_hint">Με την επιλογή αυτή θα εναλλάσσονται αυτόματα το φωτεινό και σκοτεινό θέμα ανάλογα με τη λειτουργία ημέρας/νύχτας, εφόσον η δυνατότητα αυτή υποστηρίζεται από το Andoid</string>
+    <string name="title_setup_theme_system_hint">Με την επιλογή αυτή θα εναλλάσσονται αυτόματα το φωτεινό και σκούρο θέμα ανάλογα με τη λειτουργία ημέρας/νύχτας, εφόσον η δυνατότητα αυτή υποστηρίζεται από το Andoid</string>
     <string name="title_setup_theme_more_colors">Θέλω περισσότερα χρώματα</string>
     <string name="title_setup_advanced">Για προχωρημένους</string>
     <string name="title_setup_options">Επιλογές</string>
@@ -312,6 +313,7 @@
     <string name="title_advanced_check_mx">Έλεγχος διευθύνσεων των αποστολέων κατά τον συγχρονισμό μηνυμάτων</string>
     <string name="title_advanced_check_blocklist">Έλεγχος αν το όνομα τομέα του αποστολέα περιλαμβάνεται σε λίστα αποκλεισμού ανεπιθύμητης αλληλογραφίας</string>
     <string name="title_advanced_use_blocklist">Μετακίνηση μηνυμάτων από τομείς σε μια λίστα αποκλεισμού, προς τον φάκελο Ανεπιθύμητων</string>
+    <string name="title_advanced_use_blocklist_pop3">Παράλειψη μηνυμάτων από τομείς σε λίστα αποκλεισμού (μόνο POP3)</string>
     <string name="title_advanced_tune_keep_alive">Αυτόματη ρύθμιση του χρονικού διαστήματος για διατήρηση ενεργής σύνδεσης</string>
     <string name="title_advanced_keyboard">Εμφάνιση του πληκτρολογίου από προεπιλογή</string>
     <string name="title_advanced_keyboard_no_fullscreen">Να μην προβάλλεται το πληκτρολόγιο σε πλήρη οθόνη</string>
@@ -507,6 +509,7 @@
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής/καθυστέρησης</string>
     <string name="title_advanced_notifications">Διαχείριση ειδοποιήσεων</string>
     <string name="title_advanced_notifications_default">Προεπιλεγμένο κανάλι</string>
+    <string name="title_advanced_notifications_service">Κανάλι παρακολούθησης</string>
     <string name="title_advanced_notifications_newest_first">Να προβάλλονται πρώτα οι πιο πρόσφατες ειδοποιήσεις</string>
     <string name="title_advanced_notifications_background">Χρήση υπηρεσίας στο παρασκήνιο για το συγχρονισμό των μηνυμάτων</string>
     <string name="title_advanced_notifications_background_hint">Μια υπηρεσία που εκτελείται στο παρασκήνιο αλλά δεν απαιτεί κάποια ειδοποίηση στη γραμμή κατάστασης, μπορεί να τερματιστεί από το Android οποιαδήποτε στιγμή</string>
@@ -1630,6 +1633,7 @@
         Το FairEmail προβάλλει μια μικρή υπενθύμιση, η οποία θα αφαιρεθεί αν αγοράσετε την έκδοση pro.
     </string>
     <string name="title_pro_whichever">Όποια δυνατότητα και αν επιλεγεί ως δυνατότητα Pro, υπάρχει πάντοτε κάποιο άτομο που παραπονιέται πως κάποια δυνατότητα θα πρέπει να είναι δωρεάν. Παρακαλούμε, μη γίνεσθε εσείς αυτό το άτομο.</string>
+    <string name="title_pro_google">Το FairEmail ξεκινά μια αγορά στο Play Store, αλλά, εν τέλει, η Google διαχειρίζεται ολόκληρη τη διαδικασία αγοράς. Συνεπώς, μην κατηγορείτε την εφαρμογή σε περίπτωση προβλημάτων!</string>
     <string name="title_pro_hide">Απόκρυψη μικρής υπενθύμισης για %1$d εβδομάδες</string>
     <string name="title_pro_hint">Αγοράζοντας την έκδοση pro θα μπορείτε να χρησιμοποιείτε όλες τις τρέχουσες και μελλοντικές δυνατότητες pro, και θα βοηθήσετε να ενημερώνεται και να αναπτύσσεται περαιτέρω αυτή η εφαρμογή.</string>
     <string name="title_pro_price">Γιατί είναι οι δυνατότητες pro τόσο ακριβές;</string>
@@ -1672,9 +1676,11 @@
     <string name="title_widget_padding">Μέγεθος διαστήματος μεταξύ μηνυμάτων</string>
     <string name="title_widget_separator_lines">Προβολή διαχωριστικών γραμμών</string>
     <string name="title_widget_semi_transparent">Ημιδιαφανές φόντο</string>
+    <string name="title_widget_avatars">Προβολή άβαταρ των επαφών</string>
     <string name="title_widget_refresh">Προβολή κουμπιού ανανέωσης μηνυμάτων</string>
     <string name="title_widget_compose">Να εμφανίζεται το κουμπί σύνταξης νέου μηνύματος</string>
     <string name="title_widget_background">Χρώμα φόντου</string>
+    <string name="title_widget_day_night">Σύμφωνα με το σκούρο θέμα συστήματος</string>
     <string name="title_accessibility_collapsed">Συνεπτυγμένο</string>
     <string name="title_accessibility_expanded">Ανεπτυγμένο</string>
     <string name="title_accessibility_seen">Αναγνωσμένο</string>

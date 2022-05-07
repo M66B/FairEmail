@@ -10,6 +10,7 @@
     <string name="app_cake">Không đủ không gian bộ nhớ còn lại</string>
     <string name="app_updated">Lần cập nhật cuối: %1$s</string>
     <string name="app_download">Được tải xuống từ: %1$s</string>
+    <string name="channel_service">Giám sát</string>
     <string name="channel_send">Gửi</string>
     <string name="channel_notification">Email</string>
     <string name="channel_progress">Tiến trình</string>
@@ -103,6 +104,7 @@
     <string name="menu_rate">Đánh giá ứng dụng này</string>
     <string name="title_welcome">Chào mừng</string>
     <string name="title_eula">Thoả thuận cấp phép người dùng cuối</string>
+    <string name="title_license">Giấy phép mã nguồn mở</string>
     <string name="title_contributors">Những người đóng góp</string>
     <string name="title_agree">Tôi đồng ý</string>
     <string name="title_disagree">Tôi không đồng ý</string>
@@ -301,6 +303,7 @@
     <string name="title_advanced_check_mx">Kiểm tra địa chỉ email người gửi khi đồng bộ thư</string>
     <string name="title_advanced_check_blocklist">Kiểm tra xem tên miền của người gửi có ở trong một danh sách chặn thư rác không</string>
     <string name="title_advanced_use_blocklist">Di chuyển các thư từ các miền trong một danh sách chặn vào thư mục thư rác</string>
+    <string name="title_advanced_use_blocklist_pop3">Bỏ qua thư đến từ miền trong danh sách chặn (chỉ POP3)</string>
     <string name="title_advanced_tune_keep_alive">Tự động điều chỉnh khoảng thời gian giữa mỗi lần giữ cho ứng dụng hoạt động</string>
     <string name="title_advanced_keyboard">Hiện bàn phím theo mặc định</string>
     <string name="title_advanced_keyboard_no_fullscreen">Ngăn chặn bàn phím toàn màn hình</string>
@@ -496,6 +499,7 @@
     <string name="title_advanced_default_snooze">Thời gian trễ/báo lại mặc định</string>
     <string name="title_advanced_notifications">Quản lý thông báo</string>
     <string name="title_advanced_notifications_default">Kênh mặc định</string>
+    <string name="title_advanced_notifications_service">Kênh giám sát</string>
     <string name="title_advanced_notifications_newest_first">Hiện thông báo mới nhất trước</string>
     <string name="title_advanced_notifications_background">Sử dụng dịch vụ nền để đồng bộ thư</string>
     <string name="title_advanced_notifications_background_hint">Một dịch vụ nền có thể bị dừng bởi Android bất kỳ lúc nào, nhưng không yêu cầu thông báo trên tranh trạng thái</string>
@@ -1620,6 +1624,7 @@
         FairEmail hiện một thông báo nhỏ để nhắc lại bạn về điều này, nó sẽ được xoá nếu bạn mua các tính năng pro.
     </string>
     <string name="title_pro_whichever">Dù có tính năng nào được chọn là tính năng pro đi chăng nữa, thì cũng luôn có ai đó phàn nàn là một tính năng nên là miễn phí. Xin đừng là người đó.</string>
+    <string name="title_pro_google">FairEmail khởi tạo mua hàng trong CH Play, nhưng cuối cùng là Google quản lý toàn bộ quá trình mua. Vậy nên đừng đổ lỗi cho ứng dụng trong trường hợp có vấn đề!</string>
     <string name="title_pro_hide">Ẩn thông báo nhỏ trong %1$d tuần</string>
     <string name="title_pro_hint">Việc mua các tính năng pro sẽ cho phép bạn sử dụng các tính năng pro hiện tại và tương lai và sẽ giữ cho ứng dụng này được duy trì và hỗ trợ.</string>
     <string name="title_pro_price">Tại sao các tính năng pro lại đắt thế?</string>
@@ -1662,6 +1667,7 @@
     <string name="title_widget_padding">Kích cỡ lùi</string>
     <string name="title_widget_separator_lines">Hiện đường thẳng chia tách</string>
     <string name="title_widget_semi_transparent">Nền bán trong suốt</string>
+    <string name="title_widget_avatars">Hiện ảnh đại diện liên hệ</string>
     <string name="title_widget_refresh">Hiện nút làm mới thư</string>
     <string name="title_widget_compose">Hiện nút soạn thư mới</string>
     <string name="title_widget_background">Màu nền</string>

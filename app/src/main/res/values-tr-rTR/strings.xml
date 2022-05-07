@@ -10,6 +10,7 @@
     <string name="app_cake">Yeterli depolama alanı kalmadı</string>
     <string name="app_updated">Son güncelleme %1$s</string>
     <string name="app_download">Şuradan indirildi: %1$s</string>
+    <string name="channel_service">Monitör</string>
     <string name="channel_send">Gönder</string>
     <string name="channel_notification">e-posta</string>
     <string name="channel_progress">İlerleme</string>
@@ -311,6 +312,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
     <string name="title_advanced_check_blocklist">Gönderenin alan adının spam engelleme listesinde olup olmadığını kontrol et</string>
     <string name="title_advanced_use_blocklist">Engellenenler listesindeki alanlardan gelen iletileri spam klasörüne taşıyın</string>
+    <string name="title_advanced_use_blocklist_pop3">Engellenenler listesindeki alanlardan gelen mesajları atla (yalnızca POP3)</string>
     <string name="title_advanced_tune_keep_alive">Canlı tutma aralığını otomatik olarak ayarlayın</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>
     <string name="title_advanced_keyboard_no_fullscreen">Tam ekran klavyeyi önleyin, gizleyin</string>
@@ -506,6 +508,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
     <string name="title_advanced_notifications_default">Varsayılan kanal</string>
+    <string name="title_advanced_notifications_service">İzleme kanalı</string>
     <string name="title_advanced_notifications_newest_first">Önce en yeni bildirimleri göster</string>
     <string name="title_advanced_notifications_background">İletileri senkronize etmek için arka plan servisi kullan</string>
     <string name="title_advanced_notifications_background_hint">Bir arka plan servisi Android tarafından herhangi bir zamanda durdurulabilir, ama çalışmak için sabit bir bildirime ihtiyaç duymaz</string>
@@ -1630,6 +1633,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         FairEmail, Pro özelliklerini satın alırsanız, bunu hatırlatmak için küçük bir mesajı gösterir.
     </string>
     <string name="title_pro_whichever">Hangi özellikler profesyonel özellikler olarak seçilirse seçilsin, her zaman bir özelliğin ücretsiz olması gerektiğinden şikayet eden birileri vardır. Lütfen o kişi olmayın.</string>
+    <string name="title_pro_google">FairEmail bir Play Store satın alma işlemini başlatır, ancak sonuçta Google tüm satın alma sürecini yönetir. Bu yüzden herhangi bir sorun olması durumunda lütfen uygulamayı suçlamayın!</string>
     <string name="title_pro_hide">%1$d hafta küçük mesajı gizle</string>
     <string name="title_pro_hint">Pro özelliklerin satın alınması, mevcut ve gelecekteki tüm pro özelliklerin kullanılmasına izin verecek ve bu uygulamayı ayakta tutup destekleyecek</string>
     <string name="title_pro_price">Pro sürümleri neden bu kadar pahalı?</string>
@@ -1672,9 +1676,11 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_widget_padding">Boşluk boyutu</string>
     <string name="title_widget_separator_lines">Ayırıcı çizgileri göster</string>
     <string name="title_widget_semi_transparent">Yarı saydam arka plan</string>
+    <string name="title_widget_avatars">Kişi avatarlarını göster</string>
     <string name="title_widget_refresh">Mesajları yenile düğmesini göster</string>
     <string name="title_widget_compose">Yeni mesaj oluştur düğmesini göster</string>
     <string name="title_widget_background">Arka plan rengi</string>
+    <string name="title_widget_day_night">Karanlık sistem temasına uyum sağla</string>
     <string name="title_accessibility_collapsed">Daraltılan</string>
     <string name="title_accessibility_expanded">Genişletilen</string>
     <string name="title_accessibility_seen">Okunan</string>

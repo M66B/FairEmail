@@ -10,6 +10,7 @@
     <string name="app_cake">剩余存储空间不足</string>
     <string name="app_updated">上次更新：%1$s</string>
     <string name="app_download">下载自：%1$s</string>
+    <string name="channel_service">监控</string>
     <string name="channel_send">发送</string>
     <string name="channel_notification">电子邮件</string>
     <string name="channel_progress">进度</string>
@@ -302,6 +303,7 @@
     <string name="title_advanced_check_mx">同步消息时检查发件人电子邮件地址</string>
     <string name="title_advanced_check_blocklist">检查发送者的域名是否在垃圾邮件拦截列表中</string>
     <string name="title_advanced_use_blocklist">将发送自拦截列表上域名的消息移至垃圾箱</string>
+    <string name="title_advanced_use_blocklist_pop3">跳过黑名单域中的邮件（仅限 POP3）</string>
     <string name="title_advanced_tune_keep_alive">自动调谐保活的时间间隔</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_keyboard_no_fullscreen">防止全屏键盘</string>
@@ -497,6 +499,7 @@
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">默认频道</string>
+    <string name="title_advanced_notifications_service">监控频道</string>
     <string name="title_advanced_notifications_newest_first">最新通知显示在前</string>
     <string name="title_advanced_notifications_background">使用后台服务来同步消息</string>
     <string name="title_advanced_notifications_background_hint">后台服务不会显示状态栏通知，但随时可能会被 Android 终止</string>
@@ -1619,6 +1622,7 @@
         为了长期维护和支持 FairEmail，一些便利及高级功能需要付费使用。
         FairEmail 会显示一条小消息来提醒您这一点，该消息将在您购买了专业版功能后被移除。</string>
     <string name="title_pro_whichever">无论选择将哪些功能作为专业功能，总会有人抱怨某个功能应该免费。请谅解也不要成为那样的人。</string>
+    <string name="title_pro_google">FairEmail 只是启动 Play 商店购买，但最终由 Google 管理整个购买过程。所以如果出现任何购买问题，请不要责怪应用自身！</string>
     <string name="title_pro_hide">隐藏升级提示消息 %1$d 周</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">为什么专业功能如此昂贵？</string>
@@ -1661,9 +1665,11 @@
     <string name="title_widget_padding">内边距尺寸</string>
     <string name="title_widget_separator_lines">显示分隔符行</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
+    <string name="title_widget_avatars">显示联系人头像</string>
     <string name="title_widget_refresh">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>
     <string name="title_widget_background">背景颜色</string>
+    <string name="title_widget_day_night">跟随系统主题</string>
     <string name="title_accessibility_collapsed">折叠</string>
     <string name="title_accessibility_expanded">展开</string>
     <string name="title_accessibility_seen">阅读</string>

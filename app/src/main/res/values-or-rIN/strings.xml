@@ -56,6 +56,7 @@
     <string name="menu_pro">ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ</string>
     <string name="menu_rate">ଏହି ଆପକୁ ମୂଲ୍ୟାଙ୍କନ କରନ୍ତୁ</string>
     <string name="title_welcome">ସ୍ୱାଗତ</string>
+    <string name="title_license">ଖୋଲା-ଉତ୍ସ ଲାଇସେନ୍ସ</string>
     <string name="title_contributors">ଯୋଗଦାନକାରୀ</string>
     <string name="title_agree">ମୁଁ ସହମତ</string>
     <string name="title_disagree">ମୁଁ ସହମତ ନୁହେଁ</string>
@@ -144,7 +145,7 @@
     <string name="title_setup_theme_reverse">ରଙ୍ଗ ଗୁଡ଼ିକ ଅଦଳବଦଳ କରନ୍ତୁ</string>
     <string name="title_setup_theme_light">ହାଲୁକା</string>
     <string name="title_setup_theme_dark">ଗାଢ଼</string>
-    <string name="title_setup_theme_system">ସିଷ୍ଟମକୁ ଅନୁସରଣ କରନ୍ତୁ</string>
+    <string name="title_setup_theme_system">ସିଷ୍ଟମ୍ କୁ ଅନୁସରଣ କରିବା</string>
     <string name="title_setup_theme_black_background">କଳା ପୃଷ୍ଠପଟ</string>
     <string name="title_setup_theme_html_light">ମୂଳ ବାର୍ତ୍ତା ଦର୍ଶନ ପାଇଁ ହାଲୁକା ପୃଷ୍ଠପଟ</string>
     <string name="title_setup_theme_composer_light">ବାର୍ତ୍ତା ସମ୍ପାଦକ ପାଇଁ ହାଲୁକା ପୃଷ୍ଠପଟ</string>
@@ -572,6 +573,7 @@
     <string name="title_legend_p">ପୂର୍ବବର୍ତ୍ତୀ</string>
     <string name="title_legend_r">ପ୍ରତ୍ୟୁତ୍ତର</string>
     <string name="title_hint_message_junk">ଏଇ ବାର୍ତ୍ତାଗୁଡ଼ିକ ଇମେଲ୍ ସର୍ଭରର ସ୍ପାମ୍ ଫୋଲ୍ଡରରେ ଅଛି। ଅବଶ୍ୟ, ଆପ୍ ସ୍ପାମ୍ ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ଆପଣଙ୍କ ପାଖକୁ ପଠାଯିବାରୁ ତ ରୋକିପାରିବ ନାହିଁ।</string>
+    <string name="title_hint_contact_actions">ବିକଳ୍ପ ପାଇଁ ଲମ୍ବା ସ୍ପର୍ଶ କରନ୍ତୁ</string>
     <string name="title_remark_owner"><a href="https://ipinfo.io/">ipinfo.io</a>ରୁ ସୂଚନା ଆଦୟ କରାଯିବ</string>
     <string name="title_updated">ସଂସ୍କରଣ %1$s କୁ ଅପଡେଟ୍ ଉପଲବ୍ଧ ଅଛି</string>
     <string name="title_undo">ପୂର୍ବବତ୍</string>
@@ -602,7 +604,9 @@
     <string name="title_widget_account_all">ସମସ୍ତ</string>
     <string name="title_widget_font_size">ପାଠ୍ୟ ଆକାର</string>
     <string name="title_widget_padding">ପ୍ୟାଡିଂ ଆକାର</string>
+    <string name="title_widget_avatars">ସମ୍ପର୍କ ଅବତାରସବୁ ଦେଖାଅ</string>
     <string name="title_widget_background">ପୃଷ୍ଠପଟ ରଙ୍ଗ</string>
+    <string name="title_widget_day_night">ସିଷ୍ଟମର ଗାଢ଼ ଥିମକୁ ଅନୁସରଣ କରିବା</string>
     <string name="title_accessibility_collapsed">ସଙ୍କୁଚିତ ହୋଇଅଛି</string>
     <string name="title_accessibility_expanded">ପ୍ରସାରିତ ହୋଇଅଛି</string>
     <string name="title_accessibility_seen">ପଠିତ</string>

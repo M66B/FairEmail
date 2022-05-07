@@ -106,12 +106,12 @@
     <string name="title_junk_blocklist">Používať zoznami na blokovanie nevyžiadanej pošty</string>
     <string name="title_junk_clear">Vyčistiť</string>
     <string name="title_junk_clear_hint">Týmto odstránite všetky pravidlá blokovania odosielateľa</string>
-    <string name="title_notification_sending">Správy sa odosielajú</string>
-    <string name="title_notification_waiting">Čaká sa na vhodné pripojenie</string>
+    <string name="title_notification_sending">Odosielanie správ</string>
+    <string name="title_notification_waiting">Čakanie na vhodné pripojenie</string>
     <string name="title_notification_idle">Nečinný</string>
     <string name="title_notification_failed">\"%1$s\" zlyhalo</string>
     <string name="title_notification_alert">Upozornenie zo servera: \'%1$s\'</string>
-    <string name="title_notification_sending_left">Počet zostávajúcich pokusov: %1$d</string>
+    <string name="title_notification_sending_left">%1$d zostávajúcich pokusov</string>
     <string name="title_notification_sending_retry">Opätovné odosielanie sa spustí pri zmene parametrov pripojenia na internet alebo potiahnutím dolu v priečinku pošta na odoslanie</string>
     <string name="title_notification_sending_failed">Nepodarilo sa odoslať príjemcovi %1$s</string>
     <string name="title_notification_redacted">Obmedzené: Povolené biometrické overenie, alebo overenie kódom pin</string>
@@ -150,8 +150,8 @@
     <string name="title_setup_quick">Rýchle nastavenie</string>
     <string name="title_setup_intro">Nastavenie účtu má len tri kroky a hneď potom môžete prijímať a posielať emaily</string>
     <string name="title_setup_simple">Nie je potrebné meniť žiadne ďalšie nastavenia</string>
-    <string name="title_setup_issue">FairEmail je vyvíjaný s cieľom pomôcť chrániť vaše súkromie a skutočne reprezentuje stovky hodín práce. Ak ste narazili na problém, kontaktujte ma pred tým ako zanecháte negatívne hodnotenie, prosím so žiadosťou o technickú podporu. Som pripravený s radosťou pomáhať!</string>
-    <string name="title_setup_analytics">FairEmail nezobrazuje reklamy, ani nesleduje a neanalyzuje vaše správanie. Na hlásenie chýb sa používa Bugsnag (predvolene je však zakázaný).</string>
+    <string name="title_setup_issue">FairEmail je vyvíjaný s cieľom pomáhať chrániť vaše súkromie a skutočne reprezentuje stovky hodín práce. Ak ste narazili na problém, kontaktujte ma prosím so žiadosťou o technickú podporu prv než zanecháte negatívne hodnotenie. Som pripravený s radosťou pomáhať!</string>
+    <string name="title_setup_analytics">FairEmail nezobrazuje reklamy, ani nesleduje a neanalyzuje vaše správanie. Na hlásenie chýb voliteľne používame systém Bugsnag. Ak chcete hlásiť chyby, môžete ho povoliť.</string>
     <string name="title_setup_quick_accounts">Pridať alebo upraviť účty</string>
     <string name="title_setup_quick_support">Účty niektorých poskytovateľov môže byť náročné nastaviť. Neobviňujte z tohto nedostatku FairEmail a požiadajte o pomoc, ak ju potrebujete prosím.</string>
     <string name="title_setup_quick_hint">Rýchle nastavenie načíta informácie konfigurácie z autoconfig.thunderbird.net</string>
@@ -160,7 +160,7 @@
     <string name="title_setup_quick_smtp">SMTP server na odosielanie správ</string>
     <string name="title_setup_quick_certificates">Certifikáty servera</string>
     <string name="title_setup_wizard">Sprievodca</string>
-    <string name="title_setup_wizard_multiple">Sprievodca môže byť použitý viac krát pre nastavenie viacerých účtov</string>
+    <string name="title_setup_wizard_multiple">Sprievodcu môžete spustiť viac krát, ak chcete nastaviť viac účtov</string>
     <string name="title_setup_wizard_new">Potrebujem novú emailovú adresu</string>
     <string name="title_setup_manual">Manuálne nastavenie a možnosti účtu</string>
     <string name="title_setup_classic">Ručné nastavenie</string>
@@ -307,7 +307,7 @@
     <string name="title_advanced_section_encryption">Šifrovanie</string>
     <string name="title_advanced_section_notifications">Upozornenia</string>
     <string name="title_advanced_section_misc">Rôzne</string>
-    <string name="title_advanced_default">Všetky voľby majú bežne používané štandardné hodnoty, ktoré nie je pri používaní aplikácie potrebné meniť</string>
+    <string name="title_advanced_default">Všetky voľby majú prednastavené bežne používané štandardné hodnoty, ktoré nie je potrebné pre používanie aplikácie meniť</string>
     <string name="title_advanced_receive">Prijímať správy pre všetky účty</string>
     <string name="title_advanced_when">Kedy</string>
     <string name="title_advanced_optimize">Automaticky optimalizovať</string>
@@ -332,6 +332,7 @@
     <string name="title_advanced_check_mx">Kontrolovať e-mailové adresy odosielateľov pri synchronizácii správ</string>
     <string name="title_advanced_check_blocklist">Skontrolovať, či doména odosielateľa je na zozname blokovaných podozrivích z rozosielania nevižiadanej pošty</string>
     <string name="title_advanced_use_blocklist">Presunúť správy od adresátov z domén na zozname blokovaných do priečinka spam</string>
+    <string name="title_advanced_use_blocklist_pop3">Vynechať správy od odosielateľov z domén v zozname blokovaných (len protokol POP3)</string>
     <string name="title_advanced_tune_keep_alive">Automaticky upravovať interval udržania spojenia</string>
     <string name="title_advanced_keyboard">Predvolene zobrazovať klávesnicu</string>
     <string name="title_advanced_keyboard_no_fullscreen">Zabrániť zobrazeniu klávesnice na celú obrazovku</string>
@@ -1651,6 +1652,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         FairEmail toto pripomína zobrazovaním stručnej správy, ktorá zmizne, keď zaplatíte za pro vlastnosti.
     </string>
     <string name="title_pro_whichever">Nech sú akékoľvek vlastnosti dostupné len v Pro verzii, vždy sa nájdu ľudia, ktorí budú niektoré z nich požadovať zdarma. Prosím, nebuďte aj vy týmito ľuďmi.</string>
+    <string name="title_pro_google">Aplikácia Fair Email spustí nákup v aplikácii Obchod Google Play, ktorý prebieha úplne v réžii spoločnosti Google. Prosím v prípade problémov s nákupom neobviňujte FairEmail!</string>
     <string name="title_pro_hide">Skryť túto správu na %1$d týždne</string>
     <string name="title_pro_hint">Zaplatením za pro vlastnosti získate všetky terajšie aj budúce pro vlastnosti a prispejete na vývoj a podporu FairEmail.</string>
     <string name="title_pro_price">Prečo sú pro vlastnosti také drahé?</string>
@@ -1693,6 +1695,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_widget_padding">Veľkosť odsadenia</string>
     <string name="title_widget_separator_lines">Zobrazovať deliace čiary</string>
     <string name="title_widget_semi_transparent">Takmer priehľadné pozadie</string>
+    <string name="title_widget_avatars">Zobrazovať obrázky kontaktov</string>
     <string name="title_widget_refresh">Zobraziť tlačidlo obnoviť správy</string>
     <string name="title_widget_compose">Zobraziť tlačidlo napísať správu</string>
     <string name="title_widget_background">Farba pozadia</string>
