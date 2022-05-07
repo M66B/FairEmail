@@ -2997,7 +2997,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             }
                 }
 
-                boolean canResend = true;
+                boolean canResend = message.content;
                 for (Address r : recipients) {
                     String email = ((InternetAddress) r).getAddress();
                     if ("undisclosed-recipients:".equals(email)) {
