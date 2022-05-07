@@ -61,11 +61,10 @@ public class WidgetSync extends AppWidgetProvider {
                 RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_sync);
                 views.setOnClickPendingIntent(R.id.ivSync, pi);
 
-                if (!daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                views.setImageViewResource(R.id.ivSync, enabled ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
+
+                if (!daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
                     views.setColorStateListAttr(R.id.background, "setBackgroundTintList", 0);
-                    views.setImageViewResource(R.id.ivSync, enabled ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
-                } else
-                    views.setImageViewResource(R.id.ivSync, enabled ? R.drawable.twotone_sync_24_dn : R.drawable.twotone_sync_disabled_24_dn);
 
                 if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                     views.setInt(R.id.background, "setBackgroundColor", Color.WHITE);

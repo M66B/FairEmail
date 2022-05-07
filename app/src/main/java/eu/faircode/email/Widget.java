@@ -115,9 +115,10 @@ public class Widget extends AppWidgetProvider {
 
                     views.setOnClickPendingIntent(R.id.background, pi);
 
-                    // Set background
                     if (!daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
                         views.setColorStateListAttr(R.id.background, "setBackgroundTintList", 0);
+
+                    // Set background
                     if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                         views.setInt(R.id.background, "setBackgroundColor", Color.WHITE);
                         views.setColorStateListAttr(R.id.background, "setBackgroundTintList", android.R.attr.colorBackground);
@@ -132,25 +133,14 @@ public class Widget extends AppWidgetProvider {
                         views.setInt(R.id.background, "setBackgroundColor", background);
 
                     // Set image
-                    if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                        if (layout == 1)
-                            views.setImageViewResource(R.id.ivMessage, unseen == 0
-                                    ? R.drawable.baseline_mail_outline_widget_24_dn
-                                    : R.drawable.baseline_mail_widget_24_dn);
-                        else
-                            views.setImageViewResource(R.id.ivMessage, unseen == 0
-                                    ? R.drawable.twotone_mail_outline_24_dn
-                                    : R.drawable.baseline_mail_24_dn);
-                    } else {
-                        if (layout == 1)
-                            views.setImageViewResource(R.id.ivMessage, unseen == 0
-                                    ? R.drawable.baseline_mail_outline_widget_24
-                                    : R.drawable.baseline_mail_widget_24);
-                        else
-                            views.setImageViewResource(R.id.ivMessage, unseen == 0
-                                    ? R.drawable.twotone_mail_outline_24
-                                    : R.drawable.baseline_mail_24);
-                    }
+                    if (layout == 1)
+                        views.setImageViewResource(R.id.ivMessage, unseen == 0
+                                ? R.drawable.baseline_mail_outline_widget_24
+                                : R.drawable.baseline_mail_widget_24);
+                    else
+                        views.setImageViewResource(R.id.ivMessage, unseen == 0
+                                ? R.drawable.twotone_mail_outline_24
+                                : R.drawable.baseline_mail_24);
 
                     // Set color
                     if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

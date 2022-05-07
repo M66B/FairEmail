@@ -133,6 +133,9 @@ public class WidgetUnified extends AppWidgetProvider {
             views.setPendingIntentTemplate(R.id.lv, piItem);
 
             boolean syncing = prefs.getBoolean("widget." + appWidgetId + ".syncing", false);
+            views.setImageViewResource(R.id.refresh, syncing
+                    ? R.drawable.twotone_compare_arrows_24
+                    : R.drawable.twotone_sync_24);
 
             // https://developer.android.com/guide/topics/ui/look-and-feel/darktheme
             if (!daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -146,10 +149,8 @@ public class WidgetUnified extends AppWidgetProvider {
                 views.setColorStateListAttr(R.id.title, "setTextColor", android.R.attr.textColorPrimary);
                 views.setInt(R.id.separator, "setBackgroundColor", Color.WHITE);
                 views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", android.R.attr.colorControlNormal);
-                views.setImageViewResource(R.id.refresh, syncing
-                        ? R.drawable.twotone_compare_arrows_24_dn
-                        : R.drawable.twotone_sync_24_dn);
-                views.setImageViewResource(R.id.compose, R.drawable.twotone_edit_24_dn);
+                views.setColorAttr(R.id.refresh, "setColorFilter", android.R.attr.textColorPrimary);
+                views.setColorAttr(R.id.compose, "setColorFilter", android.R.attr.textColorPrimary);
             } else if (background == Color.TRANSPARENT) {
                 if (semi)
                     views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
@@ -158,10 +159,8 @@ public class WidgetUnified extends AppWidgetProvider {
 
                 views.setTextColor(R.id.title, colorWidgetForeground);
                 views.setInt(R.id.separator, "setBackgroundColor", lightColorSeparator);
-                views.setImageViewResource(R.id.refresh, syncing
-                        ? R.drawable.twotone_compare_arrows_24_white
-                        : R.drawable.twotone_sync_24_white);
-                views.setImageViewResource(R.id.compose, R.drawable.twotone_edit_24_white);
+                views.setInt(R.id.refresh, "setColorFilter", colorWidgetForeground);
+                views.setInt(R.id.compose, "setColorFilter", colorWidgetForeground);
             } else {
                 float lum = (float) ColorUtils.calculateLuminance(background);
 
@@ -174,17 +173,8 @@ public class WidgetUnified extends AppWidgetProvider {
                 views.setTextColor(R.id.title, fg);
                 views.setInt(R.id.separator, "setBackgroundColor",
                         lum > 0.7f ? darkColorSeparator : lightColorSeparator);
-                if (syncing)
-                    views.setImageViewResource(R.id.refresh, lum > 0.7f
-                            ? R.drawable.twotone_compare_arrows_24_black
-                            : R.drawable.twotone_compare_arrows_24_white);
-                else
-                    views.setImageViewResource(R.id.refresh, lum > 0.7f
-                            ? R.drawable.twotone_sync_24_black
-                            : R.drawable.twotone_sync_24_white);
-                views.setImageViewResource(R.id.compose, lum > 0.7f
-                        ? R.drawable.twotone_edit_24_black
-                        : R.drawable.twotone_edit_24_white);
+                views.setInt(R.id.refresh, "setColorFilter", fg);
+                views.setInt(R.id.compose, "setColorFilter", fg);
             }
 
             views.setViewVisibility(R.id.separator, separators ? View.VISIBLE : View.GONE);
