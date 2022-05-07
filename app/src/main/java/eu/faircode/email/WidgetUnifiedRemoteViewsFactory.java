@@ -263,10 +263,11 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             }
 
             if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                views.setColorStateListAttr(idFrom, "setTextColor", android.R.attr.textColorPrimary);
-                views.setColorStateListAttr(idTime, "setTextColor", android.R.attr.textColorPrimary);
-                views.setColorStateListAttr(idSubject, "setTextColor", android.R.attr.textColorPrimary);
-                views.setColorStateListAttr(idAccount, "setTextColor", android.R.attr.textColorPrimary);
+                int textColorAttr = (message.ui_seen ? android.R.attr.textColorPrimary : android.R.attr.textColorLink);
+                views.setColorStateListAttr(idFrom, "setTextColor", textColorAttr);
+                views.setColorStateListAttr(idTime, "setTextColor", textColorAttr);
+                views.setColorStateListAttr(idSubject, "setTextColor", textColorAttr);
+                views.setColorStateListAttr(idAccount, "setTextColor", textColorAttr);
                 views.setInt(R.id.separator, "setBackgroundColor", Color.WHITE);
                 views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", android.R.attr.colorControlNormal);
             } else {
