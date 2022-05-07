@@ -71,7 +71,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 233,
+        version = 234,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2323,6 +2323,25 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN 'conditions' TEXT");
+                    }
+                }).addMigrations(new Migration(233, 234) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("UPDATE account" +
+                                " SET max_messages = MAX(max_messages," +
+                                "   (SELECT COUNT(*) FROM folder" +
+                                "    JOIN message ON message.folder = folder.id" +
+                                "    WHERE folder.account = account.id" +
+                                "    AND folder.type = '" + EntityFolder.INBOX + "'" +
+                                "    AND NOT message.ui_hide))" +
+                                " WHERE pop = " + EntityAccount.TYPE_POP +
+                                " AND NOT max_messages IS NULL");
+                    }
+                }).addMigrations(new Migration(234, 233) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
