@@ -756,6 +756,16 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_hide = :ui_hide WHERE id = :id AND NOT (ui_hide IS :ui_hide)")
     int setMessageUiHide(long id, Boolean ui_hide);
 
+    @Transaction
+    @Query("UPDATE message SET ui_hide = 1" +
+            " WHERE folder = :folder" +
+            " AND id NOT IN (" +
+            "    SELECT id FROM message" +
+            "    WHERE folder = :folder" +
+            "    ORDER BY received DESC" +
+            "    LIMIT :keep)")
+    int setMessagesUiHide(long folder, int keep);
+
     @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id AND NOT (ui_ignored IS :ui_ignored)")
     int setMessageUiIgnored(long id, boolean ui_ignored);
 
@@ -964,4 +974,14 @@ public interface DaoMessage {
             " AND stored < :sync_time" + // moved, browsed
             " AND ui_snoozed IS NULL")
     int deleteMessagesBefore(long folder, long sync_time, long keep_time, boolean unseen);
+
+    @Transaction
+    @Query("DELETE FROM message" +
+            " WHERE folder = :folder" +
+            " AND id NOT IN (" +
+            "    SELECT id FROM message" +
+            "    WHERE folder = :folder" +
+            "    ORDER BY received DESC" +
+            "    LIMIT :keep)")
+    int deleteMessagesKeep(long folder, int keep);
 }

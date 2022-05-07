@@ -3197,6 +3197,14 @@ class Core {
                 }
             }
 
+            if (account.max_messages != null) {
+                int hidden = db.message().setMessagesUiHide(folder.id, account.max_messages);
+                int deleted = db.message().deleteMessagesKeep(folder.id, account.max_messages + 100);
+                EntityLog.log(context, account.name + " POP" +
+                        " cleanup max=" + account.max_messages + "" +
+                        " hidden=" + hidden + " deleted=" + deleted);
+            }
+
             folder.last_sync_count = imessages.length;
             db.folder().setFolderLastSyncCount(folder.id, folder.last_sync_count);
             db.folder().setFolderLastSync(folder.id, new Date().getTime());
