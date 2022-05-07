@@ -4,6 +4,12 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### 1.1892 - 2022-05-07
+
+* Added optional day/night mode for widgets
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1891b - 2022-05-05
 
 * Added avatars option to message list widget
