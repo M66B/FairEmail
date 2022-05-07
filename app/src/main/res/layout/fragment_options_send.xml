@@ -718,6 +718,8 @@
                     android:gravity="center"
                     android:text="@string/title_setup_advanced"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="?attr/colorWarning"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
