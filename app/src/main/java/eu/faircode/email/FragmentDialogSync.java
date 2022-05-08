@@ -58,7 +58,7 @@ public class FragmentDialogSync extends FragmentDialogBase {
         } else
             tvFolder.setText(name);
 
-        etMonths.setText(null);
+        etMonths.setText("12");
 
         tvRemark.setOnClickListener(new View.OnClickListener() {
             @Override
