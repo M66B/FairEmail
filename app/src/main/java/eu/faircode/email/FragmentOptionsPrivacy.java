@@ -63,6 +63,7 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private ImageButton ibHelp;
     private SwitchCompat swConfirmLinks;
     private SwitchCompat swCheckLinksDbl;
     private SwitchCompat swBrowseLinks;
@@ -126,6 +127,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         // Get controls
 
+        ibHelp = view.findViewById(R.id.ibHelp);
         swConfirmLinks = view.findViewById(R.id.swConfirmLinks);
         swCheckLinksDbl = view.findViewById(R.id.swCheckLinksDbl);
         swBrowseLinks = view.findViewById(R.id.swBrowseLinks);
@@ -171,6 +173,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        ibHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+            }
+        });
 
         swConfirmLinks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

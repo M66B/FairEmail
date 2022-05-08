@@ -44,6 +44,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -56,6 +57,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsConnection extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private ImageButton ibHelp;
     private SwitchCompat swMetered;
     private Spinner spDownload;
     private SwitchCompat swRoaming;
@@ -99,6 +101,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         // Get controls
 
+        ibHelp = view.findViewById(R.id.ibHelp);
         swMetered = view.findViewById(R.id.swMetered);
         spDownload = view.findViewById(R.id.spDownload);
         swRoaming = view.findViewById(R.id.swRoaming);
@@ -132,6 +135,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean debug = prefs.getBoolean("debug", false);
+
+        ibHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+            }
+        });
 
         swMetered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

@@ -63,6 +63,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class FragmentOptionsSynchronize extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private ImageButton ibHelp;
     private SwitchCompat swEnabled;
     private SwitchCompat swOptimize;
     private ImageButton ibOptimizeInfo;
@@ -131,6 +132,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         // Get controls
 
+        ibHelp = view.findViewById(R.id.ibHelp);
         swEnabled = view.findViewById(R.id.swEnabled);
         swOptimize = view.findViewById(R.id.swOptimize);
         ibOptimizeInfo = view.findViewById(R.id.ibOptimizeInfo);
@@ -189,6 +191,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        ibHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+            }
+        });
 
         swEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

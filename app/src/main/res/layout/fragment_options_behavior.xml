@@ -21,17 +21,29 @@
             android:id="@+id/tvDefault"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="3dp"
-            android:drawableStart="@drawable/twotone_support_24"
-            android:drawablePadding="6dp"
+            android:layout_marginStart="3dp"
             android:gravity="center_vertical"
+            android:minHeight="36dp"
             android:text="@string/title_advanced_default"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"
             android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ibHelp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <eu.faircode.email.FixedImageButton
+            android:id="@+id/ibHelp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="3dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDefault"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvDefault"
+            app:srcCompat="@drawable/twotone_help_24" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardGeneral"

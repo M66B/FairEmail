@@ -64,6 +64,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentOptionsDisplay extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private ImageButton ibHelp;
     private Button btnTheme;
     private Spinner spStartup;
     private SwitchCompat swCards;
@@ -215,6 +216,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         // Get controls
 
+        ibHelp = view.findViewById(R.id.ibHelp);
         btnTheme = view.findViewById(R.id.btnTheme);
         spStartup = view.findViewById(R.id.spStartup);
         swCards = view.findViewById(R.id.swCards);
@@ -347,6 +349,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        ibHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+            }
+        });
 
         btnTheme.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -38,6 +38,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -54,6 +55,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class FragmentOptionsSend extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private ImageButton ibHelp;
     private SwitchCompat swKeyboard;
     private SwitchCompat swKeyboardNoFullscreen;
     private SwitchCompat swSuggestNames;
@@ -127,6 +129,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         // Get controls
 
+        ibHelp = view.findViewById(R.id.ibHelp);
         swKeyboard = view.findViewById(R.id.swKeyboard);
         swKeyboardNoFullscreen = view.findViewById(R.id.swKeyboardNoFullscreen);
         swSuggestNames = view.findViewById(R.id.swSuggestNames);
@@ -197,6 +200,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        ibHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+            }
+        });
 
         swKeyboard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

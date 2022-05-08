@@ -58,6 +58,7 @@ import androidx.preference.PreferenceManager;
 import java.util.List;
 
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private ImageButton ibHelp;
     private Button btnManage;
     private ImageButton ibClear;
     private Button btnManageDefault;
@@ -138,6 +139,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         // Get controls
 
+        ibHelp = view.findViewById(R.id.ibHelp);
         btnManage = view.findViewById(R.id.btnManage);
         ibClear = view.findViewById(R.id.ibClear);
         btnManageDefault = view.findViewById(R.id.btnManageDefault);
@@ -199,6 +201,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         PackageManager pm = getContext().getPackageManager();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean debug = prefs.getBoolean("debug", false);
+
+        ibHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+            }
+        });
 
         final Intent manage = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
                 .putExtra("app_package", getContext().getPackageName())
