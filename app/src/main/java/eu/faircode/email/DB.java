@@ -2329,12 +2329,12 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
                         db.execSQL("UPDATE account" +
-                                " SET max_messages = MAX(max_messages," +
+                                " SET max_messages = MAX(max_messages, MIN(max_messages * 4," +
                                 "   (SELECT COUNT(*) FROM folder" +
                                 "    JOIN message ON message.folder = folder.id" +
                                 "    WHERE folder.account = account.id" +
                                 "    AND folder.type = '" + EntityFolder.INBOX + "'" +
-                                "    AND NOT message.ui_hide))" +
+                                "    AND NOT message.ui_hide)))" +
                                 " WHERE pop = " + EntityAccount.TYPE_POP +
                                 " AND NOT max_messages IS NULL");
                     }
