@@ -382,18 +382,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvSendDelayed" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swAttachNew"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_attach_new"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spSendDelayed"
-                    app:switchPadding="12dp" />
-
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAnswerAction"
                     android:layout_width="0dp"
@@ -405,7 +393,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAttachNew" />
+                    app:layout_constraintTop_toBottomOf="@id/spSendDelayed" />
 
                 <Spinner
                     android:id="@+id/spAnswerAction"
@@ -415,18 +403,6 @@
                     android:entries="@array/answerNames"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvAnswerAction" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swSendPending"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_send_pending"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spAnswerAction"
-                    app:switchPadding="12dp" />
 
                 <Button
                     android:id="@+id/btnSound"
@@ -438,7 +414,7 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_advanced_sound"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swSendPending" />
+                    app:layout_constraintTop_toBottomOf="@id/spAnswerAction" />
             </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
 
@@ -740,6 +716,18 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAttachNew"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_attach_new"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCaptionAdvanced"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swAutoLink"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -747,7 +735,7 @@
                     android:text="@string/title_advanced_auto_link"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCaptionAdvanced"
+                    app:layout_constraintTop_toBottomOf="@id/swAttachNew"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -884,6 +872,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swLookupMx" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swSendPending"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_send_pending"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCheckMxHint"
+                    app:switchPadding="12dp" />
             </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
     </eu.faircode.email.ConstraintLayoutEx>
