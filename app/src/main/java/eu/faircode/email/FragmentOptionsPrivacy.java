@@ -187,7 +187,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("confirm_links", checked).apply();
                 swCheckLinksDbl.setEnabled(checked);
-                swBrowseLinks.setEnabled(!checked);
             }
         });
 
@@ -543,7 +542,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swCheckLinksDbl.setChecked(prefs.getBoolean("check_links_dbl", BuildConfig.PLAY_STORE_RELEASE));
         swCheckLinksDbl.setEnabled(swConfirmLinks.isChecked());
         swBrowseLinks.setChecked(prefs.getBoolean("browse_links", false));
-        swBrowseLinks.setEnabled(!swConfirmLinks.isChecked());
         swConfirmImages.setChecked(prefs.getBoolean("confirm_images", true));
         swAskImages.setChecked(prefs.getBoolean("ask_images", true));
         swAskImages.setEnabled(swConfirmImages.isChecked());
