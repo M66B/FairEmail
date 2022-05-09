@@ -1662,4 +1662,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Plusnet"
+        domain=".*\\.plus\\.com"
+        link="https://www.plus.net/help/email-guides/how-to-set-up-plusnet-email/">
+        <imap
+            host="imap.plus.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="relay.plus.net"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
