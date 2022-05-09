@@ -73,7 +73,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swConfirmHtml;
     private SwitchCompat swAskHtml;
     private SwitchCompat swDisableTracking;
-    private SwitchCompat swHideTimeZone;
     private Button btnPin;
     private Button btnBiometrics;
     private Spinner spBiometricsTimeout;
@@ -83,6 +82,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swClientId;
     private TextView tvClientId;
     private ImageButton ibClientId;
+    private SwitchCompat swHideTimeZone;
     private SwitchCompat swDisplayHidden;
     private SwitchCompat swIncognitoKeyboard;
     private ImageButton ibIncognitoKeyboard;
@@ -109,9 +109,10 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private final static String[] RESET_OPTIONS = new String[]{
             "confirm_links", "check_links_dbl", "browse_links",
             "confirm_images", "ask_images", "html_always_images", "confirm_html", "ask_html",
-            "disable_tracking", "hide_timezone",
+            "disable_tracking",
             "pin", "biometrics", "biometrics_timeout", "autolock", "autolock_nav",
-            "client_id", "display_hidden", "incognito_keyboard", "secure",
+            "client_id", "hide_timezone",
+            "display_hidden", "incognito_keyboard", "secure",
             "generic_ua", "safe_browsing", "load_emoji",
             "disconnect_auto_update", "disconnect_links", "disconnect_images",
             "wipe_mnemonic"
@@ -137,7 +138,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swConfirmHtml = view.findViewById(R.id.swConfirmHtml);
         swAskHtml = view.findViewById(R.id.swAskHtml);
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
-        swHideTimeZone = view.findViewById(R.id.swHideTimeZone);
         btnPin = view.findViewById(R.id.btnPin);
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
@@ -147,6 +147,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swClientId = view.findViewById(R.id.swClientId);
         tvClientId = view.findViewById(R.id.tvClientId);
         ibClientId = view.findViewById(R.id.ibClientId);
+        swHideTimeZone = view.findViewById(R.id.swHideTimeZone);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         swIncognitoKeyboard = view.findViewById(R.id.swIncognitoKeyboard);
         ibIncognitoKeyboard = view.findViewById(R.id.ibIncognitoKeyboard);
@@ -248,13 +249,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        swHideTimeZone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("hide_timezone", checked).apply();
-            }
-        });
-
         btnPin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -336,6 +330,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onClick(View v) {
                 Helper.view(v.getContext(), Uri.parse(Helper.ID_COMMAND_URI), true);
+            }
+        });
+
+        swHideTimeZone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("hide_timezone", checked).apply();
             }
         });
 
@@ -551,7 +552,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swAskHtml.setChecked(prefs.getBoolean("ask_html", true));
         swAskHtml.setEnabled(swConfirmHtml.isChecked());
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
-        swHideTimeZone.setChecked(prefs.getBoolean("hide_timezone", true));
 
         String pin = prefs.getString("pin", null);
         btnPin.setCompoundDrawablesRelativeWithIntrinsicBounds(
@@ -575,6 +575,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swAutoLockNav.setChecked(prefs.getBoolean("autolock_nav", false));
 
         swClientId.setChecked(prefs.getBoolean("client_id", true));
+        swHideTimeZone.setChecked(prefs.getBoolean("hide_timezone", true));
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
         swIncognitoKeyboard.setChecked(prefs.getBoolean("incognito_keyboard", false));
         swSecure.setChecked(prefs.getBoolean("secure", false));
