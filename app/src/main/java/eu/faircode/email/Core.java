@@ -3197,7 +3197,7 @@ class Core {
                 }
             }
 
-            if (account.max_messages != null) {
+            if (account.max_messages != null && !account.leave_on_device) {
                 int hidden = db.message().setMessagesUiHide(folder.id, account.max_messages);
                 int deleted = db.message().deleteMessagesKeep(folder.id, account.max_messages + 100);
                 EntityLog.log(context, account.name + " POP" +
