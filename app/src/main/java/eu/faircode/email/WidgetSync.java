@@ -63,7 +63,8 @@ public class WidgetSync extends AppWidgetProvider {
                 views.setOnClickPendingIntent(R.id.ivSync, pi);
 
                 views.setImageViewResource(R.id.ivSync, enabled ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
-                views.setFloat(R.id.ivSync, "setAlpha", !enabled || connected ? 1.0f : Helper.LOW_LIGHT);
+                views.setInt(R.id.ivSync, "setImageAlpha",
+                        !enabled || connected ? 255 : Math.round(Helper.LOW_LIGHT * 255));
 
                 if (!daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
                     views.setColorStateListAttr(R.id.background, "setBackgroundTintList", 0);
