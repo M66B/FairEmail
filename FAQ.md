@@ -1122,10 +1122,10 @@ Microsoft said "*We have turned off SMTP AUTH for millions of tenants not using 
 
 ```
 535 5.7.139 Authentication unsuccessful, SmtpClientAuthentication is disabled for the Tenant.
-Visit [https://aka.ms/smtp_auth_disabled](https://aka.ms/smtp_auth_disabled) for more information.
+Visit https://aka.ms/smtp_auth_disabled for more information.
 ```
 
-SMTP AUTH is necessary for third party email clients, which is also documented in the referenced article.
+SMTP AUTH is necessary for third party email clients, which is also documented in [the referenced article](https://aka.ms/smtp_auth_disabled).
 So, basically this means that Microsoft is pushing you to their own products. Isn't this a bit of a monopoly?
 
 To use an Outlook, Live or Hotmail account with two factor authentication enabled, you might need to create an app password.
