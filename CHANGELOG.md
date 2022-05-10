@@ -4,6 +4,11 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### 1.1893 - 2022-05-10
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1892 - 2022-05-07
 
 * Added optional day/night mode for widgets
