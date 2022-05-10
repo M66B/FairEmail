@@ -2639,6 +2639,7 @@ class Core {
                     childs == null || childs.size() == 0) {
                 EntityLog.log(context, name + " delete");
                 db.folder().deleteFolder(account.id, name);
+                prefs.edit().remove("updated." + account.id + "." + folder.type).apply();
             } else
                 Log.w(name + " keep type=" + folder.type);
         }
