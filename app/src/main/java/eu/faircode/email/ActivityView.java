@@ -61,6 +61,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.app.NotificationCompat;
+import androidx.core.util.Consumer;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -74,6 +75,10 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.window.java.layout.WindowInfoTrackerCallbackAdapter;
+import androidx.window.layout.DisplayFeature;
+import androidx.window.layout.WindowInfoTracker;
+import androidx.window.layout.WindowLayoutInfo;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -103,6 +108,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private boolean nav_options;
     private int colorDrawerScrim;
 
+    private WindowInfoTrackerCallbackAdapter infoTracker;
     private int layoutId;
     private View view;
 
@@ -217,6 +223,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         // Fix imported settings from other device
         if (nav_expanded && nav_pinned && !canExpandAndPin())
             nav_pinned = false;
+
+        infoTracker = new WindowInfoTrackerCallbackAdapter(WindowInfoTracker.getOrCreate(this));
 
         Configuration config = getResources().getConfiguration();
         boolean portrait2 = prefs.getBoolean("portrait2", false);
@@ -1020,6 +1028,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        infoTracker.addWindowLayoutInfoListener(this, Runnable::run, layoutStateChangeCallback);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        infoTracker.removeWindowLayoutInfoListener(layoutStateChangeCallback);
     }
 
     @Override
@@ -2234,4 +2254,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     .create();
         }
     }
+
+    private final Consumer<WindowLayoutInfo> layoutStateChangeCallback = new Consumer<WindowLayoutInfo>() {
+        @Override
+        public void accept(WindowLayoutInfo info) {
+            List<DisplayFeature> features = info.getDisplayFeatures();
+            Log.i("Display features=" + features.size());
+            for (DisplayFeature feature : features)
+                EntityLog.log(ActivityView.this, "Display feature bounds=" + feature.getBounds());
+        }
+    };
 }
