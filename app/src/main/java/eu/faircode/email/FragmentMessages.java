@@ -4488,7 +4488,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (!checkReporting())
                 if (!checkReview())
                     if (!checkFingerprint())
-                        checkGmail();
+                        if (!checkGmail())
+                            checkOutlook();
 
         prefs.registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(prefs, "pro");
@@ -4772,7 +4773,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (accounts != null)
                     for (EntityAccount account : accounts)
                         if (account.isGmail())
-                            if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH)
+                            if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_GMAIL)
                                 oauth++;
                             else if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD)
                                 passwd++;
@@ -4809,6 +4810,83 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Log.e(ex);
             }
         }.execute(this, new Bundle(), "gmail:check");
+
+        return true;
+    }
+
+    private boolean checkOutlook() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (prefs.getBoolean("outlook_checked", false))
+            return false;
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MILLISECOND, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.HOUR, 0);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        cal.set(Calendar.MONTH, Calendar.OCTOBER);
+        cal.set(Calendar.YEAR, 2022);
+
+        cal.add(Calendar.MONTH, 2);
+
+        long now = new Date().getTime();
+        if (now > cal.getTimeInMillis()) {
+            prefs.edit().putBoolean("outlook_checked", true).apply();
+            return false;
+        }
+
+        new SimpleTask<List<EntityAccount>>() {
+            @Override
+            protected List<EntityAccount> onExecute(Context context, Bundle args) throws Throwable {
+                DB db = DB.getInstance(context);
+                return db.account().getAccounts();
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                int oauth = 0;
+                int passwd = 0;
+                if (accounts != null)
+                    for (EntityAccount account : accounts)
+                        if (account.isOutlook())
+                            if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH)
+                                oauth++;
+                            else if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD)
+                                passwd++;
+
+                if (oauth + passwd == 0) {
+                    prefs.edit().putBoolean("outlook_checked", true).apply();
+                    return;
+                }
+
+                final int resid = (passwd > 0
+                        ? R.string.title_check_outlook_password
+                        : R.string.title_check_outlook_oauth);
+                final Snackbar snackbar = Snackbar.make(view, resid, Snackbar.LENGTH_INDEFINITE)
+                        .setGestureInsetBottomIgnored(true);
+                snackbar.setAction(R.string.title_info, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        snackbar.dismiss();
+                        Helper.viewFAQ(v.getContext(), 14);
+                        prefs.edit().putBoolean("outlook_checked", true).apply();
+                    }
+                });
+                snackbar.addCallback(new Snackbar.Callback() {
+                    @Override
+                    public void onDismissed(Snackbar transientBottomBar, int event) {
+                        prefs.edit().putBoolean("outlook_checked", true).apply();
+                    }
+                });
+                snackbar.show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.e(ex);
+            }
+        }.execute(this, new Bundle(), "outlook:check");
 
         return true;
     }
