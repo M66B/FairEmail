@@ -17,6 +17,7 @@ if (rootProject.file("local.properties").exists())
 
 android {
     compileSdkVersion 32
+    namespace 'eu.faircode.email'
 
     // https://apilevels.com/
     defaultConfig {
