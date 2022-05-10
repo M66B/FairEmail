@@ -251,6 +251,9 @@ public class MessageHelper {
         System.setProperty("mail.mime.contentdisposition.strict", "false"); // default true
         //System.setProperty("mail.mime.contenttypehandler", "eu.faircode.email.ContentTypeHandler");
 
+        //System.setProperty("mail.mime.uudecode.ignoreerrors", "true");
+        System.setProperty("mail.mime.uudecode.ignoremissingbeginend", "true");
+
         //System.setProperty("mail.imap.parse.debug", "true");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
