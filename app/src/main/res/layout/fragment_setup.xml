@@ -933,6 +933,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvNotificationHint" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvDeleteHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_setup_delete_account_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnDelete" />
+
                 <Button
                     android:id="@+id/btnApp"
                     style="?android:attr/buttonStyleSmall"
@@ -943,7 +955,7 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_advanced_app"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnDelete" />
+                    app:layout_constraintTop_toBottomOf="@id/tvDeleteHint" />
 
                 <Button
                     android:id="@+id/btnMore"
@@ -1013,7 +1025,7 @@
                     android:id="@+id/grpExtra"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="btnNotification,tvNotificationHint,btnDelete,btnApp,btnMore" />
+                    app:constraint_referenced_ids="btnNotification,tvNotificationHint,btnDelete,tvDeleteHint,btnApp,btnMore" />
             </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
     </eu.faircode.email.ConstraintLayoutEx>

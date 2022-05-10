@@ -252,6 +252,7 @@
     <string name="title_setup_configuring">Configuring account &#8230;</string>
     <string name="title_setup_app_password">You might need to use an app password</string>
     <string name="title_setup_extra">Extra</string>
+    <string name="title_setup_delete_account_hint">This will only remove accounts from the app</string>
 
     <string name="title_setup_close">Close settings</string>
     <string name="title_setup_export">Export settings</string>
