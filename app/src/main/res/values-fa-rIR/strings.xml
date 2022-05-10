@@ -327,6 +327,7 @@
     <string name="title_advanced_ssl_harden">اتصالات SSL را محکم کن</string>
     <string name="title_advanced_manage_connectivity">مدیریت اتصال</string>
     <string name="title_advanced_caption_general">عمومی</string>
+    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">ناوبری</string>
     <string name="title_advanced_caption_checks">بررسی‌ها</string>
     <string name="title_advanced_caption_list">فهرست</string>
     <string name="title_advanced_caption_conversation">گفتگو</string>

@@ -1261,6 +1261,7 @@
     <string name="title_rule_thread">Sve poruke u istom razgovoru i mapi</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Predložak odgovora</string>
+    <string name="title_rule_resend">Ponovno pošalji</string>
     <string name="title_rule_cc">Odgovori na CC adrese</string>
     <string name="title_rule_name_missing">Nedostaje naziv pravila</string>
     <string name="title_rule_condition_missing">Nedostaje stanje</string>
@@ -1352,6 +1353,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Prikaži citate</string>
     <string name="title_legend_show_junk">Tretiraj kao neželjenu poštu</string>
+    <string name="title_legend_create_rule">Stvori pravilo</string>
     <string name="title_legend_show_unsubscribe">Odjavi se s popisa</string>
     <string name="title_legend_show_images">Prikaži slike</string>
     <string name="title_legend_edit">Uredi</string>

@@ -96,6 +96,7 @@
     <string name="menu_rate">앱 평가하기</string>
     <string name="title_welcome">환영합니다</string>
     <string name="title_eula">최종 사용자 라이선스 계약</string>
+    <string name="title_license">오픈소스 라이선스</string>
     <string name="title_contributors">도와주신 분들</string>
     <string name="title_agree">동의합니다</string>
     <string name="title_disagree">동의하지 않습니다</string>
@@ -250,6 +251,7 @@
     <string name="title_advanced_cert_strict">엄격한 인증서 확인</string>
     <string name="title_advanced_manage_connectivity">연결 관리</string>
     <string name="title_advanced_caption_general">일반</string>
+    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">메뉴</string>
     <string name="title_advanced_caption_list">목록</string>
     <string name="title_advanced_caption_conversation">대화</string>
     <string name="title_advanced_caption_message">메시지</string>
@@ -859,6 +861,7 @@
     <string name="title_widget_padding">여백 크기</string>
     <string name="title_widget_avatars">연락처 아바타 표시</string>
     <string name="title_widget_background">배경 색</string>
+    <string name="title_widget_day_night">시스템의 어두운 테마 설정 사용</string>
     <string name="title_accessibility_collapsed">접음</string>
     <string name="title_accessibility_expanded">펼침</string>
     <string name="title_accessibility_seen">읽음</string>

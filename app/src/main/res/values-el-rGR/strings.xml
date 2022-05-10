@@ -371,6 +371,7 @@
     <string name="title_advanced_cert_strict">Αυστηρός έλεγχος πιστοποιητικών</string>
     <string name="title_advanced_manage_connectivity">Διαχείριση συνδεσιμότητας</string>
     <string name="title_advanced_caption_general">Γενικά</string>
+    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">Πλοήγηση</string>
     <string name="title_advanced_caption_checks">Έλεγχοι</string>
     <string name="title_advanced_caption_list">Λίστα</string>
     <string name="title_advanced_caption_conversation">Συζήτηση</string>

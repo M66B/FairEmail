@@ -10,6 +10,7 @@
     <string name="app_cake">Anbar sahəsi yetərsizdir</string>
     <string name="app_updated">Son yeniləmə: %1$s</string>
     <string name="app_download">%1$s üzərindən endirildi</string>
+    <string name="channel_service">Müşahidə</string>
     <string name="channel_send">Göndər</string>
     <string name="channel_notification">E-poçt</string>
     <string name="channel_progress">İrəliləyiş</string>
@@ -113,6 +114,7 @@
     <string name="menu_rate">Bu tətbiqi qiymətləndir</string>
     <string name="title_welcome">Xoş Gəldiniz</string>
     <string name="title_eula">Son istifadəçi lisenziya müqaviləsi</string>
+    <string name="title_license">Açıq mənbə lisenziyası</string>
     <string name="title_contributors">Töhfə verənlər</string>
     <string name="title_agree">Razıyam</string>
     <string name="title_disagree">Razı deyiləm</string>
@@ -312,6 +314,7 @@
     <string name="title_advanced_check_mx">Mesajları eyniləşdirərkən göndərən e-poçt ünvanlarını yoxla</string>
     <string name="title_advanced_check_blocklist">Göndərənin domen adının spam əngəlləmə siyahısında mövcudluğunu yoxla</string>
     <string name="title_advanced_use_blocklist">Əngəllənənlər siyahısındakı domenlərdən gələn mesajları spam qovluğuna köçürt</string>
+    <string name="title_advanced_use_blocklist_pop3">Əngəllilər siyahısındakı domenlərdən gələn mesajları ötür (yalnız POP3)</string>
     <string name="title_advanced_tune_keep_alive">Canlı saxlama aralığını avtomatik köklə</string>
     <string name="title_advanced_keyboard">Klaviaturanı ilkin olaraq göstər</string>
     <string name="title_advanced_keyboard_no_fullscreen">Tam ekran klaviaturanı əngəllə</string>
@@ -507,6 +510,7 @@
     <string name="title_advanced_default_snooze">İlkin ertələmə/gecikmə vaxtı</string>
     <string name="title_advanced_notifications">Bildirişləri idarə et</string>
     <string name="title_advanced_notifications_default">İlkin kanal</string>
+    <string name="title_advanced_notifications_service">Müşahidə kanalı</string>
     <string name="title_advanced_notifications_newest_first">Əvvəlcə ən yeni bildirişləri göstər</string>
     <string name="title_advanced_notifications_background">Mesajları eyniləşdirmək üçün arxaplan xidməti istifadə et</string>
     <string name="title_advanced_notifications_background_hint">Bir arxaplan xidməti istənilən vaxt Android tərəfindən dayandırıla bilər, ancaq vəziyyət sətri bildirişini tələb etmir</string>
@@ -1636,6 +1640,7 @@
         FairEmail, bunu xatırlatmaq üçün kiçik bir mesaj göstərir və Pro özəllikləri satın alsanız bu mesaj görünməyəcək.
     </string>
     <string name="title_pro_whichever">Hansı özəlliyin pro özəllik kimi seçilməsindən asılı olmayaraq, hər zaman həmin özəlliyin ödənişsiz olması üçün şikayət edən biriləri olur. Xahiş edirəm elələri kimi olmayın.</string>
+    <string name="title_pro_google">FairEmail, bir Play Store satın alma əməliyyatını başladır, ancaq nəticədə Google bütün satın alma prosesini idarə edir. Ona görə də, yarana biləcək hər hansısa bir problemə görə xahiş olunur tətbiqi günahlandırmayasınız!</string>
     <string name="title_pro_hide">Kiçik mesajı %1$d həftəlik gizlət</string>
     <string name="title_pro_hint">Pro xüsusiyyətlərinin alınması sizə, mövcud və gələcəkdəki pro xüsusiyyətləri istifadə etməyinizə icazə verəcək və tətbiqin uzunömürlü olması üçün bizə dəstək olacaq</string>
     <string name="title_pro_price">Pro xüsusiyyətlər niyə bu qədər bahalıdır?</string>
@@ -1678,9 +1683,11 @@
     <string name="title_widget_padding">Boşluğun ölçüsü</string>
     <string name="title_widget_separator_lines">Ayırıcı xəttləri göstər</string>
     <string name="title_widget_semi_transparent">Yarışəffaf arxaplan</string>
+    <string name="title_widget_avatars">Əlaqə avatarlarını göstər</string>
     <string name="title_widget_refresh">Mesajları təzələ düyməsini göstər</string>
     <string name="title_widget_compose">Yeni mesaj yarat düyməsini göstər</string>
     <string name="title_widget_background">Arxaplan rəngi</string>
+    <string name="title_widget_day_night">Sistemin qaranlıq temasına uyğunlaşma</string>
     <string name="title_accessibility_collapsed">Yığcamlaşdırılan</string>
     <string name="title_accessibility_expanded">Genişləndirilən</string>
     <string name="title_accessibility_seen">Oxunan</string>

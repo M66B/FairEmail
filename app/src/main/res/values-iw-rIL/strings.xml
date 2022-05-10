@@ -392,6 +392,7 @@
     <string name="title_advanced_cert_strict">בדיקת אישורים קפדנית</string>
     <string name="title_advanced_manage_connectivity">ניהול קישוריות</string>
     <string name="title_advanced_caption_general">כללי</string>
+    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">ניווט</string>
     <string name="title_advanced_caption_checks">בדיקות</string>
     <string name="title_advanced_caption_list">רשימה</string>
     <string name="title_advanced_caption_conversation">דיון</string>

@@ -184,7 +184,7 @@
     <string name="title_setup_permission_import_contacts">Como posso importar contactos?</string>
     <string name="title_setup_doze">Desactivar optimização de bateria</string>
     <string name="title_setup_doze_remark">Enviar e receber e-mail de forma segura em segundo plano</string>
-    <string name="title_setup_doze_explanation">As otimizações da bateria devem ser desativadas para assegurar o envio e a recepção de mensagens confiáveis em segundo plano</string>
+    <string name="title_setup_doze_explanation">As optimizações da bateria devem ser desactivadas para esta aplicação, para garantir o correcto envio/recepção das mensagens em segundo plano</string>
     <string name="title_setup_doze_hint">Embora isto possa parecer contraditório, desligar as otimizações de bateria para esta aplicação resultará em menos utilização de bateria</string>
     <string name="title_setup_doze_instructions">No próximo dialogo do sistema Android:
 - Altere de \"Não optimizado\" para \"Todas as aplicações\";
@@ -194,7 +194,7 @@
     <string name="title_setup_doze_device">Isto é provavelmente necessário para este dispositivo</string>
     <string name="title_setup_alarm_12">O app não funcionará</string>
     <string name="title_setup_inexact">Alarmes &amp; lembretes são desativados</string>
-    <string name="title_setup_background">Restrições de segundo plano habilitadas</string>
+    <string name="title_setup_background">Restrições de segundo plano estão activas</string>
     <string name="title_setup_data">A poupança de dados está ligada</string>
     <string name="title_setup_advanced_options">Mostrar opções avançadas</string>
     <string name="title_setup_inbox">Ir para a caixa de entrada</string>
@@ -388,7 +388,9 @@
     <string name="title_advanced_nav_pinned_count">Mostrar o número de mensagens não lidas no menu de navegação fixado</string>
     <string name="title_advanced_startup">Mostrar no ecrã de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
+    <string name="title_advanced_tabular_background">Usar a cor do cartão como cor de fundo quando o estilo tabular seja utilizado</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>
+    <string name="title_advanced_tabular_dividers">Usar linhas do divisor quando o estilo tabular seja utilizado</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_date_fixed">Mostrar cabeçalho de data fixo no topo</string>
     <string name="title_advanced_date_bold">Mostrar data em negrito</string>
@@ -450,7 +452,7 @@
     <string name="title_advanced_button_extra">Mostrar botões extras na parte inferior de uma mensagem</string>
     <string name="title_advanced_seekbar">Mostrar a posição relativa da conversa com um ponto</string>
     <string name="title_advanced_actionbar">Mostrar barra de acção de conversa</string>
-    <string name="title_advanced_actionbar_color">Usar cor da conta como cor de fundo para a barra de acção de conversa</string>
+    <string name="title_advanced_actionbar_color">Utilizar cor da conta como cor de fundo para a barra de acção da conversa</string>
     <string name="title_advanced_category_header">Agrupar por categoria de conta</string>
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
     <string name="title_advanced_bundled_fonts">Usar tipos de letra embutidos</string>
@@ -499,7 +501,7 @@
     <string name="title_advanced_notifications_service">Canal de monitorização</string>
     <string name="title_advanced_notifications_newest_first">Mostrar notificações mais recentes primeiro</string>
     <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
-    <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
+    <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de estado</string>
     <string name="title_advanced_badge">Mostrar o número de novas mensagens no ícone do launcher</string>
     <string name="title_advanced_unseen_ignored">Corresponder o número de novas mensagens ao número de notificações</string>
     <string name="title_advanced_notify_background">Mostrar notificações apenas em segundo plano</string>
@@ -749,6 +751,7 @@
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_synchronize_batch_enable">Activar sincronização</string>
     <string name="title_synchronize_batch_disable">Desactivar sincronização</string>
+    <string name="title_notify_batch_enable">Activar notificações para novas mensagens</string>
     <string name="title_notify_batch_disable">Desactivar as notificações de novas mensagens</string>
     <string name="title_delete_local">Eliminar mensagens locais</string>
     <string name="title_delete_browsed">Eliminar msgs navegadas/pesquisadas</string>
@@ -808,11 +811,15 @@
     <string name="title_download_folder">Transferir automaticamente todos os textos e anexos das mensagens</string>
     <string name="title_notify_folder">Notificação de novas mensagens</string>
     <string name="title_auto_classify_target">Mover automaticamente as mensagens classificadas para esta pasta</string>
+    <string name="title_sync_days">Sincronizar mensagens (dias)</string>
     <string name="title_sync_days_remark">O aumento deste valor fará subir a utilização da bateria e de dados</string>
+    <string name="title_keep_days">Manter mensagens (dias)</string>
     <string name="title_keep_days_remark">As mensagens antigas serão removidas a partir do dispositivo, mas permanecerão no servidor</string>
+    <string name="title_keep_all">Manter todas as mensagens</string>
     <string name="title_poll_system">Definir a verificação periódica de novas mensagens nas pastas de sistema</string>
     <string name="title_poll_user">Definir a verificação periódica de novas mensagens nas pastas do utilizador</string>
     <string name="title_auto_trash">Mover automaticamente as mensagens antigas para o lixo</string>
+    <string name="title_auto_delete">Eliminar mensagens antigas permanentemente de forma automática</string>
     <string name="title_auto_delete_hint">Mensagens antigas são as mensagens que deixam de estar guardadas no dispositivo</string>
     <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
     </string>
@@ -1566,7 +1573,7 @@
     <string name="title_widget_font_size">Tamanho do texto</string>
     <string name="title_widget_padding">Tamanho do espaçamento</string>
     <string name="title_widget_separator_lines">Mostrar linhas a separar</string>
-    <string name="title_widget_semi_transparent">Fundo semi-transparente</string>
+    <string name="title_widget_semi_transparent">Fundo semitransparente</string>
     <string name="title_widget_avatars">Mostrar avatares dos contactos</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>

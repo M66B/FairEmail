@@ -372,6 +372,7 @@
     <string name="title_advanced_cert_strict">Controllo rigoroso del certificato</string>
     <string name="title_advanced_manage_connectivity">Gestisci la connettività</string>
     <string name="title_advanced_caption_general">Generale</string>
+    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">Navigazione</string>
     <string name="title_advanced_caption_checks">Controlli</string>
     <string name="title_advanced_caption_list">Elenco</string>
     <string name="title_advanced_caption_conversation">Conversazione</string>
