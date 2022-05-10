@@ -1675,4 +1675,14 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider name="Netbeat">
+        <imap
+            host="mail.netbeat.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.netbeat.de"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
