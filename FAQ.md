@@ -1118,6 +1118,16 @@ The easiest way is to use the menu item *Fetch more messages* in the three-dots 
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook/Office 365*.
 
+Microsoft said "*We have turned off SMTP AUTH for millions of tenants not using it*", which can result in this error message:
+
+```
+535 5.7.139 Authentication unsuccessful, SmtpClientAuthentication is disabled for the Tenant.
+Visit [https://aka.ms/smtp_auth_disabled](https://aka.ms/smtp_auth_disabled) for more information.
+```
+
+SMTP AUTH is necessary for third party email clients, which is also documented in the referenced article.
+So, basically this means that Microsoft is pushing you to their own products. Isn't this a bit of a monopoly?
+
 To use an Outlook, Live or Hotmail account with two factor authentication enabled, you might need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
 
