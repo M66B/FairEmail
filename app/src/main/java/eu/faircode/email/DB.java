@@ -2336,7 +2336,8 @@ public abstract class DB extends RoomDatabase {
                                 "    AND folder.type = '" + EntityFolder.INBOX + "'" +
                                 "    AND NOT message.ui_hide)))" +
                                 " WHERE pop = " + EntityAccount.TYPE_POP +
-                                " AND NOT max_messages IS NULL");
+                                " AND NOT max_messages IS NULL" +
+                                " AND NOT leave_on_device");
                     }
                 }).addMigrations(new Migration(234, 233) {
                     @Override
