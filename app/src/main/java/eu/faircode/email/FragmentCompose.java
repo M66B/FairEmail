@@ -5461,7 +5461,7 @@ public class FragmentCompose extends FragmentBase {
 
             if (args.getBoolean("incomplete")) {
                 final Snackbar snackbar = Snackbar.make(
-                        view, R.string.title_attachments_incomplete, Snackbar.LENGTH_INDEFINITE)
+                                view, R.string.title_attachments_incomplete, Snackbar.LENGTH_INDEFINITE)
                         .setGestureInsetBottomIgnored(true);
                 snackbar.setAction(android.R.string.ok, new View.OnClickListener() {
                     @Override
