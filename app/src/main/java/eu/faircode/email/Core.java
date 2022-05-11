@@ -2530,6 +2530,7 @@ class Core {
                             parent = db.folder().getFolderByName(account.id, fullName.substring(0, sep));
 
                         if (!EntityFolder.USER.equals(type) && !EntityFolder.SYSTEM.equals(type)) {
+                            prefs.edit().remove("updated." + account.id + "." + folder.type).apply();
                             EntityFolder has = db.folder().getFolderByType(account.id, type);
                             if (has != null)
                                 type = EntityFolder.USER;
