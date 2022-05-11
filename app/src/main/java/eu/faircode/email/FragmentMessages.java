@@ -5895,7 +5895,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     for (long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
-                        if (message == null)
+                        if (message == null || message.uid == null)
                             continue;
 
                         EntityAccount account = db.account().getAccount(message.account);
