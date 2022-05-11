@@ -727,6 +727,9 @@ public class FragmentFolders extends FragmentBase {
     }
 
     private void onMenuSearch() {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         Bundle args = new Bundle();
         args.putLong("account", account);
 
