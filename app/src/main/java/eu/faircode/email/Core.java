@@ -801,7 +801,7 @@ class Core {
                     Log.e(ex);
                 }
 
-            throw new IllegalArgumentException("Message not found for " + op.name + " folder=" + folder.name);
+            throw new OperationCanceledException("Message not found for " + op.name + " folder=" + folder.name);
         }
 
         db.message().setMessageUid(message.id, message.uid);
