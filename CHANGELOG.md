@@ -4,6 +4,13 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### 1.1894 - 2022-05-11
+
+* Fixed widgets for older Android versions
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated translations
+
 ### 1.1893 - 2022-05-10
 
 * Small improvements and minor bug fixes
