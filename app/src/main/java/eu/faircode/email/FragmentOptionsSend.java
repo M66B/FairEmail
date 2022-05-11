@@ -65,19 +65,21 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Button btnLocalContacts;
     private Button btnBlockedSenders;
     private SwitchCompat swAutoIdentity;
-    private SwitchCompat swPrefixOnce;
-    private SwitchCompat swPrefixCount;
-    private RadioGroup rgRe;
-    private RadioGroup rgFwd;
     private SwitchCompat swSendChips;
     private SwitchCompat swSendReminders;
+    private SwitchCompat swSendPending;
+    private SwitchCompat swAutoSaveParagraph;
+    private SwitchCompat swAutoSaveDot;
+    private SwitchCompat swDiscardDelete;
     private Spinner spSendDelayed;
     private Spinner spAnswerAction;
     private Button btnSound;
 
-    private SwitchCompat swAutoSaveParagraph;
-    private SwitchCompat swAutoSaveDot;
     private Spinner spComposeFont;
+    private SwitchCompat swPrefixOnce;
+    private SwitchCompat swPrefixCount;
+    private RadioGroup rgRe;
+    private RadioGroup rgFwd;
     private SwitchCompat swSeparateReply;
     private SwitchCompat swExtendedReply;
     private SwitchCompat swWriteBelow;
@@ -90,8 +92,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSignatureReplyOnce;
     private SwitchCompat swSignatureForward;
     private Button btnEditSignature;
-    private SwitchCompat swDiscardDelete;
-    private SwitchCompat swReplyMove;
 
     private SwitchCompat swAttachNew;
     private SwitchCompat swAutoLink;
@@ -103,20 +103,22 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Spinner spReceiptType;
     private SwitchCompat swReceiptLegacy;
     private SwitchCompat swLookupMx;
-    private SwitchCompat swSendPending;
+    private SwitchCompat swReplyMove;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "keyboard_no_fullscreen",
             "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently", "auto_identity",
-            "alt_re", "alt_fwd",
-            "send_reminders", "send_chips", "send_delayed",
-            "answer_action", "sound_sent",
-            "auto_save_paragraph", "auto_save_dot",
-            "compose_font", "prefix_once", "prefix_count", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
+            "send_reminders", "send_chips", "send_pending",
+            "auto_save_paragraph", "auto_save_dot", "discard_delete",
+            "send_delayed",
+            "answer_action",
+            "sound_sent",
+            "compose_font",
+            "prefix_once", "prefix_count", "alt_re", "alt_fwd",
+            "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_new", "signature_reply", "signature_reply_once", "signature_forward",
-            "discard_delete", "reply_move",
             "attach_new", "auto_link", "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
-            "receipt_default", "receipt_type", "receipt_legacy", "lookup_mx", "send_pending"
+            "receipt_default", "receipt_type", "receipt_legacy", "lookup_mx", "reply_move"
     };
 
     @Override
@@ -139,19 +141,21 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         btnBlockedSenders = view.findViewById(R.id.btnBlockedSenders);
         swAutoIdentity = view.findViewById(R.id.swAutoIdentity);
-        swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
-        swPrefixCount = view.findViewById(R.id.swPrefixCount);
-        rgRe = view.findViewById(R.id.rgRe);
-        rgFwd = view.findViewById(R.id.rgFwd);
         swSendChips = view.findViewById(R.id.swSendChips);
         swSendReminders = view.findViewById(R.id.swSendReminders);
+        swSendPending = view.findViewById(R.id.swSendPending);
+        swAutoSaveParagraph = view.findViewById(R.id.swAutoSaveParagraph);
+        swAutoSaveDot = view.findViewById(R.id.swAutoSaveDot);
+        swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
         spAnswerAction = view.findViewById(R.id.spAnswerAction);
         btnSound = view.findViewById(R.id.btnSound);
 
-        swAutoSaveParagraph = view.findViewById(R.id.swAutoSaveParagraph);
-        swAutoSaveDot = view.findViewById(R.id.swAutoSaveDot);
         spComposeFont = view.findViewById(R.id.spComposeFont);
+        swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
+        swPrefixCount = view.findViewById(R.id.swPrefixCount);
+        rgRe = view.findViewById(R.id.rgRe);
+        rgFwd = view.findViewById(R.id.rgFwd);
         swSeparateReply = view.findViewById(R.id.swSeparateReply);
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
         swWriteBelow = view.findViewById(R.id.swWriteBelow);
@@ -164,8 +168,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSignatureReplyOnce = view.findViewById(R.id.swSignatureReplyOnce);
         swSignatureForward = view.findViewById(R.id.swSignatureForward);
         btnEditSignature = view.findViewById(R.id.btnEditSignature);
-        swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
-        swReplyMove = view.findViewById(R.id.swReplyMove);
 
         swAttachNew = view.findViewById(R.id.swAttachNew);
         swAutoLink = view.findViewById(R.id.swAutoLink);
@@ -177,7 +179,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spReceiptType = view.findViewById(R.id.spReceiptType);
         swReceiptLegacy = view.findViewById(R.id.swReceiptLegacy);
         swLookupMx = view.findViewById(R.id.swLookupMx);
-        swSendPending = view.findViewById(R.id.swSendPending);
+        swReplyMove = view.findViewById(R.id.swReplyMove);
 
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
 
@@ -277,35 +279,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swPrefixOnce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("prefix_once", checked).apply();
-                swPrefixCount.setEnabled(checked);
-            }
-        });
-
-        swPrefixCount.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("prefix_count", checked).apply();
-            }
-        });
-
-        rgRe.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                prefs.edit().putBoolean("alt_re", checkedId == R.id.rbRe2).apply();
-            }
-        });
-
-        rgFwd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                prefs.edit().putBoolean("alt_fwd", checkedId == R.id.rbFwd2).apply();
-            }
-        });
-
         swSendChips.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -317,6 +290,34 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("send_reminders", checked).apply();
+            }
+        });
+
+        swSendPending.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("send_pending", checked).apply();
+            }
+        });
+
+        swAutoSaveParagraph.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auto_save_paragraph", checked).apply();
+            }
+        });
+
+        swAutoSaveDot.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auto_save_dot", checked).apply();
+            }
+        });
+
+        swDiscardDelete.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("discard_delete", checked).apply();
             }
         });
 
@@ -360,20 +361,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swAutoSaveParagraph.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("auto_save_paragraph", checked).apply();
-            }
-        });
-
-        swAutoSaveDot.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("auto_save_dot", checked).apply();
-            }
-        });
-
         spComposeFont.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -386,6 +373,35 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("compose_font").apply();
+            }
+        });
+
+        swPrefixOnce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("prefix_once", checked).apply();
+                swPrefixCount.setEnabled(checked);
+            }
+        });
+
+        swPrefixCount.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("prefix_count", checked).apply();
+            }
+        });
+
+        rgRe.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                prefs.edit().putBoolean("alt_re", checkedId == R.id.rbRe2).apply();
+            }
+        });
+
+        rgFwd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                prefs.edit().putBoolean("alt_fwd", checkedId == R.id.rbFwd2).apply();
             }
         });
 
@@ -480,20 +496,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swDiscardDelete.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("discard_delete", checked).apply();
-            }
-        });
-
-        swReplyMove.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("reply_move", checked).apply();
-            }
-        });
-
         swAttachNew.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -571,10 +573,10 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swSendPending.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swReplyMove.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("send_pending", checked).apply();
+                prefs.edit().putBoolean("reply_move", checked).apply();
             }
         });
 
@@ -640,15 +642,12 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
         swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
         swAutoIdentity.setChecked(prefs.getBoolean("auto_identity", true));
-
-        swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
-        swPrefixCount.setChecked(prefs.getBoolean("prefix_count", false));
-        swPrefixCount.setEnabled(swPrefixOnce.isChecked());
-        rgRe.check(prefs.getBoolean("alt_re", false) ? R.id.rbRe2 : R.id.rbRe1);
-        rgFwd.check(prefs.getBoolean("alt_fwd", false) ? R.id.rbFwd2 : R.id.rbFwd1);
-
         swSendChips.setChecked(prefs.getBoolean("send_chips", true));
         swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
+        swSendPending.setChecked(prefs.getBoolean("send_pending", true));
+        swAutoSaveParagraph.setChecked(prefs.getBoolean("auto_save_paragraph", true));
+        swAutoSaveDot.setChecked(prefs.getBoolean("auto_save_dot", false));
+        swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", true));
 
         int send_delayed = prefs.getInt("send_delayed", 0);
         int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
@@ -667,9 +666,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 break;
             }
 
-        swAutoSaveParagraph.setChecked(prefs.getBoolean("auto_save_paragraph", true));
-        swAutoSaveDot.setChecked(prefs.getBoolean("auto_save_dot", false));
-
         String compose_font = prefs.getString("compose_font", "");
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
         for (int pos = 0; pos < fonts.size(); pos++) {
@@ -679,6 +675,12 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 break;
             }
         }
+
+        swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
+        swPrefixCount.setChecked(prefs.getBoolean("prefix_count", false));
+        swPrefixCount.setEnabled(swPrefixOnce.isChecked());
+        rgRe.check(prefs.getBoolean("alt_re", false) ? R.id.rbRe2 : R.id.rbRe1);
+        rgFwd.check(prefs.getBoolean("alt_fwd", false) ? R.id.rbFwd2 : R.id.rbFwd1);
 
         swSeparateReply.setChecked(prefs.getBoolean("separate_reply", false));
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
@@ -695,8 +697,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSignatureReplyOnce.setChecked(prefs.getBoolean("signature_reply_once", false));
         swSignatureReplyOnce.setEnabled(swSignatureReply.isChecked());
         swSignatureForward.setChecked(prefs.getBoolean("signature_forward", true));
-        swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", true));
-        swReplyMove.setChecked(prefs.getBoolean("reply_move", false));
 
         swAttachNew.setChecked(prefs.getBoolean("attach_new", true));
         swAutoLink.setChecked(prefs.getBoolean("auto_link", false));
@@ -712,7 +712,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swReceiptLegacy.setChecked(prefs.getBoolean("receipt_legacy", false));
 
         swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
-        swSendPending.setChecked(prefs.getBoolean("send_pending", true));
+        swReplyMove.setChecked(prefs.getBoolean("reply_move", false));
     }
 
     @Override

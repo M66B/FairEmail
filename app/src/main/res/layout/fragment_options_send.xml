@@ -233,6 +233,197 @@
                     app:layout_constraintTop_toBottomOf="@id/swAutoIdentity" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swSendChips"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_send_chips"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAutoIdentity"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swSendReminders"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_send_reminders"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swSendChips"
+                    app:switchPadding="12dp" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvSendReminders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_send_reminders_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swSendReminders" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swSendPending"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_send_pending"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSendReminders"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAutoSaveParagraph"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_auto_save_paragraph"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swSendPending"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAutoSaveDot"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_auto_save_dot"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAutoSaveParagraph"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swDiscardDelete"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_discard_delete"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAutoSaveDot"
+                    app:switchPadding="12dp" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvSendDelayed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_send_delayed"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swDiscardDelete" />
+
+                <Spinner
+                    android:id="@+id/spSendDelayed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:entries="@array/sendDelayedNames"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSendDelayed" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvAnswerAction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_answer_action"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spSendDelayed" />
+
+                <Spinner
+                    android:id="@+id/spAnswerAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:entries="@array/answerNames"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAnswerAction" />
+
+                <Button
+                    android:id="@+id/btnSound"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_audiotrack_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_advanced_sound"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spAnswerAction" />
+            </eu.faircode.email.ConstraintLayoutEx>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="?attr/colorCardBackground"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardGeneral">
+
+            <eu.faircode.email.ConstraintLayoutEx
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="12dp">
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvCaptionMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/title_advanced_caption_message"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvComposeFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_compose_font"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCaptionMessage" />
+
+                <Spinner
+                    android:id="@+id/spComposeFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:entries="@array/fontNameNames"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvComposeFont" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swPrefixOnce"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -241,7 +432,7 @@
                     android:text="@string/title_advanced_prefix_once"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAutoIdentity"
+                    app:layout_constraintTop_toBottomOf="@id/spComposeFont"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -326,174 +517,6 @@
                 </RadioGroup>
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swSendChips"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_send_chips"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rgFwd"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swSendReminders"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_send_reminders"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swSendChips"
-                    app:switchPadding="12dp" />
-
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvSendReminders"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_send_reminders_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swSendReminders" />
-
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvSendDelayed"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_send_delayed"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?android:attr/textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSendReminders" />
-
-                <Spinner
-                    android:id="@+id/spSendDelayed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:entries="@array/sendDelayedNames"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSendDelayed" />
-
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvAnswerAction"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_answer_action"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?android:attr/textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spSendDelayed" />
-
-                <Spinner
-                    android:id="@+id/spAnswerAction"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:entries="@array/answerNames"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAnswerAction" />
-
-                <Button
-                    android:id="@+id/btnSound"
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:drawableEnd="@drawable/twotone_audiotrack_24"
-                    android:drawablePadding="6dp"
-                    android:text="@string/title_advanced_sound"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spAnswerAction" />
-            </eu.faircode.email.ConstraintLayoutEx>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardMessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="3dp"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="?attr/colorCardBackground"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardGeneral">
-
-            <eu.faircode.email.ConstraintLayoutEx
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="6dp"
-                android:paddingVertical="12dp">
-
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvCaptionMessage"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/title_advanced_caption_message"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swAutoSaveParagraph"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_auto_save_paragraph"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCaptionMessage"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swAutoSaveDot"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_auto_save_dot"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAutoSaveParagraph"
-                    app:switchPadding="12dp" />
-
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvComposeFont"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_compose_font"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?android:attr/textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAutoSaveDot" />
-
-                <Spinner
-                    android:id="@+id/spComposeFont"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:entries="@array/fontNameNames"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvComposeFont" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swSeparateReply"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -501,7 +524,7 @@
                     android:text="@string/title_advanced_separate_reply"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spComposeFont"
+                    app:layout_constraintTop_toBottomOf="@id/rgFwd"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -644,39 +667,6 @@
                     android:text="@string/title_edit_signature"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swSignatureForward" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swDiscardDelete"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_discard_delete"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnEditSignature"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swReplyMove"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_reply_move"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swDiscardDelete"
-                    app:switchPadding="12dp" />
-
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvReplyMoveHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_reply_move_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swReplyMove" />
             </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
 
@@ -874,16 +864,26 @@
                     app:layout_constraintTop_toBottomOf="@id/swLookupMx" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swSendPending"
+                    android:id="@+id/swReplyMove"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_send_pending"
+                    android:text="@string/title_advanced_reply_move"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvCheckMxHint"
                     app:switchPadding="12dp" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvReplyMoveHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_reply_move_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swReplyMove" />
             </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
     </eu.faircode.email.ConstraintLayoutEx>
