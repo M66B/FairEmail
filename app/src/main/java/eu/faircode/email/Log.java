@@ -1585,10 +1585,10 @@ public class Log {
                     ex.getCause().getMessage().contains("User is authenticated but not connected"))
                 return null;
 
-            if (ex instanceof MessagingException &&
-                    ex.getMessage() != null &&
-                    ex.getMessage().startsWith("OAuth refresh"))
-                return null;
+            //if (ex instanceof MessagingException &&
+            //        ex.getMessage() != null &&
+            //        ex.getMessage().startsWith("OAuth refresh"))
+            //    return null;
 
             if (ex instanceof IOException &&
                     ex.getCause() instanceof MessageRemovedException)
