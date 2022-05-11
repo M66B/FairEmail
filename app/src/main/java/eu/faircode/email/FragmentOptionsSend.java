@@ -102,6 +102,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swReceipt;
     private Spinner spReceiptType;
     private SwitchCompat swReceiptLegacy;
+    private SwitchCompat swForwardNew;
     private SwitchCompat swLookupMx;
     private SwitchCompat swReplyMove;
 
@@ -118,7 +119,9 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_new", "signature_reply", "signature_reply_once", "signature_forward",
             "attach_new", "auto_link", "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
-            "receipt_default", "receipt_type", "receipt_legacy", "lookup_mx", "reply_move"
+            "receipt_default", "receipt_type", "receipt_legacy",
+            "forward_new",
+            "lookup_mx", "reply_move"
     };
 
     @Override
@@ -178,6 +181,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swReceipt = view.findViewById(R.id.swReceipt);
         spReceiptType = view.findViewById(R.id.spReceiptType);
         swReceiptLegacy = view.findViewById(R.id.swReceiptLegacy);
+        swForwardNew = view.findViewById(R.id.swForwardNew);
         swLookupMx = view.findViewById(R.id.swLookupMx);
         swReplyMove = view.findViewById(R.id.swReplyMove);
 
@@ -566,6 +570,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swForwardNew.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("forward_new", checked).apply();
+            }
+        });
+
         swLookupMx.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -711,6 +722,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         swReceiptLegacy.setChecked(prefs.getBoolean("receipt_legacy", false));
 
+        swForwardNew.setChecked(prefs.getBoolean("forward_new", true));
         swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
         swReplyMove.setChecked(prefs.getBoolean("reply_move", false));
     }

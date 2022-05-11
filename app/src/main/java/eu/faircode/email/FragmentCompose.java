@@ -4520,6 +4520,7 @@ public class FragmentCompose extends FragmentBase {
             boolean auto_identity = prefs.getBoolean("auto_identity", true);
             boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
             boolean suggest_received = prefs.getBoolean("suggest_received", false);
+            boolean forward_new = prefs.getBoolean("forward_new", true);
 
             Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
 
@@ -4851,7 +4852,12 @@ public class FragmentCompose extends FragmentBase {
                             }
 
                         } else if ("forward".equals(action)) {
-                            data.draft.thread = data.draft.msgid; // new thread
+                            if (forward_new)
+                                data.draft.thread = data.draft.msgid; // new thread
+                            else {
+                                data.draft.thread = ref.thread;
+                                data.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
+                            }
                             data.draft.wasforwardedfrom = ref.msgid;
                         } else if ("resend".equals(action)) {
                             data.draft.resend = true;

@@ -281,6 +281,7 @@ public class MessageHelper {
         boolean autocrypt = prefs.getBoolean("autocrypt", true);
         boolean mutual = prefs.getBoolean("autocrypt_mutual", true);
         boolean encrypt_subject = prefs.getBoolean("encrypt_subject", false);
+        boolean forward_new = prefs.getBoolean("forward_new", true);
 
         Map<String, String> c = new HashMap<>();
         c.put("id", message.id == null ? null : Long.toString(message.id));
@@ -338,8 +339,13 @@ public class MessageHelper {
             }
             imessage.addHeader("References", references);
         }
+
         if (message.inreplyto != null)
             imessage.addHeader("In-Reply-To", message.inreplyto);
+
+        if (message.wasforwardedfrom != null && !forward_new)
+            imessage.addHeader("X-Forwarded-Message-Id", message.wasforwardedfrom);
+
         imessage.addHeader(HEADER_CORRELATION_ID, message.msgid);
 
         MailDateFormat mdf = new MailDateFormat();
@@ -1492,6 +1498,16 @@ public class MessageHelper {
         String inreplyto = getInReplyTo();
         if (!TextUtils.isEmpty(inreplyto) && !refs.contains(inreplyto))
             refs.add(inreplyto);
+
+        boolean forward_new = prefs.getBoolean("forward_new", true);
+        if (!forward_new)
+            try {
+                String fwd = imessage.getHeader("X-Forwarded-Message-Id", null);
+                if (!TextUtils.isEmpty(fwd) && !refs.contains(fwd))
+                    refs.add(fwd);
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
 
         DB db = DB.getInstance(context);
 

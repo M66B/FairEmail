@@ -841,6 +841,18 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swForwardNew"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_forward_new"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swReceiptLegacy"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swLookupMx"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -848,7 +860,7 @@
                     android:text="@string/title_advanced_lookup_mx"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swReceiptLegacy"
+                    app:layout_constraintTop_toBottomOf="@id/swForwardNew"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
