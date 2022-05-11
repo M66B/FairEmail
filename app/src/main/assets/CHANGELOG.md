@@ -4,6 +4,14 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### Next version
+
+* Added quick mark as read button
+* Added send option to disable forwarding as new conversation thread
+* Small improvements and minor bug fixes
+* Updated AndroidX / material design library
+* Updated translations
+
 ### 1.1894 - 2022-05-11
 
 * Fixed widgets for older Android versions
