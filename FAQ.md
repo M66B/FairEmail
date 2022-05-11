@@ -62,25 +62,25 @@ Related questions:
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-howto)
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions (*)
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* Change the account name: (Main) Settings, tap Manual setup, tap Accounts, tap account
+* Change the swipe left/right target: (Main) Settings, tab page Behavior, Set swipe actions (*)
+* Change password: (Main) Settings, tap Manual setup, tap Accounts, tap account, change password
+* Set a signature: (Main) Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
 * Add CC and BCC addresses: tap the people's icon at the end of the subject
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
+* Delete an account/identity: (Main) Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
 * Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
 * Undo send: Outbox, swipe the message in the list left or right
 * Delete a contact: please [see this FAQ](#user-content-faq171)
 * Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* Change system folders: (Main) Settings, tap Manual setup, tap Accounts, tap account, at the bottom
+* Export/import settings: (Main) Settings, navigation (left side) menu
 
-(*) Swipe actions for individual and POP3 accounts can be configured in the account setting: Settings, tap Manual setup, tap Accounts, tap account
+(*) Swipe actions for individual and POP3 accounts can be configured in the account setting: (Main) Settings, tap Manual setup, tap Accounts, tap account
 
 <h2><a name="known-problems"></a>Known problem</h2>
 
@@ -1330,7 +1330,7 @@ Mostly this indicates internet connectivity issues, possibly caused by a VPN or 
 You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
 Some devices have a firewall, which you can access like this:
 
-*Settings, Data usage, Three-dots overflow menu, Data usage control*
+Android *Settings, Data usage, Three-dots overflow menu, Data usage control*
 
 The error *... Connection refused ...* means that the email server
 or something between the email server and the app, like a firewall, actively refused the connection.
