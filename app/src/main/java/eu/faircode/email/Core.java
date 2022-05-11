@@ -533,7 +533,10 @@ class Core {
                             ops.remove(s);
                     } catch (Throwable ex) {
                         iservice.dump(account.name + "/" + folder.name);
-                        if (ex instanceof OperationCanceledException)
+                        if (ex instanceof OperationCanceledException ||
+                                (ex instanceof IllegalArgumentException &&
+                                        ex.getMessage() != null &&
+                                        ex.getMessage().startsWith("Message not found for")))
                             Log.i(folder.name, ex);
                         else
                             Log.e(folder.name, ex);
@@ -801,7 +804,7 @@ class Core {
                     Log.e(ex);
                 }
 
-            throw new OperationCanceledException("Message not found for " + op.name + " folder=" + folder.name);
+            throw new IllegalArgumentException("Message not found for " + op.name + " folder=" + folder.name);
         }
 
         db.message().setMessageUid(message.id, message.uid);
