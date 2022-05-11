@@ -2529,12 +2529,18 @@ class Core {
                         if (sep > 0)
                             parent = db.folder().getFolderByName(account.id, fullName.substring(0, sep));
 
+                        if (!EntityFolder.USER.equals(type) && !EntityFolder.SYSTEM.equals(type)) {
+                            EntityFolder has = db.folder().getFolderByType(account.id, type);
+                            if (has != null)
+                                type = EntityFolder.USER;
+                        }
+
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.namespace = ifolder.first.getFullName();
                         folder.separator = separator;
                         folder.name = fullName;
-                        folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
+                        folder.type = type;
                         folder.subscribed = subscribed;
                         folder.selectable = selectable;
                         folder.inferiors = inferiors;
