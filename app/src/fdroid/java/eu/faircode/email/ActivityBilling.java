@@ -68,8 +68,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-public class ActivityBilling extends ActivityBase
-        implements /*PurchasesUpdatedListener, BillingClientStateListener,*/ FragmentManager.OnBackStackChangedListener {
+public class ActivityBilling extends ActivityBase implements
+        /* BillingClientStateListener, SkuDetailsResponseListener, PurchasesResponseListener, PurchasesUpdatedListener, */
+        FragmentManager.OnBackStackChangedListener {
     private boolean standalone = false;
     private int backoff = 4; // seconds
     //private BillingClient billingClient = null;
@@ -354,16 +355,15 @@ public class ActivityBilling extends ActivityBase
     }
 
     private void queryPurchases() {
-        billingClient.queryPurchasesAsync(BillingClient.SkuType.INAPP, new PurchasesResponseListener() {
-            @Override
-            public void onQueryPurchasesResponse(@NonNull BillingResult result, @NonNull List<Purchase> list) {
-                if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
-                    checkPurchases(list);
-                else
-                    reportError(result, "IAB query purchases");
+        billingClient.queryPurchasesAsync(BillingClient.SkuType.INAPP, this);
+    }
 
-            }
-        });
+    @Override
+    public void onQueryPurchasesResponse(@NonNull BillingResult result, @NonNull List<Purchase> list) {
+        if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
+            checkPurchases(list);
+        else
+            reportError(result, "IAB query purchases");
     }
 */
     interface IBillingListener {
@@ -479,20 +479,19 @@ public class ActivityBilling extends ActivityBase
         SkuDetailsParams.Builder builder = SkuDetailsParams.newBuilder();
         builder.setSkusList(query);
         builder.setType(BillingClient.SkuType.INAPP);
-        billingClient.querySkuDetailsAsync(builder.build(),
-                new SkuDetailsResponseListener() {
-                    @Override
-                    public void onSkuDetailsResponse(@NonNull BillingResult result, List<SkuDetails> skuDetailsList) {
-                        if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-                            for (SkuDetails skuDetail : skuDetailsList) {
-                                Log.i("IAB SKU detail=" + skuDetail);
-                                for (IBillingListener listener : listeners)
-                                    listener.onSkuDetails(skuDetail.getSku(), skuDetail.getPrice());
-                            }
-                        } else
-                            reportError(result, "IAB query SKUs");
-                    }
-                });
+        billingClient.querySkuDetailsAsync(builder.build(), this);
+    }
+
+    @Override
+    public void onSkuDetailsResponse(@NonNull BillingResult result, List<SkuDetails> skuDetailsList) {
+        if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+            for (SkuDetails skuDetail : skuDetailsList) {
+                Log.i("IAB SKU detail=" + skuDetail);
+                for (IBillingListener listener : listeners)
+                    listener.onSkuDetails(skuDetail.getSku(), skuDetail.getPrice());
+            }
+        } else
+            reportError(result, "IAB query SKUs");
     }
 
     private void consumePurchase(final Purchase purchase) {
