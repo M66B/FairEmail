@@ -517,6 +517,20 @@
             android:paddingHorizontal="6dp">
 
             <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibBatchSeen"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_toggle_seen"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_toggle_seen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_drafts_24" />
+
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibInbox"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -526,7 +540,7 @@
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_folder_inbox"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ibBatchSeen"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_inbox_24" />
 
