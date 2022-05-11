@@ -2308,7 +2308,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 } catch (Throwable ex) {
                     last_fail = ex;
                     iservice.dump(account.name);
-                    Log.e(account.name, ex);
+                    if (ex.getMessage() != null && ex.getMessage().startsWith("OAuth refresh"))
+                        Log.i(account.name, ex);
+                    else
+                        Log.e(account.name, ex);
                     EntityLog.log(this, EntityLog.Type.Account, account,
                             account.name + " connect " + ex + "\n" + android.util.Log.getStackTraceString(ex));
                     db.account().setAccountError(account.id, Log.formatThrowable(ex));
