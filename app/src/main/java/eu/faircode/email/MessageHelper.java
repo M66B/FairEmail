@@ -2089,7 +2089,7 @@ public class MessageHelper {
                             MailTo.parse(unsubscribe);
                             mailto = unsubscribe;
                         } catch (Throwable ex) {
-                            Log.w(new Throwable(unsubscribe, ex));
+                            Log.i(new Throwable(unsubscribe, ex));
                         }
                     }
                 } else if (Helper.EMAIL_ADDRESS.matcher(unsubscribe).matches())
@@ -2108,7 +2108,7 @@ public class MessageHelper {
                             if (m.find())
                                 link = unsubscribe.substring(m.start(), m.end());
                             else
-                                Log.w(new Throwable(unsubscribe));
+                                Log.i(new Throwable(unsubscribe));
                         }
                     }
                 }
