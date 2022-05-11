@@ -208,6 +208,7 @@
     <string name="title_setup_configuring">Configurando cuenta &#8230;</string>
     <string name="title_setup_app_password">Puede que necesite usar una contraseña de aplicación</string>
     <string name="title_setup_extra">Opciones adicionales</string>
+    <string name="title_setup_delete_account_hint">Esto sólo eliminará cuentas de la aplicación</string>
     <string name="title_setup_close">Cerrar ajustes</string>
     <string name="title_setup_export">Exportar ajustes</string>
     <string name="title_setup_import">Importar ajustes</string>
@@ -272,6 +273,8 @@
     <string name="title_setup_reset_links">Confirmar enlaces</string>
     <string name="title_check_gmail_oauth">Tus cuentas de Gmail continuarán funcionando después del 30 de Mayo de 2022</string>
     <string name="title_check_gmail_password">Algunas de sus cuentas de Gmail podrían dejar de funcionar después del 30 de Mayo de 2022</string>
+    <string name="title_check_outlook_oauth">Sus cuentas de Outlook continuarán funcionando después del 1 de octubre de 2022</string>
+    <string name="title_check_outlook_password">Algunas de sus cuentas de Outlook pueden dejar de funcionar después del 1 de octubre de 2022</string>
     <string name="title_advanced_hint_title">Opciones más avanzadas</string>
     <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.        Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
     </string>
@@ -371,7 +374,7 @@
     <string name="title_advanced_cert_strict">Verificación estricta de certificados</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
     <string name="title_advanced_caption_general">General</string>
-    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">Navegación</string>
+    <string name="title_advanced_caption_navigation">Navegación</string>
     <string name="title_advanced_caption_checks">Comprobaciones</string>
     <string name="title_advanced_caption_list">Lista</string>
     <string name="title_advanced_caption_conversation">Conversación</string>

@@ -207,6 +207,7 @@
     <string name="title_setup_configuring">A configurar conta &#8230;</string>
     <string name="title_setup_app_password">Talvez tenha de recorrer às \'palavras-passe da aplicação\'</string>
     <string name="title_setup_extra">Extra</string>
+    <string name="title_setup_delete_account_hint">Isto só remove as contas da app</string>
     <string name="title_setup_close">Fechar configurações</string>
     <string name="title_setup_export">Exportar definições</string>
     <string name="title_setup_import">Importar definições</string>
@@ -271,6 +272,8 @@
     <string name="title_setup_reset_links">Confirmar hiperligações</string>
     <string name="title_check_gmail_oauth">As suas contas de Gmail continuarão a funcionar após 30 de maio de 2022</string>
     <string name="title_check_gmail_password">Algumas das suas contas de Gmail podem parar de funcionar após 30 de maio de 2022</string>
+    <string name="title_check_outlook_oauth">As suas contas do Outlook continuarão a funcionar após 1 de outubro de 2022</string>
+    <string name="title_check_outlook_password">Algumas das suas contas do Outlook podem deixar de funcionar após 1 de outubro de 2022</string>
     <string name="title_advanced_hint_title">Mais opções avançadas</string>
     <string name="title_advanced_hint_message">Está a navegar para as opções mais avançadas.        Todas as opções têm valores padrão geralmente utilizados que podem ser alterados se tiver uma preferência diferente.
     </string>
@@ -677,14 +680,18 @@
     <string name="title_identity_tenant_hint">Este campo deve estar vazio na maioria dos casos</string>
     <string name="title_identity_reply_to">Responder para o endereço</string>
     <string name="title_identity_unicode">Utilizar comunicação Unicode</string>
+    <string name="title_identity_unicode_remark">A maioria dos servidores não suporta isto</string>
+    <string name="title_identity_max_size">Tamanho máximo da mensagem (MB)</string>
     <string name="title_identity_receipt">Solicitar relatório de entrega/leitura por predefinição</string>
     <string name="title_identity_receipt_legacy">Usar o cabeçalho clássico para solicitar o recibo de leitura</string>
+    <string name="title_identity_use_ip_hint">No caso de \'invalid greeting\', \'requires valid address\' ou um erro semelhante, tente alterar esta configuração</string>
     <string name="title_identity_self_hint">Também impede que possa responder a si próprio</string>
     <string name="title_optional">Opcional</string>
     <string name="title_recommended">Recomendado</string>
     <string name="title_account_linked">Conta associada</string>
     <string name="title_account_name">Nome da conta</string>
     <string name="title_account_category">Categoria</string>
+    <string name="title_account_name_hint">Utilizado para diferenciar pastas</string>
     <string name="title_color">Cor</string>
     <string name="title_background">Fundo</string>
     <string name="title_transparent">Transparente</string>
@@ -707,11 +714,14 @@
     <string name="title_case_sensitive">Nomes de utilizador e palavras-passe habitualmente diferenciam maiúsculas de minúsculas</string>
     <string name="title_client_certificate">Certificado do cliente</string>
     <string name="title_primary">Principal</string>
+    <string name="title_primary_account">Principal (conta padrão)</string>
+    <string name="title_primary_identity">Principal (identidade padrão)</string>
     <string name="title_self_identity">Remover o endereço de correio electrónico ao responder</string>
     <string name="title_leave_on_server">Deixar as mensagens no servidor</string>
     <string name="title_leave_deleted">Deixar as mensagens eliminadas no servidor</string>
     <string name="title_leave_on_device">Deixar as mensagens no dispositivo</string>
     <string name="title_max_messages">Número máximo de mensagens a serem transferidas (espaço em branco para todas)</string>
+    <string name="title_keep_poll_interval">Intervalo de verificação (em minutos)</string>
     <string name="title_received_header">Usar o cabeçalho \'Recebido\'</string>
     <string name="title_unmetered_only">Conectar somente através de redes ilimitadas</string>
     <string name="title_check">Verificar</string>
@@ -736,6 +746,7 @@
     <string name="title_sign_key">Chave de assinatura: %1$s</string>
     <string name="title_last_connected">Última ligação: %1$s</string>
     <string name="title_pop_support">O protocolo POP3 só pode descarregar e eliminar mensagens da caixa de entrada. Não é possível marcar as mensagens como lidas, denunciar spam, mover mensagens, etc. Considere a utilização do protocolo IMAP sempre que possível.</string>
+    <string name="title_pop_warning">Se um servidor POP3 não suportar o comando UIDL, o uso de dados pode ser elevado. Por isso, ajuste a frequência de sincronização tendo isto em conta.</string>
     <string name="title_review">Rever</string>
     <string name="title_hint_accounts">Toque e mantenha premido numa conta para ver as opções, por exemplo, para desactivar ou eliminar uma conta</string>
     <string name="title_service_vpn">Isto pode ser causado pela VPN que está a ser utilizada</string>

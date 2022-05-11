@@ -208,6 +208,7 @@
     <string name="title_setup_configuring">Opsætter konto &#8230;</string>
     <string name="title_setup_app_password">En app-adgangskode skal muligvis benyttes</string>
     <string name="title_setup_extra">Ekstra</string>
+    <string name="title_setup_delete_account_hint">Dette vil kun fjerne konti fra appen</string>
     <string name="title_setup_close">Luk indstillinger</string>
     <string name="title_setup_export">Eksportindstillinger</string>
     <string name="title_setup_import">Importindstillinger</string>
@@ -272,6 +273,8 @@
     <string name="title_setup_reset_links">Bekræft links</string>
     <string name="title_check_gmail_oauth">Gmail-konti vil fortsat fungere efter 3005-22</string>
     <string name="title_check_gmail_password">Visse Gmail-konti kan ophøre med at fungere efter 3005-22</string>
+    <string name="title_check_outlook_oauth">Aktuelle Outlook-konti vil fortsat fungere efter 1. okt. 2022</string>
+    <string name="title_check_outlook_password">Visse aktuelle Outlook-konti kan ophøre med at fungere efter 1. okt. 2022</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har alm. brugte standardværdier, som kun behøver ændring ifm. en evt. anden præference.
@@ -372,7 +375,7 @@
     <string name="title_advanced_cert_strict">Striks certifikatkontrol</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_caption_general">Generelt</string>
-    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">Navigering</string>
+    <string name="title_advanced_caption_navigation">Navigering</string>
     <string name="title_advanced_caption_checks">Tjek</string>
     <string name="title_advanced_caption_list">Liste</string>
     <string name="title_advanced_caption_conversation">Samtale</string>

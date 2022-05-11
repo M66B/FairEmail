@@ -208,6 +208,7 @@
     <string name="title_setup_configuring">Configurando conta &#8230;</string>
     <string name="title_setup_app_password">Talvez seja necessário usar uma senha do app</string>
     <string name="title_setup_extra">Extra</string>
+    <string name="title_setup_delete_account_hint">Isso só removerá contas do app</string>
     <string name="title_setup_close">Fechar configurações</string>
     <string name="title_setup_export">Exportar configurações</string>
     <string name="title_setup_import">Importar configurações</string>
@@ -272,6 +273,8 @@
     <string name="title_setup_reset_links">Confirmar links</string>
     <string name="title_check_gmail_oauth">Suas contas de Gmail continuarão funcionando após 30 de maio de 2022</string>
     <string name="title_check_gmail_password">Algumas de suas contas de Gmail podem parar de funcionar após 30 de maio de 2022</string>
+    <string name="title_check_outlook_oauth">Suas contas Outlook irão continuar funcionando depois de 1 de outubro de 2022</string>
+    <string name="title_check_outlook_password">Algumas de suas contas Outlook podem parar de funcionar depois de 1 de outubro de 2022</string>
     <string name="title_advanced_hint_title">Opções mais avançadas</string>
     <string name="title_advanced_hint_message">        Você está navegando para as opções mais avançadas.        Todas as opções têm comumente usados valores padrão, que você não precisa mudar a menos que você tenha uma preferência diferente.
     </string>
@@ -371,7 +374,7 @@
     <string name="title_advanced_cert_strict">Verificação rigorosa de certificado</string>
     <string name="title_advanced_manage_connectivity">Gerenciar conectividade</string>
     <string name="title_advanced_caption_general">Geral</string>
-    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">Navegação</string>
+    <string name="title_advanced_caption_navigation">Navegação</string>
     <string name="title_advanced_caption_checks">Verificações</string>
     <string name="title_advanced_caption_list">Lista</string>
     <string name="title_advanced_caption_conversation">Conversação</string>

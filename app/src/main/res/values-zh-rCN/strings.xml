@@ -262,6 +262,8 @@
     <string name="title_setup_reset_links">确认链接</string>
     <string name="title_check_gmail_oauth">您的 Gmail 帐户将在 2022 年 5 月 30 日之后可继续使用</string>
     <string name="title_check_gmail_password">您的部分 Gmail 帐户可能会在 2022 年 5 月 30 日之后不可使用</string>
+    <string name="title_check_outlook_oauth">您的 Outlook 帐户将在 2022 年 10 月 1 日之后可继续使用</string>
+    <string name="title_check_outlook_password">部分 Outlook 帐户可能会在 2022 年 10 月 1 日之后不可使用</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
     <string name="title_advanced_hint_message">        您正在前往更多的高级选项        所有选项默认均使用可更改的常用标准值
     </string>
@@ -361,7 +363,7 @@
     <string name="title_advanced_cert_strict">严格的证书检查</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_caption_general">常规​​​​​</string>
-    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">导航栏</string>
+    <string name="title_advanced_caption_navigation">导航栏</string>
     <string name="title_advanced_caption_checks">检查</string>
     <string name="title_advanced_caption_list">列表</string>
     <string name="title_advanced_caption_conversation">会话</string>

@@ -251,7 +251,7 @@
     <string name="title_advanced_cert_strict">엄격한 인증서 확인</string>
     <string name="title_advanced_manage_connectivity">연결 관리</string>
     <string name="title_advanced_caption_general">일반</string>
-    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">메뉴</string>
+    <string name="title_advanced_caption_navigation">메뉴</string>
     <string name="title_advanced_caption_list">목록</string>
     <string name="title_advanced_caption_conversation">대화</string>
     <string name="title_advanced_caption_message">메시지</string>

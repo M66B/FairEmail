@@ -228,6 +228,7 @@
     <string name="title_setup_configuring">חשבון מוגדר &#8230;</string>
     <string name="title_setup_app_password">יתכן שיהיה עליך להשתמש בסיסמה ליישומון</string>
     <string name="title_setup_extra">בנוסף</string>
+    <string name="title_setup_delete_account_hint">פעולה זו תסיר חשבונות מהיישומון בלבד</string>
     <string name="title_setup_close">סגירת ההגדרות</string>
     <string name="title_setup_export">ייצוא ההגדרות</string>
     <string name="title_setup_import">ייבוא הגדרות</string>
@@ -292,6 +293,8 @@
     <string name="title_setup_reset_links">אישור קישורים</string>
     <string name="title_check_gmail_oauth">חשבונות ה־Gmail שלך ימשיכו לעבוד גם אחרי 30 במאי 2022</string>
     <string name="title_check_gmail_password">חלק מחשבונות ה־Gmail שלך כנראה יפסיקו לעבוד אחרי 30 במאי 2022</string>
+    <string name="title_check_outlook_oauth">חשבונות ה־Outlook שלך ימשיכו לעבוד גם אחרי 1 באוקטובר 2022</string>
+    <string name="title_check_outlook_password">חלק מחשבונות ה־Outlook שלך כנראה יפסיקו לעבוד אחרי 1 באוקטובר 2022</string>
     <string name="title_advanced_hint_title">אפשרויות יותר מתקדמות</string>
     <string name="title_advanced_hint_message">        בחרת לנווט אל האפשרויות המתקדמות יותר.
         כל האפשרויות מוגדרות לפי ערכים מקובלים, שאין צורך לשנות אותם אלא אם כן יש לך העדפות שונות.
@@ -392,7 +395,7 @@
     <string name="title_advanced_cert_strict">בדיקת אישורים קפדנית</string>
     <string name="title_advanced_manage_connectivity">ניהול קישוריות</string>
     <string name="title_advanced_caption_general">כללי</string>
-    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">ניווט</string>
+    <string name="title_advanced_caption_navigation">ניווט</string>
     <string name="title_advanced_caption_checks">בדיקות</string>
     <string name="title_advanced_caption_list">רשימה</string>
     <string name="title_advanced_caption_conversation">דיון</string>

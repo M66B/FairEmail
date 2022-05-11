@@ -208,6 +208,7 @@
     <string name="title_setup_configuring">Konfiqurasiya edilir &#8230;</string>
     <string name="title_setup_app_password">Bir tətbiq şifrəsi istifadə etməyiniz lazım gələ bilər</string>
     <string name="title_setup_extra">Ekstra</string>
+    <string name="title_setup_delete_account_hint">Bu, yalnız tətbiqdən hesabları silir</string>
     <string name="title_setup_close">Tənzimləmələri bağla</string>
     <string name="title_setup_export">Tənzimləmələri ixrac et</string>
     <string name="title_setup_import">Tənzimləmələri idxal et</string>
@@ -272,6 +273,8 @@
     <string name="title_setup_reset_links">Bağlantıları təsdiqlə</string>
     <string name="title_check_gmail_oauth">Gmail hesablarınız 30 May 2022-ci il tarixindən sonra işləməyə davam edəcək</string>
     <string name="title_check_gmail_password">Bəzi Gmail hesablarınız 30 May 2022-ci il tarixindən işləməyi dayandıra bilər</string>
+    <string name="title_check_outlook_oauth">Outlook hesablarınız 1 Oktyabr 2022-ci il tarixindən sonra işləməyə davam edəcək</string>
+    <string name="title_check_outlook_password">Bəzi Outlook hesablarınız 1 Oktyabr 2022-ci il tarixindən işləməyi dayandıra bilər</string>
     <string name="title_advanced_hint_title">Daha çox qabaqcıl seçimlər</string>
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.
         Bütün seçimlər, fərqli bir tərcihiniz olmadığı müddətcə dəyişdirməyinizə ehtiyac olmayan və geniş istifadə olunan standart dəyərlərə sahibdir.
@@ -372,6 +375,7 @@
     <string name="title_advanced_cert_strict">Ciddi sertifikat yoxlanışı</string>
     <string name="title_advanced_manage_connectivity">Bağlantını idarə et</string>
     <string name="title_advanced_caption_general">Ümumi</string>
+    <string name="title_advanced_caption_navigation">Hərəkət</string>
     <string name="title_advanced_caption_checks">Yoxlanışlar</string>
     <string name="title_advanced_caption_list">Siyahı</string>
     <string name="title_advanced_caption_conversation">Danışıq</string>

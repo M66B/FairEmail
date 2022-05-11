@@ -228,6 +228,7 @@
     <string name="title_setup_configuring">Konfigurowanie konta &#8230;</string>
     <string name="title_setup_app_password">Może być konieczne użycie hasła aplikacji</string>
     <string name="title_setup_extra">Dodatkowe opcje</string>
+    <string name="title_setup_delete_account_hint">Spowoduje to usunięcie kont tylko z aplikacji</string>
     <string name="title_setup_close">Zamknij ustawienia</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
@@ -292,6 +293,8 @@
     <string name="title_setup_reset_links">Potwierdź linki</string>
     <string name="title_check_gmail_oauth">Twoje konta Gmail będą nadal działać po 30 maja 2022</string>
     <string name="title_check_gmail_password">Niektóre z Twoich kont Gmail mogą przestać działać po 30 maja 2022</string>
+    <string name="title_check_outlook_oauth">Twoje konta Outlook będą nadal działać po 1 października 2022</string>
+    <string name="title_check_outlook_password">Niektóre z Twoich kont Outlook mogą przestać działać po 1 października 2022</string>
     <string name="title_advanced_hint_title">Ustawienia zaawansowane</string>
     <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.         Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
     </string>
@@ -391,6 +394,7 @@
     <string name="title_advanced_cert_strict">Ścisła kontrola certyfikatu</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_caption_general">Ogólne</string>
+    <string name="title_advanced_caption_navigation">Nawigacja</string>
     <string name="title_advanced_caption_checks">Kontrole</string>
     <string name="title_advanced_caption_list">Lista</string>
     <string name="title_advanced_caption_conversation">Wątek</string>

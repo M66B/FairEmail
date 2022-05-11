@@ -207,6 +207,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_configuring">Account configureren &#8230;</string>
     <string name="title_setup_app_password">Mogelijk moet u een app-wachtwoord gebruiken</string>
     <string name="title_setup_extra">Extra</string>
+    <string name="title_setup_delete_account_hint">Dit verwijdert alleen accounts uit de app</string>
     <string name="title_setup_close">Sluit instellingen</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
@@ -270,7 +271,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_reset_images">Toon afbeeldingen</string>
     <string name="title_setup_reset_links">Bevestig koppelingen</string>
     <string name="title_check_gmail_oauth">Uw Gmail accounts zullen blijven werken na 30 mei 2022</string>
-    <string name="title_check_gmail_password">Sommige Gmail accounts werken mogelijk niet meer na 30 mei 2022</string>
+    <string name="title_check_gmail_password">Sommige van uw Gmail accounts werken mogelijk niet meer na 30 mei 2022</string>
+    <string name="title_check_outlook_oauth">Uw Outlook accounts zullen blijven werken na 1 oktober 2022</string>
+    <string name="title_check_outlook_password">Sommige van uw Outlook accounts werken mogelijk niet meer na 1 oktober 2022</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.        Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
     </string>
@@ -370,7 +373,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_cert_strict">Strenge certificaatcontrole</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
     <string name="title_advanced_caption_general">Algemeen</string>
-    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">Navigatie</string>
+    <string name="title_advanced_caption_navigation">Navigatie</string>
     <string name="title_advanced_caption_checks">Controles</string>
     <string name="title_advanced_caption_list">Lijst</string>
     <string name="title_advanced_caption_conversation">Gesprek</string>

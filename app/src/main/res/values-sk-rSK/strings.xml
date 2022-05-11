@@ -390,7 +390,7 @@
     <string name="title_advanced_cert_strict">Prísna kontrola certifikátov</string>
     <string name="title_advanced_manage_connectivity">Spravovať pripojenie</string>
     <string name="title_advanced_caption_general">Všeobecné</string>
-    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">Navigácia</string>
+    <string name="title_advanced_caption_navigation">Navigácia</string>
     <string name="title_advanced_caption_checks">Kontroly</string>
     <string name="title_advanced_caption_list">Zoznam</string>
     <string name="title_advanced_caption_conversation">Konverzácia</string>

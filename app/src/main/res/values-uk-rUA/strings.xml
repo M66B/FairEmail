@@ -288,6 +288,7 @@
     <string name="title_setup_reset_links">Підтвердити посилання</string>
     <string name="title_check_gmail_oauth">Ваші облікові записи Gmail працюватимуть після 30 травня, 2022 року</string>
     <string name="title_check_gmail_password">Деякі ваші облікові записи Gmail можуть не працювати після 30 травня, 2022 року</string>
+    <string name="title_check_outlook_oauth">Ваші облікові запис Outlook будуть продовжувати працювати після 1 жовтня 2022</string>
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.        Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
     </string>
@@ -382,7 +383,7 @@
     <string name="title_advanced_cert_strict">Сувора перевірка сертифікату</string>
     <string name="title_advanced_manage_connectivity">Керувати підключенням</string>
     <string name="title_advanced_caption_general">Загальні налаштування</string>
-    <string name="title_advanced_caption_navigation" comment="title_advanced_caption_navigation&#10;Title of card with navigation (menu) related options ">Навігація</string>
+    <string name="title_advanced_caption_navigation">Навігація</string>
     <string name="title_advanced_caption_checks">Перевірки</string>
     <string name="title_advanced_caption_list">Список</string>
     <string name="title_advanced_caption_conversation">Розмова</string>

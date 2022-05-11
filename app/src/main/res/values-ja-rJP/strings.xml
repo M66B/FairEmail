@@ -198,6 +198,7 @@
     <string name="title_setup_configuring">アカウントを設定しています&#8230;</string>
     <string name="title_setup_app_password">アプリパスワードを使用する必要があるかもしれません</string>
     <string name="title_setup_extra">その他</string>
+    <string name="title_setup_delete_account_hint">この操作はアプリからのアカウント削除のみを行います</string>
     <string name="title_setup_close">設定を閉じる</string>
     <string name="title_setup_export">設定をエクスポート</string>
     <string name="title_setup_import">設定をインポート</string>
@@ -262,6 +263,8 @@
     <string name="title_setup_reset_links">リンクを確認</string>
     <string name="title_check_gmail_oauth">あなたの Gmail アカウントは 2022 年 5 月 30 日以降も引き続き利用できます</string>
     <string name="title_check_gmail_password">あなたの Gmail アカウントの一部は 2022 年 5 月 30 日以降に停止される可能性があります</string>
+    <string name="title_check_outlook_oauth">あなたの Outlook アカウントは 2022 年 10 月 1 日以降も引き続き利用できます</string>
+    <string name="title_check_outlook_password">あなたの Outlook アカウントの一部は 2022 年 10 月 1 日以降に停止される可能性があります</string>
     <string name="title_advanced_hint_title">詳細設定</string>
     <string name="title_advanced_hint_message">        詳細設定に移動しています。
         よく使われる標準的な値が設定されているため、特に変更しなくてもアプリを使うことができます。
@@ -362,6 +365,7 @@
     <string name="title_advanced_cert_strict">厳格な証明書確認</string>
     <string name="title_advanced_manage_connectivity">接続を管理</string>
     <string name="title_advanced_caption_general">概要</string>
+    <string name="title_advanced_caption_navigation">ナビゲーション</string>
     <string name="title_advanced_caption_checks">確認</string>
     <string name="title_advanced_caption_list">一覧</string>
     <string name="title_advanced_caption_conversation">会話</string>

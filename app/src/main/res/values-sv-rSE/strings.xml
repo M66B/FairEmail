@@ -10,6 +10,7 @@
     <string name="app_cake">Otillräckligt lagringsutrymme kvar</string>
     <string name="app_updated">Senast uppdaterad: %1$s</string>
     <string name="app_download">Hämtad från: %1$s</string>
+    <string name="channel_service">Övervakning</string>
     <string name="channel_send">Skicka</string>
     <string name="channel_notification">E-post</string>
     <string name="channel_progress">Förlopp</string>
@@ -309,6 +310,7 @@
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
     <string name="title_advanced_check_blocklist">Kontrollera om avsändarens domän återfinns på skräppostblockeringslistor</string>
     <string name="title_advanced_use_blocklist">Flytta meddelanden från domäner som finns på skräppostblockeringslistor till skräppost-mappen</string>
+    <string name="title_advanced_use_blocklist_pop3">Hoppa över meddelanden från domäner på en blocklista (POP3)</string>
     <string name="title_advanced_tune_keep_alive">Justera automatiskt keep-alive intervallet</string>
     <string name="title_advanced_keyboard">Visa tangentbord som standard</string>
     <string name="title_advanced_keyboard_no_fullscreen">Förhindra helskärmstangentbord</string>
@@ -366,6 +368,7 @@
     <string name="title_advanced_cert_strict">Strikt certifikatkontroll</string>
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
     <string name="title_advanced_caption_general">Allmänt</string>
+    <string name="title_advanced_caption_navigation">Navigering</string>
     <string name="title_advanced_caption_checks">Kontroller</string>
     <string name="title_advanced_caption_list">Lista</string>
     <string name="title_advanced_caption_conversation">Konversation</string>
@@ -504,6 +507,7 @@
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
+    <string name="title_advanced_notifications_service">Övervakar kanal</string>
     <string name="title_advanced_notifications_newest_first">Visa nyaste aviseringar först</string>
     <string name="title_advanced_notifications_background">Använd en bakgrundstjänst för att synkronisera meddelanden</string>
     <string name="title_advanced_notifications_background_hint">En bakgrundstjänst kan stoppas av Android när som helst, men kräver inte ett meddelande i statusfältet</string>
@@ -1670,9 +1674,11 @@
     <string name="title_widget_padding">Utfyllnadsstorlek</string>
     <string name="title_widget_separator_lines">Visa avgränsare</string>
     <string name="title_widget_semi_transparent">Semi transparent bakgrund</string>
+    <string name="title_widget_avatars">Visa kontaktavatarer</string>
     <string name="title_widget_refresh">Visa knappen för att uppdatera meddelanden</string>
     <string name="title_widget_compose">Visa knapp för nytt meddelande</string>
     <string name="title_widget_background">Bakgrundsfärg</string>
+    <string name="title_widget_day_night">Följ mörkt systemtema</string>
     <string name="title_accessibility_collapsed">Ihopfälld</string>
     <string name="title_accessibility_expanded">Expanderad</string>
     <string name="title_accessibility_seen">Läst</string>
