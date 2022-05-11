@@ -150,7 +150,7 @@ android {
     productFlavors {
         github {
             dimension "all"
-            buildConfigField "boolean", "TEST_RELEASE", "false"
+            buildConfigField "boolean", "TEST_RELEASE", "true"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
             buildConfigField "boolean", "AMAZON_RELEASE", "false"
