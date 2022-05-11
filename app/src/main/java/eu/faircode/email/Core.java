@@ -4253,7 +4253,7 @@ class Core {
 
                 db.setTransactionSuccessful();
             } catch (SQLiteConstraintException ex) {
-                Log.e(ex);
+                Log.i(ex);
 
                 Map<String, String> crumb = new HashMap<>();
                 crumb.put("folder", message.account + ":" + message.folder + ":" + folder.type);
