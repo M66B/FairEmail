@@ -59,6 +59,8 @@ import javax.net.SocketFactory;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
+import inet.ipaddr.IPAddressString;
+
 public class ConnectionHelper {
     static final List<String> PREF_NETWORK = Collections.unmodifiableList(Arrays.asList(
             "metered", "roaming", "rlah", "require_validated", "vpn_only" // update network state
@@ -558,23 +560,8 @@ public class ConnectionHelper {
 
     static boolean inSubnet(final String ip, final String net, final int prefix) {
         try {
-            byte[] _ip = InetAddress.getByName(ip).getAddress();
-            byte[] _net = InetAddress.getByName(net).getAddress();
-
-            if (_ip.length != _net.length)
-                return false;
-
-            int i = 0;
-            int p = prefix;
-            while (p >= 8) {
-                if (_ip[i] != _net[i])
-                    return false;
-                ++i;
-                p -= 8;
-            }
-
-            int m = (0xFF00 >> p) & 0xFF;
-            return (_ip[i] & m) == (_net[i] & m);
+            return new IPAddressString(net + "/" + prefix).getAddress()
+                    .contains(new IPAddressString(ip).getAddress());
         } catch (Throwable ex) {
             Log.w(ex);
             return false;

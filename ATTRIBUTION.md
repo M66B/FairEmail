@@ -43,3 +43,4 @@ FairEmail uses:
 * [Caladea font](https://fonts.google.com/specimen/Caladea). By Andrés Torresi, Carolina Giovanolli. [Apache License 2.0](https://fonts.google.com/specimen/Caladea#license).
 * [Apache Commons Compress](https://commons.apache.org/proper/commons-compress/). Copyright © 2002-2021 The Apache Software Foundation. All Rights Reserved. [Apache License 2.0](https://www.apache.org/licenses/).
 * [LeakCanary](https://github.com/square/leakcanary). Copyright 2015 Square, Inc. [Apache License 2.0](https://github.com/square/leakcanary/blob/main/LICENSE.txt).
+* [IPAddress](https://github.com/seancfoley/IPAddress). Copyright 2016-2018 Sean C Foley. [Apache License 2.0](https://github.com/seancfoley/IPAddress/blob/master/LICENSE).
