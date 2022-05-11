@@ -104,7 +104,12 @@ public class UriHelper {
             return null;
         if (tld.equals(host))
             return null;
-        int dot = host.substring(0, host.length() - tld.length() - 1).lastIndexOf('.');
+        int len = host.length() - tld.length() - 1;
+        if (len < 0) {
+            Log.e("getRootDomain host=" + host + " tld=" + tld);
+            return host;
+        }
+        int dot = host.substring(0, len).lastIndexOf('.');
         if (dot < 0)
             return host;
         return host.substring(dot + 1);
