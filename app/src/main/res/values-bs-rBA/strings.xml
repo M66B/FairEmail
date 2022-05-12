@@ -218,6 +218,7 @@
     <string name="title_setup_configuring">Podešavanje računa &#8230;</string>
     <string name="title_setup_app_password">Možda ćete trebati koristiti lozinku za aplikaciju</string>
     <string name="title_setup_extra">Više opcija</string>
+    <string name="title_setup_delete_account_hint">Ovo će samo ukloniti račune iz aplikacije</string>
     <string name="title_setup_close">Zatvori postavke</string>
     <string name="title_setup_export">Izvezi postavke</string>
     <string name="title_setup_import">Uvezi postavke</string>
@@ -282,6 +283,8 @@
     <string name="title_setup_reset_links">Potvrdi linkove</string>
     <string name="title_check_gmail_oauth">Vaši Gmail računi radit će nakon 30. maja 2022.</string>
     <string name="title_check_gmail_password">Neki od vaših Gmail računa prestat će raditi nakon 30. maja 2022.</string>
+    <string name="title_check_outlook_oauth">Vaši Outlook računi će raditi nakon 1. oktobra 2022.</string>
+    <string name="title_check_outlook_password">Neki od vaših Outlook računa će prestati raditi nakon 1. oktobra 2022.</string>
     <string name="title_advanced_hint_title">Više naprednih opcija</string>
     <string name="title_advanced_hint_message">        Prebacujete se na više naprednih opcija.
         Sve opcije imaju postavljene uobičajene standardne vrijednosti, koje ne trebate mijenjati osim ako ne preferirate drugačije.
@@ -366,6 +369,7 @@
     <string name="title_advanced_usenet_signature">Prati Usenet-ovu konvenciju za potpise</string>
     <string name="title_advanced_remove_signatures">Ukloni prepoznate potpise</string>
     <string name="title_advanced_receipt">Kada se zahtijeva potvrda</string>
+    <string name="title_advanced_forward_new">Započni novu konverzaciju pri prosljeđivanju</string>
     <string name="title_advanced_lookup_mx">Provjeri e-mail adresu primaoca prije slanja</string>
     <string name="title_advanced_metered">Koristi konekcije \'s ograničenim paketom\'</string>
     <string name="title_advanced_download">Automatski preuzimaj poruke i priloge na mrežama \'s ograničenim paketom\' do</string>
@@ -382,6 +386,7 @@
     <string name="title_advanced_cert_strict">Striktna provjera certifikata</string>
     <string name="title_advanced_manage_connectivity">Upravljanje konekcijama</string>
     <string name="title_advanced_caption_general">Općenito</string>
+    <string name="title_advanced_caption_navigation">Navigacija</string>
     <string name="title_advanced_caption_checks">Provjeravanje</string>
     <string name="title_advanced_caption_list">Spisak</string>
     <string name="title_advanced_caption_conversation">Konverzacija</string>
@@ -1697,6 +1702,7 @@
     <string name="title_widget_refresh">Prikaži dugme za osvježavanje poruka</string>
     <string name="title_widget_compose">Prikaži dugme za pisanje nove poruke</string>
     <string name="title_widget_background">Boja pozadine</string>
+    <string name="title_widget_day_night">Prati tamnu sistemsku temu</string>
     <string name="title_accessibility_collapsed">Suženo</string>
     <string name="title_accessibility_expanded">Prošireno</string>
     <string name="title_accessibility_seen">Pročitano</string>

@@ -207,6 +207,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_configuring">&#8230; hesabı yapılandırılıyor</string>
     <string name="title_setup_app_password">Bir uygulama şifresi kullanmanız gerekebilir</string>
     <string name="title_setup_extra">Ekstra</string>
+    <string name="title_setup_delete_account_hint">Bu, yalnızca hesapları uygulamadan kaldırır</string>
     <string name="title_setup_close">Ayarları kapat</string>
     <string name="title_setup_export">Ayarları dışa aktar</string>
     <string name="title_setup_import">Ayarları içe aktar</string>
@@ -271,6 +272,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_reset_links">Bağlantıları onaylayın</string>
     <string name="title_check_gmail_oauth">Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmaya devam edecek</string>
     <string name="title_check_gmail_password">Bazı Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmayı durdurabilir</string>
+    <string name="title_check_outlook_oauth">Outlook hesaplarınız 1 Ekim 2022\'den sonra çalışmaya devam edecek</string>
+    <string name="title_check_outlook_password">Bazı Outlook hesaplarınız 1 Ekim 2022\'den sonra çalışmayı durdurabilir</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.        Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
     </string>
@@ -354,6 +357,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_usenet_signature">Kullanıcı ağı imza sözleşmesi</string>
     <string name="title_advanced_remove_signatures">Tanınan imzaları kaldır</string>
     <string name="title_advanced_receipt">Makbuz talep ederken</string>
+    <string name="title_advanced_forward_new">Yönlendirirken yeni bir konuşma başlat</string>
     <string name="title_advanced_lookup_mx">Göndermeden önce alıcı e-posta adreslerini kontrol edin</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>

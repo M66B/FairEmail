@@ -10,6 +10,7 @@
     <string name="app_cake">Залишилося недостатньо вільного місця для зберігання</string>
     <string name="app_updated">Останнє оновлення: %1$s</string>
     <string name="app_download">Завантажено з: %1$s</string>
+    <string name="channel_service">Монітор</string>
     <string name="channel_send">Надсилання</string>
     <string name="channel_notification">Email</string>
     <string name="channel_progress">Прогрес</string>
@@ -118,6 +119,7 @@
     <string name="title_notification_redacted">Змінено: біометрична або автентифікація за допомогою PIN-коду ввімкнена</string>
     <string name="title_factor_minutes">%1$d хвилин</string>
     <string name="menu_answers">Шаблони</string>
+    <string name="menu_rules">Правила</string>
     <string name="menu_operations">Операції</string>
     <string name="menu_contacts">Локальні контакти</string>
     <string name="menu_setup">Налаштування</string>
@@ -133,6 +135,7 @@
     <string name="menu_rate">Оцінити додаток</string>
     <string name="title_welcome">Вітаємо</string>
     <string name="title_eula">Ліцензійна угода</string>
+    <string name="title_license">Ліцензії з відкритим кодом</string>
     <string name="title_contributors">Учасники проекту</string>
     <string name="title_agree">Я погоджуюся</string>
     <string name="title_disagree">Не погоджуюся</string>
@@ -179,6 +182,7 @@
     <string name="title_setup_gmail_password">Я хочу авторизувати обліковий запис за допомогою пароля</string>
     <string name="title_setup_office_auth">Помилка \'Автентифікація не вдалася\' викликана помилкою IMAP/SMTP можливо вимкненою системним адміністратором</string>
     <string name="title_setup_oauth_rationale">Авторизувати доступ до вашого облікового запису %1$s</string>
+    <string name="title_setup_oauth_update">Авторизувати наявний обліковий запис знову (інакше створіть новий обліковий запис)</string>
     <string name="title_setup_oauth_updated">Авторизація облікового запису була оновлена</string>
     <string name="title_setup_oauth_authorize">Авторизація</string>
     <string name="title_setup_select_account">Обрати обліковий запис</string>
@@ -221,9 +225,11 @@
     <string name="title_setup_done">Готово</string>
     <string name="title_setup_still">Все ще</string>
     <string name="title_setup_error">Помилка</string>
+    <string name="title_setup_pop">Використовувати POP3 (не рекомендовано)</string>
     <string name="title_setup_configuring">Налаштування облікового запису &#8230;</string>
     <string name="title_setup_app_password">Можливо, Ви повинні використовувати пароль для додатку</string>
     <string name="title_setup_extra">Додатково</string>
+    <string name="title_setup_delete_account_hint">Це призведе до видалення облікових записів із програми</string>
     <string name="title_setup_close">Закрити налаштування</string>
     <string name="title_setup_export">Експорт налаштувань</string>
     <string name="title_setup_import">Імпорт налаштувань</string>
@@ -289,6 +295,7 @@
     <string name="title_check_gmail_oauth">Ваші облікові записи Gmail працюватимуть після 30 травня, 2022 року</string>
     <string name="title_check_gmail_password">Деякі ваші облікові записи Gmail можуть не працювати після 30 травня, 2022 року</string>
     <string name="title_check_outlook_oauth">Ваші облікові запис Outlook будуть продовжувати працювати після 1 жовтня 2022</string>
+    <string name="title_check_outlook_password">Деякі облікові записи Outlook можуть перестати працювати після 1 жовтня, 2022</string>
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.        Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
     </string>
@@ -330,6 +337,7 @@
     <string name="title_advanced_check_mx">Перевіряти адреси електронної пошти відправника при синхронізації повідомлень</string>
     <string name="title_advanced_check_blocklist">Перевірте, чи ім\'я домену відправника знаходиться у списку спаму</string>
     <string name="title_advanced_use_blocklist">Перенести повідомлення з доменів що є у списку з блокування у теку зі спамом</string>
+    <string name="title_advanced_use_blocklist_pop3">Пропускати повідомлення від доменів в списку блокувань (тільки POP3)</string>
     <string name="title_advanced_tune_keep_alive">Автоматично налаштовувати інтервал активності</string>
     <string name="title_advanced_keyboard">Показувати клавіатуру за замовчуванням</string>
     <string name="title_advanced_keyboard_no_fullscreen">Заборонити повноекранну клавіатуру</string>
@@ -345,7 +353,10 @@
     <string name="title_advanced_attach_new">Додати спільні файли до нової чернетки</string>
     <string name="title_advanced_answer_action">Тривале натискання на кнопку відповіді для:</string>
     <string name="title_advanced_send_pending">Показати ненав\'язливий значок при затримці відправлення</string>
+    <string name="title_advanced_auto_save_paragraph">Автоматично зберігати чернетку після кожного абзацу</string>
+    <string name="title_advanced_auto_save_dot">Автоматично зберігати чернетку після кожного речення</string>
     <string name="title_advanced_compose_font">Типовий шрифт</string>
+    <string name="title_advanced_auto_identity">Автоматично вибирати ідентифікації для нових повідомлень</string>
     <string name="title_advanced_prefix_once">Одноразова тема префікса при відповіді або перенаправленні</string>
     <string name="title_advanced_prefix_count">Додати лічильник до префікса відповіді</string>
     <string name="title_advanced_separate_reply">Вставити горизонтальну лінію перед заголовком відповіді/перенаправлення</string>
@@ -358,6 +369,7 @@
     <string name="title_advanced_signature_location">Положення підпису</string>
     <string name="title_advanced_signature_new">Використовувати підпис для нових повідомлень</string>
     <string name="title_advanced_signature_reply">Використовувати підпис під час відповіді</string>
+    <string name="title_advanced_signature_reply_once">Лише для першої відповіді</string>
     <string name="title_advanced_signature_forward">Використовувати підпис під час перенаправлення</string>
     <string name="title_advanced_discard_delete">Видалення чернетки на назавжди</string>
     <string name="title_advanced_reply_move">Зберігати повідомлення-відповідь у тій самій папці</string>
@@ -367,6 +379,7 @@
     <string name="title_advanced_usenet_signature">Стиль підпису як в Usenet</string>
     <string name="title_advanced_remove_signatures">Видалити розпізнані підписи</string>
     <string name="title_advanced_receipt">Коли запитується звіт про отримання</string>
+    <string name="title_advanced_forward_new">Розпочати нову розмову під час пересилки</string>
     <string name="title_advanced_lookup_mx">Перед надсиланням перевіряти адреси електронної пошти одержувача</string>
     <string name="title_advanced_metered">Використовувати лімітовані підключення</string>
     <string name="title_advanced_download">Автоматично завантажувати повідомлення і вкладення при лімітованому з\'єднанні</string>
@@ -424,6 +437,7 @@
     <string name="title_advanced_avatars">Показувати фото контактів</string>
     <string name="title_advanced_bimi_unverified">Неперевірений відправник</string>
     <string name="title_advanced_bimi_verified">Перевірений відправник</string>
+    <string name="title_advanced_efavicons">Показувати аватар</string>
     <string name="title_advanced_favicons">Показати піктограми сайтів</string>
     <string name="title_advanced_favicons_partial">Просканувати у вебсторінці тільки перші %1$s</string>
     <string name="title_advanced_generated_icons">Показати згенеровані іконки</string>
@@ -521,6 +535,7 @@
     <string name="title_advanced_default_snooze">Час повторного нагадування за замовчуванням</string>
     <string name="title_advanced_notifications">Керування сповіщеннями</string>
     <string name="title_advanced_notifications_default">Канал за замовчуванням</string>
+    <string name="title_advanced_notifications_service">Моніторинг каналу</string>
     <string name="title_advanced_notifications_newest_first">Показувати спочатку нові сповіщення</string>
     <string name="title_advanced_notifications_background">Використовувати фонову службу для синхронізації повідомлень</string>
     <string name="title_advanced_notifications_background_hint">Фоновий сервіс може бути зупинений Android в будь-який час, що не вимагає сповіщення в рядку стану</string>
@@ -630,6 +645,7 @@
     <string name="title_advanced_poll_hint">Періодичнна перевірка на нові повідомлення щоразу порівнювнює локальні і віддалені повідомлення, є навантаженою операцією, що може призвести до додаткового розряджання батареї, особливо якщо є багато повідомлень. Режим \'завжди отримувати\' буде перешкоджати наступними перевіркам локального та відаленного змісту.</string>
     <string name="title_advanced_optimize_hint">Це може змінити частоту синхронізації для економії заряду акумулятора в залежності від можливостей і поведінки серверів електронної пошти</string>
     <string name="title_advanced_schedule_hint">Натисни на час, щоб встановити час</string>
+    <string name="title_advanced_schedule_ignore">Перевірка за розкладом може бути відключена у додаткових налаштуваннях облікового запису</string>
     <string name="title_advanced_quick_sync_hint">Це зменшує використання даних, але нові повідомлення можуть бути пропущені, якщо сервер електронної пошти не відповідає стандартам</string>
     <string name="title_advanced_no_date_hint">Деякі постачальники зберігають повідомлення з невідомою, недійсною або майбутньою датою так як і повідомлення зовсім без дати</string>
     <string name="title_advanced_unseen_hint">Деякі провайдери не підтримують це правильно, що може спричинити синхронізацію або всхі повідомленнь або жодного</string>
@@ -644,8 +660,10 @@
     <string name="title_advanced_check_reply_hint">Це перевірить, чи доменне ім\'я відправника та адреса для відповіді співпадають</string>
     <string name="title_advanced_lookup_mx_hint">Це перевірить, чи існують записи DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Це призведе до уповільнення синхронізації повідомлень</string>
+    <string name="title_advanced_folder_nav_hint">Це завжди буде повертати до переліку тек що пов\'язані до облікового запису зі списку повідомлень</string>
     <string name="title_advanced_suggest_names_hint">Якщо вимкнено, використовуватимуться лише адреси електронної пошти при виборі контактів</string>
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Будуть зберігатися дані про контакт для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
+    <string name="title_advanced_auto_identity_hint">Це може обрати останню ідентифікацію, яка використовувалася для першого одержувача нового повідомлення</string>
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
@@ -789,6 +807,8 @@
     <string name="title_received_header">Використовувати заголовок \'Received\'</string>
     <string name="title_date_header">Використовувати заголовок \'Date\' (час відправлення)</string>
     <string name="title_date_remark">Зміни будуть застосовані тільки до нових повідомлень</string>
+    <string name="title_unmetered_only">Підключення тільки через нелімітовані мережі</string>
+    <string name="title_ignore_schedule">Синхронізувати також і за межами розкладу</string>
     <string name="title_related_identity">Додати пов\'язану ідентифікацію (SMTP сервер)</string>
     <string name="title_check">Перевірити</string>
     <string name="title_trust">Довіряти сертифікату сервера з відбитком %1$s</string>
@@ -847,6 +867,7 @@
         Обмежувальний фактор, як правило, це швидкість внутрішнього сховища пристрою.
   
     </string>
+    <string name="title_synchronize_more_hint3">Будь ласка, майте на увазі, що зберігання численних повідомлень на пристрої (десять тисяч і більше) може викликати затримки, тому що внутрішній накопичувач не є нескінченно швидким.</string>
     <string name="title_synchronize_enabled">Синхронізація</string>
     <string name="title_synchronize_batch_enable">Увімкнути синхронізацію</string>
     <string name="title_synchronize_batch_disable">Вимкнути синхронізацію</string>
@@ -869,6 +890,7 @@
     <string name="title_edit_contact">Редагувати контакт</string>
     <string name="title_contact_email">Email</string>
     <string name="title_contact_name">Ім\'я</string>
+    <string name="title_contact_group">Група</string>
     <string name="title_import_contacts">Імпорт vCards</string>
     <string name="title_export_contacts">Експорт vCards</string>
     <string name="title_create_sub_folder">Створити підтеку</string>
@@ -884,6 +906,7 @@
     <string name="title_delete_operation_flag">Операції відмітки</string>
     <string name="title_delete_operation_delete">Операції видалення</string>
     <string name="title_delete_operation_deleted">%1$d операцій видалено</string>
+    <string name="title_delete_contacts">Видалити видимі локальні контакти?</string>
     <string name="title_no_operations">Немає відкладених операцій</string>
     <string name="title_check_operations">Перевірка операцій</string>
     <string name="title_hint_operations">Видалення операцій може призвести до зникнення повідомлень та проблем з синхронізацією</string>
@@ -899,6 +922,8 @@
     <string name="title_apply_to_all">Застосувати до всіх</string>
     <string name="title_edit_account_name">Редагувати ім\'я облікового запису</string>
     <string name="title_hide_folder">Сховати теку</string>
+    <string name="title_hide_seen_folder">Приховати теку, якщо всі повідомлення прочитані</string>
+    <string name="title_hide_seen_folder_hint">Показуватися тільки в списку тек при стартовому екрані</string>
     <string name="title_unified_folder">Показати в об\'єднаній вхідній теці</string>
     <string name="title_navigation_folder">Показати в меню навігації</string>
     <string name="title_synchronize_folder">Синхронізувати (отрим. повідомлення)</string>
@@ -994,6 +1019,7 @@
     <string name="title_eml_remark">Для пересилання повідомлень необхідно завантажити необроблені (оригінальні) повідомлення з сервера електронної пошти. Для цього потрібно підключення до Інтернету і повідомлення все ще повинні зберігатися на сервері електронної пошти.</string>
     <string name="title_eml_option">Увімкнувши в налаштуваннях підключення, це може запобігти, завжди завантажувати файли необроблених повідомлень</string>
     <string name="title_eml_downloaded">Необроблених повідомлень завантаженно: %1$s</string>
+    <string name="title_auto_confirm">Автоматично підтверджувати через декілька секунд</string>
     <string name="title_buttons">Виберіть кнопки</string>
     <string name="title_buttons_hint">Доступні поточні дії залежать від типу облікового запису і конфігурації</string>
     <string name="title_button_search">Пошук у повідомленнях</string>
@@ -1044,6 +1070,7 @@
     <string name="title_no_saf">Компонент для доступу до сховища недоступний</string>
     <string name="title_no_stream">FairEmail не має дозволу на безпосереднє читання цього файлу</string>
     <string name="title_no_stream_help">Виберіть файл у більш сучасному застосунку для керування файлами, або надайте дозвіл на читання файлів</string>
+    <string name="title_no_permissions">Додаток використовувався для вибору файлу котрий не мав дозвіл на його читання</string>
     <string name="title_no_internet">Відсутнє або не відповідне підключення до Інтернету</string>
     <string name="title_no_connection">Підключення до одного або декількох облікових записів &#8230;</string>
     <string name="title_no_folder">Тека не існує</string>
@@ -1146,6 +1173,7 @@
     <string name="title_style_font_default">За замовчанням</string>
     <string name="title_style_blockquote">Цитата</string>
     <string name="title_style_indentation">Відступ</string>
+    <string name="title_style_mark">Виділення</string>
     <string name="title_style_strikethrough">Закреслений</string>
     <string name="title_style_clear">Очистити форматування</string>
     <string name="title_style_link">Вставити посилання</string>
@@ -1176,8 +1204,12 @@
     <string name="title_translating">Переклад &#8230;</string>
     <string name="title_translate_formal">Використовувати формальний стиль</string>
     <string name="title_translate_small">Використовувати малий шрифт для початкового тексту</string>
+    <string name="title_translate_html">Зберігати форматування</string>
+    <string name="title_translate_html_hint">Це буде споживати більше символів</string>
     <string name="title_translate_usage">Використання: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Торкніться тексту для перекладу</string>
+    <string name="title_suggestions_check">Перевірка &#8230;</string>
+    <string name="title_suggestions_none">Варіантів не знайдено</string>
     <string name="title_edit_plain_text">Редагувати як звичайний текст</string>
     <string name="title_edit_formatted_text">Редагувати як переформатований текст</string>
     <string name="title_select_certificate">Виберіть відкритий ключ</string>
@@ -1388,6 +1420,7 @@
     <string name="title_rule_original_text">Включати текст оригінального повідомлення</string>
     <string name="title_rule_forward_to">Переслати</string>
     <string name="title_rule_resend">Перевідправити</string>
+    <string name="title_rule_attached">Прикріпити файл raw повідомлення</string>
     <string name="title_rule_cc">Відповісти на адреси CC</string>
     <string name="title_rule_with_attachments">З вкладеннями</string>
     <string name="title_rule_answer_remark">Для будь-якої розмови буде надіслано тільки одна відповідь, щоб уникнути циклів відповіді</string>
@@ -1538,9 +1571,11 @@
     <string name="title_legend_t">Фокус на тексті</string>
     <string name="title_hint_folder_actions">Довге натиснення на теку - налаштування, наприклад для швидкого доступу, додавання теки в меню навігації</string>
     <string name="title_hint_folder_sync">Щоб обмежити використання батареї та мережі не всі теки й не всі повідомлення буде синхронізовано за замовчуванням</string>
+    <string name="title_hint_airplane">Режим «у літаку» ввімкнено</string>
     <string name="title_hint_support">Якщо у вас є питання або проблема, будь ласка, використовуйте меню підтримки для отримання допомоги</string>
     <string name="title_hint_message_actions">Гортайте ліворуч до кошика; проведіть праворуч щоб архівувати (якщо доступно); ці дії можна налаштувати в налаштуваннях облікового запису</string>
     <string name="title_hint_message_selection">Довго натисніть на повідомлення, щоб почати вибирати кілька повідомлень; Натиснувши потягніть вгору або вниз, щоб обрати більше повідомлень</string>
+    <string name="title_hint_message_junk">Ці повідомлення знаходяться в теці зі спамом на сервері електронної пошти. Очевидно, що додаток не може запобігти доставлення спам-повідомлень Вам.</string>
     <string name="title_hint_important">Важливо</string>
     <string name="title_hint_sync">Завантаження повідомлень може зайняти деякий час, в залежності від пристрою, швидкості провайдера, інтернет-з\'єднання та кількості повідомлень. При завантаженні повідомлень, додаток може реагувати повільніше.</string>
     <string name="title_hint_sync_note">За замовчуванням, не всі повідомлення будуть завантажені щоб обмежити об\'єм використаної пам\'яті, а також використання акумулятора. Це можна змінити, довго натискаючи на теку в списку тек і вибравши \"Синхронізувати більше\".</string>
@@ -1626,6 +1661,7 @@
         FairEmail показує маленьке повідомлення, щоб нагадати Вам про це, воно буде вилучено, якщо ви купите Pro функції.
     </string>
     <string name="title_pro_whichever">Незалежно від функції, котра визначена як професійна функція, завжди є людина, яка скаржиться, що ця функція має бути безкоштовною. Будь ласка, не будьте тою особлививою людиною.</string>
+    <string name="title_pro_google">FairEmail ініціює покупку в Play Store, але зрештою Google керує усім процесом покупки. Тому, будь ласка, не звинувачуйте додаток у разі будь-яких проблем!</string>
     <string name="title_pro_hide">Приховати невелике повідомлення протягом %1$d тижнів</string>
     <string name="title_pro_hint">Купівля Pro-функцій дозволить вам використовувати всі поточні та майбутні Pro-функції, і допоможе підтримувати і обслуговувати цей додаток.</string>
     <string name="title_pro_price">Чому Pro функції такі дорогі?</string>
@@ -1666,10 +1702,13 @@
     <string name="title_widget_flagged">Лише обрані повідомлення</string>
     <string name="title_widget_font_size">Розмір тексту</string>
     <string name="title_widget_padding">Розмір відступів</string>
+    <string name="title_widget_separator_lines">Використовувати розділюючі лінії</string>
     <string name="title_widget_semi_transparent">Напівпрозорий фон</string>
+    <string name="title_widget_avatars">Показувати аватари контактів</string>
     <string name="title_widget_refresh">Показувати кнопку оновлення повідомлень</string>
     <string name="title_widget_compose">Показати кнопку створення нового повідомлення</string>
     <string name="title_widget_background">Колір тла</string>
+    <string name="title_widget_day_night">Використовувати системну темну тему</string>
     <string name="title_accessibility_collapsed">Згорнуто</string>
     <string name="title_accessibility_expanded">Розгорнуто</string>
     <string name="title_accessibility_seen">Прочитано</string>
@@ -1866,13 +1905,13 @@
         <item>Одержувач</item>
         <item>Відправником</item>
         <item>Заблоковано</item>
-        <item>Not blocked</item>
+        <item>Не заблоковано</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item>Any</item>
-        <item>Home</item>
+        <item>Будь-які</item>
+        <item>Головна</item>
         <item>Службовий</item>
         <item>Інше</item>
-        <item>Mobile</item>
+        <item>Мобільний</item>
     </string-array>
 </resources>

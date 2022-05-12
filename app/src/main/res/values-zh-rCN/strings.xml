@@ -198,6 +198,7 @@
     <string name="title_setup_configuring">正在配置账户 &#8230;</string>
     <string name="title_setup_app_password">您可能需要使用 app 密码</string>
     <string name="title_setup_extra">更多</string>
+    <string name="title_setup_delete_account_hint">这只会从应用中删除账户</string>
     <string name="title_setup_close">关闭设置</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
@@ -347,6 +348,7 @@
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
     <string name="title_advanced_remove_signatures">移除公认的签名</string>
     <string name="title_advanced_receipt">请求回执时</string>
+    <string name="title_advanced_forward_new">转发时开始新对话</string>
     <string name="title_advanced_lookup_mx">发送前检查收件人电子邮件地址</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_download">在计量连接下自动下载最大__的邮件与附件</string>

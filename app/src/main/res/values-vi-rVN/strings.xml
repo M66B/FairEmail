@@ -198,6 +198,7 @@
     <string name="title_setup_configuring">Đang thiết lập tài khoản &#8230;</string>
     <string name="title_setup_app_password">Bạn có thể cần phải sử dụng mật khẩu ứng dụng</string>
     <string name="title_setup_extra">Thêm</string>
+    <string name="title_setup_delete_account_hint">Việc này sẽ chỉ xoá tài khoản khỏi ứng dụng</string>
     <string name="title_setup_close">Đóng cài đặt</string>
     <string name="title_setup_export">Xuất cài đặt</string>
     <string name="title_setup_import">Nhập cài đặt</string>
@@ -262,6 +263,8 @@
     <string name="title_setup_reset_links">Xác nhận liên kết</string>
     <string name="title_check_gmail_oauth">Các tài khoản Gmail của bạn sẽ tiếp tục hoạt động sau 30 tháng 5, 2022</string>
     <string name="title_check_gmail_password">Một số tài khoản Gmail của bạn có thể dừng hoạt động sau 30 tháng 5, 2022</string>
+    <string name="title_check_outlook_oauth">Các tài khoản Outlook của bạn sẽ tiếp tục hoạt động sau 1 tháng 10, 2022</string>
+    <string name="title_check_outlook_password">Một số tài khoản Outlook của bạn có thể dừng hoạt động sau 1 tháng 10, 2022</string>
     <string name="title_advanced_hint_title">Tuỳ chọn nâng cao hơn</string>
     <string name="title_advanced_hint_message">        Bạn đang điều hướng đến các tùy chọn nâng cao hơn.        Tất cả các tùy chọn đều có các giá trị tiêu chuẩn thường được sử dụng, bạn không cần phải thay đổi trừ khi bạn có tùy chọn khác.
     </string>
@@ -345,6 +348,7 @@
     <string name="title_advanced_usenet_signature">Theo quy ước chữ ký của Usenet</string>
     <string name="title_advanced_remove_signatures">Xoá các chữ ký đã nhận ra</string>
     <string name="title_advanced_receipt">Khi yêu cầu xác nhận</string>
+    <string name="title_advanced_forward_new">Bắt đầu cuộc hội thoại mới khi chuyển tiếp</string>
     <string name="title_advanced_lookup_mx">Kiểm tra địa chỉ email người nhận trước khi gửi</string>
     <string name="title_advanced_metered">Sử dụng các kết nối trả phí</string>
     <string name="title_advanced_download">Tự động tải xuống các thư và tệp đính kèm trong kết nối trả phí lớn nhất</string>
@@ -361,6 +365,7 @@
     <string name="title_advanced_cert_strict">Kiểm tra chứng chỉ nghiêm ngặt</string>
     <string name="title_advanced_manage_connectivity">Quản lý sự kết nối</string>
     <string name="title_advanced_caption_general">Cài đặt chung</string>
+    <string name="title_advanced_caption_navigation">Điều hướng</string>
     <string name="title_advanced_caption_checks">Kiểm tra</string>
     <string name="title_advanced_caption_list">Danh sách</string>
     <string name="title_advanced_caption_conversation">Hội thoại</string>
@@ -1671,6 +1676,7 @@
     <string name="title_widget_refresh">Hiện nút làm mới thư</string>
     <string name="title_widget_compose">Hiện nút soạn thư mới</string>
     <string name="title_widget_background">Màu nền</string>
+    <string name="title_widget_day_night">Theo giao diện tối hệ thống</string>
     <string name="title_accessibility_collapsed">Thu gọn</string>
     <string name="title_accessibility_expanded">Mở rộng</string>
     <string name="title_accessibility_seen">Đã đọc</string>

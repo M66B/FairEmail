@@ -349,6 +349,7 @@
     <string name="title_advanced_usenet_signature">Usenet の署名ルールに従う</string>
     <string name="title_advanced_remove_signatures">署名を識別して削除</string>
     <string name="title_advanced_receipt">要求する確認メッセージの種類</string>
+    <string name="title_advanced_forward_new">転送するときに新しい会話を開始</string>
     <string name="title_advanced_lookup_mx">送信する前に宛先のメールアドレスを確認</string>
     <string name="title_advanced_metered">従量制課金接続を使用</string>
     <string name="title_advanced_download">従量制課金接続でメッセージと添付ファイルを自動的にダウンロード</string>

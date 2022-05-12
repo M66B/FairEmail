@@ -359,6 +359,7 @@
     <string name="title_advanced_usenet_signature">Segue la convenzione di firma di Usenet</string>
     <string name="title_advanced_remove_signatures">Rimuovi le firme riconosciute</string>
     <string name="title_advanced_receipt">Richiedendo una ricevuta</string>
+    <string name="title_advanced_forward_new">Avvia una nuova conversazione quando inoltri</string>
     <string name="title_advanced_lookup_mx">Controlla gli indirizzi email dei destinatari prima di inviare</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente messaggi e allegati su una connessione a consumo fino a</string>

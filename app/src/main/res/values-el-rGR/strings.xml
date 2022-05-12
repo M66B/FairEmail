@@ -358,6 +358,7 @@
     <string name="title_advanced_usenet_signature">Τήρηση των συμβάσεων υπογραφής του Usenet</string>
     <string name="title_advanced_remove_signatures">Αφαίρεση των γνωστών υπογραφών</string>
     <string name="title_advanced_receipt">Όταν ζητάτε αποδεικτικό</string>
+    <string name="title_advanced_forward_new">Έναρξη μιας νέας συζήτησης κατά την προώθηση</string>
     <string name="title_advanced_lookup_mx">Έλεγχος των διευθύνσεων των παραληπτών προτού γίνει η αποστολή</string>
     <string name="title_advanced_metered">Χρήση συνδέσεων με ογκοχρέωση</string>
     <string name="title_advanced_download">Αυτόματο κατέβασμα μηνυμάτων και συνημμένων με σύνδεση ογκοχρέωσης μέχρι</string>

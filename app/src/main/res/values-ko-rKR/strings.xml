@@ -165,6 +165,7 @@
     <string name="title_setup_still">여전히 해야 할 일</string>
     <string name="title_setup_error">오류</string>
     <string name="title_setup_pop">POP3 사용 (권장하지 않음)</string>
+    <string name="title_setup_delete_account_hint">앱에서만 계정이 삭제될 것입니다</string>
     <string name="title_setup_close">설정 닫기</string>
     <string name="title_setup_export">설정 내보내기</string>
     <string name="title_setup_import">설정 불러오기</string>
@@ -208,6 +209,8 @@
     <string name="title_setup_reset_general">일반 질문</string>
     <string name="title_setup_reset_full">원본 메시지 보기</string>
     <string name="title_setup_reset_images">사진 표시</string>
+    <string name="title_check_outlook_oauth">Outlook 계정이 2022년 10월 1일 이후에도 계속 작동할 예정입니다</string>
+    <string name="title_check_outlook_password">일부 Outlook 계정이 2022년 10월 1일 이후 정지될 수 있습니다</string>
     <string name="title_advanced_hint_title">고급 설정 더보기</string>
     <string name="title_advanced_section_main">메인</string>
     <string name="title_advanced_section_synchronize">수신</string>
@@ -242,6 +245,7 @@
     <string name="title_advanced_signature_forward">전달 시 서명 사용</string>
     <string name="title_advanced_discard_delete">초안이 영구적으로 삭제됩니다</string>
     <string name="title_advanced_reply_move">답장 시 응답을 같은 폴더에 저장합니다</string>
+    <string name="title_advanced_forward_new">메일 전달 시 새로운 대화 시작하기</string>
     <string name="title_advanced_metered">과금 연결 사용</string>
     <string name="title_advanced_rlah">EU 내 무제한 로밍</string>
     <string name="title_advanced_download_headers">모든 메시지 제목 다운로드</string>

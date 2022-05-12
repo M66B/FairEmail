@@ -319,6 +319,7 @@
     <string name="title_advanced_plain_only">فقط متن ساده را به صورت پیش‌فرض بفرست</string>
     <string name="title_advanced_remove_signatures">امضاء های شناخته شده را حذف کن</string>
     <string name="title_advanced_receipt">هنگام درخواست رسید</string>
+    <string name="title_advanced_forward_new">هنگام فوروارد کردن، یک مکالمه جدید شروع کن</string>
     <string name="title_advanced_lookup_mx">نشانی ایمیل گیرنده را قبل از فرستادن بررسی کن</string>
     <string name="title_advanced_metered">استفاده از شبکه موبایل</string>
     <string name="title_advanced_download">دریافت خودکار پیام‌ها و پیوست‌ها روی شبکه موبایل</string>

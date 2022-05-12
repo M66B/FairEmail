@@ -208,6 +208,7 @@
     <string name="title_setup_configuring">Konfigurerar konto &#8230;</string>
     <string name="title_setup_app_password">Du kan behöva använda ett applösenord</string>
     <string name="title_setup_extra">Extra</string>
+    <string name="title_setup_delete_account_hint">Detta tar bara bort konton från appen</string>
     <string name="title_setup_close">Stäng inställningar</string>
     <string name="title_setup_export">Exportera inställningar</string>
     <string name="title_setup_import">Importera inställningar</string>
@@ -270,6 +271,8 @@
     <string name="title_setup_reset_links">Bekräfta länkar</string>
     <string name="title_check_gmail_oauth">Dina Gmail-konton kommer att fortsätta fungera efter den 30 maj 2022</string>
     <string name="title_check_gmail_password">Vissa av dina Gmail-konton kan sluta fungera efter den 30 maj 2022</string>
+    <string name="title_check_outlook_oauth">Dina Outlook-konton kommer att fortsätta fungera efter 1 oktober 2022</string>
+    <string name="title_check_outlook_password">Vissa av dina Outlook-konton kan sluta fungera efter 1 oktober 2022</string>
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
     <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.        Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
     <string name="title_advanced_hint_remark">        Alternativen kategoriseras efter flik, indelade i sektioner, organiserade efter utseende eller användning och sökbara.
@@ -352,6 +355,7 @@
     <string name="title_advanced_usenet_signature">Signaturkonvention för Usenet</string>
     <string name="title_advanced_remove_signatures">Ta bort igenkända signaturer</string>
     <string name="title_advanced_receipt">När kvitto begärs</string>
+    <string name="title_advanced_forward_new">Starta en ny konversation vid vidarebefordran</string>
     <string name="title_advanced_lookup_mx">Kontrollera mottagarens e-postadresser innan du skickar</string>
     <string name="title_advanced_metered">Använda uppmätta anslutningar</string>
     <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>

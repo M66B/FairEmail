@@ -357,6 +357,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_usenet_signature">Usenet handtekening conventie</string>
     <string name="title_advanced_remove_signatures">Verwijder herkende handtekeningen</string>
     <string name="title_advanced_receipt">Bij het aanvragen van een bevestiging</string>
+    <string name="title_advanced_forward_new">Een nieuw gesprek starten bij doorsturen</string>
     <string name="title_advanced_lookup_mx">Controleer e-mailadressen van de ontvangers voor verzenden</string>
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>

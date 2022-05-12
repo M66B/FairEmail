@@ -379,6 +379,7 @@
     <string name="title_advanced_usenet_signature">לעקוב אחר מוסכמת החתימות של Usenet</string>
     <string name="title_advanced_remove_signatures">הסרת חתימות מזוהות</string>
     <string name="title_advanced_receipt">בעת בקשת אישור</string>
+    <string name="title_advanced_forward_new">לפתוח דיון חדש בהעברה</string>
     <string name="title_advanced_lookup_mx">בדיקת כתובות דוא״ל הנמענים בטרם השליחה</string>
     <string name="title_advanced_metered">שימוש בחיבור מוגבל</string>
     <string name="title_advanced_download">להוריד הודעות וקבצים מצורפים אוטומטית בחיבור מוגבל עד</string>

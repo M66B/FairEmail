@@ -359,6 +359,7 @@
     <string name="title_advanced_usenet_signature">Utiliser la convention de signature Usenet</string>
     <string name="title_advanced_remove_signatures">Supprimer les signatures reconnues</string>
     <string name="title_advanced_receipt">Lorsque vous demandez une confirmation</string>
+    <string name="title_advanced_forward_new">Démarrer une nouvelle conversation lors du transfert</string>
     <string name="title_advanced_lookup_mx">Vérifier les adresses courriel des destinataires avant l’envoi</string>
     <string name="title_advanced_metered">Utiliser les connexions limitées</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu’à</string>
