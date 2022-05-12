@@ -102,12 +102,12 @@ public class UriHelper {
         String tld = getTld(context, host);
         if (tld == null)
             return null;
-        if (tld.equals(host))
+        if (tld.equalsIgnoreCase(host))
             return null;
         int len = host.length() - tld.length() - 1;
         if (len < 0) {
             Log.e("getRootDomain host=" + host + " tld=" + tld);
-            return host;
+            return null;
         }
         int dot = host.substring(0, len).lastIndexOf('.');
         if (dot < 0)
