@@ -322,9 +322,10 @@ public class EmailProvider implements Parcelable {
     }
 
     static EmailProvider getProvider(Context context, String id) throws FileNotFoundException {
-        for (EmailProvider provider : loadProfiles(context))
-            if (id.equals(provider.id))
-                return provider;
+        if (id != null)
+            for (EmailProvider provider : loadProfiles(context))
+                if (id.equals(provider.id))
+                    return provider;
 
         throw new FileNotFoundException("provider id=" + id);
     }
