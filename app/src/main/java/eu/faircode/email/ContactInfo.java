@@ -35,6 +35,7 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Pair;
+import android.util.Xml;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -44,6 +45,7 @@ import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.xmlpull.v1.XmlPullParser;
 
 import java.io.BufferedOutputStream;
 import java.io.EOFException;
@@ -638,6 +640,62 @@ public class ContactInfo {
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
+
+        // https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)
+        if (imgs.size() == 0 || BuildConfig.DEBUG) {
+            String cfg = "/browserconfig.xml";
+            Element meta = doc.head().select("meta[name=msapplication-config]").first();
+            if (meta != null) {
+                String content = meta.attr("content");
+                if (!TextUtils.isEmpty(content))
+                    cfg = content;
+            }
+            try {
+                URL url = new URL(base, cfg);
+                if (!"https".equals(url.getProtocol()))
+                    throw new FileNotFoundException(url.toString());
+                Log.i("GET browserconfig " + url);
+
+                HttpsURLConnection m = (HttpsURLConnection) url.openConnection();
+                m.setRequestMethod("GET");
+                m.setReadTimeout(FAVICON_READ_TIMEOUT);
+                m.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
+                m.setInstanceFollowRedirects(true);
+                m.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                m.connect();
+
+                try {
+                    XmlPullParser xml = Xml.newPullParser();
+                    xml.setInput(m.getInputStream(), null);
+                    int eventType = xml.getEventType();
+                    while (eventType != XmlPullParser.END_DOCUMENT) {
+                        if (eventType == XmlPullParser.START_TAG) {
+                            String name = xml.getName();
+                            if ("square70x70logo".equals(name) ||
+                                    "square150x150logo".equals(name) ||
+                                    "square310x310logo".equals(name)) {
+                                String src = xml.getAttributeValue(null, "src");
+                                if (!TextUtils.isEmpty(src)) {
+                                    Element img = doc.createElement("link")
+                                            .attr("rel", "browserconfig")
+                                            .attr("href", new URL(base, src).toString())
+                                            .attr("sizes", name
+                                                    .replace("square", "")
+                                                    .replace("logo", ""));
+                                    Log.i("GOT browserconfig " + img);
+                                    imgs.add(img);
+                                }
+                            }
+                        }
+                        eventType = xml.next();
+                    }
+                } finally {
+                    m.disconnect();
+                }
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+        }
 
         String host = base.getHost();
 
