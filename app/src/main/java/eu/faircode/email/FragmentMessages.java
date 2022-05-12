@@ -5919,30 +5919,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (!result[0] && !message.ui_seen)
                             result[0] = true;
 
-                        if (!result[1] &&
-                                (EntityFolder.ARCHIVE.equals(folder.type) ||
-                                        EntityFolder.JUNK.equals(folder.type) ||
-                                        EntityFolder.TRASH.equals(folder.type))) {
+                        if (!result[1] && !EntityFolder.INBOX.equals(folder.type)) {
                             EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
                             result[1] = (inbox != null && inbox.selectable);
                         }
 
-                        if (!result[2] &&
-                                !EntityFolder.ARCHIVE.equals(folder.type)) {
+                        if (!result[2] && !EntityFolder.ARCHIVE.equals(folder.type)) {
                             EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
                             result[2] = (archive != null && archive.selectable);
                         }
 
-                        if (!result[3] &&
-                                !EntityFolder.JUNK.equals(folder.type) &&
-                                !EntityFolder.DRAFTS.equals(folder.type)) {
+                        if (!result[3] && !EntityFolder.JUNK.equals(folder.type)) {
                             EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
                             result[3] = (junk != null && junk.selectable);
                         }
 
-                        if (!result[4] &&
-                                !EntityFolder.TRASH.equals(folder.type) &&
-                                !EntityFolder.JUNK.equals(folder.type)) {
+                        if (!result[4] && !EntityFolder.TRASH.equals(folder.type)) {
                             EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
                             result[4] = (trash != null && trash.selectable);
                         }
