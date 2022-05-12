@@ -4541,6 +4541,7 @@ public class MessageHelper {
         String status;
         String diagnostic;
         String disposition;
+        String refid;
         String html;
 
         Report(String type, String content) {
@@ -4595,6 +4596,9 @@ public class MessageHelper {
                                 break;
                             case "Disposition":
                                 this.disposition = value;
+                                break;
+                            case "Original-Message-ID":
+                                this.refid = value;
                                 break;
                         }
                     }
