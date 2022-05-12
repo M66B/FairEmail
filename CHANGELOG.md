@@ -4,7 +4,7 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
-### Next version
+### 1.1895 - 2022-05-12
 
 * Added quick mark as read button
 * Added send option to disable forwarding as new conversation thread
