@@ -135,6 +135,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeoutException;
@@ -2074,6 +2075,23 @@ public class Log {
                     if (key != null && key.startsWith("oauth."))
                         value = "[redacted]";
                     size += write(os, key + "=" + value + "\r\n");
+                }
+
+                size += write(os, "\r\n");
+
+                try {
+                    List<String> names = new ArrayList<>();
+
+                    Properties props = System.getProperties();
+                    Enumeration<?> pnames = props.propertyNames();
+                    while (pnames.hasMoreElements())
+                        names.add((String) pnames.nextElement());
+
+                    Collections.sort(names);
+                    for (String name : names)
+                        size += write(os, name + "=" + props.getProperty(name) + "\r\n");
+                } catch (Throwable ex) {
+                    size += write(os, ex.getMessage() + "\r\n");
                 }
             }
 
