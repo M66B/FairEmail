@@ -2021,6 +2021,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ToolData data = new ToolData();
 
                     DB db = DB.getInstance(context);
+
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message != null) {
+                        List<Address> senders = new ArrayList<>();
+                        if (message.from != null)
+                            senders.addAll(Arrays.asList(message.from));
+                        if (message.reply != null)
+                            senders.addAll(Arrays.asList(message.reply));
+
+                        List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
+                        if (identities != null) {
+                            for (TupleIdentityEx identity : identities)
+                                for (Address sender : senders)
+                                    if (identity.self && identity.similarAddress(sender)) {
+                                        data.fromSelf = true;
+                                        break;
+                                    }
+                        }
+                    }
+
                     EntityAccount account = db.account().getAccount(aid);
                     data.isGmail = (account != null && account.isGmail());
                     data.folders = db.folder().getSystemFolders(aid);
@@ -2152,7 +2172,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibMove.setVisibility(tools && button_move && move ? View.VISIBLE : View.GONE);
                     ibArchive.setVisibility(tools && button_archive && archive ? View.VISIBLE : View.GONE);
                     ibTrash.setVisibility(outbox || (tools && button_trash && trash) ? View.VISIBLE : View.GONE);
-                    ibJunk.setVisibility(tools && button_junk && report ? View.VISIBLE : View.GONE);
+                    ibJunk.setVisibility(tools && button_junk && report && !data.fromSelf ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
                     ibMore.setVisibility(tools && !outbox ? View.VISIBLE : View.GONE);
                     ibTools.setImageLevel(tools ? 0 : 1);
@@ -6771,6 +6791,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         };
 
         private class ToolData {
+            private boolean fromSelf;
             private boolean isGmail;
             private List<EntityFolder> folders;
             private List<EntityAttachment> attachments;
