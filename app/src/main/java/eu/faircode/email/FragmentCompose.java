@@ -119,6 +119,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
+import androidx.core.os.BuildCompat;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
@@ -3008,7 +3009,7 @@ public class FragmentCompose extends FragmentBase {
             Intent picker = new Intent("android.provider.action.PICK_IMAGES");
             picker.putExtra("android.provider.extra.PICK_IMAGES_MAX", 10);
             picker.setType("image/*");
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.S_V2 &&
+            if (BuildCompat.isAtLeastT() &&
                     picker.resolveActivity(pm) != null)
                 startActivityForResult(picker, REQUEST_IMAGE_FILE);
             else {
