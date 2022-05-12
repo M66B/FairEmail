@@ -4858,11 +4858,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 int passwd = 0;
                 if (accounts != null)
                     for (EntityAccount account : accounts)
-                        if (account.isOutlook())
+                        if (account.isOutlook()) {
+                            String user = (account.user == null ? "" : account.user.toLowerCase(Locale.ROOT));
+                            if (user.contains("@hotmail") || user.contains("@live"))
+                                continue;
                             if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH)
                                 oauth++;
                             else if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD)
                                 passwd++;
+                        }
 
                 if (oauth + passwd == 0) {
                     prefs.edit().putBoolean("outlook_checked", true).apply();

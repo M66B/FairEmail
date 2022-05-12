@@ -1613,6 +1613,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 editor.remove(key);
                             }
 
+                        if (BuildConfig.DEBUG) {
+                            editor.remove("gmail_checked");
+                            editor.remove("outlook_checked");
+                        }
+
                         editor.apply();
 
                         ToastEx.makeText(context, R.string.title_setup_done, Toast.LENGTH_LONG).show();
