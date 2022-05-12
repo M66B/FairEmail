@@ -5862,8 +5862,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (selectionTracker != null && selectionTracker.hasSelection()) {
             fabMore.show();
 
+            long[] selection = getSelection();
+
             Context context = tvSelectedCount.getContext();
-            int count = getSelection().length;
+            int count = selection.length;
             tvSelectedCount.setText(NF.format(count));
             if (count > (BuildConfig.DEBUG ? 10 : MAX_MORE)) {
                 int ts = Math.round(tvSelectedCount.getTextSize());
@@ -5877,7 +5879,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             tvSelectedCount.setVisibility(View.VISIBLE);
 
             Bundle args = new Bundle();
-            args.putLongArray("ids", getSelection());
+            args.putLongArray("ids", selection);
 
             new SimpleTask<Boolean[]>() {
                 @Override
@@ -5960,7 +5962,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                 }
-            }.setExecutor(executor).execute(this, args, "fabs");
+            }.setExecutor(executor).execute(this, args, "quickactions");
         } else {
             fabMore.hide();
             tvSelectedCount.setVisibility(View.GONE);
