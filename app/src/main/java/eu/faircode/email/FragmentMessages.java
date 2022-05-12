@@ -1035,8 +1035,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View view) {
                 Log.i("Manual GC");
-                Runtime.getRuntime().runFinalization();
-                Runtime.getRuntime().gc();
+                Runtime rt = Runtime.getRuntime();
+                rt.runFinalization();
+                rt.gc();
                 view.postDelayed(new Runnable() {
                     @Override
                     public void run() {
