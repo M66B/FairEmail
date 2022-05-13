@@ -291,6 +291,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private FloatingActionButton fabMore;
     private TextView tvSelectedCount;
     private CardView cardMore;
+    private ImageButton ibLowImportance;
     private ImageButton ibBatchSeen;
     private ImageButton ibInbox;
     private ImageButton ibArchive;
@@ -560,6 +561,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabMore = view.findViewById(R.id.fabMore);
         tvSelectedCount = view.findViewById(R.id.tvSelectedCount);
         cardMore = view.findViewById(R.id.cardMore);
+        ibLowImportance = view.findViewById(R.id.ibLowImportance);
         ibBatchSeen = view.findViewById(R.id.ibBatchSeen);
         ibInbox = view.findViewById(R.id.ibInbox);
         ibArchive = view.findViewById(R.id.ibArchive);
@@ -1288,6 +1290,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 onMore();
+            }
+        });
+
+        ibLowImportance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW, true);
             }
         });
 
@@ -3393,13 +3402,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             onActionFlagColorSelection();
                             return true;
                         } else if (itemId == R.string.title_importance_low) {
-                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW);
+                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW, false);
                             return true;
                         } else if (itemId == R.string.title_importance_normal) {
-                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_NORMAL);
+                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_NORMAL, false);
                             return true;
                         } else if (itemId == R.string.title_importance_high) {
-                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH);
+                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH, false);
                             return true;
                         } else if (itemId == R.string.title_raw_send) {
                             onActionRaw();
@@ -3670,10 +3679,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fragment.show(getParentFragmentManager(), "messages:color");
     }
 
-    private void onActionSetImportanceSelection(int importance) {
+    private void onActionSetImportanceSelection(int importance, boolean clear) {
         Bundle args = new Bundle();
         args.putLongArray("selected", getSelection());
         args.putInt("importance", importance);
+
+        if (clear && selectionTracker != null)
+            selectionTracker.clearSelection();
 
         new SimpleTask<Void>() {
             @Override
@@ -5748,13 +5760,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected void onExecuted(Bundle args, MoreResult result) {
+                    boolean importance = (BuildConfig.DEBUG &&
+                            !EntityMessage.PRIORITIY_LOW.equals(result.importance));
+                    ibLowImportance.setVisibility(importance ? View.VISIBLE : View.GONE);
                     ibBatchSeen.setVisibility(result.unseen ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(result.canInbox() ? View.VISIBLE : View.GONE);
                     ibArchive.setVisibility(result.canArchive() ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(result.canJunk() ? View.VISIBLE : View.GONE);
                     ibTrash.setVisibility(result.canTrash() ? View.VISIBLE : View.GONE);
                     cardMore.setVisibility(fabMore.isOrWillBeShown() &&
-                            (result.unseen ||
+                            (importance ||
+                                    result.unseen ||
                                     result.canInbox() ||
                                     result.canArchive() ||
                                     result.canJunk() ||
