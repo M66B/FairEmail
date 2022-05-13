@@ -7706,6 +7706,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
         holder.cowner.stop();
+        if (holder.taskContactInfo != null) {
+            holder.taskContactInfo.cancel(context);
+            holder.taskContactInfo = null;
+        }
     }
 
     @Override
