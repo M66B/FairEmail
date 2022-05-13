@@ -4857,6 +4857,7 @@ public class FragmentCompose extends FragmentBase {
                                 data.draft.thread = data.draft.msgid; // new thread
                             else {
                                 data.draft.thread = ref.thread;
+                                data.draft.inreplyto = ref.msgid;
                                 data.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
                             }
                             data.draft.wasforwardedfrom = ref.msgid;
