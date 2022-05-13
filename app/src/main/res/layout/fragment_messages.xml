@@ -509,12 +509,12 @@
         app:cardBackgroundColor="?attr/colorActionBackground"
         app:cardCornerRadius="3dp"
         app:layout_anchor="@id/fabMore"
-        app:layout_anchorGravity="center_vertical">
+        app:layout_anchorGravity="start|center_vertical">
 
         <eu.faircode.email.ConstraintLayoutEx
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="6dp">
+            android:paddingEnd="6dp">
 
             <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibLowImportance"
@@ -620,7 +620,8 @@
                 android:layout_height="wrap_content"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_setup"
-                android:padding="6dp"
+                android:padding="3dp"
+                android:paddingVertical="6dp"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_setup"
                 app:layout_constraintEnd_toStartOf="@id/ibTrash"
