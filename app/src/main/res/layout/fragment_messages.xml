@@ -508,7 +508,7 @@
         android:alpha="0.6"
         app:cardBackgroundColor="?attr/colorActionBackground"
         app:cardCornerRadius="3dp"
-        app:layout_anchor="@+id/fabMore"
+        app:layout_anchor="@id/fabMore"
         app:layout_anchorGravity="center_vertical">
 
         <eu.faircode.email.ConstraintLayoutEx
@@ -530,7 +530,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/baseline_arrow_downward_24" />
 
-
             <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibBatchSeen"
                 android:layout_width="48dp"
@@ -546,6 +545,20 @@
                 app:srcCompat="@drawable/twotone_drafts_24" />
 
             <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibBatchFlag"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_flag"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_flag"
+                app:layout_constraintEnd_toStartOf="@+id/ibBatchSeen"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_star_24" />
+
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibInbox"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -555,7 +568,7 @@
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_folder_inbox"
-                app:layout_constraintEnd_toStartOf="@id/ibBatchSeen"
+                app:layout_constraintEnd_toStartOf="@id/ibBatchFlag"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_inbox_24" />
 
@@ -600,6 +613,19 @@
                 app:layout_constraintEnd_toStartOf="@id/ibJunk"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_delete_24" />
+
+            <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibMoreSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_setup"
+                android:padding="6dp"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_setup"
+                app:layout_constraintEnd_toStartOf="@id/ibTrash"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_settings_24" />
         </eu.faircode.email.ConstraintLayoutEx>
     </androidx.cardview.widget.CardView>
 

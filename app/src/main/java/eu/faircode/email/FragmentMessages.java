@@ -293,10 +293,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private CardView cardMore;
     private ImageButton ibLowImportance;
     private ImageButton ibBatchSeen;
+    private ImageButton ibBatchFlag;
     private ImageButton ibInbox;
     private ImageButton ibArchive;
     private ImageButton ibJunk;
     private ImageButton ibTrash;
+    private ImageButton ibMoreSettings;
     private FloatingActionButton fabSearch;
     private FloatingActionButton fabError;
     private ObjectAnimator animator;
@@ -563,10 +565,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         cardMore = view.findViewById(R.id.cardMore);
         ibLowImportance = view.findViewById(R.id.ibLowImportance);
         ibBatchSeen = view.findViewById(R.id.ibBatchSeen);
+        ibBatchFlag = view.findViewById(R.id.ibBatchFlag);
         ibInbox = view.findViewById(R.id.ibInbox);
         ibArchive = view.findViewById(R.id.ibArchive);
         ibJunk = view.findViewById(R.id.ibJunk);
         ibTrash = view.findViewById(R.id.ibTrash);
+        ibMoreSettings = view.findViewById(R.id.ibMoreSettings);
         fabSearch = view.findViewById(R.id.fabSearch);
         fabError = view.findViewById(R.id.fabError);
 
@@ -1307,6 +1311,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
+        ibBatchFlag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionFlagSelection(true, Color.TRANSPARENT, null, true);
+            }
+        });
+
         ibInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -1332,6 +1343,62 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 onActionMoveSelection(EntityFolder.TRASH, false);
+            }
+        });
+
+        ibMoreSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(v.getContext(), getViewLifecycleOwner(), ibMoreSettings);
+                popupMenu.inflate(R.menu.popup_config_more);
+
+                popupMenu.getMenu().findItem(R.id.menu_importance_low)
+                        .setChecked(prefs.getBoolean("more_importance_low", false));
+                popupMenu.getMenu().findItem(R.id.menu_seen)
+                        .setChecked(prefs.getBoolean("more_seen", false));
+                popupMenu.getMenu().findItem(R.id.menu_flag)
+                        .setChecked(prefs.getBoolean("more_flag", false));
+                popupMenu.getMenu().findItem(R.id.menu_inbox)
+                        .setChecked(prefs.getBoolean("more_inbox", true));
+                popupMenu.getMenu().findItem(R.id.menu_archive)
+                        .setChecked(prefs.getBoolean("more_archive", true));
+                popupMenu.getMenu().findItem(R.id.menu_junk)
+                        .setChecked(prefs.getBoolean("more_junk", true));
+                popupMenu.getMenu().findItem(R.id.menu_trash)
+                        .setChecked(prefs.getBoolean("more_trash", true));
+
+                popupMenu.insertIcons(v.getContext());
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem target) {
+                        String key;
+                        int itemId = target.getItemId();
+                        if (itemId == R.id.menu_importance_low)
+                            key = "more_importance_low";
+                        else if (itemId == R.id.menu_seen)
+                            key = "more_seen";
+                        else if (itemId == R.id.menu_flag)
+                            key = "more_flag";
+                        else if (itemId == R.id.menu_inbox)
+                            key = "more_inbox";
+                        else if (itemId == R.id.menu_archive)
+                            key = "more_archive";
+                        else if (itemId == R.id.menu_junk)
+                            key = "more_junk";
+                        else if (itemId == R.id.menu_trash)
+                            key = "more_trash";
+                        else
+                            return false;
+
+                        prefs.edit().putBoolean(key, !target.isChecked()).apply();
+                        updateMore();
+
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
             }
         });
 
@@ -2617,7 +2684,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
                 onActionSeenSelection(!message.ui_seen, message.id, false);
             else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
-                onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id);
+                onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id, false);
             else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
                 if (ActivityBilling.isPro(getContext()))
                     onActionSnooze(message);
@@ -2708,10 +2775,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     onActionSeenSelection(false, message.id, false);
                                     return true;
                                 } else if (itemId == R.string.title_flag) {
-                                    onActionFlagSelection(true, Color.TRANSPARENT, message.id);
+                                    onActionFlagSelection(true, Color.TRANSPARENT, message.id, false);
                                     return true;
                                 } else if (itemId == R.string.title_unflag) {
-                                    onActionFlagSelection(false, Color.TRANSPARENT, message.id);
+                                    onActionFlagSelection(false, Color.TRANSPARENT, message.id, false);
                                     return true;
                                 } else if (itemId == R.string.title_snooze) {
                                     onMenuSnooze();
@@ -3393,10 +3460,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             onHideSelection(false);
                             return true;
                         } else if (itemId == R.string.title_flag) {
-                            onActionFlagSelection(true, Color.TRANSPARENT, null);
+                            onActionFlagSelection(true, Color.TRANSPARENT, null, false);
                             return true;
                         } else if (itemId == R.string.title_unflag) {
-                            onActionFlagSelection(false, Color.TRANSPARENT, null);
+                            onActionFlagSelection(false, Color.TRANSPARENT, null, false);
                             return true;
                         } else if (itemId == R.string.title_flag_color) {
                             onActionFlagColorSelection();
@@ -3612,7 +3679,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "messages:flag");
     }
 
-    private void onActionFlagSelection(boolean flagged, int color, Long id) {
+    private void onActionFlagSelection(boolean flagged, int color, Long id, boolean clear) {
         Bundle args = new Bundle();
         args.putLongArray("ids", id == null ? getSelection() : new long[]{id});
         args.putBoolean("flagged", flagged);
@@ -3620,8 +3687,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putBoolean("threading", threading &&
                 (id == null || viewType != AdapterMessage.ViewType.THREAD));
 
-        //if (selectionTracker != null)
-        //    selectionTracker.clearSelection();
+        if (clear && selectionTracker != null)
+            selectionTracker.clearSelection();
 
         new SimpleTask<Void>() {
             @Override
@@ -5760,22 +5827,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected void onExecuted(Bundle args, MoreResult result) {
-                    boolean importance = (BuildConfig.DEBUG &&
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+                    boolean importance = (prefs.getBoolean("more_importance_low", false) &&
                             !EntityMessage.PRIORITIY_LOW.equals(result.importance));
+                    boolean seen = (prefs.getBoolean("more_seen", false) && result.unseen);
+                    boolean flag = (prefs.getBoolean("more_flag", false) && result.unflagged);
+                    boolean inbox = (prefs.getBoolean("more_inbox", true) && result.canInbox());
+                    boolean archive = (prefs.getBoolean("more_archive", true) && result.canArchive());
+                    boolean junk = (prefs.getBoolean("more_junk", true) && result.canJunk());
+                    boolean trash = (prefs.getBoolean("more_trash", true) && result.canTrash());
+
                     ibLowImportance.setVisibility(importance ? View.VISIBLE : View.GONE);
-                    ibBatchSeen.setVisibility(result.unseen ? View.VISIBLE : View.GONE);
-                    ibInbox.setVisibility(result.canInbox() ? View.VISIBLE : View.GONE);
-                    ibArchive.setVisibility(result.canArchive() ? View.VISIBLE : View.GONE);
-                    ibJunk.setVisibility(result.canJunk() ? View.VISIBLE : View.GONE);
-                    ibTrash.setVisibility(result.canTrash() ? View.VISIBLE : View.GONE);
-                    cardMore.setVisibility(fabMore.isOrWillBeShown() &&
-                            (importance ||
-                                    result.unseen ||
-                                    result.canInbox() ||
-                                    result.canArchive() ||
-                                    result.canJunk() ||
-                                    result.canTrash())
-                            ? View.VISIBLE : View.GONE);
+                    ibBatchSeen.setVisibility(seen ? View.VISIBLE : View.GONE);
+                    ibBatchFlag.setVisibility(flag ? View.VISIBLE : View.GONE);
+                    ibInbox.setVisibility(inbox ? View.VISIBLE : View.GONE);
+                    ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
+                    ibJunk.setVisibility(junk ? View.VISIBLE : View.GONE);
+                    ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
+                    cardMore.setVisibility(fabMore.isOrWillBeShown() ? View.VISIBLE : View.GONE);
                 }
 
                 @Override
@@ -7344,7 +7414,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
 
                         Bundle args = data.getBundleExtra("args");
-                        onActionFlagSelection(true, args.getInt("color"), null);
+                        onActionFlagSelection(true, args.getInt("color"), null, false);
                     }
                     break;
                 case REQUEST_MESSAGE_SNOOZE:
