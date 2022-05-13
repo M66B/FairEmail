@@ -508,7 +508,7 @@
     <provider
         name="Ionos.com"
         appPassword="true"
-        documentation="For Ionos you need to use an email password instead of your normal account password, please  &lt;a href=&quot;https://www.ionos.com/help/email/troubleshooting-mail-basicmail-business/changing-a-11-ionos-email-account-password/&quot;&gt;see here&lt;/a&gt;."
+        documentation="For Ionos you need to use an email password instead of your normal account password, please &lt;a href=&quot;https://www.ionos.com/help/email/troubleshooting-mail-basicmail-business/changing-a-11-ionos-email-account-password/&quot;&gt;see here&lt;/a&gt;."
         keepalive="12"
         link="https://www.ionos.com/help/email/general-topics/settings-for-your-email-programs-imap-pop3/">
         <imap
@@ -523,7 +523,7 @@
     <provider
         name="Ionos.co.uk"
         appPassword="true"
-        documentation="For Ionos you need to use an email password instead of your normal account password, please  &lt;a href=&quot;https://www.ionos.co.uk/help/email/troubleshooting-mail-basicmail-business/changing-a-11-ionos-email-account-password/&quot;&gt;see here&lt;/a&gt;."
+        documentation="For Ionos you need to use an email password instead of your normal account password, please &lt;a href=&quot;https://www.ionos.co.uk/help/email/troubleshooting-mail-basicmail-business/changing-a-11-ionos-email-account-password/&quot;&gt;see here&lt;/a&gt;."
         keepalive="12"
         link="https://www.ionos.co.uk/help/email/general-topics/settings-for-your-email-programs-imap-pop3/">
         <imap
@@ -532,6 +532,20 @@
             starttls="false" />
         <smtp
             host="smtp.ionos.co.uk"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
+        name="Ionos.fr"
+        appPassword="true"
+        keepalive="12"
+        link="https://www.ionos.fr/assistance/email/sujets-generaux/parametres-pour-les-programmes-de-messagerie/">
+        <imap
+            host="imap.ionos.fr"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.ionos.fr"
             port="465"
             starttls="false" />
     </provider>
