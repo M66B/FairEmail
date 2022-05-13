@@ -357,7 +357,7 @@
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
     <string name="title_advanced_receipt">Wenn eine Bestätigung angefordert wird, dann</string>
-    <string name="title_advanced_forward_new">Beim Weiterleiten ein neues Thema beginnen</string>
+    <string name="title_advanced_forward_new">Beim Weiterleiten eine neue Unterhaltung beginnen</string>
     <string name="title_advanced_lookup_mx">Überprüft die Empfänger-E-Mail-Adressen vor dem Senden per DNS MX</string>
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>

@@ -755,7 +755,7 @@
     <string name="title_identity_unicode_remark">Большинство серверов это не поддерживают</string>
     <string name="title_identity_max_size">Максимальный размер сообщения (МБ)</string>
     <string name="title_identity_receipt">Запрашивать уведомление о доставке/прочтении по умолчанию</string>
-    <string name="title_identity_receipt_legacy">Использовать устаревшие заголовки запросов на получение</string>
+    <string name="title_identity_receipt_legacy">Использовать устаревшие заголовки запроса уведомлений</string>
     <string name="title_identity_use_ip_hint">В случае ошибки \"invalid greeting\", \"requires valid address\" или аналогичной, попробуйте изменить этот параметр</string>
     <string name="title_identity_self_hint">Также предотвращает ответ себе</string>
     <string name="title_optional">Необязательно</string>
@@ -1052,14 +1052,14 @@
     <string name="title_reply_to_sender">Ответить отправителю</string>
     <string name="title_reply_to_all">Ответить всем</string>
     <string name="title_reply_list">Ответить в рассылку</string>
-    <string name="title_reply_receipt">Отправить квитанцию о прочтении</string>
+    <string name="title_reply_receipt">Отправить уведомление о прочтении</string>
     <string name="title_reply_hard_bounce">Отправить жёсткий отказ</string>
     <string name="title_reply_template">Ответить с шаблоном</string>
     <string name="title_move_undo">Перемещение в %1$s (%2$d)</string>
     <string name="title_open_with">Открыть с помощью</string>
     <string name="title_authentication_failed">Ошибка аутентификации %1$s</string>
     <string name="title_on_blocklist">По списку блокировки спама</string>
-    <string name="title_receipt_subject">Отчёты о прочтении: %1$s</string>
+    <string name="title_receipt_subject">Уведомление о прочтении: %1$s</string>
     <string name="title_receipt_text">Это уведомление о прочтении подтверждает только тот факт, что сообщение было открыто. Нет гарантии, что получатель прочёл содержимое сообщения.</string>
     <string name="title_no_answers">Шаблоны ответов не определены</string>
     <string name="title_no_viewer_caption">Нет приложения для просмотра</string>
@@ -1225,7 +1225,7 @@
     <string name="title_send_plain_text">Только простой текст</string>
     <string name="title_send_dsn">Отчёт о состоянии</string>
     <string name="title_send_receipt">Запросить уведомление</string>
-    <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
+    <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы уведомлений</string>
     <string name="title_from_missing">Отсутствует отправитель</string>
     <string name="title_pgp_reminder">Доступные ключи PGP</string>
     <string name="title_smime_reminder">Доступные ключи S/MIME</string>
@@ -1847,8 +1847,8 @@
     </string-array>
     <string name="title_size_tiny">Минимальный</string>
     <string-array name="receiptNames">
-        <item>Уведомление о прочтении</item>
-        <item>Уведомление о доставке</item>
+        <item>Только уведомление о прочтении</item>
+        <item>Только уведомление о доставке</item>
         <item>Уведомление о доставке и прочтении</item>
     </string-array>
     <string-array name="signatureNames">

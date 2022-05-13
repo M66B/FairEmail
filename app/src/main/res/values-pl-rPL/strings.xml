@@ -378,6 +378,7 @@
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
     <string name="title_advanced_remove_signatures">Usuń rozpoznane podpisy</string>
     <string name="title_advanced_receipt">Podczas żądania potwierdzenia</string>
+    <string name="title_advanced_forward_new">Rozpocznij nową rozmowę przy przekazywaniu dalej</string>
     <string name="title_advanced_lookup_mx">Sprawdź adresy e-mail odbiorcy przed wysłaniem</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>

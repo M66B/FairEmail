@@ -420,7 +420,7 @@
     <string name="title_advanced_notify_action_reply">Erantzun</string>
     <string name="title_advanced_notify_action_reply_direct">Erantzun zuzena</string>
     <string name="title_advanced_notify_action_flag">Izarra</string>
-    <string name="title_advanced_notify_action_seen">Irakurri</string>
+    <string name="title_advanced_notify_action_seen">Irakurrita</string>
     <string name="title_advanced_notify_action_hide">Ezkutatu</string>
     <string name="title_advanced_notify_action_snooze">Atzeratu</string>
     <string name="title_advanced_notify_remove">Mezu berriaren jakinarazpena ezabatu jakinarazpenaren gainean sakatzean</string>
@@ -1313,7 +1313,7 @@
     <string name="title_widget_background">Atzeko kolorea</string>
     <string name="title_accessibility_collapsed">Tolestuta</string>
     <string name="title_accessibility_expanded">Hedatua</string>
-    <string name="title_accessibility_seen">Irakurri</string>
+    <string name="title_accessibility_seen">Irakurrita</string>
     <string name="title_accessibility_unseen">Irakurri gabea</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">Mezu %1$d</item>

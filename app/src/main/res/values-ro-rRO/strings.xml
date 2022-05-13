@@ -218,6 +218,7 @@
     <string name="title_setup_configuring">Configurare cont &#8230;</string>
     <string name="title_setup_app_password">Este posibil să fie nevoie să folosiți o parolă de aplicație</string>
     <string name="title_setup_extra">Suplimentar</string>
+    <string name="title_setup_delete_account_hint">Acest lucru va elimina doar conturile din aplicație</string>
     <string name="title_setup_close">Închideți setările</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
@@ -282,6 +283,8 @@
     <string name="title_setup_reset_links">Confirmați link-urile</string>
     <string name="title_check_gmail_oauth">Conturile dumneavoastră Gmail vor continua să funcționeze și după 30 mai 2022</string>
     <string name="title_check_gmail_password">Este posibil ca unele dintre conturile tale de Gmail să nu mai funcționeze după 30 mai 2022</string>
+    <string name="title_check_outlook_oauth">Conturile Outlook vor continua să funcționeze și după 1 octombrie 2022</string>
+    <string name="title_check_outlook_password">Este posibil ca unele dintre conturile Outlook să nu mai funcționeze după 1 octombrie 2022</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.        Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
@@ -323,6 +326,7 @@
     <string name="title_advanced_check_mx">Verifică adresa expeditorului la sincronizarea mesajelor</string>
     <string name="title_advanced_check_blocklist">Verificați dacă numele de domeniu al expeditorului se află pe o listă de blocare a spam-ului</string>
     <string name="title_advanced_use_blocklist">Mutarea mesajelor de la domeniile de pe o listă de blocare în dosarul de spam</string>
+    <string name="title_advanced_use_blocklist_pop3">Omiteți mesajele de la domeniile de pe o listă de blocare (numai POP3)</string>
     <string name="title_advanced_tune_keep_alive">Reglaţi automat intervalul de păstrare al conexiunii</string>
     <string name="title_advanced_keyboard">Afișare implicită a tastaturii</string>
     <string name="title_advanced_keyboard_no_fullscreen">Dezactivare tastatură pe tot ecranul</string>
@@ -364,6 +368,7 @@
     <string name="title_advanced_usenet_signature">Semnatură conform Usenet</string>
     <string name="title_advanced_remove_signatures">Elimină semnăturile cunoscute</string>
     <string name="title_advanced_receipt">Când se cere o confirmare</string>
+    <string name="title_advanced_forward_new">Începeți o conversație nouă la expediere</string>
     <string name="title_advanced_lookup_mx">Verifică adresele destinatarilor înainte de a trimite</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
@@ -380,6 +385,7 @@
     <string name="title_advanced_cert_strict">Verificarea strictă a certificatelor</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_caption_general">Generale</string>
+    <string name="title_advanced_caption_navigation">Navigaţie</string>
     <string name="title_advanced_caption_checks">Verificări</string>
     <string name="title_advanced_caption_list">Listă</string>
     <string name="title_advanced_caption_conversation">Conversație</string>
@@ -1644,6 +1650,7 @@
         FairEmail afișează un mic mesaj pentru a vă reaminti acest lucru, care va fi eliminat dacă achiziționați funcțiile Pro.
     </string>
     <string name="title_pro_whichever">Oricare ar fi caracteristicile alese ca funcții pro, există întotdeauna cineva care se plânge că o caracteristică ar trebui să fie gratuită. Vă rugăm să nu fiți acea persoană.</string>
+    <string name="title_pro_google">FairEmail inițiază o achiziție din Play Store, dar, în cele din urmă, Google gestionează întregul proces de achiziție. Așadar, vă rugăm să nu dați vina pe aplicație în caz de probleme!</string>
     <string name="title_pro_hide">Ascunde micul mesaj timp de %1$d săptămâni</string>
     <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
     <string name="title_pro_price">De ce sunt caracteristicile Pro sunt atât de scumpe?</string>
@@ -1686,9 +1693,11 @@
     <string name="title_widget_padding">Mărime spațiu liber</string>
     <string name="title_widget_separator_lines">Arată liniile separatoare</string>
     <string name="title_widget_semi_transparent">Fundal semi transparent</string>
+    <string name="title_widget_avatars">Afișați avatarele de contact</string>
     <string name="title_widget_refresh">Buton de afișare a mesajelor de reîmprospătare</string>
     <string name="title_widget_compose">Afișați butonul de redactare a unui mesaj nou</string>
     <string name="title_widget_background">Culoare fundal</string>
+    <string name="title_widget_day_night">Urmați tema sistemului întunecat</string>
     <string name="title_accessibility_collapsed">Restrâns</string>
     <string name="title_accessibility_expanded">Extins</string>
     <string name="title_accessibility_seen">Citit</string>

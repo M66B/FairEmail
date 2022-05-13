@@ -356,6 +356,7 @@
     <string name="title_advanced_usenet_signature">Seguir a convenção de assinatura Usenet</string>
     <string name="title_advanced_remove_signatures">Remover assinaturas reconhecidas</string>
     <string name="title_advanced_receipt">Quando solicitado recibo</string>
+    <string name="title_advanced_forward_new">Iniciar uma nova conversa quando encaminhar</string>
     <string name="title_advanced_lookup_mx">Verificar endereços de e-mail do destinatário antes de enviar</string>
     <string name="title_advanced_metered">Usar ligações com tráfego limitado</string>
     <string name="title_advanced_download">Descarregar automaticamente mensagens e anexos numa conexão limitada</string>
