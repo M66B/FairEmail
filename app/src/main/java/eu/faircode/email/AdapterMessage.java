@@ -7704,16 +7704,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     @Override
+    public void onViewAttachedToWindow(@NonNull ViewHolder holder) {
+        // View will become visible (possibly without rebinding)
+        holder.cowner.start();
+    }
+
+    @Override
     public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
+        // View is invisible, but can be reused (without rebinding)
         holder.cowner.stop();
-        if (holder.taskContactInfo != null) {
-            holder.taskContactInfo.cancel(context);
-            holder.taskContactInfo = null;
-        }
     }
 
     @Override
     public void onViewRecycled(@NonNull ViewHolder holder) {
+        // Called before moving view into RecycledViewPool
         holder.cowner.recreate();
 
         if (holder.ibAvatar != null)
@@ -7722,6 +7726,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             holder.tvBody.setText(null);
         if (holder.wvBody instanceof WebView)
             ((WebView) holder.wvBody).loadDataWithBaseURL(null, "", "text/html", StandardCharsets.UTF_8.name(), null);
+
+        if (holder.taskContactInfo != null) {
+            holder.taskContactInfo.cancel(context);
+            holder.taskContactInfo = null;
+        }
     }
 
     @Override
