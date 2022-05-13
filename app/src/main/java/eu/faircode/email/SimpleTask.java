@@ -325,8 +325,12 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
         int executing = getCount();
         Log.i("Remaining tasks=" + executing + "/" + tasks.size());
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-        lbm.sendBroadcast(new Intent(ACTION_TASK_COUNT).putExtra("count", executing));
+        if (context == null)
+            Log.e("Context is null");
+        else {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(new Intent(ACTION_TASK_COUNT).putExtra("count", executing));
+        }
     }
 
     protected void onPreExecute(Bundle args) {
