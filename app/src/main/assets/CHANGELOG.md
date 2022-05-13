@@ -7,7 +7,7 @@
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
 * Prevent blocking self (report spam)
-* Preliminary Android 13 support (photo picker, hyphenation)
+* Preliminary Android 13 support (photo picker)
 * Small improvements and minor bug fixes
 * Updated translations
 
