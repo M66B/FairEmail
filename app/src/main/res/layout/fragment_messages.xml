@@ -662,6 +662,20 @@
                 app:srcCompat="@drawable/twotone_delete_24" />
 
             <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibMove"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_move_to"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_move_to"
+                app:layout_constraintEnd_toStartOf="@id/ibTrash"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_drive_file_move_24" />
+
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibMoreSettings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -671,7 +685,7 @@
                 android:paddingVertical="6dp"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_setup"
-                app:layout_constraintEnd_toStartOf="@id/ibTrash"
+                app:layout_constraintEnd_toStartOf="@id/ibMove"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_settings_24" />
         </eu.faircode.email.ConstraintLayoutEx>

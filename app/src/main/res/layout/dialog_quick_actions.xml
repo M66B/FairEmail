@@ -160,5 +160,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbJunk" />
+
+        <CheckBox
+            android:id="@+id/cbMove"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_drive_file_move_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_move"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbTrash" />
     </eu.faircode.email.ConstraintLayoutEx>
 </eu.faircode.email.ScrollViewEx>

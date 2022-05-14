@@ -301,6 +301,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ImageButton ibArchive;
     private ImageButton ibJunk;
     private ImageButton ibTrash;
+    private ImageButton ibMove;
     private ImageButton ibMoreSettings;
     private FloatingActionButton fabSearch;
     private FloatingActionButton fabError;
@@ -578,6 +579,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibArchive = view.findViewById(R.id.ibArchive);
         ibJunk = view.findViewById(R.id.ibJunk);
         ibTrash = view.findViewById(R.id.ibTrash);
+        ibMove = view.findViewById(R.id.ibMove);
         ibMoreSettings = view.findViewById(R.id.ibMoreSettings);
         fabSearch = view.findViewById(R.id.fabSearch);
         fabError = view.findViewById(R.id.fabError);
@@ -1372,6 +1374,42 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 onActionMoveSelection(EntityFolder.TRASH, false);
+            }
+        });
+
+        ibMove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MoreResult result = (MoreResult) cardMore.getTag();
+                if (result.accounts.size() == 1) {
+                    for (EntityAccount account : result.accounts.keySet())
+                        onActionMoveSelectionAccount(account.id, false, result.folders);
+                } else {
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(v.getContext(), getViewLifecycleOwner(), ibMove);
+
+                    int order = 0;
+                    for (EntityAccount account : result.accounts.keySet()) {
+                        order++;
+                        popupMenu.getMenu().add(Menu.NONE, order, order, account.name)
+                                .setIntent(new Intent().putExtra("account", account.id));
+                    }
+
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem target) {
+                            Intent intent = target.getIntent();
+                            if (intent == null)
+                                return false;
+
+                            long account = intent.getLongExtra("account", -1);
+                            onActionMoveSelectionAccount(account, false, result.folders);
+
+                            return true;
+                        }
+                    });
+
+                    popupMenu.show();
+                }
             }
         });
 
@@ -5820,8 +5858,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     boolean more_archive = prefs.getBoolean("more_archive", true);
                     boolean more_junk = prefs.getBoolean("more_junk", true);
                     boolean more_trash = prefs.getBoolean("more_trash", true);
+                    boolean more_move = prefs.getBoolean("more_move", true);
 
                     int count = 0;
+
+                    boolean move = (more_move && count < MAX_QUICK_ACTIONS && result.canMove());
+                    if (move)
+                        count++;
 
                     boolean trash = (more_trash && count < MAX_QUICK_ACTIONS && result.canTrash());
                     if (trash)
@@ -5875,6 +5918,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(junk ? View.VISIBLE : View.GONE);
                     ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
+                    ibMove.setVisibility(move ? View.VISIBLE : View.GONE);
+                    cardMore.setTag(fabMore.isOrWillBeShown() ? result : null);
                     cardMore.setVisibility(fabMore.isOrWillBeShown() ? View.VISIBLE : View.GONE);
                 }
 
@@ -5887,6 +5932,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             fabMore.hide();
             tvSelectedCount.setVisibility(View.GONE);
             cardMore.setVisibility(View.GONE);
+            cardMore.setTag(null);
         }
     }
 
@@ -9604,6 +9650,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return (!isTrash && hasTrash && !isJunk);
         }
 
+        boolean canMove() {
+            if (read_only)
+                return false;
+            return (accounts.size() > 0);
+        }
+
         static MoreResult get(Context context, long[] ids, boolean threading, boolean all) {
             Map<Long, EntityAccount> accounts = new HashMap<>();
             Map<Long, EntityFolder> folders = new HashMap<>();
@@ -10218,6 +10270,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
             final CheckBox cbJunk = dview.findViewById(R.id.cbJunk);
             final CheckBox cbTrash = dview.findViewById(R.id.cbTrash);
+            final CheckBox cbMove = dview.findViewById(R.id.cbMove);
 
             tvHint.setText(getString(R.string.title_quick_actions_hint, MAX_QUICK_ACTIONS));
             cbSeen.setChecked(prefs.getBoolean("more_seen", true));
@@ -10230,6 +10283,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             cbArchive.setChecked(prefs.getBoolean("more_archive", true));
             cbJunk.setChecked(prefs.getBoolean("more_junk", true));
             cbTrash.setChecked(prefs.getBoolean("more_trash", true));
+            cbMove.setChecked(prefs.getBoolean("more_move", true));
 
             return new AlertDialog.Builder(getContext())
                     .setView(dview)
@@ -10247,6 +10301,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             editor.putBoolean("more_archive", cbArchive.isChecked());
                             editor.putBoolean("more_junk", cbJunk.isChecked());
                             editor.putBoolean("more_trash", cbTrash.isChecked());
+                            editor.putBoolean("more_move", cbMove.isChecked());
                             editor.apply();
                             sendResult(Activity.RESULT_OK);
                         }
