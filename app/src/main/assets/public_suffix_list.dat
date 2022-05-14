@@ -13392,6 +13392,12 @@ rocky.page
 спб.рус
 я.рус
 
+// Salesforce.com, Inc. https://salesforce.com/
+// Submitted by Michael Biven <mbiven@salesforce.com>
+builder.code.com
+dev-builder.code.com
+stg-builder.code.com
+
 // Sandstorm Development Group, Inc. : https://sandcats.io/
 // Submitted by Asheesh Laroia <asheesh@sandstorm.io>
 sandcats.io
