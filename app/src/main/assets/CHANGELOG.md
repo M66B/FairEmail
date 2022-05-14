@@ -4,13 +4,13 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
-### Next version
+### 1.1897 - 2022-05-14
 
 * Added configurable quick actions
 * Small improvements and minor bug fixes
 * Updated translations
 
-### 1.1895 - 2022-05-13
+### 1.1896 - 2022-05-13
 
 * Prevent blocking self (report spam)
 * Preliminary Android 13 support (photo picker)
