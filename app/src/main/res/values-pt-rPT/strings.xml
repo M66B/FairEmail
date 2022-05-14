@@ -908,6 +908,7 @@
     <string name="title_button_search">Pesquisar em mensagens</string>
     <string name="title_button_search_text">Pesquisar no texto da mensagem</string>
     <string name="title_configure_buttons">Configurar botões &#8230;</string>
+    <string name="title_quick_actions_snooze">Adiar</string>
     <string name="title_trash">Lixo</string>
     <string name="title_copy">Copiar &#8230;</string>
     <string name="title_copy_to">Copiar para &#8230;</string>

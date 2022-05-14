@@ -1002,6 +1002,11 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_button_search">Zoeken in berichten</string>
     <string name="title_button_search_text">Zoeken in berichttekst</string>
     <string name="title_configure_buttons">Configureer knoppen &#8230;</string>
+    <string name="title_quick_actions">Selecteer acties</string>
+    <string name="title_quick_actions_hint">Tot %1$d acties zullen worden getoond</string>
+    <string name="title_quick_actions_low" comment="title_quick_actions_low&#10;Priority: set by sender&#10;Importance: set by you">Laag belang</string>
+    <string name="title_quick_actions_high" comment="title_quick_actions_high&#10;Priority: set by sender&#10;Importance: set by you&#10;">Hoog belang</string>
+    <string name="title_quick_actions_snooze">Sluimeren</string>
     <string name="title_trash">Prullenbak</string>
     <string name="title_copy">Kopieer &#8230;</string>
     <string name="title_copy_to">Kopieer naar &#8230;</string>

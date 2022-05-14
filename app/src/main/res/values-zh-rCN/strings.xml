@@ -992,6 +992,7 @@
     <string name="title_button_search">搜索消息</string>
     <string name="title_button_search_text">搜索消息文本</string>
     <string name="title_configure_buttons">配置按钮 &#8230;</string>
+    <string name="title_quick_actions_snooze">打盹</string>
     <string name="title_trash">回收站</string>
     <string name="title_copy">复制 &#8230;</string>
     <string name="title_copy_to">复制到 &#8230;</string>

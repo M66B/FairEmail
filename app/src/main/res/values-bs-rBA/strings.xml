@@ -1016,6 +1016,7 @@
     <string name="title_button_search">Pretraži u porukama</string>
     <string name="title_button_search_text">Pretraži u tekstu poruka</string>
     <string name="title_configure_buttons">Podesi dugmad &#8230;</string>
+    <string name="title_quick_actions_snooze">Odgodi</string>
     <string name="title_trash">Otpad</string>
     <string name="title_copy">Kopiraj &#8230;</string>
     <string name="title_copy_to">Kopiraj u &#8230;</string>

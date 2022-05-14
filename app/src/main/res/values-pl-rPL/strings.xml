@@ -1024,6 +1024,7 @@
     <string name="title_button_search">Szukaj w wiadomościach</string>
     <string name="title_button_search_text">Szukaj w tekście wiadomości</string>
     <string name="title_configure_buttons">Konfiguruj przyciski &#8230;</string>
+    <string name="title_quick_actions_snooze">Odłóż</string>
     <string name="title_trash">Kosz</string>
     <string name="title_copy">Kopiuj &#8230;</string>
     <string name="title_copy_to">Kopiuj do &#8230;</string>

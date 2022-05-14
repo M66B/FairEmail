@@ -993,6 +993,7 @@
     <string name="title_button_search">Tìm kiếm trong các thư</string>
     <string name="title_button_search_text">Tìm kiếm trong văn bản thư</string>
     <string name="title_configure_buttons">Thiết lập các nút &#8230;</string>
+    <string name="title_quick_actions_snooze">Báo lại</string>
     <string name="title_trash">Thùng rác</string>
     <string name="title_copy">Sao chép &#8230;</string>
     <string name="title_copy_to">Sao chép vào &#8230;</string>

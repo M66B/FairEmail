@@ -969,6 +969,7 @@
     <string name="title_button_search">Keresés üzenetekben</string>
     <string name="title_button_search_text">Keresés üzenet szövegében</string>
     <string name="title_configure_buttons">Gombok konfigurálása &#8230;</string>
+    <string name="title_quick_actions_snooze">Szundi</string>
     <string name="title_trash">Kuka</string>
     <string name="title_copy">Másolás &#8230;</string>
     <string name="title_copy_to">Másolás ide &#8230;</string>

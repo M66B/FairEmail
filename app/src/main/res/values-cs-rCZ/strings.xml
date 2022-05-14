@@ -1024,6 +1024,7 @@
     <string name="title_button_search">Hledat ve zprávách</string>
     <string name="title_button_search_text">Hledat v textu zprávy</string>
     <string name="title_configure_buttons">Nastavit tlačítka &#8230;</string>
+    <string name="title_quick_actions_snooze">Odložit</string>
     <string name="title_trash">Koš</string>
     <string name="title_copy">Kopírovat &#8230;</string>
     <string name="title_copy_to">Kopírovat do &#8230;</string>

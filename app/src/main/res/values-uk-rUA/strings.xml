@@ -1025,6 +1025,7 @@
     <string name="title_button_search">Пошук у повідомленнях</string>
     <string name="title_button_search_text">Пошук у тексті повідомлення</string>
     <string name="title_configure_buttons">Налаштувати кнопки &#8230;</string>
+    <string name="title_quick_actions_snooze">Відкласти</string>
     <string name="title_trash">Кошик</string>
     <string name="title_copy">Копіювати &#8230;</string>
     <string name="title_copy_to">Копіювати до &#8230;</string>

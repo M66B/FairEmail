@@ -1026,6 +1026,11 @@
     <string name="title_button_search">Поиск в сообщениях</string>
     <string name="title_button_search_text">Поиск в тексте сообщения</string>
     <string name="title_configure_buttons">Настройка кнопок&#8230;</string>
+    <string name="title_quick_actions">Выберите действия</string>
+    <string name="title_quick_actions_hint">Будет показано до %1$d действий</string>
+    <string name="title_quick_actions_low" comment="title_quick_actions_low&#10;Priority: set by sender&#10;Importance: set by you">Низкая важность</string>
+    <string name="title_quick_actions_high" comment="title_quick_actions_high&#10;Priority: set by sender&#10;Importance: set by you&#10;">Высокая важность</string>
+    <string name="title_quick_actions_snooze">Отложить</string>
     <string name="title_trash">Корзина</string>
     <string name="title_copy">Копировать&#8230;</string>
     <string name="title_copy_to">Копировать в&#8230;</string>

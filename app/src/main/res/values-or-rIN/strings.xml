@@ -387,6 +387,7 @@
     <string name="title_raw_send_message">ବାର୍ତ୍ତା</string>
     <string name="title_raw_send_thread">ବାର୍ତ୍ତାଳାପ</string>
     <string name="title_auto_confirm">କିଛି ସେକେଣ୍ଡ ପରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ନିଶ୍ଚିତ କରିବା</string>
+    <string name="title_quick_actions_snooze">ସ୍ନୁଜ୍</string>
     <string name="title_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_delete">ବିଲୋପ</string>
     <string name="title_delete_all">ସବୁ ବିଲୋପ କରନ୍ତୁ</string>

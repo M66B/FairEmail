@@ -1004,6 +1004,9 @@
     <string name="title_button_search">Buscar nas mensagens</string>
     <string name="title_button_search_text">Pesquisar no texto da mensagem</string>
     <string name="title_configure_buttons">Configurar botões &#8230;</string>
+    <string name="title_quick_actions_low" comment="title_quick_actions_low&#10;Priority: set by sender&#10;Importance: set by you">Importância baixa</string>
+    <string name="title_quick_actions_high" comment="title_quick_actions_high&#10;Priority: set by sender&#10;Importance: set by you&#10;">Importância alta</string>
+    <string name="title_quick_actions_snooze">Soneca</string>
     <string name="title_trash">Lixeira</string>
     <string name="title_copy">Copiar &#8230;</string>
     <string name="title_copy_to">Copiar para &#8230;</string>

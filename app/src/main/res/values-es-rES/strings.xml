@@ -1004,6 +1004,7 @@
     <string name="title_button_search">Buscar en mensajes</string>
     <string name="title_button_search_text">Buscar en el texto del mensaje</string>
     <string name="title_configure_buttons">Configurar botones &#8230;</string>
+    <string name="title_quick_actions_snooze">Posponer</string>
     <string name="title_trash">Papelera</string>
     <string name="title_copy">Copiar &#8230;</string>
     <string name="title_copy_to">Copiar a &#8230;</string>

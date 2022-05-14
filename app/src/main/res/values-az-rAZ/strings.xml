@@ -1005,6 +1005,7 @@
     <string name="title_button_search">Mesajlarda axtar</string>
     <string name="title_button_search_text">Mesaj mətnində axtar</string>
     <string name="title_configure_buttons">Düymələri konfiqurasiya et &#8230;</string>
+    <string name="title_quick_actions_snooze">Ertələ</string>
     <string name="title_trash">Tullantı</string>
     <string name="title_copy">Kopyala &#8230;</string>
     <string name="title_copy_to">Kopyala &#8230;</string>

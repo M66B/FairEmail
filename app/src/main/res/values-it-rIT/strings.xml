@@ -1007,6 +1007,7 @@
     <string name="title_button_search">Cerca nei messaggi</string>
     <string name="title_button_search_text">Cerca nel testo del messaggio</string>
     <string name="title_configure_buttons">Configura pulsanti &#8230;</string>
+    <string name="title_quick_actions_snooze">Posticipa</string>
     <string name="title_trash">Cestino</string>
     <string name="title_copy">Copia &#8230;</string>
     <string name="title_copy_to">Copia in &#8230;</string>

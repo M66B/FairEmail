@@ -1002,6 +1002,11 @@
     <string name="title_button_search">In Nachrichten suchen</string>
     <string name="title_button_search_text">Im Nachrichtentext suchen</string>
     <string name="title_configure_buttons">Schaltflächen konfigurieren &#8230;</string>
+    <string name="title_quick_actions">Aktionen auswählen</string>
+    <string name="title_quick_actions_hint">Es werden bis zu %1$d Aktionen angezeigt</string>
+    <string name="title_quick_actions_low" comment="title_quick_actions_low&#10;Priority: set by sender&#10;Importance: set by you">Weniger wichtig</string>
+    <string name="title_quick_actions_high" comment="title_quick_actions_high&#10;Priority: set by sender&#10;Importance: set by you&#10;">Sehr wichtig</string>
+    <string name="title_quick_actions_snooze">Später lesen</string>
     <string name="title_trash">Löschen</string>
     <string name="title_copy">Kopieren &#8230;</string>
     <string name="title_copy_to">Kopieren nach &#8230;</string>

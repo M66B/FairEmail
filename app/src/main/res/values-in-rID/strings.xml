@@ -910,6 +910,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_button_search">Cari di dalam pesan</string>
     <string name="title_button_search_text">Cari dalam teks pesan</string>
     <string name="title_configure_buttons">Pengaturan tombol</string>
+    <string name="title_quick_actions_snooze">Tunda</string>
     <string name="title_trash">Sampah</string>
     <string name="title_copy">Salin &#8230;</string>
     <string name="title_copy_to">Salin ke &#8230;</string>

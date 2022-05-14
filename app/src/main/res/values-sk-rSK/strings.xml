@@ -1019,6 +1019,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_button_search">Hľadať v správach</string>
     <string name="title_button_search_text">Hľadať v texte správy</string>
     <string name="title_configure_buttons">Nastaviť tlačidlá &#8230;</string>
+    <string name="title_quick_actions_snooze">Odložiť</string>
     <string name="title_trash">Presunúť do koša</string>
     <string name="title_copy">Kopírovať &#8230;</string>
     <string name="title_copy_to">Kopírovať do &#8230;</string>

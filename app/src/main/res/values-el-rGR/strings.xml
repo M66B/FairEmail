@@ -1002,6 +1002,7 @@
     <string name="title_button_search">Αναζήτηση στα μηνύματα</string>
     <string name="title_button_search_text">Αναζήτηση στο κείμενο του μηνύματος</string>
     <string name="title_configure_buttons">Ρύθμιση κουμπιών &#8230;</string>
+    <string name="title_quick_actions_snooze">Αναβολή</string>
     <string name="title_trash">Απορρίμματα</string>
     <string name="title_copy">Αντιγραφή &#8230;</string>
     <string name="title_copy_to">Αντιγραφή σε &#8230;</string>

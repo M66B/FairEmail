@@ -1001,6 +1001,7 @@
     <string name="title_button_search">Sök i meddelanden</string>
     <string name="title_button_search_text">Sök i meddelandetext</string>
     <string name="title_configure_buttons">Konfigurera knappar &#8230;</string>
+    <string name="title_quick_actions_snooze">Slumra</string>
     <string name="title_trash">Papperskorg</string>
     <string name="title_copy">Kopiera &#8230;</string>
     <string name="title_copy_to">Kopiera till &#8230;</string>

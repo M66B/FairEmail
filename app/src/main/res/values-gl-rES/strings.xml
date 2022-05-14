@@ -961,6 +961,7 @@
     <string name="title_button_search">Buscar en mensaxes</string>
     <string name="title_button_search_text">Buscar no texto da mensaxe</string>
     <string name="title_configure_buttons">Configurar botóns &#8230;</string>
+    <string name="title_quick_actions_snooze">Adiar</string>
     <string name="title_trash">Lixo</string>
     <string name="title_copy">Copiar &#8230;</string>
     <string name="title_copy_to">Copiar a &#8230;</string>

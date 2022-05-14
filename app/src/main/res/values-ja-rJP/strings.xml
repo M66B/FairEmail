@@ -996,6 +996,7 @@
     <string name="title_button_search">メッセージを検索</string>
     <string name="title_button_search_text">本文を検索</string>
     <string name="title_configure_buttons">ボタンを設定&#8230;</string>
+    <string name="title_quick_actions_snooze">スヌーズする</string>
     <string name="title_trash">ゴミ箱</string>
     <string name="title_copy">コピー&#8230;</string>
     <string name="title_copy_to">&#8230;にコピー</string>

@@ -980,6 +980,7 @@
     <string name="title_button_search">Hae viesteistä</string>
     <string name="title_button_search_text">Etsi viestin tekstistä</string>
     <string name="title_configure_buttons">Määritä painikkeet &#8230;</string>
+    <string name="title_quick_actions_snooze">Torkuta</string>
     <string name="title_trash">Siirrä roskakoriin</string>
     <string name="title_copy">Kopioi &#8230;</string>
     <string name="title_copy_to">Kopioi kansioon &#8230;</string>

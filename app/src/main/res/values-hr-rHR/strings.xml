@@ -1016,6 +1016,7 @@
     <string name="title_button_search">Pretraži u porukama</string>
     <string name="title_button_search_text">Pretraži u tekstu poruke</string>
     <string name="title_configure_buttons">Konfiguriraj dugmad &#8230;</string>
+    <string name="title_quick_actions_snooze">Utišaj</string>
     <string name="title_trash">Otpad</string>
     <string name="title_copy">Kopiraj &#8230;</string>
     <string name="title_copy_to">Kopiraj u &#8230;</string>
@@ -1673,6 +1674,7 @@
     <string name="title_widget_unseen">Samo nepročitane poruke</string>
     <string name="title_widget_flagged">Samo poruke označene zvjezdicom</string>
     <string name="title_widget_font_size">Veličina teksta</string>
+    <string name="title_widget_padding">Veličina razmaka</string>
     <string name="title_widget_refresh">Prikaži dugme za osvježavanje poruka</string>
     <string name="title_widget_compose">Prikaži dugme za sastavljanje nove poruke</string>
     <string name="title_accessibility_collapsed">Sažeto</string>
@@ -1686,6 +1688,7 @@
     </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Važno</string>
+    <string name="title_keyword_label2">Posao</string>
     <string name="title_keyword_label4">Za napraviti</string>
     <string name="title_keyword_label5">Kasnije</string>
     <string name="title_accessibility_flagged">Sa zvjezdicom</string>

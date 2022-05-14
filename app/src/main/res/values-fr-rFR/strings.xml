@@ -1007,6 +1007,9 @@
     <string name="title_button_search">Rechercher dans les messages</string>
     <string name="title_button_search_text">Rechercher dans le texte du message</string>
     <string name="title_configure_buttons">Configurer les boutons&#8230;</string>
+    <string name="title_quick_actions">Sélectionner les actions</string>
+    <string name="title_quick_actions_hint">%1$d actions au plus seront affichées</string>
+    <string name="title_quick_actions_snooze">Différer</string>
     <string name="title_trash">Supprimer</string>
     <string name="title_copy">Copier&#8230;</string>
     <string name="title_copy_to">Copier vers&#8230;</string>

@@ -473,6 +473,7 @@
     <string name="title_save_all">모두 저장</string>
     <string name="title_auto_confirm">몇 초 후 자동으로 확인 처리됩니다</string>
     <string name="title_buttons">선택 버튼</string>
+    <string name="title_quick_actions_snooze">미루기</string>
     <string name="title_trash">휴지통</string>
     <string name="title_copy">&#8230; 복사</string>
     <string name="title_copy_to">&#8230;으로 복사</string>

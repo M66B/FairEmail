@@ -1026,6 +1026,7 @@
     <string name="title_button_search">חיפוש בהודעות</string>
     <string name="title_button_search_text">חיפוש בטקסט ההודעות</string>
     <string name="title_configure_buttons">הגדרת כפתורים&#8230;</string>
+    <string name="title_quick_actions_snooze">השהיה</string>
     <string name="title_trash">אשפה</string>
     <string name="title_copy">העתקה&#8230;</string>
     <string name="title_copy_to">העתקה אל&#8230;</string>

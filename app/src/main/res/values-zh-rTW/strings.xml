@@ -951,6 +951,7 @@
     <string name="title_button_search">在訊息中搜尋</string>
     <string name="title_button_search_text">在訊息本文中搜尋</string>
     <string name="title_configure_buttons">配置按鈕 &#8230;</string>
+    <string name="title_quick_actions_snooze">延後</string>
     <string name="title_trash">垃圾桶</string>
     <string name="title_copy">複製 &#8230;</string>
     <string name="title_copy_to">複製到 &#8230;</string>
