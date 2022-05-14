@@ -670,10 +670,13 @@
     <string name="title_advanced_encrypt_default">Encrypt by default</string>
     <string name="title_advanced_auto_decrypt">Automatically decrypt messages</string>
     <string name="title_advanced_auto_undo_decrypt">Undo decryption on closing conversation</string>
+
     <string name="title_advanced_openpgp">OpenPGP provider</string>
     <string name="title_advanced_autocrypt">Use Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt mutual mode</string>
     <string name="title_advanced_encrypt_subject">Encrypt subject</string>
+    <string name="title_advanced_import_pgp">Import key</string>
+
     <string name="title_advanced_sign_algo">Signature algorithm</string>
     <string name="title_advanced_encrypt_algo">Encryption algorithm</string>
     <string name="title_advanced_remark_algo">
@@ -689,6 +692,7 @@
         This will open to the Android security settings.
         Keys and certificates can generally be found under Advanced - Encryption and credentials.
     </string>
+
     <string name="title_advanced_aes_key_size" translatable="false">Max AES key size: %1$s</string>
 
     <string name="title_advanced_power_menu">Add actions to the Android power menu</string>

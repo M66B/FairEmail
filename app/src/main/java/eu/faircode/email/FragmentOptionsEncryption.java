@@ -94,6 +94,7 @@ public class FragmentOptionsEncryption extends FragmentBase
     private SwitchCompat swAutocrypt;
     private SwitchCompat swAutocryptMutual;
     private SwitchCompat swEncryptSubject;
+    private Button btnImportPgp;
 
     private Spinner spSignAlgoSmime;
     private Spinner spEncryptAlgoSmime;
@@ -142,6 +143,7 @@ public class FragmentOptionsEncryption extends FragmentBase
         swAutocrypt = view.findViewById(R.id.swAutocrypt);
         swAutocryptMutual = view.findViewById(R.id.swAutocryptMutual);
         swEncryptSubject = view.findViewById(R.id.swEncryptSubject);
+        btnImportPgp = view.findViewById(R.id.btnImportPgp);
 
         spSignAlgoSmime = view.findViewById(R.id.spSignAlgoSmime);
         spEncryptAlgoSmime = view.findViewById(R.id.spEncryptAlgoSmime);
@@ -284,6 +286,24 @@ public class FragmentOptionsEncryption extends FragmentBase
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("encrypt_subject", checked).apply();
+            }
+        });
+
+        btnImportPgp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String provider = prefs.getString("openpgp_provider", Helper.PGP_OPENKEYCHAIN_PACKAGE);
+
+                PackageManager pm = v.getContext().getPackageManager();
+                Intent intent = pm.getLaunchIntentForPackage(provider);
+                if (intent == null)
+                    if (TextUtils.isEmpty(BuildConfig.FDROID))
+                        intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + provider));
+                    else
+                        intent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(BuildConfig.FDROID, provider)));
+                else
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                v.getContext().startActivity(intent);
             }
         });
 
@@ -585,7 +605,7 @@ public class FragmentOptionsEncryption extends FragmentBase
         swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
         swAutoUndoDecrypt.setChecked(prefs.getBoolean("auto_undecrypt", false));
 
-        String provider = prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
+        String provider = prefs.getString("openpgp_provider", Helper.PGP_OPENKEYCHAIN_PACKAGE);
         spOpenPgp.setTag(provider);
         for (int pos = 0; pos < openPgpProvider.size(); pos++)
             if (provider.equals(openPgpProvider.get(pos))) {

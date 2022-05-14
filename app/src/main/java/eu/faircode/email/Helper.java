@@ -175,6 +175,7 @@ public class Helper {
     static final int AUTOLOCK_GRACE = 7; // seconds
     static final long PIN_FAILURE_DELAY = 3; // seconds
 
+    static final String PGP_OPENKEYCHAIN_PACKAGE = "org.sufficientlysecure.keychain";
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
 
@@ -535,7 +536,7 @@ public class Helper {
 
     static String getOpenKeychainPackage(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
+        return prefs.getString("openpgp_provider", Helper.PGP_OPENKEYCHAIN_PACKAGE);
     }
 
     static boolean isOpenKeychainInstalled(Context context) {

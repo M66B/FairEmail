@@ -163,6 +163,7 @@ android {
             buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
             buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
             buildConfigField "String", "DEV_DOMAIN", localProperties.getProperty("dev.domain", "\"\"")
+            buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         fdroid {
             dimension "all"
@@ -179,6 +180,7 @@ android {
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
             buildConfigField "String", "DEV_DOMAIN", "\"\""
+            buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         play {
             dimension "all"
@@ -196,6 +198,7 @@ android {
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
             buildConfigField "String", "DEV_DOMAIN", "\"\""
+            buildConfigField "String", "FDROID", "\"\""
         }
         amazon {
             dimension "all"
@@ -213,6 +216,7 @@ android {
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
             buildConfigField "String", "DEV_DOMAIN", "\"\""
+            buildConfigField "String", "FDROID", "\"\""
         }
     }
 
