@@ -1193,6 +1193,12 @@
     <string name="title_button_search_text">Search in message text</string>
     <string name="title_configure_buttons">Configure buttons &#8230;</string>
 
+    <string name="title_quick_actions">Select actions</string>
+    <string name="title_quick_actions_hint">Up to %1$d actions will be shown</string>
+    <string name="title_quick_actions_low">Low importance</string>
+    <string name="title_quick_actions_high">High importance</string>
+    <string name="title_quick_actions_snooze">Snooze</string>
+
     <string name="title_trash">Trash</string>
     <string name="title_copy">Copy &#8230;</string>
     <string name="title_copy_to">Copy to &#8230;</string>

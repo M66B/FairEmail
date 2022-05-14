@@ -292,6 +292,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private TextView tvSelectedCount;
     private CardView cardMore;
     private ImageButton ibLowImportance;
+    private ImageButton ibHighImportance;
     private ImageButton ibBatchSeen;
     private ImageButton ibBatchFlag;
     private ImageButton ibBatchSnooze;
@@ -391,6 +392,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
     private static final float LUMINANCE_THRESHOLD = 0.7f;
     private static final int ITEM_CACHE_SIZE = 10; // Default: 2 items
+    private static final int MAX_QUICK_ACTIONS = 5;
 
     private static final int REQUEST_RAW = 1;
     private static final int REQUEST_OPENPGP = 4;
@@ -417,6 +419,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_ALL_READ = 25;
     private static final int REQUEST_SAVE_SEARCH = 26;
     private static final int REQUEST_DELETE_SEARCH = 27;
+    private static final int REQUEST_QUICK_ACTIONS = 28;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -565,6 +568,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         tvSelectedCount = view.findViewById(R.id.tvSelectedCount);
         cardMore = view.findViewById(R.id.cardMore);
         ibLowImportance = view.findViewById(R.id.ibLowImportance);
+        ibHighImportance = view.findViewById(R.id.ibHighImportance);
         ibBatchSeen = view.findViewById(R.id.ibBatchSeen);
         ibBatchFlag = view.findViewById(R.id.ibBatchFlag);
         ibBatchSnooze = view.findViewById(R.id.ibBatchSnooze);
@@ -1306,6 +1310,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
+        ibHighImportance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH, true);
+            }
+        });
+
         ibBatchSeen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1358,60 +1369,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibMoreSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(v.getContext(), getViewLifecycleOwner(), ibMoreSettings);
-                popupMenu.inflate(R.menu.popup_config_more);
-
-                popupMenu.getMenu().findItem(R.id.menu_importance_low)
-                        .setChecked(prefs.getBoolean("more_importance_low", false));
-                popupMenu.getMenu().findItem(R.id.menu_seen)
-                        .setChecked(prefs.getBoolean("more_seen", false));
-                popupMenu.getMenu().findItem(R.id.menu_flag)
-                        .setChecked(prefs.getBoolean("more_flag", false));
-                popupMenu.getMenu().findItem(R.id.menu_snooze)
-                        .setChecked(prefs.getBoolean("more_snooze", false));
-                popupMenu.getMenu().findItem(R.id.menu_inbox)
-                        .setChecked(prefs.getBoolean("more_inbox", true));
-                popupMenu.getMenu().findItem(R.id.menu_archive)
-                        .setChecked(prefs.getBoolean("more_archive", true));
-                popupMenu.getMenu().findItem(R.id.menu_junk)
-                        .setChecked(prefs.getBoolean("more_junk", true));
-                popupMenu.getMenu().findItem(R.id.menu_trash)
-                        .setChecked(prefs.getBoolean("more_trash", true));
-
-                popupMenu.insertIcons(v.getContext());
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem target) {
-                        String key;
-                        int itemId = target.getItemId();
-                        if (itemId == R.id.menu_importance_low)
-                            key = "more_importance_low";
-                        else if (itemId == R.id.menu_seen)
-                            key = "more_seen";
-                        else if (itemId == R.id.menu_flag)
-                            key = "more_flag";
-                        else if (itemId == R.id.menu_snooze)
-                            key = "more_snooze";
-                        else if (itemId == R.id.menu_inbox)
-                            key = "more_inbox";
-                        else if (itemId == R.id.menu_archive)
-                            key = "more_archive";
-                        else if (itemId == R.id.menu_junk)
-                            key = "more_junk";
-                        else if (itemId == R.id.menu_trash)
-                            key = "more_trash";
-                        else
-                            return false;
-
-                        prefs.edit().putBoolean(key, !target.isChecked()).apply();
-                        updateMore();
-
-                        return true;
-                    }
-                });
-
-                popupMenu.show();
+                FragmentDialogQuickActions buttons = new FragmentDialogQuickActions();
+                buttons.setTargetFragment(FragmentMessages.this, REQUEST_QUICK_ACTIONS);
+                buttons.show(getParentFragmentManager(), "dialog:quickactions");
             }
         });
 
@@ -5841,18 +5801,47 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 @Override
                 protected void onExecuted(Bundle args, MoreResult result) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean more_trash = prefs.getBoolean("more_trash", true);
+                    boolean more_junk = prefs.getBoolean("more_junk", true);
+                    boolean more_archive = prefs.getBoolean("more_archive", true);
+                    boolean more_inbox = prefs.getBoolean("more_inbox", true);
+                    boolean more_snooze = prefs.getBoolean("more_snooze", true);
+                    boolean more_flag = prefs.getBoolean("more_flag", true);
+                    boolean more_seen = prefs.getBoolean("more_seen", true);
+                    boolean more_importance_high = prefs.getBoolean("more_importance_high", true);
+                    boolean more_importance_low = prefs.getBoolean("more_importance_low", true);
 
-                    boolean importance = (prefs.getBoolean("more_importance_low", false) &&
+                    int count = 0;
+                    boolean trash = (more_trash && count < MAX_QUICK_ACTIONS && result.canTrash());
+                    if (trash)
+                        count++;
+                    boolean junk = (more_junk && count < MAX_QUICK_ACTIONS && result.canJunk());
+                    if (junk)
+                        count++;
+                    boolean archive = (more_archive && count < MAX_QUICK_ACTIONS && result.canArchive());
+                    if (archive)
+                        count++;
+                    boolean inbox = (more_inbox && count < MAX_QUICK_ACTIONS && result.canInbox());
+                    if (inbox)
+                        count++;
+                    boolean snooze = (more_snooze && count < MAX_QUICK_ACTIONS);
+                    if (snooze)
+                        count++;
+                    boolean flag = (more_flag && count < MAX_QUICK_ACTIONS && result.unflagged);
+                    if (flag)
+                        count++;
+                    boolean seen = (more_seen && count < MAX_QUICK_ACTIONS && result.unseen);
+                    if (seen)
+                        count++;
+                    boolean importance_high = (more_importance_high && count < MAX_QUICK_ACTIONS &&
+                            !EntityMessage.PRIORITIY_HIGH.equals(result.importance));
+                    if (importance_high)
+                        count++;
+                    boolean importance_low = (more_importance_low && count < MAX_QUICK_ACTIONS &&
                             !EntityMessage.PRIORITIY_LOW.equals(result.importance));
-                    boolean seen = (prefs.getBoolean("more_seen", false) && result.unseen);
-                    boolean flag = (prefs.getBoolean("more_flag", false) && result.unflagged);
-                    boolean snooze = (prefs.getBoolean("more_snooze", false));
-                    boolean inbox = (prefs.getBoolean("more_inbox", true) && result.canInbox());
-                    boolean archive = (prefs.getBoolean("more_archive", true) && result.canArchive());
-                    boolean junk = (prefs.getBoolean("more_junk", true) && result.canJunk());
-                    boolean trash = (prefs.getBoolean("more_trash", true) && result.canTrash());
 
-                    ibLowImportance.setVisibility(importance ? View.VISIBLE : View.GONE);
+                    ibLowImportance.setVisibility(importance_low ? View.VISIBLE : View.GONE);
+                    ibHighImportance.setVisibility(importance_high ? View.VISIBLE : View.GONE);
                     ibBatchSeen.setVisibility(seen ? View.VISIBLE : View.GONE);
                     ibBatchFlag.setVisibility(flag ? View.VISIBLE : View.GONE);
                     ibBatchSnooze.setVisibility(snooze ? View.VISIBLE : View.GONE);
@@ -7499,6 +7488,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case REQUEST_DELETE_SEARCH:
                     if (resultCode == RESULT_OK && data != null)
                         onDeleteSearch(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_QUICK_ACTIONS:
+                    if (resultCode == RESULT_OK)
+                        updateMore();
                     break;
             }
         } catch (Throwable ex) {
@@ -10177,6 +10170,65 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             } catch (Throwable ex) {
                 Log.e(ex);
             }
+        }
+    }
+
+    public static class FragmentDialogQuickActions extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final Context context = getContext();
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_quick_actions, null);
+            final TextView tvHint = dview.findViewById(R.id.tvHint);
+            final CheckBox cbImportanceLow = dview.findViewById(R.id.cbImportanceLow);
+            final CheckBox cbImportanceHigh = dview.findViewById(R.id.cbImportanceHigh);
+            final CheckBox cbSeen = dview.findViewById(R.id.cbSeen);
+            final CheckBox cbFlag = dview.findViewById(R.id.cbFlag);
+            final CheckBox cbSnooze = dview.findViewById(R.id.cbSnooze);
+            final CheckBox cbInbox = dview.findViewById(R.id.cbInbox);
+            final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
+            final CheckBox cbJunk = dview.findViewById(R.id.cbJunk);
+            final CheckBox cbTrash = dview.findViewById(R.id.cbTrash);
+
+            tvHint.setText(getString(R.string.title_quick_actions_hint, MAX_QUICK_ACTIONS));
+            cbImportanceLow.setChecked(prefs.getBoolean("more_importance_low", false));
+            cbImportanceHigh.setChecked(prefs.getBoolean("more_importance_high", false));
+            cbSeen.setChecked(prefs.getBoolean("more_seen", false));
+            cbFlag.setChecked(prefs.getBoolean("more_flag", false));
+            cbSnooze.setChecked(prefs.getBoolean("more_snooze", true));
+            cbInbox.setChecked(prefs.getBoolean("more_inbox", true));
+            cbArchive.setChecked(prefs.getBoolean("more_archive", true));
+            cbJunk.setChecked(prefs.getBoolean("more_junk", true));
+            cbTrash.setChecked(prefs.getBoolean("more_trash", false));
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putBoolean("more_importance_low", cbImportanceLow.isChecked());
+                            editor.putBoolean("more_importance_high", cbImportanceHigh.isChecked());
+                            editor.putBoolean("more_seen", cbSeen.isChecked());
+                            editor.putBoolean("more_flag", cbFlag.isChecked());
+                            editor.putBoolean("more_snooze", cbSnooze.isChecked());
+                            editor.putBoolean("more_inbox", cbInbox.isChecked());
+                            editor.putBoolean("more_archive", cbArchive.isChecked());
+                            editor.putBoolean("more_junk", cbJunk.isChecked());
+                            editor.putBoolean("more_trash", cbTrash.isChecked());
+                            editor.apply();
+                            sendResult(Activity.RESULT_OK);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            sendResult(Activity.RESULT_CANCELED);
+                        }
+                    })
+                    .create();
         }
     }
 }

@@ -531,6 +531,21 @@
                 app:srcCompat="@drawable/baseline_arrow_downward_24" />
 
             <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibHighImportance"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_importance_high"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_importance_high"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/ibLowImportance"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_arrow_upward_24" />
+
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibBatchSeen"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -540,7 +555,8 @@
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_toggle_seen"
-                app:layout_constraintEnd_toStartOf="@+id/ibLowImportance"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/ibHighImportance"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_drafts_24" />
 
@@ -554,6 +570,7 @@
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_flag"
+                android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/ibBatchSeen"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_star_24" />
@@ -568,6 +585,7 @@
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_snooze_now"
+                android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/ibBatchFlag"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_timelapse_24" />
