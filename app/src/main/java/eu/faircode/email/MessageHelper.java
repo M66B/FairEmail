@@ -4392,7 +4392,7 @@ public class MessageHelper {
             return null;
 
         List<String> emails = new ArrayList<>();
-        List<Address> result = new ArrayList<>();
+        List<InternetAddress> result = new ArrayList<>();
         for (InternetAddress address : addresses) {
             String email = address.getAddress();
             if (!emails.contains(email)) {
