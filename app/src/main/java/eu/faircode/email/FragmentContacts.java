@@ -483,6 +483,11 @@ public class FragmentContacts extends FragmentBase {
             }
 
             @Override
+            protected void onDestroyed(Bundle args) {
+                toast = null;
+            }
+
+            @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof NoStreamException)
                     ((NoStreamException) ex).report(getActivity());
@@ -574,6 +579,11 @@ public class FragmentContacts extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, Void data) {
                 ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onDestroyed(Bundle args) {
+                toast = null;
             }
 
             @Override

@@ -412,6 +412,11 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                         }
 
                         @Override
+                        protected void onDestroyed(Bundle args) {
+                            toast = null;
+                        }
+
+                        @Override
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
                         }

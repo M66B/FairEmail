@@ -782,6 +782,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
 
             @Override
+            protected void onDestroyed(Bundle args) {
+                toast = null;
+            }
+
+            @Override
             protected void onException(Bundle args, Throwable ex) {
                 boolean expected =
                         (ex instanceof IllegalArgumentException ||
