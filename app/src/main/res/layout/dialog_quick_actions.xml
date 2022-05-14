@@ -58,6 +58,19 @@
             app:layout_constraintTop_toBottomOf="@id/cbSeen" />
 
         <CheckBox
+            android:id="@+id/cbHide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_visibility_off_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_hide"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbSnooze" />
+
+        <CheckBox
             android:id="@+id/cbFlag"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -68,7 +81,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSnooze" />
+            app:layout_constraintTop_toBottomOf="@id/cbHide" />
 
         <CheckBox
             android:id="@+id/cbImportanceLow"

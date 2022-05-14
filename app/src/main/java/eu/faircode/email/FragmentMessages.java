@@ -293,6 +293,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private CardView cardMore;
     private ImageButton ibBatchSeen;
     private ImageButton ibBatchSnooze;
+    private ImageButton ibBatchHide;
     private ImageButton ibBatchFlag;
     private ImageButton ibLowImportance;
     private ImageButton ibHighImportance;
@@ -569,6 +570,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         cardMore = view.findViewById(R.id.cardMore);
         ibBatchSeen = view.findViewById(R.id.ibBatchSeen);
         ibBatchSnooze = view.findViewById(R.id.ibBatchSnooze);
+        ibBatchHide = view.findViewById(R.id.ibBatchHide);
         ibBatchFlag = view.findViewById(R.id.ibBatchFlag);
         ibLowImportance = view.findViewById(R.id.ibLowImportance);
         ibHighImportance = view.findViewById(R.id.ibHighImportance);
@@ -1314,6 +1316,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 onActionSnoozeSelection();
+            }
+        });
+
+        ibBatchHide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onHideSelection(true);
             }
         });
 
@@ -5801,15 +5810,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 @Override
                 protected void onExecuted(Bundle args, MoreResult result) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean more_trash = prefs.getBoolean("more_trash", true);
-                    boolean more_junk = prefs.getBoolean("more_junk", true);
-                    boolean more_archive = prefs.getBoolean("more_archive", true);
-                    boolean more_inbox = prefs.getBoolean("more_inbox", true);
-                    boolean more_snooze = prefs.getBoolean("more_snooze", true);
-                    boolean more_flag = prefs.getBoolean("more_flag", true);
                     boolean more_seen = prefs.getBoolean("more_seen", true);
-                    boolean more_importance_high = prefs.getBoolean("more_importance_high", true);
-                    boolean more_importance_low = prefs.getBoolean("more_importance_low", true);
+                    boolean more_snooze = prefs.getBoolean("more_snooze", false);
+                    boolean more_hide = prefs.getBoolean("more_hide", false);
+                    boolean more_flag = prefs.getBoolean("more_flag", false);
+                    boolean more_importance_high = prefs.getBoolean("more_importance_high", false);
+                    boolean more_importance_low = prefs.getBoolean("more_importance_low", false);
+                    boolean more_inbox = prefs.getBoolean("more_inbox", true);
+                    boolean more_archive = prefs.getBoolean("more_archive", true);
+                    boolean more_junk = prefs.getBoolean("more_junk", true);
+                    boolean more_trash = prefs.getBoolean("more_trash", true);
 
                     int count = 0;
 
@@ -5843,6 +5853,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (flag)
                         count++;
 
+                    boolean hide = (more_hide && count < MAX_QUICK_ACTIONS && result.visible);
+                    if (hide)
+                        count++;
+
                     boolean snooze = (more_snooze && count < MAX_QUICK_ACTIONS);
                     if (snooze)
                         count++;
@@ -5853,6 +5867,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     ibBatchSeen.setVisibility(seen ? View.VISIBLE : View.GONE);
                     ibBatchSnooze.setVisibility(snooze ? View.VISIBLE : View.GONE);
+                    ibBatchHide.setVisibility(hide ? View.VISIBLE : View.GONE);
                     ibBatchFlag.setVisibility(flag ? View.VISIBLE : View.GONE);
                     ibLowImportance.setVisibility(importance_low ? View.VISIBLE : View.GONE);
                     ibHighImportance.setVisibility(importance_high ? View.VISIBLE : View.GONE);
@@ -10195,6 +10210,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             final TextView tvHint = dview.findViewById(R.id.tvHint);
             final CheckBox cbSeen = dview.findViewById(R.id.cbSeen);
             final CheckBox cbSnooze = dview.findViewById(R.id.cbSnooze);
+            final CheckBox cbHide = dview.findViewById(R.id.cbHide);
             final CheckBox cbFlag = dview.findViewById(R.id.cbFlag);
             final CheckBox cbImportanceLow = dview.findViewById(R.id.cbImportanceLow);
             final CheckBox cbImportanceHigh = dview.findViewById(R.id.cbImportanceHigh);
@@ -10204,15 +10220,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             final CheckBox cbTrash = dview.findViewById(R.id.cbTrash);
 
             tvHint.setText(getString(R.string.title_quick_actions_hint, MAX_QUICK_ACTIONS));
-            cbSeen.setChecked(prefs.getBoolean("more_seen", false));
-            cbSnooze.setChecked(prefs.getBoolean("more_snooze", true));
+            cbSeen.setChecked(prefs.getBoolean("more_seen", true));
+            cbSnooze.setChecked(prefs.getBoolean("more_snooze", false));
+            cbHide.setChecked(prefs.getBoolean("more_hide", false));
             cbFlag.setChecked(prefs.getBoolean("more_flag", false));
             cbImportanceLow.setChecked(prefs.getBoolean("more_importance_low", false));
             cbImportanceHigh.setChecked(prefs.getBoolean("more_importance_high", false));
             cbInbox.setChecked(prefs.getBoolean("more_inbox", true));
             cbArchive.setChecked(prefs.getBoolean("more_archive", true));
             cbJunk.setChecked(prefs.getBoolean("more_junk", true));
-            cbTrash.setChecked(prefs.getBoolean("more_trash", false));
+            cbTrash.setChecked(prefs.getBoolean("more_trash", true));
 
             return new AlertDialog.Builder(getContext())
                     .setView(dview)
@@ -10222,6 +10239,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             SharedPreferences.Editor editor = prefs.edit();
                             editor.putBoolean("more_seen", cbSeen.isChecked());
                             editor.putBoolean("more_snooze", cbSnooze.isChecked());
+                            editor.putBoolean("more_hide", cbHide.isChecked());
                             editor.putBoolean("more_flag", cbFlag.isChecked());
                             editor.putBoolean("more_importance_low", cbImportanceLow.isChecked());
                             editor.putBoolean("more_importance_high", cbImportanceHigh.isChecked());

@@ -526,7 +526,6 @@
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_toggle_seen"
-                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_drafts_24" />
@@ -547,6 +546,21 @@
                 app:srcCompat="@drawable/twotone_timelapse_24" />
 
             <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibBatchHide"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_hide"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_hide"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/ibBatchSnooze"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_visibility_off_24" />
+
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibBatchFlag"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -557,7 +571,7 @@
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_flag"
                 android:visibility="gone"
-                app:layout_constraintEnd_toStartOf="@+id/ibBatchSnooze"
+                app:layout_constraintEnd_toStartOf="@+id/ibBatchHide"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_star_24" />
 
@@ -569,9 +583,9 @@
                 android:contentDescription="@string/title_importance_low"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:visibility="gone"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_importance_low"
+                android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@id/ibBatchFlag"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/baseline_arrow_downward_24" />
