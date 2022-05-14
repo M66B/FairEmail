@@ -559,6 +559,20 @@
                 app:srcCompat="@drawable/twotone_star_24" />
 
             <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibBatchSnooze"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_snooze_now"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_snooze_now"
+                app:layout_constraintEnd_toStartOf="@+id/ibBatchFlag"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_timelapse_24" />
+
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibInbox"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -568,7 +582,7 @@
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_folder_inbox"
-                app:layout_constraintEnd_toStartOf="@id/ibBatchFlag"
+                app:layout_constraintEnd_toStartOf="@id/ibBatchSnooze"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_inbox_24" />
 

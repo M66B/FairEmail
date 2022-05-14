@@ -19,6 +19,12 @@
         android:title="@string/title_flag" />
 
     <item
+        android:id="@+id/menu_snooze"
+        android:checkable="true"
+        android:icon="@drawable/twotone_timelapse_24"
+        android:title="@string/title_snooze_now" />
+
+    <item
         android:id="@+id/menu_inbox"
         android:checkable="true"
         android:icon="@drawable/twotone_inbox_24"
