@@ -100,13 +100,13 @@ public class FragmentSetup extends FragmentBase {
 
     private TextView tvPermissionsDone;
     private Button btnPermissions;
-    private ImageButton ibPermissions;
+    private TextView tvPermissionsWhy;
     private TextView tvImportContacts;
 
     private TextView tvDozeDone;
     private Button btnDoze;
     private TextView tvDoze12;
-    private ImageButton ibDoze;
+    private TextView tvDozeWhy;
 
     private Button btnBackgroundRestricted;
     private Button btnDataSaver;
@@ -177,13 +177,13 @@ public class FragmentSetup extends FragmentBase {
 
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
         btnPermissions = view.findViewById(R.id.btnPermissions);
-        ibPermissions = view.findViewById(R.id.ibPermissions);
+        tvPermissionsWhy = view.findViewById(R.id.tvPermissionsWhy);
         tvImportContacts = view.findViewById(R.id.tvImportContacts);
 
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
         btnDoze = view.findViewById(R.id.btnDoze);
         tvDoze12 = view.findViewById(R.id.tvDoze12);
-        ibDoze = view.findViewById(R.id.ibDoze);
+        tvDozeWhy = view.findViewById(R.id.tvDozeWhy);
 
         btnBackgroundRestricted = view.findViewById(R.id.btnBackgroundRestricted);
         btnDataSaver = view.findViewById(R.id.btnDataSaver);
@@ -492,7 +492,8 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        ibPermissions.setOnClickListener(new View.OnClickListener() {
+        tvPermissionsWhy.setPaintFlags(tvPermissionsWhy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvPermissionsWhy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 1);
@@ -533,7 +534,8 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        ibDoze.setOnClickListener(new View.OnClickListener() {
+        tvDozeWhy.setPaintFlags(tvDozeWhy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvDozeWhy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 175, true);
