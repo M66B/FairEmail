@@ -571,6 +571,7 @@
     <string name="title_advanced_autocrypt">使用Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">自动双向加密模式</string>
     <string name="title_advanced_encrypt_subject">加密邮件主题</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">导入密钥</string>
     <string name="title_advanced_sign_algo">签名算法</string>
     <string name="title_advanced_encrypt_algo">加密算法</string>
     <string name="title_advanced_remark_algo">        请注意，并非所有电子邮件客户端都支持所有算法。
@@ -992,6 +993,10 @@
     <string name="title_button_search">搜索消息</string>
     <string name="title_button_search_text">搜索消息文本</string>
     <string name="title_configure_buttons">配置按钮 &#8230;</string>
+    <string name="title_quick_actions">选择操作</string>
+    <string name="title_quick_actions_hint">最多将显示 %1$d 项操作</string>
+    <string name="title_quick_actions_low">低重要性</string>
+    <string name="title_quick_actions_high">高重要性</string>
     <string name="title_quick_actions_snooze">打盹</string>
     <string name="title_trash">回收站</string>
     <string name="title_copy">复制 &#8230;</string>

@@ -580,6 +580,7 @@
     <string name="title_advanced_autocrypt">Autocrypt verwenden</string>
     <string name="title_advanced_autocrypt_mutual">Gegenseitiger Autocrypt-Modus</string>
     <string name="title_advanced_encrypt_subject">Betreff verschlüsseln</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Schlüssel importieren</string>
     <string name="title_advanced_sign_algo">Signaturalgorithmus</string>
     <string name="title_advanced_encrypt_algo">Verschlüsselungsalgorithmus</string>
     <string name="title_advanced_remark_algo">        Bitte beachten Sie, dass nicht alle E-Mail-Programme alle Algorithmen unterstützen.
@@ -1004,8 +1005,8 @@
     <string name="title_configure_buttons">Schaltflächen konfigurieren &#8230;</string>
     <string name="title_quick_actions">Aktionen auswählen</string>
     <string name="title_quick_actions_hint">Es werden bis zu %1$d Aktionen angezeigt</string>
-    <string name="title_quick_actions_low" comment="title_quick_actions_low&#10;Priority: set by sender&#10;Importance: set by you">Weniger wichtig</string>
-    <string name="title_quick_actions_high" comment="title_quick_actions_high&#10;Priority: set by sender&#10;Importance: set by you&#10;">Sehr wichtig</string>
+    <string name="title_quick_actions_low">Geringe Wichtigkeit</string>
+    <string name="title_quick_actions_high">Hohe Wichtigkeit</string>
     <string name="title_quick_actions_snooze">Später lesen</string>
     <string name="title_trash">Löschen</string>
     <string name="title_copy">Kopieren &#8230;</string>

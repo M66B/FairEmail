@@ -580,6 +580,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_autocrypt">Autocrypt kullan</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt karşılıklı mod</string>
     <string name="title_advanced_encrypt_subject">Konuyu şifrele</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Anahtarı içeri aktar</string>
     <string name="title_advanced_sign_algo">Imza algoritması</string>
     <string name="title_advanced_encrypt_algo">Şifreleme algoritması</string>
     <string name="title_advanced_remark_algo">Lütfen tüm e-posta istemcilerinin tüm algoritmaları desteklemediğini unutmayın.
@@ -1002,6 +1003,10 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_button_search">Mesajlarda ara</string>
     <string name="title_button_search_text">Mesajda ara</string>
     <string name="title_configure_buttons">Düğme &#8230; yapılandır</string>
+    <string name="title_quick_actions">Eylem seç</string>
+    <string name="title_quick_actions_hint">En fazla %1$d işlem gösterilecek</string>
+    <string name="title_quick_actions_low">Düşük önem</string>
+    <string name="title_quick_actions_high">Yüksek önem</string>
     <string name="title_quick_actions_snooze">Ertele</string>
     <string name="title_trash">Çöp Kutusu</string>
     <string name="title_copy">Kopyala &#8230;</string>

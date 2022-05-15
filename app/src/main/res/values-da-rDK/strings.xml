@@ -582,6 +582,7 @@
     <string name="title_advanced_autocrypt">Benyt Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokrypt gensidig tilstand</string>
     <string name="title_advanced_encrypt_subject">Kryptér emne</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Importér nøgle</string>
     <string name="title_advanced_sign_algo">Signaturalgoritme</string>
     <string name="title_advanced_encrypt_algo">Krypteringsalgoritme</string>
     <string name="title_advanced_remark_algo">        Bemærk, at ikke alle e-mailklienter understøtter alle algoritmer.
@@ -1007,6 +1008,10 @@
     <string name="title_button_search">Søg i beskeder</string>
     <string name="title_button_search_text">Søg i beskedtekst</string>
     <string name="title_configure_buttons">Opsæt knapper &#8230;</string>
+    <string name="title_quick_actions">Vælg handlinger</string>
+    <string name="title_quick_actions_hint">Maksimalt %1$d handlinger vises</string>
+    <string name="title_quick_actions_low">Lav vigtighed</string>
+    <string name="title_quick_actions_high">Høj vigtighed</string>
     <string name="title_quick_actions_snooze">Udsæt</string>
     <string name="title_trash">Papirkurv</string>
     <string name="title_copy">Kopiér &#8230;</string>

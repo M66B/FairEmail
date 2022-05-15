@@ -581,6 +581,7 @@
     <string name="title_advanced_autocrypt">Usar Autocript</string>
     <string name="title_advanced_autocrypt_mutual">Modo mútuo de Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Criptografar assunto</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Importar chave</string>
     <string name="title_advanced_sign_algo">Algoritmo de assinatura</string>
     <string name="title_advanced_encrypt_algo">Algoritmo de criptografia</string>
     <string name="title_advanced_remark_algo">        Esteja ciente de que nem todos os clientes de e-mail suportam todos os algoritmos.
@@ -1004,8 +1005,10 @@
     <string name="title_button_search">Buscar nas mensagens</string>
     <string name="title_button_search_text">Pesquisar no texto da mensagem</string>
     <string name="title_configure_buttons">Configurar botões &#8230;</string>
-    <string name="title_quick_actions_low" comment="title_quick_actions_low&#10;Priority: set by sender&#10;Importance: set by you">Importância baixa</string>
-    <string name="title_quick_actions_high" comment="title_quick_actions_high&#10;Priority: set by sender&#10;Importance: set by you&#10;">Importância alta</string>
+    <string name="title_quick_actions">Selecionar ações</string>
+    <string name="title_quick_actions_hint">Até %1$d ações serão mostradas</string>
+    <string name="title_quick_actions_low">Importância baixa</string>
+    <string name="title_quick_actions_high">Importância alta</string>
     <string name="title_quick_actions_snooze">Soneca</string>
     <string name="title_trash">Lixeira</string>
     <string name="title_copy">Copiar &#8230;</string>

@@ -582,6 +582,7 @@
     <string name="title_advanced_autocrypt">Utiliser Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Mode Autocrypt mutuel</string>
     <string name="title_advanced_encrypt_subject">Chiffrer l\'objet</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Importer une clé</string>
     <string name="title_advanced_sign_algo">Algorithme de signature</string>
     <string name="title_advanced_encrypt_algo">Algorithme de chiffrement</string>
     <string name="title_advanced_remark_algo">        Veuillez noter que tous les clients de messagerie ne prennent pas en charge tous les algorithmes.
@@ -1009,7 +1010,9 @@
     <string name="title_configure_buttons">Configurer les boutons&#8230;</string>
     <string name="title_quick_actions">Sélectionner les actions</string>
     <string name="title_quick_actions_hint">%1$d actions au plus seront affichées</string>
-    <string name="title_quick_actions_snooze">Différer</string>
+    <string name="title_quick_actions_low">Peu important</string>
+    <string name="title_quick_actions_high">Très important</string>
+    <string name="title_quick_actions_snooze">Reporter</string>
     <string name="title_trash">Supprimer</string>
     <string name="title_copy">Copier&#8230;</string>
     <string name="title_copy_to">Copier vers&#8230;</string>

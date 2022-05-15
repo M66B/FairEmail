@@ -582,6 +582,7 @@
     <string name="title_advanced_autocrypt">Usa Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modalità reciproca di Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Crittografa l\'oggetto</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Importa chiave</string>
     <string name="title_advanced_sign_algo">Algoritmo della firma</string>
     <string name="title_advanced_encrypt_algo">Algoritmo della crittografia</string>
     <string name="title_advanced_remark_algo">        Sei pregato di tener presente che non tutti i client email supportano tutti gli algoritmi.
@@ -1007,6 +1008,10 @@
     <string name="title_button_search">Cerca nei messaggi</string>
     <string name="title_button_search_text">Cerca nel testo del messaggio</string>
     <string name="title_configure_buttons">Configura pulsanti &#8230;</string>
+    <string name="title_quick_actions">Seleziona azioni</string>
+    <string name="title_quick_actions_hint">Sarranno mostrate fino a %1$d azioni</string>
+    <string name="title_quick_actions_low">Bassa importanza</string>
+    <string name="title_quick_actions_high">Alta importanza</string>
     <string name="title_quick_actions_snooze">Posticipa</string>
     <string name="title_trash">Cestino</string>
     <string name="title_copy">Copia &#8230;</string>

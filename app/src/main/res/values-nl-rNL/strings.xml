@@ -580,6 +580,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_autocrypt">Gebruik Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt wederzijdse modus</string>
     <string name="title_advanced_encrypt_subject">Versleuteld onderwerp</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Importeer sleutel</string>
     <string name="title_advanced_sign_algo">Handtekening algoritme</string>
     <string name="title_advanced_encrypt_algo">Encryptie algoritme</string>
     <string name="title_advanced_remark_algo">        Houd er rekening mee dat niet alle e-mail clients alle algoritmen ondersteunen.
@@ -1004,8 +1005,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_configure_buttons">Configureer knoppen &#8230;</string>
     <string name="title_quick_actions">Selecteer acties</string>
     <string name="title_quick_actions_hint">Tot %1$d acties zullen worden getoond</string>
-    <string name="title_quick_actions_low" comment="title_quick_actions_low&#10;Priority: set by sender&#10;Importance: set by you">Laag belang</string>
-    <string name="title_quick_actions_high" comment="title_quick_actions_high&#10;Priority: set by sender&#10;Importance: set by you&#10;">Hoog belang</string>
+    <string name="title_quick_actions_low">Laag belang</string>
+    <string name="title_quick_actions_high">Hoog belang</string>
     <string name="title_quick_actions_snooze">Sluimeren</string>
     <string name="title_trash">Prullenbak</string>
     <string name="title_copy">Kopieer &#8230;</string>

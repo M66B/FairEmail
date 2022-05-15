@@ -462,6 +462,7 @@
     <string name="title_advanced_openpgp">فراهم کننده OpenPGP</string>
     <string name="title_advanced_autocrypt">استفاده از Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">حالت دستی Autocrypt</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">وارد کردن کلید</string>
     <string name="title_advanced_check_certificate">بررسی کلید عمومی هنگام فرستادن</string>
     <string name="title_advanced_manage_certificates">مدیریت کلید‌های عمومی</string>
     <string name="title_advanced_import_key">وارد کردن کلید خصوصی</string>
@@ -696,6 +697,10 @@
     <string name="title_save_all">ذخیره همه</string>
     <string name="title_save_eml">ذخیره پرونده خام پیام</string>
     <string name="title_auto_confirm">پس از چند ثانیه به طور خودکار تایید کن</string>
+    <string name="title_quick_actions">انتخاب عملکرد</string>
+    <string name="title_quick_actions_hint">حداکثر %1$d کنش نشان داده خواهد شد</string>
+    <string name="title_quick_actions_low">کم اهمیت</string>
+    <string name="title_quick_actions_high">با اهمیت</string>
     <string name="title_quick_actions_snooze">تعویق</string>
     <string name="title_trash">سطل آشغال</string>
     <string name="title_copy">کپی &#8230;</string>

@@ -572,6 +572,7 @@
     <string name="title_advanced_autocrypt">Autocrypt を使用</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt Mutual モード</string>
     <string name="title_advanced_encrypt_subject">件名を暗号化</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">鍵をインポート</string>
     <string name="title_advanced_sign_algo">電子署名アルゴリズム</string>
     <string name="title_advanced_encrypt_algo">暗号化アルゴリズム</string>
     <string name="title_advanced_remark_algo">        すべてのメールクライアントがすべてのアルゴリズムをサポートしているわけではないことに注意してください。
@@ -996,6 +997,10 @@
     <string name="title_button_search">メッセージを検索</string>
     <string name="title_button_search_text">本文を検索</string>
     <string name="title_configure_buttons">ボタンを設定&#8230;</string>
+    <string name="title_quick_actions">アクションを選択</string>
+    <string name="title_quick_actions_hint">最大 %1$d つのアクションを表示できます</string>
+    <string name="title_quick_actions_low">重要度が低い</string>
+    <string name="title_quick_actions_high">重要度が高い</string>
     <string name="title_quick_actions_snooze">スヌーズする</string>
     <string name="title_trash">ゴミ箱</string>
     <string name="title_copy">コピー&#8230;</string>

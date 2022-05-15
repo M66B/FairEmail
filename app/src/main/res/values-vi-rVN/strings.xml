@@ -571,6 +571,7 @@
     <string name="title_advanced_autocrypt">Sử dụng Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Chế độ Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Mã hoá chủ đề</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Nhập mã khoá</string>
     <string name="title_advanced_sign_algo">Thuật toán chữ ký</string>
     <string name="title_advanced_encrypt_algo">Thuật toán mã hóa</string>
     <string name="title_advanced_remark_algo">        Vui lòng chú ý rằng không phải tất cả ứng dụng email đều hỗ trợ tất cả thuật toán.
@@ -993,6 +994,10 @@
     <string name="title_button_search">Tìm kiếm trong các thư</string>
     <string name="title_button_search_text">Tìm kiếm trong văn bản thư</string>
     <string name="title_configure_buttons">Thiết lập các nút &#8230;</string>
+    <string name="title_quick_actions">Chọn hành động</string>
+    <string name="title_quick_actions_hint">Nhiều nhất %1$d hành động sẽ được hiện</string>
+    <string name="title_quick_actions_low">Tầm quan trọng thấp</string>
+    <string name="title_quick_actions_high">Tầm quan trọng cao</string>
     <string name="title_quick_actions_snooze">Báo lại</string>
     <string name="title_trash">Thùng rác</string>
     <string name="title_copy">Sao chép &#8230;</string>

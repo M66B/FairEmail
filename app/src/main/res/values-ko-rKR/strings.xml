@@ -330,6 +330,7 @@
     <string name="title_advanced_openpgp">OpenPGP 제공업체</string>
     <string name="title_advanced_autocrypt">Autocrypt 사용</string>
     <string name="title_advanced_encrypt_subject">제목 암호화</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">키 가져오기</string>
     <string name="title_advanced_sign_algo">서명 알고리즘</string>
     <string name="title_advanced_encrypt_algo">암호화 알고리즘</string>
     <string name="title_advanced_check_certificate">전송 시 공개 키 확인</string>
@@ -473,6 +474,10 @@
     <string name="title_save_all">모두 저장</string>
     <string name="title_auto_confirm">몇 초 후 자동으로 확인 처리됩니다</string>
     <string name="title_buttons">선택 버튼</string>
+    <string name="title_quick_actions">동작 선택</string>
+    <string name="title_quick_actions_hint">최대 %1$d개의 동작이 표시됩니다</string>
+    <string name="title_quick_actions_low">중요도 낮음</string>
+    <string name="title_quick_actions_high">중요도 높음</string>
     <string name="title_quick_actions_snooze">미루기</string>
     <string name="title_trash">휴지통</string>
     <string name="title_copy">&#8230; 복사</string>

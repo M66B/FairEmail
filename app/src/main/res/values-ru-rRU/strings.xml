@@ -601,6 +601,7 @@
     <string name="title_advanced_autocrypt">Использовать Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Взаимный режим Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Шифровать тему</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Импортировать ключ</string>
     <string name="title_advanced_sign_algo">Алгоритм подписи</string>
     <string name="title_advanced_encrypt_algo">Алгоритм шифрования</string>
     <string name="title_advanced_remark_algo">        Имейте в виду, что не все почтовые клиенты поддерживают все алгоритмы.
@@ -1028,8 +1029,8 @@
     <string name="title_configure_buttons">Настройка кнопок&#8230;</string>
     <string name="title_quick_actions">Выберите действия</string>
     <string name="title_quick_actions_hint">Будет показано до %1$d действий</string>
-    <string name="title_quick_actions_low" comment="title_quick_actions_low&#10;Priority: set by sender&#10;Importance: set by you">Низкая важность</string>
-    <string name="title_quick_actions_high" comment="title_quick_actions_high&#10;Priority: set by sender&#10;Importance: set by you&#10;">Высокая важность</string>
+    <string name="title_quick_actions_low">Низкая важность</string>
+    <string name="title_quick_actions_high">Высокая важность</string>
     <string name="title_quick_actions_snooze">Отложить</string>
     <string name="title_trash">Корзина</string>
     <string name="title_copy">Копировать&#8230;</string>

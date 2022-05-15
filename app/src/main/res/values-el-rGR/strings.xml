@@ -581,6 +581,7 @@
     <string name="title_advanced_autocrypt">Χρήση Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Αμοιβαία λειτουργία Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Κρυπτογράφηση θέματος</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Εισαγωγή κλειδιού</string>
     <string name="title_advanced_sign_algo">Αλγόριθμος υπογραφής</string>
     <string name="title_advanced_encrypt_algo">Αλγόριθμος κρυπτογράφησης</string>
     <string name="title_advanced_remark_algo">        Παρακαλούμε, λάβετε υπόψη ότι δεν υποστηρίζουν όλοι οι πελάτες ηλεκτρονικού ταχυδρομείου όλους τους αλγορίθμους.
@@ -1002,6 +1003,10 @@
     <string name="title_button_search">Αναζήτηση στα μηνύματα</string>
     <string name="title_button_search_text">Αναζήτηση στο κείμενο του μηνύματος</string>
     <string name="title_configure_buttons">Ρύθμιση κουμπιών &#8230;</string>
+    <string name="title_quick_actions">Επιλέξτε ενέργειες</string>
+    <string name="title_quick_actions_hint">Θα προβάλλονται μέχρι %1$d ενέργειες</string>
+    <string name="title_quick_actions_low">Χαμηλή σημαντικότητα</string>
+    <string name="title_quick_actions_high">Υψηλή σημαντικότητα</string>
     <string name="title_quick_actions_snooze">Αναβολή</string>
     <string name="title_trash">Απορρίμματα</string>
     <string name="title_copy">Αντιγραφή &#8230;</string>

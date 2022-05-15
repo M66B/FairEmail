@@ -602,6 +602,7 @@
     <string name="title_advanced_autocrypt">Використовувати Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt режим mutual</string>
     <string name="title_advanced_encrypt_subject">Шифрувати тему</string>
+    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Імпортувати ключ</string>
     <string name="title_advanced_sign_algo">Алгоритм підпису</string>
     <string name="title_advanced_encrypt_algo">Алгоритм шифрування</string>
     <string name="title_advanced_remark_algo">        Майте на увазі, що не всі поштові клієнти підтримують всі алгоритми.
@@ -1025,6 +1026,10 @@
     <string name="title_button_search">Пошук у повідомленнях</string>
     <string name="title_button_search_text">Пошук у тексті повідомлення</string>
     <string name="title_configure_buttons">Налаштувати кнопки &#8230;</string>
+    <string name="title_quick_actions">Вибрати дії</string>
+    <string name="title_quick_actions_hint">Буде показано до %1$d дій</string>
+    <string name="title_quick_actions_low">Низький пріоритет</string>
+    <string name="title_quick_actions_high">Високий пріоритет</string>
     <string name="title_quick_actions_snooze">Відкласти</string>
     <string name="title_trash">Кошик</string>
     <string name="title_copy">Копіювати &#8230;</string>
