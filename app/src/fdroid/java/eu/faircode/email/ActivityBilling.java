@@ -295,7 +295,7 @@ public class ActivityBilling extends ActivityBase implements
     private void onPurchaseError(Intent intent) {
         String message = intent.getStringExtra("message");
         boolean play = Helper.hasPlayStore(this);
-        Uri uri = Helper.getSupportUri(this);
+        Uri uri = Helper.getSupportUri(this, "Purchase:error");
         if (!TextUtils.isEmpty(message))
             uri = uri
                     .buildUpon()
