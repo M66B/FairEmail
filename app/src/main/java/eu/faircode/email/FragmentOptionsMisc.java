@@ -244,8 +244,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Locale slocale = Resources.getSystem().getConfiguration().locale;
         for (String tag : getResources().getAssets().getLocales())
-            languages.add(new Pair<>(tag, Locale.forLanguageTag(tag).getDisplayName()));
+            languages.add(new Pair<>(tag, Locale.forLanguageTag(tag).getDisplayName(slocale)));
 
         Collections.sort(languages, new Comparator<Pair<String, String>>() {
             @Override
