@@ -1322,7 +1322,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             MessageHelper.AddressFormat format = email_format;
 
             if (show_recipients && recipients != null && recipients.length > 0) {
-                int maxRecipients = (compact ? MAX_RECIPIENTS_COMPACT : MAX_RECIPIENTS_NORMAL);
+                int maxRecipients = (viewType == ViewType.THREAD
+                        ? Integer.MAX_VALUE
+                        : (compact ? MAX_RECIPIENTS_COMPACT : MAX_RECIPIENTS_NORMAL));
                 tvFrom.setText(context.getString(outgoing && viewType != ViewType.THREAD && compact
                                 ? R.string.title_to_from
                                 : R.string.title_from_to,
