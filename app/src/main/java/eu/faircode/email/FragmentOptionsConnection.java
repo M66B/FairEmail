@@ -139,7 +139,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         ibHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext(), "Options:connection"), false);
             }
         });
 

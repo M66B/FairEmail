@@ -230,7 +230,7 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Intent view = new Intent(Intent.ACTION_VIEW)
-                        .setData(Helper.getSupportUri(v.getContext()));
+                        .setData(Helper.getSupportUri(v.getContext(), "Welcome:support"));
                 v.getContext().startActivity(view);
             }
         });
@@ -358,7 +358,7 @@ public class FragmentSetup extends FragmentBase {
                             lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_POP3));
                             return true;
                         } else if (itemId == R.string.menu_faq) {
-                            Helper.view(getContext(), Helper.getSupportUri(getContext()), false);
+                            Helper.view(getContext(), Helper.getSupportUri(getContext(), "Providers:support"), false);
                             return true;
                         }
 
@@ -667,7 +667,7 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Intent view = new Intent(Intent.ACTION_VIEW)
-                        .setData(Helper.getSupportUri(v.getContext()));
+                        .setData(Helper.getSupportUri(v.getContext(), "Extra:support"));
                 v.getContext().startActivity(view);
             }
         });

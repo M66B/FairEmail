@@ -568,7 +568,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onMenuIssue() {
-        startActivity(Helper.getIntentIssue(this));
+        startActivity(Helper.getIntentIssue(this, "Setup:issue"));
     }
 
     private void onMenuPrivacy() {

@@ -4473,7 +4473,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onHelp();
                         return true;
                     } else if (itemId == R.string.menu_faq) {
-                        Helper.view(context, Helper.getSupportUri(context), false);
+                        Helper.view(context, Helper.getSupportUri(context, "Message:error"), false);
                         return true;
                     } else if (itemId == R.string.menu_setup) {
                         onSettings();

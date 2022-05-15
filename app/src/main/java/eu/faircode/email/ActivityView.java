@@ -1931,7 +1931,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuIssue() {
-        startActivity(Helper.getIntentIssue(this));
+        startActivity(Helper.getIntentIssue(this, "View:issue"));
     }
 
     private void onMenuPrivacy() {

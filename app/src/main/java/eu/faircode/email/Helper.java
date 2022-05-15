@@ -910,7 +910,7 @@ public class Helper {
                 .build();
     }
 
-    static Uri getSupportUri(Context context) {
+    static Uri getSupportUri(Context context, String reference) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String language = prefs.getString("language", null);
         Locale slocale = Resources.getSystem().getConfiguration().locale;
@@ -922,10 +922,11 @@ public class Helper {
                 .appendQueryParameter("locale", slocale.toString())
                 .appendQueryParameter("language", language == null ? "" : language)
                 .appendQueryParameter("installed", Helper.hasValidFingerprint(context) ? "" : "Other")
+                .appendQueryParameter("reference", reference)
                 .build();
     }
 
-    static Intent getIntentIssue(Context context) {
+    static Intent getIntentIssue(Context context, String reference) {
         if (ActivityBilling.isPro(context)) {
             String version = BuildConfig.VERSION_NAME + BuildConfig.REVISION + "/" +
                     (Helper.hasValidFingerprint(context) ? "1" : "3") +
@@ -968,7 +969,7 @@ public class Helper {
             return intent;
         } else {
             if (Helper.hasValidFingerprint(context))
-                return new Intent(Intent.ACTION_VIEW, getSupportUri(context));
+                return new Intent(Intent.ACTION_VIEW, getSupportUri(context, reference));
             else
                 return new Intent(Intent.ACTION_VIEW, Uri.parse(XDA_URI));
         }

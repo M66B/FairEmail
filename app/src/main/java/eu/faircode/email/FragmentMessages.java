@@ -10025,7 +10025,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 public void onClick(View v) {
                     dismiss();
                     prefs.edit().putLong("review_later", new Date().getTime()).apply();
-                    startActivity(Helper.getIntentIssue(v.getContext()));
+                    startActivity(Helper.getIntentIssue(v.getContext(), "Review:issue"));
                 }
             });
 

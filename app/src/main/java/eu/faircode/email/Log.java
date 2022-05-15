@@ -1757,7 +1757,7 @@ public class Log {
                     .setPositiveButton(R.string.menu_faq, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            Uri uri = Helper.getSupportUri(context);
+                            Uri uri = Helper.getSupportUri(context, "Unexpected:error");
                             if (!TextUtils.isEmpty(message))
                                 uri = uri
                                         .buildUpon()

@@ -165,7 +165,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
+                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext(), "Pro:support"), false);
             }
         });
 
