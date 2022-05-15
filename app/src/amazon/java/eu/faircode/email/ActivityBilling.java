@@ -226,7 +226,7 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
 
     private void onPurchaseError(Intent intent) {
         String message = intent.getStringExtra("message");
-        Uri uri = Helper.getSupportUri(this);
+        Uri uri = Helper.getSupportUri(this, "Purchase:error");
         if (!TextUtils.isEmpty(message))
             uri = uri.buildUpon().appendQueryParameter("message", "IAB: " + message).build();
         Helper.view(this, uri, true);
