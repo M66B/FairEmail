@@ -4,6 +4,11 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### 1.1898 - 2022-05-15
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1897 - 2022-05-14
 
 * Added configurable quick actions
