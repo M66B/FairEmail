@@ -4635,13 +4635,11 @@ There is no auto discovery for POP3.
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq175)
 
 If battery optimizations are enabled ([Doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)),
-Android might stop the app, which will result in not sending and receiving messages anymore.
+Android will stop the app when it is running in the background, resulting in no more messages being sent and received in the background anymore.
 
-It shouldn't be necessary to disable battery optimizations,
-but unfortunately modifications by manufacturers often [require it anyway](https://dontkillmyapp.com/).
+Manufacturers also tweak Android rather often to stop apps in the background for ostensibly better battery life, please [see here](https://dontkillmyapp.com/) for more details.
 
 <br />
-
 
 <a name="faq176"></a>
 **(176) When will a message be considered safely transported?**
