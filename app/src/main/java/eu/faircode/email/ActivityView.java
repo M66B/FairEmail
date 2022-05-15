@@ -1045,6 +1045,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onResume() {
         super.onResume();
+        ServiceSynchronize.state(this, true);
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
@@ -1065,14 +1066,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (open)
             owner.start();
 
-        ServiceSynchronize.state(this, true);
-
         checkUpdate(false);
         checkIntent();
     }
 
     @Override
     protected void onPause() {
+        ServiceSynchronize.state(this, false);
         super.onPause();
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
@@ -1080,8 +1080,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         Log.i("Drawer pause");
         owner.stop();
-
-        ServiceSynchronize.state(this, false);
     }
 
     @Override
