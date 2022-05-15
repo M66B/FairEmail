@@ -1795,7 +1795,7 @@ The real battery usage can be seen by navigating to this screen:
 
 Alternatively: tap on the *App settings* button in the main settings screen of the app and tap on *Battery*.
 
-As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*.
+As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby* for one account with a stable network connection.
 If this isn't the case, please turn on *Auto optimize* in the receive settings.
 If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
 
