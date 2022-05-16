@@ -3779,6 +3779,9 @@ or by multiple selecting messages in the message list.
 Basically this is the same as "leave on server" of the POP3 protocol
 with the advantage that you can show the messages again when needed.
 
+Alternatively, you can disable AUTO EXPUNGE, which will result in marking messages being deleted on the server (by setting the *deleted* flag), but not expunging (deleting) them.
+You can find this option in the debug panel, which can be shown by (temporarily) enabling debug mode in the miscellaneous settings.
+
 Note that it is possible to set the swipe left or right action to hide a message.
 There is a button in the behavior settings to quickly configure the swipe left and right actions for all IMAP account.
 
