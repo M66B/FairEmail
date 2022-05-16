@@ -75,6 +75,7 @@ public class FragmentRules extends FragmentBase {
 
     private boolean cards;
 
+    private View view;
     private RecyclerView rvRule;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -109,7 +110,7 @@ public class FragmentRules extends FragmentBase {
         setSubtitle(R.string.title_edit_rules);
         setHasOptionsMenu(true);
 
-        View view = inflater.inflate(R.layout.fragment_rules, container, false);
+        view = inflater.inflate(R.layout.fragment_rules, container, false);
 
         // Get controls
         rvRule = view.findViewById(R.id.rvRule);
@@ -223,15 +224,34 @@ public class FragmentRules extends FragmentBase {
         SearchView searchView = (SearchView) menuSearch.getActionView();
         searchView.setQueryHint(getString(R.string.title_rules_search_hint));
 
-        if (!TextUtils.isEmpty(searching)) {
-            menuSearch.expandActionView();
-            searchView.setQuery(searching, true);
-        }
+        final String search = searching;
+        view.post(new RunnableEx("rules:search") {
+            @Override
+            public void delegate() {
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
+
+                if (TextUtils.isEmpty(search))
+                    menuSearch.collapseActionView();
+                else {
+                    menuSearch.expandActionView();
+                    searchView.setQuery(search, true);
+                }
+            }
+        });
+
+        getViewLifecycleOwner().getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                menuSearch.collapseActionView();
+                getViewLifecycleOwner().getLifecycle().removeObserver(this);
+            }
+        });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
-                if (getView() != null && menuSearch.isActionViewExpanded()) {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                     searching = newText;
                     adapter.search(newText);
                 }
@@ -240,8 +260,10 @@ public class FragmentRules extends FragmentBase {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-                searching = query;
-                adapter.search(query);
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                    searching = query;
+                    adapter.search(query);
+                }
                 return true;
             }
         });
