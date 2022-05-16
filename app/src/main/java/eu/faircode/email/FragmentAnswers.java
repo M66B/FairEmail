@@ -233,18 +233,10 @@ public class FragmentAnswers extends FragmentBase {
             searchView.setQuery(searching, true);
         }
 
-        getViewLifecycleOwner().getLifecycle().addObserver(new LifecycleObserver() {
-            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-            public void onDestroyed() {
-                menuSearch.collapseActionView();
-                getViewLifecycleOwner().getLifecycle().removeObserver(this);
-            }
-        });
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
-                if (getView() != null) {
+                if (getView() != null && menuSearch.isActionViewExpanded()) {
                     searching = newText;
                     adapter.search(newText);
                 }
