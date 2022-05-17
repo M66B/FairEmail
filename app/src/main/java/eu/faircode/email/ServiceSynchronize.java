@@ -264,8 +264,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     coreStates.clear();
                     liveAccountNetworkState.removeObserver(this);
                 } else {
-                    int accounts = 0;
                     int enabled = 0;
+                    int connected = 0;
+                    int accounts = 0;
                     int operations = 0;
                     boolean event = false;
                     boolean runService = false;
@@ -280,6 +281,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (!current.accountState.isTransient(ServiceSynchronize.this)) {
                             if (current.accountState.isEnabled(current.enabled))
                                 enabled++;
+                            if ("connected".equals(current.accountState.state))
+                                connected++;
                             if ("connected".equals(current.accountState.state) || current.accountState.backoff_until != null)
                                 accounts++;
                         }
@@ -387,10 +390,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     }
 
-                    boolean connected = (enabled > 0 && accounts == enabled);
-                    if (lastConnected != connected) {
-                        lastConnected = connected;
-                        prefs.edit().putBoolean("connected", connected).apply();
+                    boolean ok = (enabled > 0 && connected == enabled);
+                    if (lastConnected != ok) {
+                        lastConnected = ok;
+                        prefs.edit().putBoolean("connected", ok).apply();
                         WidgetSync.update(ServiceSynchronize.this);
                     }
 
