@@ -443,6 +443,7 @@ public class EmailService implements AutoCloseable {
             if (auth == AUTH_TYPE_OAUTH && "pop3s".equals(protocol) && "outlook.office365.com".equals(host))
                 properties.put("mail." + protocol + ".auth.xoauth2.two.line.authentication.format", "true");
 
+            Log.i("Connecting to " + host + ":" + port + " auth=" + auth);
             connect(host, port, auth, user, factory);
         } catch (AuthenticationFailedException ex) {
             //if ("outlook.office365.com".equals(host) &&
