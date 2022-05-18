@@ -174,11 +174,13 @@
     <string name="title_setup_permissions">Cấp quyền</string>
     <string name="title_setup_permissions_remark">Để truy cập thông tin liên hệ (không bắt buộc)</string>
     <string name="title_setup_permissions_explanation">Quyền danh bạ được yêu cầu để tra cứu thông tin liên hệ và để đề xuất các liên hệ</string>
+    <string name="title_setup_permission_why">Những quyền nào là cần thiết và tại sao?</string>
     <string name="title_setup_permission_import_contacts">Tôi có thể nhập các liên hệ như thế nào?</string>
     <string name="title_setup_doze">Tắt tối ưu hoá pin</string>
     <string name="title_setup_doze_remark">Để gửi và nhận email không bị lỗi trong nền</string>
     <string name="title_setup_doze_explanation">Tối ưu hoá pin nên được tắt cho ứng dụng này để đảm bảo việc gửi và nhận thư trong nền được đáng tin cậy</string>
     <string name="title_setup_doze_hint">Điều này có thể nghe mâu thuẫn, nhưng việc tắt tối ưu hoá pin cho ứng dụng này sẽ gây ra sử dụng pin ít hơn</string>
+    <string name="title_setup_doze_why">Tại sao nên tắt tối ưu hoá pin?</string>
     <string name="title_setup_doze_instructions">Trong hộp thoại Android tiếp theo, chuyển \"Không được tối ưu hoá\" thành \"Tất cả ứng dụng\", chọn ứng dụng này và chọn \"Không tối ưu hoá\"</string>
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
     <string name="title_setup_doze_stopped">Đồng bộ hoá bị dừng?</string>
@@ -571,7 +573,7 @@
     <string name="title_advanced_autocrypt">Sử dụng Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Chế độ Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Mã hoá chủ đề</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Nhập mã khoá</string>
+    <string name="title_advanced_import_pgp">Nhập mã khoá</string>
     <string name="title_advanced_sign_algo">Thuật toán chữ ký</string>
     <string name="title_advanced_encrypt_algo">Thuật toán mã hóa</string>
     <string name="title_advanced_remark_algo">        Vui lòng chú ý rằng không phải tất cả ứng dụng email đều hỗ trợ tất cả thuật toán.
@@ -619,6 +621,7 @@
     <string name="title_advanced_quick_sync_hint">Cái này làm giảm sử dụng dữ liệu, nhưng các thư mới có thể bị bỏ lỡ nếu máy chủ email không theo tiêu chuẩn</string>
     <string name="title_advanced_no_date_hint">Một số nhà cung cấp lưu trữ các thư có ngày không xác định, không hợp lệ hoặc trong tương lai là thư không có ngày</string>
     <string name="title_advanced_unseen_hint">Một số nhà cung cấp không hỗ trợ điều này đúng cách, điều đó có thể gây ra không đồng bộ hoá thư nào hoặc đồng bộ tất cả thư</string>
+    <string name="title_advanced_data_usage">Việc này có thể tiêu tốn nhiều dữ liệu!</string>
     <string name="title_advanced_deleted_unseen">Khi được tắt, các thư chưa đọc được giữ trên thiết bị vĩnh viễn</string>
     <string name="title_advanced_sync_kept_hint">Cái này sẽ truyền thêm dữ liệu và gây hao thêm pin, đặc biệt là nếu có nhiều thư được lưu trữ trên thiết bị</string>
     <string name="title_advanced_gmail_thread_hint">Cái này chỉ áp dụng cho các thư mới nhận và có thể làm hỏng các nhóm đang tồn tại</string>

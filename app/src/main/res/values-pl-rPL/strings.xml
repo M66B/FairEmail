@@ -204,11 +204,13 @@
     <string name="title_setup_permissions">Przyznaj uprawnienia</string>
     <string name="title_setup_permissions_remark">Dostęp do kontaktów (opcjonalnie)</string>
     <string name="title_setup_permissions_explanation">Uprawnienia dostępu do listy kontaktów są wymagane, aby wyszukiwać informacje kontaktowe i sugerować kontakty</string>
+    <string name="title_setup_permission_why">Jakie uprawnienia są potrzebne i dlaczego?</string>
     <string name="title_setup_permission_import_contacts">Jak mogę zaimportować kontakty?</string>
     <string name="title_setup_doze">Wyłącz optymalizację baterii</string>
     <string name="title_setup_doze_remark">Niezawodne wysyłanie i odbieranie wiadomości e-mail w tle</string>
     <string name="title_setup_doze_explanation">Optymalizacja baterii powinna być wyłączona dla aplikacji, aby zapewnić niezawodne wysyłanie i odbieranie wiadomości w tle</string>
     <string name="title_setup_doze_hint">Chociaż może to brzmieć sprzecznie, wyłączenie optymalizacji baterii dla tej aplikacji spowoduje mniejsze zużycie baterii</string>
+    <string name="title_setup_doze_why">Dlaczego optymalizacje baterii powinny być wyłączone?</string>
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym Androida zmień \"Nie zoptymalizowane\" na \"Wszystkie aplikacje\", wybierz tę aplikację i wybierz \"Nie optymalizuj\"</string>
     <string name="title_setup_doze_battery">Wysokie użycie baterii?</string>
     <string name="title_setup_doze_stopped">Synchronizacja zatrzymana?</string>
@@ -601,6 +603,7 @@
     <string name="title_advanced_autocrypt">Użyj Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Tryb automatycznego szyfrowania</string>
     <string name="title_advanced_encrypt_subject">Zaszyfruj temat</string>
+    <string name="title_advanced_import_pgp">Importowanie klucza</string>
     <string name="title_advanced_sign_algo">Algorytm podpisu</string>
     <string name="title_advanced_encrypt_algo">Algorytm szyfrowania</string>
     <string name="title_advanced_remark_algo">        Należy pamiętać, że nie wszyscy klienci poczty e-mail obsługują wszystkie algorytmy.
@@ -649,6 +652,7 @@
     <string name="title_advanced_quick_sync_hint">Zmniejsza to zużycie danych, ale nowe wiadomości mogą zostać pominięte, jeśli serwer poczty e-mail nie spełnia standardów</string>
     <string name="title_advanced_no_date_hint">Niektórzy dostawcy przechowują wiadomości z nieznaną, niepoprawną lub przyszłą datą jako wiadomości bez daty</string>
     <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co może powodować brak synchronizacji lub synchronizację wszystkich wiadomości</string>
+    <string name="title_advanced_data_usage">Może to spowodować duże zużycie danych!</string>
     <string name="title_advanced_deleted_unseen">Kiedy wyłączone, nieprzeczytane wiadomości są zawsze przechowywane w urządzeniu</string>
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i zużycie dodatkowej energii baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_gmail_thread_hint">Dotyczy to tylko nowo odebranych wiadomości i może uszkodzić istniejące grupy</string>

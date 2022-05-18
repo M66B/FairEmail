@@ -153,9 +153,11 @@
     <string name="title_setup_free">앱을 무료로 사용할 수 있습니까?</string>
     <string name="title_setup_permissions">권한 부여</string>
     <string name="title_setup_permissions_explanation">연락처 정보를 조회하고 연락처를 제안하려면 연락처 권한이 필요합니다</string>
+    <string name="title_setup_permission_why">어떤 권한이 왜 필요한가요?</string>
     <string name="title_setup_permission_import_contacts">연락처를 어떻게 가져올 수 있나요?</string>
     <string name="title_setup_doze">배터리 최적화 비활성화</string>
     <string name="title_setup_doze_explanation">앱이 백그라운드에서도 안정적으로 메일을 수신 및 발신하려면 이 앱에 대한 배터리 최적화 기능을 꺼야 합니다</string>
+    <string name="title_setup_doze_why">왜 배터리 최적화를 꺼야 하나요?</string>
     <string name="title_setup_doze_stopped">동기화가 중단되었습니까?</string>
     <string name="title_setup_doze_device">이 기기에 필요한 작업으로 예상됩니다</string>
     <string name="title_setup_inbox">받은편지함으로 이동</string>
@@ -330,7 +332,7 @@
     <string name="title_advanced_openpgp">OpenPGP 제공업체</string>
     <string name="title_advanced_autocrypt">Autocrypt 사용</string>
     <string name="title_advanced_encrypt_subject">제목 암호화</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">키 가져오기</string>
+    <string name="title_advanced_import_pgp">키 가져오기</string>
     <string name="title_advanced_sign_algo">서명 알고리즘</string>
     <string name="title_advanced_encrypt_algo">암호화 알고리즘</string>
     <string name="title_advanced_check_certificate">전송 시 공개 키 확인</string>
@@ -347,6 +349,7 @@
     <string name="title_advanced_log_info">디버그 기록</string>
     <string name="title_advanced_debug">디버그 모드</string>
     <string name="title_advanced_poll_hint">주기적으로 새 메시지를 확인하면 매번 오프라인 메시지와 온라인 메시지를 비교하게 되므로, 배터리 사용량이 증가할 수 있습니다. 항상 수신 기능은 변경사항을 그때그때 반영하므로 이런 현상을 막을 수 있습니다.</string>
+    <string name="title_advanced_data_usage">데이터 사용량이 증가할 수 있습니다!</string>
     <string name="title_advanced_subject_threading_hint">최근 %1$d시간 동안 수신된 메시지만</string>
     <string name="title_advanced_check_tls_hint">메시지가 모든 서버에서 안전하게 전송된 경우에만 녹색 방패 아이콘이 표시됩니다.</string>
     <string name="title_advanced_cert_strict_hint">설정을 끄면 서버 인증서 체크를 느슨하게 하게 됩니다</string>

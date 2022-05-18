@@ -194,11 +194,13 @@
     <string name="title_setup_permissions">Odobri dozvole</string>
     <string name="title_setup_permissions_remark">Za pristup informacijama o kontaktima (opcionalno)</string>
     <string name="title_setup_permissions_explanation">Dozvole za kontakte su neophodne za traženje informacija o kontaktima i predlaganje kontakata</string>
+    <string name="title_setup_permission_why">Koje dozvole su potrebne i zbog čega?</string>
     <string name="title_setup_permission_import_contacts">Kako da uvezem kontakte?</string>
     <string name="title_setup_doze">Isključi optimizaciju baterije</string>
     <string name="title_setup_doze_remark">Za pouzdano slanje i primanje e-pošte u pozadini</string>
     <string name="title_setup_doze_explanation">Optimizacija baterije treba biti isključena za aplikaciju kako bi se osiguralo pouzdano slanjne i primanje poruka u pozadini</string>
     <string name="title_setup_doze_hint">Iako ovo možda zvuči kontradiktorno, isključivanjem optimizacije baterije za ovu aplikaciju rezultirat će u njenoj manjoj potrošnji</string>
+    <string name="title_setup_doze_why">Zašto bi optimizacije baterije trebale biti isključene?</string>
     <string name="title_setup_doze_instructions">U sljedećem dijaloškom okviru Androida promijenite \"Neoptimizirano\" u \"Sve aplikacije\", izaberite ovu aplikaciju i označite \"Ne optimizuj\"</string>
     <string name="title_setup_doze_battery">Visoka potrošnja baterije?</string>
     <string name="title_setup_doze_stopped">Sinhronizacija zaustavljena?</string>
@@ -592,6 +594,7 @@
     <string name="title_advanced_autocrypt">Koristi autošifriranje</string>
     <string name="title_advanced_autocrypt_mutual">Obostrani način autošifriranja</string>
     <string name="title_advanced_encrypt_subject">Šifriraj predmet</string>
+    <string name="title_advanced_import_pgp">Uvezi ključ</string>
     <string name="title_advanced_sign_algo">Algoritam potpisa</string>
     <string name="title_advanced_encrypt_algo">Algoritam šifriranja</string>
     <string name="title_advanced_remark_algo">        Budite svjesni da svi e-mail klijenti ne podržavaju sve algoritme.
@@ -640,6 +643,7 @@
     <string name="title_advanced_quick_sync_hint">Ovo smanjuje potrošnju podataka, ali nove poruke mogu nedostajati ukoliko e-mail server ne prati standarde</string>
     <string name="title_advanced_no_date_hint">Neki provajderi čuvaju kao poruke bez datuma poruke s nepoznatim, nevažećim ili nekim budućim datumom</string>
     <string name="title_advanced_unseen_hint">Neki provajderi ne podržavaju ovo kako treba, što može uzrokovati prestanak ili potpunu sinhronizaciju poruka</string>
+    <string name="title_advanced_data_usage">Ovo može povećati potrošnju podataka!</string>
     <string name="title_advanced_deleted_unseen">Kada je isključeno, nepročitane poruke se čuvaju na uređaju zauvijek</string>
     <string name="title_advanced_sync_kept_hint">Ovo će transferirati dodatne podatke i trošiti više baterije, posebno ako se na uređaju čuva dosta poruka</string>
     <string name="title_advanced_gmail_thread_hint">Ovo se primjenjuje samo na novoprimljene poruke i može razlomiti postojeće grupe</string>
@@ -1016,6 +1020,10 @@
     <string name="title_button_search">Pretraži u porukama</string>
     <string name="title_button_search_text">Pretraži u tekstu poruka</string>
     <string name="title_configure_buttons">Podesi dugmad &#8230;</string>
+    <string name="title_quick_actions">Izaberite radnje</string>
+    <string name="title_quick_actions_hint">Bit će prikazane do %1$d radnje(i)</string>
+    <string name="title_quick_actions_low">Niska važnost</string>
+    <string name="title_quick_actions_high">Visoka važnost</string>
     <string name="title_quick_actions_snooze">Odgodi</string>
     <string name="title_trash">Otpad</string>
     <string name="title_copy">Kopiraj &#8230;</string>

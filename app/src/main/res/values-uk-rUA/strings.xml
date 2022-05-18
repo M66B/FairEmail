@@ -205,11 +205,13 @@
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_permissions_remark">Доступ до контактної інформації (необов\'язково)</string>
     <string name="title_setup_permissions_explanation">Щоб переглянути контактні дані й запропонувати контакти</string>
+    <string name="title_setup_permission_why">Які дозволи необхідні й чому?</string>
     <string name="title_setup_permission_import_contacts">Як можна імпортувати контакти?</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
     <string name="title_setup_doze_remark">Для надійного отримання й надсилання пошти в фоновому режимі</string>
     <string name="title_setup_doze_explanation">Оптимізація живлення повинна бути вимкнена для додатку, щоб забезпечити надійне надсилання та отримання повідомлень у фоновому режимі</string>
     <string name="title_setup_doze_hint">Хоча це може звучати суперечливо, вимкнення оптимізації заряду акумулятора призведе до меншого використання батареї</string>
+    <string name="title_setup_doze_why">Чому оптимізація батареї має бути відключена?</string>
     <string name="title_setup_doze_instructions">В наступному діалозі Android змініть в меню \"Додатки без оптимізації\" на \"Усі додатки\", виберіть додаток FairEmail і далі \"Не оптимізувати\"</string>
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
@@ -602,7 +604,7 @@
     <string name="title_advanced_autocrypt">Використовувати Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt режим mutual</string>
     <string name="title_advanced_encrypt_subject">Шифрувати тему</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Імпортувати ключ</string>
+    <string name="title_advanced_import_pgp">Імпортувати ключ</string>
     <string name="title_advanced_sign_algo">Алгоритм підпису</string>
     <string name="title_advanced_encrypt_algo">Алгоритм шифрування</string>
     <string name="title_advanced_remark_algo">        Майте на увазі, що не всі поштові клієнти підтримують всі алгоритми.
@@ -650,6 +652,7 @@
     <string name="title_advanced_quick_sync_hint">Це зменшує використання даних, але нові повідомлення можуть бути пропущені, якщо сервер електронної пошти не відповідає стандартам</string>
     <string name="title_advanced_no_date_hint">Деякі постачальники зберігають повідомлення з невідомою, недійсною або майбутньою датою так як і повідомлення зовсім без дати</string>
     <string name="title_advanced_unseen_hint">Деякі провайдери не підтримують це правильно, що може спричинити синхронізацію або всхі повідомленнь або жодного</string>
+    <string name="title_advanced_data_usage">Це може призвести до збільшеного використання об\'єму даних!</string>
     <string name="title_advanced_deleted_unseen">Якщо вимкнено, непрочитані повідомлення завжди зберігаються на пристрої</string>
     <string name="title_advanced_sync_kept_hint">Це призведе до передачі додаткових даних та більшого споживання заряду акумулятора, особливо якщо багато повідомлень зберігаються на пристрої</string>
     <string name="title_advanced_gmail_thread_hint">Це відноситься тільки до нових повідомлень і може не стосуватися існуючих груп</string>

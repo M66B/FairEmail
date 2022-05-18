@@ -183,11 +183,13 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_permissions">Toestemmingen verlenen</string>
     <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
     <string name="title_setup_permissions_explanation">Contact machtigingen zijn vereist voor het opzoeken van contactinformatie en het voorstellen van contacten</string>
+    <string name="title_setup_permission_why">Welke machtigingen zijn nodig en waarom?</string>
     <string name="title_setup_permission_import_contacts">Hoe kan ik contacten importeren?</string>
     <string name="title_setup_doze">Batterij-optimalisaties uitschakelen</string>
     <string name="title_setup_doze_remark">Voor het betrouwbaar verzenden en ontvangen van e-mail op de achtergrond</string>
     <string name="title_setup_doze_explanation">Batterij optimalisaties moeten worden uitgeschakeld voor de app om zeker te zijn van het verzenden en ontvangen van berichten op de achtergrond</string>
     <string name="title_setup_doze_hint">Hoewel dit tegenstrijdig kan klinken, zal het uitschakelen van accuoptimalisaties voor deze app resulteren in minder batterijverbruik</string>
+    <string name="title_setup_doze_why">Waarom moeten batterij optimalisaties worden uitgeschakeld?</string>
     <string name="title_setup_doze_instructions">In het volgende Android dialoogvenster wijzig \"Niet geoptimaliseerd\" naar \"Alle apps\", selecteer deze app en selecteer \"Niet optimaliseren\"</string>
     <string name="title_setup_doze_battery">Hoog accugebruik?</string>
     <string name="title_setup_doze_stopped">Sync gestopt?</string>
@@ -580,7 +582,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_autocrypt">Gebruik Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt wederzijdse modus</string>
     <string name="title_advanced_encrypt_subject">Versleuteld onderwerp</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Importeer sleutel</string>
+    <string name="title_advanced_import_pgp">Importeer sleutel</string>
     <string name="title_advanced_sign_algo">Handtekening algoritme</string>
     <string name="title_advanced_encrypt_algo">Encryptie algoritme</string>
     <string name="title_advanced_remark_algo">        Houd er rekening mee dat niet alle e-mail clients alle algoritmen ondersteunen.
@@ -629,6 +631,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_quick_sync_hint">Dit vermindert het gegevensgebruik, maar nieuwe berichten kunnen gemist worden als de mailserver de normen niet volgt</string>
     <string name="title_advanced_no_date_hint">Sommige providers slaan berichten met een onbekende, ongeldige of toekomstige datum op als berichten zonder datum</string>
     <string name="title_advanced_unseen_hint">Sommige providers ondersteunen dit niet goed, wat kan veroorzaken dat geen of alle berichten worden gesynchroniseerd</string>
+    <string name="title_advanced_data_usage">Dit kan een hoog batterijgebruik veroorzaken!</string>
     <string name="title_advanced_deleted_unseen">Wanneer uitgeschakeld, worden ongelezen berichten voor altijd op het apparaat bewaard</string>
     <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat zijn opgeslagen</string>
     <string name="title_advanced_gmail_thread_hint">Dit geldt alleen voor nieuw ontvangen berichten en kan bestaande groepen verbreken</string>

@@ -183,11 +183,13 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_permissions">Verilen izinler</string>
     <string name="title_setup_permissions_remark">İletişim bilgilerine erişim için (isteğe bağlı)</string>
     <string name="title_setup_permissions_explanation">Kişi bilgilerini aramak ve kişi önermek için kişi izinleri gerekir</string>
+    <string name="title_setup_permission_why">Hangi izinler gerekli ve neden?</string>
     <string name="title_setup_permission_import_contacts">Kişileri nasıl içe aktarabilirim?</string>
     <string name="title_setup_doze">Pil optimizasyonlarını devre dışı bırak</string>
     <string name="title_setup_doze_remark">Arka planda güvenilir bir şekilde e-posta göndermek ve almak için</string>
     <string name="title_setup_doze_explanation">Arka planda mesajların güvenilir bir şekilde gönderilmesini ve alınmasını sağlamak için uygulamanın pil optimizasyonları devre dışı bırakılmalıdır</string>
     <string name="title_setup_doze_hint">Bu kulağa çelişkili gelse de, bu uygulama için pil optimizasyonlarını kapatmak daha az pil kullanımına neden olur</string>
+    <string name="title_setup_doze_why">Pil optimizasyonları neden devre dışı bırakılmalı?</string>
     <string name="title_setup_doze_instructions">Bir sonraki Android iletişim kutusunda \"Optimize edilmemiş\" i \"Tüm uygulamalar\" olarak değiştirin, bu uygulamayı seçin ve \"Optimize etme\" yi seçin</string>
     <string name="title_setup_doze_battery">Yüksek pil kullanımı?</string>
     <string name="title_setup_doze_stopped">Eşzamanlama durdu mu?</string>
@@ -580,7 +582,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_autocrypt">Autocrypt kullan</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt karşılıklı mod</string>
     <string name="title_advanced_encrypt_subject">Konuyu şifrele</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Anahtarı içeri aktar</string>
+    <string name="title_advanced_import_pgp">Anahtarı içeri aktar</string>
     <string name="title_advanced_sign_algo">Imza algoritması</string>
     <string name="title_advanced_encrypt_algo">Şifreleme algoritması</string>
     <string name="title_advanced_remark_algo">Lütfen tüm e-posta istemcilerinin tüm algoritmaları desteklemediğini unutmayın.
@@ -629,6 +631,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_quick_sync_hint">Bu, veri kullanımını azaltır, ancak e-posta sunucusu standartlara uymazsa yeni mesajlar kaçırılabilir</string>
     <string name="title_advanced_no_date_hint">Bazı sağlayıcılar bilinmeyen, geçersiz veya ileri tarihli mesajları tarih içermeyen mesajlar olarak saklar.</string>
     <string name="title_advanced_unseen_hint">Bazı sağlayıcılar bunu düzgün bir şekilde desteklememektedir, bu durum mesajların hiç birinin senkronize edilmemesine ya da hepsinin senkronize edilmesine sebep olmaktadır</string>
+    <string name="title_advanced_data_usage">Bu, yüksek veri kullanımına neden olabilir!</string>
     <string name="title_advanced_deleted_unseen">Devre dışı bırakıldığında, okunmamış mesajlar sonsuza kadar cihazda tutulur</string>
     <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
     <string name="title_advanced_gmail_thread_hint">Bu yalnızca yeni alınan mesajlar için geçerlidir ve mevcut grupları bozabilir</string>

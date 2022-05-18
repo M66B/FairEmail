@@ -194,11 +194,13 @@
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
     <string name="title_setup_permissions_explanation">Permisiunile de contact sunt necesare pentru a căuta informații de contact și pentru a sugera contacte</string>
+    <string name="title_setup_permission_why">Ce permisiuni sunt necesare și de ce?</string>
     <string name="title_setup_permission_import_contacts">Cum pot importa contacte?</string>
     <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
     <string name="title_setup_doze_remark">Pentru a trimite și a primi e-mailuri în mod fiabil în fundal</string>
     <string name="title_setup_doze_explanation">Optimizările bateriei trebuie să fie dezactivate pentru aplicație pentru a asigura trimiterea și primirea sigură a mesajelor în fundal</string>
     <string name="title_setup_doze_hint">Deși poate părea contradictoriu, dezactivarea optimizărilor bateriei pentru această aplicație va duce la o utilizare mai redusă a bateriei</string>
+    <string name="title_setup_doze_why">De ce ar trebui să fie dezactivate optimizările bateriei?</string>
     <string name="title_setup_doze_instructions">În următorul dialog Android schimbați opțiunea \"Nu se optimizează\" în \"Toate aplicațiile\", selectați această aplicație și selectați \"Nu se optimizează\"</string>
     <string name="title_setup_doze_battery">Utilizare intensă a bateriei?</string>
     <string name="title_setup_doze_stopped">Sincronizarea e oprită?</string>
@@ -591,6 +593,7 @@
     <string name="title_advanced_autocrypt">Folosește Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modul mutual Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Criptează subiectul</string>
+    <string name="title_advanced_import_pgp">Importare cheie</string>
     <string name="title_advanced_sign_algo">Algoritm de semnătură</string>
     <string name="title_advanced_encrypt_algo">Algoritm de criptare</string>
     <string name="title_advanced_remark_algo">        Vă rugăm să rețineți că nu toți clienții de e-mail acceptă toți algoritmii.
@@ -639,6 +642,7 @@
     <string name="title_advanced_quick_sync_hint">Acest lucru reduce consumul de date, dar mesajele noi pot fi ratate dacă serverul de e-mail nu respectă standardele</string>
     <string name="title_advanced_no_date_hint">Unii furnizori stochează mesaje cu o dată necunoscută, invalidă sau viitoare ca mesaje fără dată</string>
     <string name="title_advanced_unseen_hint">Unii furnizori nu suportă asta în mod corect, fapt ce va duce la sincronizarea tuturor mesajelor sau a nici unuia</string>
+    <string name="title_advanced_data_usage">Acest lucru poate cauza o utilizare ridicată a datelor!</string>
     <string name="title_advanced_deleted_unseen">Dacă este dezactivat, mesajele necitite sunt păstrate pe dispozitiv pentru totdeauna</string>
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_gmail_thread_hint">Acest lucru se aplică doar la mesajele noi primite și poate strica grupurile existente</string>
@@ -1014,6 +1018,10 @@
     <string name="title_button_search">Căutați în mesaje</string>
     <string name="title_button_search_text">Căutați în textul mesajului</string>
     <string name="title_configure_buttons">Configurare butoane &#8230;</string>
+    <string name="title_quick_actions">Selectați acțiuni</string>
+    <string name="title_quick_actions_hint">Vor fi afișate până la %1$d acțiuni</string>
+    <string name="title_quick_actions_low">Importanță redusă</string>
+    <string name="title_quick_actions_high">Importanță ridicată</string>
     <string name="title_quick_actions_snooze">Amână</string>
     <string name="title_trash">Gunoi</string>
     <string name="title_copy">Copiere &#8230;</string>

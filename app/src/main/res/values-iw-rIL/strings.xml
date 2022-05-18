@@ -204,11 +204,13 @@
     <string name="title_setup_permissions">הענקת הרשאות</string>
     <string name="title_setup_permissions_remark">כדי לגשת לנתונים של איש הקשר (רשות)</string>
     <string name="title_setup_permissions_explanation">נדרשות הרשאות לאנשי הקשר כדי לחפש פרטי אנשי קשר ולהציע אנשי קשר</string>
+    <string name="title_setup_permission_why">אילו הרשאות נחוצות ומדוע?</string>
     <string name="title_setup_permission_import_contacts">איך אפשר לייבא אנשי קשר?</string>
     <string name="title_setup_doze">השבתת מיטובי סוללה</string>
     <string name="title_setup_doze_remark">כדי לשלוח ולקבל הודעות בצורה מהימנה ברקע</string>
     <string name="title_setup_doze_explanation">יש להשבית את מיטובי הסוללה עבור היישומון כדי לוודא ששליחת וקבלת הדוא״ל ברקע מהימנות</string>
     <string name="title_setup_doze_hint">למרות שזה נשמע סותר, כיבוי מיטובי הסוללה ליישומון הזה מצמצם את השימוש בסוללה</string>
+    <string name="title_setup_doze_why">מדוע להשבית מיטוב סוללה?</string>
     <string name="title_setup_doze_instructions">בחלונית הבאה ב־Android יש לשנות את „לא ממוטב” ל־„כל היישומונים”, יש לבחור ביישומון הזה ולבחור ב־„לא למטב”</string>
     <string name="title_setup_doze_battery">שימוש גבוה בסוללה?</string>
     <string name="title_setup_doze_stopped">הסנכרון נפסק?</string>
@@ -602,6 +604,7 @@
     <string name="title_advanced_autocrypt">להשתמש ב־Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">מצב הדדי של Autocrypt</string>
     <string name="title_advanced_encrypt_subject">הצפנת הנושא</string>
+    <string name="title_advanced_import_pgp">ייבוא מפתח</string>
     <string name="title_advanced_sign_algo">אלגוריתם חתימה</string>
     <string name="title_advanced_encrypt_algo">אלגוריתם הצפנה</string>
     <string name="title_advanced_remark_algo">        נא לשים לב שלא כל לקוחות הדוא״ל תומכים בכל האלגוריתמים.
@@ -650,6 +653,7 @@
     <string name="title_advanced_quick_sync_hint">מפחית את תצרוכת הנתונים אך יכול להיות שהודעות חדשות יפוספסו אם שרת הדוא״ל לא עוקב אחר התקנים</string>
     <string name="title_advanced_no_date_hint">חלק מהספקים מאחסנים הודעות עם תאריך לא ידוע, שגוי או עתידי עבור הודעות ללא תאריך</string>
     <string name="title_advanced_unseen_hint">חלק מהספקים לא תומכים באפשרות הזאת כראוי, מה שעשוי לגרום לסנכרון אף אחת מההודעות או כולן</string>
+    <string name="title_advanced_data_usage">עשוי להגדיל את התעבורה!</string>
     <string name="title_advanced_deleted_unseen">כאשר מושבת, הודעות שלא נקראו נשמרות על המכשיר לעד</string>
     <string name="title_advanced_sync_kept_hint">יגרום להעברה של יותר נתונים וצריכה גבוהה יותר של סוללה, במיוחד אם הודעות רבות מאוחסנות במכשיר</string>
     <string name="title_advanced_gmail_thread_hint">חל רק על הודעות חדשות שמתקבלות ועלול לפגום בקבוצות קיימות</string>
@@ -1028,6 +1032,8 @@
     <string name="title_configure_buttons">הגדרת כפתורים&#8230;</string>
     <string name="title_quick_actions">בחירת פעולות</string>
     <string name="title_quick_actions_hint">יופיעו עד %1$d פעולות</string>
+    <string name="title_quick_actions_low">חשיבות נמוכה</string>
+    <string name="title_quick_actions_high">חשיבות גבוהה</string>
     <string name="title_quick_actions_snooze">השהיה</string>
     <string name="title_trash">אשפה</string>
     <string name="title_copy">העתקה&#8230;</string>

@@ -174,11 +174,13 @@
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
     <string name="title_setup_permissions_explanation">需要联系人权限来查找联系人信息和推荐联系人</string>
+    <string name="title_setup_permission_why">需要哪些权限以及原因？</string>
     <string name="title_setup_permission_import_contacts">如何导入联系人？</string>
     <string name="title_setup_doze">禁用电池优化</string>
     <string name="title_setup_doze_remark">更可靠地后台收发电子邮件</string>
     <string name="title_setup_doze_explanation">应禁用针对本应用的电池优化，以确保后台消息的可靠发送和接收。</string>
     <string name="title_setup_doze_hint">虽然这听起来自相矛盾，但对本应用而言关闭电池优化将减少电池用量</string>
+    <string name="title_setup_doze_why">为什么要禁用电池优化？</string>
     <string name="title_setup_doze_instructions">请在下一页面中，将 \"未优化\" 切换为 \"所有应用\"，然后下拉找到本应用，并选择\"不优化\"</string>
     <string name="title_setup_doze_battery">太耗电？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
@@ -571,7 +573,7 @@
     <string name="title_advanced_autocrypt">使用Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">自动双向加密模式</string>
     <string name="title_advanced_encrypt_subject">加密邮件主题</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">导入密钥</string>
+    <string name="title_advanced_import_pgp">导入密钥</string>
     <string name="title_advanced_sign_algo">签名算法</string>
     <string name="title_advanced_encrypt_algo">加密算法</string>
     <string name="title_advanced_remark_algo">        请注意，并非所有电子邮件客户端都支持所有算法。
@@ -620,6 +622,7 @@
     <string name="title_advanced_quick_sync_hint">这有助于减少流量使用量，但搭配不遵守该标准的邮件服务器时可能错过新消息。</string>
     <string name="title_advanced_no_date_hint">某些供应商将未知、无效或未来日期的消息存储为不含日期的消息</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
+    <string name="title_advanced_data_usage">这会导致高流量使用!</string>
     <string name="title_advanced_deleted_unseen">禁用后未读消息将永远保留在设备上</string>
     <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量消息存储在设备上</string>
     <string name="title_advanced_gmail_thread_hint">这只适用于新收到的消息，且可能会破坏现有的组</string>

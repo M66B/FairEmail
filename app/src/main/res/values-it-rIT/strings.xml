@@ -184,11 +184,13 @@
     <string name="title_setup_permissions">Concedi autorizzazioni</string>
     <string name="title_setup_permissions_remark">Per accedere alle informazioni di contatto (opzionale)</string>
     <string name="title_setup_permissions_explanation">Le autorizzazioni di contatto sono necessarie per cercare informazioni di contatto e suggerire contatti</string>
+    <string name="title_setup_permission_why">Quali autorizzazioni sono necessarie e perché?</string>
     <string name="title_setup_permission_import_contacts">Come posso importare i contatti?</string>
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
     <string name="title_setup_doze_remark">Per inviare e ricevere email affidabilmente in background</string>
     <string name="title_setup_doze_explanation">Le ottimizzazioni della batteria dovrebbero esser disabilitate per l\'app, per assicurare un\'affidabile invio e ricezione dei messaggi in background</string>
     <string name="title_setup_doze_hint">Sebbene questo possa sembrare contraddittorio, disattivare le ottimizzazioni della batteria per quest\'app risulterà in un minore uso della batteria</string>
+    <string name="title_setup_doze_why">Perché le ottimizzazioni della batteria dovrebbero essere disabilitate?</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra di Android cambia \"Non ottimizzata\" a \"Tutte le app\", seleziona quest\'app e seleziona \"Non ottimizzare\"</string>
     <string name="title_setup_doze_battery">Alto consumo della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
@@ -582,7 +584,7 @@
     <string name="title_advanced_autocrypt">Usa Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modalità reciproca di Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Crittografa l\'oggetto</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Importa chiave</string>
+    <string name="title_advanced_import_pgp">Importa chiave</string>
     <string name="title_advanced_sign_algo">Algoritmo della firma</string>
     <string name="title_advanced_encrypt_algo">Algoritmo della crittografia</string>
     <string name="title_advanced_remark_algo">        Sei pregato di tener presente che non tutti i client email supportano tutti gli algoritmi.
@@ -632,6 +634,7 @@
     <string name="title_advanced_quick_sync_hint">Questo riduce l\'uso dei dati, ma i nuovi messaggi potrebbero esser perduti se il server email non segue gli standard</string>
     <string name="title_advanced_no_date_hint">Alcuni provider memorizzano i messaggi con una data sconosciuta, non valida o futura come messaggi senza data</string>
     <string name="title_advanced_unseen_hint">Alcuni provider non lo supportano propriamente, il che potrebbe causare la sincronizzazione di tutti o nessun messaggio</string>
+    <string name="title_advanced_data_usage">Questo può causare un uso elevato dei dati!</string>
     <string name="title_advanced_deleted_unseen">Quando disabilitato, i messaggi non letti sono mantenuti per sempre sul dispositivo</string>
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia extra della batteria, specialmente se sono memorizzati molti messaggi sul dispositivo</string>
     <string name="title_advanced_gmail_thread_hint">Ciò si applica solo ai messaggi appena ricevuti e può corrompere i gruppi esistenti</string>

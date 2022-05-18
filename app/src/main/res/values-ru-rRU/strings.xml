@@ -204,11 +204,13 @@
     <string name="title_setup_permissions">Предоставить разрешения</string>
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
     <string name="title_setup_permissions_explanation">Разрешение на контакты необходимо для поиска и подбора контактов</string>
+    <string name="title_setup_permission_why">Какие разрешения необходимы и почему?</string>
     <string name="title_setup_permission_import_contacts">Как импортировать контакты?</string>
     <string name="title_setup_doze">Отключить оптимизацию энергопотребления</string>
     <string name="title_setup_doze_remark">Для надёжной отправки и получения электронной почты в фоновом режиме</string>
     <string name="title_setup_doze_explanation">Оптимизация батареи должна быть отключена для приложения, чтобы обеспечить надёжную отправку и получение сообщений в фоновом режиме</string>
     <string name="title_setup_doze_hint">Хотя это может показаться противоречивым, отключение оптимизации потребления заряда батареи для этого приложения приведёт к сокращению использования заряда батареи</string>
+    <string name="title_setup_doze_why">Почему оптимизация батареи должна быть отключена?</string>
     <string name="title_setup_doze_instructions">В следующем диалоговом окне Android измените \"Не оптимизировать\" на \"Все приложения\", выберите это приложение и для него выберите \"Не оптимизировать\"</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
@@ -601,7 +603,7 @@
     <string name="title_advanced_autocrypt">Использовать Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Взаимный режим Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Шифровать тему</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Импортировать ключ</string>
+    <string name="title_advanced_import_pgp">Импортировать ключ</string>
     <string name="title_advanced_sign_algo">Алгоритм подписи</string>
     <string name="title_advanced_encrypt_algo">Алгоритм шифрования</string>
     <string name="title_advanced_remark_algo">        Имейте в виду, что не все почтовые клиенты поддерживают все алгоритмы.
@@ -651,6 +653,7 @@
     <string name="title_advanced_quick_sync_hint">Уменьшается использование трафика, но новые сообщения могут быть пропущены, если сервер электронной почты не придерживается стандартов</string>
     <string name="title_advanced_no_date_hint">Некоторые провайдеры хранят сообщения с неизвестными, недействительными или будущими датами как сообщения без даты</string>
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают эту функцию правильно, что может привести к синхронизации всех или ни одного сообщения</string>
+    <string name="title_advanced_data_usage">Это может привести к интенсивному использованию данных!</string>
     <string name="title_advanced_deleted_unseen">Если отключено, непрочитанные сообщения хранятся на устройстве вечно</string>
     <string name="title_advanced_sync_kept_hint">Приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_gmail_thread_hint">Относится только к вновь полученным сообщениям и может нарушить существующие группы</string>
@@ -1216,7 +1219,7 @@
     <string name="title_translate_html_hint">Будет использоваться больше символов</string>
     <string name="title_translate_usage">Использование: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Нажмите на текст для перевода</string>
-    <string name="title_suggestions_check">Проверка &#8230;</string>
+    <string name="title_suggestions_check">Проверка&#8230;</string>
     <string name="title_suggestions_none">Нет предложений</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>

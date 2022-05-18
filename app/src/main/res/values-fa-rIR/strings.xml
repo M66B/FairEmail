@@ -174,9 +174,11 @@
     <string name="title_setup_permissions">دادن دسترسی</string>
     <string name="title_setup_permissions_remark">برای دسترسی به اطلاعات مخاطبین (اختیاری)</string>
     <string name="title_setup_permissions_explanation">اجازه دسترسی به لیست مخاطبین برای جستجوی اطلاعات آنها و پیشنهاد دادن‌شان لازم است</string>
+    <string name="title_setup_permission_why">کدام اجازه دسترسی‌ها لازمند و چرا؟</string>
     <string name="title_setup_permission_import_contacts">چگونه می‌توانم مخاطبین را وارد کنم؟</string>
     <string name="title_setup_doze">غیرفعال کردن بهینه سازی باتری</string>
     <string name="title_setup_doze_remark">برای فرستادن و دریافت ایمیل به طرز مطمئن در پس‌زمینه</string>
+    <string name="title_setup_doze_why">چرا باید حالت بهینه‌سازی باتری غیرفعال باشد؟</string>
     <string name="title_setup_doze_battery">آیا مصرف باتری زیاد است؟</string>
     <string name="title_setup_doze_stopped">همگام‌سازی متوقف شده؟</string>
     <string name="title_setup_doze_device">این مورد احتمالا برای این دستگاه اجباریست</string>
@@ -462,7 +464,7 @@
     <string name="title_advanced_openpgp">فراهم کننده OpenPGP</string>
     <string name="title_advanced_autocrypt">استفاده از Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">حالت دستی Autocrypt</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">وارد کردن کلید</string>
+    <string name="title_advanced_import_pgp">وارد کردن کلید</string>
     <string name="title_advanced_check_certificate">بررسی کلید عمومی هنگام فرستادن</string>
     <string name="title_advanced_manage_certificates">مدیریت کلید‌های عمومی</string>
     <string name="title_advanced_import_key">وارد کردن کلید خصوصی</string>

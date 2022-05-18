@@ -359,6 +359,7 @@
     <string name="title_advanced_usenet_signature">Usenet imza müqaviləsinə əməl et</string>
     <string name="title_advanced_remove_signatures">Tanınan imzaları çıxart</string>
     <string name="title_advanced_receipt">Bir bildiriş tələb edəndə</string>
+    <string name="title_advanced_forward_new">Yönləndirərkən yeni bir danışıq başlat</string>
     <string name="title_advanced_lookup_mx">Göndərməzdən əvvəl alıcı e-poçt ünvanlarını yoxla</string>
     <string name="title_advanced_metered">Ölçülmüş bağlantıları istifadə et</string>
     <string name="title_advanced_download">Mesajları və qoşmaları ölçülmüş bağlantıda avtomatik endir</string>
@@ -581,6 +582,7 @@
     <string name="title_advanced_autocrypt">Autocrypt istifadə et</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt qarşılıqlı rejim</string>
     <string name="title_advanced_encrypt_subject">Mövzunu şifrələ</string>
+    <string name="title_advanced_import_pgp">İdxal açarı</string>
     <string name="title_advanced_sign_algo">İmza alqoritmi</string>
     <string name="title_advanced_encrypt_algo">Şifrələmə alqoritmi</string>
     <string name="title_advanced_remark_algo">        Zəhmət olmasa yadda saxlayın ki, bütün e-poçt müştəriləri (client) bütün alqoritmləri dəstəkləmir.
@@ -629,6 +631,7 @@
     <string name="title_advanced_quick_sync_hint">Bu, verilənlər istifadəsini azaldır, ancaq e-poçt serveri standartlara uyğun olmasa yeni mesajlar buraxıla bilər</string>
     <string name="title_advanced_no_date_hint">Bəzi təchizatçılar bilinməyən, etibarsız və ya irəli tarixli mesajları tarixsiz mesajlar kimi saxlayır</string>
     <string name="title_advanced_unseen_hint">Bəzi təchizatçılar bunu doğru formada dəstəkləmir, bu da ya heç bir mesajın eyniləşdirilməməsinə, ya da bütün mesajların eyniləşdirilməsinə səbəb ola bilər</string>
+    <string name="title_advanced_data_usage">Bu, yüksək verilənlər istifadəsinə səbəb ola bilər!</string>
     <string name="title_advanced_deleted_unseen">Sıradan çıxarılanda, oxunmamış mesajlar həmişəlik cihazda qalacaq</string>
     <string name="title_advanced_sync_kept_hint">Bu, xüsusilə cihazda həddindən çox mesaj saxlanılanda ekstra data transfer edir və daha çox batareya enerjisi istifadə edir</string>
     <string name="title_advanced_gmail_thread_hint">Bu, yalnız yeni gələn mesajlara tətbiq olunur və mövcud qrupları zədələyə bilər</string>
@@ -1005,6 +1008,10 @@
     <string name="title_button_search">Mesajlarda axtar</string>
     <string name="title_button_search_text">Mesaj mətnində axtar</string>
     <string name="title_configure_buttons">Düymələri konfiqurasiya et &#8230;</string>
+    <string name="title_quick_actions">Əməliyyat seçin</string>
+    <string name="title_quick_actions_hint">Ən çox %1$d əməliyyat göstəriləcək</string>
+    <string name="title_quick_actions_low">Aşağı vaciblik</string>
+    <string name="title_quick_actions_high">Yüksək vaciblik</string>
     <string name="title_quick_actions_snooze">Ertələ</string>
     <string name="title_trash">Tullantı</string>
     <string name="title_copy">Kopyala &#8230;</string>

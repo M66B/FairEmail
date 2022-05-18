@@ -194,11 +194,13 @@
     <string name="title_setup_permissions">Odobri dopuštenja</string>
     <string name="title_setup_permissions_remark">Pristup informacijama o kontaktu (izborno)</string>
     <string name="title_setup_permissions_explanation">Za traženje podataka o kontaktu i predlaganje kontakata potrebna su dopuštenja za kontakt</string>
+    <string name="title_setup_permission_why">Koje dozvole su potrebne i zašto?</string>
     <string name="title_setup_permission_import_contacts">Kako mogu uvesti kontakte?</string>
     <string name="title_setup_doze">Onemogući optimizacije baterije</string>
     <string name="title_setup_doze_remark">Za pouzdano slanje i primanje e-pošte u pozadini</string>
     <string name="title_setup_doze_explanation">Optimizacije baterije trebaju biti onemogućene za aplikaciju kako bi se osiguralo pouzdano slanje i primanje poruka u pozadini</string>
     <string name="title_setup_doze_hint">Iako ovo može zvučati kontradiktorno, isključivanje optimizacije baterije za ovu aplikaciju rezultirat će manjom potrošnjom baterije</string>
+    <string name="title_setup_doze_why">Zašto bi optimizacija baterije trebala biti onemogućena?</string>
     <string name="title_setup_doze_instructions">U sljedećem dijaloškom okviru Androida promijenite \"Nije optimizirano\" u \"Sve aplikacije\", odaberite ovu aplikaciju i odaberite \"Nemoj optimizirati\"</string>
     <string name="title_setup_doze_battery">Visoka potrošnja baterije?</string>
     <string name="title_setup_doze_stopped">Sinkronizacija zaustavljena?</string>
@@ -592,6 +594,7 @@
     <string name="title_advanced_autocrypt">Koristi Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Međusobni način Autocrypta</string>
     <string name="title_advanced_encrypt_subject">Šifriraj predmet</string>
+    <string name="title_advanced_import_pgp">Uvezi ključ</string>
     <string name="title_advanced_sign_algo">Algoritam potpisa</string>
     <string name="title_advanced_encrypt_algo">Algoritam šifriranja</string>
     <string name="title_advanced_remark_algo">        Imajte na umu da svi klijenti e-pošte ne podržavaju sve algoritme.
@@ -641,6 +644,7 @@
     <string name="title_advanced_quick_sync_hint">Ovo smanjuje potrošnju podataka, ali nove poruke mogu biti propuštene ako poslužitelj e-pošte ne slijedi standarde</string>
     <string name="title_advanced_no_date_hint">Neki davatelji usluga pohranjuju poruke s nepoznatim, nevažećim ili budućim datumom kao poruke bez datuma</string>
     <string name="title_advanced_unseen_hint">Neki davatelji ne podržavaju to ispravno, što može uzrokovati sinkronizaciju nijedne ili svih poruka</string>
+    <string name="title_advanced_data_usage">Ovo može uzrokovati veliku potrošnju podataka!</string>
     <string name="title_advanced_deleted_unseen">Kad je onemogućeno, nepročitane poruke zauvijek se čuvaju na uređaju</string>
     <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i potrošiti dodatnu snagu baterije, posebno ako je na uređaju spremljeno puno poruka</string>
     <string name="title_advanced_gmail_thread_hint">Ovo se odnosi samo na novoprimljene poruke i može prekinuti postojeće grupe</string>
@@ -1016,6 +1020,10 @@
     <string name="title_button_search">Pretraži u porukama</string>
     <string name="title_button_search_text">Pretraži u tekstu poruke</string>
     <string name="title_configure_buttons">Konfiguriraj dugmad &#8230;</string>
+    <string name="title_quick_actions">Odaberi radnje</string>
+    <string name="title_quick_actions_hint">Prikazat će se najviše %1$d radnji</string>
+    <string name="title_quick_actions_low">Mala važnost</string>
+    <string name="title_quick_actions_high">Velika važnost</string>
     <string name="title_quick_actions_snooze">Utišaj</string>
     <string name="title_trash">Otpad</string>
     <string name="title_copy">Kopiraj &#8230;</string>
@@ -1075,7 +1083,7 @@
     <string name="title_fullscreen">Prikaži cijeli ekran</string>
     <string name="title_fit_width">Popuni širinu</string>
     <string name="title_disable_widths">Onemogući širine</string>
-    <string name="title_monospaced_pre">Jednaki razmak &lt;pre&gt;</string>
+    <string name="title_monospaced_pre">Jednakoprostorno &lt;pre&gt;</string>
     <string name="title_unused_inline">Neiskorištene umetnute slike uklanjaju se prilikom slanja</string>
     <string name="title_accross_remark">Poruke prebačene preko računa ponovno će se preuzeti, što će rezultirati dodatnom upotrebom podataka</string>
     <string name="title_raw_saved">Spremljena je sirova poruka</string>
@@ -1639,6 +1647,7 @@
     <string name="title_go_back">Idi natrag</string>
     <string name="title_conversation_actions">Radnje</string>
     <string name="title_conversation_action_reply">Odgovori s: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Kopiraj: \'%1$s\'</string>
     <string name="title_icalendar_accept">Prihvati</string>
     <string name="title_icalendar_decline">Odbij</string>
     <string name="title_icalendar_maybe">Možda</string>
@@ -1646,26 +1655,45 @@
     <string name="title_pro_feature">Ovo je pro funkcija</string>
     <string name="title_pro_list">Popis pro funkcija</string>
     <string name="title_pro_purchase">Kupi</string>
+    <string name="title_pro_one_time">%1$s (jednokratna kupnja)</string>
+    <string name="title_pro_no_play">Play Store nije pronađen</string>
     <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
         To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
         FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
+    <string name="title_pro_whichever">Koje god značajke odabrane kao profesionalne, uvijek postoji netko tko se žali da bi značajka trebala biti besplatna. Molimo vas, ne budite ta osoba.</string>
+    <string name="title_pro_google">FairEmail pokreće kupnju u Play Store-u, ali u konačnici Google upravlja cijelim procesom kupnje. Stoga nemojte kriviti aplikaciju u slučaju bilo kakvih problema!</string>
+    <string name="title_pro_hide">Sakrij malu poruku %1$d tjedna/ana</string>
     <string name="title_pro_hint">Kupnja pro funkcija će vam omogućiti da koristite sve trenutne i buduće mogućnosti aplikacije i zadržat će ovu aplikaciju održavanu i podržanu</string>
+    <string name="title_pro_price">Zašto su profesionalne značajke tako skupe?</string>
+    <string name="title_pro_family">Mogu li koristiti Obiteljsku zbirku Google Play-a?</string>
+    <string name="title_pro_restore">Kako mogu vratiti kupnju (na drugom uređaju)?</string>
     <string name="title_pro_pending">Kupnja na čekanju</string>
     <string name="title_pro_activated">Sve pro funkcije su aktivirane</string>
     <string name="title_pro_valid">Sve pro funkcije aktivirane</string>
     <string name="title_pro_invalid">Nevažeći odgovor</string>
+    <string name="title_pro_support">FairEmail treba vašu pomoć. Dodirnite da biste kupili profesionalne značajke za nastavak projekta ili isključite ovu poruku.</string>
+    <string name="title_boundary_error">Pogreška pri preuzimanju poruka s poslužitelja e-pošte</string>
+    <string name="title_boundary_retry">Pokušaj ponovno</string>
     <string name="title_unexpected_error">Neočekivana greška</string>
     <string name="title_log">Zapisnik</string>
     <string name="title_auto_scroll">Automatsko pomicanje</string>
     <string name="title_log_clear">Izbriši</string>
+    <string name="title_rules_search_hint">Traži ime ili uvjet</string>
+    <string name="title_rules_export">Izvoz pravila</string>
+    <string name="title_rules_import">Uvoz pravila</string>
     <string name="title_rules_delete_all">Izbriši sva pravila</string>
     <string name="title_rules_delete_all_confirm">Izbriši sva pravila?</string>
     <string name="title_debug_info">Informacije o otklanjanju pogrešaka</string>
     <string name="title_debug_info_remark">Opišite problem i navedite vrijeme problema:</string>
     <string name="title_crash_info_remark">Opišite što ste radili kada je aplikacija pala:</string>
+    <string name="title_unexpected_info_remark">Molimo opišite što ste radili kada ste dobili pogrešku:</string>
     <string name="title_widget_title_count">Broj novih poruka</string>
     <string name="title_widget_title_list">Popis poruka</string>
+    <string name="title_widget_title_sync">Sinkronizacija uključena/isključena</string>
+    <string name="title_power_menu_sync">Sinkronizacija</string>
+    <string name="title_power_menu_on">Uključeno</string>
+    <string name="title_power_menu_off">Isključeno</string>
     <string name="title_power_menu_on_off">Upaljeno/Ugašeno</string>
     <string name="title_widget_account">Račun</string>
     <string name="title_widget_account_all">Sve</string>
@@ -1675,8 +1703,13 @@
     <string name="title_widget_flagged">Samo poruke označene zvjezdicom</string>
     <string name="title_widget_font_size">Veličina teksta</string>
     <string name="title_widget_padding">Veličina razmaka</string>
+    <string name="title_widget_separator_lines">Prikaži linije za razdvajanje</string>
+    <string name="title_widget_semi_transparent">Poluprozirna pozadina</string>
+    <string name="title_widget_avatars">Prikaži avatare kontakata</string>
     <string name="title_widget_refresh">Prikaži dugme za osvježavanje poruka</string>
     <string name="title_widget_compose">Prikaži dugme za sastavljanje nove poruke</string>
+    <string name="title_widget_background">Boja pozadine</string>
+    <string name="title_widget_day_night">Prati tamnu temu sustava</string>
     <string name="title_accessibility_collapsed">Sažeto</string>
     <string name="title_accessibility_expanded">Prošireno</string>
     <string name="title_accessibility_seen">Pročitano</string>
@@ -1689,6 +1722,7 @@
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Važno</string>
     <string name="title_keyword_label2">Posao</string>
+    <string name="title_keyword_label3">Osobno</string>
     <string name="title_keyword_label4">Za napraviti</string>
     <string name="title_keyword_label5">Kasnije</string>
     <string name="title_accessibility_flagged">Sa zvjezdicom</string>
@@ -1758,7 +1792,7 @@
         <item>Pređi na sljedeći razgovor</item>
     </string-array>
     <string-array name="resizeNames">
-        <item>Extra small</item>
+        <item>Vrlo mala</item>
         <item>Maleno</item>
         <item>Srednje</item>
         <item>Veliko</item>
@@ -1782,7 +1816,7 @@
         <item>Na početku</item>
         <item>U sredini</item>
         <item>Na kraju</item>
-        <item>Show untruncated</item>
+        <item>Prikaži neskraćeno</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Nizak</item>
@@ -1791,9 +1825,9 @@
     </string-array>
     <string-array name="sensitivityNames">
         <item>Normalni</item>
-        <item>Personal</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>Osobno</item>
+        <item>Privatno</item>
+        <item>Povjerljivo</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>
@@ -1808,6 +1842,7 @@
         <item>Srednje</item>
         <item>Veliko</item>
     </string-array>
+    <string name="title_size_tiny">Sićušna</string>
     <string-array name="receiptNames">
         <item>Samo potvrda o čitanju</item>
         <item>Samo potvrda o slanju</item>
@@ -1837,14 +1872,26 @@
         <item>50 MB</item>
     </string-array>
     <string-array name="undoNames">
-        <item>Off</item>
+        <item>Isključeno</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
     </string-array>
+    <string-array name="fontNameNames">
+        <item>Kurziv</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Jednakoprostorno</item>
+        <item>Maštarija</item>
+    </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Samo ime</item>
+        <item>Samo e-pošta</item>
+        <item>Ime i e-pošta</item>
+    </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
@@ -1858,11 +1905,11 @@
         <item>Primatelj</item>
         <item>Pošiljatelj</item>
         <item>Blokirano</item>
-        <item>Not blocked</item>
+        <item>Nije blokiran</item>
     </string-array>
     <string-array name="contactGroupTypes">
         <item>Bilo koji</item>
-        <item>Home</item>
+        <item>Početna</item>
         <item>Posao</item>
         <item>Ostalo</item>
         <item>Mobilni</item>

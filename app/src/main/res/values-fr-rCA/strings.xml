@@ -184,11 +184,13 @@
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations de contact (facultatif)</string>
     <string name="title_setup_permissions_explanation">L\'autorisation d\'accès aux contacts est requise pour rechercher des informations de contact et pour suggérer des contacts</string>
+    <string name="title_setup_permission_why">Quelles autorisations sont nécessaires et pourquoi?</string>
     <string name="title_setup_permission_import_contacts">Comment puis-je importer des contacts?</string>
     <string name="title_setup_doze">Désactiver les optimisations de la pile</string>
     <string name="title_setup_doze_remark">Pour envoyer et recevoir des courriels de manière fiable en arrière-plan</string>
     <string name="title_setup_doze_explanation">Les optimisations de la pile doivent être désactivées pour que l\'application assure un envoi et une réception fiables des messages en arrière-plan</string>
     <string name="title_setup_doze_hint">Bien que cela puisse sembler contradictoire, désactiver les optimisations de pile pour cette application entraînera une diminution de l\'utilisation de la pile</string>
+    <string name="title_setup_doze_why">Pourquoi l\'optimisation de la pile devrait-elle être désactivée?</string>
     <string name="title_setup_doze_instructions">Dans la prochaine fenêtre de dialogue Android, changez « Non optimisées » en « Toutes les applications », sélectionnez cette application et cochez « Ne pas optimiser »</string>
     <string name="title_setup_doze_battery">Utilisation élevée de la pile?</string>
     <string name="title_setup_doze_stopped">Synchronisation arrêtée?</string>
@@ -582,7 +584,7 @@
     <string name="title_advanced_autocrypt">Utiliser Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Mode Autocrypt mutuel</string>
     <string name="title_advanced_encrypt_subject">Chiffrer l\'objet</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Importer une clé</string>
+    <string name="title_advanced_import_pgp">Importer une clé</string>
     <string name="title_advanced_sign_algo">Algorithme de signature</string>
     <string name="title_advanced_encrypt_algo">Algorithme de chiffrement</string>
     <string name="title_advanced_remark_algo">        Veuillez noter que tous les clients de messagerie ne prennent pas en charge tous les algorithmes.
@@ -632,6 +634,7 @@
     <string name="title_advanced_quick_sync_hint">Ceci réduit l\'utilisation des données mais de nouveaux messages pourraient être manquants si le serveur de messagerie ne respecte pas les normes</string>
     <string name="title_advanced_no_date_hint">Certains fournisseurs stockent les messages avec une date inconnue, invalide ou future comme étant des messages sans date</string>
     <string name="title_advanced_unseen_hint">Certains fournisseurs ne prennent pas ceci en charge correctement, ce qui peut entraîner la synchronisation de tous les messages, voire d’aucun</string>
+    <string name="title_advanced_data_usage">Ceci peut entraîner une utilisation élevée des données!</string>
     <string name="title_advanced_deleted_unseen">Lorsque ceci est désactivé, les messages non lus sont conservés sur l’appareil indéfiniment</string>
     <string name="title_advanced_sync_kept_hint">Ceci utilisera des données et de la pile supplémentaires, surtout s’il y a beaucoup de messages conservés sur l’appareil</string>
     <string name="title_advanced_gmail_thread_hint">Ceci s\'applique uniquement aux messages nouvellement reçus et peut corrompre les groupes existants</string>

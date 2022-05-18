@@ -184,11 +184,13 @@
     <string name="title_setup_permissions">Conceder permissões</string>
     <string name="title_setup_permissions_remark">Para acessar informações de contato (opcional)</string>
     <string name="title_setup_permissions_explanation">Permissões de contato são exigidas para procurar por informações de contato e para sugerir contatos</string>
+    <string name="title_setup_permission_why">Quais permissões são necessárias e por quê?</string>
     <string name="title_setup_permission_import_contacts">Como posso importar os contatos?</string>
     <string name="title_setup_doze">Desativar otimizações de bateria</string>
     <string name="title_setup_doze_remark">Para enviar e receber email de forma confiável em segundo plano</string>
     <string name="title_setup_doze_explanation">As otimizações de bateria devem estar desativadas para que seja garantido o envio e recebimento de mensagens em segundo plano</string>
     <string name="title_setup_doze_hint">Embora isto possa parecer contraditório, a desativação das otimizações de bateria para este aplicativo resultará em menos uso de bateria</string>
+    <string name="title_setup_doze_why">Por que as otimizações de bateria devem ser desativadas?</string>
     <string name="title_setup_doze_instructions">Na próxima caixa de diálogo do Android altere \"Não otimizado\" para \"Todos os aplicativos\", selecione este app e confirme \"Não otimizar\"</string>
     <string name="title_setup_doze_battery">Alto uso de bateria?</string>
     <string name="title_setup_doze_stopped">A sincronização parou?</string>
@@ -581,7 +583,7 @@
     <string name="title_advanced_autocrypt">Usar Autocript</string>
     <string name="title_advanced_autocrypt_mutual">Modo mútuo de Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Criptografar assunto</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Importar chave</string>
+    <string name="title_advanced_import_pgp">Importar chave</string>
     <string name="title_advanced_sign_algo">Algoritmo de assinatura</string>
     <string name="title_advanced_encrypt_algo">Algoritmo de criptografia</string>
     <string name="title_advanced_remark_algo">        Esteja ciente de que nem todos os clientes de e-mail suportam todos os algoritmos.
@@ -630,6 +632,7 @@
     <string name="title_advanced_quick_sync_hint">Isto reduz o uso de dados, mas novas mensagens podem ser perdidas se o servidor de e-mail não seguir os padrões</string>
     <string name="title_advanced_no_date_hint">Alguns provedores armazenam mensagens com data desconhecida, inválida ou com data futura como mensagens sem data</string>
     <string name="title_advanced_unseen_hint">Alguns provedores não suportam isso adequadamente, o que pode causar a sincronização de nenhuma ou de todas as mensagens</string>
+    <string name="title_advanced_data_usage">Isso pode causar alto uso de dados!</string>
     <string name="title_advanced_deleted_unseen">Quando desativado, as mensagens não lidas são mantidas no dispositivo para sempre</string>
     <string name="title_advanced_sync_kept_hint">Isto irá transferir dados extras e consumir energia extra da bateria, especialmente se uma série de mensagens forem armazenadas no dispositivo</string>
     <string name="title_advanced_gmail_thread_hint">Isso só se aplica a mensagens recém-recebidas e pode quebrar grupos existentes</string>

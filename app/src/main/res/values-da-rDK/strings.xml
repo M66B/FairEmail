@@ -184,11 +184,13 @@
     <string name="title_setup_permissions">Giv tilladelser</string>
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
     <string name="title_setup_permissions_explanation">Kontakttilladelser kræves for at slå kontaktoplysninger op og foreslå kontaktpersoner</string>
+    <string name="title_setup_permission_why">Hvilke tilladelser kræves, og hvorfor?</string>
     <string name="title_setup_permission_import_contacts">Hvordan importeres kontakter?</string>
     <string name="title_setup_doze">Deaktivér batterioptimering</string>
     <string name="title_setup_doze_remark">For at sende og modtage e-mail pålideligt i baggrunden</string>
     <string name="title_setup_doze_explanation">Batterioptimeringer bør deaktiveres for appen for at sikre pålidelig baggrundsbeskedafsendelse og -modtagelse</string>
     <string name="title_setup_doze_hint">Selvom dette kan lyde selvmodsigende, vil deaktivering af batterioptimering for denne app resultere i lavere strømforbrug</string>
+    <string name="title_setup_doze_why">Hvorfor bør batterioptimeringer deaktiveres?</string>
     <string name="title_setup_doze_instructions">Ændr i næste Android-dialog \"Ikke optimeret\" til \"Alle apps\", vælg denne app og \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
     <string name="title_setup_doze_stopped">Synk stoppet?</string>
@@ -582,7 +584,7 @@
     <string name="title_advanced_autocrypt">Benyt Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokrypt gensidig tilstand</string>
     <string name="title_advanced_encrypt_subject">Kryptér emne</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Importér nøgle</string>
+    <string name="title_advanced_import_pgp">Importér nøgle</string>
     <string name="title_advanced_sign_algo">Signaturalgoritme</string>
     <string name="title_advanced_encrypt_algo">Krypteringsalgoritme</string>
     <string name="title_advanced_remark_algo">        Bemærk, at ikke alle e-mailklienter understøtter alle algoritmer.
@@ -632,6 +634,7 @@
     <string name="title_advanced_quick_sync_hint">Dette reducerer dataforbruget, men nye beskeder kan blive overset på e-mailservere, som ikke følger standarderne</string>
     <string name="title_advanced_no_date_hint">Visse udbydere gemmer beskeder med en ukendt, ugyldig eller fremtidig dato som beskeder uden en dato</string>
     <string name="title_advanced_unseen_hint">Visse udbydere understøtter ikke dette ordentligt, hvilket kan forårsage synkronisering af ingen eller alle beskeder</string>
+    <string name="title_advanced_data_usage">Dette kan forårsage højt dataforbrug!</string>
     <string name="title_advanced_deleted_unseen">Når deaktiveret, opbevares ulæste beskeder på enheden for evigt</string>
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og forbruge ekstra strøm, især hvis der er mange beskeder lagret på enheden</string>
     <string name="title_advanced_gmail_thread_hint">Dette gælder kun for nyligt modtagne beskeder og kan ødelægge eksisterende grupper</string>

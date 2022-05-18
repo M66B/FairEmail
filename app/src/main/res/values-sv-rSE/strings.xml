@@ -184,11 +184,13 @@
     <string name="title_setup_permissions">Bevilja behörigheter</string>
     <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (valfritt)</string>
     <string name="title_setup_permissions_explanation">Kontaktbehörigheter krävs för att söka kontaktinfo och föreslå kontakter</string>
+    <string name="title_setup_permission_why">Vilka behörigheter behövs och varför?</string>
     <string name="title_setup_permission_import_contacts">Hur kan jag importera kontakter?</string>
     <string name="title_setup_doze">Inaktivera batterioptimeringar</string>
     <string name="title_setup_doze_remark">Att skicka och ta emot e-post tillförlitligt i bakgrunden</string>
     <string name="title_setup_doze_explanation">Batterioptimeringar bör inaktiveras för appen för att säkerställa tillförlitlig sändning och mottagning av meddelanden i bakgrunden</string>
     <string name="title_setup_doze_hint">Även om detta kan låta motsägelsefullt, så resulterar avstängd batterioptimering för denna app i mindre batterianvändning</string>
+    <string name="title_setup_doze_why">Varför ska batterioptimeringar inaktiveras?</string>
     <string name="title_setup_doze_instructions">I nästa Android-dialogruta byt ut \"Inte optimerad\" till \"Alla appar\", välj sedan denna app och välj \"Optimera inte\"</string>
     <string name="title_setup_doze_battery">Hög batterianvändning?</string>
     <string name="title_setup_doze_stopped">Slutade synkroniseringen?</string>
@@ -578,6 +580,7 @@
     <string name="title_advanced_autocrypt">Använd Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokryptera ömsesidigt läge</string>
     <string name="title_advanced_encrypt_subject">Kryptera ämne</string>
+    <string name="title_advanced_import_pgp">Importera nyckel</string>
     <string name="title_advanced_sign_algo">Signaturalgoritm</string>
     <string name="title_advanced_encrypt_algo">Krypteringsalgoritm</string>
     <string name="title_advanced_remark_algo">        Tänk på att inte alla e-postklienter stöder alla algoritmer.
@@ -626,6 +629,7 @@
     <string name="title_advanced_quick_sync_hint">Detta minskar dataanvändningen, men nya meddelanden kan missas om e-postservern inte följer standarderna</string>
     <string name="title_advanced_no_date_hint">Vissa leverantörer lagrar meddelanden med ett okänt, ogiltigt eller framtida datum som meddelanden utan datum</string>
     <string name="title_advanced_unseen_hint">Vissa leverantörer stödjer inte detta korrekt, vilket kan orsaka synkronisering av inga eller alla meddelanden</string>
+    <string name="title_advanced_data_usage">Detta kan orsaka hög dataanvändning!</string>
     <string name="title_advanced_deleted_unseen">När inaktiverad, behålls olästa meddelanden på enheten för alltid</string>
     <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och förbruka extra batterikraft, speciellt om många meddelanden lagras på enheten</string>
     <string name="title_advanced_gmail_thread_hint">Detta gäller endast för nyligen mottagna meddelanden och kan bryta befintliga grupper</string>
@@ -1001,7 +1005,11 @@
     <string name="title_button_search">Sök i meddelanden</string>
     <string name="title_button_search_text">Sök i meddelandetext</string>
     <string name="title_configure_buttons">Konfigurera knappar &#8230;</string>
-    <string name="title_quick_actions_snooze">Slumra</string>
+    <string name="title_quick_actions">Välj åtgärd</string>
+    <string name="title_quick_actions_hint">Upp till %1$d åtgärder kommer att visas</string>
+    <string name="title_quick_actions_low">Ej viktigt</string>
+    <string name="title_quick_actions_high">Viktigt</string>
+    <string name="title_quick_actions_snooze">Pausa</string>
     <string name="title_trash">Papperskorg</string>
     <string name="title_copy">Kopiera &#8230;</string>
     <string name="title_copy_to">Kopiera till &#8230;</string>

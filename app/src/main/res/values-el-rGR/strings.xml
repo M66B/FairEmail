@@ -83,7 +83,7 @@
     </string>
     <string name="title_blocked_senders">Αποκλεισμένοι αποστολείς</string>
     <string name="title_junk_filter">Χρήση τοπικού φίλτρου ανεπιθ. αλληλογραφίας</string>
-    <string name="title_junk_filter_hint">Αυτό μπορεί να αυξήσει τη χρήση της μπαταρίας και να σημάνει εσφαλμένα μηνύματα ως ανεπιθύμητα</string>
+    <string name="title_junk_filter_hint">Αυτό μπορεί να αυξήσει τη χρήση της μπαταρίας και εσφαλμένα να επισημαίνει μηνύματα ως ανεπιθύμητα</string>
     <string name="title_junk_blocklist">Χρήση λιστών αποκλεισμού Ανεπιθύμητων</string>
     <string name="title_junk_clear">Καθαρισμός</string>
     <string name="title_junk_clear_hint">Αυτό θα διαγράψει όλους τους κανόνες αποκλεισμού αποστολέα</string>
@@ -184,11 +184,13 @@
     <string name="title_setup_permissions">Απαιτούμενα δικαιώματα</string>
     <string name="title_setup_permissions_remark">Για πρόσβαση στις πληροφορίες επαφών (προαιρετικό)</string>
     <string name="title_setup_permissions_explanation">Απαιτείται άδεια πρόσβασης στις επαφές για την αναζήτηση πληροφοριών επικοινωνίας και για προτάσεις επαφών</string>
+    <string name="title_setup_permission_why">Ποιες άδειες χρειάζονται και γιατί;</string>
     <string name="title_setup_permission_import_contacts">Πώς μπορώ να εισαγάγω επαφές;</string>
     <string name="title_setup_doze">Απενεργοποίηση βελτιστοποίησης μπαταρίας</string>
     <string name="title_setup_doze_remark">Για αξιόπιστη αποστολή και λήψη μηνυμάτων στο παρασκήνιο</string>
     <string name="title_setup_doze_explanation">Οι βελτιστοποιήσεις μπαταρίας θα πρέπει να απενεργοποιηθούν για την εφαρμογή, ώστε να διασφαλιστεί η αξιόπιστη αποστολή και λήψη μηνυμάτων στο παρασκήνιο</string>
     <string name="title_setup_doze_hint">Αν και μπορεί να ακούγεται αντιφατικό, η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για αυτήν την εφαρμογή, θα έχει ως αποτέλεσμα μικρότερη χρήση μπαταρίας</string>
+    <string name="title_setup_doze_why">Γιατί θα ήταν καλό να απενεργοποιηθούν οι βελτιστοποιήσεις μπαταρίας;</string>
     <string name="title_setup_doze_instructions">Στο επόμενο παράθυρο διαλόγου του Android αλλάζετε το \"Μη βελτιστοποιημένες\" σε \"Όλες οι εφαρμογές\", επιλέγετε αυτήν την εφαρμογή και επιλέγετε \"Να μην γίνεται βελτιστοποίηση\"</string>
     <string name="title_setup_doze_battery">Η μπαταρία χρησιμοποιείται παραπάνω από το κανονικό;</string>
     <string name="title_setup_doze_stopped">Σταμάτησε ο συγχρονισμός;</string>
@@ -486,7 +488,7 @@
     <string name="title_advanced_language_detection">Αναγνώριση της γλώσσας του κειμένου του μηνύματος</string>
     <string name="title_advanced_pull_refresh">Σύρετε προς τα κάτω για ανανέωση</string>
     <string name="title_advanced_autoscroll">Κύλιση προς τα πάνω κατά τη λήψη νέων μηνυμάτων</string>
-    <string name="title_advanced_double_tap">Διπλό άγγιγμα για να επισημανθεί ένα μήνυμα ως αναγνωσμένο/μη αναγνωσμένο</string>
+    <string name="title_advanced_double_tap">Διπλό άγγιγμα για να επισημαίνεται ένα μήνυμα ως αναγνωσμένο/μη αναγνωσμένο</string>
     <string name="title_advanced_swipenav">Σύρετε αριστερά/δεξιά για να μεταβείτε στην επόμενη/προηγούμενη συζήτηση</string>
     <string name="title_advanced_volumenav">Πατήστε τα πλήκτρα έντασης πάνω/κάτω για να μεταβείτε στην επόμενη/προηγούμενη συζήτηση</string>
     <string name="title_advanced_reversed">Αντιστροφή της κατεύθυνσης πλοήγησης</string>
@@ -581,7 +583,7 @@
     <string name="title_advanced_autocrypt">Χρήση Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Αμοιβαία λειτουργία Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Κρυπτογράφηση θέματος</string>
-    <string name="title_advanced_import_pgp" comment="title_advanced_import_pgp&#10;Title of button to import a (PGP) key">Εισαγωγή κλειδιού</string>
+    <string name="title_advanced_import_pgp">Εισαγωγή κλειδιού</string>
     <string name="title_advanced_sign_algo">Αλγόριθμος υπογραφής</string>
     <string name="title_advanced_encrypt_algo">Αλγόριθμος κρυπτογράφησης</string>
     <string name="title_advanced_remark_algo">        Παρακαλούμε, λάβετε υπόψη ότι δεν υποστηρίζουν όλοι οι πελάτες ηλεκτρονικού ταχυδρομείου όλους τους αλγορίθμους.
@@ -628,6 +630,7 @@
     <string name="title_advanced_quick_sync_hint">Μειώνει μεν τη χρήση δεδομένων, αλλά ενδέχεται να χαθούν νέα μηνύματα, εάν ο διακομιστής ηλ. ταχυδρομείου δεν ακολουθεί τα σχετικά πρότυπα</string>
     <string name="title_advanced_no_date_hint">Μερικοί πάροχοι αποθηκεύουν μηνύματα με μια άγνωστη, μη έγκυρη ή μελλοντική ημερομηνία, ως μηνύματα χωρίς ημερομηνία</string>
     <string name="title_advanced_unseen_hint">Μερικοί πάροχοι δεν υποστηρίζουν σωστά την επιλογή αυτή, κάτι που μπορεί να οδηγήσει στο συγχρονισμό όλων ή και κανενός μηνύματος</string>
+    <string name="title_advanced_data_usage">Αυτό μπορεί να προκαλέσει αυξημένη χρήση δεδομένων!</string>
     <string name="title_advanced_deleted_unseen">Αν απενεργοποιηθεί, τα μη αναγνωσμένα μηνύματα παραμένουν στη συσκευή για πάντα</string>
     <string name="title_advanced_sync_kept_hint">Μεταφέρει πρόσθετα δεδομένα και καταναλώνει επιπλέον μπαταρία, ιδίως αν είναι αποθηκευμένα στη συσκευή πολλά μηνύματα</string>
     <string name="title_advanced_gmail_thread_hint">Αυτό εφαρμόζεται μόνον σε μηνύματα που λήφθηκαν πρόσφατα και μπορεί να διαλύσει υπάρχουσες ομάδες</string>
