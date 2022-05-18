@@ -642,6 +642,7 @@ public class ContactInfo {
                 }
 
         // https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)
+        /*
         if (imgs.size() == 0 || BuildConfig.DEBUG) {
             String cfg = "/browserconfig.xml";
             Element meta = doc.head().select("meta[name=msapplication-config]").first();
@@ -696,6 +697,7 @@ public class ContactInfo {
                 Log.w(ex);
             }
         }
+        */
 
         String host = base.getHost();
 
