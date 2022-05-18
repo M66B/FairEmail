@@ -372,6 +372,9 @@ public class DnsBlockList {
                     Log.e(ex);
                 }
             this.responses = r.toArray(new InetAddress[0]);
+
+            if (!numeric && BuildConfig.PLAY_STORE_RELEASE)
+                this.enabled = null;
         }
     }
 }
