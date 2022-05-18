@@ -921,6 +921,19 @@
                     app:layout_constraintTop_toBottomOf="@id/tvFaviconsHint"
                     app:switchPadding="12dp" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvFaviconsPlay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?attr/colorWarning"
+                    android:text="@string/title_advanced_favicons_play"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swFaviconsPartial" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swGeneratedIcons"
                     android:layout_width="0dp"
@@ -930,7 +943,7 @@
                     android:text="@string/title_advanced_generated_icons"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swFaviconsPartial"
+                    app:layout_constraintTop_toBottomOf="@id/tvFaviconsPlay"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

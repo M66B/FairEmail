@@ -256,7 +256,7 @@ public class ContactInfo {
         boolean avatars = prefs.getBoolean("avatars", true);
         boolean bimi = prefs.getBoolean("bimi", false);
         boolean efavicons = (prefs.getBoolean("efavicons", false) && !BuildConfig.PLAY_STORE_RELEASE);
-        boolean favicons = prefs.getBoolean("favicons", false);
+        boolean favicons = (prefs.getBoolean("favicons", false) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean generated = prefs.getBoolean("generated_icons", true);
         boolean identicons = prefs.getBoolean("identicons", false);
         boolean circular = prefs.getBoolean("circular", true);

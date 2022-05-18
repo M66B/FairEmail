@@ -112,6 +112,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swFavicons;
     private SwitchCompat swFaviconsPartial;
     private TextView tvFaviconsHint;
+    private TextView tvFaviconsPlay;
     private SwitchCompat swGeneratedIcons;
     private SwitchCompat swIdenticons;
     private SwitchCompat swCircular;
@@ -265,6 +266,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swFavicons = view.findViewById(R.id.swFavicons);
         swFaviconsPartial = view.findViewById(R.id.swFaviconsPartial);
         tvFaviconsHint = view.findViewById(R.id.tvFaviconsHint);
+        tvFaviconsPlay = view.findViewById(R.id.tvFaviconsPlay);
         swGeneratedIcons = view.findViewById(R.id.swGeneratedIcons);
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swCircular = view.findViewById(R.id.swCircular);
@@ -726,7 +728,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swEFavicons.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         swEFavicons.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1226,6 +1227,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
+        tvFaviconsPlay.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
         swFaviconsPartial.setText(getString(R.string.title_advanced_favicons_partial,
                 Helper.humanReadableByteCount(ContactInfo.FAVICON_READ_BYTES, false)));
         grpUnzip.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
@@ -1337,8 +1339,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         //swColorStripeWide.setEnabled(swColorStripe.isChecked());
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swBimi.setChecked(prefs.getBoolean("bimi", false));
-        swEFavicons.setChecked(prefs.getBoolean("efavicons", false));
-        swFavicons.setChecked(prefs.getBoolean("favicons", false));
+        swEFavicons.setChecked(prefs.getBoolean("efavicons", false) && !BuildConfig.PLAY_STORE_RELEASE);
+        swEFavicons.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
+        swFavicons.setChecked(prefs.getBoolean("favicons", false) && !BuildConfig.PLAY_STORE_RELEASE);
+        swFavicons.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
         swFaviconsPartial.setChecked(prefs.getBoolean("favicons_partial", true));
         swFaviconsPartial.setEnabled(swFavicons.isChecked());
         swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
