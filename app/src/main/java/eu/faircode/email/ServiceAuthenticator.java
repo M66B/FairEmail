@@ -87,7 +87,7 @@ public class ServiceAuthenticator extends Authenticator {
     }
 
     String refreshToken(boolean expire) throws AuthenticatorException, OperationCanceledException, IOException, JSONException, MessagingException {
-        if (auth == AUTH_TYPE_GMAIL && provider != null) {
+        if (auth == AUTH_TYPE_GMAIL) {
             GmailState authState = GmailState.jsonDeserialize(password);
             authState.refresh(context, user, expire, keep_alive);
             Long expiration = authState.getAccessTokenExpirationTime();
