@@ -1272,7 +1272,9 @@ public class HtmlHelper {
             if (view) {
                 Element parent = e.parent();
                 if ("blockquote".equals(e.tagName()) || parent == null ||
-                        !("ol".equals(parent.tagName()) || "ul".equals(parent.tagName()))) {
+                        !("li".equals(parent.tagName()) ||
+                                "ol".equals(parent.tagName()) ||
+                                "ul".equals(parent.tagName()))) {
                     if (!"false".equals(e.attr("x-line-before")))
                         e.attr("x-line-before", "true");
                     if (!"false".equals(e.attr("x-line-after")))
