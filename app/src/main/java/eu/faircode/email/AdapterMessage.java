@@ -7724,13 +7724,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     public void onViewAttachedToWindow(@NonNull ViewHolder holder) {
         // View will become visible (possibly without rebinding)
-        holder.cowner.start();
+        //holder.cowner.start();
     }
 
     @Override
     public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
         // View is invisible, but can be reused (without rebinding)
-        holder.cowner.stop();
+        //holder.cowner.stop();
     }
 
     @Override
