@@ -79,7 +79,7 @@ public class StyleHelper {
             BackgroundColorSpan.class,
             ForegroundColorSpan.class,
             AlignmentSpan.class,
-            BulletSpan.class,
+            BulletSpanEx.class, NumberSpan.class,
             QuoteSpan.class, IndentSpan.class,
             StrikethroughSpan.class,
             URLSpan.class,
