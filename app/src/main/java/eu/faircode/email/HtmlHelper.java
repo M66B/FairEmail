@@ -1280,6 +1280,8 @@ public class HtmlHelper {
                     if (!"false".equals(e.attr("x-line-after")))
                         e.attr("x-line-after", "true");
                 }
+                if ("ol".equals(e.tagName()) || "ul".equals(e.tagName()))
+                    e.attr("x-list-level", "false");
             } else {
                 if (!BuildConfig.DEBUG) {
                     String style = e.attr("style");
@@ -3369,7 +3371,8 @@ public class HtmlHelper {
                                 Element parent = element.parent();
                                 while (parent != null) {
                                     if ("ol".equals(parent.tagName()) || "ul".equals(parent.tagName())) {
-                                        level++;
+                                        if (!"false".equals(parent.attr("x-list-level")))
+                                            level++;
                                         if (list == null)
                                             list = parent;
                                         if (TextUtils.isEmpty(ltype))
@@ -3600,6 +3603,7 @@ public class HtmlHelper {
                 .removeAttr("x-tracking")
                 .removeAttr("x-border")
                 .removeAttr("x-list-style")
+                .removeAttr("x-list-level")
                 .removeAttr("x-plain")
                 .remove("x-keep-line");
     }
