@@ -1269,8 +1269,8 @@ public class HtmlHelper {
 
         // Lists
         for (Element e : document.select("ol,ul,blockquote")) {
+            Element parent = e.parent();
             if (view) {
-                Element parent = e.parent();
                 if ("blockquote".equals(e.tagName()) || parent == null ||
                         !("li".equals(parent.tagName()) ||
                                 "ol".equals(parent.tagName()) ||
@@ -1298,6 +1298,20 @@ public class HtmlHelper {
                         li.removeAttr("dir");
                     }
                     e.attr("dir", rtl > ltr ? "rtl" : "ltr");
+                }
+
+                // Flatten list for editor
+                if (parent != null && "li".equals(parent.tagName())) {
+                    List<Node> children = parent.childNodes();
+                    for (Node child : children) {
+                        child.remove();
+                        if (child instanceof Element &&
+                                "ol".equals(child.nodeName()) || "ul".equals(child.nodeName()))
+                            parent.before(child);
+                        else
+                            parent.before(document.createElement("li").appendChild(child));
+                    }
+                    parent.remove();
                 }
             }
         }
