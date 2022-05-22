@@ -1280,7 +1280,10 @@ public class HtmlHelper {
                     if (!"false".equals(e.attr("x-line-after")))
                         e.attr("x-line-after", "true");
                 }
-                if ("ol".equals(e.tagName()) || "ul".equals(e.tagName()))
+
+                // Unflatten list for viewing
+                if ((parent != null && "li".equals(parent.tagName())) &&
+                        ("ol".equals(e.tagName()) || "ul".equals(e.tagName())))
                     e.attr("x-list-level", "false");
             } else {
                 if (!BuildConfig.DEBUG) {
