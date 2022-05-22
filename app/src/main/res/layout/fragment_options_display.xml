@@ -808,6 +808,23 @@
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorAvatar"
                     app:switchPadding="12dp" />
 
+                <View
+                    android:id="@+id/vwFavicon"
+                    android:layout_width="6dp"
+                    android:layout_height="0dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvFaviconsPlay"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/swBimi" />
+
+                <View
+                    android:id="@+id/vwFaviconPadding"
+                    android:layout_width="6dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvFaviconsPlay"
+                    app:layout_constraintStart_toEndOf="@+id/vwFavicon"
+                    app:layout_constraintTop_toTopOf="@+id/swBimi" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swBimi"
                     android:layout_width="0dp"
@@ -815,7 +832,7 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_bimi"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
                     app:layout_constraintTop_toBottomOf="@id/swAvatars"
                     app:switchPadding="12dp" />
 
@@ -830,7 +847,7 @@
                     android:text="@string/title_advanced_privacy_risk"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?attr/colorWarning"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
                     app:layout_constraintTop_toBottomOf="@id/swBimi" />
 
                 <eu.faircode.email.FixedTextView
@@ -844,7 +861,7 @@
                     android:text="@string/title_advanced_bimi_unverified"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
                     app:layout_constraintTop_toBottomOf="@id/tvBimiHint" />
 
                 <eu.faircode.email.FixedTextView
@@ -858,7 +875,7 @@
                     android:text="@string/title_advanced_bimi_verified"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
                     app:layout_constraintTop_toBottomOf="@id/tvBimiUnverified" />
 
                 <eu.faircode.email.FixedImageButton
@@ -868,7 +885,7 @@
                     android:layout_marginTop="6dp"
                     android:contentDescription="@string/title_info"
                     android:tooltipText="@string/title_info"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
                     app:layout_constraintTop_toBottomOf="@+id/tvBimiVerified"
                     app:srcCompat="@drawable/twotone_info_24" />
 
@@ -879,7 +896,7 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_efavicons"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
                     app:layout_constraintTop_toBottomOf="@id/ibBimi"
                     app:switchPadding="12dp" />
 
@@ -890,7 +907,7 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_favicons"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
                     app:layout_constraintTop_toBottomOf="@id/swEFavicons"
                     app:switchPadding="12dp" />
 
@@ -905,7 +922,7 @@
                     android:text="@string/title_advanced_privacy_risk"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?attr/colorWarning"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
                     app:layout_constraintTop_toBottomOf="@id/swFavicons" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -917,7 +934,7 @@
                     android:checked="true"
                     android:text="@string/title_advanced_favicons_partial"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
                     app:layout_constraintTop_toBottomOf="@id/tvFaviconsHint"
                     app:switchPadding="12dp" />
 
@@ -931,7 +948,8 @@
                     android:text="@string/title_advanced_favicons_play"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?attr/colorWarning"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
                     app:layout_constraintTop_toBottomOf="@id/swFaviconsPartial" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -1465,6 +1483,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPreviewLinesHint" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpPlay"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="vwFavicon,vwFaviconPadding,tvFaviconsPlay" />
             </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
 

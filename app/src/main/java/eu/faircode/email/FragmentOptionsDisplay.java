@@ -112,7 +112,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swFavicons;
     private SwitchCompat swFaviconsPartial;
     private TextView tvFaviconsHint;
-    private TextView tvFaviconsPlay;
     private SwitchCompat swGeneratedIcons;
     private SwitchCompat swIdenticons;
     private SwitchCompat swCircular;
@@ -178,6 +177,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swAuthentication;
     private SwitchCompat swAuthenticationIndicator;
 
+    private Group grpPlay;
     private Group grpUnzip;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -266,7 +266,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swFavicons = view.findViewById(R.id.swFavicons);
         swFaviconsPartial = view.findViewById(R.id.swFaviconsPartial);
         tvFaviconsHint = view.findViewById(R.id.tvFaviconsHint);
-        tvFaviconsPlay = view.findViewById(R.id.tvFaviconsPlay);
         swGeneratedIcons = view.findViewById(R.id.swGeneratedIcons);
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swCircular = view.findViewById(R.id.swCircular);
@@ -330,6 +329,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAuthentication = view.findViewById(R.id.swAuthentication);
         swAuthenticationIndicator = view.findViewById(R.id.swAuthenticationIndicator);
 
+        grpPlay = view.findViewById(R.id.grpPlay);
         grpUnzip = view.findViewById(R.id.grpUnzip);
 
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
@@ -1227,7 +1227,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
-        tvFaviconsPlay.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
+        grpPlay.setVisibility(BuildConfig.PLAY_STORE_RELEASE || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         swFaviconsPartial.setText(getString(R.string.title_advanced_favicons_partial,
                 Helper.humanReadableByteCount(ContactInfo.FAVICON_READ_BYTES, false)));
         grpUnzip.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
