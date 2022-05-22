@@ -741,27 +741,39 @@ public class FragmentCompose extends FragmentBase {
 
                         boolean renum = false;
                         BulletSpan[] bullets = text.getSpans(added + 1, added + 1, BulletSpan.class);
+
+                        int len = 0;
+                        BulletSpan shortest = null;
                         for (BulletSpan span : bullets) {
                             int s = text.getSpanStart(span);
                             int e = text.getSpanEnd(span);
-                            int f = text.getSpanFlags(span) | Spanned.SPAN_PARAGRAPH;
-                            Log.i(span + " " + s + "..." + e + " added=" + added);
+                            if (shortest == null || e - s < len) {
+                                shortest = span;
+                                len = e - s;
+                            }
+                        }
+
+                        if (shortest != null) {
+                            int s = text.getSpanStart(shortest);
+                            int e = text.getSpanEnd(shortest);
+                            int f = text.getSpanFlags(shortest) | Spanned.SPAN_PARAGRAPH;
+                            Log.i(shortest + " " + s + "..." + e + " added=" + added);
 
                             if (s > 0 &&
                                     added + 1 > s && e > added + 1 &&
                                     text.charAt(s - 1) == '\n' && text.charAt(e - 1) == '\n') {
                                 if (e - s > 2) {
-                                    BulletSpan b1 = StyleHelper.clone(span, span.getClass(), etBody.getContext());
+                                    BulletSpan b1 = StyleHelper.clone(shortest, shortest.getClass(), etBody.getContext());
                                     text.setSpan(b1, s, added + 1, f);
-                                    Log.i(span + " " + s + "..." + (added + 1));
+                                    Log.i(shortest + " " + s + "..." + (added + 1));
 
-                                    BulletSpan b2 = StyleHelper.clone(b1, span.getClass(), etBody.getContext());
+                                    BulletSpan b2 = StyleHelper.clone(b1, shortest.getClass(), etBody.getContext());
                                     text.setSpan(b2, added + 1, e, f);
-                                    Log.i(span + " " + (added + 1) + "..." + e);
+                                    Log.i(shortest + " " + (added + 1) + "..." + e);
                                 }
 
                                 renum = true;
-                                text.removeSpan(span);
+                                text.removeSpan(shortest);
                             }
                         }
 
