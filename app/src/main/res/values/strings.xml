@@ -176,7 +176,7 @@
     <string name="title_setup_analytics">FairEmail does not display ads and does not track or analyze your behavior. Bugsnag is used for error reporting and is disabled by default.</string>
     <string name="title_setup_quick_accounts">Add or change accounts</string>
     <string name="title_setup_quick_support">Some providers make it difficult to add an account. Please do not blame FairEmail for this, but ask for support instead.</string>
-    <string name="title_setup_quick_hint">The quick setup will fetch configuration information from autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">The entered email address is used to query the email server and autoconfig.thunderbird.net for configuration information</string>
     <string name="title_setup_quick_patience">Please be patient &#8230;</string>
     <string name="title_setup_quick_imap">IMAP server to receive messages</string>
     <string name="title_setup_quick_smtp">SMTP server to send messages</string>
@@ -498,7 +498,7 @@
     <string name="title_advanced_efavicons">Show avatars</string>
     <string name="title_advanced_favicons">Show favicons</string>
     <string name="title_advanced_favicons_partial">Scan only the first %1$s of the web page</string>
-    <string name="title_advanced_favicons_play">Google doesn\'t allow favicons for privacy reasons</string>
+    <string name="title_advanced_favicons_play">Google presumably doesn\'t allow online icons for privacy reasons</string>
     <string name="title_advanced_generated_icons">Show generated icons</string>
     <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_circular">Show round icons</string>
