@@ -254,7 +254,7 @@ public class ContactInfo {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean avatars = prefs.getBoolean("avatars", true);
-        boolean bimi = prefs.getBoolean("bimi", false);
+        boolean bimi = (prefs.getBoolean("bimi", false) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean efavicons = (prefs.getBoolean("efavicons", false) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean favicons = (prefs.getBoolean("favicons", false) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean generated = prefs.getBoolean("generated_icons", true);

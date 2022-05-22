@@ -1338,7 +1338,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swColorStripeWide.setChecked(prefs.getBoolean("color_stripe_wide", false));
         //swColorStripeWide.setEnabled(swColorStripe.isChecked());
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
-        swBimi.setChecked(prefs.getBoolean("bimi", false));
+        swBimi.setChecked(prefs.getBoolean("bimi", false) && !BuildConfig.PLAY_STORE_RELEASE);
+        swBimi.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
         swEFavicons.setChecked(prefs.getBoolean("efavicons", false) && !BuildConfig.PLAY_STORE_RELEASE);
         swEFavicons.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
         swFavicons.setChecked(prefs.getBoolean("favicons", false) && !BuildConfig.PLAY_STORE_RELEASE);
