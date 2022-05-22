@@ -49,7 +49,7 @@ FairEmail **is** [GDPR compliant](https://gdpr.eu/) because no data is collected
 ## Definitions of terms
 
 This section defines some terms and words.
-Knowing those terms will help you understanding the following sections.
+Knowing those terms will help you understand the following sections.
 
 * *Data subject* &#8211; the user of the app
 * *Personal data* &#8211; any data the data subject could be identified with
@@ -133,7 +133,7 @@ FairEmail is fully [GDPR compliant](https://gdpr.eu/). The legal basis for any d
 ### I. Description and scope of data processing
 
 The data subject may contact the data processor to request support through channels offered by the data processor.
-When the data subject contacts the data processor, any provided personal data are stored by the data controller.
+When the data subject contacts the data processor, any provided personal data is stored by the data controller.
 
 ### II. Purpose of data processing
 
