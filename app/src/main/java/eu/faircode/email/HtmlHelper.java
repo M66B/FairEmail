@@ -1312,7 +1312,7 @@ public class HtmlHelper {
                                 "ol".equals(child.nodeName()) || "ul".equals(child.nodeName()))
                             parent.before(child);
                         else
-                            parent.before(document.createElement("li").appendChild(child));
+                            parent.before(parent.shallowClone().appendChild(child));
                     }
                     parent.remove();
                 }
