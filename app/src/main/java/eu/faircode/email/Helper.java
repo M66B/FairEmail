@@ -1298,7 +1298,8 @@ public class Helper {
                         SelectionTracker.class.isAssignableFrom(type) ||
                         SelectionTracker.SelectionPredicate.class.isAssignableFrom(type) ||
                         PagerAdapter.class.isAssignableFrom(type) ||
-                        RecyclerView.Adapter.class.isAssignableFrom(type))
+                        RecyclerView.Adapter.class.isAssignableFrom(type) ||
+                        TwoStateOwner.class.isAssignableFrom(type))
                     try {
                         Log.i("Clearing " + fname);
 
