@@ -48,20 +48,20 @@ FairEmail **is** [GDPR compliant](https://gdpr.eu/).
 
 This table provides a complete overview of all shared data and the conditions under which data will be shared:
 
-| Service           | Data sent                                                         | When the data will be sent                                          |
-| ----------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
-| Bugsnag           | Information about warnings and errors                             | If error reporting is enabled, upon detecting an abnormal situation |
-| ipinfo.io         | IP (network) address of domain names of links or email addresses  | Upon pressing a button in the link confirmation dialog              |
-| Spamhaus          | IP (network) address of domain names of email addresses           | If spam blocklists are enabled, upon receiving a message            |
-| Spamcop           | IP (network) address of domain names of email addresses           | If spam blocklists are enabled, upon receiving a message            |
-| Barracuda         | IP (network) address of domain names of email addresses           | If spam blocklists are enabled, upon receiving a message            |
-| Mozilla autoconfig| Email address of email accounts                                   | Upon configuring an email account                                   |
-| LanguageTool      | Entered message texts                                             | Upon long pressing the save draft button                            |
-| Gravatar          | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Gravatars are enabled, upon receiving a message                  |
-| Libravatar        | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Libravatars are enabled, upon receiving a message                |
-| BIMI              | Domain name of email addresses                                    | If BIMI is enabled, upon receiving a message                        |
-| Favicons          | Domain name of email addresses                                    | If favicons are enabled, upon receiving a message                   |
-| Email server      | Login credentials, messages sent                                  | Upon configuring and using an account and upon sending messages     |
+| Service           | Data sent                                                         | When the data will be sent                                                  |
+| ----------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Bugsnag           | Information about warnings and errors                             | If error reporting is enabled, upon detecting an abnormal situation         |
+| ipinfo.io         | IP (network) address of domain names of links or email addresses  | Upon pressing a button in the link confirmation dialog                      |
+| Spamhaus          | IP (network) address of domain names of email addresses           | If spam blocklists are enabled, upon receiving a message                    |
+| Spamcop           | IP (network) address of domain names of email addresses           | If spam blocklists are enabled, upon receiving a message                    |
+| Barracuda         | IP (network) address of domain names of email addresses           | If spam blocklists are enabled, upon receiving a message                    |
+| Mozilla autoconfig| Email address of email accounts                                   | Upon configuring an email account                                           |
+| LanguageTool      | Entered message texts                                             | Upon long pressing the save draft button                                    |
+| Gravatar          | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Gravatars are enabled, upon receiving a message                          |
+| Libravatar        | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Libravatars are enabled, upon receiving a message                        |
+| BIMI              | Domain name of email addresses                                    | If BIMI is enabled, upon receiving a message                                |
+| Favicons          | Domain name of email addresses                                    | If favicons are enabled, upon receiving a message                           |
+| Email server      | Login credentials, messages sent                                  | Upon configuring and using an account or identity and upon sending messages |
 
 <br />
 
@@ -81,17 +81,19 @@ Knowing those terms will help you understand the following sections.
 
 ## Contact details
 
-Please feel to contact me if you have any concerns:
+Please feel free to contact me if you have any concerns:
 
 ```
+FairCode BV
 Marcel Bokhorst
 Van Doesburg-Erf 194
 3315 RG Dordrecht
 the Netherlands
-marcel+fairemail@faircode.eu
+marcel+privacy@faircode.eu
 ```
 
-As FairEmail is a personal project of a single developer, the developer is both the data controller as well as the data protection officer.
+As FairEmail is a project of small company [FairCode BV](https://www.faircode.eu/) fully owned by the developer,
+the developer is both the data controller as well as the data protection officer.
 For any legal issues, the place of jurisdiction is Dordrecht, the Netherlands.
 
 <br>
@@ -130,7 +132,7 @@ The sub-processors are:
 * [LanguageTool](https://languagetool.org/) &#8211; [Privacy policy](https://languagetool.org/legal/privacy)
 * The hoster of a domain the data subject has received an email from, if showing [favicons](https://en.wikipedia.org/wiki/Favicon) is enabled
 * The hoster of a domain the data subject has received an email from, if [Brand Indicators for Message Identification](https://en.wikipedia.org/wiki/Brand_Indicators_for_Message_Identification) (BIMI) is enabled
-* The data subject's email service provider, if an email account or identity is added
+* The data subject's email service provider, if an email account or identity is added or used
 
 ### V. Permissions
 
@@ -166,6 +168,7 @@ It is essential in this respect for the data controller to be able to contact th
 The data processor utilizes the services of the following sub-processors in order to process support requests:
 
 * Google LLC, if support request sent via email &#8211; [Privacy policy](https://policies.google.com/privacy?hl=en)
+* Amazon Web Services EMEA SARL, if support request sent via the contact form &#8211; [Privacy policy](https://aws.amazon.com/privacy/)
 * XDA forums, if support requested via the FairEmail XDA forum thread &#8211; [Privacy policy](https://forum.xda-developers.com/help/privacy-policy/)
 
 ### IV. Legal basis
