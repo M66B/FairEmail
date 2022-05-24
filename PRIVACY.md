@@ -34,6 +34,8 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [Barracuda](https://www.barracudacentral.org/rbl/how-to-use) &#8211; [Privacy policy](https://www.barracuda.com/company/legal/trust-center/data-privacy/privacy-policy)
 * [Thunderbird autoconfiguration](https://wiki.mozilla.org/Thunderbird:Autoconfiguration) &#8211; [Privacy policy](https://www.mozilla.org/privacy/)
 * [LanguageTool](https://languagetool.org/) &#8211; [Privacy policy](https://languagetool.org/legal/privacy)
+* [Gravatar](https://gravatar.com/) &#8211; [Privacy policy](https://automattic.com/privacy/)
+* [Libravatar](https://www.libravatar.org/)  &#8211; [Privacy policy](https://www.libravatar.org/privacy/)
 
 FairEmail **can access** the websites at the domain names of email addresses
 if [Brand Indicators for Message Identification](https://en.wikipedia.org/wiki/Brand_Indicators_for_Message_Identification) (BIMI)
@@ -43,6 +45,25 @@ are explicitly enabled (off by default).
 FairEmail obviously **will access** the configured email servers.
 
 FairEmail **is** [GDPR compliant](https://gdpr.eu/) because no data is collected at all.
+
+<br />
+
+## Summary of shared data
+
+| Service           | Data sent                                                         | When the data will be sent                                          |
+| ----------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
+| Bugsnag           | Information about warnings and errors                             | If error reporting is enabled, upon detecting an abnormal situation |
+| ipinfo.io         | IP (network) address of domain names of links or email addresses  | Upon pressing a button in the link confirmation dialog              |
+| Spamhaus          | IP (network) address of domain names of email addresses           | If spam blocklists are enabled, upon receiving a message            |
+| Spamcop           | IP (network) address of domain names of email addresses           | If spam blocklists are enabled, upon receiving a message            |
+| Barracuda         | IP (network) address of domain names of email addresses           | If spam blocklists are enabled, upon receiving a message            |
+| Mozilla autoconfig| Email address of email accounts                                   | Upon configuring an email account                                   |
+| LanguageTool      | Entered message texts                                             | Upon long pressing the save draft button                            |
+| Gravatar          | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Gravatars are enabled, upon receiving a message                  |
+| Libravatar        | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Libravatars are enabled, upon receiving a message                |
+| BIMI              | Domain name of email addresses                                    | If BIMI is enabled, upon receiving a message                        |
+| Favicons          | Domain name of email addresses                                    | If favicons are enabled, upon receiving a message                   |
+| Email server      | Login credentials, messages sent                                  | Upon configuring and using an account and upon sending messages     |
 
 <br />
 
