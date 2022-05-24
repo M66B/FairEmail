@@ -6,14 +6,12 @@
 
 ## Overview
 
-FairEmail **does not** collect any data.
+FairEmail **does not** send account information and message data to third party servers.
 
-FairEmail **does not** send data to or store data on third party servers.
+FairEmail **does not** allow other apps access to message data without your approval.
 
 FairEmail **does not** require unnecessary permissions.
 For more information on permissions, see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq1).
-
-FairEmail **does not** allow other apps access to messages and attachments without your approval.
 
 FairEmail **does** follow the recommendations of [this EFF article](https://www.eff.org/deeplinks/2019/01/stop-tracking-my-emails).
 
@@ -21,10 +19,8 @@ FairEmail is 100 % **open source**, see [the license](https://github.com/M66B/Fa
 
 Error reporting via Bugsnag **is opt-in**, see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) for more information.
 
-FairEmail **will not** transfer data to other apps and services
-and therefore adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes),
-including the Limited Use requirements.
-Google API Services are used only to authenticate Gmail accounts through OAuth.
+FairEmail **adheres** to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes),
+including the Limited Use requirements. Google API Services are used only to authenticate Gmail accounts through OAuth.
 
 FairEmail **can use** these services if they are explicitly enabled (off by default) or are explicitly used by you:
 
@@ -37,18 +33,20 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [Gravatar](https://gravatar.com/) &#8211; [Privacy policy](https://automattic.com/privacy/)
 * [Libravatar](https://www.libravatar.org/)  &#8211; [Privacy policy](https://www.libravatar.org/privacy/)
 
-FairEmail **can access** the websites at the domain names of email addresses
+FairEmail **can access** the websites at the domain names of email addresses (username@domain.name)
 if [Brand Indicators for Message Identification](https://en.wikipedia.org/wiki/Brand_Indicators_for_Message_Identification) (BIMI)
 or [favicons](https://en.wikipedia.org/wiki/Favicon)
-are explicitly enabled (off by default).
+were explicitly enabled (off by default).
 
 FairEmail obviously **will access** the configured email servers.
 
-FairEmail **is** [GDPR compliant](https://gdpr.eu/) because no data is collected at all.
+FairEmail **is** [GDPR compliant](https://gdpr.eu/).
 
 <br />
 
 ## Summary of shared data
+
+This table provides a complete overview of all shared data and the conditions under which data will be shared:
 
 | Service           | Data sent                                                         | When the data will be sent                                          |
 | ----------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
@@ -82,6 +80,8 @@ Knowing those terms will help you understand the following sections.
 <br>
 
 ## Contact details
+
+Please feel to contact me if you have any concerns:
 
 ```
 Marcel Bokhorst
