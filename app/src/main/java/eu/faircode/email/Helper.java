@@ -1229,7 +1229,7 @@ public class Helper {
 
     static void excludeFromRecents(Context context) {
         try {
-            ActivityManager am = Helper.getSystemService(context, ActivityManager.class);;
+            ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
             if (am == null)
                 return;
 
@@ -2667,7 +2667,7 @@ public class Helper {
     }
 
     static void clearAll(Context context) {
-        ActivityManager am = Helper.getSystemService(context, ActivityManager.class);;
+        ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
         am.clearApplicationUserData();
     }
 }
