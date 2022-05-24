@@ -1087,6 +1087,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(creceiver);
         super.onDestroy();
+        infoTracker = null;
     }
 
     @Override
