@@ -1667,7 +1667,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager am = Helper.getSystemService(getContext(), ActivityManager.class);
         int class_mb = am.getMemoryClass();
         int class_large_mb = am.getLargeMemoryClass();
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
