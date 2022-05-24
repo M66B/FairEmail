@@ -37,7 +37,8 @@ import java.util.Locale;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class LT {
+public class LanguageTool {
+    private static final String LT_URI = "https://api.languagetool.org/v2/";
     private static final int LT_TIMEOUT = 20; // seconds
 
     static List<Suggestion> getSuggestions(Context context, CharSequence text) throws IOException, JSONException {
@@ -68,7 +69,7 @@ public class LT {
 
         Log.i("LT locale=" + locale + " request=" + request);
 
-        URL url = new URL(BuildConfig.LT_URI + "check");
+        URL url = new URL(LT_URI + "check");
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
