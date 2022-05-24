@@ -808,23 +808,6 @@
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorAvatar"
                     app:switchPadding="12dp" />
 
-                <View
-                    android:id="@+id/vwFavicon"
-                    android:layout_width="6dp"
-                    android:layout_height="0dp"
-                    android:background="?attr/colorSeparator"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvFaviconsPlay"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/swBimi" />
-
-                <View
-                    android:id="@+id/vwFaviconPadding"
-                    android:layout_width="6dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvFaviconsPlay"
-                    app:layout_constraintStart_toEndOf="@+id/vwFavicon"
-                    app:layout_constraintTop_toTopOf="@+id/swBimi" />
-
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swBimi"
                     android:layout_width="0dp"
@@ -832,7 +815,7 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_bimi"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swAvatars"
                     app:switchPadding="12dp" />
 
@@ -840,6 +823,7 @@
                     android:id="@+id/tvBimiHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="6dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
@@ -847,13 +831,14 @@
                     android:text="@string/title_advanced_privacy_risk"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?attr/colorWarning"
-                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swBimi" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvBimiUnverified"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="6dp"
                     android:drawableStart="@drawable/twotone_check_24"
                     android:drawablePadding="6dp"
@@ -861,13 +846,14 @@
                     android:text="@string/title_advanced_bimi_unverified"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
-                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvBimiHint" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvBimiVerified"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="6dp"
                     android:drawableStart="@drawable/twotone_done_all_24"
                     android:drawablePadding="6dp"
@@ -875,30 +861,98 @@
                     android:text="@string/title_advanced_bimi_verified"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
-                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvBimiUnverified" />
 
                 <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibBimi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="6dp"
                     android:contentDescription="@string/title_info"
                     android:tooltipText="@string/title_info"
-                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvBimiVerified"
                     app:srcCompat="@drawable/twotone_info_24" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swEFavicons"
+                    android:id="@+id/swGravatars"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_efavicons"
+                    android:text="@string/title_advanced_gravatars"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ibBimi"
                     app:switchPadding="12dp" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvGravatarsHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:drawableTint="?attr/colorWarning"
+                    android:text="@string/title_advanced_privacy_risk"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swGravatars" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvGravatarPrivacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?android:attr/textColorLink"
+                    android:text="@string/title_privacy_policy"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvGravatarsHint" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swLibravatars"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_libravatars"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvGravatarPrivacy"
+                    app:switchPadding="12dp" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvLibravatarsHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:drawableTint="?attr/colorWarning"
+                    android:text="@string/title_advanced_privacy_risk"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swLibravatars" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvLibravatarPrivacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?android:attr/textColorLink"
+                    android:text="@string/title_privacy_policy"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLibravatarsHint" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swFavicons"
@@ -907,14 +961,15 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_favicons"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
-                    app:layout_constraintTop_toBottomOf="@id/swEFavicons"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLibravatarPrivacy"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvFaviconsHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="6dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
@@ -922,7 +977,7 @@
                     android:text="@string/title_advanced_privacy_risk"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?attr/colorWarning"
-                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swFavicons" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -934,23 +989,9 @@
                     android:checked="true"
                     android:text="@string/title_advanced_favicons_partial"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvFaviconsHint"
                     app:switchPadding="12dp" />
-
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvFaviconsPlay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:drawablePadding="6dp"
-                    android:drawableTint="?attr/colorWarning"
-                    android:text="@string/title_advanced_favicons_play"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?attr/colorWarning"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/vwFaviconPadding"
-                    app:layout_constraintTop_toBottomOf="@id/swFaviconsPartial" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swGeneratedIcons"
@@ -961,7 +1002,7 @@
                     android:text="@string/title_advanced_generated_icons"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvFaviconsPlay"
+                    app:layout_constraintTop_toBottomOf="@id/swFaviconsPartial"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -1483,12 +1524,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPreviewLinesHint" />
-
-                <androidx.constraintlayout.widget.Group
-                    android:id="@+id/grpPlay"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:constraint_referenced_ids="vwFavicon,vwFaviconPadding,tvFaviconsPlay" />
             </eu.faircode.email.ConstraintLayoutEx>
         </androidx.cardview.widget.CardView>
 

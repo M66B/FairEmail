@@ -108,7 +108,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private TextView tvBimiHint;
     private TextView tvBimiUnverified;
     private SwitchCompat swBimi;
-    private SwitchCompat swEFavicons;
+    private SwitchCompat swGravatars;
+    private TextView tvGravatarPrivacy;
+    private SwitchCompat swLibravatars;
+    private TextView tvLibravatarPrivacy;
     private SwitchCompat swFavicons;
     private SwitchCompat swFaviconsPartial;
     private TextView tvFaviconsHint;
@@ -177,7 +180,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swAuthentication;
     private SwitchCompat swAuthenticationIndicator;
 
-    private Group grpPlay;
     private Group grpUnzip;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -190,7 +192,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "nav_options", "nav_categories", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
-            "avatars", "bimi", "efavicons", "favicons", "favicons_partial", "generated_icons", "identicons",
+            "avatars", "bimi", "gravatars", "libravatars", "favicons", "favicons_partial", "generated_icons", "identicons",
             "circular", "saturation", "brightness", "threshold",
             "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients",
             "font_size_sender", "sender_ellipsize",
@@ -262,7 +264,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         tvBimiHint = view.findViewById(R.id.tvBimiHint);
         tvBimiUnverified = view.findViewById(R.id.tvBimiUnverified);
         ibBimi = view.findViewById(R.id.ibBimi);
-        swEFavicons = view.findViewById(R.id.swEFavicons);
+        swGravatars = view.findViewById(R.id.swGravatars);
+        tvGravatarPrivacy = view.findViewById(R.id.tvGravatarPrivacy);
+        swLibravatars = view.findViewById(R.id.swLibravatars);
+        tvLibravatarPrivacy = view.findViewById(R.id.tvLibravatarPrivacy);
         swFavicons = view.findViewById(R.id.swFavicons);
         swFaviconsPartial = view.findViewById(R.id.swFaviconsPartial);
         tvFaviconsHint = view.findViewById(R.id.tvFaviconsHint);
@@ -329,7 +334,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAuthentication = view.findViewById(R.id.swAuthentication);
         swAuthenticationIndicator = view.findViewById(R.id.swAuthenticationIndicator);
 
-        grpPlay = view.findViewById(R.id.grpPlay);
         grpUnzip = view.findViewById(R.id.grpUnzip);
 
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
@@ -728,11 +732,35 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swEFavicons.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swGravatars.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("efavicons", checked).apply();
+                prefs.edit().putBoolean("gravatars", checked).apply();
                 ContactInfo.clearCache(compoundButton.getContext());
+            }
+        });
+
+        tvGravatarPrivacy.getPaint().setUnderlineText(true);
+        tvGravatarPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.GRAVATAR_PRIVACY_URI), true);
+            }
+        });
+
+        swLibravatars.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("libravatars", checked).apply();
+                ContactInfo.clearCache(compoundButton.getContext());
+            }
+        });
+
+        tvLibravatarPrivacy.getPaint().setUnderlineText(true);
+        tvLibravatarPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.LIBRAVATAR_PRIVACY_URI), true);
             }
         });
 
@@ -1227,7 +1255,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
-        grpPlay.setVisibility(BuildConfig.PLAY_STORE_RELEASE || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         swFaviconsPartial.setText(getString(R.string.title_advanced_favicons_partial,
                 Helper.humanReadableByteCount(ContactInfo.FAVICON_READ_BYTES, false)));
         grpUnzip.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
@@ -1338,12 +1365,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swColorStripeWide.setChecked(prefs.getBoolean("color_stripe_wide", false));
         //swColorStripeWide.setEnabled(swColorStripe.isChecked());
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
-        swBimi.setChecked(prefs.getBoolean("bimi", false) && !BuildConfig.PLAY_STORE_RELEASE);
-        swBimi.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
-        swEFavicons.setChecked(prefs.getBoolean("efavicons", false) && !BuildConfig.PLAY_STORE_RELEASE);
-        swEFavicons.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
-        swFavicons.setChecked(prefs.getBoolean("favicons", false) && !BuildConfig.PLAY_STORE_RELEASE);
-        swFavicons.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
+        swBimi.setChecked(prefs.getBoolean("bimi", false));
+        swGravatars.setChecked(prefs.getBoolean("gravatars", false));
+        swLibravatars.setChecked(prefs.getBoolean("libravatars", false));
+        swFavicons.setChecked(prefs.getBoolean("favicons", false));
         swFaviconsPartial.setChecked(prefs.getBoolean("favicons_partial", true));
         swFaviconsPartial.setEnabled(swFavicons.isChecked());
         swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
