@@ -129,6 +129,7 @@ public class EntityLog {
         entry.data = data;
 
         final DB db = DB.getInstance(context);
+        final Context acontext = context.getApplicationContext();
 
         executor.submit(new Runnable() {
             @Override
@@ -164,17 +165,18 @@ public class EntityLog {
                 long now = new Date().getTime();
                 if (last_cleanup == null || last_cleanup + LOG_CLEANUP_INTERVAL < now) {
                     last_cleanup = now;
-                    cleanup(context, now - LOG_KEEP_DURATION);
+                    cleanup(acontext, now - LOG_KEEP_DURATION);
                 }
             }
         });
     }
 
     static void clear(final Context context) {
+        final Context acontext = context.getApplicationContext();
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                cleanup(context, new Date().getTime());
+                cleanup(acontext, new Date().getTime());
             }
         });
     }
