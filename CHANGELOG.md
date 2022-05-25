@@ -4,6 +4,15 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### 1.1900 - 2022-05-25
+
+* Fixed mini gallery not showing in some cases
+* Fixed folder sync in some cases
+* Fixed displaying/editing lists in some cases
+* Updated privacy policy
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1899 - 2022-05-18
 
 * Small improvements and minor bug fixes
