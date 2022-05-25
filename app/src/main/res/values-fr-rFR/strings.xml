@@ -135,7 +135,7 @@
     <string name="title_setup_analytics">FairEmail n\'affiche pas de publicités et ne piste pas ou n\'analyse pas votre comportement. Bugsnag est utilisé pour les rapports d\'erreurs et est désactivé par défaut.</string>
     <string name="title_setup_quick_accounts">Ajouter ou modifier des comptes</string>
     <string name="title_setup_quick_support">Certains fournisseurs rendent difficile l\'ajout d\'un compte. Ne blâmez pas FairEmail pour ceci mais demandez de l\'aide à la place.</string>
-    <string name="title_setup_quick_hint">L’assistant récupérera les informations de configuration de autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">L\'adresse e-mail saisie est utilisée pour obtenir des informations de configuration du serveur de messagerie et de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Veuillez patienter&#8230;</string>
     <string name="title_setup_quick_imap">Serveur IMAP pour la réception des messages</string>
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
@@ -419,7 +419,8 @@
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_bimi_unverified">Expéditeur non vérifié</string>
     <string name="title_advanced_bimi_verified">Expéditeur vérifié</string>
-    <string name="title_advanced_efavicons">Afficher les avatars</string>
+    <string name="title_advanced_gravatars">Afficher les avatars</string>
+    <string name="title_advanced_libravatars">Afficher les Libravatars</string>
     <string name="title_advanced_favicons">Afficher l\'icône des sites web</string>
     <string name="title_advanced_favicons_partial">Inspecter uniquement les premiers %1$s de la page web</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées automatiquement</string>

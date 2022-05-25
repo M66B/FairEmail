@@ -135,7 +135,6 @@
     <string name="title_setup_analytics">FairEmail, reklam göstərmir, davranışınızı izləmir və ya təhlil etmir. Bugsnag, xəta hesabatı üçün istifadə olunur və ilkin olaraq görüntülənir.</string>
     <string name="title_setup_quick_accounts">Hesab əlavə et və ya dəyişdir</string>
     <string name="title_setup_quick_support">Bəzi təchizatçılar hesab əlavə etməyi çətinləşdirir. Xahiş edirik buna görə \"FairEmail\"i günahlandırmayın, əvəzində dəstək istəyin.</string>
-    <string name="title_setup_quick_hint">Cəld quraşdırma, konfiqurasiya məlumatlarını autoconfig.thunderbird.net ünvanından alır</string>
     <string name="title_setup_quick_patience">Zəhmət olmasa səbrli olun &#8230;</string>
     <string name="title_setup_quick_imap">Mesaj almaq üçün IMAP serveri</string>
     <string name="title_setup_quick_smtp">Mesaj göndərmək üçün SMTP serveri</string>
@@ -184,11 +183,13 @@
     <string name="title_setup_permissions">Verilən icazələr</string>
     <string name="title_setup_permissions_remark">Əlaqə məlumatlarına müraciət (məcburi deyil)</string>
     <string name="title_setup_permissions_explanation">Əlaqə icazələri, əlaqə məlumatlarının axtarışı və əlaqə təklifi üçün tələb olunur</string>
+    <string name="title_setup_permission_why">Hansı icazələrə ehtiyac var və nə üçün?</string>
     <string name="title_setup_permission_import_contacts">Əlaqələri necə idxal edə bilərəm?</string>
     <string name="title_setup_doze">Batareya optimallaşdırmasını sıradan çıxart</string>
     <string name="title_setup_doze_remark">Arxaplanda güvənli şəkildə e-poçt göndərmək və almaq üçün</string>
     <string name="title_setup_doze_explanation">Arxaplanda mesajların güvənlə göndərilməsi və alınmasını təmin etmək üçün tətbiqin batareya optimallaşdırması sıradan çıxarılmalıdır</string>
     <string name="title_setup_doze_hint">Bu bir az ziddiyyətli görünsə də, bu tətbiq üçün batareya optimallaşdırmasını bağlamaq daha az batareya istifadəsinə səbəb olacaq</string>
+    <string name="title_setup_doze_why">Batareya optimallaşdırmaları nə üçün sıradan çıxarılmalıdır?</string>
     <string name="title_setup_doze_instructions">Növbəti Android dialoq pəncərəsində \"Optimallaşdırılmamış\"ı (və ya Enerjiyə qənaət etmir) \"Bütün tətbiqlər\" olaraq dəyişdirin, bu tətbiqi seçin və \"Optimallaşdırmayın\"ı seçin</string>
     <string name="title_setup_doze_battery">Yüksək batareya istifadəsi?</string>
     <string name="title_setup_doze_stopped">Eyniləşdirmə dayandırılsın?</string>
@@ -417,7 +418,8 @@
     <string name="title_advanced_avatars">Əlaqə fotolarını göstər</string>
     <string name="title_advanced_bimi_unverified">Təsdiqlənməmiş göndərən</string>
     <string name="title_advanced_bimi_verified">Təsdiqlənmiş göndərən</string>
-    <string name="title_advanced_efavicons">Avatarları göstər</string>
+    <string name="title_advanced_gravatars">\"Gravatar\"ları göstər</string>
+    <string name="title_advanced_libravatars">\"Libravatar\"ları göstər</string>
     <string name="title_advanced_favicons">\"Favicon\"ları göstər</string>
     <string name="title_advanced_favicons_partial">Veb səhifədəki yalnız ilk %1$s skan edilsin</string>
     <string name="title_advanced_generated_icons">Yaradılmış nişanları göstər</string>

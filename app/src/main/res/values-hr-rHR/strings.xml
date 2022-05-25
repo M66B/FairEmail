@@ -145,7 +145,6 @@
     <string name="title_setup_analytics">FairEmail ne prikazuje oglase i ne prati niti analizira vaše ponašanje. Bugsnag se koristi za izvještavanje o greškama i onemogućen je prema zadanim postavkama.</string>
     <string name="title_setup_quick_accounts">Dodaj ili izmijeni račune</string>
     <string name="title_setup_quick_support">Neki pružatelji usluga otežavaju dodavanje računa. Nemojte kriviti FairEmail za ovo, već umjesto toga zatražite podršku.</string>
-    <string name="title_setup_quick_hint">Brzo postavljanje preuzet će informacije o konfiguraciji od autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Molimo budite strpljivi &#8230;</string>
     <string name="title_setup_quick_imap">IMAP server za primanje poruka</string>
     <string name="title_setup_quick_smtp">SMTP server za slanje poruka</string>
@@ -429,7 +428,8 @@
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_bimi_unverified">Nepotvrđeni pošiljatelj</string>
     <string name="title_advanced_bimi_verified">Potvrđeni pošiljatelj</string>
-    <string name="title_advanced_efavicons">Prikaži avatare</string>
+    <string name="title_advanced_gravatars">Prikaži gravatare</string>
+    <string name="title_advanced_libravatars">Prikaži Libravatare</string>
     <string name="title_advanced_favicons">Pokaži ikone</string>
     <string name="title_advanced_favicons_partial">Pretraži samo prvih %1$s web stranice</string>
     <string name="title_advanced_generated_icons">Prikaži generirane ikone</string>

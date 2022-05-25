@@ -125,7 +125,7 @@
     <string name="title_setup_analytics">FairEmail は広告を表示せず、あなたの行動を追跡したり分析したりしません。Bugsnag がエラーレポートに使用されますが、デフォルトでは無効になっています。</string>
     <string name="title_setup_quick_accounts">アカウントを追加または変更する</string>
     <string name="title_setup_quick_support">一部のプロバイダーはアカウントを追加しにくくしています。FairEmail を非難せずに、サポートを依頼してください。</string>
-    <string name="title_setup_quick_hint">クイックセットアップは autoconfig.thunderbird.net から設定情報を取得します</string>
+    <string name="title_setup_quick_hint">入力されたメールアドレスは、設定情報を取得するためにメールサーバーと autoconfig.thunderbird.net への問い合わせに使用されます</string>
     <string name="title_setup_quick_patience">しばらくお待ちください&#8230;</string>
     <string name="title_setup_quick_imap">メッセージの受信に使用する IMAP サーバー</string>
     <string name="title_setup_quick_smtp">メッセージの送信に使用する SMTP サーバー</string>
@@ -409,7 +409,8 @@
     <string name="title_advanced_avatars">連絡先の写真を表示</string>
     <string name="title_advanced_bimi_unverified">未確認の差出人</string>
     <string name="title_advanced_bimi_verified">認証済みの差出人</string>
-    <string name="title_advanced_efavicons">アバターを表示</string>
+    <string name="title_advanced_gravatars">Gravatar(アバター)を表示</string>
+    <string name="title_advanced_libravatars">Libravatar を表示</string>
     <string name="title_advanced_favicons">Favicon を表示</string>
     <string name="title_advanced_favicons_partial">ウェブページの最初の %1$s だけをスキャン</string>
     <string name="title_advanced_generated_icons">アイコンを生成して表示</string>

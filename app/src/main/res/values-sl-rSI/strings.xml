@@ -107,7 +107,6 @@
     <string name="title_setup">Nastavitve</string>
     <string name="title_setup_help">Pomoč</string>
     <string name="title_setup_quick">Hitra nastavitev</string>
-    <string name="title_setup_quick_hint">Hitra nastavitev bo podatke o nastavitvah pridobila iz autoconfig.thunderbird.net.</string>
     <string name="title_setup_quick_imap">Strežnik IMAP za prejemanje sporočil</string>
     <string name="title_setup_quick_smtp">Strežnik SMTP za pošiljanje sporočil</string>
     <string name="title_setup_wizard">Čarovnik</string>
@@ -237,6 +236,7 @@
     <string name="title_advanced_highlight_unread">Poudari neprebrana sporočila</string>
     <string name="title_advanced_color_stripe">Prikaži barvno črto</string>
     <string name="title_advanced_avatars">Prikaži slike stikov</string>
+    <string name="title_advanced_gravatars">Prikaži splošne podobe</string>
     <string name="title_advanced_generated_icons">Prikaži ustvarjene ikone</string>
     <string name="title_advanced_identicons">Prikaži identitetne ikone</string>
     <string name="title_advanced_circular">Prikaži okrogle ikone</string>

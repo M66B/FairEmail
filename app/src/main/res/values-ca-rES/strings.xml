@@ -104,7 +104,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_setup_help">Ajuda</string>
     <string name="title_setup_quick">Configuració ràpida</string>
     <string name="title_setup_issue">FairEmail va néixer per ajudar-nos a protegir la nostra privacitat y representa literalment milers d\'hores de treball. Si teniu qualsevol problema, si us plau, contacteu amb mi primer demanant suport abans de deixar un comentari negatiu. Sóc feliç ajudant!</string>
-    <string name="title_setup_quick_hint">La configuració ràpida aconseguirà informació de configuració a autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP per rebre missatges</string>
     <string name="title_setup_quick_smtp">Servidor SMTP per enviar missatges</string>
     <string name="title_setup_wizard">Assistent</string>
@@ -258,6 +257,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_highlight_unread">Ressalteu els missatges sense llegir</string>
     <string name="title_advanced_color_stripe">Mostra la franja de color</string>
     <string name="title_advanced_avatars">Mostra les fotos dels contactes</string>
+    <string name="title_advanced_gravatars">Mostra Gravatars</string>
     <string name="title_advanced_favicons">Mostra els favicon</string>
     <string name="title_advanced_generated_icons">Mostra les icones generades</string>
     <string name="title_advanced_identicons">Mostra identicons</string>

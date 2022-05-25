@@ -135,7 +135,7 @@
     <string name="title_setup_analytics">Το FairEmail δεν προβάλλει διαφημίσεις και δεν παρακολουθεί ή αναλύει τη συμπεριφορά σας. Το Bugsnag χρησιμοποιείται για την αναφορά σφαλμάτων και είναι απενεργοποιημένο από προεπιλογή.</string>
     <string name="title_setup_quick_accounts">Προσθήκη ή αλλαγή λογαριασμών</string>
     <string name="title_setup_quick_support">Ορισμένοι πάροχοι δυσχεραίνουν την προσθήκη ενός λογαριασμού. Παρακαλούμε, μην κατηγορείτε το FairEmail για αυτό, αλλά δοκιμάστε να λάβετε υποστήριξη.</string>
-    <string name="title_setup_quick_hint">Η γρήγορη ρύθμιση θα ανακτήσει πληροφορίες εγκατάστασης από το autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">Η εισαγόμενη διεύθυνση ηλ. ταχυδρομείου χρησιμοποιείται για να αναζητηθούν πληροφορίες ρύθμισης από τον διακομιστή ηλ. ταχυδρομείου και το autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Παρακαλούμε, περιμένετε &#8230;</string>
     <string name="title_setup_quick_imap">Διακομιστής IMAP για λήψη μηνυμάτων</string>
     <string name="title_setup_quick_smtp">Διακομιστής SMTP για αποστολή μηνυμάτων</string>
@@ -418,7 +418,8 @@
     <string name="title_advanced_avatars">Προβολή φωτογραφιών επαφών</string>
     <string name="title_advanced_bimi_unverified">Μη επαληθευμένος αποστολέας</string>
     <string name="title_advanced_bimi_verified">Επαληθευμένος αποστολέας</string>
-    <string name="title_advanced_efavicons">Προβολή άβαταρ</string>
+    <string name="title_advanced_gravatars">Προβολή Gravatar</string>
+    <string name="title_advanced_libravatars">Προβολή Libravatar</string>
     <string name="title_advanced_favicons">Προβολή favicon</string>
     <string name="title_advanced_favicons_partial">Να σαρωθεί μόνο το πρώτο %1$s της ιστοσελίδας</string>
     <string name="title_advanced_generated_icons">Να προβάλλονται εικονίδια που δημιουργούνται αυτόματα</string>

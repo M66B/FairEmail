@@ -155,7 +155,7 @@
     <string name="title_setup_analytics">FairEmail לא מציג פרסומות ולא עוקב אחריך או מנתח את ההתנהגות שלך. Bugsnag משמש לדיווח על שגיאות והוא מושבת כבררת מחדל.</string>
     <string name="title_setup_quick_accounts">הוספה או עריכה של חשבונות</string>
     <string name="title_setup_quick_support">חלק מהספקים מקשים על הוספת חשבון. אין טעם להאשים את FailEmail בכך, אך בהחלט ניתן לבקש תמיכה.</string>
-    <string name="title_setup_quick_hint">הגדרה מהירה מושכת הגדרות מ־autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">כתובת הדוא״ל שמולאה משמשת לתשאל את שרת הדוא״ל ואת autoconfig.thunderbird.net לקבלת פרטי הגדרה</string>
     <string name="title_setup_quick_patience">נא להתאזר בסבלנות &#8230;</string>
     <string name="title_setup_quick_imap">שרת IMAP לקבלת הודעות</string>
     <string name="title_setup_quick_smtp">שרת SMTP לשליחת הודעות</string>
@@ -439,7 +439,8 @@
     <string name="title_advanced_avatars">הצגת תמונות אנשי קשר</string>
     <string name="title_advanced_bimi_unverified">מוען בלתי מאומת</string>
     <string name="title_advanced_bimi_verified">מוען מאומת</string>
-    <string name="title_advanced_efavicons">הצגת תמונות ייצוגיות</string>
+    <string name="title_advanced_gravatars">הצגת Gravatarים</string>
+    <string name="title_advanced_libravatars">הצגת Libravatarים</string>
     <string name="title_advanced_favicons">הצגת סמלי אתרים</string>
     <string name="title_advanced_favicons_partial">לסרוק רק את %1$s הראשונים של עמוד האינטרנט</string>
     <string name="title_advanced_generated_icons">הצגת סמלים שנוצרו אוטומטית</string>

@@ -154,7 +154,7 @@
     <string name="title_setup_analytics">FairEmail nezobrazuje reklamy, ani nesleduje a neanalyzuje vaše správanie. Na hlásenie chýb voliteľne používame systém Bugsnag. Ak chcete hlásiť chyby, môžete ho povoliť.</string>
     <string name="title_setup_quick_accounts">Pridať alebo upraviť účty</string>
     <string name="title_setup_quick_support">Účty niektorých poskytovateľov môže byť náročné nastaviť. Neobviňujte z tohto nedostatku FairEmail a požiadajte o pomoc, ak ju potrebujete prosím.</string>
-    <string name="title_setup_quick_hint">Rýchle nastavenie načíta informácie konfigurácie z autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">Zadaná emailová adresa bude použitá na zisťovanie konfigurácii z poštového servera a služby autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Prosím, trpezlivosť&#8230;</string>
     <string name="title_setup_quick_imap">IMAP server na prijímanie správ</string>
     <string name="title_setup_quick_smtp">SMTP server na odosielanie správ</string>
@@ -203,11 +203,13 @@
     <string name="title_setup_permissions">Udeliť oprávnenia</string>
     <string name="title_setup_permissions_remark">Prístup k informáciám kontaktov (voliteľné)</string>
     <string name="title_setup_permissions_explanation">Oprávnenie pristupovať ku kontaktom je potrebné na získavanie informácií o kontaktoch a na návrhy príjemcov</string>
+    <string name="title_setup_permission_why">Aké oprávnenia sú potrebné a prečo?</string>
     <string name="title_setup_permission_import_contacts">Ako importovať kontakty?</string>
     <string name="title_setup_doze">Vypnite optimalizáciu batérie</string>
     <string name="title_setup_doze_remark">Aby bolo spoľahlivo možné prijímať a odosielať správy na pozadí</string>
     <string name="title_setup_doze_explanation">Optimalizácie batérie by mali byť zakázané, aby spoľahlivo fungovalo prijímanie a odosielanie správ na pozadí</string>
     <string name="title_setup_doze_hint">Môže sa zdať, že opak je pravdou, no vypnutím optimalizácie ušetríte využitie pri napájaní z batérie</string>
+    <string name="title_setup_doze_why">Prečo by mal FairEmail byť vylúčený z optimalizácie batérie?</string>
     <string name="title_setup_doze_instructions">V nasledujúsom dialógu systému android zmeňte \"Neoptimalizované\" na \"Všetky aplikácie\", nájdite túto aplikáciu a nastavte \"Neoptimalizovať\"</string>
     <string name="title_setup_doze_battery">Vysoká spotreba batérie?</string>
     <string name="title_setup_doze_stopped">Zastavila sa synchronizácia?</string>
@@ -227,6 +229,7 @@
     <string name="title_setup_configuring">Nastavenie účtu &#8230;</string>
     <string name="title_setup_app_password">Možno budete potrebovať použiť heslo aplikácie</string>
     <string name="title_setup_extra">Viac</string>
+    <string name="title_setup_delete_account_hint">Týmto odstránite účty z aplikácie</string>
     <string name="title_setup_close">Zavrieť nastavenia</string>
     <string name="title_setup_export">Exportovať nastavenia</string>
     <string name="title_setup_import">Importovať nastavenia</string>
@@ -291,6 +294,8 @@
     <string name="title_setup_reset_links">Potvrdzovať odkazy</string>
     <string name="title_check_gmail_oauth">Vaše účty Gmail ostanú funkčné po 30. máji 2022</string>
     <string name="title_check_gmail_password">Niektoré z vašich účtov Gmail môžu prestať fungovať po 30. máji 2022</string>
+    <string name="title_check_outlook_oauth">Vaše účty Outlook budú naďalej fungovať po 1 októbri 2022</string>
+    <string name="title_check_outlook_password">Niektoré vaše účty Outlook môžu prestať fungovať od 1 októbra 2022</string>
     <string name="title_advanced_hint_title">Pokročilejšie nastavenia</string>
     <string name="title_advanced_hint_message">        Vstupujete do veľmi pokročilých možností.        Všetky voľby majú prednastavené bežne používané štandardné hodnoty, ktoré nie je potrebné meniť, jedine že uprednostňujete iné nastavenie.
     </string>
@@ -374,6 +379,7 @@
     <string name="title_advanced_usenet_signature">Používať konvenciu Usenet pre podpisy</string>
     <string name="title_advanced_remove_signatures">Odstraňovať rozpoznané podpisy</string>
     <string name="title_advanced_receipt">Pri požadovaní potvrdenia</string>
+    <string name="title_advanced_forward_new">Začať novú konverzáciu pri presmerovaní</string>
     <string name="title_advanced_lookup_mx">Pred odoslaním skontrolovať e-mailové adresy príjemcov</string>
     <string name="title_advanced_metered">Používať účtované pripojenia</string>
     <string name="title_advanced_download">Automaticky preberať správy a prílohy na účtovanom pripojení do veľkosti</string>
@@ -431,7 +437,8 @@
     <string name="title_advanced_avatars">Zobraziť fotografie kontaktov</string>
     <string name="title_advanced_bimi_unverified">Neoverený odosielateľ</string>
     <string name="title_advanced_bimi_verified">Overený odosielateľ</string>
-    <string name="title_advanced_efavicons">Zobrazovať obrázky kontaktov</string>
+    <string name="title_advanced_gravatars">Zobraziť Gravatary</string>
+    <string name="title_advanced_libravatars">Zobrazovať obrázky zo stránky Libravatars. org</string>
     <string name="title_advanced_favicons">Zobraziť favikony</string>
     <string name="title_advanced_favicons_partial">Analyzovať len prvých %1$s webstránky</string>
     <string name="title_advanced_generated_icons">Zobraziť generované ikonky</string>
@@ -595,6 +602,7 @@
     <string name="title_advanced_autocrypt">Použiť Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt obojstranný mód</string>
     <string name="title_advanced_encrypt_subject">Zašifrovať predmet</string>
+    <string name="title_advanced_import_pgp">Importovať kľúč</string>
     <string name="title_advanced_sign_algo">Algoritmus podpisovania</string>
     <string name="title_advanced_encrypt_algo">Algoritmus šifrovania</string>
     <string name="title_advanced_remark_algo">        Prosím, uvedomte si, že nie všetky poštové programy podporujú všetky algoritmy.
@@ -643,6 +651,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_quick_sync_hint">Obmedzí využívanie prenosu údajov, ale zobrazovanie nových správ môže byť opozdené ak poštový server nedodržuje štandardy</string>
     <string name="title_advanced_no_date_hint">Niektorí poskytovatelia uchovávajú správy s neznámym, nesprávnym alebo budúcim časom namiesto správ bez času</string>
     <string name="title_advanced_unseen_hint">Niektorí poskytovatelia toto nepodporujú správne, čo spôsobuje synchronizáciu všetkých alebo žiadnych správ</string>
+    <string name="title_advanced_data_usage">Môže spôsobiť vyššie využitie údajov!</string>
     <string name="title_advanced_deleted_unseen">Ak je to vypnuté, neprečítané správy ostávajú v zariadení uložené navždy</string>
     <string name="title_advanced_sync_kept_hint">Zvýši nároky na prenos dát a využívanie batérie, hlavne ak máte v zariadení množstvo správ</string>
     <string name="title_advanced_gmail_thread_hint">Platí len pre nové prichádzajúce správy a môže ovplyvniť existujúce skupiny</string>
@@ -1019,6 +1028,10 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_button_search">Hľadať v správach</string>
     <string name="title_button_search_text">Hľadať v texte správy</string>
     <string name="title_configure_buttons">Nastaviť tlačidlá &#8230;</string>
+    <string name="title_quick_actions">Vybrať akcie</string>
+    <string name="title_quick_actions_hint">Zobrazených bude Najviac %1$d akcií</string>
+    <string name="title_quick_actions_low">Nízka dôležitosť</string>
+    <string name="title_quick_actions_high">Vysoká dôležitosť</string>
     <string name="title_quick_actions_snooze">Odložiť</string>
     <string name="title_trash">Presunúť do koša</string>
     <string name="title_copy">Kopírovať &#8230;</string>

@@ -116,7 +116,6 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_setup_analytics">FairEmail tidak menampilkan iklan dan tidak melacak atau menganalisis kebiasaan anda. Penangkap gangguan digunakan untuk melaporkan gangguan dan dimatikan secara bawaan.</string>
     <string name="title_setup_quick_accounts">Tambah atau ganti akun</string>
     <string name="title_setup_quick_support">Beberapa layanan email mempersulit penambahan akun. Mohon jangan menyalahkan FairEmail untuk ini, tetapi mintalah dukungan sebagai gantinya.</string>
-    <string name="title_setup_quick_hint">Pengaturan cepat akan mengambil informasi konfigurasi dari autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Harap bersabar &#8230;</string>
     <string name="title_setup_quick_imap">Server IMAP untuk menerima pesan</string>
     <string name="title_setup_quick_smtp">Server SMTP untuk mengirim pesan</string>
@@ -364,6 +363,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_avatars">Tampilkan kontak foto</string>
     <string name="title_advanced_bimi_unverified">Pengirim belum di verifikasi</string>
     <string name="title_advanced_bimi_verified">Pengirim terverifikasi</string>
+    <string name="title_advanced_gravatars">Tampilkan Gravatar</string>
     <string name="title_advanced_favicons">Tampilkan favicon</string>
     <string name="title_advanced_generated_icons">Tampilkan ikon yang dibuat</string>
     <string name="title_advanced_identicons">Tampilkan ikon identitas</string>

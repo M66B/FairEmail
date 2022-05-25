@@ -154,7 +154,6 @@
     <string name="title_setup_intro">إعداد حساب هو ثلاث خطوات فقط وبعد ذلك يمكنك إرسال واستقبال رسائل البريد الإلكتروني</string>
     <string name="title_setup_simple">لا حاجة لتغيير أي خيارات أخرى</string>
     <string name="title_setup_quick_support">بعض مقدمي الخدمات يجعلون من الصعب إضافة حساب. الرجاء عدم إلقاء اللوم على FairEmail لهذا الغرض، ولكن أطلب الدعم بدلاً من ذلك.</string>
-    <string name="title_setup_quick_hint">الإعداد السريع سوف يجلب معلومات التكوين من autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">خادم IMAP لتلقي الرسائل</string>
     <string name="title_setup_quick_smtp">خادم SMTP لإرسال الرسائل</string>
     <string name="title_setup_wizard">المساعد</string>

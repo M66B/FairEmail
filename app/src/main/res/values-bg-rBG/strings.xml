@@ -101,7 +101,6 @@
     <string name="title_setup_help">Помощ</string>
     <string name="title_setup_quick">Бърза настройка</string>
     <string name="title_setup_quick_accounts">Добавяне или променяне на акаунтите</string>
-    <string name="title_setup_quick_hint">Бързата настройка ще извлече информация за конфигурацията от autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Търпение &#8230;</string>
     <string name="title_setup_quick_imap">IMAP сървър за получаване на съобщения</string>
     <string name="title_setup_quick_smtp">SMTP сървър за изпращане на съобщения</string>
@@ -286,6 +285,7 @@
     <string name="title_advanced_color_stripe">Показване на цветна ивица</string>
     <string name="title_advanced_avatars">Покажи снимка на контакт</string>
     <string name="title_advanced_bimi_unverified">Непроверен подател</string>
+    <string name="title_advanced_gravatars">Покажи Gravatars</string>
     <string name="title_advanced_favicons">Показване на фаворити</string>
     <string name="title_advanced_generated_icons">Показване на генерираните икони</string>
     <string name="title_advanced_identicons">Покажи икони за идентичност</string>

@@ -125,7 +125,6 @@
     <string name="title_setup_analytics">FairEmail không hiển thị quảng cáo và không theo dõi hay phân tích hành vi của bạn. Bugsnag được sử dụng để báo cáo lỗi và được tắt theo mặc định.</string>
     <string name="title_setup_quick_accounts">Thêm hoặc đổi tài khoản</string>
     <string name="title_setup_quick_support">Một số nhà cung cấp làm cho việc thêm tài khoản khó khăn. Xin đừng đổ lỗi cho FairEmail vì việc này, mà hãy hỏi xin được hỗ trợ.</string>
-    <string name="title_setup_quick_hint">Thiết lập nhanh sẽ lấy thông tin thiết lập từ autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Vui lòng kiên nhẫn &#8230;</string>
     <string name="title_setup_quick_imap">Máy chủ IMAP để nhận thư</string>
     <string name="title_setup_quick_smtp">Máy chủ SMTP để gửi thư</string>
@@ -408,7 +407,8 @@
     <string name="title_advanced_avatars">Hiện ảnh liên hệ</string>
     <string name="title_advanced_bimi_unverified">Người gửi chưa được xác minh</string>
     <string name="title_advanced_bimi_verified">Người gửi đã được xác minh</string>
-    <string name="title_advanced_efavicons">Hiển thị Avatar</string>
+    <string name="title_advanced_gravatars">Hiện Gravatar</string>
+    <string name="title_advanced_libravatars">Hiện Libravatar</string>
     <string name="title_advanced_favicons">Hiện biểu tượng yêu thích</string>
     <string name="title_advanced_favicons_partial">Chỉ quét %1$s đầu tiên của trang web</string>
     <string name="title_advanced_generated_icons">Hiện biểu tượng được tự động tạo</string>

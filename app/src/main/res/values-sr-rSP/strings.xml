@@ -94,7 +94,6 @@
     <string name="title_setup">Поставке</string>
     <string name="title_setup_help">Помоћ</string>
     <string name="title_setup_quick">Брзо подешавање</string>
-    <string name="title_setup_quick_hint">Брзо подешавање ће скинути конфигурационе информације са autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP сервер за примање порука</string>
     <string name="title_setup_quick_smtp">SMTP сервер за слање порука</string>
     <string name="title_setup_wizard">Чаробњак</string>

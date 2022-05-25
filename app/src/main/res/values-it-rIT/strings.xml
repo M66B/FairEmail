@@ -135,7 +135,7 @@
     <string name="title_setup_analytics">FairEmail non visualizza annunci e non monitora o analizza il tuo comportamento. Bugsnag è usato per la segnalazione degli errori ed è disabilitato di default.</string>
     <string name="title_setup_quick_accounts">Aggiungi o cambia profili</string>
     <string name="title_setup_quick_support">Alcuni provider rendono difficile aggiungere un profilo. Sei pregato di non incolpare FairEmail per questo, ma piuttosto di chiedere supporto.</string>
-    <string name="title_setup_quick_hint">La configurazione rapida recupererà le informazioni di configurazione da autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">L\'indirizzo email inserito è usato per interrogare il server email e autoconfig.thunderbird.net per le informazioni di configurazione</string>
     <string name="title_setup_quick_patience">Sei pregato di pazientare&#8230;</string>
     <string name="title_setup_quick_imap">Server IMAP per ricevere i messaggi</string>
     <string name="title_setup_quick_smtp">Server SMTP per inviare i messaggi</string>
@@ -190,7 +190,7 @@
     <string name="title_setup_doze_remark">Per inviare e ricevere email affidabilmente in background</string>
     <string name="title_setup_doze_explanation">Le ottimizzazioni della batteria dovrebbero esser disabilitate per l\'app, per assicurare un\'affidabile invio e ricezione dei messaggi in background</string>
     <string name="title_setup_doze_hint">Sebbene questo possa sembrare contraddittorio, disattivare le ottimizzazioni della batteria per quest\'app risulterà in un minore uso della batteria</string>
-    <string name="title_setup_doze_why">Perché le ottimizzazioni della batteria dovrebbero essere disabilitate?</string>
+    <string name="title_setup_doze_why">Perché le ottimizzazioni della batteria dovrebbero esser disabilitate?</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra di Android cambia \"Non ottimizzata\" a \"Tutte le app\", seleziona quest\'app e seleziona \"Non ottimizzare\"</string>
     <string name="title_setup_doze_battery">Alto consumo della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
@@ -419,7 +419,8 @@
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
     <string name="title_advanced_bimi_unverified">Mittente non verificato</string>
     <string name="title_advanced_bimi_verified">Mittente verificato</string>
-    <string name="title_advanced_efavicons">Mostra avatar</string>
+    <string name="title_advanced_gravatars">Mostra Gravatar</string>
+    <string name="title_advanced_libravatars">Mostra Libravatar</string>
     <string name="title_advanced_favicons">Mostra favicon</string>
     <string name="title_advanced_favicons_partial">Scansiona solo il primo %1$s della pagina web</string>
     <string name="title_advanced_generated_icons">Mostra le icone generate</string>
@@ -1013,8 +1014,8 @@
     <string name="title_configure_buttons">Configura pulsanti &#8230;</string>
     <string name="title_quick_actions">Seleziona azioni</string>
     <string name="title_quick_actions_hint">Sarranno mostrate fino a %1$d azioni</string>
-    <string name="title_quick_actions_low">Bassa importanza</string>
-    <string name="title_quick_actions_high">Alta importanza</string>
+    <string name="title_quick_actions_low">Importanza bassa</string>
+    <string name="title_quick_actions_high">Importanza elevata</string>
     <string name="title_quick_actions_snooze">Posticipa</string>
     <string name="title_trash">Cestino</string>
     <string name="title_copy">Copia &#8230;</string>

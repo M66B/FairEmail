@@ -134,7 +134,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_analytics">FairEmail reklam göstermez ve davranışınızı izlemez veya analiz etmez. Bugsnag, hata raporlama için kullanılır ve varsayılan olarak devre dışıdır.</string>
     <string name="title_setup_quick_accounts">Hesap ekle veya değiştir</string>
     <string name="title_setup_quick_support">Bazı sağlayıcılar hesap eklemeyi zorlaştırır. Lütfen bunun için FairEmail\'i suçlamayın, bunun yerine destek isteyin.</string>
-    <string name="title_setup_quick_hint">Hızlı kurulum, yapılandırma bilgilerini autoconfig.thunderbird.net adresinden alır</string>
+    <string name="title_setup_quick_hint">Girilen e-posta adresi, yapılandırma bilgileri için e-posta sunucusunu ve autoconfig.thunderbird.net\'i sorgulamak için kullanılır</string>
     <string name="title_setup_quick_patience">Lütfen sabırlı olun &#8230;</string>
     <string name="title_setup_quick_imap">İleti almak için IMAP sunucusu</string>
     <string name="title_setup_quick_smtp">İleti göndermek için SMTP sunucusu</string>
@@ -417,7 +417,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_bimi_unverified">Doğrulanmamış gönderen</string>
     <string name="title_advanced_bimi_verified">Doğrulanmış gönderen</string>
-    <string name="title_advanced_efavicons">Avatarları göster</string>
+    <string name="title_advanced_gravatars">Gravatar\'ları göster</string>
+    <string name="title_advanced_libravatars">Libravatar\'ları göster</string>
     <string name="title_advanced_favicons">Faviconları göster</string>
     <string name="title_advanced_favicons_partial">Web sayfasının yalnızca ilk %1$s tarayın</string>
     <string name="title_advanced_generated_icons">Oluşturulan simgeleri göster</string>

@@ -117,7 +117,6 @@
     <string name="title_setup_analytics">FairEmail은 광고를 표시하지도 당신의 행동을 추적하거나 분석하지도 않습니다. 오류 보고를 위해 기본적으로 사용이 중지되어 있는 Bugsnag를 사용합니다.</string>
     <string name="title_setup_quick_accounts">계정 추가 및 변경</string>
     <string name="title_setup_quick_support">몇몇 서비스 제공자들은 계정 추가하기를 어렵도록 설계해 두었습니다. FairEmail을 탓하지 마시고, 대신 도움을 요청해 주세요.</string>
-    <string name="title_setup_quick_hint">빠른 설정은 autoconfig.thunderbird.net에서 설정들을 가져와요.</string>
     <string name="title_setup_quick_patience">인내심을 가지고 기다려 주세요 &#8230;</string>
     <string name="title_setup_quick_imap">메시지를 수신할 IMAP 서버</string>
     <string name="title_setup_quick_smtp">메시지를 발신할 SMTP 서버</string>
@@ -273,6 +272,8 @@
     <string name="title_advanced_threading">대화 스레딩</string>
     <string name="title_advanced_bimi_unverified">확인되지 않은 발신자</string>
     <string name="title_advanced_bimi_verified">확인된 발신자</string>
+    <string name="title_advanced_gravatars">그라바타 표시</string>
+    <string name="title_advanced_libravatars">리브라바타 표시</string>
     <string name="title_advanced_favicons">파비콘 표시</string>
     <string name="title_advanced_favicons_partial">웹 페이지의 첫 %1$s만 스캔</string>
     <string name="title_advanced_identicons">아이덴티콘 표시</string>

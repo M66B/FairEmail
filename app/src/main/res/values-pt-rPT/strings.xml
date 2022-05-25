@@ -132,7 +132,7 @@
     <string name="title_setup_analytics">O FairEmail não exibe anúncios e não monitoriza ou analisa o seu comportamento. O Bugsnag é usado para comunicar erros e está desactivado por defeito.</string>
     <string name="title_setup_quick_accounts">Adicionar ou alterar contas</string>
     <string name="title_setup_quick_support">Alguns provedores tornam difícil adicionar uma conta. Por favor, não culpe o FairEmail por isso, peça-lhes suporte.</string>
-    <string name="title_setup_quick_hint">A configuração rápida irá obter informações de configuração a partir de autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">O endereço de e-mail inserido é usado para consultar o servidor de e-mail e autoconfig.thunderbird.net para informações de configuração</string>
     <string name="title_setup_quick_patience">Por favor seja paciente &#8230;</string>
     <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
@@ -181,11 +181,13 @@
     <string name="title_setup_permissions">Conceder permissões</string>
     <string name="title_setup_permissions_remark">Para aceder a informações de contacto (opcional)</string>
     <string name="title_setup_permissions_explanation">As permissões de contacto são necessárias para procurar informações de contacto e sugerir contactos</string>
+    <string name="title_setup_permission_why">Que permissões são necessárias e porquê?</string>
     <string name="title_setup_permission_import_contacts">Como posso importar contactos?</string>
     <string name="title_setup_doze">Desactivar optimização de bateria</string>
     <string name="title_setup_doze_remark">Enviar e receber e-mail de forma segura em segundo plano</string>
     <string name="title_setup_doze_explanation">As optimizações da bateria devem ser desactivadas para esta aplicação, para garantir o correcto envio/recepção das mensagens em segundo plano</string>
     <string name="title_setup_doze_hint">Embora isto possa parecer contraditório, desligar as otimizações de bateria para esta aplicação resultará em menos utilização de bateria</string>
+    <string name="title_setup_doze_why">Porque devem as optimizações de bateria serem desactivadas?</string>
     <string name="title_setup_doze_instructions">No próximo dialogo do sistema Android:
 - Altere de \"Não optimizado\" para \"Todas as aplicações\";
 - Seleccione esta aplicação e escolha \"Não optimizar\";</string>
@@ -295,7 +297,7 @@
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_optimize">Optimizar automaticamente</string>
     <string name="title_advanced_always">Receber sempre mensagens para estas contas</string>
-    <string name="title_advanced_schedule">Agendar</string>
+    <string name="title_advanced_schedule">Agendamento</string>
     <string name="title_advanced_advanced">Avançado</string>
     <string name="title_advanced_quick_sync">Sincronização rápida</string>
     <string name="title_advanced_no_date">Mensagens sem data</string>
@@ -390,6 +392,9 @@
     <string name="title_advanced_nav_categories">Mostrar categorias da conta no menu de navegação</string>
     <string name="title_advanced_nav_pin">Fixar menu de navegação</string>
     <string name="title_advanced_nav_hide_title">Ocultar opções do menu de navegação?</string>
+    <string name="title_advanced_nav_hide_message">Pode reactivar estas opções nas definições de ecrã</string>
+    <string name="title_advanced_nav_message_count">Mostrar número de mensagens armazenadas localmente no menu de navegação</string>
+    <string name="title_advanced_nav_unseen_drafts">Mostrar o número de rascunhos não lidos no menu de navegação</string>
     <string name="title_advanced_nav_pinned_count">Mostrar o número de mensagens não lidas no menu de navegação fixado</string>
     <string name="title_advanced_startup">Mostrar no ecrã de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
@@ -410,7 +415,8 @@
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_bimi_unverified">Remetente não verificado</string>
     <string name="title_advanced_bimi_verified">Remetente verificado</string>
-    <string name="title_advanced_efavicons">Mostrar avatars</string>
+    <string name="title_advanced_gravatars">Mostrar Gravatar</string>
+    <string name="title_advanced_libravatars">Mostrar Libravatars</string>
     <string name="title_advanced_favicons">Mostrar \"favicons\"</string>
     <string name="title_advanced_favicons_partial">Digitalize apenas a primeira %1$s da página web</string>
     <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>
@@ -540,9 +546,11 @@
     <string name="title_advanced_notify_screen_on">Ligar o ecrã por breves instantes para novas notificações de mensagens</string>
     <string name="title_advanced_confirm_links">Pedir confirmação ao abrir hiperligações</string>
     <string name="title_advanced_check_links_dbl">Verificar listas de bloqueio de domínios para hiperligações suspeitas</string>
-    <string name="title_advanced_browse_links">Delegar abertura de links para o Android</string>
+    <string name="title_advanced_browse_links">Delegar abertura de hiperligações para o Android</string>
+    <string name="title_advanced_confirm_images">Não mostrar imagens por padrão</string>
     <string name="title_advanced_ask_images">Confirmar a exibição de imagens</string>
     <string name="title_advanced_confirm_html">Mostrar mensagens reformatadas por padrão</string>
+    <string name="title_advanced_ask_html">Confirmar a exibição de mensagens originais</string>
     <string name="title_advanced_tracking">Tentativa de reconhecer e desactivar mensagens de monitorização</string>
     <string name="title_advanced_hide_timezone">Enviar mensagens sem dados de fuso horário</string>
     <string name="title_advanced_client_id">Enviar o nome e a versão da aplicação para o servidor de correio electrónico</string>
@@ -567,9 +575,10 @@
     <string name="title_advanced_auto_decrypt">Desencriptar mensagens automaticamente</string>
     <string name="title_advanced_auto_undo_decrypt">Reverter a descodificação ao fechar conversas</string>
     <string name="title_advanced_openpgp">Provedor OpenPGP</string>
-    <string name="title_advanced_autocrypt">Usar Autocript</string>
+    <string name="title_advanced_autocrypt">Usar Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modo mútuo de Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Cifrar assunto</string>
+    <string name="title_advanced_import_pgp">Importar chave</string>
     <string name="title_advanced_sign_algo">Algoritmo de assinatura</string>
     <string name="title_advanced_encrypt_algo">Algoritmo de encriptação</string>
     <string name="title_advanced_remark_algo">        Saiba que nem todos os clientes de e-mail suportam todos os algoritmos.
@@ -590,8 +599,11 @@
     <string name="title_advanced_fts">Construir índice de pesquisa</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
     <string name="title_advanced_classification">Classificar mensagens</string>
+    <string name="title_advanced_class_min_chance">Probabilidade mínima da classe: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Diferença mínima de classe: %1$s %%</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
+    <string name="title_advanced_deepl">Integração DeepL</string>
     <string name="title_advanced_sdcard">Quero utilizar um cartão SD</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_updates">Verificar atualizações do GitHub</string>
@@ -611,6 +623,7 @@
     <string name="title_advanced_poll_hint">A verificação periódica por novas mensagens irá comparar, de todas as vezes, as mensagens locais e no servidor, o que é uma operação \'pesada\' e pode resultar numa utilização de bateria adicional, especialmente se existirem muitas mensagens. A opção \'receber sempre\' irá prevenir isso, ao estar sempre a acompanhar as alterações.</string>
     <string name="title_advanced_optimize_hint">Isto pode alterar a frequência de sincronização para poupar a utilização de bateria dependendo das capacidades e comportamento dos servidores de correio electrónico</string>
     <string name="title_advanced_schedule_hint">Toque num horário para o definir</string>
+    <string name="title_advanced_schedule_ignore">Os agendamentos podem ser desactivados nas configurações avançadas da conta</string>
     <string name="title_advanced_quick_sync_hint">Isto reduz o uso de dados, mas as novas mensagens podem ser perdidas se o servidor de e-mail não seguir os padrões</string>
     <string name="title_advanced_no_date_hint">Alguns provedores armazenam mensagens com data desconhecida, inválida ou futura como mensagens sem data</string>
     <string name="title_advanced_unseen_hint">Alguns provedores não têm o suporte correto, o que pode causar a sincronização de nenhuma ou de todas as mensagens</string>
@@ -639,7 +652,7 @@
     <string name="title_advanced_roaming_hint">Os cabeçalhos de mensagens serão sempre obtidos em roaming. Pode usar a configuração de roaming do dispositivo para desactivar a internet em roaming.</string>
     <string name="title_advanced_layout_hint">Pode mudar para um layout mais compacto e alterar o tamanho do texto da mensagem no menu da barra de acção presente na parte superior da vista de mensagens</string>
     <string name="title_advanced_navbar_colorize_hint">O funcionamento disto depende da versão e variante do Android</string>
-    <string name="title_advanced_split_hint">Esta opção divide o ecrã em partes</string>
+    <string name="title_advanced_split_hint">Esta opção divide o ecrã em parcelas</string>
     <string name="title_advanced_highlight_hint">A cor de ênfase do tema será usada para destaque</string>
     <string name="title_advanced_privacy_risk">Pode haver um risco de privacidade</string>
     <string name="title_advanced_preview_hint">Apenas disponível quando o texto da mensagem for transferido</string>
@@ -735,6 +748,7 @@
     <string name="title_keep_poll_interval">Intervalo de verificação (em minutos)</string>
     <string name="title_received_header">Usar o cabeçalho \'Recebido\'</string>
     <string name="title_unmetered_only">Conectar somente através de redes ilimitadas</string>
+    <string name="title_ignore_schedule">Também sincronizar fora do período agendado</string>
     <string name="title_check">Verificar</string>
     <string name="title_no_name">Nome em falta</string>
     <string name="title_no_email">Endereço de correio eletrónico ausente</string>
@@ -822,7 +836,7 @@
     <string name="title_check_operations">A decorrer verificação de operações</string>
     <string name="title_hint_operations">Eliminar operações pode resultar no desaparecimento de mensagens e problemas de sincronização</string>
     <string name="title_op_title_headers">A transferir cabeçalhos</string>
-    <string name="title_op_title_raw">A transferir mensagem original (raw)</string>
+    <string name="title_op_title_raw">A transferir mensagem em bruto (raw)</string>
     <string name="title_folder_name">Nome da pasta</string>
     <string name="title_display_name">Nome a apresentar</string>
     <string name="title_show_folders">Mostrar pastas ocultas</string>
@@ -919,7 +933,7 @@
     <string name="title_download_all">Transferir todas</string>
     <string name="title_save_all">Guardar tudo</string>
     <string name="title_save_eml">Guardar ficheiro de mensagem (.eml)</string>
-    <string name="title_eml_remark">Para encaminhar mensagens, as mensagens (originais) precisam de ser descarregadas do servidor de e-mail. Requer uma ligação à internet e as mensagens devem ser armazenadas no servidor de e-mail.</string>
+    <string name="title_eml_remark">Para encaminhar mensagens, é preciso transferir as mensagens em bruto (original) do servidor de correio electrónico. Requer uma ligação à Internet e as mensagens devem continuar armazenadas no servidor de correio electrónico.</string>
     <string name="title_eml_option">Isto pode ser prevenido activando, nas definições de ligação, a opção de transferir os ficheiros de mensagem em bruto</string>
     <string name="title_eml_downloaded">Download de mensagens originais: %1$s</string>
     <string name="title_auto_confirm">Confirmar automaticamente após alguns segundos</string>
@@ -1317,6 +1331,7 @@
     <string name="title_rule_action">Acção</string>
     <string name="title_rule_action_remark">Esta acção será aplicada às novas mensagens que chegam à pasta %1$s</string>
     <string name="title_rule_hours">Horas</string>
+    <string name="title_rule_schedule_end">A partir da condição do término do período</string>
     <string name="title_rule_folder">Pasta</string>
     <string name="title_rule_thread">Todas as mensagens na mesma conversa e pasta</string>
     <string name="title_rule_identity">Identidade</string>

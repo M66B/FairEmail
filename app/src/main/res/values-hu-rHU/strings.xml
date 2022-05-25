@@ -132,7 +132,6 @@
     <string name="title_setup_analytics">FairEmail nem jeneít meg reklámokat, és nem követi vagy analizálja az Ön viselkedését. A Bugsnag kizárólag hibajelentésre szolgál, és alapból ki is van kapcsolva.</string>
     <string name="title_setup_quick_accounts">Fiókok hozzáadása vagy módosítása</string>
     <string name="title_setup_quick_support">Egyes szolgáltatók megbonyolították a fiókok elérését. Ha emiatt nehézségekkel találkozol, inkább kérj segítséget reklamáció helyett.</string>
-    <string name="title_setup_quick_hint">A gyors beállítás alkalmazza az autoconfig.thunderbird.net-en található konfigurációs információkat</string>
     <string name="title_setup_quick_patience">Kérlek, legyél türelemmel &#8230;</string>
     <string name="title_setup_quick_imap">Az üzenetek fogadásához használt IMAP szerver</string>
     <string name="title_setup_quick_smtp">Az üzenetek küldéséhez használt SMTP szerver</string>
@@ -397,7 +396,7 @@
     <string name="title_advanced_avatars">Névjegyzék fényképeinek megjelenítése</string>
     <string name="title_advanced_bimi_unverified">Nem ellenőrzött küldő</string>
     <string name="title_advanced_bimi_verified">Ellenőrzött küldő</string>
-    <string name="title_advanced_efavicons">Profilképek megjelenítése</string>
+    <string name="title_advanced_gravatars">Gravatar képek megjelenítése</string>
     <string name="title_advanced_favicons">Faviconok megjelenítése</string>
     <string name="title_advanced_favicons_partial">Csak az első %1$s-t olvassa be a weboldalnak</string>
     <string name="title_advanced_generated_icons">Generált ikonok megjelenítése</string>

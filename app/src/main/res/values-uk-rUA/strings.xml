@@ -156,7 +156,7 @@
     <string name="title_setup_analytics">FairEmail не відображає рекламу і не відстежує та не проаналізує вашу поведінку. Bugsnag використовується для звітування про помилки та вимкнено за замовчуванням.</string>
     <string name="title_setup_quick_accounts">Додавання/зміна облікових записів</string>
     <string name="title_setup_quick_support">Деякі провайдери ускладнюють додавання рахунку. Будь ласка, не звинувачуйте у цьому Fairemail, а попросіть допомогу у Вашій службі підтримки.</string>
-    <string name="title_setup_quick_hint">Швидке налаштування дасть інформацію про конфігурацію з autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">Введена адреса електронної пошти використовується для запиту на сервер електронної пошти та для запиту конфігураційної інформації з autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Будь ласка, будьте терплячі &#8230;</string>
     <string name="title_setup_quick_imap">Сервер IMAP для отримання повідомлень</string>
     <string name="title_setup_quick_smtp">Сервер SMTP для надсилання повідомлень</string>
@@ -439,7 +439,8 @@
     <string name="title_advanced_avatars">Показувати фото контактів</string>
     <string name="title_advanced_bimi_unverified">Неперевірений відправник</string>
     <string name="title_advanced_bimi_verified">Перевірений відправник</string>
-    <string name="title_advanced_efavicons">Показувати аватар</string>
+    <string name="title_advanced_gravatars">Показувати Gravatars</string>
+    <string name="title_advanced_libravatars">Показувати Libr-аватари</string>
     <string name="title_advanced_favicons">Показати піктограми сайтів</string>
     <string name="title_advanced_favicons_partial">Просканувати у вебсторінці тільки перші %1$s</string>
     <string name="title_advanced_generated_icons">Показати згенеровані іконки</string>

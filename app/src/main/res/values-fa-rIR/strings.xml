@@ -134,7 +134,6 @@
     <string name="title_setup_analytics">FairEmail تبلیغات نشان نمی‌دهد و رفتار شما را دنبال یا بررسی نمی‌کند. برای گزارش اشکالات از Bugsnag استفاده می‌شود که به طور پیش‌فرض غیرفعال است.</string>
     <string name="title_setup_quick_accounts">افزودن یا تغییر حساب‌ها</string>
     <string name="title_setup_quick_support">برخی از ارائه‌دهندگان ایمیل، افزودن حساب را دشوار می‌کنند. لطفا تقصیر را گردن FairEmail نیاندازید و به جای آن خواستار پشتیبانی شوید.</string>
-    <string name="title_setup_quick_hint">راه‌اندازی سریع اطلاعات پیکربندی را از autoconfig.thunderbird.net واکشی خواهد کرد</string>
     <string name="title_setup_quick_patience">لطفا شکیبا باشید &#8230;</string>
     <string name="title_setup_quick_imap">سرور IMAP برای دریافت پیام‌ها</string>
     <string name="title_setup_quick_smtp">سرور SMTP برای ارسال پیام‌ها</string>
@@ -359,7 +358,8 @@
     <string name="title_advanced_color_stripe">نمایش نوار رنگ</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_advanced_bimi_verified">فرستنده تایید شده</string>
-    <string name="title_advanced_efavicons">نمایش اواتارها</string>
+    <string name="title_advanced_gravatars">نمایش Gravatar ها</string>
+    <string name="title_advanced_libravatars">نمایش Libravatar ها</string>
     <string name="title_advanced_favicons">نمایش فاوآیکون‌ها</string>
     <string name="title_advanced_favicons_partial">تنها %1$s صفحه اول از صفحات وب را اسکن کن</string>
     <string name="title_advanced_generated_icons">نمایس آیکون‌های تولید شده</string>

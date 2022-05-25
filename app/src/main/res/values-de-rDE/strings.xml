@@ -134,7 +134,7 @@
     <string name="title_setup_analytics">FairEmail zeigt keine Werbung an und verfolgt oder analysiert Ihr Verhalten nicht. „Bugsnag” wird für Fehlerberichte verwendet und ist standardmäßig deaktiviert.</string>
     <string name="title_setup_quick_accounts">Konten hinzufügen oder ändern</string>
     <string name="title_setup_quick_support">Einige Anbieter erschweren das Hinzufügen eines Kontos. Bitte geben Sie nicht FairEmail dafür die Schuld, sondern bitten Sie stattdessen um Unterstützung.</string>
-    <string name="title_setup_quick_hint">Die Schnelleinrichtung wird Konfigurationsinformationen von autoconfig.thunderbird.net laden</string>
+    <string name="title_setup_quick_hint">Die eingegebene E-Mail-Adresse wird verwendet, um den E-Mail-Server und autoconfig.thunderbird.net für Konfigurationsinformationen abzufragen</string>
     <string name="title_setup_quick_patience">Bitte warten &#8230;</string>
     <string name="title_setup_quick_imap">IMAP-Server für das Empfangen von Nachrichten</string>
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
@@ -417,7 +417,8 @@
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_bimi_unverified">Nicht verifizierter Absender</string>
     <string name="title_advanced_bimi_verified">Bestätigter Absender</string>
-    <string name="title_advanced_efavicons">Avatare anzeigen</string>
+    <string name="title_advanced_gravatars">Gravatare anzeigen</string>
+    <string name="title_advanced_libravatars">Libravatars anzeigen</string>
     <string name="title_advanced_favicons">Favicons anzeigen</string>
     <string name="title_advanced_favicons_partial">Nur die ersten %1$s der Webseite scannen</string>
     <string name="title_advanced_generated_icons">Generierte Symbole anzeigen (Anfangsbuchstaben)</string>

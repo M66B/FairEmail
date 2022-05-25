@@ -125,7 +125,7 @@
     <string name="title_setup_analytics">FairEmail 不会显示广告，也不会跟踪或分析您的行为。Bugsnag 用于错误报告，默认情况下是禁用的。</string>
     <string name="title_setup_quick_accounts">添加或更改账户</string>
     <string name="title_setup_quick_support">有些邮件服务提供商很难添加账户，对此请不要责怪 FairEmail，而应向提供商寻求支持。</string>
-    <string name="title_setup_quick_hint">快速设置将从 autoconfig.thunderbird.net 获取配置信息</string>
+    <string name="title_setup_quick_hint">输入的邮箱地址用于查询电子邮件服务器和 autoconfig.thunderbird.net 以获取配置信息</string>
     <string name="title_setup_quick_patience">请耐心等待 &#8230;</string>
     <string name="title_setup_quick_imap">用来接收邮件的 IMAP 服务器</string>
     <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
@@ -408,7 +408,8 @@
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_bimi_unverified">未验证的发送者</string>
     <string name="title_advanced_bimi_verified">已验证的发送者</string>
-    <string name="title_advanced_efavicons">显示头像</string>
+    <string name="title_advanced_gravatars">显示 Gravatars 头像</string>
+    <string name="title_advanced_libravatars">显示 Libravatars 头像</string>
     <string name="title_advanced_favicons">显示网页图标</string>
     <string name="title_advanced_favicons_partial">只扫描网页的前 %1$s 数据</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>

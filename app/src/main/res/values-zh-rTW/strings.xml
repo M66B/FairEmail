@@ -123,7 +123,6 @@
     <string name="title_setup_analytics">FairEmail 不顯示廣告，也不會追蹤或分析您的行為。Bugsnag 用於回報錯誤，且於預設情況下處於停用狀態。</string>
     <string name="title_setup_quick_accounts">新增或變更帳戶</string>
     <string name="title_setup_quick_support">有些電子郵件供應商的作法讓新增帳戶成為一件難事。請不要因此責怪 FairEmail，應轉而尋求支援。</string>
-    <string name="title_setup_quick_hint">快速設置將會透過 autoconfig.thunderbird.net 取得配置資訊</string>
     <string name="title_setup_quick_patience">請耐心等待 &#8230;</string>
     <string name="title_setup_quick_imap">用於接收訊息的 IMAP 伺服器</string>
     <string name="title_setup_quick_smtp">用於傳送訊息的 SMTP 伺服器</string>
@@ -393,6 +392,7 @@
     <string name="title_advanced_avatars">顯示聯絡人照片</string>
     <string name="title_advanced_bimi_unverified">未經驗證的寄件者</string>
     <string name="title_advanced_bimi_verified">已經驗證的寄件者</string>
+    <string name="title_advanced_gravatars">顯示 Gravatars</string>
     <string name="title_advanced_favicons">顯示網站圖示</string>
     <string name="title_advanced_generated_icons">顯示依程式設定生成的圖示</string>
     <string name="title_advanced_identicons">顯示 identicons</string>

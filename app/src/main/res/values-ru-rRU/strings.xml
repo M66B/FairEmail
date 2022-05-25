@@ -155,7 +155,7 @@
     <string name="title_setup_analytics">FairEmail не показывает рекламу, не отслеживает и не анализирует ваше поведение. Bugsnag используется для сообщений об ошибках и по умолчанию отключён.</string>
     <string name="title_setup_quick_accounts">Добавить или изменить учётные записи</string>
     <string name="title_setup_quick_support">Некоторые провайдеры затрудняют добавление учётной записи. Пожалуйста, не обвиняйте в этом FairEmail, а попросите поддержку.</string>
-    <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации из autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">Введённый адрес электронной почты используется для запроса почтового сервера и autoconfig.thunderbird.net для получения сведений о конфигурации</string>
     <string name="title_setup_quick_patience">Пожалуйста, будьте терпеливы&#8230;</string>
     <string name="title_setup_quick_imap">IMAP-сервер для получения сообщений</string>
     <string name="title_setup_quick_smtp">SMTP-сервер для отправки сообщений</string>
@@ -438,7 +438,8 @@
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_bimi_unverified">Непроверенный отправитель</string>
     <string name="title_advanced_bimi_verified">Проверенный отправитель</string>
-    <string name="title_advanced_efavicons">Показывать аватары</string>
+    <string name="title_advanced_gravatars">Показывать граватары</string>
+    <string name="title_advanced_libravatars">Показывать либраватары</string>
     <string name="title_advanced_favicons">Показывать значки сайтов</string>
     <string name="title_advanced_favicons_partial">Сканировать только %1$s в начале веб-страницы</string>
     <string name="title_advanced_generated_icons">Показывать сгенерированные значки</string>
@@ -653,7 +654,7 @@
     <string name="title_advanced_quick_sync_hint">Уменьшается использование трафика, но новые сообщения могут быть пропущены, если сервер электронной почты не придерживается стандартов</string>
     <string name="title_advanced_no_date_hint">Некоторые провайдеры хранят сообщения с неизвестными, недействительными или будущими датами как сообщения без даты</string>
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают эту функцию правильно, что может привести к синхронизации всех или ни одного сообщения</string>
-    <string name="title_advanced_data_usage">Это может привести к интенсивному использованию данных!</string>
+    <string name="title_advanced_data_usage">Может привести к высокому расходу трафика!</string>
     <string name="title_advanced_deleted_unseen">Если отключено, непрочитанные сообщения хранятся на устройстве вечно</string>
     <string name="title_advanced_sync_kept_hint">Приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_gmail_thread_hint">Относится только к вновь полученным сообщениям и может нарушить существующие группы</string>
