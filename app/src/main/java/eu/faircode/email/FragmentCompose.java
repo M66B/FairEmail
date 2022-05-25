@@ -1829,14 +1829,13 @@ public class FragmentCompose extends FragmentBase {
         for (int i = 0; i < m.size(); i++)
             bottom_navigation.findViewById(m.getItem(i).getItemId()).setOnLongClickListener(null);
 
-        if (!BuildConfig.PLAY_STORE_RELEASE)
-            bottom_navigation.findViewById(R.id.action_save).setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    onLanguageTool();
-                    return true;
-                }
-            });
+        bottom_navigation.findViewById(R.id.action_save).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                onLanguageTool();
+                return true;
+            }
+        });
 
         bottom_navigation.findViewById(R.id.action_send).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
