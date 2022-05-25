@@ -38,6 +38,7 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -282,6 +283,37 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         visible = false;
 
         checkAuthentication(false);
+    }
+
+    @Override
+    public boolean onPreparePanel(int featureId, @Nullable View view, @NonNull Menu menu) {
+        try {
+            return super.onPreparePanel(featureId, view, menu);
+        } catch (Throwable ex) {
+            /*
+                This should never happen, but ...
+                java.lang.NullPointerException: Attempt to invoke interface method 'android.view.MenuItem android.view.MenuItem.setEnabled(boolean)' on a null object reference
+                    at eu.faircode.email.FragmentCompose.onPrepareOptionsMenu(SourceFile:3)
+                    at androidx.fragment.app.Fragment.performPrepareOptionsMenu(SourceFile:3)
+                    at androidx.fragment.app.FragmentManager.dispatchPrepareOptionsMenu(SourceFile:3)
+                    at androidx.fragment.app.FragmentManager$2.onPrepareMenu(Unknown Source:2)
+                    at androidx.core.view.MenuHostHelper.onPrepareMenu(SourceFile:2)
+                    at androidx.activity.ComponentActivity.onPrepareOptionsMenu(SourceFile:2)
+                    at android.app.Activity.onPreparePanel(Activity.java:3391)
+                    at androidx.appcompat.view.WindowCallbackWrapper.onPreparePanel(Unknown Source:2)
+                    at androidx.appcompat.app.AppCompatDelegateImpl$AppCompatWindowCallback.onPreparePanel(SourceFile:4)
+                    at androidx.appcompat.app.AppCompatDelegateImpl.preparePanel(SourceFile:28)
+                    at androidx.appcompat.app.AppCompatDelegateImpl.doInvalidatePanelMenu(SourceFile:14)
+                    at androidx.appcompat.app.AppCompatDelegateImpl$2.run(SourceFile:2)
+                    at android.view.Choreographer$CallbackRecord.run(Choreographer.java:948)
+                    at android.view.Choreographer.doCallbacks(Choreographer.java:750)
+                    at android.view.Choreographer.doFrame(Choreographer.java:679)
+                    at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:934)
+                    at android.os.Handler.handleCallback(Handler.java:869)
+             */
+            Log.e(ex);
+            return false;
+        }
     }
 
     @Override
