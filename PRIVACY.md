@@ -6,7 +6,7 @@
 
 ## Overview
 
-FairEmail **does not** send account information and message data elsewhere than to the email server.
+FairEmail **does not** send account information and message data elsewhere than to your email provider.
 
 FairEmail **does not** allow other apps access to message data without your approval.
 
