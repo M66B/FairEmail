@@ -2340,7 +2340,7 @@ public class Helper {
 
                         private boolean isHardwareFailure(int errorCode) {
                             return (errorCode == BiometricPrompt.ERROR_HW_UNAVAILABLE ||
-                                    errorCode == BiometricPrompt.ERROR_NO_BIOMETRICS ||
+                                    errorCode == BiometricPrompt.ERROR_NO_BIOMETRICS || // No fingerprints enrolled.
                                     errorCode == BiometricPrompt.ERROR_HW_NOT_PRESENT ||
                                     errorCode == BiometricPrompt.ERROR_NO_DEVICE_CREDENTIAL);
                         }
