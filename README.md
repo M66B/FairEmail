@@ -25,6 +25,12 @@ FairEmail might be for you if you value your privacy.
 
 *FairEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.*
 
+<br>
+
+**FairEmail has been restored to the Play Store with help from Google's privacy and policy department. Please [see here](https://faircode.eu/faq.html) for what happened.**
+
+<br>
+
 ## Main features
 
 * Fully featured
