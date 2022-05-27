@@ -103,7 +103,7 @@ public class HtmlEx {
         int next;
         for (int i = 0; i < len; i = next) {
             next = text.nextSpanTransition(i, len, ParagraphStyle.class);
-            ParagraphStyle[] style = text.getSpans(i, next, ParagraphStyle.class);
+            ParagraphStyle[] style = getSpans(text, i, next, ParagraphStyle.class);
             String elements = " ";
             boolean needDiv = false;
 
@@ -141,7 +141,7 @@ public class HtmlEx {
             int n2 = text.nextSpanTransition(i, end, eu.faircode.email.IndentSpan.class);
             next = Math.min(n1, n2);
             List<Object> spans = new ArrayList<>();
-            for (Object span : text.getSpans(i, next, LeadingMarginSpan.class))
+            for (Object span : getSpans(text, i, next, LeadingMarginSpan.class))
                 if (span instanceof QuoteSpan ||
                         span instanceof eu.faircode.email.IndentSpan)
                     spans.add(span);
@@ -187,7 +187,7 @@ public class HtmlEx {
             margin = "margin-top:0; margin-bottom:0;";
         }
         if (includeTextAlign) {
-            final AlignmentSpan[] alignmentSpans = text.getSpans(start, end, AlignmentSpan.class);
+            final AlignmentSpan[] alignmentSpans = getSpans(text, start, end, AlignmentSpan.class);
 
             // Only use the last AlignmentSpan with flag SPAN_PARAGRAPH
             for (int i = alignmentSpans.length - 1; i >= 0; i--) {
@@ -252,7 +252,7 @@ public class HtmlEx {
                 if (i != text.length())
                     out.append("<br>\n");
             } else {
-                eu.faircode.email.LineSpan[] line = text.getSpans(i, next, eu.faircode.email.LineSpan.class);
+                eu.faircode.email.LineSpan[] line = getSpans(text, i, next, eu.faircode.email.LineSpan.class);
                 if (line.length > 0) {
                     for (int l = 0; l < line.length; l++)
                         out.append("<hr>");
@@ -261,7 +261,7 @@ public class HtmlEx {
 
                 int level = 0;
                 Boolean isBulletListItem = null;
-                ParagraphStyle[] paragraphStyles = text.getSpans(i, next, ParagraphStyle.class);
+                ParagraphStyle[] paragraphStyles = getSpans(text, i, next, ParagraphStyle.class);
                 for (ParagraphStyle paragraphStyle : paragraphStyles) {
                     final int spanFlags = text.getSpanFlags(paragraphStyle);
                     if ((spanFlags & Spanned.SPAN_PARAGRAPH) == Spanned.SPAN_PARAGRAPH
@@ -361,7 +361,7 @@ public class HtmlEx {
         int next;
         for (int i = start; i < end; i = next) {
             next = text.nextSpanTransition(i, end, CharacterStyle.class);
-            CharacterStyle[] style = text.getSpans(i, next, CharacterStyle.class);
+            CharacterStyle[] style = getSpans(text, i, next, CharacterStyle.class);
 
             for (int j = 0; j < style.length; j++) {
                 if (style[j] instanceof StyleSpan) {
@@ -542,6 +542,36 @@ public class HtmlEx {
             } else {
                 out.append(c);
             }
+        }
+    }
+
+    private <T> T[] getSpans(Spanned text, int start, int end, Class<T> type) {
+        try {
+            return text.getSpans(start, end, type);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                How can this happen?
+                java.lang.ArrayStoreException: android.text.style.SpellCheckSpan cannot be stored in an array of type android.text.style.CharacterStyle[]
+                    at android.text.SpannableStringBuilder.getSpansRec(SpannableStringBuilder.java:979)
+                    at android.text.SpannableStringBuilder.getSpansRec(SpannableStringBuilder.java:946)
+                    at android.text.SpannableStringBuilder.getSpansRec(SpannableStringBuilder.java:983)
+                    at android.text.SpannableStringBuilder.getSpansRec(SpannableStringBuilder.java:946)
+                    at android.text.SpannableStringBuilder.getSpans(SpannableStringBuilder.java:872)
+                    at android.text.SpannableStringBuilder.getSpans(SpannableStringBuilder.java:842)
+                    at androidx.emoji2.text.SpannableBuilder.getSpans(SourceFile:6)
+                    at eu.faircode.email.HtmlEx.withinParagraph(SourceFile:2)
+                    at eu.faircode.email.HtmlEx.withinBlockquoteIndividual(SourceFile:37)
+                    at eu.faircode.email.HtmlEx.withinBlockquote(SourceFile:2)
+                    at eu.faircode.email.HtmlEx.withinDiv(SourceFile:17)
+                    at eu.faircode.email.HtmlEx.withinHtml(SourceFile:2)
+                    at eu.faircode.email.HtmlEx.toHtml(SourceFile:3)
+                    at eu.faircode.email.HtmlHelper.toHtml(SourceFile:2)
+                    at eu.faircode.email.FragmentCompose$54.onExecute(SourceFile:18)
+                    at eu.faircode.email.FragmentCompose$54.onExecute(SourceFile:1)
+                    at eu.faircode.email.SimpleTask$2.run(SourceFile:5)
+             */
+            return (T[]) new Object[0];
         }
     }
 }
