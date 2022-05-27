@@ -4,6 +4,11 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### 1.1901 - 2022-05-27
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1900 - 2022-05-25
 
 * Fixed mini gallery not showing in some cases
