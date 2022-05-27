@@ -7,4 +7,9 @@
         android:title="@string/title_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|always" />
+    <item
+        android:id="@+id/menu_close"
+        android:icon="@drawable/twotone_close_24"
+        android:title="@string/title_setup_close"
+        app:showAsAction="ifRoom" />
 </menu>

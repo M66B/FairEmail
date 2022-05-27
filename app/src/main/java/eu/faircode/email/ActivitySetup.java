@@ -211,8 +211,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         menus.add(new NavMenuItem(R.drawable.twotone_close_24, R.string.title_setup_close, new Runnable() {
             @Override
             public void run() {
-                drawerLayout.closeDrawer(drawerContainer, false);
-                onBackPressed();
+                onMenuClose();
             }
         }).setColor(colorWarning).setSeparated());
 
@@ -446,6 +445,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         if (drawerToggle.onOptionsItemSelected(item))
             return true;
 
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_close)
+            onMenuClose();
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -475,6 +478,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    private void onMenuClose() {
+        drawerLayout.closeDrawer(drawerContainer, false);
+        onBackPressed();
     }
 
     private void onMenuExport() {
