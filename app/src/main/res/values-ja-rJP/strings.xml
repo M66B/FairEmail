@@ -409,9 +409,9 @@
     <string name="title_advanced_avatars">連絡先の写真を表示</string>
     <string name="title_advanced_bimi_unverified">未確認の差出人</string>
     <string name="title_advanced_bimi_verified">認証済みの差出人</string>
-    <string name="title_advanced_gravatars">Gravatar(アバター)を表示</string>
+    <string name="title_advanced_gravatars">Gravatar (アバター) を表示</string>
     <string name="title_advanced_libravatars">Libravatar を表示</string>
-    <string name="title_advanced_favicons">Favicon を表示</string>
+    <string name="title_advanced_favicons">ファビコンを表示</string>
     <string name="title_advanced_favicons_partial">ウェブページの最初の %1$s だけをスキャン</string>
     <string name="title_advanced_generated_icons">アイコンを生成して表示</string>
     <string name="title_advanced_identicons">Identicon を表示</string>
@@ -1655,7 +1655,7 @@
     <string name="title_pro_activated">すべてのプロ版の機能が解放されました</string>
     <string name="title_pro_valid">すべてのプロ版の機能が解放されました</string>
     <string name="title_pro_invalid">無効な応答</string>
-    <string name="title_pro_support">FairEmail はあなたの助けを必要としています。タップしてプロジェクトの維持のためにプロ版を購入するか、このメッセージをオフにしてください。</string>
+    <string name="title_pro_support">FairEmail にはあなたの支援が必要です。プロジェクトを維持するため、タップしてプロ版を購入するか、このメッセージをオフにしてください。</string>
     <string name="title_boundary_error">メールサーバーからのメッセージのダウンロードエラー</string>
     <string name="title_boundary_retry">再試行</string>
     <string name="title_unexpected_error">予期しないエラー</string>

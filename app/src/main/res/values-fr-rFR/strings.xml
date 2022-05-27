@@ -419,7 +419,7 @@
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_bimi_unverified">Expéditeur non vérifié</string>
     <string name="title_advanced_bimi_verified">Expéditeur vérifié</string>
-    <string name="title_advanced_gravatars">Afficher les avatars</string>
+    <string name="title_advanced_gravatars">Afficher les Gravatars</string>
     <string name="title_advanced_libravatars">Afficher les Libravatars</string>
     <string name="title_advanced_favicons">Afficher l\'icône des sites web</string>
     <string name="title_advanced_favicons_partial">Inspecter uniquement les premiers %1$s de la page web</string>

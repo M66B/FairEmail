@@ -145,6 +145,7 @@
     <string name="title_setup_analytics">FairEmail nu afișează reclame și nu urmărește sau analizează comportamentul dumneavoastră. Bugsnag este utilizat pentru raportarea erorilor și este dezactivat în mod implicit.</string>
     <string name="title_setup_quick_accounts">Adăugați sau modificați conturi</string>
     <string name="title_setup_quick_support">Unii furnizori fac dificilă adăugarea unui cont. Vă rugăm să nu dați vina pe FairEmail pentru acest lucru, dar solicitați asistență în schimb.</string>
+    <string name="title_setup_quick_hint">Adresa de e-mail introdusă este utilizată pentru a interoga serverul de e-mail și autoconfig.thunderbird.net pentru informații de configurare</string>
     <string name="title_setup_quick_patience">Vă rugăm să aveți răbdare &#8230;</string>
     <string name="title_setup_quick_imap">Server IMAP pentru primire mesaje</string>
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
