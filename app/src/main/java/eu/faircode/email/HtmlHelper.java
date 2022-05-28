@@ -3704,6 +3704,14 @@ public class HtmlHelper {
                 li.removeAttr("dir");
             }
             e.attr("dir", rtl > ltr ? "rtl" : "ltr");
+
+            Element parent = e.parent();
+            Element prev = e.previousElementSibling();
+            if (parent != null && !"li".equals(parent.tagName()) &&
+                    prev != null && "li".equals(prev.tagName())) {
+                e.remove();
+                prev.appendChild(e);
+            }
         }
 
         for (Element quote : doc.select("blockquote")) {
