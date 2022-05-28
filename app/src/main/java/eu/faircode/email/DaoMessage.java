@@ -720,6 +720,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET subject = :subject WHERE id = :id AND NOT (subject IS :subject)")
     int setMessageSubject(long id, String subject);
 
+    @Query("UPDATE message SET recent = :recent WHERE id = :id AND NOT (recent IS :recent)")
+    int setMessageRecent(long id, boolean recent);
+
     @Query("UPDATE message SET seen = :seen WHERE id = :id AND NOT (seen IS :seen)")
     int setMessageSeen(long id, boolean seen);
 

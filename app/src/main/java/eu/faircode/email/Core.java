@@ -3559,10 +3559,16 @@ class Core {
                                                     EntityMessage message = db.message().getMessageByUid(folder.id, uid.uid);
                                                     if (message != null) {
                                                         boolean update = false;
+                                                        boolean recent = flags.contains(Flags.Flag.RECENT);
                                                         boolean seen = flags.contains(Flags.Flag.SEEN);
                                                         boolean answered = flags.contains(Flags.Flag.ANSWERED);
                                                         boolean flagged = flags.contains(Flags.Flag.FLAGGED);
                                                         boolean deleted = flags.contains(Flags.Flag.DELETED);
+                                                        if (message.recent != recent) {
+                                                            update = true;
+                                                            message.recent = recent;
+                                                            Log.i("UID fetch recent=" + recent);
+                                                        }
                                                         if (message.seen != seen) {
                                                             update = true;
                                                             message.seen = seen;
@@ -3887,6 +3893,7 @@ class Core {
         }
 
         MessageHelper helper = new MessageHelper(imessage, context);
+        boolean recent = helper.getRecent();
         boolean seen = helper.getSeen();
         boolean answered = helper.getAnswered();
         boolean flagged = helper.getFlagged();
@@ -3949,7 +3956,7 @@ class Core {
                     }
                 }
 
-                if (dup.seen != seen || dup.answered != answered || dup.flagged != flagged)
+                if (dup.recent != recent || dup.seen != seen || dup.answered != answered || dup.flagged != flagged)
                     syncSimilar = true;
 
                 if (dup.flagged && dup.color != null)
@@ -4051,6 +4058,7 @@ class Core {
             message.notes = notes;
             message.notes_color = notes_color;
             message.sent = sent;
+            message.recent = recent;
             message.seen = seen;
             message.answered = answered;
             message.flagged = flagged;
@@ -4343,6 +4351,13 @@ class Core {
                 }
             }
 
+            if (!message.recent.equals(recent)) {
+                update = true;
+                message.recent = recent;
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " recent=" + recent);
+                syncSimilar = true;
+            }
+
             if ((!message.seen.equals(seen) ||
                     (!folder.read_only && !message.ui_seen.equals(seen))) &&
                     db.operation().getOperationCount(folder.id, message.id, EntityOperation.SEEN) == 0) {
@@ -4491,6 +4506,11 @@ class Core {
 
         if (syncSimilar && account.isGmail())
             for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid)) {
+                if (similar.recent != message.recent) {
+                    Log.i(folder.name + " Synchronize similar id=" + similar.id + " recent=" + message.recent);
+                    db.message().setMessageRecent(similar.id, message.recent);
+                }
+
                 if (similar.seen != message.seen) {
                     Log.i(folder.name + " Synchronize similar id=" + similar.id + " seen=" + message.seen);
                     db.message().setMessageSeen(similar.id, message.seen);

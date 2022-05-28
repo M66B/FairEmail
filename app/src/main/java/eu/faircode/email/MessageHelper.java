@@ -1191,6 +1191,10 @@ public class MessageHelper {
         }
     }
 
+    boolean getRecent() throws MessagingException {
+        return imessage.isSet(Flags.Flag.RECENT);
+    }
+
     boolean getSeen() throws MessagingException {
         return imessage.isSet(Flags.Flag.SEEN);
     }

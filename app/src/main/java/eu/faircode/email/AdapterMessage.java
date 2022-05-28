@@ -225,6 +225,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorAccent;
     private int textColorPrimary;
     private int textColorSecondary;
+    private int textColorTertiary;
     private int textColorLink;
     private int colorUnreadHighlight;
     private int colorUnread;
@@ -1341,6 +1342,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTime.setText(date && FragmentMessages.SORT_DATE_HEADER.contains(sort)
                     ? TF.format(message.received)
                     : Helper.getRelativeTimeSpanString(context, message.received));
+            tvTime.setTextColor(BuildConfig.DEBUG && message.recent ? colorAccent : textColorTertiary);
 
             // Line 2
             tvSubject.setText(message.subject);
@@ -6857,6 +6859,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+        this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
         this.textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
 
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
@@ -7167,6 +7170,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     // updated after decryption
                     same = false;
                     log("stored changed", next.id);
+                }
+                if (!prev.recent.equals(next.recent)) {
+                    // updated after decryption
+                    same = false;
+                    log("recent changed", next.id);
                 }
                 // seen
                 // answered

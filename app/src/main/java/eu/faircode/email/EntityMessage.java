@@ -198,6 +198,8 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Long stored = new Date().getTime();
     @NonNull
+    public Boolean recent = false;
+    @NonNull
     public Boolean seen = false;
     @NonNull
     public Boolean answered = false;
@@ -656,6 +658,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.sent, other.sent) &&
                     this.received.equals(other.received) &&
                     this.stored.equals(other.stored) &&
+                    this.recent.equals(other.recent) &&
                     this.seen.equals(other.seen) &&
                     this.answered.equals(other.answered) &&
                     this.flagged.equals(other.flagged) &&
