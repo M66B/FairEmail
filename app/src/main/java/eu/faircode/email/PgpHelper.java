@@ -119,7 +119,7 @@ public class PgpHelper {
         Log.i("PGP binding to " + pkg + " timeout=" + timeout);
 
         CountDownLatch latch = new CountDownLatch(1);
-        OpenPgpServiceConnection pgpService = new OpenPgpServiceConnection(context, pkg,
+        OpenPgpServiceConnection pgpService = new OpenPgpServiceConnection(context.getApplicationContext(), pkg,
                 new OpenPgpServiceConnection.OnBound() {
                     @Override
                     public void onBound(IOpenPgpService2 service) {
