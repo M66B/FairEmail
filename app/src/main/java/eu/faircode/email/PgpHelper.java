@@ -119,7 +119,7 @@ public class PgpHelper {
         Log.i("PGP binding to " + pkg + " timeout=" + timeout);
 
         CountDownLatch latch = new CountDownLatch(1);
-        OpenPgpServiceConnection pgpService = new OpenPgpServiceConnection(context.getApplicationContext(), pkg,
+        OpenPgpServiceConnection pgpService = new OpenPgpServiceConnection(context, pkg,
                 new OpenPgpServiceConnection.OnBound() {
                     @Override
                     public void onBound(IOpenPgpService2 service) {
@@ -142,8 +142,14 @@ public class PgpHelper {
         }
 
         Log.i("PGP bound=" + pgpService.isBound());
-        if (!pgpService.isBound())
+        if (!pgpService.isBound()) {
+            try {
+                pgpService.unbindFromService();
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
             throw new OperationCanceledException();
+        }
 
         return pgpService;
     }
