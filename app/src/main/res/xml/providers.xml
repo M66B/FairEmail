@@ -458,8 +458,8 @@
             starttls="false" />
         <smtp
             host="smtp.web.de"
-            port="587"
-            starttls="true" />
+            port="465"
+            starttls="false" />
     </provider>
     <provider
         name="Telstra"
