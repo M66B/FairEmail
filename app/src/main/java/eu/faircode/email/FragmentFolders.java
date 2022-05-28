@@ -862,6 +862,7 @@ public class FragmentFolders extends FragmentBase {
                     return;
 
                 args.putString("name", account.name);
+                args.putBoolean("primary", account.primary);
 
                 FragmentDialogEditName fragment = new FragmentDialogEditName();
                 fragment.setArguments(args);
@@ -1352,12 +1353,28 @@ public class FragmentFolders extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 String name = args.getString("name");
+                boolean primary = args.getBoolean("primary");
 
                 if (TextUtils.isEmpty(name))
                     return null;
 
                 DB db = DB.getInstance(context);
-                db.account().setAccountName(id, name);
+                try {
+                    db.beginTransaction();
+
+                    EntityAccount account = db.account().getAccount(id);
+                    if (account == null)
+                        return null;
+
+                    db.account().setAccountName(account.id, name);
+                    if (primary)
+                        db.account().resetPrimary();
+                    db.account().setAccountPrimary(account.id, primary);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
 
                 return null;
             }

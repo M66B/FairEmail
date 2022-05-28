@@ -26,6 +26,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -38,14 +39,20 @@ public class FragmentDialogEditName extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_edit_name, null);
         final EditText etName = view.findViewById(R.id.etName);
-        etName.setText(getArguments().getString("name"));
+        final CheckBox cbPrimary = view.findViewById(R.id.cbPrimary);
+
+        Bundle args = getArguments();
+        etName.setText(args.getString("name"));
+        cbPrimary.setChecked(args.getBoolean("primary"));
+        cbPrimary.setVisibility(args.containsKey("primary") ? View.VISIBLE : View.GONE);
 
         return new AlertDialog.Builder(getContext())
                 .setView(view)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        getArguments().putString("name", etName.getText().toString());
+                        args.putString("name", etName.getText().toString());
+                        args.putBoolean("primary", cbPrimary.isChecked());
                         sendResult(RESULT_OK);
                     }
                 })
