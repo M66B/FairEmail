@@ -74,6 +74,7 @@ import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
+import android.text.style.UnderlineSpan;
 import android.text.util.Linkify;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -296,6 +297,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static boolean debug;
     private int level;
     private boolean webview_legacy;
+    private boolean show_recent;
 
     private boolean gotoTop = false;
     private Integer gotoPos = null;
@@ -1339,10 +1341,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize.setVisibility(
                     message.totalSize != null && ("size".equals(sort) || "attachments".equals(sort))
                             ? View.VISIBLE : View.GONE);
-            tvTime.setText(date && FragmentMessages.SORT_DATE_HEADER.contains(sort)
-                    ? TF.format(message.received)
-                    : Helper.getRelativeTimeSpanString(context, message.received));
-            tvTime.setTextColor(BuildConfig.DEBUG && message.recent ? colorAccent : textColorTertiary);
+            SpannableStringBuilder time = new SpannableStringBuilderEx(
+                    date && FragmentMessages.SORT_DATE_HEADER.contains(sort)
+                            ? TF.format(message.received)
+                            : Helper.getRelativeTimeSpanString(context, message.received));
+            if (show_recent && message.recent)
+                time.setSpan(new UnderlineSpan(), 0, time.length(), 0);
+            tvTime.setText(time);
 
             // Line 2
             tvSubject.setText(message.subject);
@@ -6959,6 +6964,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         level = prefs.getInt("log_level", Log.getDefaultLogLevel());
 
         webview_legacy = prefs.getBoolean("webview_legacy", false);
+        show_recent = prefs.getBoolean("show_recent", false);
 
         DiffUtil.ItemCallback<TupleMessageEx> callback = new DiffUtil.ItemCallback<TupleMessageEx>() {
             @Override

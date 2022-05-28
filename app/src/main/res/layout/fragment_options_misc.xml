@@ -1031,6 +1031,18 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swShowRecent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_show_recent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swBrowserZoom"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swModSeq"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1039,7 +1051,7 @@
                     android:text="@string/title_advanced_modseq"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swBrowserZoom"
+                    app:layout_constraintTop_toBottomOf="@id/swShowRecent"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
