@@ -181,6 +181,7 @@ public class EntityOperation {
                 // 0: target folder
                 // 1: mark seen
                 // 2: auto classified
+                // 3: no block sender
 
                 // Parameters out:
                 // 0: target folder
@@ -210,6 +211,16 @@ public class EntityOperation {
                 EntityFolder target = db.folder().getFolder(jargs.getLong(0));
                 if (source == null || target == null || source.id.equals(target.id))
                     return;
+
+                if (EntityFolder.JUNK.equals(target.type) &&
+                        Objects.equals(source.account, target.account) &&
+                        (jargs.opt(3) == null || !jargs.optBoolean(3))) {
+                    jargs.remove(3);
+                    EntityLog.log(context, "Auto block sender=" + MessageHelper.formatAddresses(message.from));
+                    EntityContact.update(context,
+                            message.account, message.identity, message.from,
+                            EntityContact.TYPE_JUNK, message.received);
+                }
 
                 if (EntityFolder.DRAFTS.equals(source.type) &&
                         EntityFolder.TRASH.equals(target.type))

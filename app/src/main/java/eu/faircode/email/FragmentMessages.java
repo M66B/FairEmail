@@ -8838,7 +8838,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             throw new IllegalArgumentException(context.getString(R.string.title_no_junk_folder));
 
                         if (!message.folder.equals(junk.id))
-                            EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
+                            EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id, null, null, true);
 
                         if (block_domain) {
                             List<EntityRule> rules = EntityRule.blockSender(context, message, junk, block_domain);
