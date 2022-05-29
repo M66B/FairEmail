@@ -679,7 +679,10 @@ public class ActivityEML extends ActivityBase {
 
             @Override
             protected void onDestroyed(Bundle args) {
-                toast = null;
+                if (toast != null) {
+                    toast.cancel();
+                    toast = null;
+                }
             }
 
             @Override

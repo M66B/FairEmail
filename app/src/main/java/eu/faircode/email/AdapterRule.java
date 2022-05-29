@@ -413,7 +413,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
                         @Override
                         protected void onDestroyed(Bundle args) {
-                            toast = null;
+                            if (toast != null) {
+                                toast.cancel();
+                                toast = null;
+                            }
                         }
 
                         @Override

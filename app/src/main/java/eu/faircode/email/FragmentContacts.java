@@ -498,7 +498,10 @@ public class FragmentContacts extends FragmentBase {
 
             @Override
             protected void onDestroyed(Bundle args) {
-                toast = null;
+                if (toast != null) {
+                    toast.cancel();
+                    toast = null;
+                }
             }
 
             @Override
@@ -597,7 +600,10 @@ public class FragmentContacts extends FragmentBase {
 
             @Override
             protected void onDestroyed(Bundle args) {
-                toast = null;
+                if (toast != null) {
+                    toast.cancel();
+                    toast = null;
+                }
             }
 
             @Override
