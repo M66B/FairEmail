@@ -4,6 +4,14 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### 1.1902 - 2022-05-29
+
+* Fixed memory leak in some scenarios
+* Fixed persistent loading spinner in some situations
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### 1.1901 - 2022-05-27
 
 * Small improvements and minor bug fixes
