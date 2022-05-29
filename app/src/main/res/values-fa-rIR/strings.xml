@@ -114,6 +114,7 @@
     <string name="menu_rate">به این برنامه امتیاز دهید</string>
     <string name="title_welcome">خوش آمدید</string>
     <string name="title_eula">توافقنامه مجوز کاربر نهایی</string>
+    <string name="title_license">مجوز های منبع-باز</string>
     <string name="title_contributors">مشارکت کنندگان</string>
     <string name="title_agree">می‌پذیرم</string>
     <string name="title_disagree">نمی‌پذیرم</string>
@@ -134,6 +135,7 @@
     <string name="title_setup_analytics">FairEmail تبلیغات نشان نمی‌دهد و رفتار شما را دنبال یا بررسی نمی‌کند. برای گزارش اشکالات از Bugsnag استفاده می‌شود که به طور پیش‌فرض غیرفعال است.</string>
     <string name="title_setup_quick_accounts">افزودن یا تغییر حساب‌ها</string>
     <string name="title_setup_quick_support">برخی از ارائه‌دهندگان ایمیل، افزودن حساب را دشوار می‌کنند. لطفا تقصیر را گردن FairEmail نیاندازید و به جای آن خواستار پشتیبانی شوید.</string>
+    <string name="title_setup_quick_hint">آدرس ایمیل وارد شده برای پرس و جوی سرور و autoconfig.thunderbird.net استفاده می‌شود تا اطلاعات پیکربندی شوند</string>
     <string name="title_setup_quick_patience">لطفا شکیبا باشید &#8230;</string>
     <string name="title_setup_quick_imap">سرور IMAP برای دریافت پیام‌ها</string>
     <string name="title_setup_quick_smtp">سرور SMTP برای ارسال پیام‌ها</string>
@@ -143,12 +145,16 @@
     <string name="title_setup_wizard_new">من به یک نشانی‌های ایمیل تازه نیاز دارم</string>
     <string name="title_setup_manual">تنظیمات دستی و گزینه‌های حساب</string>
     <string name="title_setup_classic">تنظیمات کلاسیک</string>
+    <string name="title_setup_documentation">لطفا به پرونده سرویس دهنده ایمیل خود برای تصحیح کردن پیکربندی سرور مراجعه کنید</string>
     <string name="title_setup_account_remark">دریافت ایمیل</string>
     <string name="title_setup_identity_remark">ارسال ایمیل</string>
+    <string name="title_setup_account_identity_hint">شما می‌توانید نام، رنگ و اقدام کشیدن را در تنظیمات حساب کاربری، و امضای خود را در تنظیمات هویت تنظیم کنید</string>
     <string name="title_setup_accounts">حساب‌ها</string>
     <string name="title_setup_identities">هویت‌ها</string>
     <string name="title_setup_other">فراهم کننده دیگر</string>
     <string name="title_setup_pop3">حساب POP3</string>
+    <string name="title_setup_oauth_permission">سرویس دهنده ی ایمیل OAuth را فقط برای نسخه پلی استور و گیت هاب تایید کرده</string>
+    <string name="title_setup_gmail_support">حساب های گوگل فقط در نسخه‌های پلی استور و گیت هاب مجاز می‌شوند چون اندروید امضای برنامه را بررسی می‌کند</string>
     <string name="title_setup_gmail_rationale">لطفا مجوز برای انتخاب حساب و خواندن نام شما را اعطا کنید</string>
     <string name="title_setup_gmail_permissions">گوگل برای خواندن، نوشتن، فرستادن و حذف همیشگی همه ایمیل‌های شما درخواست دسترسی خواهد کرد. FairEmail هیچ‌وقت بدون رضایت آشکار شما پیام‌های شما را حذف نخواهد کرد.</string>
     <string name="title_setup_gmail_drafts">اگر پوشه پیش‌نویس‌ها به‌وسیله IMAP قابل دسترسی نیست، می‌توان آن را در تنظیمات برچسب‌های جیمیل درست کرد</string>
