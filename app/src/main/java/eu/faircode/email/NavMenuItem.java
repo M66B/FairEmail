@@ -125,7 +125,7 @@ public class NavMenuItem {
 
     boolean onLongClick() {
         try {
-            return longClick.call();
+            return (longClick != null && longClick.call());
         } catch (Throwable ex) {
             Log.e(ex);
         }
