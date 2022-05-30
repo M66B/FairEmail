@@ -227,6 +227,8 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
 
                     private void translate(TextView widget, Spannable buffer, MotionEvent event) {
                         int off = Helper.getOffset(widget, buffer, event);
+                        if (off < 0)
+                            return;
 
                         int start = off;
                         while (start > 0 && buffer.charAt(start - 1) != '\n')
