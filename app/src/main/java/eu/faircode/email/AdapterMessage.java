@@ -8212,6 +8212,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_print, null);
             CheckBox cbHeader = dview.findViewById(R.id.cbHeader);
             CheckBox cbImages = dview.findViewById(R.id.cbImages);
+            CheckBox cbQuotes = dview.findViewById(R.id.cbQuotes);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
             cbHeader.setChecked(prefs.getBoolean("print_html_header", true));
@@ -8227,6 +8228,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     prefs.edit().putBoolean("print_html_images", isChecked).apply();
+                }
+            });
+
+            cbQuotes.setChecked(prefs.getBoolean("print_html_quotes", true));
+            cbQuotes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    prefs.edit().putBoolean("print_html_quotes", isChecked).apply();
                 }
             });
 

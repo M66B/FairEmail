@@ -9165,9 +9165,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean print_html_header = prefs.getBoolean("print_html_header", true);
         boolean print_html_images = prefs.getBoolean("print_html_images", true);
+        boolean print_html_quotes = prefs.getBoolean("print_html_quotes", true);
 
         args.putBoolean("print_html_header", print_html_header);
         args.putBoolean("print_html_images", print_html_images);
+        args.putBoolean("print_html_quotes", print_html_quotes);
 
         new SimpleTask<String[]>() {
             private final ExecutorService executor = Helper.getBackgroundExecutor(0, "print");
@@ -9178,6 +9180,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 boolean headers = args.getBoolean("headers");
                 boolean print_html_header = args.getBoolean("print_html_header");
                 boolean print_html_images = args.getBoolean("print_html_images");
+                boolean print_html_quotes = args.getBoolean("print_html_quotes");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 int timeout = prefs.getInt("timeout", ImageHelper.DOWNLOAD_TIMEOUT) * 1000;
@@ -9265,6 +9268,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (clazz.startsWith("WordSection"))
                         element.removeClass(clazz);
                 }
+
+                if (!print_html_quotes)
+                    document.body().select("blockquote").remove();
 
                 if (print_html_header) {
                     Element header = document.createElement("p");
