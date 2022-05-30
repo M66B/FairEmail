@@ -4,6 +4,10 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### 1.1904 - 2022-05-30
+
+* Fixed duplicate archived Gmail drafts
+
 ### 1.1903 - 2022-05-30
 
 * Fixed archiving/trashing Gmail drafts
