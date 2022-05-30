@@ -84,6 +84,7 @@
         <item quantity="many">Выдаліць %1$d паведамленняў назаўжды?</item>
         <item quantity="other">Выдаліць %1$d паведамленняў назаўжды?</item>
     </plurals>
+    <string name="title_junk_hint">Ваш пастаўшчык электроннай пошты адказвае за фільтрацыю спаму. Прыкладанне электроннай пошты не мае ўсіх дадзеных, неабходных для надзейнага выканання гэтага.</string>
     <string name="title_notification_idle">Неактыўны</string>
     <string name="menu_answers">Шаблоны</string>
     <string name="menu_rules">Правілы</string>
