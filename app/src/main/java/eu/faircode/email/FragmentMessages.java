@@ -83,6 +83,7 @@ import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.format.DateUtils;
@@ -9178,6 +9179,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 boolean headers = args.getBoolean("headers");
                 boolean print_html_header = args.getBoolean("print_html_header");
                 boolean print_html_images = args.getBoolean("print_html_images");
+                CharSequence selected = args.getCharSequence("selected");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 int timeout = prefs.getInt("timeout", ImageHelper.DOWNLOAD_TIMEOUT) * 1000;
@@ -9195,7 +9197,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (attachments == null)
                     return null;
 
-                Document document = JsoupEx.parse(file);
+                Document document;
+                if (!TextUtils.isEmpty(selected) && selected instanceof Spanned)
+                    document = JsoupEx.parse(HtmlHelper.toHtml((Spanned) selected, context));
+                else
+                    document = JsoupEx.parse(file);
 
                 boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
                 if (message.isPlainOnly() && monospaced_pre)

@@ -6312,6 +6312,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putBoolean("headers", properties.getValue("headers", message.id));
+            args.putCharSequence("selected", getSelectedText());
 
             if (prefs.getBoolean("print_html_confirmed", false)) {
                 Intent data = new Intent();
