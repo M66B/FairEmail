@@ -1416,7 +1416,8 @@ class Core {
 
         // Some providers do not support the COPY operation for drafts
         boolean draft = (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type));
-        boolean duplicate = (copy && !account.isGmail()) || (draft && account.isGmail());
+        boolean duplicate = (copy && !account.isGmail()) ||
+                (draft && EntityFolder.ARCHIVE.equals(target.type) && account.isGmail());
         if (draft || duplicate) {
             Log.i(folder.name + " " + (duplicate ? "copy" : "move") +
                     " from " + folder.type + " to " + target.type);
