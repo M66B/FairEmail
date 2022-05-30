@@ -1444,6 +1444,15 @@ class Core {
                             msgids.put(message, msgid);
                             icopy = new MimeMessageEx(isession, is, msgid);
                             icopy.saveChanges();
+
+                            if (!copy) {
+                                List<EntityMessage> tmps = db.message().getMessagesByMsgId(message.account, message.msgid);
+                                for (EntityMessage tmp : tmps)
+                                    if (target.id.equals(tmp.folder)) {
+                                        db.message().setMessageMsgId(tmp.id, msgid);
+                                        break;
+                                    }
+                            }
                         } else
                             icopy = new MimeMessage(isession, is);
                     }
