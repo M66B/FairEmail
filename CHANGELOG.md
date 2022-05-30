@@ -4,6 +4,13 @@
 
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
+### 1.1903 - 2022-05-30
+
+* Fixed archiving/trashing Gmail drafts
+* Auto block sender on moving (as opposed to reporting) messages to spam
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1902 - 2022-05-29
 
 * Fixed memory leak in some scenarios
