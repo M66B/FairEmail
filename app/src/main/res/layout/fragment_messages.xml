@@ -521,14 +521,29 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/title_toggle_seen"
+                android:contentDescription="@string/title_seen"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
-                android:tooltipText="@string/title_toggle_seen"
+                android:tooltipText="@string/title_seen"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_drafts_24" />
+
+            <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibBatchUnseen"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_unseen"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_unseen"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/ibBatchSeen"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_mail_24" />
 
             <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibBatchSnooze"
@@ -541,7 +556,7 @@
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_snooze_now"
                 android:visibility="gone"
-                app:layout_constraintEnd_toStartOf="@+id/ibBatchSeen"
+                app:layout_constraintEnd_toStartOf="@+id/ibBatchUnseen"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_timelapse_24" />
 
