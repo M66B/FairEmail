@@ -283,7 +283,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(126) Can message previews be sent to my wearable?](#user-content-faq126)
 * [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
 * [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
-* [(129) Are ProtonMail, Tutanota, CTemplar supported?](#user-content-faq129)
+* [(129) Are ProtonMail, Tutanota, etc supported?](#user-content-faq129)
 * [(130) What does message error ... mean?](#user-content-faq130)
 * [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
 * [(132) Why are new message notifications silent?](#user-content-faq132)
@@ -3345,7 +3345,7 @@ Please see these websites for lists of privacy oriented email providers with adv
 * [Privacy Guides](https://www.privacyguides.org/email/)
 * [Privacy Tools](https://www.privacytools.io/providers/email/)
 
-**Important**: Some providers, like ProtonMail, Tutanota and CTemplar, use proprietary email protocols, which make it impossible to use third party email apps.
+**Important**: Some providers, like ProtonMail and Tutanota, use proprietary email protocols, which make it impossible to use third party email apps.
 Please see [this FAQ](#user-content-faq129) for more information.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
@@ -3672,7 +3672,7 @@ You can reset asked questions via the three dots overflow menu in the miscellane
 <br />
 
 <a name="faq129"></a>
-**(129) Are ProtonMail, Tutanota, CTemplar supported?**
+**(129) Are ProtonMail, Tutanota, etc supported?**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq129)
 
@@ -3684,8 +3684,7 @@ so you cannot use FairEmail or any other Android email client to access ProtonMa
 and [does not support IMAP](https://tutanota.com/faq/#imap),
 so you cannot use FairEmail or any other email client to access Tutanota.
 
-**CTemplar** [does not support IMAP](https://ctemplar.com/help/answer/do-you-offer-imap-2/) yet,
-so you cannot use FairEmail or any other email client to access CTemplar.
+**Cyberfear** does not support IMAP, so you'll need to manually configure a POP3 account.
 
 <br />
 
