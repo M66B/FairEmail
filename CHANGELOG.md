@@ -2,6 +2,15 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
+
+### Next version
+
+* Added print selection
+* Added quick action unread
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### [Itemirus](https://en.wikipedia.org/wiki/Itemirus)
 
 ### 1.1904 - 2022-05-30
