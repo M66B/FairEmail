@@ -263,9 +263,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             }
         });
 
-        swTcpKeepAlive.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-        tvTcpKeepAliveHint.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-
         swTcpKeepAlive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
