@@ -168,6 +168,10 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                             if (twitterTitle != null && !TextUtils.isEmpty(twitterTitle.attr("content")))
                                 return twitterTitle.attr("content");
 
+                            Element ogSiteName = doc.select("meta[property=og:site_name]").first();
+                            if (ogSiteName != null && !TextUtils.isEmpty(ogSiteName.attr("content")))
+                                return ogSiteName.attr("content");
+
                             Element description = doc.select("meta[name=description]").first();
                             if (description != null && !TextUtils.isEmpty(description.attr("content")))
                                 return description.attr("content");
