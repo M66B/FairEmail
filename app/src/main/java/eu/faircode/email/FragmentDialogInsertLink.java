@@ -47,6 +47,7 @@ import org.jsoup.nodes.Element;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -138,8 +139,15 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                         try {
                             int status = connection.getResponseCode();
                             if (status != HttpURLConnection.HTTP_OK) {
-                                String responseText = Helper.readStream(connection.getInputStream());
-                                throw new IOException("HTTP " + status + ": " + responseText);
+                                String error = "Error " + status + ": " + connection.getResponseMessage();
+                                try {
+                                    InputStream is = connection.getErrorStream();
+                                    if (is != null)
+                                        error += "\n" + Helper.readStream(is);
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+                                throw new IOException(error);
                             }
 
                             // <title>...
