@@ -66,10 +66,8 @@ import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 public class StyleHelper {
     private static final List<Class> CLEAR_STYLES = Collections.unmodifiableList(Arrays.asList(
@@ -715,38 +713,26 @@ public class StyleHelper {
                 Log.breadcrumb("style", "action", "link");
 
                 String url = (String) args[0];
+                String title = (String) args[1];
 
-                List<CharacterStyle> spans = new ArrayList<>();
-                Map<CharacterStyle, Pair<Integer, Integer>> ranges = new HashMap<>();
-                Map<CharacterStyle, Integer> flags = new HashMap<>();
-                for (CharacterStyle span : edit.getSpans(start, end, CharacterStyle.class)) {
-                    if (!(span instanceof URLSpan)) {
-                        spans.add(span);
-                        ranges.put(span, new Pair<>(edit.getSpanStart(span), edit.getSpanEnd(span)));
-                        flags.put(span, edit.getSpanFlags(span));
-                    }
+                if (TextUtils.isEmpty(url))
+                    return false;
+                if (TextUtils.isEmpty(title))
+                    title = url;
+
+                URLSpan[] spans = edit.getSpans(start, end, URLSpan.class);
+                for (URLSpan span : spans)
                     edit.removeSpan(span);
-                }
 
-                if (url != null) {
-                    int e = end;
-                    if (start == end) {
-                        etBody.getText().insert(start, url);
-                        e += url.length();
-                    }
+                if (start == end)
+                    edit.insert(start, title);
+                else if (!title.equals(edit.subSequence(start, end).toString()))
+                    edit.replace(start, end, title);
 
-                    edit.setSpan(new URLSpan(url), start, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                }
-
-                // Restore other spans
-                for (CharacterStyle span : spans)
-                    edit.setSpan(span,
-                            ranges.get(span).first,
-                            ranges.get(span).second,
-                            flags.get(span));
+                edit.setSpan(new URLSpan(url), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                 etBody.setText(edit);
-                etBody.setSelection(end, end);
+                etBody.setSelection(start + title.length());
 
                 return true;
             } else if (action == R.id.menu_clear) {

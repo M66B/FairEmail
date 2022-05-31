@@ -526,8 +526,9 @@ public class FragmentAnswer extends FragmentBase {
         String link = args.getString("link");
         int start = args.getInt("start");
         int end = args.getInt("end");
+        String title = args.getString("title");
         etText.setSelection(start, end);
-        StyleHelper.apply(R.id.menu_link, getViewLifecycleOwner(), null, etText, link);
+        StyleHelper.apply(R.id.menu_link, getViewLifecycleOwner(), null, etText, link, title);
     }
 
     private void onDelete() {
@@ -568,23 +569,8 @@ public class FragmentAnswer extends FragmentBase {
         Log.i("Style action=" + action);
 
         if (action == R.id.menu_link) {
-            Uri uri = null;
-
-            ClipboardManager cbm = Helper.getSystemService(getContext(), ClipboardManager.class);
-            if (cbm != null && cbm.hasPrimaryClip()) {
-                String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
-                uri = Uri.parse(link);
-                if (uri.getScheme() == null)
-                    uri = null;
-            }
-
-            Bundle args = new Bundle();
-            args.putParcelable("uri", uri);
-            args.putInt("start", etText.getSelectionStart());
-            args.putInt("end", etText.getSelectionEnd());
-
             FragmentDialogInsertLink fragment = new FragmentDialogInsertLink();
-            fragment.setArguments(args);
+            fragment.setArguments(FragmentDialogInsertLink.getArguments(etText));
             fragment.setTargetFragment(this, REQUEST_LINK);
             fragment.show(getParentFragmentManager(), "answer:link");
 

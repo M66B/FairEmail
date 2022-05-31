@@ -229,6 +229,7 @@ import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Organizer;
+import io.noties.markwon.core.spans.LinkSpan;
 
 public class FragmentCompose extends FragmentBase {
     private enum State {NONE, LOADING, LOADED}
@@ -2576,53 +2577,8 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onActionLink() {
-        Uri uri = null;
-
-        if (etBody.hasSelection()) {
-            int start = etBody.getSelectionStart();
-            URLSpan[] spans = etBody.getText().getSpans(start, start, URLSpan.class);
-            if (spans.length > 0) {
-                String url = spans[0].getURL();
-                if (url != null) {
-                    uri = Uri.parse(url);
-                    if (uri.getScheme() == null)
-                        uri = null;
-                }
-            }
-        }
-
-        if (uri == null)
-            try {
-                ClipboardManager cbm = Helper.getSystemService(getContext(), ClipboardManager.class);
-                if (cbm != null && cbm.hasPrimaryClip()) {
-                    String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
-                    uri = Uri.parse(link);
-                    if (uri.getScheme() == null)
-                        uri = null;
-                }
-            } catch (Throwable ex) {
-                Log.w(ex);
-                /*
-                    java.lang.SecurityException: Permission Denial: opening provider org.chromium.chrome.browser.util.ChromeFileProvider from ProcessRecord{43c6094 11175:eu.faircode.email/u0a73} (pid=11175, uid=10073) that is not exported from uid 10080
-                      at android.os.Parcel.readException(Parcel.java:1692)
-                      at android.os.Parcel.readException(Parcel.java:1645)
-                      at android.app.ActivityManagerProxy.getContentProvider(ActivityManagerNative.java:4214)
-                      at android.app.ActivityThread.acquireProvider(ActivityThread.java:5584)
-                      at android.app.ContextImpl$ApplicationContentResolver.acquireUnstableProvider(ContextImpl.java:2239)
-                      at android.content.ContentResolver.acquireUnstableProvider(ContentResolver.java:1520)
-                      at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:1133)
-                      at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:1093)
-                      at android.content.ClipData$Item.coerceToText(ClipData.java:340)
-                 */
-            }
-
-        Bundle args = new Bundle();
-        args.putParcelable("uri", uri);
-        args.putInt("start", etBody.getSelectionStart());
-        args.putInt("end", etBody.getSelectionEnd());
-
         FragmentDialogInsertLink fragment = new FragmentDialogInsertLink();
-        fragment.setArguments(args);
+        fragment.setArguments(FragmentDialogInsertLink.getArguments(etBody));
         fragment.setTargetFragment(this, REQUEST_LINK);
         fragment.show(getParentFragmentManager(), "compose:link");
     }
@@ -4162,8 +4118,9 @@ public class FragmentCompose extends FragmentBase {
         String link = args.getString("link");
         int start = args.getInt("start");
         int end = args.getInt("end");
+        String title = args.getString("title");
         etBody.setSelection(start, end);
-        StyleHelper.apply(R.id.menu_link, getViewLifecycleOwner(), null, etBody, link);
+        StyleHelper.apply(R.id.menu_link, getViewLifecycleOwner(), null, etBody, link, title);
     }
 
     private void onActionDiscardConfirmed() {
