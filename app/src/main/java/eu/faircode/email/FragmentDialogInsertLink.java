@@ -160,10 +160,6 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                             if (title != null && !TextUtils.isEmpty(title.text()))
                                 return title.text();
 
-                            Element description = doc.select("meta[name=description]").first();
-                            if (description != null && !TextUtils.isEmpty(description.attr("content")))
-                                return description.attr("content");
-
                             Element ogTitle = doc.select("meta[property=og:title]").first();
                             if (ogTitle != null && !TextUtils.isEmpty(ogTitle.attr("content")))
                                 return ogTitle.attr("content");
@@ -171,6 +167,10 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                             Element twitterTitle = doc.select("meta[property=twitter:title]").first();
                             if (twitterTitle != null && !TextUtils.isEmpty(twitterTitle.attr("content")))
                                 return twitterTitle.attr("content");
+
+                            Element description = doc.select("meta[name=description]").first();
+                            if (description != null && !TextUtils.isEmpty(description.attr("content")))
+                                return description.attr("content");
 
                             return null;
                         } finally {
