@@ -99,7 +99,9 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                     return;
 
                 Uri uri = Uri.parse(editable.toString());
-                tvInsecure.setVisibility(UriHelper.isSecure(uri) ? View.GONE : View.VISIBLE);
+                tvInsecure.setVisibility(
+                        !UriHelper.isHyperLink(uri) || UriHelper.isSecure(uri)
+                                ? View.GONE : View.VISIBLE);
                 btnMetadata.setEnabled(UriHelper.isHyperLink(uri));
             }
         });
