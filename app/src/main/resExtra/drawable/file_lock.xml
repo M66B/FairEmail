@@ -13,7 +13,8 @@
           android:endY="1"
           android:endX="36"
           android:type="linear">
-        <item android:offset="0" android:color="#FFC8D4DB"/>
+          <!-- change the color of the padlock when message is gpg encrypted to green. -->
+        <item android:offset="0" android:color="#00ff7f"/>
         <item android:offset="0.139" android:color="#FFD8E1E6"/>
         <item android:offset="0.359" android:color="#FFEBF0F3"/>
         <item android:offset="0.617" android:color="#FFF9FAFB"/>
