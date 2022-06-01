@@ -715,21 +715,21 @@ public class StyleHelper {
                 String url = (String) args[0];
                 String title = (String) args[1];
 
-                if (TextUtils.isEmpty(url))
-                    return false;
-                if (TextUtils.isEmpty(title))
-                    title = url;
-
                 URLSpan[] spans = edit.getSpans(start, end, URLSpan.class);
                 for (URLSpan span : spans)
                     edit.removeSpan(span);
 
-                if (start == end)
-                    edit.insert(start, title);
-                else if (!title.equals(edit.subSequence(start, end).toString()))
-                    edit.replace(start, end, title);
+                if (!TextUtils.isEmpty(url)) {
+                    if (TextUtils.isEmpty(title))
+                        title = url;
 
-                edit.setSpan(new URLSpan(url), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    if (start == end)
+                        edit.insert(start, title);
+                    else if (!title.equals(edit.subSequence(start, end).toString()))
+                        edit.replace(start, end, title);
+
+                    edit.setSpan(new URLSpan(url), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }
 
                 etBody.setText(edit);
                 etBody.setSelection(start + title.length());
