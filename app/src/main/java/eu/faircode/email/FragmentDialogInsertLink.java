@@ -234,17 +234,36 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
 
         int start = etBody.getSelectionStart();
         int end = etBody.getSelectionEnd();
+        Editable edit = etBody.getText();
 
-        URLSpan[] spans = etBody.getText().getSpans(start, start, URLSpan.class);
-        if (spans != null && spans.length > 0) {
-            start = etBody.getText().getSpanStart(spans[0]);
-            end = etBody.getText().getSpanEnd(spans[0]);
+        if (start >= 0 && start == end && start < edit.length()) {
+            int s = start;
+            int e = end;
+            while (s - 1 >= 0 && !Character.isWhitespace(edit.charAt(s - 1)))
+                s--;
+            while (e < edit.length() && !Character.isWhitespace(edit.charAt(e)))
+                e++;
+            if (s < e) {
+                start = s;
+                end = e;
+                Uri u = Uri.parse(edit.subSequence(start, end).toString());
+                if (u.getScheme() != null)
+                    uri = u;
+            }
+        }
 
-            String url = spans[0].getURL();
-            if (url != null) {
-                uri = Uri.parse(url);
-                if (uri.getScheme() == null)
-                    uri = null;
+        if (uri == null) {
+            URLSpan[] spans = edit.getSpans(start, start, URLSpan.class);
+            if (spans != null && spans.length > 0) {
+                start = edit.getSpanStart(spans[0]);
+                end = edit.getSpanEnd(spans[0]);
+
+                String url = spans[0].getURL();
+                if (url != null) {
+                    uri = Uri.parse(url);
+                    if (uri.getScheme() == null)
+                        uri = null;
+                }
             }
         }
 
@@ -273,7 +292,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                  */
             }
 
-        String title = (start >= 0 && end > start ? etBody.getText().subSequence(start, end).toString() : "");
+        String title = (start >= 0 && end > start ? edit.subSequence(start, end).toString() : "");
 
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
