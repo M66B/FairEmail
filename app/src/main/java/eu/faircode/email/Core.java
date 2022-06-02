@@ -388,7 +388,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.MOVE:
-                                    onMove(context, jargs, account, folder, message);
+                                    onMove(context, jargs, account, folder, message, (POP3Folder) ifolder, (POP3Store) istore, state);
                                     break;
 
                                 case EntityOperation.DELETE:
@@ -1607,7 +1607,7 @@ class Core {
             }
     }
 
-    private static void onMove(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message) throws JSONException, FolderNotFoundException {
+    private static void onMove(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore, State state) throws JSONException, FolderNotFoundException, IOException, MessagingException {
         // Move message
         DB db = DB.getInstance(context);
 
@@ -1622,6 +1622,13 @@ class Core {
             throw new FolderNotFoundException();
         if (folder.id.equals(target.id))
             throw new IllegalArgumentException("self");
+
+        if (Boolean.TRUE.equals(account.leave_deleted) &&
+                EntityFolder.INBOX.equals(folder.type) &&
+                EntityFolder.TRASH.equals(target.type)) {
+            onDelete(context, jargs, account, folder, message, ifolder, istore, state);
+            return;
+        }
 
         // Move from trash/drafts only
         if (!EntityFolder.DRAFTS.equals(folder.type) &&
@@ -2844,10 +2851,10 @@ class Core {
 
             if (sync) {
                 // Index IDs
-                Map<String, String> uidlMsgId = new HashMap<>();
+                Map<String, TupleUidl> uidlTuple = new HashMap<>();
                 for (TupleUidl id : ids) {
                     if (id.uidl != null && id.msgid != null)
-                        uidlMsgId.put(id.uidl, id.msgid);
+                        uidlTuple.put(id.uidl, id);
                 }
 
                 Map<String, TupleUidl> msgIdTuple = new HashMap<>();
@@ -2922,7 +2929,8 @@ class Core {
                                 continue;
                             }
 
-                            msgid = uidlMsgId.get(uidl);
+                            TupleUidl tuple = uidlTuple.get(uidl);
+                            msgid = (tuple == null ? null : tuple.msgid);
                             if (msgid == null) {
                                 msgid = helper.getMessageID();
                                 if (TextUtils.isEmpty(msgid))
@@ -2946,18 +2954,27 @@ class Core {
                             continue;
                         }
 
-                        if (hasUidl ? uidlMsgId.containsKey(uidl) : msgIdTuple.containsKey(msgid)) {
+                        TupleUidl tuple = (hasUidl ? uidlTuple.get(uidl) : msgIdTuple.get(msgid));
+                        if (tuple != null) {
                             _new = false;
                             Log.i(account.name + " POP having " +
                                     msgid + "=" + msgIdTuple.containsKey(msgid) + "/" +
-                                    uidl + "=" + uidlMsgId.containsKey(uidl));
+                                    uidl + "=" + uidlTuple.containsKey(uidl));
+
+                            if (tuple.ui_hide) {
+                                boolean found = false;
+                                List<EntityMessage> threaded = db.message().getMessagesByThread(account.id, tuple.thread, null, null);
+                                for (EntityMessage m : threaded)
+                                    if (!m.folder.equals(folder.id) && m.received > 1654034400 /* 2022-06-01 */) {
+                                        found = true;
+                                        break;
+                                    }
+                                if (!found)
+                                    db.message().setMessageUiHide(tuple.id, false);
+                            }
 
                             if (download_eml)
                                 try {
-                                    TupleUidl tuple = msgIdTuple.get(msgid);
-                                    if (tuple == null)
-                                        continue;
-
                                     File raw = EntityMessage.getRawFile(context, tuple.id);
                                     if (raw.exists())
                                         continue;

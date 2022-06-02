@@ -303,6 +303,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ImageButton ibArchive;
     private ImageButton ibJunk;
     private ImageButton ibTrash;
+    private ImageButton ibDelete;
     private ImageButton ibMove;
     private ImageButton ibMoreSettings;
     private FloatingActionButton fabSearch;
@@ -582,6 +583,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibArchive = view.findViewById(R.id.ibArchive);
         ibJunk = view.findViewById(R.id.ibJunk);
         ibTrash = view.findViewById(R.id.ibTrash);
+        ibDelete = view.findViewById(R.id.ibDelete);
         ibMove = view.findViewById(R.id.ibMove);
         ibMoreSettings = view.findViewById(R.id.ibMoreSettings);
         fabSearch = view.findViewById(R.id.fabSearch);
@@ -1384,6 +1386,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 onActionMoveSelection(EntityFolder.TRASH, false);
+            }
+        });
+
+        ibDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionDeleteSelection();
             }
         });
 
@@ -3435,12 +3444,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     popupMenu.getMenu().add(Menu.FIRST, R.string.title_trash, order++, R.string.title_trash)
                             .setIcon(R.drawable.twotone_delete_24);
 
-                if (!result.read_only) {
-                    boolean leave = (Boolean.TRUE.equals(result.leave_deleted) && result.isInbox);
-                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_delete_permanently, order++,
-                                    leave ? R.string.title_trash : R.string.title_delete_permanently)
-                            .setIcon(leave ? R.drawable.twotone_delete_24 : R.drawable.twotone_delete_forever_24);
+                if (result.canDelete())
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_delete_permanently, order++, R.string.title_delete_permanently)
+                            .setIcon(R.drawable.twotone_delete_forever_24);
 
+                if (!result.read_only) {
                     for (EntityAccount account : result.accounts.keySet()) {
                         String title = getString(R.string.title_move_to_account, account.name);
                         SpannableString ssb = new SpannableString(title);
@@ -3523,9 +3531,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             onActionMoveSelection(EntityFolder.TRASH, false);
                             return true;
                         } else if (itemId == R.string.title_delete_permanently) {
-                            onActionDeleteSelection(
-                                    result.hasPop && !result.hasImap,
-                                    result.leave_deleted != null && result.leave_deleted);
+                            onActionDeleteSelection();
                             return true;
                         } else if (itemId == R.string.title_move_to_account) {
                             long account = target.getIntent().getLongExtra("account", -1);
@@ -3845,7 +3851,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ask.show(getParentFragmentManager(), "messages:raw");
     }
 
-    private void onActionDeleteSelection(boolean popOnly, Boolean leave_delete) {
+    private void onActionDeleteSelection() {
         Bundle args = new Bundle();
         args.putLongArray("selected", getSelection());
 
@@ -3861,7 +3867,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     for (long id : selected) {
                         EntityMessage message = db.message().getMessage(id);
-                        if (message == null)
+                        if (message == null || message.ui_hide)
                             continue;
 
                         EntityAccount account = db.account().getAccount(message.account);
@@ -3871,7 +3877,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threading ? null : id, message.folder);
                         for (EntityMessage threaded : messages)
-                            if (message.uid != null || account.protocol != EntityAccount.TYPE_IMAP)
+                            if (!threaded.ui_hide &&
+                                    (threaded.uid != null || account.protocol != EntityAccount.TYPE_IMAP))
                                 ids.add(threaded.id);
                     }
 
@@ -3886,27 +3893,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected void onExecuted(Bundle args, final List<Long> ids) {
                 Bundle aargs = new Bundle();
-                if (popOnly && leave_delete) {
-                    aargs.putString("question", getResources()
-                            .getQuantityString(R.plurals.title_moving_messages, ids.size(), ids.size()));
-                    aargs.putString("notagain", "delete_asked");
-                } else {
-                    aargs.putString("question", getResources()
-                            .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
-                    aargs.putString("accept", getString(R.string.title_ask_delete_accept));
-                }
+                aargs.putString("question", getResources()
+                        .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
+                aargs.putString("accept", getString(R.string.title_ask_delete_accept));
                 aargs.putInt("faq", 160);
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean delete_asked = prefs.getBoolean("delete_asked", false);
-                if (popOnly && leave_delete && delete_asked) {
-                    Intent data = new Intent();
-                    data.putExtra("args", aargs);
-                    onActivityResult(REQUEST_MESSAGES_DELETE, RESULT_OK, data);
-                    return;
-                }
 
                 FragmentDialogAsk ask = new FragmentDialogAsk();
                 ask.setArguments(aargs);
@@ -5869,12 +5861,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     boolean more_archive = prefs.getBoolean("more_archive", true);
                     boolean more_junk = prefs.getBoolean("more_junk", true);
                     boolean more_trash = prefs.getBoolean("more_trash", true);
+                    boolean more_delete = prefs.getBoolean("more_delete", false);
                     boolean more_move = prefs.getBoolean("more_move", true);
 
                     int count = 0;
 
                     boolean move = (more_move && count < MAX_QUICK_ACTIONS && result.canMove());
                     if (move)
+                        count++;
+
+                    boolean delete = (more_delete && count < MAX_QUICK_ACTIONS && result.canDelete());
+                    if (delete)
                         count++;
 
                     boolean trash = (more_trash && count < MAX_QUICK_ACTIONS && result.canTrash());
@@ -5934,6 +5931,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(junk ? View.VISIBLE : View.GONE);
                     ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
+                    ibDelete.setVisibility(delete ? View.VISIBLE : View.GONE);
                     ibMove.setVisibility(move ? View.VISIBLE : View.GONE);
                     cardMore.setTag(fabMore.isOrWillBeShown() ? result : null);
                     cardMore.setVisibility(fabMore.isOrWillBeShown() ? View.VISIBLE : View.GONE);
@@ -9670,7 +9668,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean canTrash() {
             if (read_only)
                 return false;
-            return (!isTrash && hasTrash && !isJunk);
+            return (!isTrash && hasTrash && !isJunk) ||
+                    (hasPop && Boolean.TRUE.equals(leave_deleted) && isInbox);
+        }
+
+        boolean canDelete() {
+            if (read_only)
+                return false;
+            return (!hasPop || !Boolean.TRUE.equals(leave_deleted) || !isInbox);
         }
 
         boolean canMove() {
@@ -10294,6 +10299,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
             final CheckBox cbJunk = dview.findViewById(R.id.cbJunk);
             final CheckBox cbTrash = dview.findViewById(R.id.cbTrash);
+            final CheckBox cbDelete = dview.findViewById(R.id.cbDelete);
             final CheckBox cbMove = dview.findViewById(R.id.cbMove);
 
             tvHint.setText(getString(R.string.title_quick_actions_hint, MAX_QUICK_ACTIONS));
@@ -10308,6 +10314,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             cbArchive.setChecked(prefs.getBoolean("more_archive", true));
             cbJunk.setChecked(prefs.getBoolean("more_junk", true));
             cbTrash.setChecked(prefs.getBoolean("more_trash", true));
+            cbDelete.setChecked(prefs.getBoolean("more_delete", false));
             cbMove.setChecked(prefs.getBoolean("more_move", true));
 
             return new AlertDialog.Builder(getContext())
@@ -10327,6 +10334,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             editor.putBoolean("more_archive", cbArchive.isChecked());
                             editor.putBoolean("more_junk", cbJunk.isChecked());
                             editor.putBoolean("more_trash", cbTrash.isChecked());
+                            editor.putBoolean("more_delete", cbDelete.isChecked());
                             editor.putBoolean("more_move", cbMove.isChecked());
                             editor.apply();
                             sendResult(Activity.RESULT_OK);

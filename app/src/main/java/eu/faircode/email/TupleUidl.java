@@ -23,4 +23,6 @@ public class TupleUidl {
     long id;
     String uidl;
     String msgid;
+    String thread;
+    boolean ui_hide;
 }

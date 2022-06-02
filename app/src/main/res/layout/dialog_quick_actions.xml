@@ -175,6 +175,19 @@
             app:layout_constraintTop_toBottomOf="@id/cbJunk" />
 
         <CheckBox
+            android:id="@+id/cbDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_delete_forever_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_delete_permanently"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbTrash" />
+
+        <CheckBox
             android:id="@+id/cbMove"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -185,6 +198,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbTrash" />
+            app:layout_constraintTop_toBottomOf="@id/cbDelete" />
     </eu.faircode.email.ConstraintLayoutEx>
 </eu.faircode.email.ScrollViewEx>

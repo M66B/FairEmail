@@ -667,14 +667,28 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/title_delete"
+                android:contentDescription="@string/title_trash"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
-                android:tooltipText="@string/title_delete"
+                android:tooltipText="@string/title_trash"
                 app:layout_constraintEnd_toStartOf="@id/ibJunk"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_delete_24" />
+
+            <eu.faircode.email.FixedImageButton
+                android:id="@+id/ibDelete"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_delete_permanently"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_delete_permanently"
+                app:layout_constraintEnd_toStartOf="@id/ibTrash"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_delete_forever_24" />
 
             <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibMove"
@@ -686,7 +700,7 @@
                 android:scaleType="fitCenter"
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_move_to"
-                app:layout_constraintEnd_toStartOf="@id/ibTrash"
+                app:layout_constraintEnd_toStartOf="@id/ibDelete"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_drive_file_move_24" />
 
