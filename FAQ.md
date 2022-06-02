@@ -616,6 +616,7 @@ If you use the Play store or GitHub version of FairEmail,
 you can use the quick setup wizard to easily setup a Gmail account and identity.
 The Gmail quick setup wizard is not available for third party builds, like the F-Droid build
 because Google approved the use of OAuth for official builds only.
+OAuth is also not available on devices without Google services, such as recent Huawei devices, in which case selecting an account will fail.
 
 The Gmail quick setup wizard won't work if the Android account manager doesn't work or doesn't support Google accounts,
 which is typically the case if the account selection is being *canceled* right away.
