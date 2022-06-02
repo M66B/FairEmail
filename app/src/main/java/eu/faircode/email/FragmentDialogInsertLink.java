@@ -248,9 +248,13 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             if (s < e) {
                 start = s;
                 end = e;
-                Uri u = Uri.parse(edit.subSequence(start, end).toString());
-                if (u.getScheme() != null)
-                    uri = u;
+                String link = edit.subSequence(start, end).toString();
+                if (Helper.EMAIL_ADDRESS.matcher(link).matches())
+                    uri = Uri.parse("mailto:" + link);
+                else
+                    uri = Uri.parse(link);
+                if (uri.getScheme() == null)
+                    uri = null;
             }
         }
 
@@ -260,9 +264,12 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                 start = edit.getSpanStart(spans[0]);
                 end = edit.getSpanEnd(spans[0]);
 
-                String url = spans[0].getURL();
-                if (url != null) {
-                    uri = Uri.parse(url);
+                String link = spans[0].getURL();
+                if (link != null) {
+                    if (Helper.EMAIL_ADDRESS.matcher(link).matches())
+                        uri = Uri.parse("mailto:" + link);
+                    else
+                        uri = Uri.parse(link);
                     if (uri.getScheme() == null)
                         uri = null;
                 }
@@ -274,7 +281,10 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                 ClipboardManager cbm = Helper.getSystemService(etBody.getContext(), ClipboardManager.class);
                 if (cbm != null && cbm.hasPrimaryClip()) {
                     String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(etBody.getContext()).toString();
-                    uri = Uri.parse(link);
+                    if (Helper.EMAIL_ADDRESS.matcher(link).matches())
+                        uri = Uri.parse("mailto:" + link);
+                    else
+                        uri = Uri.parse(link);
                     if (uri.getScheme() == null)
                         uri = null;
                 }
