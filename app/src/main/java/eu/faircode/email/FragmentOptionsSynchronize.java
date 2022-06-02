@@ -34,6 +34,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -77,6 +78,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private CheckBox[] cbDay;
     private TextView tvScheduleIgnore;
     private ImageButton ibSchedules;
+    private Button btnBlockedSenders;
 
     private SwitchCompat swQuickSyncImap;
     private SwitchCompat swQuickSyncPop;
@@ -155,6 +157,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         };
         tvScheduleIgnore = view.findViewById(R.id.tvScheduleIgnore);
         ibSchedules = view.findViewById(R.id.ibSchedules);
+        btnBlockedSenders = view.findViewById(R.id.btnBlockedSenders);
 
         swQuickSyncImap = view.findViewById(R.id.swQuickSyncImap);
         swQuickSyncPop = view.findViewById(R.id.swQuickSyncPop);
@@ -306,6 +309,15 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 78);
+            }
+        });
+
+        btnBlockedSenders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS)
+                        .putExtra("junk", true));
             }
         });
 
