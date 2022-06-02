@@ -29,6 +29,7 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [Spamcop](https://www.spamcop.net/) &#8211; [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
 * [Barracuda](https://www.barracudacentral.org/rbl/how-to-use) &#8211; [Privacy policy](https://www.barracuda.com/company/legal/trust-center/data-privacy/privacy-policy)
 * [Thunderbird autoconfiguration](https://wiki.mozilla.org/Thunderbird:Autoconfiguration) &#8211; [Privacy policy](https://www.mozilla.org/privacy/)
+* [DeepL](https://www.deepl.com/) &#8211; [Privacy policy](https://www.deepl.com/privacy/)
 * [LanguageTool](https://languagetool.org/) &#8211; [Privacy policy](https://languagetool.org/legal/privacy)
 * [Gravatar](https://gravatar.com/) &#8211; [Privacy policy](https://automattic.com/privacy/)
 * [Libravatar](https://www.libravatar.org/)  &#8211; [Privacy policy](https://www.libravatar.org/privacy/)
@@ -58,6 +59,7 @@ This table provides a complete overview of all shared data and the conditions un
 | Spamhaus          | IP (network) address of domain names of links or email addresses  | If spam blocklists are enabled, upon receiving a message                    |
 | Spamcop           | IP (network) address of domain names of links or email addresses  | If spam blocklists are enabled, upon receiving a message                    |
 | Barracuda         | IP (network) address of domain names of links or email addresses  | If spam blocklists are enabled, upon receiving a message                    |
+| DeepL             | Received or entered message text and target language code         | Upon pressing a translate button                                            |
 | LanguageTool      | Entered message texts                                             | Upon long pressing the save draft button                                    |
 | Gravatar          | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Gravatars are enabled, upon receiving a message                          |
 | Libravatar        | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Libravatars are enabled, upon receiving a message                        |
