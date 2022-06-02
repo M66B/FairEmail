@@ -3418,7 +3418,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 for (Attendee a : event.getAttendees()) {
                                     String email = a.getEmail();
                                     if (!TextUtils.isEmpty(email)) {
-                                        email = email.replaceAll("\\r?\\n", "");
+                                        email = email.replaceAll("\\s+", "");
                                         attendee.add(email);
                                     }
                                 }
@@ -3522,9 +3522,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                   at biweekly.ICalendar.write(SourceFile:2)
                              */
                             if (!TextUtils.isEmpty(email))
-                                email = email.replaceAll("\\r?\\n", "");
+                                email = email.replaceAll("\\s+", "");
                             if (!TextUtils.isEmpty(name))
-                                name = name.replaceAll("\\r?\\n", " ");
+                                name = name.replaceAll("\\s+", " ");
 
                             Attendee attendee = new Attendee(name, email);
 
