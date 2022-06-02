@@ -96,6 +96,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -4236,6 +4237,16 @@ public class FragmentCompose extends FragmentBase {
         EntityAttachment attachment = new EntityAttachment();
         UriInfo info = getInfo(uri, context);
 
+        String ext = Helper.getExtension(info.name);
+        if (info.name != null && ext == null &&
+                info.type != null && ImageHelper.isImage(info.type.toLowerCase(Locale.ROOT))) {
+            String guessed = MimeTypeMap.getSingleton().getExtensionFromMimeType(info.type.toLowerCase(Locale.ROOT));
+            if (!TextUtils.isEmpty(guessed)) {
+                ext = guessed;
+                info.name += '.' + ext;
+            }
+        }
+
         DB db = DB.getInstance(context);
         try {
             db.beginTransaction();
@@ -4248,10 +4259,9 @@ public class FragmentCompose extends FragmentBase {
 
             attachment.message = draft.id;
             attachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
-            if (privacy) {
-                String ext = Helper.getExtension(info.name);
+            if (privacy)
                 attachment.name = "img" + attachment.sequence + (ext == null ? "" : "." + ext);
-            } else
+            else
                 attachment.name = info.name;
             attachment.type = info.type;
             attachment.disposition = (image ? Part.INLINE : Part.ATTACHMENT);
