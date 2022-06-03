@@ -4,7 +4,7 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
-### Next version
+### 1.1905 - 2022-06-03
 
 * Added print selected text
 * Added quick actions unread and permanent deletion
