@@ -98,7 +98,6 @@ import androidx.biometric.BiometricPrompt;
 import androidx.browser.customtabs.CustomTabColorSchemeParams;
 import androidx.browser.customtabs.CustomTabsClient;
 import androidx.browser.customtabs.CustomTabsIntent;
-import androidx.browser.customtabs.CustomTabsServiceConnection;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
@@ -179,6 +178,7 @@ public class Helper {
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
 
+    static final String PACKAGE_CHROME = "com.android.chrome";
     static final String PRIVACY_URI = "https://email.faircode.eu/privacy/";
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
     static final String SUPPORT_URI = "https://contact.faircode.eu/";
@@ -838,29 +838,15 @@ public class Helper {
         }
     }
 
-    static void customTabsWarmup(Context context) {
+    static boolean customTabsWarmup(Context context) {
         if (context == null)
-            return;
+            return false;
 
         try {
-            CustomTabsClient.bindCustomTabsService(context, "com.android.chrome", new CustomTabsServiceConnection() {
-                @Override
-                public void onCustomTabsServiceConnected(@NonNull ComponentName name, @NonNull CustomTabsClient client) {
-                    Log.i("Warming up custom tabs");
-                    try {
-                        client.warmup(0);
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                }
-
-                @Override
-                public void onServiceDisconnected(ComponentName name) {
-                    // Do nothing
-                }
-            });
+            return CustomTabsClient.connectAndInitialize(context, PACKAGE_CHROME);
         } catch (Throwable ex) {
             Log.w(ex);
+            return false;
         }
     }
 
