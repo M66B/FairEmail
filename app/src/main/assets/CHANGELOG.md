@@ -6,8 +6,11 @@
 
 ### Next version
 
-* Added print selection
-* Added quick action unread
+* Added print selected text
+* Added quick actions unread and permanent deletion
+* Added Turkish and Indonesian to DeepL languages
+* Added auto fixing filename suffix on adding attachments
+* Improved insert link dialog
 * Small improvements and minor bug fixes
 * Updated translations
 
