@@ -28,6 +28,7 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import org.bouncycastle.asn1.ASN1Encodable;
+import org.bouncycastle.asn1.DERApplicationSpecific;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.x500.AttributeTypeAndValue;
 import org.bouncycastle.asn1.x500.RDN;
@@ -222,8 +223,19 @@ public class EntityCertificate {
             return result;
 
         for (List altName : altNames)
-            if (altName.get(0).equals(GeneralName.dNSName))
-                result.add((String) altName.get(1));
+            try {
+                if (altName.get(0).equals(GeneralName.dNSName))
+                    result.add((String) altName.get(1));
+                else if (altName.get(0).equals(GeneralName.iPAddress))
+                    if (altName.get(1) instanceof String)
+                        result.add((String) altName.get(1));
+                    else {
+                        Object val = altName.get(1);
+                        Log.persist("GeneralName.iPAddress type=" + (val == null ? null : val.getClass()));
+                    }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
         return result;
     }
