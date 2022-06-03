@@ -655,7 +655,7 @@
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
     <string name="title_advanced_usage_hint">Det här kommer att öka användningen av batteri, data och lagringsutrymme</string>
     <string name="title_advanced_plain_hint">Aktivering av detta kommer att begränsa dataanvändningen, men meddelanden kommer att visas utan formatering</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Aktivering av detta kan orsaka anslutningsproblem på vissa enheter</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Aktivering av detta kan orsaka anslutningsproblem på vissa enheter och kan öka batterianvändningen</string>
     <string name="title_advanced_validate_hint">Detta kan resultera i att meddelanden inte synkroniseras, till exempel vid användning av VPN, men även i andra situationer</string>
     <string name="title_advanced_timeout_hint">Tidsgräns för läs/skriva kommer att ställas in på den dubbla av anslutningens tidsgräns. Högre värden kommer att resultera i mer batterianvändning.</string>
     <string name="title_advanced_cert_strict_hint">Inaktivering av detta kommer att stänga av kontroll av servercertifikat</string>
@@ -766,6 +766,7 @@
     <string name="title_encryption_none">Ingen</string>
     <string name="title_allow_insecure">Tillåt osäkra anslutningar</string>
     <string name="title_insecure_remark">Osäkra anslutningar bör endast tillåtas på betrodda nätverk och aldrig på offentliga nätverk</string>
+    <string name="title_notify_remark">Du kan aktivera det här för kontospecifika aviseringar</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Användarnamn</string>
     <string name="title_password">Lösenord</string>
@@ -1056,6 +1057,7 @@
     <string name="title_no_saf">Ramverk för lagringstillträde är inte tillgängligt</string>
     <string name="title_no_stream">FairEmail har inte behörighet att läsa denna fil direkt</string>
     <string name="title_no_stream_help">Detta kan lösas genom att välja filen med en mer modern filhanterarapp eller genom att bevilja behörighet att läsa filer</string>
+    <string name="title_no_permissions">Appen som användes för att välja filen gav inte behörighet att läsa den</string>
     <string name="title_no_internet">Ingen eller ingen lämplig internetuppkoppling</string>
     <string name="title_no_connection">Ansluter till ett eller flera konton &#8230;</string>
     <string name="title_no_folder">Mappen finns inte</string>

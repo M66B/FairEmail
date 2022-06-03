@@ -483,7 +483,6 @@
     <string name="title_advanced_metered_warning">Dizze opsje útsette sil it ûntfangen en ferstjoeren fan berjochten op mobile ynternetferbiningen útskeakelje</string>
     <string name="title_advanced_rlah_hint">Utgeande fan gjin swalkjen binnen de EU</string>
     <string name="title_advanced_usage_hint">Dit sil gebrûk fan batterij, gegevens en opslachromte ferheegje</string>
-    <string name="title_advanced_tcp_keep_alive_hint">As jo dit ynskeakelje, kinne op guon apparaten ferbiningsproblemen feroarsaakje</string>
     <string name="title_advanced_validate_hint">Dit kin resultearje yn berjochten diet net syngronisearje, bygelyks as jo in VPN brûke, mar ek yn oare situaasjes</string>
     <string name="title_advanced_timeout_hint">De time-out foar lêzen / skriuwen wurdt ynsteld op it dûbele fan \'e time-out foar ferbining. Hegere wearden sille resultearje yn mear batterijgebrûk.</string>
     <string name="title_advanced_ssl_harden_hint">As jo dit ynskeakelje, sille swakke SSL-protokollen en -sifers útskeakelje, wat kin liede ta ferbiningsproblemen</string>

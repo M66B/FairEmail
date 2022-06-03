@@ -781,14 +781,20 @@
     <string name="title_sign_key">Chave de assinatura: %1$s</string>
     <string name="title_last_connected">Última ligação: %1$s</string>
     <string name="title_pop_support">O protocolo POP3 só pode descarregar e eliminar mensagens da caixa de entrada. Não é possível marcar as mensagens como lidas, denunciar spam, mover mensagens, etc. Considere a utilização do protocolo IMAP sempre que possível.</string>
+    <string name="title_pop_sent">Se o seu dispositivo for perdido ou roubado, as mensagens enviadas podem ser perdidas.</string>
     <string name="title_pop_warning">Se um servidor POP3 não suportar o comando UIDL, o uso de dados pode ser elevado. Por isso, ajuste a frequência de sincronização tendo isto em conta.</string>
     <string name="title_pop_folders">O protocolo POP3 não suporta a criação de pastas</string>
     <string name="title_oauth_support">O protocolo OAuth não é suportado</string>
     <string name="title_review">Rever</string>
     <string name="title_hint_accounts">Toque prolongadamente numa conta para mostrar as opções; por exemplo, desactivar ou eliminar uma conta</string>
     <string name="title_hint_alias">Toque prolongadamente numa identidade para mostrar as opções, como copiar para criar identidades alternativas</string>
+    <string name="title_service_auth">O servidor de correio electrónico respondeu: \'%1$s\'</string>
     <string name="title_service_vpn">Isto pode ser causado pela VPN que está a ser utilizada</string>
     <string name="title_service_token">O gestor de conta Android pode ser bloqueado, por exemplo, por uma VPN, firewall ou bloqueador de anúncios, impedindo-o de obter o token de acesso</string>
+    <string name="title_service_port">Por favor, verifique o número da porta</string>
+    <string name="title_service_protocol">Por favor, verifique o protocolo (SSL/TLS ou STARTTLS)</string>
+    <string name="title_advanced_browse">Procurar mensagens no servidor</string>
+    <string name="title_advanced_expand_read">Marcar mensagens como lidas ao expandir</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
     <string name="title_synchronize_subfolders">Subpastas</string>
     <string name="title_synchronize_more">Obter mais mensagens</string>
@@ -811,6 +817,7 @@
     <string name="title_edit_properties">Editar propriedades</string>
     <string name="title_edit_rules">Editar regras</string>
     <string name="title_execute_rules">Executar regras</string>
+    <string name="title_export_messages">Exportar mensagens</string>
     <string name="title_create_channel">Criar canal de notificação</string>
     <string name="title_edit_channel">Editar canal de notificação</string>
     <string name="title_delete_channel">Eliminar canal de notificação</string>
@@ -859,6 +866,7 @@
     <string name="title_poll_folder_remark">A maioria dos servidores de e-mail apenas permite mensagens push em determinadas pastas!</string>
     <string name="title_download_folder">Transferir automaticamente todos os textos e anexos das mensagens</string>
     <string name="title_notify_folder">Notificação de novas mensagens</string>
+    <string name="title_auto_classify_source">Classificar novas mensagens nesta pasta</string>
     <string name="title_auto_classify_target">Mover automaticamente as mensagens classificadas para esta pasta</string>
     <string name="title_sync_days">Sincronizar mensagens (dias)</string>
     <string name="title_sync_days_remark">O aumento deste valor fará subir a utilização da bateria e de dados</string>
@@ -1102,6 +1110,7 @@
     <string name="title_style_strikethrough">Riscado</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir hiperligação</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Morada</string>
     <string name="title_add_image">Adicionar imagem</string>
     <string name="title_add_image_inline">Inserir</string>
     <string name="title_add_image_attach">Anexar</string>

@@ -679,7 +679,7 @@
     <string name="title_advanced_rlah_hint">להניח שאין נדידה בתוך אירופה</string>
     <string name="title_advanced_usage_hint">יגדיל את צריכת הסוללה, הנתונים ואת נפח האחסון</string>
     <string name="title_advanced_plain_hint">הפעלת האפשרות תגביל את השימוש בנתונים אך הודעות תופענה ללא עיצוב</string>
-    <string name="title_advanced_tcp_keep_alive_hint">הפעלה יכולה לגרום לבעיות תקשורת בחלק מהמכשירים</string>
+    <string name="title_advanced_tcp_keep_alive_hint">הפעלת אפשרות זו יכולה לגרום לתקלות תקשורת בחלק מהמכשירים ועלולה להגביר את צריכת הסוללה</string>
     <string name="title_advanced_validate_hint">יכול לגרום לכך שהודעות לא תסתנכרנה, למשל בעת שימוש ב־VPN, אך גם במקרים אחרים</string>
     <string name="title_advanced_timeout_hint">תום זמן קריאה/כתיבה יוגדר להיות כפול מהזמן המוקצב לחיבור. ערכים גבוהים יותר יובילו לצריכה גבוהה יותר של סוללה.</string>
     <string name="title_advanced_cert_strict_hint">השבתת אפשרות זו תקל על בדיקת אישורי השרת</string>
@@ -790,6 +790,7 @@
     <string name="title_encryption_none">אין</string>
     <string name="title_allow_insecure">לאפשר חיבורים מפוקפקים</string>
     <string name="title_insecure_remark">חיבורים בלתי מאובטחים/מפוקפקים יש לאפשר רק ברשתות מהימנות ואף פעם לא ברשתות ציבוריות</string>
+    <string name="title_notify_remark">אפשר להפעיל את זה לקבלת התראות לחשבון מסוים</string>
     <string name="title_port">מספר פתחה</string>
     <string name="title_user">שם משתמש</string>
     <string name="title_password">סיסמה</string>
@@ -1190,6 +1191,10 @@
     <string name="title_style_strikethrough">קו חוצה</string>
     <string name="title_style_clear">הסרת עיצוב</string>
     <string name="title_style_link">הוספת קישור</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">כתובת</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">כותרת</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">משיכת כותרת</string>
+    <string name="title_style_link_metadata_remark">פעולה זו תמשוך את הכותרת בכתובת שמולאה</string>
     <string name="title_add_image">הוספת תמונה</string>
     <string name="title_add_image_inline">הוספה</string>
     <string name="title_add_image_attach">צירוף</string>

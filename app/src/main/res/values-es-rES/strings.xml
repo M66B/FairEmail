@@ -658,7 +658,7 @@
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
     <string name="title_advanced_usage_hint">Esto aumentará el uso de batería, datos y espacio de almacenamiento</string>
     <string name="title_advanced_plain_hint">Activar esto limitará el uso de datos, pero los mensajes se mostrarán sin estilizar</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Activar esto puede causar problemas de conexión en algunos dispositivos</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Activar esto puede causar problemas de conexión en algunos dispositivos y puede aumentar el uso de la batería</string>
     <string name="title_advanced_validate_hint">Esto puede ocasionar que no sincronicen los mensajes, por ejemplo cuando se utiliza una VPN, pero también en otras situaciones</string>
     <string name="title_advanced_timeout_hint">El tiempo de espera de lectura/escritura se establecerá al doble del tiempo de espera de conexión. Valores más altos resultarán en un mayor uso de la batería.</string>
     <string name="title_advanced_cert_strict_hint">Desactivar esto relajará la comprobación de los certificados del servidor</string>
@@ -769,6 +769,7 @@
     <string name="title_encryption_none">Ninguno</string>
     <string name="title_allow_insecure">Permitir conexiones inseguras</string>
     <string name="title_insecure_remark">Las conexiones inseguras sólo deberían permitirse con redes de confianza y nunca con redes públicas</string>
+    <string name="title_notify_remark">Puedes activar esto para notificaciones específicas de la cuenta</string>
     <string name="title_port">Puerto</string>
     <string name="title_user">Nombre de usuario</string>
     <string name="title_password">Contraseña</string>
@@ -1166,6 +1167,10 @@
     <string name="title_style_strikethrough">Tachado</string>
     <string name="title_style_clear">Quitar formato</string>
     <string name="title_style_link">Insertar enlace</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Dirección</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Título</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Obtener título</string>
+    <string name="title_style_link_metadata_remark">Esto obtendrá el título en la dirección introducida</string>
     <string name="title_add_image">Añadir imagen</string>
     <string name="title_add_image_inline">Insertar</string>
     <string name="title_add_image_attach">Adjuntar</string>

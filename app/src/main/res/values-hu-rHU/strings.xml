@@ -624,7 +624,6 @@
     <string name="title_advanced_metered_warning">Az opció kikapcsolása letiltja az üzenetek fogadását és küldését adatkapcsolaton keresztül</string>
     <string name="title_advanced_rlah_hint">Roaming figyelmen kívül hagyása az EU-n belül</string>
     <string name="title_advanced_usage_hint">Ez megnöveli az akkumulátor, adat és tárhely használatot</string>
-    <string name="title_advanced_tcp_keep_alive_hint">E funkció aktiválása csatlakozási problémákat okozhat néhány készüléken</string>
     <string name="title_advanced_validate_hint">Ez azt eredményezheti, hogy nem szinkronizálják az üzeneteket, például VPN használatakor, de más helyzetekben is</string>
     <string name="title_advanced_timeout_hint">Az olvasás/írás időtúllépés be lesz állítva a kapcsolat időtúllépés duplájára. Nagyobb értékek több akkumulátor használatot eredményezhetnek.</string>
     <string name="title_advanced_cert_strict_hint">Kikapcsolása esetén felfüggeszti a tanúsítvány ellenőrzést</string>

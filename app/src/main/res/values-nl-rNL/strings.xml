@@ -657,7 +657,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_rlah_hint">Veronderstel geen roaming binnen de EU</string>
     <string name="title_advanced_usage_hint">Dit zal het gebruik van de batterij, gegevens en opslagruimte verhogen</string>
     <string name="title_advanced_plain_hint">Dit inschakelen zal het gegevensgebruik beperken, maar berichten zullen worden weergegeven zonder opmaak</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Dit inschakelen kan verbindingsproblemen veroorzaken op sommige apparaten</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Dit inschakelen kan verbindingsproblemen veroorzaken op sommige apparaten en kan het batterijverbruik verhogen</string>
     <string name="title_advanced_validate_hint">Dit kan resulteren in het niet synchroniseren van berichten, bijvoorbeeld bij het gebruik van een VPN, maar ook in andere situaties</string>
     <string name="title_advanced_timeout_hint">De lees/schrijf time-out wordt ingesteld op de dubbele waarde van de verbinding time-out. Hogere waarden zullen leiden tot meer batterijgebruik.</string>
     <string name="title_advanced_cert_strict_hint">Dit uitschakelen zal de controle op de servercertificaten versoepelen</string>
@@ -768,6 +768,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_encryption_none">Geen</string>
     <string name="title_allow_insecure">Onveilige verbindingen toestaan</string>
     <string name="title_insecure_remark">Onveilige verbindingen mogen alleen worden toegestaan op vertrouwde netwerken en nooit op openbare netwerken</string>
+    <string name="title_notify_remark">U kunt dit inschakelen voor account specifieke meldingen</string>
     <string name="title_port">Poortnummer</string>
     <string name="title_user">Gebruikersnaam</string>
     <string name="title_password">Wachtwoord</string>
@@ -1164,6 +1165,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_style_strikethrough">Doorhalen</string>
     <string name="title_style_clear">Opmaak wissen</string>
     <string name="title_style_link">Koppeling invoegen</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Adres</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Titel</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Titel ophalen</string>
+    <string name="title_style_link_metadata_remark">Dit zal de titel ophalen op het ingevoerde adres</string>
     <string name="title_add_image">Afbeelding toevoegen</string>
     <string name="title_add_image_inline">Invoegen</string>
     <string name="title_add_image_attach">Bijlage</string>

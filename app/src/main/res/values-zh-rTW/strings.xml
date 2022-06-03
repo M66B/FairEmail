@@ -614,7 +614,6 @@
     <string name="title_advanced_metered_warning">停用此選項也將停用在使用行動網路連線期間的訊息接收和傳送。</string>
     <string name="title_advanced_rlah_hint">假設在歐盟境內沒有漫遊費</string>
     <string name="title_advanced_usage_hint">這將增加電池、數據和儲存空間的用量</string>
-    <string name="title_advanced_tcp_keep_alive_hint">在一些裝置上啟用此選項可能導致連線問題</string>
     <string name="title_advanced_validate_hint">這可能導致訊息不同步，例如在使用 VPN 時，或是在其他情況下</string>
     <string name="title_advanced_timeout_hint">讀/寫時限將被設定為連線時限的兩倍。更大的值將產生更高的電量消耗。</string>
     <string name="title_advanced_ssl_harden_hint">啟用此選項將停用弱 SSL 協定和加密方法，這可能導致連線問題</string>

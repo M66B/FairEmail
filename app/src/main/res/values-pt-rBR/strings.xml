@@ -658,7 +658,7 @@
     <string name="title_advanced_rlah_hint">Não assumindo roaming na UE</string>
     <string name="title_advanced_usage_hint">Isto aumentará o uso de bateria, dados e espaço de armazenamento</string>
     <string name="title_advanced_plain_hint">Habilitar isso limitará o uso de dados, mas as mensagens serão mostradas sem estilo</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Habilitar isso pode causar problemas de conexão em alguns aparelhos</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Habilitar isso pode causar problemas de conexão em alguns dispositivos e pode aumentar o uso da bateria</string>
     <string name="title_advanced_validate_hint">Isso pode levar a problemas na sincronização de mensagens, ao utilizar uma VP por exemplo, mas também em outras situações</string>
     <string name="title_advanced_timeout_hint">O tempo limite de leitura/escrita será definido para o dobro do tempo limite de conexão. Valores mais altos resultarão em mais uso da bateria.</string>
     <string name="title_advanced_cert_strict_hint">Desabilitar isso vai relaxar a verificação de certificados de servidor</string>
@@ -769,6 +769,7 @@
     <string name="title_encryption_none">Nenhuma</string>
     <string name="title_allow_insecure">Permitir conexões inseguras</string>
     <string name="title_insecure_remark">Conexões inseguras só devem ser permitidas em redes confiáveis e nunca em redes públicas</string>
+    <string name="title_notify_remark">Você pode habilitar isso para notificações específicas da conta</string>
     <string name="title_port">Número da porta</string>
     <string name="title_user">Nome de usuário</string>
     <string name="title_password">Senha</string>
@@ -1167,6 +1168,10 @@
     <string name="title_style_strikethrough">Riscar</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir link</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Endereço</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Título</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Obter título</string>
+    <string name="title_style_link_metadata_remark">Isso irá buscar o título no endereço digitado</string>
     <string name="title_add_image">Adicionar imagem</string>
     <string name="title_add_image_inline">Inserir</string>
     <string name="title_add_image_attach">Anexar</string>

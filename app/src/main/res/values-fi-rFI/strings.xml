@@ -657,7 +657,6 @@
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_usage_hint">Tämä lisää akun, datan ja tallennustilan käyttöä</string>
     <string name="title_advanced_plain_hint">Tämän ottaminen käyttöön rajoittaa datan käyttöä, mutta viestit näytetään ilman muotoilua</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Tämän käyttöönotto voi aiheuttaa yhteysongelmia joissakin laitteissa</string>
     <string name="title_advanced_validate_hint">Tämä voi aiheuttaa sen, ettei viestejä synkronoida esimerkiksi VPN:ää käytettäessä tai joissakin muissakaan tilanteissa</string>
     <string name="title_advanced_timeout_hint">Luku-/kirjoitusaikakatkaisu asetetaan kaksi kertaa niin pitkäksi kuin yhteyden aikakatkaisu. Korkeat arvot aiheuttavat enemmän akun käyttöä.</string>
     <string name="title_advanced_cert_strict_hint">Tämän poistaminen käytöstä tekee palvelinvarmenteiden tarkistamisesta vähemmän tiukan</string>

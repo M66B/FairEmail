@@ -668,7 +668,7 @@
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
     <string name="title_advanced_usage_hint">Acest lucru va crește utilizarea bateriei, a datelor și a spațiului de stocare</string>
     <string name="title_advanced_plain_hint">Activarea acestei opțiuni va limita utilizarea datelor, dar mesajele vor fi afișate fără stilizare</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Activarea acesteia poate cauza probleme de conexiune pe unele dispozitive</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Activarea acesteia poate cauza probleme de conexiune pe unele dispozitive și poate crește utilizarea bateriei</string>
     <string name="title_advanced_validate_hint">Acest lucru poate duce la nesincronizarea mesajelor, de exemplu atunci când se utilizează un VPN, dar și în alte situații</string>
     <string name="title_advanced_timeout_hint">Timpul de expirare a citirii/scrierii va fi setat la dublul intervalului de expirare a conexiunii. Valori mai mari au ca rezultat o utilizare mai mare a bateriei.</string>
     <string name="title_advanced_cert_strict_hint">Dezactivarea acestui lucru va relaxa verificarea certificatelor serverului</string>
@@ -779,6 +779,7 @@
     <string name="title_encryption_none">Fără</string>
     <string name="title_allow_insecure">Permite conexiunea nesecurizate</string>
     <string name="title_insecure_remark">Conexiunile nesigure trebuie permise numai pe rețele de încredere și niciodată pe cele publice</string>
+    <string name="title_notify_remark">Puteți activa aceasta pentru notificări specifice contului</string>
     <string name="title_port">Număr port</string>
     <string name="title_user">Nume utilizator</string>
     <string name="title_password">Parolă</string>

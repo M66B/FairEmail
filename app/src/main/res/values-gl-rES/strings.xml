@@ -621,7 +621,6 @@
     <string name="title_advanced_rlah_hint">Asúmese que non hai roaming na U.E.</string>
     <string name="title_advanced_usage_hint">Isto incrementará o uso da batería, dos datos e do espazo de almacenamiento</string>
     <string name="title_advanced_plain_hint">Habilitar isto limitará o uso de datos, pero as mensaxes sairán sen o formatado</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Activar isto podería causar problemas de conexión nalgúns dispositivos</string>
     <string name="title_advanced_validate_hint">Isto podería facer que non se sincronicen as mensaxes, por exemplo cando se use unha VPN, e tamén noutras situacións</string>
     <string name="title_advanced_timeout_hint">Axustarase o tempo límite de lectura/escritura ao dobre do tempo límite de conexión. Valores máis altos resultarán nun maior uso da batería.</string>
     <string name="title_advanced_cert_strict_hint">Desactivar isto suavizará a comprobación dos certificados dos servidores</string>

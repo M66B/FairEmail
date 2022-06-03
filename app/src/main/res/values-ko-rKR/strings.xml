@@ -353,6 +353,7 @@
     <string name="title_advanced_data_usage">데이터 사용량이 증가할 수 있습니다!</string>
     <string name="title_advanced_subject_threading_hint">최근 %1$d시간 동안 수신된 메시지만</string>
     <string name="title_advanced_check_tls_hint">메시지가 모든 서버에서 안전하게 전송된 경우에만 녹색 방패 아이콘이 표시됩니다.</string>
+    <string name="title_advanced_tcp_keep_alive_hint">활성화하면 일부 기기에서 연결 문제가 발생할 수 있으며 배터리 사용량이 증가할 수 있습니다</string>
     <string name="title_advanced_cert_strict_hint">설정을 끄면 서버 인증서 체크를 느슨하게 하게 됩니다</string>
     <string name="title_advanced_browse_hint">아래로 스크롤하여 메시지 더보기</string>
     <string name="title_advanced_date_hint">메시지가 시간별로 정렬된 경우 날짜별로만 묶입니다</string>
@@ -566,6 +567,10 @@
     <string name="title_style_strikethrough">취소선</string>
     <string name="title_style_clear">서식 지우기</string>
     <string name="title_style_link">링크 삽입</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">주소</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">제목</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">제목 가져오기</string>
+    <string name="title_style_link_metadata_remark">입력한 주소의 제목을 가져옵니다</string>
     <string name="title_add_image">사진 추가</string>
     <string name="title_add_image_inline">삽입</string>
     <string name="title_add_image_attach">첨부</string>

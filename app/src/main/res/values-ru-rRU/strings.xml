@@ -679,7 +679,7 @@
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
     <string name="title_advanced_usage_hint">Увеличится расход заряда батареи, трафика и места в хранилище</string>
     <string name="title_advanced_plain_hint">Включение уменьшит использование данных, но сообщения будут показаны без стиля</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Включение может вызвать проблемы с подключением на некоторых устройствах</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Включение может вызвать проблемы подключения на некоторых устройствах и увеличить использование батареи</string>
     <string name="title_advanced_validate_hint">Может привести к тому, что сообщения не синхронизируются, например, при использовании VPN, а также в других ситуациях</string>
     <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания подключения. Ещё большие значения могут увеличить расход аккумулятора.</string>
     <string name="title_advanced_cert_strict_hint">Отключение приведёт к ослаблению проверки сертификатов сервера</string>
@@ -790,6 +790,7 @@
     <string name="title_encryption_none">Нет</string>
     <string name="title_allow_insecure">Разрешить небезопасные подключения</string>
     <string name="title_insecure_remark">Небезопасные соединения могут быть разрешены только в доверенных сетях и никогда в публичных сетях</string>
+    <string name="title_notify_remark">Вы можете включить это для уведомлений конкретной учётной записи</string>
     <string name="title_port">Номер порта</string>
     <string name="title_user">Имя пользователя</string>
     <string name="title_password">Пароль</string>
@@ -1189,6 +1190,10 @@
     <string name="title_style_strikethrough">Зачёркнутый</string>
     <string name="title_style_clear">Очистить форматирование</string>
     <string name="title_style_link">Вставить ссылку</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Адрес</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Название</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Получить заголовок</string>
+    <string name="title_style_link_metadata_remark">Будет получен заголовок на введённый адрес</string>
     <string name="title_add_image">Добавить изображение</string>
     <string name="title_add_image_inline">Вставить</string>
     <string name="title_add_image_attach">Прикрепить</string>

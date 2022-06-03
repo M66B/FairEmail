@@ -155,6 +155,7 @@
     <string name="title_setup_analytics">FairEmail nezobrazuje reklamy a nezaznamenává ani neanalyzuje vaše chování. Bugsnag se používá pro hlášení chyb a je ve výchozím nastavení vypnut.</string>
     <string name="title_setup_quick_accounts">Přidat nebo upravit účty</string>
     <string name="title_setup_quick_support">Někteří poskytovatelé činí přidání účtu zbytečně obtížným. Nekřivděte prosím kvůli tomu FairEmailu, namísto toho požádejte o podporu.</string>
+    <string name="title_setup_quick_hint">Zadaná e-mailová adresa se použije k dotazu na e-mailový server a autoconfig.thunderbird.net pro získání konfiguračních informací</string>
     <string name="title_setup_quick_patience">Vyčkejte prosím &#8230;</string>
     <string name="title_setup_quick_imap">IMAP server pro příjem zpráv</string>
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
@@ -203,11 +204,13 @@
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
     <string name="title_setup_permissions_explanation">Oprávnění pro přístup ke kontaktům je vyžadováno pro zobrazování kontaktních informací a navrhování kontaktů</string>
+    <string name="title_setup_permission_why">Jaká oprávnění jsou potřebná a proč?</string>
     <string name="title_setup_permission_import_contacts">Jak mohu importovat kontakty?</string>
     <string name="title_setup_doze">Zakázat optimalizace výdrže baterie</string>
     <string name="title_setup_doze_remark">Chcete-li poslat a přijímat e-mail spolehlivě na pozadí</string>
     <string name="title_setup_doze_explanation">Optimalizace baterie by měly být pro aplikaci zakázány, aby bylo zajištěno spolehlivé odesílání a přijímání zpráv na pozadí</string>
     <string name="title_setup_doze_hint">Ačkoli to může znít protichůdně, vypnutí optimalizace výdrže baterie pro tuto aplikaci povede k její menší spotřebě</string>
+    <string name="title_setup_doze_why">Proč by měla být vypnuta optimalizace baterie?</string>
     <string name="title_setup_doze_instructions">V následujícím Android dialogu změňte \"Neoptimalizováno\" na \"Všechny aplikace\", nalistujte tuto aplikaci a zvolte u ní \"Neoptimalizovat\"</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
@@ -675,7 +678,7 @@
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
     <string name="title_advanced_usage_hint">Zvýší využití baterie, dat a úložného prostoru</string>
     <string name="title_advanced_plain_hint">Pomocí této volby omezíte využití dat, zprávy však budou zobrazeny bez specifického formátování</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Povolení může na některých zařízeních způsobit problémy s připojením</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Povolení této funkce může způsobit problémy s připojením na některých zařízeních a může zvýšit využití baterie</string>
     <string name="title_advanced_validate_hint">Může vést k nesynchronizovaným zprávám, například při použití VPN, ale i v jiných situacích</string>
     <string name="title_advanced_timeout_hint">Časový limit čtení/zápisu bude nastaven na dvojnásobek časového limitu připojení. Vyšší hodnoty povedou k větší spotřebě baterie.</string>
     <string name="title_advanced_cert_strict_hint">Zakázáním této funkce se uvolní kontrola serverových certifikátů</string>
@@ -786,6 +789,7 @@
     <string name="title_encryption_none">Žádné</string>
     <string name="title_allow_insecure">Povolit nezabezpečené připojení</string>
     <string name="title_insecure_remark">Nezabezpečená připojení by měla být povolena pouze v důvěryhodných, a nikdy na veřejných sítích</string>
+    <string name="title_notify_remark">Toto můžete povolit pro specifická upozornění účtu</string>
     <string name="title_port">Číslo portu</string>
     <string name="title_user">Uživatelské jméno</string>
     <string name="title_password">Heslo</string>

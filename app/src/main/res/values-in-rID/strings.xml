@@ -582,7 +582,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_metered_warning">Menonaktifkan opsi ini akan menonaktifkan menerima dan mengirim pesan ketika memakai koneksi internet seluler</string>
     <string name="title_advanced_rlah_hint">Dengan asumsi tidak ada roaming di Uni Eropa</string>
     <string name="title_advanced_usage_hint">Akan meningkatkan penggunaan baterai, dan penyimpanan data</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Mengaktifkan ini dapat menyebabkan masalah koneksi pada beberapa perangkat</string>
     <string name="title_advanced_validate_hint">Ini dapat mengakibatkan pesan tidak tersinkronasi, contohnya ketika menggunakan VPN, tetapi juga dalam situasi lain</string>
     <string name="title_advanced_timeout_hint">Pengaturan batas waktu baca/tulis akan digandakan. Nilai yang lebih tinggi akan menghasilkan lebih banyak penggunaan baterai.</string>
     <string name="title_advanced_ssl_harden_hint">Mengaktifkan ini akan menonaktifkan protokol dan cipher SSL yang lemah, yang biasanya menyebabkan masalah koneksi</string>

@@ -409,7 +409,7 @@
     <string name="title_advanced_avatars">連絡先の写真を表示</string>
     <string name="title_advanced_bimi_unverified">未確認の差出人</string>
     <string name="title_advanced_bimi_verified">認証済みの差出人</string>
-    <string name="title_advanced_gravatars">Gravatar (アバター) を表示</string>
+    <string name="title_advanced_gravatars">Gravatar を表示</string>
     <string name="title_advanced_libravatars">Libravatar を表示</string>
     <string name="title_advanced_favicons">ファビコンを表示</string>
     <string name="title_advanced_favicons_partial">ウェブページの最初の %1$s だけをスキャン</string>
@@ -649,7 +649,7 @@
     <string name="title_advanced_rlah_hint">EU Roam Like at Home の加盟国の SIM カードで加盟国のネットワークを使用する場合、ローミングではないとみなします</string>
     <string name="title_advanced_usage_hint">これによりバッテリー使用量、データ使用量、ストレージ使用量が増加します</string>
     <string name="title_advanced_plain_hint">有効にするとデータ使用量が制限されますが、スタイルを設定せずにメッセージが表示されます</string>
-    <string name="title_advanced_tcp_keep_alive_hint">有効にすると、一部のデバイスで接続の問題が発生する可能性があります</string>
+    <string name="title_advanced_tcp_keep_alive_hint">有効にすると、一部のデバイスで接続の問題が発生したりバッテリー使用量が増加したりする可能性があります</string>
     <string name="title_advanced_validate_hint">これにより、VPN を使用している場合や、その他の状況でメッセージが同期されない可能性があります</string>
     <string name="title_advanced_timeout_hint">読み取り/書き込みタイムアウトは接続タイムアウトの 2 倍に設定されます。値を大きくするとバッテリーの使用量が増加します</string>
     <string name="title_advanced_cert_strict_hint">無効にすると、サーバー証明書の確認基準が緩和されます</string>
@@ -760,6 +760,7 @@
     <string name="title_encryption_none">なし</string>
     <string name="title_allow_insecure">保護されていない接続を許可</string>
     <string name="title_insecure_remark">保護されていない接続は信頼されたネットワークでのみ許可し、パブリックネットワークでは許可しないでください</string>
+    <string name="title_notify_remark">アカウント別の通知に対して有効にすることができます</string>
     <string name="title_port">ポート番号</string>
     <string name="title_user">ユーザー名</string>
     <string name="title_password">パスワード</string>
@@ -1160,6 +1161,10 @@
     <string name="title_style_strikethrough">取り消し線</string>
     <string name="title_style_clear">書式をクリア</string>
     <string name="title_style_link">リンクを挿入</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">アドレス</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">タイトル</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">タイトルを取得</string>
+    <string name="title_style_link_metadata_remark">入力されたアドレスのタイトルを取得します</string>
     <string name="title_add_image">画像を追加</string>
     <string name="title_add_image_inline">挿入</string>
     <string name="title_add_image_attach">添付</string>

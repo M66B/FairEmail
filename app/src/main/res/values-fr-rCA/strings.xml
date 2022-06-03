@@ -660,7 +660,7 @@
     <string name="title_advanced_rlah_hint">Considérer qu’il n’y a pas d’itinérance au sein de l’UE</string>
     <string name="title_advanced_usage_hint">Ceci augmentera l\'utilisation de la pile, des données et de l\'espace de stockage</string>
     <string name="title_advanced_plain_hint">Activer ceci limitera l\'utilisation des données mais les messages seront affichés sans style</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Activer ceci peut provoquer des problèmes de connexion sur certains appareils</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Activer ceci peut provoquer des problèmes de connexion sur certains appareils et peut augmenter l\'utilisation de la pile</string>
     <string name="title_advanced_validate_hint">Ceci peut entraîner la non-synchronisation des messages, par exemple lors de l\'utilisation d\'un RPV mais aussi dans d\'autres situations</string>
     <string name="title_advanced_timeout_hint">Le délai d’expiration de la connexion sera doublé s’il reste encore des opérations de lecture/écriture. Des valeurs plus élevées entraîneront une utilisation acrue de la pile.</string>
     <string name="title_advanced_cert_strict_hint">Désactiver ceci arrêtera la vérification des certificats du serveur</string>
@@ -771,6 +771,7 @@
     <string name="title_encryption_none">Aucun</string>
     <string name="title_allow_insecure">Autoriser les connexions non sécurisées</string>
     <string name="title_insecure_remark">Les connexions non sécurisées ne doivent être autorisées que sur des réseaux de confiance et jamais sur des réseaux publics</string>
+    <string name="title_notify_remark">Vous pouvez activer ceci pour avoir des notifications spécifiques par compte</string>
     <string name="title_port">Numéro de port</string>
     <string name="title_user">Nom d’utilisateur</string>
     <string name="title_password">Mot de passe</string>
@@ -1171,6 +1172,10 @@
     <string name="title_style_strikethrough">Barré</string>
     <string name="title_style_clear">Effacer la mise en forme</string>
     <string name="title_style_link">Insérer un lien</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Adresse</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Titre</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Récupérer le titre</string>
+    <string name="title_style_link_metadata_remark">Ceci récupérera le titre à l\'adresse saisie</string>
     <string name="title_add_image">Ajouter une image</string>
     <string name="title_add_image_inline">Inclure</string>
     <string name="title_add_image_attach">Joindre</string>

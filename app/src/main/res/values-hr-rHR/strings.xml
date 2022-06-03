@@ -670,7 +670,7 @@
     <string name="title_advanced_rlah_hint">Ne pretpostavljajući roaming unutar EU</string>
     <string name="title_advanced_usage_hint">Ovo će povećati potrošnju baterije, podataka i prostora za pohranu</string>
     <string name="title_advanced_plain_hint">Omogućavanje ovoga ograničit će korištenje podataka, ali poruke će se prikazivati bez stilskog oblikovanja</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Omogućavanje ovoga može uzrokovati probleme s povezivanjem na nekim uređajima</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Omogućavanje ovoga može uzrokovati probleme s povezivanjem na nekim uređajima i može povećati potrošnju baterije</string>
     <string name="title_advanced_validate_hint">Ovo može rezultirati nesinkroniziranjem poruka, npr. kada koristite VPN, ali i u drugim situacijama</string>
     <string name="title_advanced_timeout_hint">Vremensko ograničenje čitanja / pisanja postavit će se u dvostruko vrijeme do prekida veze. Veće vrijednosti rezultirat će većom potrošnjom baterije.</string>
     <string name="title_advanced_cert_strict_hint">Onemogućavanje ovoga olakšat će provjeru certifikata poslužitelja</string>
@@ -781,6 +781,7 @@
     <string name="title_encryption_none">Nijedan</string>
     <string name="title_allow_insecure">Dopustiti nesigurne veze</string>
     <string name="title_insecure_remark">Nesigurne veze trebaju biti dopuštene samo na pouzdanim mrežama, a nikad na javnim mrežama</string>
+    <string name="title_notify_remark">Ovo možete omogućiti za obavijesti specifične za račun</string>
     <string name="title_port">Broj porta</string>
     <string name="title_user">Korisničko ime</string>
     <string name="title_password">Lozinka</string>
@@ -1179,6 +1180,10 @@
     <string name="title_style_strikethrough">Precrtano</string>
     <string name="title_style_clear">Očisti sva oblikovanja</string>
     <string name="title_style_link">Umetni vezu</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Adresa</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Naslov</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Dohvati naslov</string>
+    <string name="title_style_link_metadata_remark">Ovo će dohvatiti naslov na unesenoj adresi</string>
     <string name="title_add_image">Dodaj sliku</string>
     <string name="title_add_image_inline">Umetni</string>
     <string name="title_add_image_attach">Prikvači</string>

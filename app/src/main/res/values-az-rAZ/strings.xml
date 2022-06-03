@@ -659,7 +659,7 @@
     <string name="title_advanced_rlah_hint">AB daxilində roaminqdə olmadığını hesab et</string>
     <string name="title_advanced_usage_hint">Bu, batareya, verilənlər və anbar sahəsi istifadəsini artıracaq</string>
     <string name="title_advanced_plain_hint">Bunu fəallaşdırmaq verilənlər istifadəsini məhdudlaşdıracaq, ancaq mesajlar stil olmadan görünəcək</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Bunun fəallaşdırılması, bəzi cihazlarda bağlantı problemlərinə səbəb ola bilər</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Bunu fəallaşdırmaq, bəzi cihazlarda bağlantı problemlərinə və batareya istifadəsinin artmasına səbəb ola bilər</string>
     <string name="title_advanced_validate_hint">Bu, məsələn bir VPN istifadə edəndə və digər hallarda mesajların eyniləşdirilməməsi ilə nəticələnə bilər</string>
     <string name="title_advanced_timeout_hint">Oxuma/yazma üçün bitmə vaxtı, bağlantı üçün bitmə vaxtının iki qatına tənzimlənəcək. Yüksək dəyərlər, daha çox batareya istifadəsi ilə nəticələnəcək.</string>
     <string name="title_advanced_cert_strict_hint">Bunu sıradan çıxartmaq, server sertifikatlarının yoxlanışını rahatladacaq</string>
@@ -770,6 +770,7 @@
     <string name="title_encryption_none">Heç biri</string>
     <string name="title_allow_insecure">Güvənli olmayan bağlantılara icazə ver</string>
     <string name="title_insecure_remark">Güvənli olmayan bağlantılara, yalnız güvənli şəbəkələrdə icazə verilməli və heç vaxt ictimai şəbəkələrdə icazə verilməməlidir</string>
+    <string name="title_notify_remark">Bunu, hesaba özəl bildirişlər üçün fəallaşdıra bilərsiniz</string>
     <string name="title_port">Port nömrəsi</string>
     <string name="title_user">İstifadəçi adı</string>
     <string name="title_password">Şifrə</string>
@@ -1170,6 +1171,10 @@
     <string name="title_style_strikethrough">Üstündən xətt</string>
     <string name="title_style_clear">Formatları təmizlə</string>
     <string name="title_style_link">Bağlantı daxil et</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Ünvan</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Başlıq</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Başlığı gətir</string>
+    <string name="title_style_link_metadata_remark">Bu, daxil edilən ünvandakı başlığı gətirəcək</string>
     <string name="title_add_image">Təsvir əlavə et</string>
     <string name="title_add_image_inline">Daxil et</string>
     <string name="title_add_image_attach">Qoşma</string>

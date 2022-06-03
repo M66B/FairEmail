@@ -657,7 +657,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
     <string name="title_advanced_usage_hint">Bu pil, veri ve depolama alanı kullanımını artıracaktır</string>
     <string name="title_advanced_plain_hint">Bunu etkinleştirmek veri kullanımını sınırlayacaktır, ancak mesajlar stil olmadan gösterilecektir</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Bu ayarı açmak bazı cihazlarda bağlantı sorunlarına yol açabilir</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Bunu etkinleştirmek bazı cihazlarda bağlantı sorunlarına neden olabilir ve pil kullanımını artırabilir</string>
     <string name="title_advanced_validate_hint">Bu, örneğin bir VPN kullanırken değil, diğer durumlarda da mesajların senkronize edilmemesine neden olabilir</string>
     <string name="title_advanced_timeout_hint">Okuma / yazma zaman aşımı, bağlantı zaman aşımının iki katına ayarlanacaktır. Daha yüksek değerler daha fazla pil kullanımına neden olacaktır.</string>
     <string name="title_advanced_cert_strict_hint">Bunu devre dışı bırakmak, sunucu sertifikalarının kontrol edilmesini esnetecektir</string>
@@ -768,6 +768,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_encryption_none">Şifreleme kapalı</string>
     <string name="title_allow_insecure">Güvensiz bağlantılara izin ver</string>
     <string name="title_insecure_remark">Güvensiz bağlantılara sadece güvenilen ağlarda izin verilmelidir ve halka açık ağlarda asla izin verilmemelidir</string>
+    <string name="title_notify_remark">Bunu hesaba özel bildirimler için etkinleştirebilirsiniz</string>
     <string name="title_port">Port numarası</string>
     <string name="title_user">Kullanıcı adı</string>
     <string name="title_password">Parola</string>
@@ -1165,6 +1166,10 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_style_strikethrough">Üstü Çizili</string>
     <string name="title_style_clear">Biçimlendirmeyi temizle</string>
     <string name="title_style_link">Bağlantı ekle</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Adres</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Başlık</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Başlığı getir</string>
+    <string name="title_style_link_metadata_remark">Bu, girilen adreste ki başlığı getirecektir</string>
     <string name="title_add_image">Görsel ekle</string>
     <string name="title_add_image_inline">Ekle</string>
     <string name="title_add_image_attach">Ekle</string>

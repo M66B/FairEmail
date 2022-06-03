@@ -648,7 +648,7 @@
     <string name="title_advanced_rlah_hint">假设欧盟境内不存在漫游</string>
     <string name="title_advanced_usage_hint">这将增加电池、数据和存储空间的使用</string>
     <string name="title_advanced_plain_hint">启用此选项将限制数据使用量，但邮件将不会显示样式</string>
-    <string name="title_advanced_tcp_keep_alive_hint">启用此选项可能会在某些设备上造成连接问题</string>
+    <string name="title_advanced_tcp_keep_alive_hint">启用此功能可能会导致某些设备出现连接问题，并可能会增加电池使用量</string>
     <string name="title_advanced_validate_hint">这可能导致消息停止同步，例如使用 VPN 或其他某些情况下</string>
     <string name="title_advanced_timeout_hint">读/写超时时间将翻倍，值越高将越耗电</string>
     <string name="title_advanced_cert_strict_hint">禁用此项将放松服务器证书检查</string>
@@ -759,6 +759,7 @@
     <string name="title_encryption_none">无</string>
     <string name="title_allow_insecure">允许不安全的连接</string>
     <string name="title_insecure_remark">只应在受信任的网络中允许不安全连接，请勿用于公共网络</string>
+    <string name="title_notify_remark">你可以为特定于账户的通知启用该选项</string>
     <string name="title_port">端口号</string>
     <string name="title_user">用户名</string>
     <string name="title_password">密码</string>
@@ -1154,6 +1155,10 @@
     <string name="title_style_strikethrough">删除线</string>
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">地址</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">标题</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">获取标题</string>
+    <string name="title_style_link_metadata_remark">这将获取输入地址的标题</string>
     <string name="title_add_image">添加图片</string>
     <string name="title_add_image_inline">插入</string>
     <string name="title_add_image_attach">附件</string>

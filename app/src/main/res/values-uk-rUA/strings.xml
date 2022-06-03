@@ -678,7 +678,7 @@
     <string name="title_advanced_rlah_hint">Якщо без роумінгу в межах ЄС</string>
     <string name="title_advanced_usage_hint">Це збільшить використання акумулятора, даних та місця для зберігання</string>
     <string name="title_advanced_plain_hint">Включення цієї опції обмежить використання даних, але повідомлення будуть показані без стилізації</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Включення може викликати проблеми з підключенням на деяких пристроях</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Включення цієї опції може викликати проблеми з підключенням на деяких пристроях і може збільшити використання акумулятора</string>
     <string name="title_advanced_validate_hint">Це може призвести до того що повідомлення можуть бути не синхронізовані, наприклад, при використанні VPN, а також в інших ситуаціях</string>
     <string name="title_advanced_timeout_hint">Тайм-аут читання/запису буде застосовано два рази часу підключення. Більш високі значення призведуть до збільшення використання заряду акумулятора.</string>
     <string name="title_advanced_cert_strict_hint">Якщо вимкнути це, перевірку сертифікатів сервера буде послаблено</string>
@@ -733,7 +733,7 @@
     <string name="title_advanced_move_hint">Цільову теку можна налаштувати у налаштуваннях облікового запису</string>
     <string name="title_advanced_notify_no_grouping">Ця версія Android не підтримує групування сповіщень</string>
     <string name="title_advanced_notify_no_channels">Ця версія Android не підтримує канали сповіщень</string>
-    <string name="title_advanced_fts_hint">Увімкнення цієї функції покращує продуктивність пошуку, але також збільшує використання батареї і потребує більше місця для зберігання</string>
+    <string name="title_advanced_fts_hint">Увімкнення цієї функції покращує продуктивність пошуку, але також збільшує використання батареї та потребує більше місця для зберігання</string>
     <string name="title_advanced_english_hint">Буде перезапущено додаток</string>
     <string name="title_advanced_experiments_hint">Список експериментальних функцій</string>
     <string name="title_advanced_protocol_hint">Це істотно збільшить використання акумулятора та простору для зберігання!</string>
@@ -789,6 +789,7 @@
     <string name="title_encryption_none">Жодного</string>
     <string name="title_allow_insecure">Дозволити незахищене з’єднання</string>
     <string name="title_insecure_remark">Небезпечні підключення повинні бути дозволені тільки в надійних мережах і ніколи в мережах спільного користування</string>
+    <string name="title_notify_remark">Ви можете ввімкнути цю функцію для сповіщень в певному обліковому записі</string>
     <string name="title_port">Номер порту</string>
     <string name="title_user">Ім\'я користувача</string>
     <string name="title_password">Пароль</string>
@@ -1187,6 +1188,10 @@
     <string name="title_style_strikethrough">Закреслений</string>
     <string name="title_style_clear">Очистити форматування</string>
     <string name="title_style_link">Вставити посилання</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Адреса</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Назва</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Отримати заголовок</string>
+    <string name="title_style_link_metadata_remark">Ця опція отримає заголовок на введену адресу</string>
     <string name="title_add_image">Додати зображення</string>
     <string name="title_add_image_inline">Вставити</string>
     <string name="title_add_image_attach">Долучити</string>

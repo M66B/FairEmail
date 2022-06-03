@@ -676,7 +676,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_rlah_hint">Predpokladá sa žiaden roaming v krajinách EU</string>
     <string name="title_advanced_usage_hint">Zvýši využívanie batérie, údajov a úložného priestoru</string>
     <string name="title_advanced_plain_hint">Zapnutím znížite nároky na prenos dát, ale správy sa zobrazia bez štýlov</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Zapnutie môže na niektorých zariadeniach spôsobovať problémy s pripojením</string>
     <string name="title_advanced_validate_hint">Výsledkom môžu byť výpadky synchronizácie správ, najmä pri používaní VPN ale aj v iných občasných prípadoch</string>
     <string name="title_advanced_timeout_hint">Časový limit čítania/zápisu bude nastavený na dvojnásobok limitu spojenia. Čím vyššia hodnota, tým vyšší nárok na využívanie batérie.</string>
     <string name="title_advanced_cert_strict_hint">Vypnutím upustíte od kontroly dôveryhodnosti certifikátov servera</string>

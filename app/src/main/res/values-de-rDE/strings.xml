@@ -657,7 +657,7 @@
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
     <string name="title_advanced_usage_hint">Das erhöht die Akku-, Daten- und Speicherplatzauslastung</string>
     <string name="title_advanced_plain_hint">Wenn Sie diese Option aktivieren, wird der Datenverbrauch reduziert, aber Nachrichten werden ohne Formatierung angezeigt.</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Das Aktivieren dieser Funktion kann bei einigen Geräten zu Verbindungsproblemen führen</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Das Aktivieren dieser Funktion kann bei einigen Geräten zu Verbindungsproblemen führen und den Akkuverbrauch erhöhen</string>
     <string name="title_advanced_validate_hint">Dies kann dazu führen, dass Nachrichten nicht synchronisiert werden, zum Beispiel bei der Verwendung eines VPN, aber auch in anderen Situationen</string>
     <string name="title_advanced_timeout_hint">Die Zeitüberschreitung beim Lesen oder Schreiben wird auf das Doppelte der Verbindungszeitüberschreitung festgelegt. Höhere Werte führen zu einem höheren Akkuverbrauch.</string>
     <string name="title_advanced_cert_strict_hint">Durch das Deaktivieren dieser Option wird die Überprüfung der Serverzertifikate gelockert</string>
@@ -768,6 +768,7 @@
     <string name="title_encryption_none">Keine</string>
     <string name="title_allow_insecure">Unsichere Verbindungen zulassen</string>
     <string name="title_insecure_remark">Unsichere Verbindungen sollten nur in vertrauenswürdigen Netzwerken und niemals in öffentlichen Netzwerken erlaubt werden</string>
+    <string name="title_notify_remark">Sie können das für kontenspezifische Benachrichtigungen aktivieren</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Benutzername</string>
     <string name="title_password">Passwort</string>
@@ -1164,6 +1165,10 @@
     <string name="title_style_strikethrough">Durchgestrichen</string>
     <string name="title_style_clear">Formatierung entfernen</string>
     <string name="title_style_link">Link einfügen</string>
+    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Adresse</string>
+    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Titel</string>
+    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Titel abrufen</string>
+    <string name="title_style_link_metadata_remark">Damit wird der Titel der eingegebenen Adresse abgerufen</string>
     <string name="title_add_image">Bild hinzufügen</string>
     <string name="title_add_image_inline">Einfügen</string>
     <string name="title_add_image_attach">Anhängen</string>

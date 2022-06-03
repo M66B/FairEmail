@@ -678,7 +678,7 @@
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
     <string name="title_advanced_usage_hint">Zwiększy to zużycie baterii, danych i przestrzeni dyskowej</string>
     <string name="title_advanced_plain_hint">Włączenie tej opcji ograniczy wykorzystanie danych, ale wiadomości będą wyświetlane bez stylizacji</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Włączenie tego może powodować problemy z połączeniem na niektórych urządzeniach</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Włączenie tej funkcji może powodować problemy z połączeniem na niektórych urządzeniach i może zwiększyć zużycie baterii</string>
     <string name="title_advanced_validate_hint">Może to skutkować brakiem synchronizacji wiadomości, na przykład podczas korzystania z VPN, ale również w innych sytuacjach</string>
     <string name="title_advanced_timeout_hint">Limit czasu odczytu/zapisu zostanie ustawiony na dwukrotność limitu czasu połączenia. Wyższe wartości spowodują większe zużycie baterii.</string>
     <string name="title_advanced_cert_strict_hint">Wyłączenie tej opcji spowoduje złagodzenie sprawdzania certyfikatów serwera</string>
@@ -789,6 +789,7 @@
     <string name="title_encryption_none">Żaden</string>
     <string name="title_allow_insecure">Zezwól na niezabezpieczone połączenia</string>
     <string name="title_insecure_remark">Niebezpieczne połączenia powinny być dozwolone tylko w zaufanych sieciach, a nigdy w sieciach publicznych</string>
+    <string name="title_notify_remark">Można włączyć tę funkcję dla specyficznych powiadomień danego konta</string>
     <string name="title_port">Numer portu</string>
     <string name="title_user">Nazwa użytkownika</string>
     <string name="title_password">Hasło</string>
