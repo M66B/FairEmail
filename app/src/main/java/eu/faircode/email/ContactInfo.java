@@ -35,7 +35,6 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Pair;
-import android.util.Xml;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -45,7 +44,6 @@ import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.xmlpull.v1.XmlPullParser;
 
 import java.io.BufferedOutputStream;
 import java.io.EOFException;
