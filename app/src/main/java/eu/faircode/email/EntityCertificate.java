@@ -218,39 +218,23 @@ public class EntityCertificate {
         List<String> result = new ArrayList<>();
 
         Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
-        if (altNames != null)
-            for (List altName : altNames)
-                try {
-                    if (altName.get(0).equals(GeneralName.dNSName))
-                        result.add((String) altName.get(1));
-                    else if (altName.get(0).equals(GeneralName.iPAddress))
-                        if (altName.get(1) instanceof String)
-                            result.add((String) altName.get(1));
-                        else {
-                            Object val = altName.get(1);
-                            Log.e("GeneralName.iPAddress type=" + (val == null ? null : val.getClass()));
-                        }
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
+        if (altNames == null)
+            return result;
 
-        try {
-            X500Name name = new JcaX509CertificateHolder(certificate).getSubject();
-            if (name != null)
-                for (RDN rdn : name.getRDNs(BCStyle.CN))
-                    for (AttributeTypeAndValue tv : rdn.getTypesAndValues()) {
-                        ASN1Encodable enc = tv.getValue();
-                        if (enc == null)
-                            continue;
-                        String cn = enc.toString();
-                        if (TextUtils.isEmpty(cn))
-                            continue;
-                        if (!result.contains(cn))
-                            result.add(cn);
+        for (List altName : altNames)
+            try {
+                if (altName.get(0).equals(GeneralName.dNSName))
+                    result.add((String) altName.get(1));
+                else if (altName.get(0).equals(GeneralName.iPAddress))
+                    if (altName.get(1) instanceof String)
+                        result.add((String) altName.get(1));
+                    else {
+                        Object val = altName.get(1);
+                        Log.e("GeneralName.iPAddress type=" + (val == null ? null : val.getClass()));
                     }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
         return result;
     }
