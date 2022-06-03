@@ -9,7 +9,7 @@
 * Added print selected text
 * Added quick actions unread and permanent deletion
 * Added Turkish and Indonesian to DeepL languages
-* Added auto fixing filename suffix on adding attachments
+* Added auto fixing filename suffix on adding image attachments
 * Improved insert link dialog
 * Small improvements and minor bug fixes
 * Updated translations
