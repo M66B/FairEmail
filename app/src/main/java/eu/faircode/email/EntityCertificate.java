@@ -230,7 +230,7 @@ public class EntityCertificate {
                         result.add((String) altName.get(1));
                     else {
                         Object val = altName.get(1);
-                        Log.persist("GeneralName.iPAddress type=" + (val == null ? null : val.getClass()));
+                        Log.e("GeneralName.iPAddress type=" + (val == null ? null : val.getClass()));
                     }
             } catch (Throwable ex) {
                 Log.e(ex);
