@@ -108,7 +108,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                 Bundle args = new Bundle();
                 args.putString("url", etLink.getText().toString());
 
-                new SimpleTask<String>() {
+                new SimpleTask<OpenGraph>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         btnMetadata.setEnabled(false);
@@ -122,9 +122,11 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                     }
 
                     @Override
-                    protected String onExecute(Context context, Bundle args) throws Throwable {
+                    protected OpenGraph onExecute(Context context, Bundle args) throws Throwable {
                         String url = args.getString("url");
                         URL base = new URL(url);
+
+                        OpenGraph og = new OpenGraph();
 
                         HttpURLConnection connection = (HttpURLConnection) base.openConnection();
                         connection.setRequestMethod("GET");
@@ -150,38 +152,65 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
 
                             // <title>...
                             // <meta name="description" content="...
-                            // <meta property="og:title" content="...
-                            // <meta property="twitter:title" content="...
+                            // https://ogp.me/
                             Document doc = JsoupEx.parse(connection.getInputStream(), StandardCharsets.UTF_8.name(), url);
 
-                            Element title = doc.select("title").first();
-                            if (title != null && !TextUtils.isEmpty(title.text()))
-                                return title.text();
-
                             Element ogTitle = doc.select("meta[property=og:title]").first();
-                            if (ogTitle != null && !TextUtils.isEmpty(ogTitle.attr("content")))
-                                return ogTitle.attr("content");
+                            if (ogTitle != null)
+                                og.title = ogTitle.attr("content");
 
-                            Element twitterTitle = doc.select("meta[property=twitter:title]").first();
-                            if (twitterTitle != null && !TextUtils.isEmpty(twitterTitle.attr("content")))
-                                return twitterTitle.attr("content");
+                            // Fallback
+                            if (TextUtils.isEmpty(og.title)) {
+                                Element title = doc.select("title").first();
+                                if (title != null)
+                                    og.title = title.text();
+                            }
+
+                            Element ogDescription = doc.select("meta[property=og:description]").first();
+                            if (ogDescription != null)
+                                og.description = ogDescription.attr("content");
+
+                            // Fallback
+                            if (TextUtils.isEmpty(og.description)) {
+                                Element description = doc.select("meta[name=description]").first();
+                                if (description != null)
+                                    og.description = description.attr("content");
+                            }
 
                             Element ogSiteName = doc.select("meta[property=og:site_name]").first();
-                            if (ogSiteName != null && !TextUtils.isEmpty(ogSiteName.attr("content")))
-                                return ogSiteName.attr("content");
+                            if (ogSiteName != null)
+                                og.site_name = ogSiteName.attr("content");
 
-                            Element description = doc.select("meta[name=description]").first();
-                            if (description != null && !TextUtils.isEmpty(description.attr("content")))
-                                return description.attr("content");
+                            Element ogImage = doc.select("meta[property=og:image]").first();
+                            if (ogImage != null)
+                                og.image = ogImage.attr("content");
 
-                            return null;
+                            Element ogUrl = doc.select("meta[property=og:url]").first();
+                            if (ogUrl != null)
+                                og.url = ogUrl.attr("content");
+
+                            return og;
                         } finally {
                             connection.disconnect();
                         }
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, String text) {
+                    protected void onExecuted(Bundle args, OpenGraph og) {
+                        if (og == null)
+                            return;
+
+                        // Canonical URL
+                        if (!TextUtils.isEmpty(og.url))
+                            etLink.setText(og.url);
+
+                        // Link title
+                        String text = og.title;
+                        if (TextUtils.isEmpty(text))
+                            text = og.description;
+                        if (TextUtils.isEmpty(text))
+                            text = og.site_name;
+
                         if (TextUtils.isEmpty(text))
                             etTitle.setText(null);
                         else
@@ -225,6 +254,14 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                     }
                 })
                 .create();
+    }
+
+    private static class OpenGraph {
+        private String title;
+        private String description;
+        private String site_name;
+        private String image;
+        private String url;
     }
 
     static Bundle getArguments(EditText etBody) {
