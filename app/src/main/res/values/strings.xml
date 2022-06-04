@@ -863,6 +863,7 @@
     <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
     <string name="title_advanced_display_pin_hint">A PIN takes precedence over biometrics authentication</string>
     <string name="title_advanced_display_autolock_nav_hint">There will be a grace time of %1$d seconds</string>
+    <string name="title_advanced_user_agent_hint">Some servers do not accept a generic user agent string</string>
     <string name="title_advanced_safe_browsing_hint">The Google server knows which addresses are being looked up</string>
 
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>

@@ -510,6 +510,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swGenericUserAgent" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvUserAgentHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_user_agent_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvGenericUserAgent" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swSafeBrowsing"
                     android:layout_width="0dp"
@@ -518,7 +531,7 @@
                     android:text="@string/title_advanced_safe_browsing"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvGenericUserAgent"
+                    app:layout_constraintTop_toBottomOf="@id/tvUserAgentHint"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
