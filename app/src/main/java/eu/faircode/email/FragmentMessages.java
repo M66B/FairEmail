@@ -1400,6 +1400,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 MoreResult result = (MoreResult) cardMore.getTag();
+                if (result == null)
+                    return;
+
                 if (result.accounts.size() == 1) {
                     for (EntityAccount account : result.accounts.keySet())
                         onActionMoveSelectionAccount(account.id, false, result.folders);
