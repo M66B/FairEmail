@@ -628,13 +628,34 @@ public class ConnectionHelper {
     static void setUserAgent(Context context, HttpURLConnection connection) {
         connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
 
-        // https://web.dev/migrate-to-ua-ch/
+        if (BuildConfig.DEBUG) {
+            // https://web.dev/migrate-to-ua-ch/
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean generic_ua = prefs.getBoolean("generic_ua", false);
 
-        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA
-        connection.setRequestProperty("Sec-CH-UA", "\"Chromium\"");
-        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Mobile
-        connection.setRequestProperty("Sec-CH-UA-Mobile", "?1");
-        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Platform
-        connection.setRequestProperty("Sec-CH-UA-Platform", "Android");
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA
+            connection.setRequestProperty("Sec-CH-UA", "\"Chromium\""); // No WebView API yet
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Mobile
+            connection.setRequestProperty("Sec-CH-UA-Mobile", "?1");
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Platform
+            connection.setRequestProperty("Sec-CH-UA-Platform", "\"Android\"");
+
+            if (!generic_ua) {
+                String release = Build.VERSION.RELEASE;
+                if (release == null)
+                    release = "";
+                release = release.replace("\"", "'");
+
+                String model = Build.MODEL;
+                if (model == null)
+                    model = "";
+                model = model.replace("\"", "'");
+
+                // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Platform-Version
+                connection.setRequestProperty("Sec-CH-UA-Platform-Version", "\"" + release + "\"");
+                // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Model
+                connection.setRequestProperty("Sec-CH-UA-Model", "\"" + model + "\"");
+            }
+        }
     }
 }
