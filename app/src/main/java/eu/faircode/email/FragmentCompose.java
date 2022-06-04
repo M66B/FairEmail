@@ -4237,9 +4237,9 @@ public class FragmentCompose extends FragmentBase {
         UriInfo info = getInfo(uri, context);
 
         String ext = Helper.getExtension(info.name);
-        if (info.name != null && ext == null &&
-                info.type != null && ImageHelper.isImage(info.type.toLowerCase(Locale.ROOT))) {
-            String guessed = MimeTypeMap.getSingleton().getExtensionFromMimeType(info.type.toLowerCase(Locale.ROOT));
+        if (info.name != null && ext == null && info.type != null) {
+            String guessed = MimeTypeMap.getSingleton()
+                    .getExtensionFromMimeType(info.type.toLowerCase(Locale.ROOT));
             if (!TextUtils.isEmpty(guessed)) {
                 ext = guessed;
                 info.name += '.' + ext;
