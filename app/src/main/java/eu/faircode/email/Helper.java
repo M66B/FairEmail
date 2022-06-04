@@ -2063,7 +2063,7 @@ public class Helper {
             urlConnection.setReadTimeout(timeout);
             urlConnection.setConnectTimeout(timeout);
             urlConnection.setInstanceFollowRedirects(true);
-            urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+            ConnectionHelper.setUserAgent(context, urlConnection);
             urlConnection.connect();
 
             try {

@@ -1510,7 +1510,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     urlConnection.setReadTimeout(UPDATE_TIMEOUT);
                     urlConnection.setConnectTimeout(UPDATE_TIMEOUT);
                     urlConnection.setDoOutput(false);
-                    urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                    ConnectionHelper.setUserAgent(context, urlConnection);
                     urlConnection.connect();
 
                     int status = urlConnection.getResponseCode();

@@ -37,6 +37,7 @@ import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.util.FolderClosedIOException;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -622,5 +623,18 @@ public class ConnectionHelper {
                 }
         }
         return result;
+    }
+
+    static void setUserAgent(Context context, HttpURLConnection connection) {
+        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+
+        // https://web.dev/migrate-to-ua-ch/
+
+        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA
+        connection.setRequestProperty("Sec-CH-UA", "\"Chromium\"");
+        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Mobile
+        connection.setRequestProperty("Sec-CH-UA-Mobile", "?1");
+        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Platform
+        connection.setRequestProperty("Sec-CH-UA-Platform", "Android");
     }
 }

@@ -254,7 +254,7 @@ public class DeepL {
         connection.setDoOutput(true);
         connection.setReadTimeout(DEEPL_TIMEOUT * 1000);
         connection.setConnectTimeout(DEEPL_TIMEOUT * 1000);
-        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+        ConnectionHelper.setUserAgent(context, connection);
         connection.setRequestProperty("Accept", "*/*");
         connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -315,7 +315,7 @@ public class DeepL {
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setReadTimeout(DEEPL_TIMEOUT * 1000);
         connection.setConnectTimeout(DEEPL_TIMEOUT * 1000);
-        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+        ConnectionHelper.setUserAgent(context, connection);
         connection.connect();
 
         try {

@@ -694,7 +694,7 @@ public class FragmentOAuth extends FragmentBase {
                     connection.setRequestMethod("GET");
                     connection.setReadTimeout(MAILRU_TIMEOUT);
                     connection.setConnectTimeout(MAILRU_TIMEOUT);
-                    connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                    ConnectionHelper.setUserAgent(context, connection);
                     connection.connect();
 
                     try {

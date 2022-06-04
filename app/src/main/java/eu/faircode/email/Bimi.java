@@ -136,7 +136,7 @@ public class Bimi {
                         connection.setReadTimeout(READ_TIMEOUT);
                         connection.setConnectTimeout(CONNECT_TIMEOUT);
                         connection.setInstanceFollowRedirects(true);
-                        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                        ConnectionHelper.setUserAgent(context, connection);
                         connection.connect();
 
                         try {
@@ -174,7 +174,7 @@ public class Bimi {
                         connection.setReadTimeout(READ_TIMEOUT);
                         connection.setConnectTimeout(CONNECT_TIMEOUT);
                         connection.setInstanceFollowRedirects(true);
-                        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                        ConnectionHelper.setUserAgent(context, connection);
                         connection.connect();
 
                         // Fetch PEM objects

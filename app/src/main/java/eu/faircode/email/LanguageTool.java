@@ -75,7 +75,7 @@ public class LanguageTool {
         connection.setDoOutput(true);
         connection.setReadTimeout(LT_TIMEOUT * 1000);
         connection.setConnectTimeout(LT_TIMEOUT * 1000);
-        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+        ConnectionHelper.setUserAgent(context, connection);
         connection.setRequestProperty("Accept", "application/json");
         connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");

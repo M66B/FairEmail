@@ -117,7 +117,7 @@ public class DisconnectBlacklist {
         connection.setRequestMethod("GET");
         connection.setReadTimeout(FETCH_TIMEOUT);
         connection.setConnectTimeout(FETCH_TIMEOUT);
-        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+        ConnectionHelper.setUserAgent(context, connection);
         connection.connect();
 
         try {

@@ -133,7 +133,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                         connection.setReadTimeout(METADATA_READ_TIMEOUT);
                         connection.setConnectTimeout(METADATA_CONNECT_TIMEOUT);
                         connection.setInstanceFollowRedirects(true);
-                        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                        ConnectionHelper.setUserAgent(context, connection);
                         connection.connect();
 
                         try {

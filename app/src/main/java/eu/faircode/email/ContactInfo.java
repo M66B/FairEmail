@@ -571,7 +571,7 @@ public class ContactInfo {
                 return true;
             }
         });
-        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+        ConnectionHelper.setUserAgent(context, connection);
         connection.connect();
 
         Document doc;
@@ -627,7 +627,7 @@ public class ContactInfo {
                     m.setReadTimeout(FAVICON_READ_TIMEOUT);
                     m.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
                     m.setInstanceFollowRedirects(true);
-                    m.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                    ConnectionHelper.setUserAgent(context, m);
                     m.connect();
 
                     try {
@@ -859,7 +859,7 @@ public class ContactInfo {
                 return true;
             }
         });
-        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+        ConnectionHelper.setUserAgent(context, connection);
         connection.connect();
 
         try {
@@ -888,7 +888,7 @@ public class ContactInfo {
                 urlConnection.setRequestMethod("GET");
                 urlConnection.setReadTimeout(GRAVATAR_READ_TIMEOUT);
                 urlConnection.setConnectTimeout(GRAVATAR_CONNECT_TIMEOUT);
-                urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                ConnectionHelper.setUserAgent(context, urlConnection);
                 urlConnection.connect();
 
                 try {
@@ -934,7 +934,7 @@ public class ContactInfo {
                 urlConnection.setRequestMethod("GET");
                 urlConnection.setReadTimeout(LIBRAVATAR_READ_TIMEOUT);
                 urlConnection.setConnectTimeout(LIBRAVATAR_CONNECT_TIMEOUT);
-                urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                ConnectionHelper.setUserAgent(context, urlConnection);
                 urlConnection.connect();
 
                 try {

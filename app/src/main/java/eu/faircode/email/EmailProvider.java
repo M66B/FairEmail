@@ -597,7 +597,7 @@ public class EmailProvider implements Parcelable {
             request.setReadTimeout(ISPDB_TIMEOUT);
             request.setConnectTimeout(ISPDB_TIMEOUT);
             request.setDoInput(true);
-            request.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+            ConnectionHelper.setUserAgent(context, request);
             request.connect();
 
             int status = request.getResponseCode();
