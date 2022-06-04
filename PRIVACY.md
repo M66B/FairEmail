@@ -33,6 +33,7 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [LanguageTool](https://languagetool.org/) &#8211; [Privacy policy](https://languagetool.org/legal/privacy)
 * [Gravatar](https://gravatar.com/) &#8211; [Privacy policy](https://automattic.com/privacy/)
 * [Libravatar](https://www.libravatar.org/)  &#8211; [Privacy policy](https://www.libravatar.org/privacy/)
+* [GitHub](https://github.com/) &#8211; [Privacy policy](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
 
 FairEmail **can access** the websites at the domain names of email addresses (username@domain.name)
 if [Brand Indicators for Message Identification](https://en.wikipedia.org/wiki/Brand_Indicators_for_Message_Identification) (BIMI)
@@ -63,6 +64,8 @@ This table provides a complete overview of all shared data and the conditions un
 | LanguageTool      | Entered message texts                                             | Upon long pressing the save draft button                                    |
 | Gravatar          | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Gravatars are enabled, upon receiving a message                          |
 | Libravatar        | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Libravatars are enabled, upon receiving a message                        |
+| GitHub            | None, but see the remarks below                                   | Upon downloading Disconnect's Tracker Protection lists                      |
+|                   |                                                                   | Upon checking for updates (GitHub version only)                             |
 | BIMI              | Domain name of email addresses                                    | If BIMI is enabled, upon receiving a message                                |
 | Favicons          | Domain name of email addresses                                    | If favicons are enabled, upon receiving a message                           |
 | Link title        | Link address                                                      | Upon pressing a button in the insert link dialog                            |
@@ -71,7 +74,9 @@ This table provides a complete overview of all shared data and the conditions un
 All data is sent to improve the user experience in some way,
 like to simplify account setup, identify spam and malicious messages, display message and sender information, find bugs and errors, etc.
 
-Note that any internet connection sends your current [network address](https://en.wikipedia.org/wiki/Network_address).
+Note that any internet connection reveals your current [network address](https://en.wikipedia.org/wiki/Network_address).
+Also, when downloading content, like images and files, the [browser's user agent string](https://en.wikipedia.org/wiki/User_agent) will be sent.
+There is a privacy option to minimize the information being sent, but please be aware that this can result in problems in some cases.
 
 <br />
 
