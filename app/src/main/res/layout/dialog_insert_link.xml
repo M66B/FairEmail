@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:drawableEnd="@drawable/twotone_cloud_download_24"
+            android:drawableEnd="@drawable/twotone_get_app_24"
             android:drawablePadding="6dp"
             android:text="@string/title_style_link_metadata"
             app:layout_constraintStart_toStartOf="parent"
