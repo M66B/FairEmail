@@ -461,12 +461,14 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         setMore(false);
 
+        Log.i("Open link dialog uri=" + uri);
         return new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Uri uri = Uri.parse(etLink.getText().toString());
+                        Log.i("Open link uri=" + uri);
                         Helper.view(context, uri, false);
                     }
                 })
@@ -475,6 +477,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                     public void onClick(DialogInterface dialog, int which) {
                         // https://developer.android.com/training/basics/intents/sending#AppChooser
                         Uri uri = Uri.parse(etLink.getText().toString());
+                        Log.i("Open link with uri=" + uri);
                         Intent view = new Intent(Intent.ACTION_VIEW, uri);
                         Intent chooser = Intent.createChooser(view, context.getString(R.string.title_select_app));
                         try {
@@ -485,7 +488,12 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         }
                     }
                 })
-                .setNegativeButton(android.R.string.cancel, null)
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.i("Open link cancelled");
+                    }
+                })
                 .create();
     }
 
