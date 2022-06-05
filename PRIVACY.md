@@ -4,9 +4,9 @@
 
 <br />
 
-First of all, the main goal of FairEmail is to help you protect your privacy.
-What follows is a complete listing of all data that *could* be sent to the internet,
-which is eventually always your choice and therefore optional.
+First of all, FairEmail's main goal is to help you protect your privacy.
+What follows is a complete overview of all the data that **can be** sent to the internet,
+which in the end is always your choice and therefore optional.
 
 ## Overview
 
