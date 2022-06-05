@@ -1,12 +1,15 @@
 # Privacy policy
 
-<sub>[&#x1F30E; Google Translate](https://translate.google.com/translate?hl=&sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FPRIVACY.md)</sub>
+[&#x1F30E; Google Translate](https://translate.google.com/translate?hl=&sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FPRIVACY.md)
 
 <br />
 
 First of all, FairEmail's main goal is to help you protect your privacy.
 What follows is a complete overview of all the data that **can be** sent to the internet,
-which in the end is always your choice and therefore optional.
+which in the end is always your choice and therefore optional (except of course connecting to the email server).
+
+FairEmail works without sending data to servers operated by the developer,
+which means that the developer cannot see, collect or otherwise control your data.
 
 ## Overview
 
