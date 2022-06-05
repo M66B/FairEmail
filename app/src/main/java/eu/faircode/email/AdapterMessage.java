@@ -1535,6 +1535,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
 
                     @Override
+                    protected void onDestroyed(Bundle args) {
+                        taskContactInfo = null;
+                    }
+
+                    @Override
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                     }
