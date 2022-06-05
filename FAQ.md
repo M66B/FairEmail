@@ -4279,7 +4279,7 @@ because both email servers and not all people can handle this, risking unexpecte
 A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
 Since version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable auto expunging messages.
-Note that messages with a *\Deleted* flag will not be shown in FairEmail.
+Note that messages with a *\Deleted* flag will not be shown if auto EXPUNGE is enabled.
 
 <br />
 
