@@ -4,6 +4,15 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### Next version
+
+* Added POP3 swipe action to report spam / block sender
+* Added POP3 report spam / block sender for multiple selected messages
+* Added check to prevent blocking self
+* Added suffix guessing on adding attachments
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1905 - 2022-06-03
 
 * Added print selected text
