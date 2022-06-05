@@ -3640,6 +3640,11 @@ public class HtmlHelper {
 
         Document doc = JsoupEx.parse(html);
 
+        if (doc.head().select("meta[name=viewport]").first() == null)
+            doc.head().prependElement("meta")
+                    .attr("name", "viewport")
+                    .attr("content", "width=device-width, initial-scale=1.0");
+
         for (Element span : doc.select("span")) {
             if (span.attr("dir").equals("rtl")) {
                 Element next = span.nextElementSibling();
