@@ -1807,6 +1807,7 @@ public class Log {
 
         ContentResolver resolver = context.getContentResolver();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        long last_cleanup = prefs.getLong("last_cleanup", 0);
 
         PackageManager pm = context.getPackageManager();
         String installer = pm.getInstallerPackageName(BuildConfig.APPLICATION_ID);
@@ -1840,6 +1841,7 @@ public class Log {
 
         sb.append(String.format("Installer: %s\r\n", installer));
         sb.append(String.format("Installed: %s\r\n", new Date(Helper.getInstallTime(context))));
+        sb.append(String.format("Last cleanup: %s\r\n", new Date(last_cleanup)));
         sb.append(String.format("Now: %s\r\n", new Date()));
 
         sb.append("\r\n");
