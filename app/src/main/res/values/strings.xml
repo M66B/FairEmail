@@ -105,6 +105,11 @@
     </string>
     <string name="title_blocked_senders">Blocked senders</string>
 
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Block sender of %1$s message?</item>
+        <item quantity="other">Block sender of %1$s messages?</item>
+    </plurals>
+
     <string name="title_junk_filter">Use local spam filter</string>
     <string name="title_junk_filter_hint">This can increase battery usage and incorrectly mark messages as spam</string>
     <string name="title_junk_blocklist">Use spam block lists</string>

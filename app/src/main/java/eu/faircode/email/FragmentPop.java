@@ -955,6 +955,11 @@ public class FragmentPop extends FragmentBase {
         hide.name = getString(R.string.title_hide);
         folders.add(hide);
 
+        EntityFolder junk = new EntityFolder();
+        junk.id = EntityMessage.SWIPE_ACTION_JUNK;
+        junk.name = getString(R.string.title_report_spam);
+        folders.add(junk);
+
         EntityFolder delete = new EntityFolder();
         delete.id = EntityMessage.SWIPE_ACTION_DELETE;
         delete.name = getString(R.string.title_delete_permanently);

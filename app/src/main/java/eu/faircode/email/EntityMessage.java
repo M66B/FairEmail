@@ -267,6 +267,22 @@ public class EntityMessage implements Serializable {
         return (this.plain_only != null && (this.plain_only & 0x80) != 0);
     }
 
+    boolean fromSelf(List<TupleIdentityEx> identities) {
+        List<Address> senders = new ArrayList<>();
+        if (from != null)
+            senders.addAll(Arrays.asList(from));
+        if (reply != null)
+            senders.addAll(Arrays.asList(reply));
+
+        if (identities != null)
+            for (TupleIdentityEx identity : identities)
+                for (Address sender : senders)
+                    if (identity.self && identity.similarAddress(sender))
+                        return true;
+
+        return false;
+    }
+
     boolean replySelf(List<TupleIdentityEx> identities, long account) {
         Address[] senders = (reply == null || reply.length == 0 ? from : reply);
         if (identities != null && senders != null)

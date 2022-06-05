@@ -2032,25 +2032,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     DB db = DB.getInstance(context);
 
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message != null) {
-                        List<Address> senders = new ArrayList<>();
-                        if (message.from != null)
-                            senders.addAll(Arrays.asList(message.from));
-                        if (message.reply != null)
-                            senders.addAll(Arrays.asList(message.reply));
-
-                        List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
-                        if (identities != null) {
-                            for (TupleIdentityEx identity : identities)
-                                for (Address sender : senders)
-                                    if (identity.self && identity.similarAddress(sender)) {
-                                        data.fromSelf = true;
-                                        break;
-                                    }
-                        }
-                    }
-
                     EntityAccount account = db.account().getAccount(aid);
                     data.isGmail = (account != null && account.isGmail());
                     data.folders = db.folder().getSystemFolders(aid);
@@ -2182,7 +2163,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibMove.setVisibility(tools && button_move && move ? View.VISIBLE : View.GONE);
                     ibArchive.setVisibility(tools && button_archive && archive ? View.VISIBLE : View.GONE);
                     ibTrash.setVisibility(outbox || (tools && button_trash && trash) ? View.VISIBLE : View.GONE);
-                    ibJunk.setVisibility(tools && button_junk && report && !data.fromSelf ? View.VISIBLE : View.GONE);
+                    ibJunk.setVisibility(tools && button_junk && report ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
                     ibMore.setVisibility(tools && !outbox ? View.VISIBLE : View.GONE);
                     ibTools.setImageLevel(tools ? 0 : 1);
@@ -5362,18 +5343,28 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionJunk(TupleMessageEx message) {
-            Bundle aargs = new Bundle();
-            aargs.putLong("id", message.id);
-            aargs.putLong("account", message.account);
-            aargs.putInt("protocol", message.accountProtocol);
-            aargs.putLong("folder", message.folder);
-            aargs.putString("type", message.folderType);
-            aargs.putString("from", DB.Converters.encodeAddresses(message.from));
+            if (message.accountProtocol == EntityAccount.TYPE_POP) {
+                Bundle aargs = new Bundle();
+                aargs.putLongArray("ids", new long[]{message.id});
 
-            FragmentDialogJunk ask = new FragmentDialogJunk();
-            ask.setArguments(aargs);
-            ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_JUNK);
-            ask.show(parentFragment.getParentFragmentManager(), "message:junk");
+                FragmentDialogBlockSender ask = new FragmentDialogBlockSender();
+                ask.setArguments(aargs);
+                ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_BLOCK_SENDERS);
+                ask.show(parentFragment.getParentFragmentManager(), "message:block");
+            } else {
+                Bundle aargs = new Bundle();
+                aargs.putLong("id", message.id);
+                aargs.putLong("account", message.account);
+                aargs.putInt("protocol", message.accountProtocol);
+                aargs.putLong("folder", message.folder);
+                aargs.putString("type", message.folderType);
+                aargs.putString("from", DB.Converters.encodeAddresses(message.from));
+
+                FragmentDialogJunk ask = new FragmentDialogJunk();
+                ask.setArguments(aargs);
+                ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_JUNK);
+                ask.show(parentFragment.getParentFragmentManager(), "message:junk");
+            }
         }
 
         private void onActionInbox(TupleMessageEx message) {
@@ -6817,7 +6808,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         };
 
         private class ToolData {
-            private boolean fromSelf;
             private boolean isGmail;
             private List<EntityFolder> folders;
             private List<EntityAttachment> attachments;

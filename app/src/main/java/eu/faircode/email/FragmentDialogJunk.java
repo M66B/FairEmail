@@ -77,13 +77,10 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final String type = args.getString("type");
         final Address[] froms = DB.Converters.decodeAddresses(args.getString("from"));
 
-        boolean imap = (protocol == EntityAccount.TYPE_IMAP);
-
         final Context context = getContext();
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_junk, null);
         final TextView tvMessage = view.findViewById(R.id.tvMessage);
-        final ImageButton ibInfoProvider = view.findViewById(R.id.ibInfoProvider);
-        final TextView tvPopHint = view.findViewById(R.id.tvPopHint);
+        final TextView tvJunkHint = view.findViewById(R.id.tvJunkHint);
         final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
         final CheckBox cbBlockDomain = view.findViewById(R.id.cbBlockDomain);
         final ImageButton ibMore = view.findViewById(R.id.ibMore);
@@ -113,14 +110,12 @@ public class FragmentDialogJunk extends FragmentDialogBase {
 
         // Wire controls
 
-        ibInfoProvider.setOnClickListener(new View.OnClickListener() {
+        tvJunkHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 92);
             }
         });
-
-        tvPopHint.setVisibility(imap ? View.GONE : View.VISIBLE);
 
         cbBlockSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -138,7 +133,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                     grpManage.setVisibility(View.GONE);
                 } else {
                     ibMore.setImageLevel(0);
-                    grpFilter.setVisibility(imap ? View.VISIBLE : View.GONE);
+                    grpFilter.setVisibility(View.VISIBLE);
                     grpManage.setVisibility(View.VISIBLE);
                 }
             }
@@ -387,8 +382,8 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         cbBlocklist.setChecked(check_blocklist && use_blocklist);
         tvBlocklist.setText(TextUtils.join(", ", DnsBlockList.getNamesEnabled(context)));
 
-        cbBlockSender.setVisibility(imap ? View.VISIBLE : View.GONE);
-        grpBlockDomain.setVisibility(domains.size() > 0 && imap ? View.VISIBLE : View.GONE);
+        cbBlockSender.setVisibility(View.VISIBLE);
+        grpBlockDomain.setVisibility(domains.size() > 0 ? View.VISIBLE : View.GONE);
         grpFilter.setVisibility(View.GONE);
         grpManage.setVisibility(View.GONE);
 
@@ -442,8 +437,8 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 prefs.edit().putBoolean("block_sender", cbBlockSender.isChecked()).apply();
-                getArguments().putBoolean("block_sender", cbBlockSender.isChecked() || !imap);
-                getArguments().putBoolean("block_domain", cbBlockDomain.isChecked() && imap);
+                getArguments().putBoolean("block_sender", cbBlockSender.isChecked());
+                getArguments().putBoolean("block_domain", cbBlockDomain.isChecked());
                 sendResult(Activity.RESULT_OK);
             }
         });

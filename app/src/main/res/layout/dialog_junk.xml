@@ -27,39 +27,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_info_24"
+            android:drawablePadding="6dp"
+            android:drawableTint="?attr/colorAccent"
             android:minHeight="45dp"
             android:text="@string/title_junk_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/ibInfoProvider"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMessage" />
-
-        <eu.faircode.email.FixedImageButton
-            android:id="@+id/ibInfoProvider"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_info"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:tooltipText="@string/title_info"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tvJunkHint"
-            app:srcCompat="@drawable/twotone_info_24"
-            app:tint="?attr/colorAccent" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvPopHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_junk_pop_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/ibInfoProvider"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvJunkHint" />
 
         <CheckBox
             android:id="@+id/cbBlockSender"
@@ -69,7 +46,7 @@
             android:text="@string/title_block_sender"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPopHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvJunkHint" />
 
         <CheckBox
             android:id="@+id/cbBlockDomain"

@@ -425,6 +425,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_SAVE_SEARCH = 26;
     private static final int REQUEST_DELETE_SEARCH = 27;
     private static final int REQUEST_QUICK_ACTIONS = 28;
+    static final int REQUEST_BLOCK_SENDERS = 29;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -1378,7 +1379,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibJunk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onActionJunkSelection();
+                MoreResult result = (MoreResult) cardMore.getTag();
+                if (result == null)
+                    return;
+
+                if (result.hasPop && !result.hasImap)
+                    onActionBlockSender();
+                else if (!result.hasPop && result.hasImap)
+                    onActionJunkSelection();
             }
         });
 
@@ -2896,18 +2904,28 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private void onSwipeJunk(final @NonNull TupleMessageEx message) {
-            Bundle aargs = new Bundle();
-            aargs.putLong("id", message.id);
-            aargs.putLong("account", message.account);
-            aargs.putInt("protocol", message.accountProtocol);
-            aargs.putLong("folder", message.folder);
-            aargs.putString("type", message.folderType);
-            aargs.putString("from", DB.Converters.encodeAddresses(message.from));
+            if (message.accountProtocol == EntityAccount.TYPE_POP) {
+                Bundle aargs = new Bundle();
+                aargs.putLongArray("ids", new long[]{message.id});
 
-            FragmentDialogJunk ask = new FragmentDialogJunk();
-            ask.setArguments(aargs);
-            ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_JUNK);
-            ask.show(getParentFragmentManager(), "swipe:junk");
+                FragmentDialogBlockSender ask = new FragmentDialogBlockSender();
+                ask.setArguments(aargs);
+                ask.setTargetFragment(FragmentMessages.this, REQUEST_BLOCK_SENDERS);
+                ask.show(getParentFragmentManager(), "message:block");
+            } else {
+                Bundle aargs = new Bundle();
+                aargs.putLong("id", message.id);
+                aargs.putLong("account", message.account);
+                aargs.putInt("protocol", message.accountProtocol);
+                aargs.putLong("folder", message.folder);
+                aargs.putString("type", message.folderType);
+                aargs.putString("from", DB.Converters.encodeAddresses(message.from));
+
+                FragmentDialogJunk ask = new FragmentDialogJunk();
+                ask.setArguments(aargs);
+                ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_JUNK);
+                ask.show(getParentFragmentManager(), "swipe:junk");
+            }
         }
 
         private void onSwipeDelete(@NonNull TupleMessageEx message, int pos) {
@@ -3528,7 +3546,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             onActionMoveSelection(EntityFolder.ARCHIVE, false);
                             return true;
                         } else if (itemId == R.string.title_spam) {
-                            onActionJunkSelection();
+                            if (result.hasPop && !result.hasImap)
+                                onActionBlockSender();
+                            else if (!result.hasPop && result.hasImap)
+                                onActionJunkSelection();
                             return true;
                         } else if (itemId == R.string.title_trash) {
                             onActionMoveSelection(EntityFolder.TRASH, false);
@@ -3924,6 +3945,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ask.setArguments(aargs);
         ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_JUNK);
         ask.show(getParentFragmentManager(), "messages:junk");
+    }
+
+    private void onActionBlockSender() {
+        Bundle args = new Bundle();
+        args.putLongArray("ids", getSelection());
+
+        FragmentDialogBlockSender ask = new FragmentDialogBlockSender();
+        ask.setArguments(args);
+        ask.setTargetFragment(FragmentMessages.this, REQUEST_BLOCK_SENDERS);
+        ask.show(getParentFragmentManager(), "messages:block");
     }
 
     private void onActionMoveSelection(final String type, boolean block) {
@@ -7584,6 +7615,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (resultCode == RESULT_OK)
                         updateMore();
                     break;
+                case REQUEST_BLOCK_SENDERS:
+                    if (resultCode == RESULT_OK)
+                        onBlockSenders(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -8840,8 +8875,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (message == null)
                         return null;
 
+                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
+                    if (message.fromSelf(identities))
+                        return null;
+
                     EntityAccount account = db.account().getAccount(message.account);
-                    if (account == null)
+                    if (account == null || account.protocol != EntityAccount.TYPE_IMAP)
                         return null;
 
                     if (block_sender)
@@ -8849,28 +8888,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 message.account, message.identity, message.from,
                                 EntityContact.TYPE_JUNK, message.received);
 
-                    if (account.protocol == EntityAccount.TYPE_IMAP) {
-                        EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                        if (junk == null)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_junk_folder));
+                    EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                    if (junk == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_junk_folder));
 
-                        if (!message.folder.equals(junk.id))
-                            EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id, null, null, true);
+                    if (!message.folder.equals(junk.id))
+                        EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id, null, null, true);
 
-                        if (block_domain) {
-                            List<EntityRule> rules = EntityRule.blockSender(context, message, junk, block_domain);
-                            for (EntityRule rule : rules) {
-                                if (message.folder.equals(junk.id)) {
-                                    EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
-                                    if (inbox == null)
-                                        continue;
-                                    rule.folder = inbox.id;
-                                }
-                                rule.id = db.rule().insertRule(rule);
+                    if (block_domain) {
+                        List<EntityRule> rules = EntityRule.blockSender(context, message, junk, block_domain);
+                        for (EntityRule rule : rules) {
+                            if (message.folder.equals(junk.id)) {
+                                EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
+                                if (inbox == null)
+                                    continue;
+                                rule.folder = inbox.id;
                             }
+                            rule.id = db.rule().insertRule(rule);
                         }
-                    } else
-                        db.message().deleteMessage(message.id);
+                    }
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -8900,6 +8936,49 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "message:junk");
+    }
+
+    private void onBlockSenders(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long[] ids = args.getLongArray("ids");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
+
+                    for (long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null || message.fromSelf(identities))
+                            continue;
+
+                        EntityAccount account = db.account().getAccount(message.account);
+                        if (account == null || account.protocol != EntityAccount.TYPE_POP)
+                            continue;
+
+                        EntityContact.update(context,
+                                message.account, message.identity, message.from,
+                                EntityContact.TYPE_JUNK, message.received);
+
+                        db.message().deleteMessage(message.id);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "messages:block");
     }
 
     private void onMoveAskAcross(final ArrayList<MessageTarget> result) {
@@ -9665,7 +9744,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean canJunk() {
             if (read_only)
                 return false;
-            return (hasJunk && !isJunk && !isDrafts);
+            return (hasJunk && !isJunk && !isDrafts) ||
+                    (hasPop && !hasImap);
         }
 
         boolean canTrash() {
