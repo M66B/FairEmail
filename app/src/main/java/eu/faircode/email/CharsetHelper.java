@@ -38,9 +38,17 @@ public class CharsetHelper {
     private static String CHINESE = new Locale("zh").getLanguage();
     private static final List<String> COMMON = Collections.unmodifiableList(Arrays.asList(
             "US-ASCII",
-            "ISO-8859-1", "ISO-8859-2",
-            "windows-1250", "windows-1252", "windows-1257",
+            "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-7",
+            "windows-1250", "windows-1251", "windows-1252", "windows-1257",
             "UTF-7", "UTF-8"
+    ));
+    private static final List<String> LESS_COMMON = Collections.unmodifiableList(Arrays.asList(
+            "GBK", "GB2312", "HZ-GB-2312",
+            "EUC", "EUC-KR",
+            "Big5", "BIG5-CP950",
+            "ISO-2022-JP", "Shift_JIS",
+            "cp852",
+            "x-binaryenc"
     ));
     private static final int MIN_W1252 = 10;
     private static final Pair<byte[], byte[]>[] sUtf8W1252 = new Pair[128];
@@ -182,7 +190,7 @@ public class CharsetHelper {
             if (TextUtils.isEmpty(detected.charset)) {
                 Log.e("compact_enc_det result=" + detected);
                 return null;
-            } else if (COMMON.contains(detected.charset))
+            } else if (COMMON.contains(detected.charset) || LESS_COMMON.contains(detected.charset))
                 Log.w("compact_enc_det result=" + detected);
             else if ("GB18030".equals(detected.charset)) {
                 boolean chinese = Locale.getDefault().getLanguage().equals(CHINESE);
@@ -190,7 +198,7 @@ public class CharsetHelper {
                 Log.e("compact_enc_det result=" + detected + " chinese=" + chinese);
                 if (!chinese)
                     return null;
-            } else // GBK, Big5, ISO-2022-JP, HZ-GB-2312, GB2312, Shift_JIS, x-binaryenc, EUC-KR
+            } else
                 Log.e("compact_enc_det result=" + detected);
 
             return Charset.forName(detected.charset);
