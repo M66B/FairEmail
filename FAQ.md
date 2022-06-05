@@ -4266,11 +4266,13 @@ please see [here](https://github.com/disconnectme/disconnect-tracking-protection
 Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed.
 Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
 
-Since version 1.1601 it is possible to disable confirmation of permanent deletion of individual messages.
+Please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86984471) for more background information.
+
+Since version 1.1601 it is possible to disable confirmation of permanent deletion of individual messages after reading a big warning.
 
 Note that the POP3 protocol can download messages from the inbox only.
 So, deleted messages cannot be uploaded to the inbox again.
-This means that messages can only be permanently deleted when using a POP3 account.
+This means that messages can only be permanently deleted in case of a POP3 account.
 
 Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable
 because both email servers and not all people can handle this, risking unexpected loss of messages.
