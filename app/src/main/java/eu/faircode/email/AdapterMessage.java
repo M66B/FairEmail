@@ -5231,6 +5231,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionMove(TupleMessageEx message, final boolean copy, long account, long[] disabled) {
+            if (parentFragment == null)
+                return;
+
             Bundle args = new Bundle();
             args.putString("title", context.getString(copy ? R.string.title_copy_to : R.string.title_move_to_folder));
             args.putLong("account", account);
