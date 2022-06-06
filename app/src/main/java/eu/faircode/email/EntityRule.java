@@ -611,7 +611,7 @@ public class EntityRule {
         List<EntityMessage> messages = db.message().getMessagesByThread(
                 message.account, message.thread, thread ? null : message.id, message.folder);
         for (EntityMessage threaded : messages)
-            EntityOperation.queue(context, threaded, EntityOperation.MOVE, target, seen);
+            EntityOperation.queue(context, threaded, EntityOperation.MOVE, target, seen, null, true);
 
         message.ui_hide = true;
 
