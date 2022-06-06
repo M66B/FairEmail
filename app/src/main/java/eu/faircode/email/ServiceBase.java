@@ -19,23 +19,16 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import android.content.BroadcastReceiver;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 
-import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleService;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 abstract class ServiceBase extends LifecycleService {
-    private List<BroadcastReceiver> registeredReceivers = new ArrayList<>();
-
     @Override
     public void onCreate() {
         Map<String, String> crumb = new HashMap<>();
@@ -63,47 +56,10 @@ abstract class ServiceBase extends LifecycleService {
     }
 
     @Override
-    public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter) {
-        registeredReceivers.add(receiver);
-        return super.registerReceiver(receiver, filter);
-    }
-
-    @Override
-    public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter, int flags) {
-        registeredReceivers.add(receiver);
-        return super.registerReceiver(receiver, filter, flags);
-    }
-
-    @Override
-    public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter, @Nullable String broadcastPermission, @Nullable Handler scheduler) {
-        registeredReceivers.add(receiver);
-        return super.registerReceiver(receiver, filter, broadcastPermission, scheduler);
-    }
-
-    @Override
-    public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter, @Nullable String broadcastPermission, @Nullable Handler scheduler, int flags) {
-        registeredReceivers.add(receiver);
-        return super.registerReceiver(receiver, filter, broadcastPermission, scheduler, flags);
-    }
-
-    @Override
-    public void unregisterReceiver(BroadcastReceiver receiver) {
-        super.unregisterReceiver(receiver);
-        registeredReceivers.remove(receiver);
-    }
-
-    @Override
     public void onDestroy() {
         Map<String, String> crumb = new HashMap<>();
         crumb.put("state", "destroy");
         Log.breadcrumb(this.getClass().getSimpleName(), crumb);
-
-        Log.i(this.getClass() + " receivers leaking=" + registeredReceivers.size());
-        for (BroadcastReceiver receiver : registeredReceivers) {
-            Log.e(this.getClass() + " receiver leaking class=" + receiver.getClass());
-            unregisterReceiver(receiver);
-        }
-        registeredReceivers.clear();
 
         super.onDestroy();
     }

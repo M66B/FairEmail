@@ -21,11 +21,9 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.app.ActivityManager;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -79,7 +77,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     private boolean visible;
     private boolean contacts;
     private List<IKeyPressedListener> keyPressedListeners = new ArrayList<>();
-    private List<BroadcastReceiver> registeredReceivers = new ArrayList<>();
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -351,49 +348,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     @Override
-    public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter) {
-        registeredReceivers.add(receiver);
-        return super.registerReceiver(receiver, filter);
-    }
-
-    @Override
-    public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter, int flags) {
-        registeredReceivers.add(receiver);
-        return super.registerReceiver(receiver, filter, flags);
-    }
-
-    @Override
-    public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter, @Nullable String broadcastPermission, @Nullable Handler scheduler) {
-        registeredReceivers.add(receiver);
-        return super.registerReceiver(receiver, filter, broadcastPermission, scheduler);
-    }
-
-    @Override
-    public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter, @Nullable String broadcastPermission, @Nullable Handler scheduler, int flags) {
-        registeredReceivers.add(receiver);
-        return super.registerReceiver(receiver, filter, broadcastPermission, scheduler, flags);
-    }
-
-    @Override
-    public void unregisterReceiver(BroadcastReceiver receiver) {
-        super.unregisterReceiver(receiver);
-        registeredReceivers.remove(receiver);
-    }
-
-    @Override
     protected void onDestroy() {
         Log.i("Destroy " + this.getClass().getName());
         PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
         try {
             getSupportFragmentManager().unregisterFragmentLifecycleCallbacks(lifecycleCallbacks);
-
-            Log.i(this.getClass() + " receivers leaking=" + registeredReceivers.size());
-            for (BroadcastReceiver receiver : registeredReceivers) {
-                Log.e(this.getClass() + " receiver leaking class=" + receiver.getClass());
-                unregisterReceiver(receiver);
-            }
-            registeredReceivers.clear();
-
             super.onDestroy();
             originalContext = null;
         } catch (Throwable ex) {
