@@ -1191,10 +1191,17 @@ public class Helper {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(dview)
+                .setNeutralButton(R.string.menu_faq, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Uri uri = Helper.getSupportUri(context, "Report:viewer");
+                        view(context, uri, true);
+                    }
+                })
                 .setNegativeButton(android.R.string.cancel, null);
 
         if (hasPlayStore(context) && !TextUtils.isEmpty(extension)) {
-            builder.setNeutralButton(R.string.title_no_viewer_search, new DialogInterface.OnClickListener() {
+            builder.setPositiveButton(R.string.title_no_viewer_search, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     try {
