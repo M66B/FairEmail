@@ -3968,6 +3968,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                 String type = args.getString("type");
+                boolean block = args.getBoolean("block");
                 long[] ids = args.getLongArray("ids");
                 boolean filter_archive = args.getBoolean("filter_archive");
 
