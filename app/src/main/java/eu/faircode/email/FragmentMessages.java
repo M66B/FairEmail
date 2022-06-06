@@ -6772,7 +6772,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (target.copy)
                             EntityOperation.queue(context, message, EntityOperation.COPY, target.targetFolder.id);
                         else
-                            EntityOperation.queue(context, message, EntityOperation.MOVE, target.targetFolder.id);
+                            EntityOperation.queue(context, message, EntityOperation.MOVE, target.targetFolder.id, null, null, !target.block);
 
                         if (target.block &&
                                 EntityFolder.JUNK.equals(target.targetFolder.type))
