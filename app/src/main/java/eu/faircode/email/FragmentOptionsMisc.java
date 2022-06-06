@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.UriPermission;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
@@ -193,6 +194,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnFontMap;
     private Button btnCiphers;
     private Button btnFiles;
+    private Button btnUris;
     private Button btnAllPermissions;
     private TextView tvPermissions;
 
@@ -367,6 +369,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnFontMap = view.findViewById(R.id.btnFontMap);
         btnCiphers = view.findViewById(R.id.btnCiphers);
         btnFiles = view.findViewById(R.id.btnFiles);
+        btnUris = view.findViewById(R.id.btnUris);
         btnAllPermissions = view.findViewById(R.id.btnAllPermissions);
         tvPermissions = view.findViewById(R.id.tvPermissions);
 
@@ -1410,6 +1413,35 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }.execute(FragmentOptionsMisc.this, new Bundle(), "setup:files");
+            }
+        });
+
+        btnUris.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+                List<UriPermission> permissions = v.getContext().getContentResolver().getPersistedUriPermissions();
+                for (UriPermission permission : permissions) {
+                    ssb.append(permission.getUri().toString());
+                    ssb.append('\u00a0');
+                    if (permission.isReadPermission())
+                        ssb.append("r");
+                    if (permission.isWritePermission())
+                        ssb.append("w");
+                    ssb.append('\n');
+                }
+
+                new AlertDialog.Builder(v.getContext())
+                        .setIcon(R.drawable.twotone_info_24)
+                        .setTitle(R.string.title_advanced_all_permissions)
+                        .setMessage(ssb)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Do nothing
+                            }
+                        })
+                        .show();
             }
         });
 

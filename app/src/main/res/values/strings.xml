@@ -786,6 +786,7 @@
     <string name="title_advanced_font_map" translatable="false">Font map</string>
     <string name="title_advanced_ciphers" translatable="false">Ciphers</string>
     <string name="title_advanced_files" translatable="false">Files &gt;%1$s</string>
+    <string name="title_advanced_uris" translatable="false">URIs</string>
     <string name="title_advanced_all_permissions" translatable="false">All permissions</string>
 
     <string name="title_advanced_manual_hint">If receiving messages is disabled, it is still possible to manually receive messages by pulling down the message list</string>
