@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            android:drawableTint="?attr/colorWarning"
+            android:drawableTint="@color/red"
             android:text="@string/title_no_viewer_caption"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
