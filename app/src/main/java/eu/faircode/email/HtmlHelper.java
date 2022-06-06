@@ -3268,6 +3268,8 @@ public class HtmlHelper {
                                         Uri uri = UriHelper.guessScheme(Uri.parse(href));
                                         if (UriHelper.isHyperLink(uri))
                                             ssb.append("\uD83D\uDD17"); // 🔗
+                                        // Unicode 6.0, supported since Android 4.1
+                                        // https://developer.android.com/guide/topics/resources/internationalization
                                     }
                                     setSpan(ssb, new URLSpan(href), start, ssb.length());
                                 }
