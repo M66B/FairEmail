@@ -83,7 +83,7 @@ public class WorkerCleanup extends Worker {
 
         long now = new Date().getTime();
         long last_cleanup = prefs.getLong("last_cleanup", 0);
-        if (last_cleanup + CLEANUP_INTERVAL * 3600 * 1000L > now) {
+        if (last_cleanup + 2 * CLEANUP_INTERVAL * 3600 * 1000L > now) {
             Log.i("Skip cleanup last=" + new Date(last_cleanup));
             return;
         }

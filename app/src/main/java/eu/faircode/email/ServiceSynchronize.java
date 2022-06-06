@@ -640,7 +640,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                                         "### stopped self eventId=" + eventId);
 
-                                WorkerCleanup.cleanupConditionally(ServiceSynchronize.this);
+                                WorkerCleanup.cleanupConditionally(getApplicationContext());
                             }
                         } catch (Throwable ex) {
                             Log.e(ex);
