@@ -2103,8 +2103,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                             }
 
                                                         } catch (Throwable ex) {
-                                                            if (ex instanceof OperationCanceledException)
-                                                                Log.i(folder.name, ex);
+                                                            if (ex instanceof OperationCanceledException ||
+                                                                    (ex instanceof IllegalStateException &&
+                                                                            "Folder not open".equals(ex.getMessage())))
+                                                                Log.i(folder.name, ex); // Illegal state: getMessageCount
                                                             else
                                                                 Log.e(folder.name, ex);
                                                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
