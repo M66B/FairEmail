@@ -515,6 +515,7 @@
     <string name="title_advanced_sender_hint">بیشتر فراهم‌کنندگان نشانی‌های ویرایش شده فرستنده را قبول نمی‌کنند</string>
     <string name="title_advanced_display_harmful_hint">غیرفعال کردن این گزینه شاید برای حریم شخصی شما زیان آور باشد</string>
     <string name="title_advanced_display_pin_hint">یک پین بر تایید هویت بیومتریک اولویت دارد</string>
+    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">بعضی از سرورها، یک رشته عامل کاربری ژنریک و عمومی را قبول نمی‌کنند</string>
     <string name="title_advanced_badge_hint">تنها روی راه‌اندازهای پشتیبانی‌شده در دسترس است</string>
     <string name="title_advanced_notify_action_hint">حداکثر سه کنش نشان داده خواهد شد</string>
     <string name="title_advanced_notify_manage_default_hint">برای تنظیم صدای پیش‌فرض، وغیره</string>
@@ -818,9 +819,9 @@
     <string name="title_style_mark">برجسته‌سازی</string>
     <string name="title_style_clear">پاک کردن شکل‌بندی</string>
     <string name="title_style_link">درج لینک</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">نشانی</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">عنوان</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">عنوان را بیاور</string>
+    <string name="title_style_link_address">نشانی</string>
+    <string name="title_style_link_title">عنوان</string>
+    <string name="title_style_link_metadata">عنوان را بیاور</string>
     <string name="title_style_link_metadata_remark">این عمل، عنوان را به نشانی وارد شده خواهد آورد</string>
     <string name="title_add_image">افزودن تصویر</string>
     <string name="title_add_image_inline">درج</string>

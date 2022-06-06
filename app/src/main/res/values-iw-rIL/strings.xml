@@ -719,6 +719,7 @@
     <string name="title_advanced_display_hidden_hint">יכול להוביל לטקסטים שנראים מוזר או משוכפלים</string>
     <string name="title_advanced_display_pin_hint">קוד אישי קודם על אימות ביומטרי</string>
     <string name="title_advanced_display_autolock_nav_hint">תהיה תקופת חסד של %1$d שניות</string>
+    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">חלק מהשרתים לא מקבלים מחרוזת סוכן משתמש גנרית</string>
     <string name="title_advanced_safe_browsing_hint">השרת של Google יודע אחר אילו כתובות מחפשים</string>
     <string name="title_advanced_badge_hint">זמין רק במשגרים נתמכים</string>
     <string name="title_advanced_notify_action_hint">תוצגנה שלוש פעולות לכל היותר</string>
@@ -1191,9 +1192,9 @@
     <string name="title_style_strikethrough">קו חוצה</string>
     <string name="title_style_clear">הסרת עיצוב</string>
     <string name="title_style_link">הוספת קישור</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">כתובת</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">כותרת</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">משיכת כותרת</string>
+    <string name="title_style_link_address">כתובת</string>
+    <string name="title_style_link_title">כותרת</string>
+    <string name="title_style_link_metadata">משיכת כותרת</string>
     <string name="title_style_link_metadata_remark">פעולה זו תמשוך את הכותרת בכתובת שמולאה</string>
     <string name="title_add_image">הוספת תמונה</string>
     <string name="title_add_image_inline">הוספה</string>

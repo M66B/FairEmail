@@ -696,6 +696,7 @@
     <string name="title_advanced_display_hidden_hint">Ενδέχεται να προκαλέσει προβλήματα προβολής ή διπλά κείμενα</string>
     <string name="title_advanced_display_pin_hint">Ένα PIN έχει προτεραιότητα έναντι της βιομετρικής ταυτοποίησης</string>
     <string name="title_advanced_display_autolock_nav_hint">Θα υπάρχει μια \"περίοδος χάριτος\" %1$d δευτερολέπτων</string>
+    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Ορισμένοι διακομιστές δεν δέχονται ένα γενικό αναγνωριστικό πράκτορα χρήστη</string>
     <string name="title_advanced_safe_browsing_hint">Ο διακομιστής Google γνωρίζει ποιες διευθύνσεις αναζητούνται</string>
     <string name="title_advanced_badge_hint">Διαθέσιμο μόνο σε launcher που υποστηρίζονται</string>
     <string name="title_advanced_notify_action_hint">Θα προβάλλονται, το μέγιστο, τρεις ενέργειες</string>
@@ -1165,9 +1166,9 @@
     <string name="title_style_strikethrough">Διακριτή διαγραφή</string>
     <string name="title_style_clear">Εκκαθάριση μορφοποίησης</string>
     <string name="title_style_link">Εισαγωγή συνδέσμου</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Διεύθυνση</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Τίτλος</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Ανάκτηση τίτλου</string>
+    <string name="title_style_link_address">Διεύθυνση</string>
+    <string name="title_style_link_title">Τίτλος</string>
+    <string name="title_style_link_metadata">Ανάκτηση τίτλου</string>
     <string name="title_style_link_metadata_remark">Με αυτό θα γίνει ανάκτηση του τίτλου και της εισαχθείσας διεύθυνσης</string>
     <string name="title_add_image">Προσθήκη εικόνας</string>
     <string name="title_add_image_inline">Εισαγωγή</string>

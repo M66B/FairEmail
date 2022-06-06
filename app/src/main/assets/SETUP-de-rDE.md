@@ -34,7 +34,7 @@ Wenn Sie E-Mail-Adressen nachsehen, Kontaktfotos anzeigen lassen möchten usw., 
 
 ## Akku-Optimierungen einrichten, um E-Mails fortlaufend zu erhalten
 
-Bei den aktuellen Android-Versionen wird Android alle Apps zum Schlafen bringen, wenn der Bildschirm für einige Zeit ausgeschaltet ist, um die Akkunutzung zu reduzieren. Wenn Sie neue E-Mails ohne Verzögerung erhalten möchten, sollten Sie die Akkuoptimierung für FairEmail deaktivieren. Bitte auf *Verwalten* tippen und den Anweisungen folgen.
+Bei den aktuellen Android-Versionen schaltet Android Apps in den Standby-Modus, wenn der Bildschirm für einige Zeit ausgeschaltet ist, um den Akkuverbrauch zu reduzieren. Wenn Sie neue E-Mails ohne Verzögerung erhalten möchten, sollten Sie die Akkuoptimierung für FairEmail deaktivieren. Bitte auf *Verwalten* tippen und den Anweisungen folgen.
 
 ## Fragen oder Probleme
 

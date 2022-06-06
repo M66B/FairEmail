@@ -1110,7 +1110,7 @@
     <string name="title_style_strikethrough">Riscado</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir hiperligação</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Morada</string>
+    <string name="title_style_link_address">Morada</string>
     <string name="title_add_image">Adicionar imagem</string>
     <string name="title_add_image_inline">Inserir</string>
     <string name="title_add_image_attach">Anexar</string>

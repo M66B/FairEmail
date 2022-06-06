@@ -719,6 +719,7 @@
     <string name="title_advanced_display_hidden_hint">Может вызвать странное отображение и дублирование текста</string>
     <string name="title_advanced_display_pin_hint">PIN-код имеет приоритет над биометрической аутентификацией</string>
     <string name="title_advanced_display_autolock_nav_hint">Время задержки до выполнения %1$d сек.</string>
+    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Некоторые серверы не принимают типовую строку UserAgent</string>
     <string name="title_advanced_safe_browsing_hint">Сервер Google знает, какие адреса запрашиваются</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых рабочих столах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
@@ -1190,9 +1191,9 @@
     <string name="title_style_strikethrough">Зачёркнутый</string>
     <string name="title_style_clear">Очистить форматирование</string>
     <string name="title_style_link">Вставить ссылку</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Адрес</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Название</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Получить заголовок</string>
+    <string name="title_style_link_address">Адрес</string>
+    <string name="title_style_link_title">Название</string>
+    <string name="title_style_link_metadata">Получить заголовок</string>
     <string name="title_style_link_metadata_remark">Будет получен заголовок на введённый адрес</string>
     <string name="title_add_image">Добавить изображение</string>
     <string name="title_add_image_inline">Вставить</string>

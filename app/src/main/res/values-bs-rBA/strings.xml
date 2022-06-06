@@ -1181,9 +1181,9 @@
     <string name="title_style_strikethrough">Precrtano</string>
     <string name="title_style_clear">Očisti formatiranje</string>
     <string name="title_style_link">Ubaci link</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Adresa</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Naslov</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Dohvati naslov</string>
+    <string name="title_style_link_address">Adresa</string>
+    <string name="title_style_link_title">Naslov</string>
+    <string name="title_style_link_metadata">Dohvati naslov</string>
     <string name="title_style_link_metadata_remark">Ovo će dohvatiti naslov pri unesenoj adresi</string>
     <string name="title_add_image">Dodaj sliku</string>
     <string name="title_add_image_inline">Ubaci</string>

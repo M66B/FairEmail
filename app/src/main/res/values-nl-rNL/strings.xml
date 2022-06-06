@@ -697,6 +697,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_display_hidden_hint">Dit kan leiden tot vreemd uitziende en dubbele teksten</string>
     <string name="title_advanced_display_pin_hint">Een PIN code gaat voor biometrische authenticatie</string>
     <string name="title_advanced_display_autolock_nav_hint">Er zal een vrijwaringstijd van %1$d seconden zijn</string>
+    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Sommige servers accepteren geen generieke user agent string</string>
     <string name="title_advanced_safe_browsing_hint">De Google-server weet welke adressen worden opgezocht</string>
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_notify_action_hint">Er worden maximaal drie acties getoond</string>
@@ -1165,9 +1166,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_style_strikethrough">Doorhalen</string>
     <string name="title_style_clear">Opmaak wissen</string>
     <string name="title_style_link">Koppeling invoegen</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Adres</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Titel</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Titel ophalen</string>
+    <string name="title_style_link_address">Adres</string>
+    <string name="title_style_link_title">Titel</string>
+    <string name="title_style_link_metadata">Titel ophalen</string>
     <string name="title_style_link_metadata_remark">Dit zal de titel ophalen op het ingevoerde adres</string>
     <string name="title_add_image">Afbeelding toevoegen</string>
     <string name="title_add_image_inline">Invoegen</string>

@@ -119,8 +119,8 @@
     <string name="title_raw_send_thread">Размова</string>
     <string name="title_compose">Стварыць</string>
     <string name="title_send">Адправіць</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Адрас</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Назва</string>
+    <string name="title_style_link_address">Адрас</string>
+    <string name="title_style_link_title">Назва</string>
     <string name="title_legend_section_synchronize">Сінхранізаваць</string>
     <string name="title_legend_section_folders">Папкі</string>
     <string name="title_legend_section_messages">Паведамленні</string>

@@ -700,6 +700,7 @@
     <string name="title_advanced_display_hidden_hint">Questo può risultare in testi strani e doppi</string>
     <string name="title_advanced_display_pin_hint">Un PIN ha la precedenza sull\'autenticazione biometrica</string>
     <string name="title_advanced_display_autolock_nav_hint">Ci sarà una tolleranza di %1$d secondi</string>
+    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Alcuni server non accettano una stringa di user agent generico</string>
     <string name="title_advanced_safe_browsing_hint">Il server di Google sa quali indirizzi sono cercati</string>
     <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
     <string name="title_advanced_notify_action_hint">Saranno mostrate al massimo tre azioni</string>
@@ -1172,9 +1173,9 @@
     <string name="title_style_strikethrough">Barrato</string>
     <string name="title_style_clear">Cancella formattazione</string>
     <string name="title_style_link">Inserisci link</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Indirizzo</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Titolo</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Recupera titolo</string>
+    <string name="title_style_link_address">Indirizzo</string>
+    <string name="title_style_link_title">Titolo</string>
+    <string name="title_style_link_metadata">Recupera titolo</string>
     <string name="title_style_link_metadata_remark">Questo recupererà il titolo all\'indirizzo inserito</string>
     <string name="title_add_image">Aggiungi immagine</string>
     <string name="title_add_image_inline">Inserisci</string>

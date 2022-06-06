@@ -688,6 +688,7 @@
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
     <string name="title_advanced_display_pin_hint">PIN码优先于生物验证</string>
     <string name="title_advanced_display_autolock_nav_hint">将会有 %1$d 秒的宽限时间</string>
+    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">某些服务器不接受通用的 user agent 字符串</string>
     <string name="title_advanced_safe_browsing_hint">Google 服务器知道被查找的地址</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
@@ -1155,9 +1156,9 @@
     <string name="title_style_strikethrough">删除线</string>
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">地址</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">标题</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">获取标题</string>
+    <string name="title_style_link_address">地址</string>
+    <string name="title_style_link_title">标题</string>
+    <string name="title_style_link_metadata">获取标题</string>
     <string name="title_style_link_metadata_remark">这将获取输入地址的标题</string>
     <string name="title_add_image">添加图片</string>
     <string name="title_add_image_inline">插入</string>

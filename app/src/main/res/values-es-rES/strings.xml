@@ -1167,9 +1167,9 @@
     <string name="title_style_strikethrough">Tachado</string>
     <string name="title_style_clear">Quitar formato</string>
     <string name="title_style_link">Insertar enlace</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Dirección</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Título</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Obtener título</string>
+    <string name="title_style_link_address">Dirección</string>
+    <string name="title_style_link_title">Título</string>
+    <string name="title_style_link_metadata">Obtener título</string>
     <string name="title_style_link_metadata_remark">Esto obtendrá el título en la dirección introducida</string>
     <string name="title_add_image">Añadir imagen</string>
     <string name="title_add_image_inline">Insertar</string>

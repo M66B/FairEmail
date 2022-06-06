@@ -567,9 +567,9 @@
     <string name="title_style_strikethrough">취소선</string>
     <string name="title_style_clear">서식 지우기</string>
     <string name="title_style_link">링크 삽입</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">주소</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">제목</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">제목 가져오기</string>
+    <string name="title_style_link_address">주소</string>
+    <string name="title_style_link_title">제목</string>
+    <string name="title_style_link_metadata">제목 가져오기</string>
     <string name="title_style_link_metadata_remark">입력한 주소의 제목을 가져옵니다</string>
     <string name="title_add_image">사진 추가</string>
     <string name="title_add_image_inline">삽입</string>

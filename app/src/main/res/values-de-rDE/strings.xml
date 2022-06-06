@@ -186,9 +186,9 @@
     <string name="title_setup_permission_why">Welche Berechtigungen werden benötigt und warum?</string>
     <string name="title_setup_permission_import_contacts">Wie kann ich Kontakte importieren?</string>
     <string name="title_setup_doze">Akkuoptimierung deaktivieren</string>
-    <string name="title_setup_doze_remark">Um E-Mail verlässlich im Hintergrund zu senden und zu empfangen</string>
+    <string name="title_setup_doze_remark">Damit E-Mails zuverlässig im Hintergrund gesendet und empfangen werden</string>
     <string name="title_setup_doze_explanation">Akkuoptimierungen sollten für die App deaktiviert werden, um ein zuverlässiges Senden und Empfangen von Nachrichten im Hintergrund zu gewährleisten</string>
-    <string name="title_setup_doze_hint">Obwohl dies widersprüchlich klingen mag, führt das Deaktivieren der Akku-Optimierungen für diese App zu einem geringeren Akkuverbrauch</string>
+    <string name="title_setup_doze_hint">Obwohl dies widersprüchlich klingen mag, führt das Deaktivieren der Akkuoptimierung für diese App zu einem geringeren Akkuverbrauch</string>
     <string name="title_setup_doze_why">Warum sollten die Akkuoptimierungen deaktiviert werden?</string>
     <string name="title_setup_doze_instructions">Im nächsten Android-Dialog bitte »Nicht optimiert« in »Alle Apps« ändern und bei FairEmail »Nicht optimieren« auswählen</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
@@ -697,6 +697,7 @@
     <string name="title_advanced_display_hidden_hint">Dies kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
     <string name="title_advanced_display_autolock_nav_hint">Es wird eine Wartezeit von %1$d Sekunden geben</string>
+    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Einige Server akzeptieren keine generischen User-Agent-Angaben</string>
     <string name="title_advanced_safe_browsing_hint">Der Google-Server erfährt, welche Adressen nachgeschlagen werden</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
@@ -1165,9 +1166,9 @@
     <string name="title_style_strikethrough">Durchgestrichen</string>
     <string name="title_style_clear">Formatierung entfernen</string>
     <string name="title_style_link">Link einfügen</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Adresse</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Titel</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Titel abrufen</string>
+    <string name="title_style_link_address">Adresse</string>
+    <string name="title_style_link_title">Titel</string>
+    <string name="title_style_link_metadata">Titel abrufen</string>
     <string name="title_style_link_metadata_remark">Damit wird der Titel der eingegebenen Adresse abgerufen</string>
     <string name="title_add_image">Bild hinzufügen</string>
     <string name="title_add_image_inline">Einfügen</string>

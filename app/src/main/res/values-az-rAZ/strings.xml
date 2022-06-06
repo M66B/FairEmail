@@ -699,6 +699,7 @@
     <string name="title_advanced_display_hidden_hint">Bu, qəribə görünən və təkrarlanan mətnlərə səbəb ola bilər</string>
     <string name="title_advanced_display_pin_hint">PIN, biometrik kimlik təsdiqləməsindən əvvəl gəlir</string>
     <string name="title_advanced_display_autolock_nav_hint">%1$d saniyəlik əlavə bir müddət olacaq</string>
+    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Bəzi istifadəçilər ümumi istifadəçi agent sətrini qəbul etmir</string>
     <string name="title_advanced_safe_browsing_hint">Google serveri, hansı ünvanların axtarıldığını bilir</string>
     <string name="title_advanced_badge_hint">Yalnız dəstəklənən başladıcılarda əlçatandır</string>
     <string name="title_advanced_notify_action_hint">Ən çox üç əməliyyat göstəriləcək</string>
@@ -1171,9 +1172,9 @@
     <string name="title_style_strikethrough">Üstündən xətt</string>
     <string name="title_style_clear">Formatları təmizlə</string>
     <string name="title_style_link">Bağlantı daxil et</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Ünvan</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Başlıq</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Başlığı gətir</string>
+    <string name="title_style_link_address">Ünvan</string>
+    <string name="title_style_link_title">Başlıq</string>
+    <string name="title_style_link_metadata">Başlığı gətir</string>
     <string name="title_style_link_metadata_remark">Bu, daxil edilən ünvandakı başlığı gətirəcək</string>
     <string name="title_add_image">Təsvir əlavə et</string>
     <string name="title_add_image_inline">Daxil et</string>

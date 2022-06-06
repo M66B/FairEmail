@@ -708,6 +708,7 @@
     <string name="title_advanced_display_hidden_hint">Se poate ca rezultatul să arate ciudat și textul să fie dublat</string>
     <string name="title_advanced_display_pin_hint">PIN-ul are prioritate față de autentificarea biometrică</string>
     <string name="title_advanced_display_autolock_nav_hint">Va exista un timp de grație de %1$d secunde</string>
+    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Unele servere nu acceptă un șir generic de agent utilizator</string>
     <string name="title_advanced_safe_browsing_hint">Serverul Google știe ce adrese sunt căutate</string>
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
     <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>
@@ -1177,6 +1178,10 @@
     <string name="title_style_strikethrough">Tăiat</string>
     <string name="title_style_clear">Elimină toate formatările</string>
     <string name="title_style_link">Inserare legătură</string>
+    <string name="title_style_link_address">Adresă</string>
+    <string name="title_style_link_title">Titlu</string>
+    <string name="title_style_link_metadata">Obține titlul</string>
+    <string name="title_style_link_metadata_remark">Acest lucru va prelua titlul la adresa introdusă</string>
     <string name="title_add_image">Adăugare imagine</string>
     <string name="title_add_image_inline">Inserare</string>
     <string name="title_add_image_attach">Atașare</string>

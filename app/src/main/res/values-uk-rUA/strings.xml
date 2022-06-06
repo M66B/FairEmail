@@ -1188,9 +1188,9 @@
     <string name="title_style_strikethrough">Закреслений</string>
     <string name="title_style_clear">Очистити форматування</string>
     <string name="title_style_link">Вставити посилання</string>
-    <string name="title_style_link_address" comment="title_style_link_address&#10;Link address (URL=Uniform Resource Locator)">Адреса</string>
-    <string name="title_style_link_title" comment="title_style_link_title&#10;Link title">Назва</string>
-    <string name="title_style_link_metadata" comment="title_style_link_metadata&#10;Title for button to fetch link title">Отримати заголовок</string>
+    <string name="title_style_link_address">Адреса</string>
+    <string name="title_style_link_title">Назва</string>
+    <string name="title_style_link_metadata">Отримати заголовок</string>
     <string name="title_style_link_metadata_remark">Ця опція отримає заголовок на введену адресу</string>
     <string name="title_add_image">Додати зображення</string>
     <string name="title_add_image_inline">Вставити</string>
