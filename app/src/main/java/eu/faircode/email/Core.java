@@ -2961,17 +2961,11 @@ class Core {
                                     msgid + "=" + msgIdTuple.containsKey(msgid) + "/" +
                                     uidl + "=" + uidlTuple.containsKey(uidl));
 
-                            if (tuple.ui_hide) {
-                                boolean found = false;
-                                List<EntityMessage> threaded = db.message().getMessagesByThread(account.id, tuple.thread, null, null);
-                                for (EntityMessage m : threaded)
-                                    if (!m.folder.equals(folder.id) && m.received > 1654034400 /* 2022-06-01 */) {
-                                        found = true;
-                                        break;
-                                    }
-                                if (!found)
-                                    db.message().setMessageUiHide(tuple.id, false);
-                            }
+                            // Restore orphan POP3 moves
+                            if (tuple.ui_hide &&
+                                    tuple.ui_busy != null &&
+                                    tuple.ui_busy < new Date().getTime())
+                                db.message().setMessageUiHide(tuple.id, false);
 
                             if (download_eml)
                                 try {
