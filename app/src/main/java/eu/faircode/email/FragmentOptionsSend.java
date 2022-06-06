@@ -740,9 +740,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         if (uri == null) // no/silent sound
             prefs.edit().remove("sound_sent").apply();
         else {
-            if ("content".equals(uri.getScheme()))
+            if ("content".equals(uri.getScheme())) {
+                try {
+                    getContext().getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
                 prefs.edit().putString("sound_sent", uri.toString()).apply();
-            else
+            } else
                 prefs.edit().remove("sound_sent").apply();
         }
     }

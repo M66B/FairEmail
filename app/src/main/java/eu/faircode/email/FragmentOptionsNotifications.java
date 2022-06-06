@@ -730,9 +730,14 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         if (uri == null) // silent sound
             prefs.edit().putString("sound", "").apply();
         else {
-            if ("content".equals(uri.getScheme()))
+            if ("content".equals(uri.getScheme())) {
+                try {
+                    getContext().getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
                 prefs.edit().putString("sound", uri.toString()).apply();
-            else
+            } else
                 prefs.edit().remove("sound").apply();
         }
     }
