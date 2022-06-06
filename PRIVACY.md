@@ -8,8 +8,7 @@ First of all, FairEmail's main goal is to help you protect your privacy.
 What follows is a complete overview of all the data that **can be** sent to the internet,
 which in the end is always your choice and therefore optional (except of course connecting to the email server).
 
-FairEmail works without sending data to servers operated by the developer,
-which means that the developer cannot see, collect or otherwise control your data.
+Except for error reports (disabled by default), the app does not send any data to the developer.
 
 ## Overview
 
@@ -146,12 +145,7 @@ The data subject's data is sent to and processed by sub-processors if and only i
 
 The sub-processors are:
 
-* [ipinfo.io](https://ipinfo.io/) &#8211; [Privacy policy](https://ipinfo.io/privacy-policy)
-* [Spamhaus](https://www.spamhaus.org/) &#8211; [Privacy policy](https://www.spamhaus.org/organization/privacy/)
-* [Spamcop](https://www.spamcop.net/) &#8211; [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
-* [Barracuda](https://www.barracudacentral.org/rbl/how-to-use) &#8211; [Privacy policy](https://www.barracuda.com/company/legal/trust-center/data-privacy/privacy-policy)
-* [Thunderbird autoconfiguration](https://wiki.mozilla.org/Thunderbird:Autoconfiguration) &#8211; [Privacy policy](https://www.mozilla.org/privacy/)
-* [LanguageTool](https://languagetool.org/) &#8211; [Privacy policy](https://languagetool.org/legal/privacy)
+* [Bugsnag](https://www.bugsnag.com/) &#8211; [Privacy policy](https://docs.bugsnag.com/legal/privacy-policy/)
 
 ### V. Permissions
 
