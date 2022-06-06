@@ -7244,6 +7244,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return true;
             }
 
+            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                return true;
+
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean collapse_multiple = prefs.getBoolean("collapse_multiple", true);
 
