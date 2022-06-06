@@ -21,15 +21,19 @@ package eu.faircode.email;
 
 import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
@@ -240,7 +244,36 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getSupportFragmentManager(), ex);
+                    // Log.unexpectedError() won't work here
+                    Log.e(ex);
+
+                    LayoutInflater inflater = LayoutInflater.from(ActivityMain.this);
+                    View dview = inflater.inflate(R.layout.dialog_unexpected, null);
+                    TextView tvError = dview.findViewById(R.id.tvError);
+
+                    String message = Log.formatThrowable(ex, false);
+                    tvError.setText(message);
+
+                    new AlertDialog.Builder(ActivityMain.this)
+                            .setView(dview)
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .setNeutralButton(R.string.menu_faq, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Uri uri = Helper.getSupportUri(ActivityMain.this, "Main:error")
+                                            .buildUpon()
+                                            .appendQueryParameter("message", Log.formatThrowable(ex, false))
+                                            .build();
+                                    Helper.view(ActivityMain.this, uri, true);
+                                }
+                            })
+                            .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                @Override
+                                public void onDismiss(DialogInterface dialog) {
+                                    finish();
+                                }
+                            })
+                            .show();
                 }
             };
 

@@ -531,6 +531,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             Log.logExtras(intent);
             super.startActivity(intent);
         } catch (Throwable ex) {
+            if (this instanceof ActivityMain)
+                throw ex;
             Helper.reportNoViewer(this, intent, ex);
         }
     }
