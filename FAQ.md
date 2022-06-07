@@ -2880,7 +2880,7 @@ If the password is incorrect/expired, you will have to update the password in th
 If the account authorization has expired, you will have to select the account again.
 You will likely need to save the associated identity again as well.
 
-This error can also be the result of *accounts.google.com* being blocked for the Android account manager,
+In the case of a Gmail account the error *Invalid credentials (Failure)* can be the result of *accounts.google.com* being blocked for the Android account manager,
 for example due to using a VPN, firewall, ad blocker, or similar.
 So, try to disable all VPN based apps and or allow this address.
 
