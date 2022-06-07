@@ -2882,7 +2882,7 @@ You will likely need to save the associated identity again as well.
 
 This error can also be the result of *accounts.google.com* being blocked for the Android account manager,
 for example due to using a VPN, firewall, ad blocker, or similar.
-So, try to disable all VPN based apps and or allow this address in the firewall.
+So, try to disable all VPN based apps and or allow this address.
 
 <br />
 
