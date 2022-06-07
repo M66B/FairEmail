@@ -1662,7 +1662,10 @@ public class FragmentAccount extends FragmentBase {
                                         fragment = new FragmentGmail();
                                     else if (auth == AUTH_TYPE_OAUTH)
                                         fragment = new FragmentOAuth();
-                                    else {
+                                    else if (auth == AUTH_TYPE_PASSWORD) {
+                                        onPassword();
+                                        return;
+                                    } else {
                                         Log.e("Unknown auth=" + auth);
                                         return;
                                     }
