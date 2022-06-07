@@ -2882,7 +2882,7 @@ You will likely need to save the associated identity again as well.
 
 In the case of a Gmail account the error *Invalid credentials (Failure)* can be the result of *accounts.google.com* being blocked for the Android account manager,
 for example due to using a VPN, firewall, ad blocker, or similar.
-So, try to disable all VPN based apps and or allow this address.
+So, try to disable all VPN based apps or allow this address.
 
 <br />
 
