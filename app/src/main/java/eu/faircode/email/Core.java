@@ -3019,6 +3019,8 @@ class Core {
                         message.bimi_selector = helper.getBimiSelector();
                         message.tls = helper.getTLS();
                         message.dkim = MessageHelper.getAuthentication("dkim", authentication);
+                        if (BuildConfig.DEBUG)
+                            helper.verifyDKIM(context);
                         if (Boolean.TRUE.equals(message.dkim))
                             message.dkim = helper.checkDKIMRequirements();
                         message.spf = MessageHelper.getAuthentication("spf", authentication);
@@ -4049,6 +4051,8 @@ class Core {
             message.bimi_selector = helper.getBimiSelector();
             message.tls = helper.getTLS();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
+            if (BuildConfig.DEBUG)
+                helper.verifyDKIM(context);
             if (Boolean.TRUE.equals(message.dkim))
                 message.dkim = helper.checkDKIMRequirements();
             message.spf = MessageHelper.getAuthentication("spf", authentication);
