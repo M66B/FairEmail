@@ -299,7 +299,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 for (; state.index < state.ids.size() && found < pageSize && !state.destroyed; state.index++) {
                     long id = state.ids.get(state.index);
                     EntityMessage message = db.message().getMessage(id);
-                    if (message == null)
+                    if (message == null || message.ui_hide)
                         continue;
 
                     if (criteria.with_unseen) {
