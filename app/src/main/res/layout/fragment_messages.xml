@@ -253,6 +253,7 @@
                 style="@style/Base.Widget.AppCompat.ProgressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.4"
                 android:indeterminate="true"
                 app:layout_constraintBottom_toBottomOf="@id/rvMessage"
                 app:layout_constraintEnd_toEndOf="@id/rvMessage"
