@@ -698,7 +698,7 @@
     <string name="title_advanced_display_hidden_hint">Isso pode resultar em textos estranhos e duplos</string>
     <string name="title_advanced_display_pin_hint">Um PIN tem precedência sobre a autenticação de dados biométricos</string>
     <string name="title_advanced_display_autolock_nav_hint">Haverá um tempo de tolerância de %1$d segundos</string>
-    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Alguns servidores não aceitam a linha genérica de agente do usuário</string>
+    <string name="title_advanced_user_agent_hint">Alguns servidores não aceitam a linha genérica de agente do usuário</string>
     <string name="title_advanced_safe_browsing_hint">O servidor do Google reconhece quais endereços estão sendo procurados</string>
     <string name="title_advanced_badge_hint">Disponível somente em lançadores suportados</string>
     <string name="title_advanced_notify_action_hint">No máximo três ações serão mostradas</string>

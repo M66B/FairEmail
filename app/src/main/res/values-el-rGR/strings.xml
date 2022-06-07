@@ -82,6 +82,10 @@
         Ο αποκλεισμός ενός τομέα αποστολέα χρησιμοποιεί κανόνες φιλτραρίσματος, κάτι που αποτελεί δυνατότητα της έκδοσης Pro.
     </string>
     <string name="title_blocked_senders">Αποκλεισμένοι αποστολείς</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Αποκλεισμός αποστολέα του %1$s μηνύματος;</item>
+        <item quantity="other">Αποκλεισμός αποστολέα των %1$s μηνυμάτων;</item>
+    </plurals>
     <string name="title_junk_filter">Χρήση τοπικού φίλτρου ανεπιθ. αλληλογραφίας</string>
     <string name="title_junk_filter_hint">Αυτό μπορεί να αυξήσει τη χρήση της μπαταρίας και εσφαλμένα να επισημαίνει μηνύματα ως ανεπιθύμητα</string>
     <string name="title_junk_blocklist">Χρήση λιστών αποκλεισμού Ανεπιθύμητων</string>
@@ -696,7 +700,7 @@
     <string name="title_advanced_display_hidden_hint">Ενδέχεται να προκαλέσει προβλήματα προβολής ή διπλά κείμενα</string>
     <string name="title_advanced_display_pin_hint">Ένα PIN έχει προτεραιότητα έναντι της βιομετρικής ταυτοποίησης</string>
     <string name="title_advanced_display_autolock_nav_hint">Θα υπάρχει μια \"περίοδος χάριτος\" %1$d δευτερολέπτων</string>
-    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Ορισμένοι διακομιστές δεν δέχονται ένα γενικό αναγνωριστικό πράκτορα χρήστη</string>
+    <string name="title_advanced_user_agent_hint">Ορισμένοι διακομιστές δεν δέχονται ένα γενικό αναγνωριστικό πράκτορα χρήστη</string>
     <string name="title_advanced_safe_browsing_hint">Ο διακομιστής Google γνωρίζει ποιες διευθύνσεις αναζητούνται</string>
     <string name="title_advanced_badge_hint">Διαθέσιμο μόνο σε launcher που υποστηρίζονται</string>
     <string name="title_advanced_notify_action_hint">Θα προβάλλονται, το μέγιστο, τρεις ενέργειες</string>

@@ -82,6 +82,10 @@
         Afsenderdomæneblokering sker via filterregler og er en Pro-funktion.
     </string>
     <string name="title_blocked_senders">Blokerede afsender</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Blokér afsenderen af %1$s besked?</item>
+        <item quantity="other">Blokér afsenderen af %1$s beskeder?</item>
+    </plurals>
     <string name="title_junk_filter">Brug lokalt spamfilter</string>
     <string name="title_junk_filter_hint">Dette kan øge strømforbruget samt ukorrekt markere beskeder som spam</string>
     <string name="title_junk_blocklist">Brug spamblokeringslister</string>
@@ -700,7 +704,7 @@
     <string name="title_advanced_display_hidden_hint">Dette kan resultere i underligt udseende/dobbelte tekster</string>
     <string name="title_advanced_display_pin_hint">PIN-kode har forrang frem for biometrisk godkendelse</string>
     <string name="title_advanced_display_autolock_nav_hint">Respitperioden udgør %1$d sek</string>
-    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Nogle servere accepterer ikke en generisk brugeragentstreng</string>
+    <string name="title_advanced_user_agent_hint">Nogle servere accepterer ikke en generisk brugeragentstreng</string>
     <string name="title_advanced_safe_browsing_hint">Google-serveren ved, hvilke adresser, som bliver slået op</string>
     <string name="title_advanced_badge_hint">Kun tilgængelig i understøttede launchers</string>
     <string name="title_advanced_notify_action_hint">Maksimalt tre handlinger vises</string>

@@ -102,6 +102,12 @@
         Блокировка домена отправителя использует фильтрующие правила, которые являются функцией pro.
     </string>
     <string name="title_blocked_senders">Заблокированные отправители</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Заблокировать отправителя %1$s сообщения?</item>
+        <item quantity="few">Заблокировать отправителя %1$s сообщений?</item>
+        <item quantity="many">Заблокировать отправителя %1$s сообщений?</item>
+        <item quantity="other">Заблокировать отправителя %1$s сообщений?</item>
+    </plurals>
     <string name="title_junk_filter">Использовать локальный фильтр спама</string>
     <string name="title_junk_filter_hint">Может увеличить расход заряда батареи и неправильно помечать сообщения как спам</string>
     <string name="title_junk_blocklist">Использовать списки блокировки спама</string>
@@ -719,7 +725,7 @@
     <string name="title_advanced_display_hidden_hint">Может вызвать странное отображение и дублирование текста</string>
     <string name="title_advanced_display_pin_hint">PIN-код имеет приоритет над биометрической аутентификацией</string>
     <string name="title_advanced_display_autolock_nav_hint">Время задержки до выполнения %1$d сек.</string>
-    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Некоторые серверы не принимают типовую строку UserAgent</string>
+    <string name="title_advanced_user_agent_hint">Некоторые серверы не принимают типовую строку UserAgent</string>
     <string name="title_advanced_safe_browsing_hint">Сервер Google знает, какие адреса запрашиваются</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых рабочих столах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>

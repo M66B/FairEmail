@@ -719,7 +719,7 @@
     <string name="title_advanced_display_hidden_hint">יכול להוביל לטקסטים שנראים מוזר או משוכפלים</string>
     <string name="title_advanced_display_pin_hint">קוד אישי קודם על אימות ביומטרי</string>
     <string name="title_advanced_display_autolock_nav_hint">תהיה תקופת חסד של %1$d שניות</string>
-    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">חלק מהשרתים לא מקבלים מחרוזת סוכן משתמש גנרית</string>
+    <string name="title_advanced_user_agent_hint">חלק מהשרתים לא מקבלים מחרוזת סוכן משתמש גנרית</string>
     <string name="title_advanced_safe_browsing_hint">השרת של Google יודע אחר אילו כתובות מחפשים</string>
     <string name="title_advanced_badge_hint">זמין רק במשגרים נתמכים</string>
     <string name="title_advanced_notify_action_hint">תוצגנה שלוש פעולות לכל היותר</string>

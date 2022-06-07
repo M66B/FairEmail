@@ -72,6 +72,9 @@
         屏蔽发件人域使用过滤规则，这是一个高级功能。
     </string>
     <string name="title_blocked_senders">屏蔽的发件人</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="other">屏蔽 %1$s 封邮件的发件人？</item>
+    </plurals>
     <string name="title_junk_filter">使用本地垃圾邮件过滤器</string>
     <string name="title_junk_filter_hint">这可能会增加耗电量和将邮件误标为垃圾邮件</string>
     <string name="title_junk_blocklist">使用垃圾邮件拦截列表</string>
@@ -688,7 +691,7 @@
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
     <string name="title_advanced_display_pin_hint">PIN码优先于生物验证</string>
     <string name="title_advanced_display_autolock_nav_hint">将会有 %1$d 秒的宽限时间</string>
-    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">某些服务器不接受通用的 user agent 字符串</string>
+    <string name="title_advanced_user_agent_hint">某些服务器不接受通用的 user agent 字符串</string>
     <string name="title_advanced_safe_browsing_hint">Google 服务器知道被查找的地址</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>

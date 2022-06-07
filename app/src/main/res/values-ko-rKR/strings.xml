@@ -64,6 +64,7 @@
     <string name="title_block_sender">발송자 차단</string>
     <string name="title_block_sender_domain">도메인 \'%1$s\' 차단</string>
     <string name="title_block_sender_hint">발신자를 차단하는 것은 무료 기능입니다. 발신자 도메인을 차단하는 것은 유료 기능인 필터 규칙을 사용합니다.    </string>
+    <string name="title_blocked_senders">차단한 발신자</string>
     <string name="title_junk_filter">로컬 스팸 필터 사용</string>
     <string name="title_junk_filter_hint">배터리 사용량이 증가할 수 있으며 스팸 메일로 잘못 인식할 수도 있습니다.</string>
     <string name="title_junk_blocklist">스팸 차단 목록 사용</string>

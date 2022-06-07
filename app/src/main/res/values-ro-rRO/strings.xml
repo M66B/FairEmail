@@ -92,6 +92,11 @@
         Blocarea unui domeniu de expeditor utilizează reguli de filtrare, ceea ce reprezintă o caracteristică profesională.
     </string>
     <string name="title_blocked_senders">Expeditori blocați</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Blochează expeditorul a %1$s mesaj?</item>
+        <item quantity="few">Blochează expeditorul a %1$s mesaje?</item>
+        <item quantity="other">Blochează expeditorul a %1$s de mesaje?</item>
+    </plurals>
     <string name="title_junk_filter">Utilizați filtrul de spam local</string>
     <string name="title_junk_filter_hint">Acest lucru poate crește utilizarea bateriei și marchează incorect mesajele ca spam</string>
     <string name="title_junk_blocklist">Utilizați listele de blocare a spam-ului</string>
@@ -708,7 +713,7 @@
     <string name="title_advanced_display_hidden_hint">Se poate ca rezultatul să arate ciudat și textul să fie dublat</string>
     <string name="title_advanced_display_pin_hint">PIN-ul are prioritate față de autentificarea biometrică</string>
     <string name="title_advanced_display_autolock_nav_hint">Va exista un timp de grație de %1$d secunde</string>
-    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Unele servere nu acceptă un șir generic de agent utilizator</string>
+    <string name="title_advanced_user_agent_hint">Unele servere nu acceptă un șir generic de agent utilizator</string>
     <string name="title_advanced_safe_browsing_hint">Serverul Google știe ce adrese sunt căutate</string>
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
     <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>

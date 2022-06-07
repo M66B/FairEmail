@@ -72,6 +72,9 @@
         差出人のドメインをブロックするにはフィルタールールを使用します。これはプロ版の機能です。
     </string>
     <string name="title_blocked_senders">ブロックした差出人</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="other">%1$s 件のメッセージの差出人をブロックしますか？</item>
+    </plurals>
     <string name="title_junk_filter">ローカルの迷惑メールフィルターを使用</string>
     <string name="title_junk_filter_hint">バッテリー使用量が増加します。また、メッセージを誤って迷惑メールと判定する可能性が高まります</string>
     <string name="title_junk_blocklist">迷惑メールブロックリストを使用</string>
@@ -689,6 +692,7 @@
     <string name="title_advanced_display_hidden_hint">奇妙な見た目になったり、二重にテキストが生成される可能性があります</string>
     <string name="title_advanced_display_pin_hint">PIN を生体認証よりも優先します</string>
     <string name="title_advanced_display_autolock_nav_hint">%1$d 秒の猶予時間があります</string>
+    <string name="title_advanced_user_agent_hint">一部のサーバーは一般化されたユーザーエージェント文字列を受け付けません</string>
     <string name="title_advanced_safe_browsing_hint">Google のサーバーは、どのアドレスが検索されたか知ることができます</string>
     <string name="title_advanced_badge_hint">サポートしているランチャーでのみ利用できます</string>
     <string name="title_advanced_notify_action_hint">最大 3 つのアクションを表示できます</string>

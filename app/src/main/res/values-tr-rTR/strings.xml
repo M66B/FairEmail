@@ -81,6 +81,10 @@
     <string name="title_block_sender_hint">Bir göndereni engellemek ücretsiz bir özelliktir.
 Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurallarını kullanır.    </string>
     <string name="title_blocked_senders">Engellenmiş gönderenler</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">%1$s iletisinin göndericisi engellensin mi?</item>
+        <item quantity="other">%1$s iletisinin göndericisi engellensin mi?</item>
+    </plurals>
     <string name="title_junk_filter">Yerel spam filtreleri</string>
     <string name="title_junk_filter_hint">Bu, pil kullanımını artırabilir ve iletileri yanlış olarak spam işaretleyebilir</string>
     <string name="title_junk_blocklist">Spam engelleme listelerini kullan</string>
@@ -697,7 +701,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_display_hidden_hint">Bu tuhaf görünümlü ve tekrarlanmış metinlere neden olabilir</string>
     <string name="title_advanced_display_pin_hint">PIN, biyometrik kimlik doğrulamasından önceliklidir</string>
     <string name="title_advanced_display_autolock_nav_hint">%1$d saniyelik bir ek süre olacak</string>
-    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Bazı sunucular, genel bir kullanıcı aracısı dizesini kabul etmez</string>
+    <string name="title_advanced_user_agent_hint">Bazı sunucular, genel bir kullanıcı aracısı dizesini kabul etmez</string>
     <string name="title_advanced_safe_browsing_hint">Google sunucusu hangi adreslerin arandığını bilir</string>
     <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>
     <string name="title_advanced_notify_action_hint">En fazla üç eylem gösterilecek</string>

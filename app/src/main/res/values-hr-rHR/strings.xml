@@ -710,7 +710,7 @@
     <string name="title_advanced_display_hidden_hint">Ovo može rezultirati čudnim izgledom i dvostrukim tekstovima</string>
     <string name="title_advanced_display_pin_hint">PIN ima prednost nad biometrijskom autentifikacijom</string>
     <string name="title_advanced_display_autolock_nav_hint">Bit će vrijeme odgode od %1$d sekunde/i</string>
-    <string name="title_advanced_user_agent_hint" comment="title_advanced_user_agent_hint&#10;https://en.wikipedia.org/wiki/User_agent">Neki poslužitelji ne prihvaćaju generički niz korisničkog agenta</string>
+    <string name="title_advanced_user_agent_hint">Neki poslužitelji ne prihvaćaju generički niz korisničkog agenta</string>
     <string name="title_advanced_safe_browsing_hint">Google poslužitelj zna koje se adrese traže</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim lanserima</string>
     <string name="title_advanced_notify_action_hint">Prikazat će se najviše tri akcije</string>
