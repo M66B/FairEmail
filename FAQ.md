@@ -665,23 +665,23 @@ tap on *Accounts*, tap on the account and tap on the pencil icon after the passw
 
 ~~*Enable "Less secure apps"*~~
 
-**Important**: using this method is not recommended because it is less reliable.
+~~**Important**: using this method is not recommended because it is less reliable.~~
 
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+~~**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).~~
 
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps"
-or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+~~See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps"~~
+~~or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).~~
 
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+~~If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).~~
 
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+~~Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.~~
 
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway.
-Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+~~If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway.~~
+~~Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.~~
 
-When "less secure apps" is not enabled,
-you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP)
-and *Username and Password not accepted* for identities (SMTP).
+~~When "less secure apps" is not enabled,~~
+~~you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP)~~
+~~and *Username and Password not accepted* for identities (SMTP).~~
 
 <br />
 
