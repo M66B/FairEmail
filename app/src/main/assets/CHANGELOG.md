@@ -4,6 +4,12 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### 1.1907 - 2022-06-07
+
+* Fixed deleted POP3 messages reappearing
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1906 - 2022-06-06
 
 * Added POP3 swipe action to report spam / block sender
