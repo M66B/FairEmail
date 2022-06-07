@@ -3264,7 +3264,7 @@ public class HtmlHelper {
                             case "a":
                                 String href = element.attr("href");
                                 if (!TextUtils.isEmpty(href)) {
-                                    if (BuildConfig.DEBUG) {
+                                    if (false && BuildConfig.DEBUG) {
                                         Uri uri = UriHelper.guessScheme(Uri.parse(href));
                                         if (UriHelper.isHyperLink(uri))
                                             ssb.append("\uD83D\uDD17"); // 🔗
