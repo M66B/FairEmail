@@ -502,6 +502,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             sb.append(value);
         }
         tvClientId.setText(sb);
+        swDisconnectImages.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
