@@ -23,6 +23,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -54,6 +55,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.imap.IMAPFolder;
 
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -287,7 +289,20 @@ public class ActivityEML extends ActivityBase {
                         Document parsed = JsoupEx.parse(html);
                         HtmlHelper.autoLink(parsed);
                         Document document = HtmlHelper.sanitizeView(context, parsed, false);
-                        result.body = HtmlHelper.fromDocument(context, document, null, null);
+                        result.body = HtmlHelper.fromDocument(context, document, new HtmlHelper.ImageGetterEx() {
+                            @Override
+                            public Drawable getDrawable(Element img) {
+                                Drawable d;
+                                if (TextUtils.isEmpty(img.attr("x-tracking")))
+                                    d = context.getDrawable(R.drawable.twotone_image_24);
+                                else {
+                                    d = context.getDrawable(R.drawable.twotone_my_location_24);
+                                    d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
+                                }
+                                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                                return d;
+                            }
+                        }, null);
                     }
 
                     int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
