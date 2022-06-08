@@ -509,11 +509,11 @@ public class FragmentOptionsEncryption extends FragmentBase
     public void onDestroyView() {
         PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
 
-        if (pgpService != null && pgpService.isBound()) {
+        if (pgpService != null) {
             Log.i("PGP unbinding");
             pgpService.unbindFromService();
+            pgpService = null;
         }
-        pgpService = null;
 
         super.onDestroyView();
     }
@@ -641,8 +641,10 @@ public class FragmentOptionsEncryption extends FragmentBase
     private void testOpenPgp(String pkg) {
         Log.i("Testing OpenPGP pkg=" + pkg);
         try {
-            if (pgpService != null && pgpService.isBound())
+            if (pgpService != null) {
                 pgpService.unbindFromService();
+                pgpService = null;
+            }
 
             tvOpenPgpStatus.setText("Connecting");
             pgpService = new OpenPgpServiceConnection(getContext(), pkg, this);
