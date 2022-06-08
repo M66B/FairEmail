@@ -190,7 +190,7 @@ public class POP3Store extends Store {
 	try {
 	    port = getPort(null);
 	} catch (EOFException eex) { 
-		throw new AuthenticationFailedException(eex.getMessage());
+		throw new AuthenticationFailedException(eex.getMessage(), eex);
 	} catch (SocketConnectException scex) {
 	    throw new MailConnectException(scex);
 	} catch (IOException ioex) { 
