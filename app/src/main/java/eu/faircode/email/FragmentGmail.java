@@ -67,6 +67,7 @@ import java.util.concurrent.TimeUnit;
 public class FragmentGmail extends FragmentBase {
     private String personal;
     private String address;
+    private boolean pop;
     private boolean update;
 
     private ViewGroup view;
@@ -77,6 +78,7 @@ public class FragmentGmail extends FragmentBase {
     private Button btnGrant;
     private TextView tvGranted;
     private EditText etName;
+    private CheckBox cbPop;
     private CheckBox cbUpdate;
     private Button btnSelect;
     private ContentLoadingProgressBar pbSelect;
@@ -98,6 +100,7 @@ public class FragmentGmail extends FragmentBase {
         Bundle args = getArguments();
         personal = args.getString("personal");
         address = args.getString("address");
+        pop = args.getBoolean("pop", false);
         update = args.getBoolean("update", true);
     }
 
@@ -116,6 +119,7 @@ public class FragmentGmail extends FragmentBase {
         btnGrant = view.findViewById(R.id.btnGrant);
         tvGranted = view.findViewById(R.id.tvGranted);
         etName = view.findViewById(R.id.etName);
+        cbPop = view.findViewById(R.id.cbPop);
         cbUpdate = view.findViewById(R.id.cbUpdate);
         btnSelect = view.findViewById(R.id.btnSelect);
         pbSelect = view.findViewById(R.id.pbSelect);
@@ -203,6 +207,7 @@ public class FragmentGmail extends FragmentBase {
         Helper.setViewsEnabled(view, false);
         tvTitle.setText(getString(R.string.title_setup_oauth_rationale, "Gmail"));
         etName.setText(personal);
+        cbPop.setChecked(pop);
         cbUpdate.setChecked(update);
         pbSelect.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
@@ -262,6 +267,7 @@ public class FragmentGmail extends FragmentBase {
         }
 
         etName.setEnabled(granted);
+        cbPop.setEnabled(granted);
         cbUpdate.setEnabled(granted);
         btnSelect.setEnabled(granted);
 
@@ -374,6 +380,7 @@ public class FragmentGmail extends FragmentBase {
 
         Bundle args = new Bundle();
         args.putString("name", etName.getText().toString().trim());
+        args.putBoolean("pop", cbPop.isChecked());
         args.putBoolean("update", cbUpdate.isChecked());
         args.putString("user", user);
         args.putString("password", state.jsonSerializeString());
@@ -382,6 +389,7 @@ public class FragmentGmail extends FragmentBase {
             @Override
             protected void onPreExecute(Bundle args) {
                 etName.setEnabled(false);
+                cbPop.setEnabled(false);
                 cbUpdate.setEnabled(false);
                 btnSelect.setEnabled(false);
                 pbSelect.setVisibility(View.VISIBLE);
@@ -390,6 +398,7 @@ public class FragmentGmail extends FragmentBase {
             @Override
             protected void onPostExecute(Bundle args) {
                 etName.setEnabled(true);
+                cbPop.setEnabled(true);
                 cbUpdate.setEnabled(true);
                 btnSelect.setEnabled(true);
                 pbSelect.setVisibility(View.GONE);
@@ -398,6 +407,7 @@ public class FragmentGmail extends FragmentBase {
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 String name = args.getString("name");
+                boolean pop = args.getBoolean("pop");
                 String user = args.getString("user");
                 String password = args.getString("password");
 
@@ -418,21 +428,27 @@ public class FragmentGmail extends FragmentBase {
                 EmailProvider provider = EmailProvider
                         .fromDomain(context, "gmail.com", EmailProvider.Discover.ALL)
                         .get(0);
+                if (provider.pop == null)
+                    pop = false;
 
                 List<EntityFolder> folders;
 
-                String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
-                int aencryption = (provider.imap.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
-                try (EmailService iservice = new EmailService(
+                EmailProvider.Server inbound = (pop ? provider.pop : provider.imap);
+                String aprotocol = (pop ? (inbound.starttls ? "pop3" : "pop3s") : (inbound.starttls ? "imap" : "imaps"));
+                int aencryption = (inbound.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
+                try (EmailService aservice = new EmailService(
                         context, aprotocol, null, aencryption, false,
                         EmailService.PURPOSE_CHECK, true)) {
-                    iservice.connect(
-                            provider.imap.host, provider.imap.port,
+                    aservice.connect(
+                            inbound.host, inbound.port,
                             AUTH_TYPE_GMAIL, null,
                             user, password,
                             null, null);
 
-                    folders = iservice.getFolders();
+                    if (pop)
+                        folders = EntityFolder.getPopFolders(context);
+                    else
+                        folders = aservice.getFolders();
                 }
 
                 Long max_size;
@@ -450,6 +466,7 @@ public class FragmentGmail extends FragmentBase {
                 }
 
                 EntityAccount update = null;
+                int protocol = (pop ? EntityAccount.TYPE_POP : EntityAccount.TYPE_IMAP);
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -457,7 +474,7 @@ public class FragmentGmail extends FragmentBase {
                     if (args.getBoolean("update")) {
                         List<EntityAccount> accounts =
                                 db.account().getAccounts(user,
-                                        EntityAccount.TYPE_IMAP,
+                                        protocol,
                                         new int[]{AUTH_TYPE_GMAIL, AUTH_TYPE_PASSWORD});
                         if (accounts != null && accounts.size() == 1)
                             update = accounts.get(0);
@@ -469,9 +486,10 @@ public class FragmentGmail extends FragmentBase {
                         // Create account
                         EntityAccount account = new EntityAccount();
 
-                        account.host = provider.imap.host;
+                        account.protocol = protocol;
+                        account.host = inbound.host;
                         account.encryption = aencryption;
-                        account.port = provider.imap.port;
+                        account.port = inbound.port;
                         account.auth_type = AUTH_TYPE_GMAIL;
                         account.user = user;
                         account.password = password;
@@ -480,6 +498,9 @@ public class FragmentGmail extends FragmentBase {
 
                         account.synchronize = true;
                         account.primary = (primary == null);
+
+                        if (pop)
+                            account.max_messages = EntityAccount.DEFAULT_MAX_MESSAGES;
 
                         account.created = new Date().getTime();
                         account.last_connected = account.created;
@@ -502,11 +523,16 @@ public class FragmentGmail extends FragmentBase {
                         }
 
                         // Set swipe left/right folder
-                        for (EntityFolder folder : folders)
-                            if (EntityFolder.TRASH.equals(folder.type))
-                                account.swipe_left = folder.id;
-                            else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                account.swipe_right = folder.id;
+                        if (pop) {
+                            account.swipe_left = EntityMessage.SWIPE_ACTION_DELETE;
+                            account.swipe_right = EntityMessage.SWIPE_ACTION_SEEN;
+                        } else {
+                            for (EntityFolder folder : folders)
+                                if (EntityFolder.TRASH.equals(folder.type))
+                                    account.swipe_left = folder.id;
+                                else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                    account.swipe_right = folder.id;
+                        }
 
                         db.account().updateAccount(account);
 

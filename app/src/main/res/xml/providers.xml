@@ -16,10 +16,10 @@
             host="smtp.gmail.com"
             port="465"
             starttls="false" />
-        <!--pop
+        <pop
             host="pop.gmail.com"
             port="995"
-            starttls="false" /-->
+            starttls="false" />
         <oauth
             askAccount="true"
             authorizationEndpoint="https://accounts.google.com/o/oauth2/auth"
