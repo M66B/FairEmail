@@ -3846,6 +3846,9 @@ Moreover, from a security perspective, it is not a good idea to grant many permi
 
 You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) app to synchronize/manage your calendars/contacts.
 
+If you want to synchronize Outlook contacts and you have access to Google Workspace,
+please [see here](https://support.google.com/a/users/answer/156595) about how you can set up contact syncing.
+
 Most providers support exporting your contacts.
 Please [see here](https://support.google.com/contacts/answer/1069522) about how you can import contacts if synchronizing is not possible.
 
