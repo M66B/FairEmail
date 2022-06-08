@@ -7112,7 +7112,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         // Scroll to found text
         if (pos >= 0) {
-            int color = Helper.resolveColor(searchView.getContext(), R.attr.colorHighlight);
+            Context context = searchView.getContext();
+            int color = Helper.resolveColor(context, R.attr.colorHighlight);
             SpannableString ss = new SpannableString(searchView.getText());
             ss.setSpan(new BackgroundColorSpan(color),
                     pos, pos + query.length(), Spannable.SPAN_COMPOSING);
@@ -7124,8 +7125,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (layout != null) {
                 int line = layout.getLineForOffset(pos);
                 int y = layout.getLineTop(line);
-                int dy = searchView.getContext().getResources()
-                        .getDimensionPixelSize(R.dimen.search_in_text_margin);
+                int dy = context.getResources().getDimensionPixelSize(R.dimen.search_in_text_margin);
 
                 View itemView = rvMessage.findContainingItemView(searchView);
                 if (itemView != null) {
