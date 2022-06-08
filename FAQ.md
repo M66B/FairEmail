@@ -583,13 +583,13 @@ Some people ask:
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq6)
 
 >
-> **Important**: using your account password [won't be possible anymore from May 30, 2022](https://support.google.com/accounts/answer/6010255).
+> **Important: using your *account* password [won't be possible anymore from May 30, 2022](https://support.google.com/accounts/answer/6010255).**
 >
 > "*To help keep your account secure, starting May 30, 2022, ​​Google will no longer support the use of third-party apps or devices which ask you to sign in to your Google Account using only your username and password.*"
 >
 > &#x2714; If you authorized your Gmail account with the quick setup wizard or manually with an app password, your account will keep being synchronized after May 30, 2022.
 >
-> &#x274C; If you enabled *Less secure apps* in the Google account settings and authorized your Gmail account manually with your normal account password, your account can't be synchronized from May 30, 2022 anymore.
+> &#x274C; If you enabled *Less secure apps* in the Google account settings and authorized your Gmail account manually with your normal account password, your account can't be synchronized from May 30, 2022 anymore. The app will show the error **Invalid credentials (Failure)**.
 >
 > How to check:
 >
