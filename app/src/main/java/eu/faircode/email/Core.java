@@ -1630,8 +1630,9 @@ class Core {
             return;
         }
 
-        // Move from trash/drafts only
+        // Move from drafts/sent/trash+leave_delete only
         if (!EntityFolder.DRAFTS.equals(folder.type) &&
+                !EntityFolder.SENT.equals(folder.type) &&
                 !(EntityFolder.TRASH.equals(folder.type) && account.leave_deleted))
             throw new IllegalArgumentException("Invalid POP3 folder" +
                     " source=" + folder.type + " target=" + target.type +
