@@ -453,6 +453,10 @@ public class EmailService implements AutoCloseable {
             //                    "Synchronizing and configuring accounts will work again after Microsoft has fixed this.",
             //            ex.getNextException());
 
+            if (!BuildConfig.PLAY_STORE_RELEASE)
+                Log.e(ex);
+            EntityLog.log(context, ex + "\n" + android.util.Log.getStackTraceString(ex));
+
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH) {
                 try {
                     authenticator.refreshToken(true);
