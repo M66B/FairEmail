@@ -486,10 +486,15 @@ class Protocol {
 		    doAuth(host, authzid, user, passwd);
 	    } catch (IOException ex) {	// should never happen, ignore
 		logger.log(Level.FINE, "AUTH " + mech + " failed", ex);
+		thrown = ex;
 	    } catch (Throwable t) {	// crypto can't be initialized?
 		logger.log(Level.FINE, "AUTH " + mech + " failed", t);
 		thrown = t;
 	    } finally {
+		if (thrown instanceof IOException) {
+			close();
+			throw (IOException) thrown;
+		}
 		if (noauthdebug && isTracing())
 		    logger.fine("AUTH " + mech + " " +
 				    (resp.ok ? "succeeded" : "failed"));
