@@ -5,6 +5,7 @@
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
 * Added searching for text in draft
+* Added OAuth for Gmail POP3 accounts
 * Small improvements and minor bug fixes
 * Updated translations
 
