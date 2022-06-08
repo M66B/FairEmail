@@ -759,6 +759,7 @@ public class FragmentOAuth extends FragmentBase {
                 Log.i("OAuth passed provider=" + provider.id);
 
                 EntityAccount update = null;
+                int protocol = (pop ? EntityAccount.TYPE_POP : EntityAccount.TYPE_IMAP);
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -766,7 +767,7 @@ public class FragmentOAuth extends FragmentBase {
                     if (args.getBoolean("update")) {
                         List<EntityAccount> accounts =
                                 db.account().getAccounts(username,
-                                        pop ? EntityAccount.TYPE_POP : EntityAccount.TYPE_IMAP,
+                                        protocol,
                                         new int[]{AUTH_TYPE_OAUTH, AUTH_TYPE_PASSWORD});
                         if (accounts != null && accounts.size() == 1)
                             update = accounts.get(0);
@@ -778,7 +779,7 @@ public class FragmentOAuth extends FragmentBase {
                         // Create account
                         EntityAccount account = new EntityAccount();
 
-                        account.protocol = (pop ? EntityAccount.TYPE_POP : EntityAccount.TYPE_IMAP);
+                        account.protocol = protocol;
                         account.host = inbound.host;
                         account.encryption = aencryption;
                         account.port = inbound.port;
@@ -799,6 +800,9 @@ public class FragmentOAuth extends FragmentBase {
                             account.poll_interval = provider.keepalive;
 
                         account.partial_fetch = provider.partial;
+
+                        if (pop)
+                            account.max_messages = EntityAccount.DEFAULT_MAX_MESSAGES;
 
                         account.created = new Date().getTime();
                         account.last_connected = account.created;
