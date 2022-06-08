@@ -49,6 +49,7 @@ import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
@@ -68,7 +69,9 @@ import android.security.KeyChain;
 import android.system.ErrnoException;
 import android.text.Editable;
 import android.text.Html;
+import android.text.Layout;
 import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -96,6 +99,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -107,6 +111,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -265,6 +270,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibReferenceEdit;
     private ImageButton ibReferenceImages;
     private View vwAnchor;
+    private TextViewAutoCompleteAction etSearch;
     private BottomNavigationView style_bar;
     private BottomNavigationView media_bar;
     private BottomNavigationView bottom_navigation;
@@ -305,6 +311,8 @@ public class FragmentCompose extends FragmentBase {
     private String[] pgpUserIds;
     private long[] pgpKeyIds;
     private long pgpSignKeyId;
+
+    private int searchIndex = 0;
 
     private static final int REDUCED_IMAGE_SIZE = 1440; // pixels
     private static final int REDUCED_IMAGE_QUALITY = 90; // percent
@@ -384,6 +392,7 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         vwAnchor = view.findViewById(R.id.vwAnchor);
+        etSearch = view.findViewById(R.id.etSearch);
         style_bar = view.findViewById(R.id.style_bar);
         media_bar = view.findViewById(R.id.media_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
@@ -947,6 +956,49 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus)
+                    endSearch();
+            }
+        });
+
+        etSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    endSearch();
+                    return true;
+                } else
+                    return false;
+            }
+        });
+
+        etSearch.setActionRunnable(new Runnable() {
+            @Override
+            public void run() {
+                performSearch(true);
+            }
+        });
+
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                performSearch(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
+            }
+        });
+
         style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -1036,6 +1088,7 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceEdit.setVisibility(View.GONE);
         ibReferenceImages.setVisibility(View.GONE);
         tvReference.setVisibility(View.GONE);
+        etSearch.setVisibility(View.GONE);
         style_bar.setVisibility(View.GONE);
         media_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
@@ -1890,6 +1943,9 @@ public class FragmentCompose extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_answer_create) {
             onMenuAnswerCreate();
+            return true;
+        } else if (itemId == R.id.title_search_in_text) {
+            startSearch();
             return true;
         } else if (itemId == R.id.menu_clear) {
             StyleHelper.apply(R.id.menu_clear, getViewLifecycleOwner(), null, etBody);
@@ -6923,6 +6979,80 @@ public class FragmentCompose extends FragmentBase {
             pos += lines[i].length() + 1;
         }
         return -1;
+    }
+
+    private void startSearch() {
+        etSearch.setText(null);
+        etSearch.setVisibility(View.VISIBLE);
+        etSearch.requestFocus();
+        Helper.showKeyboard(etSearch);
+    }
+
+    private void endSearch() {
+        Helper.hideKeyboard(etSearch);
+        etSearch.setVisibility(View.GONE);
+        clearSearch();
+    }
+
+    private void performSearch(boolean next) {
+        clearSearch();
+
+        searchIndex = (next ? searchIndex + 1 : 1);
+        String query = etSearch.getText().toString().toLowerCase();
+        String text = etBody.getText().toString().toLowerCase();
+
+        int pos = -1;
+        for (int i = 0; i < searchIndex; i++)
+            pos = (pos < 0 ? text.indexOf(query) : text.indexOf(query, pos + 1));
+
+        // Wrap around
+        if (pos < 0 && searchIndex > 1) {
+            searchIndex = 1;
+            pos = text.indexOf(query);
+        }
+
+        // Scroll to found text
+        if (pos >= 0) {
+            Context context = etBody.getContext();
+            int color = Helper.resolveColor(context, R.attr.colorHighlight);
+            SpannableString ss = new SpannableString(etBody.getText());
+            ss.setSpan(new BackgroundColorSpan(color),
+                    pos, pos + query.length(), Spannable.SPAN_COMPOSING);
+            ss.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE),
+                    pos, pos + query.length(), Spannable.SPAN_COMPOSING);
+            etBody.setText(ss);
+
+            Layout layout = etBody.getLayout();
+            if (layout != null) {
+                int line = layout.getLineForOffset(pos);
+                int y = layout.getLineTop(line);
+                int dy = context.getResources().getDimensionPixelSize(R.dimen.search_in_text_margin);
+
+                Rect rect = new Rect();
+                etBody.getDrawingRect(rect);
+                ScrollView scroll = view.findViewById(R.id.scroll);
+                scroll.offsetDescendantRectToMyCoords(etBody, rect);
+                scroll.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            scroll.scrollTo(0, rect.top + y - dy);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
+            }
+        }
+
+        boolean hasNext = (pos >= 0 &&
+                (text.indexOf(query) != pos ||
+                        text.indexOf(query, pos + 1) >= 0));
+        etSearch.setActionEnabled(hasNext);
+    }
+
+    private void clearSearch() {
+        etBody.clearComposingText();
     }
 
     private AdapterView.OnItemSelectedListener identitySelected = new AdapterView.OnItemSelectedListener() {

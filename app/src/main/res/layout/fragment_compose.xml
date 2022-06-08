@@ -19,6 +19,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <eu.faircode.email.ScrollViewEx
+            android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/media_bar"
@@ -561,8 +562,24 @@
             android:id="@+id/vwAnchor"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/style_bar"
+            app:layout_constraintBottom_toTopOf="@+id/etSearch"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <eu.faircode.email.TextViewAutoCompleteAction
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSeparator"
+            android:completionThreshold="2"
+            android:hint="@string/title_search_for_hint"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="6dp"
+            app:end_drawable="@drawable/twotone_fast_forward_24"
+            app:layout_constraintBottom_toTopOf="@id/style_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/style_bar"
