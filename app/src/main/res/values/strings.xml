@@ -607,8 +607,6 @@
     <string name="title_advanced_notifications_default">Default channel</string>
     <string name="title_advanced_notifications_service">Monitoring channel</string>
     <string name="title_advanced_notifications_newest_first">Show newest notifications first</string>
-    <string name="title_advanced_notifications_background">Use background service to synchronize messages</string>
-    <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
 
     <string name="title_advanced_badge">Show launcher icon with number of new messages</string>
     <string name="title_advanced_unseen_ignored">Let the number of new messages match the number of notifications</string>
@@ -640,6 +638,8 @@
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_notify_screen_on">Briefly turn on the screen for new message notifications</string>
+    <string name="title_advanced_notifications_background">Use background service to synchronize messages</string>
+    <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
     <string name="title_advanced_alert_once" translatable="false">MIUI notification sound workaround</string>
 
     <string name="title_advanced_caption_pgp" translatable="false">PGP</string>

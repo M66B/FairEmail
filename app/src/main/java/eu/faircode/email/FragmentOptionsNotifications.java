@@ -115,7 +115,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
     private final static String[] RESET_OPTIONS = new String[]{
             "notify_newest_first",
-            "background_service",
             "notify_trash", "notify_junk", "notify_block_sender", "notify_archive", "notify_move",
             "notify_reply", "notify_reply_direct",
             "notify_flag", "notify_seen", "notify_hide", "notify_snooze",
@@ -126,7 +125,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "wearable_preview",
             "notify_messaging",
             "biometrics_notify",
-            "alert_once"
+            "background_service", "alert_once"
     };
 
     @Override
