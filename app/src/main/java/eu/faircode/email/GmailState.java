@@ -83,7 +83,7 @@ public class GmailState {
                 Log.e(ex);
             }
 
-        Account account = getAccount(context, user);
+        Account account = getAccount(context, user.replace("recent:", ""));
         if (account == null)
             throw new AuthenticatorException("Account not found for " + user);
 

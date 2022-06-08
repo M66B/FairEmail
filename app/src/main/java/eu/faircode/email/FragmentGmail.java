@@ -48,6 +48,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -68,6 +69,7 @@ public class FragmentGmail extends FragmentBase {
     private String personal;
     private String address;
     private boolean pop;
+    private boolean recent;
     private boolean update;
 
     private ViewGroup view;
@@ -79,6 +81,7 @@ public class FragmentGmail extends FragmentBase {
     private TextView tvGranted;
     private EditText etName;
     private CheckBox cbPop;
+    private CheckBox cbRecent;
     private CheckBox cbUpdate;
     private Button btnSelect;
     private ContentLoadingProgressBar pbSelect;
@@ -101,6 +104,7 @@ public class FragmentGmail extends FragmentBase {
         personal = args.getString("personal");
         address = args.getString("address");
         pop = args.getBoolean("pop", false);
+        recent = args.getBoolean("recent", false);
         update = args.getBoolean("update", true);
     }
 
@@ -120,6 +124,7 @@ public class FragmentGmail extends FragmentBase {
         tvGranted = view.findViewById(R.id.tvGranted);
         etName = view.findViewById(R.id.etName);
         cbPop = view.findViewById(R.id.cbPop);
+        cbRecent = view.findViewById(R.id.cbRecent);
         cbUpdate = view.findViewById(R.id.cbUpdate);
         btnSelect = view.findViewById(R.id.btnSelect);
         pbSelect = view.findViewById(R.id.pbSelect);
@@ -149,6 +154,13 @@ public class FragmentGmail extends FragmentBase {
                 } catch (Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                 }
+            }
+        });
+
+        cbPop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                cbRecent.setVisibility(checked ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -208,6 +220,8 @@ public class FragmentGmail extends FragmentBase {
         tvTitle.setText(getString(R.string.title_setup_oauth_rationale, "Gmail"));
         etName.setText(personal);
         cbPop.setChecked(pop);
+        cbRecent.setChecked(recent);
+        cbRecent.setVisibility(pop ? View.VISIBLE : View.GONE);
         cbUpdate.setChecked(update);
         pbSelect.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
@@ -268,6 +282,7 @@ public class FragmentGmail extends FragmentBase {
 
         etName.setEnabled(granted);
         cbPop.setEnabled(granted);
+        cbRecent.setEnabled(granted);
         cbUpdate.setEnabled(granted);
         btnSelect.setEnabled(granted);
 
@@ -381,6 +396,7 @@ public class FragmentGmail extends FragmentBase {
         Bundle args = new Bundle();
         args.putString("name", etName.getText().toString().trim());
         args.putBoolean("pop", cbPop.isChecked());
+        args.putBoolean("recent", cbRecent.isChecked());
         args.putBoolean("update", cbUpdate.isChecked());
         args.putString("user", user);
         args.putString("password", state.jsonSerializeString());
@@ -390,6 +406,7 @@ public class FragmentGmail extends FragmentBase {
             protected void onPreExecute(Bundle args) {
                 etName.setEnabled(false);
                 cbPop.setEnabled(false);
+                cbRecent.setEnabled(false);
                 cbUpdate.setEnabled(false);
                 btnSelect.setEnabled(false);
                 pbSelect.setVisibility(View.VISIBLE);
@@ -399,6 +416,7 @@ public class FragmentGmail extends FragmentBase {
             protected void onPostExecute(Bundle args) {
                 etName.setEnabled(true);
                 cbPop.setEnabled(true);
+                cbRecent.setEnabled(true);
                 cbUpdate.setEnabled(true);
                 btnSelect.setEnabled(true);
                 pbSelect.setVisibility(View.GONE);
@@ -408,6 +426,7 @@ public class FragmentGmail extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 String name = args.getString("name");
                 boolean pop = args.getBoolean("pop");
+                boolean recent = args.getBoolean("recent");
                 String user = args.getString("user");
                 String password = args.getString("password");
 
@@ -424,6 +443,9 @@ public class FragmentGmail extends FragmentBase {
 
                 int at = user.indexOf('@');
                 String username = user.substring(0, at);
+
+                if (pop && recent)
+                    user = "recent:" + user;
 
                 EmailProvider provider = EmailProvider
                         .fromDomain(context, "gmail.com", EmailProvider.Discover.ALL)
