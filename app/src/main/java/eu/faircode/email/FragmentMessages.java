@@ -4732,7 +4732,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private boolean checkGmail() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (prefs.getBoolean("gmail_checked", false))
             return false;
 
@@ -4744,6 +4745,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         cal.set(Calendar.DAY_OF_MONTH, 30);
         cal.set(Calendar.MONTH, Calendar.MAY);
         cal.set(Calendar.YEAR, 2022);
+
+        if (Helper.getInstallTime(context) > cal.getTimeInMillis()) {
+            prefs.edit().putBoolean("gmail_checked", true).apply();
+            return false;
+        }
 
         cal.add(Calendar.MONTH, 2);
 
@@ -4812,7 +4818,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (!BuildConfig.DEBUG)
             return false;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (prefs.getBoolean("outlook_checked", false))
             return false;
 
@@ -4824,6 +4831,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         cal.set(Calendar.DAY_OF_MONTH, 1);
         cal.set(Calendar.MONTH, Calendar.OCTOBER);
         cal.set(Calendar.YEAR, 2022);
+
+        if (Helper.getInstallTime(context) > cal.getTimeInMillis()) {
+            prefs.edit().putBoolean("outlook_checked", true).apply();
+            return false;
+        }
 
         cal.add(Calendar.MONTH, 2);
 
