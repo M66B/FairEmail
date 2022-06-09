@@ -704,8 +704,6 @@ public class FragmentSetup extends FragmentBase {
         grpDataSaver.setVisibility(View.GONE);
         tvStamina.setVisibility(View.GONE);
 
-        setGrantedPermissions();
-
         return view;
     }
 
@@ -803,6 +801,9 @@ public class FragmentSetup extends FragmentBase {
             ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
             cm.registerDefaultNetworkCallback(networkCallback);
         }
+
+        // Permissions
+        setGrantedPermissions();
 
         // Doze
         boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(getContext()));
@@ -969,6 +970,33 @@ public class FragmentSetup extends FragmentBase {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         setGrantedPermissions();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+
+        int denied = 0;
+        for (int i = 0; i < Math.min(permissions.length, grantResults.length); i++) {
+            String key = "requested." + permissions[i];
+
+            if (grantResults[i] == PackageManager.PERMISSION_DENIED &&
+                    grantResults[i] == prefs.getInt(key, PackageManager.PERMISSION_GRANTED))
+                denied++;
+
+            if (grantResults[i] == PackageManager.PERMISSION_GRANTED &&
+                    Manifest.permission.READ_CONTACTS.equals(permissions[i]))
+                ContactInfo.init(getContext().getApplicationContext());
+
+            editor.putInt(key, grantResults[i]);
+        }
+
+        editor.apply();
+
+        if (denied > 0) {
+            Intent settings = new Intent(
+                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                    Uri.parse("package:" + BuildConfig.APPLICATION_ID));
+            startActivity(settings);
+        }
     }
 
     private List<String> getDesiredPermissions() {
@@ -984,9 +1012,6 @@ public class FragmentSetup extends FragmentBase {
         for (String permission : getDesiredPermissions())
             if (hasPermission(permission))
                 granted.add(permission);
-
-        if (granted.contains(Manifest.permission.READ_CONTACTS))
-            ContactInfo.init(getContext().getApplicationContext());
 
         boolean all = true;
         for (String permission : getDesiredPermissions())
