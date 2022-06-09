@@ -91,6 +91,16 @@
             app:layout_constraintTop_toBottomOf="@id/etTenant" />
 
         <CheckBox
+            android:id="@+id/cbInboundOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_inbound"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTenantHint" />
+
+        <CheckBox
             android:id="@+id/cbPop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,7 +108,7 @@
             android:text="@string/title_setup_pop"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTenantHint" />
+            app:layout_constraintTop_toBottomOf="@id/cbInboundOnly" />
 
         <CheckBox
             android:id="@+id/cbUpdate"

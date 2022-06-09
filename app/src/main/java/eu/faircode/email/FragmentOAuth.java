@@ -112,6 +112,7 @@ public class FragmentOAuth extends FragmentBase {
     private EditText etName;
     private EditText etEmail;
     private EditText etTenant;
+    private CheckBox cbInboundOnly;
     private CheckBox cbPop;
     private CheckBox cbUpdate;
     private Button btnOAuth;
@@ -162,6 +163,7 @@ public class FragmentOAuth extends FragmentBase {
         etName = view.findViewById(R.id.etName);
         etEmail = view.findViewById(R.id.etEmail);
         etTenant = view.findViewById(R.id.etTenant);
+        cbInboundOnly = view.findViewById(R.id.cbInboundOnly);
         cbPop = view.findViewById(R.id.cbPop);
         cbUpdate = view.findViewById(R.id.cbUpdate);
         btnOAuth = view.findViewById(R.id.btnOAuth);
@@ -229,6 +231,7 @@ public class FragmentOAuth extends FragmentBase {
         etName.setText(personal);
         etEmail.setText(address);
         etTenant.setText(null);
+        cbInboundOnly.setChecked(false);
         cbPop.setChecked(false);
         cbUpdate.setChecked(update);
 
@@ -284,6 +287,7 @@ public class FragmentOAuth extends FragmentBase {
             etName.setEnabled(false);
             etEmail.setEnabled(false);
             etTenant.setEnabled(false);
+            cbInboundOnly.setEnabled(false);
             cbPop.setEnabled(false);
             cbUpdate.setEnabled(false);
             btnOAuth.setEnabled(false);
@@ -426,6 +430,7 @@ public class FragmentOAuth extends FragmentBase {
             etName.setEnabled(true);
             etEmail.setEnabled(true);
             etTenant.setEnabled(true);
+            cbInboundOnly.setEnabled(true);
             cbPop.setEnabled(true);
             cbUpdate.setEnabled(true);
 
@@ -513,6 +518,7 @@ public class FragmentOAuth extends FragmentBase {
         args.putBoolean("askAccount", askAccount);
         args.putString("personal", etName.getText().toString().trim());
         args.putString("address", etEmail.getText().toString().trim());
+        args.putBoolean("inbound_only", cbInboundOnly.isChecked());
         args.putBoolean("pop", cbPop.isChecked());
         args.putBoolean("update", cbUpdate.isChecked());
 
@@ -537,6 +543,7 @@ public class FragmentOAuth extends FragmentBase {
                 boolean askAccount = args.getBoolean("askAccount", false);
                 String personal = args.getString("personal");
                 String address = args.getString("address");
+                boolean inbound_only = args.getBoolean("inbound_only");
                 boolean pop = args.getBoolean("pop");
 
                 EmailProvider provider = EmailProvider.getProvider(context, id);
@@ -742,18 +749,20 @@ public class FragmentOAuth extends FragmentBase {
                         folders = aservice.getFolders();
                 }
 
-                Log.i("OAuth checking SMTP provider=" + provider.id);
-                Long max_size;
+                Long max_size = null;
+                if (!inbound_only) {
+                    Log.i("OAuth checking SMTP provider=" + provider.id);
 
-                try (EmailService iservice = new EmailService(
-                        context, iprotocol, null, iencryption, false,
-                        EmailService.PURPOSE_CHECK, true)) {
-                    iservice.connect(
-                            provider.smtp.host, provider.smtp.port,
-                            AUTH_TYPE_OAUTH, provider.id,
-                            username, state,
-                            null, null);
-                    max_size = iservice.getMaxSize();
+                    try (EmailService iservice = new EmailService(
+                            context, iprotocol, null, iencryption, false,
+                            EmailService.PURPOSE_CHECK, true)) {
+                        iservice.connect(
+                                provider.smtp.host, provider.smtp.port,
+                                AUTH_TYPE_OAUTH, provider.id,
+                                username, state,
+                                null, null);
+                        max_size = iservice.getMaxSize();
+                    }
                 }
 
                 Log.i("OAuth passed provider=" + provider.id);
@@ -839,27 +848,28 @@ public class FragmentOAuth extends FragmentBase {
                         db.account().updateAccount(account);
 
                         // Create identities
-                        for (Pair<String, String> identity : identities) {
-                            EntityIdentity ident = new EntityIdentity();
-                            ident.name = identity.second;
-                            ident.email = identity.first;
-                            ident.account = account.id;
+                        if (!inbound_only)
+                            for (Pair<String, String> identity : identities) {
+                                EntityIdentity ident = new EntityIdentity();
+                                ident.name = identity.second;
+                                ident.email = identity.first;
+                                ident.account = account.id;
 
-                            ident.host = provider.smtp.host;
-                            ident.encryption = iencryption;
-                            ident.port = provider.smtp.port;
-                            ident.auth_type = AUTH_TYPE_OAUTH;
-                            ident.provider = provider.id;
-                            ident.user = username;
-                            ident.password = state;
-                            ident.use_ip = provider.useip;
-                            ident.synchronize = true;
-                            ident.primary = ident.user.equals(ident.email);
-                            ident.max_size = max_size;
+                                ident.host = provider.smtp.host;
+                                ident.encryption = iencryption;
+                                ident.port = provider.smtp.port;
+                                ident.auth_type = AUTH_TYPE_OAUTH;
+                                ident.provider = provider.id;
+                                ident.user = username;
+                                ident.password = state;
+                                ident.use_ip = provider.useip;
+                                ident.synchronize = true;
+                                ident.primary = ident.user.equals(ident.email);
+                                ident.max_size = max_size;
 
-                            ident.id = db.identity().insertIdentity(ident);
-                            EntityLog.log(context, "OAuth identity=" + ident.name + " email=" + ident.email);
-                        }
+                                ident.id = db.identity().insertIdentity(ident);
+                                EntityLog.log(context, "OAuth identity=" + ident.name + " email=" + ident.email);
+                            }
 
                         args.putBoolean("pop", pop);
                     } else {
@@ -912,6 +922,7 @@ public class FragmentOAuth extends FragmentBase {
         etName.setEnabled(true);
         etEmail.setEnabled(true);
         etTenant.setEnabled(true);
+        cbInboundOnly.setEnabled(true);
         cbPop.setEnabled(true);
         cbUpdate.setEnabled(true);
         btnOAuth.setEnabled(true);
@@ -952,6 +963,7 @@ public class FragmentOAuth extends FragmentBase {
         etName.setEnabled(true);
         etEmail.setEnabled(true);
         etTenant.setEnabled(true);
+        cbInboundOnly.setEnabled(true);
         cbPop.setEnabled(true);
         cbUpdate.setEnabled(true);
         btnOAuth.setEnabled(true);
