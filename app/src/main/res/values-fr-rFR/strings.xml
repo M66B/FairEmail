@@ -156,6 +156,7 @@
     <string name="title_setup_accounts">Comptes</string>
     <string name="title_setup_identities">Identités</string>
     <string name="title_setup_other">Autre fournisseur</string>
+    <string name="title_setup_inbound">Courriel entrant seulement (le courriel ne peut pas être envoyé !)</string>
     <string name="title_setup_pop3">Compte POP3</string>
     <string name="title_setup_oauth_permission">Le fournisseur de messagerie a approuvé OAuth uniquement pour les versions Play Store et GitHub</string>
     <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement avec les versions Play Store et GitHub parce qu\'Android vérifie la signature numérique de l\'application</string>
@@ -188,6 +189,8 @@
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations des contacts (facultatif)</string>
     <string name="title_setup_permissions_explanation">L\'autorisation d\'accès aux contacts est requise pour rechercher des informations de contact et pour suggérer des contacts</string>
+    <string name="title_setup_permissions_notify">Pour afficher les notifications de nouveaux messages (facultatif)</string>
+    <string name="title_setup_permissions_notify_explanation">Les autorisations de notification sont requises pour afficher les notifications pour les nouveaux messages dans la barre d\'état</string>
     <string name="title_setup_permission_why">Quelles autorisations sont nécessaires et pourquoi ?</string>
     <string name="title_setup_permission_import_contacts">Comment puis-je importer des contacts ?</string>
     <string name="title_setup_doze">Désactiver les optimisations de la batterie</string>
@@ -211,6 +214,7 @@
     <string name="title_setup_still">Encore à faire</string>
     <string name="title_setup_error">Erreur</string>
     <string name="title_setup_pop">Utiliser POP3 (non recommandé)</string>
+    <string name="title_setup_recent">Utiliser « recent » pour plusieurs clients de messagerie</string>
     <string name="title_setup_configuring">Configuration du compte&#8230;</string>
     <string name="title_setup_app_password">Vous devrez éventuellement utiliser un mot de passe d\'application</string>
     <string name="title_setup_extra">Options supplémentaires</string>

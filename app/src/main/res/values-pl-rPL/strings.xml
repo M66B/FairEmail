@@ -233,7 +233,7 @@
     <string name="title_setup_still">Nadal do wykonania</string>
     <string name="title_setup_error">Błąd</string>
     <string name="title_setup_pop">Użyj POP3 (nie zalecane)</string>
-    <string name="title_setup_recent" comment="title_setup_recent&#10;This is the title for a sub option for Gmail/POP3&#10;&#10;'recent' should not be translated !!!&#10;&#10;https://support.google.com/mail/answer/7104828&#10;&#10;">Użyj \'recent\' dla wielu klientów e-mail</string>
+    <string name="title_setup_recent">Użyj \'recent\' dla wielu klientów e-mail</string>
     <string name="title_setup_configuring">Konfigurowanie konta &#8230;</string>
     <string name="title_setup_app_password">Może być konieczne użycie hasła aplikacji</string>
     <string name="title_setup_extra">Dodatkowe opcje</string>

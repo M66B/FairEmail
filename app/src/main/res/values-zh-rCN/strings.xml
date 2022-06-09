@@ -145,6 +145,7 @@
     <string name="title_setup_accounts">账户</string>
     <string name="title_setup_identities">身份</string>
     <string name="title_setup_other">其他提供商</string>
+    <string name="title_setup_inbound">仅限收到的邮件（邮件不能发送！）</string>
     <string name="title_setup_pop3">POP3 账户</string>
     <string name="title_setup_oauth_permission">电子邮件提供商仅批准了 Play 商店和 GitHub 版本使用 OAuth</string>
     <string name="title_setup_gmail_support">只有 Play 商店和 GitHub 版本才支持授权 Google 账户，因为 Android 会检查应用的数字签名</string>
@@ -200,6 +201,7 @@
     <string name="title_setup_still">仍待处理</string>
     <string name="title_setup_error">出错</string>
     <string name="title_setup_pop">使用 POP3（不推荐）</string>
+    <string name="title_setup_recent">对多个电子邮件客户端使用 \'recent\'</string>
     <string name="title_setup_configuring">正在配置账户 &#8230;</string>
     <string name="title_setup_app_password">您可能需要使用 app 密码</string>
     <string name="title_setup_extra">更多</string>

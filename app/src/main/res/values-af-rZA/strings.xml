@@ -47,6 +47,7 @@
     <string name="menu_setup">Instellings</string>
     <string name="title_disagree">I disagree</string>
     <string name="title_setup">Instellings</string>
+    <string name="title_setup_inbound">Slegs Inkommende eposse(epos kan nie gestuur word nie!)</string>
     <string name="title_importing_account">Rekening %1$s</string>
     <string name="title_importing_identity">Identiteit %1$s</string>
     <string name="title_importing_exists">Oorgeslaan: bestaan alreeds</string>

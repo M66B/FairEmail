@@ -558,6 +558,7 @@
     <string name="title_advanced_autocrypt">Autocrypt használata</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt kölcsönös mód</string>
     <string name="title_advanced_encrypt_subject">Tárgy titkosítása</string>
+    <string name="title_advanced_import_pgp">Kulcs importálása</string>
     <string name="title_advanced_sign_algo">Aláírás algoritmus</string>
     <string name="title_advanced_encrypt_algo">Titkosítási algoritmus</string>
     <string name="title_advanced_remark_algo">        Vegye figyelembe, hogy nem minden email kliens támogat minden algoritmust.
@@ -967,6 +968,7 @@
     <string name="title_button_search">Keresés üzenetekben</string>
     <string name="title_button_search_text">Keresés üzenet szövegében</string>
     <string name="title_configure_buttons">Gombok konfigurálása &#8230;</string>
+    <string name="title_quick_actions">Művelet kiválasztása</string>
     <string name="title_quick_actions_snooze">Szundi</string>
     <string name="title_trash">Kuka</string>
     <string name="title_copy">Másolás &#8230;</string>

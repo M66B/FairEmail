@@ -82,6 +82,10 @@
         Bloquear un dominio de remitente utiliza reglas de filtro, que es una característica pro.
     </string>
     <string name="title_blocked_senders">Remitentes bloqueados</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">¿Bloquear remitente de %1$s mensaje?</item>
+        <item quantity="other">¿Bloquear remitente de %1$s mensajes?</item>
+    </plurals>
     <string name="title_junk_filter">Usar filtro de spam local</string>
     <string name="title_junk_filter_hint">Esto puede aumentar el uso de la batería y marcar incorrectamente mensajes como spam</string>
     <string name="title_junk_blocklist">Usar listas de bloqueo de spam</string>
@@ -152,6 +156,7 @@
     <string name="title_setup_accounts">Cuentas</string>
     <string name="title_setup_identities">Identidades</string>
     <string name="title_setup_other">Otro proveedor</string>
+    <string name="title_setup_inbound">Sólo correo entrante (¡no se puede enviar el correo electrónico!)</string>
     <string name="title_setup_pop3">Cuenta POP3</string>
     <string name="title_setup_oauth_permission">El proveedor de correo electrónico ha aprobado OAuth sólo para las versiones de Play Store y GitHub</string>
     <string name="title_setup_gmail_support">Autorizar cuentas de Google sólo funcionará en las versiones de Play Store y GitHub porque Android comprueba la firma digital de la aplicación</string>
@@ -184,6 +189,8 @@
     <string name="title_setup_permissions">Conceder permisos</string>
     <string name="title_setup_permissions_remark">Para acceder a información de contactos (opcional)</string>
     <string name="title_setup_permissions_explanation">El permiso de contactos es necesario para buscar información de contactos y sugerirlos</string>
+    <string name="title_setup_permissions_notify">Para mostrar notificaciones de mensajes nuevos (opcional)</string>
+    <string name="title_setup_permissions_notify_explanation">Se requieren permisos de notificación para mostrar notificaciones de nuevos mensajes en la barra de estado</string>
     <string name="title_setup_permission_why">¿Qué permisos se necesitan y por qué?</string>
     <string name="title_setup_permission_import_contacts">¿Cómo puedo importar contactos?</string>
     <string name="title_setup_doze">Desactivar las optimizaciones de la batería</string>
@@ -207,6 +214,7 @@
     <string name="title_setup_still">Aún por hacer</string>
     <string name="title_setup_error">Error</string>
     <string name="title_setup_pop">Usar POP3 (no recomendado)</string>
+    <string name="title_setup_recent">Usar \'reciente\' para varios clientes de correo electrónico</string>
     <string name="title_setup_configuring">Configurando cuenta &#8230;</string>
     <string name="title_setup_app_password">Puede que necesite usar una contraseña de aplicación</string>
     <string name="title_setup_extra">Opciones adicionales</string>
@@ -698,6 +706,7 @@
     <string name="title_advanced_display_hidden_hint">Esto puede resultar en textos dobles o de apariencia extraña</string>
     <string name="title_advanced_display_pin_hint">Un PIN tiene prioridad sobre la autenticación biométrica</string>
     <string name="title_advanced_display_autolock_nav_hint">Habrá un tiempo de gracia de %1$d segundos</string>
+    <string name="title_advanced_user_agent_hint">Algunos servidores no aceptan una cadena de agente de usuario genérico</string>
     <string name="title_advanced_safe_browsing_hint">El servidor de Google sabe qué direcciones se están buscando</string>
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_notify_action_hint">Máximo 3 acciones mostradas</string>
