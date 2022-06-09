@@ -1008,14 +1008,9 @@ public class FragmentSetup extends FragmentBase {
     }
 
     private void setGrantedPermissions() {
-        List<String> granted = new ArrayList<>();
-        for (String permission : getDesiredPermissions())
-            if (hasPermission(permission))
-                granted.add(permission);
-
         boolean all = true;
         for (String permission : getDesiredPermissions())
-            if (!granted.contains(permission)) {
+            if (!hasPermission(permission)) {
                 all = false;
                 break;
             }
