@@ -579,7 +579,7 @@
                     app:layout_constraintTop_toTopOf="@id/two" />
 
                 <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvPermissions"
+                    android:id="@+id/tvContactPermissions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -587,6 +587,16 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/title2" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvNotificationPermissions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_setup_permissions_notify"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvContactPermissions" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvPermissionsDone"
@@ -610,7 +620,7 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_setup_grant"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvPermissions" />
+                    app:layout_constraintTop_toBottomOf="@id/tvNotificationPermissions" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvPermissionsWhy"

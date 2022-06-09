@@ -233,6 +233,8 @@
     <string name="title_setup_permissions">Grant permissions</string>
     <string name="title_setup_permissions_remark">To access contact information (optional)</string>
     <string name="title_setup_permissions_explanation">Contact permissions are required to look up contact info and to suggest contacts</string>
+    <string name="title_setup_permissions_notify">To show new messages notifications (optional)</string>
+    <string name="title_setup_permissions_notify_explanation">Notification permissions are required to display new message status bar notifications</string>
     <string name="title_setup_permission_why">Which permissions are needed and why?</string>
     <string name="title_setup_permission_import_contacts">How can I import contacts?</string>
     <string name="title_setup_doze">Disable battery optimizations</string>

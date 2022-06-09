@@ -46,7 +46,7 @@
             app:layout_constraintTop_toTopOf="@id/two" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvPermissions"
+            android:id="@+id/tvContactPermissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -55,6 +55,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title2" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvNotificationPermissions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_setup_permissions_notify_explanation"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvContactPermissions" />
+
         <eu.faircode.email.FixedImageView
             android:id="@+id/three"
             android:layout_width="30dp"
@@ -62,7 +72,7 @@
             android:layout_marginTop="24dp"
             android:contentDescription="3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPermissions"
+            app:layout_constraintTop_toBottomOf="@id/tvNotificationPermissions"
             app:srcCompat="@drawable/twotone_looks_3_24" />
 
         <eu.faircode.email.FixedTextView
@@ -133,7 +143,7 @@
             android:id="@+id/grp2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="two,title2,tvPermissions" />
+            app:constraint_referenced_ids="two,title2" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grp3"

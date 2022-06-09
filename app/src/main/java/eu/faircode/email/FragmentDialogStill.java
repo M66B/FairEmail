@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,8 @@ public class FragmentDialogStill extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final Context context = getContext();
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_setup, null);
+        TextView tvContactPermissions = dview.findViewById(R.id.tvContactPermissions);
+        TextView tvNotificationPermissions = dview.findViewById(R.id.tvNotificationPermissions);
         TextView tvDozeDevice = dview.findViewById(R.id.tvDozeDevice);
         TextView tvDozeAndroid12 = dview.findViewById(R.id.tvDozeAndroid12);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
@@ -68,14 +71,22 @@ public class FragmentDialogStill extends FragmentDialogBase {
             }
         });
 
-        boolean hasPermissions = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
+        boolean hasContactPermissions =
+                Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
+        boolean hasNotificationPermissions =
+                (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+                        Helper.hasPermission(context, Manifest.permission.POST_NOTIFICATIONS));
         boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(context));
         boolean canScheduleExact = AlarmManagerCompatEx.canScheduleExactAlarms(getContext());
 
+        tvContactPermissions.setVisibility(hasContactPermissions ? View.GONE : View.VISIBLE);
+        tvNotificationPermissions.setVisibility(hasNotificationPermissions ? View.GONE : View.VISIBLE);
         tvDozeDevice.setVisibility(Helper.isKilling() && !isIgnoring ? View.VISIBLE : View.GONE);
         tvDozeAndroid12.setVisibility(!canScheduleExact && !isIgnoring ? View.VISIBLE : View.GONE);
 
-        grp2.setVisibility(hasPermissions ? View.GONE : View.VISIBLE);
+        grp2.setVisibility(
+                hasContactPermissions && hasNotificationPermissions
+                        ? View.GONE : View.VISIBLE);
         grp3.setVisibility(isIgnoring ? View.GONE : View.VISIBLE);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context)

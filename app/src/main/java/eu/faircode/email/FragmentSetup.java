@@ -99,6 +99,7 @@ public class FragmentSetup extends FragmentBase {
     private TextView tvFree;
     private TextView tvNoComposable;
 
+    private TextView tvNotificationPermissions;
     private TextView tvPermissionsDone;
     private Button btnPermissions;
     private TextView tvPermissionsWhy;
@@ -176,6 +177,7 @@ public class FragmentSetup extends FragmentBase {
         tvFree = view.findViewById(R.id.tvFree);
         tvNoComposable = view.findViewById(R.id.tvNoComposable);
 
+        tvNotificationPermissions = view.findViewById(R.id.tvNotificationPermissions);
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
         btnPermissions = view.findViewById(R.id.btnPermissions);
         tvPermissionsWhy = view.findViewById(R.id.tvPermissionsWhy);
@@ -685,6 +687,9 @@ public class FragmentSetup extends FragmentBase {
         btnIdentity.setEnabled(false);
         tvNoComposable.setVisibility(View.GONE);
 
+        tvNotificationPermissions.setVisibility(
+                Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU
+                        ? View.GONE : View.VISIBLE);
         tvPermissionsDone.setText(null);
         tvPermissionsDone.setCompoundDrawables(null, null, null, null);
 

@@ -29,6 +29,7 @@ import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -486,10 +487,15 @@ public class FragmentOptions extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean setup_reminder = prefs.getBoolean("setup_reminder", true);
 
-        boolean hasPermissions = hasPermission(Manifest.permission.READ_CONTACTS);
+        boolean hasContactPermissions =
+                hasPermission(Manifest.permission.READ_CONTACTS);
+        boolean hasNotificationPermissions =
+                (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+                        hasPermission(Manifest.permission.POST_NOTIFICATIONS));
         boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(getContext()));
 
-        if (!setup_reminder || (hasPermissions && isIgnoring))
+        if (!setup_reminder ||
+                (hasContactPermissions && hasNotificationPermissions && isIgnoring))
             super.finish();
         else {
             FragmentDialogStill fragment = new FragmentDialogStill();
