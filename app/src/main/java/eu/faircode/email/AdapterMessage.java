@@ -58,6 +58,7 @@ import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -879,7 +880,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvBody = vsBody.findViewById(R.id.tvBody);
             if (BuildConfig.DEBUG && BuildCompat.isAtLeastT()) {
-                tvBody.setHyphenationFrequency(4 /* HYPHENATION_FREQUENCY_FULL_FAST */);
+                tvBody.setHyphenationFrequency(Layout.HYPHENATION_FREQUENCY_FULL_FAST);
                 tvBody.setBreakStrategy(LineBreaker.BREAK_STRATEGY_HIGH_QUALITY);
             }
             wvBody = vsBody.findViewById(R.id.wvBody);

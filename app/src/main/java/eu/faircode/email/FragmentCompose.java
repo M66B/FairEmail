@@ -3045,13 +3045,14 @@ public class FragmentCompose extends FragmentBase {
         } else {
             // https://developer.android.com/reference/android/provider/MediaStore#ACTION_PICK_IMAGES
             // Android 12: cmd device_config put storage_native_boot picker_intent_enabled true
-            Intent picker = new Intent("android.provider.action.PICK_IMAGES");
-            picker.putExtra("android.provider.extra.PICK_IMAGES_MAX", 10);
+            Intent picker = new Intent(MediaStore.ACTION_PICK_IMAGES);
             picker.setType("image/*");
-            if (BuildCompat.isAtLeastT() &&
-                    picker.resolveActivity(pm) != null)
+            if (BuildCompat.isAtLeastT() && picker.resolveActivity(pm) != null) {
+                Log.i("Using photo picker");
+                picker.putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, MediaStore.getPickImagesMaxLimit());
                 startActivityForResult(picker, REQUEST_IMAGE_FILE);
-            else {
+            } else {
+                Log.i("Using file picker");
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 intent.setType("image/*");

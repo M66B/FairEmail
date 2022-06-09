@@ -16,7 +16,7 @@ if (rootProject.file("local.properties").exists())
     localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
     namespace 'eu.faircode.email'
 
     // https://apilevels.com/
