@@ -489,8 +489,6 @@
     <string name="title_advanced_notifications">Xestionar notificacións</string>
     <string name="title_advanced_notifications_default">Canal por omisión</string>
     <string name="title_advanced_notifications_newest_first">Amosar as notificacións novas primeiro</string>
-    <string name="title_advanced_notifications_background">Usar o servizo de fondo para sincronizar as mensaxes</string>
-    <string name="title_advanced_notifications_background_hint">Un servizo de fondo pode ser detido por Android en calquera momento, pero non require unha notificación na barra de estado</string>
     <string name="title_advanced_badge">Mostrar a icona de lanzamento co número de novas mensaxes</string>
     <string name="title_advanced_unseen_ignored">Facer que o número de novas mensaxes sexa o mesmo que o de notificacións</string>
     <string name="title_advanced_notify_background">Mostrar só as notificacións cando a aplicación estea de fondo</string>
@@ -520,6 +518,8 @@
     <string name="title_advanced_light">Usar a luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar son de notificación</string>
     <string name="title_advanced_notify_screen_on">Acender brevemente a pantalla coas notificacións de nova mensaxe</string>
+    <string name="title_advanced_notifications_background">Usar o servizo de fondo para sincronizar as mensaxes</string>
+    <string name="title_advanced_notifications_background_hint">Un servizo de fondo pode ser detido por Android en calquera momento, pero non require unha notificación na barra de estado</string>
     <string name="title_advanced_confirm_links">Confirmar a apertura de ligazóns</string>
     <string name="title_advanced_check_links_dbl">Usa as listas de bloqueo de dominios cas ligazóns sospeitosas</string>
     <string name="title_advanced_browse_links">Delegar a apertura de ligazóns a Android</string>

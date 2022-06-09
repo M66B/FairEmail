@@ -320,8 +320,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_reset_importance">Restablir la importància per moure missatges</string>
     <string name="title_advanced_notifications">Gestiona les notificacions</string>
     <string name="title_advanced_notifications_default">Canal per defecte</string>
-    <string name="title_advanced_notifications_background">Utilitzeu el servei en segon pla per sincronitzar els missatges</string>
-    <string name="title_advanced_notifications_background_hint">Android pot aturar un servei de fons en qualsevol moment, però no requereix una notificació de la barra d\'estat</string>
     <string name="title_advanced_badge">Mostra la icona del llançador amb nombre de missatges nous</string>
     <string name="title_advanced_unseen_ignored">Permet que el nombre de missatges nous coincideixi amb el nombre de notificacions</string>
     <string name="title_advanced_notify_known">Mostra notificacions només per a contactes</string>
@@ -347,6 +345,8 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_biometrics_notify">Mostra el contingut de notificacions quan utilitzeu l\'autenticació biomètrica</string>
     <string name="title_advanced_light">Utilitza el led de notificacions</string>
     <string name="title_advanced_sound">Selecciona so de notificació</string>
+    <string name="title_advanced_notifications_background">Utilitzeu el servei en segon pla per sincronitzar els missatges</string>
+    <string name="title_advanced_notifications_background_hint">Android pot aturar un servei de fons en qualsevol moment, però no requereix una notificació de la barra d\'estat</string>
     <string name="title_advanced_confirm_links">Confirmeu l’obertura d’enllaços</string>
     <string name="title_advanced_browse_links">Delega obrir enllaços a Android</string>
     <string name="title_advanced_ask_images">Confirmeu la visualització d’imatges</string>

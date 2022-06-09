@@ -513,8 +513,6 @@
     <string name="title_advanced_notifications_default">デフォルトチャンネル</string>
     <string name="title_advanced_notifications_service">チャンネルをモニターしています</string>
     <string name="title_advanced_notifications_newest_first">最新の通知を最初に表示</string>
-    <string name="title_advanced_notifications_background">メッセージの同期にバックグラウンドサービスを使用</string>
-    <string name="title_advanced_notifications_background_hint">バックグラウンドサービスは Android によって停止される可能性がありますが、ステータスバーに通知が表示されなくなります</string>
     <string name="title_advanced_badge">新着メッセージの数をランチャーアイコンに表示</string>
     <string name="title_advanced_unseen_ignored">新着メッセージの数を通知の数と一致させる</string>
     <string name="title_advanced_notify_background">バックグラウンドのときのみ通知を表示</string>
@@ -544,6 +542,8 @@
     <string name="title_advanced_light">通知 LED を使用</string>
     <string name="title_advanced_sound">通知音を選択</string>
     <string name="title_advanced_notify_screen_on">画面を一時オンにして新着メッセージ通知を表示</string>
+    <string name="title_advanced_notifications_background">メッセージの同期にバックグラウンドサービスを使用</string>
+    <string name="title_advanced_notifications_background_hint">バックグラウンドサービスは Android によって停止される可能性がありますが、ステータスバーに通知が表示されなくなります</string>
     <string name="title_advanced_confirm_links">リンクを開く前に確認</string>
     <string name="title_advanced_check_links_dbl">不審なリンクがないかドメインブロックリストを確認</string>
     <string name="title_advanced_browse_links">Android の対応リンクを開く</string>

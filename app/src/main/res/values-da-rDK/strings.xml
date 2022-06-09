@@ -524,8 +524,6 @@
     <string name="title_advanced_notifications_default">Standardkanal</string>
     <string name="title_advanced_notifications_service">Monitorér kanal</string>
     <string name="title_advanced_notifications_newest_first">Vis seneste notifikationer først</string>
-    <string name="title_advanced_notifications_background">Benyt baggrundstjeneste til beskedsynkronisering</string>
-    <string name="title_advanced_notifications_background_hint">En baggrundstjeneste kan til enhver tid stoppes af Android, men behøver ingen statusbjælkenotifikation</string>
     <string name="title_advanced_badge">Vis launcher-ikon med antal nye beskeder</string>
     <string name="title_advanced_unseen_ignored">Lad antal Nye beskeder matche notifikationsantal</string>
     <string name="title_advanced_notify_background">Vis kun notifikationer i baggrundstilstand</string>
@@ -555,6 +553,8 @@
     <string name="title_advanced_light">Benyt notifikations-LED</string>
     <string name="title_advanced_sound">Vælg notifikationslyd</string>
     <string name="title_advanced_notify_screen_on">Tænd kortvarigt skærmen ved nye beskednotifikationer</string>
+    <string name="title_advanced_notifications_background">Benyt baggrundstjeneste til beskedsynkronisering</string>
+    <string name="title_advanced_notifications_background_hint">En baggrundstjeneste kan til enhver tid stoppes af Android, men behøver ingen statusbjælkenotifikation</string>
     <string name="title_advanced_confirm_links">Bekræft åbning af links</string>
     <string name="title_advanced_check_links_dbl">Tjek domæneblokeringslister for mistænkelige links</string>
     <string name="title_advanced_browse_links">Delegér åbningslinks til Android</string>

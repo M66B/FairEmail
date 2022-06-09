@@ -534,8 +534,6 @@
     <string name="title_advanced_notifications_default">Canal implicit</string>
     <string name="title_advanced_notifications_service">Canalul de monitorizare</string>
     <string name="title_advanced_notifications_newest_first">Arată mai întâi cele mai noi notificări</string>
-    <string name="title_advanced_notifications_background">Folosește serviciul de fundal pentru a sincroniza mesajele</string>
-    <string name="title_advanced_notifications_background_hint">Un serviciu de fundal poate fi oprit de Android în orice moment, dar nu necesită o notificare în bara de stare</string>
     <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
     <string name="title_advanced_unseen_ignored">Fie ca numărul de mesaje noi să corespundă cu numărul de notificări</string>
     <string name="title_advanced_notify_background">Arată notificări doar când e în fundal</string>
@@ -565,6 +563,8 @@
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
     <string name="title_advanced_notify_screen_on">Activați pentru scurt timp ecranul pentru notificări de mesaje noi</string>
+    <string name="title_advanced_notifications_background">Folosește serviciul de fundal pentru a sincroniza mesajele</string>
+    <string name="title_advanced_notifications_background_hint">Un serviciu de fundal poate fi oprit de Android în orice moment, dar nu necesită o notificare în bara de stare</string>
     <string name="title_advanced_confirm_links">Confirma deschiderea legăturilor</string>
     <string name="title_advanced_check_links_dbl">Verificați listele de blocare a domeniilor pentru link-uri suspecte</string>
     <string name="title_advanced_browse_links">Delegarea deschiderii de adrese către Android</string>

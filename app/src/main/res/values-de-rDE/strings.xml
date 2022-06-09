@@ -522,8 +522,6 @@
     <string name="title_advanced_notifications_default">Standardkanal</string>
     <string name="title_advanced_notifications_service">Überwachungskanal</string>
     <string name="title_advanced_notifications_newest_first">Neueste Benachrichtigungen zuerst anzeigen</string>
-    <string name="title_advanced_notifications_background">Hintergrunddienst verwenden, um Nachrichten zu synchronisieren</string>
-    <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android angehalten werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
     <string name="title_advanced_unseen_ignored">Anzahl der neuen Nachrichten mit der Anzahl der Benachrichtigungen übereinstimmen lassen</string>
     <string name="title_advanced_notify_background">Benachrichtigungen nur anzeigen, wenn FairEmail im Hintergrund ausgeführt wird</string>
@@ -553,6 +551,8 @@
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
     <string name="title_advanced_notify_screen_on">Kurzes Einschalten des Bildschirms für Benachrichtigungen über neue Nachrichten</string>
+    <string name="title_advanced_notifications_background">Hintergrunddienst verwenden, um Nachrichten zu synchronisieren</string>
+    <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android angehalten werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>
     <string name="title_advanced_confirm_links">Hyperlinks beim Öffnen bestätigen</string>
     <string name="title_advanced_check_links_dbl">Domain-Sperrlisten auf verdächtige Links prüfen</string>
     <string name="title_advanced_browse_links">Hyperlinks an Android übertragen</string>

@@ -402,8 +402,6 @@
     <string name="title_advanced_reset_importance">Berrezarri garrantzia mezuak mugitzean</string>
     <string name="title_advanced_notifications">Kudeatu jakinarazpenak</string>
     <string name="title_advanced_notifications_default">Kanal lehenetsia</string>
-    <string name="title_advanced_notifications_background">Erabili bigarren planoko zerbitzua mezuak sinkrinizatzeko</string>
-    <string name="title_advanced_notifications_background_hint">Bigarren planoko zerbitzua Androidek gelditu dezake noiznahi, baina ez du jakinarazpenik behar egoera barran</string>
     <string name="title_advanced_badge">Erakutsi mezu berrien kopurua abiarazleko ikonoan</string>
     <string name="title_advanced_unseen_ignored">Mezu berri kopurua eta jakinarazpenen kopurua berdina izan dadila</string>
     <string name="title_advanced_notify_background">Erakutsi jakinarazpenak bigarren planoan soilik</string>
@@ -429,6 +427,8 @@
     <string name="title_advanced_biometrics_notify">Erakutsi jakinarazpenen edukia autentifikazio biometrikoa erabiltzean</string>
     <string name="title_advanced_light">Erabili jakinarazpen-argia</string>
     <string name="title_advanced_sound">Aukeratu jakinarazpenen soinua</string>
+    <string name="title_advanced_notifications_background">Erabili bigarren planoko zerbitzua mezuak sinkrinizatzeko</string>
+    <string name="title_advanced_notifications_background_hint">Bigarren planoko zerbitzua Androidek gelditu dezake noiznahi, baina ez du jakinarazpenik behar egoera barran</string>
     <string name="title_advanced_confirm_links">Berretsi estekak irekitzea</string>
     <string name="title_advanced_browse_links">Delegatu Androiden estekak irekitzea</string>
     <string name="title_advanced_ask_images">Berretsi irudiak erakustea</string>

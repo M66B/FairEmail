@@ -545,8 +545,6 @@
     <string name="title_advanced_notifications_default">Канал по умолчанию</string>
     <string name="title_advanced_notifications_service">Канал отслеживания</string>
     <string name="title_advanced_notifications_newest_first">Сначала показывать новые уведомления</string>
-    <string name="title_advanced_notifications_background">Использовать фоновую службу для синхронизации сообщений</string>
-    <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
     <string name="title_advanced_badge">Показывать значок запуска с количеством новых сообщений</string>
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
     <string name="title_advanced_notify_background">Показывать уведомления только в фоновом режиме</string>
@@ -576,6 +574,8 @@
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_notify_screen_on">Включать экран для новых уведомлений</string>
+    <string name="title_advanced_notifications_background">Использовать фоновую службу для синхронизации сообщений</string>
+    <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
     <string name="title_advanced_confirm_links">Подтверждать открытие ссылок</string>
     <string name="title_advanced_check_links_dbl">Проверять списки блокировки доменов на подозрительные ссылки</string>
     <string name="title_advanced_browse_links">Предоставить Android открывать ссылки</string>

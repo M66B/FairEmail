@@ -429,8 +429,6 @@
     <string name="title_advanced_notifications_default">کانال پیش‌فرض</string>
     <string name="title_advanced_notifications_service">کانال نظارت</string>
     <string name="title_advanced_notifications_newest_first">ابتدا اطلاع‌رسانی‌های جدید را نشان بده</string>
-    <string name="title_advanced_notifications_background">استفاده از سرویس پس‌زمینه برای همگام‌سازی پیام‌ها</string>
-    <string name="title_advanced_notifications_background_hint">یک سرویس پس‌زمینه می‌تواند هر هنگام توسط اندروید متوقف شود، ولی نیاز به اعلان نوار وضعیت ندارد</string>
     <string name="title_advanced_badge">نمایش عدد پیام‌های جدید با آیکون راه‌انداز</string>
     <string name="title_advanced_notify_known">اعلان‌ها را تنها برای مخاطبین نمایش بده</string>
     <string name="title_advanced_notify_summary">تنها چکیده اعلان را نمایش بده</string>
@@ -452,6 +450,8 @@
     <string name="title_advanced_wearable_preview">تنها اعلان با پیش‌نمایش پیام را به پوشیدنی‌ها بفرست</string>
     <string name="title_advanced_light">استفاده از چراغ اعلان‌ها</string>
     <string name="title_advanced_sound">انتخاب صدای اعلان‌ها</string>
+    <string name="title_advanced_notifications_background">استفاده از سرویس پس‌زمینه برای همگام‌سازی پیام‌ها</string>
+    <string name="title_advanced_notifications_background_hint">یک سرویس پس‌زمینه می‌تواند هر هنگام توسط اندروید متوقف شود، ولی نیاز به اعلان نوار وضعیت ندارد</string>
     <string name="title_advanced_confirm_links">تایید بازکردن پیوندها</string>
     <string name="title_advanced_browse_links">بازکردن پیوند‌ها را به اندروید واگذار کن</string>
     <string name="title_advanced_ask_images">تایید نمایش تصاویر</string>

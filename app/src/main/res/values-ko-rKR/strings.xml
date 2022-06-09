@@ -310,8 +310,6 @@
     <string name="title_advanced_notifications">알림 관리</string>
     <string name="title_advanced_notifications_default">기본 채널</string>
     <string name="title_advanced_notifications_newest_first">새 알림을 먼저 표시</string>
-    <string name="title_advanced_notifications_background">메시지 동기화를 위해 백그라운드 서비스 사용</string>
-    <string name="title_advanced_notifications_background_hint">백그라운드 서비스는 안드로이드에 의해 언제든 중단될 수 있지만, 상태표시줄 알림이 없어도 구동됩니다.</string>
     <string name="title_advanced_notify_actions">알림 동작</string>
     <string name="title_advanced_notify_action_trash">삭제</string>
     <string name="title_advanced_notify_action_delete">제거</string>
@@ -325,6 +323,8 @@
     <string name="title_advanced_notify_action_hide">숨김</string>
     <string name="title_advanced_notify_action_snooze">미루기</string>
     <string name="title_advanced_notify_subtext">부가 텍스트로 계정이나 폴더명 보기</string>
+    <string name="title_advanced_notifications_background">메시지 동기화를 위해 백그라운드 서비스 사용</string>
+    <string name="title_advanced_notifications_background_hint">백그라운드 서비스는 안드로이드에 의해 언제든 중단될 수 있지만, 상태표시줄 알림이 없어도 구동됩니다.</string>
     <string name="title_advanced_client_id">앱 이름 및 버전을 이메일 서버로 전송</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_mnemonic">원격 데이터 삭제</string>

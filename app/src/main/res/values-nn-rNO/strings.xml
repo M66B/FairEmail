@@ -330,8 +330,6 @@
     <string name="title_advanced_notifications">Administrer varsler</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
     <string name="title_advanced_notifications_newest_first">Vis de nyeste varslene først</string>
-    <string name="title_advanced_notifications_background">Bruk bakgrunnstjeneste for å synkronisere meldinger</string>
-    <string name="title_advanced_notifications_background_hint">En bakgrunnstjeneste kan stanses av Android når som helst, men krever ikke en statuslinje varsel</string>
     <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
     <string name="title_advanced_unseen_ignored">La antallet nye meldinger samsvare med antall varsler</string>
     <string name="title_advanced_notify_background">Vis varsler kun i bakgrunnen</string>
@@ -359,6 +357,8 @@
     <string name="title_advanced_biometrics_notify">Vis varselinnhold når du bruker biometrisk godkjenning</string>
     <string name="title_advanced_light">Bruk meldingslys</string>
     <string name="title_advanced_sound">Velg varslingslyd</string>
+    <string name="title_advanced_notifications_background">Bruk bakgrunnstjeneste for å synkronisere meldinger</string>
+    <string name="title_advanced_notifications_background_hint">En bakgrunnstjeneste kan stanses av Android når som helst, men krever ikke en statuslinje varsel</string>
     <string name="title_advanced_confirm_links">Bekreft åpningen av lenker</string>
     <string name="title_advanced_browse_links">Deleger lenker til Android</string>
     <string name="title_advanced_ask_images">Bekreft visningen av bilder</string>

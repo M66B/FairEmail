@@ -540,8 +540,6 @@
     <string name="title_advanced_notifications_default">ערוץ בררת מחדל</string>
     <string name="title_advanced_notifications_service">ערוץ מעקב</string>
     <string name="title_advanced_notifications_newest_first">הצגת ההתראות החדשות ביותר בהתחלה</string>
-    <string name="title_advanced_notifications_background">להשתמש בשירות רקע לסנכרון הודעות</string>
-    <string name="title_advanced_notifications_background_hint">שירות רקע יכול להיעצר על ידי Android בכל רגע נתון, אך אינו דורש התראה בשורת המצב</string>
     <string name="title_advanced_badge">הצגת סמל משגר עם מספר ההודעות החדשות</string>
     <string name="title_advanced_unseen_ignored">לאפשר למספר ההודעות החדשות להיות תואם למספר ההתראות</string>
     <string name="title_advanced_notify_background">להציג התראות כאשר במצב רקע בלבד</string>
@@ -571,6 +569,8 @@
     <string name="title_advanced_light">להשתמש בנורית התראה</string>
     <string name="title_advanced_sound">בחירת צליל התראה</string>
     <string name="title_advanced_notify_screen_on">להפעיל את המסך לזמן קצר עבור התראות על הודעות חדשות</string>
+    <string name="title_advanced_notifications_background">להשתמש בשירות רקע לסנכרון הודעות</string>
+    <string name="title_advanced_notifications_background_hint">שירות רקע יכול להיעצר על ידי Android בכל רגע נתון, אך אינו דורש התראה בשורת המצב</string>
     <string name="title_advanced_confirm_links">אישור פתיחת קישור</string>
     <string name="title_advanced_check_links_dbl">לבדוק קישורים חשודים מול רשימת שמות תחום חסומים</string>
     <string name="title_advanced_browse_links">העברת הסמכות על פתיחת הקישורים ל־Android</string>

@@ -519,8 +519,6 @@
     <string name="title_advanced_notifications_default">Oletuskanava</string>
     <string name="title_advanced_notifications_service">Monitorointikanava</string>
     <string name="title_advanced_notifications_newest_first">Näytä uusimmat ilmoitukset ensin</string>
-    <string name="title_advanced_notifications_background">Käytä taustapalvelua viestien synkronointiin</string>
-    <string name="title_advanced_notifications_background_hint">Android voi lopettaa taustapalvelun koska tahansa, mutta taustapalvelu ei tarvitse tilapalkki-ilmoitusta</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän vastata ilmoitusten lukumäärää</string>
     <string name="title_advanced_notify_background">Näytä ilmoitukset vain, kun sovellus on taustalla</string>
@@ -550,6 +548,8 @@
     <string name="title_advanced_light">Käytä LED-ilmoitusta</string>
     <string name="title_advanced_sound">Valitse ilmoituksen ääni</string>
     <string name="title_advanced_notify_screen_on">Laita näyttö hetkeksi päälle uusia ilmoituksia varten</string>
+    <string name="title_advanced_notifications_background">Käytä taustapalvelua viestien synkronointiin</string>
+    <string name="title_advanced_notifications_background_hint">Android voi lopettaa taustapalvelun koska tahansa, mutta taustapalvelu ei tarvitse tilapalkki-ilmoitusta</string>
     <string name="title_advanced_confirm_links">Vahvista linkkien avaaminen</string>
     <string name="title_advanced_check_links_dbl">Tarkista, ovatko linkkien verkkotunnukset epäilyttävien verkkotunnusten listalla</string>
     <string name="title_advanced_browse_links">Anna linkkien avaaminen Androidille hoidettavaksi</string>

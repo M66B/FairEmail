@@ -540,8 +540,6 @@
     <string name="title_advanced_notifications_default">Канал за замовчуванням</string>
     <string name="title_advanced_notifications_service">Моніторинг каналу</string>
     <string name="title_advanced_notifications_newest_first">Показувати спочатку нові сповіщення</string>
-    <string name="title_advanced_notifications_background">Використовувати фонову службу для синхронізації повідомлень</string>
-    <string name="title_advanced_notifications_background_hint">Фоновий сервіс може бути зупинений Android в будь-який час, що не вимагає сповіщення в рядку стану</string>
     <string name="title_advanced_badge">Показувати іконку лаунчера з кількістю нових повідомлень</string>
     <string name="title_advanced_unseen_ignored">Дозволити так щоб кількість нових повідомлень співпадала з кількістю сповіщень</string>
     <string name="title_advanced_notify_background">Показувати сповіщення, лише у фоновому режимі</string>
@@ -571,6 +569,8 @@
     <string name="title_advanced_light">Використовувати індикатор сповіщень</string>
     <string name="title_advanced_sound">Виберіть звук сповіщення</string>
     <string name="title_advanced_notify_screen_on">Коротке увімкнення екрану для нових повідомлень</string>
+    <string name="title_advanced_notifications_background">Використовувати фонову службу для синхронізації повідомлень</string>
+    <string name="title_advanced_notifications_background_hint">Фоновий сервіс може бути зупинений Android в будь-який час, що не вимагає сповіщення в рядку стану</string>
     <string name="title_advanced_confirm_links">Підтвердити відкриття посилань</string>
     <string name="title_advanced_check_links_dbl">Перевіряти списки заблокованих доменів за сумнівними посиланнями</string>
     <string name="title_advanced_browse_links">Делегувати відкриття посилань до Android</string>

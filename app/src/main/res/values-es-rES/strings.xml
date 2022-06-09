@@ -519,8 +519,6 @@
     <string name="title_advanced_notifications_default">Canal por defecto</string>
     <string name="title_advanced_notifications_service">Canal de monitoreo</string>
     <string name="title_advanced_notifications_newest_first">Mostrar notificaciones más recientes primero</string>
-    <string name="title_advanced_notifications_background">Usar servicio en segundo plano para sincronizar mensajes</string>
-    <string name="title_advanced_notifications_background_hint">Un servicio en segundo plano puede ser detenido por Android en cualquier momento, pero no requiere una notificación de la barra de estado</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
     <string name="title_advanced_unseen_ignored">Permitir que el número de mensajes nuevos coincida con el número de notificaciones</string>
     <string name="title_advanced_notify_background">Mostrar notificaciones sólo en segundo plano</string>
@@ -550,6 +548,8 @@
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_notify_screen_on">Activar brevemente la pantalla para notificaciones de mensajes nuevos</string>
+    <string name="title_advanced_notifications_background">Usar servicio en segundo plano para sincronizar mensajes</string>
+    <string name="title_advanced_notifications_background_hint">Un servicio en segundo plano puede ser detenido por Android en cualquier momento, pero no requiere una notificación de la barra de estado</string>
     <string name="title_advanced_confirm_links">Confirmar abrir enlaces</string>
     <string name="title_advanced_check_links_dbl">Comprobar listas de bloqueo de dominio para enlaces sospechosos</string>
     <string name="title_advanced_browse_links">Delegar apertura de enlaces a Android</string>

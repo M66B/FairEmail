@@ -513,8 +513,6 @@
     <string name="title_advanced_notifications_default">Canal padrão</string>
     <string name="title_advanced_notifications_service">Canal de monitorização</string>
     <string name="title_advanced_notifications_newest_first">Mostrar notificações mais recentes primeiro</string>
-    <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
-    <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de estado</string>
     <string name="title_advanced_badge">Mostrar o número de novas mensagens no ícone do launcher</string>
     <string name="title_advanced_unseen_ignored">Corresponder o número de novas mensagens ao número de notificações</string>
     <string name="title_advanced_notify_background">Mostrar notificações apenas em segundo plano</string>
@@ -544,6 +542,8 @@
     <string name="title_advanced_light">Usar luz de notificações</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_notify_screen_on">Ligar o ecrã por breves instantes para novas notificações de mensagens</string>
+    <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
+    <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de estado</string>
     <string name="title_advanced_confirm_links">Pedir confirmação ao abrir hiperligações</string>
     <string name="title_advanced_check_links_dbl">Verificar listas de bloqueio de domínios para hiperligações suspeitas</string>
     <string name="title_advanced_browse_links">Delegar abertura de hiperligações para o Android</string>

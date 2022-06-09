@@ -512,8 +512,6 @@
     <string name="title_advanced_notifications_default">默认频道</string>
     <string name="title_advanced_notifications_service">监控频道</string>
     <string name="title_advanced_notifications_newest_first">最新通知显示在前</string>
-    <string name="title_advanced_notifications_background">使用后台服务来同步消息</string>
-    <string name="title_advanced_notifications_background_hint">后台服务不会显示状态栏通知，但随时可能会被 Android 终止</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
     <string name="title_advanced_notify_background">仅在处于后台时显示通知</string>
@@ -543,6 +541,8 @@
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_notify_screen_on">短暂打开屏幕以获取新消息通知</string>
+    <string name="title_advanced_notifications_background">使用后台服务来同步消息</string>
+    <string name="title_advanced_notifications_background_hint">后台服务不会显示状态栏通知，但随时可能会被 Android 终止</string>
     <string name="title_advanced_confirm_links">确认打开链接</string>
     <string name="title_advanced_check_links_dbl">使用域名拦截列表检查可疑链接</string>
     <string name="title_advanced_browse_links">授权打开到 Android的链接</string>

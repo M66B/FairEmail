@@ -210,6 +210,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_still">Nog te doen</string>
     <string name="title_setup_error">Fout</string>
     <string name="title_setup_pop">Gebruik POP3 (niet aanbevolen)</string>
+    <string name="title_setup_recent" comment="title_setup_recent&#10;This is the title for a sub option for Gmail/POP3&#10;&#10;'recent' should not be translated !!!&#10;&#10;https://support.google.com/mail/answer/7104828&#10;&#10;">Gebruik \'recent\' voor meerdere e-mail clients</string>
     <string name="title_setup_configuring">Account configureren &#8230;</string>
     <string name="title_setup_app_password">Mogelijk moet u een app-wachtwoord gebruiken</string>
     <string name="title_setup_extra">Extra</string>
@@ -522,8 +523,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_notifications_default">Standaardkanaal</string>
     <string name="title_advanced_notifications_service">Bewakingskanaal</string>
     <string name="title_advanced_notifications_newest_first">Laat nieuwste meldingen eerst zien</string>
-    <string name="title_advanced_notifications_background">Gebruik achtergrondservice om berichten te synchroniseren</string>
-    <string name="title_advanced_notifications_background_hint">Een achtergrondservice kan op elk gewenst moment worden gestopt door Android, maar vereist geen melding in de statusbalk</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
     <string name="title_advanced_unseen_ignored">Laat het aantal nieuwe berichten overeenkomen met het aantal meldingen</string>
     <string name="title_advanced_notify_background">Toon meldingen alleen wanneer op de achtergrond</string>
@@ -553,6 +552,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_notify_screen_on">Schakel het scherm kort in voor nieuwe berichtmeldingen</string>
+    <string name="title_advanced_notifications_background">Gebruik achtergrondservice om berichten te synchroniseren</string>
+    <string name="title_advanced_notifications_background_hint">Een achtergrondservice kan op elk gewenst moment worden gestopt door Android, maar vereist geen melding in de statusbalk</string>
     <string name="title_advanced_confirm_links">Bevestig het openen van koppelingen</string>
     <string name="title_advanced_check_links_dbl">Controleer domeinblokkeringslijsten op verdachte links</string>
     <string name="title_advanced_browse_links">Het openen van links overdragen aan Android</string>

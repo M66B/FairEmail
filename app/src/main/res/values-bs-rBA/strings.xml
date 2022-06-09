@@ -92,6 +92,11 @@
         Blokiranje domene pošiljaoca koristi pravila filtriranja, što predstavlja pro funkcionalnost.
     </string>
     <string name="title_blocked_senders">Blokirani pošiljaoci</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Blokirati pošiljaoca %1$s poruke?</item>
+        <item quantity="few">Blokirati pošiljaoca %1$s poruke?</item>
+        <item quantity="other">Blokirati pošiljaoca %1$s poruka?</item>
+    </plurals>
     <string name="title_junk_filter">Koristi lokalni filter za spam poruke</string>
     <string name="title_junk_filter_hint">Ovo može povećati potrošnju baterije i netačno označavati poruke kao spam</string>
     <string name="title_junk_blocklist">Koristi liste blokiranja za spam poruke</string>
@@ -530,8 +535,6 @@
     <string name="title_advanced_notifications_default">Zadani kanal</string>
     <string name="title_advanced_notifications_service">Kanal monitoringa</string>
     <string name="title_advanced_notifications_newest_first">Prikaži prvo najnovija obavještenja</string>
-    <string name="title_advanced_notifications_background">Koristi pozadinski servis za sinhronizaciju poruka</string>
-    <string name="title_advanced_notifications_background_hint">Android može zaustaviti pozadinski servis bilo kada, ali on ne zahtijeva obavještenje na statusnoj traci</string>
     <string name="title_advanced_badge">Prikaži launcher ikonicu sa brojem novih poruka</string>
     <string name="title_advanced_unseen_ignored">Neka se broj novih poruka podudara s brojem obavještenja</string>
     <string name="title_advanced_notify_background">Prikaži obavještenja samo u pozadini</string>
@@ -561,6 +564,8 @@
     <string name="title_advanced_light">Koristi notifikacijsko svjetlo</string>
     <string name="title_advanced_sound">Izaberi zvuk obavještenja</string>
     <string name="title_advanced_notify_screen_on">Kratko uključi ekran za obavještenja o novim porukama</string>
+    <string name="title_advanced_notifications_background">Koristi pozadinski servis za sinhronizaciju poruka</string>
+    <string name="title_advanced_notifications_background_hint">Android može zaustaviti pozadinski servis bilo kada, ali on ne zahtijeva obavještenje na statusnoj traci</string>
     <string name="title_advanced_confirm_links">Potvrdi linkove na otvaranju</string>
     <string name="title_advanced_check_links_dbl">Provjeri spisak blokiranja domena za sumnjive linkove</string>
     <string name="title_advanced_browse_links">Prepusti Androidu linkove na otvaranju</string>
@@ -709,6 +714,7 @@
     <string name="title_advanced_display_hidden_hint">Ovo može rezultirati u čudnom izgledu i duplim tekstovima</string>
     <string name="title_advanced_display_pin_hint">PIN ima prednost naspram biometrijske provjere</string>
     <string name="title_advanced_display_autolock_nav_hint">Bit će dodatno vrijeme od %1$d sekunde/i</string>
+    <string name="title_advanced_user_agent_hint">Neki serveri ne prihvataju generički string korisničkog agenta</string>
     <string name="title_advanced_safe_browsing_hint">Google-ov server zna koje adrese se pregledaju</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim launcher-ima</string>
     <string name="title_advanced_notify_action_hint">Bit će prikazane najviše tri radnje</string>

@@ -486,8 +486,6 @@
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">預設頻道</string>
     <string name="title_advanced_notifications_newest_first">優先顯示最新通知</string>
-    <string name="title_advanced_notifications_background">使用背景服務同步訊息</string>
-    <string name="title_advanced_notifications_background_hint">無狀態列通知的背景服務可隨時被 Android 停止</string>
     <string name="title_advanced_badge">顯示附有新訊息計數的主畫面應用程式圖示</string>
     <string name="title_advanced_unseen_ignored">讓新訊息計數匹配通知數</string>
     <string name="title_advanced_notify_background">僅在於背景中執行時才顯示通知</string>
@@ -517,6 +515,8 @@
     <string name="title_advanced_light">使用通知指示燈</string>
     <string name="title_advanced_sound">選擇通知音效</string>
     <string name="title_advanced_notify_screen_on">為新訊息通知而暫時開啟螢幕</string>
+    <string name="title_advanced_notifications_background">使用背景服務同步訊息</string>
+    <string name="title_advanced_notifications_background_hint">無狀態列通知的背景服務可隨時被 Android 停止</string>
     <string name="title_advanced_confirm_links">開啟超連結前確認</string>
     <string name="title_advanced_check_links_dbl">檢查可疑連結有否出現於網域封鎖清單中</string>
     <string name="title_advanced_browse_links">將連結開啟處理交由 Android 進行</string>

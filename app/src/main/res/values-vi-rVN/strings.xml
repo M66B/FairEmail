@@ -508,8 +508,6 @@
     <string name="title_advanced_notifications_default">Kênh mặc định</string>
     <string name="title_advanced_notifications_service">Kênh giám sát</string>
     <string name="title_advanced_notifications_newest_first">Hiện thông báo mới nhất trước</string>
-    <string name="title_advanced_notifications_background">Sử dụng dịch vụ nền để đồng bộ thư</string>
-    <string name="title_advanced_notifications_background_hint">Một dịch vụ nền có thể bị dừng bởi Android bất kỳ lúc nào, nhưng không yêu cầu thông báo trên tranh trạng thái</string>
     <string name="title_advanced_badge">Hiện biểu tượng có số thư mới trên launcher</string>
     <string name="title_advanced_unseen_ignored">Để cho số thư mới khớp với số thông báo</string>
     <string name="title_advanced_notify_background">Hiển thị thông báo chỉ khi ở trong nền</string>
@@ -539,6 +537,8 @@
     <string name="title_advanced_light">Sử dụng đèn thông báo</string>
     <string name="title_advanced_sound">Chọn âm thanh thông báo</string>
     <string name="title_advanced_notify_screen_on">Bật màn hình một lúc ngắn khi có thông báo thư mới</string>
+    <string name="title_advanced_notifications_background">Sử dụng dịch vụ nền để đồng bộ thư</string>
+    <string name="title_advanced_notifications_background_hint">Một dịch vụ nền có thể bị dừng bởi Android bất kỳ lúc nào, nhưng không yêu cầu thông báo trên tranh trạng thái</string>
     <string name="title_advanced_confirm_links">Xác nhận mở các liên kết</string>
     <string name="title_advanced_check_links_dbl">Kiểm tra các danh sách chặn miền để tìm liên kết đáng nghi</string>
     <string name="title_advanced_browse_links">Giao việc mở các liên kết cho Android</string>

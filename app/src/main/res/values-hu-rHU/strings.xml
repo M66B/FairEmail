@@ -494,8 +494,6 @@
     <string name="title_advanced_notifications_default">Alapértelmezett csatorna</string>
     <string name="title_advanced_notifications_service">Figyelési csatorna</string>
     <string name="title_advanced_notifications_newest_first">A legújabb értesítések mutatása először</string>
-    <string name="title_advanced_notifications_background">Háttérfolyamat használata üzenetek szinkronizálásához</string>
-    <string name="title_advanced_notifications_background_hint">Egy háttérfolyamat leállítható az Android által bármikor, de nem szükséges státusz sor értesítés hozzá</string>
     <string name="title_advanced_badge">Új üzenetek számának megjelenítése az indító ikonon</string>
     <string name="title_advanced_unseen_ignored">Külön értesítés megjelnítése minden egyes új üzenethez</string>
     <string name="title_advanced_notify_background">Mutasd a figyelmeztetéseket, amikor a háttérben vannak csak</string>
@@ -525,6 +523,8 @@
     <string name="title_advanced_light">Értesítő fény használata</string>
     <string name="title_advanced_sound">Válasszon értesítő hangot</string>
     <string name="title_advanced_notify_screen_on">Rövid időre kapcsolja be a képernyőt az új üzeneteknél</string>
+    <string name="title_advanced_notifications_background">Háttérfolyamat használata üzenetek szinkronizálásához</string>
+    <string name="title_advanced_notifications_background_hint">Egy háttérfolyamat leállítható az Android által bármikor, de nem szükséges státusz sor értesítés hozzá</string>
     <string name="title_advanced_confirm_links">Linkek megnyitásának megerősítésehez kötése</string>
     <string name="title_advanced_check_links_dbl">Ellenőrizze a tartomány blokkoló listát a gyanús linkeknél</string>
     <string name="title_advanced_browse_links">A linkeket a rendzser kezelje</string>

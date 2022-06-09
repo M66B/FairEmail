@@ -457,8 +457,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_notifications">Kelola pemberitahuan</string>
     <string name="title_advanced_notifications_default">Standar Pemberitahuan</string>
     <string name="title_advanced_notifications_newest_first">Menampilkan pemberitahuan terbaru terlebih dahulu</string>
-    <string name="title_advanced_notifications_background">Gunakan layanan latar belakang untuk menyinkronkan pesan</string>
-    <string name="title_advanced_notifications_background_hint">Layanan latar belakang dapat dihentikan oleh Android kapan saja, tetapi tidak memerlukan pemberitahuan pada bilah status.</string>
     <string name="title_advanced_badge">Tampilkan ikon peluncur dengan jumlah pesan baru</string>
     <string name="title_advanced_unseen_ignored">Biarkan jumlah pesan baru sesuai dengan jumlah pemberitahuan</string>
     <string name="title_advanced_notify_background">Tampilkan pemberitahuan hanya saat di latar belakang</string>
@@ -488,6 +486,8 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_light">Pakai lampu pemberitahuan</string>
     <string name="title_advanced_sound">Pilih suara pemberitahuan</string>
     <string name="title_advanced_notify_screen_on">Perlahan hidupkan layar untuk pemberitahuan pesan baru</string>
+    <string name="title_advanced_notifications_background">Gunakan layanan latar belakang untuk menyinkronkan pesan</string>
+    <string name="title_advanced_notifications_background_hint">Layanan latar belakang dapat dihentikan oleh Android kapan saja, tetapi tidak memerlukan pemberitahuan pada bilah status.</string>
     <string name="title_advanced_confirm_links">Minta konfirmasi ketika membuka tautan</string>
     <string name="title_advanced_check_links_dbl">Periksa daftar blokir domain untuk tautan yang mencurigakan</string>
     <string name="title_advanced_browse_links">Delegasikan ketika membuka tautan ke sistem Android</string>

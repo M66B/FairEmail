@@ -523,8 +523,6 @@
     <string name="title_advanced_notifications_default">Προεπιλεγμένο κανάλι</string>
     <string name="title_advanced_notifications_service">Κανάλι παρακολούθησης</string>
     <string name="title_advanced_notifications_newest_first">Να προβάλλονται πρώτα οι πιο πρόσφατες ειδοποιήσεις</string>
-    <string name="title_advanced_notifications_background">Χρήση υπηρεσίας στο παρασκήνιο για το συγχρονισμό των μηνυμάτων</string>
-    <string name="title_advanced_notifications_background_hint">Μια υπηρεσία που εκτελείται στο παρασκήνιο αλλά δεν απαιτεί κάποια ειδοποίηση στη γραμμή κατάστασης, μπορεί να τερματιστεί από το Android οποιαδήποτε στιγμή</string>
     <string name="title_advanced_badge">Προβολή του αριθμού των νέων μηνυμάτων πάνω στο εικονίδιο εκκίνησης</string>
     <string name="title_advanced_unseen_ignored">Να αντιστοιχεί ο αριθμός των νέων μηνυμάτων με τον αριθμό των ειδοποιήσεων</string>
     <string name="title_advanced_notify_background">Προβολή ειδοποιήσεων μόνο στο υπόβαθρο</string>
@@ -554,6 +552,8 @@
     <string name="title_advanced_light">Χρήση φωτεινής ένδειξης ειδοποιήσεων</string>
     <string name="title_advanced_sound">Επιλογή ήχου ειδοποιήσεων</string>
     <string name="title_advanced_notify_screen_on">Να ανάβει σύντομα η οθόνη κατά τις ειδοποιήσεις νέων μηνυμάτων</string>
+    <string name="title_advanced_notifications_background">Χρήση υπηρεσίας στο παρασκήνιο για το συγχρονισμό των μηνυμάτων</string>
+    <string name="title_advanced_notifications_background_hint">Μια υπηρεσία που εκτελείται στο παρασκήνιο αλλά δεν απαιτεί κάποια ειδοποίηση στη γραμμή κατάστασης, μπορεί να τερματιστεί από το Android οποιαδήποτε στιγμή</string>
     <string name="title_advanced_confirm_links">Επιβεβαίωση ανοίγματος συνδέσμων</string>
     <string name="title_advanced_check_links_dbl">Έλεγχος λιστών αποκλεισμένων τομέων για τους ύποπτους συνδέσμους</string>
     <string name="title_advanced_browse_links">Ανάθεση του ανοίγματος των συνδέσμων στο Android</string>

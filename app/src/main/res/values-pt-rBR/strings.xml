@@ -82,6 +82,10 @@
         Bloquear o domínio do remetente usa regras de filtro, que trata-se de uma opção Pro.
     </string>
     <string name="title_blocked_senders">Remetentes bloqueados</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Bloquear remetente da %1$s mensagem?</item>
+        <item quantity="other">Bloquear remetentes das %1$s mensagens?</item>
+    </plurals>
     <string name="title_junk_filter">Usar filtro de spam local</string>
     <string name="title_junk_filter_hint">Isso pode aumentar o uso de bateria e incorretamente marcar mensagens como spam</string>
     <string name="title_junk_blocklist">Usar listas de bloqueio por spam</string>
@@ -519,8 +523,6 @@
     <string name="title_advanced_notifications_default">Canal padrão</string>
     <string name="title_advanced_notifications_service">Canal de monitoramento</string>
     <string name="title_advanced_notifications_newest_first">Mostrar notificações mais recentes primeiro</string>
-    <string name="title_advanced_notifications_background">Usar o serviço em segundo plano para sincronizar mensagens</string>
-    <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
     <string name="title_advanced_unseen_ignored">Permitir que o número de novas mensagens corresponda ao número de notificações</string>
     <string name="title_advanced_notify_background">Mostrar notificações apenas em segundo plano</string>
@@ -550,6 +552,8 @@
     <string name="title_advanced_light">Usar luz de notificação</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_notify_screen_on">Ligar a tela brevemente para notificações de novas mensagens</string>
+    <string name="title_advanced_notifications_background">Usar o serviço em segundo plano para sincronizar mensagens</string>
+    <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
     <string name="title_advanced_confirm_links">Confirmar abertura de links</string>
     <string name="title_advanced_check_links_dbl">Verificar listas de bloqueio de domínios para links suspeitos</string>
     <string name="title_advanced_browse_links">Delegar abertura de links ao Android</string>

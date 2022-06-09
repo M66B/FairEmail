@@ -382,8 +382,6 @@
     <string name="title_advanced_notifications">Notifikaasjes beheare</string>
     <string name="title_advanced_notifications_default">Standert kanaal</string>
     <string name="title_advanced_notifications_newest_first">Toan earst nijste notifikaasjes</string>
-    <string name="title_advanced_notifications_background">Brûk eftergrûntsjinst om berjochten te syngronisearjen</string>
-    <string name="title_advanced_notifications_background_hint">In eftergrûntsjinst kin op elts momint stopset wurde troch Android, mar hat gjin statusbalke-notifikaasje nedich</string>
     <string name="title_advanced_badge">Lit launcher-ikoan sjen mei oantal nije berjochten</string>
     <string name="title_advanced_unseen_ignored">Lit it oantal nije berjochten oerienkomme mei it oantal notifikaasjes</string>
     <string name="title_advanced_notify_background">Meitsje notifikaasjes allinich op \'e eftergrûn</string>
@@ -411,6 +409,8 @@
     <string name="title_advanced_biometrics_notify">Meitsje ynhâld fan notifikaasje by it brûken fan biometryske ferifikaasje</string>
     <string name="title_advanced_light">Brûk notifikaasje ljocht</string>
     <string name="title_advanced_sound">Selektearje meldingslûd</string>
+    <string name="title_advanced_notifications_background">Brûk eftergrûntsjinst om berjochten te syngronisearjen</string>
+    <string name="title_advanced_notifications_background_hint">In eftergrûntsjinst kin op elts momint stopset wurde troch Android, mar hat gjin statusbalke-notifikaasje nedich</string>
     <string name="title_advanced_confirm_links">Befestigings foar iepenjen befestigje</string>
     <string name="title_advanced_browse_links">Delegear iepeningskeppelings nei Android</string>
     <string name="title_advanced_ask_images">Befêstigje werjaan fan ôfbyldings</string>

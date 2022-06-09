@@ -524,8 +524,6 @@
     <string name="title_advanced_notifications_default">Canal par défaut</string>
     <string name="title_advanced_notifications_service">Canal de surveillance</string>
     <string name="title_advanced_notifications_newest_first">Afficher les notifications les plus récentes en premier</string>
-    <string name="title_advanced_notifications_background">Utiliser le service d\'arrière-plan pour synchroniser les messages</string>
-    <string name="title_advanced_notifications_background_hint">Un service en arrière-plan peut être arrêté par Android à tout moment mais ne nécessite pas de notification dans la barre d\'état</string>
     <string name="title_advanced_badge">Afficher le nombre de nouveaux messages sur l’icône de lancement</string>
     <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
     <string name="title_advanced_notify_background">Afficher les notifications en arrière-plan uniquement</string>
@@ -555,6 +553,8 @@
     <string name="title_advanced_light">Utiliser le voyant lumineux pour les notifications</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_notify_screen_on">Allumer brièvement l\'écran lors des nouvelles notifications de message</string>
+    <string name="title_advanced_notifications_background">Utiliser le service d\'arrière-plan pour synchroniser les messages</string>
+    <string name="title_advanced_notifications_background_hint">Un service en arrière-plan peut être arrêté par Android à tout moment mais ne nécessite pas de notification dans la barre d\'état</string>
     <string name="title_advanced_confirm_links">Confirmer l\'ouverture des liens</string>
     <string name="title_advanced_check_links_dbl">Rechercher les liens suspects dans des listes de blocage de domaines</string>
     <string name="title_advanced_browse_links">Déléguer l\'ouverture des liens à Android</string>

@@ -102,6 +102,12 @@
         Blokování domény odesílatele používá pravidla filtru, což je Pro funkce.
     </string>
     <string name="title_blocked_senders">Zablokovaní odesílatelé</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Blokovat odesílatele %1$s zprávy?</item>
+        <item quantity="few">Blokovat odesílatele %1$s zpráv?</item>
+        <item quantity="many">Blokovat odesílatele %1$s zpráv?</item>
+        <item quantity="other">Blokovat odesílatele %1$s zpráv?</item>
+    </plurals>
     <string name="title_junk_filter">Použít lokální filtr nevyžádané pošty</string>
     <string name="title_junk_filter_hint">Může zvýšit využití baterie a nesprávně označovat zprávy jako nevyžádané</string>
     <string name="title_junk_blocklist">Použít seznam blokovaných adres</string>
@@ -539,8 +545,6 @@
     <string name="title_advanced_notifications_default">Výchozí kanál</string>
     <string name="title_advanced_notifications_service">Monitorovací kanál</string>
     <string name="title_advanced_notifications_newest_first">Nejnovější oznámení zobrazit přednostně</string>
-    <string name="title_advanced_notifications_background">Pro synchronizaci zpráv použít službu na pozadí</string>
-    <string name="title_advanced_notifications_background_hint">Služba na pozadí může být systémem Android kdykoli zastavena, ale nevyžaduje oznámení ve stavové liště</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv u ikony aplikace</string>
     <string name="title_advanced_unseen_ignored">Počet oznámení bude odpovídat počtu nových zpráv</string>
     <string name="title_advanced_notify_background">Zobrazovat oznámení pouze při běhu na pozadí</string>
@@ -570,6 +574,8 @@
     <string name="title_advanced_light">Použít oznamovací LED</string>
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
     <string name="title_advanced_notify_screen_on">Krátce zapnout obrazovku při upozornění na nové zprávy</string>
+    <string name="title_advanced_notifications_background">Pro synchronizaci zpráv použít službu na pozadí</string>
+    <string name="title_advanced_notifications_background_hint">Služba na pozadí může být systémem Android kdykoli zastavena, ale nevyžaduje oznámení ve stavové liště</string>
     <string name="title_advanced_confirm_links">Potvrzovat otevírání odkazů</string>
     <string name="title_advanced_check_links_dbl">Kontrolovat seznamy blokovaných domén na podezřelé odkazy</string>
     <string name="title_advanced_browse_links">Otevírání odkazů přenechat Androidu</string>
@@ -718,6 +724,7 @@
     <string name="title_advanced_display_hidden_hint">Může mít za následek neobvykle vypadající a zdvojené texty</string>
     <string name="title_advanced_display_pin_hint">PIN má přednost před biometrickým ověřením</string>
     <string name="title_advanced_display_autolock_nav_hint">Doba odkladu bude %1$d vteřin</string>
+    <string name="title_advanced_user_agent_hint">Některé servery nepřijímají řetězec generických uživatelských agentů</string>
     <string name="title_advanced_safe_browsing_hint">Google server ví, které adresy jsou vyhledávány</string>
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_notify_action_hint">Budou zobrazeny nejvýše tři akce</string>
@@ -1187,6 +1194,10 @@
     <string name="title_style_strikethrough">Přeškrtnutí</string>
     <string name="title_style_clear">Vymazat formátování</string>
     <string name="title_style_link">Vložit odkaz</string>
+    <string name="title_style_link_address">Adresa</string>
+    <string name="title_style_link_title">Předmět</string>
+    <string name="title_style_link_metadata">Načíst předmět</string>
+    <string name="title_style_link_metadata_remark">Tímto se načte předmět na zadané adrese</string>
     <string name="title_add_image">Přidat obrázek</string>
     <string name="title_add_image_inline">Vložit</string>
     <string name="title_add_image_attach">Přiložit</string>

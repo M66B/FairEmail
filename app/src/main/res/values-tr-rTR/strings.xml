@@ -522,8 +522,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_notifications_default">Varsayılan kanal</string>
     <string name="title_advanced_notifications_service">İzleme kanalı</string>
     <string name="title_advanced_notifications_newest_first">Önce en yeni bildirimleri göster</string>
-    <string name="title_advanced_notifications_background">İletileri senkronize etmek için arka plan servisi kullan</string>
-    <string name="title_advanced_notifications_background_hint">Bir arka plan servisi Android tarafından herhangi bir zamanda durdurulabilir, ama çalışmak için sabit bir bildirime ihtiyaç duymaz</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
     <string name="title_advanced_unseen_ignored">Yeni iletilerin sayısıyla bildirimlerin sayısının eşleşmesine izin ver</string>
     <string name="title_advanced_notify_background">Bildirimleri sadece arka plandayken göster</string>
@@ -553,6 +551,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_notify_screen_on">Yeni mesaj bildirimleri için ekranı kısaca aç</string>
+    <string name="title_advanced_notifications_background">İletileri senkronize etmek için arka plan servisi kullan</string>
+    <string name="title_advanced_notifications_background_hint">Bir arka plan servisi Android tarafından herhangi bir zamanda durdurulabilir, ama çalışmak için sabit bir bildirime ihtiyaç duymaz</string>
     <string name="title_advanced_confirm_links">Bağlantıları açmayı onayla</string>
     <string name="title_advanced_check_links_dbl">Şüpheli bağlantılar için alan engelleme listelerini kontrol edin</string>
     <string name="title_advanced_browse_links">Android\'i bağlantıları açması için görevlendir</string>

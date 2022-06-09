@@ -520,8 +520,6 @@
     <string name="title_advanced_notifications_default">İlkin kanal</string>
     <string name="title_advanced_notifications_service">Müşahidə kanalı</string>
     <string name="title_advanced_notifications_newest_first">Əvvəlcə ən yeni bildirişləri göstər</string>
-    <string name="title_advanced_notifications_background">Mesajları eyniləşdirmək üçün arxaplan xidməti istifadə et</string>
-    <string name="title_advanced_notifications_background_hint">Bir arxaplan xidməti istənilən vaxt Android tərəfindən dayandırıla bilər, ancaq vəziyyət sətri bildirişini tələb etmir</string>
     <string name="title_advanced_badge">Başladıcı nişanını yeni mesaj sayı ilə göstər</string>
     <string name="title_advanced_unseen_ignored">Yeni mesajların sayı ilə bildiriş sayının uyğun gəlməsinə icazə ver</string>
     <string name="title_advanced_notify_background">Bildirişləri yalnız arxaplanda olanda göstər</string>
@@ -551,6 +549,8 @@
     <string name="title_advanced_light">Bildiriş işığını istifadə et</string>
     <string name="title_advanced_sound">Bildiriş səsini seç</string>
     <string name="title_advanced_notify_screen_on">Yeni mesaj bildirişləri üçün ekranı qısa aç</string>
+    <string name="title_advanced_notifications_background">Mesajları eyniləşdirmək üçün arxaplan xidməti istifadə et</string>
+    <string name="title_advanced_notifications_background_hint">Bir arxaplan xidməti istənilən vaxt Android tərəfindən dayandırıla bilər, ancaq vəziyyət sətri bildirişini tələb etmir</string>
     <string name="title_advanced_confirm_links">Bağlantıların açılmasını təsdiqlə</string>
     <string name="title_advanced_check_links_dbl">Şübhəli bağlantılar üçün domen əngəlləmə siyahılarını yoxlayın</string>
     <string name="title_advanced_browse_links">Android-ə bağlantıları açma səlahiyyəti ver</string>

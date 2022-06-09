@@ -530,8 +530,6 @@
     <string name="title_advanced_notifications_default">Zadani kanal</string>
     <string name="title_advanced_notifications_service">Kanal za nadzor</string>
     <string name="title_advanced_notifications_newest_first">Najprije prikaži najnovije obavijesti</string>
-    <string name="title_advanced_notifications_background">Koristi pozadinski servis za sinkronizaciju poruka</string>
-    <string name="title_advanced_notifications_background_hint">Android može zaustaviti pozadinski servis bilo kada, ali ne zahtijeva obavijest na statusnoj traci</string>
     <string name="title_advanced_badge">Pokaži ikonu pokretača s brojem novih poruka</string>
     <string name="title_advanced_unseen_ignored">Neka se broj novih poruka podudara sa brojem obavijesti</string>
     <string name="title_advanced_notify_background">Prikaži obavijesti samo u pozadini</string>
@@ -561,6 +559,8 @@
     <string name="title_advanced_light">Koristi LED za obavijesti</string>
     <string name="title_advanced_sound">Odaberite zvuk obavijesti</string>
     <string name="title_advanced_notify_screen_on">Nakratko uključi zaslon za obavijesti o novim porukama</string>
+    <string name="title_advanced_notifications_background">Koristi pozadinski servis za sinkronizaciju poruka</string>
+    <string name="title_advanced_notifications_background_hint">Android može zaustaviti pozadinski servis bilo kada, ali ne zahtijeva obavijest na statusnoj traci</string>
     <string name="title_advanced_confirm_links">Potvrdi početne veze</string>
     <string name="title_advanced_check_links_dbl">Provjeri ima li na popisima blokiranih domena sumnjivih veza</string>
     <string name="title_advanced_browse_links">Delegiraj otvaranje veza Androidu</string>
