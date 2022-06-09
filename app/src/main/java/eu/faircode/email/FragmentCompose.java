@@ -125,7 +125,6 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
-import androidx.core.os.BuildCompat;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
@@ -3047,7 +3046,8 @@ public class FragmentCompose extends FragmentBase {
             // Android 12: cmd device_config put storage_native_boot picker_intent_enabled true
             Intent picker = new Intent(MediaStore.ACTION_PICK_IMAGES);
             picker.setType("image/*");
-            if (BuildCompat.isAtLeastT() && picker.resolveActivity(pm) != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                    picker.resolveActivity(pm) != null) {
                 Log.i("Using photo picker");
                 picker.putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, MediaStore.getPickImagesMaxLimit());
                 startActivityForResult(picker, REQUEST_IMAGE_FILE);

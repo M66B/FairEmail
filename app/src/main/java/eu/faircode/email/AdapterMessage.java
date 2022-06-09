@@ -119,7 +119,6 @@ import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.graphics.ColorUtils;
-import androidx.core.os.BuildCompat;
 import androidx.core.view.MenuCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -879,7 +878,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSignedData = vsBody.findViewById(R.id.tvSignedData);
 
             tvBody = vsBody.findViewById(R.id.tvBody);
-            if (BuildConfig.DEBUG && BuildCompat.isAtLeastT()) {
+            if (BuildConfig.DEBUG &&
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 tvBody.setHyphenationFrequency(Layout.HYPHENATION_FREQUENCY_FULL_FAST);
                 tvBody.setBreakStrategy(LineBreaker.BREAK_STRATEGY_HIGH_QUALITY);
             }

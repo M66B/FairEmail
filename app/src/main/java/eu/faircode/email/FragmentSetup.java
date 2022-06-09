@@ -62,7 +62,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.os.BuildCompat;
 import androidx.core.view.MenuCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
@@ -970,7 +969,7 @@ public class FragmentSetup extends FragmentBase {
     private List<String> getDesiredPermissions() {
         List<String> permissions = new ArrayList<>();
         permissions.add(Manifest.permission.READ_CONTACTS);
-        if (BuildCompat.isAtLeastT())
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
             permissions.add(Manifest.permission.POST_NOTIFICATIONS);
         return permissions;
     }
