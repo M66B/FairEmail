@@ -39,7 +39,7 @@ public class CharsetHelper {
     private static final List<String> COMMON = Collections.unmodifiableList(Arrays.asList(
             "US-ASCII",
             "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-7",
-            "windows-1250", "windows-1251", "windows-1252", "windows-1257",
+            "windows-1250", "windows-1251", "windows-1252", "windows-1256", "windows-1257",
             "UTF-7", "UTF-8"
     ));
     private static final List<String> LESS_COMMON = Collections.unmodifiableList(Arrays.asList(
