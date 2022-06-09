@@ -1245,7 +1245,8 @@ public class FragmentFolders extends FragmentBase {
                                 builder.setProgress(ids.size(), i, false);
                                 Notification notification = builder.build();
                                 notification.flags |= Notification.FLAG_NO_CLEAR;
-                                nm.notify("export", NotificationHelper.NOTIFICATION_TAGGED, notification);
+                                if (NotificationHelper.areNotificationsEnabled(nm))
+                                    nm.notify("export", NotificationHelper.NOTIFICATION_TAGGED, notification);
                             }
 
                             long id = ids.get(i);

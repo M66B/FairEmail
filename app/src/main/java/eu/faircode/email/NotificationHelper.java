@@ -149,6 +149,13 @@ class NotificationHelper {
         nm.createNotificationChannelGroup(group);
     }
 
+    static boolean areNotificationsEnabled(NotificationManager nm) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+            return true;
+        else
+            return nm.areNotificationsEnabled();
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     static void clear(Context context) {
         NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);

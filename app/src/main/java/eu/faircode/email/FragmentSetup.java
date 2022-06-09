@@ -62,6 +62,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.os.BuildCompat;
 import androidx.core.view.MenuCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
@@ -69,6 +70,7 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentSetup extends FragmentBase {
@@ -470,8 +472,11 @@ public class FragmentSetup extends FragmentBase {
             public void onClick(View view) {
                 try {
                     btnPermissions.setEnabled(false);
-                    String permission = Manifest.permission.READ_CONTACTS;
-                    requestPermissions(new String[]{permission}, REQUEST_PERMISSIONS);
+                    List<String> requesting = new ArrayList<>();
+                    for (String permission : getDesiredPermissions())
+                        if (!hasPermission(permission))
+                            requesting.add((permission));
+                    requestPermissions(requesting.toArray(new String[0]), REQUEST_PERMISSIONS);
                 } catch (Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                     /*
@@ -695,7 +700,7 @@ public class FragmentSetup extends FragmentBase {
         grpDataSaver.setVisibility(View.GONE);
         tvStamina.setVisibility(View.GONE);
 
-        setContactsPermission(hasPermission(Manifest.permission.READ_CONTACTS));
+        setGrantedPermissions();
 
         return view;
     }
@@ -959,20 +964,38 @@ public class FragmentSetup extends FragmentBase {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        for (int i = 0; i < permissions.length; i++)
-            if (Manifest.permission.READ_CONTACTS.equals(permissions[i]))
-                setContactsPermission(grantResults[i] == PackageManager.PERMISSION_GRANTED);
+        setGrantedPermissions();
     }
 
-    private void setContactsPermission(boolean granted) {
-        if (granted)
+    private List<String> getDesiredPermissions() {
+        List<String> permissions = new ArrayList<>();
+        permissions.add(Manifest.permission.READ_CONTACTS);
+        if (BuildCompat.isAtLeastT())
+            permissions.add(Manifest.permission.POST_NOTIFICATIONS);
+        return permissions;
+    }
+
+    private void setGrantedPermissions() {
+        List<String> granted = new ArrayList<>();
+        for (String permission : getDesiredPermissions())
+            if (hasPermission(permission))
+                granted.add(permission);
+
+        if (granted.contains(Manifest.permission.READ_CONTACTS))
             ContactInfo.init(getContext().getApplicationContext());
 
-        tvPermissionsDone.setText(granted ? R.string.title_setup_done : R.string.title_setup_to_do);
-        tvPermissionsDone.setTextColor(granted ? textColorPrimary : colorWarning);
-        tvPermissionsDone.setTypeface(null, granted ? Typeface.NORMAL : Typeface.BOLD);
-        tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(granted ? check : null, null, null, null);
-        btnPermissions.setEnabled(!granted);
+        boolean all = true;
+        for (String permission : getDesiredPermissions())
+            if (!granted.contains(permission)) {
+                all = false;
+                break;
+            }
+
+        tvPermissionsDone.setText(all ? R.string.title_setup_done : R.string.title_setup_to_do);
+        tvPermissionsDone.setTextColor(all ? textColorPrimary : colorWarning);
+        tvPermissionsDone.setTypeface(null, all ? Typeface.NORMAL : Typeface.BOLD);
+        tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(all ? check : null, null, null, null);
+        btnPermissions.setEnabled(!all);
     }
 
     private void onDeleteAccount(Bundle args) {

@@ -107,8 +107,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     EntityLog.log(ServiceSend.this, "Unsent=" + (unsent == null ? null : unsent.count));
 
                     try {
-                        NotificationManager nm = Helper.getSystemService(ServiceSend.this, NotificationManager.class);
-                        nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
+                        NotificationManager nm =
+                                Helper.getSystemService(ServiceSend.this, NotificationManager.class);
+                        if (NotificationHelper.areNotificationsEnabled(nm))
+                            nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
@@ -331,8 +333,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 EntityLog.log(ServiceSend.this, "Service send suitable=" + suitable);
 
                 try {
-                    NotificationManager nm = Helper.getSystemService(ServiceSend.this, NotificationManager.class);
-                    nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
+                    NotificationManager nm =
+                            Helper.getSystemService(ServiceSend.this, NotificationManager.class);
+                    if (NotificationHelper.areNotificationsEnabled(nm))
+                        nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
@@ -430,10 +434,11 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                             try {
                                 int tries_left = (unrecoverable ? 0 : RETRY_MAX - op.tries);
                                 NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
-                                nm.notify("send:" + message.id,
-                                        NotificationHelper.NOTIFICATION_TAGGED,
-                                        getNotificationError(
-                                                MessageHelper.formatAddressesShort(message.to), ex, tries_left).build());
+                                if (NotificationHelper.areNotificationsEnabled(nm))
+                                    nm.notify("send:" + message.id,
+                                            NotificationHelper.NOTIFICATION_TAGGED,
+                                            getNotificationError(
+                                                    MessageHelper.formatAddressesShort(message.to), ex, tries_left).build());
                             } catch (Throwable ex1) {
                                 Log.w(ex1);
                             }
@@ -517,7 +522,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         }
 
         NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
-        nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(true));
+        if (NotificationHelper.areNotificationsEnabled(nm))
+            nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(true));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean reply_move = prefs.getBoolean("reply_move", false);
@@ -731,7 +737,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         if (now > last + PROGRESS_UPDATE_INTERVAL) {
                             last = now;
                             lastProgress = progress;
-                            nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
+                            if (NotificationHelper.areNotificationsEnabled(nm))
+                                nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
                         }
                     }
                 }
@@ -772,7 +779,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             iservice.close();
             if (lastProgress >= 0) {
                 lastProgress = -1;
-                nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
+                if (NotificationHelper.areNotificationsEnabled(nm))
+                    nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
             }
             db.identity().setIdentityState(ident.id, null);
         }

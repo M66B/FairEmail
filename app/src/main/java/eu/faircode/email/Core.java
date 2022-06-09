@@ -720,9 +720,10 @@ class Core {
                                 if (title != null) {
                                     NotificationCompat.Builder builder =
                                             getNotificationError(context, "warning", account, message.id, new Throwable(title, ex));
-                                    nm.notify(op.name + ":" + op.message,
-                                            NotificationHelper.NOTIFICATION_TAGGED,
-                                            builder.build());
+                                    if (NotificationHelper.areNotificationsEnabled(nm))
+                                        nm.notify(op.name + ":" + op.message,
+                                                NotificationHelper.NOTIFICATION_TAGGED,
+                                                builder.build());
                                 }
                             }
 
@@ -5134,7 +5135,8 @@ class Core {
                                             : " channel=" + notification.getChannelId()) +
                                     " sort=" + notification.getSortKey());
                     try {
-                        nm.notify(tag, NotificationHelper.NOTIFICATION_TAGGED, notification);
+                        if (NotificationHelper.areNotificationsEnabled(nm))
+                            nm.notify(tag, NotificationHelper.NOTIFICATION_TAGGED, notification);
                         // https://github.com/leolin310148/ShortcutBadger/wiki/Xiaomi-Device-Support
                         if (id == 0 && badge && Helper.isXiaomi())
                             ShortcutBadger.applyNotification(context, notification, current);

@@ -6,6 +6,7 @@
 
 * Added searching for text in draft
 * Added OAuth for Gmail POP3 accounts
+* Android 13 compatibility (notification permissions)
 * Small improvements and minor bug fixes
 * Updated translations
 

@@ -622,7 +622,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 swCheckWeekly.setEnabled(checked);
                 if (!checked) {
                     NotificationManager nm =
-                            (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+                            Helper.getSystemService(getContext(), NotificationManager.class);
                     nm.cancel(NotificationHelper.NOTIFICATION_UPDATE);
                 }
             }
@@ -1550,7 +1550,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         if (!Helper.isPlayStoreInstall() &&
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationManager nm =
+                    Helper.getSystemService(getContext(), NotificationManager.class);
 
             NotificationChannel notification = nm.getNotificationChannel("update");
             if (notification != null) {

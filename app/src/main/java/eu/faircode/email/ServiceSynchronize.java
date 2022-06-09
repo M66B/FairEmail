@@ -419,9 +419,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                         if (!isBackgroundService(ServiceSynchronize.this))
                             try {
-                                NotificationManager nm = Helper.getSystemService(ServiceSynchronize.this, NotificationManager.class);
-                                nm.notify(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
-                                        getNotificationService(lastAccounts, lastOperations));
+                                NotificationManager nm =
+                                        Helper.getSystemService(ServiceSynchronize.this, NotificationManager.class);
+                                if (NotificationHelper.areNotificationsEnabled(nm))
+                                    nm.notify(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
+                                            getNotificationService(lastAccounts, lastOperations));
                             } catch (Throwable ex) {
 /*
                             java.lang.NullPointerException: Attempt to invoke interface method 'java.util.Iterator java.lang.Iterable.iterator()' on a null object reference
@@ -1478,10 +1480,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 if (!ConnectionHelper.isMaxConnections(message))
                                     try {
-                                        NotificationManager nm = Helper.getSystemService(ServiceSynchronize.this, NotificationManager.class);
-                                        nm.notify("alert:" + account.id,
-                                                NotificationHelper.NOTIFICATION_TAGGED,
-                                                getNotificationAlert(account, message).build());
+                                        NotificationManager nm =
+                                                Helper.getSystemService(ServiceSynchronize.this, NotificationManager.class);
+                                        if (NotificationHelper.areNotificationsEnabled(nm))
+                                            nm.notify("alert:" + account.id,
+                                                    NotificationHelper.NOTIFICATION_TAGGED,
+                                                    getNotificationAlert(account, message).build());
                                     } catch (Throwable ex) {
                                         Log.w(ex);
                                     }
@@ -1541,11 +1545,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 try {
                                     state.setBackoff(2 * CONNECT_BACKOFF_ALARM_MAX * 60);
-                                    NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
-                                    nm.notify("receive:" + account.id,
-                                            NotificationHelper.NOTIFICATION_TAGGED,
-                                            Core.getNotificationError(this, "error", account, 0, ex)
-                                                    .build());
+                                    NotificationManager nm =
+                                            Helper.getSystemService(this, NotificationManager.class);
+                                    if (NotificationHelper.areNotificationsEnabled(nm))
+                                        nm.notify("receive:" + account.id,
+                                                NotificationHelper.NOTIFICATION_TAGGED,
+                                                Core.getNotificationError(this, "error", account, 0, ex)
+                                                        .build());
                                 } catch (Throwable ex1) {
                                     Log.w(ex1);
                                 }
@@ -2339,11 +2345,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             Helper.getDateTimeInstance(this, DateFormat.SHORT, DateFormat.SHORT)
                                                     .format(account.last_connected)), ex);
                             try {
-                                NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
-                                nm.notify("receive:" + account.id,
-                                        NotificationHelper.NOTIFICATION_TAGGED,
-                                        Core.getNotificationError(this, "warning", account, 0, warning)
-                                                .build());
+                                NotificationManager nm =
+                                        Helper.getSystemService(this, NotificationManager.class);
+                                if (NotificationHelper.areNotificationsEnabled(nm))
+                                    nm.notify("receive:" + account.id,
+                                            NotificationHelper.NOTIFICATION_TAGGED,
+                                            Core.getNotificationError(this, "warning", account, 0, warning)
+                                                    .build());
                             } catch (Throwable ex1) {
                                 Log.w(ex1);
                             }
@@ -2787,9 +2795,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                         if (!isBackgroundService(ServiceSynchronize.this))
                             try {
-                                NotificationManager nm = Helper.getSystemService(ServiceSynchronize.this, NotificationManager.class);
-                                nm.notify(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
-                                        getNotificationService(lastAccounts, lastOperations));
+                                NotificationManager nm =
+                                        Helper.getSystemService(ServiceSynchronize.this, NotificationManager.class);
+                                if (NotificationHelper.areNotificationsEnabled(nm))
+                                    nm.notify(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
+                                            getNotificationService(lastAccounts, lastOperations));
                             } catch (Throwable ex) {
                                 Log.w(ex);
                             }
