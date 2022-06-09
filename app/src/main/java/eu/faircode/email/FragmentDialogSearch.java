@@ -24,8 +24,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.MatrixCursor;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -59,6 +61,9 @@ import java.util.List;
 import io.requery.android.database.sqlite.SQLiteDatabase;
 
 public class FragmentDialogSearch extends FragmentDialogBase {
+    private ImageButton ibMore;
+    private TextView tvMore;
+
     private static final int MAX_SUGGESTIONS = 3;
 
     @NonNull
@@ -97,8 +102,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         ImageButton ibInvite = dview.findViewById(R.id.ibInvite);
         ImageButton ibAttachment = dview.findViewById(R.id.ibAttachment);
         ImageButton ibNotes = dview.findViewById(R.id.ibNotes);
-        ImageButton ibMore = dview.findViewById(R.id.ibMore);
-        TextView tvMore = dview.findViewById(R.id.tvMore);
+        ibMore = dview.findViewById(R.id.ibMore);
+        tvMore = dview.findViewById(R.id.tvMore);
         CheckBox cbSearchIndex = dview.findViewById(R.id.cbSearchIndex);
         CheckBox cbSenders = dview.findViewById(R.id.cbSenders);
         CheckBox cbRecipients = dview.findViewById(R.id.cbRecipients);
@@ -256,6 +261,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         ibMore.setOnClickListener(onMore);
         tvMore.setOnClickListener(onMore);
 
+        evalMore();
+
         cbSearchIndex.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -267,6 +274,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_search_senders", isChecked).apply();
+                evalMore();
             }
         });
 
@@ -274,6 +282,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_search_recipients", isChecked).apply();
+                evalMore();
             }
         });
 
@@ -281,6 +290,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_search_subject", isChecked).apply();
+                evalMore();
             }
         });
 
@@ -295,6 +305,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_search_message", isChecked).apply();
+                evalMore();
             }
         });
 
@@ -569,6 +580,21 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         });
 
         return dialog;
+    }
+
+    private void evalMore() {
+        final Context context = tvMore.getContext();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean last_search_senders = prefs.getBoolean("last_search_senders", true);
+        boolean last_search_recipients = prefs.getBoolean("last_search_recipients", true);
+        boolean last_search_subject = prefs.getBoolean("last_search_subject", true);
+        boolean last_search_message = prefs.getBoolean("last_search_message", true);
+
+        boolean all = (last_search_senders && last_search_recipients && last_search_subject && last_search_message);
+        int color = Helper.resolveColor(context, all ? android.R.attr.textColorSecondary : R.attr.colorWarning);
+        ibMore.setImageTintList(ColorStateList.valueOf(color));
+        tvMore.setTextColor(color);
+        tvMore.setTypeface(all ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
     }
 
     @Override
