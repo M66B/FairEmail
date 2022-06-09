@@ -2580,6 +2580,16 @@ public class Log {
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
 
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    boolean enabled = nm.areNotificationsEnabled();
+                    size += write(os, String.format("Enabled=%b %s\r\n",
+                            enabled, (enabled ? "" : "!!!")));
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    boolean paused = nm.areNotificationsPaused();
+                    size += write(os, String.format("Paused=%b %s\r\n",
+                            paused, (paused ? "!!!" : "")));
+                }
 
                 String name;
                 int filter = nm.getCurrentInterruptionFilter();
