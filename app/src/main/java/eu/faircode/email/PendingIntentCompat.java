@@ -32,6 +32,9 @@ public class PendingIntentCompat {
 
     // https://developer.android.com/about/versions/12/behavior-changes-12#pending-intent-mutability
 
+    // Xiaomi Android 11: Too many PendingIntent created for uid nnnnn
+    // https://stackoverflow.com/questions/71266853/xiaomi-android-11-securityexception-too-many-pendingintent-created
+
     public static PendingIntent getActivity(Context context, int requestCode, Intent intent, int flags) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || (flags & PendingIntent.FLAG_MUTABLE) != 0)
             return PendingIntent.getActivity(context, requestCode, intent, flags);
