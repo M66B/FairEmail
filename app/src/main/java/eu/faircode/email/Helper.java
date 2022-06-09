@@ -427,7 +427,7 @@ public class Helper {
         try {
             PackageManager pm = context.getPackageManager();
             if (pm.hasSystemFeature(PackageManager.FEATURE_WEBVIEW)) {
-                new WebView(context);
+                new WebViewEx(context);
                 return true;
             } else
                 return false;
@@ -439,6 +439,25 @@ public class Helper {
                     at eu.faircode.email.ApplicationEx.onCreate(SourceFile:110)
                     at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1014)
                     at android.app.ActivityThread.handleBindApplication(ActivityThread.java:4751)
+
+                    Chromium WebView package does not exist
+                    android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
+                        at android.webkit.WebViewFactory.getWebViewContextAndSetProvider(WebViewFactory.java:428)
+                        at android.webkit.WebViewFactory.getProviderClass(WebViewFactory.java:493)
+                        at android.webkit.WebViewFactory.getProvider(WebViewFactory.java:348)
+                        at android.webkit.WebView.getFactory(WebView.java:2594)
+                        at android.webkit.WebView.ensureProviderCreated(WebView.java:2588)
+                        at android.webkit.WebView.setOverScrollMode(WebView.java:2656)
+                        at android.view.View.<init>(View.java:5325)
+                        at android.view.View.<init>(View.java:5466)
+                        at android.view.ViewGroup.<init>(ViewGroup.java:702)
+                        at android.widget.AbsoluteLayout.<init>(AbsoluteLayout.java:56)
+                        at android.webkit.WebView.<init>(WebView.java:421)
+                        at android.webkit.WebView.<init>(WebView.java:363)
+                        at android.webkit.WebView.<init>(WebView.java:345)
+                        at android.webkit.WebView.<init>(WebView.java:332)
+                        at android.webkit.WebView.<init>(WebView.java:322)
+                        at eu.faircode.email.WebViewEx.<init>(SourceFile:1)
              */
             return false;
         }
