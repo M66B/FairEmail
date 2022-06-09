@@ -298,8 +298,13 @@ public class EntityFolder extends EntityOrder implements Serializable {
     }
 
     void setSpecials(EntityAccount account) {
-        if ("imap.web.de".equals(account.host) && "Unbekannt".equals(name))
+        if ("imap.web.de".equals(account.host) && "Unbekannt".equals(name)) {
+            // In den Ordner Unbekannt werden E-Mails einsortiert,
+            // die nicht als Spam erkannt werden
+            // und deren Absender nicht in Ihrem Adressbuch oder auf Ihrer Erwünschtliste stehen.
             synchronize = true;
+            unified = true;
+        }
     }
 
     static boolean shouldPoll(String type) {
