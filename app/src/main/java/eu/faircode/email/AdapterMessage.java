@@ -6554,7 +6554,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             SpannableStringBuilder ssb = new SpannableStringBuilderEx();
             for (int i = 0; i < message.keywords.length; i++) {
                 String keyword = message.keywords[i];
-                if (MessageHelper.showKeyword(keyword)) {
+                if (debug || MessageHelper.showKeyword(keyword)) {
                     if (ssb.length() > 0)
                         ssb.append(' ');
 
