@@ -192,7 +192,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnGC;
     private Button btnCharsets;
     private Button btnFontMap;
-    private Button btnCiphers;
     private Button btnFiles;
     private Button btnUris;
     private Button btnAllPermissions;
@@ -367,7 +366,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnGC = view.findViewById(R.id.btnGC);
         btnCharsets = view.findViewById(R.id.btnCharsets);
         btnFontMap = view.findViewById(R.id.btnFontMap);
-        btnCiphers = view.findViewById(R.id.btnCiphers);
         btnFiles = view.findViewById(R.id.btnFiles);
         btnUris = view.findViewById(R.id.btnUris);
         btnAllPermissions = view.findViewById(R.id.btnAllPermissions);
@@ -1287,23 +1285,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         .setIcon(R.drawable.twotone_info_24)
                         .setTitle(R.string.title_advanced_font_map)
                         .setMessage(ssb)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // Do nothing
-                            }
-                        })
-                        .show();
-            }
-        });
-
-        btnCiphers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new AlertDialog.Builder(getContext())
-                        .setIcon(R.drawable.twotone_info_24)
-                        .setTitle(R.string.title_advanced_ciphers)
-                        .setMessage(Log.getCiphers())
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
