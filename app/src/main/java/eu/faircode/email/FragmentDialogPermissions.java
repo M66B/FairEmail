@@ -41,12 +41,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
-public class FragmentDialogStill extends FragmentDialogBase {
+public class FragmentDialogPermissions extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final Context context = getContext();
-        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_setup, null);
+        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_permissions, null);
         TextView tvContactPermissions = dview.findViewById(R.id.tvContactPermissions);
         TextView tvNotificationPermissions = dview.findViewById(R.id.tvNotificationPermissions);
         TextView tvDozeDevice = dview.findViewById(R.id.tvDozeDevice);

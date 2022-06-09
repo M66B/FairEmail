@@ -498,7 +498,7 @@ public class FragmentOptions extends FragmentBase {
                 (hasContactPermissions && hasNotificationPermissions && isIgnoring))
             super.finish();
         else {
-            FragmentDialogStill fragment = new FragmentDialogStill();
+            FragmentDialogPermissions fragment = new FragmentDialogPermissions();
             fragment.setTargetFragment(this, ActivitySetup.REQUEST_STILL);
             fragment.show(getParentFragmentManager(), "setup:still");
         }
