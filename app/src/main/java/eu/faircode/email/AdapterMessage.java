@@ -2441,8 +2441,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (message.show_full ||
                             prefs.getBoolean(from + ".show_full", false) ||
                             prefs.getBoolean(domain + ".show_full", false)) {
-                        properties.setValue("full", message.id, true);
-                        properties.setValue("full_asked", message.id, true);
+                        properties.setValue("full", message.id, hasWebView);
+                        properties.setValue("full_asked", message.id, hasWebView);
                     }
                     if (message.show_images ||
                             prefs.getBoolean(from + ".show_images", false) ||
@@ -2464,8 +2464,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (!confirm_html &&
                     !EntityFolder.JUNK.equals(message.folderType) &&
                     !properties.getValue("full_asked", message.id)) {
-                properties.setValue("full", message.id, true);
-                properties.setValue("full_asked", message.id, true);
+                properties.setValue("full", message.id, hasWebView);
+                properties.setValue("full_asked", message.id, hasWebView);
             }
 
             if (!properties.getValue("force_light_default", message.id)) {
@@ -2509,6 +2509,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Log.i("Bind size=" + size + " height=" + height);
 
             ibFull.setEnabled(hasWebView);
+            ibFull.setImageTintList(ColorStateList.valueOf(hasWebView ? colorAccent : colorSeparator));
             ibFull.setImageResource(show_full ? R.drawable.twotone_fullscreen_exit_24 : R.drawable.twotone_fullscreen_24);
             ibFull.setContentDescription(context.getString(show_full
                     ? R.string.title_legend_show_reformatted
