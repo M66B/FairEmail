@@ -6888,8 +6888,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         boolean contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         boolean avatars = prefs.getBoolean("avatars", true);
         boolean bimi = prefs.getBoolean("bimi", false);
-        boolean gravatars = prefs.getBoolean("gravatars", false);
-        boolean libravatars = prefs.getBoolean("libravatars", false);
+        boolean gravatars = (prefs.getBoolean("gravatars", false) && !BuildConfig.PLAY_STORE_RELEASE);
+        boolean libravatars = (prefs.getBoolean("libravatars", false) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean favicons = prefs.getBoolean("favicons", false);
         boolean generated = prefs.getBoolean("generated_icons", true);
 

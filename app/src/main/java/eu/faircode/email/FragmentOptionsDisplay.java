@@ -180,6 +180,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swAuthentication;
     private SwitchCompat swAuthenticationIndicator;
 
+    private Group grpAvatar;
     private Group grpUnzip;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -334,6 +335,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAuthentication = view.findViewById(R.id.swAuthentication);
         swAuthenticationIndicator = view.findViewById(R.id.swAuthenticationIndicator);
 
+        grpAvatar = view.findViewById(R.id.grpAvatar);
         grpUnzip = view.findViewById(R.id.grpUnzip);
 
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
@@ -744,7 +746,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         tvGravatarPrivacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.GRAVATAR_PRIVACY_URI), true);
+                Helper.view(v.getContext(), Uri.parse(Avatar.GRAVATAR_PRIVACY_URI), true);
             }
         });
 
@@ -760,7 +762,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         tvLibravatarPrivacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.LIBRAVATAR_PRIVACY_URI), true);
+                Helper.view(v.getContext(), Uri.parse(Avatar.LIBRAVATAR_PRIVACY_URI), true);
             }
         });
 
@@ -1257,6 +1259,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         FragmentDialogTheme.setBackground(getContext(), view, false);
         swFaviconsPartial.setText(getString(R.string.title_advanced_favicons_partial,
                 Helper.humanReadableByteCount(ContactInfo.FAVICON_READ_BYTES, false)));
+        grpAvatar.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         grpUnzip.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
         tvBimiUnverified.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
