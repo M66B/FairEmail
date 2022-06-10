@@ -21,6 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:background="?android:attr/selectableItemBackground"
                 android:drawableStart="@drawable/twotone_flight_24"
                 android:drawablePadding="6dp"
                 android:drawableTint="?android:attr/textColorPrimary"
@@ -41,6 +42,31 @@
                 app:layout_constraintTop_toBottomOf="@id/tvAirplane" />
 
             <TextView
+                android:id="@+id/tvNotifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableStart="@drawable/twotone_notifications_off_24"
+                android:drawablePadding="6dp"
+                android:drawableTint="?android:attr/textColorPrimary"
+                android:padding="6dp"
+                android:text="@string/title_hint_notification"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="?android:attr/textColorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vSeparatorAirplane" />
+
+            <View
+                android:id="@+id/vSeparatorNotifications"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNotifications" />
+
+            <TextView
                 android:id="@+id/tvSupport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,7 +76,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vSeparatorAirplane" />
+                app:layout_constraintTop_toBottomOf="@+id/vSeparatorNotifications" />
 
             <View
                 android:id="@+id/vSeparatorSupport"
@@ -429,6 +455,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="tvAirplane,vSeparatorAirplane" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpNotifications"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvNotifications,vSeparatorNotifications" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpSupport"
