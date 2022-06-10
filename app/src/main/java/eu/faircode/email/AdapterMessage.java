@@ -161,6 +161,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.text.Collator;
@@ -177,6 +178,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.SortedMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 
@@ -5574,6 +5576,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else if (itemId == R.id.menu_resync) {
                         onMenuResync(message);
                         return true;
+                    } else if (itemId == R.id.menu_charset) {
+                        onMenuCharset(message);
+                        return true;
                     } else if (itemId == R.id.menu_alternative) {
                         onMenuAlt(message);
                         return true;
@@ -6060,6 +6065,78 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:resync");
+        }
+
+        private void onMenuCharset(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<SortedMap<String, Charset>>() {
+                @Override
+                protected SortedMap<String, Charset> onExecute(Context context, Bundle args) {
+                    return Charset.availableCharsets();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, SortedMap<String, Charset> charsets) {
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
+
+                    int order = 0;
+                    for (String name : charsets.keySet()) {
+                        order++;
+                        popupMenu.getMenu().add(Menu.NONE, order, order, name)
+                                .setIntent(new Intent().putExtra("charset", name));
+                    }
+
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            args.putString("charset", item.getIntent().getStringExtra("charset"));
+
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onExecute(Context context, Bundle args) {
+                                    long id = args.getLong("id");
+                                    String charset = args.getString("charset");
+
+                                    DB db = DB.getInstance(context);
+                                    try {
+                                        db.beginTransaction();
+
+                                        EntityMessage message = db.message().getMessage(id);
+                                        if (message == null)
+                                            return null;
+
+                                        db.message().resetMessageContent(id);
+                                        EntityOperation.queue(context, message, EntityOperation.BODY, null, charset);
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
+                                    }
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                                }
+                            }.execute(context, owner, args, "body:charset");
+
+                            return true;
+                        }
+                    });
+
+                    popupMenu.show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:charset");
+
         }
 
         private void onMenuAlt(TupleMessageEx message) {

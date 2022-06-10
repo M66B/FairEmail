@@ -161,6 +161,11 @@
             android:title="@string/title_resync" />
 
         <item
+            android:id="@+id/menu_charset"
+            android:icon="@drawable/twotone_abc_24"
+            android:title="@string/title_charset" />
+
+        <item
             android:id="@+id/menu_alternative"
             android:icon="@drawable/twotone_sync_alt_24"
             android:title="@string/title_alternative_text" />

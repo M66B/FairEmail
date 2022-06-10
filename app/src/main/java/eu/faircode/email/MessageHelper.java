@@ -3068,6 +3068,10 @@ public class MessageHelper {
         }
 
         String getHtml(Context context, boolean plain_text) throws MessagingException, IOException {
+            return getHtml(context, plain_text, null);
+        }
+
+        String getHtml(Context context, boolean plain_text, String override) throws MessagingException, IOException {
             if (text.size() == 0) {
                 Log.i("No body part");
                 return null;
@@ -3167,24 +3171,30 @@ public class MessageHelper {
                 }
 
                 if (h.isPlainText()) {
-                    if (charset == null || StandardCharsets.ISO_8859_1.equals(cs)) {
-                        if (StandardCharsets.ISO_8859_1.equals(cs) && CharsetHelper.isUTF8(result)) {
-                            Log.i("Charset upgrade=UTF8");
-                            result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-                        } else {
-                            Charset detected = CharsetHelper.detect(result, StandardCharsets.ISO_8859_1);
-                            if (detected == null) {
-                                if (CharsetHelper.isUTF8(result)) {
-                                    Log.i("Charset plain=UTF8");
-                                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-                                }
+                    if (override == null) {
+                        if (charset == null || StandardCharsets.ISO_8859_1.equals(cs)) {
+                            if (StandardCharsets.ISO_8859_1.equals(cs) && CharsetHelper.isUTF8(result)) {
+                                Log.i("Charset upgrade=UTF8");
+                                result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
                             } else {
-                                Log.i("Charset plain=" + detected.name());
-                                result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
+                                Charset detected = CharsetHelper.detect(result, StandardCharsets.ISO_8859_1);
+                                if (detected == null) {
+                                    if (CharsetHelper.isUTF8(result)) {
+                                        Log.i("Charset plain=UTF8");
+                                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+                                    }
+                                } else {
+                                    Log.i("Charset plain=" + detected.name());
+                                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
+                                }
                             }
-                        }
-                    } else if (StandardCharsets.UTF_8.equals(cs))
-                        result = CharsetHelper.utf8toW1252(result);
+                        } else if (StandardCharsets.UTF_8.equals(cs))
+                            result = CharsetHelper.utf8toW1252(result);
+                    } else {
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        Helper.copy(h.part.getDataHandler().getInputStream(), bos);
+                        result = bos.toString(override);
+                    }
 
                     // https://datatracker.ietf.org/doc/html/rfc3676
                     if ("flowed".equalsIgnoreCase(h.contentType.getParameter("format")))
@@ -3215,94 +3225,100 @@ public class MessageHelper {
 
                     result = "<div x-plain=\"true\">" + HtmlHelper.formatPlainText(result) + "</div>";
                 } else if (h.isHtml()) {
-                    // Conditionally upgrade to UTF8
-                    if ((cs == null ||
-                            StandardCharsets.US_ASCII.equals(cs) ||
-                            StandardCharsets.ISO_8859_1.equals(cs)) &&
-                            CharsetHelper.isUTF8(result))
-                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+                    if (override == null) {
+                        // Conditionally upgrade to UTF8
+                        if ((cs == null ||
+                                StandardCharsets.US_ASCII.equals(cs) ||
+                                StandardCharsets.ISO_8859_1.equals(cs)) &&
+                                CharsetHelper.isUTF8(result))
+                            result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
 
-                    //if (StandardCharsets.UTF_8.equals(cs))
-                    //    result = CharsetHelper.utf8w1252(result);
+                        //if (StandardCharsets.UTF_8.equals(cs))
+                        //    result = CharsetHelper.utf8w1252(result);
 
-                    // Fix incorrect UTF16
-                    try {
-                        if (CHARSET16.contains(cs)) {
-                            Charset detected = CharsetHelper.detect(result, cs);
-                            // UTF-16 can be detected as US-ASCII
-                            if (!CHARSET16.contains(detected))
-                                Log.w(new Throwable("Charset=" + cs + " detected=" + detected));
-                            if (StandardCharsets.UTF_8.equals(detected)) {
-                                charset = null;
-                                result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
+                        // Fix incorrect UTF16
+                        try {
+                            if (CHARSET16.contains(cs)) {
+                                Charset detected = CharsetHelper.detect(result, cs);
+                                // UTF-16 can be detected as US-ASCII
+                                if (!CHARSET16.contains(detected))
+                                    Log.w(new Throwable("Charset=" + cs + " detected=" + detected));
+                                if (StandardCharsets.UTF_8.equals(detected)) {
+                                    charset = null;
+                                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
+                                }
+                            }
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+
+                        if (charset == null) {
+                            // <meta charset="utf-8" />
+                            // <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                            String excerpt = result.substring(0, Math.min(MAX_META_EXCERPT, result.length()));
+                            Document d = JsoupEx.parse(excerpt);
+                            for (Element meta : d.select("meta")) {
+                                if ("Content-Type".equalsIgnoreCase(meta.attr("http-equiv"))) {
+                                    try {
+                                        ContentType ct = new ContentType(meta.attr("content"));
+                                        charset = ct.getParameter("charset");
+                                    } catch (ParseException ex) {
+                                        Log.w(ex);
+                                    }
+                                } else
+                                    charset = meta.attr("charset");
+
+                                if (!TextUtils.isEmpty(charset))
+                                    try {
+                                        Log.i("Charset meta=" + meta);
+                                        Charset c = Charset.forName(charset);
+
+                                        // US-ASCII is a subset of ISO8859-1
+                                        if (StandardCharsets.US_ASCII.equals(c))
+                                            break;
+
+                                        // Check if really UTF-8
+                                        if (StandardCharsets.UTF_8.equals(c) && !CharsetHelper.isUTF8(result)) {
+                                            Log.w("Charset meta=" + meta + " !isUTF8");
+                                            break;
+                                        }
+
+                                        // 16 bits charsets cannot be converted to 8 bits
+                                        if (CHARSET16.contains(c)) {
+                                            Log.w("Charset meta=" + meta);
+                                            break;
+                                        }
+
+                                        Charset detected = CharsetHelper.detect(result, c);
+                                        if (c.equals(detected))
+                                            break;
+
+                                        // Common detected/meta
+                                        // - windows-1250, windows-1257 / ISO-8859-1
+                                        // - ISO-8859-1 / windows-1252
+                                        // - US-ASCII / windows-1250, windows-1252, ISO-8859-1, ISO-8859-15, UTF-8
+
+                                        if (StandardCharsets.US_ASCII.equals(detected) &&
+                                                ("ISO-8859-15".equals(c.name()) ||
+                                                        "windows-1250".equals(c.name()) ||
+                                                        "windows-1252".equals(c.name()) ||
+                                                        StandardCharsets.UTF_8.equals(c) ||
+                                                        StandardCharsets.ISO_8859_1.equals(c)))
+                                            break;
+
+                                        // Convert
+                                        Log.w("Converting detected=" + detected + " meta=" + c);
+                                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1), c);
+                                        break;
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
                             }
                         }
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-
-                    if (charset == null) {
-                        // <meta charset="utf-8" />
-                        // <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        String excerpt = result.substring(0, Math.min(MAX_META_EXCERPT, result.length()));
-                        Document d = JsoupEx.parse(excerpt);
-                        for (Element meta : d.select("meta")) {
-                            if ("Content-Type".equalsIgnoreCase(meta.attr("http-equiv"))) {
-                                try {
-                                    ContentType ct = new ContentType(meta.attr("content"));
-                                    charset = ct.getParameter("charset");
-                                } catch (ParseException ex) {
-                                    Log.w(ex);
-                                }
-                            } else
-                                charset = meta.attr("charset");
-
-                            if (!TextUtils.isEmpty(charset))
-                                try {
-                                    Log.i("Charset meta=" + meta);
-                                    Charset c = Charset.forName(charset);
-
-                                    // US-ASCII is a subset of ISO8859-1
-                                    if (StandardCharsets.US_ASCII.equals(c))
-                                        break;
-
-                                    // Check if really UTF-8
-                                    if (StandardCharsets.UTF_8.equals(c) && !CharsetHelper.isUTF8(result)) {
-                                        Log.w("Charset meta=" + meta + " !isUTF8");
-                                        break;
-                                    }
-
-                                    // 16 bits charsets cannot be converted to 8 bits
-                                    if (CHARSET16.contains(c)) {
-                                        Log.w("Charset meta=" + meta);
-                                        break;
-                                    }
-
-                                    Charset detected = CharsetHelper.detect(result, c);
-                                    if (c.equals(detected))
-                                        break;
-
-                                    // Common detected/meta
-                                    // - windows-1250, windows-1257 / ISO-8859-1
-                                    // - ISO-8859-1 / windows-1252
-                                    // - US-ASCII / windows-1250, windows-1252, ISO-8859-1, ISO-8859-15, UTF-8
-
-                                    if (StandardCharsets.US_ASCII.equals(detected) &&
-                                            ("ISO-8859-15".equals(c.name()) ||
-                                                    "windows-1250".equals(c.name()) ||
-                                                    "windows-1252".equals(c.name()) ||
-                                                    StandardCharsets.UTF_8.equals(c) ||
-                                                    StandardCharsets.ISO_8859_1.equals(c)))
-                                        break;
-
-                                    // Convert
-                                    Log.w("Converting detected=" + detected + " meta=" + c);
-                                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1), c);
-                                    break;
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
-                                }
-                        }
+                    } else {
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        Helper.copy(h.part.getDataHandler().getInputStream(), bos);
+                        result = bos.toString(override);
                     }
                 } else if (h.isReport()) {
                     Report report = new Report(h.contentType.getBaseType(), result);

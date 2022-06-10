@@ -1990,11 +1990,12 @@ class Core {
 
     private static void onBody(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
         boolean plain_text = jargs.optBoolean(0);
+        String charset = jargs.optString(1, null);
 
         // Download message body
         DB db = DB.getInstance(context);
 
-        if (message.content && message.isPlainOnly() == plain_text)
+        if (message.content && message.isPlainOnly() == plain_text && charset == null)
             return;
 
         // Get message
@@ -2004,7 +2005,7 @@ class Core {
 
         MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
         MessageHelper.MessageParts parts = helper.getMessageParts();
-        String body = parts.getHtml(context, plain_text);
+        String body = parts.getHtml(context, plain_text, charset);
         File file = message.getFile(context);
         Helper.writeText(file, body);
         String text = HtmlHelper.getFullText(body);
