@@ -156,7 +156,7 @@
     <string name="title_setup_accounts">Comptes</string>
     <string name="title_setup_identities">Identités</string>
     <string name="title_setup_other">Autre fournisseur</string>
-    <string name="title_setup_inbound">Courriel entrant seulement (le courriel ne peut pas être envoyé !)</string>
+    <string name="title_setup_inbound">Courrier entrant seulement (l\'e-mail ne peut pas être envoyé !)</string>
     <string name="title_setup_pop3">Compte POP3</string>
     <string name="title_setup_oauth_permission">Le fournisseur de messagerie a approuvé OAuth uniquement pour les versions Play Store et GitHub</string>
     <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement avec les versions Play Store et GitHub parce qu\'Android vérifie la signature numérique de l\'application</string>
