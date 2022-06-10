@@ -3234,7 +3234,7 @@ public class MessageHelper {
                                 Log.w(new Throwable("Charset=" + cs + " detected=" + detected));
                             if (StandardCharsets.UTF_8.equals(detected)) {
                                 charset = null;
-                                result = new String(result.getBytes(cs), detected);
+                                result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
                             }
                         }
                     } catch (Throwable ex) {
