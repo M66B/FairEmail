@@ -79,6 +79,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
+import androidx.webkit.WebViewFeature;
 
 import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
@@ -1992,6 +1993,9 @@ public class Log {
         String uiType = Helper.getUiModeType(context);
         sb.append(String.format("UI type: %s %s\r\n", uiType,
                 "normal".equals(uiType) ? "" : "!!!"));
+
+        sb.append(String.format("Force dark support: %b\r\n",
+                WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK)));
 
         sb.append("\r\n");
 
