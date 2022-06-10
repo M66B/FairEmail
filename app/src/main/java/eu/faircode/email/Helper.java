@@ -1441,6 +1441,7 @@ public class Helper {
     }
 
     static boolean isDarkTheme(Context context) {
+        // R.attr.isLightTheme
         TypedValue tv = new TypedValue();
         context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
         return (tv.string != null && !"light".contentEquals(tv.string));
