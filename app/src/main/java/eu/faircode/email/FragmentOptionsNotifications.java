@@ -111,7 +111,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private TextView tvNoChannels;
 
     private Group grpChannel;
-    private Group grpNotification;
+    private Group grpProperties;
+    private Group grpBackground;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "notify_newest_first",
@@ -191,7 +192,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         tvNoChannels = view.findViewById(R.id.tvNoChannels);
 
         grpChannel = view.findViewById(R.id.grpChannel);
-        grpNotification = view.findViewById(R.id.grpNotification);
+        grpProperties = view.findViewById(R.id.grpProperties);
+        grpBackground = view.findViewById(R.id.grpBackground);
 
         setOptions();
 
@@ -586,7 +588,10 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         tvNoChannels.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
 
         grpChannel.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
-        grpNotification.setVisibility(
+        grpProperties.setVisibility(
+                Build.VERSION.SDK_INT < Build.VERSION_CODES.O || BuildConfig.DEBUG
+                        ? View.VISIBLE : View.GONE);
+        grpBackground.setVisibility(
                 Build.VERSION.SDK_INT < Build.VERSION_CODES.O || BuildConfig.DEBUG
                         ? View.VISIBLE : View.GONE);
 

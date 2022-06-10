@@ -415,10 +415,10 @@
                     app:constraint_referenced_ids="tvManageHint,btnManageDefault,tvManageDefaultHint,btnManageService,tvManageServiceHint" />
 
                 <androidx.constraintlayout.widget.Group
-                    android:id="@+id/grpNotification"
+                    android:id="@+id/grpProperties"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="swBackground,tvBackgroundHint,swLight,btnSound" />
+                    app:constraint_referenced_ids="swLight,btnSound" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -827,6 +827,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvNoGrouping" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpBackground"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="swBackground,tvBackgroundHint" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
