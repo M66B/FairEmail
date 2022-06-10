@@ -22,6 +22,8 @@ package eu.faircode.email;
 import android.text.TextUtils;
 import android.util.Pair;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
@@ -128,6 +130,33 @@ public class CharsetHelper {
                     return false;
         }
         return true;
+    }
+
+    static Boolean isUTF16LE(BufferedInputStream bis) throws IOException {
+        byte[] bytes = new byte[64];
+        bis.mark(bytes.length);
+        try {
+            int count = bis.read(bytes);
+            if (count < 32)
+                return null;
+
+            int s = ((bytes[0] & 0xff) << 8) | (bytes[1] & 0xff);
+            boolean bom = (s == 0xfeff || s == 0xfffe);
+            if (bom)
+                return null;
+
+            int odd = 0;
+            int even = 0;
+            for (int i = 0; i < count; i++)
+                if (bytes[i] == 0)
+                    if (i % 2 == 0)
+                        even++;
+                    else
+                        odd++;
+            return (even < 30 * count / 100 / 2 && odd > 70 * count / 100 / 2);
+        } finally {
+            bis.reset();
+        }
     }
 
     static String utf8toW1252(String text) {
