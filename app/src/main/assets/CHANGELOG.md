@@ -4,6 +4,12 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### 1.1910 - 2022-06-10
+
+* Fixed dark theme / original message view on Android 12 and before
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1909 - 2022-06-10
 
 * Fixed dark theme / original message view on Android 13
