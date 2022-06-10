@@ -8,11 +8,11 @@
     android:scrollbarStyle="outsideOverlay"
     tools:context="eu.faircode.email.ActivityWidgetUnified">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAccount" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvFolder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnColor" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvFontSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFontSize" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvPadding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -230,5 +230,5 @@
         cbUnseen,cbFlagged,
         cbSemiTransparent,btnColor,
         tvFontSize,spFontSize,tvPadding,spPadding,btnSave" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

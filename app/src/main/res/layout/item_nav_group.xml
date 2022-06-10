@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<eu.faircode.email.FrameLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/colorDrawerBackground">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clItem"
         android:layout_width="match_parent"
         android:layout_height="42dp">
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_horizontal_rule_24" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -34,5 +34,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivGroup"
             app:layout_constraintTop_toTopOf="parent" />
-    </eu.faircode.email.ConstraintLayoutEx>
-</eu.faircode.email.FrameLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

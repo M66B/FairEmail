@@ -6,11 +6,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvCaption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvCertificateInvalid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCaption" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvCertificateReason"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCertificateInvalid" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvSenderTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCertificateReason" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvSender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSenderTitle" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvEmailTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSender" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEmailTitle" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvEmailInvalid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEmail" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvSubjectTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEmailInvalid" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibInfo"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -114,7 +114,7 @@
             app:srcCompat="@drawable/twotone_info_24"
             app:tint="?attr/colorAccent" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvSubject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSubjectTitle" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvValidityTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSubject" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvAfter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvValidityTitle" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvBefore"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
             app:layout_constraintStart_toEndOf="@id/tvAfter"
             app:layout_constraintTop_toBottomOf="@+id/tvValidityTitle" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvExpired"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAfter" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvAlgorithmTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -175,7 +175,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvExpired" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvAlgorithm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -183,5 +183,5 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAlgorithmTitle" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<eu.faircode.email.ConstraintLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,7 +8,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true">
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibExpanderNav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/expander_hor" />
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibPin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pin" />
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibHide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_visibility_off_24" />
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_settings_24" />
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibFetchMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_save_alt_24" />
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibForceSync"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderNav" />
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibExpanderAccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvAccount" />
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibExpanderUnified"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -158,7 +158,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvUnified" />
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibExpanderSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvSearch" />
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibExpanderMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvMenu" />
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibExpanderExtra"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -238,4 +238,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderExtra" />
-</eu.faircode.email.ConstraintLayoutEx>
+</androidx.constraintlayout.widget.ConstraintLayout>

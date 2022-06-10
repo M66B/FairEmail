@@ -7,16 +7,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 
-public class NestedScrollViewEx extends NestedScrollView {
-    public NestedScrollViewEx(@NonNull Context context) {
+public class FixedNestedScrollView extends NestedScrollView {
+    public FixedNestedScrollView(@NonNull Context context) {
         super(context);
     }
 
-    public NestedScrollViewEx(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public FixedNestedScrollView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public NestedScrollViewEx(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public FixedNestedScrollView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

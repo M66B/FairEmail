@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<eu.faircode.email.FrameLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/colorDrawerBackground">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:foreground="?attr/selectableItemBackground"
         android:minHeight="42dp">
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_folder_special_24" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivBadge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             app:layout_constraintStart_toStartOf="@+id/ivItem"
             app:srcCompat="@drawable/badge" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/ivItem"
             app:layout_constraintEnd_toEndOf="@+id/ivItem" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvItem"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
             app:layout_constraintStart_toEndOf="@id/ivItem"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvItemExtra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             app:layout_constraintStart_toEndOf="@id/tvItem"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivExtra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_open_in_new_24" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivWarning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,5 +97,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_warning_24"
             app:tint="?attr/colorWarning" />
-    </eu.faircode.email.ConstraintLayoutEx>
-</eu.faircode.email.FrameLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

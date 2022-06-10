@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<eu.faircode.email.FrameLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibExpander"
             android:layout_width="36dp"
             android:layout_height="0dp"
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/expander" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivType"
             android:layout_width="24dp"
             android:layout_height="36dp"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toTopOf="@id/ibExpander"
             app:srcCompat="@drawable/twotone_inbox_24" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -58,5 +58,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivType"
             app:layout_constraintTop_toTopOf="@id/ibExpander" />
-    </eu.faircode.email.ConstraintLayoutEx>
-</eu.faircode.email.FrameLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

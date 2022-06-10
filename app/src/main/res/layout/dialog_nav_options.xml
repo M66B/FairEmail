@@ -6,11 +6,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivExpanderNav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
             app:srcCompat="@drawable/expander_hor" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivPin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
             app:srcCompat="@drawable/pin" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivHide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
             app:srcCompat="@drawable/twotone_visibility_off_24" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
             app:srcCompat="@drawable/twotone_settings_24" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivFetchMore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
             app:srcCompat="@drawable/twotone_get_app_24" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivSync"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
             app:layout_constraintStart_toStartOf="@id/ivExpanderNav"
             app:layout_constraintTop_toTopOf="@id/ivExpanderNav" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,5 +103,5 @@
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivExpanderNav" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

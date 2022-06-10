@@ -7,11 +7,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvCaption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </RadioGroup>
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvYou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </RadioGroup>
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvSystem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -209,7 +209,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swComposerLight" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvMore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -222,5 +222,5 @@
             android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnMore" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

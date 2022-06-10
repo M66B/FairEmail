@@ -6,11 +6,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvAddImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbError" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvFetch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFetch" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvMove"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMove" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvFlag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFlag" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -119,5 +119,5 @@
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbDelete" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

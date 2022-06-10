@@ -26,8 +26,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatViewInflater;
+import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
 
 public class AppCompatViewInflaterEx extends AppCompatViewInflater {
     // <item name="viewInflaterClass">eu.faircode.email.AppCompatViewInflaterEx</item>
@@ -106,6 +110,49 @@ public class AppCompatViewInflaterEx extends AppCompatViewInflater {
                 }
             };
 
+        if ("FrameLayout".equals(name))
+            return new FixedFrameLayout(context, attrs);
+
+        if ("View".equals(name))
+            return new View(context, attrs) {
+                @Override
+                public boolean dispatchTouchEvent(MotionEvent ev) {
+                    try {
+                        return super.dispatchTouchEvent(ev);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        return false;
+                    }
+                }
+            };
+
+        if ("androidx.coordinatorlayout.widget.CoordinatorLayout".equals(name))
+            return new FixedCoordinatorLayout(context, attrs);
+
+        if ("androidx.constraintlayout.widget.ConstraintLayout".equals(name))
+            return new FixedConstraintLayout(context, attrs);
+
+        if ("androidx.core.widget.NestedScrollView".equals(name))
+            return new FixedNestedScrollView(context, attrs);
+
         return super.createView(context, name, attrs);
+    }
+
+    @NonNull
+    @Override
+    protected AppCompatTextView createTextView(Context context, AttributeSet attrs) {
+        return new FixedTextView(context, attrs);
+    }
+
+    @NonNull
+    @Override
+    protected AppCompatImageView createImageView(Context context, AttributeSet attrs) {
+        return new FixedImageView(context, attrs);
+    }
+
+    @NonNull
+    @Override
+    protected AppCompatImageButton createImageButton(Context context, AttributeSet attrs) {
+        return new FixedImageButton(context, attrs);
     }
 }

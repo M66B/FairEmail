@@ -6,11 +6,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvMessage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -34,5 +34,5 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMessage" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

@@ -8,11 +8,11 @@
     android:scrollbarStyle="outsideOverlay"
     tools:context="eu.faircode.email.ActivityView">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvPending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvActivated"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvActivated" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvInfo" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbHide" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvWhichever"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvWhichever" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivExternal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
             app:layout_constraintTop_toTopOf="@+id/btnPurchase"
             app:srcCompat="@drawable/twotone_open_in_new_24" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnPurchase" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvGoogle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPrice" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvNoPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvGoogle" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvNoPlay" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvPriceHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -166,7 +166,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHint" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvFamilyHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -180,7 +180,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPriceHint" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvRestoreHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -216,7 +216,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnSupport" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivConnected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -225,5 +225,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRestoreHint"
             app:srcCompat="@drawable/twotone_cloud_off_24" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

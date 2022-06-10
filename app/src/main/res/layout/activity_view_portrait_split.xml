@@ -12,7 +12,7 @@
         android:focusableInTouchMode="false"
         android:orientation="vertical">
 
-        <eu.faircode.email.FrameLayoutEx
+        <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,14 +25,14 @@
             android:layout_marginVertical="1dp"
             android:background="?attr/colorSeparator" />
 
-        <eu.faircode.email.FrameLayoutEx
+        <FrameLayout
             android:id="@+id/content_pane"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
     </LinearLayout>
 
-    <eu.faircode.email.NestedScrollViewEx
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/drawer_container"
         android:layout_width="270dp"
         android:layout_height="match_parent"
@@ -44,5 +44,5 @@
             layout="@layout/include_nav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </eu.faircode.email.NestedScrollViewEx>
+    </androidx.core.widget.NestedScrollView>
 </eu.faircode.email.DrawerLayoutEx>

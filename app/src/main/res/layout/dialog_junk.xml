@@ -6,11 +6,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvJunkHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbBlockSender" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvBlockDomainHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cbBlockDomain" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibMore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvBlockDomainHint"
             app:srcCompat="@drawable/expander" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvMore"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -105,7 +105,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMore" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvJunkFilterHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbJunkFilter" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibInfoFilter"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -143,7 +143,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvJunkFilterHint" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvBlocklist"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbBlocklist" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvBlocklistHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -168,7 +168,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBlocklist" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibInfoBlocklist"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -194,7 +194,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBlocklistHint" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibRules"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -208,7 +208,7 @@
             app:layout_constraintTop_toTopOf="@id/btnClear"
             app:srcCompat="@drawable/twotone_filter_alt_24" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibManage"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -222,7 +222,7 @@
             app:layout_constraintTop_toTopOf="@id/btnClear"
             app:srcCompat="@drawable/twotone_person_off_24" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvClearHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -256,5 +256,5 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
             btnClear,ibRules,ibManage,tvClearHint" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

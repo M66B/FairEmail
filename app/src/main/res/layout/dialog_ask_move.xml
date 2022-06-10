@@ -6,11 +6,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvMessages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvSourceFolders"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMessages" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivArrow"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -50,7 +50,7 @@
             app:srcCompat="@drawable/baseline_arrow_downward_24"
             app:tint="?android:attr/textColorSecondary" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvTargetFolders"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTargetFolders" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvJunkLearn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,5 +89,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cbNotAgain" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

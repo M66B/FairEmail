@@ -6,11 +6,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/ivType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rgAction" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibResize"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -94,7 +94,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbResize" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvResize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spResize" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvPrivacy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPrivacy" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvNotAgain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -145,5 +145,5 @@
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNotAgain" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

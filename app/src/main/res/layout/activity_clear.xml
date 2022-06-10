@@ -1,4 +1,4 @@
-<eu.faircode.email.ConstraintLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <eu.faircode.email.ConstraintLayoutEx
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -31,13 +31,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <eu.faircode.email.ConstraintLayoutEx
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="6dp"
                     android:paddingVertical="12dp">
 
-                    <eu.faircode.email.FixedTextView
+                    <TextView
                         android:id="@+id/tvTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <eu.faircode.email.FixedTextView
+                    <TextView
                         android:id="@+id/tvMessage"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -86,8 +86,8 @@
                         android:text="@android:string/cancel"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvMessage" />
-                </eu.faircode.email.ConstraintLayoutEx>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-        </eu.faircode.email.ConstraintLayoutEx>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ScrollViewEx>
-</eu.faircode.email.ConstraintLayoutEx>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,22 +22,35 @@ package eu.faircode.email;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-public class CoordinatorLayoutEx extends CoordinatorLayout {
-    public CoordinatorLayoutEx(@NonNull Context context) {
+public class FixedFrameLayout extends FrameLayout {
+    public FixedFrameLayout(@NonNull Context context) {
         super(context);
     }
 
-    public CoordinatorLayoutEx(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public FixedFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CoordinatorLayoutEx(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public FixedFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    public FixedFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        try {
+            super.onLayout(changed, left, top, right, bottom);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     @Override

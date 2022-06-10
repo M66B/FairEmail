@@ -7,11 +7,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvImportant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvSync"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvImportant" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvSyncNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSync" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvBattery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSyncNote" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibBatteryInfo"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -71,7 +71,7 @@
             app:srcCompat="@drawable/twotone_info_24"
             app:tint="?attr/colorAccent" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvReformat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ibBatteryInfo" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibReformatInfo"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -96,7 +96,7 @@
             app:srcCompat="@drawable/twotone_info_24"
             app:tint="?attr/colorAccent" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvDesign"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ibReformatInfo" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvJunk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -117,5 +117,5 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDesign" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

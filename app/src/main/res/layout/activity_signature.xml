@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<eu.faircode.email.CoordinatorLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="eu.faircode.email.ActivitySignature">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="eu.faircode.email.BehaviorBottomPadding">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvHtmlRemark"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHtmlRemark" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibFull"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -78,5 +78,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/action_signature" />
-    </eu.faircode.email.ConstraintLayoutEx>
-</eu.faircode.email.CoordinatorLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

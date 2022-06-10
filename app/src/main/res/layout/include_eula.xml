@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<eu.faircode.email.ConstraintLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvLimitations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvEulaTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvLimitations" />
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvEula"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEulaTitle" />
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvLicense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEula" />
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvGplV3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,4 +69,4 @@
         android:textColor="?android:attr/textColorLink"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvLicense" />
-</eu.faircode.email.ConstraintLayoutEx>
+</androidx.constraintlayout.widget.ConstraintLayout>

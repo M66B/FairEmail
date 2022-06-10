@@ -6,11 +6,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvIdentity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pbWait" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvPrimaryHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPrimaryHint" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvNoIdentities"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,5 +98,5 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="tvNoIdentities,btnFix" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

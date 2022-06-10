@@ -8,11 +8,11 @@
     android:scrollbarStyle="outsideOverlay"
     tools:context="eu.faircode.email.ActivityWidget">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSemiTransparent" />
 
-        <eu.faircode.email.ConstraintLayoutEx
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
                 app:layout_constraintEnd_toEndOf="@id/inNew"
                 app:layout_constraintStart_toStartOf="@+id/inNew"
                 app:layout_constraintTop_toBottomOf="@id/inNew" />
-        </eu.faircode.email.ConstraintLayoutEx>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:id="@+id/btnSave"
@@ -139,5 +139,5 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="tvAccount,spAccount,cbSemiTransparent,btnColor,clLayout,btnSave" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

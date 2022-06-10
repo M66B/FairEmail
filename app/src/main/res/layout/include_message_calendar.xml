@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<eu.faircode.email.ConstraintLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <eu.faircode.email.FixedImageButton
+    <ImageButton
         android:id="@+id/ibCalendar"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparatorCalendar"
         app:srcCompat="@drawable/twotone_event_24" />
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvCalendarSummary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorCalendar" />
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvCalendarDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarSummary" />
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvCalendarLocation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarDescription" />
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvCalendarStart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarLocation" />
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvCalendarEnd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarStart" />
 
-    <eu.faircode.email.FixedTextView
+    <TextView
         android:id="@+id/tvAttendees"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -177,4 +177,4 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="btnCalendarAccept,btnCalendarDecline,btnCalendarMaybe" />
-</eu.faircode.email.ConstraintLayoutEx>
+</androidx.constraintlayout.widget.ConstraintLayout>

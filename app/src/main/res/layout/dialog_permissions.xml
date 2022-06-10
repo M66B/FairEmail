@@ -6,11 +6,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/two"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -31,7 +31,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvMessage"
             app:srcCompat="@drawable/twotone_looks_two_24" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/title2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             app:layout_constraintStart_toEndOf="@id/two"
             app:layout_constraintTop_toTopOf="@id/two" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvContactPermissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title2" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvNotificationPermissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvContactPermissions" />
 
-        <eu.faircode.email.FixedImageView
+        <ImageView
             android:id="@+id/three"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -75,7 +75,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvNotificationPermissions"
             app:srcCompat="@drawable/twotone_looks_3_24" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/title3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             app:layout_constraintStart_toEndOf="@id/three"
             app:layout_constraintTop_toTopOf="@+id/three" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvDoze"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title3" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvDozeDevice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDoze" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvDozeAndroid12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -150,5 +150,5 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="three,title3,tvDoze" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

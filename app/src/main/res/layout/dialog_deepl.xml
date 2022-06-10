@@ -6,11 +6,11 @@
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <eu.faircode.email.ConstraintLayoutEx
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvDeepL"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedImageButton
+        <ImageButton
             android:id="@+id/ibInfo"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -71,7 +71,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPro" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvFormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSmall" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvHtml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbHtml" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvUsage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHtml" />
 
-        <eu.faircode.email.FixedTextView
+        <TextView
             android:id="@+id/tvPrivacy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,5 +134,5 @@
             android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvUsage" />
-    </eu.faircode.email.ConstraintLayoutEx>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

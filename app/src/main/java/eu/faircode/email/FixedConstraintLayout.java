@@ -27,20 +27,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class ConstraintLayoutEx extends ConstraintLayout {
-    public ConstraintLayoutEx(@NonNull Context context) {
+public class FixedConstraintLayout extends ConstraintLayout {
+    public FixedConstraintLayout(@NonNull Context context) {
         super(context);
     }
 
-    public ConstraintLayoutEx(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public FixedConstraintLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ConstraintLayoutEx(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public FixedConstraintLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public ConstraintLayoutEx(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public FixedConstraintLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
