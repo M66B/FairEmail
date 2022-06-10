@@ -427,7 +427,8 @@ public class Helper {
         try {
             PackageManager pm = context.getPackageManager();
             if (pm.hasSystemFeature(PackageManager.FEATURE_WEBVIEW)) {
-                new WebViewEx(context);
+                WebView view = new WebView(context);
+                view.setOverScrollMode(View.OVER_SCROLL_NEVER);
                 return true;
             } else
                 return false;
