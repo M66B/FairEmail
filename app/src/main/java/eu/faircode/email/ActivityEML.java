@@ -472,6 +472,7 @@ public class ActivityEML extends ActivityBase {
                             Charset cs = Charset.forName(charset);
                             Charset detected = CharsetHelper.detect(text, cs);
                             boolean isUtf8 = CharsetHelper.isUTF8(text.getBytes(cs));
+                            boolean isUtf16 = CharsetHelper.isUTF16(text.getBytes(cs));
                             boolean isW1252 = !Objects.equals(text, CharsetHelper.utf8toW1252(text));
 
                             for (int i = 0; i < level; i++)
@@ -480,6 +481,7 @@ public class ActivityEML extends ActivityBase {
                             ssb.append("Detected: ")
                                     .append(detected == null ? "?" : detected.toString())
                                     .append(" isUTF8=").append(Boolean.toString(isUtf8))
+                                    .append(" isUTF16=").append(Boolean.toString(isUtf16))
                                     .append(" isW1252=").append(Boolean.toString(isW1252))
                                     .append('\n');
                         }

@@ -3229,10 +3229,10 @@ public class MessageHelper {
                     try {
                         if (CHARSET16.contains(cs)) {
                             Charset detected = CharsetHelper.detect(result, cs);
+                            // UTF-16 can be detected as US-ASCII
                             if (!CHARSET16.contains(detected))
                                 Log.w(new Throwable("Charset=" + cs + " detected=" + detected));
-                            if (StandardCharsets.US_ASCII.equals(detected) ||
-                                    StandardCharsets.UTF_8.equals(detected)) {
+                            if (StandardCharsets.UTF_8.equals(detected)) {
                                 charset = null;
                                 result = new String(result.getBytes(cs), detected);
                             }

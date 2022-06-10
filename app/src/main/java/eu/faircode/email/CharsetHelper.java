@@ -86,7 +86,21 @@ public class CharsetHelper {
         }
     }
 
+    static boolean isUTF16(byte[] octets) {
+        CharsetDecoder utf8Decoder = StandardCharsets.UTF_16.newDecoder()
+                .onMalformedInput(CodingErrorAction.REPORT)
+                .onUnmappableCharacter(CodingErrorAction.REPORT);
+        try {
+            utf8Decoder.decode(ByteBuffer.wrap(octets));
+            return true;
+        } catch (CharacterCodingException ex) {
+            Log.w(ex);
+            return false;
+        }
+    }
+
     static boolean isUTF8Alt(String text) {
+        // This doesn't check the characters and is therefore unreliable
         byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
 
         int bytes;
