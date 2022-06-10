@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -164,8 +165,11 @@ public class ActivityAMP extends ActivityBase {
     private void setDarkMode() {
         WebSettings settings = wvAmp.getSettings();
         boolean dark = (Helper.isDarkTheme(this) && !force_light);
-        if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
-            WebSettingsCompat.setForceDark(settings, dark ? FORCE_DARK_ON : FORCE_DARK_OFF);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
+                WebSettingsCompat.setForceDark(settings, dark ? FORCE_DARK_ON : FORCE_DARK_OFF);
+        } else
+            settings.setAlgorithmicDarkeningAllowed(dark && !force_light);
     }
 
     private void load() {
