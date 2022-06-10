@@ -86,7 +86,8 @@ public class FragmentDialogOpenFull extends FragmentDialogBase {
             WebSettingsCompat.setSafeBrowsingEnabled(settings, safe_browsing);
 
         boolean dark = (Helper.isDarkTheme(context) && !force_light);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+                Helper.getTargetSdk(context) < Build.VERSION_CODES.TIRAMISU) {
             if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
                 WebSettingsCompat.setForceDark(settings, dark ? FORCE_DARK_ON : FORCE_DARK_OFF);
         } else

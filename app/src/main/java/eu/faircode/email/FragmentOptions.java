@@ -484,15 +484,16 @@ public class FragmentOptions extends FragmentBase {
     }
 
     private void onExit() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean setup_reminder = prefs.getBoolean("setup_reminder", true);
 
         boolean hasContactPermissions =
                 hasPermission(Manifest.permission.READ_CONTACTS);
         boolean hasNotificationPermissions =
-                (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+                (Helper.getTargetSdk(context) < Build.VERSION_CODES.TIRAMISU ||
                         hasPermission(Manifest.permission.POST_NOTIFICATIONS));
-        boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(getContext()));
+        boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(context));
 
         if (!setup_reminder ||
                 (hasContactPermissions && hasNotificationPermissions && isIgnoring))

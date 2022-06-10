@@ -470,13 +470,14 @@ public class FragmentSetup extends FragmentBase {
 
         btnPermissions.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 try {
                     btnPermissions.setEnabled(false);
                     List<String> requesting = new ArrayList<>();
-                    for (String permission : getDesiredPermissions())
+                    for (String permission : Helper.getDesiredPermissions(getContext()))
                         if (!hasPermission(permission))
                             requesting.add((permission));
+                    Log.i("Requesting permissions " + TextUtils.join(",", requesting));
                     requestPermissions(requesting.toArray(new String[0]), REQUEST_PERMISSIONS);
                 } catch (Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
@@ -978,6 +979,9 @@ public class FragmentSetup extends FragmentBase {
         for (int i = 0; i < Math.min(permissions.length, grantResults.length); i++) {
             String key = "requested." + permissions[i];
 
+            Log.i("Permission " + permissions[i] + "=" +
+                    (grantResults[i] == PackageManager.PERMISSION_GRANTED));
+
             if (grantResults[i] == PackageManager.PERMISSION_DENIED &&
                     grantResults[i] == prefs.getInt(key, PackageManager.PERMISSION_GRANTED))
                 denied++;
@@ -999,17 +1003,9 @@ public class FragmentSetup extends FragmentBase {
         }
     }
 
-    private List<String> getDesiredPermissions() {
-        List<String> permissions = new ArrayList<>();
-        permissions.add(Manifest.permission.READ_CONTACTS);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-            permissions.add(Manifest.permission.POST_NOTIFICATIONS);
-        return permissions;
-    }
-
     private void setGrantedPermissions() {
         boolean all = true;
-        for (String permission : getDesiredPermissions())
+        for (String permission : Helper.getDesiredPermissions(getContext()))
             if (!hasPermission(permission)) {
                 all = false;
                 break;

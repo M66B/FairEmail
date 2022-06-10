@@ -623,9 +623,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         tvNotifications.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v.getContext().startActivity(
-                        new Intent(v.getContext(), ActivitySetup.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                Intent intent;
+                if (Helper.getTargetSdk(v.getContext()) < Build.VERSION_CODES.TIRAMISU)
+                    intent = new Intent(
+                            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                            Uri.parse("package:" + BuildConfig.APPLICATION_ID));
+                else
+                    intent = new Intent(v.getContext(), ActivitySetup.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                v.getContext().startActivity(intent);
             }
         });
 
@@ -4476,20 +4482,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         iff.addAction(ACTION_KEYWORDS);
         lbm.registerReceiver(receiver, iff);
 
-        ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
+        final Context context = getContext();
+        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         cm.registerNetworkCallback(builder.build(), networkCallback);
 
-        updateAirplaneMode(ConnectionHelper.airplaneMode(getContext()));
-        getContext().registerReceiver(airplanemode, new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED));
+        updateAirplaneMode(ConnectionHelper.airplaneMode(context));
+        context.registerReceiver(airplanemode, new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED));
 
         boolean canNotify =
                 (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
                         hasPermission(Manifest.permission.POST_NOTIFICATIONS));
         grpNotifications.setVisibility(canNotify ? View.GONE : View.VISIBLE);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         adapter.setCompact(compact);
@@ -4546,15 +4553,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     public void onPause() {
         super.onPause();
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.unregisterOnSharedPreferenceChangeListener(this);
 
-        getContext().unregisterReceiver(airplanemode);
+        context.unregisterReceiver(airplanemode);
 
-        ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
+        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
         cm.unregisterNetworkCallback(networkCallback);
 
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
         lbm.unregisterReceiver(receiver);
     }
 

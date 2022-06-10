@@ -74,7 +74,7 @@ public class FragmentDialogPermissions extends FragmentDialogBase {
         boolean hasContactPermissions =
                 Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         boolean hasNotificationPermissions =
-                (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+                (Helper.getTargetSdk(context) < Build.VERSION_CODES.TIRAMISU ||
                         Helper.hasPermission(context, Manifest.permission.POST_NOTIFICATIONS));
         boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(context));
         boolean canScheduleExact = AlarmManagerCompatEx.canScheduleExactAlarms(getContext());

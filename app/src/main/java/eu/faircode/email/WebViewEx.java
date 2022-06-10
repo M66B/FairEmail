@@ -118,7 +118,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         WebSettings settings = getSettings();
 
         boolean dark = Helper.isDarkTheme(context);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+                Helper.getTargetSdk(context) < Build.VERSION_CODES.TIRAMISU) {
             boolean canForce = WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK);
             if (canForce)
                 WebSettingsCompat.setForceDark(settings, dark && !force_light ? FORCE_DARK_ON : FORCE_DARK_OFF);

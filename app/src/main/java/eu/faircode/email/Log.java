@@ -32,7 +32,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
@@ -1813,14 +1812,6 @@ public class Log {
         PackageManager pm = context.getPackageManager();
         String installer = pm.getInstallerPackageName(BuildConfig.APPLICATION_ID);
 
-        int targetSdk = -1;
-        try {
-            ApplicationInfo ai = pm.getApplicationInfo(BuildConfig.APPLICATION_ID, 0);
-            targetSdk = ai.targetSdkVersion;
-        } catch (PackageManager.NameNotFoundException ex) {
-            sb.append(ex).append("\r\n");
-        }
-
         // Get version info
         sb.append(String.format("%s %s/%d%s%s%s%s\r\n",
                 context.getString(R.string.app_name),
@@ -1831,8 +1822,8 @@ public class Log {
                 BuildConfig.DEBUG ? "d" : "",
                 ActivityBilling.isPro(context) ? "+" : "-"));
         sb.append(String.format("Package: %s\r\n", BuildConfig.APPLICATION_ID));
-        sb.append(String.format("Android: %s (SDK %d/%d)\r\n",
-                Build.VERSION.RELEASE, Build.VERSION.SDK_INT, targetSdk));
+        sb.append(String.format("Android: %s (SDK device=%d target=%d)\r\n",
+                Build.VERSION.RELEASE, Build.VERSION.SDK_INT, Helper.getTargetSdk(context)));
 
         boolean reporting = prefs.getBoolean("crash_reports", false);
         if (reporting || BuildConfig.TEST_RELEASE) {

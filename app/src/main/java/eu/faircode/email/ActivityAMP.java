@@ -165,7 +165,8 @@ public class ActivityAMP extends ActivityBase {
     private void setDarkMode() {
         WebSettings settings = wvAmp.getSettings();
         boolean dark = (Helper.isDarkTheme(this) && !force_light);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+                Helper.getTargetSdk(this) < Build.VERSION_CODES.TIRAMISU) {
             if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
                 WebSettingsCompat.setForceDark(settings, dark ? FORCE_DARK_ON : FORCE_DARK_OFF);
         } else
