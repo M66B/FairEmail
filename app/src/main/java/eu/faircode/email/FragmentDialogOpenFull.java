@@ -90,7 +90,7 @@ public class FragmentDialogOpenFull extends FragmentDialogBase {
             if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
                 WebSettingsCompat.setForceDark(settings, dark ? FORCE_DARK_ON : FORCE_DARK_OFF);
         } else
-            settings.setAlgorithmicDarkeningAllowed(dark && !force_light);
+            settings.setAlgorithmicDarkeningAllowed(dark);
 
         settings.setLoadsImagesAutomatically(true);
         settings.setBlockNetworkLoads(false);
