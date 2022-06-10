@@ -66,7 +66,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private Button btnManageService;
     private ImageView ivChannelService;
     private ImageButton ibWhy;
-    private FixedTextView tvNotifySeparate;
+    private TextView tvNotifySeparate;
     private SwitchCompat swNewestFirst;
     private SwitchCompat swBackground;
 
