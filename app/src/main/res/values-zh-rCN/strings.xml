@@ -178,6 +178,8 @@
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
     <string name="title_setup_permissions_explanation">需要联系人权限来查找联系人信息和推荐联系人</string>
+    <string name="title_setup_permissions_notify">显示新消息通知 (可选)</string>
+    <string name="title_setup_permissions_notify_explanation">在状态栏显示新消息通知时需要通知权限</string>
     <string name="title_setup_permission_why">需要哪些权限以及原因？</string>
     <string name="title_setup_permission_import_contacts">如何导入联系人？</string>
     <string name="title_setup_doze">禁用电池优化</string>

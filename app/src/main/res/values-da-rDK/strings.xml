@@ -189,6 +189,8 @@
     <string name="title_setup_permissions">Giv tilladelser</string>
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
     <string name="title_setup_permissions_explanation">Kontakttilladelser kræves for at slå kontaktoplysninger op og foreslå kontaktpersoner</string>
+    <string name="title_setup_permissions_notify">For at vise nye beskednotifikationer (valgfrit)</string>
+    <string name="title_setup_permissions_notify_explanation">Notifikationstilladelse kræves for at vise notifikationer om nye beskeder på statusbjælken</string>
     <string name="title_setup_permission_why">Hvilke tilladelser kræves, og hvorfor?</string>
     <string name="title_setup_permission_import_contacts">Hvordan importeres kontakter?</string>
     <string name="title_setup_doze">Deaktivér batterioptimering</string>

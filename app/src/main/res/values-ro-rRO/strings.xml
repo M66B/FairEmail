@@ -167,6 +167,7 @@
     <string name="title_setup_accounts">Conturi</string>
     <string name="title_setup_identities">Identități</string>
     <string name="title_setup_other">Alt furnizor</string>
+    <string name="title_setup_inbound">Doar e-mail de intrare (e-mailul nu poate fi trimis!)</string>
     <string name="title_setup_pop3">Cont POP3</string>
     <string name="title_setup_oauth_permission">Furnizorul de e-mail a aprobat OAuth doar pentru versiunea Play Store și GitHub</string>
     <string name="title_setup_gmail_support">Autorizarea conturilor Google va funcționa în versiunea Play Store și GitHub doar pentru că Android verifică semnătura digitală a aplicației</string>
@@ -199,6 +200,8 @@
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
     <string name="title_setup_permissions_explanation">Permisiunile de contact sunt necesare pentru a căuta informații de contact și pentru a sugera contacte</string>
+    <string name="title_setup_permissions_notify">Pentru a afișa notificări mesaje noi (opțional)</string>
+    <string name="title_setup_permissions_notify_explanation">Permisiunile de notificare sunt necesare pentru a afișa notificări pentru mesaje noi în bara de stare</string>
     <string name="title_setup_permission_why">Ce permisiuni sunt necesare și de ce?</string>
     <string name="title_setup_permission_import_contacts">Cum pot importa contacte?</string>
     <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
@@ -222,6 +225,7 @@
     <string name="title_setup_still">Încă de făcut</string>
     <string name="title_setup_error">Eroare</string>
     <string name="title_setup_pop">Utilizați POP3 (nerecomandat)</string>
+    <string name="title_setup_recent">Folosește \'recent\' pentru mai mulți clienți de e-mail</string>
     <string name="title_setup_configuring">Configurare cont &#8230;</string>
     <string name="title_setup_app_password">Este posibil să fie nevoie să folosiți o parolă de aplicație</string>
     <string name="title_setup_extra">Suplimentar</string>

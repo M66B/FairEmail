@@ -172,6 +172,7 @@
     <string name="title_setup_accounts">חשבונות</string>
     <string name="title_setup_identities">זהויות</string>
     <string name="title_setup_other">ספק אחר</string>
+    <string name="title_setup_inbound">הודעות נכנסות בלבד (אי אפשר לשלוח הודעה בדוא״ל!)</string>
     <string name="title_setup_pop3">חשבון POP3</string>
     <string name="title_setup_oauth_permission">ספק הדוא״ל אישר OAuth רק לגרסאות שבחנות Play וב־GitHub</string>
     <string name="title_setup_gmail_support">אימות חשבונות Google יעבוד רק עם גרסה מחנות Play או מ־GitHub כיוון ש־Android בודק את חתימת היישומון</string>
@@ -204,6 +205,8 @@
     <string name="title_setup_permissions">הענקת הרשאות</string>
     <string name="title_setup_permissions_remark">כדי לגשת לנתונים של איש הקשר (רשות)</string>
     <string name="title_setup_permissions_explanation">נדרשות הרשאות לאנשי הקשר כדי לחפש פרטי אנשי קשר ולהציע אנשי קשר</string>
+    <string name="title_setup_permissions_notify">להציג התראות על הודעות (רשות)</string>
+    <string name="title_setup_permissions_notify_explanation">נדרשות הרשאות להתראות כדי להציג התראות להודעות חדשות בשורת המצב</string>
     <string name="title_setup_permission_why">אילו הרשאות נחוצות ומדוע?</string>
     <string name="title_setup_permission_import_contacts">איך אפשר לייבא אנשי קשר?</string>
     <string name="title_setup_doze">השבתת מיטובי סוללה</string>
@@ -227,6 +230,7 @@
     <string name="title_setup_still">עדיין לא בוצע</string>
     <string name="title_setup_error">שגיאה</string>
     <string name="title_setup_pop">להשתמש ב־POP3 (לא מומלץ)</string>
+    <string name="title_setup_recent">להשתמש ב‚אחרונים’ למגוון לקוחות דוא״ל</string>
     <string name="title_setup_configuring">חשבון מוגדר &#8230;</string>
     <string name="title_setup_app_password">יתכן שיהיה עליך להשתמש בסיסמה ליישומון</string>
     <string name="title_setup_extra">בנוסף</string>

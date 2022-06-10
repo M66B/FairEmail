@@ -155,6 +155,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_accounts">Hesaplar</string>
     <string name="title_setup_identities">Kimlikler</string>
     <string name="title_setup_other">Diğer sağlayıcı</string>
+    <string name="title_setup_inbound">Yalnızca gelen e-posta (e-posta gönderilemez!)</string>
     <string name="title_setup_pop3">POP3 hesabı</string>
     <string name="title_setup_oauth_permission">E-posta sağlayıcısı, yalnızca Play Store ve GitHub sürümü için OAuth\'u onayladı</string>
     <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek Android dijital uygulama imzasını kontrol ettiğinden, yalnızca Play Store ve GitHub sürümünde çalışır</string>
@@ -187,6 +188,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_permissions">Verilen izinler</string>
     <string name="title_setup_permissions_remark">İletişim bilgilerine erişim için (isteğe bağlı)</string>
     <string name="title_setup_permissions_explanation">Kişi bilgilerini aramak ve kişi önermek için kişi izinleri gerekir</string>
+    <string name="title_setup_permissions_notify">Yeni mesaj bildirimlerini göstermek için (isteğe bağlı)</string>
+    <string name="title_setup_permissions_notify_explanation">Durum çubuğunda yeni mesajlarda bildirimleri göstermek için bildirim izinleri gerekir</string>
     <string name="title_setup_permission_why">Hangi izinler gerekli ve neden?</string>
     <string name="title_setup_permission_import_contacts">Kişileri nasıl içe aktarabilirim?</string>
     <string name="title_setup_doze">Pil optimizasyonlarını devre dışı bırak</string>
@@ -210,6 +213,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_still">Hala yapılacaklar var</string>
     <string name="title_setup_error">Hata</string>
     <string name="title_setup_pop">POP3 kullan (önerilmez)</string>
+    <string name="title_setup_recent">Birden çok e-posta istemcisi için \'güncel\'i kullan</string>
     <string name="title_setup_configuring">&#8230; hesabı yapılandırılıyor</string>
     <string name="title_setup_app_password">Bir uygulama şifresi kullanmanız gerekebilir</string>
     <string name="title_setup_extra">Ekstra</string>
