@@ -4,6 +4,13 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### 1.1912 - 2022-06-11
+
+* Targetting SDK 33 (Android 13)
+* Small improvements and minor bug fixes
+* Updated AndroidX Webkit
+* Updated translations
+
 ### 1.1911 - 2022-06-11
 
 * Added encoding (character set) override option
