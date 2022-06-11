@@ -1255,6 +1255,7 @@
     <string name="title_decrypt">Descriptografar</string>
     <string name="title_resync">Resincronizar</string>
     <string name="title_charset">Codificação</string>
+    <string name="title_charset_auto" comment="title_charset_auto&#10;Option title for automatic (default) charset set">Automático</string>
     <string name="title_alternative_text">Mostrar texto simples</string>
     <string name="title_alternative_html">Mostrar HTML</string>
     <string name="title_no_openpgp">OpenKeychain não encontrado</string>

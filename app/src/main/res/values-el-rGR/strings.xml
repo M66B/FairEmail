@@ -1252,6 +1252,7 @@
     <string name="title_decrypt">Αποκρυπτογράφηση</string>
     <string name="title_resync">Επανασυγχρονισμός</string>
     <string name="title_charset">Κωδικοποίηση</string>
+    <string name="title_charset_auto" comment="title_charset_auto&#10;Option title for automatic (default) charset set">Αυτόματο</string>
     <string name="title_alternative_text">Προβολή απλού κειμένου</string>
     <string name="title_alternative_html">Προβολή HTML</string>
     <string name="title_no_openpgp">Δεν βρέθηκε OpenKeychain</string>

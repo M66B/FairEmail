@@ -1273,6 +1273,8 @@
     <string name="title_encrypt">הצפנה</string>
     <string name="title_decrypt">פענוח</string>
     <string name="title_resync">סנכרון מחדש</string>
+    <string name="title_charset">הצפנה</string>
+    <string name="title_charset_auto" comment="title_charset_auto&#10;Option title for automatic (default) charset set">אוטומטי</string>
     <string name="title_alternative_text">הצגת טקסט פשוט</string>
     <string name="title_alternative_html">הצגת HTML</string>
     <string name="title_no_openpgp">OpenKeychain לא נמצא</string>
@@ -1595,6 +1597,7 @@
     <string name="title_hint_folder_actions">לחיצה ארוכה על תיקייה מציגה אפשרויות כגון הוספת התיקייה לתפריט הניווט לגישה מהירה</string>
     <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כבררת מחדל</string>
     <string name="title_hint_airplane">מצב טיסה מופעל</string>
+    <string name="title_hint_notification">התראות מושבתות</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
     <string name="title_hint_message_selection">לחיצה ארוכה על הודעה מתחילה בחירה במגוון הודעות, יש להחזיק ולהחליק כלפי מעלה או מטה כדי לבחור הודעות נוספות</string>
