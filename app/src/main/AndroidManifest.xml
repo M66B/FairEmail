@@ -99,6 +99,7 @@
         android:allowBackup="false"
         android:appCategory="productivity"
         android:description="@string/app_name"
+        android:enableOnBackInvokedCallback="false"
         android:extractNativeLibs="true"
         android:forceDarkAllowed="false"
         android:icon="@mipmap/ic_launcher"
