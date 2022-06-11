@@ -3251,7 +3251,7 @@ public class MessageHelper {
                                 // UTF-16 can be detected as US-ASCII
                                 if (StandardCharsets.UTF_8.equals(detected)) {
                                     cs = null;
-                                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
+                                    result = new String(result.getBytes(cs), detected);
                                 }
                             }
                         } catch (Throwable ex) {
