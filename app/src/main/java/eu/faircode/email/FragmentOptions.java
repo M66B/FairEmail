@@ -491,7 +491,7 @@ public class FragmentOptions extends FragmentBase {
         boolean hasContactPermissions =
                 hasPermission(Manifest.permission.READ_CONTACTS);
         boolean hasNotificationPermissions =
-                (Helper.getTargetSdk(context) < Build.VERSION_CODES.TIRAMISU ||
+                (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
                         hasPermission(Manifest.permission.POST_NOTIFICATIONS));
         boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(context));
 

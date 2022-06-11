@@ -623,14 +623,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         tvNotifications.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent;
-                if (Helper.getTargetSdk(v.getContext()) < Build.VERSION_CODES.TIRAMISU)
-                    intent = new Intent(
-                            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                            Uri.parse("package:" + BuildConfig.APPLICATION_ID));
-                else
-                    intent = new Intent(v.getContext(), ActivitySetup.class)
-                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                Intent intent = new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 v.getContext().startActivity(intent);
             }
         });

@@ -394,7 +394,7 @@ public class Helper {
     static String[] getDesiredPermissions(Context context) {
         List<String> permissions = new ArrayList<>();
         permissions.add(Manifest.permission.READ_CONTACTS);
-        if (getTargetSdk(context) >= Build.VERSION_CODES.TIRAMISU)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
             permissions.add(Manifest.permission.POST_NOTIFICATIONS);
         return permissions.toArray(new String[0]);
     }
