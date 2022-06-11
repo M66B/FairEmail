@@ -1992,6 +1992,9 @@ class Core {
         boolean plain_text = jargs.optBoolean(0);
         String charset = jargs.optString(1, null);
 
+        if (message.uid != null)
+            throw new IllegalArgumentException("uid missing");
+
         // Download message body
         DB db = DB.getInstance(context);
 
