@@ -4868,8 +4868,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 });
 
                 boolean isDark = Helper.isDarkTheme(context);
-                boolean canDark = WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK);
-                tvDark.setVisibility(isDark && !canDark ? View.VISIBLE : View.GONE);
+                boolean canDarken = WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING);
+                tvDark.setVisibility(isDark && !canDarken ? View.VISIBLE : View.GONE);
             } else {
                 boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 

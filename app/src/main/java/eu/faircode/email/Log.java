@@ -1985,8 +1985,8 @@ public class Log {
         sb.append(String.format("UI type: %s %s\r\n", uiType,
                 "normal".equals(uiType) ? "" : "!!!"));
 
-        sb.append(String.format("Force dark support: %b\r\n",
-                WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK)));
+        sb.append(String.format("Darken support: %b\r\n",
+                WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)));
 
         sb.append("\r\n");
 

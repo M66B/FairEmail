@@ -19,9 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
-import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -118,18 +115,13 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         WebSettings settings = getSettings();
 
         boolean dark = Helper.isDarkTheme(context);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
-                Helper.getTargetSdk(context) < Build.VERSION_CODES.TIRAMISU) {
-            boolean canForce = WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK);
-            if (canForce)
-                WebSettingsCompat.setForceDark(settings, dark && !force_light ? FORCE_DARK_ON : FORCE_DARK_OFF);
-            setBackgroundColor(canForce && force_light ? Color.WHITE : Color.TRANSPARENT);
-        } else {
-            // https://developer.android.com/reference/android/webkit/WebSettings#setAlgorithmicDarkeningAllowed(boolean)
-            // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
-            settings.setAlgorithmicDarkeningAllowed(dark && !force_light);
-            setBackgroundColor(force_light ? Color.WHITE : Color.TRANSPARENT);
-        }
+
+        // https://developer.android.com/reference/android/webkit/WebSettings#setAlgorithmicDarkeningAllowed(boolean)
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+        boolean canDarken = WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING);
+        if (canDarken)
+            WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, dark && !force_light);
+        setBackgroundColor(canDarken && force_light ? Color.WHITE : Color.TRANSPARENT);
 
         float fontSize = 16f /* Default */ *
                 (browser_zoom ? 1f : message_zoom / 100f);

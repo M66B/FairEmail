@@ -19,15 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
-import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
-
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -130,11 +126,10 @@ public class ActivityAMP extends ActivityBase {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        boolean available =
-                (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK) &&
-                        Helper.isDarkTheme(this));
+        boolean dark = Helper.isDarkTheme(this);
+        boolean canDarken = WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING);
         menu.findItem(R.id.menu_force_light)
-                .setVisible(available)
+                .setVisible(dark && canDarken)
                 .getIcon().setLevel(force_light ? 1 : 0);
         return super.onPrepareOptionsMenu(menu);
     }
@@ -165,12 +160,9 @@ public class ActivityAMP extends ActivityBase {
     private void setDarkMode() {
         WebSettings settings = wvAmp.getSettings();
         boolean dark = (Helper.isDarkTheme(this) && !force_light);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
-                Helper.getTargetSdk(this) < Build.VERSION_CODES.TIRAMISU) {
-            if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
-                WebSettingsCompat.setForceDark(settings, dark ? FORCE_DARK_ON : FORCE_DARK_OFF);
-        } else
-            settings.setAlgorithmicDarkeningAllowed(dark);
+        boolean canDarken = WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING);
+        if (canDarken)
+            WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, dark);
     }
 
     private void load() {
