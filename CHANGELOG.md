@@ -4,6 +4,12 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### 1.1913 - 2022-06-12
+
+* Fixed asking for permissions on Android 12 and before
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1912 - 2022-06-11
 
 * Targetting SDK 33 (Android 13)
