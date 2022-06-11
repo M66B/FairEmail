@@ -6084,6 +6084,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onExecuted(Bundle args, SortedMap<String, Charset> charsets) {
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
 
+                    popupMenu.getMenu().add(Menu.NONE, 0, 0, R.string.title_charset_auto)
+                            .setIntent(new Intent().putExtra("charset", (String) null));
+
                     int order = 0;
                     for (String name : charsets.keySet()) {
                         order++;

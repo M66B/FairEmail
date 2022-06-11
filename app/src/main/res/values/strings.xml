@@ -1473,6 +1473,7 @@
     <string name="title_thread_info" translatable="false">Thread info</string>
     <string name="title_resync">Resync</string>
     <string name="title_charset">Encoding</string>
+    <string name="title_charset_auto">Automatic</string>
     <string name="title_alternative_text">Show plain text</string>
     <string name="title_alternative_html">Show HTML</string>
     <string name="title_no_openpgp">OpenKeychain not found</string>
