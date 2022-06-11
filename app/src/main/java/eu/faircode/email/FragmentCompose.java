@@ -3367,6 +3367,7 @@ public class FragmentCompose extends FragmentBase {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         boolean encrypt_subject = prefs.getBoolean("encrypt_subject", false);
                         if (encrypt_subject) {
+                            // https://tools.ietf.org/id/draft-autocrypt-lamps-protected-headers-01.html
                             imessage.saveChanges();
                             BodyPart bpContent = new MimeBodyPart() {
                                 @Override
