@@ -1244,6 +1244,7 @@
     <string name="title_encrypt">暗号化</string>
     <string name="title_decrypt">復号</string>
     <string name="title_resync">再同期</string>
+    <string name="title_charset">エンコード</string>
     <string name="title_alternative_text">プレーンテキストを表示</string>
     <string name="title_alternative_html">HTML を表示</string>
     <string name="title_no_openpgp">OpenKeychain が見つかりません</string>

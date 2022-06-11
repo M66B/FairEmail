@@ -1258,6 +1258,8 @@
     <string name="title_encrypt">Crittografa</string>
     <string name="title_decrypt">Decrittografa</string>
     <string name="title_resync">Risincronizza</string>
+    <string name="title_charset">Codifica</string>
+    <string name="title_charset_auto" comment="title_charset_auto&#10;Option title for automatic (default) charset set">Automatico</string>
     <string name="title_alternative_text">Mostra il testo semplice</string>
     <string name="title_alternative_html">Mostra HTML</string>
     <string name="title_no_openpgp">OpenKeychain non trovato</string>
@@ -1580,6 +1582,7 @@
     <string name="title_hint_folder_actions">Tieni premuta una cartella per le opzioni, come aggiungere una cartella al menu di navigazione per l\'accesso rapido</string>
     <string name="title_hint_folder_sync">Per limitare l\'uso della batteria e di rete, non tutte le cartelle e messaggi saranno sincronizzati di default</string>
     <string name="title_hint_airplane">La modalità offline è attivata</string>
+    <string name="title_hint_notification">Le notifiche sono disabilitate</string>
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>
     <string name="title_hint_message_selection">Tieni premuto un messaggio per iniziare a selezionare più messaggi: Tieni premuto e scorri in su o in giù per selezionare più messaggi</string>

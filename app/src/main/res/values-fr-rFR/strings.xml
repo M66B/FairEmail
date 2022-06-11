@@ -1258,6 +1258,8 @@
     <string name="title_encrypt">Chiffrer</string>
     <string name="title_decrypt">Déchiffrer</string>
     <string name="title_resync">Resynchroniser</string>
+    <string name="title_charset">Encodage</string>
+    <string name="title_charset_auto" comment="title_charset_auto&#10;Option title for automatic (default) charset set">Automatique</string>
     <string name="title_alternative_text">Afficher le texte brut</string>
     <string name="title_alternative_html">Afficher en HTML</string>
     <string name="title_no_openpgp">OpenKeychain introuvable</string>
@@ -1580,6 +1582,7 @@
     <string name="title_hint_folder_actions">Appuyez longuement sur un dossier pour afficher les options comme ajouter un dossier au menu de navigation pour un accès rapide</string>
     <string name="title_hint_folder_sync">Afin de limiter l’utilisation de la batterie et du réseau, les dossiers et messages ne seront pas tous synchronisés par défaut</string>
     <string name="title_hint_airplane">Le mode avion est activé</string>
+    <string name="title_hint_notification">Les notifications sont désactivées</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu « Assistance » pour obtenir de l’aide</string>
     <string name="title_hint_message_actions">Balayez vers la gauche pour mettre à la corbeille ; balayez vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
     <string name="title_hint_message_selection">Appuyez longuement sur un message pour activer la sélection multiple ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner davantage de messages</string>

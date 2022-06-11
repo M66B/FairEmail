@@ -874,6 +874,7 @@
     <string name="title_encrypt">رمزگذاری</string>
     <string name="title_decrypt">رمزگشایی</string>
     <string name="title_resync">همگام‌سازی دوباره</string>
+    <string name="title_charset">رمزگذاری</string>
     <string name="title_no_openpgp">OpenKeychain یافت نشد</string>
     <string name="title_user_interaction">در حال انتقال به OpenKeychain</string>
     <string name="title_not_encrypted">پیام امضا یا رمزگذاری نشده است</string>
@@ -1118,6 +1119,7 @@
     <string name="title_legend_s">انتخاب/عدم انتخاب</string>
     <string name="title_hint_folder_sync">برای محدود کردن مصرف دیتا و باتری تمامی پوشه‌ها و پیام‌ها به صورت پیش‌فرض همگام سازی نخواهند شد</string>
     <string name="title_hint_airplane">حالت هواپیما روشن است</string>
+    <string name="title_hint_notification">اعلان‌ها غیرفعالند</string>
     <string name="title_hint_support">اگر سوال یا مشکلی دارید لطفا از قسمت پشتیبانی برای کمک گرفتن استفاده کنید</string>
     <string name="title_hint_message_actions">برای حذف به چپ بکشید؛ برای بایگانی به راست بکشید (اگر در دسترس باشد)؛ کنش‌های کشیدن می‌تواند در تنظیمات حساب پیکربندی شوند</string>
     <string name="title_hint_message_junk">این پیام‌ها در پوشه هرزنامه سرور ایمیل قرار دارند. واضح است که اپلیکیشن نمی‌تواند جلوی فرستادن هرزنامه برای شما را بگیرد.</string>
