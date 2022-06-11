@@ -6097,6 +6097,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem item) {
+                            properties.setSize(message.id, null);
+                            properties.setHeight(message.id, null);
+                            properties.setPosition(message.id, null);
+
                             args.putString("charset", item.getIntent().getStringExtra("charset"));
 
                             new SimpleTask<Void>() {
@@ -6113,7 +6117,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         if (message == null)
                                             return null;
 
-                                        db.message().resetMessageContent(id);
+                                        db.message().resetMessageContent(message.id);
                                         EntityOperation.queue(context, message, EntityOperation.BODY, null, charset);
 
                                         db.setTransactionSuccessful();
