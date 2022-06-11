@@ -152,7 +152,7 @@
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス許可を付与してください</string>
     <string name="title_setup_gmail_permissions">Google はすべてのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmail が明示的な同意なしにメッセージを削除することはありません</string>
     <string name="title_setup_gmail_drafts">IMAP で下書きフォルダにアクセスできない場合、Gmail ラベル設定で修正できます</string>
-    <string name="title_setup_gmail_password">パスワードでアカウントを認証したい</string>
+    <string name="title_setup_gmail_password">デバイスのアカウントの代わりにパスワードで別のアカウントを認証したい</string>
     <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によって IMAP/SMTP が無効にされていることが原因である可能性があります</string>
     <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可する</string>
     <string name="title_setup_oauth_update">設定済みのアカウントをもう一度認証する (設定されていない場合、新しいアカウントを作成)</string>
@@ -178,6 +178,8 @@
     <string name="title_setup_permissions">アクセス権限を付与する</string>
     <string name="title_setup_permissions_remark">連絡先へのアクセスのため (オプション)</string>
     <string name="title_setup_permissions_explanation">連絡先を検索したり、連絡先を自動入力するには連絡先へのアクセス権限が必要です</string>
+    <string name="title_setup_permissions_notify">新着メッセージの通知を表示するため (オプション)</string>
+    <string name="title_setup_permissions_notify_explanation">新着メッセージの通知をステータスバーに表示するには通知の権限が必要です</string>
     <string name="title_setup_permission_why">必要とする権限とその理由は何ですか？</string>
     <string name="title_setup_permission_import_contacts">連絡先をインポートするにはどうすればいいですか？</string>
     <string name="title_setup_doze">バッテリー最適化を無効にする</string>
@@ -1245,6 +1247,7 @@
     <string name="title_decrypt">復号</string>
     <string name="title_resync">再同期</string>
     <string name="title_charset">エンコード</string>
+    <string name="title_charset_auto">自動</string>
     <string name="title_alternative_text">プレーンテキストを表示</string>
     <string name="title_alternative_html">HTML を表示</string>
     <string name="title_no_openpgp">OpenKeychain が見つかりません</string>
@@ -1567,6 +1570,7 @@
     <string name="title_hint_folder_actions">フォルダーを長押して、ナビゲーションメニューにフォルダーのショートカットを表示するなどの設定ができます</string>
     <string name="title_hint_folder_sync">バッテリーとネットワークの使用を抑えるためにデフォルトでは一部のフォルダーとメッセージのみ同期されます</string>
     <string name="title_hint_airplane">機内モードが ON です</string>
+    <string name="title_hint_notification">通知が無効です</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてゴミ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>
     <string name="title_hint_message_selection">メッセージを長押しして、複数のメッセージを選択します。そのまま上または下にスワイプすると、まとめてメッセージを選択できます</string>

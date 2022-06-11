@@ -163,7 +163,6 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permissão para ler, compor, enviar e excluir permanentemente todo seu e-mail. O FairEmail nunca apagará suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se a pasta rascunho não estiver acessível pelo IMAP, ela pode ser fixa nas configurações de etiqueta do Gmail</string>
-    <string name="title_setup_gmail_password">Quero autorizar uma conta com uma senha</string>
     <string name="title_setup_office_auth">O erro \'Falha de Autenticação\' pode ser causadado por desativação do IMAP/SMTP pelo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar uma conta existente novamente (caso contrário, crie uma nova conta)</string>
@@ -1255,7 +1254,7 @@
     <string name="title_decrypt">Descriptografar</string>
     <string name="title_resync">Resincronizar</string>
     <string name="title_charset">Codificação</string>
-    <string name="title_charset_auto" comment="title_charset_auto&#10;Option title for automatic (default) charset set">Automático</string>
+    <string name="title_charset_auto">Automático</string>
     <string name="title_alternative_text">Mostrar texto simples</string>
     <string name="title_alternative_html">Mostrar HTML</string>
     <string name="title_no_openpgp">OpenKeychain não encontrado</string>

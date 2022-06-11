@@ -71,7 +71,6 @@
     <string name="title_setup_identities">ᱩᱯᱨᱩᱢ</string>
     <string name="title_setup_pop3">POP3 ᱮᱠᱟᱣᱸᱴ</string>
     <string name="title_setup_gmail_rationale">ᱫᱟᱭᱟᱠᱟᱛᱮ ᱯᱟᱨᱢᱤᱥᱚᱱ ᱜᱨᱟᱸᱴ ᱠᱟᱛᱮ ᱢᱤᱫ ᱮᱠᱟᱣᱸᱴ ᱪᱚᱭᱚᱱ ᱢᱮ ᱟᱨ ᱟᱢᱟᱜ ᱧᱩᱛᱩᱢ ᱯᱟᱲᱦᱟᱣ ᱢᱮ</string>
-    <string name="title_setup_gmail_password">ᱤᱧ ᱢᱤᱫ ᱮᱠᱟᱣᱸᱴ ᱚᱛᱷᱚᱨᱟᱤᱡᱽ ᱥᱟᱹᱱᱟᱹᱧ ᱠᱟᱱᱟ ᱯᱟᱥᱣᱟᱰ ᱥᱟᱶ</string>
     <string name="title_setup_oauth_rationale">ᱚᱛᱷᱚᱨᱟᱤᱡᱽ ᱮᱠᱥᱮᱥ ᱠᱮᱫ ᱛᱟᱢᱟ %1$s ᱮᱠᱟᱣᱸᱴ</string>
     <string name="title_setup_select_account">ᱮᱠᱟᱣᱸᱴ ᱪᱚᱭᱚᱱ ᱢᱮ</string>
     <string name="title_setup_quick_success">ᱢᱤᱫ ᱮᱠᱟᱣᱸᱴ ᱥᱚᱠᱥᱮᱥᱯᱷᱩᱞᱤ ᱥᱮᱞᱮᱫ ᱦᱩᱭᱮᱱᱟ</string>
