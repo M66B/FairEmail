@@ -133,6 +133,7 @@ public class CharsetHelper {
     }
 
     static Boolean isUTF16LE(BufferedInputStream bis) throws IOException {
+        // https://en.wikipedia.org/wiki/Endianness
         byte[] bytes = new byte[64];
         bis.mark(bytes.length);
         try {
@@ -153,7 +154,15 @@ public class CharsetHelper {
                         even++;
                     else
                         odd++;
-            return (even < 30 * count / 100 / 2 && odd > 70 * count / 100 / 2);
+
+            int low = 30 * count / 100 / 2;
+            int high = 70 * count / 100 / 2;
+
+            if (even < low && odd > high)
+                return true; // Little endian
+            if (odd < low && even > high)
+                return false; // Big endian
+            return null; // Undetermined
         } finally {
             bis.reset();
         }
