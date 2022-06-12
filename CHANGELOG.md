@@ -4,6 +4,13 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### Next version
+
+* Added option for automatic hyphenation
+* Improved Android 13 compatibility
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1913 - 2022-06-12
 
 * Fixed asking for permissions on Android 12 and before
