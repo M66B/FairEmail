@@ -1527,17 +1527,22 @@ public class Helper {
     }
 
     static boolean isKeyboardVisible(final View view) {
-        if (view == null)
+        try {
+            if (view == null)
+                return false;
+            View root = view.getRootView();
+            if (root == null)
+                return false;
+            WindowInsetsCompat insets = ViewCompat.getRootWindowInsets(root);
+            if (insets == null)
+                return false;
+            boolean visible = insets.isVisible(WindowInsetsCompat.Type.ime());
+            Log.i("isKeyboardVisible=" + visible);
+            return visible;
+        } catch (Throwable ex) {
+            Log.e(ex);
             return false;
-        View root = view.getRootView();
-        if (root == null)
-            return false;
-        WindowInsetsCompat insets = ViewCompat.getRootWindowInsets(root);
-        if (insets == null)
-            return false;
-        boolean visible = insets.isVisible(WindowInsetsCompat.Type.ime());
-        Log.i("isKeyboardVisible=" + visible);
-        return visible;
+        }
     }
 
     static String getViewName(View view) {
