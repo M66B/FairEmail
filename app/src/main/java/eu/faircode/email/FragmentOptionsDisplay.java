@@ -158,6 +158,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swOverrideWidth;
 
     private SwitchCompat swContrast;
+    private SwitchCompat swHyphenation;
     private Spinner spDisplayFont;
     private SwitchCompat swMonospacedPre;
     private SwitchCompat swTextSeparators;
@@ -202,7 +203,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "preview", "preview_italic", "preview_lines",
             "addresses",
             "message_zoom", "overview_mode", "override_width",
-            "display_font", "contrast", "monospaced_pre",
+            "hyphenation", "display_font", "contrast", "monospaced_pre",
             "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images", "button_extra",
             "unzip", "attachments_alt", "thumbnails",
@@ -313,6 +314,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swOverviewMode = view.findViewById(R.id.swOverviewMode);
         swOverrideWidth = view.findViewById(R.id.swOverrideWidth);
         swContrast = view.findViewById(R.id.swContrast);
+        swHyphenation = view.findViewById(R.id.swHyphenation);
         spDisplayFont = view.findViewById(R.id.spDisplayFont);
         swMonospacedPre = view.findViewById(R.id.swMonospacedPre);
         swTextSeparators = view.findViewById(R.id.swTextSeparators);
@@ -1103,6 +1105,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swHyphenation.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? View.GONE : View.VISIBLE);
+        swHyphenation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("hyphenation", checked).apply();
+            }
+        });
+
         spDisplayFont.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -1457,6 +1467,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swOverrideWidth.setChecked(prefs.getBoolean("override_width", false));
 
         swContrast.setChecked(prefs.getBoolean("contrast", false));
+        swHyphenation.setChecked(prefs.getBoolean("hyphenation", false));
 
         String display_font = prefs.getString("display_font", "");
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
