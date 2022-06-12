@@ -56,6 +56,7 @@ import android.os.Parcel;
 import android.os.PowerManager;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
+import android.provider.Browser;
 import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
@@ -857,7 +858,27 @@ public class Helper {
                     .setStartAnimations(context, R.anim.activity_open_enter, R.anim.activity_open_exit)
                     .setExitAnimations(context, R.anim.activity_close_enter, R.anim.activity_close_exit);
 
+            Locale locale = Locale.getDefault();
+            Locale slocale = Resources.getSystem().getConfiguration().locale;
+
+            List<String> languages = new ArrayList<>();
+            languages.add(locale.toLanguageTag() + ";q=1.0");
+            if (!TextUtils.isEmpty(locale.getLanguage()))
+                languages.add(locale.getLanguage() + ";q=0.9");
+            if (!slocale.equals(locale)) {
+                languages.add(slocale.toLanguageTag() + ";q=0.8");
+                if (!TextUtils.isEmpty(slocale.getLanguage()))
+                    languages.add(slocale.getLanguage() + ";q=0.7");
+            }
+            languages.add("*;q=0.5");
+            Log.i("MMM " + TextUtils.join(", ", languages));
+
+            Bundle headers = new Bundle();
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language
+            headers.putString("Accept-Language", TextUtils.join(", ", languages));
+
             CustomTabsIntent customTabsIntent = builder.build();
+            customTabsIntent.intent.putExtra(Browser.EXTRA_HEADERS, headers);
             try {
                 customTabsIntent.launchUrl(context, uri);
             } catch (Throwable ex) {
