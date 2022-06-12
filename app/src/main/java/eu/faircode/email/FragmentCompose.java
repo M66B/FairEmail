@@ -875,7 +875,8 @@ public class FragmentCompose extends FragmentBase {
                         identity.signature);
                 clipboard.setPrimaryClip(clip);
 
-                ToastEx.makeText(v.getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                    ToastEx.makeText(v.getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -1547,7 +1548,9 @@ public class FragmentCompose extends FragmentBase {
                         HtmlHelper.getText(getContext(), html),
                         html);
                 clipboard.setPrimaryClip(clip);
-                ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
             }
 
             private void deleteRef() {

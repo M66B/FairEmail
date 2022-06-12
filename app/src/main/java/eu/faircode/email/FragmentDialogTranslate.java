@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -331,7 +332,9 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
                         String text = HtmlHelper.getText(context, html);
                         ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
                         cbm.setPrimaryClip(ClipData.newHtmlText(getString(R.string.app_name), text, html));
-                        ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+
+                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                            ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
                     }
                 });
 

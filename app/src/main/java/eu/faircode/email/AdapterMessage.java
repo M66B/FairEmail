@@ -3109,7 +3109,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             ClipData clip = ClipData.newPlainText(title, text);
                             clipboard.setPrimaryClip(clip);
-                            ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                                ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
                         }
                     });
 
@@ -4508,7 +4510,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ClipData clip = ClipData.newPlainText(context.getString(R.string.app_name), tvError.getText());
                     clipboard.setPrimaryClip(clip);
 
-                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                        ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -4780,7 +4783,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ClipData clip = ClipData.newPlainText(context.getString(R.string.app_name), message.notes);
             clipboard.setPrimaryClip(clip);
-            ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
         }
 
         private void onShow(final TupleMessageEx message, boolean full) {
@@ -6423,7 +6428,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ClipData clip = ClipData.newPlainText(context.getString(R.string.title_show_headers), message.headers);
             clipboard.setPrimaryClip(clip);
 
-            ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
         }
 
         private void onMenuShowHeaders(TupleMessageEx message) {

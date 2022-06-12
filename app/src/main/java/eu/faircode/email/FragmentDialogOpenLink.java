@@ -261,7 +261,8 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 ClipData clip = ClipData.newPlainText(title, etLink.getText().toString());
                 clipboard.setPrimaryClip(clip);
 
-                ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
             }
         });
 

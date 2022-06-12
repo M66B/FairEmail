@@ -483,7 +483,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
                     ClipData clip = ClipData.newPlainText(getString(R.string.app_name), mnemonic);
                     cbm.setPrimaryClip(clip);
-                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                        ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
 
                 } else {
                     prefs.edit().remove("wipe_mnemonic").apply();
