@@ -3287,8 +3287,11 @@ class Core {
             boolean use_modseq = prefs.getBoolean("use_modseq", true);
             boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
 
-            if (account.isYahoo() || account.isAol())
+            if (account.isYahoo() || account.isAol()) {
                 sync_nodate = false;
+                sync_unseen = false;
+                sync_flagged = false;
+            }
 
             if (account.isZoho()) {
                 sync_unseen = false;
