@@ -7210,7 +7210,10 @@ public class FragmentCompose extends FragmentBase {
     private OnBackPressedCallback backPressedCallback = new OnBackPressedCallback(true) {
         @Override
         public void handleOnBackPressed() {
-            onExit();
+            if (Helper.isKeyboardVisible(view))
+                Helper.hideKeyboard(view);
+            else
+                onExit();
         }
     };
 

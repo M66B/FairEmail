@@ -318,7 +318,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                onExit();
+                if (Helper.isKeyboardVisible(view))
+                    Helper.hideKeyboard(view);
+                else
+                    onExit();
             }
         });
 

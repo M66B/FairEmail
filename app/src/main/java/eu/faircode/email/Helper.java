@@ -103,6 +103,8 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
@@ -1522,6 +1524,20 @@ public class Helper {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    static boolean isKeyboardVisible(final View view) {
+        if (view == null)
+            return false;
+        View root = view.getRootView();
+        if (root == null)
+            return false;
+        WindowInsetsCompat insets = ViewCompat.getRootWindowInsets(root);
+        if (insets == null)
+            return false;
+        boolean visible = insets.isVisible(WindowInsetsCompat.Type.ime());
+        Log.i("isKeyboardVisible=" + visible);
+        return visible;
     }
 
     static String getViewName(View view) {

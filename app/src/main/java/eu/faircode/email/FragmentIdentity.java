@@ -494,7 +494,10 @@ public class FragmentIdentity extends FragmentBase {
         getActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                onSave(true);
+                if (Helper.isKeyboardVisible(view))
+                    Helper.hideKeyboard(view);
+                else
+                    onSave(true);
             }
         });
 

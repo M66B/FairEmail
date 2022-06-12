@@ -160,6 +160,11 @@ public class ActivitySignature extends ActivityBase {
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
+                if (Helper.isKeyboardVisible(view)) {
+                    Helper.hideKeyboard(view);
+                    return;
+                }
+
                 String prev = getIntent().getStringExtra("html");
                 String current = getHtml();
                 boolean dirty = !Objects.equals(prev, current) &&

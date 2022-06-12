@@ -7342,6 +7342,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private OnBackPressedCallback backPressedCallback = new OnBackPressedCallback(true) {
         @Override
         public void handleOnBackPressed() {
+            if (Helper.isKeyboardVisible(view)) {
+                Helper.hideKeyboard(view);
+                return;
+            }
+
             if (isSearching()) {
                 endSearch();
                 return;

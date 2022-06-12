@@ -699,7 +699,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                onExit();
+                if (Helper.isKeyboardVisible(view))
+                    Helper.hideKeyboard(view);
+                else
+                    onExit();
             }
         });
 
