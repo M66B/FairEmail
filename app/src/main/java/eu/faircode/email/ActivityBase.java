@@ -48,6 +48,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.core.graphics.ColorUtils;
@@ -599,13 +600,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        if (backHandled())
-            return;
-        super.onBackPressed();
-    }
-
     public boolean dispatchKeyEvent(KeyEvent event) {
         for (IKeyPressedListener listener : keyPressedListeners)
             if (listener.onKeyPressed(event))
@@ -755,18 +749,22 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                onBackPressed();
+            performBack();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    protected boolean backHandled() {
-        for (IKeyPressedListener listener : keyPressedListeners)
-            if (listener.onBackPressed())
-                return true;
-        return false;
+    public void performBack() {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+            ActionBar ab = getSupportActionBar();
+            if (ab != null && ab.collapseActionView())
+                return;
+            FragmentManager fm = getSupportFragmentManager();
+            if (!fm.isStateSaved() && fm.popBackStackImmediate())
+                return;
+        }
+        finish();
     }
 
     @Override
@@ -867,7 +865,5 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     public interface IKeyPressedListener {
         boolean onKeyPressed(KeyEvent event);
-
-        boolean onBackPressed();
     }
 }

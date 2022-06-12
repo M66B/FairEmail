@@ -327,7 +327,7 @@ dependencies {
     def annotation_version_experimental = "1.2.0"
     def core_version = "1.8.0" // 1.9.0-alpha03
     def shortcuts_version = "1.0.1"
-    def appcompat_version = "1.4.2" // 1.6.0-alpha01
+    def appcompat_version = "1.6.0-alpha04"
     def emoji_version = "1.2.0-alpha04"
     def activity_version = "1.5.0-rc01" // 1.6.0-alpha03
     def fragment_version = "1.5.0-rc01"

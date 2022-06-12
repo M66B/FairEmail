@@ -28,7 +28,6 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -43,6 +42,7 @@ import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
@@ -238,16 +238,10 @@ public class FragmentFolder extends FragmentBase {
             }
         });
 
-        addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
+        getActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
-            public boolean onKeyPressed(KeyEvent event) {
-                return false;
-            }
-
-            @Override
-            public boolean onBackPressed() {
+            public void handleOnBackPressed() {
                 onSave(true);
-                return true;
             }
         });
 
@@ -406,8 +400,8 @@ public class FragmentFolder extends FragmentBase {
                             }
                         });
                         onSave(false);
-                    } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                        getParentFragmentManager().popBackStack();
+                    } else
+                        finish();
                     break;
 
                 case REQUEST_DELETE_FOLDER:
@@ -693,7 +687,7 @@ public class FragmentFolder extends FragmentBase {
                     else
                         prefs.edit().putInt(key, color).apply();
 
-                    getParentFragmentManager().popBackStack();
+                    finish();
                 }
             }
 
@@ -750,8 +744,7 @@ public class FragmentFolder extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    getParentFragmentManager().popBackStack();
+                finish();
             }
 
             @Override

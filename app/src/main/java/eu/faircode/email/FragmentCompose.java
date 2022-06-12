@@ -117,6 +117,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -1051,6 +1052,7 @@ public class FragmentCompose extends FragmentBase {
         });
 
         addKeyPressedListener(onKeyPressedListener);
+        getActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), backPressedCallback);
 
         // Initialize
         setHasOptionsMenu(true);
@@ -7200,14 +7202,12 @@ public class FragmentCompose extends FragmentBase {
 
             return false;
         }
+    };
 
+    private OnBackPressedCallback backPressedCallback = new OnBackPressedCallback(true) {
         @Override
-        public boolean onBackPressed() {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                onExit();
-                return true;
-            } else
-                return false;
+        public void handleOnBackPressed() {
+            onExit();
         }
     };
 

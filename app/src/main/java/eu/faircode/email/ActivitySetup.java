@@ -21,6 +21,8 @@ package eu.faircode.email;
 
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
@@ -54,6 +56,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -312,6 +315,13 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                onExit();
+            }
+        });
+
         if (getSupportFragmentManager().getFragments().size() == 0) {
             Intent intent = getIntent();
             String target = intent.getStringExtra("target");
@@ -418,12 +428,29 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
-    @Override
-    public void onBackPressed() {
+    public void onExit() {
         if (drawerLayout.isDrawerOpen(drawerContainer))
             drawerLayout.closeDrawer(drawerContainer);
-        else
-            super.onBackPressed();
+        else {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean setup_reminder = prefs.getBoolean("setup_reminder", true);
+
+            boolean hasContactPermissions =
+                    hasPermission(android.Manifest.permission.READ_CONTACTS);
+            boolean hasNotificationPermissions =
+                    (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+                            hasPermission(Manifest.permission.POST_NOTIFICATIONS));
+            boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(this));
+
+            if (!setup_reminder ||
+                    (hasContactPermissions && hasNotificationPermissions && isIgnoring))
+                performBack();
+            else {
+                FragmentDialogPermissions fragment = new FragmentDialogPermissions();
+                fragment.setTargetActivity(this, REQUEST_STILL);
+                fragment.show(getSupportFragmentManager(), "setup:still");
+            }
+        }
     }
 
     @Override
@@ -474,6 +501,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     if (resultCode == RESULT_OK && data != null)
                         handleImportProviders(data);
                     break;
+                case ActivitySetup.REQUEST_STILL:
+                    if (resultCode == Activity.RESULT_OK) {
+                        Bundle result = new Bundle();
+                        result.putInt("page", 0);
+                        getSupportFragmentManager().setFragmentResult("options:tab", result);
+                    } else
+                        performBack();
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -482,7 +517,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
     private void onMenuClose() {
         drawerLayout.closeDrawer(drawerContainer, false);
-        onBackPressed();
+        onExit();
     }
 
     private void onMenuExport() {

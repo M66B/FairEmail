@@ -34,7 +34,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.ImageSpan;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,6 +44,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -157,14 +157,9 @@ public class ActivitySignature extends ActivityBase {
             }
         });
 
-        addKeyPressedListener(new IKeyPressedListener() {
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
-            public boolean onKeyPressed(KeyEvent event) {
-                return false;
-            }
-
-            @Override
-            public boolean onBackPressed() {
+            public void handleOnBackPressed() {
                 String prev = getIntent().getStringExtra("html");
                 String current = getHtml();
                 boolean dirty = !Objects.equals(prev, current) &&
@@ -178,7 +173,7 @@ public class ActivitySignature extends ActivityBase {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     save();
-                                    finish();
+                                    performBack();
                                 }
                             })
                             .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -189,11 +184,9 @@ public class ActivitySignature extends ActivityBase {
                             })
                             .show();
                 else
-                    finish();
-
-                return true;
+                    performBack();
             }
-        }, this);
+        });
 
         // Initialize
         FragmentDialogTheme.setBackground(this, view, true);

@@ -19,22 +19,17 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -52,6 +47,7 @@ import androidx.cursoradapter.widget.CursorAdapter;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -222,19 +218,11 @@ public class FragmentOptions extends FragmentBase {
             }
         });
 
-        addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
+        getParentFragmentManager().setFragmentResultListener("options:tab", this, new FragmentResultListener() {
             @Override
-            public boolean onKeyPressed(KeyEvent event) {
-                return false;
-            }
-
-            @Override
-            public boolean onBackPressed() {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                    onExit();
-                    return true;
-                } else
-                    return false;
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                int page = result.getInt("page");
+                pager.setCurrentItem(page);
             }
         });
 
@@ -266,11 +254,6 @@ public class FragmentOptions extends FragmentBase {
                 pager.setCurrentItem(index);
             getActivity().getIntent().removeExtra("tab");
         }
-    }
-
-    @Override
-    protected void finish() {
-        onExit();
     }
 
     @Override
@@ -463,46 +446,6 @@ public class FragmentOptions extends FragmentBase {
         });
 
         super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        try {
-            switch (requestCode) {
-                case ActivitySetup.REQUEST_STILL:
-                    if (resultCode == Activity.RESULT_OK)
-                        pager.setCurrentItem(0);
-                    else
-                        super.finish();
-                    break;
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-    }
-
-    private void onExit() {
-        final Context context = getContext();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean setup_reminder = prefs.getBoolean("setup_reminder", true);
-
-        boolean hasContactPermissions =
-                hasPermission(Manifest.permission.READ_CONTACTS);
-        boolean hasNotificationPermissions =
-                (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
-                        hasPermission(Manifest.permission.POST_NOTIFICATIONS));
-        boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(context));
-
-        if (!setup_reminder ||
-                (hasContactPermissions && hasNotificationPermissions && isIgnoring))
-            super.finish();
-        else {
-            FragmentDialogPermissions fragment = new FragmentDialogPermissions();
-            fragment.setTargetFragment(this, ActivitySetup.REQUEST_STILL);
-            fragment.show(getParentFragmentManager(), "setup:still");
-        }
     }
 
     static void reset(Context context, String[] options, Runnable confirmed) {

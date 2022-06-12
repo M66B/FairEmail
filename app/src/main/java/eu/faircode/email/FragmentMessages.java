@@ -123,6 +123,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -1626,7 +1627,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        addKeyPressedListener(onBackPressedListener);
+        addKeyPressedListener(keyPressedListener);
+        getActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), backPressedCallback);
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
@@ -7189,7 +7191,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             searchView.clearComposingText();
     }
 
-    private ActivityBase.IKeyPressedListener onBackPressedListener = new ActivityBase.IKeyPressedListener() {
+    private ActivityBase.IKeyPressedListener keyPressedListener = new ActivityBase.IKeyPressedListener() {
         @Override
         public boolean onKeyPressed(KeyEvent event) {
             Context context = getContext();
@@ -7267,44 +7269,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return holder.onKeyPressed(event);
         }
 
-        @Override
-        public boolean onBackPressed() {
-            if (isSearching()) {
-                endSearch();
-                return true;
-            }
-
-            if (selectionTracker != null && selectionTracker.hasSelection()) {
-                selectionTracker.clearSelection();
-                return true;
-            }
-
-            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                return true;
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean collapse_multiple = prefs.getBoolean("collapse_multiple", true);
-
-            int count = 0;
-            for (int i = 0; i < adapter.getItemCount(); i++) {
-                TupleMessageEx message = adapter.getItemAtPosition(i);
-                if (message != null && !message.duplicate)
-                    count++;
-            }
-
-            int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
-            if (collapse_multiple && expanded > 0 && count > 1) {
-                values.get("expanded").clear();
-                updateExpanded();
-                iProperties.refresh();
-                return true;
-            }
-
-            handleExit();
-
-            return false;
-        }
-
         private boolean onNext(Context context) {
             if (next == null) {
                 Animation bounce = AnimationUtils.loadAnimation(context, R.anim.bounce_left);
@@ -7372,6 +7336,45 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             int h = context.getResources().getDisplayMetrics().heightPixels;
             rvMessage.scrollBy(0, Math.round((up ? -1 : 1) * h * percent));
             return true;
+        }
+    };
+
+    private OnBackPressedCallback backPressedCallback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            if (isSearching()) {
+                endSearch();
+                return;
+            }
+
+            if (selectionTracker != null && selectionTracker.hasSelection()) {
+                selectionTracker.clearSelection();
+                return;
+            }
+
+            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                return;
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean collapse_multiple = prefs.getBoolean("collapse_multiple", true);
+
+            int count = 0;
+            for (int i = 0; i < adapter.getItemCount(); i++) {
+                TupleMessageEx message = adapter.getItemAtPosition(i);
+                if (message != null && !message.duplicate)
+                    count++;
+            }
+
+            int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
+            if (collapse_multiple && expanded > 0 && count > 1) {
+                values.get("expanded").clear();
+                updateExpanded();
+                iProperties.refresh();
+                return;
+            }
+
+            handleExit();
+            finish();
         }
     };
 

@@ -54,6 +54,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -695,6 +696,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                onExit();
+            }
+        });
+
         // Initialize
 
         if (content_pane != null) {
@@ -1242,8 +1250,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         return (getDrawerWidthPinned() >= dp200);
     }
 
-    @Override
-    public void onBackPressed() {
+    private void onExit() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if (!nav_pinned &&
                 drawerLayout.isDrawerOpen(drawerContainer) &&
@@ -1251,15 +1258,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             drawerLayout.closeDrawer(drawerContainer);
         else {
             if (exit || count > 1)
-                super.onBackPressed();
-            else if (!backHandled()) {
+                performBack();
+            else {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
                 boolean double_back = prefs.getBoolean("double_back", false);
                 if (searching || !double_back)
-                    super.onBackPressed();
+                    performBack();
                 else {
                     exit = true;
-                    ToastEx.makeText(this, R.string.app_exit, Toast.LENGTH_SHORT).show();
+                    ToastEx.makeText(ActivityView.this, R.string.app_exit, Toast.LENGTH_SHORT).show();
                     getMainHandler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -1308,7 +1315,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
             if (nav_pinned)
-                onBackPressed();
+                onExit();
             else {
                 int count = getSupportFragmentManager().getBackStackEntryCount();
                 if (count == 1 && drawerLayout.isLocked(drawerContainer))

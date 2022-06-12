@@ -34,7 +34,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -51,6 +50,7 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
@@ -275,16 +275,10 @@ public class FragmentPop extends FragmentBase {
             }
         });
 
-        addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
+        getActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
-            public boolean onKeyPressed(KeyEvent event) {
-                return false;
-            }
-
-            @Override
-            public boolean onBackPressed() {
+            public void handleOnBackPressed() {
                 onSave(true);
-                return true;
             }
         });
 
@@ -641,9 +635,9 @@ public class FragmentPop extends FragmentBase {
                     if (context != null)
                         WidgetUnified.updateData(context); // Update color stripe
 
-                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                        getParentFragmentManager().popBackStack();
+                    finish();
 
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                         boolean saved = args.getBoolean("saved");
                         if (saved && cbIdentity.isChecked()) {
                             Bundle aargs = new Bundle();
@@ -878,8 +872,8 @@ public class FragmentPop extends FragmentBase {
                             }
                         });
                         onSave(false);
-                    } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                        getParentFragmentManager().popBackStack();
+                    } else
+                        finish();
                     break;
                 case REQUEST_DELETE:
                     if (resultCode == RESULT_OK)
@@ -916,8 +910,7 @@ public class FragmentPop extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    getParentFragmentManager().popBackStack();
+                finish();
             }
 
             @Override
