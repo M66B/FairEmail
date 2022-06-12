@@ -6,6 +6,16 @@
 If you have a question, please check the following frequently asked questions first.
 [At the bottom](#user-content-get-support),
 you can find out how to ask other questions, request features, and report bugs.
+You will receive an answer in your own language.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen.
+[Unten](#user-content-get-support) erfahren Sie, wie Sie andere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Sie erhalten eine Antwort in Ihrer eigenen Sprache.
+
+Si vous avez une question, veuillez d'abord vérifier les questions fréquemment posées suivantes.
+[En bas](#user-content-get-support), vous pouvez découvrir comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
+Vous recevrez une réponse dans votre propre langue.
+
 
 ## Index
 
@@ -4794,6 +4804,10 @@ Features not fulfilling these requirements will likely be rejected.
 This is also to keep maintenance and support in the long term feasible.
 
 If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+
+Wenn Sie eine Frage haben, eine Funktion anfordern oder einen Fehler melden möchten, **verwenden Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport)**.
+
+Si vous avez une question, souhaitez demander une fonctionnalité ou signaler un bogue, **veuillez utiliser [ce formulaire](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 
