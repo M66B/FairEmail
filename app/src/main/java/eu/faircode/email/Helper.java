@@ -1493,8 +1493,7 @@ public class Helper {
 
     static void showKeyboard(final View view) {
         final Context context = view.getContext();
-        InputMethodManager imm =
-                (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = Helper.getSystemService(context, InputMethodManager.class);
         if (imm == null)
             return;
 
@@ -1513,8 +1512,7 @@ public class Helper {
 
     static void hideKeyboard(final View view) {
         final Context context = view.getContext();
-        InputMethodManager imm =
-                (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = Helper.getSystemService(context, InputMethodManager.class);
         if (imm == null)
             return;
 

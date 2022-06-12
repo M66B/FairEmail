@@ -22,6 +22,7 @@ package eu.faircode.email;
 import static android.app.ActionBar.DISPLAY_SHOW_CUSTOM;
 import static android.app.Activity.RESULT_OK;
 
+import android.app.Activity;
 import android.app.RecoverableSecurityException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -36,6 +37,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.ResultReceiver;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -347,7 +349,7 @@ public class FragmentBase extends Fragment {
         try {
             FragmentActivity activity = getActivity();
             if (activity != null) {
-                InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm = Helper.getSystemService(activity, InputMethodManager.class);
                 View focused = activity.getCurrentFocus();
                 if (imm != null && focused != null)
                     imm.hideSoftInputFromWindow(focused.getWindowToken(), 0);
