@@ -86,6 +86,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.SortedMap;
 
 import io.requery.android.database.sqlite.SQLiteDatabase;
@@ -110,7 +111,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvFtsIndexed;
     private TextView tvFtsPro;
     private Spinner spLanguage;
-    private ImageButton ibResetLanguage;
     private SwitchCompat swDeepL;
     private ImageButton ibDeepL;
     private TextView tvSdcard;
@@ -284,7 +284,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         spLanguage = view.findViewById(R.id.spLanguage);
-        ibResetLanguage = view.findViewById(R.id.ibResetLanguage);
         swDeepL = view.findViewById(R.id.swDeepL);
         ibDeepL = view.findViewById(R.id.ibDeepL);
         tvSdcard = view.findViewById(R.id.tvSdcard);
@@ -524,57 +523,26 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         spLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                if (position == 0)
-                    onNothingSelected(adapterView);
-                else {
-                    String tag = languages.get(position - 1).first;
-                    if (tag.equals(spLanguage.getTag()))
-                        return;
+                String current = prefs.getString("language", null);
+                String selected = (position == 0 ? null : languages.get(position - 1).first);
+                if (Objects.equals(current, selected))
+                    return;
 
-                    new AlertDialog.Builder(view.getContext())
-                            .setIcon(R.drawable.twotone_help_24)
-                            .setTitle(languages.get(position - 1).second)
-                            .setMessage(R.string.title_advanced_english_hint)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    prefs.edit().putString("language", tag).commit(); // apply won't work here
-                                }
-                            })
-                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // Do nothing
-                                }
-                            })
-                            .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                                @Override
-                                public void onDismiss(DialogInterface dialog) {
-                                    setOptions();
-                                }
-                            })
-                            .show();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                prefs.edit().remove("language").commit(); // apply won't work here
-            }
-        });
-
-        ibResetLanguage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Locale system = Resources.getSystem().getConfiguration().locale;
-                new AlertDialog.Builder(v.getContext())
+                String title = (position == 0
+                        ? getString(R.string.title_advanced_language_system)
+                        : languages.get(position - 1).second);
+                new AlertDialog.Builder(adapterView.getContext())
                         .setIcon(R.drawable.twotone_help_24)
-                        .setTitle(system.getDisplayName(system))
-                        .setMessage(Helper.getString(v.getContext(), system, R.string.title_advanced_english_hint))
+                        .setTitle(title)
+                        .setMessage(R.string.title_advanced_english_hint)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                prefs.edit().remove("language").commit(); // apply won't work here
+                                // apply won't work here
+                                if (selected == null)
+                                    prefs.edit().remove("language").commit();
+                                else
+                                    prefs.edit().putString("language", selected).commit();
                             }
                         })
                         .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -590,6 +558,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                             }
                         })
                         .show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("language").commit();
             }
         });
 
@@ -1724,8 +1697,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             if (lang.first.equals(language))
                 selected = pos + 1;
         }
-
-        spLanguage.setTag(language);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, display);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
