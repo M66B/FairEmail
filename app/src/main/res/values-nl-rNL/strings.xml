@@ -463,6 +463,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_message_text_zoom2">Standaard berichttekst zoom: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zoom oorspronkelijke berichten zodat ze op het scherm passen</string>
     <string name="title_advanced_override_width">Schakel vaste breedtes uit in originele berichten</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Gebruik automatische koppeltekens</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
     <string name="title_advanced_monospaced">Gebruik standaard vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_monospaced_pre">Gebruik vaste breedte lettertype voor vooraf opgemaakte tekst</string>

@@ -163,6 +163,7 @@
     <string name="title_setup_gmail_rationale">Παρακαλώ, παραχωρήστε τις απαιτούμενες άδειες για την επιλογή ενός λογαριασμού και την ανάγνωση του ονόματός σας</string>
     <string name="title_setup_gmail_permissions">Η Google θα ζητήσει άδειες που αφορούν στην ανάγνωση, σύνταξη, αποστολή και οριστική διαγραφή όλων των μηνυμάτων σας. Το FairEmail δεν θα διαγράψει ποτέ τα μηνύματά σας χωρίς τη ρητή συγκατάθεσή σας.</string>
     <string name="title_setup_gmail_drafts">Αν ο φάκελος με τα πρόχειρα δεν είναι διαθέσιμος μέσω IMAP, αυτό μπορεί να διορθωθεί στις ρυθμίσεις ετικετών του Gmail</string>
+    <string name="title_setup_gmail_password">Θέλω να εξουσιοδοτήσω έναν λογαριασμό με έναν κωδικό πρόσβασης αντί για έναν λογαριασμό στη συσκευή</string>
     <string name="title_setup_office_auth">Το σφάλμα \'ΠΙΣΤΟΠΟΙΗΣΗ απέτυχε\' μπορεί να προκληθεί επειδή το IMAP/SMTP έχει απενεργοποιηθεί από το διαχειριστή του συστήματος</string>
     <string name="title_setup_oauth_rationale">Παραχωρήστε πρόσβαση στον λογαριασμό σας %1$s</string>
     <string name="title_setup_oauth_update">Εκ νέου εξουσιοδότηση ενός ήδη υπάρχοντος λογαριασμού (διαφορετικά, δημιουργήστε έναν καινούργιο λογαριασμό)</string>
@@ -463,6 +464,7 @@
     <string name="title_advanced_message_text_zoom2">Μεγέθυνση κειμένου μηνύματος από προεπιλογή: %1$s %%</string>
     <string name="title_advanced_overview_mode">Μεγέθυνση αρχικού μηνύματος για προσαρμογή στην οθόνη</string>
     <string name="title_advanced_override_width">Να απενεργοποιηθούν τα σταθερά πλάτη στα αρχικά μηνύματα</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Χρήση αυτόματου συλλαβισμού</string>
     <string name="title_advanced_contrast">Χρήση υψηλής αντίθεσης για το κείμενο του μηνύματος</string>
     <string name="title_advanced_monospaced">Χρήση γραμματοσειράς σταθερού πλάτους από προεπιλογή</string>
     <string name="title_advanced_monospaced_pre">Χρήση γραμματοσειράς σταθερού πλάτους για προ-μορφοποιημένο κείμενο</string>

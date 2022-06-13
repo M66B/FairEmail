@@ -167,12 +167,14 @@
     <string name="title_setup_accounts">Računi</string>
     <string name="title_setup_identities">Identiteti</string>
     <string name="title_setup_other">Drugi provajder</string>
+    <string name="title_setup_inbound">Samo dolazna pošta (e-pošta se ne može poslati!)</string>
     <string name="title_setup_pop3">POP3 račun</string>
     <string name="title_setup_oauth_permission">E-mail provajder je odobrio OAuth provjeru saamo za verziju iz Play trgovine i GitHub-a</string>
     <string name="title_setup_gmail_support">Autorizacija Google računa radit će samo u verzijama Play trgovine i GitHub-a, jer Android provjerava digitalne potpise aplikacija</string>
     <string name="title_setup_gmail_rationale">Molimo da potvrdite dopuštenja za izbor računa i čitanje vašeg imena</string>
     <string name="title_setup_gmail_permissions">Google će pitati za dopuštenja za čitanje, pisanje, slanje i trajno brisanje svih vaših poruka. FairEmail nikada neće brisati vaše poruke bez vaše saglasnosti.</string>
     <string name="title_setup_gmail_drafts">Ukoliko folder \'nacrti\' nije dostupan putem IMAP-a, onda se to može popraviti u postavkama Gmail oznaka (etiketa)</string>
+    <string name="title_setup_gmail_password">Želim autorizovati račun sa lozinkom umjesto lokalnog računa na uređaju</string>
     <string name="title_setup_office_auth">Greška \'PROVJERA nije uspjela\' može biti uzrokovana postavkama IMAP/SMTP-a koje je isključio sistemski administrator</string>
     <string name="title_setup_oauth_rationale">Autorizuj pristup vašem%1$s računu</string>
     <string name="title_setup_oauth_update">Autorizuj postojeći račun opet (u suprotnom, kreiraj novi račun)</string>
@@ -198,6 +200,8 @@
     <string name="title_setup_permissions">Odobri dozvole</string>
     <string name="title_setup_permissions_remark">Za pristup informacijama o kontaktima (opcionalno)</string>
     <string name="title_setup_permissions_explanation">Dozvole za kontakte su neophodne za traženje informacija o kontaktima i predlaganje kontakata</string>
+    <string name="title_setup_permissions_notify">Za prikaz obavještenja o novim porukama (opcionalno)</string>
+    <string name="title_setup_permissions_notify_explanation">Dozvole obavještenja su neophodne za prikaz obavještenja o novim porukama na statusnoj traci</string>
     <string name="title_setup_permission_why">Koje dozvole su potrebne i zbog čega?</string>
     <string name="title_setup_permission_import_contacts">Kako da uvezem kontakte?</string>
     <string name="title_setup_doze">Isključi optimizaciju baterije</string>
@@ -221,6 +225,7 @@
     <string name="title_setup_still">Još treba uraditi</string>
     <string name="title_setup_error">Greška</string>
     <string name="title_setup_pop">Koristi POP3 (nije preporučeno)</string>
+    <string name="title_setup_recent">Koristi \'recent\' za višestruke e-mail klijente</string>
     <string name="title_setup_configuring">Podešavanje računa &#8230;</string>
     <string name="title_setup_app_password">Možda ćete trebati koristiti lozinku za aplikaciju</string>
     <string name="title_setup_extra">Više opcija</string>
@@ -471,6 +476,7 @@
     <string name="title_advanced_message_text_zoom2">Zadani nivo zumiranja teksta: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zumiraj originalne poruke da popune ekran</string>
     <string name="title_advanced_override_width">Onemogući fiksne širine u izvornim porukama</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Koristi automatsko umetanje crtica</string>
     <string name="title_advanced_contrast">Koristi visoki kontrast za tekst poruke</string>
     <string name="title_advanced_monospaced">Koristi po zadanom font jednake širine (monospace) za tekst poruke</string>
     <string name="title_advanced_monospaced_pre">Koristi font jednake širine za preformatirani tekst</string>
@@ -1263,6 +1269,8 @@
     <string name="title_encrypt">Šifriraj</string>
     <string name="title_decrypt">Dešifriraj</string>
     <string name="title_resync">Ponovo sinhronizuj</string>
+    <string name="title_charset">Kodiranje</string>
+    <string name="title_charset_auto">Automatski</string>
     <string name="title_alternative_text">Prikaži obični tekst</string>
     <string name="title_alternative_html">Prikaži HTML</string>
     <string name="title_no_openpgp">OpenKeychan nije pronađen</string>
@@ -1585,6 +1593,7 @@
     <string name="title_hint_folder_actions">Dugi dodir na folder za opcije, poput dodavanja foldera u navigacijski meni za brzi pristup</string>
     <string name="title_hint_folder_sync">Da bi ograničili potrošnju baterije i podataka, po zadanom neće biti sinhronizirani svi folderi i poruke</string>
     <string name="title_hint_airplane">Način rada u avionu je uključen</string>
+    <string name="title_hint_notification">Obavještenja su isključena</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevucite lijevo za otpad; Prevucite desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>

@@ -152,6 +152,7 @@
     <string name="title_setup_gmail_rationale">请授予权限来选择一个账户并读取您的姓名</string>
     <string name="title_setup_gmail_permissions">Google 会请求读取、撰写、发送和永久删除您的所有电子邮件的权限。相比之下，未经您的明确同意，FairEmail 永远不会删除您的邮件。</string>
     <string name="title_setup_gmail_drafts">可以借助更改 Gmail 的标签设置来修复无法通过IMAP访问草稿文件夹的问题</string>
+    <string name="title_setup_gmail_password">我想使用密码而不是设备上的帐户进行授权</string>
     <string name="title_setup_office_auth">\"认证失败\" 的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
     <string name="title_setup_oauth_update">重新授权现有账户（否则请新建账户）</string>
@@ -452,6 +453,7 @@
     <string name="title_advanced_message_text_zoom2">默认消息文本缩放： %1$s %%</string>
     <string name="title_advanced_overview_mode">缩放原始消息以适应屏幕</string>
     <string name="title_advanced_override_width">在原始消息中禁用固定宽度</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">使用自动连字符</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">消息文本默认使用等宽字体</string>
     <string name="title_advanced_monospaced_pre">对预格式化的文本使用等宽字体</string>
@@ -1240,6 +1242,7 @@
     <string name="title_decrypt">解密</string>
     <string name="title_resync">重新同步</string>
     <string name="title_charset">编码</string>
+    <string name="title_charset_auto">自动</string>
     <string name="title_alternative_text">显示纯文本</string>
     <string name="title_alternative_html">显示 HTML</string>
     <string name="title_no_openpgp">OpenKeychain 未找到</string>

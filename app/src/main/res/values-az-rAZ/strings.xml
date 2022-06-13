@@ -82,6 +82,10 @@
         Göndərən domenini əngəlləmə pro özəllik olan filtr qaydalarını istifadə edir.
     </string>
     <string name="title_blocked_senders">Əngəllənən göndərənlər</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">%1$s mesajı göndərən əngəllənsin?</item>
+        <item quantity="other">%1$s mesajı göndərən əngəllənsin?</item>
+    </plurals>
     <string name="title_junk_filter">Yerli spam filtrini istifadə et</string>
     <string name="title_junk_filter_hint">Bu, batareya istifadəsini artıra və mesajları səhvən spam olaraq işarələ bilər</string>
     <string name="title_junk_blocklist">Spam əngəlləmə siyahılarını istifadə et</string>
@@ -152,12 +156,14 @@
     <string name="title_setup_accounts">Hesablar</string>
     <string name="title_setup_identities">Kimliklər</string>
     <string name="title_setup_other">Digər təchizatçı</string>
+    <string name="title_setup_inbound">Yalnız gələn e-poçt (e-poçt göndərilə bilməz!)</string>
     <string name="title_setup_pop3">POP3 hesabı</string>
     <string name="title_setup_oauth_permission">E-poçt təchizatçısı \"OAuth\"u yalnız Play Store və GitHub versiyaları üçün təsdiqlədi</string>
     <string name="title_setup_gmail_support">Google hesablarının səlahiyyətləndirilməsi, Android tətbiq imzalarını yoxladığı üçün yalnız Play Store və GitHub versiyalarında işləyəcək</string>
     <string name="title_setup_gmail_rationale">Zəhmət olmasa bir hesab seçmək və adınızı oxumaq üçün icazə verin</string>
     <string name="title_setup_gmail_permissions">Google, bütün e-poçtları oxumaq, yaratmaq, göndərmək və birdəfəlik silmək üçün icazə istəyəcək. FairEmail, açıq-aşkar razılığınız olmadan heç vaxt mesajlarınızı silməyəcək.</string>
     <string name="title_setup_gmail_drafts">Əgər qaralamalar qovluğu IMAP üçün əlçatmazdırsa, bunu Gmail etiket tənzimləmələrində düzəltmək mümkündür</string>
+    <string name="title_setup_gmail_password">Cihazdakı bir hesabın əvəzinə parollu bir hesaba səlahiyyət vermək istəyirəm</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem administratorunun IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza müraciət üçün səlahiyyət verin</string>
     <string name="title_setup_oauth_update">Mövcud bir hesaba yenidən səlahiyyət verin (əks halda yeni bir hesab yaradın)</string>
@@ -183,6 +189,8 @@
     <string name="title_setup_permissions">Verilən icazələr</string>
     <string name="title_setup_permissions_remark">Əlaqə məlumatlarına müraciət (məcburi deyil)</string>
     <string name="title_setup_permissions_explanation">Əlaqə icazələri, əlaqə məlumatlarının axtarışı və əlaqə təklifi üçün tələb olunur</string>
+    <string name="title_setup_permissions_notify">Yeni mesaj bildirişlərini göstərmək üçün (ixtiyari)</string>
+    <string name="title_setup_permissions_notify_explanation">Bildiriş icazələri vəziyyət sətrində yeni mesajların bildirişlərini göstərmək üçün tələb olunur</string>
     <string name="title_setup_permission_why">Hansı icazələrə ehtiyac var və nə üçün?</string>
     <string name="title_setup_permission_import_contacts">Əlaqələri necə idxal edə bilərəm?</string>
     <string name="title_setup_doze">Batareya optimallaşdırmasını sıradan çıxart</string>
@@ -206,6 +214,7 @@
     <string name="title_setup_still">Hələ ediləcəklər var</string>
     <string name="title_setup_error">Xəta</string>
     <string name="title_setup_pop">POP3 istifadə et (tövsiyə edilmir)</string>
+    <string name="title_setup_recent">Çoxlu e-poçt müştəriləri üçün \'güncəl\'i istifadə et</string>
     <string name="title_setup_configuring">Konfiqurasiya edilir &#8230;</string>
     <string name="title_setup_app_password">Bir tətbiq şifrəsi istifadə etməyiniz lazım gələ bilər</string>
     <string name="title_setup_extra">Ekstra</string>
@@ -456,6 +465,7 @@
     <string name="title_advanced_message_text_zoom2">İlkin mesajın mətn yaxınlaşdırması: %1$s %%</string>
     <string name="title_advanced_overview_mode">Orijinal mesajı tam ekrana qədər yaxınlaşdır</string>
     <string name="title_advanced_override_width">Orijinal mesajlarda sabit genişlikləri sıradan çıxart</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Avto-defis istifadə et</string>
     <string name="title_advanced_contrast">Mesaj mətni üçün yüksək ziddiyyət istifadə et</string>
     <string name="title_advanced_monospaced">Mesaj mətni üçün ilkin olaraq tək boşluqlu şrift istifadə et</string>
     <string name="title_advanced_monospaced_pre">Ön formatlı mətn üçün tək boşluqlu şrift istifadə et</string>
@@ -1248,6 +1258,8 @@
     <string name="title_encrypt">Şifrələ</string>
     <string name="title_decrypt">Şifrəni aç</string>
     <string name="title_resync">Yenidən eyniləşdirmə</string>
+    <string name="title_charset">Kodlaşdırma</string>
+    <string name="title_charset_auto">Avtomatik</string>
     <string name="title_alternative_text">Düz mətni göstər</string>
     <string name="title_alternative_html">HTML göstər</string>
     <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
@@ -1570,6 +1582,7 @@
     <string name="title_hint_folder_actions">Cəld müraciət üçün bir qovluğu naviqasiya menyusuna əlavə etmək kimi, seçimlər üçün bir qovluğa uzun basın</string>
     <string name="title_hint_folder_sync">Batareya və şəbəkə istifadəsini məhdudlaşdırmaq üçün bütün qovluqlar və bütün mesajlar ilkin olaraq eyniləşdirilməyəcək</string>
     <string name="title_hint_airplane">Təyyarə rejimi açıqdır</string>
+    <string name="title_hint_notification">Bildirişlər sıradan çıxarıldı</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantıya atmaq üçün sola sürüşdürün; (əgər varsa) arxivləmək üçün sağa; Sürüşdürmə əməliyyatları hesab tənzimləmələrindən konfiqurasiya edilə bilər</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın; daha çox mesaj seçmək üçün basıb yuxarı və ya aşağı sürüşdürün</string>

@@ -397,6 +397,7 @@
     <string name="title_advanced_addresses">نمایش جزئیات آدرس به صورت پیش‌فرض</string>
     <string name="title_advanced_unzip">محتویات ضمیمه‌های فشرده‌ شده را نشان بده</string>
     <string name="title_advanced_attachments_alt">نمایش پیوست‌ها بعد از متن پیام</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">از خط تیره گذاری خودکار استفاده کن</string>
     <string name="title_advanced_contrast">از کنتراست زیاد برای متن پیام استفاده کن</string>
     <string name="title_advanced_background_color">استفاده از رنگ‌های پس‌زمینه</string>
     <string name="title_advanced_text_color">استفاده از رنگ‌های متن</string>

@@ -162,6 +162,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
     <string name="title_setup_gmail_drafts">Taslaklar klasörüne IMAP tarafından erişilemiyorsa, bu Gmail etiket ayarlarında düzeltilebilir</string>
+    <string name="title_setup_gmail_password">Cihazdaki bir hesap yerine şifreli bir hesabı yetkilendirmek istiyorum</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
     <string name="title_setup_oauth_update">Mevcut bir hesabı yeniden yetkilendir (aksi takdirde yeni bir hesap oluştur)</string>
@@ -462,6 +463,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_message_text_zoom2">Varsayılan mesaj metni yakınlaştırma: %1$s %%</string>
     <string name="title_advanced_overview_mode">Orijinal mesajları ekrana sığacak şekilde yakınlaştırın</string>
     <string name="title_advanced_override_width">Orijinal mesajlarda sabit genişlikleri devre dışı bırakın</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Otomatik hecelemeyi kullan</string>
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
     <string name="title_advanced_monospaced">İleti metninde varsayılan olarak sabit genişlikli yazı tipi kullan</string>
     <string name="title_advanced_monospaced_pre">Önceden biçimlendirilmiş metin için tek aralıklı yazı tipi kullanın</string>

@@ -178,12 +178,14 @@
     <string name="title_setup_accounts">Konta</string>
     <string name="title_setup_identities">Tożsamości</string>
     <string name="title_setup_other">Inny dostawca</string>
+    <string name="title_setup_inbound">Tylko przychodzące wiadomości e-mail (wiadomości e-mail nie mogą być wysyłane!)</string>
     <string name="title_setup_pop3">Konto POP3</string>
     <string name="title_setup_oauth_permission">Dostawca poczty e-mail zatwierdził OAuth tylko dla wersji Sklep Play i GitHub</string>
     <string name="title_setup_gmail_support">Autoryzacja kont Google będzie działać tylko w wersji Sklep Play i GitHub, ponieważ Android sprawdza podpis aplikacji cyfrowej</string>
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać twoje imię</string>
     <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do odczytu, tworzenia, wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez Twojej wyraźnej zgody.</string>
     <string name="title_setup_gmail_drafts">Jeśli folder wersji roboczych nie jest dostępny przez IMAP, można to naprawić w ustawieniach etykiety Gmail</string>
+    <string name="title_setup_gmail_password">Chcę autoryzować konto za pomocą hasła zamiast konta na urządzeniu</string>
     <string name="title_setup_office_auth">Błąd \"AUTHENTICATE failed\" może być spowodowany wyłączeniem protokołu IMAP/SMTP przez administratora systemu</string>
     <string name="title_setup_oauth_rationale">Autoryzuj dostęp do Twojego konta %1$s</string>
     <string name="title_setup_oauth_update">Autoryzuj istniejące konto ponownie (w przeciwnym razie utwórz nowe konto)</string>
@@ -209,6 +211,8 @@
     <string name="title_setup_permissions">Przyznaj uprawnienia</string>
     <string name="title_setup_permissions_remark">Dostęp do kontaktów (opcjonalnie)</string>
     <string name="title_setup_permissions_explanation">Uprawnienia dostępu do listy kontaktów są wymagane, aby wyszukiwać informacje kontaktowe i sugerować kontakty</string>
+    <string name="title_setup_permissions_notify">Aby wyświetlić powiadomienia o nowych wiadomościach (opcjonalnie)</string>
+    <string name="title_setup_permissions_notify_explanation">Uprawnienia dotyczące powiadomień są wymagane do wyświetlania powiadomień o nowych wiadomościach na pasku stanu</string>
     <string name="title_setup_permission_why">Jakie uprawnienia są potrzebne i dlaczego?</string>
     <string name="title_setup_permission_import_contacts">Jak mogę zaimportować kontakty?</string>
     <string name="title_setup_doze">Wyłącz optymalizację baterii</string>
@@ -482,6 +486,7 @@
     <string name="title_advanced_message_text_zoom2">Domyślne powiększenie tekstu wiadomości: %1$s %%</string>
     <string name="title_advanced_overview_mode">Powiększ oryginalne wiadomości, aby dopasować je do ekranu</string>
     <string name="title_advanced_override_width">Wyłącz stałe szerokości w oryginalnych wiadomościach</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Użyj automatycznego dzielenia wyrazów</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced_pre">Użyj czcionki o stałej szerokości dla tekstu sformatowanego</string>
@@ -1271,6 +1276,8 @@
     <string name="title_encrypt">Zaszyfruj</string>
     <string name="title_decrypt">Odszyfruj</string>
     <string name="title_resync">Resynchronizuj</string>
+    <string name="title_charset">Kodowanie znaków</string>
+    <string name="title_charset_auto">Automatyczne</string>
     <string name="title_alternative_text">Pokaż zwykły tekst</string>
     <string name="title_alternative_html">Pokaż HTML</string>
     <string name="title_no_openpgp">Nie znaleziono OpenKeychain</string>
@@ -1594,6 +1601,7 @@
     <string name="title_hint_folder_actions">Naciśnij długo folder, aby wyświetlić opcje, takie jak dodanie folderu do menu nawigacji w celu szybkiego dostępu</string>
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_airplane">Tryb samolotowy jest włączony</string>
+    <string name="title_hint_notification">Powiadomienia są wyłączone</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
     <string name="title_hint_message_selection">Naciśnij długo wiadomość, aby rozpocząć wybieranie wielu wiadomości; Przytrzymaj i przeciągnij w górę lub w dół, aby wybrać więcej wiadomości</string>

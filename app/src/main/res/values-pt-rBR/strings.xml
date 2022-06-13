@@ -163,6 +163,7 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permissão para ler, compor, enviar e excluir permanentemente todo seu e-mail. O FairEmail nunca apagará suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se a pasta rascunho não estiver acessível pelo IMAP, ela pode ser fixa nas configurações de etiqueta do Gmail</string>
+    <string name="title_setup_gmail_password">Eu quero autorizar uma conta com uma senha ao invés de uma conta no dispositivo</string>
     <string name="title_setup_office_auth">O erro \'Falha de Autenticação\' pode ser causadado por desativação do IMAP/SMTP pelo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar uma conta existente novamente (caso contrário, crie uma nova conta)</string>
@@ -463,6 +464,7 @@
     <string name="title_advanced_message_text_zoom2">Zoom padrão da mensagem: %1$s %%</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para adequar à tela</string>
     <string name="title_advanced_override_width">Desabilitar larguras fixas nas mensagens originais</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Usar hifenização automática</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
     <string name="title_advanced_monospaced">Usar a fonte mono-espaçada para o texto da mensagem por padrão</string>
     <string name="title_advanced_monospaced_pre">Usar fonte mono-espaçada para o texto da mensagem</string>

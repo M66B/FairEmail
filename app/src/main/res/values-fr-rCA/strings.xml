@@ -465,6 +465,7 @@
     <string name="title_advanced_message_text_zoom2">Zoom du texte du message par défaut : %1$s %%</string>
     <string name="title_advanced_overview_mode">Zoomer sur les messages originaux pour les adapter à l\'écran</string>
     <string name="title_advanced_override_width">Désactiver les largeurs fixes dans les messages originaux</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Utiliser la césure automatique</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser une police à espacement fixe pour le texte du message</string>
     <string name="title_advanced_monospaced_pre">Utiliser une police à espacement fixe pour le texte préformaté</string>

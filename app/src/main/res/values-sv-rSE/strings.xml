@@ -156,12 +156,14 @@
     <string name="title_setup_accounts">Konton</string>
     <string name="title_setup_identities">Identiteter</string>
     <string name="title_setup_other">Annan leverantör</string>
+    <string name="title_setup_inbound">Endast inkommande e-post (e-post kan inte skickas!)</string>
     <string name="title_setup_pop3">POP3-konto</string>
     <string name="title_setup_oauth_permission">E-postleverantören har godkänt OAuth endast för Play Store- och GitHub-versionen</string>
     <string name="title_setup_gmail_support">Auktorisera Google-konton kommer endast att fungera i Play Store- och GitHub-versionen eftersom Android kontrollerar den digitala app-signaturen</string>
     <string name="title_setup_gmail_rationale">Vänligen bevilja behörigheter för att välja ett konto och läsa ditt namn</string>
     <string name="title_setup_gmail_permissions">Google kommer att be om behörighet att läsa, komponera, skicka och permanent ta bort all din e-post. FairEmail kommer aldrig att ta bort dina meddelanden utan ditt uttryckliga medgivande.</string>
     <string name="title_setup_gmail_drafts">Om mappen för utkast inte är åtkomlig för IMAP kan detta lösas under inställningarna för Gmail-etiketten</string>
+    <string name="title_setup_gmail_password">Jag vill auktorisera ett konto med ett lösenord istället för ett konto på enheten</string>
     <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP inaktiveras av systemadministratören</string>
     <string name="title_setup_oauth_rationale">Auktorisera åtkomst till ditt %1$s konto</string>
     <string name="title_setup_oauth_update">Auktorisera ett befintligt konto igen (annars skapa ett nytt konto)</string>
@@ -187,6 +189,8 @@
     <string name="title_setup_permissions">Bevilja behörigheter</string>
     <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (valfritt)</string>
     <string name="title_setup_permissions_explanation">Kontaktbehörigheter krävs för att söka kontaktinfo och föreslå kontakter</string>
+    <string name="title_setup_permissions_notify">Visa aviseringar för nya meddelanden (valfritt)</string>
+    <string name="title_setup_permissions_notify_explanation">Aviseringsbehörigheter krävs för att visa aviseringar för nya meddelanden i statusfältet</string>
     <string name="title_setup_permission_why">Vilka behörigheter behövs och varför?</string>
     <string name="title_setup_permission_import_contacts">Hur kan jag importera kontakter?</string>
     <string name="title_setup_doze">Inaktivera batterioptimeringar</string>
@@ -210,6 +214,7 @@
     <string name="title_setup_still">Fortfarande att göra</string>
     <string name="title_setup_error">Fel</string>
     <string name="title_setup_pop">Använd POP3 (rekommenderas inte)</string>
+    <string name="title_setup_recent">Använd \"senaste\" för flera e-postklienter</string>
     <string name="title_setup_configuring">Konfigurerar konto &#8230;</string>
     <string name="title_setup_app_password">Du kan behöva använda ett applösenord</string>
     <string name="title_setup_extra">Extra</string>
@@ -456,6 +461,7 @@
     <string name="title_advanced_message_text_zoom2">Standard meddelandetext zoom: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zooma originalmeddelanden för att passa skärmen</string>
     <string name="title_advanced_override_width">Inaktivera fasta bredder i ursprungliga meddelanden</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Använd automatisk avstavning</string>
     <string name="title_advanced_contrast">Använd hög kontrast för meddelandetext</string>
     <string name="title_advanced_monospaced">Använd monospaced typsnitt för meddelandetext som standard</string>
     <string name="title_advanced_monospaced_pre">Använd monospaced typsnitt till förformaterad text</string>
@@ -1245,6 +1251,8 @@
     <string name="title_encrypt">Kryptera</string>
     <string name="title_decrypt">Dekryptera</string>
     <string name="title_resync">Synkronisera om</string>
+    <string name="title_charset">Kodning</string>
+    <string name="title_charset_auto">Automatiskt</string>
     <string name="title_alternative_text">Visa oformaterad text</string>
     <string name="title_alternative_html">Visa HTML</string>
     <string name="title_no_openpgp">OpenKeychain hittades inte</string>
@@ -1567,6 +1575,7 @@
     <string name="title_hint_folder_actions">Tryck länge på en mapp för alternativ, som att lägga till en mapp till navigationsmenyn för snabb åtkomst</string>
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
     <string name="title_hint_airplane">Flygplansläge är på</string>
+    <string name="title_hint_notification">Aviseringar är inaktiverade</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_message_actions">Dra åt vänster för att kasta; Svep åt höger för att arkivera (om tillgängligt); Svepåtgärderna kan konfigureras i kontoinställningarna</string>
     <string name="title_hint_message_selection">Långt tryck på ett meddelande för att börja välja flera meddelanden; håll och svep uppåt eller nedåt för att välja fler meddelanden</string>

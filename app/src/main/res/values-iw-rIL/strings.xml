@@ -179,6 +179,7 @@
     <string name="title_setup_gmail_rationale">נא להרשות לבחור חשבון ולקרוא את שמך</string>
     <string name="title_setup_gmail_permissions">Google יבקש לקרוא, לכתוב, לשלוח, ולמחוק את כל ההודעות שלך לצמיתות. Fairmail לעולם לא ימחק ללא הסכמתך המפורשת.</string>
     <string name="title_setup_gmail_drafts">אם אי אפשר לגשת לתיקיית טיוטות דרך IMAP, אפשר לתקן את זה דרך הגדרות התוויות של Gmail</string>
+    <string name="title_setup_gmail_password">ארצה לאמת חשבון עם סיסמה במקום חשבון פנימי במכשיר</string>
     <string name="title_setup_office_auth">השגיאה ‚AUTHENTICATE נכשל’ עלולה להיגרם עקב IMAP/SMTP שהושבתו על ידי הנהלת המערכת</string>
     <string name="title_setup_oauth_rationale">להרשות גישה לחשבון %1$s שלך</string>
     <string name="title_setup_oauth_update">אימות חשבון קיים שוב (אחרת ליצור חשבון חדש)</string>
@@ -480,6 +481,7 @@
     <string name="title_advanced_message_text_zoom2">תקריב טקסט ההודעות כבררת מחדל: %1$s %%</string>
     <string name="title_advanced_overview_mode">התאמת התקריב של ההודעות המקוריות לגודל המסך</string>
     <string name="title_advanced_override_width">השבתת הגדרות רוחב קבועות בהודעות המקוריות</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">להשתמש במיקוף אוטומטי</string>
     <string name="title_advanced_contrast">להשתמש בניגודיות גבוהה לטקסט ההודעות</string>
     <string name="title_advanced_monospaced">להשתמש בגופן ברוחב אחיד לטקסט ההודעה כבררת מחדל</string>
     <string name="title_advanced_monospaced_pre">להשתמש בטקסט ברוחב אחיד לטקסט שעוצב מראש</string>

@@ -185,6 +185,7 @@
     <string name="title_setup_gmail_rationale">Пожалуйста, предоставьте разрешения для выбора учётной записи и чтения вашего имени</string>
     <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и безвозвратное удаление всех ваших сообщений. FairEmail никогда не будет удалять ваши сообщения без вашего явного согласия.</string>
     <string name="title_setup_gmail_drafts">Если папка черновиков недоступна по IMAP, это может быть исправлено в настройках ярлыка Gmail</string>
+    <string name="title_setup_gmail_password">Я хочу авторизовать учётную запись паролем вместо учётной записи на устройстве</string>
     <string name="title_setup_office_auth">Ошибка \"AUTHENTICATE failed\" может быть вызвана отключением IMAP/SMTP системным администратором</string>
     <string name="title_setup_oauth_rationale">Авторизовать доступ к вашей учётной записи %1$s</string>
     <string name="title_setup_oauth_update">Авторизация существующей учётной записи (или создание новой)</string>
@@ -485,6 +486,7 @@
     <string name="title_advanced_message_text_zoom2">Масштаб текста сообщения по умолчанию: %1$s%%</string>
     <string name="title_advanced_overview_mode">Изменять масштаб исходных сообщений к размеру экрана</string>
     <string name="title_advanced_override_width">Отключить фиксированную ширину в оригинальных сообщениях</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Автоматическая расстановка переносов</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
     <string name="title_advanced_monospaced">По умолчанию использовать моноширинный шрифт для текста сообщения</string>
     <string name="title_advanced_monospaced_pre">Использовать моноширинный шрифт для форматированного текста</string>

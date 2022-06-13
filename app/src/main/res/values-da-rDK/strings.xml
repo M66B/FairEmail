@@ -163,6 +163,7 @@
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
     <string name="title_setup_gmail_permissions">Google vil beder om tilladelse til at læse, komponere, sende samt permanent slette alle din e-mails. FairEmail sletter aldrig dine beskeder uden dit samtykke.</string>
     <string name="title_setup_gmail_drafts">Er kladdermappen ikke er tilgængelig med IMAP, kan dette rettes i Gmail-etiketindstillingerne</string>
+    <string name="title_setup_gmail_password">Jeg ønsker at godkende en konto med en adgangskode i stedet for en enhedskonto</string>
     <string name="title_setup_office_auth">Fejlen \'GODKENDELSE mislykkedes\' kan skyldes, at IMAP/SMTP er deaktiveret af systemadministratoren</string>
     <string name="title_setup_oauth_rationale">Godkend adgang til din %1$s-konto</string>
     <string name="title_setup_oauth_update">Godkend en eksisterende konto igen (ellers opret en ny konto)</string>
@@ -464,6 +465,7 @@
     <string name="title_advanced_message_text_zoom2">Standard beskedtekstzoom %1$s%%</string>
     <string name="title_advanced_overview_mode">Zoom originale beskeder for skærmtilpasning</string>
     <string name="title_advanced_override_width">Deaktivér faste bredder i oprindelige beskeder</string>
+    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Brug automatisk orddeling</string>
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
     <string name="title_advanced_monospaced">Benyt som standard monospatieret skrifttype til beskedtekst</string>
     <string name="title_advanced_monospaced_pre">Benyt monospatieret skrifttype til præformateret tekst</string>
