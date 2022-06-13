@@ -1313,23 +1313,32 @@ public class MessageHelper {
     }
 
     String getInReplyTo() throws MessagingException {
+        String[] a = getInReplyTos();
+        return (a.length < 1 ? null : a[0]);
+    }
+
+    String[] getInReplyTos() throws MessagingException {
         ensureHeaders();
+
+        List<String> result = new ArrayList<>();
 
         String header = imessage.getHeader("In-Reply-To", null);
         if (header != null)
-            header = MimeUtility.unfold(header);
+            result.addAll(Arrays.asList(getReferences(header)));
 
-        if (header == null) {
+        if (result.size() == 0) {
             // Use reported message ID as synthetic in-reply-to
             InternetHeaders iheaders = getReportHeaders();
             if (iheaders != null) {
                 header = iheaders.getHeader("Message-Id", null);
-                if (header != null)
+                if (header != null) {
+                    result.add(header);
                     Log.i("rfc822 id=" + header);
+                }
             }
         }
 
-        return header;
+        return result.toArray(new String[0]);
     }
 
     private InternetHeaders getReportHeaders() {
@@ -1393,9 +1402,9 @@ public class MessageHelper {
             if (!TextUtils.isEmpty(ref) && !refs.contains(ref))
                 refs.add(ref);
 
-        String inreplyto = getInReplyTo();
-        if (!TextUtils.isEmpty(inreplyto) && !refs.contains(inreplyto))
-            refs.add(inreplyto);
+        for (String inreplyto : getInReplyTos())
+            if (!TextUtils.isEmpty(inreplyto) && !refs.contains(inreplyto))
+                refs.add(inreplyto);
 
         DB db = DB.getInstance(context);
         List<EntityMessage> before = new ArrayList<>();
