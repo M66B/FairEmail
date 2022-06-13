@@ -1022,6 +1022,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swWebViewLegacy.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         swWebViewLegacy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
