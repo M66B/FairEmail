@@ -577,8 +577,7 @@ public class FragmentOptionsEncryption extends FragmentBase
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-            setOptions();
+        setOptions();
     }
 
     @Override
@@ -597,6 +596,9 @@ public class FragmentOptionsEncryption extends FragmentBase
     }
 
     private void setOptions() {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swSign.setChecked(prefs.getBoolean("sign_default", false));

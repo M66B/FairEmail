@@ -1559,11 +1559,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-            setOptions();
-            if ("last_cleanup".equals(key))
-                setLastCleanup(prefs.getLong(key, -1));
-        }
+        if ("last_cleanup".equals(key))
+            setLastCleanup(prefs.getLong(key, -1));
+
+        setOptions();
     }
 
     @Override
@@ -1662,6 +1661,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     }
 
     private void setOptions() {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         ActivityManager am = Helper.getSystemService(getContext(), ActivityManager.class);
@@ -1872,6 +1874,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     }
 
     private void setLastCleanup(long time) {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         java.text.DateFormat DTF = Helper.getDateTimeInstance(getContext());
         tvLastCleanup.setText(
                 getString(R.string.title_advanced_last_cleanup,

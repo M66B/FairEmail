@@ -500,8 +500,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         if ("default_snooze".equals(key))
             return;
 
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-            setOptions();
+        setOptions();
     }
 
     @Override
@@ -520,6 +519,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     }
 
     private void setOptions() {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swSyncOnlaunch.setChecked(prefs.getBoolean("sync_on_launch", false));
