@@ -1874,7 +1874,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     }
 
     private void setLastCleanup(long time) {
-        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+        if (getContext() == null)
             return;
 
         java.text.DateFormat DTF = Helper.getDateTimeInstance(getContext());
