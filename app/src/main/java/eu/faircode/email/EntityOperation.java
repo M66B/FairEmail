@@ -244,9 +244,9 @@ public class EntityOperation {
                 if (autoread || autounflag || reset_importance)
                     for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid)) {
                         if (autoread)
-                            db.message().setMessageUiSeen(similar.id, true);
+                            queue(context, similar, SEEN, true);
                         if (autounflag)
-                            db.message().setMessageUiFlagged(similar.id, false, null);
+                            queue(context, similar, FLAG, false);
                         if (reset_importance) {
                             db.message().setMessageImportance(similar.id, null);
                             queue(context, similar, KEYWORD, MessageHelper.FLAG_LOW_IMPORTANCE, false);
