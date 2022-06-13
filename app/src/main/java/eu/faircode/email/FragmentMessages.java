@@ -6636,8 +6636,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Log.i("Navigating to id=" + closeId);
 
                 Context context = getContext();
-                if (context == null)
+                if (context == null) {
                     finish();
+                    return;
+                }
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean reversed = prefs.getBoolean("reversed", false);
