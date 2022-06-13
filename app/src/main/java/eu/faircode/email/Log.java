@@ -53,6 +53,7 @@ import android.os.DeadObjectException;
 import android.os.DeadSystemException;
 import android.os.Debug;
 import android.os.IBinder;
+import android.os.LocaleList;
 import android.os.OperationCanceledException;
 import android.os.PowerManager;
 import android.os.RemoteException;
@@ -1865,10 +1866,17 @@ public class Log {
         sb.append(String.format("Contact lookup: %d cached: %d\r\n",
                 contacts[0], contacts[1]));
 
-        Locale slocale = Resources.getSystem().getConfiguration().locale;
         String language = prefs.getString("language", null);
-        sb.append(String.format("Locale: def=%s sys=%s lang=%s\r\n",
-                Locale.getDefault(), slocale, language));
+        sb.append(String.format("Locale: def=%s lang=%s\r\n",
+                Locale.getDefault(), language));
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+            sb.append(String.format("System: %s\r\n",
+                    Resources.getSystem().getConfiguration().locale));
+        else {
+            LocaleList ll = Resources.getSystem().getConfiguration().getLocales();
+            for (int i = 0; i < ll.size(); i++)
+                sb.append(String.format("System: %s\r\n", ll.get(i)));
+        }
 
         String charset = MimeUtility.getDefaultJavaCharset();
         sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
