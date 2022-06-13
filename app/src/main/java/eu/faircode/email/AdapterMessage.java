@@ -1952,20 +1952,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetBody.setVisibility(suitable || content ? View.GONE : View.VISIBLE);
             grpDownloading.setVisibility(content ? View.GONE : View.VISIBLE);
 
-            int height = properties.getHeight(message.id, 0);
-            if (height == 0) {
-                tvBody.setVisibility(View.GONE);
+            boolean show_full = properties.getValue("full", message.id);
+            if (show_full)
                 wvBody.setVisibility(View.GONE);
-            } else {
-                boolean show_full = properties.getValue("full", message.id);
-                if (show_full) {
-                    wvBody.setVisibility(View.INVISIBLE);
-                    wvBody.setMinimumHeight(height);
-                } else {
+            else {
+                int height = properties.getHeight(message.id, 0);
+                if (height == 0)
+                    tvBody.setVisibility(View.GONE);
+                else {
                     tvBody.setVisibility(View.INVISIBLE);
                     tvBody.setMinHeight(height);
                 }
             }
+
             vwRipple.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
 
@@ -2572,7 +2571,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     wvBody = webView;
                 }
 
-                webView.setMinimumHeight(height);
+                webView.setMinimumHeight(dp60);
 
                 int maxHeight = (rv == null ? 0 : rv.getHeight() - rv.getPaddingTop());
                 webView.init(height, maxHeight, size, position, force_light,

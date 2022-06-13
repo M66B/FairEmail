@@ -218,6 +218,12 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     @Override
+    public void setMinimumHeight(int minHeight) {
+        super.setMinimumHeight(minHeight);
+        Log.i("Set min height=" + minHeight);
+    }
+
+    @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (legacy) {
             if (height > getMinimumHeight())
@@ -230,6 +236,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         int mh = getMeasuredHeight();
         Log.i("Measured height=" + mh + " last=" + height + "/" + maxHeight + " ch=" + getContentHeight());
+        if (mh > maxHeight)
+            setMeasuredDimension(getMeasuredWidth(), maxHeight);
         if (mh == 0 && legacy)
             setMeasuredDimension(getMeasuredWidth(), height);
     }
