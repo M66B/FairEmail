@@ -5,7 +5,7 @@
 # Feature request
 
 * Did you check if there wasn't a similar feature request?
-* Did you read [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ15)?
+* Did you read [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md)?
 
 # Bug report
 
@@ -28,3 +28,4 @@
 
 * App version:
 * Android version:
+* Downloaded from:
