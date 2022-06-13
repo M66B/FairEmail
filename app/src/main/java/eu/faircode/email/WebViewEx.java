@@ -236,8 +236,6 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         int mh = getMeasuredHeight();
         Log.i("Measured height=" + mh + " last=" + height + "/" + maxHeight + " ch=" + getContentHeight());
-        if (mh > maxHeight)
-            setMeasuredDimension(getMeasuredWidth(), maxHeight);
         if (mh == 0 && legacy)
             setMeasuredDimension(getMeasuredWidth(), height);
     }
