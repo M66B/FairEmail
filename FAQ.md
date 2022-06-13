@@ -2603,6 +2603,12 @@ An app like Tasker can listen for this intent and perform some action.
 
 In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
+<br />
+
+If you want to set up archiving by week, month, year, etc,
+you can do this with filter rules with an absolute time condition on a 'jump' archive folder where archived messages are being moved to as a first step.
+The filter rules will move the messages to a (sub) archive folder as a second step.
+
 The POP3 protocol does not support setting keywords and moving or copying messages.
 
 Using rules is a pro feature.
@@ -4802,6 +4808,8 @@ A feature will be considered useful to most people if more than 0.1% of the user
 
 Features not fulfilling these requirements will likely be rejected.
 This is also to keep maintenance and support in the long term feasible.
+
+Note that there are already more features and options in FairEmail than in any other Android email client.
 
 If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
