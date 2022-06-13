@@ -1314,7 +1314,7 @@ public class MessageHelper {
 
     String getInReplyTo() throws MessagingException {
         String[] a = getInReplyTos();
-        return (a.length < 1 ? null : a[0]);
+        return (a.length == 0 ? null : TextUtils.join(" ", a));
     }
 
     String[] getInReplyTos() throws MessagingException {

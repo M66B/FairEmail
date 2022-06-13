@@ -6464,12 +6464,13 @@ public class FragmentCompose extends FragmentBase {
 
                         if (extras.getBoolean("archive")) {
                             EntityFolder archive = db.folder().getFolderByType(draft.account, EntityFolder.ARCHIVE);
-                            if (archive != null) {
-                                List<EntityMessage> messages = db.message().getMessagesByMsgId(draft.account, draft.inreplyto);
-                                if (messages != null)
-                                    for (EntityMessage message : messages)
-                                        EntityOperation.queue(context, message, EntityOperation.MOVE, archive.id);
-                            }
+                            if (archive != null)
+                                for (String inreplyto : draft.inreplyto.split(" ")) {
+                                    List<EntityMessage> messages = db.message().getMessagesByMsgId(draft.account, inreplyto);
+                                    if (messages != null)
+                                        for (EntityMessage message : messages)
+                                            EntityOperation.queue(context, message, EntityOperation.MOVE, archive.id);
+                                }
                         }
                     }
                 }
@@ -7954,18 +7955,15 @@ public class FragmentCompose extends FragmentBase {
                         return false;
                     }
 
-                    List<EntityMessage> messages = db.message().getMessagesByMsgId(draft.account, draft.inreplyto);
-                    if (messages == null || messages.size() == 0) {
-                        args.putString("reason", "In-reply-to gone");
-                        return false;
-                    }
-
-                    for (EntityMessage message : messages) {
-                        EntityFolder folder = db.folder().getFolder(message.folder);
-                        if (folder == null)
-                            continue;
-                        if (EntityFolder.INBOX.equals(folder.type) || EntityFolder.USER.equals(folder.type))
-                            return true;
+                    for (String inreplyto : draft.inreplyto.split(" ")) {
+                        List<EntityMessage> messages = db.message().getMessagesByMsgId(draft.account, inreplyto);
+                        for (EntityMessage message : messages) {
+                            EntityFolder folder = db.folder().getFolder(message.folder);
+                            if (folder == null)
+                                continue;
+                            if (EntityFolder.INBOX.equals(folder.type) || EntityFolder.USER.equals(folder.type))
+                                return true;
+                        }
                     }
 
                     args.putString("reason", "Not in inbox or unread");
