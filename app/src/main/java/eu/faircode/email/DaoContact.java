@@ -94,6 +94,11 @@ public interface DaoContact {
             " GROUP BY name, email")
     List<EntityContact> searchContacts(Long account, Integer type, String query);
 
+    @Query("SELECT COUNT(*) FROM contact" +
+            " WHERE (type = " + EntityContact.TYPE_TO +
+            " OR type = " + EntityContact.TYPE_FROM + ")")
+    int countContacts();
+
     @Insert
     long insertContact(EntityContact contact);
 

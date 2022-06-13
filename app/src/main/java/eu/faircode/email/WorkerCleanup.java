@@ -51,7 +51,8 @@ public class WorkerCleanup extends Worker {
     private static final int CLEANUP_INTERVAL = 4; // hours
     private static final long KEEP_FILES_DURATION = 3600 * 1000L; // milliseconds
     private static final long KEEP_IMAGES_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
-    private static final long KEEP_CONTACTS_DURATION = 180 * 24 * 3600 * 1000L; // milliseconds
+    private static final long KEEP_CONTACTS_DURATION = 365 * 24 * 3600 * 1000L; // milliseconds
+    private static final int KEEP_CONTACTS_COUNT = 10000;
 
     private static Semaphore semaphore = new Semaphore(1);
 
@@ -349,9 +350,11 @@ public class WorkerCleanup extends Worker {
             Log.i("Cleanup contacts");
             try {
                 db.beginTransaction();
-                int contacts = db.contact().deleteContacts(now - KEEP_CONTACTS_DURATION);
+                int contacts = db.contact().countContacts();
+                int deleted = (contacts < KEEP_CONTACTS_COUNT ? 0 :
+                        db.contact().deleteContacts(now - KEEP_CONTACTS_DURATION));
                 db.setTransactionSuccessful();
-                Log.i("Deleted contacts=" + contacts);
+                Log.i("Contacts=" + contacts + " deleted=" + deleted);
             } finally {
                 db.endTransaction();
             }
