@@ -1313,7 +1313,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     }
 
     private void setOptions() {
-        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+        if (getContext() == null)
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

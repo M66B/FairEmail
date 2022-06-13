@@ -390,7 +390,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     }
 
     private void setOptions() {
-        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+        if (getContext() == null)
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

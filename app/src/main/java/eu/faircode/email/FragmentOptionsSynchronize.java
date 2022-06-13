@@ -555,7 +555,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     }
 
     private void setOptions() {
-        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+        if (getContext() == null)
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

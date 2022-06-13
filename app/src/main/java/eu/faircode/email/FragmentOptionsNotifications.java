@@ -648,7 +648,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     }
 
     private void setOptions() {
-        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+        if (getContext() == null)
             return;
 
         boolean pro = ActivityBilling.isPro(getContext());
