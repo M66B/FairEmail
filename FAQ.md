@@ -594,6 +594,8 @@ Some people ask:
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq6)
 
+**FairEmail fully supports OAuth through the quick setup wizard and will continue to work after May 30, please see below what to do if you used your account password to set up an account.**
+
 >
 > **Important: using your *account* password [won't be possible anymore from May 30, 2022](https://support.google.com/accounts/answer/6010255).**
 >
