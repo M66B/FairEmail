@@ -1924,25 +1924,6 @@ public class Log {
 
         sb.append("\r\n");
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            try {
-                for (FileStore store : FileSystems.getDefault().getFileStores())
-                    if (!store.isReadOnly() &&
-                            store.getUsableSpace() != 0 &&
-                            !"tmpfs".equals(store.type())) {
-                        long total = store.getTotalSpace();
-                        long unalloc = store.getUnallocatedSpace();
-                        sb.append(String.format("%s %s %s/%s\r\n",
-                                store,
-                                store.type(),
-                                Helper.humanReadableByteCount(total - unalloc),
-                                Helper.humanReadableByteCount(total)));
-                    }
-                sb.append("\r\n");
-            } catch (IOException ex) {
-                sb.append(ex).append("\r\n");
-            }
-
         WindowManager wm = Helper.getSystemService(context, WindowManager.class);
         Display display = wm.getDefaultDisplay();
         Point dim = new Point();
@@ -2688,6 +2669,26 @@ public class Log {
                     size += write(os, String.format("%s\r\n", ex));
                 }
                 size += write(os, "\r\n");
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    try {
+                        for (FileStore store : FileSystems.getDefault().getFileStores())
+                            if (!store.isReadOnly() &&
+                                    store.getUsableSpace() != 0 &&
+                                    !"tmpfs".equals(store.type())) {
+                                long total = store.getTotalSpace();
+                                long unalloc = store.getUnallocatedSpace();
+                                size += write(os, String.format("%s %s %s/%s\r\n",
+                                        store,
+                                        store.type(),
+                                        Helper.humanReadableByteCount(total - unalloc),
+                                        Helper.humanReadableByteCount(total)));
+                            }
+                    } catch (IOException ex) {
+                        size += write(os, String.format("%s\r\n", ex));
+                    }
+                    size += write(os, "\r\n");
+                }
 
                 size += write(os, String.format("Configuration: %s\r\n\r\n",
                         context.getResources().getConfiguration()));
