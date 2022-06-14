@@ -4,6 +4,12 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### Next version
+
+* Added option to suppress new message notifications when calling
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1915 - 2022-06-14
 
 * Fixed initializing option values
