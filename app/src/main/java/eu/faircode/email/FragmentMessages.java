@@ -6900,7 +6900,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 FragmentActivity activity = getActivity();
                 if (!(activity instanceof ActivityView)) {
-                    Log.e("Undo: activity missing");
+                    Log.i("Undo: activity missing");
                     return;
                 }
 
