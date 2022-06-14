@@ -6174,7 +6174,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 (filter_unknown && !EntityFolder.isOutgoing(type)) ||
                 (language_detection && !TextUtils.isEmpty(filter_language) && !outbox));
 
-        boolean none = (items == 0 && !loading && tasks == 0 && initialized);
+        boolean none = (items == 0 && !loading && initialized);
         boolean filtered = (filter_active && viewType != AdapterMessage.ViewType.SEARCH);
 
         pbWait.setVisibility(loading || tasks > 0 ? View.VISIBLE : View.GONE);
