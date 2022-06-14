@@ -538,7 +538,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:alpha="0.6"
+        android:alpha="0.7"
         app:cardBackgroundColor="?attr/colorActionBackground"
         app:cardCornerRadius="3dp"
         app:layout_anchor="@id/fabMore"
