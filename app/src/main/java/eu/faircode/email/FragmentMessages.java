@@ -71,6 +71,7 @@ import android.os.Debug;
 import android.os.OperationCanceledException;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.os.SystemClock;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintJob;
@@ -6190,6 +6191,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 " no=" + (tvNoEmail.getVisibility() == View.VISIBLE));
     }
 
+    private Long lastCpu = null;
+    private Long lastTime = null;
+
     private void updateDebugInfo() {
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
@@ -6199,7 +6203,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         long hmax = rt.maxMemory();
         long nheap = Debug.getNativeHeapAllocatedSize();
         int perc = Math.round(hused * 100f / hmax);
-        tvDebug.setText(perc + "% " + (nheap / (1024 * 1024)) + "M");
+
+        int utilization = 0;
+        long cpu = android.os.Process.getElapsedCpuTime();
+        long time = SystemClock.elapsedRealtime();
+        if (lastCpu != null) {
+            int cpuDelta = (int) (cpu - lastCpu);
+            int timeDelta = (int) (time - lastTime);
+            if (timeDelta != 0)
+                utilization = 100 * cpuDelta / timeDelta / rt.availableProcessors();
+        }
+        lastCpu = cpu;
+        lastTime = time;
+
+
+        tvDebug.setText(perc + "% " + (nheap / (1024 * 1024)) + "M" + " " + utilization + "%");
     }
 
     private boolean handleThreadActions(

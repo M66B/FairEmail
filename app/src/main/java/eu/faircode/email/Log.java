@@ -57,6 +57,7 @@ import android.os.LocaleList;
 import android.os.OperationCanceledException;
 import android.os.PowerManager;
 import android.os.RemoteException;
+import android.os.SystemClock;
 import android.os.TransactionTooLargeException;
 import android.provider.Settings;
 import android.text.SpannableStringBuilder;
@@ -1888,7 +1889,15 @@ public class Log {
 
         sb.append("\r\n");
 
-        sb.append(String.format("Processors: %d\r\n", Runtime.getRuntime().availableProcessors()));
+        int cpus = Runtime.getRuntime().availableProcessors();
+        sb.append(String.format("Processors: %d\r\n", cpus));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            long running = SystemClock.uptimeMillis() - android.os.Process.getStartUptimeMillis();
+            long cpu = android.os.Process.getElapsedCpuTime();
+            int util = (int) (running == 0 ? 0 : 100 * cpu / running / cpus);
+            sb.append(String.format("Uptime: %s CPU: %s %d%%\r\n",
+                    Helper.formatDuration(running), Helper.formatDuration(cpu), util));
+        }
 
         ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();

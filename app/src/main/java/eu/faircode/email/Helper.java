@@ -1677,6 +1677,14 @@ public class Helper {
             return DateUtils.getRelativeTimeSpanString(context, millis);
     }
 
+    static String formatDuration(long ms) {
+        int days = (int) (ms / (24 * 3600 * 1000L));
+        ms = ms % (24 * 3600 * 1000L);
+        long seconds = ms / 1000;
+        ms = ms % 1000;
+        return (days > 0 ? days + " " : "") + DateUtils.formatElapsedTime(seconds) + "." + ms;
+    }
+
     static String formatNumber(Integer number, long max, NumberFormat nf) {
         if (number == null)
             return null;
