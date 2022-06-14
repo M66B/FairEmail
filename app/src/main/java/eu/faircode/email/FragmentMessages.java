@@ -6217,7 +6217,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         lastTime = time;
 
 
-        tvDebug.setText(perc + "% " + (nheap / (1024 * 1024)) + "M" + " " + utilization + "%");
+        tvDebug.setText(utilization + "%\n" + perc + "% " + (nheap / (1024 * 1024)) + "M");
     }
 
     private boolean handleThreadActions(
