@@ -25,7 +25,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.textclassifier.TextClassifier;
 
 import androidx.annotation.NonNull;
@@ -124,24 +123,16 @@ public class FixedEditText extends AppCompatEditText {
             super.onDraw(canvas);
         } catch (Throwable ex) {
             Log.w(ex);
-            if (ex instanceof ArrayIndexOutOfBoundsException)
-                try {
-                    /*
-                        java.lang.ArrayIndexOutOfBoundsException: length=39; index=-3
-                          at android.text.DynamicLayout.getBlockIndex(DynamicLayout.java:648)
-                          at android.widget.Editor.drawHardwareAccelerated(Editor.java:1703)
-                          at android.widget.Editor.onDraw(Editor.java:1672)
-                          at android.widget.TextView.onDraw(TextView.java:6914)
-                          at android.view.View.draw(View.java:19200)
-
-                          Fixed in Android 9:
-                          https://android-review.googlesource.com/c/platform/frameworks/base/+/634929
-                    */
-                    setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-                    super.onDraw(canvas);
-                } catch (Throwable exex) {
-                    Log.w(exex);
-                }
+            /*
+                java.lang.ArrayIndexOutOfBoundsException: length=39; index=-3
+                  at android.text.DynamicLayout.getBlockIndex(DynamicLayout.java:648)
+                  at android.widget.Editor.drawHardwareAccelerated(Editor.java:1703)
+                  at android.widget.Editor.onDraw(Editor.java:1672)
+                  at android.widget.TextView.onDraw(TextView.java:6914)
+                  at android.view.View.draw(View.java:19200)
+                Fixed in Android 9:
+                https://android-review.googlesource.com/c/platform/frameworks/base/+/634929
+            */
         }
     }
 
