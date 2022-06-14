@@ -249,21 +249,16 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                                 Field mFragment = owner.getClass().getDeclaredField("mFragment");
                                 mFragment.setAccessible(true);
                                 Fragment fragment = (Fragment) mFragment.get(owner);
-                                if (fragment != null) {
-                                    if (fragment.getActivity() == null) {
-                                        Log.w("Fragment without activity" +
-                                                " task=" + name +
-                                                " fragment=" + fragment.getClass().getName() +
-                                                " lifecycle=" + owner.getLifecycle().getCurrentState());
-                                        return;
-                                    }
-                                    if (fragment.getContext() == null) {
-                                        Log.w("Fragment without context" +
-                                                " task=" + name +
-                                                " fragment=" + fragment.getClass().getName() +
-                                                " lifecycle=" + owner.getLifecycle().getCurrentState());
-                                        return;
-                                    }
+                                if (fragment != null &&
+                                        (fragment.getContext() == null || fragment.getActivity() == null)) {
+                                    // Since deliver is executed for resumed fragments only, this should never happen
+                                    Log.e("Fragment without activity" +
+                                            " task=" + name +
+                                            " context=" + (fragment.getContext() != null) +
+                                            " activity=" + (fragment.getActivity() != null) +
+                                            " fragment=" + fragment.getClass().getName() +
+                                            " lifecycle=" + owner.getLifecycle().getCurrentState());
+                                    return;
                                 }
                             } catch (Throwable ex) {
                                 Log.w(ex);
