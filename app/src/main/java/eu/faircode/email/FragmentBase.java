@@ -190,7 +190,7 @@ public class FragmentBase extends Fragment {
         finished = true;
 
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-            getParentFragmentManager().popBackStackImmediate();
+            getParentFragmentManager().popBackStack();
         else
             finish = true;
     }
