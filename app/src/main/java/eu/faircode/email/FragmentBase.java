@@ -240,7 +240,7 @@ public class FragmentBase extends Fragment {
         // https://developer.android.com/training/basics/fragments/pass-data-between
         String requestKey = getRequestKey();
         if (!BuildConfig.PLAY_STORE_RELEASE)
-            EntityLog.log(getContext(), "Listing key=" + requestKey);
+            EntityLog.log(getContext(), "Listening key=" + requestKey);
         getParentFragmentManager().setFragmentResultListener(requestKey, this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {

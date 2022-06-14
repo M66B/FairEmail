@@ -127,7 +127,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         String requestKey = getRequestKey();
         if (!BuildConfig.PLAY_STORE_RELEASE)
-            EntityLog.log(this, "Listing key=" + requestKey);
+            EntityLog.log(this, "Listening key=" + requestKey);
         getSupportFragmentManager().setFragmentResultListener(requestKey, this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
