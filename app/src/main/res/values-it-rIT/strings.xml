@@ -533,6 +533,7 @@
     <string name="title_advanced_unseen_ignored">Lascia che il numero di nuovi messaggi corrisponda al numero di notifiche</string>
     <string name="title_advanced_notify_background">Mostra le notifiche solo quando in background</string>
     <string name="title_advanced_notify_known">Mostra le notifiche solo per i contatti</string>
+    <string name="title_advanced_notify_suppress_in_call">Sopprimi le notifiche durante la chiamata</string>
     <string name="title_advanced_notify_summary">Mostra solo le notifiche del riepilogo</string>
     <string name="title_advanced_notify_preview">Mostra l\'anteprima del messaggio nelle notifiche</string>
     <string name="title_advanced_notify_preview_all">Visualizza tutto il testo</string>
