@@ -163,6 +163,7 @@ public class Log {
     private static Context ctx;
 
     private static int level = android.util.Log.INFO;
+    private static final long MAX_LOG_SIZE = 8 * 1024 * 1024L;
     private static final int MAX_CRASH_REPORTS = (BuildConfig.TEST_RELEASE ? 50 : 5);
     private static final String TAG = "fairemail";
 
@@ -2435,7 +2436,7 @@ public class Log {
                 long from = new Date().getTime() - 24 * 3600 * 1000L;
                 DateFormat TF = Helper.getTimeInstance(context);
 
-                for (EntityLog entry : db.log().getLogs(from, null))
+                for (EntityLog entry : db.log().getLogs(from, null)) {
                     size += write(os, String.format("%s [%d:%d:%d:%d] %s\r\n",
                             TF.format(entry.time),
                             entry.type.ordinal(),
@@ -2443,6 +2444,11 @@ public class Log {
                             (entry.folder == null ? 0 : entry.folder),
                             (entry.message == null ? 0 : entry.message),
                             entry.data));
+                    if (size > MAX_LOG_SIZE) {
+                        size += write(os, "<truncated>\r\n");
+                        break;
+                    }
+                }
             }
 
             db.attachment().setDownloaded(attachment.id, size);
