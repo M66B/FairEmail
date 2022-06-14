@@ -85,11 +85,16 @@ public class MediaPlayerHelper {
         if (am == null)
             return false;
 
-        // This doesn't require READ_PHONE_STATE permission
-        int mode = am.getMode();
-        EntityLog.log(context, "Audio mode=" + mode);
-        return (mode == AudioManager.MODE_RINGTONE ||
-                mode == AudioManager.MODE_IN_CALL ||
-                mode == AudioManager.MODE_IN_COMMUNICATION);
+        try {
+            // This doesn't require READ_PHONE_STATE permission
+            int mode = am.getMode();
+            Log.i("Audio mode=" + mode);
+            return (mode == AudioManager.MODE_RINGTONE ||
+                    mode == AudioManager.MODE_IN_CALL ||
+                    mode == AudioManager.MODE_IN_COMMUNICATION);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 }
