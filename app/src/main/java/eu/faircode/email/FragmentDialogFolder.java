@@ -26,7 +26,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -150,7 +149,6 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 Bundle args = getArguments();
                 args.putLong("folder", folder.id);
                 args.putString("type", folder.type);
-                EntityLog.log(context, "Folder selected " + TextUtils.join(", ", Log.getExtras(args)));
 
                 sendResult(RESULT_OK);
                 dismiss();
@@ -336,8 +334,6 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 tvNoFolder.setVisibility(View.VISIBLE);
             }
         }.execute(this, args, "folder:select");
-
-        EntityLog.log(context, "Folder selection " + TextUtils.join(", ", Log.getExtras(aargs)));
 
         return new AlertDialog.Builder(context)
                 .setIcon(R.drawable.twotone_folder_open_24)
