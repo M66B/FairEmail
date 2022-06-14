@@ -6890,14 +6890,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                if (viewType == AdapterMessage.ViewType.THREAD) {
-                    PagedList<TupleMessageEx> messages = adapter.getCurrentList();
-                    if (messages != null && result.size() > 0) {
-                        Log.i("Eval undo messages=" + messages.size() + " targets=" + result.size());
-                        handleThreadActions(messages, result, null);
-                    }
-                }
-
                 FragmentActivity activity = getActivity();
                 if (!(activity instanceof ActivityView)) {
                     Log.i("Undo: activity missing");
@@ -6906,6 +6898,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 String title = getString(R.string.title_move_undo, getNames(result, true), result.size());
                 ((ActivityView) activity).undo(title, args, taskUndoMove, taskUndoShow);
+
+                if (viewType == AdapterMessage.ViewType.THREAD) {
+                    PagedList<TupleMessageEx> messages = adapter.getCurrentList();
+                    if (messages != null && result.size() > 0) {
+                        Log.i("Eval undo messages=" + messages.size() + " targets=" + result.size());
+                        handleThreadActions(messages, result, null);
+                    }
+                }
             }
 
             @Override
