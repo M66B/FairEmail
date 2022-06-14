@@ -36,6 +36,7 @@ import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -243,6 +244,30 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                     }
 
                     private void deliver() {
+                        if ("androidx.fragment.app.FragmentViewLifecycleOwner".equals(owner.getClass().getName()))
+                            try {
+                                Field mFragment = owner.getClass().getDeclaredField("mFragment");
+                                mFragment.setAccessible(true);
+                                Fragment fragment = (Fragment) mFragment.get(owner);
+                                if (fragment != null) {
+                                    if (fragment.getActivity() == null) {
+                                        Log.w("Fragment without activity" +
+                                                " task=" + name +
+                                                " fragment=" + fragment.getClass().getName() +
+                                                " lifecycle=" + owner.getLifecycle().getCurrentState());
+                                        return;
+                                    }
+                                    if (fragment.getContext() == null) {
+                                        Log.w("Fragment without context" +
+                                                " task=" + name +
+                                                " fragment=" + fragment.getClass().getName() +
+                                                " lifecycle=" + owner.getLifecycle().getCurrentState());
+                                        return;
+                                    }
+                                }
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
                         try {
                             onPostExecute(args);
                         } catch (Throwable ex) {
