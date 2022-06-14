@@ -453,7 +453,7 @@
     <string name="title_advanced_message_text_zoom2">默认消息文本缩放： %1$s %%</string>
     <string name="title_advanced_overview_mode">缩放原始消息以适应屏幕</string>
     <string name="title_advanced_override_width">在原始消息中禁用固定宽度</string>
-    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">使用自动连字符</string>
+    <string name="title_advanced_hyphenation">使用自动连字符</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">消息文本默认使用等宽字体</string>
     <string name="title_advanced_monospaced_pre">对预格式化的文本使用等宽字体</string>

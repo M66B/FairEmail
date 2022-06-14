@@ -461,7 +461,7 @@
     <string name="title_advanced_message_text_zoom2">Standard meddelandetext zoom: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zooma originalmeddelanden för att passa skärmen</string>
     <string name="title_advanced_override_width">Inaktivera fasta bredder i ursprungliga meddelanden</string>
-    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Använd automatisk avstavning</string>
+    <string name="title_advanced_hyphenation">Använd automatisk avstavning</string>
     <string name="title_advanced_contrast">Använd hög kontrast för meddelandetext</string>
     <string name="title_advanced_monospaced">Använd monospaced typsnitt för meddelandetext som standard</string>
     <string name="title_advanced_monospaced_pre">Använd monospaced typsnitt till förformaterad text</string>

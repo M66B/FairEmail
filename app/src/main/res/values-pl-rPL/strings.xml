@@ -486,7 +486,7 @@
     <string name="title_advanced_message_text_zoom2">Domyślne powiększenie tekstu wiadomości: %1$s %%</string>
     <string name="title_advanced_overview_mode">Powiększ oryginalne wiadomości, aby dopasować je do ekranu</string>
     <string name="title_advanced_override_width">Wyłącz stałe szerokości w oryginalnych wiadomościach</string>
-    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Użyj automatycznego dzielenia wyrazów</string>
+    <string name="title_advanced_hyphenation">Użyj automatycznego dzielenia wyrazów</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced_pre">Użyj czcionki o stałej szerokości dla tekstu sformatowanego</string>
@@ -554,6 +554,7 @@
     <string name="title_advanced_unseen_ignored">Liczba powiadomień odpowiada liczbie nowych wiadomości</string>
     <string name="title_advanced_notify_background">Pokaż powiadomienia tylko, gdy pracuje w tle</string>
     <string name="title_advanced_notify_known">Pokaż powiadomienia tylko dla kontaktów</string>
+    <string name="title_advanced_notify_suppress_in_call">Wyłącz powiadomienia podczas połączenia</string>
     <string name="title_advanced_notify_summary">Pokaż tylko podsumowanie</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_preview_all">Podgląd całego tekstu</string>

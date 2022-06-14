@@ -481,7 +481,7 @@
     <string name="title_advanced_message_text_zoom2">תקריב טקסט ההודעות כבררת מחדל: %1$s %%</string>
     <string name="title_advanced_overview_mode">התאמת התקריב של ההודעות המקוריות לגודל המסך</string>
     <string name="title_advanced_override_width">השבתת הגדרות רוחב קבועות בהודעות המקוריות</string>
-    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">להשתמש במיקוף אוטומטי</string>
+    <string name="title_advanced_hyphenation">להשתמש במיקוף אוטומטי</string>
     <string name="title_advanced_contrast">להשתמש בניגודיות גבוהה לטקסט ההודעות</string>
     <string name="title_advanced_monospaced">להשתמש בגופן ברוחב אחיד לטקסט ההודעה כבררת מחדל</string>
     <string name="title_advanced_monospaced_pre">להשתמש בטקסט ברוחב אחיד לטקסט שעוצב מראש</string>

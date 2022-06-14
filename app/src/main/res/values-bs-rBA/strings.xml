@@ -476,7 +476,7 @@
     <string name="title_advanced_message_text_zoom2">Zadani nivo zumiranja teksta: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zumiraj originalne poruke da popune ekran</string>
     <string name="title_advanced_override_width">Onemogući fiksne širine u izvornim porukama</string>
-    <string name="title_advanced_hyphenation" comment="title_advanced_hyphenation&#10;https://developer.android.com/reference/android/widget/TextView#setHyphenationFrequency(int)&#10;Will set HYPHENATION_FREQUENCY_FULL and BREAK_STRATEGY_HIGH_QUALITY if available">Koristi automatsko umetanje crtica</string>
+    <string name="title_advanced_hyphenation">Koristi automatsko umetanje crtica</string>
     <string name="title_advanced_contrast">Koristi visoki kontrast za tekst poruke</string>
     <string name="title_advanced_monospaced">Koristi po zadanom font jednake širine (monospace) za tekst poruke</string>
     <string name="title_advanced_monospaced_pre">Koristi font jednake širine za preformatirani tekst</string>

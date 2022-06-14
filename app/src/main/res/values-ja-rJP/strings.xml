@@ -454,6 +454,7 @@
     <string name="title_advanced_message_text_zoom2">デフォルトの本文のテキスト拡大率: %1$s %%</string>
     <string name="title_advanced_overview_mode">画面に合わせて元のメッセージを拡大</string>
     <string name="title_advanced_override_width">元のメッセージの幅の固定を無効にする</string>
+    <string name="title_advanced_hyphenation">自動ハイフンを使用</string>
     <string name="title_advanced_contrast">本文にハイコントラストテーマを使用</string>
     <string name="title_advanced_monospaced">デフォルトで本文に等幅フォントを使用</string>
     <string name="title_advanced_monospaced_pre">書式設定済みテキストに等幅フォントを使用</string>
