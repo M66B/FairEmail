@@ -620,9 +620,6 @@ public class FragmentGmail extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.e(ex);
 
-                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    return;
-
                 if (ex instanceof IllegalArgumentException)
                     tvError.setText(ex.getMessage());
                 else
