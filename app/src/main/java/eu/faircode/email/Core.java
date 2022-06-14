@@ -4261,9 +4261,10 @@ class Core {
                                         map.put(f.id, f);
                                 }
 
-                            for (EntityFolder f : map.values())
-                                for (String inreplyto : message.inreplyto.split(" "))
-                                    EntityOperation.queue(context, f, EntityOperation.REPORT, inreplyto, label);
+                            if (message.inreplyto != null)
+                                for (EntityFolder f : map.values())
+                                    for (String inreplyto : message.inreplyto.split(" "))
+                                        EntityOperation.queue(context, f, EntityOperation.REPORT, inreplyto, label);
                         }
                     }
                 } catch (Throwable ex) {
