@@ -1871,7 +1871,6 @@
     <string name="title_insert_arrow" translatable="false">Insert arrow</string>
     <string name="title_add">Add</string>
     <string name="title_browse">Open with</string>
-    <string name="title_browse_embedded">%1$s (embedded)</string>
     <string name="title_info">Info</string>
     <string name="title_download">Download</string>
     <string name="title_report">Report</string>

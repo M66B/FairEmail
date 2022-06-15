@@ -128,10 +128,10 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
                 List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
                 for (ResolveInfo ri : ris) {
-                    CharSequence label = pm.getApplicationLabel(ri.activityInfo.applicationInfo);
+                    CharSequence label = ri.activityInfo.applicationInfo.loadLabel(pm);
                     if (label == null)
                         continue;
-                    pkgs.add(new Package(label.toString(), ri.activityInfo.packageName, false));
+                    pkgs.add(new Package(label, ri.activityInfo.packageName, false));
 
                     try {
                         Intent serviceIntent = new Intent();
@@ -139,10 +139,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         serviceIntent.setPackage(ri.activityInfo.packageName);
                         boolean tabs = (pm.resolveService(serviceIntent, 0) != null);
                         if (tabs)
-                            pkgs.add(new Package(
-                                    getString(R.string.title_browse_embedded, label),
-                                    ri.activityInfo.packageName,
-                                    tabs));
+                            pkgs.add(new Package(label, ri.activityInfo.packageName, true));
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
@@ -643,11 +640,11 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     }
 
     private static class Package {
-        String title;
+        CharSequence title;
         String name;
         boolean tabs;
 
-        public Package(String title, String name, boolean tabs) {
+        public Package(CharSequence title, String name, boolean tabs) {
             this.title = title;
             this.name = name;
             this.tabs = tabs;
@@ -655,7 +652,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         @Override
         public String toString() {
-            return title;
+            return this.title + (tabs ? "" : " \u29c9");
         }
     }
 }
