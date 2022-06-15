@@ -621,8 +621,11 @@ public class ApplicationEx extends Application
             if (class_min_difference == 0)
                 editor.putBoolean("classification", false);
         } else if (version < 1918) {
-            editor.remove("confirm_links");
-            editor.remove("browse_links");
+            if (prefs.contains("browse_links")) {
+                boolean browse_links = prefs.getBoolean("browse_links", false);
+                editor.remove("browse_links")
+                        .putBoolean("open_with_tabs", !browse_links);
+            }
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
