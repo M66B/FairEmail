@@ -40,6 +40,7 @@ import android.os.Handler;
 import android.os.ResultReceiver;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -313,6 +314,18 @@ public class FragmentBase extends Fragment {
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
         lbm.unregisterReceiver(receiver);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            FragmentActivity activity = getActivity();
+            if (activity != null) {
+                activity.getOnBackPressedDispatcher().onBackPressed();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
