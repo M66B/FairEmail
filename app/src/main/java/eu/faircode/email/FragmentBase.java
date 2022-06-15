@@ -422,17 +422,17 @@ public class FragmentBase extends Fragment {
     }
 
     protected void setBackPressedCallback(OnBackPressedCallback backPressedCallback) {
-        backPressedCallback.setEnabled(false);
         FragmentActivity activity = getActivity();
         if (activity == null)
             return;
-        activity.getOnBackPressedDispatcher().addCallback(backPressedCallback);
+        backPressedCallback.setEnabled(true);
         getViewLifecycleOwner().getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
             public void onAny() {
                 Lifecycle.State state = getViewLifecycleOwner().getLifecycle().getCurrentState();
-                backPressedCallback.setEnabled(state.isAtLeast(Lifecycle.State.STARTED));
-                if (state.isAtLeast(Lifecycle.State.DESTROYED))
+                if (state.isAtLeast(Lifecycle.State.STARTED))
+                    activity.getOnBackPressedDispatcher().addCallback(backPressedCallback);
+                else
                     backPressedCallback.remove();
             }
         });
