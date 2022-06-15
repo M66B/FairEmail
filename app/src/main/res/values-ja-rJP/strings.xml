@@ -552,7 +552,6 @@
     <string name="title_advanced_notifications_background_hint">バックグラウンドサービスは Android によって停止される可能性がありますが、ステータスバーに通知が表示されなくなります</string>
     <string name="title_advanced_confirm_links">リンクを開く前に確認</string>
     <string name="title_advanced_check_links_dbl">不審なリンクがないかドメインブロックリストを確認</string>
-    <string name="title_advanced_browse_links">Android の対応リンクを開く</string>
     <string name="title_advanced_confirm_images">デフォルトで画像を表示しない</string>
     <string name="title_advanced_ask_images">画像を表示する前に確認</string>
     <string name="title_advanced_confirm_html">デフォルトで再フォーマットされたメッセージを表示</string>
@@ -1048,7 +1047,6 @@
     <string name="title_reply_hard_bounce">ハードバウンスを送信</string>
     <string name="title_reply_template">テンプレートで返信</string>
     <string name="title_move_undo">%1$s に移動しました (%2$d)</string>
-    <string name="title_open_with">アプリで開く</string>
     <string name="title_authentication_failed">%1$s の認証に失敗しました</string>
     <string name="title_on_blocklist">迷惑メールブロックリストにあります</string>
     <string name="title_receipt_subject">開封確認メッセージ: %1$s</string>

@@ -359,7 +359,6 @@
     <string name="title_advanced_notifications_background">Bruk bakgrunnstjeneste for å synkronisere meldinger</string>
     <string name="title_advanced_notifications_background_hint">En bakgrunnstjeneste kan stanses av Android når som helst, men krever ikke en statuslinje varsel</string>
     <string name="title_advanced_confirm_links">Bekreft åpningen av lenker</string>
-    <string name="title_advanced_browse_links">Deleger lenker til Android</string>
     <string name="title_advanced_ask_images">Bekreft visningen av bilder</string>
     <string name="title_advanced_confirm_html">Vis standardformaterte meldinger</string>
     <string name="title_advanced_tracking">Forsøk på å gjenkjenne og deaktivere sporingsbilder</string>
@@ -708,7 +707,6 @@
     <string name="title_reply_receipt">Send lesekvittering</string>
     <string name="title_reply_template">Svar med mal</string>
     <string name="title_move_undo">Flytter til %1$s (%2$d)</string>
-    <string name="title_open_with">Åpne med</string>
     <string name="title_authentication_failed">%1$s godkjenning mislyktes</string>
     <string name="title_receipt_subject">Lesebekreftelse: %1$s</string>
     <string name="title_receipt_text">Denne lesekvitteringen bekrefter bare at meldingen ble vist. Det er ingen garanti for at mottakeren har lest meldings innholdet.</string>

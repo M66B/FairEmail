@@ -562,7 +562,6 @@
     <string name="title_advanced_notifications_background_hint">Μια υπηρεσία που εκτελείται στο παρασκήνιο αλλά δεν απαιτεί κάποια ειδοποίηση στη γραμμή κατάστασης, μπορεί να τερματιστεί από το Android οποιαδήποτε στιγμή</string>
     <string name="title_advanced_confirm_links">Επιβεβαίωση ανοίγματος συνδέσμων</string>
     <string name="title_advanced_check_links_dbl">Έλεγχος λιστών αποκλεισμένων τομέων για τους ύποπτους συνδέσμους</string>
-    <string name="title_advanced_browse_links">Ανάθεση του ανοίγματος των συνδέσμων στο Android</string>
     <string name="title_advanced_confirm_images">Να μην προβάλλεται καμία εικόνα από προεπιλογή</string>
     <string name="title_advanced_ask_images">Επιβεβαίωση προβολής των εικόνων</string>
     <string name="title_advanced_confirm_html">Προβολή αναμορφοποιημένων μηνυμάτων από προεπιλογή</string>
@@ -1055,7 +1054,6 @@
     <string name="title_reply_hard_bounce">Αποστολή σκληρής αναπήδησης (hard bounce)</string>
     <string name="title_reply_template">Απάντηση με ένα πρότυπο</string>
     <string name="title_move_undo">Μετακίνηση προς %1$s (%2$d)</string>
-    <string name="title_open_with">Άνοιγμα με</string>
     <string name="title_authentication_failed">Η ταυτοποίηση %1$s απέτυχε</string>
     <string name="title_on_blocklist">Σε λίστα αποκλεισμού ανεπιθύμητης αλληλογραφίας</string>
     <string name="title_receipt_subject">Αποδεικτικό ανάγνωσης: %1$s</string>

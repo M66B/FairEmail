@@ -411,7 +411,6 @@
     <string name="title_advanced_notifications_background">Brûk eftergrûntsjinst om berjochten te syngronisearjen</string>
     <string name="title_advanced_notifications_background_hint">In eftergrûntsjinst kin op elts momint stopset wurde troch Android, mar hat gjin statusbalke-notifikaasje nedich</string>
     <string name="title_advanced_confirm_links">Befestigings foar iepenjen befestigje</string>
-    <string name="title_advanced_browse_links">Delegear iepeningskeppelings nei Android</string>
     <string name="title_advanced_ask_images">Befêstigje werjaan fan ôfbyldings</string>
     <string name="title_advanced_confirm_html">Standert opnij opmakke berjochten sjen</string>
     <string name="title_advanced_tracking">Besykjen om trackingôfbyldings te herkennen en te útskeakeljen</string>
@@ -808,7 +807,6 @@
     <string name="title_reply_hard_bounce">Stjoer hurde \'bounce\'</string>
     <string name="title_reply_template">Antwurdzje mei sjabloan</string>
     <string name="title_move_undo">Bewege nei %1$s (%2$d)</string>
-    <string name="title_open_with">Iepenje mei</string>
     <string name="title_authentication_failed">%1$s ferifikaasje mislearre</string>
     <string name="title_receipt_subject">Untfang lêze: %1$s</string>
     <string name="title_receipt_text">Dizze lêsbewiis befestiget allinich dat it berjocht waard werjûn. D\'r is gjin garânsje dat de ûntfanger de ynhâld fan it berjocht hat lêzen.</string>

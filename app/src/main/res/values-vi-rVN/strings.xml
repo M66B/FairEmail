@@ -540,7 +540,6 @@
     <string name="title_advanced_notifications_background_hint">Một dịch vụ nền có thể bị dừng bởi Android bất kỳ lúc nào, nhưng không yêu cầu thông báo trên tranh trạng thái</string>
     <string name="title_advanced_confirm_links">Xác nhận mở các liên kết</string>
     <string name="title_advanced_check_links_dbl">Kiểm tra các danh sách chặn miền để tìm liên kết đáng nghi</string>
-    <string name="title_advanced_browse_links">Giao việc mở các liên kết cho Android</string>
     <string name="title_advanced_confirm_images">Không hiện hình ảnh theo mặc định</string>
     <string name="title_advanced_ask_images">Xác nhận hiện các hình ảnh</string>
     <string name="title_advanced_confirm_html">Hiện các thư được định dạng lại theo mặc định</string>
@@ -1030,7 +1029,6 @@
     <string name="title_reply_hard_bounce">Gửi thông báo chưa được gửi vĩnh viễn (hard bounce)</string>
     <string name="title_reply_template">Trả lời bằng mẫu</string>
     <string name="title_move_undo">Đang di chuyển đến %1$s (%2$d)</string>
-    <string name="title_open_with">Mở bằng</string>
     <string name="title_authentication_failed">%1$s xác thực thất bại</string>
     <string name="title_on_blocklist">Ở trong danh sách chặn thư rác</string>
     <string name="title_receipt_subject">Xác nhận đã đọc: %1$s</string>

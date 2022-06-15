@@ -573,7 +573,6 @@
     <string name="title_advanced_notifications_background_hint">Un serviciu de fundal poate fi oprit de Android în orice moment, dar nu necesită o notificare în bara de stare</string>
     <string name="title_advanced_confirm_links">Confirma deschiderea legăturilor</string>
     <string name="title_advanced_check_links_dbl">Verificați listele de blocare a domeniilor pentru link-uri suspecte</string>
-    <string name="title_advanced_browse_links">Delegarea deschiderii de adrese către Android</string>
     <string name="title_advanced_confirm_images">Nu afișați nicio imagine în mod implicit</string>
     <string name="title_advanced_ask_images">Confirmă afișarea imaginilor</string>
     <string name="title_advanced_confirm_html">Arată implicit mesajele reformatate</string>
@@ -1068,7 +1067,6 @@
     <string name="title_reply_hard_bounce">Trimite mesaj de eroare serios</string>
     <string name="title_reply_template">Răspunde cu șablon</string>
     <string name="title_move_undo">Se mută la %1$s (%2$d)</string>
-    <string name="title_open_with">Deschide cu</string>
     <string name="title_authentication_failed">Autentificare %1$s eșuată</string>
     <string name="title_on_blocklist">Pe lista de blocare spam</string>
     <string name="title_receipt_subject">Confirmare de citire: %1$s</string>

@@ -567,7 +567,6 @@
     <string name="title_reply_to_sender">발신인에게 답장</string>
     <string name="title_reply_to_all">전체 회신</string>
     <string name="title_reply_list">답장 목록</string>
-    <string name="title_open_with">연결 프로그램</string>
     <string name="title_no_recorder">적합한 음성 녹음 앱을 찾지 못함</string>
     <string name="title_monospaced_pre">고정폭 &lt;pre&gt;</string>
     <string name="title_ask_save">변경 사항을 저장합니까?</string>

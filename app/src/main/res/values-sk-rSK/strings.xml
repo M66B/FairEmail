@@ -569,7 +569,6 @@
     <string name="title_advanced_notifications_background_hint">Služba na pozadí môže byť kedykoľvek zastavená systémom, ale nevyžaduje neustále zobrazenú ikonu v oblasti upozornení</string>
     <string name="title_advanced_confirm_links">Potvrdzovať otváranie odkazov</string>
     <string name="title_advanced_check_links_dbl">Kontrolovať odkazy na podozrivé domény zo zoznamu blokovaných</string>
-    <string name="title_advanced_browse_links">Prenechať otváranie odkazov Androidu</string>
     <string name="title_advanced_confirm_images">Predvolene nezobrazovať obrázky</string>
     <string name="title_advanced_ask_images">Potvrdzovať zobrazenie obrázkov</string>
     <string name="title_advanced_confirm_html">Predvolene zobraziť preformátované správy</string>
@@ -1060,7 +1059,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_reply_receipt">Poslať potvrdenie o prečítaní</string>
     <string name="title_reply_template">Odpovedať šablónou</string>
     <string name="title_move_undo">Presunúť do %1$s (%2$d)</string>
-    <string name="title_open_with">Otvoriť použitím</string>
     <string name="title_authentication_failed">%1$s overenie zlyhalo</string>
     <string name="title_on_blocklist">Na zozname blokovaných</string>
     <string name="title_receipt_subject">Potvrdenie o prečítaní: %1$s</string>

@@ -379,7 +379,6 @@
     <string name="title_advanced_notifications_background">Използвайте фонова услуга за синхронизиране на съобщения</string>
     <string name="title_advanced_notifications_background_hint">Услугата за фон може да бъде спряна от Android по всяко време, но не изисква известие за лентата на състоянието</string>
     <string name="title_advanced_confirm_links">Потвърдете отварянето на връзката</string>
-    <string name="title_advanced_browse_links">Изпращане на отварящите връзки към Android</string>
     <string name="title_advanced_ask_images">Потвърдете показването на изображения</string>
     <string name="title_advanced_confirm_html">Показване на преформатирани съобщения по подразбиране</string>
     <string name="title_advanced_hide_timezone">Изпращане на съобщения без данни за часовата зона</string>
@@ -711,7 +710,6 @@
     <string name="title_reply_receipt">Изпрати разписка за прочетено</string>
     <string name="title_reply_template">Отговор с шаблон</string>
     <string name="title_move_undo">Премести в %1$s (%2$d)</string>
-    <string name="title_open_with">Отвори с</string>
     <string name="title_authentication_failed">%1$s неуспешна идентификация</string>
     <string name="title_receipt_subject">Разписка за прочетено: %1$s</string>
     <string name="title_receipt_text">Тази разписка за прочетено само потвърждава, че съобщението е било показано. Няма гаранция, че получателят е прочел съдържанието на съобщението.</string>

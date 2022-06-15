@@ -563,7 +563,6 @@
     <string name="title_advanced_notifications_background_hint">Un servizio in background è interrompibile in qualsiasi momento da Android, ma non richiede una notifica della barra di stato</string>
     <string name="title_advanced_confirm_links">Conferma l\'apertura dei link</string>
     <string name="title_advanced_check_links_dbl">Controlla le liste di blocco del dominio per i link sospetti</string>
-    <string name="title_advanced_browse_links">Delega l\'apertura dei link ad Android</string>
     <string name="title_advanced_confirm_images">Non mostrare alcun immagine di default</string>
     <string name="title_advanced_ask_images">Conferma la visualizzazione delle immagini</string>
     <string name="title_advanced_confirm_html">Mostra di default i messaggi riformattati</string>
@@ -1060,7 +1059,6 @@
     <string name="title_reply_hard_bounce">Invia hard bounce</string>
     <string name="title_reply_template">Rispondi con modello</string>
     <string name="title_move_undo">Spostando in %1$s (%2$d)</string>
-    <string name="title_open_with">Apri con</string>
     <string name="title_authentication_failed">Autenticazione %1$s fallita</string>
     <string name="title_on_blocklist">Sull\'elenco di blocco spam</string>
     <string name="title_receipt_subject">Conferma di lettura: %1$s</string>

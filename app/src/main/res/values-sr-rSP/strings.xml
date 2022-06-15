@@ -490,7 +490,6 @@
     <string name="title_reply">Одговори</string>
     <string name="title_reply_to_sender">Одговори пошиљаоцу</string>
     <string name="title_reply_to_all">Одговори свима</string>
-    <string name="title_open_with">Отворите помоћу</string>
     <string name="title_authentication_failed">%1$s неуспела провера идентитета</string>
     <string name="title_receipt_subject">Потврда о пријему: %1$s</string>
     <string name="title_receipt_text">Ова потврда о пријему само потврђује да је порука приказана. Нема гаранција да ли је прималац прочитао садржај поруке.</string>

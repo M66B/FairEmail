@@ -526,7 +526,6 @@
     <string name="title_advanced_notifications_background_hint">Egy háttérfolyamat leállítható az Android által bármikor, de nem szükséges státusz sor értesítés hozzá</string>
     <string name="title_advanced_confirm_links">Linkek megnyitásának megerősítésehez kötése</string>
     <string name="title_advanced_check_links_dbl">Ellenőrizze a tartomány blokkoló listát a gyanús linkeknél</string>
-    <string name="title_advanced_browse_links">A linkeket a rendzser kezelje</string>
     <string name="title_advanced_confirm_images">Ne mutasson képeket alapból</string>
     <string name="title_advanced_ask_images">Képek megjelenítésének megerősítéshez kötése</string>
     <string name="title_advanced_confirm_html">Üzenetek alapértelmezett újraformázása</string>
@@ -999,7 +998,6 @@
     <string name="title_reply_hard_bounce">\'Hard bounce\' küldése</string>
     <string name="title_reply_template">Válasz sablon használatával</string>
     <string name="title_move_undo">Mozgatás ide: %1$s (%2$d)</string>
-    <string name="title_open_with">Megnyitás a következővel</string>
     <string name="title_authentication_failed">%1$s azonosítás sikertelen</string>
     <string name="title_on_blocklist">Levélszemét blokkoló listán megtalálható</string>
     <string name="title_receipt_subject">Olvasási visszajelzés: %1$s</string>

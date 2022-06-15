@@ -563,7 +563,6 @@
     <string name="title_advanced_notifications_background_hint">En baggrundstjeneste kan til enhver tid stoppes af Android, men behøver ingen statusbjælkenotifikation</string>
     <string name="title_advanced_confirm_links">Bekræft åbning af links</string>
     <string name="title_advanced_check_links_dbl">Tjek domæneblokeringslister for mistænkelige links</string>
-    <string name="title_advanced_browse_links">Delegér åbningslinks til Android</string>
     <string name="title_advanced_confirm_images">Som standard Ingen billedvisning</string>
     <string name="title_advanced_ask_images">Bekræft visning af billeder</string>
     <string name="title_advanced_confirm_html">Vis som standard omformaterede beskeder</string>
@@ -1059,7 +1058,6 @@
     <string name="title_reply_hard_bounce">Send hard bounce</string>
     <string name="title_reply_template">Besvar med skabelon</string>
     <string name="title_move_undo">Flytter til %1$s (%2$d)</string>
-    <string name="title_open_with">Åbn med</string>
     <string name="title_authentication_failed">%1$s godkendelse mislykkedes</string>
     <string name="title_on_blocklist">På spamblokeringsliste</string>
     <string name="title_receipt_subject">Læsningskvittering: %1$s</string>

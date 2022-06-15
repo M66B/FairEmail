@@ -521,7 +521,6 @@
     <string name="title_advanced_notifications_background_hint">Un servizo de fondo pode ser detido por Android en calquera momento, pero non require unha notificación na barra de estado</string>
     <string name="title_advanced_confirm_links">Confirmar a apertura de ligazóns</string>
     <string name="title_advanced_check_links_dbl">Usa as listas de bloqueo de dominios cas ligazóns sospeitosas</string>
-    <string name="title_advanced_browse_links">Delegar a apertura de ligazóns a Android</string>
     <string name="title_advanced_confirm_images">Non mostrar imaxes por defecto</string>
     <string name="title_advanced_ask_images">Confirmar a mostra de imaxes</string>
     <string name="title_advanced_confirm_html">Mostrar por defecto as mensaxes reformatadas</string>
@@ -991,7 +990,6 @@
     <string name="title_reply_hard_bounce">Enviar unha notificación de rexeitamento</string>
     <string name="title_reply_template">Responder cun patrón</string>
     <string name="title_move_undo">Movendo a %1$s (%2$d)</string>
-    <string name="title_open_with">Abrir con</string>
     <string name="title_authentication_failed">Erro na autenticación %1$s</string>
     <string name="title_on_blocklist">Na lista de bloqueo de spam</string>
     <string name="title_receipt_subject">Acuse de recibo: %1$s</string>

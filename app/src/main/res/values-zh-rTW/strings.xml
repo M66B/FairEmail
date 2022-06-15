@@ -518,7 +518,6 @@
     <string name="title_advanced_notifications_background_hint">無狀態列通知的背景服務可隨時被 Android 停止</string>
     <string name="title_advanced_confirm_links">開啟超連結前確認</string>
     <string name="title_advanced_check_links_dbl">檢查可疑連結有否出現於網域封鎖清單中</string>
-    <string name="title_advanced_browse_links">將連結開啟處理交由 Android 進行</string>
     <string name="title_advanced_confirm_images">預設不顯示圖片</string>
     <string name="title_advanced_ask_images">顯示圖片前確認</string>
     <string name="title_advanced_confirm_html">預設顯示經過重排的訊息</string>
@@ -980,7 +979,6 @@
     <string name="title_reply_hard_bounce">發出“強制退信”</string>
     <string name="title_reply_template">以模板回覆</string>
     <string name="title_move_undo">正在移動至 %1$s (%2$d)</string>
-    <string name="title_open_with">開啟方式</string>
     <string name="title_authentication_failed">%1$s 驗證失敗</string>
     <string name="title_on_blocklist">在垃圾郵件封鎖清單中</string>
     <string name="title_receipt_subject">已讀回條: %1$s</string>

@@ -559,7 +559,6 @@
     <string name="title_advanced_notifications_background_hint">En bakgrundstjänst kan stoppas av Android när som helst, men kräver inte ett meddelande i statusfältet</string>
     <string name="title_advanced_confirm_links">Bekräfta att länkar öppnas</string>
     <string name="title_advanced_check_links_dbl">Kontrollera domänblockeringslistor för misstänkta länkar</string>
-    <string name="title_advanced_browse_links">Låt Android öppna länkar</string>
     <string name="title_advanced_confirm_images">Visa inga bilder som standard</string>
     <string name="title_advanced_ask_images">Bekräfta visning av bilder</string>
     <string name="title_advanced_confirm_html">Visa omformaterade meddelanden som standard</string>
@@ -1054,7 +1053,6 @@
     <string name="title_reply_hard_bounce">Skicka hard bounce</string>
     <string name="title_reply_template">Svara med mall</string>
     <string name="title_move_undo">Flyttar till %1$s (%2$d)</string>
-    <string name="title_open_with">Öppna med</string>
     <string name="title_authentication_failed">%1$s autentisering misslyckades</string>
     <string name="title_on_blocklist">På listan för skräppostblockering</string>
     <string name="title_receipt_subject">Läs kvitto: %1$s</string>

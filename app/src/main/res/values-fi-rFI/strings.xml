@@ -551,7 +551,6 @@
     <string name="title_advanced_notifications_background_hint">Android voi lopettaa taustapalvelun koska tahansa, mutta taustapalvelu ei tarvitse tilapalkki-ilmoitusta</string>
     <string name="title_advanced_confirm_links">Vahvista linkkien avaaminen</string>
     <string name="title_advanced_check_links_dbl">Tarkista, ovatko linkkien verkkotunnukset epäilyttävien verkkotunnusten listalla</string>
-    <string name="title_advanced_browse_links">Anna linkkien avaaminen Androidille hoidettavaksi</string>
     <string name="title_advanced_confirm_images">Älä näytä kuvia oletuksena</string>
     <string name="title_advanced_ask_images">Vahvista kuvien näyttäminen</string>
     <string name="title_advanced_confirm_html">Näytä oletuksena uudelleenmuotoillut viestit</string>
@@ -1041,7 +1040,6 @@
     <string name="title_reply_hard_bounce">Lähetä hard bounce</string>
     <string name="title_reply_template">Vastaa viestipohjalla</string>
     <string name="title_move_undo">Siirretään kansioon %1$s (%2$d)</string>
-    <string name="title_open_with">Avaa sovelluksessa</string>
     <string name="title_authentication_failed">%1$s-tunnistautuminen epäonnistui</string>
     <string name="title_on_blocklist">Roskapostin estolistalla</string>
     <string name="title_receipt_subject">Vastaanottokuittaus: %1$s</string>

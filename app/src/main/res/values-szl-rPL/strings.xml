@@ -584,7 +584,6 @@
     <string name="title_advanced_notifications_background_hint">Usługa w tle może być w dowolnym momencie zatrzymana przez Androida, ale nie wymaga powiadomienia na pasku stanu</string>
     <string name="title_advanced_confirm_links">Potwierdź otwieranie linków</string>
     <string name="title_advanced_check_links_dbl">Sprawdź listy blokowanych domen pod kątem podejrzanych linków</string>
-    <string name="title_advanced_browse_links">Deleguj otwieranie linków do Androida</string>
     <string name="title_advanced_confirm_images">Domyślnie nie pokazuj obrazów</string>
     <string name="title_advanced_ask_images">Potwierdź wyświetlanie obrazów</string>
     <string name="title_advanced_confirm_html">Domyślnie pokaż ponownie sformatowane wiadomości</string>
@@ -1079,7 +1078,6 @@
     <string name="title_reply_hard_bounce">Wyślij \"twarde odbicie\"</string>
     <string name="title_reply_template">Odpowiedz z szablonem</string>
     <string name="title_move_undo">Przenoszę do %1$s (%2$d)</string>
-    <string name="title_open_with">Otwórz za pomocą</string>
     <string name="title_authentication_failed">%1$s uwierzytelnianie nie powiodło się</string>
     <string name="title_on_blocklist">Na liście blokowanego spamu</string>
     <string name="title_receipt_subject">Potwierdzenie: %1$s</string>

@@ -429,7 +429,6 @@
     <string name="title_advanced_notifications_background">Erabili bigarren planoko zerbitzua mezuak sinkrinizatzeko</string>
     <string name="title_advanced_notifications_background_hint">Bigarren planoko zerbitzua Androidek gelditu dezake noiznahi, baina ez du jakinarazpenik behar egoera barran</string>
     <string name="title_advanced_confirm_links">Berretsi estekak irekitzea</string>
-    <string name="title_advanced_browse_links">Delegatu Androiden estekak irekitzea</string>
     <string name="title_advanced_ask_images">Berretsi irudiak erakustea</string>
     <string name="title_advanced_confirm_html">Berez erakutsi erreformatutako mezuak</string>
     <string name="title_advanced_hide_timezone">Bidali mezuak denbora-zona daturik gabe</string>
@@ -766,7 +765,6 @@
     <string name="title_reply_list">Erantzun zerrendari</string>
     <string name="title_reply_receipt">Bidali jaso izanaren agiria</string>
     <string name="title_reply_template">Erantzun txantiloia erabiliz</string>
-    <string name="title_open_with">Ireki honekin</string>
     <string name="title_authentication_failed">%1$s autentifikazioak huts egin du</string>
     <string name="title_on_blocklist">Spam blokeoaren zerrendan</string>
     <string name="title_receipt_subject">Irakurragiria: %1$s</string>

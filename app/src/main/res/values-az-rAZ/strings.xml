@@ -563,7 +563,6 @@
     <string name="title_advanced_notifications_background_hint">Bir arxaplan xidməti istənilən vaxt Android tərəfindən dayandırıla bilər, ancaq vəziyyət sətri bildirişini tələb etmir</string>
     <string name="title_advanced_confirm_links">Bağlantıların açılmasını təsdiqlə</string>
     <string name="title_advanced_check_links_dbl">Şübhəli bağlantılar üçün domen əngəlləmə siyahılarını yoxlayın</string>
-    <string name="title_advanced_browse_links">Android-ə bağlantıları açma səlahiyyəti ver</string>
     <string name="title_advanced_confirm_images">İlkin olaraq təsvirləri göstərmə</string>
     <string name="title_advanced_ask_images">Təsvirlərin göstərilməsini təsdiqlə</string>
     <string name="title_advanced_confirm_html">İlkin olaraq yenidən format edilmiş mesajları göstər</string>
@@ -1059,7 +1058,6 @@
     <string name="title_reply_hard_bounce">Sərt sıçrayış göndər</string>
     <string name="title_reply_template">Şablon ilə cavabla</string>
     <string name="title_move_undo">%1$s köçürülür (%2$d)</string>
-    <string name="title_open_with">Aç</string>
     <string name="title_authentication_failed">%1$s kimlik təsdiqləməsi uğursuz oldu</string>
     <string name="title_on_blocklist">Spam əngəlləmə siyahısında</string>
     <string name="title_receipt_subject">Oxundu bildirişi: %1$s</string>

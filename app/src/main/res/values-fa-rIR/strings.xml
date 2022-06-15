@@ -457,7 +457,6 @@
     <string name="title_advanced_notifications_background">استفاده از سرویس پس‌زمینه برای همگام‌سازی پیام‌ها</string>
     <string name="title_advanced_notifications_background_hint">یک سرویس پس‌زمینه می‌تواند هر هنگام توسط اندروید متوقف شود، ولی نیاز به اعلان نوار وضعیت ندارد</string>
     <string name="title_advanced_confirm_links">تایید بازکردن پیوندها</string>
-    <string name="title_advanced_browse_links">بازکردن پیوند‌ها را به اندروید واگذار کن</string>
     <string name="title_advanced_ask_images">تایید نمایش تصاویر</string>
     <string name="title_advanced_hide_timezone">پیام‌ها را بدون داده منطقه زمانی بفرست</string>
     <string name="title_advanced_display_hidden">نمایش متن پیام‌های پنهان</string>
@@ -743,7 +742,6 @@
     <string name="title_reply_receipt">فرستادن رسید خواندن</string>
     <string name="title_reply_template">پاسخ با قالب</string>
     <string name="title_move_undo">در حال انتقال به %1$s (%2$d)</string>
-    <string name="title_open_with">باز کردن با</string>
     <string name="title_authentication_failed">تایید %1$s ناموفق بود</string>
     <string name="title_receipt_subject">رسید خواندن: %1$s</string>
     <string name="title_receipt_text">این رسید خواندن تنها نشان می‌دهد که پیام نمایش داده شده. هیچ ضمانتی وجود ندارد که گیرنده محتویات پیام را خوانده باشد.</string>

@@ -561,7 +561,6 @@
     <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android angehalten werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>
     <string name="title_advanced_confirm_links">Hyperlinks beim Öffnen bestätigen</string>
     <string name="title_advanced_check_links_dbl">Domain-Sperrlisten auf verdächtige Links prüfen</string>
-    <string name="title_advanced_browse_links">Hyperlinks an Android übertragen</string>
     <string name="title_advanced_confirm_images">Standardmäßig keine Bilder anzeigen</string>
     <string name="title_advanced_ask_images">Anzeigen von Bildern bestätigen</string>
     <string name="title_advanced_confirm_html">Standardmäßig umformatierte Nachrichten anzeigen</string>
@@ -1055,7 +1054,6 @@
     <string name="title_reply_hard_bounce">Unzustellbarkeitsnachricht senden</string>
     <string name="title_reply_template">Mit Vorlage antworten</string>
     <string name="title_move_undo">Wird nach »%1$s« verschoben (%2$d)</string>
-    <string name="title_open_with">Öffnen mit</string>
     <string name="title_authentication_failed">%1$s-Authentifizierung fehlgeschlagen</string>
     <string name="title_on_blocklist">In Spam-Sperrliste enthalten</string>
     <string name="title_receipt_subject">Lesebestätigung: %1$s</string>

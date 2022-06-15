@@ -568,7 +568,6 @@
     <string name="title_advanced_notifications_background_hint">Android može zaustaviti pozadinski servis bilo kada, ali ne zahtijeva obavijest na statusnoj traci</string>
     <string name="title_advanced_confirm_links">Potvrdi početne veze</string>
     <string name="title_advanced_check_links_dbl">Provjeri ima li na popisima blokiranih domena sumnjivih veza</string>
-    <string name="title_advanced_browse_links">Delegiraj otvaranje veza Androidu</string>
     <string name="title_advanced_confirm_images">Ne prikazuj slike prema zadanim postavkama</string>
     <string name="title_advanced_ask_images">Potvrdi prikazivanje slika</string>
     <string name="title_advanced_confirm_html">Po zadanom pokaži preoblikovane poruke</string>
@@ -1063,7 +1062,6 @@
     <string name="title_reply_hard_bounce">Pošalji \'hard bounce\'</string>
     <string name="title_reply_template">Odgovori pomoću predloška</string>
     <string name="title_move_undo">Premještanje u %1$s (%2$d)</string>
-    <string name="title_open_with">Otvori sa</string>
     <string name="title_authentication_failed">%1$s provjera autentičnosti nije uspjela</string>
     <string name="title_on_blocklist">Na popisu blokiranih neželjenih poruka</string>
     <string name="title_receipt_subject">Potvrda o čitanju: %1$s</string>

@@ -348,7 +348,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_notifications_background">Utilitzeu el servei en segon pla per sincronitzar els missatges</string>
     <string name="title_advanced_notifications_background_hint">Android pot aturar un servei de fons en qualsevol moment, però no requereix una notificació de la barra d\'estat</string>
     <string name="title_advanced_confirm_links">Confirmeu l’obertura d’enllaços</string>
-    <string name="title_advanced_browse_links">Delega obrir enllaços a Android</string>
     <string name="title_advanced_ask_images">Confirmeu la visualització d’imatges</string>
     <string name="title_advanced_confirm_html">Mostra els missatges reformatats de manera predeterminada</string>
     <string name="title_advanced_hide_timezone">Envia missatges sense dades de fus horari</string>
@@ -649,7 +648,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_reply_receipt">Enviar confirmació de lectura</string>
     <string name="title_reply_template">Respondre amb una plantilla</string>
     <string name="title_move_undo">Movent a %1$s (%2$d)</string>
-    <string name="title_open_with">Obre amb</string>
     <string name="title_authentication_failed">%1$s autenticació ha fallat</string>
     <string name="title_receipt_subject">Avisos de recepció: %1$s</string>
     <string name="title_receipt_text">Aquest rebut de lectura només reconeix que el missatge es va mostrar. No hi ha garantia que el destinatari hagi llegit el contingut del missatge.</string>

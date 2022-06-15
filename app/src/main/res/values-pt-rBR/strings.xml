@@ -562,7 +562,6 @@
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
     <string name="title_advanced_confirm_links">Confirmar abertura de links</string>
     <string name="title_advanced_check_links_dbl">Verificar listas de bloqueio de domínios para links suspeitos</string>
-    <string name="title_advanced_browse_links">Delegar abertura de links ao Android</string>
     <string name="title_advanced_confirm_images">Não mostrar imagens por padrão</string>
     <string name="title_advanced_ask_images">Confirmar a exibição de imagens</string>
     <string name="title_advanced_confirm_html">Mostrar mensagens reformatadas por padrão</string>
@@ -1057,7 +1056,6 @@
     <string name="title_reply_hard_bounce">Erro, endereço incorreto ou não existe mais</string>
     <string name="title_reply_template">Modelo de resposta</string>
     <string name="title_move_undo">Movendo para %1$s (%2$d)</string>
-    <string name="title_open_with">Abrir com</string>
     <string name="title_authentication_failed">%1$s a autenticação falhou</string>
     <string name="title_on_blocklist">Na lista de bloqueio por spam</string>
     <string name="title_receipt_subject">Confirmação se leitura: %1$s</string>

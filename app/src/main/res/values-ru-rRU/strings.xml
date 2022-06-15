@@ -584,7 +584,6 @@
     <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
     <string name="title_advanced_confirm_links">Подтверждать открытие ссылок</string>
     <string name="title_advanced_check_links_dbl">Проверять списки блокировки доменов на подозрительные ссылки</string>
-    <string name="title_advanced_browse_links">Предоставить Android открывать ссылки</string>
     <string name="title_advanced_confirm_images">Не показывать изображения по умолчанию</string>
     <string name="title_advanced_ask_images">Подтверждать отображение изображений</string>
     <string name="title_advanced_confirm_html">Показывать переформатированные сообщения по умолчанию</string>
@@ -1081,7 +1080,6 @@
     <string name="title_reply_hard_bounce">Отправить жёсткий отказ</string>
     <string name="title_reply_template">Ответить с шаблоном</string>
     <string name="title_move_undo">Перемещение в %1$s (%2$d)</string>
-    <string name="title_open_with">Открыть с помощью</string>
     <string name="title_authentication_failed">Ошибка аутентификации %1$s</string>
     <string name="title_on_blocklist">По списку блокировки спама</string>
     <string name="title_receipt_subject">Уведомление о прочтении: %1$s</string>

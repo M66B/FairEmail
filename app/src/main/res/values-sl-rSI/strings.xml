@@ -309,7 +309,6 @@
     <string name="title_advanced_light">Uporabi lučko za obvestila</string>
     <string name="title_advanced_sound">Izberi zvok obvestila</string>
     <string name="title_advanced_confirm_links">Potrdi odpiranje povezav</string>
-    <string name="title_advanced_browse_links">Za odpiranje povezav pooblasti Android</string>
     <string name="title_advanced_ask_images">Potrdi prikaz slik</string>
     <string name="title_advanced_confirm_html">Privzeto prikaži preoblikovana sporočila</string>
     <string name="title_advanced_hide_timezone">Pošiljaj sporočila brez podatkov o časovnem pasu</string>
@@ -592,7 +591,6 @@
     <string name="title_reply_list">Odgovori seznamu</string>
     <string name="title_reply_receipt">Pošlji potrdilo o branju</string>
     <string name="title_reply_template">Odgovori s predlogo</string>
-    <string name="title_open_with">Odpri s/z</string>
     <string name="title_authentication_failed">Overitev %1$s je spodletela.</string>
     <string name="title_receipt_subject">Potrdilo o branju: %1$s</string>
     <string name="title_receipt_text">To potrdilo o branju potrjuje samo, da je bilo sporočilo prikazano.  Ni nobenega zagotovila, da je prejemnik prebral vsebino sporočila.</string>

@@ -489,7 +489,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_notifications_background_hint">Layanan latar belakang dapat dihentikan oleh Android kapan saja, tetapi tidak memerlukan pemberitahuan pada bilah status.</string>
     <string name="title_advanced_confirm_links">Minta konfirmasi ketika membuka tautan</string>
     <string name="title_advanced_check_links_dbl">Periksa daftar blokir domain untuk tautan yang mencurigakan</string>
-    <string name="title_advanced_browse_links">Delegasikan ketika membuka tautan ke sistem Android</string>
     <string name="title_advanced_confirm_images">Tampilkan tanpa gambar sebagai bawaan</string>
     <string name="title_advanced_ask_images">Minta konfirmasi ketika menampilkan gambar</string>
     <string name="title_advanced_confirm_html">Tampilkan pesan yang diformat ulang secara standar</string>
@@ -938,7 +937,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_reply_hard_bounce">Kirim pantauan keras</string>
     <string name="title_reply_template">Balas dengan template</string>
     <string name="title_move_undo">Sedang dipindahkan ke %1$s (%2$d)</string>
-    <string name="title_open_with">Buka dengan</string>
     <string name="title_authentication_failed">%1$s gagal otentikasi</string>
     <string name="title_on_blocklist">Pada daftar blokir spam</string>
     <string name="title_receipt_subject">Bukti telah dibaca: %1$s</string>

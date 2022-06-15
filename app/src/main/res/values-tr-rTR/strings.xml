@@ -561,7 +561,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_notifications_background_hint">Bir arka plan servisi Android tarafından herhangi bir zamanda durdurulabilir, ama çalışmak için sabit bir bildirime ihtiyaç duymaz</string>
     <string name="title_advanced_confirm_links">Bağlantıları açmayı onayla</string>
     <string name="title_advanced_check_links_dbl">Şüpheli bağlantılar için alan engelleme listelerini kontrol edin</string>
-    <string name="title_advanced_browse_links">Android\'i bağlantıları açması için görevlendir</string>
     <string name="title_advanced_confirm_images">Varsayılan olarak resim gösterme</string>
     <string name="title_advanced_ask_images">Görüntüleri göstermeyi onayla</string>
     <string name="title_advanced_confirm_html">Yeniden formatlanmış mesajları varsayılan olarak göster</string>
@@ -1055,7 +1054,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_reply_hard_bounce">Sert sıçrama gönder</string>
     <string name="title_reply_template">Şablonla yanıtla</string>
     <string name="title_move_undo">%1$s\'a taşınıyor (%2$d)</string>
-    <string name="title_open_with">Birlikte aç</string>
     <string name="title_authentication_failed">%1$s kimlik doğrulama başarısız</string>
     <string name="title_on_blocklist">Spam engelleme listesinde</string>
     <string name="title_receipt_subject">Okundu bilgisi:%1$s</string>
