@@ -121,7 +121,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         boolean canDarken = WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING);
         if (canDarken)
             WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, dark && !force_light);
-        setBackgroundColor(canDarken && force_light ? Color.WHITE : Color.TRANSPARENT);
+        setBackgroundColor(canDarken && dark && !force_light ? Color.TRANSPARENT : Color.WHITE);
 
         float fontSize = 16f /* Default */ *
                 (browser_zoom ? 1f : message_zoom / 100f);
