@@ -4,6 +4,12 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### 1.1919 - 2022-06-15
+
+* Fixed fragment back
+* Small improvements and minor bug fixes
+* Updated AndroidX
+
 ### 1.1918 - 2022-06-15
 
 * Added browser selection to open link dialog
