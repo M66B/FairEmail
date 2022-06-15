@@ -299,6 +299,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private List<String> languages;
     private static boolean debug;
     private int level;
+    private boolean canDarken;
     private boolean webview_legacy;
     private boolean show_recent;
 
@@ -2162,7 +2163,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibSearchText.setVisibility(tools && !outbox && button_search_text && message.content && !full ? View.VISIBLE : View.GONE);
                     ibSearch.setVisibility(tools && !outbox && button_search && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
                     ibTranslate.setVisibility(tools && !outbox && button_translate && DeepL.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
-                    ibForceLight.setVisibility(tools && full && dark && button_force_light && message.content ? View.VISIBLE : View.GONE);
+                    ibForceLight.setVisibility(tools && full && dark && canDarken && button_force_light && message.content ? View.VISIBLE : View.GONE);
                     ibForceLight.setImageLevel(force_light ? 1 : 0);
                     ibImportance.setVisibility(tools && button_importance && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibHide.setVisibility(tools && button_hide && !outbox ? View.VISIBLE : View.GONE);
@@ -4877,7 +4878,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 });
 
                 boolean isDark = Helper.isDarkTheme(context);
-                boolean canDarken = WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING);
                 tvDark.setVisibility(isDark && !canDarken ? View.VISIBLE : View.GONE);
             } else {
                 boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
@@ -7064,8 +7064,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         debug = prefs.getBoolean("debug", false);
         level = prefs.getInt("log_level", Log.getDefaultLogLevel());
 
-        webview_legacy = prefs.getBoolean("webview_legacy", false);
-        show_recent = prefs.getBoolean("show_recent", false);
+        this.canDarken = WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING);
+        this.webview_legacy = prefs.getBoolean("webview_legacy", false);
+        this.show_recent = prefs.getBoolean("show_recent", false);
 
         DiffUtil.ItemCallback<TupleMessageEx> callback = new DiffUtil.ItemCallback<TupleMessageEx>() {
             @Override
