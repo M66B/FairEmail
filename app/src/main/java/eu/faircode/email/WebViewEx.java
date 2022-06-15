@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -39,6 +40,7 @@ import android.webkit.WebViewClient;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewCompat;
 import androidx.webkit.WebViewFeature;
 
 public class WebViewEx extends WebView implements DownloadListener, View.OnLongClickListener {
@@ -399,6 +401,19 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         boolean large = context.getResources().getConfiguration()
                 .isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE);
         return (large ? "Mozilla/5.0" : "Mozilla/5.0 (Mobile)");
+    }
+
+    static int getVersionCode(Context context) {
+        try {
+            // version / 100000 > 5005
+            PackageInfo pkg = WebViewCompat.getCurrentWebViewPackage(context);
+            if (pkg == null)
+                return -1;
+            return pkg.versionCode;
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return -1;
+        }
     }
 
     interface IWebView {
