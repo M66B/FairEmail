@@ -380,7 +380,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        grpSafeBrowsing.setEnabled(WebViewEx.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE));
+        grpSafeBrowsing.setEnabled(WebViewEx.isFeatureSupported(getContext(), WebViewFeature.SAFE_BROWSING_ENABLE));
 
         swLoadEmoji.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

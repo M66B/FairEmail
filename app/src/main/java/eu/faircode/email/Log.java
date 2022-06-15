@@ -1985,7 +1985,7 @@ public class Log {
                 "normal".equals(uiType) ? "" : "!!!"));
 
         sb.append(String.format("Darken support: %b\r\n",
-                WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)));
+                WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING)));
 
         sb.append("\r\n");
 

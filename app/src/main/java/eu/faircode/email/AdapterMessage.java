@@ -2163,8 +2163,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibSearchText.setVisibility(tools && !outbox && button_search_text && message.content && !full ? View.VISIBLE : View.GONE);
                     ibSearch.setVisibility(tools && !outbox && button_search && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
                     ibTranslate.setVisibility(tools && !outbox && button_translate && DeepL.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
-                    ibForceLight.setVisibility(tools && full && dark && canDarken && button_force_light && message.content ? View.VISIBLE : View.GONE);
-                    ibForceLight.setImageLevel(force_light ? 1 : 0);
+                    ibForceLight.setVisibility(tools && full && dark && button_force_light && message.content ? View.VISIBLE : View.GONE);
+                    ibForceLight.setImageLevel(!canDarken || force_light ? 1 : 0);
                     ibImportance.setVisibility(tools && button_importance && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibHide.setVisibility(tools && button_hide && !outbox ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
@@ -6226,10 +6226,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionForceLight(TupleMessageEx message) {
-            boolean force_light = !properties.getValue("force_light", message.id);
-            properties.setValue("force_light", message.id, force_light);
-            ibForceLight.setImageLevel(force_light ? 1 : 0);
-            bindBody(message, false);
+            if (canDarken) {
+                boolean force_light = !properties.getValue("force_light", message.id);
+                properties.setValue("force_light", message.id, force_light);
+                ibForceLight.setImageLevel(force_light ? 1 : 0);
+                bindBody(message, false);
+            } else {
+                Intent update = new Intent(Intent.ACTION_VIEW)
+                        .setData(Uri.parse(Helper.PACKAGE_WEBVIEW))
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(update);
+            }
         }
 
         private void onSearchText(TupleMessageEx message) {
@@ -7064,7 +7071,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         debug = prefs.getBoolean("debug", false);
         level = prefs.getInt("log_level", Log.getDefaultLogLevel());
 
-        this.canDarken = WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING);
+        this.canDarken = WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING);
         this.webview_legacy = prefs.getBoolean("webview_legacy", false);
         this.show_recent = prefs.getBoolean("show_recent", false);
 

@@ -95,7 +95,7 @@ public class ActivityAMP extends ActivityBase {
         settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
-        if (WebViewEx.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE))
+        if (WebViewEx.isFeatureSupported(this, WebViewFeature.SAFE_BROWSING_ENABLE))
             WebSettingsCompat.setSafeBrowsingEnabled(settings, safe_browsing);
 
         setDarkMode();
@@ -127,7 +127,7 @@ public class ActivityAMP extends ActivityBase {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         boolean dark = Helper.isDarkTheme(this);
-        boolean canDarken = WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING);
+        boolean canDarken = WebViewEx.isFeatureSupported(this, WebViewFeature.ALGORITHMIC_DARKENING);
         menu.findItem(R.id.menu_force_light)
                 .setVisible(dark && canDarken)
                 .getIcon().setLevel(force_light ? 1 : 0);
@@ -160,7 +160,7 @@ public class ActivityAMP extends ActivityBase {
     private void setDarkMode() {
         WebSettings settings = wvAmp.getSettings();
         boolean dark = (Helper.isDarkTheme(this) && !force_light);
-        boolean canDarken = WebViewEx.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING);
+        boolean canDarken = WebViewEx.isFeatureSupported(this, WebViewFeature.ALGORITHMIC_DARKENING);
         if (canDarken)
             WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, dark);
     }
