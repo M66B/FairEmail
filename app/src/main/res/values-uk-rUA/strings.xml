@@ -1264,6 +1264,8 @@
     <string name="title_encrypt">Шифрувати</string>
     <string name="title_decrypt">Розшифрувати</string>
     <string name="title_resync">Повторна синхронізація</string>
+    <string name="title_charset">Кодування</string>
+    <string name="title_charset_auto">Автоматичне</string>
     <string name="title_alternative_text">Показувати простий текст</string>
     <string name="title_alternative_html">Показувати HTML</string>
     <string name="title_no_openpgp">OpenKeychain не знайдено</string>
@@ -1586,6 +1588,7 @@
     <string name="title_hint_folder_actions">Довге натиснення на теку - налаштування, наприклад для швидкого доступу, додавання теки в меню навігації</string>
     <string name="title_hint_folder_sync">Щоб обмежити використання батареї та мережі не всі теки й не всі повідомлення буде синхронізовано за замовчуванням</string>
     <string name="title_hint_airplane">Режим «у літаку» ввімкнено</string>
+    <string name="title_hint_notification">Сповіщення вимкнені</string>
     <string name="title_hint_support">Якщо у вас є питання або проблема, будь ласка, використовуйте меню підтримки для отримання допомоги</string>
     <string name="title_hint_message_actions">Гортайте ліворуч до кошика; проведіть праворуч щоб архівувати (якщо доступно); ці дії можна налаштувати в налаштуваннях облікового запису</string>
     <string name="title_hint_message_selection">Довго натисніть на повідомлення, щоб почати вибирати кілька повідомлень; Натиснувши потягніть вгору або вниз, щоб обрати більше повідомлень</string>
