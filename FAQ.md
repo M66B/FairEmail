@@ -2380,6 +2380,8 @@ FairEmail shows all attachment types. To distinguish inline and regular attachme
 See [here](https://support.google.com/googleone/answer/7007852)
 under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
 
+In other words, only subscriptions can be shared and since there is no subscription, FairEmail is not shareable via the Google Play Family Library.
+
 <br />
 
 <a name="faq67"></a>
