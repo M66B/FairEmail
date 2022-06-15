@@ -1629,7 +1629,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         });
 
         addKeyPressedListener(keyPressedListener);
-        getActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), backPressedCallback);
+        setBackPressedCallback(backPressedCallback);
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);

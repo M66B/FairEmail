@@ -1053,7 +1053,7 @@ public class FragmentCompose extends FragmentBase {
         });
 
         addKeyPressedListener(onKeyPressedListener);
-        getActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), backPressedCallback);
+        setBackPressedCallback(backPressedCallback);
 
         // Initialize
         setHasOptionsMenu(true);
