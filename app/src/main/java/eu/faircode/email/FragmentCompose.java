@@ -1331,24 +1331,6 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        etTo.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence text, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence text, int start, int before, int count) {
-                // Do nothing
-            }
-
-            @Override
-            public void afterTextChanged(Editable text) {
-                if (TextUtils.isEmpty(text.toString().trim()))
-                    identity_selectable = true;
-            }
-        });
-
         grpAddresses.setVisibility(cc_bcc ? View.VISIBLE : View.GONE);
 
         ibRemoveAttachments.setVisibility(View.GONE);
@@ -1381,10 +1363,6 @@ public class FragmentCompose extends FragmentBase {
     private void selectIdentityForEmail(String email) {
         if (TextUtils.isEmpty(email))
             return;
-
-        if (!identity_selectable)
-            return;
-        identity_selectable = false;
 
         Bundle args = new Bundle();
         args.putString("email", email);
@@ -5493,8 +5471,6 @@ public class FragmentCompose extends FragmentBase {
                         break;
                     }
                 }
-
-            identity_selectable = (data.draft.to == null || data.draft.to.length == 0);
 
             etExtra.setText(data.draft.extra);
             etTo.setText(MessageHelper.formatAddressesCompose(data.draft.to));
