@@ -5673,8 +5673,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     fragment.setArguments(args);
                     fragment.show(parentFragment.getParentFragmentManager(), "open:link");
                 } else {
-                    boolean browse_links = prefs.getBoolean("browse_links", false);
-                    Helper.view(context, UriHelper.guessScheme(uri), browse_links, browse_links);
+                    boolean tabs = prefs.getBoolean("open_with_tabs", true);
+                    Helper.view(context, UriHelper.guessScheme(uri), !tabs, !tabs);
                 }
             }
 

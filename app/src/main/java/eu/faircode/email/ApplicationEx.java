@@ -620,6 +620,9 @@ public class ApplicationEx extends Application
             int class_min_difference = prefs.getInt("class_min_difference", 50);
             if (class_min_difference == 0)
                 editor.putBoolean("classification", false);
+        } else if (version < 1918) {
+            editor.remove("confirm_links");
+            editor.remove("browse_links");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

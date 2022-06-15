@@ -19,14 +19,17 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
+
 import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -46,11 +49,14 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,7 +72,9 @@ import androidx.preference.PreferenceManager;
 
 import java.net.IDN;
 import java.net.InetAddress;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -104,6 +112,46 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         final Uri uri = UriHelper.guessScheme(_uri);
 
+        String def = null;
+        List<Package> pkgs = new ArrayList<>();
+        if (UriHelper.isHyperLink(uri)) {
+            try {
+                PackageManager pm = context.getPackageManager();
+                Intent intent = new Intent(Intent.ACTION_VIEW)
+                        .addCategory(Intent.CATEGORY_BROWSABLE)
+                        .setData(uri);
+
+                ResolveInfo main = pm.resolveActivity(intent, 0);
+                if (main != null)
+                    def = main.activityInfo.packageName;
+
+                int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
+                List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
+                for (ResolveInfo ri : ris) {
+                    CharSequence label = pm.getApplicationLabel(ri.activityInfo.applicationInfo);
+                    if (label == null)
+                        continue;
+                    pkgs.add(new Package(label.toString(), ri.activityInfo.packageName, false));
+
+                    try {
+                        Intent serviceIntent = new Intent();
+                        serviceIntent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
+                        serviceIntent.setPackage(ri.activityInfo.packageName);
+                        boolean tabs = (pm.resolveService(serviceIntent, 0) != null);
+                        if (tabs)
+                            pkgs.add(new Package(
+                                    getString(R.string.title_browse_embedded, label),
+                                    ri.activityInfo.packageName,
+                                    tabs));
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
+
         // Process link
         final Uri sanitized;
         if (uri.isOpaque())
@@ -139,6 +187,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         final CheckBox cbSecure = dview.findViewById(R.id.cbSecure);
         final CheckBox cbSanitize = dview.findViewById(R.id.cbSanitize);
         final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+        final Spinner spOpenWith = dview.findViewById(R.id.spOpenWith);
 
         ibMore = dview.findViewById(R.id.ibMore);
         tvMore = dview.findViewById(R.id.tvMore);
@@ -152,6 +201,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         btnDefault = dview.findViewById(R.id.btnDefault);
         tvReset = dview.findViewById(R.id.tvReset);
 
+        final Group grpOpenWith = dview.findViewById(R.id.grpOpenWith);
         final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
 
         // Wire
@@ -297,6 +347,44 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 prefs.edit().putBoolean(uri.getHost() + ".confirm_link", !isChecked).apply();
             }
         });
+
+        ArrayAdapter<Package> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.addAll(pkgs);
+        spOpenWith.setAdapter(adapter);
+
+        String open_with_pkg = prefs.getString("open_with_pkg", null);
+        boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
+        for (int position = 0; position < pkgs.size(); position++) {
+            Package pkg = pkgs.get(position);
+            if (Objects.equals(pkg.name, open_with_pkg) && pkg.tabs == open_with_tabs) {
+                spOpenWith.setSelection(position);
+                break;
+            }
+            if (Objects.equals(def, pkg.name))
+                spOpenWith.setSelection(position);
+        }
+
+        spOpenWith.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Package pkg = pkgs.get(position);
+                prefs.edit()
+                        .putString("open_with_pkg", pkg.name)
+                        .putBoolean("open_with_tabs", pkg.tabs)
+                        .apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit()
+                        .remove("open_with_pkg")
+                        .remove("open_with_tabs")
+                        .apply();
+            }
+        });
+
+        grpOpenWith.setVisibility(pkgs.size() > 0 ? View.VISIBLE : View.GONE);
 
         View.OnClickListener onMore = new View.OnClickListener() {
             @Override
@@ -469,24 +557,10 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Uri uri = Uri.parse(etLink.getText().toString());
-                        Log.i("Open link uri=" + uri);
-                        Helper.view(context, uri, false);
-                    }
-                })
-                .setNeutralButton(R.string.title_browse, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // https://developer.android.com/training/basics/intents/sending#AppChooser
-                        Uri uri = Uri.parse(etLink.getText().toString());
-                        Log.i("Open link with uri=" + uri);
-                        Intent view = new Intent(Intent.ACTION_VIEW, uri);
-                        Intent chooser = Intent.createChooser(view, context.getString(R.string.title_select_app));
-                        try {
-                            startActivity(chooser);
-                        } catch (ActivityNotFoundException ex) {
-                            Log.w(ex);
-                            Helper.view(context, uri, true, true);
-                        }
+                        Package pkg = (Package) spOpenWith.getSelectedItem();
+                        Log.i("Open link uri=" + uri + " with=" + pkg);
+                        boolean tabs = (pkg != null && pkg.tabs);
+                        Helper.view(context, uri, !tabs, !tabs);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -566,5 +640,22 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         }
 
         return ssb;
+    }
+
+    private static class Package {
+        String title;
+        String name;
+        boolean tabs;
+
+        public Package(String title, String name, boolean tabs) {
+            this.title = title;
+            this.name = name;
+            this.tabs = tabs;
+        }
+
+        @Override
+        public String toString() {
+            return title;
+        }
     }
 }

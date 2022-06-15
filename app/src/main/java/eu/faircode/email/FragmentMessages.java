@@ -4985,6 +4985,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         String filter_language = prefs.getString("filter_language", null);
         boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
         boolean compact = prefs.getBoolean("compact", false);
+        boolean confirm_links = prefs.getBoolean("confirm_links", true);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         int padding = prefs.getInt("view_padding", compact || !cards ? 0 : 1);
         boolean quick_filter = prefs.getBoolean("quick_filter", false);
@@ -5099,6 +5100,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_padding), false);
 
         menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
+
+        menu.findItem(R.id.menu_confirm_links)
+                .setChecked(confirm_links)
+                .setVisible(viewType == AdapterMessage.ViewType.THREAD);
 
         menu.findItem(R.id.menu_select_all).setVisible(folder);
         menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
@@ -5240,6 +5245,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return true;
         } else if (itemId == R.id.menu_theme) {
             onMenuTheme();
+            return true;
+        } else if (itemId == R.id.menu_confirm_links) {
+            onMenuConfirmLinks();
             return true;
         } else if (itemId == R.id.menu_select_all || itemId == R.id.menu_select_found) {
             onMenuSelectAll();
@@ -5568,6 +5576,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onMenuTheme() {
         new FragmentDialogTheme().show(getParentFragmentManager(), "messages:theme");
+    }
+
+    private void onMenuConfirmLinks() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = !prefs.getBoolean("confirm_links", true);
+        prefs.edit().putBoolean("confirm_links", compact).apply();
+        invalidateOptionsMenu();
     }
 
     private void clearMeasurements() {

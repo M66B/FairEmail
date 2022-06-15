@@ -113,18 +113,6 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swBrowseLinks"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_browse_links"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swCheckLinksDbl"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swConfirmImages"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -133,7 +121,7 @@
                     android:text="@string/title_advanced_confirm_images"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/swBrowseLinks"
+                    app:layout_constraintTop_toBottomOf="@+id/swCheckLinksDbl"
                     app:switchPadding="12dp" />
 
                 <TextView

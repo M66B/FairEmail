@@ -75,8 +75,6 @@
             android:id="@+id/tvLink"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginEnd="12dp"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="Original link"
@@ -197,6 +195,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSanitize" />
 
+        <TextView
+            android:id="@+id/tvOpenWith"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/title_browse"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotAgain" />
+
+        <Spinner
+            android:id="@+id/spOpenWith"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvOpenWith" />
+
         <ImageButton
             android:id="@+id/ibMore"
             android:layout_width="wrap_content"
@@ -205,7 +224,7 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:padding="3dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotAgain"
+            app:layout_constraintTop_toBottomOf="@id/spOpenWith"
             app:srcCompat="@drawable/expander" />
 
         <TextView
@@ -325,6 +344,12 @@
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnDefault" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpOpenWith"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvOpenWith,spOpenWith" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpDifferent"
