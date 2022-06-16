@@ -770,6 +770,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         finish();
     }
 
+
+    public void onBackPressedFragment() {
+        performBack();
+    }
+
     @Override
     public boolean shouldUpRecreateTask(Intent targetIntent) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

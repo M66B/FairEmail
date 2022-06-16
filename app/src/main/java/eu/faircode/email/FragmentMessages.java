@@ -7414,7 +7414,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             handleExit();
-            finish();
+
+            FragmentActivity activity = getActivity();
+            if (activity instanceof ActivityBase)
+                ((ActivityBase) activity).onBackPressedFragment();
+            else
+                finish();
         }
     };
 

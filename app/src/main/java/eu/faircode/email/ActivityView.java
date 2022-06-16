@@ -695,16 +695,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
-
-        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                if (Helper.isKeyboardVisible(view))
-                    Helper.hideKeyboard(view);
-                else
-                    onExit();
-            }
-        });
+        getOnBackPressedDispatcher().addCallback(this, backPressedCallback);
 
         // Initialize
 
@@ -726,6 +717,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         Shortcuts.update(this, this);
     }
+
+    @Override
+    public void onBackPressedFragment() {
+        backPressedCallback.handleOnBackPressed();
+    }
+
+    private OnBackPressedCallback backPressedCallback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            if (Helper.isKeyboardVisible(view))
+                Helper.hideKeyboard(view);
+            else
+                onExit();
+        }
+    };
 
     private void init() {
         Bundle args = new Bundle();
