@@ -31,8 +31,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -49,6 +51,7 @@ import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -115,6 +118,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         String def = null;
         List<Package> pkgs = new ArrayList<>();
+        int dp24 = Helper.dp2pixels(context, 24);
         if (UriHelper.isHyperLink(uri)) {
             try {
                 PackageManager pm = context.getPackageManager();
@@ -129,10 +133,28 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
                 List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
                 for (ResolveInfo ri : ris) {
-                    CharSequence label = ri.activityInfo.applicationInfo.loadLabel(pm);
-                    if (label == null)
-                        continue;
-                    pkgs.add(new Package(label, ri.activityInfo.packageName, false));
+                    Resources res = pm.getResourcesForApplication(ri.activityInfo.applicationInfo);
+                    Drawable icon;
+                    try {
+                        icon = res.getDrawable(ri.activityInfo.applicationInfo.icon);
+                        // Maximum size = 192x192
+                        if (icon != null &&
+                                (icon.getIntrinsicWidth() > 256 || icon.getIntrinsicHeight() > 256))
+                            icon = null;
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                        icon = null;
+                    }
+                    CharSequence label;
+                    try {
+                        label = res.getString(ri.activityInfo.applicationInfo.labelRes);
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                        label = null;
+                    }
+                    if (icon != null)
+                        icon.setBounds(0, 0, dp24, dp24);
+                    pkgs.add(new Package(icon, label, ri.activityInfo.packageName, false));
 
                     try {
                         Intent serviceIntent = new Intent();
@@ -140,7 +162,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         serviceIntent.setPackage(ri.activityInfo.packageName);
                         boolean tabs = (pm.resolveService(serviceIntent, 0) != null);
                         if (tabs)
-                            pkgs.add(new Package(label, ri.activityInfo.packageName, true));
+                            pkgs.add(new Package(icon, label, ri.activityInfo.packageName, true));
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
@@ -346,9 +368,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             }
         });
 
-        ArrayAdapter<Package> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter.addAll(pkgs);
+        AdapterPackage adapter = new AdapterPackage(getContext(), pkgs);
         spOpenWith.setAdapter(adapter);
 
         String open_with_pkg = prefs.getString("open_with_pkg", null);
@@ -657,19 +677,63 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     }
 
     private static class Package {
-        CharSequence title;
-        String name;
-        boolean tabs;
+        private Drawable icon;
+        private CharSequence title;
+        private String name;
+        private boolean tabs;
 
-        public Package(CharSequence title, String name, boolean tabs) {
+        public Package(Drawable icon, CharSequence title, String name, boolean tabs) {
+            this.icon = icon;
             this.title = title;
             this.name = name;
             this.tabs = tabs;
         }
+    }
+
+    public class AdapterPackage extends ArrayAdapter<Package> {
+        private final Context context;
+        private final List<Package> pkgs;
+        private final Drawable external;
+        private final Drawable browser;
+
+        AdapterPackage(@NonNull Context context, List<Package> pkgs) {
+            super(context, 0, pkgs);
+            this.context = context;
+            this.pkgs = pkgs;
+            this.external = context.getDrawable(R.drawable.twotone_open_in_new_24);
+            if (external != null)
+                external.setBounds(0, 0, external.getIntrinsicWidth(), external.getIntrinsicHeight());
+            this.browser = context.getDrawable(R.drawable.twotone_language_24);
+            if (browser != null)
+                browser.setBounds(0, 0, browser.getIntrinsicWidth(), browser.getIntrinsicHeight());
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            return getLayout(position, convertView, parent, R.layout.spinner_package);
+        }
 
         @Override
-        public String toString() {
-            return this.title + (tabs ? "" : " \u29c9");
+        public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
+            return getLayout(position, convertView, parent, R.layout.spinner_package);
+        }
+
+        private View getLayout(int position, View convertView, ViewGroup parent, int resid) {
+            View view = LayoutInflater.from(context).inflate(resid, parent, false);
+            TextView text1 = view.findViewById(android.R.id.text1);
+
+            Package pkg = pkgs.get(position);
+            if (pkg != null) {
+                text1.setText(pkg.title == null ? pkg.name : pkg.title.toString());
+                text1.setCompoundDrawablesRelative(
+                        pkg.icon == null ? browser : pkg.icon,
+                        null,
+                        pkg.tabs ? null : external,
+                        null);
+            }
+
+            return view;
         }
     }
 }
