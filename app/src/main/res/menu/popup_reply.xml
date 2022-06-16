@@ -32,7 +32,7 @@
 
     <item
         android:id="@+id/menu_forward_raw"
-        android:icon="@drawable/twotone_send_24"
+        android:icon="@drawable/twotone_attachment_24"
         android:title="@string/title_raw_send" />
 
     <item
