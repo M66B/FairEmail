@@ -3187,8 +3187,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(message.content);
                 popupMenu.getMenu().findItem(R.id.menu_forward_raw)
                         .setEnabled(message.uid != null)
-                        .setVisible(!BuildConfig.PLAY_STORE_RELEASE &&
-                                (Boolean.TRUE.equals(message.raw) || message.accountProtocol == EntityAccount.TYPE_IMAP));
+                        .setVisible(Boolean.TRUE.equals(message.raw) || message.accountProtocol == EntityAccount.TYPE_IMAP);
                 popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
                 popupMenu.getMenu().findItem(R.id.menu_reply_answer).setEnabled(message.content);
 
