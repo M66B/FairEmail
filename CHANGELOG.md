@@ -4,6 +4,13 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### 1.1920 - 2022-06-16
+
+* Fixed double back to exit
+* Improved browser selection
+* Added forward as attachment to answer menu
+* Small improvements and minor bug fixes
+
 ### 1.1919 - 2022-06-15
 
 * Fixed fragment back
