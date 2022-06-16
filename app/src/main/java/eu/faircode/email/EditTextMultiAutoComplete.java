@@ -122,14 +122,22 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
             @Override
             public void afterTextChanged(Editable edit) {
-                if (backspace != null) {
-                    ClipImageSpan[] spans = edit.getSpans(backspace, backspace, ClipImageSpan.class);
-                    if (spans.length == 1) {
-                        int start = edit.getSpanStart(spans[0]);
-                        int end = edit.getSpanEnd(spans[0]);
-                        edit.delete(start, end);
-                    }
-                }
+                if (backspace != null)
+                    post(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                ClipImageSpan[] spans = edit.getSpans(backspace, backspace, ClipImageSpan.class);
+                                if (spans.length == 1) {
+                                    int start = edit.getSpanStart(spans[0]);
+                                    int end = edit.getSpanEnd(spans[0]);
+                                    edit.delete(start, end);
+                                }
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                        }
+                    });
 
                 post(update);
             }
