@@ -950,6 +950,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 });
 
+            itemView.addOnLayoutChangeListener(this);
             ibAvatar.setOnClickListener(this);
             ibVerified.setOnClickListener(this);
             ibAuth.setOnClickListener(this);
@@ -1063,6 +1064,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final View touch = (viewType == ViewType.THREAD ? ibExpander : header);
             touch.setOnClickListener(null);
 
+            itemView.removeOnLayoutChangeListener(this);
             ibAvatar.setOnClickListener(null);
             ibVerified.setOnClickListener(null);
             ibAuth.setOnClickListener(null);
@@ -3782,6 +3784,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         @Override
         public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+            if (itemView.getId() == v.getId()) {
+                properties.layoutChanged();
+                return;
+            }
+
             TupleMessageEx message = getMessage();
             if (message != null) {
                 int h = bottom - top;
@@ -7970,6 +7977,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void endSearch();
 
         void lock(long id);
+
+        void layoutChanged();
 
         void refresh();
 
