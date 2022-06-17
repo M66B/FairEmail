@@ -31,6 +31,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
@@ -47,9 +48,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.iap.Argument;
@@ -675,6 +679,38 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         });
 
         final TwoStateOwner cowner = new TwoStateOwner(this, "liveUnseenNotify");
+
+        if (BuildConfig.DEBUG &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // Widgets will be disabled too
+            AudioManager am = Helper.getSystemService(this, AudioManager.class);
+
+            AudioManager.OnModeChangedListener listener = new AudioManager.OnModeChangedListener() {
+                @Override
+                public void onModeChanged(int mode) {
+                    boolean inCall = MediaPlayerHelper.isInCall(mode);
+                    boolean notify_suppress_in_call = prefs.getBoolean("notify_suppress_in_call", false);
+                    Log.i("Owner inCall=" + inCall + " suppress=" + notify_suppress_in_call);
+                    cowner.setEnabled(!notify_suppress_in_call || !inCall);
+                }
+            };
+            listener.onModeChanged(am.getMode()); // Init
+
+            getLifecycle().addObserver(new LifecycleObserver() {
+                private boolean registered = false;
+
+                @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+                public void onStateChanged() {
+                    if (ServiceSynchronize.this.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                        am.addOnModeChangedListener(executor, listener);
+                        registered = true;
+                    } else if (registered) {
+                        am.removeOnModeChangedListener(listener);
+                        registered = false;
+                    }
+                }
+            });
+        }
 
         db.folder().liveSynchronizing().observe(this, new Observer<List<TupleFolderSync>>() {
             private List<Long> lastAccounts = new ArrayList<>();
