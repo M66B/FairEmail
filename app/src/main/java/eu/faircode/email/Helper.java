@@ -412,10 +412,6 @@ public class Helper {
     }
 
     private static boolean hasCustomTabs(Context context, Uri uri, String pkg) {
-        String scheme = (uri == null ? null : uri.getScheme());
-        if (!"http".equals(scheme) && !"https".equals(scheme))
-            return false;
-
         PackageManager pm = context.getPackageManager();
         Intent view = new Intent(Intent.ACTION_VIEW, uri);
 
@@ -826,12 +822,27 @@ public class Helper {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String open_with_pkg = prefs.getString("open_with_pkg", null);
+        boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
 
-        boolean has = hasCustomTabs(context, uri, open_with_pkg);
+        if (!UriHelper.isHyperLink(uri)) {
+            open_with_pkg = null;
+            open_with_tabs = false;
+        }
 
-        Log.i("View=" + uri + " browse=" + browse + " task=" + task + " pkg=" + open_with_pkg + " has=" + has);
+        if (open_with_pkg != null && !isInstalled(context, open_with_pkg)) {
+            open_with_pkg = null;
+            open_with_tabs = false;
+        }
 
-        if (browse || !has) {
+        if (open_with_tabs && !hasCustomTabs(context, uri, open_with_pkg))
+            open_with_tabs = false;
+
+        Log.i("View=" + uri +
+                " browse=" + browse +
+                " task=" + task +
+                " pkg=" + open_with_pkg + ":" + open_with_tabs);
+
+        if (browse || !open_with_tabs) {
             try {
                 Intent view = new Intent(Intent.ACTION_VIEW);
                 if (mimeType == null)
@@ -840,9 +851,7 @@ public class Helper {
                     view.setDataAndType(uri, mimeType);
                 if (task)
                     view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                if (UriHelper.isHyperLink(uri) &&
-                        open_with_pkg != null && isInstalled(context, open_with_pkg))
-                    view.setPackage(open_with_pkg);
+                view.setPackage(open_with_pkg);
                 context.startActivity(view);
             } catch (Throwable ex) {
                 reportNoViewer(context, uri, ex);
@@ -890,9 +899,7 @@ public class Helper {
 
             CustomTabsIntent customTabsIntent = builder.build();
             customTabsIntent.intent.putExtra(Browser.EXTRA_HEADERS, headers);
-
-            if (open_with_pkg != null && isInstalled(context, open_with_pkg))
-                customTabsIntent.intent.setPackage(open_with_pkg);
+            customTabsIntent.intent.setPackage(open_with_pkg);
 
             try {
                 customTabsIntent.launchUrl(context, uri);
