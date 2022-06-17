@@ -2415,7 +2415,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 @Override
                 public void run() {
                     try {
-                        if (scrolling && !rvMessage.canScrollVertically(-1)) {
+                        if (scrolling &&
+                                rvMessage != null &&
+                                !rvMessage.canScrollVertically(-1)) {
                             scrolling = false;
                             updateCompose();
                             updateExpanded();
