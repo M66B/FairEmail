@@ -385,9 +385,7 @@ dependencies {
     implementation "androidx.annotation:annotation-experimental:$annotation_version_experimental"
 
     // https://mvnrepository.com/artifact/androidx.core/core
-    // https://mvnrepository.com/artifact/androidx.core/core-google-shortcuts
     implementation "androidx.core:core:$core_version"
-    implementation "androidx.core:core-google-shortcuts:$shortcuts_version"
 
     // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
     // https://mvnrepository.com/artifact/androidx.emoji2/emoji2
