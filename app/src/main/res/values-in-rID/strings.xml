@@ -9,6 +9,8 @@
     <string name="app_exit">Ketuk \'Kembali\' untuk keluar</string>
     <string name="app_cake">Sisa ruang penyimpanan tidak mencukupi</string>
     <string name="app_updated">Pembaharuan terakhir: %1$s</string>
+    <string name="app_download">Mengunduh dari %1$s</string>
+    <string name="channel_service">Pemantauan</string>
     <string name="channel_send">Kirim</string>
     <string name="channel_notification">Surel</string>
     <string name="channel_progress">Pekembangan</string>
@@ -60,11 +62,17 @@
     </plurals>
     <string name="title_ask_spam_who">Tandai pesan dari %1$s sebagai spam?</string>
     <string name="title_junk_hint">Penyedia email Anda bertanggung jawab untuk memfilter spam. Aplikasi email tidak memiliki semua data yang diperlukan untuk melakukan ini dengan handal.</string>
+    <string name="title_junk_pop_hint">       Pesan dari pengirim yang diblokir tidak akan diunduh.
+        Jika \"Tinggalkan pesan di server\" tidak diaktifkan, pesan-pesan ini akan hilang secara permanen!</string>
     <string name="title_block">Blokir %1$s</string>
     <string name="title_block_sender">Blokir Pengirim</string>
     <string name="title_block_sender_domain">Blokir domain \'%1$s\'</string>
     <string name="title_block_sender_hint">        Memblokir pengirim adalah fitur gratis.
 Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.    </string>
+    <string name="title_blocked_senders">Pengirim yang diblokir</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="other">Blokir pengirim pesan %1$s?</item>
+    </plurals>
     <string name="title_junk_filter">Pakai penyaring spam lokal</string>
     <string name="title_junk_filter_hint">Ini dapat meningkatkan penggunaan baterai dan salah menandai pesan sebagai spam</string>
     <string name="title_junk_blocklist">Gunakan daftar blokir spam</string>
@@ -81,6 +89,7 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_notification_redacted">Menyusun: otentikasi sidik jari atau PIN diaktifkan</string>
     <string name="title_factor_minutes">%1$d menit</string>
     <string name="menu_answers">Template</string>
+    <string name="menu_rules">Aturan</string>
     <string name="menu_operations">Operasi</string>
     <string name="menu_contacts">Kontak Lokal</string>
     <string name="menu_setup">Pengaturan</string>
@@ -96,6 +105,7 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="menu_rate">Berikan nilai untuk aplikasi ini</string>
     <string name="title_welcome">Selamat Datang</string>
     <string name="title_eula">Perjanjian lisensi pengguna akhir</string>
+    <string name="title_license">Lisensi sumber terbuka</string>
     <string name="title_contributors">Kontributor</string>
     <string name="title_agree">Saya setuju</string>
     <string name="title_disagree">Saya menolak</string>
@@ -116,6 +126,7 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_setup_analytics">FairEmail tidak menampilkan iklan dan tidak melacak atau menganalisis kebiasaan anda. Penangkap gangguan digunakan untuk melaporkan gangguan dan dimatikan secara bawaan.</string>
     <string name="title_setup_quick_accounts">Tambah atau ganti akun</string>
     <string name="title_setup_quick_support">Beberapa layanan email mempersulit penambahan akun. Mohon jangan menyalahkan FairEmail untuk ini, tetapi mintalah dukungan sebagai gantinya.</string>
+    <string name="title_setup_quick_hint">Alamat email yang dimasukkan digunakan untuk meminta server email dan autoconfig.thunderbird.net untuk informasi konfigurasi</string>
     <string name="title_setup_quick_patience">Harap bersabar &#8230;</string>
     <string name="title_setup_quick_imap">Server IMAP untuk menerima pesan</string>
     <string name="title_setup_quick_smtp">Server SMTP untuk mengirim pesan</string>
@@ -132,14 +143,17 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_setup_accounts">Akun</string>
     <string name="title_setup_identities">Identitas</string>
     <string name="title_setup_other">Penyedia Lainnya</string>
+    <string name="title_setup_inbound">Hanya email masuk saja (email tidak dapat dikirim!)</string>
     <string name="title_setup_pop3">Akun POP3</string>
     <string name="title_setup_oauth_permission">Pengelola surel ini telah menerima OAuth hanya untuk aplikasi versi Play Store dan GitHub</string>
     <string name="title_setup_gmail_support">Memberi otorisasi pada akun Google hanya akan berfungsi pada versi Play Store dan GitHub karena Android memeriksa tanda tangan aplikasi</string>
     <string name="title_setup_gmail_rationale">Mohon berikan izin untuk memilih akun dan membaca nama Anda.</string>
     <string name="title_setup_gmail_permissions">Google akan meminta izin untuk membaca, menulis, mengirim dan menghapus semua email Anda secara permanen. FairEmail tidak akan pernah menghapus pesan tanpa persetujuan tegas dari Anda.</string>
     <string name="title_setup_gmail_drafts">Jika folder draf tidak dapat diakses oleh IMAP, hal ini dapat diperbaiki pada pengaturan label Gmail.</string>
+    <string name="title_setup_gmail_password">Saya ingin mengotorisasi akun dengan kata sandi, bukannya akun pada perangkat</string>
     <string name="title_setup_office_auth">Kesalahan \'AUTHENTICATE Failed\' bisa disebabkan oleh IMAP/SMTP yang dinon-aktifkan oleh administrator sistem.</string>
     <string name="title_setup_oauth_rationale">Izinkan akses ke akun %1$s Anda</string>
+    <string name="title_setup_oauth_update">Otorisasi kembali akun yang sudah ada (jika tidak, buat akun baru)</string>
     <string name="title_setup_oauth_updated">Ulang kembali otorisasi akun</string>
     <string name="title_setup_oauth_authorize">Perizinan</string>
     <string name="title_setup_select_account">Pilih Akun</string>
@@ -162,10 +176,15 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_setup_permissions">Berikan Izin</string>
     <string name="title_setup_permissions_remark">Untuk mengakses informasi kontak (opsional)</string>
     <string name="title_setup_permissions_explanation">Izin kontak diperlukan untuk mencari info kontak dan menyarankan kontak</string>
+    <string name="title_setup_permissions_notify">Untuk menampilkan notifikasi pesan baru (opsional)</string>
+    <string name="title_setup_permissions_notify_explanation">Izin pemberitahuan diperlukan untuk menampilkan pemberitahuan untuk pesan baru di bilah status</string>
+    <string name="title_setup_permission_why">Perizinan apa saja yang diperlukan dan mengapa?</string>
     <string name="title_setup_permission_import_contacts">Bagaimana saya dapat mengimpor kontak?</string>
     <string name="title_setup_doze">Nonaktifkan pengoptimalan baterai</string>
+    <string name="title_setup_doze_remark">Untuk mengirim dan menerima email secara andal di latar belakang</string>
     <string name="title_setup_doze_explanation">Pengoptimalan baterai harus dinonaktifkan untuk aplikasi guna memastikan pengiriman dan penerimaan pesan yang andal di latar belakang aplikasi</string>
     <string name="title_setup_doze_hint">Meskipun mungkin terdengar kontradiktif, menonaktifkan pengoptimalan baterai untuk aplikasi ini akan mengurangi penggunaan baterai</string>
+    <string name="title_setup_doze_why">Mengapa pengoptimalan baterai harus dinonaktifkan?</string>
     <string name="title_setup_doze_instructions">Pada perubahan dialog Android berikutnya \"Tidak dioptimalkan\" menjadi \"Semua Aplikasi\", pilih aplikasi dan pilih \"Jangan Optimalkan\"</string>
     <string name="title_setup_doze_battery">Penggunaan boros baterai?</string>
     <string name="title_setup_doze_stopped">Sinkronisasi berhenti?</string>
@@ -181,8 +200,12 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_setup_done">Selesai</string>
     <string name="title_setup_still">Masih harus dilakukan</string>
     <string name="title_setup_error">Kesalahan/Error</string>
+    <string name="title_setup_pop">Gunakan POP3 (tidak direkomendasikan)</string>
+    <string name="title_setup_recent">Gunakan \'recent\' untuk beberapa klien email</string>
     <string name="title_setup_configuring">Mengonfigurasi akun &#8230;</string>
     <string name="title_setup_app_password">Anda mungkin perlu menggunakan kata sandi aplikasi</string>
+    <string name="title_setup_extra">Ekstra</string>
+    <string name="title_setup_delete_account_hint">Ini hanya akan menghapus akun dari aplikasi</string>
     <string name="title_setup_close">Tutup pengaturan</string>
     <string name="title_setup_export">Ekspor Pengaturan</string>
     <string name="title_setup_import">Impor Pengaturan</string>
@@ -197,6 +220,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_setup_password_different">Kata sandi tidak cocok</string>
     <string name="title_setup_password_invalid">Kata sandi tidak valid</string>
     <string name="title_setup_import_accounts">Impor akun dan identitas</string>
+    <string name="title_setup_import_delete">Hapus akun yang sudah ada terlebih dahulu</string>
     <string name="title_setup_import_rules">Import pengaturan penyaringan</string>
     <string name="title_setup_import_contacts">Impor kontak lokal</string>
     <string name="title_setup_import_answers">Impor templat balasan</string>
@@ -222,6 +246,8 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_setup_theme_red_green">Merah/Hijau</string>
     <string name="title_setup_theme_grey">Abu-abu</string>
     <string name="title_setup_theme_black">Hitam</string>
+    <string name="title_setup_theme_white">Putih</string>
+    <string name="title_setup_theme_black_or_white">Hitam atau putih</string>
     <string name="title_setup_theme_black_and_white">Hitam dan Putih</string>
     <string name="title_setup_theme_reverse">Tukar warna</string>
     <string name="title_setup_theme_light">Terang</string>
@@ -241,6 +267,10 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_setup_reset_full">Tampilkan pesan asli</string>
     <string name="title_setup_reset_images">Tampilkan gambar</string>
     <string name="title_setup_reset_links">Konfirmasi tautan</string>
+    <string name="title_check_gmail_oauth">Akun Gmail Anda akan terus berfungsi setelah tanggal 30 Mei 2022</string>
+    <string name="title_check_gmail_password">Beberapa akun Gmail Anda mungkin berhenti bekerja setelah tanggal 30 Mei 2022</string>
+    <string name="title_check_outlook_oauth">Akun Outlook Anda akan terus bekerja setelah tanggal 1 Oktober 2022</string>
+    <string name="title_check_outlook_password">Beberapa akun Outlook Anda mungkin berhenti bekerja setelah tanggal 1 Oktober 2022</string>
     <string name="title_advanced_hint_title">Opsi lebih lanjut</string>
     <string name="title_advanced_hint_message">       Anda menavigasi ke opsi yang lebih canggih.        Semua opsi umumnya menggunakan nilai standar, yang tidak perlu Anda ubah kecuali jika Anda memiliki preferensi yang berbeda.
     </string>
@@ -276,10 +306,12 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_sync_shared_folders">Sinkronkan daftar folder bersama</string>
     <string name="title_advanced_subscriptions">Kelola folder langganan</string>
     <string name="title_advanced_check_authentication">Periksa keaslian pesan</string>
+    <string name="title_advanced_check_tls">Periksa Transport Layer Security (TLS)</string>
     <string name="title_advanced_check_reply_domain">Periksa alamat email balasan pada sinkronisasi pesan</string>
     <string name="title_advanced_check_mx">Periksa alamat email pengirim di sinkronisasi pesan</string>
     <string name="title_advanced_check_blocklist">Periksa jika domain pengirim berada dalam daftar penghalau spam</string>
     <string name="title_advanced_use_blocklist">Pindahkan pesan dari domain yang terdapat dalam daftar blokir ke map spam</string>
+    <string name="title_advanced_use_blocklist_pop3">Melewati pesan dari domain pada daftar blokir (hanya POP3)</string>
     <string name="title_advanced_tune_keep_alive">Secara otomatis mengatur interval tetap-hidup</string>
     <string name="title_advanced_keyboard">Tampilkan keyboard secara bawaan</string>
     <string name="title_advanced_keyboard_no_fullscreen">Nonaktifkan keyboard layar penuh</string>
@@ -289,12 +321,18 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_suggest_received">Sarankan alamat yang ditemukan dalam pesan yang diterima</string>
     <string name="title_advanced_suggest_frequently">Urutkan alamat yang disarankan pada frekuensi penggunaan</string>
     <string name="title_advanced_alt_re_fwd">Awalan balasan/meneruskan cadangan</string>
+    <string name="title_advanced_send_chips">Tampilkan bubbles alamat</string>
     <string name="title_advanced_send_reminders">Tampilkan Pengingat</string>
     <string name="title_advanced_send_delayed">Tunda pengiriman pesan</string>
     <string name="title_advanced_attach_new">Tambahkan berkas berbagi ke konsep baru</string>
+    <string name="title_advanced_answer_action">Menekan lama pada tombol jawab akan:</string>
     <string name="title_advanced_send_pending">Tampilkan ikon tunda kirim yang tidak mengganggu</string>
+    <string name="title_advanced_auto_save_paragraph">Secara otomatis menyimpan draf setelah setiap paragraf</string>
+    <string name="title_advanced_auto_save_dot">Secara otomatis menyimpan draf setelah setiap kalimat</string>
     <string name="title_advanced_compose_font">Huruf Standar</string>
+    <string name="title_advanced_auto_identity">Secara otomatis memilih identitas untuk pesan baru</string>
     <string name="title_advanced_prefix_once">Awali subjek hanya sekali saat membalas atau meneruskan</string>
+    <string name="title_advanced_prefix_count">Tambahkan jumlah ke awalan balasan</string>
     <string name="title_advanced_separate_reply">Tambahkan garis horizontal sebelum header balasan/teruskan</string>
     <string name="title_advanced_extended_reply">Gunakan header balasan/penerusan yang diperpanjang</string>
     <string name="title_advanced_write_above">Tulis diatas tulisan pengirim</string>
@@ -305,14 +343,17 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_signature_location">Posisi tanda tangan</string>
     <string name="title_advanced_signature_new">Gunakan tanda tangan untuk pesan baru</string>
     <string name="title_advanced_signature_reply">Gunakan tanda tangan saat membalas</string>
+    <string name="title_advanced_signature_reply_once">Hanya untuk balasan pertama</string>
     <string name="title_advanced_signature_forward">Gunakan tanda tangan saat meneruskan</string>
     <string name="title_advanced_discard_delete">Hapus draf secara permanen ketika membuangnya</string>
+    <string name="title_advanced_reply_move">Pada saat membalas pesan, simpan balasan dalam folder yang sama</string>
     <string name="title_advanced_auto_link">Secara otomatis membuat tautan</string>
     <string name="title_advanced_plain_only">Kirim teks biasa hanya secara bawaan</string>
     <string name="title_advanced_flow">\'format mengalir\' untuk teks biasa</string>
     <string name="title_advanced_usenet_signature">Ikuti konvensi tanda tangan Usenet</string>
     <string name="title_advanced_remove_signatures">Hapus tanda tangan yang dikenali</string>
     <string name="title_advanced_receipt">Saat meminta tanda terima</string>
+    <string name="title_advanced_forward_new">Memulai percakapan baru ketika meneruskan</string>
     <string name="title_advanced_lookup_mx">Periksa alamat email penerima sebelum mengirim</string>
     <string name="title_advanced_metered">Gunakan Koneksi Terukur</string>
     <string name="title_advanced_download">Unduh pesan dan lampiran secara otomatis pada koneksi terukur hingga</string>
@@ -320,13 +361,16 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_rlah">Berkeliaran seperti di rumah</string>
     <string name="title_advanced_download_headers">Unduh semua tajuk pesan</string>
     <string name="title_advanced_download_eml">Unduh file pesan mentah</string>
+    <string name="title_advanced_download_plain">Unduh bagian teks biasa saja secara default (jika tersedia)</string>
     <string name="title_advanced_validated">Membutuhkan koneksi yang divalidasi (dicentang)</string>
     <string name="title_advanced_vpn_only">Hubungkan hanya menggunakan VPN</string>
     <string name="title_advanced_timeout">Batas waktu terhubung (detik)</string>
     <string name="title_advanced_prefer_ip4">Direkomendasikan IPv4 daripada IPv6</string>
     <string name="title_advanced_ssl_harden">Perkuat dengan koneksi SSL</string>
+    <string name="title_advanced_cert_strict">Pengecekan sertifikat yang ketat</string>
     <string name="title_advanced_manage_connectivity">Mengelola Koneksi</string>
     <string name="title_advanced_caption_general">Umum</string>
+    <string name="title_advanced_caption_navigation">Navigasi</string>
     <string name="title_advanced_caption_checks">Periksa</string>
     <string name="title_advanced_caption_list">Daftar</string>
     <string name="title_advanced_caption_conversation">Percakapan</string>
@@ -338,12 +382,16 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_two_row">Gunakan dua baris</string>
     <string name="title_advanced_two_col">Gunakan dua kolom</string>
     <string name="title_advanced_min_screen_size">Ukuran layar paling kecil untuk membagi layar</string>
+    <string name="title_advanced_close_pane">Tutup baris atau kolom ketika menutup percakapan</string>
+    <string name="title_advanced_column_width">Lebar kolom pesan: %1$s %%</string>
     <string name="title_advanced_nav_options">Tampilkan pilihan menu navigasi</string>
+    <string name="title_advanced_nav_categories">Tampilkan kategori akun dalam menu navigasi</string>
     <string name="title_advanced_nav_pin">Pin menu navigasi</string>
     <string name="title_advanced_nav_hide_title">Sembunyikan pilihan menu navigasi?</string>
     <string name="title_advanced_nav_hide_message">Anda dapat mengaktifkan ulang pilihan tersebut di pengaturan layar</string>
     <string name="title_advanced_nav_message_count">Tampilkan jumlah pesan yang tersimpan secara lokal di menu navigasi</string>
     <string name="title_advanced_nav_unseen_drafts">Tampilkan jumlah draf yang belum dibaca di menu navigasi</string>
+    <string name="title_advanced_nav_pinned_count">Tampilkan jumlah pesan yang belum dibaca dalam menu navigasi yang disematkan</string>
     <string name="title_advanced_startup">Tampilkan pada layar terkunci</string>
     <string name="title_advanced_cards">Pakai gaya kartu seperti gaya tabel</string>
     <string name="title_advanced_cards_beige">Gunakan latar belakang krem sewaktu menggunakan gaya kartu (hanya mode tema terang)</string>
