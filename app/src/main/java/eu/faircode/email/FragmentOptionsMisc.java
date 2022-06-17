@@ -238,7 +238,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "setup_reminder", "setup_advanced",
             "signature_images_hint",
             "gmail_checked",
-            "eml_auto_confirm"
+            "eml_auto_confirm",
+            "open_with_pkg", "open_with_tabs"
     };
 
     @Override
