@@ -4,6 +4,11 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### 1.1921 - 2022-06-17
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1920 - 2022-06-16
 
 * Fixed double back to exit
