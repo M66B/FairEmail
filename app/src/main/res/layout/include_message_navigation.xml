@@ -456,6 +456,19 @@
         app:layout_constraintTop_toBottomOf="@id/workaround" />
 
     <TextView
+        android:id="@+id/tvDecrypt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingVertical="6dp"
+        android:text="@string/title_padlock"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvReformatted" />
+
+    <TextView
         android:id="@+id/tvSignedData"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -466,5 +479,5 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvReformatted" />
+        app:layout_constraintTop_toBottomOf="@id/tvDecrypt" />
 </androidx.constraintlayout.widget.ConstraintLayout>

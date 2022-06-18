@@ -463,6 +463,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibTools;
         private View vwEmpty;
         private TextView tvReformatted;
+        private TextView tvDecrypt;
         private TextView tvSignedData;
 
         private TextView tvBody;
@@ -879,6 +880,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibTools = vsBody.findViewById(R.id.ibTools);
             vwEmpty = vsBody.findViewById(R.id.vwEmpty);
             tvReformatted = vsBody.findViewById(R.id.tvReformatted);
+            tvDecrypt = vsBody.findViewById(R.id.tvDecrypt);
             tvSignedData = vsBody.findViewById(R.id.tvSignedData);
 
             tvBody = vsBody.findViewById(R.id.tvBody);
@@ -1698,6 +1700,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibTools.setVisibility(View.GONE);
             vwEmpty.setVisibility(View.GONE);
             tvReformatted.setVisibility(View.GONE);
+            tvDecrypt.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
 
             tvNoInternetBody.setVisibility(View.GONE);
@@ -1948,6 +1951,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibTools.setVisibility(View.GONE);
             vwEmpty.setVisibility(View.GONE);
             tvReformatted.setVisibility(View.GONE);
+            tvDecrypt.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
 
             // Message text
@@ -2541,12 +2545,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibImages.setTooltipText(ibImages.getContentDescription());
 
             if (message.isEncrypted() && !message.isUnlocked()) {
-                SpannableStringBuilder ssb = new SpannableStringBuilderEx("...");
-                ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
-                tvBody.setText(ssb);
-                tvBody.setVisibility(View.VISIBLE);
+                tvBody.setVisibility(View.GONE);
                 wvBody.setVisibility(View.GONE);
-                bindExtras(message);
             } else {
                 if (show_full) {
                     // Create web view
@@ -2946,6 +2946,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibImages.setVisibility(has_images && !(show_full && always_images) ? View.VISIBLE : View.INVISIBLE);
 
                     boolean verifiable = message.isVerifiable();
+                    boolean encrypted = message.isEncrypted() || args.getBoolean("inline_encrypted");
                     boolean unlocked = message.isUnlocked();
 
                     // Show AMP
@@ -2959,17 +2960,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ? R.drawable.twotone_lock_24 : R.drawable.twotone_lock_open_24);
                     ibDecrypt.setImageTintList(ColorStateList.valueOf(unlocked
                             ? colorControlNormal : colorAccent));
-                    ibDecrypt.setVisibility(!EntityFolder.OUTBOX.equals(message.folderType) &&
-                            (args.getBoolean("inline_encrypted") || message.isEncrypted())
+                    ibDecrypt.setVisibility(encrypted &&
+                            !EntityFolder.OUTBOX.equals(message.folderType)
                             ? View.VISIBLE : View.GONE);
 
                     boolean reformatted_hint = prefs.getBoolean("reformatted_hint", true);
                     tvReformatted.setVisibility(reformatted_hint ? View.VISIBLE : View.GONE);
 
                     boolean signed_data = args.getBoolean("signed_data");
+                    tvDecrypt.setVisibility(encrypted && !unlocked ? View.VISIBLE : View.GONE);
                     tvSignedData.setVisibility(signed_data ? View.VISIBLE : View.GONE);
 
-                    if (!message.isEncrypted() || message.isUnlocked()) {
+                    if (!encrypted || unlocked) {
                         if (show_full) {
                             ((WebViewEx) wvBody).setOnPageLoaded(new Runnable() {
                                 @Override
@@ -3009,7 +3011,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 }
                             });
                         }
-                    }
+                    } else
+                        bindExtras(message);
 
                     if (scroll)
                         properties.scrollTo(getAdapterPosition(), 0);
