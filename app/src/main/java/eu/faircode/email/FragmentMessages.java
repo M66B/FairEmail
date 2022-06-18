@@ -6167,6 +6167,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (viewType == AdapterMessage.ViewType.THREAD) {
                 if (handleThreadActions(messages, null, null))
                     return;
+
+                List<Long> ids = values.get("expanded");
+                if (ids != null)
+                    for (long id : ids) {
+                        boolean found = false;
+                        for (TupleMessageEx message : messages)
+                            if (message != null && message.id.equals(id)) {
+                                found = true;
+                                break;
+                            }
+                        if (!found)
+                            ids.remove(id);
+                    }
             } else {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 boolean autoscroll = prefs.getBoolean("autoscroll", false);
