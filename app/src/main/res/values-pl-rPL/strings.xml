@@ -554,7 +554,6 @@
     <string name="title_advanced_unseen_ignored">Liczba powiadomień odpowiada liczbie nowych wiadomości</string>
     <string name="title_advanced_notify_background">Pokaż powiadomienia tylko, gdy pracuje w tle</string>
     <string name="title_advanced_notify_known">Pokaż powiadomienia tylko dla kontaktów</string>
-    <string name="title_advanced_notify_suppress_in_call">Wycisz powiadomienia podczas połączenia</string>
     <string name="title_advanced_notify_summary">Pokaż tylko podsumowanie</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_preview_all">Podgląd całego tekstu</string>
@@ -733,7 +732,6 @@
     <string name="title_advanced_safe_browsing_hint">Serwer Google wie, które adresy są wyszukiwane</string>
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
     <string name="title_advanced_notify_action_hint">Wyświetlone zostaną co najwyżej trzy akcje</string>
-    <string name="title_advanced_notify_suppress_hint">Wyciszone powiadomienia nie będą wyświetlane ponownie później</string>
     <string name="title_advanced_notify_remove_hint">Powiadomienia o nowych wiadomościach będą zawsze usuwane po przesunięciu i oznaczeniu wiadomości jako przeczytane</string>
     <string name="title_advanced_notify_manage_hint">Dotknij nazwę kanału, aby ustawić właściwości kanału</string>
     <string name="title_advanced_notify_manage_default_hint">Aby ustawić domyślny dźwięk, itp.</string>
@@ -1282,6 +1280,7 @@
     <string name="title_alternative_html">Pokaż HTML</string>
     <string name="title_no_openpgp">Nie znaleziono OpenKeychain</string>
     <string name="title_user_interaction">Przenoszenie do OpenKeychain</string>
+    <string name="title_padlock">Użyj kłódki, aby odszyfrować wiadomość</string>
     <string name="title_signed_data">Sprawdź podpis, aby wyświetlić tekst wiadomości</string>
     <string name="title_not_encrypted">Wiadomość nie jest podpisana lub zaszyfrowana</string>
     <string name="title_no_sign_key">Nie wybrano klucza podpisu</string>

@@ -367,7 +367,6 @@
     <string name="title_advanced_notifications">알림 관리</string>
     <string name="title_advanced_notifications_default">기본 채널</string>
     <string name="title_advanced_notifications_newest_first">새 알림을 먼저 표시</string>
-    <string name="title_advanced_notify_suppress_in_call">통화 중 알림 차단</string>
     <string name="title_advanced_notify_actions">알림 동작</string>
     <string name="title_advanced_notify_action_trash">삭제</string>
     <string name="title_advanced_notify_action_delete">제거</string>

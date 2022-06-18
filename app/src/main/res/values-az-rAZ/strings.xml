@@ -533,7 +533,6 @@
     <string name="title_advanced_unseen_ignored">Yeni mesajların sayı ilə bildiriş sayının uyğun gəlməsinə icazə ver</string>
     <string name="title_advanced_notify_background">Bildirişləri yalnız arxaplanda olanda göstər</string>
     <string name="title_advanced_notify_known">Yalnız əlaqələr üçün bildirişləri göstər</string>
-    <string name="title_advanced_notify_suppress_in_call">Zəng edərkən bildirişləri əngəllə</string>
     <string name="title_advanced_notify_summary">Yalnız icmal bildirişini göstər</string>
     <string name="title_advanced_notify_preview">Bildirişlərdə mesaja önbaxışı göstər</string>
     <string name="title_advanced_notify_preview_all">Mətnin hamısına önbaxış</string>
@@ -712,7 +711,6 @@
     <string name="title_advanced_safe_browsing_hint">Google serveri, hansı ünvanların axtarıldığını bilir</string>
     <string name="title_advanced_badge_hint">Yalnız dəstəklənən başladıcılarda əlçatandır</string>
     <string name="title_advanced_notify_action_hint">Ən çox üç əməliyyat göstəriləcək</string>
-    <string name="title_advanced_notify_suppress_hint">Əngəllənmiş bildirişlər daha sonra təkrar göstərilməyəcək</string>
     <string name="title_advanced_notify_remove_hint">Yeni mesaj bildirişləri, sürüşdürüləndə və oxundu kimi işarələnəndə həmişə silənəcək</string>
     <string name="title_advanced_notify_manage_hint">Kanal xüsusiyyətlərini tənzimləmək üçün kanal adına toxunun</string>
     <string name="title_advanced_notify_manage_default_hint">İlkin səsi tənzimləmək üçün və s.</string>

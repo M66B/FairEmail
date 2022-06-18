@@ -521,7 +521,6 @@
     <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
     <string name="title_advanced_notify_background">仅在处于后台时显示通知</string>
     <string name="title_advanced_notify_known">仅显示联系人通知</string>
-    <string name="title_advanced_notify_suppress_in_call">呼叫时禁止通知</string>
     <string name="title_advanced_notify_summary">仅显示摘要通知</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_preview_all">预览所有文本</string>
@@ -700,7 +699,6 @@
     <string name="title_advanced_safe_browsing_hint">Google 服务器知道被查找的地址</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
-    <string name="title_advanced_notify_suppress_hint">以后不会再显示被禁止的通知</string>
     <string name="title_advanced_notify_remove_hint">滑走或标为已读时将总会移除新消息通知</string>
     <string name="title_advanced_notify_manage_hint">点击频道名称来设置频道属性</string>
     <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>

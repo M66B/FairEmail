@@ -554,7 +554,6 @@
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
     <string name="title_advanced_notify_background">Показывать уведомления только в фоновом режиме</string>
     <string name="title_advanced_notify_known">Показывать уведомления только для контактов</string>
-    <string name="title_advanced_notify_suppress_in_call">Скрывать уведомления при вызове</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_preview_all">Предпросмотр всего текста</string>
@@ -734,7 +733,6 @@
     <string name="title_advanced_safe_browsing_hint">Сервер Google знает, какие адреса запрашиваются</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых рабочих столах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
-    <string name="title_advanced_notify_suppress_hint">Скрытые уведомления не будут отображаться в дальнейшем</string>
     <string name="title_advanced_notify_remove_hint">Уведомления о новых о сообщениях всегда будут удаляться при смахивании сообщения и пометке о прочтении</string>
     <string name="title_advanced_notify_manage_hint">Нажмите на название канала, чтобы установить его свойства</string>
     <string name="title_advanced_notify_manage_default_hint">Для установки звука по умолчанию и т.д.</string>
@@ -1285,6 +1283,7 @@
     <string name="title_alternative_html">Показать HTML</string>
     <string name="title_no_openpgp">OpenKeychain не найдено</string>
     <string name="title_user_interaction">Перенос в OpenKeychain</string>
+    <string name="title_padlock">Использовать замок для расшифровки сообщения</string>
     <string name="title_signed_data">Проверить подпись, чтобы показать текст сообщения</string>
     <string name="title_not_encrypted">Сообщение не подписано и не зашифровано</string>
     <string name="title_no_sign_key">Ключ подписи не выбран</string>

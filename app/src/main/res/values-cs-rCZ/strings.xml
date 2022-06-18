@@ -178,12 +178,14 @@
     <string name="title_setup_accounts">Účty</string>
     <string name="title_setup_identities">Identity</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
+    <string name="title_setup_inbound">Pouze příchozí e-maily (e-mail nelze odeslat)</string>
     <string name="title_setup_pop3">POP3 účet</string>
     <string name="title_setup_oauth_permission">Poskytovatel e-mailu schválil OAuth pouze pro Google Play a GitHub verzi</string>
     <string name="title_setup_gmail_support">Autorizace účtů Google bude fungovat pouze v Google Play a GitHub verzi, protože Android kontroluje digitální podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
     <string name="title_setup_gmail_drafts">Není-li složka s koncepty přístupná skrze IMAP, lze to v Gmailu napravit v nastavení štítků</string>
+    <string name="title_setup_gmail_password">Chci autorizovat účet s pomocí hesla namísto účtu v zařízení</string>
     <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
     <string name="title_setup_oauth_update">Znovu autorizovat existující účet (jinak vytvořit nový účet)</string>
@@ -209,6 +211,8 @@
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
     <string name="title_setup_permissions_explanation">Oprávnění pro přístup ke kontaktům je vyžadováno pro zobrazování kontaktních informací a navrhování kontaktů</string>
+    <string name="title_setup_permissions_notify">Zobrazení upozornění na nové zprávy (volitelně)</string>
+    <string name="title_setup_permissions_notify_explanation">Pro zobrazení upozornění na nové zprávy ve stavovém řádku jsou vyžadována oprávnění</string>
     <string name="title_setup_permission_why">Jaká oprávnění jsou potřebná a proč?</string>
     <string name="title_setup_permission_import_contacts">Jak mohu importovat kontakty?</string>
     <string name="title_setup_doze">Zakázat optimalizace výdrže baterie</string>
@@ -232,6 +236,7 @@
     <string name="title_setup_still">Zbývá dokončit</string>
     <string name="title_setup_error">Chyba</string>
     <string name="title_setup_pop">Použít POP3 (nedoporučeno)</string>
+    <string name="title_setup_recent">Použijte položku \'recent\' pro více e-mailových klientů</string>
     <string name="title_setup_configuring">Probíhá konfigurace účtu &#8230;</string>
     <string name="title_setup_app_password">Možná budete muset použít heslo aplikace</string>
     <string name="title_setup_extra">Další</string>
@@ -481,6 +486,7 @@
     <string name="title_advanced_message_text_zoom2">Výchozí zvětšení textu zprávy: %1$s %%</string>
     <string name="title_advanced_overview_mode">Přizpůsobit zobrazení původních zpráv šířce obrazovky</string>
     <string name="title_advanced_override_width">Zakázat pevné šířky v originálních zprávách</string>
+    <string name="title_advanced_hyphenation">Použít automatický rozdělovník</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
     <string name="title_advanced_monospaced">Automaticky použít neproporcionální písmo pro text zprávy</string>
     <string name="title_advanced_monospaced_pre">Použít neproporcionální písmo pro předformátovaný text</string>
@@ -548,6 +554,7 @@
     <string name="title_advanced_unseen_ignored">Počet oznámení bude odpovídat počtu nových zpráv</string>
     <string name="title_advanced_notify_background">Zobrazovat oznámení pouze při běhu na pozadí</string>
     <string name="title_advanced_notify_known">Zobrazit oznámení pouze pro kontakty</string>
+    <string name="title_advanced_notify_suppress_in_call" comment="title_advanced_notify_suppress_in_call&#10;&#10;Title of option which will delay new message notifications until after hanging up">Zpoždění upozornění během hovoru</string>
     <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_notify_preview_all">Náhled na celý text</string>
@@ -1268,10 +1275,13 @@
     <string name="title_encrypt">Šifrovat</string>
     <string name="title_decrypt">Dešifrovat</string>
     <string name="title_resync">Znovu synchronizovat</string>
+    <string name="title_charset">Kódování</string>
+    <string name="title_charset_auto">Automaticky</string>
     <string name="title_alternative_text">Zobrazit pouze prostý text</string>
     <string name="title_alternative_html">Zobrazit HTML</string>
     <string name="title_no_openpgp">OpenKeychain nenalezena</string>
     <string name="title_user_interaction">Přenášení do OpenKeychain</string>
+    <string name="title_padlock">K dešifrování zprávy použijte zámek</string>
     <string name="title_signed_data">Ověřit podpis pro zobrazení textu zprávy</string>
     <string name="title_not_encrypted">Zpráva není podepsána ani šifrována</string>
     <string name="title_no_sign_key">Nebyl vybrán žádný podpisový klíč</string>
@@ -1590,6 +1600,7 @@
     <string name="title_hint_folder_actions">Dlouze podržet složku pro možnosti, např. přidání složky do navigačního menu pro rychlý přístup</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_airplane">Režim Letadlo je zapnutý</string>
+    <string name="title_hint_notification">Oznámení jsou vypnuta</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (je-li k dispozici); Akce tažením lze změnit v nastavení účtu</string>
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>

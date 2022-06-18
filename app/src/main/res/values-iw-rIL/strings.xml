@@ -549,7 +549,6 @@
     <string name="title_advanced_unseen_ignored">לאפשר למספר ההודעות החדשות להיות תואם למספר ההתראות</string>
     <string name="title_advanced_notify_background">להציג התראות כאשר במצב רקע בלבד</string>
     <string name="title_advanced_notify_known">הצגת התראות לאנשי קשר בלבד</string>
-    <string name="title_advanced_notify_suppress_in_call">לדחות התראות בעת שיחה</string>
     <string name="title_advanced_notify_summary">הצגת התראות תקציר בלבד</string>
     <string name="title_advanced_notify_preview">תצוגה מקדימה של ההודעות בהתראות</string>
     <string name="title_advanced_notify_preview_all">תצוגה מקדימה של כל הטקסט</string>
@@ -728,7 +727,6 @@
     <string name="title_advanced_safe_browsing_hint">השרת של Google יודע אחר אילו כתובות מחפשים</string>
     <string name="title_advanced_badge_hint">זמין רק במשגרים נתמכים</string>
     <string name="title_advanced_notify_action_hint">תוצגנה שלוש פעולות לכל היותר</string>
-    <string name="title_advanced_notify_suppress_hint">התראות שנדחו לא תופענה עוד בהמשך</string>
     <string name="title_advanced_notify_remove_hint">התראות על הודעות חשבות תמיד תוסרנה עם החלקה כלפי חוץ ועם סימון הודעות כנקראו</string>
     <string name="title_advanced_notify_manage_hint">יש לגעת בשם הערוץ כדי להגדיר את מאפייניו</string>
     <string name="title_advanced_notify_manage_default_hint">כדי להגדיר את צלילי בררת המחדל וכו׳</string>
@@ -1280,6 +1278,7 @@
     <string name="title_alternative_html">הצגת HTML</string>
     <string name="title_no_openpgp">OpenKeychain לא נמצא</string>
     <string name="title_user_interaction">מועבר ל־OpenKeychain</string>
+    <string name="title_padlock">המנעול משמש לפענוח ההודעה</string>
     <string name="title_signed_data">אימות החתימה כדי להציג את טקסט ההודעה</string>
     <string name="title_not_encrypted">ההודעה אינה חתומה או מוצפנת</string>
     <string name="title_no_sign_key">לא נבחר מפתח חתימה</string>

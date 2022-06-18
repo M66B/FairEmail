@@ -237,7 +237,6 @@
     <string name="title_advanced_folder_nav">ଗୋଟେ ବାର୍ତ୍ତା ତାଲିକାରୁ ସର୍ବଦା ଫୋଲ୍ଡର ତାଲିକାକୁ ଫେରିବା</string>
     <string name="title_advanced_swipe_reply">ପ୍ରତ୍ୟୁତ୍ତର ଦେବା ପାଇଁ ସମ୍ପ୍ରସାରିତ ବାର୍ତ୍ତାଗୁଡ଼ିକ ଡାହାଣକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_default_snooze">ଡିଫଲ୍ଟ ସ୍ନୁଜ୍/ବିଳମ୍ବ ସମୟ</string>
-    <string name="title_advanced_notify_suppress_in_call">କଲ୍ ବେଳେ ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକ ଦମନ କରିବା</string>
     <string name="title_advanced_notify_preview_all">ସମସ୍ତ ପାଠ୍ୟକୁ ପୂର୍ବାବଲୋକନ କରନ୍ତୁ</string>
     <string name="title_advanced_notify_action_trash">ଆବର୍ଜନା</string>
     <string name="title_advanced_notify_action_delete">ବିଲୋପ</string>
@@ -284,7 +283,6 @@
     <string name="title_advanced_override_width_hint">ଏହା ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ସଂକୀର୍ଣ୍ଣ କରିପାରେ, କିନ୍ତୁ ଅଦ୍ଭୁତ ଦେଖାଯାଏ</string>
     <string name="title_advanced_expandall_hint">ଏକାଧିକ ବାର୍ତ୍ତା ସମ୍ପ୍ରସାରଣ ହୋଇଥିବା ବେଳେ ଉତ୍ତର ବଟନ୍ ଦେଖାଯିବ ନାହିଁ କାରଣ ବଟନ୍ କେଉଁ ବାର୍ତ୍ତା ପାଇଁ ପ୍ରଯୁଜ୍ୟ ତାହା ଅସ୍ପଷ୍ଟ ଅଟେ</string>
     <string name="title_advanced_display_autolock_nav_hint">%1$d ସେକେଣ୍ଡର ଅନୁଗ୍ରହ ସମୟ ରହିବ</string>
-    <string name="title_advanced_notify_suppress_hint">ଦମନ ହୋଇଥିବା ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକ ପରେ ଆଉ ଦେଖାଯିବ ନାହିଁ</string>
     <string name="title_advanced_move_hint">ଆକାଉଣ୍ଟ୍ ସେଟିଂସରେ ଲକ୍ଷ୍ୟସ୍ଥଳ ଫୋଲ୍ଡର୍ ବିନ୍ୟାସ କରାଯାଇପାରିବ</string>
     <string name="title_advanced_notify_no_grouping">ଏହି ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣ ବିଜ୍ଞପ୍ତି ଗୋଷ୍ଠୀକରଣକୁ ସମର୍ଥନ କରେନାହିଁ</string>
     <string name="title_advanced_english_hint">ଏହା ଆପ୍ କୁ ପୁନଃଆରମ୍ଭ କରିବ</string>

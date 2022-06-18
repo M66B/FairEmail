@@ -531,7 +531,7 @@
     <string name="title_advanced_unseen_ignored">Anzahl der neuen Nachrichten mit der Anzahl der Benachrichtigungen übereinstimmen lassen</string>
     <string name="title_advanced_notify_background">Benachrichtigungen nur anzeigen, wenn FairEmail im Hintergrund ausgeführt wird</string>
     <string name="title_advanced_notify_known">Benachrichtigungen nur für Kontakte anzeigen</string>
-    <string name="title_advanced_notify_suppress_in_call">Benachrichtigungen beim Telefonieren unterdrücken</string>
+    <string name="title_advanced_notify_suppress_in_call" comment="title_advanced_notify_suppress_in_call&#10;&#10;Title of option which will delay new message notifications until after hanging up">Benachrichtigungen bis zur Beendigung eines Telefonats zurückstellen</string>
     <string name="title_advanced_notify_summary">Nur zusammenfassende Benachrichtigung anzeigen</string>
     <string name="title_advanced_notify_preview">Nachrichtenvorschau in den Benachrichtigungen anzeigen</string>
     <string name="title_advanced_notify_preview_all">Vorschau des ganzen Textes</string>
@@ -710,7 +710,6 @@
     <string name="title_advanced_safe_browsing_hint">Der Google-Server erfährt, welche Adressen nachgeschlagen werden</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
-    <string name="title_advanced_notify_suppress_hint">Unterdrückte Benachrichtigungen werden später nicht mehr angezeigt</string>
     <string name="title_advanced_notify_remove_hint">Benachrichtigung über neue Nachrichten werden immer entfernt, wenn sie weggewischt werden oder wenn Nachrichten als gelesen markiert werden</string>
     <string name="title_advanced_notify_manage_hint">Auf den Kanalnamen tippen, um die Kanaleigenschaften festzulegen</string>
     <string name="title_advanced_notify_manage_default_hint">Zum Einstellen des Standardtons usw.</string>
@@ -1258,6 +1257,7 @@
     <string name="title_alternative_html">HTML anzeigen</string>
     <string name="title_no_openpgp">OpenKeychain wurde nicht gefunden</string>
     <string name="title_user_interaction">Übertragung zu OpenKeychain</string>
+    <string name="title_padlock">Nutzen Sie das Vorhängeschloss, um die Nachricht zu entschlüsseln</string>
     <string name="title_signed_data">Überprüfen Sie die Signatur, um den Nachrichtentext anzuzeigen</string>
     <string name="title_not_encrypted">Nachricht ist nicht signiert oder verschlüsselt</string>
     <string name="title_no_sign_key">Kein Signaturschlüssel ausgewählt</string>

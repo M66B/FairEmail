@@ -531,7 +531,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_unseen_ignored">Laat het aantal nieuwe berichten overeenkomen met het aantal meldingen</string>
     <string name="title_advanced_notify_background">Toon meldingen alleen wanneer op de achtergrond</string>
     <string name="title_advanced_notify_known">Toon alleen meldingen voor contacten</string>
-    <string name="title_advanced_notify_suppress_in_call">Meldingen onderdrukken wanneer aan het bellen</string>
+    <string name="title_advanced_notify_suppress_in_call" comment="title_advanced_notify_suppress_in_call&#10;&#10;Title of option which will delay new message notifications until after hanging up">Meldingen uitstellen tijdens een gesprek</string>
     <string name="title_advanced_notify_summary">Toon alleen melding met een samenvatting</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_preview_all">Voorbeeld van alle tekst</string>
@@ -710,7 +710,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_safe_browsing_hint">De Google-server weet welke adressen worden opgezocht</string>
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_notify_action_hint">Er worden maximaal drie acties getoond</string>
-    <string name="title_advanced_notify_suppress_hint">Onderdrukte meldingen worden later niet meer getoond</string>
     <string name="title_advanced_notify_remove_hint">Meldingen van nieuwe berichten worden altijd verwijderd als ze worden weggeveegd en als berichten worden gemarkeerd als gelezen</string>
     <string name="title_advanced_notify_manage_hint">Tik op de kanaalnaam om de kanaaleigenschappen in te stellen</string>
     <string name="title_advanced_notify_manage_default_hint">Om het standaardgeluid, etc in te stellen</string>
@@ -1258,6 +1257,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_alternative_html">Toon HTML</string>
     <string name="title_no_openpgp">OpenKeychain niet gevonden</string>
     <string name="title_user_interaction">Overdragen naar OpenKeychain</string>
+    <string name="title_padlock">Gebruik het hangslot om het bericht te ontsleutelen</string>
     <string name="title_signed_data">Verifieer de handtekening om de berichttekst te tonen</string>
     <string name="title_not_encrypted">Bericht is niet ondertekend of versleuteld</string>
     <string name="title_no_sign_key">Geen tekensleutel geselecteerd</string>

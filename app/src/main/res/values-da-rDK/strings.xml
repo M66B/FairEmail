@@ -533,7 +533,6 @@
     <string name="title_advanced_unseen_ignored">Lad antal Nye beskeder matche notifikationsantal</string>
     <string name="title_advanced_notify_background">Vis kun notifikationer i baggrundstilstand</string>
     <string name="title_advanced_notify_known">Vis kun notifikationer for kontakter</string>
-    <string name="title_advanced_notify_suppress_in_call">Undertryk notifikationer under opkald</string>
     <string name="title_advanced_notify_summary">Vis kun resuménotifikationer</string>
     <string name="title_advanced_notify_preview">Beskedforhåndsvisning i notifikationer</string>
     <string name="title_advanced_notify_preview_all">Forhåndsvis al tekst</string>
@@ -713,7 +712,6 @@
     <string name="title_advanced_safe_browsing_hint">Google-serveren ved, hvilke adresser, som bliver slået op</string>
     <string name="title_advanced_badge_hint">Kun tilgængelig i understøttede launchers</string>
     <string name="title_advanced_notify_action_hint">Maksimalt tre handlinger vises</string>
-    <string name="title_advanced_notify_suppress_hint">Disse notifikationerne undertrykkes også under nye opkald</string>
     <string name="title_advanced_notify_remove_hint">Nye beskednotifikationer fjernes altid, når de stryges væk samt ved markering af beskeder som læste</string>
     <string name="title_advanced_notify_manage_hint">Tryk på kanalnavnet for at opsætte kanalegenskaberne</string>
     <string name="title_advanced_notify_manage_default_hint">For at opsætte standardlyd etc.</string>

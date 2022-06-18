@@ -532,7 +532,6 @@
     <string name="title_advanced_unseen_ignored">Να αντιστοιχεί ο αριθμός των νέων μηνυμάτων με τον αριθμό των ειδοποιήσεων</string>
     <string name="title_advanced_notify_background">Προβολή ειδοποιήσεων μόνο στο υπόβαθρο</string>
     <string name="title_advanced_notify_known">Προβολή ειδοποιήσεων μόνο για τις επαφές</string>
-    <string name="title_advanced_notify_suppress_in_call">Καταστολή ειδοποιήσεων κατά τις κλήσεις</string>
     <string name="title_advanced_notify_summary">Προβολή μόνο μιας συνοπτικής ειδοποίησης</string>
     <string name="title_advanced_notify_preview">Προβολή μιας προεπισκόπησης του μηνύματος στις ειδοποιήσεις</string>
     <string name="title_advanced_notify_preview_all">Προεπισκόπηση ολόκληρου του κειμένου</string>
@@ -709,7 +708,6 @@
     <string name="title_advanced_safe_browsing_hint">Ο διακομιστής Google γνωρίζει ποιες διευθύνσεις αναζητούνται</string>
     <string name="title_advanced_badge_hint">Διαθέσιμο μόνο σε launcher που υποστηρίζονται</string>
     <string name="title_advanced_notify_action_hint">Θα προβάλλονται, το μέγιστο, τρεις ενέργειες</string>
-    <string name="title_advanced_notify_suppress_hint">Οι κατεσταλμένες ειδοποιήσεις δεν θα προβληθούν ξανά αργότερα</string>
     <string name="title_advanced_notify_remove_hint">Οι ειδοποιήσεις νέων μηνυμάτων θα απομακρύνονται πάντα, όταν σαρώνονται με το δάχτυλο και όταν τα μηνύματα επισημαίνονται ως αναγνωσμένα</string>
     <string name="title_advanced_notify_manage_hint">Πατήστε στο όνομα ενός καναλιού για να ορίσετε τις ιδιότητές του</string>
     <string name="title_advanced_notify_manage_default_hint">Για τον ορισμό του προκαθορισμένου ήχου, κτλ</string>
@@ -1258,6 +1256,7 @@
     <string name="title_alternative_html">Προβολή HTML</string>
     <string name="title_no_openpgp">Δεν βρέθηκε OpenKeychain</string>
     <string name="title_user_interaction">Μεταφορά προς OpenKeychain</string>
+    <string name="title_padlock">Χρησιμοποιήστε το λουκέτο για να αποκρυπτογραφήσετε το μήνυμα</string>
     <string name="title_signed_data">Επαλήθευση της υπογραφής για προβολή του κειμένου του μηνύματος</string>
     <string name="title_not_encrypted">Το μήνυμα δεν είναι υπογεγραμμένο ή κρυπτογραφημένο</string>
     <string name="title_no_sign_key">Κανένα κλειδί υπογραφής δεν επιλέχθηκε</string>

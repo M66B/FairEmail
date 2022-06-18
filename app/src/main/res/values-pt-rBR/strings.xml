@@ -532,7 +532,6 @@
     <string name="title_advanced_unseen_ignored">Permitir que o número de novas mensagens corresponda ao número de notificações</string>
     <string name="title_advanced_notify_background">Mostrar notificações apenas em segundo plano</string>
     <string name="title_advanced_notify_known">Mostrar notificações apenas para contatos</string>
-    <string name="title_advanced_notify_suppress_in_call">Suprimir notificações ao ligar</string>
     <string name="title_advanced_notify_summary">Mostrar apenas notificação de resumo</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_notify_preview_all">Pré-visualizar todo o texto</string>
@@ -711,7 +710,6 @@
     <string name="title_advanced_safe_browsing_hint">O servidor do Google reconhece quais endereços estão sendo procurados</string>
     <string name="title_advanced_badge_hint">Disponível somente em lançadores suportados</string>
     <string name="title_advanced_notify_action_hint">No máximo três ações serão mostradas</string>
-    <string name="title_advanced_notify_suppress_hint">As notificações suprimidas não serão exibidas novamente mais tarde</string>
     <string name="title_advanced_notify_remove_hint">Novas notificações de mensagem serão sempre removidas ao serem arrastadas e ao marcar mensagens lidas</string>
     <string name="title_advanced_notify_manage_hint">Toque no nome do canal para definir as propriedades do canal</string>
     <string name="title_advanced_notify_manage_default_hint">Para definir o som padrão, etc</string>
@@ -1261,6 +1259,7 @@
     <string name="title_alternative_html">Mostrar HTML</string>
     <string name="title_no_openpgp">OpenKeychain não encontrado</string>
     <string name="title_user_interaction">Transferindo para o OpenKeychain</string>
+    <string name="title_padlock">Usar o cadeado para descriptografar a mensagem</string>
     <string name="title_signed_data">Verifique a assinatura para mostrar o texto da mensagem</string>
     <string name="title_not_encrypted">Mensagem não assinada ou criptografada</string>
     <string name="title_no_sign_key">Nenhuma assinatura da chave selecionada</string>

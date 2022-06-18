@@ -529,7 +529,6 @@
     <string name="title_advanced_unseen_ignored">Låt antalet nya meddelanden matcha antalet aviseringar</string>
     <string name="title_advanced_notify_background">Visa aviseringar endast i bakgrunden</string>
     <string name="title_advanced_notify_known">Visa endast aviseringar för kontakter</string>
-    <string name="title_advanced_notify_suppress_in_call">Förhindra aviseringar vid samtal</string>
     <string name="title_advanced_notify_summary">Visa enbart en sammanställning av aviseringar</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_preview_all">Förhandsgranska all text</string>
@@ -708,7 +707,6 @@
     <string name="title_advanced_safe_browsing_hint">Googles server vet vilka adresser som det görs uppslag för</string>
     <string name="title_advanced_badge_hint">Endast tillgänglig på programstartare som stöds</string>
     <string name="title_advanced_notify_action_hint">Högst tre åtgärder kommer att visas</string>
-    <string name="title_advanced_notify_suppress_hint">Ignorerade aviseringar visas inte igen senare</string>
     <string name="title_advanced_notify_remove_hint">Nya meddelandeaviseringar kommer alltid att tas bort när de sveps bort och när meddelanden markeras som lästa</string>
     <string name="title_advanced_notify_manage_hint">Tryck på kanalens namn för att ange kanalens egenskaper</string>
     <string name="title_advanced_notify_manage_default_hint">För att ställa in standardljudet, etc</string>

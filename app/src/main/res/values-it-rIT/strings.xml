@@ -533,7 +533,7 @@
     <string name="title_advanced_unseen_ignored">Lascia che il numero di nuovi messaggi corrisponda al numero di notifiche</string>
     <string name="title_advanced_notify_background">Mostra le notifiche solo quando in background</string>
     <string name="title_advanced_notify_known">Mostra le notifiche solo per i contatti</string>
-    <string name="title_advanced_notify_suppress_in_call">Sopprimi le notifiche durante la chiamata</string>
+    <string name="title_advanced_notify_suppress_in_call" comment="title_advanced_notify_suppress_in_call&#10;&#10;Title of option which will delay new message notifications until after hanging up">Ritarda le notifiche durante una chiamata</string>
     <string name="title_advanced_notify_summary">Mostra solo le notifiche del riepilogo</string>
     <string name="title_advanced_notify_preview">Mostra l\'anteprima del messaggio nelle notifiche</string>
     <string name="title_advanced_notify_preview_all">Visualizza tutto il testo</string>
@@ -713,7 +713,6 @@
     <string name="title_advanced_safe_browsing_hint">Il server di Google sa quali indirizzi sono cercati</string>
     <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
     <string name="title_advanced_notify_action_hint">Saranno mostrate al massimo tre azioni</string>
-    <string name="title_advanced_notify_suppress_hint">Le notifiche soppresse non saranno più mostrate di nuovo</string>
     <string name="title_advanced_notify_remove_hint">Le notifiche dei nuovi messaggi saranno sempre rimosse scorrendo via e contrassegnando i messaggi come letti</string>
     <string name="title_advanced_notify_manage_hint">Tocca sul nome del canale per impostare le proprietà del canale</string>
     <string name="title_advanced_notify_manage_default_hint">Per impostare il suono predefinito, etc.</string>
@@ -1265,6 +1264,7 @@
     <string name="title_alternative_html">Mostra HTML</string>
     <string name="title_no_openpgp">OpenKeychain non trovato</string>
     <string name="title_user_interaction">Trasferimento a OpenKeychain</string>
+    <string name="title_padlock">Usa il lucchetto per decifrare il messaggio</string>
     <string name="title_signed_data">Verifica la firma per mostrare il testo del messaggio</string>
     <string name="title_not_encrypted">Il messaggio non è firmato o crittografato</string>
     <string name="title_no_sign_key">Nessuna chiave di firma selezionata</string>

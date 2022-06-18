@@ -522,7 +522,6 @@
     <string name="title_advanced_unseen_ignored">新着メッセージの数を通知の数と一致させる</string>
     <string name="title_advanced_notify_background">バックグラウンドのときのみ通知を表示</string>
     <string name="title_advanced_notify_known">連絡先のみ通知を表示</string>
-    <string name="title_advanced_notify_suppress_in_call">通話中は通知しない</string>
     <string name="title_advanced_notify_summary">まとめ通知のみ表示</string>
     <string name="title_advanced_notify_preview">通知にメッセージプレビューを表示</string>
     <string name="title_advanced_notify_preview_all">全文をプレビュー</string>
@@ -701,7 +700,6 @@
     <string name="title_advanced_safe_browsing_hint">Google のサーバーは、どのアドレスが検索されたか知ることができます</string>
     <string name="title_advanced_badge_hint">サポートしているランチャーでのみ利用できます</string>
     <string name="title_advanced_notify_action_hint">最大 3 つのアクションを表示できます</string>
-    <string name="title_advanced_notify_suppress_hint">抑止された通知が後から表示されることはありません</string>
     <string name="title_advanced_notify_remove_hint">新着メッセージ通知はこの設定に関係なく、スワイプしたり、メッセージを既読にすると削除されます</string>
     <string name="title_advanced_notify_manage_hint">チャンネル名をタップして、チャンネルのプロパティを設定します</string>
     <string name="title_advanced_notify_manage_default_hint">デフォルトの音などを設定します</string>
