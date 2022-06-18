@@ -7155,6 +7155,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     EntityAttachment.SMIME_SIGNED_DATA
             });
             db.message().setMessageEncrypt(message.id, message.ui_encrypt);
+            db.message().setMessageRaw(message.id, false);
             db.message().setMessageRevision(message.id, null);
             db.message().setMessageStored(message.id, new Date().getTime());
 
@@ -8051,22 +8052,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             }
                                         }
 
-                                        boolean debug = prefs.getBoolean("debug", false);
-                                        if (debug) {
-                                            EntityAttachment eml = new EntityAttachment();
-                                            eml.message = id;
-                                            eml.sequence = remotes.size() + 1;
-                                            eml.name = "body.eml";
-                                            eml.type = "message/rfc822";
-                                            eml.disposition = Part.ATTACHMENT;
-                                            eml.size = null;
-                                            eml.progress = 0;
-                                            eml.id = db.attachment().insertAttachment(eml);
-                                            File file = eml.getFile(context);
-                                            Helper.copy(plain, file);
-                                            db.attachment().setDownloaded(eml.id, file.length());
-                                        }
-
                                         checkPep(message, remotes, context);
 
                                         encrypt = parts.getEncryption();
@@ -8075,11 +8060,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);
 
-                                        if (BuildConfig.DEBUG) {
-                                            File raw = message.getRawFile(context);
-                                            Helper.copy(plain, raw);
-                                            db.message().setMessageRaw(message.id, true);
-                                        }
+                                        File raw = message.getRawFile(context);
+                                        Helper.copy(plain, raw);
+                                        db.message().setMessageRaw(message.id, true);
 
                                         db.setTransactionSuccessful();
                                     } catch (SQLiteConstraintException ex) {
