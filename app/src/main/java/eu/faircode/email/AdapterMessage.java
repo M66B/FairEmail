@@ -2440,6 +2440,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void evalProperties(TupleMessageEx message) {
+            if (message.show_full) {
+                properties.setValue("full", message.id, hasWebView);
+                properties.setValue("full_asked", message.id, hasWebView);
+            }
+            if (message.show_images) {
+                properties.setValue("images", message.id, true);
+                properties.setValue("images_asked", message.id, true);
+            }
+
             if (message.from != null)
                 for (Address sender : message.from) {
                     String from = ((InternetAddress) sender).getAddress();
@@ -2447,14 +2456,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         continue;
                     int at = from.indexOf('@');
                     String domain = (at < 0 ? from : from.substring(at));
-                    if (message.show_full ||
-                            prefs.getBoolean(from + ".show_full", false) ||
+                    if (prefs.getBoolean(from + ".show_full", false) ||
                             prefs.getBoolean(domain + ".show_full", false)) {
                         properties.setValue("full", message.id, hasWebView);
                         properties.setValue("full_asked", message.id, hasWebView);
                     }
-                    if (message.show_images ||
-                            prefs.getBoolean(from + ".show_images", false) ||
+                    if (prefs.getBoolean(from + ".show_images", false) ||
                             prefs.getBoolean(domain + ".show_images", false)) {
                         properties.setValue("images", message.id, true);
                         properties.setValue("images_asked", message.id, true);
