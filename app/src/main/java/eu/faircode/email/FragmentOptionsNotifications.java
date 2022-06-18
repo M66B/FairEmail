@@ -468,6 +468,9 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
+        swNotifySuppressInCall.setVisibility(
+                Build.VERSION.SDK_INT < Build.VERSION_CODES.S
+                        ? View.GONE : View.VISIBLE);
         swNotifySuppressInCall.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {

@@ -37,8 +37,6 @@ import java.util.Objects;
 
 public class TwoStateOwner implements LifecycleOwner {
     private String name;
-    private boolean enabled = true;
-    private Boolean start = null;
     private boolean owned = true;
     private Object condition;
     private LifecycleRegistry registry;
@@ -79,27 +77,6 @@ public class TwoStateOwner implements LifecycleOwner {
         });
     }
 
-    void setEnabled(boolean value) {
-        Log.i("Owner enable=" + value + " state=" + registry.getCurrentState().name());
-        if (enabled && !value) {
-            boolean started = registry.getCurrentState().isAtLeast(Lifecycle.State.STARTED);
-            stop();
-            start = (started ? true : null);
-            Log.i("Owner stopped start=" + start);
-        }
-
-        enabled = value;
-
-        if (enabled && start != null) {
-            Log.i("Owner restore start=" + start);
-            if (start)
-                start();
-            else
-                stop();
-            start = null;
-        }
-    }
-
     private void create() {
         if (owned) {
             // Initialize
@@ -122,21 +99,15 @@ public class TwoStateOwner implements LifecycleOwner {
     }
 
     void start() {
-        if (enabled) {
-            Lifecycle.State state = registry.getCurrentState();
-            if (!state.equals(Lifecycle.State.STARTED) && !state.equals(Lifecycle.State.DESTROYED))
-                setState(Lifecycle.State.STARTED);
-        } else
-            start = true;
+        Lifecycle.State state = registry.getCurrentState();
+        if (!state.equals(Lifecycle.State.STARTED) && !state.equals(Lifecycle.State.DESTROYED))
+            setState(Lifecycle.State.STARTED);
     }
 
     void stop() {
-        if (enabled) {
-            Lifecycle.State state = registry.getCurrentState();
-            if (!state.equals(Lifecycle.State.CREATED) && !state.equals(Lifecycle.State.DESTROYED))
-                setState(Lifecycle.State.CREATED);
-        } else
-            start = false;
+        Lifecycle.State state = registry.getCurrentState();
+        if (!state.equals(Lifecycle.State.CREATED) && !state.equals(Lifecycle.State.DESTROYED))
+            setState(Lifecycle.State.CREATED);
     }
 
     void restart() {

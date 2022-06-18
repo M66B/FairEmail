@@ -678,39 +678,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             };
         });
 
-        final TwoStateOwner cowner = new TwoStateOwner(this, "liveUnseenNotify");
-
-        if (BuildConfig.DEBUG &&
-                Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            // Widgets will be disabled too
-            AudioManager am = Helper.getSystemService(this, AudioManager.class);
-
-            AudioManager.OnModeChangedListener listener = new AudioManager.OnModeChangedListener() {
-                @Override
-                public void onModeChanged(int mode) {
-                    boolean inCall = MediaPlayerHelper.isInCall(mode);
-                    boolean notify_suppress_in_call = prefs.getBoolean("notify_suppress_in_call", false);
-                    Log.i("Owner inCall=" + inCall + " suppress=" + notify_suppress_in_call);
-                    cowner.setEnabled(!notify_suppress_in_call || !inCall);
-                }
-            };
-            listener.onModeChanged(am.getMode()); // Init
-
-            getLifecycle().addObserver(new LifecycleObserver() {
-                private boolean registered = false;
-
-                @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
-                public void onStateChanged() {
-                    if (ServiceSynchronize.this.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                        am.addOnModeChangedListener(executor, listener);
-                        registered = true;
-                    } else if (registered) {
-                        am.removeOnModeChangedListener(listener);
-                        registered = false;
-                    }
-                }
-            });
-        }
+        final TwoStateOwner cowner = new TwoStateOwner(this, "liveSynchronizing");
 
         db.folder().liveSynchronizing().observe(this, new Observer<List<TupleFolderSync>>() {
             private List<Long> lastAccounts = new ArrayList<>();
@@ -784,15 +752,79 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
         });
 
+        // New message notifications batching
+
         Core.NotificationData notificationData = new Core.NotificationData(this);
 
+        MutableLiveData<List<TupleMessageEx>> mutableUnseenNotify = new MutableLiveData<>();
         db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
+            @Override
+            public void onChanged(List<TupleMessageEx> messages) {
+                mutableUnseenNotify.setValue(messages);
+            }
+        });
+
+        final TwoStateOwner mowner = new TwoStateOwner(this, "mutableUnseenNotify");
+
+        AudioManager am = Helper.getSystemService(this, AudioManager.class);
+        if (am == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            mowner.start();
+            Log.i("Audio mode legacy");
+        } else {
+            AudioManager.OnModeChangedListener listener = new AudioManager.OnModeChangedListener() {
+                @Override
+                public void onModeChanged(int mode) {
+                    getMainHandler().post(new RunnableEx("AudioMode") {
+                        @Override
+                        public void delegate() {
+                            boolean incall = MediaPlayerHelper.isInCall(mode);
+                            boolean suppress = prefs.getBoolean("notify_suppress_in_call", false);
+                            boolean start = (!suppress || !incall);
+                            Log.i("Audio mode start=" + start +
+                                    " incall=" + incall +
+                                    " suppress=" + suppress);
+                            if (start)
+                                mowner.start();
+                            else
+                                mowner.stop();
+                        }
+                    });
+                }
+            };
+            listener.onModeChanged(am.getMode()); // Init
+
+            getLifecycle().addObserver(new LifecycleObserver() {
+                private boolean registered = false;
+
+                @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+                public void onStateChanged() {
+                    try {
+                        if (ServiceSynchronize.this.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                            if (!registered) {
+                                am.addOnModeChangedListener(executor, listener);
+                                registered = true;
+                            }
+                        } else {
+                            if (registered) {
+                                am.removeOnModeChangedListener(listener);
+                                registered = false;
+                            }
+                        }
+                        Log.i("Audio mode registered=" + registered);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+        }
+
+        mutableUnseenNotify.observe(mowner, new Observer<List<TupleMessageEx>>() {
             private final ExecutorService executor =
                     Helper.getBackgroundExecutor(1, "notify");
 
             @Override
             public void onChanged(final List<TupleMessageEx> messages) {
-                executor.submit(new RunnableEx("liveUnseenNotify") {
+                executor.submit(new RunnableEx("mutableUnseenNotify") {
                     @Override
                     public void delegate() {
                         try {
@@ -808,6 +840,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 });
             }
         });
+
+        // Message count widgets
 
         db.message().liveWidgetUnseen(null).observe(cowner, new Observer<List<TupleMessageStats>>() {
             private Integer lastCount = null;
@@ -873,6 +907,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 }
             }
         });
+
+        // Message list widgets
 
         db.message().liveWidgetUnified().observe(cowner, new Observer<List<TupleMessageWidgetCount>>() {
             private List<TupleMessageWidgetCount> last = null;

@@ -549,19 +549,6 @@
                     app:layout_constraintTop_toBottomOf="@id/tvNotifyKnownPro"
                     app:switchPadding="12dp" />
 
-                <TextView
-                    android:id="@+id/tvNotifySuppressHint"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_notify_suppress_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swNotifySuppressInCall" />
-
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNotifySummary"
                     android:layout_width="0dp"
@@ -570,7 +557,7 @@
                     android:text="@string/title_advanced_notify_summary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvNotifySuppressHint"
+                    app:layout_constraintTop_toBottomOf="@id/swNotifySuppressInCall"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
