@@ -354,6 +354,18 @@ public class EntityMessage implements Serializable {
                 EntityMessage.SMIME_SIGNENCRYPT.equals(ui_encrypt));
     }
 
+    boolean isVerifiable(){
+        return (EntityMessage.PGP_SIGNONLY.equals(encrypt) ||
+                EntityMessage.SMIME_SIGNONLY.equals(encrypt));
+    }
+
+    boolean isUnlocked() {
+        return (EntityMessage.PGP_SIGNENCRYPT.equals(ui_encrypt) &&
+                !EntityMessage.PGP_SIGNENCRYPT.equals(encrypt)) ||
+                (EntityMessage.SMIME_SIGNENCRYPT.equals(ui_encrypt) &&
+                        !EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt));
+    }
+
     String[] checkFromDomain(Context context) {
         return MessageHelper.equalRootDomain(context, from, smtp_from);
     }

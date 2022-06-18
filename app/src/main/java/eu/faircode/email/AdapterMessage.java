@@ -2540,15 +2540,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 ibImages.setTooltipText(ibImages.getContentDescription());
 
-            if (show_full) {
-                // Create web view
-                WebViewEx webView;
-                if (wvBody instanceof WebView)
-                    webView = (WebViewEx) wvBody;
-                else {
-                    try {
-                        webView = new WebViewEx(context);
-                    } catch (Throwable ex) {
+            if (message.isEncrypted() && !message.isUnlocked()) {
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx("...");
+                ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
+                tvBody.setText(ssb);
+                tvBody.setVisibility(View.VISIBLE);
+                wvBody.setVisibility(View.GONE);
+                bindExtras(message);
+            } else {
+                if (show_full) {
+                    // Create web view
+                    WebViewEx webView;
+                    if (wvBody instanceof WebView)
+                        webView = (WebViewEx) wvBody;
+                    else {
+                        try {
+                            webView = new WebViewEx(context);
+                        } catch (Throwable ex) {
                         /*
                             android.util.AndroidRuntimeException: java.lang.reflect.InvocationTargetException
                                     at android.webkit.WebViewFactory.getProvider(WebViewFactory.java:270)
@@ -2565,83 +2573,84 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     at android.webkit.WebView.<init>(WebView.java:574)
                                     at android.webkit.WebView.<init>(WebView.java:564)
                          */
-                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
-                        return;
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
+                            return;
+                        }
+
+                        webView.setId(wvBody.getId());
+
+                        ConstraintLayout cl = (ConstraintLayout) vsBody;
+                        cl.removeView(wvBody);
+                        cl.addView(webView, wvBody.getLayoutParams());
+                        cl.setPadding(
+                                wvBody.getPaddingLeft(), wvBody.getPaddingTop(),
+                                wvBody.getPaddingRight(), wvBody.getPaddingBottom());
+
+                        wvBody = webView;
                     }
 
-                    webView.setId(wvBody.getId());
+                    webView.setMinimumHeight(dp60);
 
-                    ConstraintLayout cl = (ConstraintLayout) vsBody;
-                    cl.removeView(wvBody);
-                    cl.addView(webView, wvBody.getLayoutParams());
-                    cl.setPadding(
-                            wvBody.getPaddingLeft(), wvBody.getPaddingTop(),
-                            wvBody.getPaddingRight(), wvBody.getPaddingBottom());
-
-                    wvBody = webView;
-                }
-
-                webView.setMinimumHeight(dp60);
-
-                int maxHeight = (rv == null ? 0 : rv.getHeight() - rv.getPaddingTop());
-                webView.init(height, maxHeight, size, position, force_light,
-                        new WebViewEx.IWebView() {
-                            @Override
-                            public void onSizeChanged(int w, int h, int ow, int oh) {
-                                if (h > dp60)
-                                    properties.setHeight(message.id, h);
-                            }
-
-                            @Override
-                            public void onScaleChanged(float newScale) {
-                                properties.setSize(message.id, newScale);
-                            }
-
-                            @Override
-                            public void onScrollChange(int scrollX, int scrollY) {
-                                properties.setPosition(message.id, new Pair<Integer, Integer>(scrollX, scrollY));
-                            }
-
-                            @Override
-                            public void onOverScrolled(int scrollX, int scrollY, int dx, int dy, boolean clampedX, boolean clampedY) {
-                                if (clampedY && ((WebViewEx) wvBody).isZoomedY()) {
-                                    boolean flinged = false;
-                                    try {
-                                        if (!webview_legacy && rv != null)
-                                            flinged = rv.fling(dx * 10, dy * 10);
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
-                                    }
-                                    if (!flinged)
-                                        properties.scrollBy(dx, dy);
+                    int maxHeight = (rv == null ? 0 : rv.getHeight() - rv.getPaddingTop());
+                    webView.init(height, maxHeight, size, position, force_light,
+                            new WebViewEx.IWebView() {
+                                @Override
+                                public void onSizeChanged(int w, int h, int ow, int oh) {
+                                    if (h > dp60)
+                                        properties.setHeight(message.id, h);
                                 }
-                            }
 
-                            @Override
-                            public boolean onOpenLink(String url) {
-                                if (parentFragment == null)
-                                    return false;
+                                @Override
+                                public void onScaleChanged(float newScale) {
+                                    properties.setSize(message.id, newScale);
+                                }
 
-                                Uri uri = Uri.parse(url);
-                                return ViewHolder.this.onOpenLink(uri, null, false);
-                            }
-                        });
-                webView.setImages(show_images, inline);
-                webView.setOnTouchListener(touchListener);
+                                @Override
+                                public void onScrollChange(int scrollX, int scrollY) {
+                                    properties.setPosition(message.id, new Pair<Integer, Integer>(scrollX, scrollY));
+                                }
 
-                tvBody.setVisibility(View.GONE);
-                wvBody.setVisibility(View.VISIBLE);
-            } else {
-                tvBody.setMinHeight(height);
+                                @Override
+                                public void onOverScrolled(int scrollX, int scrollY, int dx, int dy, boolean clampedX, boolean clampedY) {
+                                    if (clampedY && ((WebViewEx) wvBody).isZoomedY()) {
+                                        boolean flinged = false;
+                                        try {
+                                            if (!webview_legacy && rv != null)
+                                                flinged = rv.fling(dx * 10, dy * 10);
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                        }
+                                        if (!flinged)
+                                            properties.scrollBy(dx, dy);
+                                    }
+                                }
 
-                if (size != 0)
-                    tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+                                @Override
+                                public boolean onOpenLink(String url) {
+                                    if (parentFragment == null)
+                                        return false;
 
-                tvBody.setTextColor(contrast ? textColorPrimary : colorRead);
-                tvBody.setTypeface(StyleHelper.getTypeface(display_font, context));
+                                    Uri uri = Uri.parse(url);
+                                    return ViewHolder.this.onOpenLink(uri, null, false);
+                                }
+                            });
+                    webView.setImages(show_images, inline);
+                    webView.setOnTouchListener(touchListener);
 
-                tvBody.setVisibility(View.VISIBLE);
-                wvBody.setVisibility(View.GONE);
+                    tvBody.setVisibility(View.GONE);
+                    wvBody.setVisibility(View.VISIBLE);
+                } else {
+                    tvBody.setMinHeight(height);
+
+                    if (size != 0)
+                        tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+
+                    tvBody.setTextColor(contrast ? textColorPrimary : colorRead);
+                    tvBody.setTypeface(StyleHelper.getTypeface(display_font, context));
+
+                    tvBody.setVisibility(View.VISIBLE);
+                    wvBody.setVisibility(View.GONE);
+                }
             }
 
             final Bundle args = new Bundle();
@@ -2936,13 +2945,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     // Show images
                     ibImages.setVisibility(has_images && !(show_full && always_images) ? View.VISIBLE : View.INVISIBLE);
 
-                    boolean verifyable = (EntityMessage.PGP_SIGNONLY.equals(message.encrypt) ||
-                            EntityMessage.SMIME_SIGNONLY.equals(message.encrypt));
-
-                    boolean unlocked = (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) &&
-                            !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) ||
-                            (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
-                                    !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt));
+                    boolean verifiable = message.isVerifiable();
+                    boolean unlocked = message.isUnlocked();
 
                     // Show AMP
                     boolean has_amp = args.getBoolean("has_amp");
@@ -2950,7 +2954,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ? View.VISIBLE : View.GONE);
 
                     // Show encrypt actions
-                    ibVerify.setVisibility(verifyable ? View.VISIBLE : View.GONE);
+                    ibVerify.setVisibility(verifiable ? View.VISIBLE : View.GONE);
                     ibDecrypt.setImageResource(unlocked
                             ? R.drawable.twotone_lock_24 : R.drawable.twotone_lock_open_24);
                     ibDecrypt.setImageTintList(ColorStateList.valueOf(unlocked
@@ -2965,44 +2969,46 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean signed_data = args.getBoolean("signed_data");
                     tvSignedData.setVisibility(signed_data ? View.VISIBLE : View.GONE);
 
-                    if (show_full) {
-                        ((WebViewEx) wvBody).setOnPageLoaded(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
-                                        bindConversationActions(message, args.getParcelable("actions"));
-                                    bindExtras(message);
+                    if (!message.isEncrypted() || message.isUnlocked()) {
+                        if (show_full) {
+                            ((WebViewEx) wvBody).setOnPageLoaded(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                                            bindConversationActions(message, args.getParcelable("actions"));
+                                        bindExtras(message);
 
-                                    cowner.start(); // Show attachments
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
+                                        cowner.start(); // Show attachments
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
                                 }
-                            }
-                        });
+                            });
 
-                        if (result == null)
-                            ((WebView) wvBody).loadDataWithBaseURL(null, "", "text/html", StandardCharsets.UTF_8.name(), null);
-                        else
-                            ((WebView) wvBody).loadDataWithBaseURL(null, (String) result, "text/html", StandardCharsets.UTF_8.name(), null);
-                    } else {
-                        tvBody.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    tvBody.setText((Spanned) result);
-                                    vwRipple.setVisibility(View.VISIBLE);
+                            if (result == null)
+                                ((WebView) wvBody).loadDataWithBaseURL(null, "", "text/html", StandardCharsets.UTF_8.name(), null);
+                            else
+                                ((WebView) wvBody).loadDataWithBaseURL(null, (String) result, "text/html", StandardCharsets.UTF_8.name(), null);
+                        } else {
+                            tvBody.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        tvBody.setText((Spanned) result);
+                                        vwRipple.setVisibility(View.VISIBLE);
 
-                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
-                                        bindConversationActions(message, args.getParcelable("actions"));
-                                    bindExtras(message);
+                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                                            bindConversationActions(message, args.getParcelable("actions"));
+                                        bindExtras(message);
 
-                                    cowner.start(); // Show attachments
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
+                                        cowner.start(); // Show attachments
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
 
                     if (scroll)
