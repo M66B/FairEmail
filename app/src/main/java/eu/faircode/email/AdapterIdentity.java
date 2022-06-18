@@ -223,6 +223,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             if (identity.sign_key != null || identity.sign_key_alias != null)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, order++, R.string.title_reset_sign_key);
 
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, order++, R.string.title_edit_properties);
+
             popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, order++, R.string.title_copy);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
 
@@ -238,6 +240,9 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                         return true;
                     } else if (itemId == R.string.title_reset_sign_key) {
                         onActionClearSignKey();
+                        return true;
+                    } else if (itemId == R.string.title_edit_properties) {
+                        onClick(view);
                         return true;
                     } else if (itemId == R.string.title_copy) {
                         onActionCopy();
