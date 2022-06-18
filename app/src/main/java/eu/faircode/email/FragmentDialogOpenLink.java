@@ -537,7 +537,14 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                                 }
                                 CharSequence label;
                                 try {
-                                    label = res.getString(ri.activityInfo.applicationInfo.labelRes);
+                                    if (ri.activityInfo.applicationInfo.labelRes == 0)
+                                        label = null;
+                                    else
+                                        label = res.getString(ri.activityInfo.applicationInfo.labelRes);
+                                    if (label == null)
+                                        Log.e("Missing label" +
+                                                " pkg=" + ri.activityInfo.packageName +
+                                                " res=" + ri.activityInfo.applicationInfo.labelRes);
                                 } catch (Throwable ex) {
                                     Log.w(ex);
                                     label = null;
