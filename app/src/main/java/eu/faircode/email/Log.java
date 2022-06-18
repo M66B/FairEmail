@@ -1865,6 +1865,30 @@ public class Log {
         sb.append(String.format("uid: %d\r\n", android.os.Process.myUid()));
         sb.append("\r\n");
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            try {
+                // https://developer.android.com/reference/android/app/ApplicationExitInfo
+                boolean exits = false;
+                long from = new Date().getTime() - 30 * 24 * 3600 * 1000L;
+                ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
+                List<ApplicationExitInfo> infos = am.getHistoricalProcessExitReasons(
+                        context.getPackageName(), 0, 100);
+                for (ApplicationExitInfo info : infos)
+                    if (info.getTimestamp() > from &&
+                            info.getImportance() >= ActivityManager.RunningAppProcessInfo.IMPORTANCE_GONE) {
+                        exits = true;
+                        sb.append(String.format("%s: %s\r\n",
+                                new Date(info.getTimestamp()),
+                                getExitReason(info.getReason())));
+                    }
+                if (!exits)
+                    sb.append("No crashes\r\n");
+                sb.append("\r\n");
+            } catch (Throwable ex) {
+                sb.append(ex).append("\r\n");
+            }
+        }
+
         int[] contacts = ContactInfo.getStats();
         sb.append(String.format("Contact lookup: %d cached: %d\r\n",
                 contacts[0], contacts[1]));
@@ -2751,13 +2775,13 @@ public class Log {
                         // https://developer.android.com/reference/android/app/ApplicationExitInfo
                         ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
                         List<ApplicationExitInfo> infos = am.getHistoricalProcessExitReasons(
-                                context.getPackageName(), 0, 20);
+                                context.getPackageName(), 0, 100);
                         for (ApplicationExitInfo info : infos)
-                            size += write(os, String.format("%s: %s %s/%s reason=%d status=%d importance=%d\r\n",
+                            size += write(os, String.format("%s: %s %s/%s reason=%s status=%d importance=%d\r\n",
                                     new Date(info.getTimestamp()), info.getDescription(),
                                     Helper.humanReadableByteCount(info.getPss() * 1024L),
                                     Helper.humanReadableByteCount(info.getRss() * 1024L),
-                                    info.getReason(), info.getStatus(), info.getReason()));
+                                    getExitReason(info.getReason()), info.getStatus(), info.getImportance()));
                     } catch (Throwable ex) {
                         size += write(os, String.format("%s\r\n", ex));
                     }
@@ -2845,6 +2869,41 @@ public class Log {
                 return "User/interaction";
             default:
                 return Integer.toString(type);
+        }
+    }
+
+    private static String getExitReason(int reason) {
+        switch (reason) {
+            case ApplicationExitInfo.REASON_UNKNOWN:
+                return "Unknown";
+            case ApplicationExitInfo.REASON_EXIT_SELF:
+                return "ExitSelf";
+            case ApplicationExitInfo.REASON_SIGNALED:
+                return "Signaled";
+            case ApplicationExitInfo.REASON_LOW_MEMORY:
+                return "LowMemory";
+            case ApplicationExitInfo.REASON_CRASH:
+                return "Crash";
+            case ApplicationExitInfo.REASON_CRASH_NATIVE:
+                return "CrashNative";
+            case ApplicationExitInfo.REASON_ANR:
+                return "ANR";
+            case ApplicationExitInfo.REASON_INITIALIZATION_FAILURE:
+                return "InitializationFailure";
+            case ApplicationExitInfo.REASON_PERMISSION_CHANGE:
+                return "PermissionChange";
+            case ApplicationExitInfo.REASON_EXCESSIVE_RESOURCE_USAGE:
+                return "ExcessiveResourceUsage";
+            case ApplicationExitInfo.REASON_USER_REQUESTED:
+                return "UserRequested";
+            case ApplicationExitInfo.REASON_USER_STOPPED:
+                return "UserStopped";
+            case ApplicationExitInfo.REASON_DEPENDENCY_DIED:
+                return "DependencyDied";
+            case ApplicationExitInfo.REASON_OTHER:
+                return "Other";
+            default:
+                return Integer.toString(reason);
         }
     }
 
