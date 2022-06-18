@@ -32,6 +32,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
@@ -2677,6 +2678,20 @@ public class Log {
                 } catch (Throwable ex) {
                     size += write(os, String.format("%s\r\n", ex));
                 }
+                size += write(os, "\r\n");
+
+                ApplicationInfo ai = context.getApplicationInfo();
+                if (ai != null)
+                    size += write(os, String.format("Source: %s\r\n public: %s\r\n",
+                            ai.sourceDir, ai.publicSourceDir));
+                size += write(os, String.format("Files: %s\r\n  external: %s\r\n",
+                        context.getFilesDir(), context.getExternalFilesDir(null)));
+                size += write(os, String.format("Cache: %s\r\n  external: %s\n",
+                        context.getCacheDir(), context.getExternalCacheDir()));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                    size += write(os, String.format("Data: %s\r\n", context.getDataDir().getAbsolutePath()));
+                size += write(os, String.format("Database: %s\r\n",
+                        context.getDatabasePath(DB.DB_NAME)));
                 size += write(os, "\r\n");
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
