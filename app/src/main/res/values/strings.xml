@@ -1245,6 +1245,7 @@
     <string name="title_archive">Archive</string>
     <string name="title_reply">Reply</string>
     <string name="title_reply_to_sender">Reply to sender</string>
+    <string name="title_reply_to_recipient">Reply to recipient</string>
     <string name="title_reply_to_all">Reply to all</string>
     <string name="title_reply_list">Reply to list</string>
     <string name="title_reply_receipt">Send read receipt</string>
