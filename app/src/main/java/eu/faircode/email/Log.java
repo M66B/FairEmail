@@ -2156,6 +2156,14 @@ public class Log {
                 boolean ng = Helper.isInstalled(context, "eu.faircode.netguard");
                 boolean tc = Helper.isInstalled(context, "net.kollnig.missioncontrol");
 
+                Integer bucket = null;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                    try {
+                        UsageStatsManager usm = Helper.getSystemService(context, UsageStatsManager.class);
+                        bucket = usm.getAppStandbyBucket();
+                    } catch (Throwable ignored) {
+                    }
+
                 size += write(os, "enabled=" + enabled + (enabled ? "" : " !!!") +
                         " interval=" + pollInterval + "\r\n" +
                         "metered=" + metered + (metered ? "" : " !!!") +
@@ -2163,6 +2171,9 @@ public class Log {
                         " vpn=" + vpn + (vpn ? " !!!" : "") +
                         " ng=" + ng + " tc=" + tc + "\r\n" +
                         "optimizing=" + (ignoring == null ? null : !ignoring) + (Boolean.FALSE.equals(ignoring) ? " !!!" : "") +
+                        " bucket=" +
+                        (bucket == null ? null : Helper.getStandbyBucketName(bucket)) +
+                        (bucket != null && bucket > UsageStatsManager.STANDBY_BUCKET_ACTIVE ? " !!!" : "") +
                         " canSchedule=" + canSchedule + (canSchedule ? "" : " !!!") +
                         " auto_optimize=" + auto_optimize + (auto_optimize ? " !!!" : "") + "\r\n" +
                         "accounts=" + accounts.size() +
