@@ -3256,6 +3256,17 @@ public class FragmentCompose extends FragmentBase {
             }
         }
 
+        // media-uri-list=[content://media/external_primary/images/media/nnn] (ArrayList)
+        // media-file-list=[/storage/emulated/0/Pictures/...]
+        // (ArrayList) media-id-list=[nnn] (ArrayList)
+        if (result.size() == 0 && data.hasExtra("media-uri-list"))
+            try {
+                List<Uri> uris = data.getParcelableArrayListExtra("media-uri-list");
+                result.addAll(uris);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
         return result;
     }
 
