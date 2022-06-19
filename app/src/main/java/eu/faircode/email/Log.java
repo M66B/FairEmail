@@ -1879,7 +1879,7 @@ public class Log {
                         exits = true;
                         sb.append(String.format("%s: %s\r\n",
                                 new Date(info.getTimestamp()),
-                                getExitReason(info.getReason())));
+                                Helper.getExitReason(info.getReason())));
                     }
                 if (!exits)
                     sb.append("No crashes\r\n");
@@ -2792,7 +2792,7 @@ public class Log {
                                     new Date(info.getTimestamp()), info.getDescription(),
                                     Helper.humanReadableByteCount(info.getPss() * 1024L),
                                     Helper.humanReadableByteCount(info.getRss() * 1024L),
-                                    getExitReason(info.getReason()), info.getStatus(), info.getImportance()));
+                                    Helper.getExitReason(info.getReason()), info.getStatus(), info.getImportance()));
                     } catch (Throwable ex) {
                         size += write(os, String.format("%s\r\n", ex));
                     }
@@ -2809,7 +2809,7 @@ public class Log {
                             events.getNextEvent(event);
                             size += write(os, String.format("%s %s %s b=%d s=%d\r\n",
                                     new Date(event.getTimeStamp()),
-                                    getEventType(event.getEventType()),
+                                    Helper.getEventType(event.getEventType()),
                                     event.getClassName(),
                                     event.getAppStandbyBucket(),
                                     event.getShortcutId()));
@@ -2843,78 +2843,6 @@ public class Log {
             db.attachment().setDownloaded(attachment.id, size);
         } catch (Throwable ex) {
             Log.e(ex);
-        }
-    }
-
-    private static String getEventType(int type) {
-        switch (type) {
-            case UsageEvents.Event.ACTIVITY_PAUSED:
-                return "Activity/paused";
-            case UsageEvents.Event.ACTIVITY_RESUMED:
-                return "Activity/resumed";
-            case UsageEvents.Event.ACTIVITY_STOPPED:
-                return "Activity/stopped";
-            case UsageEvents.Event.CONFIGURATION_CHANGE:
-                return "Configuration/change";
-            case UsageEvents.Event.DEVICE_SHUTDOWN:
-                return "Device/shutdown";
-            case UsageEvents.Event.DEVICE_STARTUP:
-                return "Device/startup";
-            case UsageEvents.Event.FOREGROUND_SERVICE_START:
-                return "Foreground/start";
-            case UsageEvents.Event.FOREGROUND_SERVICE_STOP:
-                return "Foreground/stop";
-            case UsageEvents.Event.KEYGUARD_HIDDEN:
-                return "Keyguard/hidden";
-            case UsageEvents.Event.KEYGUARD_SHOWN:
-                return "Keyguard/shown";
-            case UsageEvents.Event.SCREEN_INTERACTIVE:
-                return "Screen/interactive";
-            case UsageEvents.Event.SCREEN_NON_INTERACTIVE:
-                return "Screen/non-interactive";
-            case UsageEvents.Event.SHORTCUT_INVOCATION:
-                return "Shortcut/invocation";
-            case UsageEvents.Event.STANDBY_BUCKET_CHANGED:
-                return "Bucket/changed";
-            case UsageEvents.Event.USER_INTERACTION:
-                return "User/interaction";
-            default:
-                return Integer.toString(type);
-        }
-    }
-
-    private static String getExitReason(int reason) {
-        switch (reason) {
-            case ApplicationExitInfo.REASON_UNKNOWN:
-                return "Unknown";
-            case ApplicationExitInfo.REASON_EXIT_SELF:
-                return "ExitSelf";
-            case ApplicationExitInfo.REASON_SIGNALED:
-                return "Signaled";
-            case ApplicationExitInfo.REASON_LOW_MEMORY:
-                return "LowMemory";
-            case ApplicationExitInfo.REASON_CRASH:
-                return "Crash";
-            case ApplicationExitInfo.REASON_CRASH_NATIVE:
-                return "CrashNative";
-            case ApplicationExitInfo.REASON_ANR:
-                return "ANR";
-            case ApplicationExitInfo.REASON_INITIALIZATION_FAILURE:
-                return "InitializationFailure";
-            case ApplicationExitInfo.REASON_PERMISSION_CHANGE:
-                return "PermissionChange";
-            case ApplicationExitInfo.REASON_EXCESSIVE_RESOURCE_USAGE:
-                return "ExcessiveResourceUsage";
-            case ApplicationExitInfo.REASON_USER_REQUESTED:
-                return "UserRequested";
-            case ApplicationExitInfo.REASON_USER_STOPPED:
-                return "UserStopped";
-            case ApplicationExitInfo.REASON_DEPENDENCY_DIED:
-                return "DependencyDied";
-            case ApplicationExitInfo.REASON_OTHER:
-                return "Other";
-            default:
-                return Integer.toString(reason);
         }
     }
 
