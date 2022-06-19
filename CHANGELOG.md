@@ -4,6 +4,11 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### 1.1924 - 2022-06-19
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1923 - 2022-06-18
 
 * Added option to delay notifications while on a call (Android 12 or later)
