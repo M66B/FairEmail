@@ -131,7 +131,8 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                 if (spans.length == 1) {
                                     int start = edit.getSpanStart(spans[0]);
                                     int end = edit.getSpanEnd(spans[0]);
-                                    edit.delete(start, end);
+                                    if (backspace > start)
+                                        edit.delete(start, end);
                                 }
                             } catch (Throwable ex) {
                                 Log.e(ex);
