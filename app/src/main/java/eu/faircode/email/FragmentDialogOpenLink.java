@@ -551,7 +551,12 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                                 }
                                 if (icon != null)
                                     icon.setBounds(0, 0, dp24, dp24);
-                                pkgs.add(new Package(icon, label, ri.activityInfo.packageName, false));
+                                pkgs.add(new Package(
+                                        icon,
+                                        label,
+                                        ri.activityInfo.packageName,
+                                        false,
+                                        ri.activityInfo.applicationInfo.enabled));
 
                                 try {
                                     Intent serviceIntent = new Intent();
@@ -560,7 +565,12 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                                     boolean tabs = (pm.resolveService(serviceIntent, 0) != null);
                                     Log.i("Open with pkg=" + ri.activityInfo.packageName + " tabs=" + tabs);
                                     if (tabs)
-                                        pkgs.add(new Package(icon, label, ri.activityInfo.packageName, true));
+                                        pkgs.add(new Package(
+                                                icon,
+                                                label,
+                                                ri.activityInfo.packageName,
+                                                true,
+                                                ri.activityInfo.applicationInfo.enabled));
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                 }
@@ -714,12 +724,14 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         private CharSequence title;
         private String name;
         private boolean tabs;
+        private boolean enabled;
 
-        public Package(Drawable icon, CharSequence title, String name, boolean tabs) {
+        public Package(Drawable icon, CharSequence title, String name, boolean tabs, boolean enabled) {
             this.icon = icon;
             this.title = title;
             this.name = name;
             this.tabs = tabs;
+            this.enabled = enabled;
         }
     }
 
@@ -758,6 +770,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
             Package pkg = pkgs.get(position);
             if (pkg != null) {
+                view.setAlpha(pkg.enabled ? 1f : Helper.LOW_LIGHT);
                 text1.setText(pkg.title == null ? pkg.name : pkg.title.toString());
                 text1.setCompoundDrawablesRelative(
                         pkg.icon == null ? browser : pkg.icon,
