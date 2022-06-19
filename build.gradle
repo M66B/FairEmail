@@ -13,8 +13,8 @@ buildscript {
         // https://mvnrepository.com/artifact/com.bugsnag/bugsnag-android-gradle-plugin
         classpath 'com.bugsnag:bugsnag-android-gradle-plugin:7.2.1'
         // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.6.21"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.7.0"
     }
 }
 
