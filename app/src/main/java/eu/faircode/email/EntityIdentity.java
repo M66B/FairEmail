@@ -106,6 +106,8 @@ public class EntityIdentity {
     @NonNull
     public Boolean unicode = false;
     @NonNull
+    public Boolean octetmime = false;
+    @NonNull
     public Boolean plain_only = false; // obsolete
     @NonNull
     public Boolean sign_default = false;
@@ -220,6 +222,7 @@ public class EntityIdentity {
         json.put("internal", internal);
 
         json.put("unicode", unicode);
+        json.put("octetmime", octetmime);
         // not plain_only
         json.put("sign_default", sign_default);
         json.put("encrypt_default", encrypt_default);
@@ -296,6 +299,9 @@ public class EntityIdentity {
 
         if (json.has("unicode"))
             identity.unicode = json.getBoolean("unicode");
+
+        if (json.has("octetmime"))
+            identity.octetmime = json.getBoolean("octetmime");
 
         if (json.has("sign_default"))
             identity.sign_default = json.getBoolean("sign_default");

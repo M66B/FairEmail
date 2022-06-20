@@ -315,6 +315,10 @@ public class EmailService implements AutoCloseable {
         properties.put("mail.mime.allowutf8", Boolean.toString(value));
     }
 
+    void set8BitMime(boolean value) {
+        properties.put("mail." + protocol + ".allow8bitmime", Boolean.toString(value));
+    }
+
     // https://tools.ietf.org/html/rfc3461
     void setDsnNotify(String what) {
         properties.put("mail." + protocol + ".dsn.notify", what);

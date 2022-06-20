@@ -123,6 +123,7 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbSignDefault;
     private CheckBox cbEncryptDefault;
     private CheckBox cbUnicode;
+    private CheckBox cbOctetMime;
     private EditText etMaxSize;
 
     private Button btnSave;
@@ -221,6 +222,7 @@ public class FragmentIdentity extends FragmentBase {
         cbSignDefault = view.findViewById(R.id.cbSignDefault);
         cbEncryptDefault = view.findViewById(R.id.cbEncryptDefault);
         cbUnicode = view.findViewById(R.id.cbUnicode);
+        cbOctetMime = view.findViewById(R.id.cbOctetMime);
         etMaxSize = view.findViewById(R.id.etMaxSize);
 
         btnSave = view.findViewById(R.id.btnSave);
@@ -666,6 +668,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("sign_default", cbSignDefault.isChecked());
         args.putBoolean("encrypt_default", cbEncryptDefault.isChecked());
         args.putBoolean("unicode", cbUnicode.isChecked());
+        args.putBoolean("octetmime",cbOctetMime.isChecked());
         args.putString("max_size", etMaxSize.getText().toString());
         args.putLong("account", account == null ? -1 : account.id);
         args.putString("host", etHost.getText().toString().trim().replace(" ", ""));
@@ -752,6 +755,7 @@ public class FragmentIdentity extends FragmentBase {
                 boolean sign_default = args.getBoolean("sign_default");
                 boolean encrypt_default = args.getBoolean("encrypt_default");
                 boolean unicode = args.getBoolean("unicode");
+                boolean octetmime = args.getBoolean("octetmime");
                 String max_size = args.getString("max_size");
 
                 boolean should = args.getBoolean("should");
@@ -907,6 +911,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.unicode, unicode))
                         return true;
+                    if (!Objects.equals(identity.octetmime, octetmime))
+                        return true;
                     if (user_max_size != null && !Objects.equals(identity.max_size, user_max_size))
                         return true;
                     if (identity.error != null && identity.synchronize)
@@ -1004,6 +1010,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.sign_default = sign_default;
                     identity.encrypt_default = encrypt_default;
                     identity.unicode = unicode;
+                    identity.octetmime = octetmime;
                     identity.sent_folder = null;
                     identity.sign_key = null;
                     identity.sign_key_alias = null;
@@ -1188,6 +1195,7 @@ public class FragmentIdentity extends FragmentBase {
                     cbSignDefault.setChecked(identity != null && identity.sign_default);
                     cbEncryptDefault.setChecked(identity != null && identity.encrypt_default);
                     cbUnicode.setChecked(identity != null && identity.unicode);
+                    cbOctetMime.setChecked(identity != null && identity.octetmime);
 
                     auth = (identity == null ? AUTH_TYPE_PASSWORD : identity.auth_type);
                     provider = (identity == null ? null : identity.provider);

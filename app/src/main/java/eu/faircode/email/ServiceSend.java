@@ -674,6 +674,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         try {
             iservice.setUseIp(ident.use_ip, ident.ehlo);
             iservice.setUnicode(ident.unicode);
+            iservice.set8BitMime(ident.octetmime);
 
             // 0=Read receipt
             // 1=Delivery receipt
