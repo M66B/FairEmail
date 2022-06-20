@@ -3150,10 +3150,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (context == null)
                     return;
 
-                final Address[] to =
-                        message.replySelf(data.identities, message.account)
-                                ? message.to
-                                : (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
+                boolean replySelf = message.replySelf(data.identities, message.account);
+                final Address[] to = replySelf
+                        ? message.to
+                        : (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
 
                 Address[] recipients = message.getAllRecipients(data.identities, message.account);
 
@@ -3199,7 +3199,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 popupMenu.getMenu().findItem(R.id.menu_resend).setEnabled(canResend);
                 popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(context));
 
-                popupMenu.getMenu().findItem(R.id.menu_reply_to_sender).setEnabled(message.content);
+                popupMenu.getMenu().findItem(R.id.menu_reply_to_sender)
+                        .setTitle(getString(replySelf ? R.string.title_reply_to_recipient : R.string.title_reply_to_sender))
+                        .setEnabled(message.content);
+
                 popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setEnabled(message.content);
                 popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(message.content);
                 popupMenu.getMenu().findItem(R.id.menu_forward_raw)
