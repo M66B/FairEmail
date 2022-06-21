@@ -69,6 +69,14 @@ public class TupleAccountNetworkState {
         return (this.networkState.isSuitable() && this.accountState.shouldRun(enabled));
     }
 
+    public int getOperations() {
+        boolean unmetered = jconditions.optBoolean("unmetered");
+        if (unmetered && !this.networkState.isUnmetered())
+            return 0;
+
+        return accountState.operations;
+    }
+
     @Override
     public boolean equals(@Nullable Object obj) {
         if (obj instanceof TupleAccountNetworkState) {
