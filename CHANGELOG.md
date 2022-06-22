@@ -4,6 +4,12 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### 1.1925 - 2022-06-22
+
+* Fixed crash in some situations
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1924 - 2022-06-19
 
 * Small improvements and minor bug fixes
