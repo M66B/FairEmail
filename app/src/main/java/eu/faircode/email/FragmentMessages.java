@@ -6173,7 +6173,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 List<Long> ids = values.get("expanded");
                 if (ids != null)
-                    for (long id : ids) {
+                    for (long id : new ArrayList<>(ids)) {
                         boolean found = false;
                         for (TupleMessageEx message : messages)
                             if (message != null && Objects.equals(message.id, id)) {
