@@ -273,6 +273,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     int accounts = 0;
                     int operations = 0;
                     boolean event = false;
+                    boolean runFts = true;
                     boolean runService = false;
                     for (TupleAccountNetworkState current : accountNetworkStates) {
                         Log.d("### evaluating " + current);
@@ -292,6 +293,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                         if (current.accountState.synchronize)
                             operations += current.accountState.operations;
+                        if (current.accountState.operations > 0 && current.canConnect())
+                            runFts = false;
 
                         long account = current.command.getLong("account", -1);
                         if (account > 0 && !current.accountState.id.equals(account))
@@ -410,7 +413,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     if (lastAccounts != accounts || lastOperations != operations) {
                         lastAccounts = accounts;
                         lastOperations = operations;
-                        if (operations == 0) {
+                        if (runFts) {
                             fts = true;
                             WorkerFts.init(ServiceSynchronize.this, false);
                         } else if (fts) {

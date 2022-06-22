@@ -61,9 +61,13 @@ public class TupleAccountNetworkState {
             this.enabled = false;
     }
 
-    public boolean canRun() {
+    public boolean canConnect() {
         boolean unmetered = jconditions.optBoolean("unmetered");
-        if (unmetered && !this.networkState.isUnmetered())
+        return (!unmetered || this.networkState.isUnmetered());
+    }
+
+    public boolean canRun() {
+        if (!canConnect())
             return false;
 
         return (this.networkState.isSuitable() && this.accountState.shouldRun(enabled));
