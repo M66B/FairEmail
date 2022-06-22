@@ -316,6 +316,7 @@ public class EmailService implements AutoCloseable {
     }
 
     void set8BitMime(boolean value) {
+        // https://datatracker.ietf.org/doc/html/rfc6532
         properties.put("mail." + protocol + ".allow8bitmime", Boolean.toString(value));
     }
 
