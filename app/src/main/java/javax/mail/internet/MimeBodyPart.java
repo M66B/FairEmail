@@ -78,8 +78,8 @@ public class MimeBodyPart extends BodyPart implements MimePart {
     private static final boolean ignoreMultipartEncoding =
 	PropUtil.getBooleanSystemProperty(
 	    "mail.mime.ignoremultipartencoding", true);
-    private static final boolean allowutf8 =
-	PropUtil.getBooleanSystemProperty("mail.mime.allowutf8", true);
+    //private static final boolean allowutf8 =
+	//PropUtil.getBooleanSystemProperty("mail.mime.allowutf8", true);
 
     // Paranoia:
     // allow this last minute change to be disabled if it causes problems
@@ -969,7 +969,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
     @Override
     public void writeTo(OutputStream os)
 				throws IOException, MessagingException {
-	writeTo(this, os, null);
+	writeTo(this, os, null, false);
     }
 
     /**
@@ -1620,7 +1620,7 @@ public class MimeBodyPart extends BodyPart implements MimePart {
 	part.removeHeader("Content-Transfer-Encoding");
     }
     
-    static void writeTo(MimePart part, OutputStream os, String[] ignoreList)
+    static void writeTo(MimePart part, OutputStream os, String[] ignoreList, boolean allowutf8)
 			throws IOException, MessagingException {
 
 	// see if we already have a LOS

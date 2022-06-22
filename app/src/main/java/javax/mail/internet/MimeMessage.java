@@ -1877,7 +1877,7 @@ public class MimeMessage extends Message implements MimePart {
 	    saveChanges();
 
 	if (modified) {
-	    MimeBodyPart.writeTo(this, os, ignoreList);
+	    MimeBodyPart.writeTo(this, os, ignoreList, allowutf8);
 	    return;
 	}
 
