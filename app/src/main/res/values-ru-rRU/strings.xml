@@ -554,7 +554,7 @@
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
     <string name="title_advanced_notify_background">Показывать уведомления только в фоновом режиме</string>
     <string name="title_advanced_notify_known">Показывать уведомления только для контактов</string>
-    <string name="title_advanced_notify_suppress_in_call" comment="title_advanced_notify_suppress_in_call&#10;&#10;Title of option which will delay new message notifications until after hanging up">Откладывать уведомления во время вызова</string>
+    <string name="title_advanced_notify_suppress_in_call">Откладывать уведомления во время вызова</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_preview_all">Предпросмотр всего текста</string>
@@ -1073,6 +1073,7 @@
     <string name="title_archive">Архив</string>
     <string name="title_reply">Ответить</string>
     <string name="title_reply_to_sender">Ответить отправителю</string>
+    <string name="title_reply_to_recipient">Ответить получателю</string>
     <string name="title_reply_to_all">Ответить всем</string>
     <string name="title_reply_list">Ответить в рассылку</string>
     <string name="title_reply_receipt">Отправить уведомление о прочтении</string>

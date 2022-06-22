@@ -522,6 +522,7 @@
     <string name="title_advanced_unseen_ignored">新着メッセージの数を通知の数と一致させる</string>
     <string name="title_advanced_notify_background">バックグラウンドのときのみ通知を表示</string>
     <string name="title_advanced_notify_known">連絡先のみ通知を表示</string>
+    <string name="title_advanced_notify_suppress_in_call">通話終了まで通知を遅らせる</string>
     <string name="title_advanced_notify_summary">まとめ通知のみ表示</string>
     <string name="title_advanced_notify_preview">通知にメッセージプレビューを表示</string>
     <string name="title_advanced_notify_preview_all">全文をプレビュー</string>
@@ -1039,6 +1040,7 @@
     <string name="title_archive">アーカイブ</string>
     <string name="title_reply">返信</string>
     <string name="title_reply_to_sender">差出人に返信</string>
+    <string name="title_reply_to_recipient">宛先に返信</string>
     <string name="title_reply_to_all">全員に返信</string>
     <string name="title_reply_list">リストに返信</string>
     <string name="title_reply_receipt">開封確認メッセージを送信</string>

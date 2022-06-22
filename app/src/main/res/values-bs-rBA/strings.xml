@@ -544,6 +544,7 @@
     <string name="title_advanced_unseen_ignored">Neka se broj novih poruka podudara s brojem obavještenja</string>
     <string name="title_advanced_notify_background">Prikaži obavještenja samo u pozadini</string>
     <string name="title_advanced_notify_known">Prikaži obavještenja samo za kontakte</string>
+    <string name="title_advanced_notify_suppress_in_call">Odgodi obavještenja tokom poziva</string>
     <string name="title_advanced_notify_summary">Prikaži samo obavještenja sa sažetkom</string>
     <string name="title_advanced_notify_preview">Prikaži pregled poruke u obavještenjima</string>
     <string name="title_advanced_notify_preview_all">Prikaz cijelog teksta</string>
@@ -1061,6 +1062,7 @@
     <string name="title_archive">Arhiv</string>
     <string name="title_reply">Odgovori</string>
     <string name="title_reply_to_sender">Odgovori pošiljaocu</string>
+    <string name="title_reply_to_recipient">Odgovori primaocu</string>
     <string name="title_reply_to_all">Odgovori svima</string>
     <string name="title_reply_list">Odgovori spisku</string>
     <string name="title_reply_receipt">Pošalji potvrdu o čitanju</string>
@@ -1273,6 +1275,7 @@
     <string name="title_alternative_html">Prikaži HTML</string>
     <string name="title_no_openpgp">OpenKeychan nije pronađen</string>
     <string name="title_user_interaction">Prebacivanje na OpenKeychain</string>
+    <string name="title_padlock">Koristi lokot za dešifriranje poruke</string>
     <string name="title_signed_data">Potvrdi potpis za prikazivanje teksta poruke</string>
     <string name="title_not_encrypted">Poruka nije potpisana niti šifrirana</string>
     <string name="title_no_sign_key">Nema izabranog ključa za potpis</string>

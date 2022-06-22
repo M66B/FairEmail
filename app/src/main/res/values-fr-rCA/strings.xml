@@ -533,7 +533,7 @@
     <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
     <string name="title_advanced_notify_background">Afficher les notifications en arrière-plan uniquement</string>
     <string name="title_advanced_notify_known">Afficher les notifications uniquement pour les contacts</string>
-    <string name="title_advanced_notify_suppress_in_call" comment="title_advanced_notify_suppress_in_call&#10;&#10;Title of option which will delay new message notifications until after hanging up">Différer les notifications pendant un appel</string>
+    <string name="title_advanced_notify_suppress_in_call">Différer les notifications pendant un appel</string>
     <string name="title_advanced_notify_summary">Afficher uniquement une notification résumée</string>
     <string name="title_advanced_notify_preview">Afficher l’aperçu du message dans les notifications</string>
     <string name="title_advanced_notify_preview_all">Aperçu de tout le texte</string>
@@ -1052,6 +1052,7 @@
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>
     <string name="title_reply_to_sender">Répondre à l’expéditeur</string>
+    <string name="title_reply_to_recipient">Répondre au destinataire</string>
     <string name="title_reply_to_all">Répondre à tous</string>
     <string name="title_reply_list">Répondre à la liste</string>
     <string name="title_reply_receipt">Envoyer une confirmation de lecture</string>

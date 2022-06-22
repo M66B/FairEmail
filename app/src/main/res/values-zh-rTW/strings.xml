@@ -10,6 +10,7 @@
     <string name="app_cake">剩餘儲存空間不足</string>
     <string name="app_updated">最近更新於: %1$s</string>
     <string name="app_download">下載自：%1$s</string>
+    <string name="channel_service">監控臺</string>
     <string name="channel_send">寄送</string>
     <string name="channel_notification">電子郵件</string>
     <string name="channel_progress">進度</string>
@@ -103,6 +104,7 @@
     <string name="menu_rate">評價這款應用程式</string>
     <string name="title_welcome">歡迎</string>
     <string name="title_eula">終端使用者授權合約</string>
+    <string name="title_license">開啟原始碼許可</string>
     <string name="title_contributors">貢獻人員</string>
     <string name="title_agree">我同意</string>
     <string name="title_disagree">我不同意</string>
@@ -123,6 +125,7 @@
     <string name="title_setup_analytics">FairEmail 不顯示廣告，也不會追蹤或分析您的行為。Bugsnag 用於回報錯誤，且於預設情況下處於停用狀態。</string>
     <string name="title_setup_quick_accounts">新增或變更帳戶</string>
     <string name="title_setup_quick_support">有些電子郵件供應商的作法讓新增帳戶成為一件難事。請不要因此責怪 FairEmail，應轉而尋求支援。</string>
+    <string name="title_setup_quick_hint">在autoconfig.thunderbird.net網頁設置輸入的Email為查詢電子郵件伺服器使用</string>
     <string name="title_setup_quick_patience">請耐心等待 &#8230;</string>
     <string name="title_setup_quick_imap">用於接收訊息的 IMAP 伺服器</string>
     <string name="title_setup_quick_smtp">用於傳送訊息的 SMTP 伺服器</string>
@@ -139,12 +142,14 @@
     <string name="title_setup_accounts">帳戶</string>
     <string name="title_setup_identities">身分</string>
     <string name="title_setup_other">其他電子郵件供應商</string>
+    <string name="title_setup_inbound">僅為接收電子郵件 (無法發送)</string>
     <string name="title_setup_pop3">POP3 帳戶</string>
     <string name="title_setup_oauth_permission">電子郵件供應商僅批准了在 GitHub 和 Google Play Store 版本的 FairEmail 裏使用 OAuth</string>
     <string name="title_setup_gmail_support">因為 Android 會檢查程式的數字簽名，所以只有 FairEmail 在 Play Store 和 GitHub 發布的版本支持授權 Google 帳戶</string>
     <string name="title_setup_gmail_rationale">請授予權限以選擇帳戶並讀取您的姓名</string>
     <string name="title_setup_gmail_permissions">Google 會請求權限以讀取、撰寫、傳送及永久刪除您的電子郵件。FairEmail 永遠不會在您未予明確同意的前提下刪除您的訊息。</string>
     <string name="title_setup_gmail_drafts">如遇草稿資料夾無法透過 IMAP 存取的情況，可於 Gmail 標籤設定中獲得修復</string>
+    <string name="title_setup_gmail_password">我要使用密碼登入帳戶而不使用綁定裝置作為認證</string>
     <string name="title_setup_office_auth">“驗證失敗”錯誤可能是由系統管理員停用 IMAP/SMTP 所致</string>
     <string name="title_setup_oauth_rationale">授權存取您的 %1$s 帳戶</string>
     <string name="title_setup_oauth_update">重新授權現有帳戶 (否則請新建帳戶)</string>
@@ -170,11 +175,15 @@
     <string name="title_setup_permissions">授予權限</string>
     <string name="title_setup_permissions_remark">存取聯絡人資訊 (可選項)</string>
     <string name="title_setup_permissions_explanation">需要聯絡人權限才能查詢聯絡人資料及建議聯絡人</string>
+    <string name="title_setup_permissions_notify">顯示新的訊息通知 (選填)</string>
+    <string name="title_setup_permissions_notify_explanation">允許通知權限才可以在狀態欄顯示新的通知訊息</string>
+    <string name="title_setup_permission_why">為何需要哪些權限？</string>
     <string name="title_setup_permission_import_contacts">如何匯入聯絡人</string>
     <string name="title_setup_doze">停用電池效能最佳化設定</string>
     <string name="title_setup_doze_remark">更可靠地在後台收發電子郵件</string>
     <string name="title_setup_doze_explanation">請停用電池效能最佳化設定，以確保應用程式能可靠地在背景傳送和接收訊息</string>
     <string name="title_setup_doze_hint">雖然可能有點自相矛盾，但關閉此應用的電池效能最佳化設定可節省電池用量</string>
+    <string name="title_setup_doze_why">為何應該關閉電池最佳化？</string>
     <string name="title_setup_doze_instructions">在接下來的 Android 對話方塊中，將\"未套用最佳化設定\"更改為\"所有應用程式\"，選取本程式並選擇\"不要最佳化\"</string>
     <string name="title_setup_doze_battery">很耗電嗎？</string>
     <string name="title_setup_doze_stopped">不會同步？</string>
@@ -191,9 +200,11 @@
     <string name="title_setup_still">仍待處理</string>
     <string name="title_setup_error">錯誤</string>
     <string name="title_setup_pop">使用POP3 (不推薦)</string>
+    <string name="title_setup_recent">使用 \'recent\' 作為多個電子郵件客戶端</string>
     <string name="title_setup_configuring">正在配置帳戶 &#8230;</string>
     <string name="title_setup_app_password">您可能需要使用應用程式密碼</string>
     <string name="title_setup_extra">額外設定</string>
+    <string name="title_setup_delete_account_hint">這將從此應用程式中僅刪除帳戶</string>
     <string name="title_setup_close">關閉設定介面</string>
     <string name="title_setup_export">匯出設定</string>
     <string name="title_setup_import">匯入設定</string>
@@ -258,6 +269,8 @@
     <string name="title_setup_reset_links">確認連結</string>
     <string name="title_check_gmail_oauth">你的Gmail帳號將會在2022年5月30日後持續運作</string>
     <string name="title_check_gmail_password">您的部分 Gmail 帳戶可能會在 2022 年 5 月 30 日之後不可使用</string>
+    <string name="title_check_outlook_oauth">您的Outlook帳戶將於2022年10月1日後繼續運作</string>
+    <string name="title_check_outlook_password">您的部分Outlook帳戶將於2022年5月1日後將停止運作</string>
     <string name="title_advanced_hint_title">更高階的選項</string>
     <string name="title_advanced_hint_message">        您正在訪問更高階的選項。
         所有選項都有常用的標準值，除非您有不同的偏好，否則您不需要變更這些選項。
@@ -300,6 +313,7 @@
     <string name="title_advanced_check_mx">在同步訊息時檢查寄件者的郵件地址</string>
     <string name="title_advanced_check_blocklist">檢查寄件者網域是否存在於垃圾郵件封鎖清單中</string>
     <string name="title_advanced_use_blocklist">將來自被封鎖網域的訊息移動至垃圾郵件資料夾</string>
+    <string name="title_advanced_use_blocklist_pop3">阻擋黑名單內之網域發送的郵件訊息(僅限POP3)</string>
     <string name="title_advanced_tune_keep_alive">自動調節保活間隔</string>
     <string name="title_advanced_keyboard">預設顯示鍵盤</string>
     <string name="title_advanced_keyboard_no_fullscreen">阻止全螢幕鍵盤</string>
@@ -315,6 +329,8 @@
     <string name="title_advanced_attach_new">將分享的檔案加至新建草稿中</string>
     <string name="title_advanced_answer_action">長按答覆按鈕以</string>
     <string name="title_advanced_send_pending">顯示低存在感的傳送延後圖示</string>
+    <string name="title_advanced_auto_save_paragraph">每個段落後自動儲存草稿</string>
+    <string name="title_advanced_auto_save_dot">每串句子後自動儲存草稿</string>
     <string name="title_advanced_compose_font">預設字型</string>
     <string name="title_advanced_auto_identity">自動選擇新郵件的身份</string>
     <string name="title_advanced_prefix_once">在回覆或轉寄時，主題前綴只出現一次</string>
@@ -339,6 +355,7 @@
     <string name="title_advanced_usenet_signature">遵循 Usenet 簽名傳統</string>
     <string name="title_advanced_remove_signatures">移除已識別的簽名</string>
     <string name="title_advanced_receipt">當請求回條時</string>
+    <string name="title_advanced_forward_new">轉發郵件時開啟一個新的對話</string>
     <string name="title_advanced_lookup_mx">在傳送之前檢查收件者郵件地址</string>
     <string name="title_advanced_metered">使用計量付費連線</string>
     <string name="title_advanced_download">使用計量付費連線時自動下載訊息及附件</string>
@@ -355,6 +372,7 @@
     <string name="title_advanced_cert_strict">嚴格的憑證檢查</string>
     <string name="title_advanced_manage_connectivity">管理網路連線</string>
     <string name="title_advanced_caption_general">一般</string>
+    <string name="title_advanced_caption_navigation">導覽</string>
     <string name="title_advanced_caption_checks">檢查</string>
     <string name="title_advanced_caption_list">訊息清單</string>
     <string name="title_advanced_caption_conversation">會話</string>
@@ -367,12 +385,15 @@
     <string name="title_advanced_two_col">使用雙列</string>
     <string name="title_advanced_min_screen_size">分屏時熒幕最小尺寸</string>
     <string name="title_advanced_close_pane">關閉會話時摺疊行或列</string>
+    <string name="title_advanced_column_width">訊息欄寬: %1$s %%</string>
     <string name="title_advanced_nav_options">顯示導航功能表選項</string>
+    <string name="title_advanced_nav_categories">導覽選單中顯示帳戶類別</string>
     <string name="title_advanced_nav_pin">固定導航功能表</string>
     <string name="title_advanced_nav_hide_title">要隱藏導航功能表選項嗎？</string>
     <string name="title_advanced_nav_hide_message">您可以在顯示設定中再次啟用此選項</string>
     <string name="title_advanced_nav_message_count">在導航功能表中顯示本地儲存的訊息數</string>
     <string name="title_advanced_nav_unseen_drafts">在導航功能表中顯示未讀取草稿的數量</string>
+    <string name="title_advanced_nav_pinned_count">在固定選單上顯示未讀的訊息數</string>
     <string name="title_advanced_startup">顯示於開始螢幕</string>
     <string name="title_advanced_cards">使用卡片式樣替代表狀式樣</string>
     <string name="title_advanced_cards_beige">使用卡片式樣時采用米黃色背景 (僅亮色主題)</string>
@@ -421,11 +442,13 @@
     <string name="title_advanced_preview_italic">以斜體風格顯示訊息預覽</string>
     <string name="title_advanced_preview_lines">預覽顯示行數</string>
     <string name="title_advanced_addresses">預設展開訊息地址明細</string>
+    <string name="title_advanced_unzip">顯示附件壓縮檔案中的內容</string>
     <string name="title_advanced_attachments_alt">顯示附件於訊息本文之後</string>
     <string name="title_advanced_thumbnails">顯示圖片縮圖於訊息本文之後</string>
     <string name="title_advanced_message_text_zoom2">預設訊息本文文字縮放: %1$s %%</string>
     <string name="title_advanced_overview_mode">縮放原始訊息以適配螢幕</string>
     <string name="title_advanced_override_width">於原始訊息中停用固定寬度</string>
+    <string name="title_advanced_hyphenation">使用自動連字符號</string>
     <string name="title_advanced_contrast">應用高對比於訊息本文上</string>
     <string name="title_advanced_monospaced">訊息本文預設使用等寬字型</string>
     <string name="title_advanced_monospaced_pre">於預排文字上使用等寬字型</string>
@@ -442,6 +465,7 @@
     <string name="title_advanced_seekbar">以小圓點顯示相對會話位置</string>
     <string name="title_advanced_actionbar">顯示會話工具列</string>
     <string name="title_advanced_actionbar_color">使用帳戶色作為會話工具列的背景色</string>
+    <string name="title_advanced_category_header">帳戶分類群組</string>
     <string name="title_advanced_navbar_colorize">著色 Android 導覽列</string>
     <string name="title_advanced_parse_classes">解析樣式表</string>
     <string name="title_advanced_authentication">顯示驗證警告</string>
@@ -489,6 +513,7 @@
     <string name="title_advanced_unseen_ignored">讓新訊息計數匹配通知數</string>
     <string name="title_advanced_notify_background">僅在於背景中執行時才顯示通知</string>
     <string name="title_advanced_notify_known">僅為來自聯絡人的訊息顯示通知</string>
+    <string name="title_advanced_notify_suppress_in_call">來電時即時通知延遲</string>
     <string name="title_advanced_notify_summary">僅顯示通知摘要</string>
     <string name="title_advanced_notify_preview">在通知中顯示訊息預覽</string>
     <string name="title_advanced_notify_preview_all">預覽所有文字</string>
@@ -537,6 +562,10 @@
     <string name="title_advanced_disconnect_auto_update">每周自動更新清單一次</string>
     <string name="title_advanced_disconnect_links">使用追蹤保護清單來發出追蹤連結相關警告</string>
     <string name="title_advanced_disconnect_images">使用追蹤保護清單來辨識追蹤圖片</string>
+    <string name="title_advanced_mnemonic">遠端刪除資料</string>
+    <string name="title_advanced_mnemonic_hint">任何一封電子郵件主旨包含以下文字將立即自動刪除應用程式資料</string>
+    <string name="title_advanced_clear_all">刪除應用程式資料</string>
+    <string name="title_advanced_clear_all_remark">應用程式資料將永久刪除且無法恢復</string>
     <string name="title_advanced_sign_default">預設簽名</string>
     <string name="title_advanced_encrypt_default">預設加密</string>
     <string name="title_advanced_auto_decrypt">自動解密訊息</string>
@@ -545,6 +574,7 @@
     <string name="title_advanced_autocrypt">使用 Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt 相互模式</string>
     <string name="title_advanced_encrypt_subject">加密主旨</string>
+    <string name="title_advanced_import_pgp">匯入金鑰</string>
     <string name="title_advanced_sign_algo">簽名算法</string>
     <string name="title_advanced_encrypt_algo">加密算法</string>
     <string name="title_advanced_remark_algo">        請知悉，並非所有的電子郵件用戶端都支援全部演算法。
@@ -560,6 +590,7 @@
     </string>
     <string name="title_advanced_power_menu">新增控制項至 Android 電源選單</string>
     <string name="title_advanced_external_search">允許其他程式在訊息中搜尋</string>
+    <string name="title_advanced_sort_answers">篩選經常使用的回覆範本</string>
     <string name="title_advanced_shortcuts">在 Adnroid 分享選單中顯示常用的聯絡人</string>
     <string name="title_advanced_fts">建立搜尋索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 則訊息已索引 (%3$s)</string>
@@ -588,9 +619,11 @@
     <string name="title_advanced_poll_hint">定期檢查新訊息的代價很高，因為每次都會比較本地和遠端的訊息，而這可能會導致額外的電量消耗，特別是如果有很多訊息需要處理。時時接收會通過持續跟進變化來防止這種情況發生。</string>
     <string name="title_advanced_optimize_hint">依據郵件伺服器的能力和行為，可能會改變同步頻率以節省電池用量</string>
     <string name="title_advanced_schedule_hint">請輕觸位列在上的時間項來設定執行時間</string>
+    <string name="title_advanced_schedule_ignore">行程可以在帳戶進階設定中關閉</string>
     <string name="title_advanced_quick_sync_hint">雖可減少數據用量，但若電子郵件伺服器不跟從標準，則新訊息可能會錯過接收</string>
     <string name="title_advanced_no_date_hint">一些郵件供應商會將含有未知、無效或未來日期的訊息儲存為未含日期的訊息</string>
     <string name="title_advanced_unseen_hint">一些郵件供應商未能正确支援此功能，這可能導致所有訊息都會或者都不會被同步</string>
+    <string name="title_advanced_data_usage">這將會造成高數據使用量</string>
     <string name="title_advanced_deleted_unseen">停用後，未讀訊息會一直被保留在裝置上</string>
     <string name="title_advanced_sync_kept_hint">這將導致額外的數據傳輸和電量耗損，尤其是裝置上儲存了大量訊息時</string>
     <string name="title_advanced_gmail_thread_hint">此項設定僅會套用至新近接收的訊息而且還可能破壞現有群組</string>

@@ -102,6 +102,12 @@
         חסימת שם תחום כמען משתמשת בכללי סינון, שזאת יכולת למנויי פרו.
     </string>
     <string name="title_blocked_senders">שולחים חסומים</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">לחסום את מוען ההודעה?</item>
+        <item quantity="two">לחסום את מוען %1$s ההודעות?</item>
+        <item quantity="many">לחסום את מוען %1$s ההודעות?</item>
+        <item quantity="other">לחסום את מוען %1$s ההודעות?</item>
+    </plurals>
     <string name="title_junk_filter">להשתמש במסנן ספאם מקומי</string>
     <string name="title_junk_filter_hint">עשוי להגדיל את צריכת הסלוללה ולסמן הודעות כספאם בשוגג</string>
     <string name="title_junk_blocklist">להשתמש ברשימות חסימת ספאם</string>
@@ -549,6 +555,7 @@
     <string name="title_advanced_unseen_ignored">לאפשר למספר ההודעות החדשות להיות תואם למספר ההתראות</string>
     <string name="title_advanced_notify_background">להציג התראות כאשר במצב רקע בלבד</string>
     <string name="title_advanced_notify_known">הצגת התראות לאנשי קשר בלבד</string>
+    <string name="title_advanced_notify_suppress_in_call">להשהות התראות בזמן שיחה</string>
     <string name="title_advanced_notify_summary">הצגת התראות תקציר בלבד</string>
     <string name="title_advanced_notify_preview">תצוגה מקדימה של ההודעות בהתראות</string>
     <string name="title_advanced_notify_preview_all">תצוגה מקדימה של כל הטקסט</string>
@@ -1066,6 +1073,7 @@
     <string name="title_archive">ארכיון</string>
     <string name="title_reply">תגובה</string>
     <string name="title_reply_to_sender">לענות למוען</string>
+    <string name="title_reply_to_recipient">לענות לנמען</string>
     <string name="title_reply_to_all">לענות לכולם</string>
     <string name="title_reply_list">לענות לרשימה</string>
     <string name="title_reply_receipt">שליחת אישור קריאה</string>

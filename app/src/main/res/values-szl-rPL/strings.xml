@@ -554,6 +554,7 @@
     <string name="title_advanced_unseen_ignored">Liczba powiadomień odpowiada liczbie nowych wiadomości</string>
     <string name="title_advanced_notify_background">Pokaż powiadomienia tylko, gdy pracuje w tle</string>
     <string name="title_advanced_notify_known">Pokaż powiadomienia tylko dla kontaktów</string>
+    <string name="title_advanced_notify_suppress_in_call">Opóźnij powiadomienia podczas połączenia</string>
     <string name="title_advanced_notify_summary">Pokaż tylko podsumowanie</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_preview_all">Podgląd całego tekstu</string>
@@ -1070,6 +1071,7 @@
     <string name="title_archive">Archiwum</string>
     <string name="title_reply">Odpowiedz</string>
     <string name="title_reply_to_sender">Odpowiedz nadawcy</string>
+    <string name="title_reply_to_recipient">Odpowiedz adresatowi</string>
     <string name="title_reply_to_all">Odpowiedz wszystkim</string>
     <string name="title_reply_list">Odpowiedz do listy</string>
     <string name="title_reply_receipt">Wyślij potwierdzenie odczytu</string>

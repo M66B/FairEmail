@@ -435,7 +435,7 @@
     <string name="title_advanced_notifications_newest_first">ابتدا اطلاع‌رسانی‌های جدید را نشان بده</string>
     <string name="title_advanced_badge">نمایش عدد پیام‌های جدید با آیکون راه‌انداز</string>
     <string name="title_advanced_notify_known">اعلان‌ها را تنها برای مخاطبین نمایش بده</string>
-    <string name="title_advanced_notify_suppress_in_call" comment="title_advanced_notify_suppress_in_call&#10;&#10;Title of option which will delay new message notifications until after hanging up">در صورت مکالمه تلفنی، اعلان‌های اطلاع‌رسانی را به عقب بیانداز</string>
+    <string name="title_advanced_notify_suppress_in_call">در صورت مکالمه تلفنی، اعلان‌های اطلاع‌رسانی را به عقب بیانداز</string>
     <string name="title_advanced_notify_summary">تنها چکیده اعلان را نمایش بده</string>
     <string name="title_advanced_notify_preview">پیش‌نمایش پیام را در اعلان‌ها نمایش بده</string>
     <string name="title_advanced_notify_preview_all">پیش‌نمایش تمام متن</string>
@@ -738,6 +738,7 @@
     <string name="title_archive">بایگانی</string>
     <string name="title_reply">پاسخ</string>
     <string name="title_reply_to_sender">پاسخ به فرستنده</string>
+    <string name="title_reply_to_recipient">پاسخ به گیرنده</string>
     <string name="title_reply_to_all">پاسخ به همه</string>
     <string name="title_reply_list">پاسخ به لیست</string>
     <string name="title_reply_receipt">فرستادن رسید خواندن</string>

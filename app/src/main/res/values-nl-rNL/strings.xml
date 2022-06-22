@@ -531,7 +531,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_unseen_ignored">Laat het aantal nieuwe berichten overeenkomen met het aantal meldingen</string>
     <string name="title_advanced_notify_background">Toon meldingen alleen wanneer op de achtergrond</string>
     <string name="title_advanced_notify_known">Toon alleen meldingen voor contacten</string>
-    <string name="title_advanced_notify_suppress_in_call" comment="title_advanced_notify_suppress_in_call&#10;&#10;Title of option which will delay new message notifications until after hanging up">Meldingen uitstellen tijdens een gesprek</string>
+    <string name="title_advanced_notify_suppress_in_call">Meldingen uitstellen tijdens een gesprek</string>
     <string name="title_advanced_notify_summary">Toon alleen melding met een samenvatting</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_preview_all">Voorbeeld van alle tekst</string>
@@ -746,6 +746,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_identity_internal">Interne domeinnamen (komma gescheiden)</string>
     <string name="title_identity_unicode">Gebruik Unicode transport</string>
     <string name="title_identity_unicode_remark">De meeste servers ondersteunen dit niet</string>
+    <string name="title_identity_octetmime" comment="title_identity_octetmime&#10;&#10;This is the title of an advanced identity option&#10;&quot;8BITMIME&quot; should not be translated.&#10;https://datatracker.ietf.org/doc/html/rfc6152&#10;">8BITMIME toestaan</string>
     <string name="title_identity_max_size">Maximale berichtgrootte (MB)</string>
     <string name="title_identity_receipt">Standaard ontvangst/leesbevestiging vragen</string>
     <string name="title_identity_receipt_legacy">Gebruik legacy ontvangstverzoek headers</string>
@@ -1047,6 +1048,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>
     <string name="title_reply_to_sender">Antwoord aan afzender</string>
+    <string name="title_reply_to_recipient">Antwoord aan ontvanger</string>
     <string name="title_reply_to_all">Antwoord aan iedereen</string>
     <string name="title_reply_list">Antwoord aan lijst</string>
     <string name="title_reply_receipt">Stuur leesbevestiging</string>

@@ -529,6 +529,7 @@
     <string name="title_advanced_unseen_ignored">Låt antalet nya meddelanden matcha antalet aviseringar</string>
     <string name="title_advanced_notify_background">Visa aviseringar endast i bakgrunden</string>
     <string name="title_advanced_notify_known">Visa endast aviseringar för kontakter</string>
+    <string name="title_advanced_notify_suppress_in_call">Inaktivera aviseringar under pågående telefonsamtal</string>
     <string name="title_advanced_notify_summary">Visa enbart en sammanställning av aviseringar</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_preview_all">Förhandsgranska all text</string>
@@ -1045,6 +1046,7 @@
     <string name="title_archive">Arkivera</string>
     <string name="title_reply">Svara</string>
     <string name="title_reply_to_sender">Svara till avsändare</string>
+    <string name="title_reply_to_recipient">Svara till mottagare</string>
     <string name="title_reply_to_all">Svara till alla</string>
     <string name="title_reply_list">Svara på listan</string>
     <string name="title_reply_receipt">Skicka läskvitto</string>
@@ -1255,6 +1257,7 @@
     <string name="title_alternative_html">Visa HTML</string>
     <string name="title_no_openpgp">OpenKeychain hittades inte</string>
     <string name="title_user_interaction">Överför till OpenKeychain</string>
+    <string name="title_padlock">Använd hänglåset för att avkryptera meddelandet</string>
     <string name="title_signed_data">Verifiera signaturen för att visa meddelandetexten</string>
     <string name="title_not_encrypted">Meddelandet är inte signerat eller krypterat</string>
     <string name="title_no_sign_key">Ingen signeringsnyckel vald</string>
@@ -1663,6 +1666,7 @@
         FairEmail visar ett litet meddelande för att påminna dig om detta, som kommer att tas bort om du köper pro funktionerna.
     </string>
     <string name="title_pro_whichever">Oavsett vilka funktioner som väljs som pro funktioner, finns det alltid någon som klagar över att en funktion ska vara gratis. Var inte den personen.</string>
+    <string name="title_pro_google">FairEmail initierar ett Play Store-köp, men det är Google som hanterar hela köpprocessen. Vänligen ta kontakt med Google om det uppstår problem med köpet.</string>
     <string name="title_pro_hide">Dölj små meddelanden i %1$d veckor</string>
     <string name="title_pro_hint">Att köpa pro-funktioner gör att du kan använda alla aktuella och framtida pro-funktioner, kommer att göra att denna app underhålls och stöds</string>
     <string name="title_pro_price">Varför är pro-funktionerna så dyra?</string>

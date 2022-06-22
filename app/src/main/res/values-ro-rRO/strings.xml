@@ -543,6 +543,7 @@
     <string name="title_advanced_unseen_ignored">Fie ca numărul de mesaje noi să corespundă cu numărul de notificări</string>
     <string name="title_advanced_notify_background">Arată notificări doar când e în fundal</string>
     <string name="title_advanced_notify_known">Arată notificări numai pentru contacte</string>
+    <string name="title_advanced_notify_suppress_in_call">Amânare notificări în timpul unui apel</string>
     <string name="title_advanced_notify_summary">Arată doar sumarul în notificare</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_preview_all">Previzualizează tot textul</string>
@@ -1059,6 +1060,7 @@
     <string name="title_archive">Arhivă</string>
     <string name="title_reply">Răspunde</string>
     <string name="title_reply_to_sender">Răspunde expeditorului</string>
+    <string name="title_reply_to_recipient">Răspuns către destinatar</string>
     <string name="title_reply_to_all">Răspunde tuturor</string>
     <string name="title_reply_list">Răspunde listei</string>
     <string name="title_reply_receipt">Trimite confirmare de citire</string>
@@ -1269,6 +1271,7 @@
     <string name="title_alternative_html">Afișați HTML</string>
     <string name="title_no_openpgp">OpenKeychain nu a fost găsit</string>
     <string name="title_user_interaction">Transfer la OpenKeychain</string>
+    <string name="title_padlock">Folosiți lacătul pentru a decripta mesajul</string>
     <string name="title_signed_data">Verificați semnătura pentru a afișa textul mesajului</string>
     <string name="title_not_encrypted">Mesajul nu este semnat sau criptat</string>
     <string name="title_no_sign_key">Nici o cheie de semnat selectată</string>

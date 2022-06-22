@@ -533,7 +533,7 @@
     <string name="title_advanced_unseen_ignored">Lad antal Nye beskeder matche notifikationsantal</string>
     <string name="title_advanced_notify_background">Vis kun notifikationer i baggrundstilstand</string>
     <string name="title_advanced_notify_known">Vis kun notifikationer for kontakter</string>
-    <string name="title_advanced_notify_suppress_in_call" comment="title_advanced_notify_suppress_in_call&#10;&#10;Title of option which will delay new message notifications until after hanging up">Udsæt notifikationer under opkald</string>
+    <string name="title_advanced_notify_suppress_in_call">Udsæt notifikationer under opkald</string>
     <string name="title_advanced_notify_summary">Vis kun resuménotifikationer</string>
     <string name="title_advanced_notify_preview">Beskedforhåndsvisning i notifikationer</string>
     <string name="title_advanced_notify_preview_all">Forhåndsvis al tekst</string>
@@ -1052,6 +1052,7 @@
     <string name="title_archive">Arkivér</string>
     <string name="title_reply">Besvar</string>
     <string name="title_reply_to_sender">Besvar afsender</string>
+    <string name="title_reply_to_recipient">Svar til afsender</string>
     <string name="title_reply_to_all">Besvar alle</string>
     <string name="title_reply_list">Besvar liste</string>
     <string name="title_reply_receipt">Send læst-kvittering</string>
