@@ -253,7 +253,7 @@ public class DataHandler /*implements Transferable*/ {
 				throw new IOException(ex);
 			}
 
-		eu.faircode.email.Log.e("DataHandler" +
+		eu.faircode.email.Log.w("DataHandler" +
 				" object=" + (object == null ? null : object.getClass().getName()) +
 				" dch=" + dch.getClass().getName() +
 				" type=" + getContentType());
