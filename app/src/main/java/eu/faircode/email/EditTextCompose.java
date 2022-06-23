@@ -115,8 +115,6 @@ public class EditTextCompose extends FixedEditText {
                         if (undo_manager && can(android.R.id.redo))
                             menu.add(Menu.CATEGORY_SECONDARY, R.string.title_redo, order++, getTitle(R.string.title_redo));
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_line, order++, context.getString(R.string.title_insert_line));
-                        if (BuildConfig.DEBUG)
-                            menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_arrow, order++, context.getString(R.string.title_insert_arrow));
                         if (snippets != null)
                             for (EntityAnswer snippet : snippets) {
                                 menu.add(Menu.CATEGORY_SECONDARY, order, order, snippet.name).
@@ -150,8 +148,6 @@ public class EditTextCompose extends FixedEditText {
                             return EditTextCompose.super.onTextContextMenuItem(android.R.id.redo);
                         else if (id == R.string.title_insert_line)
                             return insertLine();
-                        else if (id == R.string.title_insert_arrow)
-                            return insertArrow();
                         else {
                             Intent intent = item.getIntent();
                             if (intent == null)
@@ -199,19 +195,6 @@ public class EditTextCompose extends FixedEditText {
                         ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
                         return false;
                     }
-                }
-
-                private boolean insertArrow() {
-                    int start = getSelectionStart();
-                    if (start < 0)
-                        return false;
-
-                    Editable edit = getText();
-                    if (edit == null)
-                        return false;
-
-                    edit.insert(start, " \u27f6 ");
-                    return true;
                 }
 
                 private boolean insertSnippet(long id) {
