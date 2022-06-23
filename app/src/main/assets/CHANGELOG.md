@@ -4,6 +4,12 @@
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
+### 1.1926 - 2022-06-23
+
+* Added workaround for crash in Chrome taking down FairEmail
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1925 - 2022-06-22
 
 * Fixed crash in some situations
