@@ -29,6 +29,7 @@ import android.text.Selection;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.util.AttributeSet;
+import android.view.ActionMode;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
@@ -348,6 +349,26 @@ public class FixedTextView extends AppCompatTextView {
              */
             Log.w(ex);
             return false;
+        }
+    }
+
+    @Override
+    public ActionMode startActionMode(ActionMode.Callback callback) {
+        try {
+            return super.startActionMode(callback);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
+        }
+    }
+
+    @Override
+    public ActionMode startActionMode(ActionMode.Callback callback, int type) {
+        try {
+            return super.startActionMode(callback, type);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
         }
     }
 

@@ -23,6 +23,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.ActionMode;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.textclassifier.TextClassifier;
@@ -267,6 +268,26 @@ public class FixedEditText extends AppCompatEditText {
              */
             Log.w(ex);
             return false;
+        }
+    }
+
+    @Override
+    public ActionMode startActionMode(ActionMode.Callback callback) {
+        try {
+            return super.startActionMode(callback);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
+        }
+    }
+
+    @Override
+    public ActionMode startActionMode(ActionMode.Callback callback, int type) {
+        try {
+            return super.startActionMode(callback, type);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
         }
     }
 
