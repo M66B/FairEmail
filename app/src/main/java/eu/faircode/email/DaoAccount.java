@@ -216,6 +216,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET name = :name WHERE id = :id AND NOT (name IS :name)")
     int setAccountName(long id, String name);
 
+    @Query("UPDATE account SET color = :color WHERE id = :id AND NOT (color IS :color)")
+    int setAccountColor(long id, Integer color);
+
     @Query("UPDATE account" +
             " SET password = :password, auth_type = :auth_type" +
             " WHERE id = :id" +
