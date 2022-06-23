@@ -2,6 +2,12 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
+
+### Next version
+
+* Added import file to signature editor
+
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
 ### 1.1926 - 2022-06-23
