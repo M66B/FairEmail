@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -55,6 +56,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Objects;
 
 public class ActivitySignature extends ActivityBase {
@@ -69,6 +72,7 @@ public class ActivitySignature extends ActivityBase {
     private boolean dirty = false;
 
     private static final int REQUEST_IMAGE = 1;
+    private static final int REQUEST_FILE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -239,12 +243,23 @@ public class ActivitySignature extends ActivityBase {
             item.setChecked(!item.isChecked());
             html(item.isChecked());
             return true;
+        } else if (itemId == R.id.menu_import_file) {
+            onMenuSelectFile();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void onMenuHelp() {
         Helper.viewFAQ(this, 57);
+    }
+
+    private void onMenuSelectFile() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("text/*");
+        Helper.openAdvanced(intent);
+        startActivityForResult(intent, REQUEST_FILE);
     }
 
     @Override
@@ -256,6 +271,10 @@ public class ActivitySignature extends ActivityBase {
                 case REQUEST_IMAGE:
                     if (resultCode == RESULT_OK && data != null)
                         onImageSelected(data.getData());
+                    break;
+                case REQUEST_FILE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onFileSelected(data.getData());
                     break;
             }
         } catch (Throwable ex) {
@@ -412,5 +431,37 @@ public class ActivitySignature extends ActivityBase {
         } catch (Throwable ex) {
             Log.unexpectedError(getSupportFragmentManager(), ex);
         }
+    }
+
+    private void onFileSelected(Uri uri) {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", uri);
+
+        new SimpleTask<String>() {
+            @Override
+            protected String onExecute(Context context, Bundle args) throws Throwable {
+                try (InputStream is = getContentResolver().openInputStream(uri)) {
+                    if (is == null)
+                        throw new FileNotFoundException(uri.toString());
+                    return Helper.readStream(is);
+                }
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, String text) {
+                int start = etText.getSelectionStart();
+                if (start < 0)
+                    start = 0;
+                etText.getText().insert(start, text);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof NoStreamException)
+                    ((NoStreamException) ex).report(ActivitySignature.this);
+                else
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
+            }
+        }.execute(this, args, "signature:file");
     }
 }

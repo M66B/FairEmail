@@ -11,4 +11,8 @@
         android:checkable="true"
         android:title="@string/title_edit_html"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_import_file"
+        android:title="@string/title_import_file"
+        app:showAsAction="never" />
 </menu>
