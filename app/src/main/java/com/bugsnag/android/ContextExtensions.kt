@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.os.RemoteException
 import android.os.storage.StorageManager
@@ -69,3 +70,7 @@ internal fun Context.getConnectivityManager(): ConnectivityManager? =
 @JvmName("getStorageManagerFrom")
 internal fun Context.getStorageManager(): StorageManager? =
     safeGetSystemService(Context.STORAGE_SERVICE)
+
+@JvmName("getLocationManager")
+internal fun Context.getLocationManager(): LocationManager? =
+    safeGetSystemService(Context.LOCATION_SERVICE)

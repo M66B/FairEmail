@@ -54,6 +54,11 @@ class Stackframe : JsonStream.Streamable {
     var loadAddress: Long? = null
 
     /**
+     * Identifies the exact build this frame originates from.
+     */
+    var codeIdentifier: String? = null
+
+    /**
      * Whether this frame identifies the program counter
      */
     var isPC: Boolean? = null
@@ -90,6 +95,7 @@ class Stackframe : JsonStream.Streamable {
         this.frameAddress = nativeFrame.frameAddress
         this.symbolAddress = nativeFrame.symbolAddress
         this.loadAddress = nativeFrame.loadAddress
+        this.codeIdentifier = nativeFrame.codeIdentifier
         this.isPC = nativeFrame.isPC
         this.type = nativeFrame.type
     }
@@ -103,6 +109,7 @@ class Stackframe : JsonStream.Streamable {
         frameAddress = (json["frameAddress"] as? Number)?.toLong()
         symbolAddress = (json["symbolAddress"] as? Number)?.toLong()
         loadAddress = (json["loadAddress"] as? Number)?.toLong()
+        codeIdentifier = (json["codeIdentifier"] as? String)
         isPC = json["isPC"] as? Boolean
 
         @Suppress("UNCHECKED_CAST")
@@ -124,6 +131,7 @@ class Stackframe : JsonStream.Streamable {
         frameAddress?.let { writer.name("frameAddress").value(it) }
         symbolAddress?.let { writer.name("symbolAddress").value(it) }
         loadAddress?.let { writer.name("loadAddress").value(it) }
+        codeIdentifier?.let { writer.name("codeIdentifier").value(it) }
         isPC?.let { writer.name("isPC").value(it) }
 
         type?.let {

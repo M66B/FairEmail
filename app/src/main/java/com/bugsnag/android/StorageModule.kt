@@ -25,6 +25,8 @@ internal class StorageModule(
 
     val deviceId by future { deviceIdStore.loadDeviceId() }
 
+    val internalDeviceId by future { deviceIdStore.loadInternalDeviceId() }
+
     val userStore by future {
         UserStore(
             immutableConfig,

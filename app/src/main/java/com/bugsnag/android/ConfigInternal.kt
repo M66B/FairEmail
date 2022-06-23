@@ -2,6 +2,7 @@ package com.bugsnag.android
 
 import android.content.Context
 import java.io.File
+import java.util.EnumSet
 
 internal class ConfigInternal(
     var apiKey: String
@@ -40,6 +41,7 @@ internal class ConfigInternal(
     var maxBreadcrumbs: Int = DEFAULT_MAX_BREADCRUMBS
     var maxPersistedEvents: Int = DEFAULT_MAX_PERSISTED_EVENTS
     var maxPersistedSessions: Int = DEFAULT_MAX_PERSISTED_SESSIONS
+    var maxReportedThreads: Int = DEFAULT_MAX_REPORTED_THREADS
     var context: String? = null
 
     var redactedKeys: Set<String>
@@ -51,6 +53,7 @@ internal class ConfigInternal(
     var discardClasses: Set<String> = emptySet()
     var enabledReleaseStages: Set<String>? = null
     var enabledBreadcrumbTypes: Set<BreadcrumbType>? = null
+    var telemetry: Set<Telemetry> = EnumSet.of(Telemetry.INTERNAL_ERRORS)
     var projectPackages: Set<String> = emptySet()
     var persistenceDirectory: File? = null
 
@@ -99,6 +102,7 @@ internal class ConfigInternal(
         private const val DEFAULT_MAX_BREADCRUMBS = 50
         private const val DEFAULT_MAX_PERSISTED_SESSIONS = 128
         private const val DEFAULT_MAX_PERSISTED_EVENTS = 32
+        private const val DEFAULT_MAX_REPORTED_THREADS = 200
         private const val DEFAULT_LAUNCH_CRASH_THRESHOLD_MS: Long = 5000
 
         @JvmStatic

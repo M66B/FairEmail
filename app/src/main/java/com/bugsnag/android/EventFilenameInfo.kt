@@ -22,12 +22,8 @@ internal data class EventFilenameInfo(
     val errorTypes: Set<ErrorType>
 ) {
 
-    /**
-     * Generates a filename for the Event in the format
-     * "[timestamp]_[apiKey]_[errorTypes]_[UUID]_[startupcrash|not-jvm].json"
-     */
     fun encode(): String {
-        return "${timestamp}_${apiKey}_${serializeErrorTypeHeader(errorTypes)}_${uuid}_$suffix.json"
+        return toFilename(apiKey, uuid, timestamp, suffix, errorTypes)
     }
 
     fun isLaunchCrashReport(): Boolean = suffix == STARTUP_CRASH
@@ -36,7 +32,21 @@ internal data class EventFilenameInfo(
         private const val STARTUP_CRASH = "startupcrash"
         private const val NON_JVM_CRASH = "not-jvm"
 
-        @JvmOverloads
+        /**
+         * Generates a filename for the Event in the format
+         * "[timestamp]_[apiKey]_[errorTypes]_[UUID]_[startupcrash|not-jvm].json"
+         */
+        fun toFilename(
+            apiKey: String,
+            uuid: String,
+            timestamp: Long,
+            suffix: String,
+            errorTypes: Set<ErrorType>
+        ): String {
+            return "${timestamp}_${apiKey}_${serializeErrorTypeHeader(errorTypes)}_${uuid}_$suffix.json"
+        }
+
+        @JvmOverloads @JvmStatic
         fun fromEvent(
             obj: Any,
             uuid: String = UUID.randomUUID().toString(),
@@ -63,11 +73,12 @@ internal data class EventFilenameInfo(
         /**
          * Reads event information from a filename.
          */
+        @JvmStatic
         fun fromFile(file: File, config: ImmutableConfig): EventFilenameInfo {
             return EventFilenameInfo(
                 findApiKeyInFilename(file, config),
                 "", // ignore UUID field when reading from file as unused
-                -1, // ignore timestamp when reading from file as unused
+                findTimestampInFilename(file),
                 findSuffixInFilename(file),
                 findErrorTypesInFilename(file)
             )
@@ -77,7 +88,7 @@ internal data class EventFilenameInfo(
          * Retrieves the api key encoded in the filename, or an empty string if this information
          * is not encoded for the given event
          */
-        private fun findApiKeyInFilename(file: File, config: ImmutableConfig): String {
+        internal fun findApiKeyInFilename(file: File, config: ImmutableConfig): String {
             val name = file.name.removeSuffix("_$STARTUP_CRASH.json")
             val start = name.indexOf("_") + 1
             val end = name.indexOf("_", start)
@@ -93,7 +104,7 @@ internal data class EventFilenameInfo(
          * Retrieves the error types encoded in the filename, or an empty string if this
          * information is not encoded for the given event
          */
-        private fun findErrorTypesInFilename(eventFile: File): Set<ErrorType> {
+        internal fun findErrorTypesInFilename(eventFile: File): Set<ErrorType> {
             val name = eventFile.name
             val end = name.lastIndexOf("_", name.lastIndexOf("_") - 1)
             val start = name.lastIndexOf("_", end - 1) + 1
@@ -111,7 +122,7 @@ internal data class EventFilenameInfo(
          * Retrieves the error types encoded in the filename, or an empty string if this
          * information is not encoded for the given event
          */
-        private fun findSuffixInFilename(eventFile: File): String {
+        internal fun findSuffixInFilename(eventFile: File): String {
             val name = eventFile.nameWithoutExtension
             val suffix = name.substring(name.lastIndexOf("_") + 1)
             return when (suffix) {
@@ -121,9 +132,19 @@ internal data class EventFilenameInfo(
         }
 
         /**
+         * Retrieves the error types encoded in the filename, or an empty string if this
+         * information is not encoded for the given event
+         */
+        @JvmStatic
+        fun findTimestampInFilename(eventFile: File): Long {
+            val name = eventFile.nameWithoutExtension
+            return name.substringBefore("_", missingDelimiterValue = "-1").toLongOrNull() ?: -1
+        }
+
+        /**
          * Retrieves the error types for the given event
          */
-        private fun findErrorTypesForEvent(obj: Any): Set<ErrorType> {
+        internal fun findErrorTypesForEvent(obj: Any): Set<ErrorType> {
             return when (obj) {
                 is Event -> obj.impl.getErrorTypesFromStackframes()
                 else -> setOf(ErrorType.C)
@@ -133,7 +154,7 @@ internal data class EventFilenameInfo(
         /**
          * Calculates the suffix for the given event
          */
-        private fun findSuffixForEvent(obj: Any, launching: Boolean?): String {
+        internal fun findSuffixForEvent(obj: Any, launching: Boolean?): String {
             return when {
                 obj is Event && obj.app.isLaunching == true -> STARTUP_CRASH
                 launching == true -> STARTUP_CRASH

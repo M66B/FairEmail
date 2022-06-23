@@ -170,7 +170,8 @@ public class Client implements MetadataAware, CallbackAware, UserAware, FeatureF
 
         DataCollectionModule dataCollectionModule = new DataCollectionModule(contextModule,
                 configModule, systemServiceModule, trackerModule,
-                bgTaskService, connectivity, storageModule.getDeviceId(), memoryTrimState);
+                bgTaskService, connectivity, storageModule.getDeviceId(),
+                storageModule.getInternalDeviceId(), memoryTrimState);
         dataCollectionModule.resolveDependencies(bgTaskService, TaskType.IO);
         appDataCollector = dataCollectionModule.getAppDataCollector();
         deviceDataCollector = dataCollectionModule.getDeviceDataCollector();

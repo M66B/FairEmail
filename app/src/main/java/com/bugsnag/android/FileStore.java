@@ -39,7 +39,7 @@ abstract class FileStore {
 
     private final Lock lock = new ReentrantLock();
     private final Collection<File> queuedFiles = new ConcurrentSkipListSet<>();
-    private final Logger logger;
+    protected final Logger logger;
     private final EventStore.Delegate delegate;
 
     FileStore(@NonNull File storageDir,

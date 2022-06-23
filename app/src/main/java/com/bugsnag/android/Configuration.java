@@ -562,6 +562,32 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
     }
 
     /**
+     * Gets the maximum number of threads that will be reported with an event. Once the threshold is
+     * reached, all remaining threads will be omitted.
+     *
+     * By default, up to 200 threads are reported.
+     */
+    public int getMaxReportedThreads() {
+        return impl.getMaxReportedThreads();
+    }
+
+    /**
+     * Sets the maximum number of threads that will be reported with an event. Once the threshold is
+     * reached, all remaining threads will be omitted.
+     *
+     * By default, up to 200 threads are reported.
+     */
+    public void setMaxReportedThreads(int maxReportedThreads) {
+        if (maxReportedThreads >= 0) {
+            impl.setMaxReportedThreads(maxReportedThreads);
+        } else {
+            getLogger().e("Invalid configuration value detected. "
+                    + "Option maxReportedThreads should be a positive integer."
+                    + "Supplied value is " + maxReportedThreads);
+        }
+    }
+
+    /**
      * Sets the maximum number of persisted sessions which will be stored. Once the threshold is
      * reached, the oldest session will be deleted.
      *
@@ -718,6 +744,26 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      */
     public void setEnabledBreadcrumbTypes(@Nullable Set<BreadcrumbType> enabledBreadcrumbTypes) {
         impl.setEnabledBreadcrumbTypes(enabledBreadcrumbTypes);
+    }
+
+    @NonNull
+    public Set<Telemetry> getTelemetry() {
+        return impl.getTelemetry();
+    }
+
+    /**
+     * Set which telemetry will be sent to Bugsnag. By default, all telemetry is enabled.
+     *
+     * The following telemetry can be enabled:
+     *
+     * - internal errors: Errors in the Bugsnag SDK itself.
+     */
+    public void setTelemetry(@NonNull Set<Telemetry> telemetry) {
+        if (telemetry != null) {
+            impl.setTelemetry(telemetry);
+        } else {
+            logNull("telemetry");
+        }
     }
 
     /**

@@ -11,6 +11,10 @@ internal class BugsnagEventMapper(
     private val logger: Logger
 ) {
 
+    internal fun convertToEvent(map: Map<in String, Any?>, apiKey: String): Event {
+        return Event(convertToEventImpl(map, apiKey), logger)
+    }
+
     @Suppress("UNCHECKED_CAST")
     internal fun convertToEventImpl(map: Map<in String, Any?>, apiKey: String): EventInternal {
         val event = EventInternal(apiKey)
@@ -85,7 +89,11 @@ internal class BugsnagEventMapper(
         return event
     }
 
-    internal fun convertErrorInternal(error: Map<String, Any?>): ErrorInternal {
+    internal fun convertError(error: Map<in String, Any?>): Error {
+        return Error(convertErrorInternal(error), logger)
+    }
+
+    internal fun convertErrorInternal(error: Map<in String, Any?>): ErrorInternal {
         return ErrorInternal(
             error.readEntry("errorClass"),
             error["message"] as? String,

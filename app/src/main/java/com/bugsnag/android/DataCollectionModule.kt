@@ -18,6 +18,7 @@ internal class DataCollectionModule(
     bgTaskService: BackgroundTaskService,
     connectivity: Connectivity,
     deviceId: String?,
+    internalDeviceId: String?,
     memoryTrimState: MemoryTrimState
 ) : DependencyModule() {
 
@@ -49,6 +50,7 @@ internal class DataCollectionModule(
             ctx,
             ctx.resources,
             deviceId,
+            internalDeviceId,
             deviceBuildInfo,
             dataDir,
             rootDetector,

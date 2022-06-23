@@ -270,8 +270,15 @@ class SessionTracker extends BaseObservable {
                 logger.d("Sent 1 new session to Bugsnag");
                 break;
             case UNDELIVERED:
-                sessionStore.cancelQueuedFiles(Collections.singletonList(storedFile));
-                logger.w("Leaving session payload for future delivery");
+                if (sessionStore.isTooOld(storedFile)) {
+                    logger.w("Discarding historical session (from {"
+                            + sessionStore.getCreationDate(storedFile)
+                            + "}) after failed delivery");
+                    sessionStore.deleteStoredFiles(Collections.singletonList(storedFile));
+                } else {
+                    sessionStore.cancelQueuedFiles(Collections.singletonList(storedFile));
+                    logger.w("Leaving session payload for future delivery");
+                }
                 break;
             case FAILURE:
                 // drop bad data

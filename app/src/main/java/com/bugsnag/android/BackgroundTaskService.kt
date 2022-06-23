@@ -158,18 +158,13 @@ internal class BackgroundTaskService(
         internalReportExecutor.shutdownNow()
         defaultExecutor.shutdownNow()
 
-        // shutdown the error/session executors first, waiting for existing tasks to complete.
-        // If a request fails it may perform IO to persist the payload for delivery next launch,
-        // which would submit tasks to the IO executor - therefore it's critical to
-        // shutdown the IO executor last.
+        // Wait a little while for these ones to shut down
         errorExecutor.shutdown()
         sessionExecutor.shutdown()
+        ioExecutor.shutdown()
 
         errorExecutor.awaitTerminationSafe()
         sessionExecutor.awaitTerminationSafe()
-
-        // shutdown the IO executor last, waiting for any existing tasks to complete
-        ioExecutor.shutdown()
         ioExecutor.awaitTerminationSafe()
     }
 

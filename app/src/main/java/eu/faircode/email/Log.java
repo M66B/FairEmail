@@ -92,6 +92,7 @@ import com.bugsnag.android.OnErrorCallback;
 import com.bugsnag.android.OnSessionCallback;
 import com.bugsnag.android.Session;
 import com.bugsnag.android.Severity;
+import com.bugsnag.android.Telemetry;
 import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.ProtocolException;
@@ -370,6 +371,7 @@ public class Log {
             // https://docs.bugsnag.com/platforms/android/sdk/
             com.bugsnag.android.Configuration config =
                     new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");
+            config.setTelemetry(Collections.emptySet());
 
             if (BuildConfig.DEBUG)
                 config.setReleaseStage("debug");

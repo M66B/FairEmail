@@ -45,7 +45,12 @@ class NativeStackframe internal constructor(
     /**
      * The type of the error
      */
-    var type: ErrorType? = null
+    var type: ErrorType? = null,
+
+    /**
+     * Identifies the exact build this frame originates from.
+     */
+    var codeIdentifier: String? = null,
 ) : JsonStream.Streamable {
 
     @Throws(IOException::class)
@@ -57,6 +62,7 @@ class NativeStackframe internal constructor(
         writer.name("frameAddress").value(frameAddress)
         writer.name("symbolAddress").value(symbolAddress)
         writer.name("loadAddress").value(loadAddress)
+        writer.name("codeIdentifier").value(codeIdentifier)
         writer.name("isPC").value(isPC)
 
         type?.let {

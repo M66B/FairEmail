@@ -13,7 +13,6 @@ import android.os.Build
 import android.provider.Settings
 import java.io.File
 import java.util.Date
-import java.util.HashMap
 import java.util.Locale
 import java.util.concurrent.Callable
 import java.util.concurrent.Future
@@ -28,6 +27,7 @@ internal class DeviceDataCollector(
     private val appContext: Context,
     resources: Resources,
     private val deviceId: String?,
+    private val internalDeviceId: String?,
     private val buildInfo: DeviceBuildInfo,
     private val dataDirectory: File,
     rootDetector: RootDetector,
@@ -42,7 +42,7 @@ internal class DeviceDataCollector(
     private val screenResolution = getScreenResolution()
     private val locale = Locale.getDefault().toString()
     private val cpuAbi = getCpuAbi()
-    private val runtimeVersions: MutableMap<String, Any>
+    private var runtimeVersions: MutableMap<String, Any>
     private val rootedFuture: Future<Boolean>?
     private val totalMemoryFuture: Future<Long?>? = retrieveTotalDeviceMemory()
     private var orientation = AtomicInteger(resources.configuration.orientation)
@@ -80,6 +80,19 @@ internal class DeviceDataCollector(
         buildInfo,
         checkIsRooted(),
         deviceId,
+        locale,
+        totalMemoryFuture.runCatching { this?.get() }.getOrNull(),
+        runtimeVersions.toMutableMap(),
+        calculateFreeDisk(),
+        calculateFreeMemory(),
+        getOrientationAsString(),
+        Date(now)
+    )
+
+    fun generateInternalDeviceWithState(now: Long) = DeviceWithState(
+        buildInfo,
+        checkIsRooted(),
+        internalDeviceId,
         locale,
         totalMemoryFuture.runCatching { this?.get() }.getOrNull(),
         runtimeVersions.toMutableMap(),
@@ -163,17 +176,22 @@ internal class DeviceDataCollector(
      */
     private fun getLocationStatus(): String? {
         try {
-            val cr = appContext.contentResolver
-            @Suppress("DEPRECATION") val providersAllowed =
-                Settings.Secure.getString(cr, Settings.Secure.LOCATION_PROVIDERS_ALLOWED)
-            return when {
-                providersAllowed != null && providersAllowed.isNotEmpty() -> "allowed"
-                else -> "disallowed"
-            }
+            return if (isLocationEnabled()) "allowed" else "disallowed"
         } catch (exception: Exception) {
             logger.w("Could not get locationStatus")
         }
         return null
+    }
+
+    private fun isLocationEnabled() = when {
+        Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ->
+            appContext.getLocationManager()?.isLocationEnabled == true
+        else -> {
+            val cr = appContext.contentResolver
+            @Suppress("DEPRECATION") val providersAllowed =
+                Settings.Secure.getString(cr, Settings.Secure.LOCATION_PROVIDERS_ALLOWED)
+            providersAllowed != null && providersAllowed.isNotEmpty()
+        }
     }
 
     /**
@@ -293,6 +311,9 @@ internal class DeviceDataCollector(
     }
 
     fun addRuntimeVersionInfo(key: String, value: String) {
-        runtimeVersions[key] = value
+        // Use copy-on-write to avoid a ConcurrentModificationException in generateDeviceWithState
+        val newRuntimeVersions = runtimeVersions.toMutableMap()
+        newRuntimeVersions[key] = value
+        runtimeVersions = newRuntimeVersions
     }
 }

@@ -8,6 +8,11 @@ enum class ThreadType(internal val desc: String) {
     /**
      * A thread captured from Android's JVM layer
      */
+    EMPTY(""),
+
+    /**
+     * A thread captured from Android's JVM layer
+     */
     ANDROID("android"),
 
     /**

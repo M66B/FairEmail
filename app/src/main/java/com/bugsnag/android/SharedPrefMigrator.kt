@@ -6,12 +6,15 @@ import android.content.Context
 /**
  * Reads legacy information left in SharedPreferences and migrates it to the new location.
  */
-internal class SharedPrefMigrator(context: Context) {
+internal class SharedPrefMigrator(context: Context) : DeviceIdPersistence {
 
     private val prefs = context
         .getSharedPreferences("com.bugsnag.android", Context.MODE_PRIVATE)
 
-    fun loadDeviceId() = prefs.getString(INSTALL_ID_KEY, null)
+    /**
+     * This implementation will never create an ID; it will only fetch one if present.
+     */
+    override fun loadDeviceId(requestCreateIfDoesNotExist: Boolean) = prefs.getString(INSTALL_ID_KEY, null)
 
     fun loadUser(deviceId: String?) = User(
         prefs.getString(USER_ID_KEY, deviceId),

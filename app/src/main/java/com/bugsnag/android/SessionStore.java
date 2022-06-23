@@ -6,7 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.io.File;
+import java.util.Calendar;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -46,7 +48,16 @@ class SessionStore extends FileStore {
     @NonNull
     @Override
     String getFilename(Object object) {
-        return UUID.randomUUID().toString() + System.currentTimeMillis() + "_v2.json";
+        return SessionFilenameInfo.defaultFilename();
     }
 
+    public boolean isTooOld(File file) {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -60);
+        return SessionFilenameInfo.findTimestampInFilename(file) < cal.getTimeInMillis();
+    }
+
+    public Date getCreationDate(File file) {
+        return new Date(SessionFilenameInfo.findTimestampInFilename(file));
+    }
 }
