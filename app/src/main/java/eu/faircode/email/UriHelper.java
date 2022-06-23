@@ -297,6 +297,18 @@ public class UriHelper {
 
             changed = (result != null);
             url = (result == null ? uri : result);
+        } else if (uri.getQueryParameter("redirectUrl") != null) {
+            // https://.../link-tracker?redirectUrl=<base64>&sig=...&iat=...&a=...&account=...&email=...&s=...&i=...
+            try {
+                byte[] bytes = Base64.decode(uri.getQueryParameter("redirectUrl"), 0);
+                String u = URLDecoder.decode(new String(bytes), StandardCharsets.UTF_8.name());
+                Uri result = Uri.parse(u);
+                changed = (result != null);
+                url = (result == null ? uri : result);
+            } catch (Throwable ex) {
+                Log.i(ex);
+                url = uri;
+            }
         } else
             url = uri;
 
