@@ -60,6 +60,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -83,6 +84,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FragmentDialogOpenLink extends FragmentDialogBase {
+    private ScrollView scroll;
     private ImageButton ibMore;
     private TextView tvMore;
     private Button btnOwner;
@@ -137,6 +139,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         // Get views
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_open_link, null);
+        scroll = dview.findViewById(R.id.scroll);
         final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
         final TextView tvTitle = dview.findViewById(R.id.tvTitle);
         final ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
@@ -659,6 +662,16 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         btnSettings.setVisibility(show ? View.VISIBLE : View.GONE);
         btnDefault.setVisibility(show && n ? View.VISIBLE : View.GONE);
         tvReset.setVisibility(show ? View.VISIBLE : View.GONE);
+        if (show)
+            scroll.post(new RunnableEx("link:scroll#1") {
+                public void delegate() {
+                    scroll.getChildAt(0).post(new RunnableEx("link:scroll#2") {
+                        public void delegate() {
+                            scroll.scrollTo(0, scroll.getBottom());
+                        }
+                    });
+                }
+            });
     }
 
     private Spanned format(Uri uri, Context context) {
