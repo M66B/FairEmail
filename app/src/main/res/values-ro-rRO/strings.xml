@@ -756,7 +756,6 @@
     <string name="title_advanced_sender_regex">Regex pentru a potrivi numele de utilizator al adreselor de e-mail primite</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_internal">Nume de domenii interne (separate prin virgulă)</string>
-    <string name="title_identity_unicode">Folosește transportul Unicode</string>
     <string name="title_identity_unicode_remark">Majoritatea serverelor nu acceptă acest lucru</string>
     <string name="title_identity_max_size">Dimensiunea maximă a mesajului (MB)</string>
     <string name="title_identity_receipt">Solicită implicit confirmare la livrare/citire</string>

@@ -745,8 +745,9 @@
     <string name="title_advanced_sender_regex">Expresión regular que coincida con el nombre de usuario de las direcciones de correo entrantes</string>
     <string name="title_identity_reply_to">Responder a la dirección</string>
     <string name="title_identity_internal">Nombres de dominio internos (separados por comas)</string>
-    <string name="title_identity_unicode">Usar transporte Unicode</string>
+    <string name="title_identity_unicode">Permitir UTF-8 en los encabezados de mensajes</string>
     <string name="title_identity_unicode_remark">La mayoría de servidores no soportan esto</string>
+    <string name="title_identity_octetmime">Permitir 8BITMIME</string>
     <string name="title_identity_max_size">Tamaño máximo del mensaje (MB)</string>
     <string name="title_identity_receipt">Solicitar acuse de recibo/lectura por defecto</string>
     <string name="title_identity_receipt_legacy">Usar encabezados de solicitud de recibo heredados</string>

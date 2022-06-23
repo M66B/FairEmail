@@ -698,7 +698,6 @@
     <string name="title_advanced_sender_regex">Reguláis kifejezés a bejövő üzenetek feladó szerinti szűréséhez</string>
     <string name="title_identity_reply_to">Válaszcím</string>
     <string name="title_identity_internal">Belső tartomány nevek (vesszővel elválasztva)</string>
-    <string name="title_identity_unicode">Unicode kódolású adatátvitel használata</string>
     <string name="title_identity_unicode_remark">A legtöbb E-Mail kiszolgáló nem támogatja ezt</string>
     <string name="title_identity_max_size">Üzenet maximális mérete (MB)</string>
     <string name="title_identity_receipt">Kézbesítési/olvasási visszajelzés alapértelmezett kérése</string>

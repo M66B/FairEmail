@@ -700,7 +700,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_sender_regex">Regex untuk mencocokkan nama alamat email yang masuk</string>
     <string name="title_identity_reply_to">Balas ke alamat</string>
     <string name="title_identity_internal">Nama domain internal ( dipisahkan dengan koma (,) )</string>
-    <string name="title_identity_unicode">Menggunakan transportasi Unicode</string>
     <string name="title_identity_unicode_remark">Kebanyakan server tidak support ini</string>
     <string name="title_identity_max_size">Ukuran pesan maksimum (MB)</string>
     <string name="title_identity_receipt">Minta pengiriman / bukti baca secara default</string>

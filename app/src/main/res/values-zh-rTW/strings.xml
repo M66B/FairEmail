@@ -719,7 +719,6 @@
     <string name="title_advanced_sender_regex">用以匹配已收郵件地址中用戶名的正則表達式</string>
     <string name="title_identity_reply_to">回覆至地址</string>
     <string name="title_identity_internal">内部網域名(以逗號隔開)</string>
-    <string name="title_identity_unicode">使用 Unicode 傳輸</string>
     <string name="title_identity_unicode_remark">大多數伺服器不支援此功能</string>
     <string name="title_identity_max_size">最大訊息大小 (MB)</string>
     <string name="title_identity_receipt">預設請求送達/已讀回條</string>

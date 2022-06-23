@@ -735,7 +735,6 @@
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名を参照する正規表現</string>
     <string name="title_identity_reply_to">返信先 (Reply to)</string>
     <string name="title_identity_internal">内部ドメイン名 (カンマ区切り)</string>
-    <string name="title_identity_unicode">Unicode トランスポートを使用</string>
     <string name="title_identity_unicode_remark">ほとんどのサーバーはサポートしていません</string>
     <string name="title_identity_max_size">最大メッセージサイズ (MB)</string>
     <string name="title_identity_receipt">デフォルトで配信確認・開封確認メッセージを要求</string>

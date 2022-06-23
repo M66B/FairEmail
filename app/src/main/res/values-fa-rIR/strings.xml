@@ -537,6 +537,7 @@
     <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
     <string name="title_identity_reply_to">پاسخ به آدرس</string>
     <string name="title_identity_unicode_remark">بیشتر سرور‌ها از این پشتیبانی نمی‌کنند</string>
+    <string name="title_identity_octetmime">به 8BITMIME اجازه بده</string>
     <string name="title_identity_max_size">بیشترین اندازه پیام (MB)</string>
     <string name="title_identity_receipt">درخواست رسید دریافت/خواندن به‌طور پیش‌فرض</string>
     <string name="title_optional">اختیاری</string>

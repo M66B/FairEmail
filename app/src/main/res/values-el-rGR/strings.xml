@@ -743,8 +743,9 @@
     <string name="title_advanced_sender_regex">Να ταιριάξει η κανονική έκφραση (Regex) με το όνομα χρήστη εισερχομένων μηνυμάτων</string>
     <string name="title_identity_reply_to">Απάντηση στη διεύθυνση αυτή</string>
     <string name="title_identity_internal">Εσωτερικά ονόματα τομέα (χωρισμένα με κόμμα)</string>
-    <string name="title_identity_unicode">Χρήση μεταφοράς Unicode</string>
+    <string name="title_identity_unicode">Να επιτρέπεται UTF-8 σε κεφαλίδες μηνυμάτων</string>
     <string name="title_identity_unicode_remark">Οι περισσότεροι διακομιστές δεν το υποστηρίζουν</string>
+    <string name="title_identity_octetmime">Να επιτρέπεται 8BITMIME</string>
     <string name="title_identity_max_size">Μέγιστο μέγεθος αρχείου (MB)</string>
     <string name="title_identity_receipt">Αίτημα αποδεικτικού παράδοσης/ανάγνωσης από προεπιλογή</string>
     <string name="title_identity_receipt_legacy">Χρήση κεφαλίδων παλαιού τύπου για το αίτημα αποδεικτικού λήψης</string>

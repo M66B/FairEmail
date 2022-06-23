@@ -768,8 +768,9 @@
     <string name="title_advanced_sender_regex">Регулярное выражение для имени в адресе входящей электронной почты</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
     <string name="title_identity_internal">Внутренние доменные имена (через запятую)</string>
-    <string name="title_identity_unicode">Использовать транспорт Unicode</string>
+    <string name="title_identity_unicode">Использовать UTF-8 в заголовках сообщений</string>
     <string name="title_identity_unicode_remark">Большинство серверов это не поддерживают</string>
+    <string name="title_identity_octetmime">Использовать 8BITMIME</string>
     <string name="title_identity_max_size">Максимальный размер сообщения (МБ)</string>
     <string name="title_identity_receipt">Запрашивать уведомление о доставке/прочтении по умолчанию</string>
     <string name="title_identity_receipt_legacy">Использовать устаревшие заголовки запроса уведомлений</string>
