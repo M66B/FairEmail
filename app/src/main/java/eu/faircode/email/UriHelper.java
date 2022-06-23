@@ -312,7 +312,7 @@ public class UriHelper {
         } else
             url = uri;
 
-        if (url.isOpaque())
+        if (url.isOpaque() || !UriHelper.isHyperLink(url))
             return uri;
 
         Uri.Builder builder = url.buildUpon();
