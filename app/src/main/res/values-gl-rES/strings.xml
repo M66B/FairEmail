@@ -695,7 +695,6 @@
     <string name="title_advanced_sender_regex">Expresión regular para detectar o nome de usuario dos enderezos de email dos remitentes</string>
     <string name="title_identity_reply_to">Enderezo de resposta</string>
     <string name="title_identity_internal">Nomes de dominios internos (separados por comas)</string>
-    <string name="title_identity_unicode">Usar transporte Unicode</string>
     <string name="title_identity_unicode_remark">A maioría dos servidores non soportan isto</string>
     <string name="title_identity_max_size">Tamaño máximo da mensaxe (MB)</string>
     <string name="title_identity_receipt">Pedir acuse de recibo por defecto</string>

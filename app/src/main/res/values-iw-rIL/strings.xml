@@ -768,8 +768,9 @@
     <string name="title_advanced_sender_regex">ביטוי רגולרי ללכידת שם המשתמש של כתובות דוא״ל נכנסות</string>
     <string name="title_identity_reply_to">כתובת למענה</string>
     <string name="title_identity_internal">שמות תחום פנימיים (עם פסיקים מפרידים)</string>
-    <string name="title_identity_unicode">להשתמש בתעבורת יוניקוד</string>
+    <string name="title_identity_unicode">לאפשר UTF-8 בכותרות הודעות</string>
     <string name="title_identity_unicode_remark">רוב השרתים לא תומכים בזה</string>
+    <string name="title_identity_octetmime">לאפשר 8BITMIME</string>
     <string name="title_identity_max_size">גודל ההודעה המרבי (מ״ב)</string>
     <string name="title_identity_receipt">לבקש אישור שליחה/אישור כבררת מחדל</string>
     <string name="title_identity_receipt_legacy">להשתמש בכותרות בקשת קבלה מיושנות</string>

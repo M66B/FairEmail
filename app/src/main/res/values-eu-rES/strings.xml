@@ -536,7 +536,6 @@
     <string name="title_advanced_sender">Baimendu bidaltzailearen helbidea editatzea</string>
     <string name="title_advanced_sender_regex">Regex sarrerako helbideen erabiltzaile izenarekin bat etortzeko</string>
     <string name="title_identity_reply_to">Erantzun-helbidea</string>
-    <string name="title_identity_unicode">Erabili Unicode garraioa</string>
     <string name="title_identity_unicode_remark">Zerbitzari gehienek ez dute hau onartzen</string>
     <string name="title_identity_max_size">Mezuaren gehieneko tamaina (MB)</string>
     <string name="title_identity_receipt">Eskatu defektuz bidalketa/irakurri izanaren egiaztagiria</string>

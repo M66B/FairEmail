@@ -744,8 +744,9 @@
     <string name="title_advanced_sender_regex">Regex zum Abgleichen des Benutzernamens von eingehenden E-Mail-Adressen</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_internal">Interne Domänennamen (durch Kommata getrennt)</string>
-    <string name="title_identity_unicode">Unicode-Transport verwenden</string>
+    <string name="title_identity_unicode">UTF-8 in Nachrichtenkopfzeilen zulassen</string>
     <string name="title_identity_unicode_remark">Die meisten Server unterstützen dies nicht</string>
+    <string name="title_identity_octetmime">8BITMIME erlauben</string>
     <string name="title_identity_max_size">Maximale Nachrichtengröße (MB)</string>
     <string name="title_identity_receipt">Empfangs-/Lesebestätigung standardmäßig anfordern</string>
     <string name="title_identity_receipt_legacy">Kopfzeilen der alten Empfangsanforderung verwenden</string>

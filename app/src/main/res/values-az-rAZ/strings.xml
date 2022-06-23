@@ -746,7 +746,7 @@
     <string name="title_advanced_sender_regex">Gələn e-poçt ünvanlarının istifadəçi adını uyğunlaşdırmaq üçün normal ifadə</string>
     <string name="title_identity_reply_to">Cavablama ünvanı</string>
     <string name="title_identity_internal">Daxili domen adları (vergüllə ayrılan)</string>
-    <string name="title_identity_unicode">Unicode daşımanı istifadə et</string>
+    <string name="title_identity_unicode">Mesaj başlığında \"UTF-8\"ə icazə ver</string>
     <string name="title_identity_unicode_remark">Əksər server bunu dəstəkləmir</string>
     <string name="title_identity_max_size">Maksimum mesaj həcmi (MB)</string>
     <string name="title_identity_receipt">Çatdırılma/oxuma bildirişini ilkin olaraq tələb et</string>

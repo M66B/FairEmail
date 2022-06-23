@@ -734,8 +734,9 @@
     <string name="title_advanced_sender_regex">用正则表达式来匹配收到的邮箱地址的用户名</string>
     <string name="title_identity_reply_to">回复给该地址</string>
     <string name="title_identity_internal">内部域名(逗号分隔)</string>
-    <string name="title_identity_unicode">使用 Unicode 传输</string>
+    <string name="title_identity_unicode">在消息头中允许 UTF-8</string>
     <string name="title_identity_unicode_remark">大多数服务器不支持这一功能</string>
+    <string name="title_identity_octetmime">允许 8BITMIME</string>
     <string name="title_identity_max_size">最大消息大小 (MB)</string>
     <string name="title_identity_receipt">默认请求送达/已读回执</string>
     <string name="title_identity_receipt_legacy">使用旧版的回执请求标头</string>

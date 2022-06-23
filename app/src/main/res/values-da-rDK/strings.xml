@@ -747,8 +747,9 @@
     <string name="title_advanced_sender_regex">Regex, der skal matche brugernavn for indgående e-mailadresser</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
     <string name="title_identity_internal">Interne domænenavne (kommasepareret)</string>
-    <string name="title_identity_unicode">Benyt Unicode-transport</string>
+    <string name="title_identity_unicode">Tillad UTF-8 i besked-headere</string>
     <string name="title_identity_unicode_remark">De fleste servere understøtter ikke dette</string>
+    <string name="title_identity_octetmime">Tillad 8BITMIME</string>
     <string name="title_identity_max_size">Maks. beskedstørrelse (MBb)</string>
     <string name="title_identity_receipt">Bed automatisk om leverings/læstkvittering som standard</string>
     <string name="title_identity_receipt_legacy">Brug ældre kvittering sidehoveder</string>

@@ -731,7 +731,6 @@
     <string name="title_advanced_sender_regex">Regex lähettäjän sähköpostiosoitteen käyttäjätunnuksen vastaavuuden määrittämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_internal">Sisäiset verkkotunnukset (pilkulla erotettu)</string>
-    <string name="title_identity_unicode">Käytä Unicode-tiedonsiirtoa</string>
     <string name="title_identity_unicode_remark">Suurin osa palvelimista ei tue tätä</string>
     <string name="title_identity_max_size">Viestin suurin mahdollinen koko (Mt)</string>
     <string name="title_identity_receipt">Pyydä toimitus-/vastaanottokuittaus oletuksena</string>

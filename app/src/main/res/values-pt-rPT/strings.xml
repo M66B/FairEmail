@@ -700,8 +700,8 @@
     <string name="title_advanced_sender">Permitir a edição do endereço do remetente</string>
     <string name="title_advanced_sender_name">Utilizar o nome quando o endereço do remetente for editado</string>
     <string name="title_identity_reply_to">Responder para o endereço</string>
-    <string name="title_identity_unicode">Utilizar comunicação Unicode</string>
     <string name="title_identity_unicode_remark">A maioria dos servidores não suporta isto</string>
+    <string name="title_identity_octetmime">Permitir 8BITMIME</string>
     <string name="title_identity_max_size">Tamanho máximo da mensagem (MB)</string>
     <string name="title_identity_receipt">Solicitar relatório de entrega/leitura por predefinição</string>
     <string name="title_identity_receipt_legacy">Usar o cabeçalho clássico para solicitar o recibo de leitura</string>

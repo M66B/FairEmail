@@ -720,7 +720,6 @@
     <string name="title_advanced_sender_regex">Sử dụng biểu thức tìm kiếm để khớp với tên người dùng của các địa chỉ email sắp đến</string>
     <string name="title_identity_reply_to">Trả lời đến địa chỉ</string>
     <string name="title_identity_internal">Tên miền nội bộ (được ngăn cách bởi dấu phẩy)</string>
-    <string name="title_identity_unicode">Sử dụng vận chuyển Unicode</string>
     <string name="title_identity_unicode_remark">Đa số các máy chủ không hỗ trợ điều này</string>
     <string name="title_identity_max_size">Kích cỡ thư lớn nhất (MB)</string>
     <string name="title_identity_receipt">Yêu cầu xác nhận đã gửi/đã đọc theo mặc định</string>

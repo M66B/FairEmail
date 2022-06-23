@@ -545,7 +545,6 @@
     <string name="title_advanced_sender_regex">Regex om oerien te nimmen mei brûkersnamme fan ynkommende emailadressen</string>
     <string name="title_identity_reply_to">Antwurdzje op adres</string>
     <string name="title_identity_internal">Ynterne domeinnammen (komma skieden)</string>
-    <string name="title_identity_unicode">Brûk Unicode-ferfier</string>
     <string name="title_identity_unicode_remark">De measte servers stypje dit net</string>
     <string name="title_identity_max_size">Maksimum berjochtengrutte (MB)</string>
     <string name="title_identity_receipt">Freegje levering / lêsbewiis standert oan</string>

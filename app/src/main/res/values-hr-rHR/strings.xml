@@ -752,7 +752,6 @@
     <string name="title_advanced_sender_regex">Regex će odgovarati korisničkom imenu za dolazne adrese e-pošte</string>
     <string name="title_identity_reply_to">Odgovor na adresu</string>
     <string name="title_identity_internal">Interni nazivi domena (odvojeni zarezom)</string>
-    <string name="title_identity_unicode">Koristi Unicode način transporta</string>
     <string name="title_identity_unicode_remark">Većina poslužitelja to ne podržava</string>
     <string name="title_identity_max_size">Maksimalna veličina poruke (MB)</string>
     <string name="title_identity_receipt">Zatražite potvrdu isporuke/čitanja standardno</string>

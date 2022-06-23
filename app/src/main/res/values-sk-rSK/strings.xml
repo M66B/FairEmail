@@ -750,7 +750,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_sender_regex">Regulárny výraz pre zachytenie mena používateľa prichádzajúcich emailových adries</string>
     <string name="title_identity_reply_to">Adresa pre odpoveď</string>
     <string name="title_identity_internal">Interné názvy domén (oddelené čiarkou)</string>
-    <string name="title_identity_unicode">Použiť unicode prenos</string>
     <string name="title_identity_unicode_remark">Väčšina serverov túto možnosť nepodporuje</string>
     <string name="title_identity_max_size">Maximálna veľkosť správy (MB)</string>
     <string name="title_identity_receipt">Predvolene si vyžiadať potvrdenie o doručení/prečítaní</string>

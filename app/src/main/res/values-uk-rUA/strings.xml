@@ -753,7 +753,6 @@
     <string name="title_advanced_sender_regex">Регулярний вираз, що застосовується до імені користувача з вхідних адрес електронної пошти</string>
     <string name="title_identity_reply_to">Відповісти на адресу</string>
     <string name="title_identity_internal">Внутрішні доменні імена (розділені комами)</string>
-    <string name="title_identity_unicode">Використовувати Unicode при комунікації з сервером</string>
     <string name="title_identity_unicode_remark">Більшість серверів не підтримують це</string>
     <string name="title_identity_max_size">Максимальний розмір повідомлення (МБ)</string>
     <string name="title_identity_receipt">Запитати про доставку/прочитання повідомлення за замовчуванням</string>

@@ -747,8 +747,9 @@
     <string name="title_advanced_sender_regex">Regex per abbinare il nome utente degli indirizzi email in arrivo</string>
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
     <string name="title_identity_internal">Nomi di dominio interni (separati da virgole)</string>
-    <string name="title_identity_unicode">Usa il trasporto Unicode</string>
+    <string name="title_identity_unicode">Consenti UTF-8 nelle intestazioni dei messaggi</string>
     <string name="title_identity_unicode_remark">Gran parte dei server non lo supportano</string>
+    <string name="title_identity_octetmime">Consenti 8BITMIME</string>
     <string name="title_identity_max_size">Dimensione massima del messaggio (MB)</string>
     <string name="title_identity_receipt">Richiedi ricevuta di consegna/lettura di default</string>
     <string name="title_identity_receipt_legacy">Usa le intestazioni di richiesta di ricevuta preesistenti</string>

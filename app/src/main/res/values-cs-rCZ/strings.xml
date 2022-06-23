@@ -767,8 +767,8 @@
     <string name="title_advanced_sender_regex">Reg. výraz odpovídající uživ. jménu příchozích e-mailových adres</string>
     <string name="title_identity_reply_to">Odpověď na adresu</string>
     <string name="title_identity_internal">Názvy interních domén (oddělené čárkou)</string>
-    <string name="title_identity_unicode">Použít Unicode přenos</string>
     <string name="title_identity_unicode_remark">Většina serverů toto nepodporuje</string>
+    <string name="title_identity_octetmime">Povolit 8BITMIME</string>
     <string name="title_identity_max_size">Maximální velikost zprávy (MB)</string>
     <string name="title_identity_receipt">Automaticky požadovat potvrzení doručení/přečtení</string>
     <string name="title_identity_receipt_legacy">Použít legacy hlavičku žádosti potvrzení o doručení</string>
@@ -1071,6 +1071,7 @@
     <string name="title_archive">Archiv</string>
     <string name="title_reply">Odpovědět</string>
     <string name="title_reply_to_sender">Odpovědět odesílateli</string>
+    <string name="title_reply_to_recipient">Odpovědět příjemci</string>
     <string name="title_reply_to_all">Odpovědět všem</string>
     <string name="title_reply_list">Odpovědět seznamu</string>
     <string name="title_reply_receipt">Odeslat potvrzení o přečtení</string>

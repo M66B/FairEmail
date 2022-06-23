@@ -744,7 +744,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sender_regex">Gelen e-posta adreslerinin kullanıcı adı bölümünü eşleştirmek için düzenli ifade</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
     <string name="title_identity_internal">Dahili alan adları (virgülle ayrılmış)</string>
-    <string name="title_identity_unicode">Unicode taşımayı kullan</string>
     <string name="title_identity_unicode_remark">Çoğu sunucu bunu desteklemiyor</string>
     <string name="title_identity_max_size">Maksimum mesaj boyutu (MB)</string>
     <string name="title_identity_receipt">Varsayılan olarak iletildi/okundu bilgisi iste</string>
