@@ -47,6 +47,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -555,6 +556,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
     private void setOptions() {
         if (getContext() == null)
+            return;
+        if (getLifecycle().getCurrentState().equals(Lifecycle.State.DESTROYED))
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

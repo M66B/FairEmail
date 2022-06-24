@@ -531,6 +531,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private void setOptions() {
         if (getContext() == null)
             return;
+        if (getLifecycle().getCurrentState().equals(Lifecycle.State.DESTROYED))
+            return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 

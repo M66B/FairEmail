@@ -50,6 +50,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
@@ -531,6 +532,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
     private void setOptions() {
         if (getContext() == null)
+            return;
+        if (getLifecycle().getCurrentState().equals(Lifecycle.State.DESTROYED))
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

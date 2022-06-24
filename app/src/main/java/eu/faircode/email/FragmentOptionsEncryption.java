@@ -598,6 +598,8 @@ public class FragmentOptionsEncryption extends FragmentBase
     private void setOptions() {
         if (getContext() == null)
             return;
+        if (getLifecycle().getCurrentState().equals(Lifecycle.State.DESTROYED))
+            return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
