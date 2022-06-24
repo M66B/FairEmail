@@ -92,7 +92,6 @@ import com.bugsnag.android.OnErrorCallback;
 import com.bugsnag.android.OnSessionCallback;
 import com.bugsnag.android.Session;
 import com.bugsnag.android.Severity;
-import com.bugsnag.android.Telemetry;
 import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.ProtocolException;
