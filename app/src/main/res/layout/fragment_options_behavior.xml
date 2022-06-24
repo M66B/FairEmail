@@ -76,6 +76,29 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swRestoreOnLaunch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_restore_on_launch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral"
+                    app:switchPadding="12dp" />
+
+                <TextView
+                    android:id="@+id/tvRestoreOnLaunchHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_restore_on_launch_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swRestoreOnLaunch" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swSyncOnlaunch"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -83,7 +106,7 @@
                     android:text="@string/title_advanced_sync_on_launch"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral"
+                    app:layout_constraintTop_toBottomOf="@id/tvRestoreOnLaunchHint"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

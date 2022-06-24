@@ -1664,6 +1664,9 @@ public class FragmentCompose extends FragmentBase {
             onAction(R.id.action_save, extras, "pause");
         }
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putLong("last_composing", working).apply();
+
         ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
         cm.unregisterNetworkCallback(networkCallback);
 

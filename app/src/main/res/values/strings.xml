@@ -574,6 +574,7 @@
     <string name="title_advanced_authentication_some">Partial authentication</string>
     <string name="title_advanced_authentication_all">Complete authentication</string>
 
+    <string name="title_advanced_restore_on_launch">Restore app state on start</string>
     <string name="title_advanced_sync_on_launch">Synchronize on start</string>
     <string name="title_advanced_double_back">Double \'back\' to exit</string>
     <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
@@ -860,6 +861,7 @@
     <string name="compressed">The contents of compressed files (%1$s) with more than %2$s files or with files larger than %3$s will not be shown</string>
     <string name="title_advanced_parse_classes_hint">This will more accurately display messages, but possibly with a delay</string>
 
+    <string name="title_advanced_restore_on_launch_hint">Restore last app state when restarted via the launcher icon within %1$d minutes</string>
     <string name="title_advanced_language_detection_hint">Language detection support depends on the device manufacturer</string>
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
     <string name="title_advanced_expandall_hint">The answer button will not be shown when multiple messages are expanded because it is unclear which message the button applies to</string>

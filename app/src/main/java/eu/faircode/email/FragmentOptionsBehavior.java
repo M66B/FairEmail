@@ -58,6 +58,8 @@ import java.util.List;
 
 public class FragmentOptionsBehavior extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private ImageButton ibHelp;
+    private SwitchCompat swRestoreOnLaunch;
+    private TextView tvRestoreOnLaunchHint;
     private SwitchCompat swSyncOnlaunch;
     private SwitchCompat swDoubleBack;
     private SwitchCompat swConversationActions;
@@ -100,7 +102,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     final static int DEFAULT_SWIPE_SENSITIVITY = 7;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "sync_on_launch", "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
+            "restore_on_launch", "sync_on_launch", "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
             "default_snooze",
             "pull", "autoscroll", "quick_filter", "quick_scroll", "swipe_sensitivity", "foldernav",
             "doubletap", "swipenav", "volumenav", "reversed", "swipe_close", "swipe_move",
@@ -122,6 +124,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         // Get controls
 
         ibHelp = view.findViewById(R.id.ibHelp);
+        swRestoreOnLaunch = view.findViewById(R.id.swRestoreOnLaunch);
+        tvRestoreOnLaunchHint = view.findViewById(R.id.tvRestoreOnLaunchHint);
         swSyncOnlaunch = view.findViewById(R.id.swSyncOnlaunch);
         swDoubleBack = view.findViewById(R.id.swDoubleBack);
         swConversationActions = view.findViewById(R.id.swConversationActions);
@@ -177,6 +181,14 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("double_back", checked).apply();
+            }
+        });
+
+        tvRestoreOnLaunchHint.setText(getString(R.string.title_advanced_restore_on_launch_hint, ActivityMain.RESTORE_STATE_INTERVAL));
+        swRestoreOnLaunch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("restore_on_launch", checked).apply();
             }
         });
 
@@ -523,6 +535,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        swRestoreOnLaunch.setChecked(prefs.getBoolean("restore_on_launch", true));
         swSyncOnlaunch.setChecked(prefs.getBoolean("sync_on_launch", false));
         swDoubleBack.setChecked(prefs.getBoolean("double_back", false));
         swConversationActions.setChecked(prefs.getBoolean("conversation_actions", Helper.isGoogle()));

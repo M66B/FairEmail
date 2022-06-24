@@ -282,6 +282,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         super.onPause();
 
         visible = false;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit().putString("last_activity", this.getClass().getName()).apply();
 
         checkAuthentication(false);
     }
