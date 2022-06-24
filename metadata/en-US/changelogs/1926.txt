@@ -7,6 +7,11 @@
 ### Next version
 
 * Added import file to signature editor
+* Added option to restore app state on start
+* Added edit account color to folder list menu
+* Small improvements and minor bug fixes
+* Updated libraries
+* Updated translations
 
 ### [Juratyrant](https://en.wikipedia.org/wiki/Juratyrant)
 
