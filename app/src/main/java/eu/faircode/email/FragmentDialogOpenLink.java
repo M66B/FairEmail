@@ -203,7 +203,10 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         ibDifferent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                etLink.setText(format(uriTitle, context));
+                Package pkg = (Package) spOpenWith.getSelectedItem();
+                Log.i("Open title uri=" + uri + " with=" + pkg);
+                boolean tabs = (pkg != null && pkg.tabs);
+                Helper.view(context, uriTitle, !tabs, !tabs);
             }
         });
 

@@ -44,6 +44,7 @@
             android:maxLines="2"
             android:text="Link title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textIsSelectable="true"
             android:textStyle="italic"
             app:layout_constraintEnd_toStartOf="@+id/ibDifferent"
             app:layout_constraintStart_toStartOf="parent"
