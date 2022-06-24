@@ -2378,7 +2378,8 @@ public abstract class DB extends RoomDatabase {
                     long start = new Date().getTime();
                     StringBuilder sb = new StringBuilder();
                     SupportSQLiteDatabase sdb = db.getOpenHelper().getWritableDatabase();
-                    try (Cursor cursor = sdb.query("PRAGMA wal_checkpoint(PASSIVE);")) {
+                    String mode = (BuildConfig.DEBUG ? "RESTART" : "PASSIVE");
+                    try (Cursor cursor = sdb.query("PRAGMA wal_checkpoint(" + mode + ");")) {
                         if (cursor.moveToNext()) {
                             for (int i = 0; i < cursor.getColumnCount(); i++) {
                                 if (i > 0)
@@ -2389,7 +2390,8 @@ public abstract class DB extends RoomDatabase {
                     }
 
                     long elapse = new Date().getTime() - start;
-                    Log.i("PRAGMA wal_checkpoint=" + sb + " elapse=" + elapse);
+                    EntityLog.log(context, EntityLog.Type.Debug,
+                            "PRAGMA wal_checkpoint(" + mode + ")=" + sb + " elapse=" + elapse + " ms");
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
