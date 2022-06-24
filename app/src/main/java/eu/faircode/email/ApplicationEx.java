@@ -631,6 +631,9 @@ public class ApplicationEx extends Application
                 editor.remove("browse_links")
                         .putBoolean("open_with_tabs", !browse_links);
             }
+        } else if (version < 1927) {
+            if (!prefs.contains("auto_identity"))
+                editor.putBoolean("auto_identity", true);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

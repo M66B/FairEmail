@@ -642,7 +642,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
         swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
         swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
-        swAutoIdentity.setChecked(prefs.getBoolean("auto_identity", true));
+        swAutoIdentity.setChecked(prefs.getBoolean("auto_identity", false));
         swSendChips.setChecked(prefs.getBoolean("send_chips", true));
         swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
         swSendPending.setChecked(prefs.getBoolean("send_pending", true));

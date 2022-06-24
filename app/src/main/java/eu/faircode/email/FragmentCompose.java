@@ -1373,7 +1373,7 @@ public class FragmentCompose extends FragmentBase {
                 String email = args.getString("email");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean auto_identity = prefs.getBoolean("auto_identity", true);
+                boolean auto_identity = prefs.getBoolean("auto_identity", false);
                 boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
                 boolean suggest_received = prefs.getBoolean("suggest_received", false);
 
@@ -4565,7 +4565,7 @@ public class FragmentCompose extends FragmentBase {
             boolean receipt_default = prefs.getBoolean("receipt_default", false);
             boolean write_below = prefs.getBoolean("write_below", false);
             boolean save_drafts = prefs.getBoolean("save_drafts", true);
-            boolean auto_identity = prefs.getBoolean("auto_identity", true);
+            boolean auto_identity = prefs.getBoolean("auto_identity", false);
             boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
             boolean suggest_received = prefs.getBoolean("suggest_received", false);
             boolean forward_new = prefs.getBoolean("forward_new", true);
