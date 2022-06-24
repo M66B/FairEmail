@@ -1737,7 +1737,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         sbRoomQueryThreads.setProgress(query_threads);
 
         swWal.setChecked(prefs.getBoolean("wal", true));
-        swCheckpoints.setChecked(prefs.getBoolean("sqlite_checkpoints", false));
+        swCheckpoints.setChecked(prefs.getBoolean("sqlite_checkpoints", true));
         swAnalyze.setChecked(prefs.getBoolean("sqlite_analyze", true));
 
         int sqlite_cache = prefs.getInt("sqlite_cache", DB.DEFAULT_CACHE_SIZE);
