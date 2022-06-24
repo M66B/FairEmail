@@ -2051,6 +2051,12 @@ public class Helper {
 
     // Files
 
+    static {
+        System.loadLibrary("fairemail");
+    }
+
+    public static native void sync();
+
     static String sanitizeFilename(String name) {
         if (name == null)
             return null;

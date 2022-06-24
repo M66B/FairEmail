@@ -109,8 +109,10 @@ public class WorkerFts extends Worker {
 
             markIndexed(db, ids);
 
-            if (checkpoints)
+            if (checkpoints) {
                 DB.checkpoint(context);
+                Helper.sync();
+            }
 
             Log.i("FTS indexed=" + indexed);
             return Result.success();

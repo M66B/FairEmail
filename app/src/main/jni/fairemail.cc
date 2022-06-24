@@ -7,6 +7,7 @@
 #include <netinet/tcp.h>
 #include <sys/ioctl.h>
 #include <netdb.h>
+#include <unistd.h>
 
 #include "compact_enc_det/compact_enc_det.h"
 #include "cld_3/src/nnet_language_identifier.h"
@@ -199,4 +200,12 @@ Java_eu_faircode_email_ConnectionHelper_jni_1is_1numeric_1address(
 
     env->ReleaseStringUTFChars(_ip, ip);
     return numeric;
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_eu_faircode_email_Helper_sync(JNIEnv *env, jclass clazz) {
+    log_android(ANDROID_LOG_DEBUG, "sync");
+    sync();
+    log_android(ANDROID_LOG_DEBUG, "synced");
 }
