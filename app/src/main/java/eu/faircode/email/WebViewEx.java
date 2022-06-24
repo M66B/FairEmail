@@ -295,7 +295,20 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             clampedY = true;
         }
 
-        Log.i("onOverScrolled clamped=" + clampedY + " new=" + newScrollY + " dy=" + deltaY);
+        Log.i("onOverScrolled" +
+                " clampedY=" + clampedY +
+                " scrollY=" + scrollY +
+                " deltaY=" + deltaY +
+                " RangeY=" + scrollRangeY +
+                " maxY=" + maxOverScrollY +
+                " newY=" + (scrollY + deltaY) + "/" + newScrollY +
+                " dy=" + deltaY +
+                " top=" + top +
+                " bottom=" + bottom);
+
+        if (Math.abs(deltaY) > bottom - top)
+            deltaY = (deltaY > 0 ? 1 : -1) * (bottom - top);
+
         intf.onOverScrolled(scrollX, scrollY, deltaX, deltaY, clampedX, clampedY);
 
         return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, maxOverScrollY, isTouchEvent);
