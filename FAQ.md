@@ -4030,6 +4030,7 @@ Account:
 
 Folder:
 
+* Long press the folder in the folder list and select *Notify on new messages*
 * Long press the folder in the folder list and select *Create notification channel*
 * Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
 
