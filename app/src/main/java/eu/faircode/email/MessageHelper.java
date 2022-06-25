@@ -3004,10 +3004,6 @@ public class MessageHelper {
         }
 
         Integer isPlainOnly() {
-            for (PartHolder h : extra)
-                if (h.isReport())
-                    return null;
-
             int html = 0;
             int plain = 0;
             for (PartHolder h : text) {
