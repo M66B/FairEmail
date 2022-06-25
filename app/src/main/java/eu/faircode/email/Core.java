@@ -4225,7 +4225,9 @@ class Core {
             if (experiments && helper.isReport())
                 try {
                     MessageHelper.Report r = parts.getReport();
-                    if (r != null) {
+                    boolean client_id = prefs.getBoolean("client_id", true);
+                    String we = "dns;" + (client_id ? EmailService.getDefaultEhlo() : "example.com");
+                    if (r != null && !we.equals(r.reporter)) {
                         String label = null;
                         if (r.isDeliveryStatus())
                             label = (r.isDelivered() ? MessageHelper.FLAG_DELIVERED : MessageHelper.FLAG_NOT_DELIVERED);
