@@ -257,6 +257,7 @@ public class EntityOperation {
                 if (message.ui_found)
                     db.message().setMessageFound(message.id, false);
 
+                boolean premove = true;
                 if (source.account.equals(target.account)) {
                     EntityAccount account = db.account().getAccount(message.account);
                     if ((account != null && !account.isGmail()) ||
@@ -269,6 +270,10 @@ public class EntityOperation {
                             EntityFolder.ARCHIVE.equals(source.type) &&
                             !(EntityFolder.TRASH.equals(target.type) || EntityFolder.JUNK.equals(target.type)))
                         name = COPY;
+
+                    if (account != null && account.isGmail() &&
+                            (EntityFolder.DRAFTS.equals(source.type) || EntityFolder.DRAFTS.equals(target.type)))
+                        premove = false;
                 }
 
                 if (message.ui_snoozed != null &&
@@ -296,7 +301,8 @@ public class EntityOperation {
 
                 // Create copy without uid in target folder
                 // Message with same msgid can be in archive
-                if (message.uid != null &&
+                if (premove &&
+                        message.uid != null &&
                         !TextUtils.isEmpty(message.msgid) &&
                         db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
                     File msource = message.getFile(context);
