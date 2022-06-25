@@ -51,6 +51,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
@@ -385,13 +386,16 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, order++, R.string.title_primary)
                     .setCheckable(true).setChecked(account.primary);
 
-            if (account.notify &&
-                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 String channelId = EntityAccount.getNotificationChannelId(account.id);
                 NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
                 NotificationChannel channel = nm.getNotificationChannel(channelId);
-                if (channel != null)
+                if (channel == null)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, order++, R.string.title_create_channel);
+                else {
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, order++, R.string.title_edit_channel);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, order++, R.string.title_delete_channel);
+                }
             }
 
             if (settings)
@@ -418,8 +422,17 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     } else if (itemId == R.string.title_primary) {
                         onActionPrimary(!item.isChecked());
                         return true;
+                    } else if (itemId == R.string.title_create_channel) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                            onActionCreateChannel();
+                        return true;
                     } else if (itemId == R.string.title_edit_channel) {
-                        onActionEditChannel();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                            onActionEditChannel();
+                        return true;
+                    } else if (itemId == R.string.title_delete_channel) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                            onActionDeleteChannel();
                         return true;
                     } else if (itemId == R.string.title_edit_properties) {
                         ViewHolder.this.onClick(view);
@@ -515,6 +528,41 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 }
 
                 @TargetApi(Build.VERSION_CODES.O)
+                private void onActionCreateChannel() {
+                    if (!ActivityBilling.isPro(context)) {
+                        context.startActivity(new Intent(context, ActivityBilling.class));
+                        return;
+                    }
+
+                    account.createNotificationChannel(context);
+
+                    Bundle args = new Bundle();
+                    args.putLong("id", account.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            db.account().setAccountNotify(id, true);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Void data) {
+                            onActionEditChannel();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "create:channel");
+                }
+
+                @TargetApi(Build.VERSION_CODES.O)
                 private void onActionEditChannel() {
                     Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
                             .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
@@ -524,6 +572,34 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     } catch (Throwable ex) {
                         Helper.reportNoViewer(context, intent, ex);
                     }
+                }
+
+                @RequiresApi(api = Build.VERSION_CODES.O)
+                private void onActionDeleteChannel() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", account.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            db.account().setAccountNotify(id, false);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Void data) {
+                            account.deleteNotificationChannel(context);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "create:channel");
                 }
 
                 private void onActionCopy() {
