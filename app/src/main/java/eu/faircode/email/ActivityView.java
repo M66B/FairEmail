@@ -1623,14 +1623,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
                 Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url))
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 PendingIntent piUpdate = PendingIntentCompat.getActivity(
                         ActivityView.this, PI_UPDATE, update, PendingIntent.FLAG_UPDATE_CURRENT);
                 builder.setContentIntent(piUpdate);
 
                 Intent manage = new Intent(ActivityView.this, ActivitySetup.class)
                         .setAction("misc")
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         .putExtra("tab", "misc");
                 PendingIntent piManage = PendingIntentCompat.getActivity(
                         ActivityView.this, ActivitySetup.PI_MISC, manage, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -1642,7 +1642,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 if (!TextUtils.isEmpty(info.download_url)) {
                     Intent download = new Intent(Intent.ACTION_VIEW, Uri.parse(info.download_url))
-                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     PendingIntent piDownload = PendingIntentCompat.getActivity(
                             ActivityView.this, 0, download, 0);
                     NotificationCompat.Action.Builder actionDownload = new NotificationCompat.Action.Builder(

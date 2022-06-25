@@ -6388,7 +6388,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 intent.setAction(Intent.ACTION_SEND_MULTIPLE);
                                 intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
                             }
-                            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         }
                     }
 

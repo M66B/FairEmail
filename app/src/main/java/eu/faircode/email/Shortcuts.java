@@ -280,7 +280,7 @@ class Shortcuts {
     static ShortcutInfoCompat.Builder getShortcut(Context context, EntityMessage message, ContactInfo[] contactInfo) {
         Intent thread = new Intent(context, ActivityView.class);
         thread.setAction("thread:" + message.id);
-        thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         thread.putExtra("account", message.account);
         thread.putExtra("folder", message.folder);
         thread.putExtra("thread", message.thread);
@@ -323,7 +323,7 @@ class Shortcuts {
         view.setAction("folder:" + folder.id);
         view.putExtra("account", folder.account);
         view.putExtra("type", folder.type);
-        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         int resid = EntityFolder.getIcon(folder.type);
         Drawable d = context.getDrawable(resid);

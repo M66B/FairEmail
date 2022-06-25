@@ -73,7 +73,7 @@ public class WidgetUnified extends AppWidgetProvider {
             view.putExtra("type", type);
             view.putExtra("refresh", true);
             view.putExtra("version", version);
-            view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             PendingIntent pi = PendingIntentCompat.getActivity(
                     context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -88,7 +88,7 @@ public class WidgetUnified extends AppWidgetProvider {
             edit.setAction("widget:" + appWidgetId);
             edit.putExtra("action", "new");
             edit.putExtra("account", account);
-            edit.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            edit.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             PendingIntent piCompose = PendingIntentCompat.getActivity(
                     context, appWidgetId, edit, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -126,7 +126,7 @@ public class WidgetUnified extends AppWidgetProvider {
             thread.putExtra("widget_folder", folder);
             thread.putExtra("widget_type", type);
             thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(type));
-            thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent piItem = PendingIntentCompat.getActivity(
                     context, ActivityView.PI_WIDGET, thread, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
 

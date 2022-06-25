@@ -297,7 +297,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
             send.setPackage(BuildConfig.APPLICATION_ID);
             send.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
             send.setType("message/rfc822");
-            send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             send.putExtra("fair:account", account);
 
             startActivity(send);

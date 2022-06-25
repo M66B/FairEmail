@@ -237,7 +237,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 send.setAction(Intent.ACTION_SEND);
                 send.putExtra(Intent.EXTRA_STREAM, uri);
                 send.setType(attachment.getMimeType());
-                send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 context.startActivity(Intent.createChooser(send, context.getString(R.string.title_select_app)));
 
                 return true;

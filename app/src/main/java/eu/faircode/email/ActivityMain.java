@@ -112,7 +112,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                     Intent thread = new Intent(ActivityMain.this, ActivityView.class);
                     thread.setAction("thread:" + message.id);
-                    thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     thread.putExtra("account", message.account);
                     thread.putExtra("folder", message.folder);
                     thread.putExtra("thread", message.thread);

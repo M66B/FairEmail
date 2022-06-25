@@ -383,7 +383,7 @@ public class FragmentFolders extends FragmentBase {
                         intent.putExtra("protocol", account.protocol);
                         intent.putExtra("auth_type", account.auth_type);
                         intent.putExtra("faq", 22);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                     }
 

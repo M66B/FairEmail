@@ -80,7 +80,7 @@ public class Widget extends AppWidgetProvider {
                         view.putExtra("type", folders.get(0).type);
                         view.putExtra("refresh", true);
                         view.putExtra("version", version);
-                        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         pi = PendingIntentCompat.getActivity(
                                 context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
                     } else {
@@ -89,7 +89,7 @@ public class Widget extends AppWidgetProvider {
                             view.setAction("unified");
                             view.putExtra("refresh", true);
                             view.putExtra("version", version);
-                            view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             pi = PendingIntentCompat.getActivity(
                                     context, ActivityView.PI_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
                         } else {
@@ -97,7 +97,7 @@ public class Widget extends AppWidgetProvider {
                             view.setAction("folders:" + account);
                             view.putExtra("refresh", true);
                             view.putExtra("version", version);
-                            view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             pi = PendingIntentCompat.getActivity(
                                     context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
                         }

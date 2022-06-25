@@ -5260,7 +5260,7 @@ class Core {
             } else
                 content = new Intent(context, ActivityView.class)
                         .setAction("unified" + (notify_remove ? ":" + group : ""));
-            content.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            content.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             PendingIntent piContent = PendingIntentCompat.getActivity(
                     context, ActivityView.PI_UNIFIED, content, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -5385,7 +5385,7 @@ class Core {
             // Build pending intents
             Intent thread = new Intent(context, ActivityView.class);
             thread.setAction("thread:" + message.id);
-            thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             thread.putExtra("account", message.account);
             thread.putExtra("folder", message.folder);
             thread.putExtra("thread", message.thread);
@@ -5857,7 +5857,7 @@ class Core {
         intent.putExtra("protocol", account.protocol);
         intent.putExtra("auth_type", account.auth_type);
         intent.putExtra("faq", 22);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntentCompat.getActivity(
                 context, ActivityError.PI_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 

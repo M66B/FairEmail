@@ -1393,7 +1393,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         // Build pending intent
         Intent why = new Intent(this, ActivityView.class);
         why.setAction("why");
-        why.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        why.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent piWhy = PendingIntentCompat.getActivity(
                 this, ActivityView.PI_WHY, why, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -1443,7 +1443,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         intent.putExtra("protocol", account.protocol);
         intent.putExtra("auth_type", account.auth_type);
         intent.putExtra("faq", 23);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent piAlert = PendingIntentCompat.getActivity(
                 this, ActivityError.PI_ALERT, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 

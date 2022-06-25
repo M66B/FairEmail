@@ -617,7 +617,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(android.provider.Settings.ACTION_AIRPLANE_MODE_SETTINGS)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 v.getContext().startActivity(intent);
             }
         });
