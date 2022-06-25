@@ -664,7 +664,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_folder_nav_hint">Týmto vždy prejdete zo zoznamu správ do zoznamu priečinkov pridruženého účtu</string>
     <string name="title_advanced_suggest_names_hint">Ak je to zakázané, pri výbere kontaktov sa budú používať len emailové adresy</string>
     <string name="title_advanced_suggest_local_hint">Okrem kontaktov poskytnutých systémom. Zaznamenané budú kontaktné údaje z prijatých a odoslaných správ, len ak je to povolené.</string>
-    <string name="title_advanced_auto_identity_hint">Týmto nastavíte naposledy použitú totožnosť podľa prvého príjemcu nových správ</string>
     <string name="title_advanced_send_reminders_hint">Zobraziť varovanie, ak je text správy alebo predmet prázdny alebo môže chýbať príloha</string>
     <string name="title_advanced_reply_move_hint">Poštový server môže stále umiestniť správy v priečinku s odoslanou poštou</string>
     <string name="title_advanced_usenet_hint">Oddeliť podpis od textu správy znakmi \'-- \'</string>

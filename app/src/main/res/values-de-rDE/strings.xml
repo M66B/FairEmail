@@ -490,6 +490,7 @@
     <string name="title_advanced_authentication_none">Keine Authentifizierung</string>
     <string name="title_advanced_authentication_some">Teilweise Authentifizierung</string>
     <string name="title_advanced_authentication_all">Vollständige Authentifizierung</string>
+    <string name="title_advanced_restore_on_launch">App-Status beim Start wiederherstellen</string>
     <string name="title_advanced_sync_on_launch">Beim Start synchronisieren</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_conversation_actions">Aktionen vorschlagen (Android 10+)</string>
@@ -693,6 +694,7 @@
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
     <string name="compressed">Der Inhalt von komprimierten Dateien (%1$s) mit mehr als %2$s Dateien oder mit Dateien größer als %3$s wird nicht angezeigt</string>
     <string name="title_advanced_parse_classes_hint">Dies wird die Nachrichten genauer anzeigen, aber möglicherweise mit einer Verzögerung</string>
+    <string name="title_advanced_restore_on_launch_hint">Letzten App-Status wiederherstellen, wenn innerhalb von %1$d Minuten über das Launcher-Symbol neu gestartet wird</string>
     <string name="title_advanced_language_detection_hint">Die Unterstützung der Sprachenerkennung hängt vom Gerätehersteller ab</string>
     <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einer Unterhaltung enthalten ist</string>
     <string name="title_advanced_expandall_hint">Die Schaltfläche „Antworten” wird nicht angezeigt, wenn mehrere Nachrichten ausgeklappt sind, da unklar ist, für welche Nachricht die Schaltfläche gilt.</string>
@@ -836,6 +838,7 @@
     <string name="title_account_delete">Möchten Sie dieses Konto dauerhaft löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität dauerhaft löschen?</string>
     <string name="title_edit_html">Als HTML bearbeiten</string>
+    <string name="title_import_file">Datei importieren</string>
     <string name="title_sign_key">Signaturschlüssel: %1$s</string>
     <string name="title_last_connected">Zuletzt verbunden: %1$s</string>
     <string name="title_backoff_until">Warten nach einem Fehler bis: %1$s</string>
@@ -916,6 +919,7 @@
     <string name="title_search_folder">Nach Ordnern suchen</string>
     <string name="title_apply_to_all">Für alle übernehmen</string>
     <string name="title_edit_account_name">Kontoname ändern</string>
+    <string name="title_edit_account_color">Farbe des Kontos ändern</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
     <string name="title_hide_seen_folder">Ordner ausblenden, wenn alle Nachrichten gelesen wurden</string>
     <string name="title_hide_seen_folder_hint">Nur in der auf dem Startbildschirm angezeigten Ordnerliste</string>

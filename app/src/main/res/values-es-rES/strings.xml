@@ -491,6 +491,7 @@
     <string name="title_advanced_authentication_none">Sin autenticación</string>
     <string name="title_advanced_authentication_some">Autenticación parcial</string>
     <string name="title_advanced_authentication_all">Autenticación completa</string>
+    <string name="title_advanced_restore_on_launch">Restaurar estado de la aplicación al iniciar</string>
     <string name="title_advanced_sync_on_launch">Sincronizar al inicio</string>
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
     <string name="title_advanced_conversation_actions">Sugerir acciones (Android 10+)</string>
@@ -657,7 +658,7 @@
     <string name="title_advanced_folder_nav_hint">Esto siempre volverá a la lista de carpetas de la cuenta relacionada desde una lista de mensajes</string>
     <string name="title_advanced_suggest_names_hint">Si está desactivado, sólo se usarán direcciones de correo electrónico al seleccionar contactos</string>
     <string name="title_advanced_suggest_local_hint">Además de los contactos proporcionados por Android, los datos de contactos se almacenarán para nuevos mensajes enviados o recibidos sólo cuando esté activado.</string>
-    <string name="title_advanced_auto_identity_hint">Esto seleccionará la última identidad usada para el primer destinatario de nuevos mensajes</string>
+    <string name="title_advanced_auto_identity_hint">Esto seleccionará la última identidad utilizada al seleccionar un destinatario para nuevos mensajes</string>
     <string name="title_advanced_send_reminders_hint">Mostrar una advertencia cuando el texto del mensaje o el asunto estén vacíos o cuando un archivo adjunto pueda estar ausente</string>
     <string name="title_advanced_reply_move_hint">El servidor de correo electrónico todavía puede añadir los mensajes a la carpeta de mensajes enviados</string>
     <string name="title_advanced_usenet_hint">Insertar \'-- \' entre el texto y la firma</string>
@@ -694,6 +695,7 @@
     <string name="title_advanced_inline_hint">Las imágenes embebidas son imágenes incluídas en el mensaje</string>
     <string name="compressed">El cotenido de archivos comprimidos (%1$s) con más de %2$s archivos o archivos de más de %3$s no se mostrarán</string>
     <string name="title_advanced_parse_classes_hint">Esto mostrará los mensajes con mayor precisión, pero posiblemente con un retraso</string>
+    <string name="title_advanced_restore_on_launch_hint">Restaurar el último estado de la aplicación cuando se reinicie mediante el icono del lanzador dentro de los %1$d minutos</string>
     <string name="title_advanced_language_detection_hint">El soporte de detección de idiomas depende del fabricante del dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_expandall_hint">El botón de respuesta no se mostrará cuando se expandan varios mensajes porque no está claro a qué mensaje aplica el botón</string>
@@ -837,6 +839,7 @@
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
+    <string name="title_import_file">Importar archivo</string>
     <string name="title_sign_key">Clave de firma: %1$s</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
     <string name="title_backoff_until">Esperando después de un error hasta: %1$s</string>
@@ -917,6 +920,7 @@
     <string name="title_search_folder">Buscar carpeta</string>
     <string name="title_apply_to_all">Aplicar a todos</string>
     <string name="title_edit_account_name">Editar el nombre de la cuenta</string>
+    <string name="title_edit_account_color">Editar color de cuenta</string>
     <string name="title_hide_folder">Ocultar carpeta</string>
     <string name="title_hide_seen_folder">Ocultar carpeta si todos los mensajes son leídos</string>
     <string name="title_hide_seen_folder_hint">Sólo en la lista de carpetas mostrada en la pantalla de inicio</string>

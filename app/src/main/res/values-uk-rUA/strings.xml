@@ -173,12 +173,14 @@
     <string name="title_setup_accounts">Облікові записи</string>
     <string name="title_setup_identities">Особисті дані</string>
     <string name="title_setup_other">Інші постачальники</string>
+    <string name="title_setup_inbound">Тільки вхідний лист (адреса електронної пошти не може бути надіслана!)</string>
     <string name="title_setup_pop3">Обліковий запис POP3</string>
     <string name="title_setup_oauth_permission">Постачальник електронної пошти схвалив OAuth тільки для версій з Play Store та GitHub</string>
     <string name="title_setup_gmail_support">Авторизація облікових записів Google працюватиме тільки в версії з Play Store та GitHub, тому що Android перевіряє підпис цифрового додатку</string>
     <string name="title_setup_gmail_rationale">Будь ласка, надайте дозвіл для вибору облікового запису та читання вашого імені</string>
     <string name="title_setup_gmail_permissions">Google буде запитувати про дозволи на читання, створення, надсилання і остаточне видаляння всієї Вашої електронної пошти. FairEmail ніколи не буде видаляти ваші повідомлення без вашої явної згоди.</string>
     <string name="title_setup_gmail_drafts">Якщо тека чернеток недоступна для IMAP, то її можна виправити в налаштуваннях Gmail</string>
+    <string name="title_setup_gmail_password">Я хочу авторизувати обліковий запис за допомогою пароля замість облікового запису на пристрої</string>
     <string name="title_setup_office_auth">Помилка \'Автентифікація не вдалася\' викликана помилкою IMAP/SMTP можливо вимкненою системним адміністратором</string>
     <string name="title_setup_oauth_rationale">Авторизувати доступ до вашого облікового запису %1$s</string>
     <string name="title_setup_oauth_update">Авторизувати наявний обліковий запис знову (інакше створіть новий обліковий запис)</string>
@@ -204,6 +206,8 @@
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_permissions_remark">Доступ до контактної інформації (необов\'язково)</string>
     <string name="title_setup_permissions_explanation">Щоб переглянути контактні дані й запропонувати контакти</string>
+    <string name="title_setup_permissions_notify">Для показу нових сповіщень (необов\'язково)</string>
+    <string name="title_setup_permissions_notify_explanation">Потрібні дозволи для показу сповіщень для нових повідомлень в рядку стану</string>
     <string name="title_setup_permission_why">Які дозволи необхідні й чому?</string>
     <string name="title_setup_permission_import_contacts">Як можна імпортувати контакти?</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
@@ -227,6 +231,7 @@
     <string name="title_setup_still">Все ще</string>
     <string name="title_setup_error">Помилка</string>
     <string name="title_setup_pop">Використовувати POP3 (не рекомендовано)</string>
+    <string name="title_setup_recent">Використовувати \"recent\" для декількох клієнтів електронної пошти</string>
     <string name="title_setup_configuring">Налаштування облікового запису &#8230;</string>
     <string name="title_setup_app_password">Можливо, Ви повинні використовувати пароль для додатку</string>
     <string name="title_setup_extra">Додатково</string>
@@ -476,6 +481,7 @@
     <string name="title_advanced_message_text_zoom2">Масштаб тексту за замовчуванням: %1$s %%</string>
     <string name="title_advanced_overview_mode">Автоматичне масштабування оригінальних повідомлень</string>
     <string name="title_advanced_override_width">Відключити фіксовані ширини в оригінальних повідомленнях</string>
+    <string name="title_advanced_hyphenation">Використовувати автоматичну дефісацію</string>
     <string name="title_advanced_contrast">Використовувати високо-контрастний текст для повідомленнь</string>
     <string name="title_advanced_monospaced">Використовувати моноширинний шрифт для тексту повідомлень за замовчуванням</string>
     <string name="title_advanced_monospaced_pre">Використовувати моноширинний шрифт для попередньо форматуванного тексту</string>
@@ -543,6 +549,7 @@
     <string name="title_advanced_unseen_ignored">Дозволити так щоб кількість нових повідомлень співпадала з кількістю сповіщень</string>
     <string name="title_advanced_notify_background">Показувати сповіщення, лише у фоновому режимі</string>
     <string name="title_advanced_notify_known">Показувати сповіщення лише для контактів</string>
+    <string name="title_advanced_notify_suppress_in_call">Затримка сповіщень під час дзвінка</string>
     <string name="title_advanced_notify_summary">Показати сповіщення лише про підсумок</string>
     <string name="title_advanced_notify_preview">Показувати попередній перегляд повідомлення у сповіщеннях</string>
     <string name="title_advanced_notify_preview_all">Попередній перегляд всього тексту</string>
@@ -666,7 +673,6 @@
     <string name="title_advanced_folder_nav_hint">Це завжди буде повертати до переліку тек що пов\'язані до облікового запису зі списку повідомлень</string>
     <string name="title_advanced_suggest_names_hint">Якщо вимкнено, використовуватимуться лише адреси електронної пошти при виборі контактів</string>
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Будуть зберігатися дані про контакт для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
-    <string name="title_advanced_auto_identity_hint">Це може обрати останню ідентифікацію, яка використовувалася для першого одержувача нового повідомлення</string>
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
@@ -716,6 +722,7 @@
     <string name="title_advanced_display_hidden_hint">Це може призвести до дивного вигляду та подвійних текстів</string>
     <string name="title_advanced_display_pin_hint">PIN-код має пріоритет над біометричною аутентифікацією</string>
     <string name="title_advanced_display_autolock_nav_hint">Затримка до виконання на %1$d секунд</string>
+    <string name="title_advanced_user_agent_hint">Деякі сервери не приймають рядок user agent</string>
     <string name="title_advanced_safe_browsing_hint">Сервер Google знає, на які адреси звертаються</string>
     <string name="title_advanced_badge_hint">Доступно лише для підтримуваних лаунчерів</string>
     <string name="title_advanced_notify_action_hint">Не більше трьох дій буде показано</string>
@@ -753,7 +760,9 @@
     <string name="title_advanced_sender_regex">Регулярний вираз, що застосовується до імені користувача з вхідних адрес електронної пошти</string>
     <string name="title_identity_reply_to">Відповісти на адресу</string>
     <string name="title_identity_internal">Внутрішні доменні імена (розділені комами)</string>
+    <string name="title_identity_unicode">Дозволити UTF-8 у заголовках повідомлень</string>
     <string name="title_identity_unicode_remark">Більшість серверів не підтримують це</string>
+    <string name="title_identity_octetmime">Дозволити 8BITMIME</string>
     <string name="title_identity_max_size">Максимальний розмір повідомлення (МБ)</string>
     <string name="title_identity_receipt">Запитати про доставку/прочитання повідомлення за замовчуванням</string>
     <string name="title_identity_receipt_legacy">Використовувати сумісний заголовок для запиту про отримання</string>
@@ -843,6 +852,7 @@
     <string name="title_account_delete">Видалити цей обліковий запис безповоротно?</string>
     <string name="title_identity_delete">Видалити ці особисті дані безповоротно?</string>
     <string name="title_edit_html">Редагувати як HTML</string>
+    <string name="title_import_file">Імпорт файлу</string>
     <string name="title_sign_key">Ключ підпису: %1$s</string>
     <string name="title_last_connected">Останнє підключення: %1$s</string>
     <string name="title_backoff_until">Очікування після збою до: %1$s</string>
@@ -924,6 +934,7 @@
     <string name="title_search_folder">Знайти теку</string>
     <string name="title_apply_to_all">Застосувати до всіх</string>
     <string name="title_edit_account_name">Редагувати ім\'я облікового запису</string>
+    <string name="title_edit_account_color">Змінити колір облікового запису</string>
     <string name="title_hide_folder">Сховати теку</string>
     <string name="title_hide_seen_folder">Приховати теку, якщо всі повідомлення прочитані</string>
     <string name="title_hide_seen_folder_hint">Показуватися тільки в списку тек при стартовому екрані</string>
@@ -1057,6 +1068,7 @@
     <string name="title_archive">Архівувати</string>
     <string name="title_reply">Відповісти</string>
     <string name="title_reply_to_sender">Відповісти відправнику</string>
+    <string name="title_reply_to_recipient">Відповідь одержувачу</string>
     <string name="title_reply_to_all">Відповісти всім</string>
     <string name="title_reply_list">Відповісти до списку</string>
     <string name="title_reply_receipt">Надіслати повідомлення про перегляд</string>
@@ -1267,6 +1279,7 @@
     <string name="title_alternative_html">Показувати HTML</string>
     <string name="title_no_openpgp">OpenKeychain не знайдено</string>
     <string name="title_user_interaction">Передача в OpenKeychain</string>
+    <string name="title_padlock">Використовувати padlock для розшифровки повідомлення</string>
     <string name="title_signed_data">Перевірте підпис, щоб показати текст повідомлення</string>
     <string name="title_not_encrypted">Повідомлення не підписано або не зашифровано</string>
     <string name="title_no_sign_key">Не вибрано жодного ключа для підпису</string>

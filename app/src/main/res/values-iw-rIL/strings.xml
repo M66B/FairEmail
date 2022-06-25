@@ -680,7 +680,6 @@
     <string name="title_advanced_folder_nav_hint">פקודה זו תמיד תחזיר את רשימת התיקיות של החשבון הקשור מרשימת הודעות</string>
     <string name="title_advanced_suggest_names_hint">אם מושבת, אפשר יהיה להשתמש רק בכתובות דוא״ל בעת בחירת אנשי קשר</string>
     <string name="title_advanced_suggest_local_hint">בנוסף לאנשי הקשר שמסופקים על ידי Android. פרטי הקשר יאוחסנו להודעות חדשות שנשלחו או התקבלו כשהאפשרות פעילה.</string>
-    <string name="title_advanced_auto_identity_hint">תיבחר הזהות האחרונה ששימשה לנמען הראשון של הודעות חדשות</string>
     <string name="title_advanced_send_reminders_hint">להציג אזהרה כאשר טקסט ההודעה או הנושא ריקים או כאשר קובץ לא צורף לכאורה</string>
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
     <string name="title_advanced_usenet_hint">להוסיף ‚--’ בין הטקסט והחתימה</string>
@@ -860,6 +859,7 @@
     <string name="title_account_delete">למחוק את החשבון הזה לצמיתות?</string>
     <string name="title_identity_delete">למחוק את הזהות הזאת לצמיתות?</string>
     <string name="title_edit_html">עריכה כ־HTML</string>
+    <string name="title_import_file">ייבוא קובץ</string>
     <string name="title_sign_key">חתימת מפתח: %1$s</string>
     <string name="title_last_connected">חיבור אחרון: %1$s</string>
     <string name="title_backoff_until">בהמתנה לאחר הכשל עד: %1$s</string>

@@ -480,6 +480,7 @@
     <string name="title_advanced_authentication_none">无身份验证</string>
     <string name="title_advanced_authentication_some">部分身份验证</string>
     <string name="title_advanced_authentication_all">完成身份验证</string>
+    <string name="title_advanced_restore_on_launch">启动时恢复应用状态</string>
     <string name="title_advanced_sync_on_launch">应用启动时同步</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_conversation_actions">建议操作 (Android 10+)</string>
@@ -646,7 +647,7 @@
     <string name="title_advanced_folder_nav_hint">这将总是从邮件列表返回到相关帐户的文件夹列表</string>
     <string name="title_advanced_suggest_names_hint">如果禁用，选择联系人时将只使用电子邮件地址</string>
     <string name="title_advanced_suggest_local_hint">这不包括 Android 提供的联系人。应用仅在此选项启用后存储新的接收或发送消息的联系人。</string>
-    <string name="title_advanced_auto_identity_hint">将选择新邮件第一个收件人使用得最后一个身份</string>
+    <string name="title_advanced_auto_identity_hint">这将选择上次使用的身份作为新邮件收件人</string>
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
     <string name="title_advanced_reply_move_hint">邮件服务器仍可能将邮件添加到“已发送”文件夹</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
@@ -683,6 +684,7 @@
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="compressed">所含文件超过 %2$s 个或大于 %3$s 的压缩文件 (%1$s) 的内容将不会显示</string>
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
+    <string name="title_advanced_restore_on_launch_hint">在 %1$d 分钟内通过图标重新启动 FairEmail 时恢复上次应用状态</string>
     <string name="title_advanced_language_detection_hint">是否支持语言检测取决于设备制造商</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_expandall_hint">展开多封邮件时不会显示回复按钮，因为这样会无法确定回复哪封邮件</string>
@@ -826,6 +828,7 @@
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_edit_html">以HTML格式编辑</string>
+    <string name="title_import_file">导入文件</string>
     <string name="title_sign_key">签名密钥:%1$s</string>
     <string name="title_last_connected">上次连接%1$s前</string>
     <string name="title_backoff_until">连接失败后等待: %1$s 秒</string>
@@ -905,6 +908,7 @@
     <string name="title_search_folder">搜索文件夹</string>
     <string name="title_apply_to_all">应用到全部</string>
     <string name="title_edit_account_name">编辑账户名称</string>
+    <string name="title_edit_account_color">编辑账户颜色</string>
     <string name="title_hide_folder">隐藏文件夹</string>
     <string name="title_hide_seen_folder">隐藏所有邮件都已读的文件夹</string>
     <string name="title_hide_seen_folder_hint">仅在开始屏幕上显示的文件夹列表</string>

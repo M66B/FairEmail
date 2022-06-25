@@ -492,6 +492,7 @@
     <string name="title_advanced_authentication_none">Nessun\'autenticazione</string>
     <string name="title_advanced_authentication_some">Autenticazione parziale</string>
     <string name="title_advanced_authentication_all">Autenticazione completa</string>
+    <string name="title_advanced_restore_on_launch">Ripristina stato app all\'avvio</string>
     <string name="title_advanced_sync_on_launch">Sincronizza all\'avvio</string>
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
     <string name="title_advanced_conversation_actions">Suggerisci azioni (Android 10+)</string>
@@ -659,7 +660,7 @@
     <string name="title_advanced_folder_nav_hint">Questo tornerà sempre all\'elenco delle cartelle del profilo correlato da un elenco di messaggi</string>
     <string name="title_advanced_suggest_names_hint">Se disabilitato, solo gli indirizzi email saranno usati selezionando i contatti</string>
     <string name="title_advanced_suggest_local_hint">In aggiunta ai contatti forniti da Android. I dati di contatto saranno memorizzati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
-    <string name="title_advanced_auto_identity_hint">Questo selezionerà l\'ultima identità usata per il primo destinatario dei nuovi messaggi</string>
+    <string name="title_advanced_auto_identity_hint">Questo selezionerà l\'ultima identità usata quando si seleziona un destinatario per i nuovi messaggi</string>
     <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo o l\'oggetto del messaggio sono vuoti o quando un allegato potrebbe mancare</string>
     <string name="title_advanced_reply_move_hint">Il server email potrebbe ancora aggiungere i messaggi alla cartella dei messaggi inviati</string>
     <string name="title_advanced_usenet_hint">Inserisci \'--\' tra il testo e la firma</string>
@@ -696,6 +697,7 @@
     <string name="title_advanced_inline_hint">Le immagini in linea sono immagini incluse nel messaggio</string>
     <string name="compressed">I contenuti dei file compressi (%1$s) con oltre %2$s file o con file più grandi di %3$s non saranno mostrati</string>
     <string name="title_advanced_parse_classes_hint">Questo visualizzerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
+    <string name="title_advanced_restore_on_launch_hint">Quando riavviato tramite l\'icona del launcher, ripristina l\'ultimo stato dell\'app entro %1$d minuti</string>
     <string name="title_advanced_language_detection_hint">Il supporto per il rilevamento della lingua dipende dal produttore del dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando ce n\'è solo uno o c\'è solo un messaggio non letto in una conversazione</string>
     <string name="title_advanced_expandall_hint">Il pulsante di risposta non sarà mostrato quando sono espansi più messaggi perché non è chiaro a quale messaggio si applichi il tasto</string>
@@ -839,6 +841,7 @@
     <string name="title_account_delete">Eliminare permanentemente questo profilo?</string>
     <string name="title_identity_delete">Eliminare permanentemente quest\'identità?</string>
     <string name="title_edit_html">Modifica come HTML</string>
+    <string name="title_import_file">Importa file</string>
     <string name="title_sign_key">Chiave di firma: %1$s</string>
     <string name="title_last_connected">Ultima connessione: %1$s</string>
     <string name="title_backoff_until">Attesa dopo il fallimento fino a: %1$s</string>
@@ -919,6 +922,7 @@
     <string name="title_search_folder">Cerca per cartella</string>
     <string name="title_apply_to_all">Applica a tutti</string>
     <string name="title_edit_account_name">Modifica nome del profilo</string>
+    <string name="title_edit_account_color">Modifica colore del profilo</string>
     <string name="title_hide_folder">Nascondi cartella</string>
     <string name="title_hide_seen_folder">Nascondi la cartella se tutti i messaggi sono letti</string>
     <string name="title_hide_seen_folder_hint">Solo nell\'elenco delle cartelle mostrato nella schermata iniziale</string>

@@ -513,6 +513,7 @@
     <string name="title_advanced_authentication_none">Без аутентификации</string>
     <string name="title_advanced_authentication_some">Частичная аутентификация</string>
     <string name="title_advanced_authentication_all">Полная аутентификация</string>
+    <string name="title_advanced_restore_on_launch">Восстанавливать состояние приложения при запуске</string>
     <string name="title_advanced_sync_on_launch">Синхронизация при запуске</string>
     <string name="title_advanced_double_back">Двойное нажатие \"Назад\" для выхода</string>
     <string name="title_advanced_conversation_actions">Предлагать действия (Android 10+)</string>
@@ -680,7 +681,7 @@
     <string name="title_advanced_folder_nav_hint">Всегда возвращаться к списку папок связанной учётной записи из списка сообщений</string>
     <string name="title_advanced_suggest_names_hint">Если отключено, при выборе контактов будут использоваться только адреса электронной почты</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
-    <string name="title_advanced_auto_identity_hint">Будет выбран последний идентификатор, используемый для первого получателя новых сообщений</string>
+    <string name="title_advanced_auto_identity_hint">Будет выбран последний идентификатор, использовавшийся для получателя новых сообщений</string>
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
     <string name="title_advanced_reply_move_hint">Сервер электронной почты всё ещё может добавлять сообщения в папку отправленных</string>
     <string name="title_advanced_usenet_hint">Вставлять \"-- \" между текстом и подписью</string>
@@ -717,6 +718,7 @@
     <string name="title_advanced_inline_hint">Встроенные изображения – это изображения, включённые в сообщение</string>
     <string name="compressed">Содержимое сжатых файлов (%1$s) с более чем %2$s файлами или файлами размером более %3$s не будет показано</string>
     <string name="title_advanced_parse_classes_hint">Позволит более точно отображать сообщения, но, возможно, с задержкой</string>
+    <string name="title_advanced_restore_on_launch_hint">Восстановить последнее состояние приложения при перезапуске через значок на рабочем в течение %1$d мин.</string>
     <string name="title_advanced_language_detection_hint">Поддержка определения языка зависит от производителя устройства</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_expandall_hint">Кнопка ответа не будет отображаться, если развёрнуто несколько сообщений, поскольку будет неясно, к какому сообщению она относится</string>
@@ -860,6 +862,7 @@
     <string name="title_account_delete">Удалить эту учётную запись навсегда?</string>
     <string name="title_identity_delete">Удалить этот идентификатор навсегда?</string>
     <string name="title_edit_html">Редактировать как HTML</string>
+    <string name="title_import_file">Импорт файла</string>
     <string name="title_sign_key">Ключ подписи: %1$s</string>
     <string name="title_last_connected">Последнее подключение: %1$s</string>
     <string name="title_backoff_until">Ожидание после ошибки до: %1$s</string>
@@ -940,6 +943,7 @@
     <string name="title_search_folder">Поиск в названии папки</string>
     <string name="title_apply_to_all">Применить ко всем</string>
     <string name="title_edit_account_name">Изменить название учётной записи</string>
+    <string name="title_edit_account_color">Изменить цвет учётной записи</string>
     <string name="title_hide_folder">Скрыть папку</string>
     <string name="title_hide_seen_folder">Скрывать папку, если все сообщения прочитаны</string>
     <string name="title_hide_seen_folder_hint">Только в списке папок, отображаемом на начальном экране</string>

@@ -416,6 +416,7 @@
     <string name="title_advanced_authentication_none">بدون تایید هویت</string>
     <string name="title_advanced_authentication_some">تایید هویت ناقص</string>
     <string name="title_advanced_authentication_all">تایید هویت کامل</string>
+    <string name="title_advanced_restore_on_launch">بازیابی وضعیت اپ در هنگام شروع</string>
     <string name="title_advanced_sync_on_launch">همگام‌سازی در موقع شروع</string>
     <string name="title_advanced_double_back">برای خروج دوبار \'بازگشت\' را بزنید</string>
     <string name="title_advanced_conversation_actions_replies">پیشنهاد پاسخ (اندروید +۱۰)</string>
@@ -502,7 +503,7 @@
     <string name="title_advanced_lookup_mx_hint">این بررسی خواهد کرد که آیا سابقه DNS MX وجود دارد</string>
     <string name="title_advanced_sync_delay_hint">این سرعت همگام‌سازی پیام‌ها را کاهش خواهد داد</string>
     <string name="title_advanced_folder_nav_hint">این همیشه به فهرست پوشه‌ مرتبط با حساب از یک لیست پیام‌ برخواهد گشت</string>
-    <string name="title_advanced_auto_identity_hint">این گزینه، آخرین هویت استفاده شده برای اولین گیرنده پیام‌های جدید را انتخاب خواهد کرد</string>
+    <string name="title_advanced_auto_identity_hint">این گزینه، آخرین هویت استفاده شده را به عنوان گیرنده پیام‌های جدید انتخاب خواهد کرد</string>
     <string name="title_advanced_send_reminders_hint">هنگامی که موضوع یا متن پیام خالی است یا یک پیوست ممکن است وجود نداشته باشد، یک هشدار نشان بده</string>
     <string name="title_advanced_usenet_hint">بین متن و امضا \'-- \' درج کنید</string>
     <string name="title_advanced_metered_hint">اتصال‌های حجمی عموما شبکه‌های موبایل یا یک هات اسپات غیر رایگان می‌باشند</string>
@@ -596,6 +597,7 @@
     <string name="title_account_delete">حذف همیشگی این حساب؟</string>
     <string name="title_identity_delete">حذف همیشگی این هویت؟</string>
     <string name="title_edit_html">ویرایش به‌صورت HTML</string>
+    <string name="title_import_file">وارد کردن فایل</string>
     <string name="title_sign_key">کلید امضا: %1$s</string>
     <string name="title_last_connected">آخرین اتصال: %1$s</string>
     <string name="title_storage_quota">استفاده از حافظه سرور: %1$s/%2$s</string>
@@ -634,6 +636,7 @@
     <string name="title_show_folders">نمایش پوشه‌های پنهان</string>
     <string name="title_show_flagged">نمایش شمار پیام‌های ستاره‌دار</string>
     <string name="title_subscribed_only">تنها مشترک شده</string>
+    <string name="title_edit_account_color">ویرایش رنگ حساب</string>
     <string name="title_hide_folder">پنهان‌سازی پوشه</string>
     <string name="title_hide_seen_folder">در صورتی که همه پیام‌ها خوانده شده‌اند پوشه را پنهان کن</string>
     <string name="title_hide_seen_folder_hint">تنها در فهرست پوشه‌‌های نمایش داده شده در صفحه شروع</string>

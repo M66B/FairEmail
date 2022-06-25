@@ -634,7 +634,6 @@
     <string name="title_advanced_folder_nav_hint">Việc này sẽ quay về danh sách thư mục của tài khoản có liên quan từ danh sách thư</string>
     <string name="title_advanced_suggest_names_hint">Nếu bị tắt, chỉ có các địa chỉ email sẽ được sử dụng khi chọn các liên hệ</string>
     <string name="title_advanced_suggest_local_hint">Bên cạnh các liên hệ được Android cung cấp. Dữ liệu liên hệ sẽ được lưu trữ cho các thư mới được gửi hoặc nhận chỉ khi được bật.</string>
-    <string name="title_advanced_auto_identity_hint">Việc này sẽ chọn danh tính sử dụng lần cuối cho người nhận thư đầu tiên</string>
     <string name="title_advanced_send_reminders_hint">Hiện một lời cảnh báo khi văn bản thư hoặc chủ đề trống hoặc khi một tệp đính kèm có thể đang thiếu</string>
     <string name="title_advanced_reply_move_hint">Máy chủ email vẫn có thể thêm thư vào thư mục thư đã gửi</string>
     <string name="title_advanced_usenet_hint">Chèn \'-- \' giữa văn bản và chữ ký</string>

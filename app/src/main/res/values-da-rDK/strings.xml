@@ -492,6 +492,7 @@
     <string name="title_advanced_authentication_none">Ingen godkendelse</string>
     <string name="title_advanced_authentication_some">Delvis godkendelse</string>
     <string name="title_advanced_authentication_all">Komplet godkendelse</string>
+    <string name="title_advanced_restore_on_launch">Gendan app-tilstand ved start</string>
     <string name="title_advanced_sync_on_launch">Synkronisér ved opstart</string>
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
     <string name="title_advanced_conversation_actions">Foreslå handlinger (Android 10+)</string>
@@ -659,7 +660,7 @@
     <string name="title_advanced_folder_nav_hint">Dette vil altid returnere til den relaterede kontos mappeliste fra en beskedliste</string>
     <string name="title_advanced_suggest_names_hint">Hvis deaktiveret, bruges kun e-mailadresser ved valg af kontakter</string>
     <string name="title_advanced_suggest_local_hint">Ud over kontakter fra Android. Kontaktdata gemmes kun for nyligt afsendte eller modtagne beskeder, når aktiveret.</string>
-    <string name="title_advanced_auto_identity_hint">Dette vælger den seneste identitet brugt til den første modtager af nye beskeder</string>
+    <string name="title_advanced_auto_identity_hint">Dette vælger den seneste brugte identitet ved valg af modtager af nye beskeder</string>
     <string name="title_advanced_send_reminders_hint">Vis en advarsel, når beskedtekst eller emne er tomt, eller en vedhæftet fil muligvis mangler</string>
     <string name="title_advanced_reply_move_hint">E-mailserveren kan dog stadig føje beskederne til beskedafsendelsesmappen</string>
     <string name="title_advanced_usenet_hint">Indsæt \'-- \' mellem teksten og signaturen</string>
@@ -696,6 +697,7 @@
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
     <string name="compressed">Komprimerede filer (%1$s) indeholdende flere end %2$s filer, eller med filer større end %3$s, vises ikke</string>
     <string name="title_advanced_parse_classes_hint">Dette viser beskeder mere korrekt, men muligvis med en forsinkelse</string>
+    <string name="title_advanced_restore_on_launch_hint">Gendan seneste app-tilstand ved genstart inden for %1$d minutter via app-ikonet</string>
     <string name="title_advanced_language_detection_hint">Sprogdetekteringsunderstøttelse afhænger af enhedsproducenten</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
     <string name="title_advanced_expandall_hint">Svar-knappen vises ikke, når flere beskeder er udvidet, da det vil være uklart, hvilken besked knappen gælder for</string>
@@ -839,6 +841,7 @@
     <string name="title_account_delete">Slet denne konto permanent?</string>
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
     <string name="title_edit_html">Redigér som HTML</string>
+    <string name="title_import_file">Filimport</string>
     <string name="title_sign_key">Signér nøgle: %1$s</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
     <string name="title_backoff_until">Ventetid efter fejl: %1$s</string>
@@ -919,6 +922,7 @@
     <string name="title_search_folder">Søg efter mappe</string>
     <string name="title_apply_to_all">Anvend på alle</string>
     <string name="title_edit_account_name">Redigér kontonavn</string>
+    <string name="title_edit_account_color">Redigér kontofarve</string>
     <string name="title_hide_folder">Skjul mappe</string>
     <string name="title_hide_seen_folder">Skjul, hvis alle beskeder er læst</string>
     <string name="title_hide_seen_folder_hint">Kun i mappelisten, der vises på startskærmen</string>

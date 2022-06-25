@@ -656,7 +656,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_folder_nav_hint">Bu, her zaman bir mesaj listesinden ilgili hesabın klasör listesine dönecektir</string>
     <string name="title_advanced_suggest_names_hint">Devre dışı bırakılırsa, kişileri seçerken yalnızca e-posta adresleri kullanılacaktır</string>
     <string name="title_advanced_suggest_local_hint">Android tarafından sağlanan kişilere ek olarak. Kişi verileri yeni gönderilen veya alınan mesajlar için yalnızca etkin olduğunda saklanacaktır.</string>
-    <string name="title_advanced_auto_identity_hint">Bu, yeni mesajların ilk alıcısı için kullanılan son kimliği seçecektir</string>
     <string name="title_advanced_send_reminders_hint">Mesaj metni veya konu boş olduğunda veya bir ek eksik olduğunda bir uyarı göster</string>
     <string name="title_advanced_reply_move_hint">E-posta sunucusu, iletileri gönderilen ileti klasörüne eklemeye devam edebilir</string>
     <string name="title_advanced_usenet_hint">Metin ve imza arasına \'-- \' ekle</string>
@@ -744,7 +743,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sender_regex">Gelen e-posta adreslerinin kullanıcı adı bölümünü eşleştirmek için düzenli ifade</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
     <string name="title_identity_internal">Dahili alan adları (virgülle ayrılmış)</string>
+    <string name="title_identity_unicode">Mesaj başlıklarında UTF-8\'e izin ver</string>
     <string name="title_identity_unicode_remark">Çoğu sunucu bunu desteklemiyor</string>
+    <string name="title_identity_octetmime">8BITMIME\'e izin ver</string>
     <string name="title_identity_max_size">Maksimum mesaj boyutu (MB)</string>
     <string name="title_identity_receipt">Varsayılan olarak iletildi/okundu bilgisi iste</string>
     <string name="title_identity_receipt_legacy">Eski alındı isteği başlıklarını kullan</string>
@@ -834,6 +835,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_edit_html">HTML olarak düzenle</string>
+    <string name="title_import_file">Dosyayı İçe Aktar</string>
     <string name="title_sign_key">İmzalama anahtarı: %1$s</string>
     <string name="title_last_connected">Son bağlantı: %1$s</string>
     <string name="title_backoff_until">Hatadan sonra şu tarihe kadar bekleniyor: %1$s</string>
@@ -914,6 +916,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_search_folder">Klasörleri ara</string>
     <string name="title_apply_to_all">Tümüne uygula</string>
     <string name="title_edit_account_name">Hesap adını düzenle</string>
+    <string name="title_edit_account_color">Hesap rengini düzenle</string>
     <string name="title_hide_folder">Klasörü gizle</string>
     <string name="title_hide_seen_folder">Tüm mesajlar okunduysa klasörü gizle</string>
     <string name="title_hide_seen_folder_hint">Yalnızca başlangıç ​​ekranında gösterilen klasör listesinde</string>
@@ -1046,6 +1049,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
     <string name="title_reply_to_sender">Gönderene cevap ver</string>
+    <string name="title_reply_to_recipient">Alıcıya yanıt ver</string>
     <string name="title_reply_to_all">Tümünü yanıtla</string>
     <string name="title_reply_list">Listeyi yanıtla</string>
     <string name="title_reply_receipt">Okundu bilgisi gönder</string>

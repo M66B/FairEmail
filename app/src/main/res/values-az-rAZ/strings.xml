@@ -492,6 +492,7 @@
     <string name="title_advanced_authentication_none">Kimlik təsdiqləmə yoxdur</string>
     <string name="title_advanced_authentication_some">Qismən kimlik təsdiqləmə</string>
     <string name="title_advanced_authentication_all">Tam kimlik təsdiqləmə</string>
+    <string name="title_advanced_restore_on_launch">Başlanğıcda tətbiq vəziyyətini bərpa et</string>
     <string name="title_advanced_sync_on_launch">Başlanğıcda eyniləşdirmə</string>
     <string name="title_advanced_double_back">Çıxmaq üçün \"geri\"yə iki dəfə bas</string>
     <string name="title_advanced_conversation_actions">Əməliyyat təklifi (Android 10+)</string>
@@ -658,7 +659,7 @@
     <string name="title_advanced_folder_nav_hint">Bu, hər zaman bir mesaj siyahısından əlaqəli hesabın qovluq siyahısına qayıdacaq</string>
     <string name="title_advanced_suggest_names_hint">Əgər sıradan çıxarılsa, əlaqələr seçiləndə yalnız e-poçt ünvanları istifadə ediləcək</string>
     <string name="title_advanced_suggest_local_hint">Android tərəfindən təmin edilən əlaqələrə əlavə olaraq. Əlaqə verilənləri, yeni göndərilən və alınan mesajlar üçün yalnız fəal olanda saxlanılacaq.</string>
-    <string name="title_advanced_auto_identity_hint">Bu, yeni mesajların ilk alıcısı üçün istifadə edilən son kimliyi seçəcək</string>
+    <string name="title_advanced_auto_identity_hint">Bu, yeni mesajlar üçün bir alıcı seçərkən istifadə edilən son kimliyi seçəcək</string>
     <string name="title_advanced_send_reminders_hint">Mesaj mətni və ya mövzu boş olanda və ya bir qoşma əskik olanda bir xəbərdarlıq göstər</string>
     <string name="title_advanced_reply_move_hint">E-poçt serveri, mesajları yenə də göndərilən mesaj qovluğuna əlavə edə bilər</string>
     <string name="title_advanced_usenet_hint">Mətn və imza arasına \'-- \' əlavə et</string>
@@ -695,6 +696,7 @@
     <string name="title_advanced_inline_hint">Sətiriçi təsvirlər, mesaja daxil edilən təsvirlərdir</string>
     <string name="compressed">Sayca %2$s fayldan çox və ya həcmi %3$s-dan çox olsa sıxışdırılmış faylların məzmunları (%1$s) göstərilməyəcək</string>
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha dəqiq görüntüləyəcək, ancaq gecikmə yaşana bilər</string>
+    <string name="title_advanced_restore_on_launch_hint">%1$d dəqiqə ərzində başladıcı nişanı vasitəsilə yenidən başladılanda son tətbiq vəziyyətini bərpa et</string>
     <string name="title_advanced_language_detection_hint">Dil aşkarlama dəstəyi, cihaz istehsalçısından asılıdır</string>
     <string name="title_advanced_autoexpand_hint">Bir danışıqda sadəcə bir mesaj və ya sadəcə bir oxunmamış mesaj olanda mesajı avtomatik aç</string>
     <string name="title_advanced_expandall_hint">Düymənin hansı mesaja tətbiq ediləcəyi qeyri-müəyyən olduğuna görə, bir neçə mesaj genişləndiriləndə cavab düyməsi göstərilməyəcək</string>
@@ -837,6 +839,7 @@
     <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
     <string name="title_edit_html">HTML kimi düzəliş et</string>
+    <string name="title_import_file">Faylı idxal et</string>
     <string name="title_sign_key">İmza açarı: %1$s</string>
     <string name="title_last_connected">Son bağlantı: %1$s</string>
     <string name="title_backoff_until">Xətadan sonra %1$s tarixinə qədər gözlənilir</string>

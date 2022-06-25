@@ -664,7 +664,6 @@
     <string name="title_advanced_folder_nav_hint">Ovo će uvijek, s popisa poruka, vratiti na popis mapa povezanog računa</string>
     <string name="title_advanced_suggest_names_hint">Ako je onemogućeno, pri odabiru kontakata koristit će se samo adrese e-pošte</string>
     <string name="title_advanced_suggest_local_hint">Pored kontakata koje pruža Android. Podaci za kontakte bit će pohranjeni za novoprimljene ili primljene poruke samo ako su omogućene.</string>
-    <string name="title_advanced_auto_identity_hint">Ovo će odabrati posljednji korišteni identitet za prvog primatelja novih poruka</string>
     <string name="title_advanced_send_reminders_hint">Pokaži upozorenje kada je tekst poruke ili predmet prazan ili kada prilog možda nedostaje</string>
     <string name="title_advanced_reply_move_hint">Poslužitelj e-pošte i dalje može dodati poruke u mapu poslanih poruka</string>
     <string name="title_advanced_usenet_hint">Umetni \'--\' između teksta i potpisa</string>

@@ -638,7 +638,6 @@
     <string name="title_advanced_folder_nav_hint">Isto fará com que, ao pressionar \'voltar\' a partir da lista de mensagens, retorne sempre à lista de pastas da respectiva conta</string>
     <string name="title_advanced_suggest_names_hint">Com a opção desactiva, ao seleccionar um contacto apenas os endereços de e-mail serão utilizados</string>
     <string name="title_advanced_suggest_local_hint">Em complemento aos contactos fornecidos pelo Android. Apenas só será guardada informação de contactos nas mensagens recém-enviadas ou recebidas caso esta função esteja activa.</string>
-    <string name="title_advanced_auto_identity_hint">Isto selecionará a última identidade utilizada para o primeiro destinatário de novas mensagens</string>
     <string name="title_advanced_reply_move_hint">O servidor de correio electrónico ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_usenet_hint">Coloca \'-- \' entre o texto e a assinatura</string>
     <string name="title_advanced_remove_signature_hint">Pode resultar na remoção de pouco ou de demasiado texto</string>

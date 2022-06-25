@@ -645,7 +645,6 @@
     <string name="title_advanced_folder_nav_hint">Tämä palaa aina viestilistasta kyseisen tilin kansiolistaan</string>
     <string name="title_advanced_suggest_names_hint">Jos poistettu käytöstä, yhteystietoja valittaessa käytetään vain sähköpostiosoitteita</string>
     <string name="title_advanced_suggest_local_hint">Androidin yhteystietojen lisäksi. Yhteystietoja tallennetaan uusista lähetetyistä ja vastaanotetuista viesteistä vain, jos asetus on päällä.</string>
-    <string name="title_advanced_auto_identity_hint">Tämä valitsee identiteetin, jota on käytetty uusien viestien ensimmäiselle vastaanottajalle edellisen kerran lähetettäessä</string>
     <string name="title_advanced_send_reminders_hint">Näytä varoitus, kun viestin teksti tai aihe on tyhjä tai kun liite puuttuu</string>
     <string name="title_advanced_reply_move_hint">Sähköpostipalvelin voi silti lisätä viestit lähetettyjen viestien kansioon</string>
     <string name="title_advanced_usenet_hint">Lisää \'--\' tekstin ja allekirjoituksen väliin</string>

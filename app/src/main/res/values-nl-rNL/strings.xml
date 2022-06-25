@@ -656,7 +656,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_folder_nav_hint">Dit keert altijd terug naar de mappenlijst van het gerelateerde account vanuit een berichtenlijst</string>
     <string name="title_advanced_suggest_names_hint">Indien uitgeschakeld, worden alleen e-mailadressen gebruikt bij het selecteren van contacten</string>
     <string name="title_advanced_suggest_local_hint">Naast contacten die door Android worden geleverd. Contactgegevens worden alleen opgeslagen voor nieuw verzonden of ontvangen berichten wanneer ingeschakeld.</string>
-    <string name="title_advanced_auto_identity_hint">Dit zal de laatste identiteit selecteren die gebruikt werd voor de eerste ontvanger van nieuwe berichten</string>
+    <string name="title_advanced_auto_identity_hint">Dit zal de laatst gebruikte identiteit selecteren bij het selecteren van een ontvanger voor nieuwe berichten</string>
     <string name="title_advanced_send_reminders_hint">Toon een waarschuwing wanneer de berichttekst of het onderwerp leeg is of wanneer een bijlage zou kunnen ontbreken</string>
     <string name="title_advanced_reply_move_hint">De e-mailserver kan de berichten nog steeds toevoegen aan de map met verzonden berichten</string>
     <string name="title_advanced_usenet_hint">Voeg \'-- \' in tussen de tekst en de handtekening</string>
@@ -836,6 +836,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_account_delete">Verwijder dit account definitief?</string>
     <string name="title_identity_delete">Verwijder deze identiteit definitief?</string>
     <string name="title_edit_html">Bewerk als HTML</string>
+    <string name="title_import_file">Bestand importeren</string>
     <string name="title_sign_key">Tekensleutel: %1$s</string>
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
     <string name="title_backoff_until">Wachten na fout tot: %1$s</string>
@@ -915,6 +916,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_search_folder">Zoeken naar map</string>
     <string name="title_apply_to_all">Toepassen op alle</string>
     <string name="title_edit_account_name">Bewerk accountnaam</string>
+    <string name="title_edit_account_color">Bewerk accountkleur</string>
     <string name="title_hide_folder">Verberg map</string>
     <string name="title_hide_seen_folder">Verberg map als alle berichten gelezen zijn</string>
     <string name="title_hide_seen_folder_hint">Alleen in de mappenlijst die wordt weergegeven op het startscherm</string>

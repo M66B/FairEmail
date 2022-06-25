@@ -503,6 +503,7 @@
     <string name="title_advanced_authentication_none">Bez provjere</string>
     <string name="title_advanced_authentication_some">Djelomična provjera</string>
     <string name="title_advanced_authentication_all">Potpuna provjera</string>
+    <string name="title_advanced_restore_on_launch">Vrati stanje aplikacije pri pokretanju</string>
     <string name="title_advanced_sync_on_launch">Sinhronizacija pri pokretanju</string>
     <string name="title_advanced_double_back">Dupli dodir dugmeta \'nazad\' za izlaz</string>
     <string name="title_advanced_conversation_actions">Predloži radnje (Android 10+)</string>
@@ -669,7 +670,7 @@
     <string name="title_advanced_folder_nav_hint">Ovim će se uvijek vraćati sa spiska poruka na spisak foldera povezanog računa</string>
     <string name="title_advanced_suggest_names_hint">Ako je isključeno, koristit će se samo e-mail adrese pri izboru kontakata</string>
     <string name="title_advanced_suggest_local_hint">Pored kontakata koje pruža Android. Kontaktni podaci bit će čuvani za nove poslane ili primljene poruke samo kada je opcija uključena.</string>
-    <string name="title_advanced_auto_identity_hint">Ovim će se izabrati posljednji identitet korišten kao prvi primalac u novim porukama</string>
+    <string name="title_advanced_auto_identity_hint">Ovim će se izabrati posljednji identitet korišten pri biranju primaoca novih poruka</string>
     <string name="title_advanced_send_reminders_hint">Prikazuje upozorenje kada su tekst poruke ili predmet prazni ili kada nedostaje prilog</string>
     <string name="title_advanced_reply_move_hint">E-mail server još može dodavati poruke u folder za poslane poruke</string>
     <string name="title_advanced_usenet_hint">Ubaci \'-- \' između teksta i potpisa</string>
@@ -706,6 +707,7 @@
     <string name="title_advanced_inline_hint">Poravnate slike su slike unutar tijela poruke</string>
     <string name="compressed">Sadržaj kompresovanih datoteka (%1$s) sa više od %2$s datoteke(a) ili sa datotekama većim od %3$s neće se prikazivati</string>
     <string name="title_advanced_parse_classes_hint">Ovo će preciznije prikazivati poruke, ali vjerovatno sa kašnjenjem</string>
+    <string name="title_advanced_restore_on_launch_hint">Vrati posljednje stanje aplikacije kada se ona ponovo pokrene dodirom na ikonicu početnog ekrana unutar %1$d minute(a)</string>
     <string name="title_advanced_language_detection_hint">Podrška za otkrivanje jezika zavisi od proizvođača uređaja</string>
     <string name="title_advanced_autoexpand_hint">Automatski otvori poruku kada se u konverzaciji nalazi samo jedna poruka ili samo jedna nepročitana poruka</string>
     <string name="title_advanced_expandall_hint">Dugme za odgovor neće se prikazivati kada se prošire višestruke poruke, jer nije jasno na koju od poruka se odnosi to dugme</string>
@@ -757,7 +759,9 @@
     <string name="title_advanced_sender_regex">Regularni izrazi za podudaranje korisničkog imena dolaznih e-mail adresa</string>
     <string name="title_identity_reply_to">Odgovori na adresu</string>
     <string name="title_identity_internal">Interni nazivi domena (razdvojeni zarezima)</string>
+    <string name="title_identity_unicode">Dopusti UTF-8 standard u zaglavljima poruka</string>
     <string name="title_identity_unicode_remark">Većina servera ne podržava ovo</string>
+    <string name="title_identity_octetmime">Dopusti 8BITMIME</string>
     <string name="title_identity_max_size">Maksimalna veličina poruke (MB)</string>
     <string name="title_identity_receipt">Po zadanom zahtijevaj potvrdu o dostavi/čitanju</string>
     <string name="title_identity_receipt_legacy">Koristi stara zaglavlja sa zahtjevanim potvrdama</string>
@@ -847,6 +851,7 @@
     <string name="title_account_delete">Izbrisati ovaj račun trajno?</string>
     <string name="title_identity_delete">Izbrisati ovaj identitet trajno?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
+    <string name="title_import_file">Uvezi datoteku</string>
     <string name="title_sign_key">Potpiši ključ: %1$s</string>
     <string name="title_last_connected">Zadnja konekcija: %1$s</string>
     <string name="title_backoff_until">Čekanje nakon neuspjeha do: %1$s</string>
@@ -927,6 +932,7 @@
     <string name="title_search_folder">Traži folder</string>
     <string name="title_apply_to_all">Primijeni za sve</string>
     <string name="title_edit_account_name">Uredi ime računa</string>
+    <string name="title_edit_account_color">Uredi boju računa</string>
     <string name="title_hide_folder">Sakrij folder</string>
     <string name="title_hide_seen_folder">Sakrij folder ako su sve poruke pročitane</string>
     <string name="title_hide_seen_folder_hint">Samo na spisku foldera prikazanom na početnom ekranu</string>

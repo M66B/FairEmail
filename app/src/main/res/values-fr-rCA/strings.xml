@@ -492,6 +492,7 @@
     <string name="title_advanced_authentication_none">Pas d\'authentification</string>
     <string name="title_advanced_authentication_some">Authentification partielle</string>
     <string name="title_advanced_authentication_all">Authentification complète</string>
+    <string name="title_advanced_restore_on_launch">Restaurer l’état de l’application au démarrage</string>
     <string name="title_advanced_sync_on_launch">Synchroniser au lancement de l\'application</string>
     <string name="title_advanced_double_back">Faire deux fois « Retour » pour quitter</string>
     <string name="title_advanced_conversation_actions">Suggérer des actions (Android 10+)</string>
@@ -659,7 +660,7 @@
     <string name="title_advanced_folder_nav_hint">Ceci retournera toujours à la liste des dossiers du compte associé à partir d\'une liste de messages</string>
     <string name="title_advanced_suggest_names_hint">Si désactivé, seules les adresses courriel seront utilisées lors de la sélection des contacts</string>
     <string name="title_advanced_suggest_local_hint">En plus des contacts fournis par Android. Les données de contact seront stockées pour les messages récemment envoyés ou reçus uniquement lorsque ceci est activé.</string>
-    <string name="title_advanced_auto_identity_hint">Ceci sélectionnera la dernière identité utilisée pour le premier destinataire de nouveaux messages</string>
+    <string name="title_advanced_auto_identity_hint">Ceci sélectionnera la dernière identité utilisée lors de la sélection d\'un destinataire pour les nouveaux messages</string>
     <string name="title_advanced_send_reminders_hint">Afficher un avertissement quand le texte du message ou l’objet sont vides ou quand une pièce jointe semble avoir été oubliée</string>
     <string name="title_advanced_reply_move_hint">Le serveur de messagerie pourrait tout de même ajouter les messages au dossier des messages envoyés</string>
     <string name="title_advanced_usenet_hint">Insérer -- entre le texte et la signature</string>
@@ -696,6 +697,7 @@
     <string name="title_advanced_inline_hint">Les images incluses dans le message font partie intégrante du message</string>
     <string name="compressed">Le contenu des fichiers compressés (%1$s) avec plus de %2$s fichiers ou avec des fichiers de taille supérieure à %3$s ne sera pas affiché</string>
     <string name="title_advanced_parse_classes_hint">L’affichage des messages sera plus fidèle mais pourra être retardé</string>
+    <string name="title_advanced_restore_on_launch_hint">Au redémarrage via l\'icône du lanceur, restaurer le dernier état de l\'application dans les %1$d minutes</string>
     <string name="title_advanced_language_detection_hint">La prise en charge de la détection de la langue dépend du fabricant de l\'appareil</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message s’il n’y a qu’un seul message ou un seul message non lu dans une conversation</string>
     <string name="title_advanced_expandall_hint">Le bouton de réponse n\'est pas affiché lorsque plusieurs messages sont dépliés car on ne peut pas savoir à quel message le bouton s\'applique</string>
@@ -839,6 +841,7 @@
     <string name="title_account_delete">Supprimer définitivement ce compte?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité?</string>
     <string name="title_edit_html">Modifier en HTML</string>
+    <string name="title_import_file">Importer un fichier</string>
     <string name="title_sign_key">Clé de signature : %1$s</string>
     <string name="title_last_connected">Dernière connexion : %1$s</string>
     <string name="title_backoff_until">Attente après l\'échec jusqu\'à : %1$s</string>
@@ -919,6 +922,7 @@
     <string name="title_search_folder">Rechercher un dossier</string>
     <string name="title_apply_to_all">Appliquer à tous</string>
     <string name="title_edit_account_name">Modifier le nom du compte</string>
+    <string name="title_edit_account_color">Modifier la couleur du compte</string>
     <string name="title_hide_folder">Masquer le dossier</string>
     <string name="title_hide_seen_folder">Masquer le dossier si tous les messages sont lus</string>
     <string name="title_hide_seen_folder_hint">Seulement dans la liste des dossiers affichée sur l\'écran de démarrage</string>

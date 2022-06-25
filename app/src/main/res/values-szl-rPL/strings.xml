@@ -149,7 +149,7 @@
     <string name="title_list_accounts">Konta</string>
     <string name="title_list_identities">Tożsamości</string>
     <string name="title_edit_account">Edytuj konto</string>
-    <string name="title_edit_identity">Edycja tożsamości</string>
+    <string name="title_edit_identity">Edytuj tożsamość</string>
     <string name="title_edit_folder">Edytuj folder</string>
     <string name="title_disable_gmail">Wyłącz aplikację Gmail</string>
     <string name="title_setup">Ustawienia</string>
@@ -513,6 +513,7 @@
     <string name="title_advanced_authentication_none">Brak uwierzytelnienia</string>
     <string name="title_advanced_authentication_some">Uwierzytelnianie częściowe</string>
     <string name="title_advanced_authentication_all">Pełne uwierzytelnienie</string>
+    <string name="title_advanced_restore_on_launch">Przywróć stan aplikacji przy uruchomieniu</string>
     <string name="title_advanced_sync_on_launch">Synchronizuj podczas włączania aplikacji</string>
     <string name="title_advanced_double_back">Podwójne \'wstecz\', aby wyjść</string>
     <string name="title_advanced_conversation_actions">Sugeruj akcje (Android 10+)</string>
@@ -679,7 +680,6 @@
     <string name="title_advanced_folder_nav_hint">Spowoduje to zawsze powrót z listy wiadomości do listy folderów powiązanego konta</string>
     <string name="title_advanced_suggest_names_hint">Jeśli wyłączone, tylko adresy e-mail będą używane podczas wybierania kontaktów</string>
     <string name="title_advanced_suggest_local_hint">Oprócz kontaktów dostarczanych przez Androida. Dane kontaktowe będą przechowywane dla nowo wysłanych lub odebranych wiadomości tylko kiedy włączone.</string>
-    <string name="title_advanced_auto_identity_hint">Spowoduje to wybranie ostatniej tożsamości używanej jako pierwszy odbiorca nowych wiadomości</string>
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_reply_move_hint">Serwer e-mail może nadal dodawać wiadomości do folderu wysłanych wiadomości</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>
@@ -716,6 +716,7 @@
     <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
     <string name="compressed">Nie zostanie wyświetlona zawartość plików skompresowanych (%1$s), z więcej niż %2$s plikami lub z plikami większymi niż %3$s</string>
     <string name="title_advanced_parse_classes_hint">Spowoduje to poprawniejsze wyświetlanie wiadomości, ale z możliwym opóźnieniem</string>
+    <string name="title_advanced_restore_on_launch_hint">Przywraca ostatni stan aplikacji po jej ponownym uruchomieniu za pomocą ikony launchera, w ciągu %1$d minut</string>
     <string name="title_advanced_language_detection_hint">Obsługa wykrywania języków zależy od producenta urządzenia</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_expandall_hint">Przycisk odpowiedzi nie będzie wyświetlany, gdy zostanie rozwinięte wiele wiadomości, ponieważ nie jest jasne, do której wiadomości odnosi się przycisk</string>
@@ -767,6 +768,7 @@
     <string name="title_advanced_sender_regex">Regex, aby dopasować nazwę użytkownika dla przychodzących adresów e-mail</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_internal">Wewnętrzne nazwy domen (oddzielone przecinkami)</string>
+    <string name="title_identity_unicode">Zezwalaj na UTF-8 w nagłówkach wiadomości</string>
     <string name="title_identity_unicode_remark">Większość serwerów nie wspiera tego</string>
     <string name="title_identity_octetmime">Zezwalaj na 8BITMIME</string>
     <string name="title_identity_max_size">Maksymalny rozmiar wiadomości (MB)</string>
@@ -858,6 +860,7 @@
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>
+    <string name="title_import_file">Importuj plik</string>
     <string name="title_sign_key">Klucz podpisu: %1$s</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
     <string name="title_backoff_until">Oczekiwanie po niepowodzeniu do: %1$s</string>
@@ -938,6 +941,7 @@
     <string name="title_search_folder">Szukaj folderu</string>
     <string name="title_apply_to_all">Zastosuj dla wszystkich</string>
     <string name="title_edit_account_name">Edytuj nazwę konta</string>
+    <string name="title_edit_account_color">Edytuj kolor konta</string>
     <string name="title_hide_folder">Ukryj folder</string>
     <string name="title_hide_seen_folder">Ukryj folder, jeśli wszystkie wiadomości zostały przeczytane</string>
     <string name="title_hide_seen_folder_hint">Tylko na liście folderów wyświetlanej na ekranie startowym</string>

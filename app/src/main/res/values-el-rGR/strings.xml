@@ -491,6 +491,7 @@
     <string name="title_advanced_authentication_none">Χωρίς ταυτοποίηση</string>
     <string name="title_advanced_authentication_some">Μερική ταυτοποίηση</string>
     <string name="title_advanced_authentication_all">Πλήρης ταυτοποίηση</string>
+    <string name="title_advanced_restore_on_launch">Επαναφορά της κατάστασης της εφαρμογής κατά την εκκίνηση</string>
     <string name="title_advanced_sync_on_launch">Συγχρονισμός κατά την εκκίνηση της εφαρμογής</string>
     <string name="title_advanced_double_back">Δύο φορές \"πίσω\" για έξοδο</string>
     <string name="title_advanced_conversation_actions">Να προτείνονται ενέργειες (Android 10+)</string>
@@ -655,7 +656,7 @@
     <string name="title_advanced_folder_nav_hint">Έτσι, θα επιστρέφετε πάντα από μια λίστα μηνυμάτων στη λίστα φακέλων του σχετικού λογαριασμού</string>
     <string name="title_advanced_suggest_names_hint">Εάν απενεργοποιηθεί, θα χρησιμοποιούνται μόνο διευθύνσεις ηλ. ταχυδρομείου κατά την επιλογή επαφών</string>
     <string name="title_advanced_suggest_local_hint">Επιπρόσθετα στις παρεχόμενες από το Android επαφές, θα αποθηκεύονται πληροφορίες επαφών για πρόσφατα απεσταλμένα ή ειλημμένα μηνύματα, μόνον εφόσον οι σχετικές δυνατότητες έχουν ενεργοποιηθεί.</string>
-    <string name="title_advanced_auto_identity_hint">Με αυτό θα επιλέγεται η τελευταία ταυτότητα που έχει χρησιμοποιηθεί για τον πρώτο παραλήπτη των νέων μηνυμάτων</string>
+    <string name="title_advanced_auto_identity_hint">Με αυτό θα επιλέγεται η τελευταία ταυτότητα που έχει χρησιμοποιηθεί κατά την επιλογή ενός παραλήπτη για νέα μηνύματα</string>
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
     <string name="title_advanced_reply_move_hint">Ο διακομιστής ηλ. ταχυδρομείου ενδέχεται να προσθέτει ακόμα τα μηνύματα στον φάκελο απεσταλμένων</string>
     <string name="title_advanced_usenet_hint">Να παρεμβάλλεται ένα \'-- \' ανάμεσα στο κείμενο και την υπογραφή</string>
@@ -692,6 +693,7 @@
     <string name="title_advanced_inline_hint">Οι ένθετες εικόνες είναι οι εικόνες που περιλαμβάνονται στο μήνυμα</string>
     <string name="compressed">Τα περιεχόμενα των συμπιεσμένων αρχείων (%1$s) με περισσότερα από %2$s αρχεία ή με αρχεία μεγαλύτερα από %3$s δεν θα προβάλλονται</string>
     <string name="title_advanced_parse_classes_hint">Η προβολή των εικόνων θα είναι πιο ακριβής αλλά με ενδεχόμενη καθυστέρηση</string>
+    <string name="title_advanced_restore_on_launch_hint">Επαναφέρεται η τελευταία κατάσταση της εφαρμογής, εφόσον γίνεται επανεκκίνηση εντός %1$d λεπτών μέσω του εικονιδίου εκκίνησης</string>
     <string name="title_advanced_language_detection_hint">Η υποστήριξη αναγνώρισης γλώσσας εξαρτάται από τον κατασκευαστή της συσκευής</string>
     <string name="title_advanced_autoexpand_hint">Αυτόματο άνοιγμα του μηνύματος όταν υπάρχει μόνον ένα μήνυμα ή μόνον ένα μη αναγνωσμένο μήνυμα σε μία συζήτηση</string>
     <string name="title_advanced_expandall_hint">Το κουμπί απάντησης δεν θα εμφανίζεται όταν έχουν αναπτυχθεί πολλαπλά μηνύματα, καθώς τότε δεν είναι σαφές σε ποιο μήνυμα ακριβώς αφορά το κουμπί</string>
@@ -835,6 +837,7 @@
     <string name="title_account_delete">Να διαγραφεί οριστικά αυτός ο λογαριασμός;</string>
     <string name="title_identity_delete">Να διαγραφεί οριστικά αυτή η ταυτότητα;</string>
     <string name="title_edit_html">Επεξεργασία ως HTML</string>
+    <string name="title_import_file">Εισαγωγή αρχείου</string>
     <string name="title_sign_key">Κλειδί υπογραφής: %1$s</string>
     <string name="title_last_connected">Τελευταία σύνδεση: %1$s</string>
     <string name="title_backoff_until">Αναμονή μετά από μία αποτυχία μέχρι: %1$s</string>
@@ -915,6 +918,7 @@
     <string name="title_search_folder">Αναζήτηση φακέλου</string>
     <string name="title_apply_to_all">Εφαρμογή σε όλα</string>
     <string name="title_edit_account_name">Επεξεργασία ονόματος λογαριασμού</string>
+    <string name="title_edit_account_color">Επεξεργασία χρώματος λογαριασμού</string>
     <string name="title_hide_folder">Απόκρυψη φακέλου</string>
     <string name="title_hide_seen_folder">Απόκρυψη φακέλου, εφόσον όλα τα μηνύματα έχουν διαβαστεί</string>
     <string name="title_hide_seen_folder_hint">Μόνο για τη λίστα φακέλων που εμφανίζεται στην οθόνη έναρξης</string>

@@ -647,7 +647,6 @@
     <string name="title_advanced_folder_nav_hint">常にメッセージリストから関連するアカウントのフォルダーリストに戻ります</string>
     <string name="title_advanced_suggest_names_hint">無効にすると、連絡先を選択する際にメールアドレスのみが使用されます</string>
     <string name="title_advanced_suggest_local_hint">Android のローカル連絡先を追加します。有効にすると、新しく送受信されたメッセージの連絡先データが保存されます。</string>
-    <string name="title_advanced_auto_identity_hint">新規メッセージの筆頭の宛先にメールを送信するとき、最後に使用した ID を選択します</string>
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
     <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加できます</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「--」を挿入します</string>
@@ -735,7 +734,9 @@
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名を参照する正規表現</string>
     <string name="title_identity_reply_to">返信先 (Reply to)</string>
     <string name="title_identity_internal">内部ドメイン名 (カンマ区切り)</string>
+    <string name="title_identity_unicode">メッセージヘッダーで UTF-8 を許可</string>
     <string name="title_identity_unicode_remark">ほとんどのサーバーはサポートしていません</string>
+    <string name="title_identity_octetmime">8BITMIME を許可</string>
     <string name="title_identity_max_size">最大メッセージサイズ (MB)</string>
     <string name="title_identity_receipt">デフォルトで配信確認・開封確認メッセージを要求</string>
     <string name="title_identity_receipt_legacy">古い形式の確認メッセージ要求ヘッダーを使用</string>
@@ -825,6 +826,7 @@
     <string name="title_account_delete">このアカウントを完全に削除しますか？</string>
     <string name="title_identity_delete">この ID を完全に削除しますか？</string>
     <string name="title_edit_html">HTML として編集</string>
+    <string name="title_import_file">ファイルをインポート</string>
     <string name="title_sign_key">電子署名鍵: %1$s</string>
     <string name="title_last_connected">最終接続: %1$s</string>
     <string name="title_backoff_until">失敗後の待機時間: %1$s</string>
@@ -905,6 +907,7 @@
     <string name="title_search_folder">フォルダーを検索</string>
     <string name="title_apply_to_all">すべてに適用</string>
     <string name="title_edit_account_name">アカウント名を編集</string>
+    <string name="title_edit_account_color">アカウントの色を編集</string>
     <string name="title_hide_folder">フォルダーを非表示</string>
     <string name="title_hide_seen_folder">すべてのメッセージが既読のとき、フォルダーを非表示にする</string>
     <string name="title_hide_seen_folder_hint">スタート画面に表示されるフォルダ一覧にのみ表示されます</string>
