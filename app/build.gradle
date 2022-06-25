@@ -280,6 +280,15 @@ task copyChangelog(type: Copy) {
     into "../metadata/en-US/changelogs"
     include "CHANGELOG.md"
     rename "CHANGELOG.md", getVersionCode() + ".txt"
+    filter { String line ->
+        line
+                .replaceAll(".*Google Translate.*", "--------------------")
+                .replaceAll("### ", "")
+                .replaceAll("## ", "")
+                .replaceAll("\\(https.*\\)", "")
+                .replaceAll("\\[", "")
+                .replaceAll("\\]", "")
+    }
 }
 
 preBuild.dependsOn copyChangelog
