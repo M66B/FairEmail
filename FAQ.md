@@ -4025,14 +4025,20 @@ Voice notes will automatically be attached.
 
 Account:
 
-* Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
-* Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
+* Version 1.1927-: enable *Separate notifications* in the advanced account settings
+* Version 1.1927+: long press the account in the account list and select *Create notification channel*
+* Long press the account in the account list and select *Edit notification channel* to change the notification sound
+
+To go to the account list: navigation menu (left side menu), tap *Settings*, tap *Manual setup and account options* and tap *Accounts*.<br>
+To go to the advanced account settings from the account list: tap on the account and tap on *Advanced*.
 
 Folder:
 
 * Long press the folder in the folder list and select *Notify on new messages*
 * Long press the folder in the folder list and select *Create notification channel*
 * Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
+
+To go to the folder list: tap on the account name in the navigation menu (left side menu).
 
 Sender:
 
