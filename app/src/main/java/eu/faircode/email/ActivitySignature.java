@@ -257,6 +257,7 @@ public class ActivitySignature extends ActivityBase {
     private void onMenuSelectFile() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setType("text/*");
         Helper.openAdvanced(intent);
         startActivityForResult(intent, REQUEST_FILE);

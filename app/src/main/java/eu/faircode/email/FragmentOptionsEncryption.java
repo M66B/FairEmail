@@ -360,6 +360,7 @@ public class FragmentOptionsEncryption extends FragmentBase
                 PackageManager pm = context.getPackageManager();
                 Intent open = new Intent(Intent.ACTION_GET_CONTENT);
                 open.addCategory(Intent.CATEGORY_OPENABLE);
+                open.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 open.setType("*/*");
                 if (open.resolveActivity(pm) == null)  // system whitelisted
                     ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();

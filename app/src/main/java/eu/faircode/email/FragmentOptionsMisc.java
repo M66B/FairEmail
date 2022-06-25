@@ -1175,6 +1175,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 intent.setType("*/*");
                 Intent choose = Helper.getChooser(v.getContext(), intent);
                 getActivity().startActivityForResult(choose, ActivitySetup.REQUEST_IMPORT_PROVIDERS);
