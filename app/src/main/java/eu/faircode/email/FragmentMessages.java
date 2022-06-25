@@ -7204,6 +7204,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void endSearch() {
+        if (etSearch == null)
+            return;
+
         Helper.hideKeyboard(etSearch);
         etSearch.setVisibility(View.GONE);
         clearSearch();

@@ -6989,6 +6989,9 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void endSearch() {
+        if (etSearch == null)
+            return;
+
         Helper.hideKeyboard(etSearch);
         etSearch.setVisibility(View.GONE);
         clearSearch();
