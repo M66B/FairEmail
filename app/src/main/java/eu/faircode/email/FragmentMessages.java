@@ -7527,6 +7527,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         create.addCategory(Intent.CATEGORY_OPENABLE);
+        create.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         create.setType("*/*");
         create.putExtra(Intent.EXTRA_TITLE, name);
         Helper.openAdvanced(create);

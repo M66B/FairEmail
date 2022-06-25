@@ -389,6 +389,7 @@ public class FragmentContacts extends FragmentBase {
         if (export) {
             Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
             intent.setType("*/*");
             intent.putExtra(Intent.EXTRA_TITLE, "fairemail.vcf");
             Helper.openAdvanced(intent);

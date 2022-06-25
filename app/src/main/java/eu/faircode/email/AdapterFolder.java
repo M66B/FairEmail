@@ -1102,6 +1102,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
                     intent.addCategory(Intent.CATEGORY_OPENABLE);
+                    intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                     intent.setType("*/*");
                     intent.putExtra(Intent.EXTRA_TITLE, filename);
                     Helper.openAdvanced(intent);

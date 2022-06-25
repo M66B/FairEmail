@@ -375,6 +375,7 @@ public class ActivityEML extends ActivityBase {
 
                                 Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
                                 create.addCategory(Intent.CATEGORY_OPENABLE);
+                                create.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                                 create.setType(apart.attachment.getMimeType());
                                 if (!TextUtils.isEmpty(apart.attachment.name))
                                     create.putExtra(Intent.EXTRA_TITLE, apart.attachment.name);
