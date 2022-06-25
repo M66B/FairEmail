@@ -174,11 +174,23 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                 @Override
                 protected Boolean onExecute(Context context, Bundle args) {
+                    DB db = DB.getInstance(context);
+
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    String last_activity = prefs.getString("last_activity", null);
+                    long composing = prefs.getLong("last_composing", -1L);
+                    if (ActivityCompose.class.getName().equals(last_activity) && composing >= 0) {
+                        EntityMessage draft = db.message().getMessage(composing);
+                        if (draft == null || draft.ui_hide)
+                            prefs.edit()
+                                    .remove("last_activity")
+                                    .remove("last_composing")
+                                    .apply();
+                    }
+
                     if (prefs.getBoolean("has_accounts", false))
                         return true;
 
-                    DB db = DB.getInstance(context);
                     List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
                     boolean hasAccounts = (accounts != null && accounts.size() > 0);
 
