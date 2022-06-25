@@ -4,7 +4,7 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
-### Next version
+### 1.1927 - 2022-06-25
 
 * Added import file to signature editor
 * Added option to restore app state on start
