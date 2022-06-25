@@ -4133,6 +4133,9 @@ class Core {
                     reply.setPersonal(from.getPersonal());
             }
 
+            if (helper.isReport() && EntityFolder.DRAFTS.equals(folder.type))
+                message.dsn = EntityMessage.DSN_HARD_BOUNCE;
+
             EntityIdentity identity = matchIdentity(context, folder, message);
             message.identity = (identity == null ? null : identity.id);
 
