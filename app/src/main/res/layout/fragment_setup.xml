@@ -284,7 +284,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginEnd="12dp"
-                    android:drawableEnd="@drawable/twotone_edit_24"
+                    android:drawableEnd="@drawable/twotone_settings_24"
                     android:drawablePadding="6dp"
                     android:drawableTint="?android:attr/textColorTertiary"
                     android:gravity="center"
