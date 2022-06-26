@@ -735,6 +735,7 @@
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">More options</string>
+    <string name="title_advanced_main_log">Main logging</string>
     <string name="title_advanced_protocol">Protocol logging</string>
     <string name="title_advanced_log_info">Debug logging</string>
     <string name="title_advanced_debug">Debug mode</string>

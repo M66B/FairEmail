@@ -129,6 +129,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swWatchdog;
     private SwitchCompat swExperiments;
     private TextView tvExperimentsHint;
+    private SwitchCompat swMainLog;
     private SwitchCompat swProtocol;
     private SwitchCompat swLogInfo;
     private SwitchCompat swDebug;
@@ -211,7 +212,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "language", "deepl_enabled",
             "updates", "weekly", "show_changelog",
             "crash_reports", "cleanup_attachments",
-            "watchdog", "experiments", "protocol", "log_level", "debug", "leak_canary", "test1",
+            "watchdog", "experiments", "main_log", "protocol", "log_level", "debug", "leak_canary", "test1",
             "test2", "test3", "test4", "test5",
             "work_manager", // "external_storage",
             "query_threads", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_cache",
@@ -303,6 +304,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swExperiments = view.findViewById(R.id.swExperiments);
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
+        swMainLog = view.findViewById(R.id.swMainLog);
         swProtocol = view.findViewById(R.id.swProtocol);
         swLogInfo = view.findViewById(R.id.swLogInfo);
         swDebug = view.findViewById(R.id.swDebug);
@@ -679,6 +681,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("experiments", checked).apply();
+            }
+        });
+
+        swMainLog.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("main_log", checked).apply();
             }
         });
 
@@ -1722,6 +1731,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
+        swMainLog.setChecked(prefs.getBoolean("main_log", false));
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
         swLogInfo.setChecked(prefs.getInt("log_level", Log.getDefaultLogLevel()) <= android.util.Log.INFO);
         swDebug.setChecked(prefs.getBoolean("debug", false));
