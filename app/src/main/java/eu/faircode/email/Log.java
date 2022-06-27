@@ -1843,7 +1843,7 @@ public class Log {
 
         ContentResolver resolver = context.getContentResolver();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean main_log = prefs.getBoolean("main_log", false);
+        boolean main_log = prefs.getBoolean("main_log", true);
         boolean protocol = prefs.getBoolean("protocol", false);
         int level = prefs.getInt("log_level", Log.getDefaultLogLevel());
         long last_cleanup = prefs.getLong("last_cleanup", 0);

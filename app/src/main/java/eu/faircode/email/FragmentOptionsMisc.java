@@ -1731,7 +1731,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
-        swMainLog.setChecked(prefs.getBoolean("main_log", false));
+        swMainLog.setChecked(prefs.getBoolean("main_log", true));
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
         swLogInfo.setChecked(prefs.getInt("log_level", Log.getDefaultLogLevel()) <= android.util.Log.INFO);
         swDebug.setChecked(prefs.getBoolean("debug", false));
