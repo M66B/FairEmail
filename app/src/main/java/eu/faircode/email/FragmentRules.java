@@ -363,11 +363,29 @@ public class FragmentRules extends FragmentBase {
                     JSONObject jaction = new JSONObject(rule.action);
 
                     int type = jaction.getInt("type");
-                    if (type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY) {
-                        long target = jaction.optLong("target", -1);
-                        EntityFolder f = db.folder().getFolder(target);
-                        if (f != null)
-                            jaction.put("folderType", f.type);
+                    switch (type) {
+                        case EntityRule.TYPE_MOVE:
+                        case EntityRule.TYPE_COPY:
+                            long target = jaction.optLong("target", -1);
+                            EntityFolder f = db.folder().getFolder(target);
+                            EntityAccount a = (f == null ? null : db.account().getAccount(f.account));
+                            if (a != null)
+                                jaction.put("targetAccountUuid", a.uuid);
+                            if (f != null) {
+                                jaction.put("targetFolderType", f.type);
+                                jaction.put("targetFolderName", f.name);
+                            }
+                            break;
+                        case EntityRule.TYPE_ANSWER:
+                            long identity = jaction.getLong("identity");
+                            long answer = jaction.getLong("answer");
+                            EntityIdentity i = db.identity().getIdentity(identity);
+                            EntityAnswer t = db.answer().getAnswer(answer);
+                            if (i != null)
+                                jaction.put("identityUuid", i.uuid);
+                            if (t != null)
+                                jaction.put("answerUuid", t.uuid);
+                            break;
                     }
 
                     rule.action = jaction.toString();
@@ -452,21 +470,52 @@ public class FragmentRules extends FragmentBase {
                     if (folder == null)
                         return null;
 
-                    for (int i = 0; i < jrules.length(); i++) {
-                        JSONObject jrule = jrules.getJSONObject(i);
+                    for (int r = 0; r < jrules.length(); r++) {
+                        JSONObject jrule = jrules.getJSONObject(r);
                         EntityRule rule = EntityRule.fromJSON(jrule);
 
                         JSONObject jaction = new JSONObject(rule.action);
 
                         int type = jaction.getInt("type");
-                        if (type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY) {
-                            String folderType = jaction.optString("folderType");
-                            if (!EntityFolder.SYSTEM.equals(folderType) &&
-                                    !EntityFolder.USER.equals(folderType)) {
-                                EntityFolder f = db.folder().getFolderByType(folder.account, folderType);
-                                if (f != null)
-                                    jaction.put("target", f.id);
-                            }
+                        switch (type) {
+                            case EntityRule.TYPE_MOVE:
+                            case EntityRule.TYPE_COPY:
+                                String targetAccountUuid = jaction.optString("targetAccountUuid");
+                                String targetFolderName = jaction.optString("targetFolderName");
+                                if (!TextUtils.isEmpty(targetAccountUuid) && !TextUtils.isEmpty(targetFolderName)) {
+                                    EntityAccount a = db.account().getAccountByUUID(targetAccountUuid);
+                                    if (a != null) {
+                                        EntityFolder f = db.folder().getFolderByName(a.id, targetFolderName);
+                                        if (f != null) {
+                                            jaction.put("target", f.id);
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                String folderType = jaction.optString("targetFolderType");
+                                if (TextUtils.isEmpty(folderType))
+                                    folderType = jaction.optString("folderType"); // legacy
+                                if (!EntityFolder.SYSTEM.equals(folderType) &&
+                                        !EntityFolder.USER.equals(folderType)) {
+                                    EntityFolder f = db.folder().getFolderByType(folder.account, folderType);
+                                    if (f != null)
+                                        jaction.put("target", f.id);
+                                }
+                                break;
+
+                            case EntityRule.TYPE_ANSWER:
+                                String identityUuid = jaction.optString("identityUuid");
+                                String answerUuid = jaction.optString("answerUuid");
+                                if (!TextUtils.isEmpty(identityUuid) && !TextUtils.isEmpty(answerUuid)) {
+                                    EntityIdentity i = db.identity().getIdentityByUUID(identityUuid);
+                                    EntityAnswer a = db.answer().getAnswerByUUID(answerUuid);
+                                    if (i != null && a != null) {
+                                        jaction.put("identity", i.id);
+                                        jaction.put("answer", a.id);
+                                        break;
+                                    }
+                                }
                         }
 
                         rule.action = jaction.toString();
