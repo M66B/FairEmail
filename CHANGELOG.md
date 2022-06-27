@@ -4,6 +4,11 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
+### Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1927 - 2022-06-25
 
 * Added import file to signature editor
