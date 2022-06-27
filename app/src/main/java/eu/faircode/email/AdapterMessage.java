@@ -5967,9 +5967,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return null;
 
                     if (!TextUtils.isEmpty(message.inreplyto))
-                        for (String inreplyto : message.inreplyto.split(" "))
-                            for (EntityMessage m : db.message().getMessagesByMsgId(message.account, inreplyto))
-                                map.put(m.msgid, m);
+                        for (EntityMessage m : db.message().getMessagesByMsgId(message.account, message.inreplyto))
+                            map.put(m.msgid, m);
 
                     if (!TextUtils.isEmpty(message.references))
                         for (String ref : message.references.split(" "))
@@ -5994,8 +5993,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         start = ssb.length();
                         ssb.append("In-reply-to: ");
                         ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
-                        for (String inreplyto : message.inreplyto.split(" "))
-                            ssb.append(inreplyto).append("\n");
+                        ssb.append(message.inreplyto).append("\n");
                     }
 
                     if (!TextUtils.isEmpty(message.references)) {
