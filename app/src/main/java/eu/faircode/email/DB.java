@@ -71,7 +71,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 238,
+        version = 239,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2119,6 +2119,8 @@ public abstract class DB extends RoomDatabase {
                                 String uuid = UUID.randomUUID().toString();
                                 db.execSQL("UPDATE account SET uuid = ? WHERE id = ?", new Object[]{uuid, id});
                             }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         }
                     }
                 }).addMigrations(new Migration(204, 205) {
@@ -2359,6 +2361,8 @@ public abstract class DB extends RoomDatabase {
                                 String uuid = UUID.randomUUID().toString();
                                 db.execSQL("UPDATE rule SET uuid = ? WHERE id = ?", new Object[]{uuid, id});
                             }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         }
                     }
                 }).addMigrations(new Migration(237, 238) {
@@ -2372,6 +2376,23 @@ public abstract class DB extends RoomDatabase {
                                 String uuid = UUID.randomUUID().toString();
                                 db.execSQL("UPDATE answer SET uuid = ? WHERE id = ?", new Object[]{uuid, id});
                             }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                }).addMigrations(new Migration(238, 239) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("ALTER TABLE `identity` ADD COLUMN `uuid` TEXT NOT NULL DEFAULT ''");
+                        try (Cursor cursor = db.query("SELECT id FROM identity")) {
+                            while (cursor != null && cursor.moveToNext()) {
+                                long id = cursor.getLong(0);
+                                String uuid = UUID.randomUUID().toString();
+                                db.execSQL("UPDATE identity SET uuid = ? WHERE id = ?", new Object[]{uuid, id});
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         }
                     }
                 }).addMigrations(new Migration(998, 999) {
