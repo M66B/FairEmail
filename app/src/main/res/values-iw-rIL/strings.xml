@@ -514,6 +514,7 @@
     <string name="title_advanced_authentication_none">אין אימות</string>
     <string name="title_advanced_authentication_some">אימות חלקי</string>
     <string name="title_advanced_authentication_all">אימות מלא</string>
+    <string name="title_advanced_restore_on_launch">שחזור מצב היישומון עם העלייה</string>
     <string name="title_advanced_sync_on_launch">סנכרון בהפעלה</string>
     <string name="title_advanced_double_back">‚חזרה’ פעמיים כדי לצאת</string>
     <string name="title_advanced_conversation_actions">להציע פעולות (Android 10+‎)</string>
@@ -653,6 +654,7 @@
     <string name="title_advanced_cleanup">ניקוי</string>
     <string name="title_advanced_app">הגדרות היישומון</string>
     <string name="title_advanced_more">אפשרויות נוספות</string>
+    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">תיעוד ראשי ביומן</string>
     <string name="title_advanced_protocol">תיעוד פרוטוקול</string>
     <string name="title_advanced_log_info">תיעוד תקלות</string>
     <string name="title_advanced_debug">מצב ניפוי תקלות</string>
@@ -680,6 +682,7 @@
     <string name="title_advanced_folder_nav_hint">פקודה זו תמיד תחזיר את רשימת התיקיות של החשבון הקשור מרשימת הודעות</string>
     <string name="title_advanced_suggest_names_hint">אם מושבת, אפשר יהיה להשתמש רק בכתובות דוא״ל בעת בחירת אנשי קשר</string>
     <string name="title_advanced_suggest_local_hint">בנוסף לאנשי הקשר שמסופקים על ידי Android. פרטי הקשר יאוחסנו להודעות חדשות שנשלחו או התקבלו כשהאפשרות פעילה.</string>
+    <string name="title_advanced_auto_identity_hint">תיבחר הזהות האחרונה בה נעשה שימוש כאשר נבחר נמען להודעות חדשות</string>
     <string name="title_advanced_send_reminders_hint">להציג אזהרה כאשר טקסט ההודעה או הנושא ריקים או כאשר קובץ לא צורף לכאורה</string>
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
     <string name="title_advanced_usenet_hint">להוסיף ‚--’ בין הטקסט והחתימה</string>
@@ -716,6 +719,7 @@
     <string name="title_advanced_inline_hint">תמונות מובנות הן תמונות שכלולות בהודעה</string>
     <string name="compressed">תוכן קבצים דחוסים (%1$s) עם למעלה מ־%2$s קבצים או עם קבצים שגודלם עולה על %3$s לא יוצגו</string>
     <string name="title_advanced_parse_classes_hint">זה יציג הודעות בצורה יותר מדויקת אך כנראה עם עיכוב מסוים</string>
+    <string name="title_advanced_restore_on_launch_hint">שחזור המצב האחרון של היישומון כאשר הוא מופעל מחדש דרך הסמל במשגר תוך %1$d דקות</string>
     <string name="title_advanced_language_detection_hint">תמיכה בזיהוי שפות תלויה ביצרן המכשיר</string>
     <string name="title_advanced_autoexpand_hint">לפתוח הודעות אוטומטית כשיש רק הודעה אחת או רק הודעה אחת שלא נקראה בדיון</string>
     <string name="title_advanced_expandall_hint">כפתור המענה לא יופיע כאשר מספר הודעות מורחבות כיוון שלא ברור לאיזו הודעה הכפתור מתייחס</string>
@@ -940,6 +944,7 @@
     <string name="title_search_folder">חיפוש אחר תיקייה</string>
     <string name="title_apply_to_all">החלה על הכול</string>
     <string name="title_edit_account_name">עריכת שם חשבון</string>
+    <string name="title_edit_account_color">עריכת צבע חשבון</string>
     <string name="title_hide_folder">הסתרת תיקייה</string>
     <string name="title_hide_seen_folder">להסתיר את התיקייה אם כל ההודעות נקראו</string>
     <string name="title_hide_seen_folder_hint">רק ברשימת התיקיות שמופיעה במסך הפתיחה</string>

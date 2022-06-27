@@ -631,6 +631,7 @@
     <string name="title_advanced_last_cleanup">Última limpeza: %1$s</string>
     <string name="title_advanced_app">Configurações do aplicativo</string>
     <string name="title_advanced_more">Mais opções</string>
+    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Registro principal</string>
     <string name="title_advanced_protocol">Registro de protocolo</string>
     <string name="title_advanced_log_info">Log de depuração</string>
     <string name="title_advanced_debug">Modo de depuração</string>

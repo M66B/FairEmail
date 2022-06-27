@@ -633,8 +633,9 @@
     <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
     <string name="title_advanced_app">Paramètres Android de l\'application</string>
     <string name="title_advanced_more">Plus d’options</string>
+    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Journalisation principale</string>
     <string name="title_advanced_protocol">Journalisation du protocole</string>
-    <string name="title_advanced_log_info">Journal de débogage</string>
+    <string name="title_advanced_log_info">Journalisation de débogage</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_manual_hint">Si la réception de messages est désactivée, il est toujours possible de recevoir manuellement des messages en tirant vers le bas la liste des messages</string>
     <string name="title_advanced_poll_battery">Ceci peut entraîner une utilisation élevée de la pile!</string>

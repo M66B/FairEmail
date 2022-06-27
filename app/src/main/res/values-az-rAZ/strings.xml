@@ -632,6 +632,7 @@
     <string name="title_advanced_cleanup">Təmizlə</string>
     <string name="title_advanced_app">Tətbiq tənzimləmələri</string>
     <string name="title_advanced_more">Daha çox seçim</string>
+    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Əsas jurnal qeydi</string>
     <string name="title_advanced_protocol">Protokol jurnalı</string>
     <string name="title_advanced_log_info">Sazlama jurnalı</string>
     <string name="title_advanced_debug">Sazlama rejimi</string>
