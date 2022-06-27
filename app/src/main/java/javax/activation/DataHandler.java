@@ -253,7 +253,8 @@ public class DataHandler /*implements Transferable*/ {
 				throw new IOException(ex);
 			}
 
-		eu.faircode.email.Log.w("DataHandler" +
+		// com.sun.mail.smtp.SMTPTransport.convertTo8Bit
+		eu.faircode.email.Log.i("DataHandler" +
 				" object=" + (object == null ? null : object.getClass().getName()) +
 				" dch=" + dch.getClass().getName() +
 				" type=" + getContentType());
@@ -274,11 +275,13 @@ public class DataHandler /*implements Transferable*/ {
 		    try {
 			fdch.writeTo(object, objectMimeType, pos);
 		    } catch (IOException e) {
-
+				eu.faircode.email.Log.e(e);
 		    } finally {
 			try {
 			    pos.close();
-			} catch (IOException ie) { }
+			} catch (IOException ie) {
+				eu.faircode.email.Log.e(ie);
+			}
 		    }
 		}
 	    },
