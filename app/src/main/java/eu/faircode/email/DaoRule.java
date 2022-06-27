@@ -46,6 +46,9 @@ public interface DaoRule {
             " WHERE rule.id = :id")
     TupleRuleEx getRule(long id);
 
+    @Query("SELECT * FROM rule WHERE uuid = :uuid")
+    EntityRule getRuleByUUID(String uuid);
+
     @Query("SELECT rule.*, folder.account, folder.name AS folderName, account.name AS accountName FROM rule" +
             " JOIN folder ON folder.id = rule.folder" +
             " JOIN account ON account.id = folder.account" +

@@ -1184,6 +1184,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                     Log.e(ex);
                                 }
 
+                                EntityRule existing = db.rule().getRuleByUUID(rule.uuid);
+                                if (existing != null)
+                                    db.rule().deleteRule(existing.id);
+
                                 db.rule().insertRule(rule);
                             }
                         }

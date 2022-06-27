@@ -56,6 +56,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
 
@@ -82,6 +83,8 @@ public class EntityRule {
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
+    @NonNull
+    public String uuid = UUID.randomUUID().toString();
     @NonNull
     public Long folder;
     @NonNull
@@ -1161,7 +1164,8 @@ public class EntityRule {
     public boolean equals(Object obj) {
         if (obj instanceof EntityRule) {
             EntityRule other = (EntityRule) obj;
-            return this.folder.equals(other.folder) &&
+            return Objects.equals(this.uuid, other.uuid) &&
+                    this.folder.equals(other.folder) &&
                     this.name.equals(other.name) &&
                     this.order == other.order &&
                     this.enabled == other.enabled &&
@@ -1212,6 +1216,7 @@ public class EntityRule {
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);
+        json.put("uuid", uuid);
         json.put("name", name);
         json.put("order", order);
         json.put("enabled", enabled);
@@ -1226,6 +1231,8 @@ public class EntityRule {
     public static EntityRule fromJSON(JSONObject json) throws JSONException {
         EntityRule rule = new EntityRule();
         // id
+        if (json.has("uuid"))
+            rule.uuid = json.getString("uuid");
         rule.name = json.getString("name");
         rule.order = json.getInt("order");
         rule.enabled = json.getBoolean("enabled");

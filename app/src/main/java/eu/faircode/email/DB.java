@@ -71,7 +71,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 236,
+        version = 237,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2113,19 +2113,12 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `uuid` TEXT NOT NULL DEFAULT ''");
-                        Cursor cursor = null;
-                        try {
-                            cursor = db.query("SELECT id FROM account");
+                        try (Cursor cursor = db.query("SELECT id FROM account")) {
                             while (cursor != null && cursor.moveToNext()) {
                                 long id = cursor.getLong(0);
                                 String uuid = UUID.randomUUID().toString();
-                                Log.i("MMM account=" + id + " uuid=" + uuid);
-                                db.execSQL("UPDATE account SET uuid = ? WHERE id = ?",
-                                        new Object[]{uuid, id});
+                                db.execSQL("UPDATE account SET uuid = ? WHERE id = ?", new Object[]{uuid, id});
                             }
-                        } catch (Throwable ex) {
-                            if (cursor != null)
-                                cursor.close();
                         }
                     }
                 }).addMigrations(new Migration(204, 205) {
@@ -2354,6 +2347,19 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `identity` ADD COLUMN `octetmime` INTEGER NOT NULL DEFAULT 0");
+                    }
+                }).addMigrations(new Migration(236, 237) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("ALTER TABLE `rule` ADD COLUMN `uuid` TEXT NOT NULL DEFAULT ''");
+                        try (Cursor cursor = db.query("SELECT id FROM rule")) {
+                            while (cursor != null && cursor.moveToNext()) {
+                                long id = cursor.getLong(0);
+                                String uuid = UUID.randomUUID().toString();
+                                db.execSQL("UPDATE rule SET uuid = ? WHERE id = ?", new Object[]{uuid, id});
+                            }
+                        }
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
