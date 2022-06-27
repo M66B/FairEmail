@@ -71,7 +71,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 237,
+        version = 238,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2358,6 +2358,19 @@ public abstract class DB extends RoomDatabase {
                                 long id = cursor.getLong(0);
                                 String uuid = UUID.randomUUID().toString();
                                 db.execSQL("UPDATE rule SET uuid = ? WHERE id = ?", new Object[]{uuid, id});
+                            }
+                        }
+                    }
+                }).addMigrations(new Migration(237, 238) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("ALTER TABLE `answer` ADD COLUMN `uuid` TEXT NOT NULL DEFAULT ''");
+                        try (Cursor cursor = db.query("SELECT id FROM answer")) {
+                            while (cursor != null && cursor.moveToNext()) {
+                                long id = cursor.getLong(0);
+                                String uuid = UUID.randomUUID().toString();
+                                db.execSQL("UPDATE answer SET uuid = ? WHERE id = ?", new Object[]{uuid, id});
                             }
                         }
                     }

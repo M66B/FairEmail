@@ -56,6 +56,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -74,6 +75,8 @@ public class EntityAnswer implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
+    @NonNull
+    public String uuid = UUID.randomUUID().toString();
     @NonNull
     public String name;
     public String group;
@@ -336,7 +339,7 @@ public class EntityAnswer implements Serializable {
                     ssb.append(p.link).append("\n\n");
 
                 profiles.add(999, profiles.size(), profiles.size() + 1, p.name +
-                        (p.appPassword ? "+" : ""))
+                                (p.appPassword ? "+" : ""))
                         .setIntent(new Intent().putExtra("config", ssb));
             }
         }
@@ -374,6 +377,7 @@ public class EntityAnswer implements Serializable {
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);
+        json.put("uuid", uuid);
         json.put("name", name);
         json.put("group", group);
         json.put("standard", standard);
@@ -392,6 +396,8 @@ public class EntityAnswer implements Serializable {
     public static EntityAnswer fromJSON(JSONObject json) throws JSONException {
         EntityAnswer answer = new EntityAnswer();
         answer.id = json.getLong("id");
+        if (json.has("uuid"))
+            answer.uuid = json.getString("uuid");
         answer.name = json.getString("name");
         answer.group = json.optString("group");
         if (TextUtils.isEmpty(answer.group))
@@ -415,7 +421,8 @@ public class EntityAnswer implements Serializable {
     public boolean equals(Object obj) {
         if (obj instanceof EntityAnswer) {
             EntityAnswer other = (EntityAnswer) obj;
-            return (this.name.equals(other.name) &&
+            return (Objects.equals(this.uuid, other.uuid) &&
+                    this.name.equals(other.name) &&
                     Objects.equals(this.group, other.group) &&
                     this.standard.equals(other.standard) &&
                     this.receipt.equals(other.receipt) &&

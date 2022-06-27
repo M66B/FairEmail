@@ -55,6 +55,9 @@ public interface DaoAnswer {
     @Query("SELECT * FROM answer WHERE id = :id")
     EntityAnswer getAnswer(long id);
 
+    @Query("SELECT * FROM answer WHERE uuid = :uuid")
+    EntityAnswer getAnswerByUUID(String uuid);
+
     @Query("SELECT * FROM answer" +
             " WHERE standard AND NOT hide")
     EntityAnswer getStandardAnswer();

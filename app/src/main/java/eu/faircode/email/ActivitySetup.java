@@ -984,6 +984,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             long id = answer.id;
                             answer.id = null;
 
+                            EntityAnswer existing = db.answer().getAnswerByUUID(answer.uuid);
+                            if (existing != null)
+                                db.answer().deleteAnswer(existing.id);
+
                             answer.id = db.answer().insertAnswer(answer);
                             xAnswer.put(id, answer.id);
 
