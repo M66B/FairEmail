@@ -8104,10 +8104,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 Log.i("PGP signature result=" + sresult);
 
                             if (sresult == RESULT_NO_SIGNATURE) {
-                                if (!EntityAttachment.PGP_SIGNATURE.equals(encrypt)) {
+                                if (!EntityAttachment.PGP_SIGNATURE.equals(encrypt))
                                     args.putString("sigresult", context.getString(R.string.title_signature_none));
-                                    args.putBoolean("sigtoast", true);
-                                }
                             } else if (sresult == RESULT_VALID_KEY_CONFIRMED || sresult == RESULT_VALID_KEY_UNCONFIRMED) {
                                 List<String> users = sigResult.getConfirmedUserIds();
                                 String text;
@@ -8158,14 +8156,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onExecuted(Bundle args, PendingIntent pi) {
                 if (args.containsKey("sigresult")) {
                     String text = args.getString("sigresult");
-                    if (args.getBoolean("sigtoast"))
-                        ToastEx.makeText(getContext(), text, Toast.LENGTH_LONG).show();
-                    else {
-                        Snackbar sb = Snackbar.make(view, text, Snackbar.LENGTH_LONG)
-                                .setGestureInsetBottomIgnored(true);
-                        Helper.setSnackbarLines(sb, 7);
-                        sb.show();
-                    }
+                    Snackbar sb = Snackbar.make(view, text, Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true);
+                    Helper.setSnackbarLines(sb, 7);
+                    sb.show();
                 }
 
                 if (pi != null)
