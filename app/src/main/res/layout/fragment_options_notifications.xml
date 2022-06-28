@@ -212,6 +212,17 @@
                     app:layout_constraintTop_toBottomOf="@id/tvNotifySeparate"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swNotifySummary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_notify_summary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swNewestFirst"
+                    app:switchPadding="12dp" />
+
                 <TextView
                     android:id="@+id/tvNotifyActions"
                     android:layout_width="0dp"
@@ -223,7 +234,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swNewestFirst" />
+                    app:layout_constraintTop_toBottomOf="@id/swNotifySummary" />
 
                 <CheckBox
                     android:id="@+id/cbNotifyActionTrash"
@@ -550,17 +561,6 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swNotifySummary"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_notify_summary"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swNotifySuppressInCall"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNotifyRemove"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -569,7 +569,7 @@
                     android:text="@string/title_advanced_notify_remove"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swNotifySummary"
+                    app:layout_constraintTop_toBottomOf="@id/swNotifySuppressInCall"
                     app:switchPadding="12dp" />
 
                 <TextView
