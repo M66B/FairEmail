@@ -488,6 +488,7 @@
     <string name="title_advanced_authentication_none">Ingen autentisering</string>
     <string name="title_advanced_authentication_some">Partiell autentisering</string>
     <string name="title_advanced_authentication_all">Fullständig autentisering</string>
+    <string name="title_advanced_restore_on_launch">Återställ appstatus vid start</string>
     <string name="title_advanced_sync_on_launch">Synkronisera vid start</string>
     <string name="title_advanced_double_back">Dubbel \"tillbaka\" för att avsluta</string>
     <string name="title_advanced_conversation_actions">Föreslå åtgärder (Android 10+)</string>
@@ -627,6 +628,7 @@
     <string name="title_advanced_last_cleanup">Senaste rensning: %1$s</string>
     <string name="title_advanced_app">App-inställningar</string>
     <string name="title_advanced_more">Fler alternativ</string>
+    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Primär loggning</string>
     <string name="title_advanced_protocol">Loggar för protokoll</string>
     <string name="title_advanced_log_info">Debug Logging</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
@@ -654,6 +656,7 @@
     <string name="title_advanced_folder_nav_hint">Detta kommer alltid att återgå till mapplistan över det relaterade kontot från en meddelandelista</string>
     <string name="title_advanced_suggest_names_hint">Om inaktiverad, kommer endast e-postadresser att användas vid val av kontakter</string>
     <string name="title_advanced_suggest_local_hint">Förutom kontakter som tillhandahålls av Android. Kontaktdata lagras endast för nyligen skickade eller mottagna meddelanden när det aktiverat.</string>
+    <string name="title_advanced_auto_identity_hint">Detta kommer att välja den senaste identiteten som använts när du väljer en mottagare för nya meddelanden</string>
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
     <string name="title_advanced_reply_move_hint">E-postservern kan fortfarande lägga till meddelanden till skickade mail mappen</string>
     <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
@@ -690,6 +693,7 @@
     <string name="title_advanced_inline_hint">Infogade bilder är bilder som ingår i meddelandet</string>
     <string name="compressed">Innehållet i komprimerade filer (%1$s) med mer än %2$s filer eller med filer större än %3$s kommer inte att visas</string>
     <string name="title_advanced_parse_classes_hint">Detta kommer att visa meddelanden mer korrekt, men möjligen med en fördröjning</string>
+    <string name="title_advanced_restore_on_launch_hint">Återställ senaste app-status när den startas om via ikonen för launcher inom %1$d minuter</string>
     <string name="title_advanced_language_detection_hint">Stöd för språkdetektering beror på enhetstillverkaren</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_expandall_hint">Svarsknappen kommer inte att visas när flera meddelanden visas i utökat läge eftersom det är oklart vilket meddelande knappen gäller</string>
@@ -741,7 +745,9 @@
     <string name="title_advanced_sender_regex">Regex för att matcha användarnamn för inkommande e-postadresser</string>
     <string name="title_identity_reply_to">Svara till adress</string>
     <string name="title_identity_internal">Interna domännamn (kommaseparerade)</string>
+    <string name="title_identity_unicode">Tillåt UTF-8 i meddelandehuvuden</string>
     <string name="title_identity_unicode_remark">De flesta servrar stöder inte detta</string>
+    <string name="title_identity_octetmime">Tillåt 8BITMIME</string>
     <string name="title_identity_max_size">Maximal meddelandestorlek (MB)</string>
     <string name="title_identity_receipt">Begär leverans/läs kvitto som standard</string>
     <string name="title_identity_receipt_legacy">Använd den äldre typen av kvittoförfrågningsrubriker</string>
@@ -831,6 +837,7 @@
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_edit_html">Redigera som HTML</string>
+    <string name="title_import_file">Importera fil</string>
     <string name="title_sign_key">Signeringsnyckel: %1$s</string>
     <string name="title_last_connected">Senast ansluten: %1$s</string>
     <string name="title_backoff_until">Väntar efter misslyckande till: %1$s</string>
@@ -911,6 +918,7 @@
     <string name="title_search_folder">Sök efter mapp</string>
     <string name="title_apply_to_all">Tillämpa för alla</string>
     <string name="title_edit_account_name">Redigera kontonamn</string>
+    <string name="title_edit_account_color">Redigera kontofärg</string>
     <string name="title_hide_folder">Dölj mapp</string>
     <string name="title_hide_seen_folder">Dölj mapp om alla meddelanden har lästs</string>
     <string name="title_hide_seen_folder_hint">Endast i mapplistan som visas på startskärmen</string>
