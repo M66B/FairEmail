@@ -3172,8 +3172,21 @@ public class MessageHelper {
                         result = Helper.readStream((InputStream) content,
                                 cs == null ? StandardCharsets.ISO_8859_1 : cs);
                     } else {
-                        Log.e(content.getClass().getName());
-                        result = content.toString();
+                        StringBuilder m = new StringBuilder();
+                        if (content instanceof Multipart) {
+                            m.append("multipart");
+                            Multipart mp = (Multipart) content;
+                            for (int i = 0; i < mp.getCount(); i++)
+                                m.append(' ').append(mp.getBodyPart(i).getContentType());
+                        } else
+                            m.append(content.getClass().getName());
+
+                        String msg = "Expected " + h.contentType + " got " + m;
+                        Log.e(msg);
+                        warnings.add(msg);
+
+                        result = Helper.readStream(h.part.getInputStream(),
+                                cs == null ? StandardCharsets.ISO_8859_1 : cs);
                     }
                 } catch (DecodingException ex) {
                     Log.e(ex);
