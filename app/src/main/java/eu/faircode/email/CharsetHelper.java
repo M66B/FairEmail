@@ -30,6 +30,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CodingErrorAction;
 import java.nio.charset.StandardCharsets;
+import java.nio.charset.UnsupportedCharsetException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -76,24 +77,23 @@ public class CharsetHelper {
     }
 
     static boolean isUTF8(byte[] octets) {
-        CharsetDecoder utf8Decoder = StandardCharsets.UTF_8.newDecoder()
-                .onMalformedInput(CodingErrorAction.REPORT)
-                .onUnmappableCharacter(CodingErrorAction.REPORT);
-        try {
-            utf8Decoder.decode(ByteBuffer.wrap(octets));
-            return true;
-        } catch (CharacterCodingException ex) {
-            Log.w(ex);
-            return false;
-        }
+        return isValid(octets, StandardCharsets.UTF_8);
     }
 
     static boolean isUTF16(byte[] octets) {
-        CharsetDecoder utf8Decoder = StandardCharsets.UTF_16.newDecoder()
+        return isValid(octets, StandardCharsets.UTF_16);
+    }
+
+    static Boolean isValid(byte[] octets, String charset) {
+        return isValid(octets, Charset.forName(charset));
+    }
+
+    static boolean isValid(byte[] octets, Charset charset) {
+        CharsetDecoder decoder = charset.newDecoder()
                 .onMalformedInput(CodingErrorAction.REPORT)
                 .onUnmappableCharacter(CodingErrorAction.REPORT);
         try {
-            utf8Decoder.decode(ByteBuffer.wrap(octets));
+            decoder.decode(ByteBuffer.wrap(octets));
             return true;
         } catch (CharacterCodingException ex) {
             Log.w(ex);

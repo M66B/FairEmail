@@ -2880,6 +2880,11 @@ public class MessageHelper {
                 try {
                     byte[] b1 = decodeWord(p1.text, p1.encoding, p1.charset);
                     byte[] b2 = decodeWord(p2.text, p2.encoding, p2.charset);
+                    if (CharsetHelper.isValid(b1, p1.charset) && CharsetHelper.isValid(b2, p2.charset)) {
+                        p++;
+                        continue;
+                    }
+
                     byte[] b = new byte[b1.length + b2.length];
                     System.arraycopy(b1, 0, b, 0, b1.length);
                     System.arraycopy(b2, 0, b, b1.length, b2.length);
