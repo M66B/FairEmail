@@ -916,7 +916,16 @@ public class Helper {
                 " task=" + task +
                 " pkg=" + open_with_pkg + ":" + open_with_tabs);
 
-        if (browse || !open_with_tabs) {
+        if ("chooser".equals(open_with_pkg)) {
+            Intent view = new Intent(Intent.ACTION_VIEW, uri);
+            Intent chooser = Intent.createChooser(view, context.getString(R.string.title_select_app));
+            try {
+                context.startActivity(chooser);
+            } catch (ActivityNotFoundException ex) {
+                Log.w(ex);
+                reportNoViewer(context, uri, ex);
+            }
+        } else if (browse || !open_with_tabs) {
             try {
                 Intent view = new Intent(Intent.ACTION_VIEW);
                 if (mimeType == null)
