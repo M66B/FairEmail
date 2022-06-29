@@ -775,6 +775,7 @@
     <string name="title_account_delete">Eliminar esta conta permanentemente?</string>
     <string name="title_identity_delete">Eliminar esta identidade permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
+    <string name="title_import_file">Importar ficheiro</string>
     <string name="title_sign_key">Chave de assinatura: %1$s</string>
     <string name="title_last_connected">Última ligação: %1$s</string>
     <string name="title_pop_support">O protocolo POP3 só pode descarregar e eliminar mensagens da caixa de entrada. Não é possível marcar as mensagens como lidas, denunciar spam, mover mensagens, etc. Considere a utilização do protocolo IMAP sempre que possível.</string>

@@ -658,7 +658,7 @@
     <string name="title_advanced_folder_nav_hint">Damit kehren Sie von einer Nachrichtenliste immer zur Ordnerliste des betreffenden Kontos zurück.</string>
     <string name="title_advanced_suggest_names_hint">Wenn deaktiviert, werden nur E-Mail-Adressen bei der Auswahl von Kontakten verwendet</string>
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
-    <string name="title_advanced_auto_identity_hint">Damit wird die letzte Identität ausgewählt, die bei der Auswahl eines Empfängers für neue Nachrichten verwendet wurde.</string>
+    <string name="title_advanced_auto_identity_hint">Dadurch wird die zuletzt verwendete Identität, die für den zuletzt ausgewählten Empfänger einer neuen Nachricht benutzt wurde, verwendet</string>
     <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
     <string name="title_advanced_reply_move_hint">Der E-Mail-Server könnte die Nachrichten trotzdem noch in den Ordner für gesendete Nachrichten hinzufügen</string>
     <string name="title_advanced_usenet_hint">Signaturtrenner »-- « zwischen Text und Signatur einfügen</string>
