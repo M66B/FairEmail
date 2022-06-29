@@ -3491,6 +3491,8 @@ Note that:
 * Play Store purchases cannot be transferred to another account
 * You can't restore purchases with [microG](https://microg.org/)
 
+Please [see here](https://support.google.com/googleplay/answer/4646404) about how to add, remove, or edit your Google Play payment method.
+
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
 <br />
