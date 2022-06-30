@@ -333,6 +333,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
                                 db.identity().setIdentitySignKey(id, null);
                                 db.identity().setIdentitySignKeyAlias(id, null);
+                                db.identity().setIdentityEncrypt(id, 0);
 
                                 db.setTransactionSuccessful();
                             } finally {
