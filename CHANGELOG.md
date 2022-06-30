@@ -4,9 +4,10 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
-### Next version
+### 1.1927 - 2022-06-30
 
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated translations
 
 ### 1.1927 - 2022-06-25

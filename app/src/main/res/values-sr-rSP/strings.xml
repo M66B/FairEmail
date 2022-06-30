@@ -2,7 +2,8 @@
 <resources>
     <string name="app_search">FairEmail претрага</string>
     <string name="app_changelog">Дневник измена</string>
-    <string name="app_welcome">FairEmail е-мејл апликација отвореног кода са фокусом на приватност и безбедност. Могуће је да ће из ових разлога неке функционалности бити другачије него што сте навикли.</string>
+    <string name="app_welcome">FairEmail је е-мејл апликација отвореног кода са фокусом на приватност и безбедност. Могуће је да ће из ових разлога неке функционалности бити другачије него што сте навикли.</string>
+    <string name="app_continue">Ипак наставити</string>
     <string name="app_exit">За излаз још једном притисните „назад“</string>
     <string name="channel_send">Пошаљи</string>
     <string name="channel_update">Ажурирања</string>
@@ -10,6 +11,7 @@
     <string name="channel_error">Грешке</string>
     <string name="channel_alert">Упозорења са сервера</string>
     <string name="channel_group_contacts">Контакти</string>
+    <string name="channel_send_description">Слање порука</string>
     <plurals name="page_conversation">
         <item quantity="one">Разговор</item>
         <item quantity="few">Разговори</item>
@@ -63,11 +65,16 @@
         <item quantity="other">Означи %1$d порука као нежељене?</item>
     </plurals>
     <string name="title_ask_spam_who">Означи поруке од %1$s као нежељене?</string>
+    <string name="title_block">Блокирати %1$s</string>
+    <string name="title_block_sender">Блокирати пошиљаоца</string>
+    <string name="title_block_sender_domain">Блокирати домен \'%1$s\'</string>
+    <string name="title_blocked_senders">Блокирани пошиљаоци</string>
     <string name="title_junk_clear">Очисти</string>
     <string name="title_notification_sending">Слање порука</string>
     <string name="title_notification_waiting">Чекам на погодну конекцију</string>
     <string name="title_notification_failed">%1$s неуспело</string>
     <string name="menu_answers">Шаблони</string>
+    <string name="menu_rules">Правила</string>
     <string name="menu_operations">Операције</string>
     <string name="menu_contacts">Локални контакти</string>
     <string name="menu_setup">Поставке</string>
@@ -147,9 +154,11 @@
     <string name="title_setup_defaults">Врати на подразумевано</string>
     <string name="title_setup_reset_questions">Ресетуј питања</string>
     <string name="title_setup_reset_images">Прикажи слике</string>
+    <string name="title_setup_reset_links">Потврдити линкове</string>
     <string name="title_advanced_hint_title">Више напредних опција</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
+    <string name="title_advanced_section_main">Главно</string>
     <string name="title_advanced_section_synchronize">Примање</string>
     <string name="title_advanced_section_send">Слање</string>
     <string name="title_advanced_section_connection">Конекција</string>
@@ -255,6 +264,7 @@
     <string name="title_advanced_biometrics_notify">Прикажи садржај обавештења када се користи биометријска провера идентитета</string>
     <string name="title_advanced_light">Користи светло обавештења</string>
     <string name="title_advanced_sound">Одаберите звук обавештења</string>
+    <string name="title_advanced_confirm_links">Потврдити отварање линкова</string>
     <string name="title_advanced_display_hidden">Прикажи сакривене текстове порука</string>
     <string name="title_advanced_secure">Сакриј са екрана скорашњих апликација и онемогући узимање снимака екрана</string>
     <string name="title_advanced_pin">ПИН</string>
@@ -376,6 +386,9 @@
     <string name="title_advanced_browse">Прегледај поруке на серверу</string>
     <string name="title_advanced_expand_read">Означи поруке прочитаним на проширивање</string>
     <string name="title_synchronize_now">Синхронизуј сада</string>
+    <string name="title_synchronize_more">Дохвати још порука</string>
+    <string name="title_synchronize_more_hint2">Поруке ће бити дохваћене онолико брзо колико то сервер може да подржи и биће снимљене онолико брзо колико уређај може да их сними и индексира.
+Ограничавајући фактор је обично брзина интерног простора за снимање уређаја.    </string>
     <string name="title_synchronize_enabled">Синхронизуј</string>
     <string name="title_delete_local">Избриши локалне поруке</string>
     <string name="title_delete_browsed">Избриши прегледане/претражене</string>
@@ -392,6 +405,7 @@
     <string name="title_create_sub_folder">Направи подфасциклу</string>
     <string name="title_empty_trash_ask">Заувек обрисати све поруке из отпада?</string>
     <string name="title_empty_spam_ask">Обрисати све нежељене поруке заувек?</string>
+    <string name="title_empty_trash_all_ask">Трајно обрисати све поруке свих налога из отпада?</string>
     <string name="title_no_operations">Нема операција на чекању</string>
     <string name="title_hint_operations">Операције брисања могу довести до порука које нестају и синхронизационих проблема</string>
     <string name="title_folder_name">Име фасцикле</string>
@@ -527,6 +541,7 @@
     <string name="title_expand_warning">Проширивањем ове поруке ће бити преузет %1$s</string>
     <string name="title_download_message">Преузимам &#8230;</string>
     <string name="title_compose">Састави</string>
+    <string name="title_delivered_to">Испоручено за:</string>
     <string name="title_from">Од:</string>
     <string name="title_to">За:</string>
     <string name="title_reply_to">Одговори за:</string>
@@ -621,6 +636,7 @@
     <string name="title_search_in_message">У тексту поруке</string>
     <string name="title_search_with_unseen">Непрочитано</string>
     <string name="title_search_with_flagged">Озвездано</string>
+    <string name="title_search_in_trash">У отпаду</string>
     <string name="title_search_with_before">Пре</string>
     <string name="title_search_with_after">После</string>
     <string name="title_search_flag_unseen">непрочитано</string>
@@ -649,8 +665,10 @@
     <string name="title_filter_unknown">Непознати пошиљаоци</string>
     <string name="title_filter_hidden">Сакривеним</string>
     <string name="title_filter_duplicates">Дупликатима</string>
+    <string name="title_filter_trash">У отпаду</string>
     <string name="title_compact">Компактан изглед</string>
     <string name="title_zoom">Величина текста</string>
+    <string name="title_padding">Величина размака</string>
     <string name="title_select_language">Изабери језик</string>
     <string name="title_select_all">Изабери све</string>
     <string name="title_select_found">Означи нађене</string>
@@ -810,6 +828,7 @@
     <string name="title_legend_enter">Отвори</string>
     <string name="title_legend_a">Архивирај</string>
     <string name="title_legend_c">Састави</string>
+    <string name="title_legend_d">Отпад (обрисати)</string>
     <string name="title_legend_n">Следеће</string>
     <string name="title_legend_p">Претходно</string>
     <string name="title_legend_r">Одговори</string>
@@ -887,6 +906,8 @@
     <string name="title_log">Дневник</string>
     <string name="title_auto_scroll">Аутоматско померање</string>
     <string name="title_log_clear">Очисти</string>
+    <string name="title_rules_delete_all">Избрисати сва правила</string>
+    <string name="title_rules_delete_all_confirm">Избрисати сва правила?</string>
     <string name="title_debug_info">Отклањање грешака</string>
     <string name="title_debug_info_remark">Опишите проблем и назначите време када се десио проблем:</string>
     <string name="title_crash_info_remark">Опишите шта сте радили када се апликација срушила:</string>
@@ -899,6 +920,7 @@
     <string name="title_widget_unseen">Само непрочитане поруке</string>
     <string name="title_widget_flagged">Само озвездане поруке</string>
     <string name="title_widget_font_size">Величина текста</string>
+    <string name="title_widget_padding">Величина размака</string>
     <string name="title_accessibility_collapsed">Смањи</string>
     <string name="title_accessibility_expanded">Прошири</string>
     <string name="title_accessibility_seen">Прочитано</string>
@@ -1023,6 +1045,7 @@
         <item>Средња</item>
         <item>Велика</item>
     </string-array>
+    <string name="title_size_tiny">Сићушно</string>
     <string-array name="signatureNames">
         <item>Изнад текста</item>
         <item>Испод текста</item>
