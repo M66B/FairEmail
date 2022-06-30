@@ -502,6 +502,7 @@
     <string name="title_advanced_authentication_none">Fără autentificare</string>
     <string name="title_advanced_authentication_some">Autentificare parțială</string>
     <string name="title_advanced_authentication_all">Autentificare completă</string>
+    <string name="title_advanced_restore_on_launch">Restabilește starea aplicației la pornire</string>
     <string name="title_advanced_sync_on_launch">Sincronizare la pornire</string>
     <string name="title_advanced_double_back">Apăsați de două ori \'înapoi\' pentru a ieși</string>
     <string name="title_advanced_conversation_actions">Sugerare acțiuni (Android 10+)</string>
@@ -641,6 +642,7 @@
     <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
     <string name="title_advanced_app">Setări aplicație</string>
     <string name="title_advanced_more">Mai multe opțiuni</string>
+    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Jurnal principal de depanare</string>
     <string name="title_advanced_protocol">Jurnalizare protocol</string>
     <string name="title_advanced_log_info">Jurnal depanare</string>
     <string name="title_advanced_debug">Depanare</string>
@@ -668,6 +670,7 @@
     <string name="title_advanced_folder_nav_hint">Se va reveni întotdeauna la lista de dosare a contului asociat dintr-o listă de mesaje</string>
     <string name="title_advanced_suggest_names_hint">Dacă este dezactivată, numai adresele de e-mail vor fi folosite la selectarea contactelor</string>
     <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android. Datele contactelor vor fi memorate pentru mesajele nou trimise sau primite doar când este activată.</string>
+    <string name="title_advanced_auto_identity_hint">Aceasta va selecta ultima identitate folosită la selectarea unui destinatar pentru mesaje noi</string>
     <string name="title_advanced_send_reminders_hint">Arată o avertizare atunci când textul mesajului sau subiectul e gol sau când atașamentul s-ar putea să lipsească</string>
     <string name="title_advanced_reply_move_hint">Serverul de e-mail ar putea adăuga mesajele la folderul de mesaje trimise</string>
     <string name="title_advanced_usenet_hint">Inserează \'-- \' între text și semnătură</string>
@@ -704,6 +707,7 @@
     <string name="title_advanced_inline_hint">Imaginile integrate sunt cele include în mesaj</string>
     <string name="compressed">Conținutul fișierelor comprimate (%1$s) cu mai mult de %2$s fișiere sau cu fișiere mai mari de %3$s nu va fi afișat</string>
     <string name="title_advanced_parse_classes_hint">Acest lucru va afișa cu mai multă precizie mesajele, dar posibil cu o întârziere</string>
+    <string name="title_advanced_restore_on_launch_hint">Restaurează ultima stare a aplicației la repornirea prin pictograma lansator în %1$d minute</string>
     <string name="title_advanced_language_detection_hint">Detectarea limbii depinde de producătorul dispozitivului</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_expandall_hint">Butonul de răspuns nu va fi afișat atunci când sunt extinse mai multe mesaje, deoarece nu este clar la ce mesaj se aplică butonul</string>
@@ -755,7 +759,9 @@
     <string name="title_advanced_sender_regex">Regex pentru a potrivi numele de utilizator al adreselor de e-mail primite</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_internal">Nume de domenii interne (separate prin virgulă)</string>
+    <string name="title_identity_unicode">Permite UTF-8 în antetul mesajelor</string>
     <string name="title_identity_unicode_remark">Majoritatea serverelor nu acceptă acest lucru</string>
+    <string name="title_identity_octetmime">Permite 8BITMIMIME</string>
     <string name="title_identity_max_size">Dimensiunea maximă a mesajului (MB)</string>
     <string name="title_identity_receipt">Solicită implicit confirmare la livrare/citire</string>
     <string name="title_identity_receipt_legacy">Utilizați antetele de cerere de primire vechi</string>
@@ -845,6 +851,7 @@
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
+    <string name="title_import_file">Importă fișier</string>
     <string name="title_sign_key">Cheie semnatură: %1$s</string>
     <string name="title_last_connected">Ultima conectare: %1$s</string>
     <string name="title_backoff_until">Aşteptare după eşec până la: %1$s</string>
@@ -925,6 +932,7 @@
     <string name="title_search_folder">Căutare folder</string>
     <string name="title_apply_to_all">Aplică la toate</string>
     <string name="title_edit_account_name">Editează numele contului</string>
+    <string name="title_edit_account_color">Editare culoare cont</string>
     <string name="title_hide_folder">Ascunde dosar</string>
     <string name="title_hide_seen_folder">Ascundeți folderul dacă toate mesajele sunt citite</string>
     <string name="title_hide_seen_folder_hint">Numai în lista de dosare afișată pe ecranul de pornire</string>
