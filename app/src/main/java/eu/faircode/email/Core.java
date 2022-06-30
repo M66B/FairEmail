@@ -2293,17 +2293,19 @@ class Core {
 
             } else if (folder.tbd != null && folder.tbd) {
                 try {
-                    EntityLog.log(context, folder.name + " deleting");
+                    EntityLog.log(context, folder.name + " deleting server");
                     Folder ifolder = istore.getFolder(folder.name);
                     if (ifolder.exists()) {
                         ifolder.setSubscribed(false);
                         ifolder.delete(false);
                     }
+                    EntityLog.log(context, folder.name + " deleting device");
                     db.folder().deleteFolder(folder.id);
                 } finally {
                     db.folder().resetFolderTbd(folder.id);
                     sync_folders = true;
                 }
+                EntityLog.log(context, folder.name + " deleted");
 
             } else {
                 if (EntityFolder.DRAFTS.equals(folder.type))
@@ -2671,6 +2673,7 @@ class Core {
                     childs == null || childs.size() == 0) {
                 EntityLog.log(context, name + " delete");
                 db.folder().deleteFolder(account.id, name);
+                EntityLog.log(context, name + " deleted");
                 prefs.edit().remove("updated." + account.id + "." + folder.type).apply();
             } else
                 Log.w(name + " keep type=" + folder.type);
