@@ -1389,6 +1389,8 @@ The error *... NO mailbox selected READ-ONLY ...* indicates [this Zimbra problem
 
 The Outlook specific error *... Command Error. 10 ...* probably means that the OAuth token expired or was invalidated.
 Authenticating the account again with the quick setup wizard will probably resolve this condition.
+Another possible cause is a bug in an older Exchange version, please [see here](https://bugzilla.mozilla.org/show_bug.cgi?id=886261).
+In this case the system administrator needs to update the server software.
 
 Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
