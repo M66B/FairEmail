@@ -4,7 +4,7 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
-### Next version
+### 1.1928 - 2022-06-30
 
 * Added *Select app* to browser selection
 * Small improvements and minor bug fixes
