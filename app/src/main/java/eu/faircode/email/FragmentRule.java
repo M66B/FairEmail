@@ -1735,6 +1735,7 @@ public class FragmentRule extends FragmentBase {
                     rule.folder = args.getLong("folder");
                     rule.condition = args.getString("condition");
                     rule.action = args.getString("action");
+                    rule.validate(context);
 
                     List<EntityMessage> matching = new ArrayList<>();
 
