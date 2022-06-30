@@ -344,7 +344,7 @@
             android:padding="6dp"
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_show_headers"
-            app:srcCompat="@drawable/baseline_code_24"
+            app:srcCompat="@drawable/twotone_code_24"
             tools:ignore="MissingConstraints" />
 
         <ImageButton

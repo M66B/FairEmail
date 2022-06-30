@@ -302,7 +302,7 @@
                         android:padding="3dp"
                         app:layout_constraintBottom_toBottomOf="@id/tvStructure"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:srcCompat="@drawable/baseline_code_24" />
+                        app:srcCompat="@drawable/twotone_code_24" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 

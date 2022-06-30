@@ -152,11 +152,20 @@
     </group>
 
     <group
+        android:id="@+id/group_style_parenthesis"
+        android:orderInCategory="11">
+        <item
+            android:id="@+id/menu_style_parenthesis"
+            android:icon="@drawable/twotone_data_object_24"
+            android:title="@string/title_style_parenthesis" />
+    </group>
+
+    <group
         android:id="@+id/group_style_code"
         android:orderInCategory="11">
         <item
             android:id="@+id/menu_style_code"
-            android:icon="@drawable/baseline_code_24"
+            android:icon="@drawable/twotone_code_24"
             android:title="@string/title_style_code" />
     </group>
 

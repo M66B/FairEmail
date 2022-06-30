@@ -198,6 +198,7 @@ public class StyleHelper {
                 IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
 
+                popupMenu.getMenu().findItem(R.id.menu_style_parenthesis).setEnabled(BuildConfig.DEBUG);
                 popupMenu.getMenu().findItem(R.id.menu_style_code).setEnabled(BuildConfig.DEBUG);
 
                 popupMenu.insertIcons(context);
@@ -233,6 +234,8 @@ public class StyleHelper {
                                 return setMark(item);
                             } else if (groupId == R.id.group_style_strikethrough) {
                                 return setStrikeThrough(item);
+                            } else if (groupId == R.id.group_style_parenthesis) {
+                                return setParenthesis(item);
                             } else if (groupId == R.id.group_style_code) {
                                 return setCode(item);
                             } else if (groupId == R.id.group_style_clear) {
@@ -662,7 +665,15 @@ public class StyleHelper {
                         return true;
                     }
 
+                    private boolean setParenthesis(MenuItem item) {
+                        Log.breadcrumb("style", "action", "parenthesis");
+                        edit.insert(end, ")");
+                        edit.insert(start, "(");
+                        return true;
+                    }
+
                     private boolean setCode(MenuItem item) {
+                        Log.breadcrumb("style", "action", "code");
                         _setSize(HtmlHelper.FONT_SMALL);
                         _setFont("monospace");
                         return true;

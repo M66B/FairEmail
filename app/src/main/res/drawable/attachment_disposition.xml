@@ -4,6 +4,6 @@
         android:drawable="@drawable/twotone_attachment_24"
         android:maxLevel="0" />
     <item
-        android:drawable="@drawable/baseline_code_24"
+        android:drawable="@drawable/twotone_code_24"
         android:maxLevel="1" />
 </level-list>
