@@ -4,8 +4,9 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
-### 1.1927 - 2022-06-30
+### Next version
 
+* Added *Select app* to browser selection
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations
