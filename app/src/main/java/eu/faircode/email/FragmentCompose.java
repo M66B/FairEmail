@@ -544,6 +544,7 @@ public class FragmentCompose extends FragmentBase {
 
                 // https://developer.android.com/guide/topics/providers/contacts-provider#Intents
                 Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
+                pick.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 startActivityForResult(Helper.getChooser(getContext(), pick), request);
             }
         };

@@ -4700,6 +4700,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onPickContact(String name, String email) {
             Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+            pick.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             properties.setValue("name", name);
             properties.setValue("email", email);
             try {
