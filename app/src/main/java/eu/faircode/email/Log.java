@@ -81,6 +81,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
+import androidx.webkit.WebViewCompat;
 import androidx.webkit.WebViewFeature;
 
 import com.bugsnag.android.BreadcrumbType;
@@ -2048,6 +2049,15 @@ public class Log {
 
         sb.append(String.format("Darken support: %b\r\n",
                 WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING)));
+        try {
+            PackageInfo pkg = WebViewCompat.getCurrentWebViewPackage(context);
+            sb.append(String.format("WebView %d/%s %s\r\n",
+                    pkg == null ? -1 : pkg.versionCode,
+                    pkg == null ? null : pkg.versionName,
+                    pkg == null || pkg.versionCode / 100000 < 5005 ? "!!!" : ""));
+        } catch (Throwable ex) {
+            sb.append(ex).append("\r\n");
+        }
 
         sb.append("\r\n");
 
