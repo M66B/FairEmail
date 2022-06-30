@@ -3002,6 +3002,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             EntityMessage.snooze(context, message.id, message.ui_snoozed);
 
                         db.setTransactionSuccessful();
+                    } catch (IllegalArgumentException ex) {
+                        Log.w(ex);
                     } finally {
                         db.endTransaction();
                     }

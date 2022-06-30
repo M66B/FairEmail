@@ -121,6 +121,8 @@ public class EntityMessage implements Serializable {
     static final Long SWIPE_ACTION_JUNK = -8L;
     static final Long SWIPE_ACTION_REPLY = -9L;
 
+    private static final int MAX_SNOOZED = 300;
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
     @NonNull
@@ -354,7 +356,7 @@ public class EntityMessage implements Serializable {
                 EntityMessage.SMIME_SIGNENCRYPT.equals(ui_encrypt));
     }
 
-    boolean isVerifiable(){
+    boolean isVerifiable() {
         return (EntityMessage.PGP_SIGNONLY.equals(encrypt) ||
                 EntityMessage.SMIME_SIGNONLY.equals(encrypt));
     }
@@ -582,6 +584,30 @@ public class EntityMessage implements Serializable {
     }
 
     static void snooze(Context context, long id, Long wakeup) {
+        if (wakeup != null) {
+            /*
+                java.lang.IllegalStateException: Maximum limit of concurrent alarms 500 reached for uid: u0a601, callingPackage: eu.faircode.email
+                    at android.os.Parcel.createExceptionOrNull(Parcel.java:2433)
+                    at android.os.Parcel.createException(Parcel.java:2409)
+                    at android.os.Parcel.readException(Parcel.java:2392)
+                    at android.os.Parcel.readException(Parcel.java:2334)
+                    at android.app.IAlarmManager$Stub$Proxy.set(IAlarmManager.java:359)
+                    at android.app.AlarmManager.setImpl(AlarmManager.java:947)
+                    at android.app.AlarmManager.setImpl(AlarmManager.java:907)
+                    at android.app.AlarmManager.setExactAndAllowWhileIdle(AlarmManager.java:1175)
+                    at androidx.core.app.AlarmManagerCompat$Api23Impl.setExactAndAllowWhileIdle(Unknown Source:0)
+                    at androidx.core.app.AlarmManagerCompat.setExactAndAllowWhileIdle(SourceFile:2)
+                    at eu.faircode.email.AlarmManagerCompatEx.setAndAllowWhileIdle(SourceFile:2)
+                    at eu.faircode.email.EntityMessage.snooze(SourceFile:7)
+             */
+            DB db = DB.getInstance(context);
+            int count = db.message().getSnoozedCount();
+            Log.i("Snoozed=" + count + "/" + MAX_SNOOZED);
+            if (count > MAX_SNOOZED)
+                throw new IllegalArgumentException(
+                        String.format("Due to Android limitations, no more than %d messages can be snoozed or delayed", MAX_SNOOZED));
+        }
+
         Intent snoozed = new Intent(context, ServiceSynchronize.class);
         snoozed.setAction("unsnooze:" + id);
         PendingIntent pi = PendingIntentCompat.getForegroundService(

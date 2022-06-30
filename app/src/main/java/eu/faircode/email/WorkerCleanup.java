@@ -154,8 +154,12 @@ public class WorkerCleanup extends Worker {
                 }
 
                 // Restore alarms
-                for (EntityMessage message : db.message().getSnoozed(null))
-                    EntityMessage.snooze(context, message.id, message.ui_snoozed);
+                try {
+                    for (EntityMessage message : db.message().getSnoozed(null))
+                        EntityMessage.snooze(context, message.id, message.ui_snoozed);
+                } catch (IllegalArgumentException ex) {
+                    Log.w(ex);
+                }
 
                 ServiceSynchronize.reschedule(context);
 

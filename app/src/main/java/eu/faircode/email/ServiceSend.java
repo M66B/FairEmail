@@ -500,6 +500,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             }
 
             db.setTransactionSuccessful();
+        } catch (IllegalArgumentException ex) {
+            Log.w(ex);
         } finally {
             db.endTransaction();
         }
