@@ -915,7 +915,15 @@ public class FragmentRule extends FragmentBase {
                 et.setText(cursor.getString(0));
         } catch (Throwable ex) {
             Log.e(ex);
-            Log.unexpectedError(getParentFragmentManager(), ex);
+            if (ex instanceof SecurityException)
+                try {
+                    String permission = android.Manifest.permission.READ_CONTACTS;
+                    requestPermissions(new String[]{permission}, REQUEST_PERMISSIONS);
+                } catch (Throwable ex1) {
+                    Log.unexpectedError(getParentFragmentManager(), ex1);
+                }
+            else
+                Log.unexpectedError(getParentFragmentManager(), ex);
         }
     }
 
