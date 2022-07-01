@@ -42,6 +42,7 @@ import android.text.style.SuperscriptSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
+import android.util.StringBuilderPrinter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -140,6 +141,15 @@ public class HtmlEx {
             int n1 = text.nextSpanTransition(i, end, QuoteSpan.class);
             int n2 = text.nextSpanTransition(i, end, eu.faircode.email.IndentSpan.class);
             next = Math.min(n1, n2);
+            if (next > end) {
+                StringBuilder sb = new StringBuilder();
+                TextUtils.dumpSpans(text, new StringBuilderPrinter(sb), "withinDiv ");
+                sb.append(" next=").append(next);
+                sb.append(" start=").append(start);
+                sb.append(" end=").append(end);
+                eu.faircode.email.Log.e(sb.toString());
+                next = end;
+            }
             List<Object> spans = new ArrayList<>();
             for (Object span : getSpans(text, i, next, LeadingMarginSpan.class))
                 if (span instanceof QuoteSpan ||
