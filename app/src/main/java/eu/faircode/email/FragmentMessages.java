@@ -4870,8 +4870,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean checkOutlook() {
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        //if (prefs.getBoolean("outlook_checked", false))
-        //    return false;
+        if (prefs.getBoolean("outlook_checked", false))
+            return false;
 
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MILLISECOND, 0);
