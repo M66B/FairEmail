@@ -538,7 +538,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        swRestoreOnLaunch.setChecked(prefs.getBoolean("restore_on_launch", true));
+        swRestoreOnLaunch.setChecked(prefs.getBoolean("restore_on_launch", false));
         swSyncOnlaunch.setChecked(prefs.getBoolean("sync_on_launch", false));
         swDoubleBack.setChecked(prefs.getBoolean("double_back", false));
         swConversationActions.setChecked(prefs.getBoolean("conversation_actions", Helper.isGoogle()));

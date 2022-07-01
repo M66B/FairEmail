@@ -218,7 +218,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         // https://developer.android.com/docs/quality-guidelines/core-app-quality
                         long now = new Date().getTime();
                         long last = prefs.getLong("last_launched", 0L);
-                        boolean restore_on_launch = prefs.getBoolean("restore_on_launch", true);
+                        boolean restore_on_launch = prefs.getBoolean("restore_on_launch", false);
                         if (!restore_on_launch || now - last > RESTORE_STATE_INTERVAL * 60 * 1000L)
                             view.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         else {
