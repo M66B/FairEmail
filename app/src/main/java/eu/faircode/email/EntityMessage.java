@@ -584,7 +584,7 @@ public class EntityMessage implements Serializable {
     }
 
     static void snooze(Context context, long id, Long wakeup) {
-        if (wakeup != null) {
+        if (wakeup != null && wakeup != Long.MAX_VALUE) {
             /*
                 java.lang.IllegalStateException: Maximum limit of concurrent alarms 500 reached for uid: u0a601, callingPackage: eu.faircode.email
                     at android.os.Parcel.createExceptionOrNull(Parcel.java:2433)
