@@ -4796,6 +4796,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         cal.set(Calendar.MONTH, Calendar.MAY);
         cal.set(Calendar.YEAR, 2022);
 
+        long now = new Date().getTime();
+        if (now < cal.getTimeInMillis() - 30 * 24 * 3600 * 1000L)
+            return false; // Not yet
+
         if (Helper.getInstallTime(context) > cal.getTimeInMillis()) {
             prefs.edit().putBoolean("gmail_checked", true).apply();
             return false;
@@ -4803,7 +4807,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         cal.add(Calendar.MONTH, 2);
 
-        long now = new Date().getTime();
         if (now > cal.getTimeInMillis()) {
             prefs.edit().putBoolean("gmail_checked", true).apply();
             return false;
@@ -4865,13 +4868,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private boolean checkOutlook() {
-        if (!BuildConfig.DEBUG)
-            return false;
-
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (prefs.getBoolean("outlook_checked", false))
-            return false;
+        //if (prefs.getBoolean("outlook_checked", false))
+        //    return false;
 
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MILLISECOND, 0);
@@ -4882,6 +4882,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         cal.set(Calendar.MONTH, Calendar.OCTOBER);
         cal.set(Calendar.YEAR, 2022);
 
+        long now = new Date().getTime();
+        if (now < cal.getTimeInMillis() - 30 * 24 * 3600 * 1000L)
+            return false; // Not yet
+
         if (Helper.getInstallTime(context) > cal.getTimeInMillis()) {
             prefs.edit().putBoolean("outlook_checked", true).apply();
             return false;
@@ -4889,7 +4893,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         cal.add(Calendar.MONTH, 2);
 
-        long now = new Date().getTime();
         if (now > cal.getTimeInMillis()) {
             prefs.edit().putBoolean("outlook_checked", true).apply();
             return false;

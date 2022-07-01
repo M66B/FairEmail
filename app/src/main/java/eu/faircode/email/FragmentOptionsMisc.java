@@ -241,7 +241,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "signature_images_hint",
             "gmail_checked",
             "eml_auto_confirm",
-            "open_with_pkg", "open_with_tabs"
+            "open_with_pkg", "open_with_tabs",
+            "gmail_checked", "outlook_checked"
     };
 
     @Override
@@ -1620,11 +1621,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 Log.i("Removing option=" + key);
                                 editor.remove(key);
                             }
-
-                        if (BuildConfig.DEBUG) {
-                            editor.remove("gmail_checked");
-                            editor.remove("outlook_checked");
-                        }
 
                         editor.apply();
 
