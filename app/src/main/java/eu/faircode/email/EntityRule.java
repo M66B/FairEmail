@@ -347,10 +347,7 @@ public class EntityRule {
             }
 
             // Body
-            JSONObject jbody = null;
-            if (message.encrypt == null ||
-                    EntityMessage.ENCRYPT_NONE.equals(message.encrypt))
-                jbody = jcondition.optJSONObject("body");
+            JSONObject jbody = jcondition.optJSONObject("body");
             if (jbody != null) {
                 String value = jbody.getString("value");
                 boolean regex = jbody.getBoolean("regex");
