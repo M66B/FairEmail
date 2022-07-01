@@ -304,6 +304,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
             // und deren Absender nicht in Ihrem Adressbuch oder auf Ihrer Erwünschtliste stehen.
             synchronize = true;
             unified = true;
+            notify = true;
         }
     }
 
