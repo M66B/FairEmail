@@ -52,6 +52,7 @@ import java.util.concurrent.Future;
 public abstract class SimpleTask<T> implements LifecycleObserver {
     private boolean log = true;
     private boolean count = true;
+    private boolean keepawake = false;
 
     private String name;
     private long started;
@@ -82,6 +83,11 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     public SimpleTask<T> setCount(boolean count) {
         this.count = count;
+        return this;
+    }
+
+    public SimpleTask<T> setKeepAwake(boolean value) {
+        this.keepawake = value;
         return this;
     }
 
@@ -183,7 +189,10 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             public void run() {
                 // Run in background thread
                 try {
-                    wl.acquire(MAX_WAKELOCK);
+                    if (keepawake)
+                        wl.acquire();
+                    else
+                        wl.acquire(MAX_WAKELOCK);
 
                     if (log)
                         Log.i("Executing task=" + name);

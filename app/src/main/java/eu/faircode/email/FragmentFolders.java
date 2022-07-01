@@ -1389,7 +1389,7 @@ public class FragmentFolders extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "folder:export");
+        }.setKeepAwake(true).execute(this, args, "folder:export");
     }
 
     private void onEditAccountName(Bundle args) {
