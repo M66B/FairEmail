@@ -40,7 +40,7 @@ You will now find multiple categories:
 * [10. Enable Error Reporting](#10-enable-error-reporting)
 
 ## 1. Adding a new Account
-If you want to add a new account, use the wizard in the Main screen. Follow [this first configuration guide](/first-condig.md).
+If you want to add a new account, use the wizard in the Main screen. Follow [this first configuration guide](first-config.md).
 You can also [add an account manually](/manual-config.md). That requires you to enter everything manually, so it's not recommended.
 
 ## 2. Receiving Messages in the Daytime only
@@ -100,7 +100,7 @@ Go to the "Connection" settings and you will find the following "General" option
 * Download while roaming
 * Roam like at home - Roaming within the EU won't be considered as roaming
 
-More information in [FAQ #105 How does the roam-like-at-home option work?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq105).
+More information can be found in [FAQ #105 How does the roam-like-at-home option work?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq105).
 
 ## 6. Changing the Theme
 You can slightly change the way the app looks. To this end, FairEmail comes with multiple pre-installed themes.
@@ -151,4 +151,4 @@ If you want to enable error reporting, do as follows:
 1. Go to the "Miscellaneous" settings
 2. Enable the option "Send error reports"
 
-More information in [FAQ #104 What do I need to know about error reporting?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104).
+More information can be found in [FAQ #104 What do I need to know about error reporting?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104).

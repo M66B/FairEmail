@@ -62,7 +62,7 @@ However, all of those options are optional. The app works stable with the defaul
 
 If you still would like to change the settings, just take time looking around the available options. You can also search through available settings.
 The most common three settings you might want to set on the first run are mentioned below.
-Apart from that, there's also [this separate manual describing various settings / options](/settings-overview.md) in FairEmail.
+Apart from that, there's also [this separate manual describing various settings / options](settings-overview.md) in FairEmail.
 
 ### 1. Disable the permanent notification (watchdog)
 The watchdog is a necessary foreground service as many phones kill the app once there is nothing in the foreground anymore.

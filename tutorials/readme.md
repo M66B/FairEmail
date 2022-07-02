@@ -1,7 +1,7 @@
 # FairEmail Manuals
 
 The following manuals describe how to configure FairEmail as well as how to modify the settings on your own requirements.
-FairEmail offers many options you can always explore yourself within the app or in [this extensive FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md).
+FairEmail offers many options you can always explore yourself within the app or in the FAQ article.
 The manuals here will only cover the basics that should suffice for most users.
 
 **NOTE:** If you have any troubles, check [this extensive FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md).
