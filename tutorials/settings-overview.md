@@ -112,7 +112,7 @@ You can switch themes like this:
 4. Press the "Select theme" button
 5. Select the theme of your choice and confirm
 
-**NOTE:** Dynamic themes are not possible in Android.
+**NOTE:** Dynamic themes are not possible on Android.
 See [FAQ #164 Can you add customizable themes?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq164) for further details.
 
 ## 7. Changing Start Screen
@@ -134,7 +134,7 @@ There are multiple ways to show an avatar for each sender. You can enable multip
 3. Enable the options of your choice
 
 **NOTE:** Apart from the generated icons, there might be a privacy risk with each available option.
-Gravatars and Libravatar might not be available in the PlayStore version as Google falsely flags the app to be a spyware otherwise. ALso see [this XDA thread](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/page-1125#post-87018167) on the matter.
+Gravatars and Libravatar might not be available in the PlayStore version as Google falsely flags the app to be a spyware otherwise. Also see [this XDA thread](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/page-1125#post-87018167) on the matter.
 
 ## 9. Enable Biometric Authentication
 You might want to protect your app via a PIN or a fingerprint to ensure no unauthorized person gains access to your messages.
@@ -147,7 +147,7 @@ To do so, follow these steps:
 More information can be found in [FAQ #113 How does biometric authentication work?](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-en-rGB.md#user-content-faq113).
 
 ## 10. Enable Error Reporting
-Error reporting is disabled by default However, enabling this helps the developer finding any bugs and improving the app.
+Error reporting is disabled by default. However, enabling this helps the developer finding any bugs and improving the app.
 If you want to enable error reporting, do as follows:
 
 1. Go to the "Miscellaneous" settings
