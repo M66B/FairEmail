@@ -900,6 +900,11 @@ All key handling is delegated to the OpenKey chain app for security reasons. Thi
 Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported,
 see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
 
+If you wish to verify a signature manually, check *Show inline attachments* and save the files *content.asc* (the signed content) and *signature.asc* (the digital signature).
+Install [GnuPG](https://www.gnupg.org/) on your preferred operating system and execute this command:
+
+```gpg --verify signature.asc.pgp content.asc```
+
 Signed-only or encrypted-only messages are not a good idea, please see here about why not:
 
 * [OpenPGP Considerations Part I](https://www.openkeychain.org/openpgp-considerations-part-i)
