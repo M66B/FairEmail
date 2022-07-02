@@ -3177,21 +3177,38 @@ public class MessageHelper {
                         result = Helper.readStream((InputStream) content,
                                 cs == null ? StandardCharsets.ISO_8859_1 : cs);
                     } else {
+                        result = null;
+
                         StringBuilder m = new StringBuilder();
                         if (content instanceof Multipart) {
                             m.append("multipart");
                             Multipart mp = (Multipart) content;
-                            for (int i = 0; i < mp.getCount(); i++)
-                                m.append(' ').append(mp.getBodyPart(i).getContentType());
+                            for (int i = 0; i < mp.getCount(); i++) {
+                                BodyPart bp = mp.getBodyPart(i);
+                                try {
+                                    ContentType ct = new ContentType(bp.getContentType());
+                                    if (h.contentType.match(ct)) {
+                                        String _charset = ct.getParameter("charset");
+                                        Charset _cs = (TextUtils.isEmpty(_charset)
+                                                ? StandardCharsets.ISO_8859_1 :
+                                                Charset.forName(_charset));
+                                        result = Helper.readStream(bp.getInputStream(), _cs);
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+                                m.append(' ').append(bp.getContentType());
+                            }
                         } else
                             m.append(content.getClass().getName());
 
-                        String msg = "Expected " + h.contentType + " got " + m;
+                        String msg = "Expected " + h.contentType + " got " + m + " result=" + (result != null);
                         Log.e(msg);
                         warnings.add(msg);
 
-                        result = Helper.readStream(h.part.getInputStream(),
-                                cs == null ? StandardCharsets.ISO_8859_1 : cs);
+                        if (result == null)
+                            result = Helper.readStream(h.part.getInputStream(),
+                                    cs == null ? StandardCharsets.ISO_8859_1 : cs);
                     }
                 } catch (DecodingException ex) {
                     Log.e(ex);
