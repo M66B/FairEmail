@@ -366,7 +366,10 @@ public class EntityRule {
                 }
 
                 if (html == null)
-                    throw new IllegalArgumentException(context.getString(R.string.title_rule_no_body));
+                    if (message.encrypt == null || EntityMessage.ENCRYPT_NONE.equals(message.encrypt))
+                        throw new IllegalArgumentException(context.getString(R.string.title_rule_no_body));
+                    else
+                        return false;
 
                 Document d = JsoupEx.parse(html);
                 if (skip_quotes)
