@@ -146,7 +146,7 @@ public class FragmentOrder extends FragmentBase {
                 }
             }.execute(this, new Bundle(), "order:folders");
         else
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Unknown class=" + clazz);
     }
 
     @Override

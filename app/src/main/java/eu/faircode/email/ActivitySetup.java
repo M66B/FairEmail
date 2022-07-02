@@ -162,6 +162,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final String ACTION_MANAGE_LOCAL_CONTACTS = BuildConfig.APPLICATION_ID + ".MANAGE_LOCAL_CONTACTS";
     static final String ACTION_MANAGE_CERTIFICATES = BuildConfig.APPLICATION_ID + ".MANAGE_CERTIFICATES";
     static final String ACTION_IMPORT_CERTIFICATE = BuildConfig.APPLICATION_ID + ".IMPORT_CERTIFICATE";
+    static final String ACTION_SETUP_REORDER = BuildConfig.APPLICATION_ID + ".SETUP_REORDER";
     static final String ACTION_SETUP_MORE = BuildConfig.APPLICATION_ID + ".SETUP_MORE";
 
     @Override
@@ -414,6 +415,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         iff.addAction(ACTION_MANAGE_LOCAL_CONTACTS);
         iff.addAction(ACTION_MANAGE_CERTIFICATES);
         iff.addAction(ACTION_IMPORT_CERTIFICATE);
+        iff.addAction(ACTION_SETUP_REORDER);
         iff.addAction(ACTION_SETUP_MORE);
         lbm.registerReceiver(receiver, iff);
     }
@@ -2000,6 +2002,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     onManageCertificates(intent);
                 else if (ACTION_IMPORT_CERTIFICATE.equals(action))
                     onImportCertificate(intent);
+                else if (ACTION_SETUP_REORDER.equals(action))
+                    onMenuOrder(R.string.title_setup_reorder_accounts, EntityAccount.class);
                 else if (ACTION_SETUP_MORE.equals(action))
                     onSetupMore(intent);
             }
