@@ -29,6 +29,6 @@ Adding a new email account (account + identity) is pretty straightforward. Just 
 
 Here are some screenshots to help you visualize these steps:
 
-![Manual setup and account options](manualconf-01.png)
-![Adding new IMAP / POP3 account](manualconf-02.png)
-![Saving account](manualconf-03.png)
+![Manual setup and account options](images/manualconf-01.png)
+![Adding new IMAP / POP3 account](images/manualconf-02.png)
+![Saving account](images/manualconf-03.png)
