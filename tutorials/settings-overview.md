@@ -5,11 +5,11 @@ You can simply add an account and already start reading and writing your emails.
 
 **NOTE:** If you have any troubles, check [this extensive FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md).
 You may also ask in [this XDA Forum thread](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/)
-or via email to [marcel@faircode.eu](mailto:marcel@faircode.eu). Bad reviews won't help you or the developer, so try asking in person first.
+or via [this contact form](https://contact.faircode.eu/?product=fairemailsupport). Bad reviews won't help you or the developer, so try asking in person first.
 
 **NOTE:** A tutorial on the first configuration of the app and on how to add an account can be found in the [first configuration manual](first-config.md)
 
-## Opening the Settings
+## Opening the settings
 To open the settings, tap the three dashes in the top left corner (hamburger menu) and select "Settings" with the gear icon.
 That's it, you're already within the settings.
 
@@ -26,37 +26,37 @@ You will now find multiple categories:
 * **Notifications** - Options related to the notifications by FairEmail
 * **Miscellaneous** - Some other options such as error reporting
 
-## Table of Contents
+## Index
 
-* [1. Adding a new Account](#1-adding-a-new-account)
-* [2. Receiving Messages in the Daytime only](#2-receiving-messages-in-the-daytime-only)
-* [3. Enable Checking for Spam](#3-enable-checking-for-spam)
-* [4. Edit Your E-Mail Signature](#4-edit-your-e-mail-signature)
-* [5. Limit Mobile Data Usage](#5-limit-mobile-data-usage)
-* [6. Changing the Theme](#6-changing-the-theme)
-* [7. Changing Start Screen](#7-changing-start-screen)
-* [8. Show an Avatar for each Sender](#8-show-an-avatar-for-each-sender)
-* [9. Enable Biometric Authentication](#9-enable-biometric-authentication)
-* [10. Enable Error Reporting](#10-enable-error-reporting)
+1. [Adding a new account](#1-adding-a-new-account)
+2. [Receiving messages in the daytime only](#2-receiving-messages-in-the-daytime-only)
+3. [Enable checking for spam](#3-enable-checking-for-spam)
+4. [Edit your email signature](#4-edit-your-e-mail-signature)
+5. [Limit mobile data usage](#5-limit-mobile-data-usage)
+6. [Changing the theme](#6-changing-the-theme)
+7. [Changing start screen](#7-changing-start-screen)
+8. [Show an avatar for each sender](#8-show-an-avatar-for-each-sender)
+9. [Enable biometric authentication](#9-enable-biometric-authentication)
+10. [Enable error reporting](#10-enable-error-reporting)
 
-## 1. Adding a new Account
+## 1. Adding a new account
 If you want to add a new account, use the wizard in the Main screen. Follow [this first configuration guide](first-config.md).
 You can also [add an account manually](/manual-config.md). That requires you to enter everything manually, so it's not recommended.
 
-## 2. Receiving Messages in the Daytime only
+## 2. Receiving messages in the daytime only
 You might want to not receive any messages at late hours. It is very easy and straightforward to tell FairEmail to synchronize only during specified days and hours.
 You can also exclude some accounts from this scheduling such that they are always synchronized regardless of the day and time.
 
 More information on scheduling can be found in [FAQ #78 How do I use schedules?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq78).
 
-### 2.1 Set Synchronization Day & Time
+### 2.1 Set synchronization day & time
 Follow the following steps:
 
 1. Go to the "Receive" settings
 2. Enable the option "Schedule"
 3. Set the days and time-frame messages should be synchronized
 
-### 2.2 Exclude an Account from the Schedule
+### 2.2 Exclude an account from the schedule
 You might want to exclude one specific account from the schedule and always receive messages regardless of the day and time.
 If so, follow these steps:
 
@@ -68,7 +68,7 @@ If so, follow these steps:
 6. Enable the option "Synchronize outside the schedule too"
 
 
-## 3. Enable Checking for Spam
+## 3. Enable checking for spam
 FairEmail can perform various checks on incoming mails. This can be enabled in the "Receive" settings within the "Checks" options.
 
 1. Go to the "Receive" settings
@@ -80,7 +80,7 @@ To enable this, open the "Display" settings enable showing warnings and the stat
 
 
 
-## 4. Edit Your E-Mail Signature
+## 4. Edit your email signature
 The email signature is the text that is always added below the messages you send. The signatures can vary for each identity you send emails from.
 To add or edit your signature, do as follows:
 
@@ -90,7 +90,7 @@ To add or edit your signature, do as follows:
 4. Press the "Edit signature" button
 5. Enter or edit your signature and save it
 
-## 5. Limit Mobile Data Usage
+## 5. Limit mobile data usage
 You can set up whether to use metered connections such as mobile data and how much kilobytes of data to use per message.
 You can also disable downloading messages when roaming.
 
@@ -102,7 +102,7 @@ Go to the "Connection" settings and you will find the following "General" option
 
 More information can be found in [FAQ #105 How does the roam-like-at-home option work?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq105).
 
-## 6. Changing the Theme
+## 6. Changing the theme
 You can slightly change the way the app looks. To this end, FairEmail comes with multiple pre-installed themes.
 You can switch themes like this:
 
@@ -115,7 +115,7 @@ You can switch themes like this:
 **NOTE:** Dynamic themes are not possible on Android.
 See [FAQ #164 Can you add customizable themes?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq164) for further details.
 
-## 7. Changing Start Screen
+## 7. Changing start screen
 By default you will see a unified inbox on your start screen, which will summarize the inboxes of all your mail accounts in FairEmail.
 If you prefer to have a classic account view on start, maybe because you manage a greater number of email accounts with FairEmail,
 you can do this as follows:
@@ -126,7 +126,7 @@ you can do this as follows:
 4. Go to the option "Show on start screen" and select an available option within the dropdown menu
 5. Use the back key to get back to the start screen
 
-## 8. Show an Avatar for each Sender
+## 8. Show an avatar for each sender
 There are multiple ways to show an avatar for each sender. You can enable multiple at once.
 
 1. Go to the "Display" settings
@@ -136,7 +136,7 @@ There are multiple ways to show an avatar for each sender. You can enable multip
 **NOTE:** Apart from the generated icons, there might be a privacy risk with each available option.
 Gravatars and Libravatar might not be available in the PlayStore version as Google falsely flags the app to be a spyware otherwise. Also see [this XDA thread](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/page-1125#post-87018167) on the matter.
 
-## 9. Enable Biometric Authentication
+## 9. Enable biometric authentication
 You might want to protect your app via a PIN or a fingerprint to ensure no unauthorized person gains access to your messages.
 To do so, follow these steps:
 
@@ -146,7 +146,7 @@ To do so, follow these steps:
 
 More information can be found in [FAQ #113 How does biometric authentication work?](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-en-rGB.md#user-content-faq113).
 
-## 10. Enable Error Reporting
+## 10. Enable error reporting
 Error reporting is disabled by default. However, enabling this helps the developer finding any bugs and improving the app.
 If you want to enable error reporting, do as follows:
 
