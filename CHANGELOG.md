@@ -4,6 +4,12 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
+### 1.1929 - 2022-07-02
+
+* Fixed hiding more than 300 messages
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1928 - 2022-06-30
 
 * Added *Select app* to browser selection
