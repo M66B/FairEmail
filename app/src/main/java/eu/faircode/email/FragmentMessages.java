@@ -1431,10 +1431,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result == null)
                     return;
 
-                if (result.accounts.size() == 1) {
-                    for (EntityAccount account : result.accounts.keySet())
-                        onActionMoveSelectionAccount(account.id, false, result.folders);
-                } else {
+                if (result.account != null)
+                    onActionMoveSelectionAccount(result.account.id, false, result.folders);
+                else {
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(v.getContext(), getViewLifecycleOwner(), ibMove);
 
                     int order = 0;
@@ -4870,8 +4869,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean checkOutlook() {
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        //if (prefs.getBoolean("outlook_checked", false))
-        //    return false;
+        if (prefs.getBoolean("outlook_checked", false))
+            return false;
 
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MILLISECOND, 0);
@@ -9849,6 +9848,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Boolean leave_deleted;
         boolean read_only;
         List<Long> folders;
+        EntityAccount account;
         Map<EntityAccount, Boolean> accounts;
         EntityAccount copyto;
 
@@ -10032,6 +10032,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (result.hasArchive == null) result.hasArchive = false;
             if (result.hasTrash == null) result.hasTrash = false;
             if (result.hasJunk == null) result.hasJunk = false;
+
+            if (!result.hasPop && accounts.size() == 1)
+                result.account = accounts.values().iterator().next();
 
             result.accounts = new LinkedHashMap<>();
             if (!result.hasPop) {

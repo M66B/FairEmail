@@ -647,7 +647,9 @@ public interface DaoMessage {
             " AND NOT ui_snoozed IS NULL")
     List<EntityMessage> getSnoozed(Long folder);
 
-    @Query("SELECT COUNT(*) FROM message WHERE NOT ui_snoozed IS NULL")
+    @Query("SELECT COUNT(*) FROM message" +
+            " WHERE NOT ui_snoozed IS NULL" +
+            " AND ui_snoozed <> " + Long.MAX_VALUE)
     int getSnoozedCount();
 
     @Query("SELECT id AS _id, subject AS suggestion FROM message" +

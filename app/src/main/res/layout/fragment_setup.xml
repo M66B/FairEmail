@@ -938,6 +938,18 @@
                     app:layout_constraintTop_toBottomOf="@id/btnNotification" />
 
                 <Button
+                    android:id="@+id/btnReorder"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_reorder_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_setup_reorder_accounts"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNotificationHint" />
+
+                <Button
                     android:id="@+id/btnDelete"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
@@ -947,7 +959,7 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_delete_account"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvNotificationHint" />
+                    app:layout_constraintTop_toBottomOf="@id/btnReorder" />
 
                 <TextView
                     android:id="@+id/tvDeleteHint"
@@ -1041,7 +1053,7 @@
                     android:id="@+id/grpExtra"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="btnNotification,tvNotificationHint,btnDelete,tvDeleteHint,btnApp,btnMore" />
+                    app:constraint_referenced_ids="btnNotification,tvNotificationHint,btnReorder,btnDelete,tvDeleteHint,btnApp,btnMore" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -127,6 +127,8 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                         @Override
                         public void run() {
                             try {
+                                if (edit == null)
+                                    return;
                                 ClipImageSpan[] spans = edit.getSpans(backspace, backspace, ClipImageSpan.class);
                                 if (spans.length == 1) {
                                     int start = edit.getSpanStart(spans[0]);

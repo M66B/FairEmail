@@ -347,10 +347,7 @@ public class EntityRule {
             }
 
             // Body
-            JSONObject jbody = null;
-            if (message.encrypt == null ||
-                    EntityMessage.ENCRYPT_NONE.equals(message.encrypt))
-                jbody = jcondition.optJSONObject("body");
+            JSONObject jbody = jcondition.optJSONObject("body");
             if (jbody != null) {
                 String value = jbody.getString("value");
                 boolean regex = jbody.getBoolean("regex");
@@ -369,7 +366,10 @@ public class EntityRule {
                 }
 
                 if (html == null)
-                    throw new IllegalArgumentException(context.getString(R.string.title_rule_no_body));
+                    if (message.encrypt == null || EntityMessage.ENCRYPT_NONE.equals(message.encrypt))
+                        throw new IllegalArgumentException(context.getString(R.string.title_rule_no_body));
+                    else
+                        return false;
 
                 Document d = JsoupEx.parse(html);
                 if (skip_quotes)
