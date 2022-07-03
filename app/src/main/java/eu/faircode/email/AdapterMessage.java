@@ -7040,7 +7040,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.check_blocklist = prefs.getBoolean("check_blocklist", false);
 
         this.email_format = ("sender".equals(sort)
-                ? MessageHelper.AddressFormat.EMAIL_ONLY
+                ? MessageHelper.AddressFormat.EMAIL_NAME
                 : MessageHelper.getAddressFormat(context));
         this.prefer_contact = prefs.getBoolean("prefer_contact", false);
         this.only_contact = prefs.getBoolean("only_contact", false);
@@ -7711,7 +7711,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (!sort.equals(this.sort)) {
             this.sort = sort;
             this.email_format = ("sender".equals(sort)
-                    ? MessageHelper.AddressFormat.EMAIL_ONLY
+                    ? MessageHelper.AddressFormat.EMAIL_NAME
                     : MessageHelper.getAddressFormat(context));
             properties.refresh();
             // Needed to redraw item decorators / add/remove size

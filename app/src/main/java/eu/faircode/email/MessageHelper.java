@@ -2721,7 +2721,7 @@ public class MessageHelper {
         }
     }
 
-    enum AddressFormat {NAME_ONLY, EMAIL_ONLY, NAME_EMAIL}
+    enum AddressFormat {NAME_ONLY, EMAIL_ONLY, NAME_EMAIL, EMAIL_NAME}
 
     static AddressFormat getAddressFormat(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -2792,6 +2792,8 @@ public class MessageHelper {
 
                     if (format == AddressFormat.NAME_EMAIL && !TextUtils.isEmpty(email))
                         formatted.add(personal + " <" + email + ">");
+                    else if (format == AddressFormat.EMAIL_NAME && !TextUtils.isEmpty(email))
+                        formatted.add("<" + email + "> " + personal);
                     else
                         formatted.add(personal);
                 }
