@@ -4,7 +4,7 @@
 
 **NOTE:** If you have any troubles, check [this extensive FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md).
 You may also ask in [this XDA Forum thread](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/)
-or via [this contact form](https://contact.faircode.eu/?product=fairemailsupport). Bad reviews won't help you or the developer, so try asking in person first.
+or via [this contact form](https://contact.faircode.eu/?product=fairemailsupport). Bad reviews won't help you or the developer, so please try asking in person first.
 
 **NOTE:** In most cases, an automatic configuration via the wizard described in the [first configuration guide](https://github.com/M66B/FairEmail/blob/master/tutorials/FIRST-CONFIG.md) should work right away. If you are using a custom domain & server and the wizard doesn't work as expected, you can enable automatic configuration by implementing [RFC 6186](https://datatracker.ietf.org/doc/html/rfc6186) within the DNS and / or [Thunderbird:Autoconfiguration](https://wiki.mozilla.org/Thunderbird:Autoconfiguration). An independent guide for both methods can be found in [Auto Discover | LD Documentation](https://doc.ld-online.net/e-mail/auto-discover).
 

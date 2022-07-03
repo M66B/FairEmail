@@ -8,7 +8,7 @@ You can simply add an account and already start reading and writing your emails.
 
 **NOTE:** If you have any troubles, check [this extensive FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md).
 You may also ask in [this XDA Forum thread](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/)
-or via [this contact form](https://contact.faircode.eu/?product=fairemailsupport). Bad reviews won't help you or the developer, so try asking in person first.
+or via [this contact form](https://contact.faircode.eu/?product=fairemailsupport). Bad reviews won't help you or the developer, so please try asking in person first.
 
 **NOTE:** A tutorial on the first configuration of the app and on how to add an account can be found in the [first configuration tutorial](https://github.com/M66B/FairEmail/blob/master/tutorials/FIRST-CONFIG.md)
 
