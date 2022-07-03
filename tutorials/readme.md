@@ -1,4 +1,4 @@
-# FairEmail Manuals
+# FairEmail manuals
 
 The following manuals describe how to configure FairEmail as well as how to modify the settings on your own requirements.
 FairEmail offers many options you can always explore yourself within the app or in the FAQ article.
@@ -10,6 +10,8 @@ or via [this contact form](https://contact.faircode.eu/?product=fairemailsupport
 
 ## Index
 
-* [First Configuration](first-config.md) - A manual how to set up FairEmail to just work
-* [Settings Overview](settings-overview.md) - A manual describing where and how to find some settings & options
-* [Manual Configuration](manual-config.md) - A manual describing how to manually add your accounts (without the wizard)
+* [First configuration](first-config.md) - A manual how to set up FairEmail to just work
+* [Settings overview](settings-overview.md) - A manual describing where and how to find some settings & options
+* [Manual configuration](manual-config.md) - A manual describing how to manually add your accounts (without the wizard)
+
+Thanks @[mkasimd](https://github.com/mkasimd/) for contributing this documentation.
