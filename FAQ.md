@@ -121,6 +121,18 @@ Related questions:
 * A [bug in Crowdin](https://crowdin.com/messages/536694) blocks updating FAQ.md (this text) for translation.
 * Search suggestions causes the keyboard losing focus on Android 12L
 
+<a name="redmi"></a>
+
+**Xiaomi Redmi Note**
+
+On Xiaomi Redmi Note devices the database occasionally gets corrupted, resulting in total data loss.
+The cause of this problem are disk I/O errors due to an Android bug or a hardware issue, please [see here](https://www.sqlite.org/rescode.html#ioerr_write).
+This can't be fixed by the app and should be fixed by Xiaomi / Redmi.
+
+*Please do not blame the app for this!*
+
+<br />
+
 <h2><a name="planned-features"></a>Planned features</h2>
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-planned-features)
