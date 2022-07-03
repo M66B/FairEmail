@@ -6248,6 +6248,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionForceLight(TupleMessageEx message) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+                View view = LayoutInflater.from(context).inflate(R.layout.dialog_dark, null);
+                final Button btnIssue = view.findViewById(R.id.btnIssue);
+
+                btnIssue.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Uri uri = Uri.parse("https://issuetracker.google.com/issues/237785596");
+                        Helper.view(v.getContext(), uri, true);
+                    }
+                });
+
+                new AlertDialog.Builder(context)
+                        .setView(view)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+                return;
+            }
+
             if (canDarken) {
                 boolean force_light = !properties.getValue("force_light", message.id);
                 properties.setValue("force_light", message.id, force_light);

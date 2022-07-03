@@ -341,7 +341,7 @@ dependencies {
     def activity_version = "1.5.0" // 1.6.0-alpha03
     def fragment_version = "1.5.0"
     def windows_version = "1.0.0" // 1.1.0-alpha01
-    def webkit_version = "1.5.0-alpha01"
+    def webkit_version = "1.5.0-beta01"
     def recyclerview_version = "1.2.1" // 1.3.0-alpha02
     def coordinatorlayout_version = "1.2.0"
     def constraintlayout_version = "2.1.4" // 2.2.0-alpha01

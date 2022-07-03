@@ -121,7 +121,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         // https://developer.android.com/reference/android/webkit/WebSettings#setAlgorithmicDarkeningAllowed(boolean)
         // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
         boolean canDarken = WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING);
-        if (canDarken)
+        if (canDarken && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
             WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, dark && !force_light);
         setBackgroundColor(canDarken && dark && !force_light ? Color.TRANSPARENT : Color.WHITE);
 
@@ -368,7 +368,10 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     public static boolean isFeatureSupported(Context context, String feature) {
-        if (WebViewFeature.ALGORITHMIC_DARKENING.equals(feature))
+        if (WebViewFeature.ALGORITHMIC_DARKENING.equals(feature)) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
+                return false;
+
             try {
                 PackageInfo pkg = WebViewCompat.getCurrentWebViewPackage(context);
                 if (pkg != null && pkg.versionCode / 100000 < 5005) // Version 102.*
@@ -376,6 +379,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             } catch (Throwable ex) {
                 Log.e(ex);
             }
+        }
 
         try {
             return WebViewFeature.isFeatureSupported(feature);

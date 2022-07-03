@@ -1989,6 +1989,8 @@
     <string name="title_widget_background">Background color</string>
     <string name="title_widget_day_night">Follow dark system theme</string>
 
+    <string name="title_compat_dark">Google removed dark mode for Android versions before version 10</string>
+
     <string name="title_accessibility_collapsed">Collapsed</string>
     <string name="title_accessibility_expanded">Expanded</string>
     <string name="title_accessibility_seen">Read</string>
