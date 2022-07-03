@@ -759,6 +759,11 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             this.tabs = tabs;
             this.enabled = enabled;
         }
+
+        @Override
+        public String toString() {
+            return name + ":" + tabs;
+        }
     }
 
     public static class AdapterPackage extends ArrayAdapter<Package> {
