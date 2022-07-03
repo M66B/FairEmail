@@ -1224,6 +1224,16 @@ public class Helper {
         return "Xiaomi".equalsIgnoreCase(Build.MANUFACTURER);
     }
 
+    static boolean isRedmiNote() {
+        // Manufacturer: Xiaomi
+        // Model: Redmi Note 8 Pro
+        // Model: Redmi Note 10S
+        return isXiaomi() &&
+                !TextUtils.isEmpty(Build.MODEL) &&
+                Build.MODEL.toLowerCase(Locale.ROOT).contains("redmi") &&
+                Build.MODEL.toLowerCase(Locale.ROOT).contains("note");
+    }
+
     static boolean isMeizu() {
         return "Meizu".equalsIgnoreCase(Build.MANUFACTURER);
     }

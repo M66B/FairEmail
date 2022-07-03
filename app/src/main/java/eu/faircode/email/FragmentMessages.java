@@ -247,7 +247,6 @@ import java.util.function.Consumer;
 import javax.mail.Address;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
-import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -4526,12 +4525,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         // Restart spinner
         swipeRefresh.resetRefreshing();
 
-        if (!checkDoze())
-            if (!checkReporting())
-                if (!checkReview())
-                    if (!checkFingerprint())
-                        if (!checkGmail())
-                            checkOutlook();
+        if (!checkRedmiNote())
+            if (!checkDoze())
+                if (!checkReporting())
+                    if (!checkReview())
+                        if (!checkFingerprint())
+                            if (!checkGmail())
+                                checkOutlook();
 
         prefs.registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(prefs, "pro");
@@ -4639,6 +4639,30 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void updateAirplaneMode(boolean on) {
         on = on && !ConnectionHelper.getNetworkState(getContext()).isConnected();
         grpAirplane.setVisibility(on ? View.VISIBLE : View.GONE);
+    }
+
+    private boolean checkRedmiNote() {
+        if (!Helper.isRedmiNote())
+            return false;
+
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean redmi_note = prefs.getBoolean("redmi_note", true);
+        if (!redmi_note)
+            return false;
+
+        final Snackbar snackbar = Snackbar.make(view, R.string.app_data_loss, Snackbar.LENGTH_INDEFINITE)
+                .setGestureInsetBottomIgnored(true);
+        snackbar.setAction(R.string.title_info, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putBoolean("redmi_note", false).apply();
+                Helper.view(v.getContext(), Uri.parse("https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi"), false);
+            }
+        });
+        snackbar.show();
+
+        return true;
     }
 
     private boolean checkDoze() {
