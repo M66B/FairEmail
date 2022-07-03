@@ -120,7 +120,8 @@ public class FragmentSetup extends FragmentBase {
     private CardView cardExtra;
     private TextView tvExtra;
     private Button btnNotification;
-    private Button btnReorder;
+    private Button btnReorderAccounts;
+    private Button btnReorderFolders;
     private Button btnDelete;
     private Button btnApp;
     private Button btnMore;
@@ -199,7 +200,8 @@ public class FragmentSetup extends FragmentBase {
         cardExtra = view.findViewById(R.id.cardExtra);
         tvExtra = view.findViewById(R.id.tvExtra);
         btnNotification = view.findViewById(R.id.btnNotification);
-        btnReorder = view.findViewById(R.id.btnReorder);
+        btnReorderAccounts = view.findViewById(R.id.btnReorderAccounts);
+        btnReorderFolders = view.findViewById(R.id.btnReorderFolders);
         btnDelete = view.findViewById(R.id.btnDelete);
         btnApp = view.findViewById(R.id.btnApp);
         btnMore = view.findViewById(R.id.btnMore);
@@ -628,13 +630,24 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        btnReorder.setOnClickListener(new View.OnClickListener() {
+        btnReorderAccounts.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SETUP_REORDER));
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(v.getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SETUP_REORDER)
+                        .putExtra("className", EntityAccount.class.getName()));
             }
         });
+
+        btnReorderFolders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(v.getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SETUP_REORDER)
+                        .putExtra("className", TupleFolderSort.class.getName()));
+            }
+        });
+
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override

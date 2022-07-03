@@ -239,7 +239,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
-                onMenuOrder(R.string.title_setup_reorder_accounts, EntityAccount.class);
+                onMenuOrder(R.string.title_setup_reorder_accounts, EntityAccount.class.getName());
             }
         }));
 
@@ -247,7 +247,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
-                onMenuOrder(R.string.title_setup_reorder_folders, TupleFolderSort.class);
+                onMenuOrder(R.string.title_setup_reorder_folders, TupleFolderSort.class.getName());
             }
         }).setSeparated());
 
@@ -552,13 +552,13 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         }
     }
 
-    private void onMenuOrder(int title, Class clazz) {
+    private void onMenuOrder(int title, String className) {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("order", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Bundle args = new Bundle();
         args.putInt("title", title);
-        args.putString("class", clazz.getName());
+        args.putString("class", className);
 
         FragmentOrder fragment = new FragmentOrder();
         fragment.setArguments(args);
@@ -2003,7 +2003,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 else if (ACTION_IMPORT_CERTIFICATE.equals(action))
                     onImportCertificate(intent);
                 else if (ACTION_SETUP_REORDER.equals(action))
-                    onMenuOrder(R.string.title_setup_reorder_accounts, EntityAccount.class);
+                    onMenuOrder(R.string.title_setup_reorder_accounts, intent.getStringExtra("className"));
                 else if (ACTION_SETUP_MORE.equals(action))
                     onSetupMore(intent);
             }

@@ -23,6 +23,7 @@ import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -84,7 +85,7 @@ public class FragmentDialogOpenFull extends FragmentDialogBase {
 
         boolean dark = (Helper.isDarkTheme(context) && !force_light);
         boolean canDarken = WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING);
-        if (canDarken)
+        if (canDarken && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
             WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, dark);
 
         settings.setLoadsImagesAutomatically(true);

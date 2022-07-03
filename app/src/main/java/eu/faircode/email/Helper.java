@@ -920,6 +920,7 @@ public class Helper {
             Intent view = new Intent(Intent.ACTION_VIEW, uri);
             Intent chooser = Intent.createChooser(view, context.getString(R.string.title_select_app));
             try {
+                EntityLog.log(context, "Launching chooser uri=" + uri);
                 context.startActivity(chooser);
             } catch (ActivityNotFoundException ex) {
                 Log.w(ex);
@@ -935,6 +936,9 @@ public class Helper {
                 if (task)
                     view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 view.setPackage(open_with_pkg);
+                EntityLog.log(context, "Launching view uri=" + uri +
+                        " intent=" + view +
+                        " extras=" + TextUtils.join(", ", Log.getExtras(view.getExtras())));
                 context.startActivity(view);
             } catch (Throwable ex) {
                 reportNoViewer(context, uri, ex);
@@ -974,7 +978,6 @@ public class Helper {
                     languages.add(slocale.getLanguage() + ";q=0.7");
             }
             languages.add("*;q=0.5");
-            Log.i("MMM " + TextUtils.join(", ", languages));
 
             Bundle headers = new Bundle();
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language
@@ -985,6 +988,9 @@ public class Helper {
             customTabsIntent.intent.setPackage(open_with_pkg);
 
             try {
+                EntityLog.log(context, "Launching tab uri=" + uri +
+                        " intent=" + customTabsIntent.intent +
+                        " extras=" + TextUtils.join(", ", Log.getExtras(customTabsIntent.intent.getExtras())));
                 customTabsIntent.launchUrl(context, uri);
             } catch (Throwable ex) {
                 reportNoViewer(context, uri, ex);
