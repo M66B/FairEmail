@@ -84,6 +84,7 @@ public class FragmentSetup extends FragmentBase {
     private TextView tvNoInternet;
     private ImageButton ibHelp;
     private Button btnQuick;
+    private TextView tvTutorials;
     private TextView tvQuickNew;
 
     private CardView cardManual;
@@ -164,6 +165,7 @@ public class FragmentSetup extends FragmentBase {
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         ibHelp = view.findViewById(R.id.ibHelp);
         btnQuick = view.findViewById(R.id.btnQuick);
+        tvTutorials = view.findViewById(R.id.tvTutorials);
         tvQuickNew = view.findViewById(R.id.tvQuickNew);
 
         cardManual = view.findViewById(R.id.cardManual);
@@ -393,6 +395,14 @@ public class FragmentSetup extends FragmentBase {
                 });
 
                 popupMenu.show();
+            }
+        });
+
+        tvTutorials.setPaintFlags(tvTutorials.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvTutorials.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.TUTORIALS_URI), false);
             }
         });
 

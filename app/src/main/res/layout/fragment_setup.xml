@@ -240,6 +240,22 @@
                     app:layout_constraintTop_toBottomOf="@id/tvNoInternet" />
 
                 <TextView
+                    android:id="@+id/tvTutorials"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?android:attr/textColorLink"
+                    android:text="@string/title_setup_wizard_tutorials"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorLink"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnQuick" />
+
+                <TextView
                     android:id="@+id/tvQuickRemarkMultiple"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -248,7 +264,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnQuick" />
+                    app:layout_constraintTop_toBottomOf="@id/tvTutorials" />
 
                 <TextView
                     android:id="@+id/tvQuickNew"
