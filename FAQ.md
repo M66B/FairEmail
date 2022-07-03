@@ -4145,7 +4145,12 @@ and [see here](#user-content-faq173) for the differences between the different r
 
 If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
-You can see the source of the app in *About* of the navigation menu (left side menu), either *Play store*, *GitHub*, *F-Droid*, or *?* (for example in the case of a custom build).
+You can see the source of the app in *About* of the navigation menu (left side menu),
+either *Play store*, *GitHub*, *F-Droid*, or *?* (for example in the case of a custom build).
+
+[IzzyOnDroid](https://apt.izzysoft.de/fdroid/) hosts the GitHub release of the app.
+[Aurora Store](https://f-droid.org/packages/com.aurora.store/) hosts the Play store version of the app,
+even though the Aurora Store app was downloaded from F-Droid.
 
 <br />
 
