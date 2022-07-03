@@ -417,7 +417,8 @@ public class Helper {
         PackageManager pm = context.getPackageManager();
         Intent view = new Intent(Intent.ACTION_VIEW, uri);
 
-        List<ResolveInfo> ris = pm.queryIntentActivities(view, 0); // action whitelisted
+        int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
+        List<ResolveInfo> ris = pm.queryIntentActivities(view, flags); // action whitelisted
         for (ResolveInfo info : ris) {
             Intent intent = new Intent();
             intent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
@@ -828,7 +829,8 @@ public class Helper {
             List<ResolveInfo> ris = null;
             try {
                 PackageManager pm = context.getPackageManager();
-                ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
+                ris = pm.queryIntentActivities(intent, flags);
                 for (ResolveInfo ri : ris) {
                     Log.i("Target=" + ri);
                     context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -898,6 +900,14 @@ public class Helper {
         String open_with_pkg = prefs.getString("open_with_pkg", null);
         boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
 
+        Log.i("View=" + uri +
+                " browse=" + browse +
+                " task=" + task +
+                " pkg=" + open_with_pkg + ":" + open_with_tabs +
+                " isHyperLink=" + UriHelper.isHyperLink(uri) +
+                " isInstalled=" + isInstalled(context, open_with_pkg) +
+                " hasCustomTabs=" + hasCustomTabs(context, uri, open_with_pkg));
+
         if (!UriHelper.isHyperLink(uri)) {
             open_with_pkg = null;
             open_with_tabs = false;
@@ -910,11 +920,6 @@ public class Helper {
 
         if (open_with_tabs && !hasCustomTabs(context, uri, open_with_pkg))
             open_with_tabs = false;
-
-        Log.i("View=" + uri +
-                " browse=" + browse +
-                " task=" + task +
-                " pkg=" + open_with_pkg + ":" + open_with_tabs);
 
         if ("chooser".equals(open_with_pkg)) {
             Intent view = new Intent(Intent.ACTION_VIEW, uri);
