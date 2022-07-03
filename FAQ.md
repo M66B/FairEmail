@@ -127,8 +127,10 @@ Related questions:
 
 **Xiaomi Redmi Note**
 
-On Xiaomi Redmi Note devices the database occasionally gets corrupted, resulting in total data loss.
-The cause of this problem are disk I/O errors due to an Android bug or a hardware issue, please [see here](https://www.sqlite.org/rescode.html#ioerr_write).
+On Xiaomi Redmi Note devices the database occasionally gets corrupted, resulting in total data loss
+(on the device only, unless you are using a POP3 account with the option *Leave messages on server* disabled).
+
+The cause of this problem are disk I/O errors due to an Android bug or maybe a hardware issue, please [see here](https://www.sqlite.org/rescode.html#ioerr_write).
 This can't be fixed by the app and should be fixed by Xiaomi / Redmi.
 
 *Please do not blame the app for this!*
