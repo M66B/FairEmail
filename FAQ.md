@@ -16,9 +16,9 @@ Si vous avez une question, veuillez d'abord vérifier les questions fréquemment
 [En bas](#user-content-get-support), vous pouvez découvrir comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
 Vous recevrez une réponse dans votre propre langue.
 
-## Manual
+## Tutorials
 
-Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for manuals.
+Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for tutorials.
 
 ## Index
 
@@ -1356,7 +1356,7 @@ Some devices have a firewall, which you can access like this:
 
 Android *Settings, Data usage, Three-dots overflow menu, Data usage control*
 
-The error *... Connection refused ...* means that the email server
+The error *... Connection refused ...* (ECONNREFUSED) means that the email server
 or something between the email server and the app, like a firewall, actively refused the connection.
 
 The error *... Network unreachable ...* means that the email server was not reachable via the current internet connection,
