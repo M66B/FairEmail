@@ -328,6 +328,25 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             }
         });
 
+        spOpenWith.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Package pkg = (Package) parent.getAdapter().getItem(position);
+                prefs.edit()
+                        .putString("open_with_pkg", pkg.name)
+                        .putBoolean("open_with_tabs", pkg.tabs)
+                        .apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit()
+                        .remove("open_with_pkg")
+                        .remove("open_with_tabs")
+                        .apply();
+            }
+        });
+
         View.OnClickListener onMore = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -615,18 +634,9 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Uri uri = Uri.parse(etLink.getText().toString());
-                        boolean tabs = prefs.getBoolean("open_with_tabs", true);
-
                         Package pkg = (Package) spOpenWith.getSelectedItem();
                         Log.i("Open link uri=" + uri + " with=" + pkg);
-                        if (pkg != null) {
-                            tabs = pkg.tabs;
-                            prefs.edit()
-                                    .putString("open_with_pkg", pkg.name)
-                                    .putBoolean("open_with_tabs", pkg.tabs)
-                                    .apply();
-                        }
-
+                        boolean tabs = (pkg != null && pkg.tabs);
                         Helper.view(context, uri, !tabs, !tabs);
                     }
                 })
