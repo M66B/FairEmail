@@ -123,6 +123,8 @@ Related questions:
 
 <a name="redmi"></a>
 
+<br />
+
 **Xiaomi Redmi Note**
 
 On Xiaomi Redmi Note devices the database occasionally gets corrupted, resulting in total data loss.
@@ -131,7 +133,18 @@ This can't be fixed by the app and should be fixed by Xiaomi / Redmi.
 
 *Please do not blame the app for this!*
 
-<br />
+For the record the stack trace:
+
+```
+android.database.sqlite.SQLiteDiskIOException: disk I/O error (code 778)
+        at io.requery.android.database.sqlite.SQLiteConnection.nativeExecute(SourceFile:-2)
+        at io.requery.android.database.sqlite.SQLiteConnection.execute(SQLiteConnection:595)
+        at io.requery.android.database.sqlite.SQLiteSession.endTransactionUnchecked(SQLiteSession:447)
+        at io.requery.android.database.sqlite.SQLiteSession.endTransaction(SQLiteSession:411)
+        at io.requery.android.database.sqlite.SQLiteDatabase.endTransaction(SQLiteDatabase:551)
+        at androidx.room.RoomDatabase.internalEndTransaction(RoomDatabase:594)
+        at androidx.room.RoomDatabase.endTransaction(RoomDatabase:584)
+```
 
 <h2><a name="planned-features"></a>Planned features</h2>
 
