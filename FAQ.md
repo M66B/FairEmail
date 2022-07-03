@@ -4145,6 +4145,8 @@ and [see here](#user-content-faq173) for the differences between the different r
 
 If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
+You can see the source of the app in *About* of the navigation menu (left side menu), either *Play store*, *GitHub*, *F-Droid*, or *?* (for example in the case of a custom build).
+
 <br />
 
 <a name="faq148"></a>
