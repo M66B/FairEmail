@@ -66,7 +66,7 @@ However, all of those options are optional. The app works stable with the defaul
 
 If you still would like to change the settings, just take time looking around the available options. You can also search through available settings.
 The most common three settings you might want to set on the first run are mentioned below.
-Apart from that, there's also [this separate manual describing various settings / options](https://github.com/M66B/FairEmail/blob/master/tutorials/SETTINGS-OVERVIEW.md) in FairEmail.
+Apart from that, there's also [this separate tutorial describing various settings / options](https://github.com/M66B/FairEmail/blob/master/tutorials/SETTINGS-OVERVIEW.md) in FairEmail.
 
 ### 1. Disable the permanent notification
 
@@ -102,6 +102,8 @@ You can switch themes like this:
 
 **NOTE:** Dynamic themes are not possible in Android.
 See [FAQ #164 Can you add customizable themes?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq164) for further details.
+
+<br>
 
 Thanks @[mkasimd](https://github.com/mkasimd/) for contributing this documentation.
 

@@ -37,4 +37,6 @@ Here are some screenshots to help you visualize these steps:
 ![Adding new IMAP / POP3 account](images/manualconf-02.png)
 ![Saving account](images/manualconf-03.png)
 
+<br>
+
 Thanks @[mkasimd](https://github.com/mkasimd/) for contributing this documentation.
