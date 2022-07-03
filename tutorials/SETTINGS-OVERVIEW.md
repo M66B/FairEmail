@@ -8,7 +8,7 @@ You can simply add an account and already start reading and writing your emails.
 You may also ask in [this XDA Forum thread](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/)
 or via [this contact form](https://contact.faircode.eu/?product=fairemailsupport). Bad reviews won't help you or the developer, so try asking in person first.
 
-**NOTE:** A tutorial on the first configuration of the app and on how to add an account can be found in the [first configuration manual](first-config.md)
+**NOTE:** A tutorial on the first configuration of the app and on how to add an account can be found in the [first configuration manual](https://github.com/M66B/FairEmail/blob/master/tutorials/FIRST-CONFIG.md)
 
 ## Opening the settings
 
@@ -33,7 +33,7 @@ You will now find multiple categories:
 1. [Adding a new account](#1-adding-a-new-account)
 2. [Receiving messages in the daytime only](#2-receiving-messages-in-the-daytime-only)
 3. [Enable checking for spam](#3-enable-checking-for-spam)
-4. [Edit your email signature](#4-edit-your-e-mail-signature)
+4. [Edit your email signature](#4-edit-your-email-signature)
 5. [Limit mobile data usage](#5-limit-mobile-data-usage)
 6. [Changing the theme](#6-changing-the-theme)
 7. [Changing start screen](#7-changing-start-screen)
@@ -43,8 +43,8 @@ You will now find multiple categories:
 
 ## 1. Adding a new account
 
-If you want to add a new account, use the wizard in the Main screen. Follow [this first configuration guide](first-config.md).
-You can also [add an account manually](/manual-config.md). That requires you to enter everything manually, so it's not recommended.
+If you want to add a new account, use the wizard in the Main screen. Follow [this first configuration guide](https://github.com/M66B/FairEmail/blob/master/tutorials/FIRST-CONFIG.md).
+You can also [add an account manually](https://github.com/M66B/FairEmail/blob/master/tutorials/MANUAL-CONFIG.md). That requires you to enter everything manually, so it's not recommended.
 
 ## 2. Receiving messages in the daytime only
 
@@ -155,7 +155,7 @@ To do so, follow these steps:
 2. Press on the "PIN" or "Enable fingerprint" button
 3. Follow the instruction on your screen
 
-More information can be found in [FAQ #113 How does biometric authentication work?](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-en-rGB.md#user-content-faq113).
+More information can be found in [FAQ #113 How does biometric authentication work?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq113).
 
 ## 10. Enable error reporting
 

@@ -10,8 +10,8 @@ or via [this contact form](https://contact.faircode.eu/?product=fairemailsupport
 
 ## Index
 
-* [First configuration](first-config.md) - A manual how to set up FairEmail to just work
-* [Settings overview](settings-overview.md) - A manual describing where and how to find some settings & options
-* [Manual configuration](manual-config.md) - A manual describing how to manually add your accounts (without the wizard)
+* [First configuration](https://github.com/M66B/FairEmail/blob/master/tutorials/FIRST-CONFIG.md) - A manual how to set up FairEmail to just work
+* [Settings overview](https://github.com/M66B/FairEmail/blob/master/tutorials/SETTINGS-OVERVIEW.md) - A manual describing where and how to find some settings & options
+* [Manual configuration](https://github.com/M66B/FairEmail/blob/master/tutorials/MANUAL-CONFIG.md) - A manual describing how to manually add your accounts (without the wizard)
 
 Thanks @[mkasimd](https://github.com/mkasimd/) for contributing this documentation.
