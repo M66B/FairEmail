@@ -16,7 +16,7 @@ or via [this contact form](https://contact.faircode.eu/?product=fairemailsupport
 
 ## Adding a new email account
 
-**NOTE:** This step requires working internet connection.
+**NOTE:** This step requires a working internet connection.
 
 Adding a new email account (account + identity) is pretty straightforward. Just follow these steps:
 

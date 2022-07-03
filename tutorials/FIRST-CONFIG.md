@@ -13,7 +13,7 @@ When you start the app for the first time, you need to accept the license agreem
 
 ## 2. Starting the wizard
 
-FairEmail has a setup wizard integrated. It will lead you through the process. Choose the wizard for easy configuration.
+FairEmail has a setup wizard integrated. It will lead you through the process. Choose the wizard for the easiest configuration.
 If your email provider is not listed, or if you want to authenticate using a password, choose "Other provider".
 
 **NOTE:** OAuth only works for the Play Store and GitHub version. Third party builds (e.g. on F-Droid) do not support OAuth.
@@ -41,7 +41,7 @@ Accept with "OK" if the settings look fine. Otherwise, you may also edit the set
 
 ## 5. Disable battery optimization
 
-Below the wizard, there are two more options numbered:
+Below the wizard, there are two more options:
 
 * Grant access to your contacts, if you want to use the contacts on your device (optional)
 * Disable battery optimization (highly recommended to ensure the app works in the background)
@@ -61,8 +61,8 @@ That's it, your app is set up to work.
 ## Optional settings
 
 FairEmail will already work with the configuration above. However, you may want to change some minor things.
-As FairEmail comes with a lot of options, you can very likely adjust the app and its behavior the way you personally would like it.
-However, all of those options are optional. The app works stable with the default options without requiring any adjustment by you.
+As FairEmail comes with a lot of options, you can very likely adjust the app and its behavior to the way you personally would like it.
+However, all of those options are optional. The app works well and is stable with the default options without requiring any adjustment by you.
 
 If you still would like to change the settings, just take time looking around the available options. You can also search through available settings.
 The most common three settings you might want to set on the first run are mentioned below.

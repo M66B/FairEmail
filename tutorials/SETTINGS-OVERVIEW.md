@@ -2,9 +2,9 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2Ftutorials%2FSETTINGS-OVERVIEW.md)
 
-In this tutorial, some settings and options in FairEmail will be described without going into the details.
+In this tutorial, some settings and options in FairEmail will be described without going into too many details.
 Be reminded that all settings here are optional. FairEmail works without any modifications.
-You can simply add an account and already start reading and writing your emails.
+You can simply add an account and start reading and writing your emails.
 
 **NOTE:** If you have any troubles, check [this extensive FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md).
 You may also ask in [this XDA Forum thread](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/)
