@@ -1,5 +1,7 @@
 # Settings overview
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2Ftutorials%2FSETTINGS-OVERVIEW.md)
+
 In this manual, some settings and options in FairEmail will be described without going into the details.
 Be reminded that all settings here are optional. FairEmail works without any modifications.
 You can simply add an account and already start reading and writing your emails.

@@ -1,5 +1,7 @@
 # FairEmail manuals
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Ftree%2Fmaster%2Ftutorials)
+
 The following manuals describe how to configure FairEmail as well as how to modify the settings on your own requirements.
 FairEmail offers many options you can always explore yourself within the app or in the FAQ article.
 The manuals here will only cover the basics that should suffice for most users.

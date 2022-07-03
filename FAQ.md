@@ -1,7 +1,7 @@
 <a name="top"></a>
 # FairEmail support
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md)
 
 If you have a question, please check the following frequently asked questions first.
 [At the bottom](#user-content-get-support),
@@ -16,6 +16,9 @@ Si vous avez une question, veuillez d'abord vérifier les questions fréquemment
 [En bas](#user-content-get-support), vous pouvez découvrir comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
 Vous recevrez une réponse dans votre propre langue.
 
+## Manual
+
+Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for manuals.
 
 ## Index
 
