@@ -150,36 +150,38 @@ android.database.sqlite.SQLiteDiskIOException: disk I/O error (code 778)
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-planned-features)
 
-* ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
-* ~~Colored stars~~
-* ~~Notification settings per folder~~
-* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
-* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
-* ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
-* ~~Generic unified folders~~
-* ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
-* ~~Copy accounts and identities~~
-* ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
-* ~~More compact folder view~~
-* ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
-* ~~Pinch zoom text size~~
-* ~~Display GIFs~~
-* ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
-* ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
-* ~~Widget for selected account~~
-* ~~Remind to attach files~~
-* ~~Select domains to show images for~~ (this will be too complicated to use)
-* ~~Unified starred messages view~~ (there is already a special search for this)
-* ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* &#x2714; ~~Synchronize on demand (manual)~~
+* &#x2714; ~~Semi-automatic encryption~~
+* &#x2714; ~~Copy message~~
+* &#x2714; ~~Colored stars~~
+* &#x2714; ~~Notification settings per folder~~
+* &#x2714; ~~Select local images for signatures~~
+* &#x2714; ~~Show messages matched by a rule~~
+* &#x274C; ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
+* &#x2714; ~~Search for messages with/without attachments~~ (on-device only because IMAP doesn't support searching for attachments)
+* &#x2714; ~~Search for a folder~~
+* &#x2714; ~~Search suggestions~~
+* &#x274C; ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
+* &#x2714; ~~Generic unified folders~~
+* &#x2714; ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
+* &#x2714; ~~Copy accounts and identities~~
+* &#x2714; ~~Pinch zoom~~
+* &#x2714; ~~More compact folder view~~
+* &#x2714; ~~Compose lists~~
+* &#x274C; ~~Compose tables~~ (the Android editor doesn't suppor tables)
+* &#x2714; ~~Pinch zoom text size~~
+* &#x2714; ~~Display GIFs~~
+* &#x2714; ~~Themes~~
+* &#x274C; ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
+* &#x2714; ~~Send as attachment~~
+* &#x2714; ~~Widget for selected account~~
+* &#x2714; ~~Remind to attach files~~
+* &#x2714; ~~Select domains to show images for~~
+* &#x2714; ~~Unified starred messages view~~ (implemented as saved search)
+* &#x2714; ~~Move notification action~~
+* &#x2714; ~~S/MIME support~~
+* &#x2714; ~~Search for settings~~
+* &#x2714; Many more ...
 
 Anything on this list is in random order and *might* be added in the near future.
 
