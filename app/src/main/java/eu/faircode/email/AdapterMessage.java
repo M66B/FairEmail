@@ -2517,6 +2517,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_images = properties.getValue("images", message.id);
             boolean show_quotes = (properties.getValue("quotes", message.id) || !collapse_quotes);
 
+            boolean dark = Helper.isDarkTheme(context);
             boolean force_light = properties.getValue("force_light", message.id);
             boolean always_images = prefs.getBoolean("html_always_images", false);
             if (always_images && show_full) {
@@ -2664,7 +2665,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             float scale = (size == 0 || textSize == 0 ? 1.0f : size / (textSize * message_zoom / 100f));
             args.putFloat("scale", scale);
 
-            boolean dark = Helper.isDarkTheme(context);
             args.putBoolean("fake_dark", !canDarken && fake_dark && dark && !force_light);
 
             new SimpleTask<Object>() {
@@ -7120,7 +7120,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         level = prefs.getInt("log_level", Log.getDefaultLogLevel());
 
         this.canDarken = WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING);
-        this.fake_dark = prefs.getBoolean("fake_dark", false);
+        this.fake_dark = prefs.getBoolean("fake_dark", true);
         this.webview_legacy = prefs.getBoolean("webview_legacy", false);
         this.show_recent = prefs.getBoolean("show_recent", false);
 

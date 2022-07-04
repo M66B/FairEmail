@@ -387,11 +387,12 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
     public static boolean isFeatureSupported(Context context, String feature) {
         if (WebViewFeature.ALGORITHMIC_DARKENING.equals(feature)) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean fake_dark = prefs.getBoolean("fake_dark", false);
-            if (fake_dark)
-                return false;
-
+            if (BuildConfig.DEBUG) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean fake_dark = prefs.getBoolean("fake_dark", true);
+                if (fake_dark)
+                    return false;
+            }
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
                 return false;
 
