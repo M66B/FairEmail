@@ -137,7 +137,7 @@ public abstract class DB extends RoomDatabase {
             "page_count", "page_size", "max_page_count", "freelist_count",
             "cache_size", "cache_spill",
             "soft_heap_limit", "hard_heap_limit", "mmap_size",
-            "foreign_keys"
+            "foreign_keys", "auto_vacuum"
     ));
 
     @Override
@@ -407,6 +407,15 @@ public abstract class DB extends RoomDatabase {
                         crumb.put("version", Integer.toString(db.getVersion()));
                         crumb.put("WAL", Boolean.toString(db.isWriteAheadLoggingEnabled()));
                         Log.breadcrumb("Database", crumb);
+
+                        if (BuildConfig.DEBUG || Helper.isRedmiNote()) {
+                            // https://www.sqlite.org/pragma.html#pragma_auto_vacuum
+                            // https://android.googlesource.com/platform/external/sqlite.git/+/6ab557bdc070f11db30ede0696888efd19800475%5E!/
+                            Log.i("Set PRAGMA auto_vacuum = INCREMENTAL");
+                            try (Cursor cursor = db.query("PRAGMA auto_vacuum = INCREMENTAL;", null)) {
+                                cursor.moveToNext(); // required
+                            }
+                        }
 
                         // https://www.sqlite.org/pragma.html#pragma_cache_size
                         Integer cache_size = getCacheSizeKb(context);
