@@ -43,12 +43,15 @@ import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewCompat;
 import androidx.webkit.WebViewFeature;
 
+import java.util.Objects;
+
 public class WebViewEx extends WebView implements DownloadListener, View.OnLongClickListener {
     private int height;
     private int maxHeight;
     private boolean legacy;
     private IWebView intf;
     private Runnable onPageLoaded;
+    private String hash;
 
     private static String userAgent = null;
 
@@ -217,6 +220,21 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         settings.setLoadsImagesAutomatically(show_images || inline);
         settings.setBlockNetworkLoads(!show_images);
         settings.setBlockNetworkImage(!show_images);
+    }
+
+    @Override
+    public void loadDataWithBaseURL(String baseUrl, String data, String mimeType, String encoding, String historyUrl) {
+        try {
+            // Prevent flickering
+            String h = (data == null ? null : Helper.md5(data.getBytes()));
+            if (Objects.equals(hash, h))
+                return;
+            this.hash = h;
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        super.loadDataWithBaseURL(baseUrl, data, mimeType, encoding, historyUrl);
     }
 
     @Override
