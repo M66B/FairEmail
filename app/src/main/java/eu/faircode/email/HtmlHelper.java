@@ -2372,9 +2372,38 @@ public class HtmlHelper {
         document.select("head").append(sb.toString());
     }
 
+    static boolean hasColorScheme(Document document, String name) {
+        List<CSSStyleSheet> sheets = parseStyles(document.head().select("style"));
+        for (CSSStyleSheet sheet : sheets)
+            if (sheet.getCssRules() != null) {
+                for (int i = 0; i < sheet.getCssRules().getLength(); i++) {
+                    CSSRule rule = sheet.getCssRules().item(i);
+                    if (rule instanceof CSSMediaRuleImpl) {
+                        MediaList list = ((CSSMediaRuleImpl) rule).getMedia();
+                        String media = (list == null ? null : list.getMediaText());
+                        if (media != null &&
+                                media.toLowerCase(Locale.ROOT).contains("prefers-color-scheme") &&
+                                media.toLowerCase(Locale.ROOT).contains(name)) {
+                            Log.i("@media=" + media);
+                            return true;
+                        }
+                    }
+                }
+            }
+
+        return false;
+    }
+
     static void fakeDark(Document document) {
+        // https://issuetracker.google.com/issues/237785596
         // https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert
         // https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/hue-rotate
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+        // https://developer.android.com/reference/android/webkit/WebSettings#setAlgorithmicDarkeningAllowed(boolean)
+
+        if (hasColorScheme(document, "dark"))
+            return;
+
         document.head().appendElement("style").html(
                 "body { filter: invert(100%) hue-rotate(180deg) !important; background: black !important; }" +
                         "img { filter: invert(100%) hue-rotate(180deg) !important; }");
