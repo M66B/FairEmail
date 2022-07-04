@@ -4,6 +4,12 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
+### 1.1930 - 2022-07-04
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### 1.1929 - 2022-07-02
 
 * Fixed hiding more than 300 messages
