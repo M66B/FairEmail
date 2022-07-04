@@ -86,6 +86,9 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                     }
             }
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            prefs.edit().remove("last_composing").apply();
+
             finishAndRemoveTask();
         }
     }
