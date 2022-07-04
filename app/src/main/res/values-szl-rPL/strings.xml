@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail to aplikacja e-mail o otwartym kodzie źródłowym, koncentrująca się na prywatności i bezpieczeństwie. Z tego powodu niektóre funkcje mogą działać inaczej niż to, do czego jesteś przyzwyczajony.</string>
     <string name="app_limitations">Przykładowo, wiadomości są domyślnie formatowane tak, aby usunąć niebezpieczne elementy i poprawić czytelność, a otwieranie linków musi zostać potwierdzone ze względów bezpieczeństwa. Obie funkcje mogą zostać wyłączone w opcjach.</string>
     <string name="app_unsupported">Błędy w wersji Androida tego urządzenia powodują awarie</string>
+    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Wszystkie dane mogą zostać utracone</string>
     <string name="app_continue">Kontynuuj mimo to</string>
     <string name="app_exit">Użyj przycisku \'wstecz\', aby wyjść</string>
     <string name="app_cake">Za mało miejsca w pamięci</string>
@@ -167,6 +168,7 @@
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
     <string name="title_setup_quick_certificates">Certyfikaty serwera</string>
     <string name="title_setup_wizard">Kreator</string>
+    <string name="title_setup_wizard_tutorials">Poradniki</string>
     <string name="title_setup_wizard_multiple">Kreator może być używany wielokrotnie, aby skonfigurować wiele kont</string>
     <string name="title_setup_wizard_new">Potrzebujesz nowego adresu e-mail?</string>
     <string name="title_setup_manual">Ręczna konfiguracja i opcje konta</string>
@@ -653,7 +655,7 @@
     <string name="title_advanced_last_cleanup">Ostatnie czyszczenie: %1$s</string>
     <string name="title_advanced_app">Ustawienia aplikacji</string>
     <string name="title_advanced_more">Więcej opcji</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Logowanie główne</string>
+    <string name="title_advanced_main_log">Logowanie główne</string>
     <string name="title_advanced_protocol">Rejestrowanie protokołów</string>
     <string name="title_advanced_log_info">Rejestrowanie debugowania</string>
     <string name="title_advanced_debug">Debuguj</string>
@@ -1745,6 +1747,7 @@
     <string name="title_widget_compose">Pokaż przycisk tworzenia nowej wiadomości</string>
     <string name="title_widget_background">Kolor tła</string>
     <string name="title_widget_day_night">Podążaj za ciemnym motywem systemowym</string>
+    <string name="title_compat_dark">Google usunęło tryb ciemny dla Androida przed wersją 10</string>
     <string name="title_accessibility_collapsed">Zwinięta</string>
     <string name="title_accessibility_expanded">Rozwinięta</string>
     <string name="title_accessibility_seen">Przeczytana</string>

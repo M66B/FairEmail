@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail הוא יישומון בקוד פתוח שמתמקד בפרטיות ואבטחת מידע. משום כך, חלק מהיכולות כנראה תעבודנה אחרת ממה שהתרגלת.</string>
     <string name="app_limitations">למשל, הודעות מעוצבות מחדש כדי להסיר רכיבים חשודים ולשפר את היכולת לקרוא אותם, נוסף על כך, יש לאשר פתיחת קישורים לשיפור האבטחה. את שני אלו ניתן להשבית במידת הצורך.</string>
     <string name="app_unsupported">תקלות בגירסת ה־Android של המכשיר המסוים הזה גורמות לקריסות</string>
+    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">כל הנתונים עלולים ללכת לאיבוד</string>
     <string name="app_continue">להמשיך בכל זאת</string>
     <string name="app_exit">יש ‚לחזור’ שוב אחורה כדי לצאת</string>
     <string name="app_cake">לא נותר די שטח אחסון</string>
@@ -167,6 +168,7 @@
     <string name="title_setup_quick_smtp">שרת SMTP לשליחת הודעות</string>
     <string name="title_setup_quick_certificates">אישורי שרת</string>
     <string name="title_setup_wizard">אשף</string>
+    <string name="title_setup_wizard_tutorials">מדריכים</string>
     <string name="title_setup_wizard_multiple">אפשר להשתמש באשף מספר פעמים כדי להגדיר מגוון חשבונות</string>
     <string name="title_setup_wizard_new">ארצה כתובת דוא״ל חדשה</string>
     <string name="title_setup_manual">הקמה ידנית ואפשרויות חשבון</string>
@@ -654,7 +656,7 @@
     <string name="title_advanced_cleanup">ניקוי</string>
     <string name="title_advanced_app">הגדרות היישומון</string>
     <string name="title_advanced_more">אפשרויות נוספות</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">תיעוד ראשי ביומן</string>
+    <string name="title_advanced_main_log">תיעוד ראשי ביומן</string>
     <string name="title_advanced_protocol">תיעוד פרוטוקול</string>
     <string name="title_advanced_log_info">תיעוד תקלות</string>
     <string name="title_advanced_debug">מצב ניפוי תקלות</string>
@@ -1750,6 +1752,7 @@
     <string name="title_widget_compose">הצגת כפתור כתיבת הודעה חדשה</string>
     <string name="title_widget_background">צבע הרקע</string>
     <string name="title_widget_day_night">התחקות אחר ערכת העיצוב הכהה של המערכת</string>
+    <string name="title_compat_dark">Google הסירה מצב כהה לגרסאות Android שקדמו ל־10</string>
     <string name="title_accessibility_collapsed">מצומצם</string>
     <string name="title_accessibility_expanded">מורחב</string>
     <string name="title_accessibility_seen">נקראה</string>

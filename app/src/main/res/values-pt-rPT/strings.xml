@@ -155,6 +155,7 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permissões para selecionar uma conta e ler o seu nome</string>
     <string name="title_setup_gmail_permissions">O Google pedirá permissões para ler, compor, enviar e eliminar permanentemente todos os seus e-mails. O FairEmail nunca apagará as suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se a pasta de rascunhos não estiver acessível pelo IMAP, isso poderá ser corrigido nas configurações de etiquetas do Gmail</string>
+    <string name="title_setup_gmail_password">Quero autorizar uma conta com a palavra-passe ao invés da conta em utilização no dispositivo</string>
     <string name="title_setup_office_auth">O erro \'AUTHENTICATE falhou\' pode ser causado por IMAP/SMTP estar desativado pelo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar o acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar novamente uma conta existente (caso contrário, criar uma conta)</string>
@@ -180,6 +181,7 @@
     <string name="title_setup_permissions">Conceder permissões</string>
     <string name="title_setup_permissions_remark">Para aceder a informações de contacto (opcional)</string>
     <string name="title_setup_permissions_explanation">As permissões de contacto são necessárias para procurar informações de contacto e sugerir contactos</string>
+    <string name="title_setup_permissions_notify">Para mostrar novas notificações de mensagens (opcional)</string>
     <string name="title_setup_permission_why">Que permissões são necessárias e porquê?</string>
     <string name="title_setup_permission_import_contacts">Como posso importar contactos?</string>
     <string name="title_setup_doze">Desactivar optimização de bateria</string>
@@ -712,6 +714,7 @@
     <string name="title_account_name">Nome da conta</string>
     <string name="title_account_category">Categoria</string>
     <string name="title_account_name_hint">Utilizado para diferenciar pastas</string>
+    <string name="title_account_partial_fetch_hint">Desactivar isto apenas em caso de mensagens vazias ou anexos corrompidos</string>
     <string name="title_color">Cor</string>
     <string name="title_background">Fundo</string>
     <string name="title_transparent">Transparente</string>
@@ -719,6 +722,7 @@
     <string name="title_account_notify">Notificações separadas</string>
     <string name="title_account_left">Deslizar para a esquerda</string>
     <string name="title_account_right">Deslizar para a direita</string>
+    <string name="title_account_move">Por predefinição, mover para</string>
     <string name="title_domain">Nome do domínio</string>
     <string name="title_autoconfig">Obter configurações</string>
     <string name="title_aliases">Pseudónimos</string>
@@ -728,6 +732,7 @@
     <string name="title_encryption">Encriptação</string>
     <string name="title_encryption_none">Nenhuma</string>
     <string name="title_allow_insecure">Permitir ligações inseguras</string>
+    <string name="title_notify_remark">Pode activar isto para ter notificações de uma conta em específico</string>
     <string name="title_port">Número da porta</string>
     <string name="title_user">Nome de utilizador</string>
     <string name="title_password">Palavra-passe</string>
@@ -1501,6 +1506,7 @@
     <string name="title_hint_folder_actions">Toque prolongadamente numa pasta para aceder às opções, como adicionar uma pasta ao menu de navegação para um acesso rápido</string>
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e rede, por predefinição, nem todas as pastas e mensagens serão sincronizadas</string>
     <string name="title_hint_airplane">O modo de avião está ligado</string>
+    <string name="title_hint_notification">As notificações estão desactivadas</string>
     <string name="title_hint_support">Se tiver alguma questão ou um problema, por favor utilize o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para o lixo; Deslize para a direita para o arquivo (se disponível); As acções de deslizar pode ser configuradas nas definições de conta</string>
     <string name="title_hint_message_selection">Seleccione mensagens ao tocar prolongadamente numa mensagem; Para seleccionar várias mensagens de seguida, toque sem soltar numa mensagem e deslize para cima ou para baixo</string>
@@ -1638,6 +1644,7 @@
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>
     <string name="title_widget_background">Cor do fundo</string>
+    <string name="title_widget_day_night">Adoptar o tema escuro do sistema</string>
     <string name="title_accessibility_collapsed">Ocultado</string>
     <string name="title_accessibility_expanded">Expandido</string>
     <string name="title_accessibility_seen">Lida</string>

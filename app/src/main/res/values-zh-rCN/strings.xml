@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail 是一款专注于隐私与安全的开源电子邮件应用。所以，某些功能的工作方式可能与您的习惯不同。</string>
     <string name="app_limitations">例如，默认情况下，消息将被重新格式化以移除不安全的元素并提高可读性；另外，为确保安全，打开链接前需要得到确认。当然如有需要，这两个选项都可以禁用</string>
     <string name="app_unsupported">此特定设备的该 Android 版本中的 Bug 会导致崩溃</string>
+    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">所有数据可能都会丢失</string>
     <string name="app_continue">仍然继续</string>
     <string name="app_exit">再按一次退出</string>
     <string name="app_cake">剩余存储空间不足</string>
@@ -134,6 +135,7 @@
     <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
     <string name="title_setup_quick_certificates">服务器证书</string>
     <string name="title_setup_wizard">向导</string>
+    <string name="title_setup_wizard_tutorials">教程</string>
     <string name="title_setup_wizard_multiple">该向导可多次使用以设置多个账户</string>
     <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>
     <string name="title_setup_manual">手动设置和更多账户选项</string>
@@ -620,7 +622,7 @@
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
     <string name="title_advanced_app">应用信息</string>
     <string name="title_advanced_more">更多选项</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">主要日志</string>
+    <string name="title_advanced_main_log">主要日志</string>
     <string name="title_advanced_protocol">协议日志</string>
     <string name="title_advanced_log_info">调试日志</string>
     <string name="title_advanced_debug">调试模式</string>
@@ -1709,6 +1711,7 @@
     <string name="title_widget_compose">显示新建邮件按钮</string>
     <string name="title_widget_background">背景颜色</string>
     <string name="title_widget_day_night">跟随系统主题</string>
+    <string name="title_compat_dark">谷歌移除了安卓 10 之前的暗黑模式</string>
     <string name="title_accessibility_collapsed">折叠</string>
     <string name="title_accessibility_expanded">展开</string>
     <string name="title_accessibility_seen">阅读</string>

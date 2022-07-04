@@ -313,10 +313,12 @@
     <string name="title_advanced_tune_keep_alive">Doitu automatikoki biziri-mantendu tartea</string>
     <string name="title_advanced_keyboard">Erakutsi teklatua lehenetsita</string>
     <string name="title_advanced_keyboard_no_fullscreen">Pantaila-teklatu osoa saihestea</string>
+    <string name="title_advanced_suggest_names">Erabili izenak eta e-mail helbideak</string>
     <string name="title_advanced_suggest_local">Proposatu lokalean gordetako kontaktuak</string>
     <string name="title_advanced_suggest_sent">Proposatu bidalitako mezuetan aurkitutako helbideak</string>
     <string name="title_advanced_suggest_received">Proposatu jasotako mezuetan aurkitutako helbideak</string>
     <string name="title_advanced_suggest_frequently">Ordenatu iradokitako helbideak erabilera maiztasunaren arabera</string>
+    <string name="title_advanced_send_chips">Erakutsi helbideen bonboiloak</string>
     <string name="title_advanced_send_reminders">Erakutsi oroigarriak</string>
     <string name="title_advanced_send_delayed">Atzeratu mezuen bidalketa</string>
     <string name="title_advanced_attach_new">Gehitu partekatutako fitxategiak zirriborro berri batera</string>
@@ -394,6 +396,7 @@
     <string name="title_advanced_generated_icons">Erakutsi sortutako ikonoak</string>
     <string name="title_advanced_identicons">Erakutsi identikonoak</string>
     <string name="title_advanced_circular">Erakutsi ikono borobilak</string>
+    <string name="title_advanced_color_saturation">Saturazioa: %1$s %%</string>
     <string name="title_advanced_color_value">Distira: %1$s %%</string>
     <string name="title_advanced_name_email">Erakutsi izenak eta e-mail helbideak</string>
     <string name="title_advanced_replace_name">Nahiago kontaktu-izena bidaltzaile-izena baino</string>
@@ -441,8 +444,11 @@
     <string name="title_advanced_authentication_none">Autentifikaziorik ez</string>
     <string name="title_advanced_authentication_some">Autentifikazio partziala</string>
     <string name="title_advanced_authentication_all">Autentifikazio osoa</string>
+    <string name="title_advanced_restore_on_launch">Berreskuratu aplikazioaren egoera abioan</string>
     <string name="title_advanced_sync_on_launch">Sinkronizatu abioan</string>
     <string name="title_advanced_double_back">\'Atzera\' birritan irteteko</string>
+    <string name="title_advanced_conversation_actions">Proposatu ekintzak (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Proposatu erantzunak (Android 10+)</string>
     <string name="title_advanced_language_detection">Detektatu mezuen testuaren hizkuntza</string>
     <string name="title_advanced_pull_refresh">Tiratu behera berritzeko</string>
     <string name="title_advanced_autoscroll">Korritu gora mezu berriak jasotzean</string>
@@ -542,7 +548,7 @@
     <string name="title_advanced_cleanup">Garbiketa</string>
     <string name="title_advanced_app">Aplikazioaren ezarpenak</string>
     <string name="title_advanced_more">Aukera gehiago</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Egunkari nagusia</string>
+    <string name="title_advanced_main_log">Egunkari nagusia</string>
     <string name="title_advanced_protocol">Protokoloen egunkaria</string>
     <string name="title_advanced_log_info">Arazke egunkaria</string>
     <string name="title_advanced_debug">Arazketa modua</string>
@@ -1012,6 +1018,7 @@
     <string name="title_translate">Itzuli</string>
     <string name="title_translate_key">Sartu gakoa</string>
     <string name="title_translate_small">Erabili tipografia txikia iturburuaren testuarentzan</string>
+    <string name="title_suggestions_check">Egiaztatzen &#8230;</string>
     <string name="title_suggestions_none">Iradokizunik ez</string>
     <string name="title_edit_plain_text">Editatu testu soil gisa</string>
     <string name="title_edit_formatted_text">Editatu birformateatutako testu gisa</string>

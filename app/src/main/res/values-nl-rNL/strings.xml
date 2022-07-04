@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail is een open source e-mail app gericht op privacy en veiligheid. Om deze reden werken sommige functies mogelijk anders dan u gewend bent.</string>
     <string name="app_limitations">Berichten worden bijvoorbeeld standaard opnieuw opgemaakt om onveilige elementen te verwijderen en de leesbaarheid te verbeteren, en het openen van links moet voor de veiligheid worden bevestigd. Beide kunnen desgewenst uitgeschakeld worden.</string>
     <string name="app_unsupported">Bugs in de Android-versie van dit specifieke apparaat veroorzaken crashes</string>
+    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Alle gegevens kunnen verloren gaan</string>
     <string name="app_continue">Toch doorgaan</string>
     <string name="app_exit">Ga nogmaals \'terug\' om af te sluiten</string>
     <string name="app_cake">Onvoldoende opslagruimte over</string>
@@ -144,6 +145,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_quick_smtp">SMTP-server om berichten te verzenden</string>
     <string name="title_setup_quick_certificates">Server certificaten</string>
     <string name="title_setup_wizard">Wizard</string>
+    <string name="title_setup_wizard_tutorials">Handleidingen</string>
     <string name="title_setup_wizard_multiple">De wizard kan meerdere keren gebruikt worden om meerdere accounts in te stellen</string>
     <string name="title_setup_wizard_new">Ik heb een nieuw e-mailadres nodig</string>
     <string name="title_setup_manual">Handmatig instellen en account opties</string>
@@ -630,7 +632,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
     <string name="title_advanced_app">App instellingen</string>
     <string name="title_advanced_more">Meer opties</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Hoofdlog</string>
+    <string name="title_advanced_main_log">Hoofdlog</string>
     <string name="title_advanced_protocol">Protocol logging</string>
     <string name="title_advanced_log_info">Debug logging</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
@@ -1717,6 +1719,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_compose">Toon knop voor het opstellen van een nieuw bericht</string>
     <string name="title_widget_background">Achtergrondkleur</string>
     <string name="title_widget_day_night">Volg donker systeemthema</string>
+    <string name="title_compat_dark">Google heeft de donkere modus verwijderd voor Android-versies vóór versie 10</string>
     <string name="title_accessibility_collapsed">Ingevouwen</string>
     <string name="title_accessibility_expanded">Uitgevouwen</string>
     <string name="title_accessibility_seen">Gelezen</string>

@@ -126,6 +126,7 @@
     <string name="title_setup_quick_smtp">메시지를 발신할 SMTP 서버</string>
     <string name="title_setup_quick_certificates">서버 인증서</string>
     <string name="title_setup_wizard">마법사</string>
+    <string name="title_setup_wizard_tutorials">튜토리얼</string>
     <string name="title_setup_wizard_multiple">마법사는 여러 계정을 설정하기 위해 여려번 사용할 수 있습니다.</string>
     <string name="title_setup_wizard_new">새 이메일 주소 받기</string>
     <string name="title_setup_manual">수동 설정 및 계정 설정</string>
@@ -941,6 +942,7 @@
     <string name="title_widget_avatars">연락처 아바타 표시</string>
     <string name="title_widget_background">배경 색</string>
     <string name="title_widget_day_night">시스템의 어두운 테마 설정 사용</string>
+    <string name="title_compat_dark">Google은 Android 10 이전 버전에서 다크 모드를 제거했습니다</string>
     <string name="title_accessibility_collapsed">접음</string>
     <string name="title_accessibility_expanded">펼침</string>
     <string name="title_accessibility_seen">읽음</string>

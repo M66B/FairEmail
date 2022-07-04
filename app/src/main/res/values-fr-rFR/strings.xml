@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail est une application de messagerie open source centrée sur la confidentialité et la sécurité. C’est pourquoi certaines fonctionnalités peuvent être différentes de ce à quoi vous êtes habitué.</string>
     <string name="app_limitations">Par exemple, les messages sont reformatés par défaut pour supprimer tout élément dangereux ainsi qu\'améliorer la lisibilité et l\'ouverture des liens doit être confirmée pour des raisons de sécurité. Les deux options peuvent être désactivées si souhaité.</string>
     <string name="app_unsupported">Des bogues dans la version d\'Android de cet appareil spécifique provoquent des plantages</string>
+    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Toutes les données peuvent être perdues</string>
     <string name="app_continue">Poursuivre tout de même</string>
     <string name="app_exit">Faire de nouveau « Retour » pour quitter</string>
     <string name="app_cake">Espace de stockage restant insuffisant</string>
@@ -145,6 +146,7 @@
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
     <string name="title_setup_quick_certificates">Certificats du serveur</string>
     <string name="title_setup_wizard">Assistant</string>
+    <string name="title_setup_wizard_tutorials">Tutoriels</string>
     <string name="title_setup_wizard_multiple">L\'assistant peut être utilisé plusieurs fois pour configurer plusieurs comptes</string>
     <string name="title_setup_wizard_new">J\'ai besoin d\'une nouvelle adresse e-mail</string>
     <string name="title_setup_manual">Configuration manuelle et options des comptes</string>
@@ -633,7 +635,7 @@
     <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
     <string name="title_advanced_app">Paramètres Android de l\'application</string>
     <string name="title_advanced_more">Plus d\'options</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Journalisation principale</string>
+    <string name="title_advanced_main_log">Journalisation principale</string>
     <string name="title_advanced_protocol">Journalisation du protocole</string>
     <string name="title_advanced_log_info">Journalisation de débogage</string>
     <string name="title_advanced_debug">Débogage</string>
@@ -1729,6 +1731,7 @@
     <string name="title_widget_compose">Afficher le bouton pour rédiger un nouveau message</string>
     <string name="title_widget_background">Couleur d\'arrière-plan</string>
     <string name="title_widget_day_night">Utiliser le thème sombre du système</string>
+    <string name="title_compat_dark">Google a supprimé le mode sombre dans les versions d\'Android inférieures à la version 10</string>
     <string name="title_accessibility_collapsed">Replié</string>
     <string name="title_accessibility_expanded">Déplié</string>
     <string name="title_accessibility_seen">Lu</string>

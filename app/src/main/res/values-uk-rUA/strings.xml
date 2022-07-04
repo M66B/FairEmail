@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail - це додаток з відкритим вихідним кодом, орієнтований на конфіденційність та безпеку. Тому деякі функції можуть відрізнятися від того, що ви використовуєте.</string>
     <string name="app_limitations">Наприклад, щоб видалити небезпечні елементи та покращити читання, і для додавання підтвердження відкриття посилань з метою безпеки - повідомлення переформатуються за замовчуванням. За бажанням, ці дії можуть бути відключені.</string>
     <string name="app_unsupported">Помилка в версії Android для конкретного пристрою викликають аварійне завершення роботи</string>
+    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Всі дані можуть бути втрачені</string>
     <string name="app_continue">Все одно продовжити</string>
     <string name="app_exit">Натисніть \"Назад\" знову, щоб вийти</string>
     <string name="app_cake">Залишилося недостатньо вільного місця для зберігання</string>
@@ -162,6 +163,7 @@
     <string name="title_setup_quick_smtp">Сервер SMTP для надсилання повідомлень</string>
     <string name="title_setup_quick_certificates">Сертифікати сервера</string>
     <string name="title_setup_wizard">Майстер встановлення</string>
+    <string name="title_setup_wizard_tutorials">Навчальні матеріали</string>
     <string name="title_setup_wizard_multiple">Майстер можна використати кілька разів, щоб налаштувати кілька облікових записів</string>
     <string name="title_setup_wizard_new">Вкажіть нову електронну адресу</string>
     <string name="title_setup_manual">Налаштування вручну та параметри облікового запису</string>
@@ -646,7 +648,7 @@
     <string name="title_advanced_cleanup">Очищення</string>
     <string name="title_advanced_app">Налаштування додатка</string>
     <string name="title_advanced_more">Інші параметри</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Основне журналювання</string>
+    <string name="title_advanced_main_log">Основне журналювання</string>
     <string name="title_advanced_protocol">Журналювання протоколів</string>
     <string name="title_advanced_log_info">Журнал налагодження</string>
     <string name="title_advanced_debug">Режим зневадження</string>
@@ -1737,6 +1739,7 @@
     <string name="title_widget_compose">Показати кнопку створення нового повідомлення</string>
     <string name="title_widget_background">Колір тла</string>
     <string name="title_widget_day_night">Використовувати системну темну тему</string>
+    <string name="title_compat_dark">Google прибирав темний режим для версій Android до 10</string>
     <string name="title_accessibility_collapsed">Згорнуто</string>
     <string name="title_accessibility_expanded">Розгорнуто</string>
     <string name="title_accessibility_seen">Прочитано</string>

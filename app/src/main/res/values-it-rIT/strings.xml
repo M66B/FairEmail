@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail è un\'app di email open source concentrata su privacy e sicurezza. Per questo motivo, alcune funzionalità potrebbero funzionare diversamente da ciò a cui sei abituato.</string>
     <string name="app_limitations">Ad esempio, i messaggi sono riformattati di default per rimuovere gli elementi non sicuri e migliorare la leggibilità, e l\'apertura dei link dev\'esser confermata per sicurezza. Sono entrambi disabilitabili, se desiderato.</string>
     <string name="app_unsupported">I bug nella versione Android di questo specifico dispositivo causano crash</string>
+    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Tutti i dati potrebbero essere persi</string>
     <string name="app_continue">Continua comunque</string>
     <string name="app_exit">Torna \'indietro\' di nuovo per uscire</string>
     <string name="app_cake">Spazio di archiviazione rimanente insufficiente</string>
@@ -145,6 +146,7 @@
     <string name="title_setup_quick_smtp">Server SMTP per inviare i messaggi</string>
     <string name="title_setup_quick_certificates">Certificati del server</string>
     <string name="title_setup_wizard">Procedura Guidata</string>
+    <string name="title_setup_wizard_tutorials">Tutorial</string>
     <string name="title_setup_wizard_multiple">La procedura guidata è utilizzabile diverse volte per configurare più profili</string>
     <string name="title_setup_wizard_new">Mi serve un nuovo indirizzo email</string>
     <string name="title_setup_manual">Configurazione manuale e opzioni del profilo</string>
@@ -633,7 +635,7 @@
     <string name="title_advanced_last_cleanup">Ultima pulizia: %1$s</string>
     <string name="title_advanced_app">Impostazioni dell\'app</string>
     <string name="title_advanced_more">Altre opzioni</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Registrazione principale</string>
+    <string name="title_advanced_main_log">Registrazione principale</string>
     <string name="title_advanced_protocol">Registrazione del protocollo</string>
     <string name="title_advanced_log_info">Registrazione di debug</string>
     <string name="title_advanced_debug">Modalità di debug</string>
@@ -1729,6 +1731,7 @@
     <string name="title_widget_compose">Mostra il pulsante componi nuovo messaggio</string>
     <string name="title_widget_background">Colore di sfondo</string>
     <string name="title_widget_day_night">Applica il tema scuro di sistema</string>
+    <string name="title_compat_dark">Google ha rimosso la modalità scura per le versioni Android prima della versione 10</string>
     <string name="title_accessibility_collapsed">Compresso</string>
     <string name="title_accessibility_expanded">Espanso</string>
     <string name="title_accessibility_seen">Letto</string>

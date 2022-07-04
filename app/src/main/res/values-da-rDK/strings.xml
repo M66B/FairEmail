@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail er en open source e-mail app med fokus på privatliv og sikkerhed. Derfor vil visse funktioner muligvis fungere anderledes, end hvad du er vant til.</string>
     <string name="app_limitations">F.eks. omformateres beskeder som standard for at fjerne usikre elementer samt forbedre læsbarheden, og åbning af links skal sikkerhedsbekræftes. Begge funktioner kan om ønsket deaktiveres.</string>
     <string name="app_unsupported">Fejl i Android-versionen på denne enhedstype forårsager nedbrud</string>
+    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Alle-data kan gå tabt</string>
     <string name="app_continue">Fortsæt alligevel</string>
     <string name="app_exit">Tryk \'Tilbage\' igen for at afslutte</string>
     <string name="app_cake">Utilstrækkelig tilgængelig lagerplads</string>
@@ -145,6 +146,7 @@
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
     <string name="title_setup_quick_certificates">Servercertifikater</string>
     <string name="title_setup_wizard">Guide</string>
+    <string name="title_setup_wizard_tutorials">Selvstudier</string>
     <string name="title_setup_wizard_multiple">Guiden kan anvendes ved hver ny kontoopsætning</string>
     <string name="title_setup_wizard_new">Jeg behøver en ny e-mailadresse</string>
     <string name="title_setup_manual">Manuel opsætning og kontoindstillinger</string>
@@ -633,7 +635,7 @@
     <string name="title_advanced_last_cleanup">Sidste oprydning: %1$s</string>
     <string name="title_advanced_app">App-indstillinger</string>
     <string name="title_advanced_more">Flere valgmuligheder</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Hovedlogning</string>
+    <string name="title_advanced_main_log">Hovedlogning</string>
     <string name="title_advanced_protocol">Protokollogning</string>
     <string name="title_advanced_log_info">Fejllogning</string>
     <string name="title_advanced_debug">Fejlretningstilstand</string>
@@ -1729,6 +1731,7 @@
     <string name="title_widget_compose">Vis Skriv ny besked-knap</string>
     <string name="title_widget_background">Baggrundsfarve</string>
     <string name="title_widget_day_night">Følg mørkt systemtema</string>
+    <string name="title_compat_dark">Google understøtter nu kun mørk tilstand fra og med Android 10</string>
     <string name="title_accessibility_collapsed">Sammenfoldet</string>
     <string name="title_accessibility_expanded">Udfoldet</string>
     <string name="title_accessibility_seen">Læst</string>

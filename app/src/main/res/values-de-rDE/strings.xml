@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail ist eine quelloffene E-Mail-App, die sich auf Privatsphäre und Sicherheit konzentriert. Aus diesem Grund könnten einige Dinge anders funktionieren, als Sie es gewohnt sind.</string>
     <string name="app_limitations">Zum Beispiel werden Nachrichten standardmäßig neu formatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu verbessern. Außerdem muss das Öffnen von Links zur Sicherheit bestätigt werden. Beides kann auf Wunsch deaktiviert werden.</string>
     <string name="app_unsupported">Fehler in der Android-Version dieses speziellen Geräts verursachen Abstürze</string>
+    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Alle Daten können verloren gehen</string>
     <string name="app_continue">Trotzdem fortfahren</string>
     <string name="app_exit">Zum Beenden erneut „Zurück“ drücken</string>
     <string name="app_cake">Unzureichender Speicherplatz</string>
@@ -144,6 +145,7 @@
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
     <string name="title_setup_quick_certificates">Server-Zertifikate</string>
     <string name="title_setup_wizard">Assistent</string>
+    <string name="title_setup_wizard_tutorials">Anleitungen</string>
     <string name="title_setup_wizard_multiple">Der Assistent kann mehrfach verwendet werden, um mehrere Konten einzurichten</string>
     <string name="title_setup_wizard_new">Ich benötige eine neue E-Mail-Adresse</string>
     <string name="title_setup_manual">Manuelle Einrichtung und Kontooptionen</string>
@@ -482,7 +484,7 @@
     <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
     <string name="title_advanced_category_header">Nach Kontenkategorie gruppieren</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
-    <string name="title_advanced_bundled_fonts">Gebündelte Schriften verwenden</string>
+    <string name="title_advanced_bundled_fonts">Interne Schriftarten verwenden</string>
     <string name="title_advanced_parse_classes">Stylesheets analysieren</string>
     <string name="title_advanced_authentication">Authentifizierungswarnhinweise anzeigen</string>
     <string name="title_advanced_authentication_hint">Die zugrunde liegenden Prüfungen können in den Empfangseinstellungen konfiguriert werden</string>
@@ -630,7 +632,7 @@
     <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
     <string name="title_advanced_app">Android-App-Einstellungen</string>
     <string name="title_advanced_more">Weitere Optionen</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Hauptprotokollierung</string>
+    <string name="title_advanced_main_log">Hauptprotokollierung</string>
     <string name="title_advanced_protocol">Protokollaufzeichnung</string>
     <string name="title_advanced_log_info">Fehlerprotokollierung</string>
     <string name="title_advanced_debug">Fehlersuchmodus</string>
@@ -1722,6 +1724,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_widget_compose">Schaltfläche „Neue Nachricht verfassen” anzeigen</string>
     <string name="title_widget_background">Hintergrundfarbe</string>
     <string name="title_widget_day_night">Dem dunklen Systemdesign folgen</string>
+    <string name="title_compat_dark">Google hat den dunklen Modus für Android-Versionen vor der Version 10 entfernt</string>
     <string name="title_accessibility_collapsed">Eingeklappt</string>
     <string name="title_accessibility_expanded">Erweitert</string>
     <string name="title_accessibility_seen">Gelesen</string>

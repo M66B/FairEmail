@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail je e-mail aplikacija otvorenog koda, s fokusom na privatnost i sigurnost. Zbog toga neke funkcionalnosti mogu raditi drugačije od onog što ste navikli.</string>
     <string name="app_limitations">Na primjer, poruke su preformatirane po zadanom režimu kako bi se uklonili nesigurni elementi i poboljšala čitljivost, te otvarali linkovi (hiperveze) koji se moraju potvrditi zbog sigurnosti. Te se mogućnosti mogu isključiti, ukoliko želite.</string>
     <string name="app_unsupported">Greške Android verzije s ovog uređaja uzrokuju rušenje aplikacije</string>
+    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Mogu se izgubiti svi podaci</string>
     <string name="app_continue">Želite nastaviti</string>
     <string name="app_exit">Ponovo pritisnite \'nazad\' za izlaz</string>
     <string name="app_cake">Nedovoljno prostora za pohranu</string>
@@ -156,6 +157,7 @@
     <string name="title_setup_quick_smtp">SMTP server za slanje poruka</string>
     <string name="title_setup_quick_certificates">Certifikati servera</string>
     <string name="title_setup_wizard">Čarobnjak</string>
+    <string name="title_setup_wizard_tutorials">Tutorijali</string>
     <string name="title_setup_wizard_multiple">Čarobnjak se može koristiti višestruko kada postavljate više računa</string>
     <string name="title_setup_wizard_new">Potrebna je nova e-mail adresa</string>
     <string name="title_setup_manual">Ručno podešavanje i opcije za račun</string>
@@ -643,7 +645,7 @@
     <string name="title_advanced_cleanup">Čišćenje</string>
     <string name="title_advanced_app">Postavke aplikacije</string>
     <string name="title_advanced_more">Više opcija</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Glavni zapis izvještaja</string>
+    <string name="title_advanced_main_log">Glavni zapis izvještaja</string>
     <string name="title_advanced_protocol">Bilježenje protokola</string>
     <string name="title_advanced_log_info">Bilježenje otklanjanja grešaka</string>
     <string name="title_advanced_debug">Način otklanjanja grešaka</string>
@@ -1739,6 +1741,7 @@
     <string name="title_widget_compose">Prikaži dugme za pisanje nove poruke</string>
     <string name="title_widget_background">Boja pozadine</string>
     <string name="title_widget_day_night">Prati tamnu sistemsku temu</string>
+    <string name="title_compat_dark">Google je uklonio tamnu temu za Android verzije prije verzije 10</string>
     <string name="title_accessibility_collapsed">Suženo</string>
     <string name="title_accessibility_expanded">Prošireno</string>
     <string name="title_accessibility_seen">Pročitano</string>

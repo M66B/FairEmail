@@ -630,7 +630,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_last_cleanup">Son temizleme: %1$s</string>
     <string name="title_advanced_app">Uygulama ayarları</string>
     <string name="title_advanced_more">Daha fazla seçenek</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Ana günlük kaydı</string>
+    <string name="title_advanced_main_log">Ana günlük kaydı</string>
     <string name="title_advanced_protocol">Protokol günlüğü</string>
     <string name="title_advanced_log_info">Hata ayıklama günlüğü</string>
     <string name="title_advanced_debug">Hata ayıklama</string>

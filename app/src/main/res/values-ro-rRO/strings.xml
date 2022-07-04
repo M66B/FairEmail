@@ -642,7 +642,7 @@
     <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
     <string name="title_advanced_app">Setări aplicație</string>
     <string name="title_advanced_more">Mai multe opțiuni</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Jurnal principal de depanare</string>
+    <string name="title_advanced_main_log">Jurnal principal de depanare</string>
     <string name="title_advanced_protocol">Jurnalizare protocol</string>
     <string name="title_advanced_log_info">Jurnal depanare</string>
     <string name="title_advanced_debug">Depanare</string>

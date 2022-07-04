@@ -628,7 +628,7 @@
     <string name="title_advanced_last_cleanup">Senaste rensning: %1$s</string>
     <string name="title_advanced_app">App-inställningar</string>
     <string name="title_advanced_more">Fler alternativ</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Primär loggning</string>
+    <string name="title_advanced_main_log">Primär loggning</string>
     <string name="title_advanced_protocol">Loggar för protokoll</string>
     <string name="title_advanced_log_info">Debug Logging</string>
     <string name="title_advanced_debug">Felsökningsläge</string>

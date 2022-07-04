@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail — это почтовое приложение с открытым исходным кодом, ориентированное на конфиденциальность и безопасность. По этой причине некоторые функции могут работать не так, как вы привыкли.</string>
     <string name="app_limitations">Например, по умолчанию сообщения переформатируются, так чтобы удалять небезопасные элементы и улучшать читаемость, а открытие ссылок нужно в целях безопасности подтверждать. Обе функции можно отключить.</string>
     <string name="app_unsupported">Ошибки в версии Android этого конкретного устройства вызывают сбои</string>
+    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Все данные могут быть потеряны</string>
     <string name="app_continue">Всё равно продолжить</string>
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
     <string name="app_cake">Недостаточно места</string>
@@ -167,6 +168,7 @@
     <string name="title_setup_quick_smtp">SMTP-сервер для отправки сообщений</string>
     <string name="title_setup_quick_certificates">Сертификаты сервера</string>
     <string name="title_setup_wizard">Мастер</string>
+    <string name="title_setup_wizard_tutorials">Обучение</string>
     <string name="title_setup_wizard_multiple">Мастер может быть использован неоднократно для настройки разных учётных записей</string>
     <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
     <string name="title_setup_manual">Ручная настройка и параметры учётной записи</string>
@@ -654,7 +656,7 @@
     <string name="title_advanced_last_cleanup">Последняя очистка: %1$s</string>
     <string name="title_advanced_app">Настройки приложения</string>
     <string name="title_advanced_more">Другие возможности</string>
-    <string name="title_advanced_main_log" comment="title_advanced_main_log&#10;Miscellaneous option title, same as turning logging on/off via the log view (via the navigation menu)">Основной журнал</string>
+    <string name="title_advanced_main_log">Основной журнал</string>
     <string name="title_advanced_protocol">Журнал протокола</string>
     <string name="title_advanced_log_info">Журнал отладки</string>
     <string name="title_advanced_debug">Режим отладки</string>
@@ -1749,6 +1751,7 @@
     <string name="title_widget_compose">Показать кнопку создания нового сообщения</string>
     <string name="title_widget_background">Цвет фона</string>
     <string name="title_widget_day_night">Использовать системную тёмную тему</string>
+    <string name="title_compat_dark">Google удалил тёмный режим для версий Android младше 10 версии</string>
     <string name="title_accessibility_collapsed">Свёрнуто</string>
     <string name="title_accessibility_expanded">Развёрнуто</string>
     <string name="title_accessibility_seen">Прочитано</string>
