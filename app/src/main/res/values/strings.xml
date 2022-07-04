@@ -1876,6 +1876,7 @@
     <string name="title_yes">Yes</string>
     <string name="title_no">No</string>
     <string name="title_later">Later</string>
+    <string name="title_paste_plain">Paste as plain text</string>
     <string name="title_undo">Undo</string>
     <string name="title_redo">Redo</string>
     <string name="title_insert_line">Insert line</string>
