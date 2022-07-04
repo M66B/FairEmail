@@ -133,9 +133,12 @@ On Xiaomi Redmi Note devices the database occasionally gets corrupted, resulting
 (on the device only, unless you are using a POP3 account with the option *Leave messages on server* disabled).
 
 The cause of this problem are disk I/O errors due to an Android bug or maybe a hardware issue, please [see here](https://www.sqlite.org/rescode.html#ioerr_write).
+
+"*This error might result from a hardware malfunction or because a filesystem came unmounted while the file was open.*"
+
 This can't be fixed by the app and should be fixed by Xiaomi / Redmi.
 
-*Please do not blame the app for this!*
+**Please do not blame the app for this!**
 
 For the record the stack trace:
 
