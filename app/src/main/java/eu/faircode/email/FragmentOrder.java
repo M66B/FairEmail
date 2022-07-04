@@ -197,19 +197,22 @@ public class FragmentOrder extends FragmentBase {
                 final boolean reset = args.getBoolean("reset");
                 final long[] ids = args.getLongArray("ids");
 
-                final DB db = DB.getInstance(context);
-                db.runInTransaction(new Runnable() {
-                    @Override
-                    public void run() {
-                        for (int i = 0; i < ids.length; i++)
-                            if (EntityAccount.class.getName().equals(clazz))
-                                db.account().setAccountOrder(ids[i], reset ? null : i);
-                            else if (TupleFolderSort.class.getName().equals(clazz))
-                                db.folder().setFolderOrder(ids[i], reset ? null : i);
-                            else
-                                throw new IllegalArgumentException("Unknown class=" + clazz);
-                    }
-                });
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    for (int i = 0; i < ids.length; i++)
+                        if (EntityAccount.class.getName().equals(clazz))
+                            db.account().setAccountOrder(ids[i], reset ? null : i);
+                        else if (TupleFolderSort.class.getName().equals(clazz))
+                            db.folder().setFolderOrder(ids[i], reset ? null : i);
+                        else
+                            throw new IllegalArgumentException("Unknown class=" + clazz);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
 
                 return null;
             }
