@@ -2372,6 +2372,14 @@ public class HtmlHelper {
         document.select("head").append(sb.toString());
     }
 
+    static void fakeDark(Document document) {
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/hue-rotate
+        document.head().appendElement("style").html(
+                "body { filter: invert(100%) hue-rotate(180deg) !important; background: black !important; }" +
+                        "img { filter: invert(100%) hue-rotate(180deg) !important; }");
+    }
+
     static String getLanguage(Context context, String subject, String text) {
         try {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

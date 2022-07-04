@@ -300,6 +300,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static boolean debug;
     private int level;
     private boolean canDarken;
+    private boolean fake_dark;
     private boolean webview_legacy;
     private boolean show_recent;
 
@@ -2170,7 +2171,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibSearch.setVisibility(tools && !outbox && button_search && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
                     ibTranslate.setVisibility(tools && !outbox && button_translate && DeepL.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
                     ibForceLight.setVisibility(tools && full && dark && button_force_light && message.content ? View.VISIBLE : View.GONE);
-                    ibForceLight.setImageLevel(!canDarken || force_light ? 1 : 0);
+                    ibForceLight.setImageLevel(!(canDarken || fake_dark) || force_light ? 1 : 0);
                     ibImportance.setVisibility(tools && button_importance && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibHide.setVisibility(tools && button_hide && !outbox ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
@@ -2663,6 +2664,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             float scale = (size == 0 || textSize == 0 ? 1.0f : size / (textSize * message_zoom / 100f));
             args.putFloat("scale", scale);
 
+            boolean dark = Helper.isDarkTheme(context);
+            args.putBoolean("fake_dark", !canDarken && fake_dark && dark && !force_light);
+
             new SimpleTask<Object>() {
                 @Override
                 protected void onPreExecute(Bundle args) {
@@ -2819,6 +2823,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (monospaced_pre)
                                 HtmlHelper.restorePre(document);
                         }
+
+                        boolean fake_dark = args.getBoolean("fake_dark");
+                        if (fake_dark)
+                            HtmlHelper.fakeDark(document);
 
                         boolean browser_zoom = prefs.getBoolean("browser_zoom", false);
                         int message_zoom = prefs.getInt("message_zoom", 100);
@@ -4902,7 +4910,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 });
 
                 boolean isDark = Helper.isDarkTheme(context);
-                tvDark.setVisibility(isDark && !canDarken ? View.VISIBLE : View.GONE);
+                tvDark.setVisibility(isDark && !(canDarken || fake_dark) ? View.VISIBLE : View.GONE);
             } else {
                 boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 
@@ -6248,35 +6256,34 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionForceLight(TupleMessageEx message) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-                View view = LayoutInflater.from(context).inflate(R.layout.dialog_dark, null);
-                final Button btnIssue = view.findViewById(R.id.btnIssue);
-
-                btnIssue.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Uri uri = Uri.parse("https://issuetracker.google.com/issues/237785596");
-                        Helper.view(v.getContext(), uri, true);
-                    }
-                });
-
-                new AlertDialog.Builder(context)
-                        .setView(view)
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
-                return;
-            }
-
-            if (canDarken) {
+            if (canDarken || fake_dark) {
                 boolean force_light = !properties.getValue("force_light", message.id);
                 properties.setValue("force_light", message.id, force_light);
                 ibForceLight.setImageLevel(force_light ? 1 : 0);
                 bindBody(message, false);
             } else {
-                Intent update = new Intent(Intent.ACTION_VIEW)
-                        .setData(Uri.parse(Helper.PACKAGE_WEBVIEW))
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(update);
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+                    View view = LayoutInflater.from(context).inflate(R.layout.dialog_dark, null);
+                    final Button btnIssue = view.findViewById(R.id.btnIssue);
+
+                    btnIssue.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Uri uri = Uri.parse("https://issuetracker.google.com/issues/237785596");
+                            Helper.view(v.getContext(), uri, true);
+                        }
+                    });
+
+                    new AlertDialog.Builder(context)
+                            .setView(view)
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
+                } else {
+                    Intent update = new Intent(Intent.ACTION_VIEW)
+                            .setData(Uri.parse(Helper.PACKAGE_WEBVIEW))
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(update);
+                }
             }
         }
 
@@ -7113,6 +7120,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         level = prefs.getInt("log_level", Log.getDefaultLogLevel());
 
         this.canDarken = WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING);
+        this.fake_dark = prefs.getBoolean("fake_dark", false);
         this.webview_legacy = prefs.getBoolean("webview_legacy", false);
         this.show_recent = prefs.getBoolean("show_recent", false);
 
