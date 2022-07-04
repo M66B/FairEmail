@@ -127,6 +127,8 @@ Related questions:
 
 **Xiaomi Redmi Note**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23redmi)
+
 On Xiaomi Redmi Note devices the database occasionally gets corrupted, resulting in total data loss
 (on the device only, unless you are using a POP3 account with the option *Leave messages on server* disabled).
 
