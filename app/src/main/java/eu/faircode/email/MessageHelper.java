@@ -3199,7 +3199,7 @@ public class MessageHelper {
                                 } catch (Throwable ex) {
                                     Log.w(ex);
                                 }
-                                m.append(' ').append(bp.getContentType());
+                                m.append(" [").append(bp.getContentType()).append("]");
                             }
                         } else
                             m.append(content.getClass().getName());
