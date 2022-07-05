@@ -521,8 +521,10 @@ public class FragmentGmail extends FragmentBase {
                         account.synchronize = true;
                         account.primary = (primary == null);
 
-                        if (pop)
+                        if (pop) {
+                            account.leave_on_device = true;
                             account.max_messages = EntityAccount.DEFAULT_MAX_MESSAGES;
+                        }
 
                         account.created = new Date().getTime();
                         account.last_connected = account.created;
