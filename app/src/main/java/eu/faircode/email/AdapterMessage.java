@@ -436,6 +436,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibDecrypt;
         private ImageButton ibVerify;
         private ImageButton ibUndo;
+        private ImageButton ibAnswer;
         private ImageButton ibRule;
         private ImageButton ibUnsubscribe;
         private ImageButton ibHeaders;
@@ -450,7 +451,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibImportance;
         private ImageButton ibHide;
         private ImageButton ibSeen;
-        private ImageButton ibAnswer;
         private ImageButton ibNotes;
         private ImageButton ibLabels;
         private ImageButton ibKeywords;
@@ -853,6 +853,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
             ibVerify = vsBody.findViewById(R.id.ibVerify);
             ibUndo = vsBody.findViewById(R.id.ibUndo);
+            ibAnswer = vsBody.findViewById(R.id.ibAnswer);
             ibRule = vsBody.findViewById(R.id.ibRule);
             ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
             ibHeaders = vsBody.findViewById(R.id.ibHeaders);
@@ -867,7 +868,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibImportance = vsBody.findViewById(R.id.ibImportance);
             ibHide = vsBody.findViewById(R.id.ibHide);
             ibSeen = vsBody.findViewById(R.id.ibSeen);
-            ibAnswer = vsBody.findViewById(R.id.ibAnswer);
             ibNotes = vsBody.findViewById(R.id.ibNotes);
             ibLabels = vsBody.findViewById(R.id.ibLabels);
             ibKeywords = vsBody.findViewById(R.id.ibKeywords);
@@ -996,6 +996,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibDecrypt.setOnClickListener(this);
                 ibVerify.setOnClickListener(this);
                 ibUndo.setOnClickListener(this);
+                ibAnswer.setOnClickListener(this);
                 ibRule.setOnClickListener(this);
                 ibUnsubscribe.setOnClickListener(this);
                 ibHeaders.setOnClickListener(this);
@@ -1013,7 +1014,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibImportance.setOnLongClickListener(this);
                 ibHide.setOnClickListener(this);
                 ibSeen.setOnClickListener(this);
-                ibAnswer.setOnClickListener(this);
                 ibNotes.setOnClickListener(this);
                 ibNotes.setOnLongClickListener(this);
                 ibLabels.setOnClickListener(this);
@@ -1110,6 +1110,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibDecrypt.setOnClickListener(null);
                 ibVerify.setOnClickListener(null);
                 ibUndo.setOnClickListener(null);
+                ibAnswer.setOnClickListener(null);
                 ibRule.setOnClickListener(null);
                 ibUnsubscribe.setOnClickListener(null);
                 ibHeaders.setOnClickListener(null);
@@ -1127,7 +1128,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibImportance.setOnLongClickListener(null);
                 ibHide.setOnClickListener(null);
                 ibSeen.setOnClickListener(null);
-                ibAnswer.setOnClickListener(null);
                 ibNotes.setOnClickListener(null);
                 ibNotes.setOnLongClickListener(null);
                 ibLabels.setOnClickListener(null);
@@ -1673,6 +1673,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(View.GONE);
+            ibAnswer.setVisibility(View.GONE);
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibHeaders.setVisibility(View.GONE);
@@ -1687,7 +1688,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibImportance.setVisibility(View.GONE);
             ibHide.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
-            ibAnswer.setVisibility(View.GONE);
             ibNotes.setVisibility(View.GONE);
             ibLabels.setVisibility(View.GONE);
             ibKeywords.setVisibility(View.GONE);
@@ -1924,6 +1924,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(View.GONE);
+            ibAnswer.setVisibility(View.GONE);
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibHeaders.setVisibility(View.GONE);
@@ -1938,7 +1939,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibImportance.setVisibility(View.GONE);
             ibHide.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
-            ibAnswer.setVisibility(View.GONE);
             ibNotes.setVisibility(View.GONE);
             ibLabels.setVisibility(View.GONE);
             ibKeywords.setVisibility(View.GONE);
@@ -2160,6 +2160,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibInbox.setImageResource(inJunk ? R.drawable.twotone_report_off_24 : R.drawable.twotone_inbox_24);
 
                     ibUndo.setVisibility(outbox ? View.VISIBLE : View.GONE);
+                    ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) || !threading || swipe_reply ? View.GONE : View.VISIBLE);
                     ibRule.setVisibility(tools && button_rule && !outbox && !message.folderReadOnly ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
                     ibHeaders.setVisibility(tools && button_headers && headers ? View.VISIBLE : View.GONE);
@@ -2175,7 +2176,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibImportance.setVisibility(tools && button_importance && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibHide.setVisibility(tools && button_hide && !outbox ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
-                    ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) || !threading || swipe_reply ? View.GONE : View.VISIBLE);
                     ibNotes.setVisibility(tools && button_notes && !outbox ? View.VISIBLE : View.GONE);
                     ibLabels.setVisibility(tools && labels_header && labels ? View.VISIBLE : View.GONE);
                     ibKeywords.setVisibility(tools && button_keywords && keywords ? View.VISIBLE : View.GONE);
@@ -3894,6 +3894,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onActionDecrypt(message, false);
                 } else if (id == R.id.ibUndo) {
                     ActivityCompose.undoSend(message.id, context, owner, parentFragment.getParentFragmentManager());
+                } else if (id == R.id.ibAnswer) {
+                    onActionAnswer(message, ibAnswer);
                 } else if (id == R.id.ibRule) {
                     onMenuCreateRule(message);
                 } else if (id == R.id.ibUnsubscribe) {
@@ -3924,8 +3926,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 } else if (id == R.id.ibForceLight) {
                     onActionForceLight(message);
-                } else if (id == R.id.ibAnswer) {
-                    onActionAnswer(message, ibAnswer);
                 } else if (id == R.id.ibNotes) {
                     onMenuNotes(message);
                 } else if (id == R.id.ibLabels) {
