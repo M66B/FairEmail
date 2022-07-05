@@ -169,6 +169,19 @@ public class EntityOperation {
                 message.keywords = keywords.toArray(new String[0]);
                 db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(message.keywords));
 
+                if (set) {
+                    EntityFolder folder = db.folder().getFolder(message.folder);
+                    if (folder != null) {
+                        List<String> fkeywords = new ArrayList<>();
+                        if (folder.keywords != null)
+                            fkeywords.addAll(Arrays.asList(folder.keywords));
+                        if (!fkeywords.contains(keyword))
+                            fkeywords.add(keyword);
+                        Collections.sort(fkeywords);
+                        db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(message.keywords));
+                    }
+                }
+
             } else if (LABEL.equals(name)) {
                 String label = jargs.getString(0);
                 boolean set = jargs.getBoolean(1);
