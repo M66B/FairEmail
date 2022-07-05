@@ -178,7 +178,8 @@ public class EntityOperation {
                         if (!fkeywords.contains(keyword))
                             fkeywords.add(keyword);
                         Collections.sort(fkeywords);
-                        db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(message.keywords));
+                        db.folder().setFolderKeywords(folder.id,
+                                DB.Converters.fromStringArray(fkeywords.toArray(new String[0])));
                     }
                 }
 
