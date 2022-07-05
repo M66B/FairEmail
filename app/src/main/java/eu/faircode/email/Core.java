@@ -3311,6 +3311,18 @@ class Core {
 
             db.folder().setFolderSyncState(folder.id, "syncing");
 
+            String[] userFlags = ifolder.getPermanentFlags().getUserFlags();
+            if (userFlags != null && userFlags.length > 0) {
+                List<String> keywords = new ArrayList<>(Arrays.asList(userFlags));
+                Collections.sort(keywords);
+                userFlags = keywords.toArray(new String[0]);
+                if (!Arrays.equals(folder.keywords, userFlags)) {
+                    Log.i(folder.name + " updating flags=" + TextUtils.join(",", userFlags));
+                    folder.keywords = userFlags;
+                    db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(userFlags));
+                }
+            }
+
             // Check uid validity
             try {
                 long uidv = ifolder.getUIDValidity();
