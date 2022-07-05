@@ -183,7 +183,7 @@ public class FragmentDialogBase extends DialogFragment {
         targetRequestCode = requestCode;
     }
 
-    public void setTargetActivity(ActivityBase activity, int requestCode){
+    public void setTargetActivity(ActivityBase activity, int requestCode) {
         targetRequestKey = activity.getRequestKey();
         targetRequestCode = requestCode;
     }
@@ -197,14 +197,22 @@ public class FragmentDialogBase extends DialogFragment {
         if (!hasResult || resultCode == RESULT_OK) {
             hasResult = true;
 
-            if (targetRequestKey != null) {
-                Bundle args = getArguments();
-                if (args == null) // onDismiss
-                    args = new Bundle();
-                args.putInt("requestCode", targetRequestCode);
-                args.putInt("resultCode", resultCode);
-                getParentFragmentManager().setFragmentResult(targetRequestKey, args);
-            }
+            if (targetRequestKey != null)
+                try {
+                    Bundle args = getArguments();
+                    if (args == null) // onDismiss
+                        args = new Bundle();
+                    args.putInt("requestCode", targetRequestCode);
+                    args.putInt("resultCode", resultCode);
+                    getParentFragmentManager().setFragmentResult(targetRequestKey, args);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                    /*
+                        java.lang.IllegalStateException: Fragment FragmentDialog... not associated with a fragment manager.
+                            at androidx.fragment.app.Fragment.getParentFragmentManager(SourceFile:2)
+                            at eu.faircode.email.FragmentDialogBase.sendResult(SourceFile:9)
+                     */
+                }
         }
     }
 
