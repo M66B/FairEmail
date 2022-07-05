@@ -7118,7 +7118,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         level = prefs.getInt("log_level", Log.getDefaultLogLevel());
 
         this.canDarken = WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING);
-        this.fake_dark = prefs.getBoolean("fake_dark", true);
+        this.fake_dark = prefs.getBoolean("fake_dark", false);
         this.webview_legacy = prefs.getBoolean("webview_legacy", false);
         this.show_recent = prefs.getBoolean("show_recent", false);
 
