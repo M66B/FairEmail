@@ -62,24 +62,14 @@
 
     <group android:id="@+id/group_properties">
         <item
-            android:id="@+id/menu_edit_notes"
-            android:icon="@drawable/twotone_sticky_note_2_24"
-            android:title="@string/title_edit_notes" />
-
-        <item
-            android:id="@+id/menu_create_rule"
-            android:icon="@drawable/twotone_filter_alt_24"
-            android:title="@string/title_create_rule" />
-
-        <item
             android:id="@+id/menu_manage_keywords"
             android:icon="@drawable/twotone_label_important_24"
             android:title="@string/title_manage_keywords" />
 
         <item
-            android:id="@+id/menu_search_in_text"
-            android:icon="@drawable/twotone_manage_search_24"
-            android:title="@string/title_search_in_text" />
+            android:id="@+id/menu_edit_notes"
+            android:icon="@drawable/twotone_sticky_note_2_24"
+            android:title="@string/title_edit_notes" />
 
         <item
             android:id="@+id/menu_translate"
@@ -91,6 +81,16 @@
             android:checkable="true"
             android:icon="@drawable/twotone_light_mode_24"
             android:title="@string/title_force_light" />
+
+        <item
+            android:id="@+id/menu_search_in_text"
+            android:icon="@drawable/twotone_manage_search_24"
+            android:title="@string/title_search_in_text" />
+
+        <item
+            android:id="@+id/menu_create_rule"
+            android:icon="@drawable/twotone_filter_alt_24"
+            android:title="@string/title_create_rule" />
     </group>
 
     <group android:id="@+id/group_sharing">
