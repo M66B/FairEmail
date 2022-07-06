@@ -522,6 +522,7 @@ public class FragmentGmail extends FragmentBase {
                         account.primary = (primary == null);
 
                         if (pop) {
+                            // https://support.google.com/mail/answer/7104828
                             account.leave_on_device = true;
                             account.max_messages = EntityAccount.DEFAULT_MAX_MESSAGES;
                         }
