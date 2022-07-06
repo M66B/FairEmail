@@ -2401,7 +2401,7 @@ public class HtmlHelper {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
         // https://developer.android.com/reference/android/webkit/WebSettings#setAlgorithmicDarkeningAllowed(boolean)
 
-        if (hasColorScheme(document, "dark"))
+        if (true || hasColorScheme(document, "dark"))
             return;
 
         document.head().appendElement("style").html(
