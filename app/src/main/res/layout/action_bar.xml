@@ -25,8 +25,10 @@
         android:singleLine="true"
         android:text="123"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@id/title"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title" />
 
     <TextView
         android:id="@+id/subtitle"
