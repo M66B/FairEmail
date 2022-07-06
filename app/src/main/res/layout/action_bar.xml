@@ -12,9 +12,21 @@
         android:singleLine="true"
         android:text="Title"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/count"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:paddingEnd="6dp"
+        android:singleLine="true"
+        android:text="123"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/subtitle"

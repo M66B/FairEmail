@@ -171,6 +171,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swAttachmentsAlt;
     private SwitchCompat swThumbnails;
 
+    private SwitchCompat swListCount;
     private SwitchCompat swBundledFonts;
     private SwitchCompat swParseClasses;
     private SwitchCompat swBackgroundColor;
@@ -207,7 +208,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images", "button_extra",
             "unzip", "attachments_alt", "thumbnails",
-            "bundled_fonts", "parse_classes",
+            "list_count", "bundled_fonts", "parse_classes",
             "background_color", "text_color", "text_size", "text_font", "text_align",
             "authentication", "authentication_indicator"
     };
@@ -327,6 +328,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swThumbnails = view.findViewById(R.id.swThumbnails);
 
+        swListCount = view.findViewById(R.id.swListCount);
         swBundledFonts = view.findViewById(R.id.swBundledFonts);
         swParseClasses = view.findViewById(R.id.swParseClasses);
         swBackgroundColor = view.findViewById(R.id.swBackgroundColor);
@@ -1199,6 +1201,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swListCount.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("list_count", checked).apply();
+            }
+        });
+
         swBundledFonts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1493,6 +1502,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swThumbnails.setChecked(prefs.getBoolean("thumbnails", true));
 
+        swListCount.setChecked(prefs.getBoolean("list_count", false));
         swBundledFonts.setChecked(prefs.getBoolean("bundled_fonts", true));
         swParseClasses.setChecked(prefs.getBoolean("parse_classes", true));
         swBackgroundColor.setChecked(prefs.getBoolean("background_color", false));

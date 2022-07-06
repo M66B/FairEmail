@@ -29,6 +29,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Rect;
@@ -61,6 +62,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.preference.PreferenceManager;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -72,6 +74,7 @@ import java.util.List;
 import java.util.Map;
 
 public class FragmentBase extends Fragment {
+    private CharSequence count = null;
     private CharSequence title = null;
     private CharSequence subtitle = " ";
     private boolean finish = false;
@@ -95,6 +98,11 @@ public class FragmentBase extends Fragment {
             return ((ActivityBase) activity).getSupportActionBar();
         else
             return null;
+    }
+
+    protected void setCount(String count) {
+        this.count = count;
+        updateSubtitle();
     }
 
     protected void setTitle(int resid) {
@@ -410,9 +418,18 @@ public class FragmentBase extends Fragment {
                     actionbar.setTitle(title == null ? getString(R.string.app_name) : title);
                     actionbar.setSubtitle(subtitle);
                 } else {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+                    boolean list_count = prefs.getBoolean("list_count", false);
+
                     View custom = actionbar.getCustomView();
+                    TextView tvCount = custom.findViewById(R.id.count);
                     TextView tvTitle = custom.findViewById(R.id.title);
                     TextView tvSubtitle = custom.findViewById(R.id.subtitle);
+                    if (tvCount != null) {
+                        tvCount.setText(count);
+                        tvCount.setVisibility(!list_count || TextUtils.isEmpty(count)
+                                ? View.GONE : View.VISIBLE);
+                    }
                     if (tvTitle != null)
                         tvTitle.setText(title == null ? getString(R.string.app_name) : title);
                     if (tvSubtitle != null)

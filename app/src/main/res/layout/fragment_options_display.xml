@@ -1883,6 +1883,17 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swListCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_list_count"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAdvanced"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swBundledFonts"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1891,7 +1902,7 @@
                     android:text="@string/title_advanced_bundled_fonts"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAdvanced"
+                    app:layout_constraintTop_toBottomOf="@id/swListCount"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
