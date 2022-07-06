@@ -125,9 +125,13 @@ public class FragmentLogs extends FragmentBase {
                 if (logs == null)
                     logs = new ArrayList<>();
 
-                adapter.set(logs, account, folder, message, getTypes());
-                if (autoScroll)
-                    rvLog.scrollToPosition(0);
+                adapter.set(logs, account, folder, message, getTypes(), new Runnable() {
+                    @Override
+                    public void run() {
+                        if (autoScroll)
+                            rvLog.scrollToPosition(0);
+                    }
+                });
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
@@ -173,7 +177,7 @@ public class FragmentLogs extends FragmentBase {
         } else if (itemId == R.id.menu_auto_scroll) {
             boolean enabled = !item.isChecked();
             item.setChecked(enabled);
-            onMenuAutoScoll(enabled);
+            onMenuAutoScroll(enabled);
             return true;
         } else if (itemId == R.id.menu_show) {
             onMenuShow();
@@ -189,7 +193,7 @@ public class FragmentLogs extends FragmentBase {
         prefs.edit().putBoolean("main_log", enabled).apply();
     }
 
-    private void onMenuAutoScoll(boolean enabled) {
+    private void onMenuAutoScroll(boolean enabled) {
         autoScroll = enabled;
     }
 

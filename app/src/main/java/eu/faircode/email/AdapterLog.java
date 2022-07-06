@@ -106,7 +106,8 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
     public void set(@NonNull List<EntityLog> logs,
                     Long account, Long folder, Long message,
-                    @NonNull List<EntityLog.Type> types) {
+                    @NonNull List<EntityLog.Type> types,
+                    Runnable callback) {
         Log.i("Set logs=" + logs.size());
 
         this.all = logs;
@@ -162,6 +163,8 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
                 try {
                     diff.dispatchUpdatesTo(AdapterLog.this);
+                    if (callback != null)
+                        callback.run();
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
@@ -175,7 +178,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     }
 
     public void setTypes(@NonNull List<EntityLog.Type> types) {
-        set(all, account, folder, message, types);
+        set(all, account, folder, message, types, null);
     }
 
     private static class DiffCallback extends DiffUtil.Callback {
