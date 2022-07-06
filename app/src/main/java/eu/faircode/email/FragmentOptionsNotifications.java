@@ -92,6 +92,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swNotifyBackgroundOnly;
     private SwitchCompat swNotifyKnownOnly;
     private SwitchCompat swNotifySuppressInCall;
+    private SwitchCompat swNotifySuppressInCar;
     private TextView tvNotifyKnownPro;
     private SwitchCompat swNotifyRemove;
     private SwitchCompat swNotifyClear;
@@ -122,7 +123,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "notify_flag", "notify_seen", "notify_hide", "notify_snooze",
             "light", "sound", "notify_screen_on",
             "badge", "unseen_ignored",
-            "notify_background_only", "notify_known", "notify_suppress_in_call", "notify_remove", "notify_clear",
+            "notify_background_only", "notify_known", "notify_suppress_in_call", "notify_suppress_in_car",
+            "notify_remove", "notify_clear",
             "notify_subtext", "notify_preview", "notify_preview_all", "notify_preview_only", "notify_transliterate",
             "wearable_preview",
             "notify_messaging",
@@ -173,6 +175,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swNotifyBackgroundOnly = view.findViewById(R.id.swNotifyBackgroundOnly);
         swNotifyKnownOnly = view.findViewById(R.id.swNotifyKnownOnly);
         swNotifySuppressInCall = view.findViewById(R.id.swNotifySuppressInCall);
+        swNotifySuppressInCar = view.findViewById(R.id.swNotifySuppressInCar);
         tvNotifyKnownPro = view.findViewById(R.id.tvNotifyKnownPro);
         swNotifyRemove = view.findViewById(R.id.swNotifyRemove);
         swNotifyClear = view.findViewById(R.id.swNotifyClear);
@@ -478,6 +481,16 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
+        swNotifySuppressInCar.setVisibility(
+                Build.VERSION.SDK_INT < Build.VERSION_CODES.M
+                        ? View.GONE : View.VISIBLE);
+        swNotifySuppressInCar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("notify_suppress_in_car", checked).apply();
+            }
+        });
+
         swNotifyRemove.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -689,6 +702,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swNotifyBackgroundOnly.setChecked(prefs.getBoolean("notify_background_only", false));
         swNotifyKnownOnly.setChecked(prefs.getBoolean("notify_known", false));
         swNotifySuppressInCall.setChecked(prefs.getBoolean("notify_suppress_in_call", false));
+        swNotifySuppressInCar.setChecked(prefs.getBoolean("notify_suppress_in_car", false));
         swNotifyRemove.setChecked(prefs.getBoolean("notify_remove", true));
         swNotifyClear.setChecked(prefs.getBoolean("notify_clear", false));
         swNotifySubtext.setChecked(prefs.getBoolean("notify_subtext", true));

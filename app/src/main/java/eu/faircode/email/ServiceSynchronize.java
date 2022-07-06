@@ -31,7 +31,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
@@ -46,6 +45,7 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.car.app.connection.CarConnection;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
@@ -116,6 +116,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private int lastAccounts = 0;
     private int lastOperations = 0;
     private ConnectionHelper.NetworkState lastNetworkState = null;
+    private boolean isInCall = false;
+    private boolean isInCar = false;
 
     private boolean foreground = false;
     private final Map<Long, Core.State> coreStates = new Hashtable<>();
@@ -768,58 +770,45 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         });
 
         final TwoStateOwner mowner = new TwoStateOwner(this, "mutableUnseenNotify");
+        mowner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+            public void onStateChanged() {
+                Lifecycle.State state = mowner.getLifecycle().getCurrentState();
+                EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug, "Owner state=" + state);
+                if (state.equals(Lifecycle.State.DESTROYED))
+                    mowner.getLifecycle().removeObserver(this);
+            }
+        });
 
-        AudioManager am = Helper.getSystemService(this, AudioManager.class);
-        if (am == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-            mowner.start();
-            Log.i("Audio mode legacy");
-        } else {
-            AudioManager.OnModeChangedListener listener = new AudioManager.OnModeChangedListener() {
-                @Override
-                public void onModeChanged(int mode) {
-                    getMainHandler().post(new RunnableEx("AudioMode") {
-                        @Override
-                        public void delegate() {
-                            boolean incall = MediaPlayerHelper.isInCall(mode);
-                            boolean suppress = prefs.getBoolean("notify_suppress_in_call", false);
-                            boolean start = (!suppress || !incall);
-                            Log.i("Audio mode start=" + start +
-                                    " incall=" + incall +
-                                    " suppress=" + suppress);
-                            if (start)
-                                mowner.start();
-                            else
-                                mowner.stop();
-                        }
-                    });
-                }
-            };
-            listener.onModeChanged(am.getMode()); // Init
+        MediaPlayerHelper.liveInCall(this, this, new MediaPlayerHelper.IInCall() {
+            @Override
+            public void onChanged(boolean inCall) {
+                boolean suppress = prefs.getBoolean("notify_suppress_in_call", false);
+                EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug,
+                        "In call=" + inCall + " suppress=" + suppress);
+                isInCall = (inCall && suppress);
+                if (isInCall || isInCar)
+                    mowner.stop();
+                else
+                    mowner.start();
+            }
+        });
 
-            getLifecycle().addObserver(new LifecycleObserver() {
-                private boolean registered = false;
-
-                @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
-                public void onStateChanged() {
-                    try {
-                        if (ServiceSynchronize.this.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                            if (!registered) {
-                                am.addOnModeChangedListener(executor, listener);
-                                registered = true;
-                            }
-                        } else {
-                            if (registered) {
-                                am.removeOnModeChangedListener(listener);
-                                registered = false;
-                            }
-                        }
-                        Log.i("Audio mode registered=" + registered);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-                }
-            });
-        }
+        new CarConnection(this).getType().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer connectionState) {
+                boolean projection = (connectionState != null &&
+                        connectionState == CarConnection.CONNECTION_TYPE_PROJECTION);
+                boolean suppress = prefs.getBoolean("notify_suppress_in_car", false);
+                EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug,
+                        "Projection=" + projection + " state=" + connectionState + " suppress=" + suppress);
+                isInCar = (projection && suppress);
+                if (isInCall || isInCar)
+                    mowner.stop();
+                else
+                    mowner.start();
+            }
+        });
 
         mutableUnseenNotify.observe(mowner, new Observer<List<TupleMessageEx>>() {
             private final ExecutorService executor =

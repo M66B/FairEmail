@@ -5,6 +5,12 @@ import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
+
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
@@ -79,6 +85,51 @@ public class MediaPlayerHelper {
         }
     }
 
+    static void liveInCall(Context context, LifecycleOwner owner, IInCall intf) {
+        AudioManager am = Helper.getSystemService(context, AudioManager.class);
+        if (am == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            intf.onChanged(false);
+            Log.i("Audio mode legacy");
+        } else {
+            AudioManager.OnModeChangedListener listener = new AudioManager.OnModeChangedListener() {
+                @Override
+                public void onModeChanged(int mode) {
+                    ApplicationEx.getMainHandler().post(new RunnableEx("AudioMode") {
+                        @Override
+                        public void delegate() {
+                            intf.onChanged(isInCall(mode));
+                        }
+                    });
+                }
+            };
+            listener.onModeChanged(am.getMode()); // Init
+
+            owner.getLifecycle().addObserver(new LifecycleObserver() {
+                private boolean registered = false;
+
+                @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+                public void onStateChanged() {
+                    try {
+                        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                            if (!registered) {
+                                am.addOnModeChangedListener(executor, listener);
+                                registered = true;
+                            }
+                        } else {
+                            if (registered) {
+                                am.removeOnModeChangedListener(listener);
+                                registered = false;
+                            }
+                        }
+                        Log.i("Audio mode registered=" + registered);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+        }
+    }
+
     static boolean isInCall(Context context) {
         AudioManager am = Helper.getSystemService(context, AudioManager.class);
         if (am == null)
@@ -99,5 +150,9 @@ public class MediaPlayerHelper {
         return (mode == AudioManager.MODE_RINGTONE ||
                 mode == AudioManager.MODE_IN_CALL ||
                 mode == AudioManager.MODE_IN_COMMUNICATION);
+    }
+
+    interface IInCall {
+        void onChanged(boolean inCall);
     }
 }
