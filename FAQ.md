@@ -284,7 +284,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(78) How do I use schedules?](#user-content-faq78)
 * [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
 * [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
-* [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
+* [(81) Can you make the background of the original message view dark in dark themes?](#user-content-faq81)
 * [(82) What is a tracking image?](#user-content-faq82)
 * [(84) What are local contacts for?](#user-content-faq84)
 * [(85) Why is an identity not available?](#user-content-faq85)
@@ -2873,12 +2873,15 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 <br />
 
 <a name="faq81"></a>
-**~~(81) Can you make the background of the original message dark in the dark theme?~~**
+**(81) Can you make the background of the original message view dark in dark themes?**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq81)
 
-~~The original message is shown as the sender has sent it, including all colors.~~
-~~Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.~~
+The original message view will use a dark background when using a dark theme for Android version 10 and later.
+
+For Android before version 10 Google removed this feature from the [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview),
+even though it worked fine in most cases.
+Please see [this issue](https://issuetracker.google.com/issues/237785596) (requires a Google account login) requesting to restore this feature again for more information.
 
 <br />
 
