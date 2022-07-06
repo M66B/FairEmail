@@ -571,6 +571,19 @@
                     app:layout_constraintTop_toBottomOf="@id/swNotifySuppressInCall"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvNotifySuppressInCarHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_notify_car_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swNotifySuppressInCar" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNotifyRemove"
                     android:layout_width="0dp"
@@ -580,7 +593,7 @@
                     android:text="@string/title_advanced_notify_remove"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swNotifySuppressInCar"
+                    app:layout_constraintTop_toBottomOf="@id/tvNotifySuppressInCarHint"
                     app:switchPadding="12dp" />
 
                 <TextView
