@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail - це додаток з відкритим вихідним кодом, орієнтований на конфіденційність та безпеку. Тому деякі функції можуть відрізнятися від того, що ви використовуєте.</string>
     <string name="app_limitations">Наприклад, щоб видалити небезпечні елементи та покращити читання, і для додавання підтвердження відкриття посилань з метою безпеки - повідомлення переформатуються за замовчуванням. За бажанням, ці дії можуть бути відключені.</string>
     <string name="app_unsupported">Помилка в версії Android для конкретного пристрою викликають аварійне завершення роботи</string>
-    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Всі дані можуть бути втрачені</string>
+    <string name="app_data_loss">Всі дані можуть бути втрачені</string>
     <string name="app_continue">Все одно продовжити</string>
     <string name="app_exit">Натисніть \"Назад\" знову, щоб вийти</string>
     <string name="app_cake">Залишилося недостатньо вільного місця для зберігання</string>
@@ -502,6 +502,7 @@
     <string name="title_advanced_actionbar_color">Використовувати колір аккаунта як тло у панелі дій для розмови</string>
     <string name="title_advanced_category_header">Групувати за категорією облікового запису</string>
     <string name="title_advanced_navbar_colorize">Розфарбувати панель навігації Android</string>
+    <string name="title_advanced_list_count">Показати кількість повідомлень або розмов у верхній панелі дій</string>
     <string name="title_advanced_bundled_fonts">Використовувати вбудовані шрифти</string>
     <string name="title_advanced_parse_classes">Аналіз таблиці стилів</string>
     <string name="title_advanced_authentication">Показати попередження про авторизацію</string>
@@ -1636,6 +1637,7 @@
     <string name="title_yes">Так</string>
     <string name="title_no">Ні</string>
     <string name="title_later">Пізніше</string>
+    <string name="title_paste_plain">Вставити як простий текст</string>
     <string name="title_undo">Скасувати</string>
     <string name="title_redo">Повторити</string>
     <string name="title_insert_line">Вставити текст</string>

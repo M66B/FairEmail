@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail はプライバシーとセキュリティを重視するオープンソースのメールアプリです。そのため、今までのメールアプリとは異なる動作をする場合があります。</string>
     <string name="app_limitations">例えば、メッセージから安全でない要素を削除し、読みやすくするために再フォーマットしたり、安全のためにリンクを開く前に確認画面を表示したりします。どちらも不要であれば無効にできます。</string>
     <string name="app_unsupported">このデバイスに搭載されている Android バージョンのバグによりクラッシュすることがあります</string>
+    <string name="app_data_loss">すべてのデータが失われる可能性があります</string>
     <string name="app_continue">それでも続行する</string>
     <string name="app_exit">もう一度「戻る」で終了します</string>
     <string name="app_cake">ストレージの空き容量が不足しています</string>
@@ -134,6 +135,7 @@
     <string name="title_setup_quick_smtp">メッセージの送信に使用する SMTP サーバー</string>
     <string name="title_setup_quick_certificates">サーバー証明書</string>
     <string name="title_setup_wizard">ウィザード</string>
+    <string name="title_setup_wizard_tutorials">チュートリアル</string>
     <string name="title_setup_wizard_multiple">ウィザードを繰り返し使用することで、複数のアカウントを設定できます</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得する</string>
     <string name="title_setup_manual">手動セットアップとアカウントの設定</string>
@@ -481,6 +483,7 @@
     <string name="title_advanced_authentication_none">認証なし</string>
     <string name="title_advanced_authentication_some">一部の認証を完了</string>
     <string name="title_advanced_authentication_all">認証を完了</string>
+    <string name="title_advanced_restore_on_launch">アプリ起動時に前回の状態を復元</string>
     <string name="title_advanced_sync_on_launch">アプリ起動時に同期</string>
     <string name="title_advanced_double_back">「戻る」をダブルタップして終了</string>
     <string name="title_advanced_conversation_actions">アクションを提案 (Android 10+)</string>
@@ -1712,6 +1715,7 @@
     <string name="title_widget_compose">メッセージ新規作成ボタンを表示</string>
     <string name="title_widget_background">背景色</string>
     <string name="title_widget_day_night">システムのダークテーマに従う</string>
+    <string name="title_compat_dark">Android 10 以前では Google によりダークモードが取り除かれました</string>
     <string name="title_accessibility_collapsed">折りたたみました</string>
     <string name="title_accessibility_expanded">展開しました</string>
     <string name="title_accessibility_seen">既読</string>

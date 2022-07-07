@@ -5,7 +5,7 @@
     <string name="app_welcome">Το FairEmail είναι μια ανοικτού κώδικα εφαρμογή ηλεκτρονικού ταχυδρομείου που επικεντρώνεται στην προστασία του απορρήτου και την ασφάλειά σας. Για τον λόγο αυτό ορισμένες δυνατότητες ενδέχεται να λειτουργούν διαφορετικά από ό,τι έχετε συνηθίσει.</string>
     <string name="app_limitations">Για παράδειγμα, τα μηνύματα επαναμορφοποιούνται από προεπιλογή, με στόχο την αφαίρεση μη ασφαλών στοιχείων και τη βελτίωση της αναγνωσιμότητας, ενώ το άνοιγμα συνδέσμων πρέπει να επιβεβαιώνεται για λόγους ασφάλειας. Και οι δύο λειτουργίες απενεργοποιούνται, εφόσον το επιθυμείτε.</string>
     <string name="app_unsupported">Σφάλματα στην έκδοση Android της συγκεκριμένης συσκευής κάνουν την εφαρμογή να καταρρέει</string>
-    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Όλα τα δεδομένα ενδέχεται να χαθούν</string>
+    <string name="app_data_loss">Όλα τα δεδομένα ενδέχεται να χαθούν</string>
     <string name="app_continue">Συνέχεια ούτως ή άλλως</string>
     <string name="app_exit">\"Πίσω\" ξανά για έξοδο</string>
     <string name="app_cake">Ανεπαρκής χώρος αποθήκευσης</string>
@@ -485,6 +485,7 @@
     <string name="title_advanced_actionbar_color">Χρήση του χρώματος του λογαριασμού ως χρωματικό υπόβαθρο για τη γραμμή ενεργειών της συζήτησης</string>
     <string name="title_advanced_category_header">Ομαδοποίηση ανά κατηγορία λογαριασμού</string>
     <string name="title_advanced_navbar_colorize">Να χρωματίζεται η γραμμή πλοήγησης του Android</string>
+    <string name="title_advanced_list_count">Προβολή του αριθμού μηνυμάτων ή συζητήσεων στην πάνω γραμμή ενεργειών</string>
     <string name="title_advanced_bundled_fonts">Χρήση γραμματοσειρών σε πακέτο</string>
     <string name="title_advanced_parse_classes">Χρήση φύλλων στιλ</string>
     <string name="title_advanced_authentication">Να προβάλλονται προειδοποιήσεις ταυτοποίησης</string>
@@ -1620,6 +1621,7 @@
     <string name="title_yes">Ναι</string>
     <string name="title_no">Όχι</string>
     <string name="title_later">Αργότερα</string>
+    <string name="title_paste_plain">Επικόλληση ως απλό κείμενο</string>
     <string name="title_undo">Αναίρεση</string>
     <string name="title_redo">Επαναφορά</string>
     <string name="title_insert_line">Εισαγωγή γραμμής</string>

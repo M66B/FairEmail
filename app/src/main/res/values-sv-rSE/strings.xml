@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail är en e-postapp baserad på öppen källkod som fokuserar på integritet och säkerhet. Av denna anledning kan vissa funktioner fungera annorlunda än vad du är van vid.</string>
     <string name="app_limitations">Till exempel omformas meddelanden som standard för att ta bort osäkra element och för att förbättra läsbarheten. Länkar måste även bekräftas innan de öppnas. Båda funktionerna kan inaktiveras om så önskas.</string>
     <string name="app_unsupported">Buggar i Android-versionen på denna enhet orsakar krascher</string>
+    <string name="app_data_loss">All data kan gå förlorad</string>
     <string name="app_continue">Fortsätt ändå</string>
     <string name="app_exit">Tryck \"tillbaka\" igen för att avsluta</string>
     <string name="app_cake">Otillräckligt lagringsutrymme kvar</string>
@@ -145,6 +146,7 @@
     <string name="title_setup_quick_smtp">SMTP-server för att skicka meddelanden</string>
     <string name="title_setup_quick_certificates">Servercertifikat</string>
     <string name="title_setup_wizard">Guide</string>
+    <string name="title_setup_wizard_tutorials">Guider</string>
     <string name="title_setup_wizard_multiple">Installationsguiden kan användas flera gånger om för att lägga till fler konton</string>
     <string name="title_setup_wizard_new">Jag behöver en ny e-postadress</string>
     <string name="title_setup_manual">Manuell installation och kontoalternativ</string>
@@ -1263,7 +1265,7 @@
     <string name="title_alternative_html">Visa HTML</string>
     <string name="title_no_openpgp">OpenKeychain hittades inte</string>
     <string name="title_user_interaction">Överför till OpenKeychain</string>
-    <string name="title_padlock">Använd hänglåset för att avkryptera meddelandet</string>
+    <string name="title_padlock">Använd hänglåset för att dekryptera meddelandet</string>
     <string name="title_signed_data">Verifiera signaturen för att visa meddelandetexten</string>
     <string name="title_not_encrypted">Meddelandet är inte signerat eller krypterat</string>
     <string name="title_no_sign_key">Ingen signeringsnyckel vald</string>
@@ -1617,6 +1619,7 @@
     <string name="title_yes">Ja</string>
     <string name="title_no">Nej</string>
     <string name="title_later">Senare</string>
+    <string name="title_paste_plain">Klistra in som oformaterad text</string>
     <string name="title_undo">Ångra</string>
     <string name="title_redo">Gör om</string>
     <string name="title_insert_line">Infoga rad</string>
@@ -1720,6 +1723,7 @@
     <string name="title_widget_compose">Visa knapp för nytt meddelande</string>
     <string name="title_widget_background">Bakgrundsfärg</string>
     <string name="title_widget_day_night">Följ mörkt systemtema</string>
+    <string name="title_compat_dark">Google tog bort mörkt läge för Android före version 10</string>
     <string name="title_accessibility_collapsed">Ihopfälld</string>
     <string name="title_accessibility_expanded">Expanderad</string>
     <string name="title_accessibility_seen">Läst</string>

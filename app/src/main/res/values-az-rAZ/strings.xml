@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail, gizlilik və təhlükəsizliyə fokuslanmış bir açıq mənbəli e-poçt tətbiqidir. Buna görə də bəzi xüsusiyyətlər, istifadə etdiyinizdən fərqli şəkildə işləyə bilər.</string>
     <string name="app_limitations">Nümunə üçün, güvənli olmayan elementləri çıxartmaq və oxunaqlılığı artırmaq üçün mesajlar ilkin olaraq yenidən formatlanır və təhlükəsizlik üçün bağlantıların açılmasının təsdiqlənməsi lazım olur. İstəsəniz, hər ikisini sıradan çıxarda bilərsiniz.</string>
     <string name="app_unsupported">Bu cihazın Android versiyasındakı xətalar çökmələrə səbəb olur</string>
+    <string name="app_data_loss">Bütün verilənlər itə bilər</string>
     <string name="app_continue">Yenə də davam edilsin</string>
     <string name="app_exit">Çıxmaq üçün yenidən \'geri\'yə basın</string>
     <string name="app_cake">Anbar sahəsi yetərsizdir</string>
@@ -145,6 +146,7 @@
     <string name="title_setup_quick_smtp">Mesaj göndərmək üçün SMTP serveri</string>
     <string name="title_setup_quick_certificates">Server sertifikatları</string>
     <string name="title_setup_wizard">Sehrbaz</string>
+    <string name="title_setup_wizard_tutorials">Təlimatlar</string>
     <string name="title_setup_wizard_multiple">Sehrbaz, çoxlu hesabı tənzimləmək üçün bir neçə dəfə istifadə edilə bilər</string>
     <string name="title_setup_wizard_new">Yeni bir e-poçt ünvanına ehtiyacım var</string>
     <string name="title_setup_manual">Əllə quraşdırma və hesab seçimləri</string>
@@ -751,6 +753,7 @@
     <string name="title_identity_internal">Daxili domen adları (vergüllə ayrılan)</string>
     <string name="title_identity_unicode">Mesaj başlığında \"UTF-8\"ə icazə ver</string>
     <string name="title_identity_unicode_remark">Əksər server bunu dəstəkləmir</string>
+    <string name="title_identity_octetmime">8BITMIME-ə icazə ver</string>
     <string name="title_identity_max_size">Maksimum mesaj həcmi (MB)</string>
     <string name="title_identity_receipt">Çatdırılma/oxuma bildirişini ilkin olaraq tələb et</string>
     <string name="title_identity_receipt_legacy">Köhnə qəbz tələb başlıqlarını istifadə et</string>
@@ -921,6 +924,7 @@
     <string name="title_search_folder">Qovluq axtar</string>
     <string name="title_apply_to_all">Hamısına tətbiq et</string>
     <string name="title_edit_account_name">Hesab adına düzəliş et</string>
+    <string name="title_edit_account_color">Hesab rənginə düzəliş et</string>
     <string name="title_hide_folder">Qovluğu gizlət</string>
     <string name="title_hide_seen_folder">Bütün mesajlar oxunubsa qovluğu gizlət</string>
     <string name="title_hide_seen_folder_hint">Yalnız başlanğıc ekranında göstərilən qovluq siyahısında</string>
@@ -1622,6 +1626,7 @@
     <string name="title_yes">Bəli</string>
     <string name="title_no">Xeyr</string>
     <string name="title_later">Sonra</string>
+    <string name="title_paste_plain">Düz mətn kimi yapışdır</string>
     <string name="title_undo">Geri qaytar</string>
     <string name="title_redo">Təkrar et</string>
     <string name="title_insert_line">Sətir daxil et</string>
@@ -1726,6 +1731,7 @@
     <string name="title_widget_compose">Yeni mesaj yarat düyməsini göstər</string>
     <string name="title_widget_background">Arxaplan rəngi</string>
     <string name="title_widget_day_night">Sistemin qaranlıq temasına uyğunlaşma</string>
+    <string name="title_compat_dark">Google, Android 10-dan əvvəlki versiyalar üçün qaranlıq rejimi çıxartdı</string>
     <string name="title_accessibility_collapsed">Yığcamlaşdırılan</string>
     <string name="title_accessibility_expanded">Genişləndirilən</string>
     <string name="title_accessibility_seen">Oxunan</string>

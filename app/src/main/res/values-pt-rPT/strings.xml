@@ -469,6 +469,7 @@
     <string name="title_advanced_actionbar_color">Utilizar cor da conta como cor de fundo para a barra de acção da conversa</string>
     <string name="title_advanced_category_header">Agrupar por categoria de conta</string>
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
+    <string name="title_advanced_list_count">Mostrar o número de mensagens ou conversas na barra superior</string>
     <string name="title_advanced_bundled_fonts">Usar tipos de letra embutidos</string>
     <string name="title_advanced_parse_classes">Usar folhas de estilo</string>
     <string name="title_advanced_authentication">Mostrar avisos de autenticação</string>
@@ -1541,6 +1542,7 @@
     <string name="title_yes">Sim</string>
     <string name="title_no">Não</string>
     <string name="title_later">Mais tarde</string>
+    <string name="title_paste_plain">Colar como texto simples</string>
     <string name="title_undo">Anular</string>
     <string name="title_redo">Refazer</string>
     <string name="title_insert_line">Inserir linha</string>

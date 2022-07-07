@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail es una aplicación de correo electrónico de código abierto centrada en la privacidad y la seguridad. Por esta razón, algunas funciones pueden comportarse de manera diferente a lo que esté acostumbrado.</string>
     <string name="app_limitations">Por ejemplo, los mensajes se reformatean por defecto para eliminar elementos inseguros y mejorar la legibilidad, y la apertura de enlaces debe ser confirmada por seguridad. Ambos pueden ser desactivados si se desea.</string>
     <string name="app_unsupported">Los bugs en la versión Android de este dispositivo en particular causan fallos</string>
+    <string name="app_data_loss">Pueden perderse todos los datos</string>
     <string name="app_continue">Continuar de todas formas</string>
     <string name="app_exit">Volver \'atrás\' para salir</string>
     <string name="app_cake">Espacio de almacenamiento insuficiente</string>
@@ -145,6 +146,7 @@
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensajes</string>
     <string name="title_setup_quick_certificates">Certificados del servidor</string>
     <string name="title_setup_wizard">Asistente</string>
+    <string name="title_setup_wizard_tutorials">Tutoriales</string>
     <string name="title_setup_wizard_multiple">El asistente puede utilizarse varias veces para configurar múltiples cuentas</string>
     <string name="title_setup_wizard_new">Necesito una nueva dirección de correo electrónico</string>
     <string name="title_setup_manual">Configuración manual y opciones de cuenta</string>
@@ -483,6 +485,7 @@
     <string name="title_advanced_actionbar_color">Usar el color de la cuenta como color de fondo para la barra de acción de conversación</string>
     <string name="title_advanced_category_header">Agrupar por categoría de cuenta</string>
     <string name="title_advanced_navbar_colorize">Colorear la barra de navegación de Android</string>
+    <string name="title_advanced_list_count">Mostrar el número de mensajes o conversaciones en la barra de acción superior</string>
     <string name="title_advanced_bundled_fonts">Usar fuentes empaquetadas</string>
     <string name="title_advanced_parse_classes">Analizar hojas de estilo</string>
     <string name="title_advanced_authentication">Mostrar advertencias de autenticación</string>
@@ -534,6 +537,7 @@
     <string name="title_advanced_notify_background">Mostrar notificaciones sólo en segundo plano</string>
     <string name="title_advanced_notify_known">Mostrar notificaciones sólo para contactos</string>
     <string name="title_advanced_notify_suppress_in_call">Demorar notificaciones durante una llamada</string>
+    <string name="title_advanced_notify_suppress_in_car">Retrasar notificaciones mientras Android Auto está conectado</string>
     <string name="title_advanced_notify_summary">Mostrar notificación resumen únicamente</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_notify_preview_all">Previsualizar todo el texto</string>
@@ -714,6 +718,7 @@
     <string name="title_advanced_safe_browsing_hint">El servidor de Google sabe qué direcciones se están buscando</string>
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_notify_action_hint">Máximo 3 acciones mostradas</string>
+    <string name="title_advanced_notify_car_hint">Conectado significa que algo está siendo proyectado, como un mapa para la navegación</string>
     <string name="title_advanced_notify_remove_hint">Las notificaciones de nuevos mensajes siempre serán eliminadas al deslizarlas y al marcar mensajes como leídos</string>
     <string name="title_advanced_notify_manage_hint">Toca en el nombre del canal para establecer las propiedades del canal</string>
     <string name="title_advanced_notify_manage_default_hint">Para configurar el sonido por defecto, etc</string>
@@ -1619,6 +1624,7 @@
     <string name="title_yes">Sí</string>
     <string name="title_no">No</string>
     <string name="title_later">Más tarde</string>
+    <string name="title_paste_plain">Pegar como texto plano</string>
     <string name="title_undo">Deshacer</string>
     <string name="title_redo">Rehacer</string>
     <string name="title_insert_line">Insertar línea</string>
@@ -1722,6 +1728,7 @@
     <string name="title_widget_compose">Mostrar botón de redactar nuevo mensaje</string>
     <string name="title_widget_background">Color de fondo</string>
     <string name="title_widget_day_night">Seguir tema oscuro del sistema</string>
+    <string name="title_compat_dark">Google eliminó el modo oscuro para versiones de Android anteriores a la versión 10</string>
     <string name="title_accessibility_collapsed">Oculto</string>
     <string name="title_accessibility_expanded">Expandido</string>
     <string name="title_accessibility_seen">Leído</string>

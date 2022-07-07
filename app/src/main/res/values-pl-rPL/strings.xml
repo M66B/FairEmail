@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail to aplikacja e-mail o otwartym kodzie źródłowym, koncentrująca się na prywatności i bezpieczeństwie. Z tego powodu niektóre funkcje mogą działać inaczej niż to, do czego jesteś przyzwyczajony.</string>
     <string name="app_limitations">Przykładowo, wiadomości są domyślnie formatowane tak, aby usunąć niebezpieczne elementy i poprawić czytelność, a otwieranie linków musi zostać potwierdzone ze względów bezpieczeństwa. Obie funkcje mogą zostać wyłączone w opcjach.</string>
     <string name="app_unsupported">Błędy w wersji Androida tego urządzenia powodują awarie</string>
-    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Wszystkie dane mogą zostać utracone</string>
+    <string name="app_data_loss">Wszystkie dane mogą zostać utracone</string>
     <string name="app_continue">Kontynuuj mimo to</string>
     <string name="app_exit">Użyj przycisku \'wstecz\', aby wyjść</string>
     <string name="app_cake">Za mało miejsca w pamięci</string>
@@ -507,6 +507,7 @@
     <string name="title_advanced_actionbar_color">Użyj koloru konta jako koloru tła dla paska akcji rozmowy</string>
     <string name="title_advanced_category_header">Grupuj według kategorii konta</string>
     <string name="title_advanced_navbar_colorize">Koloruj pasek nawigacji Androida</string>
+    <string name="title_advanced_list_count">Pokaż liczbę wiadomości lub konwersacji na górnym pasku akcji</string>
     <string name="title_advanced_bundled_fonts">Użyj dołączonych czcionek</string>
     <string name="title_advanced_parse_classes">Parsowanie arkuszy stylów</string>
     <string name="title_advanced_authentication">Pokaż ostrzeżenia o uwierzytelnieniu</string>
@@ -1645,6 +1646,7 @@
     <string name="title_yes">Tak</string>
     <string name="title_no">Nie</string>
     <string name="title_later">Później</string>
+    <string name="title_paste_plain">Wklej jako zwykły tekst</string>
     <string name="title_undo">Cofnij</string>
     <string name="title_redo">Ponów</string>
     <string name="title_insert_line">Wstaw linię</string>

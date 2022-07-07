@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail é um aplicativo de e-mail de código aberto focado em privacidade e segurança. Por esse motivo, alguns recursos podem funcionar de maneira diferente do que você está acostumado.</string>
     <string name="app_limitations">Por exemplo, as mensagens são reformatadas por padrão para remover elementos inseguros e melhorar a legibilidade, e a abertura de links precisa ser confirmada para segurança. Ambos podem ser desativados se desejados.</string>
     <string name="app_unsupported">Bugs na versão Android deste dispositivo em particular causam travamentos</string>
-    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Todos os dados poderão ser perdidos</string>
+    <string name="app_data_loss">Todos os dados poderão ser perdidos</string>
     <string name="app_continue">Continuar mesmo assim</string>
     <string name="app_exit">Pressione \'voltar\' novamente para sair</string>
     <string name="app_cake">Espaço de armazenamento insuficiente</string>
@@ -475,6 +475,7 @@
     <string name="title_advanced_text_size">Usar tamanho do texto</string>
     <string name="title_advanced_text_font">Usar fontes</string>
     <string name="title_advanced_text_align">Usar alinhamento de texto</string>
+    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">Mostrar {HTML titles}</string>
     <string name="title_advanced_text_separators">Usar linhas de separador</string>
     <string name="title_advanced_collapse_quotes">Recolher texto citado</string>
     <string name="title_advanced_image_placeholders">Mostrar espaços reservados da imagem</string>
@@ -485,6 +486,7 @@
     <string name="title_advanced_actionbar_color">Usar cor da conta como cor de fundo para barra de ação de conversa</string>
     <string name="title_advanced_category_header">Agrupar por categoria de conta</string>
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
+    <string name="title_advanced_list_count">Mostrar o número de mensagens ou conversas na barra de ação superior</string>
     <string name="title_advanced_bundled_fonts">Usar fontes embutidas</string>
     <string name="title_advanced_parse_classes">Analisar folhas de estilo</string>
     <string name="title_advanced_authentication">Mostrar avisos de autenticação</string>
@@ -536,6 +538,7 @@
     <string name="title_advanced_notify_background">Mostrar notificações apenas em segundo plano</string>
     <string name="title_advanced_notify_known">Mostrar notificações apenas para contatos</string>
     <string name="title_advanced_notify_suppress_in_call">Atrasar notificações durante uma chamada</string>
+    <string name="title_advanced_notify_suppress_in_car">Atrasar notificações enquanto o Android Auto está conectado</string>
     <string name="title_advanced_notify_summary">Mostrar apenas notificação de resumo</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_notify_preview_all">Pré-visualizar todo o texto</string>
@@ -716,6 +719,7 @@
     <string name="title_advanced_safe_browsing_hint">O servidor do Google reconhece quais endereços estão sendo procurados</string>
     <string name="title_advanced_badge_hint">Disponível somente em lançadores suportados</string>
     <string name="title_advanced_notify_action_hint">No máximo três ações serão mostradas</string>
+    <string name="title_advanced_notify_car_hint">Conectado significa que algo está sendo projetado, como um mapa para navegação</string>
     <string name="title_advanced_notify_remove_hint">Novas notificações de mensagem serão sempre removidas ao serem arrastadas e ao marcar mensagens lidas</string>
     <string name="title_advanced_notify_manage_hint">Toque no nome do canal para definir as propriedades do canal</string>
     <string name="title_advanced_notify_manage_default_hint">Para definir o som padrão, etc</string>
@@ -1623,6 +1627,7 @@
     <string name="title_yes">Sim</string>
     <string name="title_no">Não</string>
     <string name="title_later">Depois</string>
+    <string name="title_paste_plain">Colar como texto simples</string>
     <string name="title_undo">Desfazer</string>
     <string name="title_redo">Refazer</string>
     <string name="title_insert_line">Inserir linha</string>

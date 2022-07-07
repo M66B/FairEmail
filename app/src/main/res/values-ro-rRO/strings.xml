@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail este o aplicație pentru e-mail, cu sursă deschisă, ce se concentrează pe confidențialitate și securitate. Din acest motiv se poate ca unele caracteristici să funcționeze diferit de cum erați obișnuiți.</string>
     <string name="app_limitations">De exemplu, mesajele sunt reformatate în mod implicit pentru a elimina elemente nesigure și pentru a îmbunătăți lizibilitatea, iar deschiderea de adrese trebuie confirmată pentru siguranță. Ambele pot fi dezactivate dacă nu se doreşte asta.</string>
     <string name="app_unsupported">Bug-uri în versiunea Android a acestui dispozitiv special cauzează blocaje</string>
+    <string name="app_data_loss">Toate datele pot fi pierdute</string>
     <string name="app_continue">Continuă oricum</string>
     <string name="app_exit">Apăsați din nou \'Înapoi\' pentru a ieși</string>
     <string name="app_cake">Spațiu de stocare insuficient rămas</string>
@@ -156,6 +157,7 @@
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_quick_certificates">Certificate de server</string>
     <string name="title_setup_wizard">Asistent</string>
+    <string name="title_setup_wizard_tutorials">Tutoriale</string>
     <string name="title_setup_wizard_multiple">Asistentul poate fi folosit de mai multe ori pentru a configura conturi multiple</string>
     <string name="title_setup_wizard_new">Am nevoie de o nouă adresă de e-mail</string>
     <string name="title_setup_manual">Setări manuale și opțiuni cont</string>
@@ -1631,6 +1633,7 @@
     <string name="title_yes">Da</string>
     <string name="title_no">Nu</string>
     <string name="title_later">Mai târziu</string>
+    <string name="title_paste_plain">Inserați ca text simplu</string>
     <string name="title_undo">Anulează</string>
     <string name="title_redo">Refacere</string>
     <string name="title_insert_line">Inserați linia</string>
@@ -1734,6 +1737,7 @@
     <string name="title_widget_compose">Afișați butonul de redactare a unui mesaj nou</string>
     <string name="title_widget_background">Culoare fundal</string>
     <string name="title_widget_day_night">Urmați tema sistemului întunecat</string>
+    <string name="title_compat_dark">Google a eliminat modul întunecat pentru versiunile de Android anterioare versiunii 10</string>
     <string name="title_accessibility_collapsed">Restrâns</string>
     <string name="title_accessibility_expanded">Extins</string>
     <string name="title_accessibility_seen">Citit</string>

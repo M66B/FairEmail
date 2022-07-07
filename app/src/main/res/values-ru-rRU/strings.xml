@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail — это почтовое приложение с открытым исходным кодом, ориентированное на конфиденциальность и безопасность. По этой причине некоторые функции могут работать не так, как вы привыкли.</string>
     <string name="app_limitations">Например, по умолчанию сообщения переформатируются, так чтобы удалять небезопасные элементы и улучшать читаемость, а открытие ссылок нужно в целях безопасности подтверждать. Обе функции можно отключить.</string>
     <string name="app_unsupported">Ошибки в версии Android этого конкретного устройства вызывают сбои</string>
-    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Все данные могут быть потеряны</string>
+    <string name="app_data_loss">Все данные могут быть потеряны</string>
     <string name="app_continue">Всё равно продолжить</string>
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
     <string name="app_cake">Недостаточно места</string>
@@ -497,6 +497,7 @@
     <string name="title_advanced_text_size">Использовать размер текста</string>
     <string name="title_advanced_text_font">Использовать шрифты</string>
     <string name="title_advanced_text_align">Использовать выравнивание текста</string>
+    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">Показывать {HTML titles}</string>
     <string name="title_advanced_text_separators">Использовать разделитель строк</string>
     <string name="title_advanced_collapse_quotes">Сворачивать цитируемый текст</string>
     <string name="title_advanced_image_placeholders">Показывать места расположения изображений</string>
@@ -507,6 +508,7 @@
     <string name="title_advanced_actionbar_color">Использовать цвет учётной записи в качестве фонового для панели действий в диалоге</string>
     <string name="title_advanced_category_header">Группировать по категориям учётных записей</string>
     <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
+    <string name="title_advanced_list_count">Показывать количество сообщений или диалогов в верхней панели действий</string>
     <string name="title_advanced_bundled_fonts">Использовать встроенные шрифты</string>
     <string name="title_advanced_parse_classes">Анализировать таблицы стилей</string>
     <string name="title_advanced_authentication">Показывать предупреждения аутентификации</string>
@@ -558,6 +560,7 @@
     <string name="title_advanced_notify_background">Показывать уведомления только в фоновом режиме</string>
     <string name="title_advanced_notify_known">Показывать уведомления только для контактов</string>
     <string name="title_advanced_notify_suppress_in_call">Откладывать уведомления во время вызова</string>
+    <string name="title_advanced_notify_suppress_in_car">Откладывать уведомления при подключении Android Auto</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_preview_all">Предпросмотр всего текста</string>
@@ -739,6 +742,7 @@
     <string name="title_advanced_safe_browsing_hint">Сервер Google знает, какие адреса запрашиваются</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых рабочих столах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
+    <string name="title_advanced_notify_car_hint">Подключение означает отображение чего-либо, например, навигационной карты</string>
     <string name="title_advanced_notify_remove_hint">Уведомления о новых о сообщениях всегда будут удаляться при смахивании сообщения и пометке о прочтении</string>
     <string name="title_advanced_notify_manage_hint">Нажмите на название канала, чтобы установить его свойства</string>
     <string name="title_advanced_notify_manage_default_hint">Для установки звука по умолчанию и т.д.</string>
@@ -1647,6 +1651,7 @@
     <string name="title_yes">Да</string>
     <string name="title_no">Нет</string>
     <string name="title_later">Позже</string>
+    <string name="title_paste_plain">Вставить как обычный текст</string>
     <string name="title_undo">Отменить</string>
     <string name="title_redo">Восстановить</string>
     <string name="title_insert_line">Вставить строку</string>

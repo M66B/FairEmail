@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail הוא יישומון בקוד פתוח שמתמקד בפרטיות ואבטחת מידע. משום כך, חלק מהיכולות כנראה תעבודנה אחרת ממה שהתרגלת.</string>
     <string name="app_limitations">למשל, הודעות מעוצבות מחדש כדי להסיר רכיבים חשודים ולשפר את היכולת לקרוא אותם, נוסף על כך, יש לאשר פתיחת קישורים לשיפור האבטחה. את שני אלו ניתן להשבית במידת הצורך.</string>
     <string name="app_unsupported">תקלות בגירסת ה־Android של המכשיר המסוים הזה גורמות לקריסות</string>
-    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">כל הנתונים עלולים ללכת לאיבוד</string>
+    <string name="app_data_loss">כל הנתונים עלולים ללכת לאיבוד</string>
     <string name="app_continue">להמשיך בכל זאת</string>
     <string name="app_exit">יש ‚לחזור’ שוב אחורה כדי לצאת</string>
     <string name="app_cake">לא נותר די שטח אחסון</string>
@@ -1648,6 +1648,7 @@
     <string name="title_yes">כן</string>
     <string name="title_no">לא</string>
     <string name="title_later">אחר כך</string>
+    <string name="title_paste_plain">הדבקה כטקסט פשוט</string>
     <string name="title_undo">ביטול</string>
     <string name="title_redo">ביצוע מחדש</string>
     <string name="title_insert_line">הוספת שורה</string>

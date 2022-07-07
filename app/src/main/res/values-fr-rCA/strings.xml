@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail est une application de messagerie à code source ouvert axée sur la confidentialité et la sécurité. C’est pourquoi certaines fonctionnalités peuvent être différentes de ce à quoi vous êtes habitué·e.</string>
     <string name="app_limitations">Par exemple, les messages sont reformatés par défaut pour supprimer tout élément dangereux ainsi qu\'améliorer la lisibilité et l\'ouverture des liens doit être confirmée pour des raisons de sécurité. Les deux options peuvent être désactivées si souhaité.</string>
     <string name="app_unsupported">Des bogues dans la version d\'Android de cet appareil spécifique provoquent des plantages</string>
-    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Toutes les données peuvent être perdues</string>
+    <string name="app_data_loss">Toutes les données peuvent être perdues</string>
     <string name="app_continue">Poursuivre tout de même</string>
     <string name="app_exit">Faites de nouveau « Retour » pour quitter</string>
     <string name="app_cake">Espace de stockage restant insuffisant</string>
@@ -476,6 +476,7 @@
     <string name="title_advanced_text_size">Utiliser la taille du texte</string>
     <string name="title_advanced_text_font">Utiliser les polices de caractères</string>
     <string name="title_advanced_text_align">Utiliser l\'alignement du texte</string>
+    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">Afficher {HTML titles}</string>
     <string name="title_advanced_text_separators">Utiliser des lignes de séparation</string>
     <string name="title_advanced_collapse_quotes">Replier le texte cité</string>
     <string name="title_advanced_image_placeholders">Afficher les espaces réservés aux images</string>
@@ -486,6 +487,7 @@
     <string name="title_advanced_actionbar_color">Utiliser la couleur du compte comme couleur d\'arrière-plan de la barre d’action de conversation</string>
     <string name="title_advanced_category_header">Regrouper par catégorie de compte</string>
     <string name="title_advanced_navbar_colorize">Coloriser la barre de navigation d’Android</string>
+    <string name="title_advanced_list_count">Afficher le nombre de messages ou de conversations dans la barre d\'action supérieure</string>
     <string name="title_advanced_bundled_fonts">Utiliser des polices groupées</string>
     <string name="title_advanced_parse_classes">Utiliser les feuilles de style</string>
     <string name="title_advanced_authentication">Afficher les avertissements d\'authentification</string>
@@ -537,6 +539,7 @@
     <string name="title_advanced_notify_background">Afficher les notifications en arrière-plan uniquement</string>
     <string name="title_advanced_notify_known">Afficher les notifications uniquement pour les contacts</string>
     <string name="title_advanced_notify_suppress_in_call">Différer les notifications pendant un appel</string>
+    <string name="title_advanced_notify_suppress_in_car">Retarder les notifications lorsque Android Auto est connecté</string>
     <string name="title_advanced_notify_summary">Afficher uniquement une notification résumée</string>
     <string name="title_advanced_notify_preview">Afficher l’aperçu du message dans les notifications</string>
     <string name="title_advanced_notify_preview_all">Aperçu de tout le texte</string>
@@ -718,6 +721,7 @@
     <string name="title_advanced_safe_browsing_hint">Le serveur Google a connaissance des adresses qui sont recherchées</string>
     <string name="title_advanced_badge_hint">Disponible uniquement sur les lanceurs pris en charge</string>
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
+    <string name="title_advanced_notify_car_hint">Connecté signifie que quelque chose est projeté, comme une carte pour la navigation</string>
     <string name="title_advanced_notify_remove_hint">Les notifications de nouveau message seront toujours supprimées lors de leur balayage et du marquage des messages comme lus</string>
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom d’un canal pour définir ses propriétés</string>
     <string name="title_advanced_notify_manage_default_hint">Pour définir le son par défaut, etc.</string>
@@ -1627,6 +1631,7 @@
     <string name="title_yes">Oui</string>
     <string name="title_no">Non</string>
     <string name="title_later">Plus tard</string>
+    <string name="title_paste_plain">Coller comme texte brut</string>
     <string name="title_undo">Annuler</string>
     <string name="title_redo">Rétablir</string>
     <string name="title_insert_line">Insérer une ligne</string>

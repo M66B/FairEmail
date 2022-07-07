@@ -4,6 +4,7 @@
     <string name="app_changelog">변경 로그</string>
     <string name="app_welcome">FairEmail은 프라이버시와 보안을 위한 오픈 소스 이메일 앱입니다. 그렇기에 몇몇 기능은 당신이 지금까지 써왔던 것과 조금 다르게 작동할 수 있습니다.</string>
     <string name="app_limitations">예를 들어, 안전하지 않은 요소를 제거하고 가독성을 향상시키기 위해 기본적으로 메시지 형식이 다시 지정되며 안전을 위해 링크 열기를 확인해야 합니다. 원하는 경우 둘 다 비활성화할 수 있습니다.</string>
+    <string name="app_data_loss">모든 데이터가 손실됩니다</string>
     <string name="app_continue">그냥 진행하기</string>
     <string name="app_exit">나가려면 뒤로 버튼을 한번 더 누르세요</string>
     <string name="app_cake">저장 공간 부족</string>
@@ -368,6 +369,7 @@
     <string name="title_advanced_notifications">알림 관리</string>
     <string name="title_advanced_notifications_default">기본 채널</string>
     <string name="title_advanced_notifications_newest_first">새 알림을 먼저 표시</string>
+    <string name="title_advanced_notify_suppress_in_car">Android Auto에 연결되면 알림 미루기</string>
     <string name="title_advanced_notify_actions">알림 동작</string>
     <string name="title_advanced_notify_action_trash">삭제</string>
     <string name="title_advanced_notify_action_delete">제거</string>
@@ -420,6 +422,7 @@
     <string name="title_advanced_preview_issue">2줄 이상인 경우 일부 Android 버전의 버그로 인해 스크롤이 느려질 수 있습니다</string>
     <string name="compressed">파일 %2$s개 또는 %3$s 이상이 포함된 압축 파일(%1$s)의 내용은 표시되지 않습니다</string>
     <string name="title_advanced_notify_action_hint">최대 3개의 동작이 표시됩니다</string>
+    <string name="title_advanced_notify_car_hint">\'연결\'이란 지도나 내비게이션을 표시하는 상태임을 의미합니다</string>
     <string name="title_advanced_never_favorite">즐겨찾기 등록 차단</string>
     <string name="title_advanced_edit_name">이름 수정</string>
     <string name="title_select">&#8230; 선택</string>
@@ -871,6 +874,7 @@
     <string name="title_yes">네</string>
     <string name="title_no">아니오</string>
     <string name="title_later">나중에</string>
+    <string name="title_paste_plain">일반 텍스트로 붙여넣기</string>
     <string name="title_undo">되돌리기</string>
     <string name="title_redo">재실행</string>
     <string name="title_add">추가</string>

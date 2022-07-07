@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail ist eine quelloffene E-Mail-App, die sich auf Privatsphäre und Sicherheit konzentriert. Aus diesem Grund könnten einige Dinge anders funktionieren, als Sie es gewohnt sind.</string>
     <string name="app_limitations">Zum Beispiel werden Nachrichten standardmäßig neu formatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu verbessern. Außerdem muss das Öffnen von Links zur Sicherheit bestätigt werden. Beides kann auf Wunsch deaktiviert werden.</string>
     <string name="app_unsupported">Fehler in der Android-Version dieses speziellen Geräts verursachen Abstürze</string>
-    <string name="app_data_loss" comment="app_data_loss&#10;&#10;Warning which will link to: https://github.com/M66B/FairEmail/blob/master/FAQ.md#redmi&#10;">Alle Daten können verloren gehen</string>
+    <string name="app_data_loss">Alle Daten könnten verloren gehen</string>
     <string name="app_continue">Trotzdem fortfahren</string>
     <string name="app_exit">Zum Beenden erneut „Zurück“ drücken</string>
     <string name="app_cake">Unzureichender Speicherplatz</string>
@@ -484,6 +484,7 @@
     <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
     <string name="title_advanced_category_header">Nach Kontenkategorie gruppieren</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
+    <string name="title_advanced_list_count">Anzahl der Nachrichten oder Unterhaltungen in der oberen Aktionsleiste anzeigen</string>
     <string name="title_advanced_bundled_fonts">Interne Schriftarten verwenden</string>
     <string name="title_advanced_parse_classes">Stylesheets analysieren</string>
     <string name="title_advanced_authentication">Authentifizierungswarnhinweise anzeigen</string>
@@ -535,6 +536,7 @@
     <string name="title_advanced_notify_background">Benachrichtigungen nur anzeigen, wenn FairEmail im Hintergrund ausgeführt wird</string>
     <string name="title_advanced_notify_known">Benachrichtigungen nur für Kontakte anzeigen</string>
     <string name="title_advanced_notify_suppress_in_call">Benachrichtigungen bis zur Beendigung eines Telefonats zurückstellen</string>
+    <string name="title_advanced_notify_suppress_in_car">Benachrichtigungen zurückstellen, solange Android Auto verbunden ist</string>
     <string name="title_advanced_notify_summary">Nur zusammenfassende Benachrichtigung anzeigen</string>
     <string name="title_advanced_notify_preview">Nachrichtenvorschau in den Benachrichtigungen anzeigen</string>
     <string name="title_advanced_notify_preview_all">Vorschau des ganzen Textes</string>
@@ -715,6 +717,7 @@
     <string name="title_advanced_safe_browsing_hint">Der Google-Server erfährt, welche Adressen nachgeschlagen werden</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
+    <string name="title_advanced_notify_car_hint">Verbunden bedeutet, dass etwas projiziert wird, z. B. eine Karte für die Navigation</string>
     <string name="title_advanced_notify_remove_hint">Benachrichtigung über neue Nachrichten werden immer entfernt, wenn sie weggewischt werden oder wenn Nachrichten als gelesen markiert werden</string>
     <string name="title_advanced_notify_manage_hint">Auf den Kanalnamen tippen, um die Kanaleigenschaften festzulegen</string>
     <string name="title_advanced_notify_manage_default_hint">Zum Einstellen des Standardtons usw.</string>
@@ -1621,6 +1624,7 @@
     <string name="title_yes">Ja</string>
     <string name="title_no">Nein</string>
     <string name="title_later">Später</string>
+    <string name="title_paste_plain">Als Text einfügen</string>
     <string name="title_undo">Rückgängig</string>
     <string name="title_redo">Wiederherstellen</string>
     <string name="title_insert_line">Linie einfügen</string>
