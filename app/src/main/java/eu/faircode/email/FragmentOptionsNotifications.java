@@ -482,7 +482,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         });
 
         swNotifySuppressInCar.setVisibility(
-                Build.VERSION.SDK_INT < Build.VERSION_CODES.M
+                Build.VERSION.SDK_INT < Build.VERSION_CODES.M || BuildConfig.PLAY_STORE_RELEASE
                         ? View.GONE : View.VISIBLE);
         swNotifySuppressInCar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

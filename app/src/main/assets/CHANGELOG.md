@@ -6,12 +6,13 @@
 
 ### Next version
 
-
-* Added option to delay notifications while connected to Android auto (Android 6+)
+* Added option to delay notifications while connected to Android auto (*)
 * Added option to show number of listed messages in the top action bar
 * Added configurable button to save raw message files
 * Small improvements and minor bug fixes
 * Updated translations
+
+(*) [Due to Play store policies](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq165) this feature is not available in the Play store version; Android version 6 or later is required
 
 ### 1.1930 - 2022-07-04
 
