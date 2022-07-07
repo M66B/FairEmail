@@ -4273,7 +4273,7 @@ public class MessageHelper {
                     content = tryParseMultipart((String) content, part.getContentType());
 
                 if (content instanceof Multipart) {
-                    multipart = (Multipart) part.getContent();
+                    multipart = (Multipart) content;
                     int count = multipart.getCount();
                     for (int i = 0; i < count; i++)
                         try {
