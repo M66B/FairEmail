@@ -4,6 +4,15 @@ Changelog
 
 Kinnareemimus
 
+Next version
+
+
+* Added option to delay notifications while connected to Android auto (Android 6+)
+* Added option to show number of listed messages in the top action bar
+* Added configurable button to save raw message files
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.1930 - 2022-07-04
 
 * Small improvements and minor bug fixes
