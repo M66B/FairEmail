@@ -2427,7 +2427,7 @@ public abstract class DB extends RoomDatabase {
                     long start = new Date().getTime();
                     StringBuilder sb = new StringBuilder();
                     SupportSQLiteDatabase sdb = db.getOpenHelper().getWritableDatabase();
-                    String mode = (BuildConfig.DEBUG ? "RESTART" : "PASSIVE");
+                    String mode = (BuildConfig.DEBUG || !BuildConfig.PLAY_STORE_RELEASE ? "RESTART" : "PASSIVE");
                     try (Cursor cursor = sdb.query("PRAGMA wal_checkpoint(" + mode + ");")) {
                         if (cursor.moveToNext()) {
                             for (int i = 0; i < cursor.getColumnCount(); i++) {
