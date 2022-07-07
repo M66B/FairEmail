@@ -1533,7 +1533,8 @@ public class MessageHelper {
         DB db = DB.getInstance(context);
 
         List<String> all = new ArrayList<>(refs);
-        all.add(msgid);
+        if (!TextUtils.isEmpty(msgid))
+            all.add(msgid);
 
         int thread_range = prefs.getInt("thread_range", MessageHelper.DEFAULT_THREAD_RANGE);
         int range = (int) Math.pow(2, thread_range);

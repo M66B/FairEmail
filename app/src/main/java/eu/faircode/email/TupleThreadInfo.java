@@ -36,6 +36,6 @@ public class TupleThreadInfo {
     }
 
     public boolean isReferencing(String msgid) {
-        return !isSelf(msgid) && !isReferenced(msgid);
+        return !TextUtils.isEmpty(msgid) && !isSelf(msgid) && !isReferenced(msgid);
     }
 }
