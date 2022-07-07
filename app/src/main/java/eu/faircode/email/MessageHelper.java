@@ -1267,22 +1267,20 @@ public class MessageHelper {
 
         List<String> result = new ArrayList<>();
         String refs = imessage.getHeader("References", null);
-        if (refs != null)
-            result.addAll(Arrays.asList(getReferences(refs)));
+        result.addAll(getReferences(refs));
 
         // Merge references of reported message for threading
         InternetHeaders iheaders = getReportHeaders();
         if (iheaders != null) {
             String arefs = iheaders.getHeader("References", null);
-            if (arefs != null)
-                for (String ref : getReferences(arefs))
-                    if (!result.contains(ref)) {
-                        Log.i("rfc822 ref=" + ref);
-                        result.add(ref);
-                    }
+            for (String ref : getReferences(arefs))
+                if (!result.contains(ref)) {
+                    Log.i("rfc822 ref=" + ref);
+                    result.add(ref);
+                }
 
             String amsgid = iheaders.getHeader("Message-Id", null);
-            if (amsgid != null) {
+            if (!TextUtils.isEmpty(amsgid)) {
                 String msgid = MimeUtility.unfold(amsgid);
                 if (!result.contains(msgid)) {
                     Log.i("rfc822 id=" + msgid);
@@ -1294,8 +1292,17 @@ public class MessageHelper {
         return result.toArray(new String[0]);
     }
 
-    private String[] getReferences(String header) {
-        return MimeUtility.unfold(header).split("[,\\s]+");
+    private List<String> getReferences(String header) {
+        List<String> result = new ArrayList<>();
+        if (header == null)
+            return result;
+        header = MimeUtility.unfold(header);
+        if (TextUtils.isEmpty(header))
+            return result;
+        for (String ref : header.split("[,\\s]+"))
+            if (!result.contains(ref))
+                result.add(ref);
+        return result;
     }
 
     String getDeliveredTo() throws MessagingException {
@@ -1325,15 +1332,14 @@ public class MessageHelper {
         List<String> result = new ArrayList<>();
 
         String header = imessage.getHeader("In-Reply-To", null);
-        if (header != null)
-            result.addAll(Arrays.asList(getReferences(header)));
+        result.addAll(getReferences(header));
 
         if (result.size() == 0) {
             // Use reported message ID as synthetic in-reply-to
             InternetHeaders iheaders = getReportHeaders();
             if (iheaders != null) {
                 header = iheaders.getHeader("Message-Id", null);
-                if (header != null) {
+                if (!TextUtils.isEmpty(header)) {
                     result.add(header);
                     Log.i("rfc822 id=" + header);
                 }
