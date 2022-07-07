@@ -4,11 +4,11 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
-### Next version
+### 1.1931 - 2022-07-07
 
 * Added option to delay notifications while connected to Android auto (*)
 * Added option to show number of listed messages in the top action bar
-* Added option to show HTML titles
+* Added option to show HTML element titles
 * Added configurable button to save raw message files
 * Small improvements and minor bug fixes
 * Updated translations
