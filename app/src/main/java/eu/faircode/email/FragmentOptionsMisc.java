@@ -151,6 +151,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swWal;
     private SwitchCompat swCheckpoints;
     private SwitchCompat swAnalyze;
+    private SwitchCompat swAutoVacuum;
     private TextView tvSqliteCache;
     private SeekBar sbSqliteCache;
     private TextView tvChunkSize;
@@ -216,7 +217,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "watchdog", "experiments", "main_log", "protocol", "log_level", "debug", "leak_canary", "test1",
             "test2", "test3", "test4", "test5",
             "work_manager", // "external_storage",
-            "query_threads", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_cache",
+            "query_threads", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_auto_vacuum", "sqlite_cache",
             "chunk_size", "thread_range", "undo_manager",
             "webview_legacy", "browser_zoom", "fake_dark",
             "show_recent",
@@ -331,6 +332,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swWal = view.findViewById(R.id.swWal);
         swCheckpoints = view.findViewById(R.id.swCheckpoints);
         swAnalyze = view.findViewById(R.id.swAnalyze);
+        swAutoVacuum = view.findViewById(R.id.swAutoVacuum);
         tvSqliteCache = view.findViewById(R.id.tvSqliteCache);
         sbSqliteCache = view.findViewById(R.id.sbSqliteCache);
         ibSqliteCache = view.findViewById(R.id.ibSqliteCache);
@@ -965,6 +967,17 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("sqlite_analyze", checked).apply();
+            }
+        });
+
+        swAutoVacuum.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton v, boolean checked) {
+                prefs.edit()
+                        .putBoolean("sqlite_auto_vacuum", checked)
+                        .remove("debug")
+                        .apply();
+                ApplicationEx.restart(v.getContext());
             }
         });
 
@@ -1761,6 +1774,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swWal.setChecked(prefs.getBoolean("wal", true));
         swCheckpoints.setChecked(prefs.getBoolean("sqlite_checkpoints", true));
         swAnalyze.setChecked(prefs.getBoolean("sqlite_analyze", true));
+        swAutoVacuum.setChecked(prefs.getBoolean("sqlite_auto_vacuum", !Helper.isRedmiNote()));
 
         int sqlite_cache = prefs.getInt("sqlite_cache", DB.DEFAULT_CACHE_SIZE);
         Integer cache_size = DB.getCacheSizeKb(getContext());

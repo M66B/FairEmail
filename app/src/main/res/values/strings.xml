@@ -757,6 +757,7 @@
     <string name="title_advanced_wal" translatable="false">sqlite WAL</string>
     <string name="title_advanced_checkpoints" translatable="false">sqlite checkpoints</string>
     <string name="title_advanced_analyze" translatable="false">sqlite analyze</string>
+    <string name="title_advanced_auto_vacuum" translatable="false">sqlite auto vacuum</string>
     <string name="title_advanced_sqlite_cache" translatable="false">sqlite cache: %1$s %% - %2$s</string>
     <string name="title_advanced_chunk_size" translatable="false">Chunk size: %1$d</string>
     <string name="title_advanced_thread_range" translatable="false">Thread range: %1$d days</string>
