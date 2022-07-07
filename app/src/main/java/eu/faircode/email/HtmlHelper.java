@@ -424,6 +424,7 @@ public class HtmlHelper {
         boolean text_size = (!view || prefs.getBoolean("text_size", true));
         boolean text_font = (!view || prefs.getBoolean("text_font", true));
         boolean text_align = prefs.getBoolean("text_align", true);
+        boolean text_titles = prefs.getBoolean("text_titles", false);
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
         boolean parse_classes = prefs.getBoolean("parse_classes", true);
@@ -509,6 +510,7 @@ public class HtmlHelper {
                 .addAttributes("td", "height")
                 .addAttributes("tr", "width")
                 .addAttributes("tr", "height")
+                .addAttributes(":all", "title")
                 .removeAttributes("td", "colspan", "rowspan", "width")
                 .removeAttributes("th", "colspan", "rowspan", "width")
                 .addProtocols("img", "src", "cid")
@@ -1030,6 +1032,14 @@ public class HtmlHelper {
                     !"true".equals(element.attr("x-inline")))
                 element.attr("x-block", "true");
         }
+
+        // Insert titles
+        if (text_titles)
+            for (Element e : document.select("[title]")) {
+                String title = e.attr("title");
+                if (!TextUtils.isEmpty(title))
+                    e.prependChild(document.createElement("span").text("{" + title + "}"));
+            }
 
         // Replace headings
         Elements hs = document.select("h1,h2,h3,h4,h5,h6");

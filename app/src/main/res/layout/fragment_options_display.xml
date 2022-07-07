@@ -1910,6 +1910,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:checked="true"
                     android:text="@string/title_advanced_parse_classes"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1933,7 +1934,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:enabled="true"
                     android:text="@string/title_advanced_background_color"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1945,7 +1945,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:enabled="true"
+                    android:checked="true"
                     android:text="@string/title_advanced_text_color"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1957,7 +1957,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:enabled="true"
+                    android:checked="true"
                     android:text="@string/title_advanced_text_size"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1969,7 +1969,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:enabled="true"
+                    android:checked="true"
                     android:text="@string/title_advanced_text_font"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1981,11 +1981,22 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:enabled="true"
+                    android:checked="true"
                     android:text="@string/title_advanced_text_align"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swTextFont"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swTextTitles"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_text_titles"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swTextAlign"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -2000,7 +2011,7 @@
                     android:text="@string/title_advanced_authentication"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swTextAlign"
+                    app:layout_constraintTop_toBottomOf="@id/swTextTitles"
                     app:switchPadding="12dp" />
 
                 <TextView

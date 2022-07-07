@@ -179,6 +179,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swTextSize;
     private SwitchCompat swTextFont;
     private SwitchCompat swTextAlign;
+    private SwitchCompat swTextTitles;
     private SwitchCompat swAuthentication;
     private SwitchCompat swAuthenticationIndicator;
 
@@ -209,7 +210,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "collapse_quotes", "image_placeholders", "inline_images", "button_extra",
             "unzip", "attachments_alt", "thumbnails",
             "list_count", "bundled_fonts", "parse_classes",
-            "background_color", "text_color", "text_size", "text_font", "text_align",
+            "background_color", "text_color", "text_size", "text_font", "text_align", "text_titles",
             "authentication", "authentication_indicator"
     };
 
@@ -336,6 +337,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swTextSize = view.findViewById(R.id.swTextSize);
         swTextFont = view.findViewById(R.id.swTextFont);
         swTextAlign = view.findViewById(R.id.swTextAlign);
+        swTextTitles = view.findViewById(R.id.swTextTitles);
         swAuthentication = view.findViewById(R.id.swAuthentication);
         swAuthenticationIndicator = view.findViewById(R.id.swAuthenticationIndicator);
 
@@ -1259,6 +1261,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swTextTitles.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("text_titles", checked).apply();
+            }
+        });
+
         swAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1510,6 +1519,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swTextSize.setChecked(prefs.getBoolean("text_size", true));
         swTextFont.setChecked(prefs.getBoolean("text_font", true));
         swTextAlign.setChecked(prefs.getBoolean("text_align", true));
+        swTextTitles.setChecked(prefs.getBoolean("text_titles", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", true));
         swAuthenticationIndicator.setChecked(prefs.getBoolean("authentication_indicator", false));
         swAuthenticationIndicator.setEnabled(swAuthentication.isChecked());
