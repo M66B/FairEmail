@@ -479,6 +479,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 prefs.edit().putBoolean("check_blocklist", checked).apply();
                 swUseBlocklist.setEnabled(checked);
                 swUseBlocklistPop.setEnabled(checked);
+                rvBlocklist.setAlpha(checked ? 1.0f : Helper.LOW_LIGHT);
             }
         });
 
@@ -613,6 +614,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swUseBlocklist.setEnabled(swCheckBlocklist.isChecked());
         swUseBlocklistPop.setChecked(prefs.getBoolean("use_blocklist_pop", false));
         swUseBlocklistPop.setEnabled(swCheckBlocklist.isChecked());
+        rvBlocklist.setAlpha(swCheckBlocklist.isChecked() ? 1.0f : Helper.LOW_LIGHT);
     }
 
     private String formatHour(Context context, int minutes) {
