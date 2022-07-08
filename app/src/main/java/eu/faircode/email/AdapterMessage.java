@@ -5007,13 +5007,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 message.show_images = value;
 
-            if (full) {
-                properties.setSize(message.id, null);
-                properties.setHeight(message.id, null);
-                properties.setPosition(message.id, null);
+            properties.setSize(message.id, null);
+            properties.setHeight(message.id, null);
+            properties.setPosition(message.id, null);
 
+            if (full)
                 setupTools(message, false, false);
-            }
 
             bindBody(message, false);
 
