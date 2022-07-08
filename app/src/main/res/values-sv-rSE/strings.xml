@@ -472,6 +472,7 @@
     <string name="title_advanced_text_size">Använd textstorlekar</string>
     <string name="title_advanced_text_font">Använd typsnitt</string>
     <string name="title_advanced_text_align">Använd textjustering</string>
+    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">Visa {HTML titles}</string>
     <string name="title_advanced_text_separators">Använd separata linjer</string>
     <string name="title_advanced_collapse_quotes">Kollapsa citerad text</string>
     <string name="title_advanced_image_placeholders">Visa bildplatshållare</string>
@@ -482,6 +483,7 @@
     <string name="title_advanced_actionbar_color">Använd kontofärg som bakgrundsfärg för konversationsfältet</string>
     <string name="title_advanced_category_header">Gruppera efter kontokategori</string>
     <string name="title_advanced_navbar_colorize">Färglägg navigeringsfältet för Android</string>
+    <string name="title_advanced_list_count">Visa antalet meddelanden eller konversationer i det översta åtgärdsfältet</string>
     <string name="title_advanced_bundled_fonts">Använd medföljande typsnitt</string>
     <string name="title_advanced_parse_classes">Tolka stilmallar</string>
     <string name="title_advanced_authentication">Visa autentiseringsvarningar</string>
@@ -533,6 +535,7 @@
     <string name="title_advanced_notify_background">Visa aviseringar endast i bakgrunden</string>
     <string name="title_advanced_notify_known">Visa endast aviseringar för kontakter</string>
     <string name="title_advanced_notify_suppress_in_call">Inaktivera aviseringar under pågående telefonsamtal</string>
+    <string name="title_advanced_notify_suppress_in_car">Fördröj aviseringar medan Android Auto är ansluten</string>
     <string name="title_advanced_notify_summary">Visa enbart en sammanställning av aviseringar</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_preview_all">Förhandsgranska all text</string>
@@ -713,6 +716,7 @@
     <string name="title_advanced_safe_browsing_hint">Googles server vet vilka adresser som det görs uppslag för</string>
     <string name="title_advanced_badge_hint">Endast tillgänglig på programstartare som stöds</string>
     <string name="title_advanced_notify_action_hint">Högst tre åtgärder kommer att visas</string>
+    <string name="title_advanced_notify_car_hint">Ansluten innebär att något projekteras, till exempel en karta för navigering</string>
     <string name="title_advanced_notify_remove_hint">Nya meddelandeaviseringar kommer alltid att tas bort när de sveps bort och när meddelanden markeras som lästa</string>
     <string name="title_advanced_notify_manage_hint">Tryck på kanalens namn för att ange kanalens egenskaper</string>
     <string name="title_advanced_notify_manage_default_hint">För att ställa in standardljudet, etc</string>

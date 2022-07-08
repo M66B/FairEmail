@@ -406,6 +406,7 @@
     <string name="title_advanced_text_size">استفاده از اندازه متن</string>
     <string name="title_advanced_text_font">استفاده از قلم‌ها</string>
     <string name="title_advanced_text_align">استفاده از چیدمان متن</string>
+    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">نمایش {HTML titles}</string>
     <string name="title_advanced_text_separators">استفاده از خطوط جدا کننده</string>
     <string name="title_advanced_collapse_quotes">بستن متن نقل شده</string>
     <string name="title_advanced_images_inline">تصاویر درون خطی را خودکار نمایش بده</string>

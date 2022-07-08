@@ -519,6 +519,7 @@
     <string name="title_advanced_unseen_ignored">Corresponder o número de novas mensagens ao número de notificações</string>
     <string name="title_advanced_notify_background">Mostrar notificações apenas em segundo plano</string>
     <string name="title_advanced_notify_known">Mostrar notificações apenas para contactos</string>
+    <string name="title_advanced_notify_suppress_in_car">Atrasar notificações enquanto o Android Auto está ligado</string>
     <string name="title_advanced_notify_summary">Mostrar apenas resumo na notificação</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_notify_preview_all">Pré-visualizar todo o texto</string>

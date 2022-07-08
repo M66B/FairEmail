@@ -553,6 +553,7 @@
     <string name="title_advanced_notify_background">Показувати сповіщення, лише у фоновому режимі</string>
     <string name="title_advanced_notify_known">Показувати сповіщення лише для контактів</string>
     <string name="title_advanced_notify_suppress_in_call">Затримка сповіщень під час дзвінка</string>
+    <string name="title_advanced_notify_suppress_in_car">Затримка сповіщень при підключенні Android Авто</string>
     <string name="title_advanced_notify_summary">Показати сповіщення лише про підсумок</string>
     <string name="title_advanced_notify_preview">Показувати попередній перегляд повідомлення у сповіщеннях</string>
     <string name="title_advanced_notify_preview_all">Попередній перегляд всього тексту</string>
@@ -730,6 +731,7 @@
     <string name="title_advanced_safe_browsing_hint">Сервер Google знає, на які адреси звертаються</string>
     <string name="title_advanced_badge_hint">Доступно лише для підтримуваних лаунчерів</string>
     <string name="title_advanced_notify_action_hint">Не більше трьох дій буде показано</string>
+    <string name="title_advanced_notify_car_hint">Під’єднано означає, що відбувається проєктування, наприклад карта для навігації</string>
     <string name="title_advanced_notify_remove_hint">Нові сповіщення про повідомлення завжди будуть вилучатися при гортанні та при відмічанні повідомлення прочитаним</string>
     <string name="title_advanced_notify_manage_hint">Натисніть на назву каналу, щоб встановити властивості каналу</string>
     <string name="title_advanced_notify_manage_default_hint">Щоб встановити звук за замовчуванням</string>

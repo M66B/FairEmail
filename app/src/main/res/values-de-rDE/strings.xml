@@ -474,6 +474,7 @@
     <string name="title_advanced_text_size">Textgrößen verwenden</string>
     <string name="title_advanced_text_font">Schriftarten verwenden</string>
     <string name="title_advanced_text_align">Textausrichtung verwenden</string>
+    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">{HTML titles} anzeigen</string>
     <string name="title_advanced_text_separators">Trennlinien verwenden</string>
     <string name="title_advanced_collapse_quotes">Zitierten Text ausblenden</string>
     <string name="title_advanced_image_placeholders">Platzhalter für Bilder anzeigen</string>

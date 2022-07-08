@@ -3,9 +3,13 @@
     <string name="app_search">ᱯᱷᱮᱭᱟᱨ ᱤᱢᱮᱞ ᱛᱮ ᱯᱟᱸᱛᱮᱭ ᱢᱮ</string>
     <string name="app_changelog">ᱵᱚᱫᱚᱞ ᱞᱟᱸᱜᱽ</string>
     <string name="app_welcome">Fair Email ᱫᱚ ᱦᱩᱭᱩᱜ ᱠᱟᱱᱟ ᱢᱤᱫ ᱨᱟᱲᱟ ᱥᱚᱨᱥ ᱤᱢᱮᱞ ᱮᱯ ᱡᱟᱦᱟᱸ ᱫᱚ ᱯᱨᱟᱤᱵᱷᱮᱥᱤ ᱟᱨ ᱥᱤᱠᱭᱩᱨᱤᱴᱤ ᱪᱚᱴᱨᱮ ᱫᱷᱮᱭᱟᱱ ᱮ ᱮᱢᱟ ᱾ ᱱᱚᱣᱟ ᱠᱷᱟᱹᱛᱤᱨ ᱛᱮ ᱛᱤᱱᱟᱹᱜ ᱯᱷᱤᱪᱚᱨ ᱟᱢ ᱵᱮᱵᱷᱨᱟᱜ ᱠᱷᱚᱱ ᱮᱴᱟᱜ ᱞᱮᱠᱟᱭ ᱠᱟᱹᱢᱤᱭᱟ ᱾</string>
+    <string name="app_data_loss">ᱯᱟᱞᱮ ᱡᱷᱚᱛᱚ ᱰᱮᱴᱟ ᱟᱫ ᱮᱱᱟ</string>
+    <string name="app_continue">ᱡᱟᱦᱟᱸ ᱞᱮᱠᱟᱛᱮ ᱞᱮᱛᱟᱲ ᱢᱮ</string>
     <string name="app_exit">ᱵᱟᱦᱨᱮ ᱛᱮ ᱚᱰᱚᱠᱚᱜ ᱞᱟᱹᱜᱤᱫ \'ᱨᱩᱭᱟᱹᱲ\' ᱨᱮ ᱚᱛᱟᱭ ᱢᱮ</string>
     <string name="app_cake">ᱵᱟᱝ ᱠᱩᱲᱟᱹᱣᱜᱟᱱ ᱥᱴᱚᱨᱮᱡᱽ ᱴᱷᱟᱶ</string>
     <string name="app_updated">ᱢᱩᱪᱟᱹᱫ ᱚᱯᱰᱮᱴ: %1$s</string>
+    <string name="app_download">ᱠᱷᱚᱱ ᱰᱟᱭᱩᱱᱞᱚᱰ ᱟᱠᱟᱱᱟ: %1$s</string>
+    <string name="channel_service">ᱪᱟᱪᱞᱟᱣ</string>
     <string name="channel_send">ᱠᱩᱞ ᱢᱮ</string>
     <string name="channel_notification">ᱤᱢᱮᱞ</string>
     <string name="channel_progress">ᱞᱟᱦᱟᱱᱛᱤ</string>
@@ -48,6 +52,7 @@
     </plurals>
     <string name="title_block">ᱵᱞᱚᱠᱮ ᱢᱮ %1$s</string>
     <string name="title_block_sender">ᱵᱞᱚᱠ ᱠᱩᱠᱩᱞᱤᱭᱟᱹ</string>
+    <string name="title_block_sender_domain">ᱵᱠᱞᱚᱠ ᱰᱚᱢᱮᱱ %1$s</string>
     <string name="title_junk_clear">ᱯᱷᱟᱨᱪᱟᱭ ᱢᱮ</string>
     <string name="title_notification_sending">ᱢᱮᱥᱮᱡᱽ ᱠᱩᱞᱚᱜ ᱠᱟᱱᱟ</string>
     <string name="title_notification_waiting">ᱫᱩᱞᱟ.ᱲ ᱡᱚᱲᱟᱣ ᱞᱟᱹᱜᱤᱫ ᱛᱟᱹᱝᱜᱤᱭ ᱢᱮ</string>

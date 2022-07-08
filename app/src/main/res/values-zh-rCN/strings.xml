@@ -464,6 +464,7 @@
     <string name="title_advanced_text_size">使用文本大小</string>
     <string name="title_advanced_text_font">使用字体</string>
     <string name="title_advanced_text_align">使用文本对齐</string>
+    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">显示 {HTML titles}</string>
     <string name="title_advanced_text_separators">使用分隔线</string>
     <string name="title_advanced_collapse_quotes">折叠引用文本</string>
     <string name="title_advanced_image_placeholders">显示图像占位符</string>
@@ -526,6 +527,7 @@
     <string name="title_advanced_notify_background">仅在处于后台时显示通知</string>
     <string name="title_advanced_notify_known">仅显示联系人通知</string>
     <string name="title_advanced_notify_suppress_in_call">通话时延迟通知</string>
+    <string name="title_advanced_notify_suppress_in_car">已连接 Android Auto 时延迟通知</string>
     <string name="title_advanced_notify_summary">仅显示摘要通知</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_preview_all">预览所有文本</string>
@@ -706,6 +708,7 @@
     <string name="title_advanced_safe_browsing_hint">Google 服务器知道被查找的地址</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
+    <string name="title_advanced_notify_car_hint">已连接意味着正在投影某些东西，例如用于导航的地图</string>
     <string name="title_advanced_notify_remove_hint">滑走或标为已读时将总会移除新消息通知</string>
     <string name="title_advanced_notify_manage_hint">点击频道名称来设置频道属性</string>
     <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>

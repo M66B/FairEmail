@@ -497,6 +497,7 @@
     <string name="title_advanced_text_size">Użyj rozmiarów tekstu</string>
     <string name="title_advanced_text_font">Użyj czcionek</string>
     <string name="title_advanced_text_align">Użyj wyrównania tekstu</string>
+    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">Pokaż {HTML titles}</string>
     <string name="title_advanced_text_separators">Użyj linii separatora</string>
     <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
     <string name="title_advanced_image_placeholders">Pokaż symbole zastępcze obrazu</string>
@@ -559,6 +560,7 @@
     <string name="title_advanced_notify_background">Pokaż powiadomienia tylko, gdy pracuje w tle</string>
     <string name="title_advanced_notify_known">Pokaż powiadomienia tylko dla kontaktów</string>
     <string name="title_advanced_notify_suppress_in_call">Opóźnij powiadomienia podczas połączenia</string>
+    <string name="title_advanced_notify_suppress_in_car">Opóźnij powiadomienia, gdy Android Auto jest połączony</string>
     <string name="title_advanced_notify_summary">Pokaż tylko podsumowanie</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_preview_all">Podgląd całego tekstu</string>
@@ -739,6 +741,7 @@
     <string name="title_advanced_safe_browsing_hint">Serwer Google wie, które adresy są wyszukiwane</string>
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
     <string name="title_advanced_notify_action_hint">Wyświetlone zostaną co najwyżej trzy akcje</string>
+    <string name="title_advanced_notify_car_hint">Połączony oznacza, że coś jest wyświetlane, na przykład mapa do nawigacji</string>
     <string name="title_advanced_notify_remove_hint">Powiadomienia o nowych wiadomościach będą zawsze usuwane po przesunięciu i oznaczeniu wiadomości jako przeczytane</string>
     <string name="title_advanced_notify_manage_hint">Dotknij nazwę kanału, aby ustawić właściwości kanału</string>
     <string name="title_advanced_notify_manage_default_hint">Aby ustawić domyślny dźwięk, itp.</string>
