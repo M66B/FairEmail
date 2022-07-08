@@ -1037,8 +1037,12 @@ public class HtmlHelper {
         if (text_titles)
             for (Element e : document.select("[title]")) {
                 String title = e.attr("title");
-                if (!TextUtils.isEmpty(title))
-                    e.prependChild(document.createElement("span").text("{" + title + "}"));
+                if (TextUtils.isEmpty(title))
+                    continue;
+                if ("img".equals(e.tagName()) &&
+                        title.equals(e.attr("alt")))
+                    continue;
+                e.prependChild(document.createElement("span").text("{" + title + "}"));
             }
 
         // Replace headings
