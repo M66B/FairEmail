@@ -4,6 +4,12 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
+### 1.1932 - 2022-07-08
+
+* Fixed threading when Message-ID empty
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1931 - 2022-07-07
 
 * Added option to delay notifications while connected to Android auto (*)
