@@ -29,6 +29,7 @@ import androidx.core.net.MailTo;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.IDN;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
@@ -57,6 +58,11 @@ public class IPInfo {
             String host = uri.getHost();
             if (host == null)
                 throw new UnknownHostException();
+            try {
+                host = IDN.toASCII(host, IDN.ALLOW_UNASSIGNED);
+            } catch (Throwable ex) {
+                Log.i(ex);
+            }
             InetAddress address = InetAddress.getByName(host);
             return new Pair<>(address, getOrganization(address, context));
         }
