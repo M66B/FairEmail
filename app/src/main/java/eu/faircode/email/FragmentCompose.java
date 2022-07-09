@@ -1871,9 +1871,12 @@ public class FragmentCompose extends FragmentBase {
 
         bottom_navigation.findViewById(R.id.action_save).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View view) {
-                onLanguageTool();
-                return true;
+            public boolean onLongClick(View v) {
+                if (LanguageTool.isEnabled(v.getContext())) {
+                    onLanguageTool();
+                    return true;
+                } else
+                    return false;
             }
         });
 

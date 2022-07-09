@@ -37,6 +37,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.fonts.Font;
 import android.graphics.fonts.SystemFonts;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
@@ -111,6 +112,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvFtsIndexed;
     private TextView tvFtsPro;
     private Spinner spLanguage;
+    private SwitchCompat swLanguageTool;
+    private TextView tvLanguageToolPrivacy;
+    private ImageButton ibLanguageTool;
     private SwitchCompat swDeepL;
     private ImageButton ibDeepL;
     private TextView tvSdcard;
@@ -212,7 +216,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "deepl_enabled",
+            "language", "lt_enabled", "deepl_enabled",
             "updates", "weekly", "show_changelog",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "protocol", "log_level", "debug", "leak_canary", "test1",
@@ -293,6 +297,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         spLanguage = view.findViewById(R.id.spLanguage);
+        swLanguageTool = view.findViewById(R.id.swLanguageTool);
+        tvLanguageToolPrivacy = view.findViewById(R.id.tvLanguageToolPrivacy);
+        ibLanguageTool = view.findViewById(R.id.ibLanguageTool);
         swDeepL = view.findViewById(R.id.swDeepL);
         ibDeepL = view.findViewById(R.id.ibDeepL);
         tvSdcard = view.findViewById(R.id.tvSdcard);
@@ -576,6 +583,28 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("language").commit();
+            }
+        });
+
+        swLanguageTool.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("lt_enabled", checked).apply();
+            }
+        });
+
+        tvLanguageToolPrivacy.getPaint().setUnderlineText(true);
+        tvLanguageToolPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.LT_PRIVACY_URI), true);
+            }
+        });
+
+        ibLanguageTool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 180);
             }
         });
 
@@ -1750,6 +1779,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if (selected >= 0)
             spLanguage.setSelection(selected);
 
+        swLanguageTool.setChecked(prefs.getBoolean("lt_enabled", false));
         swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));

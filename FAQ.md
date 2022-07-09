@@ -4843,6 +4843,8 @@ Templates can have the following options:
 <a name="faq180"></a>
 **(180) How do I use LanguageTool?**
 
+LanguageTool need to be enabled in the miscellaneous settings.
+
 After writing some text, you can long press on the save draft button to perform a grammar, style, and spell check via [LanguageTool](https://languagetool.org/).
 Texts with suggestions will be marked and if you tap on a marked suggestion,
 it will be shown by the keyboard if the keyboard supports this,

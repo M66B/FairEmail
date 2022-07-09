@@ -20,6 +20,9 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
+
+import androidx.preference.PreferenceManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,6 +43,11 @@ import javax.net.ssl.HttpsURLConnection;
 public class LanguageTool {
     private static final String LT_URI = "https://api.languagetool.org/v2/";
     private static final int LT_TIMEOUT = 20; // seconds
+
+    static boolean isEnabled(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean("lt_enabled", false);
+    }
 
     static List<Suggestion> getSuggestions(Context context, CharSequence text) throws IOException, JSONException {
         // https://languagetool.org/http-api/swagger-ui/#!/default/post_check
