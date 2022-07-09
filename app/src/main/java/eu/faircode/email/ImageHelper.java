@@ -285,6 +285,11 @@ class ImageHelper {
     @NonNull
     static Bitmap renderSvg(InputStream is, int fillColor, int scaleToPixels) throws IOException {
         try {
+            // https://bugzilla.mozilla.org/show_bug.cgi?id=455100
+            // https://bug1105796.bmoattachments.org/attachment.cgi?id=8529795
+            // https://github.com/BigBadaboom/androidsvg/issues/122#issuecomment-361902061
+            SVG.setInternalEntitiesEnabled(false);
+
             SVG svg = SVG.getFromInputStream(is);
             float w = svg.getDocumentWidth();
             float h = svg.getDocumentHeight();

@@ -126,7 +126,9 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                             Log.w(ex);
                         }
 
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
+                                !"image/svg+xml".equals(type) &&
+                                !"svg".equals(Helper.getExtension(file.getName())))
                             try {
                                 return ImageHelper.getScaledDrawable(context, file, type, max);
                             } catch (Throwable ex) {
