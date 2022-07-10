@@ -1427,7 +1427,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             Intent intent = getIntent();
             String action = (intent == null ? null : intent.getAction());
             if (action != null &&
-                    (action.startsWith("thread") || action.equals("widget")))
+                    (action.startsWith("thread") || action.startsWith("widget")))
                 return;
 
             String last = prefs.getString("changelog", null);
@@ -1753,7 +1753,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 intent.putExtra("id", id);
                 onViewThread(intent);
 
-            } else if (action.equals("widget")) {
+            } else if (action.startsWith("widget")) {
                 long account = intent.getLongExtra("widget_account", -1);
                 long folder = intent.getLongExtra("widget_folder", -1);
                 String type = intent.getStringExtra("widget_type");
