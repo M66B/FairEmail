@@ -952,13 +952,14 @@
     <string-array name="pollIntervalNames">
         <item>Увек</item>
         <item>Сваких 5 минута</item>
-        <item>Сваких 15 минута</item>
-        <item>Сваких 30 минута</item>
-        <item>На сваких сат времена</item>
-        <item>Свака 2 сата</item>
-        <item>Свака 4 сата</item>
-        <item>Сваких 8 сати</item>
-        <item>Сваки дан</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Не</item>

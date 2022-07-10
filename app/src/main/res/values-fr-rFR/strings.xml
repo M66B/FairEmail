@@ -476,7 +476,7 @@
     <string name="title_advanced_text_size">Utiliser la taille du texte</string>
     <string name="title_advanced_text_font">Utiliser les polices de caractères</string>
     <string name="title_advanced_text_align">Utiliser l\'alignement du texte</string>
-    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">Afficher {HTML titles}</string>
+    <string name="title_advanced_text_titles">Afficher {HTML titles}</string>
     <string name="title_advanced_text_separators">Utiliser des lignes de séparation</string>
     <string name="title_advanced_collapse_quotes">Replier le texte cité</string>
     <string name="title_advanced_image_placeholders">Afficher les espaces réservés aux images</string>
@@ -625,6 +625,7 @@
     <string name="title_advanced_class_min_difference">Différence minimale de classe : %1$s %%</string>
     <string name="title_advanced_language">Langue</string>
     <string name="title_advanced_language_system">Système</string>
+    <string name="title_advanced_lt">Intégration de LanguageTool</string>
     <string name="title_advanced_deepl">Intégration de DeepL</string>
     <string name="title_advanced_sdcard">Je veux utiliser une carte SD</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
@@ -1775,13 +1776,14 @@
     <string-array name="pollIntervalNames">
         <item>En continu</item>
         <item>Toutes les 5 minutes</item>
-        <item>Toutes les 15 minutes</item>
-        <item>Toutes les 30 minutes</item>
-        <item>Toutes les heures</item>
-        <item>Toutes les 2 heures</item>
-        <item>Toutes les 4 heures</item>
-        <item>Toutes les 8 heures</item>
-        <item>Tous les jours</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Non</item>

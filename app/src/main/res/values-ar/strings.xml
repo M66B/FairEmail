@@ -478,12 +478,13 @@
     <string-array name="pollIntervalNames">
         <item>دائماً</item>
         <item>كل 5 دقيقة</item>
-        <item>كل 15 دقيقة</item>
-        <item>كل 30 دقيقة</item>
-        <item>كل ساعة</item>
-        <item>كل ساعتين</item>
-        <item>كل 4 ساعات</item>
-        <item>كل 8 ساعات</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
         <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">

@@ -498,6 +498,7 @@
     <string name="title_advanced_text_size">להשתמש בגדלי טקסט</string>
     <string name="title_advanced_text_font">להשתמש בגופנים</string>
     <string name="title_advanced_text_align">להשתמש ביישור טקסט</string>
+    <string name="title_advanced_text_titles">הצגת {HTML titles}</string>
     <string name="title_advanced_text_separators">להשתמש בשורות מפרידות</string>
     <string name="title_advanced_collapse_quotes">צמצום טקסט מצוטט</string>
     <string name="title_advanced_image_placeholders">הצגת ממלאי מקום תמונות</string>
@@ -508,6 +509,7 @@
     <string name="title_advanced_actionbar_color">להשתמש בצבע החשבון כצבע הרקע לסרגל הפעולות של הדיון</string>
     <string name="title_advanced_category_header">קיבוץ לפי קטגוריית חשבון</string>
     <string name="title_advanced_navbar_colorize">לצבוע את סרגל הניווט של Android</string>
+    <string name="title_advanced_list_count">הצגת מספר ההודעות או הדיונים בסרגל הפעולות העליון</string>
     <string name="title_advanced_bundled_fonts">להשתמש בגופנים מאוגדים</string>
     <string name="title_advanced_parse_classes">פענוח גיליונות עיצוב</string>
     <string name="title_advanced_authentication">הצגת אזהרות אימות</string>
@@ -559,6 +561,7 @@
     <string name="title_advanced_notify_background">להציג התראות כאשר במצב רקע בלבד</string>
     <string name="title_advanced_notify_known">הצגת התראות לאנשי קשר בלבד</string>
     <string name="title_advanced_notify_suppress_in_call">להשהות התראות בזמן שיחה</string>
+    <string name="title_advanced_notify_suppress_in_car">השבתת ההתראות כאשר מחובר ל־Android Auto</string>
     <string name="title_advanced_notify_summary">הצגת התראות תקציר בלבד</string>
     <string name="title_advanced_notify_preview">תצוגה מקדימה של ההודעות בהתראות</string>
     <string name="title_advanced_notify_preview_all">תצוגה מקדימה של כל הטקסט</string>
@@ -644,6 +647,7 @@
     <string name="title_advanced_class_min_difference">הפרש מזערי בין מחלקות: %1$s %%</string>
     <string name="title_advanced_language">שפה</string>
     <string name="title_advanced_language_system">מערכת</string>
+    <string name="title_advanced_lt">שילוב מול LanguageTool</string>
     <string name="title_advanced_deepl">שילוב של DeepL</string>
     <string name="title_advanced_sdcard">ארצה להשתמש בכרטיס SD</string>
     <string name="title_advanced_watchdog">לבדוק מדי פעם אם FairEmail עדיין פעיל</string>
@@ -739,6 +743,7 @@
     <string name="title_advanced_safe_browsing_hint">השרת של Google יודע אחר אילו כתובות מחפשים</string>
     <string name="title_advanced_badge_hint">זמין רק במשגרים נתמכים</string>
     <string name="title_advanced_notify_action_hint">תוצגנה שלוש פעולות לכל היותר</string>
+    <string name="title_advanced_notify_car_hint">מחובר כלומר שמשהו מוקרן כגון מפה לניווט</string>
     <string name="title_advanced_notify_remove_hint">התראות על הודעות חשבות תמיד תוסרנה עם החלקה כלפי חוץ ועם סימון הודעות כנקראו</string>
     <string name="title_advanced_notify_manage_hint">יש לגעת בשם הערוץ כדי להגדיר את מאפייניו</string>
     <string name="title_advanced_notify_manage_default_hint">כדי להגדיר את צלילי בררת המחדל וכו׳</string>
@@ -1794,13 +1799,14 @@
     <string-array name="pollIntervalNames">
         <item>תמיד</item>
         <item>כל 5 דקות</item>
-        <item>כל רבע שעה</item>
-        <item>כל חצי שעה</item>
-        <item>כל שעה</item>
-        <item>כל שעתיים</item>
-        <item>כל 4 שעות</item>
-        <item>כל 8 שעות</item>
-        <item>כל יום</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>לא</item>

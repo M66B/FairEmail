@@ -979,13 +979,14 @@
     <string-array name="pollIntervalNames">
         <item>항상</item>
         <item>매 5분</item>
-        <item>매 15분</item>
-        <item>매 30분</item>
-        <item>매시간</item>
-        <item>매 2시간</item>
-        <item>매 4시간</item>
-        <item>매 8시간</item>
-        <item>매일</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>없음</item>

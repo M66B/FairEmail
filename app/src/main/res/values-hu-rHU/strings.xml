@@ -1669,13 +1669,14 @@
     <string-array name="pollIntervalNames">
         <item>Mindig</item>
         <item>Minden 5 percenként</item>
-        <item>Minden 15 percenként</item>
-        <item>30 percenként</item>
-        <item>Óránként</item>
-        <item>2 óránként</item>
-        <item>4 óránként</item>
-        <item>8 óránként</item>
-        <item>Naponta</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nincs</item>

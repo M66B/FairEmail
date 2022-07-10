@@ -1784,13 +1784,14 @@
     <string-array name="pollIntervalNames">
         <item>Завжди</item>
         <item>Кожні 5 хвилин</item>
-        <item>Кожні 15 хвилин</item>
-        <item>Кожні 30 хвилин</item>
-        <item>Кожну годину</item>
-        <item>Кожні 2 години</item>
-        <item>Кожні 4 години</item>
-        <item>Кожні 8 годин</item>
-        <item>Щодня</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ні</item>

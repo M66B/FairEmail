@@ -487,6 +487,7 @@
     <string name="title_advanced_text_size">Koristi veličine teksta</string>
     <string name="title_advanced_text_font">Koristi fontove</string>
     <string name="title_advanced_text_align">Koristi poravnanje teksta</string>
+    <string name="title_advanced_text_titles">Prikaži {HTML titles}</string>
     <string name="title_advanced_text_separators">Koristi linije razdvajanja</string>
     <string name="title_advanced_collapse_quotes">Suzi citirani tekst</string>
     <string name="title_advanced_image_placeholders">Prikaži mjesta za prikaz slika</string>
@@ -549,6 +550,7 @@
     <string name="title_advanced_notify_background">Prikaži obavještenja samo u pozadini</string>
     <string name="title_advanced_notify_known">Prikaži obavještenja samo za kontakte</string>
     <string name="title_advanced_notify_suppress_in_call">Odgodi obavještenja tokom poziva</string>
+    <string name="title_advanced_notify_suppress_in_car">Odgodi obavještenja kada je spojen Android Auto</string>
     <string name="title_advanced_notify_summary">Prikaži samo obavještenja sa sažetkom</string>
     <string name="title_advanced_notify_preview">Prikaži pregled poruke u obavještenjima</string>
     <string name="title_advanced_notify_preview_all">Prikaz cijelog teksta</string>
@@ -729,6 +731,7 @@
     <string name="title_advanced_safe_browsing_hint">Google-ov server zna koje adrese se pregledaju</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim launcher-ima</string>
     <string name="title_advanced_notify_action_hint">Bit će prikazane najviše tri radnje</string>
+    <string name="title_advanced_notify_car_hint">Spojen znači da se nešto projicira, poput karte za navigaciju</string>
     <string name="title_advanced_notify_remove_hint">Obavještenja o novim porukama će se uvijek skloniti kada se prevuku preko ekrana ili označavanjem poruka kao \'pročitane\'</string>
     <string name="title_advanced_notify_manage_hint">Dodirnite naziv kanala za postavljanje svojstava kanala</string>
     <string name="title_advanced_notify_manage_default_hint">Za postavljanje zadanog zvuka, itd.</string>
@@ -1783,13 +1786,14 @@
     <string-array name="pollIntervalNames">
         <item>Uvijek</item>
         <item>Svakih 5 minuta</item>
-        <item>Svakih 15 minuta</item>
-        <item>Svakih 30 minuta</item>
-        <item>Svakog sata</item>
-        <item>Svaka 2 sata</item>
-        <item>Svaka 4 sata</item>
-        <item>Svakih 8 sati</item>
-        <item>Svakog dana</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Bez odlaganja</item>

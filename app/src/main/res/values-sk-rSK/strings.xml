@@ -1749,13 +1749,14 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string-array name="pollIntervalNames">
         <item>Vždy</item>
         <item>Každých 5 minút</item>
-        <item>Každých 15 minút</item>
-        <item>Každých 30 minút</item>
-        <item>Každú hodinu</item>
-        <item>Každé 2 hodiny</item>
-        <item>Každé 4 hodiny</item>
-        <item>Každých 8 hodín</item>
-        <item>Každý deň</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nie</item>

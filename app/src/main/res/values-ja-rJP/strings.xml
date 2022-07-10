@@ -1753,13 +1753,14 @@
     <string-array name="pollIntervalNames">
         <item>常に</item>
         <item>5 分毎</item>
-        <item>15 分毎</item>
-        <item>30 分毎</item>
-        <item>1 時間毎</item>
-        <item>2 時間毎</item>
-        <item>4 時間毎</item>
-        <item>8 時間毎</item>
-        <item>毎日</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>いいえ</item>

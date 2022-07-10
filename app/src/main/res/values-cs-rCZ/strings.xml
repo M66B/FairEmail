@@ -1778,13 +1778,14 @@
     <string-array name="pollIntervalNames">
         <item>Neustále</item>
         <item>Každých 5 minut</item>
-        <item>Každých 15 minut</item>
-        <item>Každých 30 minut</item>
-        <item>Každou hodinu</item>
-        <item>Každé 2 hodiny</item>
-        <item>Každé 4 hodiny</item>
-        <item>Každých 8 hodin</item>
-        <item>Každý den</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nepozdržovat</item>

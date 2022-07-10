@@ -1760,13 +1760,14 @@
     <string-array name="pollIntervalNames">
         <item>Uvijek</item>
         <item>Svakih 5 minuta</item>
-        <item>Svakih 15 minuta</item>
-        <item>Svakih 30 minuta</item>
-        <item>Svaki sat</item>
-        <item>Svaka 2 sata</item>
-        <item>Svaka 4 sata</item>
-        <item>Svakih 8 sati</item>
-        <item>Svaki dan</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ne</item>

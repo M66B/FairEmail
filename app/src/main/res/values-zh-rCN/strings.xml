@@ -464,7 +464,7 @@
     <string name="title_advanced_text_size">使用文本大小</string>
     <string name="title_advanced_text_font">使用字体</string>
     <string name="title_advanced_text_align">使用文本对齐</string>
-    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">显示 {HTML titles}</string>
+    <string name="title_advanced_text_titles">显示 {HTML titles}</string>
     <string name="title_advanced_text_separators">使用分隔线</string>
     <string name="title_advanced_collapse_quotes">折叠引用文本</string>
     <string name="title_advanced_image_placeholders">显示图像占位符</string>
@@ -612,6 +612,7 @@
     <string name="title_advanced_class_min_difference">不同分类的最小差异：%1$s %%</string>
     <string name="title_advanced_language">界面语言</string>
     <string name="title_advanced_language_system">系统</string>
+    <string name="title_advanced_lt">LanguageTool 集成</string>
     <string name="title_advanced_deepl">DeepL 集成</string>
     <string name="title_advanced_sdcard">我想使用 SD 卡</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
@@ -1754,13 +1755,14 @@
     <string-array name="pollIntervalNames">
         <item>总是</item>
         <item>每 5 分钟</item>
-        <item>每 15 分钟</item>
-        <item>每 30 分钟</item>
-        <item>每小时</item>
-        <item>每两小时</item>
-        <item>每四小时</item>
-        <item>每八小时</item>
-        <item>每天</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>否</item>

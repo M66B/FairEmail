@@ -474,7 +474,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_text_size">Gebruik tekstgrootte</string>
     <string name="title_advanced_text_font">Gebruik lettertypen</string>
     <string name="title_advanced_text_align">Gebruik tekst uitlijning</string>
-    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">Toon {HTML titles}</string>
+    <string name="title_advanced_text_titles">Toon {HTML titles}</string>
     <string name="title_advanced_text_separators">Gebruik scheidingslijnen</string>
     <string name="title_advanced_collapse_quotes">Geciteerde tekst samenvouwen</string>
     <string name="title_advanced_image_placeholders">Plaatsvervangers van afbeelding weergeven</string>
@@ -622,6 +622,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_class_min_difference">Minimale klasse verschil: %1$s %%</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
+    <string name="title_advanced_lt">LanguageTool integratie</string>
     <string name="title_advanced_deepl">DeepL integratie</string>
     <string name="title_advanced_sdcard">Ik wil een SD-kaart gebruiken</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
@@ -1763,6 +1764,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string-array name="pollIntervalNames">
         <item>Altijd</item>
         <item>Elke 5 minuten</item>
+        <item>Elke 10 minuten</item>
         <item>Elke 15 minuten</item>
         <item>Elke 30 minuten</item>
         <item>Elk uur</item>

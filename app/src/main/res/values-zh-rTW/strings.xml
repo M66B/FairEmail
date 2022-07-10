@@ -465,7 +465,7 @@
     <string name="title_advanced_text_size">使用文字大小</string>
     <string name="title_advanced_text_font">使用字型</string>
     <string name="title_advanced_text_align">使用文字對齊</string>
-    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">顯示 {HTML titles}</string>
+    <string name="title_advanced_text_titles">顯示 {HTML titles}</string>
     <string name="title_advanced_text_separators">使用分隔線</string>
     <string name="title_advanced_collapse_quotes">摺疊引用的文字</string>
     <string name="title_advanced_image_placeholders">顯示圖片占位符</string>
@@ -1700,13 +1700,14 @@
     <string-array name="pollIntervalNames">
         <item>時時</item>
         <item>每 5 分鐘</item>
-        <item>每 15 分鐘</item>
-        <item>每 30 分鐘</item>
-        <item>每 1 小時</item>
-        <item>每 2 小時</item>
-        <item>每 4 小時</item>
-        <item>每 8 小時</item>
-        <item>每天</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>無</item>

@@ -475,7 +475,7 @@
     <string name="title_advanced_text_size">Usar tamaños de texto</string>
     <string name="title_advanced_text_font">Usar fuentes</string>
     <string name="title_advanced_text_align">Usar alineación de texto</string>
-    <string name="title_advanced_text_titles" comment="title_advanced_text_titles&#10;&#10;Title for advanced display option to show HTML titles.&#10;The curly braces indicate that inserted titles will be surrounded by curly braces.&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title&#10;">Mostrar {títulos HTML}</string>
+    <string name="title_advanced_text_titles">Mostrar {títulos HTML}</string>
     <string name="title_advanced_text_separators">Usar líneas separadoras</string>
     <string name="title_advanced_collapse_quotes">Colapsar texto citado</string>
     <string name="title_advanced_image_placeholders">Mostrar marcadores de posición de imagen</string>
@@ -1768,13 +1768,14 @@
     <string-array name="pollIntervalNames">
         <item>Siempre</item>
         <item>Cada 5 minutos</item>
-        <item>Cada 15 minutos</item>
-        <item>Cada 30 minutos</item>
-        <item>Cada hora</item>
-        <item>Cada 2 horas</item>
-        <item>Cada 4 horas</item>
-        <item>Cada 8 horas</item>
-        <item>Todos los días</item>
+        <item>Every 10 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>No</item>
