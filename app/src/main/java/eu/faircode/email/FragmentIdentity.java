@@ -668,7 +668,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("sign_default", cbSignDefault.isChecked());
         args.putBoolean("encrypt_default", cbEncryptDefault.isChecked());
         args.putBoolean("unicode", cbUnicode.isChecked());
-        args.putBoolean("octetmime",cbOctetMime.isChecked());
+        args.putBoolean("octetmime", cbOctetMime.isChecked());
         args.putString("max_size", etMaxSize.getText().toString());
         args.putLong("account", account == null ? -1 : account.id);
         args.putString("host", etHost.getText().toString().trim().replace(" ", ""));
