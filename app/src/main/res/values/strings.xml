@@ -201,6 +201,7 @@
     <string name="title_setup_identities">Identities</string>
     <string name="title_setup_gmail" translatable="false">Gmail</string>
     <string name="title_setup_oauth" translatable="false">%1$s (OAuth)</string>
+    <string name="title_setup_android" translatable="false">%1$s (Android)</string>
     <string name="title_setup_google_sign_in">Sign in with Google</string>
     <string name="title_setup_other">Other provider</string>
     <string name="title_setup_inbound">Incoming email only (email cannot be sent!)</string>
