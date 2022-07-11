@@ -304,14 +304,18 @@ public class ActivitySignature extends ActivityBase {
     }
 
     private void delete() {
-        Intent result = new Intent();
+        Intent result = getIntent();
+        if (result == null)
+            result = new Intent();
         result.putExtra("html", (String) null);
         setResult(RESULT_OK, result);
         finish();
     }
 
     private void save() {
-        Intent result = new Intent();
+        Intent result = getIntent();
+        if (result == null)
+            result = new Intent();
         result.putExtra("html", getHtml());
         setResult(RESULT_OK, result);
         finish();

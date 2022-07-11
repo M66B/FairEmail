@@ -121,6 +121,7 @@ public class FragmentSetup extends FragmentBase {
     private CardView cardExtra;
     private TextView tvExtra;
     private Button btnNotification;
+    private Button btnSignature;
     private Button btnReorderAccounts;
     private Button btnReorderFolders;
     private Button btnDelete;
@@ -202,6 +203,7 @@ public class FragmentSetup extends FragmentBase {
         cardExtra = view.findViewById(R.id.cardExtra);
         tvExtra = view.findViewById(R.id.tvExtra);
         btnNotification = view.findViewById(R.id.btnNotification);
+        btnSignature = view.findViewById(R.id.btnSignature);
         btnReorderAccounts = view.findViewById(R.id.btnReorderAccounts);
         btnReorderFolders = view.findViewById(R.id.btnReorderFolders);
         btnDelete = view.findViewById(R.id.btnDelete);
@@ -657,6 +659,16 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
+        btnSignature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentDialogSelectIdentity fragment = new FragmentDialogSelectIdentity();
+                fragment.setArguments(new Bundle());
+                fragment.setTargetFragment(FragmentSetup.this, ActivitySetup.REQUEST_SELECT_IDENTITY);
+                fragment.show(getParentFragmentManager(), "select:identity");
+            }
+        });
+
         btnReorderAccounts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1008,6 +1020,14 @@ public class FragmentSetup extends FragmentBase {
 
         try {
             switch (requestCode) {
+                case ActivitySetup.REQUEST_SELECT_IDENTITY:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSelectIdentity(data.getBundleExtra("args"));
+                    break;
+                case ActivitySetup.REQUEST_EDIT_SIGNATURE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onEditIdentity(data.getExtras());
+                    break;
                 case ActivitySetup.REQUEST_DELETE_ACCOUNT:
                     if (resultCode == RESULT_OK && data != null)
                         onDeleteAccount(data.getBundleExtra("args"));
@@ -1066,6 +1086,33 @@ public class FragmentSetup extends FragmentBase {
         tvPermissionsDone.setTypeface(null, all ? Typeface.NORMAL : Typeface.BOLD);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(all ? check : null, null, null, null);
         btnPermissions.setEnabled(!all);
+    }
+
+    private void onSelectIdentity(Bundle args) {
+        Intent intent = new Intent(getContext(), ActivitySignature.class);
+        intent.putExtra("id", args.getLong("id"));
+        intent.putExtra("html", args.getString("html"));
+        startActivityForResult(intent, ActivitySetup.REQUEST_EDIT_SIGNATURE);
+    }
+
+    private void onEditIdentity(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String html = args.getString("html");
+
+                DB db = DB.getInstance(context);
+                db.identity().setIdentitySignature(id, html);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "set:signature");
     }
 
     private void onDeleteAccount(Bundle args) {

@@ -144,6 +144,9 @@ public interface DaoIdentity {
     @Query("UPDATE identity SET max_size = :max_size WHERE id = :id AND NOT (max_size IS :max_size)")
     int setIdentityMaxSize(long id, Long max_size);
 
+    @Query("UPDATE identity SET signature = :hmtl WHERE id = :id AND NOT (signature IS :hmtl)")
+    int setIdentitySignature(long id, String hmtl);
+
     @Query("UPDATE identity SET error = :error WHERE id = :id AND NOT (error IS :error)")
     int setIdentityError(long id, String error);
 
