@@ -76,6 +76,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swTcpKeepAlive;
     private TextView tvTcpKeepAliveHint;
     private SwitchCompat swSslHarden;
+    private SwitchCompat swSslHardenStrict;
     private SwitchCompat swCertStrict;
     private Button btnManage;
     private TextView tvNetworkMetered;
@@ -91,7 +92,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             "download_headers", "download_eml", "download_plain",
             "require_validated", "vpn_only",
             "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive",
-            "ssl_harden", "cert_strict"
+            "ssl_harden", "ssl_harden_strict", "cert_strict"
     };
 
     @Override
@@ -121,6 +122,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
         tvTcpKeepAliveHint = view.findViewById(R.id.tvTcpKeepAliveHint);
         swSslHarden = view.findViewById(R.id.swSslHarden);
+        swSslHardenStrict = view.findViewById(R.id.swSslHardenStrict);
         swCertStrict = view.findViewById(R.id.swCertStrict);
         btnManage = view.findViewById(R.id.btnManage);
 
@@ -283,6 +285,17 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("ssl_harden", checked).apply();
+                swSslHardenStrict.setEnabled(checked);
+            }
+        });
+
+        swSslHardenStrict.setVisibility(BuildConfig.PLAY_STORE_RELEASE ||
+                Build.VERSION.SDK_INT < Build.VERSION_CODES.Q
+                ? View.GONE : View.VISIBLE);
+        swSslHardenStrict.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("ssl_harden_strict", checked).apply();
             }
         });
 
@@ -426,6 +439,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
         swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
         swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
+        swSslHardenStrict.setChecked(prefs.getBoolean("ssl_harden_strict", false));
+        swSslHardenStrict.setEnabled(swSslHarden.isChecked());
         swCertStrict.setChecked(prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE));
     }
 
