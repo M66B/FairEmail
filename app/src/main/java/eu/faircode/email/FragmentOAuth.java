@@ -577,7 +577,7 @@ public class FragmentOAuth extends FragmentBase {
                 List<String> usernames = new ArrayList<>();
                 usernames.add(sharedname == null ? username : sharedname);
 
-                if (token != null && sharedname == null) {
+                if (token != null && sharedname == null && !"gmail".equals(id)) {
                     // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens
                     String[] segments = token.split("\\.");
                     if (segments.length > 1)
