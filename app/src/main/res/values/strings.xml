@@ -778,7 +778,7 @@
     <string name="title_advanced_auth_ntlm" translatable="false">NTLM</string>
     <string name="title_advanced_auth_sasl" translatable="false">SASL</string>
     <string name="title_advanced_auth_apop" translatable="false">APOP</string>
-    <string name="title_advanced_disable_top" translatable="false">Disable TOP</string>
+    <string name="title_advanced_use_top" translatable="false">Use TOP</string>
     <string name="title_advanced_idle_done" translatable="false">IDLE/DONE</string>
     <string name="title_advanced_logarithmic_backoff" translatable="false">Logarithmic back-off</string>
     <string name="title_advanced_logarithmic_backoff_hint" translatable="false">Turning this off can result in a significant increase in battery usage!</string>

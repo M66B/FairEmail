@@ -1232,11 +1232,12 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swDisableTop"
+                    android:id="@+id/swUseTop"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_disable_top"
+                    android:checked="true"
+                    android:text="@string/title_advanced_use_top"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swAuthApop"
@@ -1250,7 +1251,7 @@
                     android:text="@string/title_advanced_keep_alive_poll"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swDisableTop"
+                    app:layout_constraintTop_toBottomOf="@id/swUseTop"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
