@@ -1432,7 +1432,7 @@ public class FragmentIdentity extends FragmentBase {
                         onDelete();
                     break;
                 case REQUEST_SIGNATURE:
-                    if (resultCode == RESULT_OK)
+                    if (resultCode == RESULT_OK && data != null)
                         onHtml(data.getExtras());
                     break;
             }
