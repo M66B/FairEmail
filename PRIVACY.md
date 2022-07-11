@@ -66,15 +66,15 @@ This table provides a complete overview of all shared data and the conditions un
 | Spamhaus           | IP (network) address of domain names of links or email addresses  | If spam blocklists are enabled, upon receiving a message                    |
 | Spamcop            | IP (network) address of domain names of links or email addresses  | If spam blocklists are enabled, upon receiving a message                    |
 | Barracuda          | IP (network) address of domain names of links or email addresses  | If spam blocklists are enabled, upon receiving a message                    |
-| DeepL              | Received or entered message text and target language code         | Upon pressing a translate button                                            |
-| LanguageTool       | Entered message texts                                             | Upon long pressing the save draft button                                    |
+| DeepL              | Received or entered message text and target language code         | If translating is enabled, upon pressing a translate button                 |
+| LanguageTool       | Entered message texts                                             | If LanguageTools is enabled, upon long pressing the save draft button       |
 | Gravatar           | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Gravatars are enabled, upon receiving a message (GitHub version only)    |
 | Libravatar         | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Libravatars are enabled, upon receiving a message (GitHub version only)  |
 | GitHub             | None, but see the remarks below                                   | Upon downloading Disconnect's Tracker Protection lists                      |
 |                    |                                                                   | Upon checking for updates (GitHub version only)                             |
 | BIMI               | Domain name of email addresses                                    | If BIMI is enabled, upon receiving a message                                |
 | Favicons           | Domain name of email addresses                                    | If favicons are enabled, upon receiving a message                           |
-| Link title         | Link address                                                      | Upon pressing a button in the insert link dialog                            |
+| Link title         | Link address                                                      | Upon pressing a download button in the insert link dialog                   |
 | Bugsnag            | Information about warnings and errors                             | If error reporting is enabled, upon detecting an abnormal situation         |
 
 All data is sent to improve the user experience in some way,
