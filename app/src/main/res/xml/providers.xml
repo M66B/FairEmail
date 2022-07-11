@@ -23,8 +23,8 @@
         <oauth
             askAccount="true"
             authorizationEndpoint="https://accounts.google.com/o/oauth2/auth"
-            clientId=""
-            clientSecret=""
+            clientId="495454862802-rkeb9fs6i6aqs99ieureo5nugc5g98lc.apps.googleusercontent.com"
+            clientSecret="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"
             enabled="false"
             privacy="https://policies.google.com/privacy"
             prompt="consent"
