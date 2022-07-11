@@ -313,7 +313,7 @@ public class FragmentSetup extends FragmentBase {
                                         .putExtra("pop", provider.pop != null));
                         // https://developers.google.com/identity/branding-guidelines
                         resid = ("gmail".equals(provider.id)
-                                ? R.drawable.google_signin
+                                ? R.drawable.btn_google_light_normal
                                 : res.getIdentifier("provider_" + provider.id, "drawable", pkg));
                         if (resid != 0)
                             item.setIcon(resid);
