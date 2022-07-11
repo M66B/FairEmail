@@ -47,7 +47,6 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
         final int dp12 = Helper.dp2pixels(context, 12);
 
         final ArrayAdapter<EntityAccount> adapter = new ArrayAdapter<EntityAccount>(context, R.layout.spinner_account, android.R.id.text1) {
-
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -89,7 +88,7 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, getArguments(), "messages:accounts");
+        }.execute(this, getArguments(), "select:account");
 
         return new AlertDialog.Builder(context)
                 .setIcon(R.drawable.twotone_account_circle_24)
