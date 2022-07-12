@@ -6194,7 +6194,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return;
 
             if (viewType != AdapterMessage.ViewType.SEARCH)
-                setCount(messages.size() == 0 ? null : NF.format(messages.size()));
+                setCount(messages.size() <= 1 ? null : NF.format(messages.size()));
 
             if (viewType == AdapterMessage.ViewType.THREAD) {
                 if (handleThreadActions(messages, null, null))
