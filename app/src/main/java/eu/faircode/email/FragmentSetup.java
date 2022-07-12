@@ -302,8 +302,7 @@ public class FragmentSetup extends FragmentBase {
                     if (provider.oauth != null &&
                             (provider.oauth.enabled || BuildConfig.DEBUG) &&
                             !TextUtils.isEmpty(provider.oauth.clientId)) {
-                        String title = getString(R.string.title_setup_oauth, "gmail".equals(provider.id)
-                                ? getString(R.string.title_setup_google_sign_in) : provider.description);
+                        String title = getString(R.string.title_setup_oauth, provider.description);
                         item = menu
                                 .add(Menu.FIRST, -1, order++, title)
                                 .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
@@ -314,9 +313,7 @@ public class FragmentSetup extends FragmentBase {
                                         .putExtra("askTenant", provider.oauth.askTenant())
                                         .putExtra("pop", provider.pop != null));
                         // https://developers.google.com/identity/branding-guidelines
-                        resid = ("gmail".equals(provider.id)
-                                ? R.drawable.btn_google_light_normal
-                                : res.getIdentifier("provider_" + provider.id, "drawable", pkg));
+                        resid = res.getIdentifier("provider_" + provider.id, "drawable", pkg);
                         if (resid != 0)
                             item.setIcon(resid);
                     }

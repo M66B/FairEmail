@@ -29,7 +29,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -190,6 +192,21 @@ public class FragmentOAuth extends FragmentBase {
                 Helper.view(v.getContext(), Uri.parse(privacy), false);
             }
         });
+
+        if ("gmail".equals(id)) {
+            final Context context = getContext();
+            int dp6 = Helper.dp2pixels(context, 6);
+            int dp12 = Helper.dp2pixels(context, 12);
+            int dp24 = Helper.dp2pixels(context, 24);
+            Drawable g = context.getDrawable(R.drawable.btn_google_light_normal);
+            g.setBounds(0, 0, dp24, dp24);
+            btnOAuth.setCompoundDrawablesRelative(g, null, null, null);
+            btnOAuth.setText(R.string.title_setup_google_sign_in);
+            btnOAuth.setCompoundDrawablePadding(dp6);
+            btnOAuth.setPaddingRelative(dp12, 0, dp12, 0);
+            btnOAuth.setTextColor(Color.DKGRAY);
+            btnOAuth.setBackground(context.getDrawable(R.drawable.btn_google_background));
+        }
 
         btnOAuth.setOnClickListener(new View.OnClickListener() {
             @Override

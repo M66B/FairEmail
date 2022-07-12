@@ -122,19 +122,11 @@ public class PopupMenuLifecycle extends PopupMenu {
         if (icon == null)
             icon = new ColorDrawable(Color.TRANSPARENT);
         else {
-            Intent intent = menuItem.getIntent();
-            boolean gmail = (intent != null &&
-                    ActivitySetup.ACTION_QUICK_OAUTH.equals(intent.getAction()) &&
-                    "gmail".equals(intent.getStringExtra("id")));
-            if (gmail)
-                icon.setState(new int[]{android.R.attr.state_enabled, android.R.attr.state_focused});
-            else {
-                icon = icon.getConstantState().newDrawable().mutate();
-                int color = Helper.resolveColor(context, R.attr.colorAccent);
-                icon.setTint(color);
-                if (!menuItem.isEnabled())
-                    icon.setAlpha(Math.round(Helper.LOW_LIGHT * 255));
-            }
+            icon = icon.getConstantState().newDrawable().mutate();
+            int color = Helper.resolveColor(context, R.attr.colorAccent);
+            icon.setTint(color);
+            if (!menuItem.isEnabled())
+                icon.setAlpha(Math.round(Helper.LOW_LIGHT * 255));
         }
 
         int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
