@@ -31,7 +31,7 @@
             redirectUri="https://oauth.faircode.eu/"
             scopes="https://mail.google.com/"
             tokenEndpoint="https://oauth2.googleapis.com/token">
-            <!-- promp=consent offline access -->
+            <!-- https://developers.google.com/identity/protocols/oauth2/native-app -->
             <parameter
                 key="access_type"
                 value="offline" />
