@@ -29,6 +29,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
@@ -195,17 +196,24 @@ public class FragmentOAuth extends FragmentBase {
 
         if ("gmail".equals(id)) {
             final Context context = getContext();
-            int dp6 = Helper.dp2pixels(context, 6);
             int dp12 = Helper.dp2pixels(context, 12);
-            int dp24 = Helper.dp2pixels(context, 24);
-            Drawable g = context.getDrawable(R.drawable.btn_google_light_normal);
-            g.setBounds(0, 0, dp24, dp24);
+            Drawable g = context.getDrawable(R.drawable.google_logo);
+            g.setBounds(0, 0, g.getIntrinsicWidth(), g.getIntrinsicHeight());
             btnOAuth.setCompoundDrawablesRelative(g, null, null, null);
             btnOAuth.setText(R.string.title_setup_google_sign_in);
-            btnOAuth.setCompoundDrawablePadding(dp6);
+            btnOAuth.setCompoundDrawablePadding(dp12);
             btnOAuth.setPaddingRelative(dp12, 0, dp12, 0);
-            btnOAuth.setTextColor(Color.DKGRAY);
-            btnOAuth.setBackground(context.getDrawable(R.drawable.btn_google_background));
+            btnOAuth.setTextColor(new ColorStateList(
+                    new int[][]{
+                            new int[]{android.R.attr.state_enabled},
+                            new int[]{-android.R.attr.state_enabled},
+                    },
+                    new int[]{
+                            Color.DKGRAY, // 0xff444444
+                            Color.LTGRAY // 0xffcccccc
+                    }
+            ));
+            btnOAuth.setBackground(context.getDrawable(R.drawable.google_signin_background));
         }
 
         btnOAuth.setOnClickListener(new View.OnClickListener() {
