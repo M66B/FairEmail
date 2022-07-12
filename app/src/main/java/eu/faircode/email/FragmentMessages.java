@@ -8386,11 +8386,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             for (EntityCertificate ec : ecs)
                                                 local.add(ec.getCertificate());
 
+                                            // TODO: check digitalSignature/nonRepudiation key usage
+                                            // https://datatracker.ietf.org/doc/html/rfc3850#section-4.4.2
+
                                             for (X509Certificate c : certs) {
                                                 boolean[] usage = c.getKeyUsage();
-                                                boolean root = (usage != null && usage[5]);
+                                                boolean keyCertSign = (usage != null && usage.length > 5 && usage[5]);
                                                 boolean selfSigned = c.getIssuerX500Principal().equals(c.getSubjectX500Principal());
-                                                if (root && !selfSigned && ks.getCertificateAlias(c) == null) {
+                                                if (keyCertSign && !selfSigned && ks.getCertificateAlias(c) == null) {
                                                     boolean found = false;
                                                     String issuer = (c.getIssuerDN() == null ? "" : c.getIssuerDN().getName());
                                                     EntityCertificate record = EntityCertificate.from(c, true, issuer);
@@ -8822,12 +8825,28 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     try {
                         X509Certificate cert = (X509Certificate) c;
                         boolean[] usage = cert.getKeyUsage();
-                        boolean keyCertSign = (usage != null && usage[5]);
+                        boolean digitalSignature = (usage != null && usage.length > 0 && usage[0]);
+                        boolean nonRepudiation = (usage != null && usage.length > 1 && usage[1]);
+                        boolean keyEncipherment = (usage != null && usage.length > 2 && usage[2]);
+                        boolean dataEncipherment = (usage != null && usage.length > 3 && usage[4]);
+                        boolean keyAgreement = (usage != null && usage.length > 4 && usage[4]);
+                        boolean keyCertSign = (usage != null && usage.length > 5 && usage[5]);
+                        boolean cRLSign = (usage != null && usage.length > 6 && usage[6]);
+                        boolean encipherOnly = (usage != null && usage.length > 7 && usage[7]);
+                        boolean decipherOnly = (usage != null && usage.length > 8 && usage[8]);
                         boolean selfSigned = cert.getIssuerX500Principal().equals(cert.getSubjectX500Principal());
                         EntityCertificate record = EntityCertificate.from(cert, null);
                         trace.add(record.subject +
                                 " (" + (selfSigned ? "selfSigned" : cert.getIssuerX500Principal()) + ")" +
+                                (digitalSignature ? " (digitalSignature)" : "") +
+                                (nonRepudiation ? " (nonRepudiation)" : "") +
+                                (keyEncipherment ? " (keyEncipherment)" : "") +
+                                (dataEncipherment ? " (dataEncipherment)" : "") +
+                                (keyAgreement ? " (keyAgreement)" : "") +
                                 (keyCertSign ? " (keyCertSign)" : "") +
+                                (cRLSign ? " (cRLSign)" : "") +
+                                (encipherOnly ? " (encipherOnly)" : "") +
+                                (decipherOnly ? " (decipherOnly)" : "") +
                                 (ks != null && ks.getCertificateAlias(cert) != null ? " (Android)" : ""));
                     } catch (Throwable ex) {
                         Log.e(ex);

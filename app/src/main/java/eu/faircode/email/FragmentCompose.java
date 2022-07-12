@@ -3753,6 +3753,8 @@ public class FragmentCompose extends FragmentBase {
                     // Check public key validity
                     try {
                         chain[0].checkValidity();
+                        // TODO: check digitalSignature/nonRepudiation key usage
+                        // https://datatracker.ietf.org/doc/html/rfc3850#section-4.4.2
                     } catch (CertificateException ex) {
                         String msg = ex.getMessage();
                         throw new IllegalArgumentException(
