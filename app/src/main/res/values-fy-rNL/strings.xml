@@ -572,7 +572,6 @@
     <string name="title_custom">Oanpast</string>
     <string name="title_host">Hostnamme</string>
     <string name="title_encryption">Fersifering</string>
-    <string name="title_encryption_none">Gjin</string>
     <string name="title_allow_insecure">Unfeilige ferbiningen tastean</string>
     <string name="title_insecure_remark">Unfeilige ferbiningen moatte allinich wurde tastien op fertroude netwurken en nea op iepenbiere netwurken</string>
     <string name="title_port">Poartenûmer</string>
@@ -1403,14 +1402,14 @@
     <string-array name="pollIntervalNames">
         <item>Altyd</item>
         <item>Elke 5 minuten</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Elke 10 minuten</item>
+        <item>Elke 15 minuten</item>
+        <item>Elke 30 minuten</item>
+        <item>Elk oere</item>
+        <item>Elke 2 uren</item>
+        <item>Elke 4 uren</item>
+        <item>Elke 8 uren</item>
+        <item>Eltse dei</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Gjin</item>

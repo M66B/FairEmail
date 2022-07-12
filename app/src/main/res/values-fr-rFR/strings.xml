@@ -157,6 +157,7 @@
     <string name="title_setup_account_identity_hint">Vous pouvez configurer le nom, la couleur et les actions de balayage dans les paramètres de compte et configurer une signature dans les paramètres d\'identité</string>
     <string name="title_setup_accounts">Comptes</string>
     <string name="title_setup_identities">Identités</string>
+    <string name="title_setup_google_sign_in">Se connecter avec Google</string>
     <string name="title_setup_other">Autre fournisseur</string>
     <string name="title_setup_inbound">Courrier entrant seulement (l\'e-mail ne peut pas être envoyé !)</string>
     <string name="title_setup_pop3">Compte POP3</string>
@@ -385,6 +386,7 @@
     <string name="title_advanced_timeout">Délai d’expiration de la connexion (secondes)</string>
     <string name="title_advanced_prefer_ip4">Préférer IPv4 à IPv6</string>
     <string name="title_advanced_ssl_harden">Renforcer les connexions SSL</string>
+    <string name="title_advanced_ssl_harden_strict">TLS 1.3 requis</string>
     <string name="title_advanced_cert_strict">Vérification stricte du certificat</string>
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
     <string name="title_advanced_caption_general">Général</string>
@@ -789,7 +791,7 @@
     <string name="title_custom">Personnalisé</string>
     <string name="title_host">Nom d’hôte</string>
     <string name="title_encryption">Chiffrement</string>
-    <string name="title_encryption_none">Aucun</string>
+    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Aucun (non sécurisé)</string>
     <string name="title_allow_insecure">Autoriser les connexions non sécurisées</string>
     <string name="title_insecure_remark">Les connexions non sécurisées ne doivent être autorisées que sur des réseaux de confiance et jamais sur des réseaux publics</string>
     <string name="title_notify_remark">Vous pouvez activer ceci pour avoir des notifications spécifiques par compte</string>
@@ -1776,14 +1778,14 @@
     <string-array name="pollIntervalNames">
         <item>En continu</item>
         <item>Toutes les 5 minutes</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Toutes les 10 minutes</item>
+        <item>Toutes les 15 minutes</item>
+        <item>Toutes les 30 minutes</item>
+        <item>Toutes les heures</item>
+        <item>Toutes les 2 heures</item>
+        <item>Toutes les 4 heures</item>
+        <item>Toutes les 8 heures</item>
+        <item>Tous les jours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Non</item>

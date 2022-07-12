@@ -797,7 +797,6 @@
     <string name="title_custom">Vlastní</string>
     <string name="title_host">Název hostitele</string>
     <string name="title_encryption">Šifrování</string>
-    <string name="title_encryption_none">Žádné</string>
     <string name="title_allow_insecure">Povolit nezabezpečené připojení</string>
     <string name="title_insecure_remark">Nezabezpečená připojení by měla být povolena pouze v důvěryhodných, a nikdy na veřejných sítích</string>
     <string name="title_notify_remark">Toto můžete povolit pro specifická upozornění účtu</string>
@@ -1778,14 +1777,14 @@
     <string-array name="pollIntervalNames">
         <item>Neustále</item>
         <item>Každých 5 minut</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Každých 10 minut</item>
+        <item>Každých 15 minut</item>
+        <item>Každých 30 minut</item>
+        <item>Každou hodinu</item>
+        <item>Každé 2 hodiny</item>
+        <item>Každé 4 hodiny</item>
+        <item>Každých 8 hodin</item>
+        <item>Každý den</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nepozdržovat</item>

@@ -179,6 +179,7 @@
     <string name="title_setup_account_identity_hint">Вы можете настроить имя, цвет и жесты в настройках учётной записи, а также настроить подпись в настройках идентификатора</string>
     <string name="title_setup_accounts">Учётные записи</string>
     <string name="title_setup_identities">Идентификаторы</string>
+    <string name="title_setup_google_sign_in">Войти с помощью Google</string>
     <string name="title_setup_other">Другой провайдер</string>
     <string name="title_setup_inbound">Только входящая почта (отправка письма невозможна!)</string>
     <string name="title_setup_pop3">Учётная запись POP3</string>
@@ -406,6 +407,7 @@
     <string name="title_advanced_timeout">Время ожидания подключения (сек.)</string>
     <string name="title_advanced_prefer_ip4">Предпочитать IPv4</string>
     <string name="title_advanced_ssl_harden">Усиленные SSL-подключения</string>
+    <string name="title_advanced_ssl_harden_strict">Требуется TLS 1.3</string>
     <string name="title_advanced_cert_strict">Строгая проверка сертификатов</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_caption_general">По умолчанию</string>
@@ -810,7 +812,7 @@
     <string name="title_custom">Пользовательское</string>
     <string name="title_host">Имя хоста</string>
     <string name="title_encryption">Шифрование</string>
-    <string name="title_encryption_none">Нет</string>
+    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Нет (небезопасно)</string>
     <string name="title_allow_insecure">Разрешить небезопасные подключения</string>
     <string name="title_insecure_remark">Небезопасные соединения могут быть разрешены только в доверенных сетях и никогда в публичных сетях</string>
     <string name="title_notify_remark">Вы можете включить это для уведомлений конкретной учётной записи</string>
@@ -1798,14 +1800,14 @@
     <string-array name="pollIntervalNames">
         <item>Непрерывно</item>
         <item>Каждые 5 минут</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Каждые 10 минут</item>
+        <item>Каждые 15 минут</item>
+        <item>Каждые 30 минут</item>
+        <item>Каждый час</item>
+        <item>Каждые 2 часа</item>
+        <item>Каждые 4 часа</item>
+        <item>Каждые 8 часов</item>
+        <item>Ежедневно</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Нет</item>

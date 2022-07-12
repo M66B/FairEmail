@@ -563,7 +563,6 @@
     <string name="title_custom">سفارشی</string>
     <string name="title_host">نام میزبان</string>
     <string name="title_encryption">رمزنگاری</string>
-    <string name="title_encryption_none">هیچ کدام</string>
     <string name="title_allow_insecure">اجازه اتصال ناامن</string>
     <string name="title_notify_remark">می‌توانید این را برای نوتیفیکیشن‌های خاص حساب فعال کنید</string>
     <string name="title_port">شماره پورت</string>
@@ -1269,14 +1268,14 @@
     <string-array name="pollIntervalNames">
         <item>همیشه</item>
         <item>Every 5 minutes</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>هر ۱۰ دقیقه</item>
+        <item>هر ۱۵ دقیقه</item>
+        <item>هر ۳۰ دقیقه</item>
+        <item>هر ساعت</item>
+        <item>هر ۲ ساعت</item>
+        <item>هر ۴ ساعت</item>
+        <item>هر ۸ ساعت</item>
+        <item>هر روز</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>خیر</item>

@@ -444,7 +444,6 @@
     <string name="title_custom">사용자 지정</string>
     <string name="title_host">호스트명</string>
     <string name="title_encryption">암호화</string>
-    <string name="title_encryption_none">없음</string>
     <string name="title_port">포트 번호</string>
     <string name="title_user">사용자명</string>
     <string name="title_password">비밀번호</string>
@@ -979,14 +978,14 @@
     <string-array name="pollIntervalNames">
         <item>항상</item>
         <item>매 5분</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>매 10분</item>
+        <item>매 15분</item>
+        <item>매 30분</item>
+        <item>매시간</item>
+        <item>매 2시간</item>
+        <item>매 4시간</item>
+        <item>매 8시간</item>
+        <item>매일</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>없음</item>

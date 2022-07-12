@@ -788,7 +788,6 @@
     <string name="title_custom">Tilpasset</string>
     <string name="title_host">Værtsnavn</string>
     <string name="title_encryption">Kryptering</string>
-    <string name="title_encryption_none">Ingen</string>
     <string name="title_allow_insecure">Tillad usikre forbindelser</string>
     <string name="title_insecure_remark">Usikre forbindelser bør kun tillades på betroede netværk og aldrig på offentlige netværk</string>
     <string name="title_notify_remark">Dette kan aktivere for kontospecifikke notifikationer</string>
@@ -1775,14 +1774,14 @@
     <string-array name="pollIntervalNames">
         <item>Altid</item>
         <item>Hvert 5. minut</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Hvert 10. minut</item>
+        <item>Hvert 15. minut</item>
+        <item>Hvert 30. minut</item>
+        <item>Hver time</item>
+        <item>Hver 2. time</item>
+        <item>Hver 4. time</item>
+        <item>Hver 8. time</item>
+        <item>Dagligt</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nej</item>

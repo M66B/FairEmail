@@ -783,7 +783,6 @@
     <string name="title_custom">Anpassad</string>
     <string name="title_host">Värdnamn</string>
     <string name="title_encryption">Kryptering</string>
-    <string name="title_encryption_none">Ingen</string>
     <string name="title_allow_insecure">Tillåt osäkra anslutningar</string>
     <string name="title_insecure_remark">Osäkra anslutningar bör endast tillåtas på betrodda nätverk och aldrig på offentliga nätverk</string>
     <string name="title_notify_remark">Du kan aktivera det här för kontospecifika aviseringar</string>
@@ -1766,14 +1765,14 @@
     <string-array name="pollIntervalNames">
         <item>Kontinuerligt</item>
         <item>Var 5:e minut</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Var 10:e minut</item>
+        <item>Var 15:e minut</item>
+        <item>Var 30:e minut</item>
+        <item>Varje timme</item>
+        <item>Varannan timme</item>
+        <item>Var 4:e timme</item>
+        <item>Var 8:e timme</item>
+        <item>Varje dag</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nej</item>

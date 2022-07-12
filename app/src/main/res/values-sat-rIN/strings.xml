@@ -147,6 +147,18 @@
     <string name="title_log_clear">ᱯᱷᱟᱨᱪᱟᱭ ᱢᱮ</string>
     <string name="title_widget_separator_lines">ᱵᱷᱮᱜᱟᱨ ᱯᱟᱸᱛᱮ ᱠᱚ ᱫᱮᱠᱷᱟᱣ ᱢᱮ </string>
     <!-- Thunderbird -->
+    <string-array name="pollIntervalNames">
+        <item>Always</item>
+        <item>ᱥᱟᱱᱟᱢ 5 ᱢᱤᱱᱤᱴᱥ</item>
+        <item>ᱥᱟᱱᱟᱢ 10 ᱢᱤᱱᱤᱴᱥ</item>
+        <item>ᱥᱟᱱᱟᱢ 15 ᱢᱤᱱᱤᱴᱥ</item>
+        <item>ᱥᱟᱱᱟᱢ 30 ᱢᱤᱱᱤᱴᱥ</item>
+        <item>ᱥᱟᱱᱟᱢ ᱴᱟᱬᱟᱝ</item>
+        <item>ᱥᱟᱱᱟᱢ 2 ᱴᱟᱬᱟᱝ</item>
+        <item>ᱥᱟᱱᱟᱢ 4 ᱴᱟᱬᱟᱝ</item>
+        <item>ᱥᱟᱱᱟᱢ 8 ᱴᱟᱬᱟᱝ</item>
+        <item>ᱫᱤᱱ ᱜᱮ</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>

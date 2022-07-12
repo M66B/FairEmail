@@ -810,7 +810,6 @@
     <string name="title_custom">משלך</string>
     <string name="title_host">שם מארח</string>
     <string name="title_encryption">הצפנה</string>
-    <string name="title_encryption_none">אין</string>
     <string name="title_allow_insecure">לאפשר חיבורים מפוקפקים</string>
     <string name="title_insecure_remark">חיבורים בלתי מאובטחים/מפוקפקים יש לאפשר רק ברשתות מהימנות ואף פעם לא ברשתות ציבוריות</string>
     <string name="title_notify_remark">אפשר להפעיל את זה לקבלת התראות לחשבון מסוים</string>
@@ -1799,14 +1798,14 @@
     <string-array name="pollIntervalNames">
         <item>תמיד</item>
         <item>כל 5 דקות</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>כל 10 דקות</item>
+        <item>כל רבע שעה</item>
+        <item>כל חצי שעה</item>
+        <item>כל שעה</item>
+        <item>כל שעתיים</item>
+        <item>כל 4 שעות</item>
+        <item>כל 8 שעות</item>
+        <item>כל יום</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>לא</item>

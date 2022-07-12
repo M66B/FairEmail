@@ -168,6 +168,7 @@
     <string name="title_setup_account_identity_hint">Možete podesiti naziv, boju i prevlačenje prstima u postavkama računa, a podešavanje potpisa u postavkama identiteta</string>
     <string name="title_setup_accounts">Računi</string>
     <string name="title_setup_identities">Identiteti</string>
+    <string name="title_setup_google_sign_in">Prijavite se preko Google-a</string>
     <string name="title_setup_other">Drugi provajder</string>
     <string name="title_setup_inbound">Samo dolazna pošta (e-pošta se ne može poslati!)</string>
     <string name="title_setup_pop3">POP3 račun</string>
@@ -396,6 +397,7 @@
     <string name="title_advanced_timeout">Konekcija na isteku (sekunde)</string>
     <string name="title_advanced_prefer_ip4">Preferiraj IPv4 preko IPv6</string>
     <string name="title_advanced_ssl_harden">Ojačaj SSL konekcije</string>
+    <string name="title_advanced_ssl_harden_strict">Zahtjevaj TLS 1.3</string>
     <string name="title_advanced_cert_strict">Striktna provjera certifikata</string>
     <string name="title_advanced_manage_connectivity">Upravljanje konekcijama</string>
     <string name="title_advanced_caption_general">Općenito</string>
@@ -636,6 +638,7 @@
     <string name="title_advanced_class_min_difference">Minimalna razlika klasa: %1$s %%</string>
     <string name="title_advanced_language">Jezik</string>
     <string name="title_advanced_language_system">Sistemski</string>
+    <string name="title_advanced_lt">LanguageTool integracija</string>
     <string name="title_advanced_deepl">DeepL integracija</string>
     <string name="title_advanced_sdcard">Želim koristiti SD karticu</string>
     <string name="title_advanced_watchdog">Povremeno provjeri da li je FairEmail još aktivan</string>
@@ -798,7 +801,7 @@
     <string name="title_custom">Prilagođen</string>
     <string name="title_host">Naziv hosta</string>
     <string name="title_encryption">Šifriranje</string>
-    <string name="title_encryption_none">Nijedno</string>
+    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Nema (nesigurno)</string>
     <string name="title_allow_insecure">Dopusti nesigurne konekcije</string>
     <string name="title_insecure_remark">Nesigurne konekcije trebaju biti dopuštene samo na pouzdanim mrežama i nikada na javnim mrežama</string>
     <string name="title_notify_remark">Možete omogućiti ovo za obavještenja specifična za račune</string>
@@ -1786,14 +1789,14 @@
     <string-array name="pollIntervalNames">
         <item>Uvijek</item>
         <item>Svakih 5 minuta</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Svakih 10 minuta</item>
+        <item>Svakih 15 minuta</item>
+        <item>Svakih 30 minuta</item>
+        <item>Svakog sata</item>
+        <item>Svaka 2 sata</item>
+        <item>Svaka 4 sata</item>
+        <item>Svakih 8 sati</item>
+        <item>Svakog dana</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Bez odlaganja</item>

@@ -659,7 +659,6 @@
     <string name="title_custom">Pertsonalizatua</string>
     <string name="title_host">Ostalari-izena</string>
     <string name="title_encryption">Zifratzea</string>
-    <string name="title_encryption_none">Bat ere ez</string>
     <string name="title_allow_insecure">Baimendu konexio ez seguruak</string>
     <string name="title_insecure_remark">Konexio ez seguruak konfiantzazko sareetan besterik ez lirateke onartu behar, inoiz ez sare publikoetan</string>
     <string name="title_port">Ataka zenbakia</string>
@@ -1521,14 +1520,14 @@
     <string-array name="pollIntervalNames">
         <item>Beti</item>
         <item>5 minuturik behin</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>10 minuturik behin</item>
+        <item>15 minuturik behin</item>
+        <item>30 minuturik behin</item>
+        <item>Orduero</item>
+        <item>2 ordurik behin</item>
+        <item>4 ordurik behin</item>
+        <item>8 ordurik behin</item>
+        <item>Egunero</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ez</item>

@@ -779,7 +779,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_custom">Vlastný</string>
     <string name="title_host">Názov hostiteľa</string>
     <string name="title_encryption">Šifrovanie</string>
-    <string name="title_encryption_none">Nič</string>
     <string name="title_allow_insecure">Povoliť nezabezpečené spojenia</string>
     <string name="title_insecure_remark">Nezabezpečené spojenia by ste mali povoliť len v dôveryhodných sieťach a nie na verejnom internete</string>
     <string name="title_port">Číslo portu</string>
@@ -1749,14 +1748,14 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string-array name="pollIntervalNames">
         <item>Vždy</item>
         <item>Každých 5 minút</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Každých 10 minút</item>
+        <item>Každých 15 minút</item>
+        <item>Každých 30 minút</item>
+        <item>Každú hodinu</item>
+        <item>Každé 2 hodiny</item>
+        <item>Každé 4 hodiny</item>
+        <item>Každých 8 hodín</item>
+        <item>Každý deň</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nie</item>

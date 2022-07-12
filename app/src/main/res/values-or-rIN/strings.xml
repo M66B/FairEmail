@@ -313,7 +313,6 @@
     <string name="title_custom">କଷ୍ଟମ୍</string>
     <string name="title_host">ହୋଷ୍ଟ ନାମ</string>
     <string name="title_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
-    <string name="title_encryption_none">କିଛି ନୁହେଁ</string>
     <string name="title_port">ପୋର୍ଟ ନମ୍ଵର୍</string>
     <string name="title_user">ଉପଭୋକ୍ତା ନାମ</string>
     <string name="title_password">ପାସ୍‍ୱାର୍ଡ଼</string>
@@ -632,13 +631,13 @@
         <item>ସର୍ବଦା</item>
         <item>ପ୍ରତି ୫ ମିନିଟରେ</item>
         <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>ପ୍ରତି ୧୫ ମିନିଟରେ</item>
+        <item>ପ୍ରତି ୩୦ ମିନିଟରେ</item>
+        <item>ପ୍ରତି ଘଣ୍ଟାରେ</item>
+        <item>ପ୍ରତି ୨ ଘଣ୍ଟାରେ</item>
+        <item>ପ୍ରତି ୪ ଘଣ୍ଟାରେ</item>
+        <item>ପ୍ରତି ୮ ଘଣ୍ଟାରେ</item>
+        <item>ପ୍ରତିଦିନ</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>No</item>

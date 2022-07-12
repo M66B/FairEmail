@@ -788,7 +788,6 @@
     <string name="title_custom">Xüsusi</string>
     <string name="title_host">Host adı</string>
     <string name="title_encryption">Şifrələmə</string>
-    <string name="title_encryption_none">Heç biri</string>
     <string name="title_allow_insecure">Güvənli olmayan bağlantılara icazə ver</string>
     <string name="title_insecure_remark">Güvənli olmayan bağlantılara, yalnız güvənli şəbəkələrdə icazə verilməli və heç vaxt ictimai şəbəkələrdə icazə verilməməlidir</string>
     <string name="title_notify_remark">Bunu, hesaba özəl bildirişlər üçün fəallaşdıra bilərsiniz</string>
@@ -1775,14 +1774,14 @@
     <string-array name="pollIntervalNames">
         <item>Həmişə</item>
         <item>Hər 5 dəqiqədə</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Hər 10 dəqiqədə</item>
+        <item>Hər 15 dəqiqədə</item>
+        <item>Hər 30 dəqiqədə</item>
+        <item>Hər saat</item>
+        <item>Hər 2 saatda</item>
+        <item>Hər 4 saatda</item>
+        <item>Hər 8 saatda</item>
+        <item>Hər gün</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Xeyr</item>

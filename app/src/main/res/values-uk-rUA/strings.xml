@@ -174,6 +174,7 @@
     <string name="title_setup_account_identity_hint">Ви можете налаштувати ім\'я, колір і свайп дії в налаштуваннях облікового запису та налаштувати підпис в налаштуваннях ідентифікації</string>
     <string name="title_setup_accounts">Облікові записи</string>
     <string name="title_setup_identities">Особисті дані</string>
+    <string name="title_setup_google_sign_in">Увійти за допомогою Google</string>
     <string name="title_setup_other">Інші постачальники</string>
     <string name="title_setup_inbound">Тільки вхідний лист (адреса електронної пошти не може бути надіслана!)</string>
     <string name="title_setup_pop3">Обліковий запис POP3</string>
@@ -401,6 +402,7 @@
     <string name="title_advanced_timeout">Час очікування зв\'язку (секунди)</string>
     <string name="title_advanced_prefer_ip4">Віддавати перевагу IPv4 над IPv6</string>
     <string name="title_advanced_ssl_harden">Посилене SSL з\'єднання</string>
+    <string name="title_advanced_ssl_harden_strict">Вимагати TLS 1.3</string>
     <string name="title_advanced_cert_strict">Сувора перевірка сертифікату</string>
     <string name="title_advanced_manage_connectivity">Керувати підключенням</string>
     <string name="title_advanced_caption_general">Загальні налаштування</string>
@@ -492,6 +494,7 @@
     <string name="title_advanced_text_size">Використовувати розмір тексту</string>
     <string name="title_advanced_text_font">Використовувати шрифти</string>
     <string name="title_advanced_text_align">Використовувати вирівнювання тексту</string>
+    <string name="title_advanced_text_titles">Показати {HTML titles}</string>
     <string name="title_advanced_text_separators">Використовувати розділюючі лінії</string>
     <string name="title_advanced_collapse_quotes">Згорнути цитований текст</string>
     <string name="title_advanced_image_placeholders">Показати заповнювачі для зображень</string>
@@ -638,6 +641,7 @@
     <string name="title_advanced_class_min_difference">Мінімальна різниця у класі: %1$s %%</string>
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Системи</string>
+    <string name="title_advanced_lt">Інтеграція з LanguageTool</string>
     <string name="title_advanced_deepl">Інтеграція з DeepL</string>
     <string name="title_advanced_sdcard">Я хочу використовувати SD-карту</string>
     <string name="title_advanced_watchdog">Періодично перевіряти, чи ще активнний додатк FairEmail</string>
@@ -798,7 +802,7 @@
     <string name="title_custom">Користувача</string>
     <string name="title_host">Ім\'я хосту</string>
     <string name="title_encryption">Шифрування</string>
-    <string name="title_encryption_none">Жодного</string>
+    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Немає (незахищено)</string>
     <string name="title_allow_insecure">Дозволити незахищене з’єднання</string>
     <string name="title_insecure_remark">Небезпечні підключення повинні бути дозволені тільки в надійних мережах і ніколи в мережах спільного користування</string>
     <string name="title_notify_remark">Ви можете ввімкнути цю функцію для сповіщень в певному обліковому записі</string>
@@ -1784,14 +1788,14 @@
     <string-array name="pollIntervalNames">
         <item>Завжди</item>
         <item>Кожні 5 хвилин</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Кожні 10 хвилин</item>
+        <item>Кожні 15 хвилин</item>
+        <item>Кожні 30 хвилин</item>
+        <item>Кожну годину</item>
+        <item>Кожні 2 години</item>
+        <item>Кожні 4 години</item>
+        <item>Кожні 8 годин</item>
+        <item>Щодня</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ні</item>

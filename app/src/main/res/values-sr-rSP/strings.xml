@@ -350,7 +350,6 @@
     <string name="title_custom">Прилагођено</string>
     <string name="title_host">Назив домаћина</string>
     <string name="title_encryption">Шифровање</string>
-    <string name="title_encryption_none">Ниједно</string>
     <string name="title_allow_insecure">Дозволи небезбедне конекције</string>
     <string name="title_insecure_remark">Небезбедне везе треба да буду дозвољене само на мрежама од поверења и никад на јавним мрежама</string>
     <string name="title_port">Број порта</string>
@@ -952,14 +951,14 @@
     <string-array name="pollIntervalNames">
         <item>Увек</item>
         <item>Сваких 5 минута</item>
-        <item>Every 10 minutes</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Сваких 10 минута</item>
+        <item>Сваких 15 минута</item>
+        <item>Сваких 30 минута</item>
+        <item>На сваких сат времена</item>
+        <item>Свака 2 сата</item>
+        <item>Свака 4 сата</item>
+        <item>Сваких 8 сати</item>
+        <item>Сваки дан</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Не</item>
