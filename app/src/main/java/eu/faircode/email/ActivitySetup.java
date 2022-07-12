@@ -439,6 +439,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         if (drawerLayout.isDrawerOpen(drawerContainer))
             drawerLayout.closeDrawer(drawerContainer);
         else {
+            if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+                performBack();
+                return;
+            }
+
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             boolean setup_reminder = prefs.getBoolean("setup_reminder", true);
 
