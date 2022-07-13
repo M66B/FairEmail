@@ -6,6 +6,7 @@
 
 ### Next version
 
+* Added Gmail OAuth web flow
 * Added 10 minutes check frequency
 * Added option to enable/disable LanguageTool
 * Added option to require TLS 1.3
