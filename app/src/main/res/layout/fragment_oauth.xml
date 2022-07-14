@@ -188,17 +188,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvErrorTitle" />
 
         <TextView
-            android:id="@+id/tvGmailDraftsHint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_setup_gmail_drafts"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvError" />
-
-        <TextView
             android:id="@+id/tvOfficeAuthHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -207,7 +196,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvGmailDraftsHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvError" />
 
         <Button
             android:id="@+id/btnSupport"

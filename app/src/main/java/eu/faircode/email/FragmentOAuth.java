@@ -124,7 +124,6 @@ public class FragmentOAuth extends FragmentBase {
     private TextView tvGmailHint;
 
     private TextView tvError;
-    private TextView tvGmailDraftsHint;
     private TextView tvOfficeAuthHint;
     private Button btnSupport;
     private Button btnHelp;
@@ -175,7 +174,6 @@ public class FragmentOAuth extends FragmentBase {
         tvGmailHint = view.findViewById(R.id.tvGmailHint);
 
         tvError = view.findViewById(R.id.tvError);
-        tvGmailDraftsHint = view.findViewById(R.id.tvGmailDraftsHint);
         tvOfficeAuthHint = view.findViewById(R.id.tvOfficeAuthHint);
         btnSupport = view.findViewById(R.id.btnSupport);
         btnHelp = view.findViewById(R.id.btnHelp);
@@ -967,9 +965,6 @@ public class FragmentOAuth extends FragmentBase {
 
         grpError.setVisibility(View.VISIBLE);
 
-        if ("gmail".equals(id))
-            tvGmailDraftsHint.setVisibility(View.VISIBLE);
-
         if ("office365".equals(id) || "outlook".equals(id)) {
             if (ex instanceof AuthenticationFailedException)
                 tvOfficeAuthHint.setVisibility(View.VISIBLE);
@@ -1007,7 +1002,6 @@ public class FragmentOAuth extends FragmentBase {
     private void hideError() {
         btnHelp.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
-        tvGmailDraftsHint.setVisibility(View.GONE);
         tvOfficeAuthHint.setVisibility(View.GONE);
     }
 }
