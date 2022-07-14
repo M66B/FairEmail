@@ -140,8 +140,8 @@ public class HtmlHelper {
     private static final int DEFAULT_FONT_SIZE_PT = 12; // points
     private static final int GRAY_THRESHOLD = Math.round(255 * 0.2f);
     private static final int COLOR_THRESHOLD = Math.round(255 * 0.1f);
-    private static final float MIN_LUMINANCE = 0.7f;
-    private static final float MIN_LUMINANCE_DARK = 0.1f;
+    private static final float MIN_LUMINANCE_VIEW = 0.7f;
+    private static final float MIN_LUMINANCE_COMPOSE = 0.85f;
     private static final int TAB_SIZE = 4;
     private static final int MAX_ALT = 250;
     private static final int MAX_AUTO_LINK = 250;
@@ -713,12 +713,12 @@ public class HtmlHelper {
                                             e = e.parent();
                                 }
 
-                                if (!view && dark &&
+                                if (!view &&
                                         color != null && (bg == null || bg == Color.TRANSPARENT)) {
                                     // Special case:
-                                    //   external draft / dark background / very dark/light font
+                                    //   external draft: very dark/light font
                                     double lum = ColorUtils.calculateLuminance(color);
-                                    if (lum < MIN_LUMINANCE_DARK || lum > 1 - MIN_LUMINANCE_DARK)
+                                    if (lum < MIN_LUMINANCE_COMPOSE || lum > 1 - MIN_LUMINANCE_COMPOSE)
                                         color = null;
                                 }
 
@@ -729,7 +729,7 @@ public class HtmlHelper {
                                     // Background color was suppressed because "no color"
                                     if (color != null) {
                                         double lum = ColorUtils.calculateLuminance(color);
-                                        if (dark ? lum < MIN_LUMINANCE : lum > 1 - MIN_LUMINANCE)
+                                        if (dark ? lum < MIN_LUMINANCE_VIEW : lum > 1 - MIN_LUMINANCE_VIEW)
                                             color = textColorPrimary;
                                     }
                                 }
@@ -2060,7 +2060,7 @@ public class HtmlHelper {
         if (r == g && r == b && (dark ? 255 - r : r) * a < GRAY_THRESHOLD)
             color = textColorPrimary;
 
-        return adjustLuminance(color, dark, MIN_LUMINANCE);
+        return adjustLuminance(color, dark, MIN_LUMINANCE_VIEW);
     }
 
     static int adjustLuminance(int color, boolean dark, float min) {
