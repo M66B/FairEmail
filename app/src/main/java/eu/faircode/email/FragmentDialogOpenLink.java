@@ -587,13 +587,19 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         }
                     }
 
-                    Drawable android = context.getDrawable(R.drawable.twotone_android_24);
+                    Drawable android = context.getDrawable(R.drawable.android_robot);
                     android.setBounds(0, 0, dp24, dp24);
                     pkgs.add(new Package(
                             android,
                             context.getString(R.string.title_select_app),
                             "chooser",
                             false,
+                            true));
+                    pkgs.add(new Package(
+                            android,
+                            context.getString(R.string.title_select_app),
+                            "chooser",
+                            true,
                             true));
 
                     return pkgs;

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/twotone_language_24"
         android:drawableEnd="@drawable/twotone_open_in_new_24"
-        android:drawablePadding="6dp"
+        android:drawablePadding="12dp"
         android:minHeight="24dp"
         android:text="Package"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
