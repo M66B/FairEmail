@@ -58,6 +58,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentOptionsBehavior extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private View view;
     private ImageButton ibHelp;
     private SwitchCompat swRestoreOnLaunch;
     private TextView tvRestoreOnLaunchHint;
@@ -120,7 +121,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         setSubtitle(R.string.title_setup);
         setHasOptionsMenu(true);
 
-        View view = inflater.inflate(R.layout.fragment_options_behavior, container, false);
+        view = inflater.inflate(R.layout.fragment_options_behavior, container, false);
 
         // Get controls
 
@@ -531,9 +532,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     }
 
     private void setOptions() {
-        if (getContext() == null)
-            return;
-        if (getLifecycle().getCurrentState().equals(Lifecycle.State.DESTROYED))
+        if (view == null || getContext() == null)
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

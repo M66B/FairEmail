@@ -55,6 +55,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class FragmentOptionsSend extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private View view;
     private ImageButton ibHelp;
     private SwitchCompat swKeyboard;
     private SwitchCompat swKeyboardNoFullscreen;
@@ -129,7 +130,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         setSubtitle(R.string.title_setup);
         setHasOptionsMenu(true);
 
-        View view = inflater.inflate(R.layout.fragment_options_send, container, false);
+        view = inflater.inflate(R.layout.fragment_options_send, container, false);
 
         // Get controls
 
@@ -631,9 +632,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     }
 
     private void setOptions() {
-        if (getContext() == null)
-            return;
-        if (getLifecycle().getCurrentState().equals(Lifecycle.State.DESTROYED))
+        if (view == null || getContext() == null)
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

@@ -64,6 +64,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.function.Consumer;
 
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private View view;
     private ImageButton ibHelp;
     private Button btnManage;
     private ImageButton ibClear;
@@ -149,7 +150,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         setSubtitle(R.string.title_setup);
         setHasOptionsMenu(true);
 
-        View view = inflater.inflate(R.layout.fragment_options_notifications, container, false);
+        view = inflater.inflate(R.layout.fragment_options_notifications, container, false);
 
         // Get controls
 
@@ -706,9 +707,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     }
 
     private void setOptions() {
-        if (getContext() == null)
-            return;
-        if (getLifecycle().getCurrentState().equals(Lifecycle.State.DESTROYED))
+        if (view == null || getContext() == null)
             return;
 
         boolean pro = ActivityBilling.isPro(getContext());

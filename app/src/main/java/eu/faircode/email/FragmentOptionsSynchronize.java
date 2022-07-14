@@ -64,6 +64,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class FragmentOptionsSynchronize extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private View view;
     private ImageButton ibHelp;
     private SwitchCompat swEnabled;
     private SwitchCompat swOptimize;
@@ -130,7 +131,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         setSubtitle(R.string.title_setup);
         setHasOptionsMenu(true);
 
-        View view = inflater.inflate(R.layout.fragment_options_synchronize, container, false);
+        view = inflater.inflate(R.layout.fragment_options_synchronize, container, false);
 
         // Get controls
 
@@ -556,9 +557,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     }
 
     private void setOptions() {
-        if (getContext() == null)
-            return;
-        if (getLifecycle().getCurrentState().equals(Lifecycle.State.DESTROYED))
+        if (view == null || getContext() == null)
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

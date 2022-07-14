@@ -81,6 +81,7 @@ import java.util.List;
 
 public class FragmentOptionsEncryption extends FragmentBase
         implements SharedPreferences.OnSharedPreferenceChangeListener, OpenPgpServiceConnection.OnBound {
+    private View view;
     private ImageButton ibHelp;
     private ImageButton ibInfo;
     private SwitchCompat swSign;
@@ -126,7 +127,7 @@ public class FragmentOptionsEncryption extends FragmentBase
         setHasOptionsMenu(true);
 
         PackageManager pm = getContext().getPackageManager();
-        View view = inflater.inflate(R.layout.fragment_options_encryption, container, false);
+        view = inflater.inflate(R.layout.fragment_options_encryption, container, false);
 
         // Get controls
 
@@ -597,9 +598,7 @@ public class FragmentOptionsEncryption extends FragmentBase
     }
 
     private void setOptions() {
-        if (getContext() == null)
-            return;
-        if (getLifecycle().getCurrentState().equals(Lifecycle.State.DESTROYED))
+        if (view == null || getContext() == null)
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
