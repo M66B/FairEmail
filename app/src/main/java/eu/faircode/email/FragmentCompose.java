@@ -1202,6 +1202,10 @@ public class FragmentCompose extends FragmentBase {
                     if (typed == null)
                         return result;
 
+                    final Context context = getContext();
+                    if (context == null)
+                        return result;
+
                     String wildcard = "%" + typed + "%";
                     Map<String, EntityContact> map = new HashMap<>();
 
@@ -1219,7 +1223,7 @@ public class FragmentCompose extends FragmentBase {
                                     .replace("?", "[?]") +
                             "*";
 
-                    boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
+                    boolean contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
                     if (contacts) {
                         try (Cursor cursor = resolver.query(
                                 ContactsContract.CommonDataKinds.Email.CONTENT_URI,
