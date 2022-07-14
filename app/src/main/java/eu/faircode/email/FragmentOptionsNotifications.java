@@ -494,6 +494,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("notify_suppress_in_call", checked).apply();
+                ServiceSynchronize.restart(compoundButton.getContext());
             }
         });
 
@@ -504,6 +505,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("notify_suppress_in_car", checked).apply();
+                ServiceSynchronize.restart(compoundButton.getContext());
             }
         });
 
