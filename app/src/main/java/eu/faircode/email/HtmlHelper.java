@@ -768,7 +768,7 @@ public class HtmlHelper {
                                 }
                             }
 
-                            if (color == null || color == Color.TRANSPARENT) {
+                            if (color == null) {
                                 element.removeAttr(key);
                                 continue;
                             }
