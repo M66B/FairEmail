@@ -255,6 +255,9 @@ public class EntityAttachment {
         if ("ppt".equals(extension))
             return "application/vnd.ms-powerpoint";
 
+        if ("application/vnd.ms-pps".equals(type))
+            return "application/vnd.ms-powerpoint";
+
         if ("pptx".equals(extension))
             return "application/vnd.openxmlformats-officedocument.presentationml.presentation";
 
