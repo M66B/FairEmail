@@ -1797,6 +1797,7 @@
     <string name="title_legend_embedded_image">Embedded image placeholder</string>
     <string name="title_legend_tracking_pixel">Tracking image</string>
     <string name="title_legend_broken_image">Broken image</string>
+    <string name="title_legend_open_external">Open outside the app</string>
 
     <string name="title_legend_pick">Pick contact</string>
     <string name="title_legend_cc">Show CC/BCC</string>

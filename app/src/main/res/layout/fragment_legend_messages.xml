@@ -922,6 +922,29 @@
             app:layout_constraintTop_toBottomOf="@id/tvTrackingPixel" />
 
         <ImageView
+            android:id="@+id/ivExternal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_open_external"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvExternal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvExternal"
+            app:srcCompat="@drawable/twotone_open_in_new_24" />
+
+        <TextView
+            android:id="@+id/tvExternal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/title_legend_open_external"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivExternal"
+            app:layout_constraintTop_toBottomOf="@id/tvBrokenImage" />
+
+        <ImageView
             android:id="@+id/ivDeletePermanent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -942,6 +965,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivDeletePermanent"
-            app:layout_constraintTop_toBottomOf="@id/tvBrokenImage" />
+            app:layout_constraintTop_toBottomOf="@id/tvExternal" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
