@@ -777,7 +777,7 @@
     <string name="title_custom">Tuỳ chỉnh</string>
     <string name="title_host">Tên máy chủ</string>
     <string name="title_encryption">Mã hóa</string>
-    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Không có (không bảo mật)</string>
+    <string name="title_encryption_none">Không có (không bảo mật)</string>
     <string name="title_allow_insecure">Cho phép các kết nối không bảo mật</string>
     <string name="title_insecure_remark">Các kết nối không bảo mật chỉ nên được cho phép ở các mạng được tin cậy và không bao giờ ở các mạng công cộng</string>
     <string name="title_notify_remark">Bạn có thể bật cái này cho thông báo của từng tài khoản</string>
@@ -1801,13 +1801,6 @@
         <item>Không làm gì cả</item>
         <item>Đi đến cuộc hội thoại trước</item>
         <item>Đi đến cuộc hội thoại sau</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Rất nhỏ</item>
-        <item>Nhỏ</item>
-        <item>Vừa</item>
-        <item>Lớn</item>
-        <item>Rất lớn</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

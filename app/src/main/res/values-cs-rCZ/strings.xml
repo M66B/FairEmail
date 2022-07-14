@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail je e-mailový klient s otevřeným zdrojovým kódem zaměřený na soukromí a bezpečnost. Z tohoto důvodu se některé funkce mohou chovat odlišně než jste zvyklí.</string>
     <string name="app_limitations">Například, zprávy jsou ve výchozím nastavení přeformátovány, aby byly odstraněny nezabezpečené prvky a zlepšila se čitelnost, a otevírání odkazů je pro bezpečnost potřeba potvrdit. Oboje lze v případě potřeby vypnout.</string>
     <string name="app_unsupported">Chyby v Android verzi tohoto konkrétního zařízení způsobí pády</string>
+    <string name="app_data_loss">Všechna data mohou být ztracena</string>
     <string name="app_continue">Přesto pokračovat</string>
     <string name="app_exit">Znovu „zpět“ pro ukončení</string>
     <string name="app_cake">Nedostatek místa v úložišti</string>
@@ -167,6 +168,7 @@
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_quick_certificates">Certifikáty serveru</string>
     <string name="title_setup_wizard">Průvodce</string>
+    <string name="title_setup_wizard_tutorials">Průvodce</string>
     <string name="title_setup_wizard_multiple">Průvodce lze použít vícekrát, pro nastavení libovolného počtu účtů</string>
     <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
     <string name="title_setup_manual">Ruční nastavení a možnosti účtu</string>
@@ -177,6 +179,7 @@
     <string name="title_setup_account_identity_hint">Jméno, barvu a akce přejetím nakonfigurujete v nastavení účtu, a podpis v nastavení identity</string>
     <string name="title_setup_accounts">Účty</string>
     <string name="title_setup_identities">Identity</string>
+    <string name="title_setup_google_sign_in">Přihlásit se pomocí Googlu</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_inbound">Pouze příchozí e-maily (e-mail nelze odeslat)</string>
     <string name="title_setup_pop3">POP3 účet</string>
@@ -404,6 +407,7 @@
     <string name="title_advanced_timeout">Časový limit připojení (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Upřednostňovat IPv4 před IPv6</string>
     <string name="title_advanced_ssl_harden">Obrnit SSL připojení</string>
+    <string name="title_advanced_ssl_harden_strict">Vyžadovat TLS 1.3</string>
     <string name="title_advanced_cert_strict">Přísná kontrola certifikátu</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_caption_general">Obecné</string>
@@ -495,6 +499,7 @@
     <string name="title_advanced_text_size">Použít velikost textu</string>
     <string name="title_advanced_text_font">Použít fonty písma</string>
     <string name="title_advanced_text_align">Použít zarovnání textu</string>
+    <string name="title_advanced_text_titles">Zobrazit {HTML titles}</string>
     <string name="title_advanced_text_separators">Použít oddělovací čáry</string>
     <string name="title_advanced_collapse_quotes">Sbalit citovaný text</string>
     <string name="title_advanced_image_placeholders">Zobrazit zástupné symboly obrázků</string>
@@ -505,6 +510,7 @@
     <string name="title_advanced_actionbar_color">Použít barvu účtu jako barvu pozadí pro panel akcí konverzace</string>
     <string name="title_advanced_category_header">Seskupit podle kategorie účtu</string>
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
+    <string name="title_advanced_list_count">Zobrazit počet zpráv nebo konverzací v horní liště akcí</string>
     <string name="title_advanced_bundled_fonts">Použít připojená písma</string>
     <string name="title_advanced_parse_classes">Parsovat šablony stylů</string>
     <string name="title_advanced_authentication">Zobrazit upozornění na ověření</string>
@@ -513,6 +519,7 @@
     <string name="title_advanced_authentication_none">Žádné ověření</string>
     <string name="title_advanced_authentication_some">Částečné ověření</string>
     <string name="title_advanced_authentication_all">Kompletní ověření</string>
+    <string name="title_advanced_restore_on_launch">Obnovit stav aplikace při spuštění</string>
     <string name="title_advanced_sync_on_launch">Synchronizovat při spuštění</string>
     <string name="title_advanced_double_back">Dvakrát „zpět“ pro ukončení</string>
     <string name="title_advanced_conversation_actions">Navrhovat akce (Android 10+)</string>
@@ -555,6 +562,7 @@
     <string name="title_advanced_notify_background">Zobrazovat oznámení pouze při běhu na pozadí</string>
     <string name="title_advanced_notify_known">Zobrazit oznámení pouze pro kontakty</string>
     <string name="title_advanced_notify_suppress_in_call">Zpoždění upozornění během hovoru</string>
+    <string name="title_advanced_notify_suppress_in_car">Zpoždění oznámení při připojení Android Auto</string>
     <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_notify_preview_all">Náhled na celý text</string>
@@ -639,6 +647,7 @@
     <string name="title_advanced_class_min_difference">Minimální rozdíl pro klasifikaci: %1$s %%</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
+    <string name="title_advanced_lt">Integrace LanguageTool</string>
     <string name="title_advanced_deepl">DeepL integrace</string>
     <string name="title_advanced_sdcard">Chci použít Sd kartu</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
@@ -652,6 +661,7 @@
     <string name="title_advanced_last_cleanup">Poslední čištění: %1$s</string>
     <string name="title_advanced_app">Nastavení aplikace</string>
     <string name="title_advanced_more">Více možností</string>
+    <string name="title_advanced_main_log">Hlavní logování</string>
     <string name="title_advanced_protocol">Protokolovat protokoly</string>
     <string name="title_advanced_log_info">Protokolování při ladění</string>
     <string name="title_advanced_debug">Režim ladění</string>
@@ -679,6 +689,7 @@
     <string name="title_advanced_folder_nav_hint">Toto vás vždy vrátí do seznamu složek příslušného účtu ze seznamu zpráv</string>
     <string name="title_advanced_suggest_names_hint">Je-li vypnuto, budou při výběru kontaktů použity pouze e-mailové adresy</string>
     <string name="title_advanced_suggest_local_hint">Jako dodatek ke kontaktům poskytnutých Androidem. Je-li povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
+    <string name="title_advanced_auto_identity_hint">Toto zvolí poslední identitu použitou při výběru příjemce pro nové zprávy</string>
     <string name="title_advanced_send_reminders_hint">Zobrazí upozornění, je-li text zprávy či předmět prázdný nebo chybí-li pravděpodobně příloha</string>
     <string name="title_advanced_reply_move_hint">E-mailový server stále může zprávy ukládat i do složky odeslané</string>
     <string name="title_advanced_usenet_hint">Vložit „-- “ mezi text a podpis</string>
@@ -715,6 +726,7 @@
     <string name="title_advanced_inline_hint">Vložené obrázky jsou obrázky v těle zprávy</string>
     <string name="compressed">Obsah komprimovaných souborů (%1$s) s více než %2$s soubory nebo se soubory většími než %3$s nebudou zobrazeny</string>
     <string name="title_advanced_parse_classes_hint">Zprávy budou zobrazovány přesněji, ale s potencionálním zpožděním</string>
+    <string name="title_advanced_restore_on_launch_hint">Obnovit poslední stav aplikace při restartování přes ikonu spouštěče během %1$d minut</string>
     <string name="title_advanced_language_detection_hint">Podpora detekce jazyka je závislá na výrobci zařízení</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu, je-li v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
     <string name="title_advanced_expandall_hint">Tlačítko odpovědi nebude zobrazeno, pokud je rozbaleno více zpráv, protože není jasné na které zprávy se toto tlačítko vztahuje</string>
@@ -732,6 +744,7 @@
     <string name="title_advanced_safe_browsing_hint">Google server ví, které adresy jsou vyhledávány</string>
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_notify_action_hint">Budou zobrazeny nejvýše tři akce</string>
+    <string name="title_advanced_notify_car_hint">Připojení znamená, že se promítá něco, jako je mapa navigace</string>
     <string name="title_advanced_notify_remove_hint">Oznámení nových zpráv budou při odtažení prstem a při označení zpráv jako přečtených odebrána vždy</string>
     <string name="title_advanced_notify_manage_hint">Pro nastavení vlastností kanálu se dotkněte jeho názvu</string>
     <string name="title_advanced_notify_manage_default_hint">Pro nastavení výchozího zvuku, apod</string>
@@ -766,6 +779,7 @@
     <string name="title_advanced_sender_regex">Reg. výraz odpovídající uživ. jménu příchozích e-mailových adres</string>
     <string name="title_identity_reply_to">Odpověď na adresu</string>
     <string name="title_identity_internal">Názvy interních domén (oddělené čárkou)</string>
+    <string name="title_identity_unicode">Povolit UTF-8 v záhlaví zprávy</string>
     <string name="title_identity_unicode_remark">Většina serverů toto nepodporuje</string>
     <string name="title_identity_octetmime">Povolit 8BITMIME</string>
     <string name="title_identity_max_size">Maximální velikost zprávy (MB)</string>
@@ -797,6 +811,7 @@
     <string name="title_custom">Vlastní</string>
     <string name="title_host">Název hostitele</string>
     <string name="title_encryption">Šifrování</string>
+    <string name="title_encryption_none">Žádné (nezabezpečené)</string>
     <string name="title_allow_insecure">Povolit nezabezpečené připojení</string>
     <string name="title_insecure_remark">Nezabezpečená připojení by měla být povolena pouze v důvěryhodných, a nikdy na veřejných sítích</string>
     <string name="title_notify_remark">Toto můžete povolit pro specifická upozornění účtu</string>
@@ -856,6 +871,7 @@
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>
+    <string name="title_import_file">Importovat soubor</string>
     <string name="title_sign_key">Podpisový klíč: %1$s</string>
     <string name="title_last_connected">Poslední připojení: %1$s</string>
     <string name="title_backoff_until">Čekání po selhání do: %1$s</string>
@@ -936,6 +952,7 @@
     <string name="title_search_folder">Hledat složku</string>
     <string name="title_apply_to_all">Použít na vše</string>
     <string name="title_edit_account_name">Upravit název účtu</string>
+    <string name="title_edit_account_color">Upravit barvu účtu</string>
     <string name="title_hide_folder">Skrýt složku</string>
     <string name="title_hide_seen_folder">Skrýt složku, pokud jsou přečteny všechny zprávy</string>
     <string name="title_hide_seen_folder_hint">Pouze v seznamu složek zobrazeném na úvodní obrazovce</string>
@@ -1634,6 +1651,7 @@
     <string name="title_yes">Ano</string>
     <string name="title_no">Ne</string>
     <string name="title_later">Později</string>
+    <string name="title_paste_plain">Vložit jako prostý text</string>
     <string name="title_undo">Zpět</string>
     <string name="title_redo">Znovu</string>
     <string name="title_insert_line">Vložit řádek</string>
@@ -1737,6 +1755,7 @@
     <string name="title_widget_compose">Zobrazit tlačítko pro vytvoření nové zprávy</string>
     <string name="title_widget_background">Barva pozadí</string>
     <string name="title_widget_day_night">Sledovat tmavý motiv systému</string>
+    <string name="title_compat_dark">Google odstranil tmavý režim pro verze Androidu nižší než 10</string>
     <string name="title_accessibility_collapsed">Sbaleno</string>
     <string name="title_accessibility_expanded">Rozbaleno</string>
     <string name="title_accessibility_seen">Přečteno</string>
@@ -1819,13 +1838,6 @@
         <item>Nedělat nic</item>
         <item>Přejít na předchozí konverzaci</item>
         <item>Přejít na další konverzaci</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Velmi malé</item>
-        <item>Malé</item>
-        <item>Střední</item>
-        <item>Velké</item>
-        <item>Velmi velké</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

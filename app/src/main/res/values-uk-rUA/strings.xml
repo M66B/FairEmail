@@ -802,7 +802,7 @@
     <string name="title_custom">Користувача</string>
     <string name="title_host">Ім\'я хосту</string>
     <string name="title_encryption">Шифрування</string>
-    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Немає (незахищено)</string>
+    <string name="title_encryption_none">Немає (незахищено)</string>
     <string name="title_allow_insecure">Дозволити незахищене з’єднання</string>
     <string name="title_insecure_remark">Небезпечні підключення повинні бути дозволені тільки в надійних мережах і ніколи в мережах спільного користування</string>
     <string name="title_notify_remark">Ви можете ввімкнути цю функцію для сповіщень в певному обліковому записі</string>
@@ -1560,6 +1560,7 @@
     <string name="title_legend_embedded_image">Вбудований заповнювач зображень</string>
     <string name="title_legend_tracking_pixel">Зображення для відстеження</string>
     <string name="title_legend_broken_image">Пошкоджене зображення</string>
+    <string name="title_legend_open_external">Відкрити за межами програми</string>
     <string name="title_legend_pick">Вибрати контакт</string>
     <string name="title_legend_cc">Показати CC/BCC</string>
     <string name="title_legend_link">Вставити посилання</string>
@@ -1830,13 +1831,6 @@
         <item>Нічого</item>
         <item>Перейти до попередньої розмови</item>
         <item>Перейти до наступної розмови</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Дуже маленький</item>
-        <item>Малий</item>
-        <item>Середній</item>
-        <item>Великий</item>
-        <item>Дуже великий</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

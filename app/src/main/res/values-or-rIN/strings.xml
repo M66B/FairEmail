@@ -673,13 +673,6 @@
         <item>ପୂର୍ବବର୍ତ୍ତୀ ବାର୍ତ୍ତାଳାପକୁ ଯାଅ</item>
         <item>ପରବର୍ତ୍ତୀ ବାର୍ତ୍ତାଳାପକୁ ଯାଅ</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>ଅତିରିକ୍ତ ଛୋଟ</item>
-        <item>ଛୋଟ</item>
-        <item>ମଧ୍ୟମ</item>
-        <item>ବଡ଼</item>
-        <item>ଅତିରିକ୍ତ ବଡ଼</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

@@ -778,7 +778,7 @@
     <string name="title_custom">カスタム</string>
     <string name="title_host">ホスト名</string>
     <string name="title_encryption">暗号化</string>
-    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">なし (安全でない)</string>
+    <string name="title_encryption_none">なし (安全でない)</string>
     <string name="title_allow_insecure">保護されていない接続を許可</string>
     <string name="title_insecure_remark">保護されていない接続は信頼されたネットワークでのみ許可し、パブリックネットワークでは許可しないでください</string>
     <string name="title_notify_remark">アカウント別の通知に対して有効にすることができます</string>
@@ -1805,13 +1805,6 @@
         <item>何もしない</item>
         <item>前の会話に移動</item>
         <item>次の会話に移動</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>極小</item>
-        <item>小</item>
-        <item>中</item>
-        <item>大</item>
-        <item>特大</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

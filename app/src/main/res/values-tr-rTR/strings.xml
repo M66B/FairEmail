@@ -788,7 +788,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_custom">Özel</string>
     <string name="title_host">Sunucu adı</string>
     <string name="title_encryption">Şifreleme açık</string>
-    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Yok (güvenliksiz)</string>
+    <string name="title_encryption_none">Yok (güvenliksiz)</string>
     <string name="title_allow_insecure">Güvensiz bağlantılara izin ver</string>
     <string name="title_insecure_remark">Güvensiz bağlantılara sadece güvenilen ağlarda izin verilmelidir ve halka açık ağlarda asla izin verilmemelidir</string>
     <string name="title_notify_remark">Bunu hesaba özel bildirimler için etkinleştirebilirsiniz</string>
@@ -1812,13 +1812,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         <item>Hiç bir şey yapma</item>
         <item>Önceki konuşmaya git</item>
         <item>Sonraki konuşmaya git</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Çok küçük</item>
-        <item>Küçük</item>
-        <item>Orta</item>
-        <item>Büyük</item>
-        <item>Ekstra büyük</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

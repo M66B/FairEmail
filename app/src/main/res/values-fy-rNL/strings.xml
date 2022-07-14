@@ -1445,13 +1445,6 @@
         <item>Gean nei foarige konversaasje</item>
         <item>Gean nei folgjende petear</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>Extra small</item>
-        <item>Lyts</item>
-        <item>Medium</item>
-        <item>Grutte</item>
-        <item>Ekstra grut</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

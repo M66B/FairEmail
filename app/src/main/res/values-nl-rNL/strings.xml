@@ -788,7 +788,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_custom">Aangepast</string>
     <string name="title_host">Hostnaam</string>
     <string name="title_encryption">Versleuteling</string>
-    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Geen (onveilig)</string>
+    <string name="title_encryption_none">Geen (onveilig)</string>
     <string name="title_allow_insecure">Onveilige verbindingen toestaan</string>
     <string name="title_insecure_remark">Onveilige verbindingen mogen alleen worden toegestaan op vertrouwde netwerken en nooit op openbare netwerken</string>
     <string name="title_notify_remark">U kunt dit inschakelen voor account specifieke meldingen</string>
@@ -1541,6 +1541,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_legend_embedded_image">Plaatshouder ingesloten afbeelding</string>
     <string name="title_legend_tracking_pixel">Tracking afbeelding</string>
     <string name="title_legend_broken_image">Defecte afbeelding</string>
+    <string name="title_legend_open_external">Open buiten de app</string>
     <string name="title_legend_pick">Kies contact</string>
     <string name="title_legend_cc">Toon CC/BCC</string>
     <string name="title_legend_link">Koppeling invoegen</string>
@@ -1810,6 +1811,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>Ga naar volgende gesprek</item>
     </string-array>
     <string-array name="resizeNames">
+        <item comment="resizeNames&#10;Tiny image size as in minuscule">Minuscuul</item>
         <item>Extra klein</item>
         <item>Klein</item>
         <item>Gemiddeld</item>

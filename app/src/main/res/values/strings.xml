@@ -2173,6 +2173,7 @@
     </string-array>
 
     <string-array name="resizeNames">
+        <item>Tiny</item>
         <item>Extra small</item>
         <item>Small</item>
         <item>Medium</item>
@@ -2183,6 +2184,7 @@
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <integer-array name="resizeValues" translatable="false">
+        <item>480</item>
         <item>720</item>
         <item>1080</item>
         <item>1440</item>

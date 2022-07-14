@@ -789,7 +789,7 @@
     <string name="title_custom">Personalizado</string>
     <string name="title_host">Nombre de host</string>
     <string name="title_encryption">Cifrado</string>
-    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Ninguno (inseguro)</string>
+    <string name="title_encryption_none">Ninguno (inseguro)</string>
     <string name="title_allow_insecure">Permitir conexiones inseguras</string>
     <string name="title_insecure_remark">Las conexiones inseguras sólo deberían permitirse con redes de confianza y nunca con redes públicas</string>
     <string name="title_notify_remark">Puedes activar esto para notificaciones específicas de la cuenta</string>
@@ -1545,6 +1545,7 @@
     <string name="title_legend_embedded_image">Marcador de posición de imagen incrustada</string>
     <string name="title_legend_tracking_pixel">Imagen de rastreo</string>
     <string name="title_legend_broken_image">Imagen rota</string>
+    <string name="title_legend_open_external">Abrir fuera de la aplicación</string>
     <string name="title_legend_pick">Seleccionar contacto</string>
     <string name="title_legend_cc">Mostrar CC/CCO</string>
     <string name="title_legend_link">Insertar enlace</string>
@@ -1813,13 +1814,6 @@
         <item>No hacer nada</item>
         <item>Ir a la conversación anterior</item>
         <item>Ir a la siguiente conversación</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Muy pequeño</item>
-        <item>Pequeño</item>
-        <item>Mediano</item>
-        <item>Grande</item>
-        <item>Extra grande</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

@@ -788,7 +788,7 @@
     <string name="title_custom">Benutzerdefiniert</string>
     <string name="title_host">Hostname</string>
     <string name="title_encryption">Verschlüsselung</string>
-    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Keine (unsicher)</string>
+    <string name="title_encryption_none">Keine (unsicher)</string>
     <string name="title_allow_insecure">Unsichere Verbindungen zulassen</string>
     <string name="title_insecure_remark">Unsichere Verbindungen sollten nur in vertrauenswürdigen Netzwerken und niemals in öffentlichen Netzwerken erlaubt werden</string>
     <string name="title_notify_remark">Sie können das für kontenspezifische Benachrichtigungen aktivieren</string>
@@ -1545,6 +1545,7 @@
     <string name="title_legend_embedded_image">Platzhalter für eingebettete Bilder</string>
     <string name="title_legend_tracking_pixel">Verfolgungsbild</string>
     <string name="title_legend_broken_image">Defekte Bilddatei</string>
+    <string name="title_legend_open_external">Außerhalb der App öffnen</string>
     <string name="title_legend_pick">Kontakt auswählen</string>
     <string name="title_legend_cc">Kopie/Blindkopie anzeigen</string>
     <string name="title_legend_link">Link hinzufügen</string>
@@ -1813,13 +1814,6 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>Nichts tun</item>
         <item>Zur vorherigen Unterhaltung wechseln</item>
         <item>Zur nächsten Unterhaltung wechseln</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Sehr klein</item>
-        <item>Klein</item>
-        <item>Mittel</item>
-        <item>Groß</item>
-        <item>Sehr groß</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

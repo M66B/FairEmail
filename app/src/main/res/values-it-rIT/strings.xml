@@ -791,7 +791,7 @@
     <string name="title_custom">Personalizzato</string>
     <string name="title_host">Nome dell\'host</string>
     <string name="title_encryption">Crittografia</string>
-    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Nessuno (insicuro)</string>
+    <string name="title_encryption_none">Nessuno (insicuro)</string>
     <string name="title_allow_insecure">Consenti connessioni non sicure</string>
     <string name="title_insecure_remark">Le connessioni non sicure dovrebbero esser consentite solo su reti affidabili e mai sulle reti pubbliche</string>
     <string name="title_notify_remark">Puoi abilitarlo per le notifiche specifiche del profilo</string>
@@ -1551,6 +1551,7 @@
     <string name="title_legend_embedded_image">Segnaposto immagine incorporata</string>
     <string name="title_legend_tracking_pixel">Immagine di monitoraggio</string>
     <string name="title_legend_broken_image">Immagine corrotta</string>
+    <string name="title_legend_open_external">Apri fuori dall\'app</string>
     <string name="title_legend_pick">Seleziona il contatto</string>
     <string name="title_legend_cc">Mostra CC/CCN</string>
     <string name="title_legend_link">Inserisci link</string>
@@ -1820,13 +1821,6 @@
         <item>Non fare nulla</item>
         <item>Vai alla conversazione precedente</item>
         <item>Vai alla conversazione successiva</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Molto piccolo</item>
-        <item>Piccolo</item>
-        <item>Medio</item>
-        <item>Grande</item>
-        <item>Molto grande</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

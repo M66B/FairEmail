@@ -778,7 +778,7 @@
     <string name="title_custom">自定义</string>
     <string name="title_host">主机名</string>
     <string name="title_encryption">加密</string>
-    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">无（不安全）</string>
+    <string name="title_encryption_none">无（不安全）</string>
     <string name="title_allow_insecure">允许不安全的连接</string>
     <string name="title_insecure_remark">只应在受信任的网络中允许不安全连接，请勿用于公共网络</string>
     <string name="title_notify_remark">你可以为特定于账户的通知启用该选项</string>
@@ -1533,6 +1533,7 @@
     <string name="title_legend_embedded_image">嵌入图像的占位符</string>
     <string name="title_legend_tracking_pixel">追踪用途的图像</string>
     <string name="title_legend_broken_image">损坏的图像</string>
+    <string name="title_legend_open_external">在 App 外打开</string>
     <string name="title_legend_pick">选择联系人</string>
     <string name="title_legend_cc">显示抄送和密送</string>
     <string name="title_legend_link">插入链接</string>
@@ -1799,13 +1800,6 @@
         <item>不进行任何操作</item>
         <item>转到上一个会话</item>
         <item>转到下一个会话</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>超小</item>
-        <item>小</item>
-        <item>中等</item>
-        <item>大</item>
-        <item>特大</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

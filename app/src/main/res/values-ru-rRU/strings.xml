@@ -812,7 +812,7 @@
     <string name="title_custom">Пользовательское</string>
     <string name="title_host">Имя хоста</string>
     <string name="title_encryption">Шифрование</string>
-    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Нет (небезопасно)</string>
+    <string name="title_encryption_none">Нет (небезопасно)</string>
     <string name="title_allow_insecure">Разрешить небезопасные подключения</string>
     <string name="title_insecure_remark">Небезопасные соединения могут быть разрешены только в доверенных сетях и никогда в публичных сетях</string>
     <string name="title_notify_remark">Вы можете включить это для уведомлений конкретной учётной записи</string>
@@ -1571,6 +1571,7 @@
     <string name="title_legend_embedded_image">Встроенное изображение</string>
     <string name="title_legend_tracking_pixel">Отслеживающее изображение</string>
     <string name="title_legend_broken_image">Повреждённое изображение</string>
+    <string name="title_legend_open_external">Открыть вне приложения</string>
     <string name="title_legend_pick">Выбрать контакт</string>
     <string name="title_legend_cc">Показать копию/скрытую копию</string>
     <string name="title_legend_link">Вставить ссылку</string>
@@ -1842,13 +1843,6 @@
         <item>Ничего не делать</item>
         <item>Перейти к предыдущему диалогу</item>
         <item>Перейти к следующему диалогу</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Очень маленький</item>
-        <item>Маленький</item>
-        <item>Средний</item>
-        <item>Большой</item>
-        <item>Очень большой</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

@@ -179,6 +179,7 @@
     <string name="title_setup_account_identity_hint">אפשר להגדיר את השם, הצבע ואת פעולות ההחלקה בהגדרות החשבון ולהגדיר חתימה בהגדרות הזהות</string>
     <string name="title_setup_accounts">חשבונות</string>
     <string name="title_setup_identities">זהויות</string>
+    <string name="title_setup_google_sign_in">כניסה עם Google</string>
     <string name="title_setup_other">ספק אחר</string>
     <string name="title_setup_inbound">הודעות נכנסות בלבד (אי אפשר לשלוח הודעה בדוא״ל!)</string>
     <string name="title_setup_pop3">חשבון POP3</string>
@@ -407,6 +408,7 @@
     <string name="title_advanced_timeout">זמן קצוב לחיבור (בשניות)</string>
     <string name="title_advanced_prefer_ip4">להעדיף IPv4 על פני IPv6</string>
     <string name="title_advanced_ssl_harden">הקשחת חיבורי SSL</string>
+    <string name="title_advanced_ssl_harden_strict">לדרוש TLS‎ 1.3</string>
     <string name="title_advanced_cert_strict">בדיקת אישורים קפדנית</string>
     <string name="title_advanced_manage_connectivity">ניהול קישוריות</string>
     <string name="title_advanced_caption_general">כללי</string>
@@ -810,6 +812,7 @@
     <string name="title_custom">משלך</string>
     <string name="title_host">שם מארח</string>
     <string name="title_encryption">הצפנה</string>
+    <string name="title_encryption_none">ללא (בלתי מאובטח)</string>
     <string name="title_allow_insecure">לאפשר חיבורים מפוקפקים</string>
     <string name="title_insecure_remark">חיבורים בלתי מאובטחים/מפוקפקים יש לאפשר רק ברשתות מהימנות ואף פעם לא ברשתות ציבוריות</string>
     <string name="title_notify_remark">אפשר להפעיל את זה לקבלת התראות לחשבון מסוים</string>
@@ -1840,13 +1843,6 @@
         <item>לא לעשות כלום</item>
         <item>מעבר לדיון הקודם</item>
         <item>מעבר לדיון הבא</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>קטן במיוחד</item>
-        <item>קטן</item>
-        <item>בינוני</item>
-        <item>גדול</item>
-        <item>גדול במיוחד</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

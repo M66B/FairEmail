@@ -1309,13 +1309,6 @@
         <item>Gå til forrige samtale</item>
         <item>Gå til neste samtale</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>Extra small</item>
-        <item>Liten</item>
-        <item>Medium</item>
-        <item>Stor</item>
-        <item>Ekstra stor</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

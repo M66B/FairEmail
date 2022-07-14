@@ -787,7 +787,7 @@
     <string name="title_custom">Προσαρμοσμένο</string>
     <string name="title_host">Όνομα εξυπηρετητή</string>
     <string name="title_encryption">Κρυπτογράφηση</string>
-    <string name="title_encryption_none" comment="title_encryption_none&#10;Title for connections to the email server without encryption (=plain text)">Καμία (μη ασφαλής)</string>
+    <string name="title_encryption_none">Καμία (μη ασφαλής)</string>
     <string name="title_allow_insecure">Να επιτρέπονται μη ασφαλείς συνδέσεις</string>
     <string name="title_insecure_remark">Μη ασφαλείς συνδέσεις θα πρέπει να επιτρέπονται μόνο σε έμπιστα δίκτυα και ουδέποτε σε δημόσια δίκτυα</string>
     <string name="title_notify_remark">Μπορείτε να το ενεργοποιήσετε για να λαμβάνετε ειδοποιήσεις που αφορούν ειδικά σε έναν λογαριασμό</string>
@@ -1812,13 +1812,6 @@
         <item>Καμία ενέργεια</item>
         <item>Μετάβαση στην προηγούμενη συζήτηση</item>
         <item>Μετάβαση στην επόμενη συζήτηση</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Πολύ μικρό</item>
-        <item>Μικρό</item>
-        <item>Μεσαίο</item>
-        <item>Μεγάλο</item>
-        <item>Πολύ μεγάλο</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

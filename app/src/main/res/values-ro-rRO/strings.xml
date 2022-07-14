@@ -168,6 +168,7 @@
     <string name="title_setup_account_identity_hint">Puteți configura numele, culoarea și acțiunile de glisare în setările contului și puteți configura o semnătură în setările de identitate</string>
     <string name="title_setup_accounts">Conturi</string>
     <string name="title_setup_identities">Identități</string>
+    <string name="title_setup_google_sign_in">Autentificare cu Google</string>
     <string name="title_setup_other">Alt furnizor</string>
     <string name="title_setup_inbound">Doar e-mail de intrare (e-mailul nu poate fi trimis!)</string>
     <string name="title_setup_pop3">Cont POP3</string>
@@ -395,6 +396,7 @@
     <string name="title_advanced_timeout">Expirarea conexiunii (secunde)</string>
     <string name="title_advanced_prefer_ip4">Preferă IPv4 înaintea IPv6</string>
     <string name="title_advanced_ssl_harden">Întârire conexiuni SSL</string>
+    <string name="title_advanced_ssl_harden_strict">Necesită TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificarea strictă a certificatelor</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_caption_general">Generale</string>
@@ -486,6 +488,7 @@
     <string name="title_advanced_text_size">Folosește mărimi text</string>
     <string name="title_advanced_text_font">Folosește fonturi</string>
     <string name="title_advanced_text_align">Folosește alinierea textului</string>
+    <string name="title_advanced_text_titles">Arată {HTML titles}</string>
     <string name="title_advanced_text_separators">Folosește linii separatoare</string>
     <string name="title_advanced_collapse_quotes">Restrânge textul citat</string>
     <string name="title_advanced_image_placeholders">Afișați înlocuitorul imaginii</string>
@@ -496,6 +499,7 @@
     <string name="title_advanced_actionbar_color">Folosește culoarea contului pentru culoarea de fundal a barei de acțiuni a conversației</string>
     <string name="title_advanced_category_header">Gruparea pe categorii de conturi</string>
     <string name="title_advanced_navbar_colorize">Colorează bara de navigație Android</string>
+    <string name="title_advanced_list_count">Arată numărul de mesaje sau conversații în bara de acțiuni de sus</string>
     <string name="title_advanced_bundled_fonts">Utilizați fonturi incluse în pachet</string>
     <string name="title_advanced_parse_classes">Utilizează foile de stil</string>
     <string name="title_advanced_authentication">Afișați avertismentele de autentificare</string>
@@ -547,6 +551,7 @@
     <string name="title_advanced_notify_background">Arată notificări doar când e în fundal</string>
     <string name="title_advanced_notify_known">Arată notificări numai pentru contacte</string>
     <string name="title_advanced_notify_suppress_in_call">Amânare notificări în timpul unui apel</string>
+    <string name="title_advanced_notify_suppress_in_car">Întârziere notificări în timp ce Android Auto este conectat</string>
     <string name="title_advanced_notify_summary">Arată doar sumarul în notificare</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_preview_all">Previzualizează tot textul</string>
@@ -631,6 +636,7 @@
     <string name="title_advanced_class_min_difference">Diferenţa minimă a clasei: %1$s %%</string>
     <string name="title_advanced_language">Limba</string>
     <string name="title_advanced_language_system">Sistem</string>
+    <string name="title_advanced_lt">Integrare cu LanguageTool</string>
     <string name="title_advanced_deepl">Integrare DeepL</string>
     <string name="title_advanced_sdcard">Vreau să folosesc un sdcard</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
@@ -727,6 +733,7 @@
     <string name="title_advanced_safe_browsing_hint">Serverul Google știe ce adrese sunt căutate</string>
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
     <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>
+    <string name="title_advanced_notify_car_hint">Conectat înseamnă că se proiectează ceva, cum ar fi o hartă pentru navigare</string>
     <string name="title_advanced_notify_remove_hint">Notificările de mesaj nou vor fi mereu eliminate dacă sunt glisate la o parte sau când mesajele sunt marcate drept citite</string>
     <string name="title_advanced_notify_manage_hint">Atingeți numele canalului pentru a-l configura</string>
     <string name="title_advanced_notify_manage_default_hint">Pentru a configura sunetul implicit etc</string>
@@ -793,6 +800,7 @@
     <string name="title_custom">Personalizat</string>
     <string name="title_host">Nume gazdă</string>
     <string name="title_encryption">Criptare</string>
+    <string name="title_encryption_none">Nimic (nesigur)</string>
     <string name="title_allow_insecure">Permite conexiunea nesecurizate</string>
     <string name="title_insecure_remark">Conexiunile nesigure trebuie permise numai pe rețele de încredere și niciodată pe cele publice</string>
     <string name="title_notify_remark">Puteți activa aceasta pentru notificări specifice contului</string>
@@ -1549,6 +1557,7 @@
     <string name="title_legend_embedded_image">Înlocuitor imagine incorporată</string>
     <string name="title_legend_tracking_pixel">Imagine folosită la urmărire</string>
     <string name="title_legend_broken_image">Imagine coruptă</string>
+    <string name="title_legend_open_external">Deschide în afara aplicației</string>
     <string name="title_legend_pick">Alege contact</string>
     <string name="title_legend_cc">Arată CC/BCC</string>
     <string name="title_legend_link">Inserare legătură</string>
@@ -1818,13 +1827,6 @@
         <item>Nicio acțiune</item>
         <item>Mergi la conversația anterioară</item>
         <item>Mergi la conversația următoare</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Extra mic</item>
-        <item>Mic</item>
-        <item>Mediu</item>
-        <item>Mare</item>
-        <item>Foarte mare</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
