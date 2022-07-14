@@ -838,6 +838,40 @@
                     app:switchPadding="12dp" />
 
                 <TextView
+                    android:id="@+id/tvTiles"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_tiles"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAlertOnce" />
+
+                <ImageButton
+                    android:id="@+id/ibTileSync"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/tile_synchronize"
+                    android:tooltipText="@string/tile_synchronize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTiles"
+                    app:srcCompat="@drawable/twotone_sync_24" />
+
+                <ImageButton
+                    android:id="@+id/ibTileUnseen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:contentDescription="@string/tile_unseen"
+                    android:tooltipText="@string/tile_unseen"
+                    app:layout_constraintStart_toEndOf="@id/ibTileSync"
+                    app:layout_constraintTop_toBottomOf="@id/tvTiles"
+                    app:srcCompat="@drawable/twotone_mail_outline_24" />
+
+                <TextView
                     android:id="@+id/tvNoGrouping"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -848,7 +882,7 @@
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAlertOnce" />
+                    app:layout_constraintTop_toBottomOf="@id/ibTileSync" />
 
                 <TextView
                     android:id="@+id/tvNoChannels"
@@ -868,6 +902,12 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="swBackground,tvBackgroundHint" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpTiles"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="tvTiles,ibTileSync,ibTileUnseen" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
