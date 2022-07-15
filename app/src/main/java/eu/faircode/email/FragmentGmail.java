@@ -86,6 +86,7 @@ public class FragmentGmail extends FragmentBase {
     private Button btnSelect;
     private ContentLoadingProgressBar pbSelect;
 
+    private TextView tvOnDevice;
     private TextView tvAppPassword;
 
     private TextView tvError;
@@ -129,6 +130,7 @@ public class FragmentGmail extends FragmentBase {
         btnSelect = view.findViewById(R.id.btnSelect);
         pbSelect = view.findViewById(R.id.pbSelect);
 
+        tvOnDevice = view.findViewById(R.id.tvOnDevice);
         tvAppPassword = view.findViewById(R.id.tvAppPassword);
 
         tvError = view.findViewById(R.id.tvError);
@@ -197,6 +199,14 @@ public class FragmentGmail extends FragmentBase {
                         tvError.setText(Log.formatThrowable(ex, false));
                     grpError.setVisibility(View.VISIBLE);
                 }
+            }
+        });
+
+        tvOnDevice.setPaintFlags(tvOnDevice.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvOnDevice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 111);
             }
         });
 

@@ -155,8 +155,23 @@
             app:layout_constraintTop_toBottomOf="@id/btnSelect" />
 
         <TextView
+            android:id="@+id/tvOnDevice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_open_in_new_24"
+            android:drawablePadding="6dp"
+            android:drawableTint="?android:attr/textColorLink"
+            android:text="@string/title_setup_gmail_on_device"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSelectHint" />
+
+        <TextView
             android:id="@+id/tvAppPassword"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_24"
@@ -165,8 +180,9 @@
             android:text="@string/title_setup_gmail_password"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSelectHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvOnDevice" />
 
         <TextView
             android:id="@+id/tvErrorTitle"
