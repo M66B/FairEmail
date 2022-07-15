@@ -165,7 +165,6 @@
     <string name="title_setup_gmail_support">A autorização de contas Google funcionará apenas nas versões Play Store e GitHub porque o Android verifica a assinatura do aplicativo digital</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permissão para ler, compor, enviar e excluir permanentemente todo seu e-mail. O FairEmail nunca apagará suas mensagens sem o seu consentimento explícito.</string>
-    <string name="title_setup_gmail_drafts">Se a pasta rascunho não estiver acessível pelo IMAP, ela pode ser fixa nas configurações de etiqueta do Gmail</string>
     <string name="title_setup_gmail_password">Eu quero autorizar uma conta com uma senha ao invés de uma conta no dispositivo</string>
     <string name="title_setup_office_auth">O erro \'Falha de Autenticação\' pode ser causadado por desativação do IMAP/SMTP pelo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar acesso à sua conta %1$s</string>
@@ -1816,6 +1815,14 @@
         <item>Não fazer nada</item>
         <item>Ir para conversa anterior</item>
         <item>Ir para a próxima conversa</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Minúsculo</item>
+        <item>Extra pequeno</item>
+        <item>Pequeno</item>
+        <item>Médio</item>
+        <item>Grande</item>
+        <item>Muito grande</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

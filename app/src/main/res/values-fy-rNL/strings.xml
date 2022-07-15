@@ -134,7 +134,6 @@
     <string name="title_setup_pop3">POP3 akkount</string>
     <string name="title_setup_gmail_rationale">Jou asjebleaft tagongsrjochten om in akkount te selektearjen en jo namme te lêzen</string>
     <string name="title_setup_gmail_permissions">Google sil om tagongsrjochten freegje om al dien email te lêzen, te komponearjen, te ferstjoeren en te wiskjen. FairEmail sil jo berjochten nea wiskje sûnder dien eksplisite tastimming.</string>
-    <string name="title_setup_gmail_drafts">As de map ûntwerpen net tagonklik is troch IMAP, kin dit wurde fêst yn \'e ynstellings fan it label fan Gmail</string>
     <string name="title_setup_office_auth">De flater \'AUTHENTICATE is mislearre\' kin wurde feroarsake troch IMAP / SMTP te wurden útskeakele troch de systeembehearder</string>
     <string name="title_setup_oauth_rationale">Autorisearje tagong ta jo %1$s akkount</string>
     <string name="title_setup_oauth_updated">Akkountautorisaasje is bywurke</string>
@@ -1444,6 +1443,14 @@
         <item>Neat dwaan</item>
         <item>Gean nei foarige konversaasje</item>
         <item>Gean nei folgjende petear</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Tiny</item>
+        <item>Extra small</item>
+        <item>Lyts</item>
+        <item>Medium</item>
+        <item>Grutte</item>
+        <item>Ekstra grut</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

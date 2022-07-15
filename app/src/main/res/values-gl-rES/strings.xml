@@ -147,7 +147,6 @@
     <string name="title_setup_gmail_support">Autorizar contas de Google só funcionará nas versións de Play Store e GitHub desta aplicación porque Android verifica a súa sinatura dixital</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar unha conta e ler o seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permisos para ler, redactar, enviar e borrar permanentemente todo o seu correo. FairEmail nunca eliminará as súas mensaxes sen o seu consentimento explícito.</string>
-    <string name="title_setup_gmail_drafts">Se o cartafol de borradores non é accesible por IMAP, isto pódese solucionar na configuración de etiquetas de Gmail</string>
     <string name="title_setup_office_auth">O erro \'AUTHENTICATE failed\' pode estar causado porque IMAP/SMTP estea desactivado polo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar o acceso á súa conta %1$s</string>
     <string name="title_setup_oauth_updated">A autorización da conta foi actualizada</string>
@@ -1703,6 +1702,14 @@
         <item>Non facer nada</item>
         <item>Ir á conversa anterior</item>
         <item>Ir á conversa seguinte</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Minúsculo</item>
+        <item>Moi pequeno</item>
+        <item>Pequeno</item>
+        <item>Mediano</item>
+        <item>Grande</item>
+        <item>Extragrande</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

@@ -157,7 +157,6 @@
     <string name="title_setup_gmail_support">Google-tilien valtuutus toimii vain Play Kaupan ja GitHubin versioissa, koska Android tarkistaa sovelluksen digitaalisen allekirjoituksen</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
     <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
-    <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAPin saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
     <string name="title_setup_office_auth">Virhe \'AUTHENTICATE failed\' voi aiheutua siitä, että järjestelmän ylläpitäjän on poistanut IMAP/SMTP-protokollat käytöstä</string>
     <string name="title_setup_oauth_rationale">Valtuuta pääsy tilillesi %1$s</string>
     <string name="title_setup_oauth_update">Valtuuta olemassa oleva tili uudelleen (muussa tapauksessa luo uusi tili)</string>
@@ -1771,6 +1770,14 @@
         <item>Älä tee mitään</item>
         <item>Siirry edelliseen keskusteluun</item>
         <item>Siirry seuraavaan keskusteluun</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Erittäin pieni</item>
+        <item>Erittäin pieni</item>
+        <item>Pieni</item>
+        <item>Keskikokoinen</item>
+        <item>Suuri</item>
+        <item>Erittäin suuri</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

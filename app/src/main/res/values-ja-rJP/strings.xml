@@ -154,7 +154,6 @@
     <string name="title_setup_gmail_support">Android がアプリの署名を確認するため、Google アカウントを認証する機能は Play ストア版と GitHub 版でのみ動作します</string>
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス許可を付与してください</string>
     <string name="title_setup_gmail_permissions">Google はすべてのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmail が明示的な同意なしにメッセージを削除することはありません</string>
-    <string name="title_setup_gmail_drafts">IMAP で下書きフォルダにアクセスできない場合、Gmail ラベル設定で修正できます</string>
     <string name="title_setup_gmail_password">デバイスのアカウントの代わりにパスワードで別のアカウントを認証したい</string>
     <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によって IMAP/SMTP が無効にされていることが原因である可能性があります</string>
     <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可する</string>
@@ -657,6 +656,7 @@
     <string name="title_advanced_folder_nav_hint">常にメッセージリストから関連するアカウントのフォルダーリストに戻ります</string>
     <string name="title_advanced_suggest_names_hint">無効にすると、連絡先を選択する際にメールアドレスのみが使用されます</string>
     <string name="title_advanced_suggest_local_hint">Android のローカル連絡先を追加します。有効にすると、新しく送受信されたメッセージの連絡先データが保存されます。</string>
+    <string name="title_advanced_auto_identity_hint">新規メッセージにメールを送信するとき、最後に使用した ID を選択します</string>
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
     <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加できます</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「--」を挿入します</string>
@@ -1537,6 +1537,7 @@
     <string name="title_legend_embedded_image">埋め込み画像プレースホルダー</string>
     <string name="title_legend_tracking_pixel">トラッキング画像</string>
     <string name="title_legend_broken_image">壊れた画像</string>
+    <string name="title_legend_open_external">外部アプリで開く</string>
     <string name="title_legend_pick">連絡先を選択</string>
     <string name="title_legend_cc">CC/BCC を表示</string>
     <string name="title_legend_link">リンクを挿入</string>
@@ -1805,6 +1806,14 @@
         <item>何もしない</item>
         <item>前の会話に移動</item>
         <item>次の会話に移動</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>極小</item>
+        <item>極小</item>
+        <item>小</item>
+        <item>中</item>
+        <item>大</item>
+        <item>特大</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

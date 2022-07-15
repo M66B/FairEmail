@@ -109,7 +109,6 @@
     <string name="title_setup_other">Остали провајдери</string>
     <string name="title_setup_gmail_rationale">Одобрите дозволе да се одабере налог и чита Ваше име</string>
     <string name="title_setup_gmail_permissions">Гугл ће питати за дозволе за читање, састављае, слање и трајно брисање свих Ваших мејлова. FairEmail никад неће обрисати Ваше поруке без Вашег експлицитног одобрења.</string>
-    <string name="title_setup_gmail_drafts">Фасцикла нацрта није доступна преко IMAP-а, ово се решава у Gmail поставкама ознака</string>
     <string name="title_setup_select_account">Изабери налог</string>
     <string name="title_setup_instructions">Упутства за поставку</string>
     <string name="title_setup_no_settings">Нису нађене поставке за домен ’%1$s’</string>
@@ -993,6 +992,14 @@
         <item>Не ради ништа</item>
         <item>Иди на претходни разговор</item>
         <item>Иди на следећи разговор</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Сићушно</item>
+        <item>Extra small</item>
+        <item>Мала</item>
+        <item>Средња</item>
+        <item>Велика</item>
+        <item>Веома велика</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

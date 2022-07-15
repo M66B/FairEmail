@@ -182,7 +182,6 @@
     <string name="title_setup_gmail_support">Авторизація облікових записів Google працюватиме тільки в версії з Play Store та GitHub, тому що Android перевіряє підпис цифрового додатку</string>
     <string name="title_setup_gmail_rationale">Будь ласка, надайте дозвіл для вибору облікового запису та читання вашого імені</string>
     <string name="title_setup_gmail_permissions">Google буде запитувати про дозволи на читання, створення, надсилання і остаточне видаляння всієї Вашої електронної пошти. FairEmail ніколи не буде видаляти ваші повідомлення без вашої явної згоди.</string>
-    <string name="title_setup_gmail_drafts">Якщо тека чернеток недоступна для IMAP, то її можна виправити в налаштуваннях Gmail</string>
     <string name="title_setup_gmail_password">Я хочу авторизувати обліковий запис за допомогою пароля замість облікового запису на пристрої</string>
     <string name="title_setup_office_auth">Помилка \'Автентифікація не вдалася\' викликана помилкою IMAP/SMTP можливо вимкненою системним адміністратором</string>
     <string name="title_setup_oauth_rationale">Авторизувати доступ до вашого облікового запису %1$s</string>
@@ -1831,6 +1830,14 @@
         <item>Нічого</item>
         <item>Перейти до попередньої розмови</item>
         <item>Перейти до наступної розмови</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Дрібний</item>
+        <item>Дуже маленький</item>
+        <item>Малий</item>
+        <item>Середній</item>
+        <item>Великий</item>
+        <item>Дуже великий</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

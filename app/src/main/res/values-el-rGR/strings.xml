@@ -165,7 +165,6 @@
     <string name="title_setup_gmail_support">Η εξουσιοδότηση λογαριασμών Google θα λειτουργήσει μόνον στην έκδοση του Play Store και του GitHub, επειδή το Android ελέγχει την ψηφιακή υπογραφή της εφαρμογής</string>
     <string name="title_setup_gmail_rationale">Παρακαλώ, παραχωρήστε τις απαιτούμενες άδειες για την επιλογή ενός λογαριασμού και την ανάγνωση του ονόματός σας</string>
     <string name="title_setup_gmail_permissions">Η Google θα ζητήσει άδειες που αφορούν στην ανάγνωση, σύνταξη, αποστολή και οριστική διαγραφή όλων των μηνυμάτων σας. Το FairEmail δεν θα διαγράψει ποτέ τα μηνύματά σας χωρίς τη ρητή συγκατάθεσή σας.</string>
-    <string name="title_setup_gmail_drafts">Αν ο φάκελος με τα πρόχειρα δεν είναι διαθέσιμος μέσω IMAP, αυτό μπορεί να διορθωθεί στις ρυθμίσεις ετικετών του Gmail</string>
     <string name="title_setup_gmail_password">Θέλω να εξουσιοδοτήσω έναν λογαριασμό με έναν κωδικό πρόσβασης αντί για έναν λογαριασμό στη συσκευή</string>
     <string name="title_setup_office_auth">Το σφάλμα \'ΠΙΣΤΟΠΟΙΗΣΗ απέτυχε\' μπορεί να προκληθεί επειδή το IMAP/SMTP έχει απενεργοποιηθεί από το διαχειριστή του συστήματος</string>
     <string name="title_setup_oauth_rationale">Παραχωρήστε πρόσβαση στον λογαριασμό σας %1$s</string>
@@ -1544,6 +1543,7 @@
     <string name="title_legend_embedded_image">Θέση κρατημένη για ενσωματωμένη εικόνα</string>
     <string name="title_legend_tracking_pixel">Εικόνα ιχνηλάτησης</string>
     <string name="title_legend_broken_image">Χαλασμένη εικόνα</string>
+    <string name="title_legend_open_external">Άνοιγμα εκτός εφαρμογής</string>
     <string name="title_legend_pick">Επιλέξτε επαφή</string>
     <string name="title_legend_cc">Προβολή Κοιν./Κρ. Κοιν.</string>
     <string name="title_legend_link">Εισαγωγή συνδέσμου</string>
@@ -1812,6 +1812,14 @@
         <item>Καμία ενέργεια</item>
         <item>Μετάβαση στην προηγούμενη συζήτηση</item>
         <item>Μετάβαση στην επόμενη συζήτηση</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Μικροσκοπικό</item>
+        <item>Πολύ μικρό</item>
+        <item>Μικρό</item>
+        <item>Μεσαίο</item>
+        <item>Μεγάλο</item>
+        <item>Πολύ μεγάλο</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

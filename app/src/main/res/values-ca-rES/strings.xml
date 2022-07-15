@@ -116,7 +116,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_setup_pop3">Compte POP3</string>
     <string name="title_setup_gmail_rationale">Doneu permís per seleccionar un compte i llegir el vostre nom</string>
     <string name="title_setup_gmail_permissions">Google sol·licitarà permisos per llegir, compondre, enviar i suprimir tot el vostre correu electrònic. FairEmail mai suprimirà els vostres missatges sense el vostre consentiment explícit.</string>
-    <string name="title_setup_gmail_drafts">Si IMAP no pot accedir a la carpeta d\'esborranys, es pot solucionar a la configuració de l\'etiqueta de Gmail</string>
     <string name="title_setup_office_auth">L\'error \"AUTHENTICATE failed\" es pot produir perquè l\'administrador del sistema hagi deshabilitat IMAP/SMTP</string>
     <string name="title_setup_oauth_rationale">Autoritza accés al seu compte %1$s</string>
     <string name="title_setup_oauth_authorize">Autoritzar</string>
@@ -1191,6 +1190,14 @@ Ambdues opcions es poden desactivar si es desitja.</string>
         <item>No fer res</item>
         <item>Conversa anterior</item>
         <item>Següent conversa</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Tiny</item>
+        <item>Extra small</item>
+        <item>Petit</item>
+        <item>Mitjà</item>
+        <item>Gran</item>
+        <item>Extra gran</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

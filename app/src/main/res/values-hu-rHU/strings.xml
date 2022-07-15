@@ -153,7 +153,6 @@
     <string name="title_setup_gmail_support">Google fiókok engedélyezése csak a Play Store és GitHub verzióknál engedélyezett, mert az Android rendszer ellenőrzi az app digitális aláírását</string>
     <string name="title_setup_gmail_rationale">Kérem adja meg a szükséges engedélyeket hogy a kijelölhessen egy fiókot, illetve az alkalmazás hozzáférjen</string>
     <string name="title_setup_gmail_permissions">A Google engedélyeket fog kérni hogy olvashasson, írhasson, küldhessen és véglegesen törölhessen üzeneteket. A FairEmail sosem törli az üzeneteit az Ön beleegyezése nélkül.</string>
-    <string name="title_setup_gmail_drafts">Ha a piszkozatok mappa nem elérhető IMAP-on keresztül, a hibát orvosolhatja a Gmail címkék beállításai között</string>
     <string name="title_setup_office_auth">Az \'AUTHENTICATE failed\' hibának oka lehet hogy a rendszeradminisztrátor kikapcsolta az IMAP/SMTP-t</string>
     <string name="title_setup_oauth_rationale">Engedélyezze a hozzáférést a %1$s fiókjához</string>
     <string name="title_setup_oauth_updated">A fiókhitelesítés frissült</string>
@@ -1710,6 +1709,14 @@
         <item>Nincs művelet</item>
         <item>Ugrás az előző beszélgetéshez</item>
         <item>Ugrás a következő beszélgetéshez</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Apró</item>
+        <item>Nagyon kicsi</item>
+        <item>Kicsi</item>
+        <item>Közepes</item>
+        <item>Nagy</item>
+        <item>Óriási</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

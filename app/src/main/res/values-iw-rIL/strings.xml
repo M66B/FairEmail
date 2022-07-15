@@ -187,7 +187,6 @@
     <string name="title_setup_gmail_support">אימות חשבונות Google יעבוד רק עם גרסה מחנות Play או מ־GitHub כיוון ש־Android בודק את חתימת היישומון</string>
     <string name="title_setup_gmail_rationale">נא להרשות לבחור חשבון ולקרוא את שמך</string>
     <string name="title_setup_gmail_permissions">Google יבקש לקרוא, לכתוב, לשלוח, ולמחוק את כל ההודעות שלך לצמיתות. Fairmail לעולם לא ימחק ללא הסכמתך המפורשת.</string>
-    <string name="title_setup_gmail_drafts">אם אי אפשר לגשת לתיקיית טיוטות דרך IMAP, אפשר לתקן את זה דרך הגדרות התוויות של Gmail</string>
     <string name="title_setup_gmail_password">ארצה לאמת חשבון עם סיסמה במקום חשבון פנימי במכשיר</string>
     <string name="title_setup_office_auth">השגיאה ‚AUTHENTICATE נכשל’ עלולה להיגרם עקב IMAP/SMTP שהושבתו על ידי הנהלת המערכת</string>
     <string name="title_setup_oauth_rationale">להרשות גישה לחשבון %1$s שלך</string>
@@ -1843,6 +1842,14 @@
         <item>לא לעשות כלום</item>
         <item>מעבר לדיון הקודם</item>
         <item>מעבר לדיון הבא</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>זעיר</item>
+        <item>קטן במיוחד</item>
+        <item>קטן</item>
+        <item>בינוני</item>
+        <item>גדול</item>
+        <item>גדול במיוחד</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

@@ -164,7 +164,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek Android dijital uygulama imzasını kontrol ettiğinden, yalnızca Play Store ve GitHub sürümünde çalışır</string>
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
-    <string name="title_setup_gmail_drafts">Taslaklar klasörüne IMAP tarafından erişilemiyorsa, bu Gmail etiket ayarlarında düzeltilebilir</string>
     <string name="title_setup_gmail_password">Cihazdaki bir hesap yerine şifreli bir hesabı yetkilendirmek istiyorum</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
@@ -1544,6 +1543,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_legend_embedded_image">İliştirilmiş resim vekili</string>
     <string name="title_legend_tracking_pixel">İzleme görseli</string>
     <string name="title_legend_broken_image">Bozuk görüntü</string>
+    <string name="title_legend_open_external">Uygulamanın dışında aç</string>
     <string name="title_legend_pick">Kişi seçip al</string>
     <string name="title_legend_cc">CC/BCC\'yi göster</string>
     <string name="title_legend_link">Bağlantı ekle</string>
@@ -1812,6 +1812,14 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         <item>Hiç bir şey yapma</item>
         <item>Önceki konuşmaya git</item>
         <item>Sonraki konuşmaya git</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Küçücük</item>
+        <item>Çok küçük</item>
+        <item>Küçük</item>
+        <item>Orta</item>
+        <item>Büyük</item>
+        <item>Ekstra büyük</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

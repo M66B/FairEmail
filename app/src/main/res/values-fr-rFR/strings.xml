@@ -165,7 +165,6 @@
     <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement avec les versions Play Store et GitHub parce qu\'Android vérifie la signature numérique de l\'application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_gmail_permissions">Google vous demandera l’autorisation pour lire, rédiger, envoyer et supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>
-    <string name="title_setup_gmail_drafts">Si le dossier « Brouillons » n’est pas accessible via IMAP, ceci peut être corrigé dans les paramètres de libellé Gmail</string>
     <string name="title_setup_gmail_password">Je veux autoriser un compte avec un mot de passe au lieu d\'un compte de l\'appareil</string>
     <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur système</string>
     <string name="title_setup_oauth_rationale">Autoriser l\'accès à votre compte %1$s</string>
@@ -1821,6 +1820,14 @@
         <item>Ne rien faire</item>
         <item>Aller à la conversation précédente</item>
         <item>Aller à la conversation suivante</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Minuscule</item>
+        <item>Très petit</item>
+        <item>Petit</item>
+        <item>Moyen</item>
+        <item>Grand</item>
+        <item>Très grand</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

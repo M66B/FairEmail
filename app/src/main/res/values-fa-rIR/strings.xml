@@ -160,7 +160,6 @@
     <string name="title_setup_gmail_support">حساب های گوگل فقط در نسخه‌های پلی استور و گیت هاب مجاز می‌شوند چون اندروید امضای برنامه را بررسی می‌کند</string>
     <string name="title_setup_gmail_rationale">لطفا مجوز برای انتخاب حساب و خواندن نام شما را اعطا کنید</string>
     <string name="title_setup_gmail_permissions">گوگل برای خواندن، نوشتن، فرستادن و حذف همیشگی همه ایمیل‌های شما درخواست دسترسی خواهد کرد. FairEmail هیچ‌وقت بدون رضایت آشکار شما پیام‌های شما را حذف نخواهد کرد.</string>
-    <string name="title_setup_gmail_drafts">اگر پوشه پیش‌نویس‌ها به‌وسیله IMAP قابل دسترسی نیست، می‌توان آن را در تنظیمات برچسب‌های جیمیل درست کرد</string>
     <string name="title_setup_gmail_password">می‌خواهم به جای حسابی روی دستگاه، به یک حساب با رمز عبور اجازه بدهم</string>
     <string name="title_setup_office_auth">خطای \'AUTHENTICATE failed\' می‌تواند به‌دلیل غیرفعال بودن IMAP/SMTP به‌ دست مدیر سیستم باشد</string>
     <string name="title_setup_oauth_rationale">برای دسترسی به %1$s حسابتان اجازه دهید</string>
@@ -1087,6 +1086,7 @@
     <string name="title_legend_embedded_image">مکان نگهداری تصویر جاسازی شده</string>
     <string name="title_legend_tracking_pixel">تصویر ردیاب</string>
     <string name="title_legend_broken_image">تصویر شکسته (خراب)</string>
+    <string name="title_legend_open_external">باز کردن بیرون از اپلیکیشن</string>
     <string name="title_legend_pick">انتخاب مخاطب</string>
     <string name="title_legend_cc">نمایش گیرنده رونوشت/رونوشت پنهان</string>
     <string name="title_legend_link">درج لینک</string>
@@ -1310,6 +1310,14 @@
         <item>کاری نکن</item>
         <item>رفتن به گفتگو قبلی</item>
         <item>رفتن به گفتگو بعدی</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>ریز</item>
+        <item>خیلی کوچک</item>
+        <item>کوچک</item>
+        <item>متوسط</item>
+        <item>بزرگ</item>
+        <item>خیلی بزرگ</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

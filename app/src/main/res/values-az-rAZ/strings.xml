@@ -165,7 +165,6 @@
     <string name="title_setup_gmail_support">Google hesablarının səlahiyyətləndirilməsi, Android tətbiq imzalarını yoxladığı üçün yalnız Play Store və GitHub versiyalarında işləyəcək</string>
     <string name="title_setup_gmail_rationale">Zəhmət olmasa bir hesab seçmək və adınızı oxumaq üçün icazə verin</string>
     <string name="title_setup_gmail_permissions">Google, bütün e-poçtları oxumaq, yaratmaq, göndərmək və birdəfəlik silmək üçün icazə istəyəcək. FairEmail, açıq-aşkar razılığınız olmadan heç vaxt mesajlarınızı silməyəcək.</string>
-    <string name="title_setup_gmail_drafts">Əgər qaralamalar qovluğu IMAP üçün əlçatmazdırsa, bunu Gmail etiket tənzimləmələrində düzəltmək mümkündür</string>
     <string name="title_setup_gmail_password">Cihazdakı bir hesabın əvəzinə parollu bir hesaba səlahiyyət vermək istəyirəm</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem administratorunun IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza müraciət üçün səlahiyyət verin</string>
@@ -1550,6 +1549,7 @@
     <string name="title_legend_embedded_image">Pərçimlənmiş təsvir yertutanı</string>
     <string name="title_legend_tracking_pixel">İzləmə təsviri</string>
     <string name="title_legend_broken_image">Zədəli təsvir</string>
+    <string name="title_legend_open_external">Tətbiq xaricində aç</string>
     <string name="title_legend_pick">Əlaqəni seç</string>
     <string name="title_legend_cc">CC/BCC göstər</string>
     <string name="title_legend_link">Bağlantı daxil et</string>
@@ -1819,6 +1819,14 @@
         <item>Heç nə etmə</item>
         <item>Əvvəlki danışığa get</item>
         <item>Sonrakı danışığa get</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Çox kiçik</item>
+        <item>Ekstra kiçik</item>
+        <item>Kiçik</item>
+        <item>Orta</item>
+        <item>Böyük</item>
+        <item>Ekstra böyük</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
