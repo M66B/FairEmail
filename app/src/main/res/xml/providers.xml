@@ -36,7 +36,8 @@
                 key="access_type"
                 value="offline" />
         </oauth>
-        <!-- https://email.faircode.eu/.well-known/assetlinks.json -->
+        <!-- https://oauth.faircode.eu/.well-known/assetlinks.json -->
+        <!-- https://developer.android.com/training/app-links/verify-site-associations -->
         <!-- /opt/android-studio/jre/bin/keytool -keystore ~/.android/debug.keystore -list -v -->
     </provider>
     <provider
