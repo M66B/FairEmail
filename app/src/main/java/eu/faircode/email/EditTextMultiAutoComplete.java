@@ -371,6 +371,70 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                     if (kar == ',' &&
                                             (i + 1 == edit.length() || edit.charAt(i + 1) != ' '))
                                         edit.insert(++i, " ");
+
+                                    // Workaround Android bug
+                                    /*
+                                        java.lang.IndexOutOfBoundsException: 2, 0
+                                            at android.text.PackedIntVector.getValue(PackedIntVector.java:75)
+                                            at android.text.DynamicLayout.getLineStart(DynamicLayout.java:1028)
+                                            at android.text.Layout.getLineEnd(Layout.java:1676)
+                                            at android.text.Layout.getOffsetForHorizontal(Layout.java:1545)
+                                            at android.text.Layout.getOffsetForHorizontal(Layout.java:1530)
+                                            at android.widget.TextView.getOffsetAtCoordinate(TextView.java:13250)
+                                            at android.widget.Editor$HandleView.getOffsetAtCoordinate(Editor.java:5037)
+                                            at android.widget.Editor$InsertionHandleView.updatePosition(Editor.java:5828)
+                                            at android.widget.Editor$HandleView.onTouchEvent(Editor.java:5494)
+                                            at android.widget.Editor$InsertionHandleView.onTouchEvent(Editor.java:5657)
+                                            at android.view.View.dispatchTouchEvent(View.java:14625)
+                                            at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3153)
+                                            at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2829)
+                                            at android.widget.PopupWindow$PopupDecorView.dispatchTouchEvent(PopupWindow.java:2566)
+                                            at android.view.View.dispatchPointerEvent(View.java:14892)
+                                            at android.view.ViewRootImpl$ViewPostImeInputStage.processPointerEvent(ViewRootImpl.java:6674)
+                                            at android.view.ViewRootImpl$ViewPostImeInputStage.onProcess(ViewRootImpl.java:6448)
+                                            at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:5917)
+                                            at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:5979)
+                                            at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:5940)
+                                            at android.view.ViewRootImpl$AsyncInputStage.forward(ViewRootImpl.java:6114)
+                                            at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:5948)
+                                            at android.view.ViewRootImpl$AsyncInputStage.apply(ViewRootImpl.java:6171)
+                                            at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:5921)
+                                            at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:5979)
+                                            at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:5940)
+                                            at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:5948)
+                                            at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:5921)
+                                            at android.view.ViewRootImpl.deliverInputEvent(ViewRootImpl.java:8914)
+                                            at android.view.ViewRootImpl.doProcessInputEvents(ViewRootImpl.java:8865)
+                                            at android.view.ViewRootImpl.enqueueInputEvent(ViewRootImpl.java:8826)
+                                            at android.view.ViewRootImpl$WindowInputEventReceiver.onInputEvent(ViewRootImpl.java:9057)
+                                            at android.view.InputEventReceiver.dispatchInputEvent(InputEventReceiver.java:260)
+                                            at android.view.InputEventReceiver.nativeConsumeBatchedInputEvents(Native Method)
+                                            at android.view.InputEventReceiver.consumeBatchedInputEvents(InputEventReceiver.java:240)
+                                            at android.view.ViewRootImpl.doConsumeBatchedInput(ViewRootImpl.java:9002)
+                                            at android.view.ViewRootImpl$ConsumeBatchedInputRunnable.run(ViewRootImpl.java:9143)
+                                            at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1205)
+                                            at android.view.Choreographer.doCallbacks(Choreographer.java:1002)
+                                            at android.view.Choreographer.doFrame(Choreographer.java:908)
+                                            at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:1190)
+                                            at android.os.Handler.handleCallback(Handler.java:938)
+                                     */
+                                    edit.append("\n\n");
+                                    post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                Editable e = getText();
+                                                int len = e.length();
+                                                while (len > 0 && e.charAt(len - 1) == '\n') {
+                                                    e.delete(len - 1, len);
+                                                    len--;
+                                                }
+                                            } catch (Throwable ex) {
+                                                Log.e(ex);
+                                            }
+                                        }
+                                    });
+
                                     added = true;
                                 }
                             }
