@@ -187,6 +187,7 @@
     <string name="title_setup_gmail_support">Autorizace účtů Google bude fungovat pouze v Google Play a GitHub verzi, protože Android kontroluje digitální podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
+    <string name="title_setup_gmail_on_device">Proč potřebuji vybrat účet na zařízení?</string>
     <string name="title_setup_gmail_password">Chci autorizovat účet s pomocí hesla namísto účtu v zařízení</string>
     <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
@@ -1567,6 +1568,7 @@
     <string name="title_legend_embedded_image">Zástupce vloženého obrázku</string>
     <string name="title_legend_tracking_pixel">Sledovací obrázek</string>
     <string name="title_legend_broken_image">Poškozený obrázek</string>
+    <string name="title_legend_open_external">Otevřít mimo aplikaci</string>
     <string name="title_legend_pick">Vybrat kontakt</string>
     <string name="title_legend_cc">Zobrazit kopii/skrytou kopii</string>
     <string name="title_legend_link">Vložit odkaz</string>

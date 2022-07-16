@@ -1363,6 +1363,7 @@
         <item>متوسط</item>
         <item>بزرگ</item>
     </string-array>
+    <string name="title_size_tiny">ریز</string>
     <string-array name="receiptNames">
         <item>تنها رسید خواندن</item>
         <item>تنها رسید دریافت</item>
