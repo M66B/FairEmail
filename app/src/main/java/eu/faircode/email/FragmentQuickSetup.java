@@ -510,10 +510,7 @@ public class FragmentQuickSetup extends FragmentBase {
                             EntityAccount primary = db.account().getPrimaryAccount();
 
                             if (args.getBoolean("update")) {
-                                List<EntityAccount> accounts =
-                                        db.account().getAccounts(user,
-                                                EntityAccount.TYPE_IMAP,
-                                                new int[]{AUTH_TYPE_PASSWORD});
+                                List<EntityAccount> accounts = db.account().getAccounts(user, EntityAccount.TYPE_IMAP);
                                 if (accounts != null && accounts.size() == 1)
                                     update = accounts.get(0);
                             }
@@ -593,9 +590,9 @@ public class FragmentQuickSetup extends FragmentBase {
                                 args.putLong("account", update.id);
                                 EntityLog.log(context, "Quick setup update account=" + update.name);
                                 db.account().setAccountSynchronize(update.id, true);
-                                db.account().setAccountPassword(update.id, password, AUTH_TYPE_PASSWORD);
+                                db.account().setAccountPassword(update.id, password, AUTH_TYPE_PASSWORD, null);
                                 db.account().setAccountFingerprint(update.id, imap_fingerprint);
-                                db.identity().setIdentityPassword(update.id, update.user, password, update.auth_type, AUTH_TYPE_PASSWORD);
+                                db.identity().setIdentityPassword(update.id, update.user, password, update.auth_type, AUTH_TYPE_PASSWORD, null);
                                 db.identity().setIdentityFingerprint(update.id, smtp_fingerprint);
                             }
 
@@ -604,12 +601,8 @@ public class FragmentQuickSetup extends FragmentBase {
                             db.endTransaction();
                         }
 
-                        if (update == null)
-                            ServiceSynchronize.eval(context, "quick setup");
-                        else {
-                            args.putBoolean("updated", true);
-                            ServiceSynchronize.reload(context, update.id, true, "quick setup");
-                        }
+                        ServiceSynchronize.eval(context, "quick setup");
+                        args.putBoolean("updated", update != null);
 
                         return provider;
                     } catch (Throwable ex) {

@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 import android.annotation.TargetApi;
@@ -202,6 +203,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivSync.setImageResource(account.synchronize ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
             ivSync.setContentDescription(context.getString(account.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
 
+            ivOAuth.setImageDrawable(context.getDrawable(account.auth_type == AUTH_TYPE_GMAIL
+                    ? R.drawable.twotone_android_24 : R.drawable.twotone_security_24));
             ivOAuth.setVisibility(
                     settings && account.auth_type != AUTH_TYPE_PASSWORD ? View.VISIBLE : View.GONE);
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);

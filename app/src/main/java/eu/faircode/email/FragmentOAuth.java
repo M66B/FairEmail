@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_OK;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -804,10 +803,7 @@ public class FragmentOAuth extends FragmentBase {
                     db.beginTransaction();
 
                     if (args.getBoolean("update")) {
-                        List<EntityAccount> accounts =
-                                db.account().getAccounts(username,
-                                        protocol,
-                                        new int[]{AUTH_TYPE_OAUTH, AUTH_TYPE_PASSWORD});
+                        List<EntityAccount> accounts = db.account().getAccounts(username, protocol);
                         if (accounts != null && accounts.size() == 1)
                             update = accounts.get(0);
                     }
@@ -906,8 +902,8 @@ public class FragmentOAuth extends FragmentBase {
                         args.putLong("account", update.id);
                         EntityLog.log(context, "OAuth update account=" + update.name);
                         db.account().setAccountSynchronize(update.id, true);
-                        db.account().setAccountPassword(update.id, state, AUTH_TYPE_OAUTH);
-                        db.identity().setIdentityPassword(update.id, update.user, state, update.auth_type, AUTH_TYPE_OAUTH);
+                        db.account().setAccountPassword(update.id, state, AUTH_TYPE_OAUTH, provider.id);
+                        db.identity().setIdentityPassword(update.id, update.user, state, update.auth_type, AUTH_TYPE_OAUTH, provider.id);
                     }
 
                     db.setTransactionSuccessful();
@@ -915,12 +911,8 @@ public class FragmentOAuth extends FragmentBase {
                     db.endTransaction();
                 }
 
-                if (update == null)
-                    ServiceSynchronize.eval(context, "OAuth");
-                else {
-                    args.putBoolean("updated", true);
-                    ServiceSynchronize.reload(context, update.id, true, "OAuth");
-                }
+                ServiceSynchronize.eval(context, "OAuth");
+                args.putBoolean("updated", update != null);
 
                 return null;
             }

@@ -37,7 +37,8 @@ public class TupleAccountState extends EntityAccount {
                     this.insecure.equals(other.insecure) &&
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&
-                    (auth_type != AUTH_TYPE_PASSWORD || this.password.equals(other.password)) &&
+                    Objects.equals(this.auth_type, other.auth_type) &&
+                    this.password.equals(other.password) &&
                     Objects.equals(this.certificate_alias, other.certificate_alias) &&
                     Objects.equals(this.realm, other.realm) &&
                     Objects.equals(this.fingerprint, other.fingerprint) &&

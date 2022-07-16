@@ -23,7 +23,6 @@ import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
 import static eu.faircode.email.GmailState.TYPE_GOOGLE;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 import android.Manifest;
 import android.accounts.Account;
@@ -504,10 +503,7 @@ public class FragmentGmail extends FragmentBase {
                     db.beginTransaction();
 
                     if (args.getBoolean("update")) {
-                        List<EntityAccount> accounts =
-                                db.account().getAccounts(user,
-                                        protocol,
-                                        new int[]{AUTH_TYPE_GMAIL, AUTH_TYPE_PASSWORD});
+                        List<EntityAccount> accounts = db.account().getAccounts(user, protocol);
                         if (accounts != null && accounts.size() == 1)
                             update = accounts.get(0);
                     }
@@ -596,8 +592,8 @@ public class FragmentGmail extends FragmentBase {
                         args.putLong("account", update.id);
                         EntityLog.log(context, "Gmail update account=" + update.name);
                         db.account().setAccountSynchronize(update.id, true);
-                        db.account().setAccountPassword(update.id, password, AUTH_TYPE_GMAIL);
-                        db.identity().setIdentityPassword(update.id, update.user, password, update.auth_type, AUTH_TYPE_GMAIL);
+                        db.account().setAccountPassword(update.id, password, AUTH_TYPE_GMAIL, null);
+                        db.identity().setIdentityPassword(update.id, update.user, password, update.auth_type, AUTH_TYPE_GMAIL, null);
                     }
 
                     db.setTransactionSuccessful();
@@ -605,12 +601,8 @@ public class FragmentGmail extends FragmentBase {
                     db.endTransaction();
                 }
 
-                if (update == null)
-                    ServiceSynchronize.eval(context, "Gmail");
-                else {
-                    args.putBoolean("updated", true);
-                    ServiceSynchronize.reload(context, update.id, true, "Gmail");
-                }
+                ServiceSynchronize.eval(context, "Gmail");
+                args.putBoolean("updated", update != null);
 
                 return null;
             }

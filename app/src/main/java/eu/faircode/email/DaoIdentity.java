@@ -116,12 +116,12 @@ public interface DaoIdentity {
     int setIdentityPassword(long account, String user, String password, int auth_type, String domain);
 
     @Query("UPDATE identity" +
-            " SET password = :password, auth_type = :new_auth_type" +
+            " SET password = :password, auth_type = :new_auth_type, provider = :provider" +
             " WHERE account = :account" +
             " AND user = :user" +
             " AND auth_type = :auth_type" +
-            " AND NOT (password IS :password AND auth_type IS :new_auth_type)")
-    int setIdentityPassword(long account, String user, String password, int auth_type, int new_auth_type);
+            " AND NOT (password IS :password AND auth_type IS :new_auth_type AND provider = :provider)")
+    int setIdentityPassword(long account, String user, String password, int auth_type, int new_auth_type, String provider);
 
     @Query("UPDATE identity" +
             " SET fingerprint = :fingerprint" +

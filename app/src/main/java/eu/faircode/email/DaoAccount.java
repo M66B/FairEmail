@@ -156,9 +156,8 @@ public interface DaoAccount {
     @Query("SELECT * FROM account" +
             " WHERE user = :user" +
             " AND pop = :protocol" +
-            " AND auth_type IN (:auth_type)" +
             " AND tbd IS NULL")
-    List<EntityAccount> getAccounts(String user, int protocol, int[] auth_type);
+    List<EntityAccount> getAccounts(String user, int protocol);
 
     @Query("SELECT * FROM account WHERE `primary`")
     EntityAccount getPrimaryAccount();
@@ -220,10 +219,10 @@ public interface DaoAccount {
     int setAccountColor(long id, Integer color);
 
     @Query("UPDATE account" +
-            " SET password = :password, auth_type = :auth_type" +
+            " SET password = :password, auth_type = :auth_type, provider = :provider" +
             " WHERE id = :id" +
-            " AND NOT (password IS :password AND auth_type = :auth_type)")
-    int setAccountPassword(long id, String password, int auth_type);
+            " AND NOT (password IS :password AND auth_type = :auth_type AND provider = :provider)")
+    int setAccountPassword(long id, String password, int auth_type, String provider);
 
     @Query("UPDATE account" +
             " SET fingerprint = :fingerprint" +
