@@ -23,15 +23,15 @@
         <oauth
             askAccount="true"
             authorizationEndpoint="https://accounts.google.com/o/oauth2/auth"
-            clientId="495454862802-rkeb9fs6i6aqs99ieureo5nugc5g98lc.apps.googleusercontent.com"
-            clientSecret="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"
-            enabled="false"
+            clientId="803253368361-11ias0ee6bqhvdi4f21fs1lh7fsb0il2.apps.googleusercontent.com"
+            enabled="true"
             privacy="https://policies.google.com/privacy"
             prompt="consent"
-            redirectUri="https://oauth.faircode.eu/"
+            redirectUri="eu.faircode.email:/"
             scopes="https://mail.google.com/"
             tokenEndpoint="https://oauth2.googleapis.com/token">
             <!-- https://developers.google.com/identity/protocols/oauth2/native-app -->
+            <!-- https://github.com/openid/AppAuth-Android/blob/master/app/README-Google.md -->
             <parameter
                 key="access_type"
                 value="offline" />

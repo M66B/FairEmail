@@ -403,12 +403,19 @@ public class FragmentOAuth extends FragmentBase {
                     ? new LinkedHashMap<>()
                     : provider.oauth.parameters);
 
+            String clientId = provider.oauth.clientId;
+            Uri redirectUri = Uri.parse(provider.oauth.redirectUri);
+            if ("gmail".equals(id) && BuildConfig.DEBUG) {
+                clientId = "803253368361-hr8kelm53hqodj7c6brdjeb2ctn5jg3p.apps.googleusercontent.com";
+                redirectUri = Uri.parse("eu.faircode.email.debug:/");
+            }
+
             AuthorizationRequest.Builder authRequestBuilder =
                     new AuthorizationRequest.Builder(
                             serviceConfig,
-                            provider.oauth.clientId,
+                            clientId,
                             ResponseTypeValues.CODE,
-                            Uri.parse(provider.oauth.redirectUri))
+                            redirectUri)
                             .setScopes(provider.oauth.scopes)
                             .setState(provider.id)
                             .setAdditionalParameters(params);
