@@ -3225,13 +3225,12 @@ public class HtmlHelper {
                                     break;
                                 case "font-family":
                                     if ("wingdings".equalsIgnoreCase(value)) {
-                                        for (int i = start; i < ssb.length(); i++) {
+                                        for (int i = ssb.length() - 1; i >= start; i--) {
                                             int kar = ssb.charAt(i);
                                             if (kar >= 0x20 && kar < 0x20 + WINGDING_TO_UNICODE.length) {
                                                 int codepoint = WINGDING_TO_UNICODE[kar - 0x20];
                                                 String replacement = new String(Character.toChars(codepoint));
-                                                if (replacement.length() == 1)
-                                                    ssb.replace(i, i + 1, replacement);
+                                                ssb.replace(i, i + 1, replacement);
                                             }
                                         }
                                     } else
