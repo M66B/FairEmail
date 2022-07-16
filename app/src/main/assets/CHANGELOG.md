@@ -4,7 +4,7 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
-### Next version
+### 1.1933 - 2022-07-16
 
 * Added 10 minutes check frequency
 * Added option to enable/disable LanguageTool
