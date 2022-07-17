@@ -256,7 +256,8 @@ import me.everything.android.ui.overscroll.IOverScrollUpdateListener;
 import me.everything.android.ui.overscroll.VerticalOverScrollBounceEffectDecorator;
 import me.everything.android.ui.overscroll.adapters.RecyclerViewOverScrollDecorAdapter;
 
-public class FragmentMessages extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class FragmentMessages extends FragmentBase
+        implements SharedPreferences.OnSharedPreferenceChangeListener, FragmentManager.OnBackStackChangedListener {
     private ViewGroup view;
     private SwipeRefreshLayoutEx swipeRefresh;
     private TextView tvAirplane;
@@ -521,14 +522,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (viewType != AdapterMessage.ViewType.THREAD && EntityFolder.ARCHIVE.equals(type))
             filter_archive = false;
 
-        if (viewType != AdapterMessage.ViewType.THREAD)
-            getParentFragmentManager().setFragmentResultListener("message.selected", this, new FragmentResultListener() {
-                @Override
-                public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                    long id = result.getLong("id", -1);
-                    iProperties.setValue("selected", id, true);
-                }
-            });
+        try {
+            FragmentManager fm = getParentFragmentManager();
+            if (viewType != AdapterMessage.ViewType.THREAD)
+                fm.setFragmentResultListener("message.selected", this, new FragmentResultListener() {
+                    @Override
+                    public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                        long id = result.getLong("id", -1);
+                        iProperties.setValue("selected", id, true);
+                    }
+                });
+            fm.addOnBackStackChangedListener(this);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     @Override
@@ -1944,7 +1951,30 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     @Override
     public void onDestroy() {
+        try {
+            FragmentManager fm = getParentFragmentManager();
+            fm.removeOnBackStackChangedListener(this);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
         super.onDestroy();
+    }
+
+    @Override
+    public void onBackStackChanged() {
+        if (viewType == AdapterMessage.ViewType.THREAD)
+            return;
+
+        FragmentActivity activity = getActivity();
+        FragmentManager fm = getParentFragmentManager();
+        int count = fm.getBackStackEntryCount();
+        boolean split = (activity instanceof ActivityView &&
+                ((ActivityView) activity).isSplit() &&
+                count > 0 && "thread".equals(fm.getBackStackEntryAt(count - 1).getName()));
+        List<Long> ids = values.get("selected");
+        if (ids != null)
+            for (long id : ids)
+                iProperties.setValue("split", id, split);
     }
 
     private void scrollToVisibleItem(LinearLayoutManager llm, boolean bottom) {
@@ -2095,7 +2125,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             } else
                 values.get(name).remove(id);
 
-            if ("selected".equals(name) && enabled) {
+            if ("split".equals(name) || ("selected".equals(name) && enabled)) {
                 if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     return;
 
@@ -2105,7 +2135,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (pos != NO_POSITION)
                     changed.add(pos);
 
-                for (Long other : new ArrayList<>(values.get("selected")))
+                for (Long other : new ArrayList<>(values.get(name)))
                     if (!other.equals(id)) {
                         values.get(name).remove(other);
 

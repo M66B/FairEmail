@@ -230,6 +230,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int textColorSecondary;
     private int textColorTertiary;
     private int textColorLink;
+    private int textColorHighlightInverse;
     private int colorUnreadHighlight;
     private int colorUnread;
     private int colorRead;
@@ -1832,8 +1833,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibFlagged.setEnabled(message.uid != null || message.accountProtocol != EntityAccount.TYPE_IMAP);
 
+            boolean split = (viewType != ViewType.THREAD && properties.getValue("split", message.id));
+            if (split)
+                color = textColorHighlightInverse;
+
             card.setCardBackgroundColor(
-                    flags_background && flagged && !expanded
+                    split || (flags_background && flagged && !expanded)
                             ? ColorUtils.setAlphaComponent(color, 127) : Color.TRANSPARENT);
 
             ibFlagged.setVisibility(flags || message.ui_flagged ? View.VISIBLE : View.GONE);
@@ -7032,6 +7037,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
         this.textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
+        this.textColorHighlightInverse = Helper.resolveColor(context, android.R.attr.textColorHighlightInverse);
 
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         boolean highlight_subject = prefs.getBoolean("highlight_subject", false);

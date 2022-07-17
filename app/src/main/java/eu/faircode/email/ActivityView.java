@@ -718,6 +718,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Shortcuts.update(this, this);
     }
 
+    public boolean isSplit() {
+        return (layoutId == R.layout.activity_view_portrait_split ||
+                layoutId == R.layout.activity_view_landscape_split);
+    }
+
     @Override
     public void onBackPressedFragment() {
         backPressedCallback.handleOnBackPressed();
