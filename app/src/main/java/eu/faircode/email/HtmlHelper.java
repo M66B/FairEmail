@@ -344,11 +344,71 @@ public class HtmlHelper {
         x11ColorMap.put("yellowgreen", 0x9ACD32);
     }
 
-    static int[] WINGDINGS_EMOTICONS = {0x1F642, 0x1F610, 0x1F641};
-
     private static final List<String> TRACKING_HOSTS = Collections.unmodifiableList(Arrays.asList(
             "www.google-analytics.com"
     ));
+
+    static Map<Integer, Integer> MAP_WINGDINGS;
+
+    static {
+        // http://www.alanwood.net/demos/wingdings.html
+        // https://unicode.org/L2/L2011/11052r-wingding.pdf
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(37, 0x1F514); // Bell
+        map.put(39, 0x1F56F); // Candle
+        map.put(44, 0x1F4EA); // Closed mailbox with lowered flag
+        map.put(45, 0x1F4EB); // Closed mailbox with raised flag
+        map.put(46, 0x1F4EC); // Open mailbox with raised flag
+        map.put(47, 0x1F4ED); // Open mailbox with lowered flag
+        map.put(48, 0x1F4C1); // Folder
+        map.put(49, 0x1F4C2); // Open folder
+        map.put(53, 0x1F5C4); // File cabinet
+        map.put(54, 0x231B); // Hourglass
+        map.put(57, 0x1F5B2); // Trackball
+        map.put(58, 0x1F5A5); // Computer
+        map.put(65, 0x270C); // Victory hand
+        map.put(66, 0x1F44C); // OK hand
+        map.put(67, 0x1F44D); // Thumb up
+        map.put(68, 0x1F44E); // Thumb down
+        map.put(69, 0x1F448); // Pointing left
+        map.put(70, 0x1F449); // Pointing right
+        map.put(71, 0x261D); // Pointing up
+        map.put(72, 0x1F447); // Pointing down
+        map.put(73, 0x1F590); // Raised hand
+        map.put(74, 0x1F642); // Smiling face
+        map.put(75, 0x1F610); // Neutral face
+        map.put(76, 0x1F641); // Frowning face
+        map.put(77, 0x1F4A3); // Bomb
+        map.put(83, 0x1F4A7); // Droplet
+        map.put(84, 0x2744); // Snowflake
+        map.put(94, 0x2648); // Aries
+        map.put(95, 0x2649); // Taurus
+        map.put(96, 0x264A); // Gemini
+        map.put(97, 0x264B); // Cancer
+        map.put(98, 0x264C); // Leo
+        map.put(99, 0x264D); // Virgo
+        map.put(100, 0x264E); // Libra
+        map.put(101, 0x264F); // Scorpio
+        map.put(102, 0x2650); // Sagittarius
+        map.put(103, 0x2651); // Capricorn
+        map.put(104, 0x2652); // Aquarius
+        map.put(105, 0x2653); // Pisces
+        map.put(183, 0x1F550); // Clock 1
+        map.put(184, 0x1F551); // Clock 2
+        map.put(185, 0x1F552); // Clock 3
+        map.put(186, 0x1F553); // Clock 4
+        map.put(187, 0x1F554); // Clock 5
+        map.put(188, 0x1F555); // Clock 6
+        map.put(189, 0x1F556); // Clock 7
+        map.put(190, 0x1F557); // Clock 8
+        map.put(191, 0x1F558); // Clock 9
+        map.put(192, 0x1F559); // Clock 10
+        map.put(193, 0x1F55A); // Clock 11
+        map.put(194, 0x1F55B); // Clock 12
+        map.put(251, 0x274C); // Red cross
+        map.put(252, 0x2705); // Green check
+        MAP_WINGDINGS = Collections.unmodifiableMap(map);
+    }
 
     static Document sanitizeCompose(Context context, String html, boolean show_images) {
         try {
@@ -3201,12 +3261,12 @@ public class HtmlHelper {
                                         int from = start;
                                         for (int i = start; i < ssb.length(); i++) {
                                             int kar = ssb.charAt(i);
-                                            if (kar >= 74 && kar <= 76) {
+                                            if (MAP_WINGDINGS.containsKey(kar)) {
                                                 if (from < i) {
                                                     TypefaceSpan span = new CustomTypefaceSpan("wingdings", wingdings);
                                                     setSpan(ssb, span, from, i);
                                                 }
-                                                int codepoint = WINGDINGS_EMOTICONS[kar - 74];
+                                                int codepoint = MAP_WINGDINGS.get(kar);
                                                 String replacement = new String(Character.toChars(codepoint));
                                                 ssb.replace(i, i + 1, replacement);
                                                 i += replacement.length() - 1;
