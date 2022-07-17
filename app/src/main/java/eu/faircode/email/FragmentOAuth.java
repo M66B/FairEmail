@@ -192,25 +192,30 @@ public class FragmentOAuth extends FragmentBase {
         });
 
         if ("gmail".equals(id)) {
+            // https://developers.google.com/identity/branding-guidelines
             final Context context = getContext();
+            final boolean dark = Helper.isDarkTheme(context);
             int dp12 = Helper.dp2pixels(context, 12);
+            int dp24 = Helper.dp2pixels(context, 24);
             Drawable g = context.getDrawable(R.drawable.google_logo);
             g.setBounds(0, 0, g.getIntrinsicWidth(), g.getIntrinsicHeight());
             btnOAuth.setCompoundDrawablesRelative(g, null, null, null);
+            btnOAuth.setCompoundDrawablePadding(dp24);
             btnOAuth.setText(R.string.title_setup_google_sign_in);
-            btnOAuth.setCompoundDrawablePadding(dp12);
-            btnOAuth.setPaddingRelative(dp12, 0, dp12, 0);
             btnOAuth.setTextColor(new ColorStateList(
                     new int[][]{
                             new int[]{android.R.attr.state_enabled},
                             new int[]{-android.R.attr.state_enabled},
                     },
                     new int[]{
-                            Color.DKGRAY, // 0xff444444
+                            dark ? Color.WHITE : Color.DKGRAY, // 0xff444444
                             Color.LTGRAY // 0xffcccccc
                     }
             ));
-            btnOAuth.setBackground(context.getDrawable(R.drawable.google_signin_background));
+            btnOAuth.setBackground(context.getDrawable(dark
+                    ? R.drawable.google_signin_background_dark
+                    : R.drawable.google_signin_background_light));
+            btnOAuth.setPaddingRelative(dp12, 0, dp12, 0);
         }
 
         btnOAuth.setOnClickListener(new View.OnClickListener() {

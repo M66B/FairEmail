@@ -163,4 +163,6 @@
     <color name="solarizedBlue">#268bd2</color>
     <color name="solarizedCyan">#2aa198</color>
     <color name="solarizedGreen">#859900</color>
+
+    <color name="google_blue">#4285F4</color>
 </resources>
