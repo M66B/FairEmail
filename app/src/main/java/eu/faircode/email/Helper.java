@@ -916,10 +916,8 @@ public class Helper {
         }
 
         if (!"chooser".equals(open_with_pkg)) {
-            if (open_with_pkg != null && !isInstalled(context, open_with_pkg)) {
+            if (open_with_pkg != null && !isInstalled(context, open_with_pkg))
                 open_with_pkg = null;
-                open_with_tabs = false;
-            }
 
             if (open_with_tabs && !hasCustomTabs(context, uri, open_with_pkg))
                 open_with_tabs = false;
