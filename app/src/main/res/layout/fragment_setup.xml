@@ -127,7 +127,7 @@
 
                 <ImageButton
                     android:id="@+id/ibWelcome"
-                    android:layout_width="36dp"
+                    android:layout_width="84dp"
                     android:layout_height="36dp"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:padding="6dp"
@@ -1075,7 +1075,7 @@
 
                 <ImageButton
                     android:id="@+id/ibExtra"
-                    android:layout_width="36dp"
+                    android:layout_width="84dp"
                     android:layout_height="36dp"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:padding="6dp"
