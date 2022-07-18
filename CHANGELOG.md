@@ -4,6 +4,13 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
+### 1.1934 - 2022-07-17
+
+* Added Gmail web OAuth flow
+* Improved Wingdings support
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1933 - 2022-07-16
 
 * Added 10 minutes check frequency
