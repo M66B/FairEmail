@@ -3183,6 +3183,7 @@ public class HtmlHelper {
         NodeTraversor.traverse(new NodeVisitor() {
             private Element element;
             private TextNode tnode;
+            private Typeface wingdings = null;
 
             @Override
             public void head(Node node, int depth) {
@@ -3257,7 +3258,9 @@ public class HtmlHelper {
                                     break;
                                 case "font-family":
                                     if ("wingdings".equalsIgnoreCase(value)) {
-                                        Typeface wingdings = ResourcesCompat.getFont(context.getApplicationContext(), R.font.wingdings);
+                                        if (wingdings == null)
+                                            wingdings = ResourcesCompat.getFont(context.getApplicationContext(), R.font.wingdings);
+
                                         int from = start;
                                         for (int i = start; i < ssb.length(); i++) {
                                             int kar = ssb.charAt(i);
@@ -3273,6 +3276,7 @@ public class HtmlHelper {
                                                 from = i + 1;
                                             }
                                         }
+
                                         if (from < ssb.length()) {
                                             TypefaceSpan span = new CustomTypefaceSpan("wingdings", wingdings);
                                             setSpan(ssb, span, from, ssb.length());
