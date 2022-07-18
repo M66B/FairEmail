@@ -371,7 +371,6 @@
     <string name="title_advanced_two_col">Erabili bi zutabe</string>
     <string name="title_advanced_min_screen_size">Pantailaren gutxieneko tamaina pantaila zatitzeko</string>
     <string name="title_advanced_close_pane">Tolestu errenkada edo zutabea elkarrizketa ixtean</string>
-    <string name="title_advanced_column_width">Mezuen zutabearen zabalera: %% %1$s</string>
     <string name="title_advanced_nav_options">Erakutsi nabigazio-menuaren aukerak</string>
     <string name="title_advanced_nav_categories">Erakutsi kontuen kategoriak nabigazio-menuan</string>
     <string name="title_advanced_nav_pin">Finkatu nabigazio-menua</string>

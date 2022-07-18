@@ -404,7 +404,6 @@
     <string name="title_advanced_two_col">Koristi dva stupca</string>
     <string name="title_advanced_min_screen_size">Najmanja veličina zaslona za dijeljenje zaslona</string>
     <string name="title_advanced_close_pane">Sažmi redak ili stupac prilikom zatvaranja razgovora</string>
-    <string name="title_advanced_column_width">Širina stupca poruke: %1$s %%</string>
     <string name="title_advanced_nav_options">Prikaži opcije navigacijskog izbornika</string>
     <string name="title_advanced_nav_categories">Prikaži kategorije računa u navigacijskom izborniku</string>
     <string name="title_advanced_nav_pin">Prikvači navigacijski izbornik</string>

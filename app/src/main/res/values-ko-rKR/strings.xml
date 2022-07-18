@@ -311,7 +311,6 @@
     <string name="title_advanced_two_col">2열로 표시</string>
     <string name="title_advanced_min_screen_size">화면 분할 시 최소 화면 크기</string>
     <string name="title_advanced_close_pane">대화 상자를 닫을 때 행 또는 열 축소</string>
-    <string name="title_advanced_column_width">메시지 열 너비: %1$s %%</string>
     <string name="title_advanced_nav_options">탐색 메뉴 설정 표시</string>
     <string name="title_advanced_nav_pin">탐색 메뉴 고정</string>
     <string name="title_advanced_nav_hide_title">탐색 메뉴 설정을 숨길까요?</string>

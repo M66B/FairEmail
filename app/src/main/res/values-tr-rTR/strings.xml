@@ -164,6 +164,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek Android dijital uygulama imzasını kontrol ettiğinden, yalnızca Play Store ve GitHub sürümünde çalışır</string>
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
+    <string name="title_setup_gmail_on_device">Neden bir cihaz hesabı seçmem gerekiyor?</string>
     <string name="title_setup_gmail_password">Cihazdaki bir hesap yerine şifreli bir hesabı yetkilendirmek istiyorum</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
@@ -400,7 +401,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_two_col">İki sütun kullan</string>
     <string name="title_advanced_min_screen_size">Ekranı bölmek için minimum ekran boyutu</string>
     <string name="title_advanced_close_pane">Bir konuşmayı kapatırken satırı veya sütunu daralt</string>
-    <string name="title_advanced_column_width">Mesaj sütunu genişliği: %1$s %%</string>
+    <string name="title_advanced_column_width">Mesaj sütun genişliği / satır yüksekliği: %1$s %%</string>
     <string name="title_advanced_nav_options">Gezinme menüsü seçeneklerini göster</string>
     <string name="title_advanced_nav_categories">Gezinme menüsünde hesap kategorilerini göster</string>
     <string name="title_advanced_nav_pin">Gezinme menüsünü sabitle</string>

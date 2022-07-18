@@ -398,11 +398,11 @@
     <string name="title_advanced_caption_message_body">Σώμα μηνύματος</string>
     <string name="title_advanced_portrait">Κατακόρυφος προσανατολισμός</string>
     <string name="title_advanced_landscape">Οριζόντιος προσανατολισμός</string>
-    <string name="title_advanced_two_row">Χρήση δύο σειρών</string>
+    <string name="title_advanced_two_row">Χρήση δύο γραμμών</string>
     <string name="title_advanced_two_col">Χρήση δύο στηλών</string>
     <string name="title_advanced_min_screen_size">Ελάχιστο μέγεθος οθόνης για διαχωρισμό της οθόνης</string>
     <string name="title_advanced_close_pane">Σύμπτυξη γραμμής ή στήλης κατά το κλείσιμο μιας συζήτησης</string>
-    <string name="title_advanced_column_width">Πλάτος της στήλης μηνυμάτων: %1$s %%</string>
+    <string name="title_advanced_column_width">Πλάτος στήλης / ύψος γραμμής μηνύματος: %1$s %%</string>
     <string name="title_advanced_nav_options">Να προβάλλονται οι επιλογές του μενού πλοήγησης</string>
     <string name="title_advanced_nav_categories">Να προβάλλονται οι κατηγορίες λογαριασμών στο μενού πλοήγησης</string>
     <string name="title_advanced_nav_pin">Καρφίτσωμα του μενού πλοήγησης</string>

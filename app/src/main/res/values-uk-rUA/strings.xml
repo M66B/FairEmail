@@ -419,7 +419,6 @@
     <string name="title_advanced_two_col">Використовувати два стовпчики</string>
     <string name="title_advanced_min_screen_size">Мінімальний розмір екрану для його розділення</string>
     <string name="title_advanced_close_pane">Згорнути рядок або стовпець при закритті розмови</string>
-    <string name="title_advanced_column_width">Ширина стовпця повідомлення: %1$s %%</string>
     <string name="title_advanced_nav_options">Показати параметри меню навігації</string>
     <string name="title_advanced_nav_categories">Показувати категорії облікових записів у навігаційному меню</string>
     <string name="title_advanced_nav_pin">Прикріпити меню навігації</string>

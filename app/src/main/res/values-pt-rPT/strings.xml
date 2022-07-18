@@ -154,6 +154,7 @@
     <string name="title_setup_account_identity_hint">É nas definições de conta que pode definir o nome, a cor e as acções de deslize; e onde configura a assinatura é nas definições de identidade</string>
     <string name="title_setup_accounts">Contas</string>
     <string name="title_setup_identities">Identidades</string>
+    <string name="title_setup_google_sign_in">Iniciar a sessão com conta Google</string>
     <string name="title_setup_other">Outro fornecedor</string>
     <string name="title_setup_pop3">Conta POP3</string>
     <string name="title_setup_oauth_permission">O fornecedor de e-mail aprovou OAuth apenas para a versão da Play Store e do GitHub</string>
@@ -679,9 +680,12 @@
     <string name="title_advanced_autoclose_hint">Fechar as conversas automaticamente quando todas as mensagens são arquivadas, enviadas ou movidas para o lixo</string>
     <string name="title_advanced_bcc_hint">O endereço não será mostrado, mas será adicionado ao enviar</string>
     <string name="title_advanced_internal_hint">Haverá um aviso quando enviar para outro domínio</string>
+    <string name="title_advanced_e2e_encryption">Opções para \'encriptação ponta-a-ponta\'</string>
     <string name="title_advanced_display_harmful_hint">A desactivação desta opção pode ser lesiva para a sua privacidade</string>
     <string name="title_advanced_display_hidden_hint">Pode resultar em textos mal formatados e em duplicado</string>
     <string name="title_advanced_display_pin_hint">O PIN tem prioridade relativamente à autenticação biométrica</string>
+    <string name="title_advanced_display_autolock_nav_hint">Haverá um tempo de carência de %1$d segundos</string>
+    <string name="title_advanced_user_agent_hint">Alguns servidores não aceitam um texto genérico para o \'user agent\'</string>
     <string name="title_advanced_safe_browsing_hint">O servidor do Google reconhece quais endereços estão a ser visitados</string>
     <string name="title_advanced_notify_action_hint">No máximo serão mostradas três acções</string>
     <string name="title_advanced_notify_remove_hint">Novas notificações de mensagens serão sempre removidas ao serem arrastadas e ao serem marcadas como lidas</string>
@@ -743,6 +747,7 @@
     <string name="title_custom">Personalizado</string>
     <string name="title_host">Nome do servidor</string>
     <string name="title_encryption">Encriptação</string>
+    <string name="title_encryption_none">Nenhuma (insegura)</string>
     <string name="title_allow_insecure">Permitir ligações inseguras</string>
     <string name="title_notify_remark">Pode activar isto para ter notificações de uma conta em específico</string>
     <string name="title_port">Número da porta</string>
@@ -1471,6 +1476,7 @@
     <string name="title_legend_embedded_image">Espaço reservado para inserção de imagem</string>
     <string name="title_legend_tracking_pixel">Imagem de rastreamento</string>
     <string name="title_legend_broken_image">Imagem quebrada</string>
+    <string name="title_legend_open_external">Será aberto numa aplicação externa</string>
     <string name="title_legend_pick">Escolher contacto</string>
     <string name="title_legend_cc">Mostrar CC/BCC</string>
     <string name="title_legend_link">Inserir hiperligação</string>

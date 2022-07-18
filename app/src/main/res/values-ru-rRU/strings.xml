@@ -424,7 +424,7 @@
     <string name="title_advanced_two_col">Использовать две колонки</string>
     <string name="title_advanced_min_screen_size">Минимальный размер экрана для его разделения</string>
     <string name="title_advanced_close_pane">Свернуть строку или колонку при закрытии диалога</string>
-    <string name="title_advanced_column_width">Ширина колонки сообщения: %1$s %%</string>
+    <string name="title_advanced_column_width">Ширина колонки / высота строки: %1$s %%</string>
     <string name="title_advanced_nav_options">Показывать панель меню навигации</string>
     <string name="title_advanced_nav_categories">Показывать категории учётных записей в меню навигации</string>
     <string name="title_advanced_nav_pin">Закрепить меню навигации</string>

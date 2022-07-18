@@ -390,7 +390,6 @@
     <string name="title_advanced_two_col">Sử dụng hai cột</string>
     <string name="title_advanced_min_screen_size">Kích cỡ màn hình tối thiểu để chia tách màn hình</string>
     <string name="title_advanced_close_pane">Thu gọn hàng hoặc cột khi đóng cuộc hội thoại</string>
-    <string name="title_advanced_column_width">Độ rộng cột thư: %1$s %%</string>
     <string name="title_advanced_nav_options">Hiện các tùy chọn menu điều hướng</string>
     <string name="title_advanced_nav_categories">Hiện thể loại tài khoản trong menu điều hướng</string>
     <string name="title_advanced_nav_pin">Ghim menu điều hướng</string>

@@ -403,7 +403,7 @@
     <string name="title_advanced_two_col">Utiliser deux colonnes</string>
     <string name="title_advanced_min_screen_size">Taille minimale de l\'écran pour partager l\'écran</string>
     <string name="title_advanced_close_pane">Replier la ligne ou la colonne lors de la fermeture d\'une conversation</string>
-    <string name="title_advanced_column_width">Largeur de la colonne des messages : %1$s %%</string>
+    <string name="title_advanced_column_width">Largeur de colonne / hauteur de ligne du message: %1$s %%</string>
     <string name="title_advanced_nav_options">Afficher les options du menu de navigation</string>
     <string name="title_advanced_nav_categories">Afficher les catégories de compte dans le menu de navigation</string>
     <string name="title_advanced_nav_pin">Épingler le menu de navigation</string>

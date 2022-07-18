@@ -84,10 +84,13 @@
     <string name="title_setup_identity_remark">ଇମେଲ୍ ପଠାନ୍ତୁ</string>
     <string name="title_setup_accounts">ଆକାଉଣ୍ଟଗୁଡ଼ିକ</string>
     <string name="title_setup_identities">ପରିଚୟଗୁଡ଼ିକ</string>
+    <string name="title_setup_google_sign_in">Google ସହ ସାଇନ୍ ଇନ୍ କରିବେ</string>
     <string name="title_setup_other">ଅନ୍ୟ ପ୍ରଦାନକାରୀ</string>
     <string name="title_setup_pop3">POP3 ଆକାଉଣ୍ଟ୍</string>
     <string name="title_setup_oauth_permission">ଇମେଲ୍ ପ୍ରଦାନକାରୀ କେବଳ Play Store ଏବଂ GitHub ସଂସ୍କରଣ ପାଇଁ OAuth ଅନୁମୋଦନ କରିଛନ୍ତି</string>
     <string name="title_setup_gmail_support">Google ଆକାଉଣ୍ଟଗୁଡ଼ିକର ପ୍ରାଧିକରଣ କେବଳ Play Store ଏବଂ GitHub ସଂସ୍କରଣରେ କାମ କରିବ କାରଣ ଆଣ୍ଡ୍ରଏଡ୍ ଡିଜିଟାଲ୍ ଆପ୍ ସ୍ବାକ୍ଷର ଯାଞ୍ଚ କରେ</string>
+    <string name="title_setup_gmail_on_device">ମୋତେ କାହିଁକି ଗୋଟିଏ ଡିଭାଇସରେ-ଥିବା ଆକାଉଣ୍ଟକୁ ଚୟନ କରିବାକୁ ପଡ଼ିବ?</string>
+    <string name="title_setup_gmail_password">ମୁଁ ଏକ ଡିଭାଇସରେ-ଥିବା ଆକାଉଣ୍ଟ୍ ବଦଳରେ ପାସ୍‍ୱାର୍ଡ଼ ସହିତ ଗୋଟିଏ ଆକାଉଣ୍ଟକୁ ପ୍ରାଧିକରଣ କରିବାକୁ ଚାହୁଁଛି</string>
     <string name="title_setup_oauth_updated">ଆକାଉଣ୍ଟ୍ ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରାଯାଇଥିଲା</string>
     <string name="title_setup_oauth_authorize">ପ୍ରାଧିକୃତ କରନ୍ତୁ</string>
     <string name="title_setup_select_account">ଆକାଉଣ୍ଟ୍ ବାଛନ୍ତୁ</string>
@@ -199,7 +202,7 @@
     <string name="title_advanced_landscape">ଲ୍ୟାଣ୍ଡସ୍କେପ୍ ମୋଡ୍</string>
     <string name="title_advanced_min_screen_size">ସ୍କ୍ରିନ୍ ବିଭାଜନ ପାଇଁ ସର୍ବନିମ୍ନ ସ୍କ୍ରିନ୍ ଆକାର</string>
     <string name="title_advanced_close_pane">ବାର୍ତ୍ତାଳାପ ବନ୍ଦ କରିବା ସମୟରେ ଧାଡ଼ି କିମ୍ବା ସ୍ତମ୍ଭକୁ ସଙ୍କୋଚନ କରନ୍ତୁ</string>
-    <string name="title_advanced_column_width">ବାର୍ତ୍ତା ସ୍ତମ୍ଭର ପ୍ରସ୍ଥ: %1$s %%</string>
+    <string name="title_advanced_column_width">ବାର୍ତ୍ତା ସ୍ତମ୍ଭର ପ୍ରସ୍ଥ / ଧାଡ଼ିର ଉଚ୍ଚତା: %1$s %%</string>
     <string name="title_advanced_nav_categories">ନାଭିଗେସନ୍ ମେନୁରେ ଆକାଉଣ୍ଟ୍ ବର୍ଗଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_nav_pinned_count">ପିନ୍ ହୋଇଥିବା ନେଭିଗେସନ୍ ମେନୁରେ ପଢ଼ିନଥିବା ବାର୍ତ୍ତାଗୁଡ଼ିକର ସଂଖ୍ୟା ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାଅ</string>
@@ -566,6 +569,7 @@
     <string name="title_legend_thread">ବାର୍ତ୍ତାଳାପ</string>
     <string name="title_legend_zoom">ପାଠ୍ୟ ଆକାର ବଦଳାନ୍ତୁ</string>
     <string name="title_legend_receipt">ରସିଦ ଅନୁରୋଧ କରାଯାଇଥିଲା</string>
+    <string name="title_legend_open_external">ଆପ୍ ବାହାରେ ଖୋଲନ୍ତୁ</string>
     <string name="title_legend_cc">CC/BCC ଦେଖାଅ</string>
     <string name="title_legend_link">ଲିଙ୍କ୍ ସନ୍ନିବେଶ କର</string>
     <string name="title_legend_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
@@ -674,7 +678,7 @@
         <item>ପରବର୍ତ୍ତୀ ବାର୍ତ୍ତାଳାପକୁ ଯାଅ</item>
     </string-array>
     <string-array name="resizeNames">
-        <item>Tiny</item>
+        <item>ସାନ</item>
         <item>ଅତିରିକ୍ତ ଛୋଟ</item>
         <item>ଛୋଟ</item>
         <item>ମଧ୍ୟମ</item>

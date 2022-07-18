@@ -369,7 +369,6 @@
     <string name="title_advanced_two_col">Két oszlop használata</string>
     <string name="title_advanced_min_screen_size">Legkisebb képernyő méret a kettévágáshoz</string>
     <string name="title_advanced_close_pane">Sor vagy oszlop összecsukása beszélgetés bezárásánál</string>
-    <string name="title_advanced_column_width">Üzenet oszlop szélesség: %1$s %%</string>
     <string name="title_advanced_nav_options">Navigációs menü opciók mutatása</string>
     <string name="title_advanced_nav_pin">Navigációs menü kitűzése</string>
     <string name="title_advanced_nav_hide_title">Navigációs menü opciók elrejtése?</string>

@@ -187,6 +187,7 @@
     <string name="title_setup_gmail_support">אימות חשבונות Google יעבוד רק עם גרסה מחנות Play או מ־GitHub כיוון ש־Android בודק את חתימת היישומון</string>
     <string name="title_setup_gmail_rationale">נא להרשות לבחור חשבון ולקרוא את שמך</string>
     <string name="title_setup_gmail_permissions">Google יבקש לקרוא, לכתוב, לשלוח, ולמחוק את כל ההודעות שלך לצמיתות. Fairmail לעולם לא ימחק ללא הסכמתך המפורשת.</string>
+    <string name="title_setup_gmail_on_device">מדוע עלי לבחור בחשבון שכבר מחובר במכשיר?</string>
     <string name="title_setup_gmail_password">ארצה לאמת חשבון עם סיסמה במקום חשבון פנימי במכשיר</string>
     <string name="title_setup_office_auth">השגיאה ‚AUTHENTICATE נכשל’ עלולה להיגרם עקב IMAP/SMTP שהושבתו על ידי הנהלת המערכת</string>
     <string name="title_setup_oauth_rationale">להרשות גישה לחשבון %1$s שלך</string>
@@ -424,7 +425,7 @@
     <string name="title_advanced_two_col">להשתמש בשתי עמודות</string>
     <string name="title_advanced_min_screen_size">גודל המסך המזערי לפיצול המסך</string>
     <string name="title_advanced_close_pane">לצמצם שורה או עמודה בעת סגירת דיון</string>
-    <string name="title_advanced_column_width">רוחב עמודת הודעה: %1$s %%</string>
+    <string name="title_advanced_column_width">רוחב עמודה / גובה שורה של הודעה: %1$s %%</string>
     <string name="title_advanced_nav_options">הצגת אפשרויות תפריט הניווט</string>
     <string name="title_advanced_nav_categories">להציג את קטגוריות החשבונות בתפריט הניווט</string>
     <string name="title_advanced_nav_pin">נעיצת תפריט הניווט</string>
@@ -1571,6 +1572,7 @@
     <string name="title_legend_embedded_image">ממלא מקום לתמונה מוטמעת</string>
     <string name="title_legend_tracking_pixel">תמונת מעקב</string>
     <string name="title_legend_broken_image">תמונה פגומה</string>
+    <string name="title_legend_open_external">לפתוח מחוץ ליישומון</string>
     <string name="title_legend_pick">בחירת איש קשר</string>
     <string name="title_legend_cc">הצגת עותק/מוסתר</string>
     <string name="title_legend_link">הוספת קישור</string>

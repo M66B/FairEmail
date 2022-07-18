@@ -353,7 +353,7 @@
     <string name="title_advanced_two_row">استفاده از دو ردیف</string>
     <string name="title_advanced_two_col">استفاده از دو ستون</string>
     <string name="title_advanced_min_screen_size">کمترین اندازه صفحه برای تقسیم کردن صفحه</string>
-    <string name="title_advanced_column_width">پهنای ستون پیام: %1$s %%</string>
+    <string name="title_advanced_column_width">عرض ستون / ارتفاع ردیف پیام %1$s %%</string>
     <string name="title_advanced_nav_options">نشان دادن گزینه‌های منوی ناوبری</string>
     <string name="title_advanced_nav_categories">دسته‌بندی‌های حساب را در منوی ناوبری نمایش بده</string>
     <string name="title_advanced_nav_pin">سنجاق کردن منوی ناوبری</string>

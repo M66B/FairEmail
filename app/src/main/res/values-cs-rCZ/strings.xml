@@ -424,7 +424,7 @@
     <string name="title_advanced_two_col">Použít dva sloupce</string>
     <string name="title_advanced_min_screen_size">Minimální velikost obrazovky pro její rozdělení</string>
     <string name="title_advanced_close_pane">Sbalit řádek nebo sloupec při zavření konverzace</string>
-    <string name="title_advanced_column_width">Šířka sloupce zpráv: %1$s %%</string>
+    <string name="title_advanced_column_width">Šířka sloupce zprávy / výška řádku: %1$s %%</string>
     <string name="title_advanced_nav_options">Zobrazit možnosti navigačního menu</string>
     <string name="title_advanced_nav_categories">Zobrazit kategorie účtu v navigačním menu</string>
     <string name="title_advanced_nav_pin">Připnout navigační menu</string>

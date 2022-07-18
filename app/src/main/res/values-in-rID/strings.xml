@@ -382,7 +382,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_two_col">Gunakan dua kolom</string>
     <string name="title_advanced_min_screen_size">Ukuran layar paling kecil untuk membagi layar</string>
     <string name="title_advanced_close_pane">Tutup baris atau kolom ketika menutup percakapan</string>
-    <string name="title_advanced_column_width">Lebar kolom pesan: %1$s %%</string>
     <string name="title_advanced_nav_options">Tampilkan pilihan menu navigasi</string>
     <string name="title_advanced_nav_categories">Tampilkan kategori akun dalam menu navigasi</string>
     <string name="title_advanced_nav_pin">Pin menu navigasi</string>

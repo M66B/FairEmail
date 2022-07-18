@@ -157,6 +157,7 @@
     <string name="title_setup_account_identity_hint">Du kan konfigurera namn, färg och svepåtgärder i kontoinställningarna, samt konfigurera din signatur i identitetsinställningarna</string>
     <string name="title_setup_accounts">Konton</string>
     <string name="title_setup_identities">Identiteter</string>
+    <string name="title_setup_google_sign_in">Logga in med Google</string>
     <string name="title_setup_other">Annan leverantör</string>
     <string name="title_setup_inbound">Endast inkommande e-post (e-post kan inte skickas!)</string>
     <string name="title_setup_pop3">POP3-konto</string>
@@ -164,6 +165,7 @@
     <string name="title_setup_gmail_support">Auktorisera Google-konton kommer endast att fungera i Play Store- och GitHub-versionen eftersom Android kontrollerar den digitala app-signaturen</string>
     <string name="title_setup_gmail_rationale">Vänligen bevilja behörigheter för att välja ett konto och läsa ditt namn</string>
     <string name="title_setup_gmail_permissions">Google kommer att be om behörighet att läsa, komponera, skicka och permanent ta bort all din e-post. FairEmail kommer aldrig att ta bort dina meddelanden utan ditt uttryckliga medgivande.</string>
+    <string name="title_setup_gmail_on_device">Varför måste jag välja ett lokalt konto på enheten?</string>
     <string name="title_setup_gmail_password">Jag vill auktorisera ett konto med ett lösenord istället för ett konto på enheten</string>
     <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP inaktiveras av systemadministratören</string>
     <string name="title_setup_oauth_rationale">Auktorisera åtkomst till ditt %1$s konto</string>
@@ -380,6 +382,7 @@
     <string name="title_advanced_timeout">Timeout för anslutning (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Föredra IPv4 över IPv6</string>
     <string name="title_advanced_ssl_harden">Strikta SSL-anslutningar</string>
+    <string name="title_advanced_ssl_harden_strict">Kräv TLS 1.3</string>
     <string name="title_advanced_cert_strict">Strikt certifikatkontroll</string>
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
     <string name="title_advanced_caption_general">Allmänt</string>
@@ -396,7 +399,6 @@
     <string name="title_advanced_two_col">Använd två kolumner</string>
     <string name="title_advanced_min_screen_size">Minsta skärmstorlek för uppdelning av skärmen</string>
     <string name="title_advanced_close_pane">Kollapsa rad eller kolumn när en konversation stängs</string>
-    <string name="title_advanced_column_width">Kolumnbredd för meddelande: %1$s %%</string>
     <string name="title_advanced_nav_options">Visa alternativ för navigeringsmeny</string>
     <string name="title_advanced_nav_categories">Visa kontokategorier i navigeringsmenyn</string>
     <string name="title_advanced_nav_pin">Fäst navigeringsmenyn</string>
@@ -619,6 +621,7 @@
     <string name="title_advanced_class_min_difference">Minsta klasskillnad: %1$s %%</string>
     <string name="title_advanced_language">Språk</string>
     <string name="title_advanced_language_system">System</string>
+    <string name="title_advanced_lt">Språkintegration för verktyg</string>
     <string name="title_advanced_deepl">DeepL integration</string>
     <string name="title_advanced_sdcard">Jag vill använda ett SD-kort</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
@@ -782,6 +785,7 @@
     <string name="title_custom">Anpassad</string>
     <string name="title_host">Värdnamn</string>
     <string name="title_encryption">Kryptering</string>
+    <string name="title_encryption_none">Ingen (osäker)</string>
     <string name="title_allow_insecure">Tillåt osäkra anslutningar</string>
     <string name="title_insecure_remark">Osäkra anslutningar bör endast tillåtas på betrodda nätverk och aldrig på offentliga nätverk</string>
     <string name="title_notify_remark">Du kan aktivera det här för kontospecifika aviseringar</string>
@@ -1538,6 +1542,7 @@
     <string name="title_legend_embedded_image">Inbäddad bildplatshållare</string>
     <string name="title_legend_tracking_pixel">Spårningsbild</string>
     <string name="title_legend_broken_image">Trasig bild</string>
+    <string name="title_legend_open_external">Öppna utanför appen</string>
     <string name="title_legend_pick">Välj kontakt</string>
     <string name="title_legend_cc">Visa kopia/dold kopia</string>
     <string name="title_legend_link">Infoga länk</string>

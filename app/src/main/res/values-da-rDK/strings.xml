@@ -165,6 +165,7 @@
     <string name="title_setup_gmail_support">Godkendelse af Google-konti fungerer kun i Play Store-versioner, da Android tjekker den digitale app-signatur</string>
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
     <string name="title_setup_gmail_permissions">Google vil beder om tilladelse til at læse, komponere, sende samt permanent slette alle din e-mails. FairEmail sletter aldrig dine beskeder uden dit samtykke.</string>
+    <string name="title_setup_gmail_on_device">Hvorfor skal der vælges en enhedsbaseret konto?</string>
     <string name="title_setup_gmail_password">Jeg ønsker at godkende en konto med en adgangskode i stedet for en enhedskonto</string>
     <string name="title_setup_office_auth">Fejlen \'GODKENDELSE mislykkedes\' kan skyldes, at IMAP/SMTP er deaktiveret af systemadministratoren</string>
     <string name="title_setup_oauth_rationale">Godkend adgang til din %1$s-konto</string>
@@ -402,7 +403,7 @@
     <string name="title_advanced_two_col">Brug to kolonner</string>
     <string name="title_advanced_min_screen_size">Minimumsskærmstørrelse for opsplitning af skærmen</string>
     <string name="title_advanced_close_pane">Skjul række eller kolonne, når en samtale lukkes</string>
-    <string name="title_advanced_column_width">Beskedkolonnebredde: %1$s %%</string>
+    <string name="title_advanced_column_width">Beskedkolonnebredde/-rækkehøjde: %1$s %%</string>
     <string name="title_advanced_nav_options">Vis navigeringsmenuindstillinger</string>
     <string name="title_advanced_nav_categories">Vis kontokategorier i navigeringsmenuen</string>
     <string name="title_advanced_nav_pin">Fastgør navigeringsmenu</string>

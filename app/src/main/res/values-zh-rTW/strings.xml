@@ -389,7 +389,6 @@
     <string name="title_advanced_two_col">使用雙列</string>
     <string name="title_advanced_min_screen_size">分屏時熒幕最小尺寸</string>
     <string name="title_advanced_close_pane">關閉會話時摺疊行或列</string>
-    <string name="title_advanced_column_width">訊息欄寬: %1$s %%</string>
     <string name="title_advanced_nav_options">顯示導航功能表選項</string>
     <string name="title_advanced_nav_categories">導覽選單中顯示帳戶類別</string>
     <string name="title_advanced_nav_pin">固定導航功能表</string>

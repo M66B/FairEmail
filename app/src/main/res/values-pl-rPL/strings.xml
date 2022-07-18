@@ -424,7 +424,7 @@
     <string name="title_advanced_two_col">Dwie kolumny</string>
     <string name="title_advanced_min_screen_size">Minimalny rozmiar ekranu dla podziału ekranu</string>
     <string name="title_advanced_close_pane">Zwiń wiersz lub kolumnę podczas zamykania rozmowy</string>
-    <string name="title_advanced_column_width">Szerokość kolumny wiadomości: %1$s %%</string>
+    <string name="title_advanced_column_width">Szerokość kolumny wiadomości / wysokość wiersza: %1$s %%</string>
     <string name="title_advanced_nav_options">Pokaż opcje menu nawigacji</string>
     <string name="title_advanced_nav_categories">Pokaż kategorie kont w menu nawigacji</string>
     <string name="title_advanced_nav_pin">Przypnij menu nawigacji</string>
