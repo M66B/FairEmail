@@ -184,7 +184,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swConfirmLinks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("confirm_links", checked).apply();
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("confirm_links", checked);
+                if (!checked)
+                    for (String key : prefs.getAll().keySet())
+                        if (key.endsWith(".confirm_link"))
+                            editor.remove(key);
+                editor.apply();
                 swCheckLinksDbl.setEnabled(checked);
             }
         });
@@ -207,7 +213,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swAskImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("ask_images", checked).apply();
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("ask_images", checked);
+                if (!checked)
+                    for (String key : prefs.getAll().keySet())
+                        if (key.endsWith(".show_images"))
+                            editor.remove(key);
+                editor.apply();
             }
         });
 
@@ -229,7 +241,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swAskHtml.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("ask_html", checked).apply();
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("ask_html", checked);
+                if (!checked)
+                    for (String key : prefs.getAll().keySet())
+                        if (key.endsWith(".show_full"))
+                            editor.remove(key);
+                editor.apply();
             }
         });
 
