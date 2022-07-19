@@ -1573,6 +1573,11 @@
 
     <string name="title_search_delete">Delete saved search?</string>
 
+    <string name="title_save_search">Saved search</string>
+    <string name="title_save_search_name">Name</string>
+    <string name="title_save_search_order">Order</string>
+    <string name="title_save_search_color">Color</string>
+
     <string name="title_sort_on">Sort on</string>
     <string name="title_sort_on_time">Time</string>
     <string name="title_sort_on_unread">Unread</string>

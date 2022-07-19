@@ -6,6 +6,7 @@
 
 ### Next version
 
+* Added saved search order
 * Added editing saved search name and color
 * Small improvements and minor bug fixes
 * Updated libraries

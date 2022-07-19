@@ -861,13 +861,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
     }
 
-    static class SearchCriteria implements Serializable {
-        // Search record
-        long id = -1;
-        String name;
-        int color = Color.TRANSPARENT;
-
-        // Search query
+    static class SearchCriteria extends EntitySearch implements Serializable {
         String query;
         boolean fts = false;
         boolean in_senders = true;

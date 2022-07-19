@@ -71,7 +71,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 239,
+        version = 240,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2403,6 +2403,12 @@ public abstract class DB extends RoomDatabase {
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
+                    }
+                }).addMigrations(new Migration(239, 240) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("ALTER TABLE `search` ADD COLUMN `order` INTEGER");
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override

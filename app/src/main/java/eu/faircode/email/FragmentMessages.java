@@ -5094,10 +5094,10 @@ public class FragmentMessages extends FragmentBase
 
         menu.findItem(R.id.menu_save_search).setVisible(
                 viewType == AdapterMessage.ViewType.SEARCH &&
-                        criteria != null && criteria.id < 0);
+                        criteria != null && criteria.id == null);
         menu.findItem(R.id.menu_edit_search).setVisible(
                 viewType == AdapterMessage.ViewType.SEARCH &&
-                        criteria != null && criteria.id >= 0);
+                        criteria != null && criteria.id != null);
 
         menu.findItem(R.id.menu_folders).setVisible(
                 viewType == AdapterMessage.ViewType.UNIFIED &&
@@ -5769,7 +5769,10 @@ public class FragmentMessages extends FragmentBase
                 if (search == null)
                     search = new EntitySearch();
 
+                int order = args.getInt("order");
+
                 search.name = args.getString("name");
+                search.order = (order < 0 ? null : order);
                 search.color = args.getInt("color", Color.TRANSPARENT);
                 search.data = criteria.toJson().toString();
 
@@ -10497,6 +10500,7 @@ public class FragmentMessages extends FragmentBase
             final Context context = getContext();
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_save_search, null);
             EditText etName = dview.findViewById(R.id.etName);
+            EditText etOrder = dview.findViewById(R.id.etOrder);
             btnColor = dview.findViewById(R.id.btnColor);
 
             btnColor.setOnClickListener(new View.OnClickListener() {
@@ -10517,14 +10521,19 @@ public class FragmentMessages extends FragmentBase
             });
 
             etName.setText(criteria.name == null ? criteria.getTitle(context) : criteria.name);
+            etOrder.setText(criteria.order == null ? null : Integer.toString(criteria.order));
             btnColor.setColor(criteria.color);
 
-            return new AlertDialog.Builder(context)
+            AlertDialog.Builder dialog = new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(R.string.title_save, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            String order = etOrder.getText().toString();
                             args.putString("name", etName.getText().toString());
+                            args.putInt("order",
+                                    !TextUtils.isEmpty(order) && TextUtils.isDigitsOnly(order)
+                                            ? Integer.parseInt(order) : -1);
                             args.putInt("color", btnColor.getColor());
                             sendResult(Activity.RESULT_OK);
                         }
@@ -10534,14 +10543,17 @@ public class FragmentMessages extends FragmentBase
                         public void onClick(DialogInterface dialogInterface, int i) {
                             sendResult(Activity.RESULT_CANCELED);
                         }
-                    })
-                    .setNeutralButton(R.string.title_delete, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            sendResult(Activity.RESULT_FIRST_USER);
-                        }
-                    })
-                    .create();
+                    });
+
+            if (criteria.id != null)
+                dialog.setNeutralButton(R.string.title_delete, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        sendResult(Activity.RESULT_FIRST_USER);
+                    }
+                });
+
+            return dialog.create();
         }
 
         @Override

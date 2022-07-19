@@ -39,6 +39,7 @@ public class EntitySearch {
     public Long id;
     @NonNull
     public String name;
+    public Integer order;
     public Integer color;
     @NonNull
     public String data;
@@ -49,6 +50,7 @@ public class EntitySearch {
             EntitySearch other = (EntitySearch) obj;
             return (this.id.equals(other.id) &&
                     this.name.equals(other.name) &&
+                    Objects.equals(this.order, other.order) &&
                     Objects.equals(this.color, other.color) &&
                     this.data.equals(other.data));
         } else

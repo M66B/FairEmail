@@ -30,7 +30,7 @@ import java.util.List;
 @Dao
 public interface DaoSearch {
     @Query("SELECT * FROM search" +
-            " ORDER BY name COLLATE NOCASE")
+            " ORDER BY `order`, name COLLATE NOCASE")
     LiveData<List<EntitySearch>> liveSearch();
 
     @Insert
