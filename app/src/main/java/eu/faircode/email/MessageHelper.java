@@ -4258,15 +4258,25 @@ public class MessageHelper {
         try {
             Log.d("Part class=" + part.getClass() + " type=" + part.getContentType());
 
-            // https://github.com/autocrypt/protected-headers
             try {
                 ContentType ct = new ContentType(part.getContentType());
+
+                // https://github.com/autocrypt/protected-headers
                 if ("v1".equals(ct.getParameter("protected-headers"))) {
                     String[] subject = part.getHeader("subject");
                     if (subject != null && subject.length != 0) {
                         subject[0] = subject[0].replaceAll("\\?=[\\r\\n\\t ]+=\\?", "\\?==\\?");
                         parts.protected_subject = decodeMime(subject[0]);
                     }
+                }
+
+                // https://en.wikipedia.org/wiki/MIME#Multipart_subtypes
+                if ("multipart".equals(ct.getPrimaryType()) &&
+                        !("mixed".equalsIgnoreCase(ct.getSubType()) ||
+                                "alternative".equalsIgnoreCase(ct.getSubType()) ||
+                                "related".equalsIgnoreCase(ct.getSubType()) ||
+                                "report".equalsIgnoreCase(ct.getSubType()))) {
+                    Log.e(part.getContentType());
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
