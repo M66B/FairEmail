@@ -4,6 +4,13 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
+### Next version
+
+* Added editing saved search name and color
+* Small improvements and minor bug fixes
+* Updated libraries
+* Updated translations
+
 ### 1.1934 - 2022-07-17
 
 * Added Gmail web OAuth flow

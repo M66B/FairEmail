@@ -23,6 +23,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -34,6 +35,13 @@ public interface DaoSearch {
 
     @Insert
     long insertSearch(EntitySearch search);
+
+    @Query("SELECT * FROM search" +
+            " WHERE id = :id")
+    EntitySearch getSearch(long id);
+
+    @Update
+    int updateSearch(EntitySearch search);
 
     @Query("DELETE FROM search" +
             " WHERE id = :id")

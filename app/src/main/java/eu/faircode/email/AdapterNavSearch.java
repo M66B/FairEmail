@@ -112,6 +112,8 @@ public class AdapterNavSearch extends RecyclerView.Adapter<AdapterNavSearch.View
                 BoundaryCallbackMessages.SearchCriteria criteria =
                         BoundaryCallbackMessages.SearchCriteria.fromJSON(json);
                 criteria.id = search.id;
+                criteria.name = search.name;
+                criteria.color = search.color;
                 FragmentMessages.search(
                         context, owner, manager,
                         -1L, -1L, false, criteria);

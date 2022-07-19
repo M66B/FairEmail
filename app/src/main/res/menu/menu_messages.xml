@@ -15,8 +15,8 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/menu_delete_search"
-        android:icon="@drawable/twotone_delete_24"
+        android:id="@+id/menu_edit_search"
+        android:icon="@drawable/twotone_edit_24"
         android:title="@string/title_delete"
         app:showAsAction="always" />
 

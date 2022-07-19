@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_FIRST_USER;
 import static android.app.Activity.RESULT_OK;
 import static android.text.format.DateUtils.DAY_IN_MILLIS;
 import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
@@ -428,9 +429,8 @@ public class FragmentMessages extends FragmentBase
     static final int REQUEST_BUTTONS = 24;
     private static final int REQUEST_ALL_READ = 25;
     private static final int REQUEST_SAVE_SEARCH = 26;
-    private static final int REQUEST_DELETE_SEARCH = 27;
-    private static final int REQUEST_QUICK_ACTIONS = 28;
-    static final int REQUEST_BLOCK_SENDERS = 29;
+    private static final int REQUEST_QUICK_ACTIONS = 27;
+    static final int REQUEST_BLOCK_SENDERS = 28;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -5095,7 +5095,7 @@ public class FragmentMessages extends FragmentBase
         menu.findItem(R.id.menu_save_search).setVisible(
                 viewType == AdapterMessage.ViewType.SEARCH &&
                         criteria != null && criteria.id < 0);
-        menu.findItem(R.id.menu_delete_search).setVisible(
+        menu.findItem(R.id.menu_edit_search).setVisible(
                 viewType == AdapterMessage.ViewType.SEARCH &&
                         criteria != null && criteria.id >= 0);
 
@@ -5237,11 +5237,8 @@ public class FragmentMessages extends FragmentBase
         if (itemId == R.id.menu_search) {
             onMenuSearch();
             return true;
-        } else if (itemId == R.id.menu_save_search) {
+        } else if (itemId == R.id.menu_save_search || itemId == R.id.menu_edit_search) {
             onMenuSaveSearch();
-            return true;
-        } else if (itemId == R.id.menu_delete_search) {
-            onMenuDeleteSearch();
             return true;
         } else if (itemId == R.id.menu_folders) { // Obsolete
             onMenuFolders(primary);
@@ -5379,22 +5376,6 @@ public class FragmentMessages extends FragmentBase
         fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_SAVE_SEARCH);
         fragment.show(getParentFragmentManager(), "search:save");
-    }
-
-    private void onMenuDeleteSearch() {
-        if (criteria == null)
-            return;
-
-        Bundle args = new Bundle();
-        args.putString("question", getString(R.string.title_search_delete));
-        args.putString("remark", criteria.getTitle(getContext()));
-        args.putLong("id", criteria.id);
-        args.putBoolean("warning", true);
-
-        FragmentDialogAsk ask = new FragmentDialogAsk();
-        ask.setArguments(args);
-        ask.setTargetFragment(FragmentMessages.this, REQUEST_DELETE_SEARCH);
-        ask.show(getParentFragmentManager(), "swipe:delete");
     }
 
     private void onMenuFolders(long account) {
@@ -5780,7 +5761,14 @@ public class FragmentMessages extends FragmentBase
                 BoundaryCallbackMessages.SearchCriteria criteria =
                         (BoundaryCallbackMessages.SearchCriteria) args.getSerializable("criteria");
 
-                EntitySearch search = new EntitySearch();
+                DB db = DB.getInstance(context);
+
+                EntitySearch search = null;
+                if (criteria.id >= 0)
+                    search = db.search().getSearch(criteria.id);
+                if (search == null)
+                    search = new EntitySearch();
+
                 search.name = args.getString("name");
                 search.color = args.getInt("color", Color.TRANSPARENT);
                 search.data = criteria.toJson().toString();
@@ -5788,8 +5776,10 @@ public class FragmentMessages extends FragmentBase
                 if (search.color == Color.TRANSPARENT)
                     search.color = null;
 
-                DB db = DB.getInstance(context);
-                search.id = db.search().insertSearch(search);
+                if (search.id == null)
+                    search.id = db.search().insertSearch(search);
+                else
+                    db.search().updateSearch(search);
 
                 return null;
             }
@@ -5810,10 +5800,11 @@ public class FragmentMessages extends FragmentBase
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
+                BoundaryCallbackMessages.SearchCriteria criteria =
+                        (BoundaryCallbackMessages.SearchCriteria) args.getSerializable("criteria");
 
                 DB db = DB.getInstance(context);
-                db.search().deleteSearch(id);
+                db.search().deleteSearch(criteria.id);
 
                 return null;
             }
@@ -7804,9 +7795,7 @@ public class FragmentMessages extends FragmentBase
                 case REQUEST_SAVE_SEARCH:
                     if (resultCode == RESULT_OK && data != null)
                         onSaveSearch(data.getBundleExtra("args"));
-                    break;
-                case REQUEST_DELETE_SEARCH:
-                    if (resultCode == RESULT_OK && data != null)
+                    else if (resultCode == RESULT_FIRST_USER && data != null)
                         onDeleteSearch(data.getBundleExtra("args"));
                     break;
                 case REQUEST_QUICK_ACTIONS:
@@ -10527,8 +10516,8 @@ public class FragmentMessages extends FragmentBase
                 }
             });
 
-            etName.setText(criteria.getTitle(context));
-            btnColor.setColor(Color.TRANSPARENT);
+            etName.setText(criteria.name == null ? criteria.getTitle(context) : criteria.name);
+            btnColor.setColor(criteria.color);
 
             return new AlertDialog.Builder(context)
                     .setView(dview)
@@ -10544,6 +10533,12 @@ public class FragmentMessages extends FragmentBase
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             sendResult(Activity.RESULT_CANCELED);
+                        }
+                    })
+                    .setNeutralButton(R.string.title_delete, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            sendResult(Activity.RESULT_FIRST_USER);
                         }
                     })
                     .create();

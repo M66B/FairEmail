@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -861,7 +862,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     static class SearchCriteria implements Serializable {
+        // Search record
         long id = -1;
+        String name;
+        int color = Color.TRANSPARENT;
+
+        // Search query
         String query;
         boolean fts = false;
         boolean in_senders = true;
