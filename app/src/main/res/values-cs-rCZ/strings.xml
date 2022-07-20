@@ -1361,6 +1361,10 @@
     <string name="title_search_in">Hledat v</string>
     <string name="title_search_sender">Hledat odesílatele</string>
     <string name="title_search_delete">Smazat uložené vyhledávání?</string>
+    <string name="title_save_search" comment="title_save_search&#10;Title of dialog to save a search for later reuse">Uložená hledání</string>
+    <string name="title_save_search_name">Název</string>
+    <string name="title_save_search_order">Pořadí</string>
+    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">Barva</string>
     <string name="title_sort_on">Řadit dle</string>
     <string name="title_sort_on_time">Čas</string>
     <string name="title_sort_on_unread">Nepřečteno</string>

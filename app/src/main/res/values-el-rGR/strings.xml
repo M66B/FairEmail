@@ -1337,6 +1337,10 @@
     <string name="title_search_in">Αναζήτηση σε</string>
     <string name="title_search_sender">Αναζήτηση αποστολέα</string>
     <string name="title_search_delete">Διαγραφή αποθηκευμένης αναζήτησης;</string>
+    <string name="title_save_search" comment="title_save_search&#10;Title of dialog to save a search for later reuse">Αποθηκευμένη αναζήτηση</string>
+    <string name="title_save_search_name">Όνομα</string>
+    <string name="title_save_search_order">Σειρά</string>
+    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">Χρώμα</string>
     <string name="title_sort_on">Ταξινόμηση κατά</string>
     <string name="title_sort_on_time">Ημερομηνία</string>
     <string name="title_sort_on_unread">Μη αναγνωσμένα</string>

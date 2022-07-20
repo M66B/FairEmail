@@ -154,6 +154,7 @@
     <string name="title_setup_gmail_support">Việc uỷ quyền các tài khoản Gmail sẽ chỉ được trong phiên bản trên CH Play và GitHub vì Android kiểm tra chữ ký ứng dụng</string>
     <string name="title_setup_gmail_rationale">Hãy cấp quyền để chọn một tài khoản và đọc tên của bạn</string>
     <string name="title_setup_gmail_permissions">Google sẽ hỏi xin quyền đọc, soạn thư, gửi và vĩnh viễn xoá tất cả email của bạn. FairEmail sẽ không bao giờ xoá các thư của bạn mà không có sự đồng ý cụ thể của bạn.</string>
+    <string name="title_setup_gmail_on_device">Tại sao tôi lại cần chọn tài khoản trên thiết bị?</string>
     <string name="title_setup_gmail_password">Tôi muốn uỷ quyền một tài khoản bằng mật khẩu thay vì tài khoản trên thiết bị</string>
     <string name="title_setup_office_auth">Lỗi \'XÁC THỰC thất bại\' có thể gây ra bởi IMAP/SMTP bị vô hiệu hoá bởi quản trị viên hệ thống</string>
     <string name="title_setup_oauth_rationale">Cấp quyền truy cập vào tài khoản %1$s của bạn</string>
@@ -390,6 +391,7 @@
     <string name="title_advanced_two_col">Sử dụng hai cột</string>
     <string name="title_advanced_min_screen_size">Kích cỡ màn hình tối thiểu để chia tách màn hình</string>
     <string name="title_advanced_close_pane">Thu gọn hàng hoặc cột khi đóng cuộc hội thoại</string>
+    <string name="title_advanced_column_width">Độ rộng cột / độ cao hàng thư: %1$s %%</string>
     <string name="title_advanced_nav_options">Hiện các tùy chọn menu điều hướng</string>
     <string name="title_advanced_nav_categories">Hiện thể loại tài khoản trong menu điều hướng</string>
     <string name="title_advanced_nav_pin">Ghim menu điều hướng</string>
@@ -1325,6 +1327,10 @@
     <string name="title_search_in">Tìm kiếm trong</string>
     <string name="title_search_sender">Tìm kiếm người gửi</string>
     <string name="title_search_delete">Xóa mục tìm kiếm đã lưu?</string>
+    <string name="title_save_search" comment="title_save_search&#10;Title of dialog to save a search for later reuse">Tìm kiếm đã lưu</string>
+    <string name="title_save_search_name">Tên</string>
+    <string name="title_save_search_order">Thứ tự</string>
+    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">Màu săc</string>
     <string name="title_sort_on">Sắp xếp theo</string>
     <string name="title_sort_on_time">Thời gian</string>
     <string name="title_sort_on_unread">Chưa đọc</string>
@@ -1532,6 +1538,7 @@
     <string name="title_legend_embedded_image">Giữ chỗ cho hình ảnh được gắn vào</string>
     <string name="title_legend_tracking_pixel">Hình ảnh theo dõi</string>
     <string name="title_legend_broken_image">Hình ảnh bị hỏng</string>
+    <string name="title_legend_open_external">Mở ngoài ứng dụng</string>
     <string name="title_legend_pick">Chọn liên hệ</string>
     <string name="title_legend_cc">Hiện CC/BCC</string>
     <string name="title_legend_link">Chèn liên kết</string>
