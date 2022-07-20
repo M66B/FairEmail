@@ -151,6 +151,8 @@ public class ServiceAuthenticator extends Authenticator {
             long now = new Date().getTime();
             Long expiration = authState.getAccessTokenExpirationTime();
             boolean needsRefresh = (expiration != null && expiration < now);
+            if (needsRefresh)
+                authState.setNeedsTokenRefresh(true);
 
             if (!needsRefresh && forceRefresh &&
                     expiration != null &&
