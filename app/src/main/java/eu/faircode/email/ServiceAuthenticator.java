@@ -55,7 +55,7 @@ public class ServiceAuthenticator extends Authenticator {
     static final int AUTH_TYPE_GMAIL = 2;
     static final int AUTH_TYPE_OAUTH = 3;
 
-    static final long MIN_EXPIRE_INTERVAL = 15 * 60 * 1000L;
+    static final long MIN_FORCE_REFRESH_INTERVAL = 15 * 60 * 1000L;
 
     ServiceAuthenticator(
             Context context,
@@ -88,10 +88,10 @@ public class ServiceAuthenticator extends Authenticator {
         return new PasswordAuthentication(user, token);
     }
 
-    String refreshToken(boolean expire) throws AuthenticatorException, OperationCanceledException, IOException, JSONException, MessagingException {
+    String refreshToken(boolean forceRefresh) throws AuthenticatorException, OperationCanceledException, IOException, JSONException, MessagingException {
         if (auth == AUTH_TYPE_GMAIL) {
             GmailState authState = GmailState.jsonDeserialize(password);
-            authState.refresh(context, user, expire);
+            authState.refresh(context, "android", user, forceRefresh);
             Long expiration = authState.getAccessTokenExpirationTime();
             if (expiration != null)
                 EntityLog.log(context, user + " token expiration=" + new Date(expiration));
@@ -106,7 +106,7 @@ public class ServiceAuthenticator extends Authenticator {
             return authState.getAccessToken();
         } else if (auth == AUTH_TYPE_OAUTH && provider != null) {
             AuthState authState = AuthState.jsonDeserialize(password);
-            OAuthRefresh(context, provider, authState, expire);
+            OAuthRefresh(context, provider, user, authState, forceRefresh);
             Long expiration = authState.getAccessTokenExpirationTime();
             if (expiration != null)
                 EntityLog.log(context, user + " token expiration=" + new Date(expiration));
@@ -142,7 +142,7 @@ public class ServiceAuthenticator extends Authenticator {
         void onPasswordChanged(Context context, String newPassword);
     }
 
-    private static void OAuthRefresh(Context context, String id, AuthState authState, boolean expire)
+    private static void OAuthRefresh(Context context, String id, String user, AuthState authState, boolean forceRefresh)
             throws MessagingException {
         try {
             if ("gmail".equals(id) && !BuildConfig.DEBUG)
@@ -150,11 +150,17 @@ public class ServiceAuthenticator extends Authenticator {
 
             long now = new Date().getTime();
             Long expiration = authState.getAccessTokenExpirationTime();
-            if (expiration != null && expiration - MIN_EXPIRE_INTERVAL > now)
-                expire = false;
+            boolean needsRefresh = (expiration != null && expiration < now);
 
-            if (expire)
+            if (!needsRefresh && forceRefresh &&
+                    expiration != null &&
+                    expiration - ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL < now)
                 authState.setNeedsTokenRefresh(true);
+
+            EntityLog.log(context, EntityLog.Type.Debug, "Token user=" + id + ":" + user +
+                    " expiration=" + (expiration == null ? null : new Date(expiration)) +
+                    " need=" + needsRefresh + "/" + authState.getNeedsTokenRefresh() +
+                    " force=" + forceRefresh);
 
             ClientAuthentication clientAuth;
             EmailProvider provider = EmailProvider.getProvider(context, id);
@@ -166,7 +172,7 @@ public class ServiceAuthenticator extends Authenticator {
             ErrorHolder holder = new ErrorHolder();
             Semaphore semaphore = new Semaphore(0);
 
-            Log.i("OAuth refresh id=" + id);
+            Log.i("OAuth refresh user=" + id + ":" + user);
             AuthorizationService authService = new AuthorizationService(context);
             authState.performActionWithFreshTokens(
                     authService,
@@ -181,12 +187,12 @@ public class ServiceAuthenticator extends Authenticator {
                     });
 
             semaphore.acquire();
-            Log.i("OAuth refreshed id=" + id);
+            Log.i("OAuth refreshed user=" + id + ":" + user);
 
             if (holder.error != null)
                 throw holder.error;
         } catch (Exception ex) {
-            throw new MessagingException("OAuth refresh id=" + id, ex);
+            throw new MessagingException("OAuth refresh id=" + id + ":" + user, ex);
         }
     }
 

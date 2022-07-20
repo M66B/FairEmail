@@ -60,17 +60,27 @@ public class GmailState {
             return acquired + TOKEN_LIFETIME;
     }
 
-    void refresh(@NonNull Context context, @NonNull String user, boolean expire)
+    void refresh(@NonNull Context context, String id, @NonNull String user, boolean forceRefresh)
             throws AuthenticatorException, OperationCanceledException, IOException {
         long now = new Date().getTime();
         Long expiration = getAccessTokenExpirationTime();
-        if (expiration != null && expiration - ServiceAuthenticator.MIN_EXPIRE_INTERVAL > now)
-            expire = false;
+        boolean needsRefresh = (expiration != null && expiration < now);
 
-        if (expire)
+        if (!needsRefresh && forceRefresh &&
+                expiration != null &&
+                expiration - ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL < now)
+            needsRefresh = true;
+
+
+        EntityLog.log(context, EntityLog.Type.Debug, "Token user=" + id + ":" + user +
+                " expiration=" + (expiration == null ? null : new Date(expiration)) +
+                " need=" + needsRefresh +
+                " force=" + forceRefresh);
+
+        if (needsRefresh)
             try {
                 if (token != null) {
-                    EntityLog.log(context, "Invalidating token user=" + user);
+                    EntityLog.log(context, "Invalidating token user=" + id + ":" + user);
                     AccountManager am = AccountManager.get(context);
                     am.invalidateAuthToken(TYPE_GOOGLE, token);
                 }
@@ -82,9 +92,9 @@ public class GmailState {
 
         Account account = getAccount(context, user.replace("recent:", ""));
         if (account == null)
-            throw new AuthenticatorException("Account not found for " + user);
+            throw new AuthenticatorException("Account not found for " + id + ":" + user);
 
-        EntityLog.log(context, "Getting token user=" + user);
+        EntityLog.log(context, "Getting token user=" + id + ":" + user);
         AccountManager am = AccountManager.get(context);
         String newToken = am.blockingGetAuthToken(
                 account,
@@ -97,7 +107,7 @@ public class GmailState {
         }
 
         if (token == null)
-            throw new AuthenticatorException("No token for " + user);
+            throw new AuthenticatorException("No token for " + id + ":" + user);
     }
 
     static Account getAccount(Context context, String user) {
