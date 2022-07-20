@@ -47,7 +47,6 @@ import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -278,9 +277,9 @@ public class FragmentSetup extends FragmentBase {
 
                 Resources res = context.getResources();
                 String pkg = context.getPackageName();
+                List<EmailProvider> providers = EmailProvider.loadProfiles(context);
 
                 boolean web = false;
-                List<EmailProvider> providers = EmailProvider.loadProfiles(context);
                 for (EmailProvider provider : providers)
                     if ("gmail".equals(provider.id) &&
                             provider.oauth != null &&
@@ -291,6 +290,7 @@ public class FragmentSetup extends FragmentBase {
 
                 int order = 1;
 
+                // Gmail / account manager
                 String gmail = getString(web ? R.string.title_setup_android : R.string.title_setup_oauth,
                         getString(R.string.title_setup_gmail));
                 MenuItem item = menu.add(Menu.FIRST, R.string.title_setup_gmail, order++, gmail);
@@ -298,6 +298,7 @@ public class FragmentSetup extends FragmentBase {
                 if (resid != 0)
                     item.setIcon(resid);
 
+                // OAuth
                 for (EmailProvider provider : providers)
                     if (provider.oauth != null &&
                             (provider.oauth.enabled || BuildConfig.DEBUG) &&

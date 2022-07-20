@@ -152,6 +152,9 @@ public class ServiceAuthenticator extends Authenticator {
     private static void OAuthRefresh(Context context, String id, AuthState authState, boolean expire, long keep_alive)
             throws MessagingException {
         try {
+            if ("gmail".equals(id) && !BuildConfig.DEBUG)
+                return;
+
             long now = new Date().getTime();
             Long expiration = authState.getAccessTokenExpirationTime();
             if (expiration != null && expiration - keep_alive < now) {
