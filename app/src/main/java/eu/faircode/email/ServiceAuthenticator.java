@@ -47,7 +47,6 @@ public class ServiceAuthenticator extends Authenticator {
     private Context context;
     private int auth;
     private String provider;
-    private long keep_alive;
     private String user;
     private String password;
     private IAuthenticated intf;
@@ -60,13 +59,12 @@ public class ServiceAuthenticator extends Authenticator {
 
     ServiceAuthenticator(
             Context context,
-            int auth, String provider, int keep_alive,
+            int auth, String provider,
             String user, String password,
             IAuthenticated intf) {
         this.context = context.getApplicationContext();
         this.auth = auth;
         this.provider = provider;
-        this.keep_alive = keep_alive * 60 * 1000L;
         this.user = user;
         this.password = password;
         this.intf = intf;
@@ -93,7 +91,7 @@ public class ServiceAuthenticator extends Authenticator {
     String refreshToken(boolean expire) throws AuthenticatorException, OperationCanceledException, IOException, JSONException, MessagingException {
         if (auth == AUTH_TYPE_GMAIL) {
             GmailState authState = GmailState.jsonDeserialize(password);
-            authState.refresh(context, user, expire, keep_alive);
+            authState.refresh(context, user, expire);
             Long expiration = authState.getAccessTokenExpirationTime();
             if (expiration != null)
                 EntityLog.log(context, user + " token expiration=" + new Date(expiration));
@@ -108,7 +106,7 @@ public class ServiceAuthenticator extends Authenticator {
             return authState.getAccessToken();
         } else if (auth == AUTH_TYPE_OAUTH && provider != null) {
             AuthState authState = AuthState.jsonDeserialize(password);
-            OAuthRefresh(context, provider, authState, expire, keep_alive);
+            OAuthRefresh(context, provider, authState, expire);
             Long expiration = authState.getAccessTokenExpirationTime();
             if (expiration != null)
                 EntityLog.log(context, user + " token expiration=" + new Date(expiration));
@@ -144,7 +142,7 @@ public class ServiceAuthenticator extends Authenticator {
         void onPasswordChanged(Context context, String newPassword);
     }
 
-    private static void OAuthRefresh(Context context, String id, AuthState authState, boolean expire, long keep_alive)
+    private static void OAuthRefresh(Context context, String id, AuthState authState, boolean expire)
             throws MessagingException {
         try {
             if ("gmail".equals(id) && !BuildConfig.DEBUG)
@@ -152,13 +150,6 @@ public class ServiceAuthenticator extends Authenticator {
 
             long now = new Date().getTime();
             Long expiration = authState.getAccessTokenExpirationTime();
-            if (expiration != null && expiration - keep_alive < now) {
-                EntityLog.log(context, "OAuth force refresh" +
-                        " expiration=" + new Date(expiration) +
-                        " keep_alive=" + (keep_alive / 60 / 1000) + "m");
-                expire = true;
-            }
-
             if (expiration != null && expiration - MIN_EXPIRE_INTERVAL > now)
                 expire = false;
 

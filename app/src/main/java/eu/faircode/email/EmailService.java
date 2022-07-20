@@ -349,7 +349,7 @@ public class EmailService implements AutoCloseable {
     public void connect(EntityAccount account) throws MessagingException {
         connect(
                 account.host, account.port,
-                account.auth_type, account.provider, account.poll_interval,
+                account.auth_type, account.provider,
                 account.user, account.password,
                 new ServiceAuthenticator.IAuthenticated() {
                     @Override
@@ -368,7 +368,7 @@ public class EmailService implements AutoCloseable {
     public void connect(EntityIdentity identity) throws MessagingException {
         connect(
                 identity.host, identity.port,
-                identity.auth_type, identity.provider, 0,
+                identity.auth_type, identity.provider,
                 identity.user, identity.password,
                 new ServiceAuthenticator.IAuthenticated() {
                     @Override
@@ -389,12 +389,12 @@ public class EmailService implements AutoCloseable {
             int auth, String provider,
             String user, String password,
             String certificate, String fingerprint) throws MessagingException {
-        connect(host, port, auth, provider, 0, user, password, null, certificate, fingerprint);
+        connect(host, port, auth, provider, user, password, null, certificate, fingerprint);
     }
 
     private void connect(
             String host, int port,
-            int auth, String provider, int keep_alive,
+            int auth, String provider,
             String user, String password,
             ServiceAuthenticator.IAuthenticated intf,
             String certificate, String fingerprint) throws MessagingException {
@@ -442,8 +442,7 @@ public class EmailService implements AutoCloseable {
         }
 
         properties.put("mail." + protocol + ".forcepasswordrefresh", "true");
-        authenticator = new ServiceAuthenticator(context,
-                auth, provider, keep_alive, user, password, intf);
+        authenticator = new ServiceAuthenticator(context, auth, provider, user, password, intf);
 
         if ("imap.wp.pl".equals(host))
             properties.put("mail.idledone", "false");
