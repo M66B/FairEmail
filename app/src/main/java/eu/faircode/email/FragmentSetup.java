@@ -279,7 +279,7 @@ public class FragmentSetup extends FragmentBase {
                 String pkg = context.getPackageName();
                 List<EmailProvider> providers = EmailProvider.loadProfiles(context);
 
-                boolean web = false;
+                boolean web = BuildConfig.DEBUG;
                 for (EmailProvider provider : providers)
                     if ("gmail".equals(provider.id) &&
                             provider.oauth != null &&
