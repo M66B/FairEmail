@@ -4,10 +4,9 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
-### Next version
+### 1.1935 - 2022-07-20
 
-* Added saved search order
-* Added editing saved search name and color
+* Added editing saved search name, order (new) and color
 * Small improvements and minor bug fixes
 * Updated libraries
 * Updated translations
