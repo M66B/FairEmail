@@ -62,13 +62,17 @@ public class GmailState {
 
     void refresh(@NonNull Context context, @NonNull String user, boolean expire, long keep_alive)
             throws AuthenticatorException, OperationCanceledException, IOException {
+        long now = new Date().getTime();
         Long expiration = getAccessTokenExpirationTime();
-        if (expiration != null && expiration - keep_alive < new Date().getTime()) {
+        if (expiration != null && expiration - keep_alive < now) {
             EntityLog.log(context, "Force invalidation" +
                     " expiration=" + new Date(expiration) +
                     " keep-alive=" + (keep_alive / 60 / 1000) + "m");
             expire = true;
         }
+
+        if (expiration != null && expiration - ServiceAuthenticator.MIN_EXPIRE_INTERVAL > now)
+            expire = false;
 
         if (expire)
             try {

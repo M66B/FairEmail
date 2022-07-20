@@ -56,6 +56,8 @@ public class ServiceAuthenticator extends Authenticator {
     static final int AUTH_TYPE_GMAIL = 2;
     static final int AUTH_TYPE_OAUTH = 3;
 
+    static final long MIN_EXPIRE_INTERVAL = 15 * 60 * 1000L;
+
     ServiceAuthenticator(
             Context context,
             int auth, String provider, int keep_alive,
@@ -150,13 +152,17 @@ public class ServiceAuthenticator extends Authenticator {
     private static void OAuthRefresh(Context context, String id, AuthState authState, boolean expire, long keep_alive)
             throws MessagingException {
         try {
+            long now = new Date().getTime();
             Long expiration = authState.getAccessTokenExpirationTime();
-            if (expiration != null && expiration - keep_alive < new Date().getTime()) {
+            if (expiration != null && expiration - keep_alive < now) {
                 EntityLog.log(context, "OAuth force refresh" +
                         " expiration=" + new Date(expiration) +
                         " keep_alive=" + (keep_alive / 60 / 1000) + "m");
-                authState.setNeedsTokenRefresh(true);
+                expire = true;
             }
+
+            if (expiration != null && expiration - MIN_EXPIRE_INTERVAL > now)
+                expire = false;
 
             if (expire)
                 authState.setNeedsTokenRefresh(true);
