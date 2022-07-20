@@ -889,8 +889,8 @@ public class EmailService implements AutoCloseable {
             return false;
     }
 
-    public void check() {
-        authenticator.checkToken();
+    public Long getAccessTokenExpirationTime() {
+        return authenticator.getAccessTokenExpirationTime();
     }
 
     public boolean isOpen() {

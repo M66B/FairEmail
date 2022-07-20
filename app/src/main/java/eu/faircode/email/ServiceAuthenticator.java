@@ -56,7 +56,7 @@ public class ServiceAuthenticator extends Authenticator {
     static final int AUTH_TYPE_GMAIL = 2;
     static final int AUTH_TYPE_OAUTH = 3;
 
-    static final long MIN_EXPIRE_INTERVAL = 12 * 60 * 1000L;
+    static final long MIN_EXPIRE_INTERVAL = 15 * 60 * 1000L;
 
     ServiceAuthenticator(
             Context context,
@@ -125,24 +125,19 @@ public class ServiceAuthenticator extends Authenticator {
             return password;
     }
 
-    void checkToken() {
-        Long expiration = null;
-
+    Long getAccessTokenExpirationTime() {
         try {
             if (auth == AUTH_TYPE_GMAIL) {
                 GmailState authState = GmailState.jsonDeserialize(password);
-                expiration = authState.getAccessTokenExpirationTime();
+                return authState.getAccessTokenExpirationTime();
             } else if (auth == AUTH_TYPE_OAUTH) {
                 AuthState authState = AuthState.jsonDeserialize(password);
-                expiration = authState.getAccessTokenExpirationTime();
+                return authState.getAccessTokenExpirationTime();
             }
         } catch (JSONException ex) {
             Log.e(ex);
         }
-
-        long slack = Math.min(keep_alive, MIN_EXPIRE_INTERVAL);
-        if (expiration != null && expiration - slack < new Date().getTime())
-            throw new IllegalStateException(Log.TOKEN_REFRESH_REQUIRED);
+        return null;
     }
 
     interface IAuthenticated {
