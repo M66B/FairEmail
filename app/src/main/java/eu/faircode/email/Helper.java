@@ -1155,6 +1155,18 @@ public class Helper {
         return 0;
     }
 
+    static long getUpdateTime(Context context) {
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, 0);
+            if (pi != null)
+                return pi.lastUpdateTime;
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+        return 0;
+    }
+
     static int getTargetSdk(Context context) {
         if (targetSdk == null)
             try {
