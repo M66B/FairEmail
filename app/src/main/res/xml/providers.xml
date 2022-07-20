@@ -24,7 +24,7 @@
             askAccount="true"
             authorizationEndpoint="https://accounts.google.com/o/oauth2/auth"
             clientId="803253368361-11ias0ee6bqhvdi4f21fs1lh7fsb0il2.apps.googleusercontent.com"
-            enabled="false"
+            enabled="true"
             privacy="https://policies.google.com/privacy"
             prompt="consent"
             redirectUri="eu.faircode.email:/"
