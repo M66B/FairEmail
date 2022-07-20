@@ -4,6 +4,11 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
+### 1.1937 - 2022-07-20
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1936 - 2022-07-20
 
 * Disabled Gmail web OAuth flow
