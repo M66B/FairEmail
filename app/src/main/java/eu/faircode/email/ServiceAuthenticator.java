@@ -82,7 +82,9 @@ public class ServiceAuthenticator extends Authenticator {
                 Log.e(ex);
         }
 
-        Log.i(user + " returning " + (auth == AUTH_TYPE_PASSWORD ? "password" : "token"));
+        Log.i(user + " returning " +
+                (auth == AUTH_TYPE_PASSWORD ? "password" : "token") +
+                (BuildConfig.DEBUG ? "=" + token : ""));
         return new PasswordAuthentication(user, token);
     }
 
