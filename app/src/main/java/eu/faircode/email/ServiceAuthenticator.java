@@ -56,7 +56,7 @@ public class ServiceAuthenticator extends Authenticator {
     static final int AUTH_TYPE_GMAIL = 2;
     static final int AUTH_TYPE_OAUTH = 3;
 
-    static final long MIN_EXPIRE_INTERVAL = 15 * 60 * 1000L;
+    static final long MIN_EXPIRE_INTERVAL = 12 * 60 * 1000L;
 
     ServiceAuthenticator(
             Context context,
@@ -140,7 +140,7 @@ public class ServiceAuthenticator extends Authenticator {
             Log.e(ex);
         }
 
-        long slack = Math.min(keep_alive, 30 * 60 * 1000L);
+        long slack = Math.max(keep_alive, MIN_EXPIRE_INTERVAL);
         if (expiration != null && expiration - slack < new Date().getTime())
             throw new IllegalStateException(Log.TOKEN_REFRESH_REQUIRED);
     }
