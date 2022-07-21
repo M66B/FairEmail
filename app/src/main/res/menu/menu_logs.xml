@@ -8,12 +8,6 @@
         android:title="@string/title_enabled"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menu_auto_scroll"
-        android:checkable="true"
-        android:checked="true"
-        android:title="@string/title_auto_scroll"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/menu_show"
         android:title="@string/title_unhide"
         app:showAsAction="never">

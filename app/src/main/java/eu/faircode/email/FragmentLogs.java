@@ -105,6 +105,17 @@ public class FragmentLogs extends FragmentBase {
         adapter = new AdapterLog(this);
         rvLog.setAdapter(adapter);
 
+        rvLog.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                try {
+                    autoScroll = (llm.findFirstVisibleItemPosition() == 0);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
+
         // Initialize
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -159,7 +170,6 @@ public class FragmentLogs extends FragmentBase {
         boolean all = (account == null && folder == null && message == null);
 
         menu.findItem(R.id.menu_enabled).setChecked(main_log);
-        menu.findItem(R.id.menu_auto_scroll).setChecked(autoScroll);
         menu.findItem(R.id.menu_show).setVisible(all);
         menu.findItem(R.id.menu_clear).setVisible(all);
 
@@ -174,11 +184,6 @@ public class FragmentLogs extends FragmentBase {
             item.setChecked(enabled);
             onMenuEnable(enabled);
             return true;
-        } else if (itemId == R.id.menu_auto_scroll) {
-            boolean enabled = !item.isChecked();
-            item.setChecked(enabled);
-            onMenuAutoScroll(enabled);
-            return true;
         } else if (itemId == R.id.menu_show) {
             onMenuShow();
         } else if (itemId == R.id.menu_clear) {
@@ -191,10 +196,6 @@ public class FragmentLogs extends FragmentBase {
     private void onMenuEnable(boolean enabled) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("main_log", enabled).apply();
-    }
-
-    private void onMenuAutoScroll(boolean enabled) {
-        autoScroll = enabled;
     }
 
     private void onMenuShow() {
