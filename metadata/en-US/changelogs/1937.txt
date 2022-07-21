@@ -4,6 +4,12 @@ Changelog
 
 Kinnareemimus
 
+Next version
+
+* Added Gmail web OAuth flow
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.1937 - 2022-07-20
 
 * Small improvements and minor bug fixes
