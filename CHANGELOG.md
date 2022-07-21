@@ -4,6 +4,10 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
+### 1.1940 - 2022-07-21
+
+* Added check for token expiration
+
 ### 1.1939 - 2022-07-21
 
 * Fixed saving searches
