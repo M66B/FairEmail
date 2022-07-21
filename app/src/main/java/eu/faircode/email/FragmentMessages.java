@@ -5764,7 +5764,7 @@ public class FragmentMessages extends FragmentBase
                 DB db = DB.getInstance(context);
 
                 EntitySearch search = null;
-                if (criteria.id >= 0)
+                if (criteria.id != null)
                     search = db.search().getSearch(criteria.id);
                 if (search == null)
                     search = new EntitySearch();
