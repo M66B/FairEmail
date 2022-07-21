@@ -3109,7 +3109,8 @@ Please be aware that removing the storage space will inevitably result in proble
 When needed you can save (raw) messages via the three-dots menu just above the message text
 and save attachments by tapping on the floppy icon.
 
-If you need to save on storage space, you can limit the number of days messages are being synchronized and kept for.
+If you need to save on storage space, you can limit the number of days messages are being synchronized and kept on your device
+and disable downloading and storing of message texts and attachments (which means only message headers will be stored).
 You can change these settings by long pressing a folder in the folder list and selecting *Edit properties*.
 
 <br />
