@@ -1358,7 +1358,7 @@
     <string name="title_padding">余白のサイズ</string>
     <string name="title_select_language">言語を選択</string>
     <string name="title_select_all">すべて選択</string>
-    <string name="title_select_found">見つかったものを選択</string>
+    <string name="title_select_found">検索結果をすべて選択</string>
     <string name="title_mark_all_read">すべて既読にする</string>
     <string name="title_view_thread">会話を見る</string>
     <string name="title_force_sync">強制同期</string>
