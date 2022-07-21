@@ -2445,8 +2445,8 @@ public abstract class DB extends RoomDatabase {
                     }
 
                     long elapse = new Date().getTime() - start;
-                    EntityLog.log(context, EntityLog.Type.Debug,
-                            "PRAGMA wal_checkpoint(" + mode + ")=" + sb + " elapse=" + elapse + " ms");
+                    EntityLog.log(context, "PRAGMA wal_checkpoint(" + mode + ")=" + sb +
+                            " elapse=" + elapse + " ms");
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
