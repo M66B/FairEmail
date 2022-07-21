@@ -2241,6 +2241,17 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 throw new StoreClosedException(iservice.getStore(), "Unrecoverable", cause);
                             }
 
+                            // Check token expiration
+                            if (!account.isTransient(this)) {
+                                Long expirationTime = iservice.getAccessTokenExpirationTime();
+                                if (expirationTime != null && expirationTime < new Date().getTime()) {
+                                    EntityLog.log(this, EntityLog.Type.Debug, "Token" +
+                                            " expired=" + new Date(expirationTime) +
+                                            " user=" + account.provider + ":" + account.user);
+                                    throw new IllegalStateException(Log.TOKEN_REFRESH_REQUIRED);
+                                }
+                            }
+
                             // Sends store NOOP
                             if (EmailService.SEPARATE_STORE_CONNECTION) {
                                 EntityLog.log(this, EntityLog.Type.Account, account,
