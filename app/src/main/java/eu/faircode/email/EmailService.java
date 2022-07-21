@@ -476,6 +476,8 @@ public class EmailService implements AutoCloseable {
 
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH) {
                 try {
+                    EntityLog.log(context, EntityLog.Type.Debug,
+                            ex + "\n" + android.util.Log.getStackTraceString(ex));
                     authenticator.refreshToken(true);
                     connect(host, port, auth, user, factory);
                 } catch (Exception ex1) {
