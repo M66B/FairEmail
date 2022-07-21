@@ -1285,7 +1285,7 @@
     <string name="title_search_sender">搜尋寄件者</string>
     <string name="title_save_search_name">名稱</string>
     <string name="title_save_search_order">順序</string>
-    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">顏色</string>
+    <string name="title_save_search_color">顏色</string>
     <string name="title_sort_on">排序</string>
     <string name="title_sort_on_time">時間</string>
     <string name="title_sort_on_unread">未讀取</string>
@@ -1633,7 +1633,6 @@
     <string name="title_boundary_retry">再試一次</string>
     <string name="title_unexpected_error">意外的錯誤</string>
     <string name="title_log">紀錄</string>
-    <string name="title_auto_scroll">自動滾動</string>
     <string name="title_log_clear">清除</string>
     <string name="title_rules_search_hint">搜尋名稱或條件</string>
     <string name="title_rules_export">匯出規則</string>

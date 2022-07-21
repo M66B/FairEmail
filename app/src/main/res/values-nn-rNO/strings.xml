@@ -906,7 +906,7 @@
     <string name="title_search_sender">Søk etter avsender</string>
     <string name="title_save_search_name">Navn</string>
     <string name="title_save_search_order">Rekkefølge</string>
-    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">Farge</string>
+    <string name="title_save_search_color">Farge</string>
     <string name="title_sort_on">Sorter på</string>
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Ulest</string>
@@ -1206,7 +1206,6 @@
     <string name="title_boundary_retry">Prøv igjen</string>
     <string name="title_unexpected_error">Uventet feil</string>
     <string name="title_log">Logg</string>
-    <string name="title_auto_scroll">Automatisk rulling</string>
     <string name="title_log_clear">Tøm</string>
     <string name="title_rules_search_hint">Søkenavn eller betingelse</string>
     <string name="title_rules_export">Eksporter regler</string>

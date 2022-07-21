@@ -917,7 +917,7 @@
     <string name="title_search_sender">Търсене на подател</string>
     <string name="title_save_search_name">Име</string>
     <string name="title_save_search_order">Подреждане</string>
-    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">Цвят</string>
+    <string name="title_save_search_color">Цвят</string>
     <string name="title_sort_on">Сортирай по</string>
     <string name="title_sort_on_time">Време</string>
     <string name="title_sort_on_unread">Непрочетени</string>
@@ -1232,7 +1232,6 @@
     <string name="title_boundary_retry">Опитайте отново</string>
     <string name="title_unexpected_error">Неочаквана грешка</string>
     <string name="title_log">Лог</string>
-    <string name="title_auto_scroll">Автоматично превъртане</string>
     <string name="title_log_clear">Изчисти</string>
     <string name="title_rules_delete_all">Изтривате ли всички правила</string>
     <string name="title_rules_delete_all_confirm">Изтривате ли всички правила?</string>

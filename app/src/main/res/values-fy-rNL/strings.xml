@@ -1026,7 +1026,7 @@
     <string name="title_search_sender">Sykje nei stjoerder</string>
     <string name="title_save_search_name">Namme</string>
     <string name="title_save_search_order">Sekwinsje</string>
-    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">Kleur</string>
+    <string name="title_save_search_color">Kleur</string>
     <string name="title_sort_on">Sortearje op</string>
     <string name="title_sort_on_time">Tiid</string>
     <string name="title_sort_on_unread">Net lêzen</string>
@@ -1341,7 +1341,6 @@
     <string name="title_boundary_retry">Besykje opnij</string>
     <string name="title_unexpected_error">Net ferwachte flater</string>
     <string name="title_log">Lochboek</string>
-    <string name="title_auto_scroll">Auto skowe</string>
     <string name="title_log_clear">Wiskje</string>
     <string name="title_rules_search_hint">Sykje namme as tastân</string>
     <string name="title_rules_export">Eksportregels</string>

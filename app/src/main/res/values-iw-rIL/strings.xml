@@ -1365,10 +1365,10 @@
     <string name="title_search_in">חיפוש בתוך</string>
     <string name="title_search_sender">חיפוש מוען</string>
     <string name="title_search_delete">למחוק את החיפוש השמור?</string>
-    <string name="title_save_search" comment="title_save_search&#10;Title of dialog to save a search for later reuse">חיפוש שמור</string>
+    <string name="title_save_search">חיפוש שמור</string>
     <string name="title_save_search_name">שם</string>
     <string name="title_save_search_order">סדר</string>
-    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">צבע</string>
+    <string name="title_save_search_color">צבע</string>
     <string name="title_sort_on">מיון לפי</string>
     <string name="title_sort_on_time">שעה</string>
     <string name="title_sort_on_unread">לא נקרא</string>
@@ -1732,7 +1732,6 @@
     <string name="title_boundary_retry">לנסות שוב</string>
     <string name="title_unexpected_error">שגיאה בלתי צפויה</string>
     <string name="title_log">יומן</string>
-    <string name="title_auto_scroll">גלילה אוטומטית</string>
     <string name="title_log_clear">פינוי</string>
     <string name="title_rules_search_hint">חיפוש שם או תנאי</string>
     <string name="title_rules_export">ייצוא כללים</string>

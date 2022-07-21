@@ -1335,10 +1335,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_search_in">Zoeken in</string>
     <string name="title_search_sender">Zoek naar afzender</string>
     <string name="title_search_delete">Opgeslagen zoekopdracht verwijderen?</string>
-    <string name="title_save_search" comment="title_save_search&#10;Title of dialog to save a search for later reuse">Opgeslagen zoekopdracht</string>
+    <string name="title_save_search">Opgeslagen zoekopdracht</string>
     <string name="title_save_search_name">Naam</string>
     <string name="title_save_search_order">Volgorde</string>
-    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">Kleur</string>
+    <string name="title_save_search_color">Kleur</string>
     <string name="title_sort_on">Sorteer op</string>
     <string name="title_sort_on_time">Tijd</string>
     <string name="title_sort_on_unread">Ongelezen</string>
@@ -1699,7 +1699,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_boundary_retry">Probeer opnieuw</string>
     <string name="title_unexpected_error">Onverwachte fout</string>
     <string name="title_log">Logboek</string>
-    <string name="title_auto_scroll">Automatisch scrollen</string>
     <string name="title_log_clear">Wissen</string>
     <string name="title_rules_search_hint">Zoek naam of voorwaarde</string>
     <string name="title_rules_export">Exporteer regels</string>

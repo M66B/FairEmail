@@ -648,7 +648,7 @@
     <string name="title_search_sender">Претражи пошиљаоца</string>
     <string name="title_save_search_name">Име</string>
     <string name="title_save_search_order">Редослед</string>
-    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">Боја</string>
+    <string name="title_save_search_color">Боја</string>
     <string name="title_sort_on">Сортирај по</string>
     <string name="title_sort_on_time">Времену</string>
     <string name="title_sort_on_unread">Непрочитаним</string>
@@ -905,7 +905,6 @@
     <string name="title_boundary_retry">Покушај поново</string>
     <string name="title_unexpected_error">Неочекивана грешка</string>
     <string name="title_log">Дневник</string>
-    <string name="title_auto_scroll">Аутоматско померање</string>
     <string name="title_log_clear">Очисти</string>
     <string name="title_rules_delete_all">Избрисати сва правила</string>
     <string name="title_rules_delete_all_confirm">Избрисати сва правила?</string>

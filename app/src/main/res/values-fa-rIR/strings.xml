@@ -936,10 +936,10 @@
     <string name="title_search_in">جستجو در</string>
     <string name="title_search_sender">جستجو برای فرستنده</string>
     <string name="title_search_delete">جستجوی ذخیره شده پاک شود؟</string>
-    <string name="title_save_search" comment="title_save_search&#10;Title of dialog to save a search for later reuse">جستجوهای ذخیره شده</string>
+    <string name="title_save_search">جستجوهای ذخیره شده</string>
     <string name="title_save_search_name">نام</string>
     <string name="title_save_search_order">سفارش</string>
-    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">رنگ</string>
+    <string name="title_save_search_color">رنگ</string>
     <string name="title_sort_on">مرتب‌سازی براساس</string>
     <string name="title_sort_on_time">زمان</string>
     <string name="title_sort_on_unread">خوانده نشده</string>
@@ -1214,7 +1214,6 @@
     <string name="title_boundary_retry">دوباره تلاش کن</string>
     <string name="title_unexpected_error">خطای غیر منتظره</string>
     <string name="title_log">گزارش اتفاقات</string>
-    <string name="title_auto_scroll">پیمایش خودکار</string>
     <string name="title_log_clear">پاک‌سازی</string>
     <string name="title_debug_info">اطلاعات اشکال زدایی</string>
     <string name="title_debug_info_remark">لطفاً مشکل را شرح داده و به زمان مشکل نیز اشاره کنید:</string>

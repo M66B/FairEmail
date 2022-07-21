@@ -823,7 +823,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_search_sender">Cerca correu</string>
     <string name="title_save_search_name">Nom</string>
     <string name="title_save_search_order">Ordre</string>
-    <string name="title_save_search_color" comment="title_save_search_color&#10;Color of saved search, shown in the navigation menu">Color</string>
+    <string name="title_save_search_color">Color</string>
     <string name="title_sort_on">Ordena per</string>
     <string name="title_sort_on_time">Data</string>
     <string name="title_sort_on_unread">Sense llegir</string>
@@ -1097,7 +1097,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_boundary_retry">Prova de nou</string>
     <string name="title_unexpected_error">S\'ha produït un error inesperat</string>
     <string name="title_log">Registres</string>
-    <string name="title_auto_scroll">Desplaçament automàtic</string>
     <string name="title_log_clear">Netejar</string>
     <string name="title_rules_export">Exporta regles</string>
     <string name="title_rules_import">Importa regles</string>
