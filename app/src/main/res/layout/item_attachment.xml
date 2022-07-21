@@ -79,9 +79,22 @@
             android:padding="6dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ibScan"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_save_alt_24" />
+
+        <ImageButton
+            android:id="@+id/ibScan"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_legend_scan"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/tvType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/twotone_travel_explore_24" />
 
         <TextView
             android:id="@+id/tvType"

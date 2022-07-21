@@ -48,7 +48,11 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -79,6 +83,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         private TextView tvSize;
         private ImageView ivStatus;
         private ImageButton ibSave;
+        private ImageButton ibScan;
         private TextView tvType;
         private TextView tvError;
         private ProgressBar progressbar;
@@ -93,6 +98,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             tvSize = itemView.findViewById(R.id.tvSize);
             ivStatus = itemView.findViewById(R.id.ivStatus);
             ibSave = itemView.findViewById(R.id.ibSave);
+            ibScan = itemView.findViewById(R.id.ibScan);
             tvType = itemView.findViewById(R.id.tvType);
             ivDisposition = itemView.findViewById(R.id.ivDisposition);
             tvError = itemView.findViewById(R.id.tvError);
@@ -103,6 +109,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             view.setOnClickListener(this);
             ibDelete.setOnClickListener(this);
             ibSave.setOnClickListener(this);
+            ibScan.setOnClickListener(this);
             view.setOnLongClickListener(this);
         }
 
@@ -110,6 +117,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             view.setOnClickListener(null);
             ibDelete.setOnClickListener(null);
             ibSave.setOnClickListener(null);
+            ibScan.setOnClickListener(null);
             view.setOnLongClickListener(null);
         }
 
@@ -168,6 +176,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             }
 
             ibSave.setVisibility(attachment.available ? View.VISIBLE : View.GONE);
+            ibScan.setVisibility(attachment.available && !BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
 
             if (attachment.progress != null)
                 progressbar.setProgress(attachment.progress);
@@ -201,10 +210,13 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             if (attachment == null)
                 return;
 
-            if (view.getId() == R.id.ibDelete)
+            int id = view.getId();
+            if (id == R.id.ibDelete)
                 onDelete(attachment);
-            else if (view.getId() == R.id.ibSave)
+            else if (id == R.id.ibSave)
                 onSave(attachment);
+            else if (id == R.id.ibScan)
+                onScan(attachment);
             else {
                 if (attachment.available)
                     onShare(attachment);
@@ -297,6 +309,47 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                             .putExtra("id", attachment.id)
                             .putExtra("name", Helper.sanitizeFilename(attachment.name))
                             .putExtra("type", attachment.getMimeType()));
+        }
+
+        private void onScan(EntityAttachment attachment) {
+            Bundle args = new Bundle();
+            args.putLong("id", attachment.id);
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityAttachment attachment = db.attachment().getAttachment(id);
+                    if (attachment == null)
+                        return null;
+
+                    MessageDigest digest = MessageDigest.getInstance("SHA-256");
+
+                    try (InputStream is = new BufferedInputStream(new FileInputStream(attachment.getFile(context)))) {
+                        int count;
+                        byte[] buffer = new byte[1024];
+                        while ((count = is.read(buffer)) != -1)
+                            digest.update(buffer, 0, count);
+                    }
+
+                    return Helper.hex(digest.digest());
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String hash) {
+                    if (hash == null)
+                        return;
+
+                    Uri uri = Uri.parse(Helper.URI_VIRUS_TOTAL + "gui/file/" + hash);
+                    Helper.view(context, uri, false);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "attachment:scan");
         }
 
         private void onShare(EntityAttachment attachment) {

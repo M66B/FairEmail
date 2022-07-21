@@ -1840,6 +1840,7 @@
     <string name="title_legend_sync_state">Synchronization state</string>
     <string name="title_legend_download_state">Download state</string>
     <string name="title_legend_save">Save</string>
+    <string name="title_legend_scan">Scan</string>
     <string name="title_legend_delete">Delete</string>
     <string name="title_legend_count">Count</string>
     <string name="title_legend_folder_type">Folder type</string>
