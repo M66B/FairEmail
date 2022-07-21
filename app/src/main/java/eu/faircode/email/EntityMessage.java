@@ -261,6 +261,10 @@ public class EntityMessage implements Serializable {
         return "<" + UUID.randomUUID() + "@" + domain + '>';
     }
 
+    String getLink() {
+        return "message://email.faircode.eu/link/#" + id;
+    }
+
     boolean isPlainOnly() {
         return (this.plain_only != null && (this.plain_only & 1) != 0);
     }

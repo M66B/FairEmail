@@ -6364,13 +6364,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!TextUtils.isEmpty(message.subject))
                         result.put("subject", message.subject);
 
-                    String link = "message://email.faircode.eu/link/#" + message.id;
+                    String link = message.getLink();
 
                     Document document = JsoupEx.parse(file);
                     HtmlHelper.truncate(document, HtmlHelper.MAX_SHARE_TEXT_SIZE);
 
                     Element a = document.createElement("a");
-                    a.text(context.getString(R.string.app_name));
+                    a.text(link);
                     a.attr("href", link);
 
                     document.body().appendElement("p").appendChild(a);
