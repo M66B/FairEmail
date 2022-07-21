@@ -534,15 +534,16 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         if (message.identity == null)
             throw new IllegalArgumentException("Send without identity");
+        if (!message.content)
+            throw new IllegalArgumentException("Message body missing");
+
+        EntityAccount account = db.account().getAccount(message.account);
 
         EntityIdentity ident = db.identity().getIdentity(message.identity);
         if (ident == null)
             throw new IllegalArgumentException("Identity not found");
         if (!ident.synchronize)
             throw new IllegalArgumentException("Identity is disabled");
-
-        if (!message.content)
-            throw new IllegalArgumentException("Message body missing");
 
         // Update message ID
         if (message.from != null && message.from.length > 0) {
@@ -616,7 +617,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
                 message.id = null;
                 message.folder = sent.id;
-                message.identity = null;
+                if (account != null && account.protocol == EntityAccount.TYPE_IMAP)
+                    message.identity = null;
                 message.from = helper.getFrom();
                 message.cc = helper.getCc();
                 message.bcc = helper.getBcc();
