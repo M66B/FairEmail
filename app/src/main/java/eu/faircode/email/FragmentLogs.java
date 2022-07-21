@@ -109,7 +109,7 @@ public class FragmentLogs extends FragmentBase {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 try {
-                    autoScroll = (llm.findFirstVisibleItemPosition() == 0);
+                    autoScroll = (llm.findFirstVisibleItemPosition() <= 0);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
