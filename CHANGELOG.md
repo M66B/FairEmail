@@ -4,9 +4,9 @@
 
 ### [Kinnareemimus](https://en.wikipedia.org/wiki/Kinnareemimus)
 
-### Next version
+### 1.1938 - 2022-07-21
 
-* Added Gmail web OAuth flow
+* Enabled Gmail web OAuth flow again
 * Small improvements and minor bug fixes
 * Updated translations
 
