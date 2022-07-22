@@ -376,19 +376,30 @@
                     app:layout_constraintTop_toBottomOf="@id/swDeepL"
                     app:srcCompat="@drawable/twotone_info_24" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swVirusTotal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_virus_total"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibDeepL"
+                    app:switchPadding="12dp" />
+
                 <TextView
-                    android:id="@+id/tvSdcard"
+                    android:id="@+id/tvVirusTotalPrivacy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
                     android:drawableTint="?android:attr/textColorLink"
-                    android:text="@string/title_advanced_sdcard"
+                    android:text="@string/title_privacy_policy"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibDeepL" />
+                    app:layout_constraintTop_toBottomOf="@id/swVirusTotal" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swUpdates"
@@ -399,7 +410,7 @@
                     android:text="@string/title_advanced_updates"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSdcard"
+                    app:layout_constraintTop_toBottomOf="@id/tvVirusTotalPrivacy"
                     app:switchPadding="12dp" />
 
                 <ImageButton
@@ -530,6 +541,26 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvCleanupHint" />
+
+                <TextView
+                    android:id="@+id/tvSdcard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?android:attr/textColorLink"
+                    android:text="@string/title_advanced_sdcard"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLastCleanup" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpVirusTotal"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="swVirusTotal,tvVirusTotalPrivacy" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpUpdates"

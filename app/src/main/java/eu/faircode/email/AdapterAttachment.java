@@ -48,11 +48,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -68,6 +64,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     private LayoutInflater inflater;
 
     private boolean readonly;
+    private boolean vt_enabled;
     private boolean debug;
     private int dp12;
     private int dp36;
@@ -109,7 +106,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             view.setOnClickListener(this);
             ibDelete.setOnClickListener(this);
             ibSave.setOnClickListener(this);
-            ibScan.setOnClickListener(this);
+            if (vt_enabled)
+                ibScan.setOnClickListener(this);
             view.setOnLongClickListener(this);
         }
 
@@ -117,7 +115,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             view.setOnClickListener(null);
             ibDelete.setOnClickListener(null);
             ibSave.setOnClickListener(null);
-            ibScan.setOnClickListener(null);
+            if (vt_enabled)
+                ibScan.setOnClickListener(null);
             view.setOnLongClickListener(null);
         }
 
@@ -176,7 +175,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             }
 
             ibSave.setVisibility(attachment.available ? View.VISIBLE : View.GONE);
-            ibScan.setVisibility(attachment.available && !BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
+            ibScan.setVisibility(attachment.available && vt_enabled ? View.VISIBLE : View.GONE);
 
             if (attachment.progress != null)
                 progressbar.setProgress(attachment.progress);
@@ -216,7 +215,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             else if (id == R.id.ibSave)
                 onSave(attachment);
             else if (id == R.id.ibScan)
-                onScan(attachment);
+                Check.virus(context, owner, parentFragment.getParentFragmentManager(), attachment.id);
             else {
                 if (attachment.available)
                     onShare(attachment);
@@ -311,47 +310,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                             .putExtra("type", attachment.getMimeType()));
         }
 
-        private void onScan(EntityAttachment attachment) {
-            Bundle args = new Bundle();
-            args.putLong("id", attachment.id);
-            new SimpleTask<String>() {
-                @Override
-                protected String onExecute(Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    EntityAttachment attachment = db.attachment().getAttachment(id);
-                    if (attachment == null)
-                        return null;
-
-                    MessageDigest digest = MessageDigest.getInstance("SHA-256");
-
-                    try (InputStream is = new BufferedInputStream(new FileInputStream(attachment.getFile(context)))) {
-                        int count;
-                        byte[] buffer = new byte[1024];
-                        while ((count = is.read(buffer)) != -1)
-                            digest.update(buffer, 0, count);
-                    }
-
-                    return Helper.hex(digest.digest());
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, String hash) {
-                    if (hash == null)
-                        return;
-
-                    Uri uri = Uri.parse(Helper.URI_VIRUS_TOTAL + "gui/file/" + hash);
-                    Helper.view(context, uri, false);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "attachment:scan");
-        }
-
         private void onShare(EntityAttachment attachment) {
             String title = (attachment.name == null ? attachment.cid : attachment.name);
             Helper.share(context, attachment.getFile(context), attachment.getMimeType(), title);
@@ -422,6 +380,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.vt_enabled = (prefs.getBoolean("vt_enabled", false) && !BuildConfig.PLAY_STORE_RELEASE);
         this.debug = prefs.getBoolean("debug", false);
         this.dp12 = Helper.dp2pixels(context, 12);
         this.dp36 = Helper.dp2pixels(context, 36);

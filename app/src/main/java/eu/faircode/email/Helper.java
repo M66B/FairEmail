@@ -123,6 +123,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.openintents.openpgp.util.OpenPgpApi;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -201,7 +202,6 @@ public class Helper {
     static final String DONTKILL_URI = "https://dontkillmyapp.com/";
     static final String URI_SUPPORT_RESET_OPEN = "https://support.google.com/pixelphone/answer/6271667";
     static final String URI_SUPPORT_CONTACT_GROUP = "https://support.google.com/contacts/answer/30970";
-    static final String URI_VIRUS_TOTAL = "https://www.virustotal.com/";
 
     // https://developer.android.com/distribute/marketing-tools/linking-to-google-play#PerformingSearch
     private static final String PLAY_STORE_SEARCH = "https://play.google.com/store/search";
@@ -2388,6 +2388,17 @@ public class Helper {
     static String sha(String digest, byte[] data) throws NoSuchAlgorithmException {
         byte[] bytes = MessageDigest.getInstance(digest).digest(data);
         return hex(bytes);
+    }
+
+    static String getHash(InputStream is, String algorithm) throws NoSuchAlgorithmException, IOException {
+        MessageDigest digest = MessageDigest.getInstance(algorithm);
+
+        int count;
+        byte[] buffer = new byte[BUFFER_SIZE];
+        while ((count = is.read(buffer)) != -1)
+            digest.update(buffer, 0, count);
+
+        return hex(digest.digest());
     }
 
     static String hex(byte[] bytes) {

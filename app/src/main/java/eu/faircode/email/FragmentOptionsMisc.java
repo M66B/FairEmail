@@ -118,7 +118,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private ImageButton ibLanguageTool;
     private SwitchCompat swDeepL;
     private ImageButton ibDeepL;
-    private TextView tvSdcard;
+    private SwitchCompat swVirusTotal;
+    private TextView tvVirusTotalPrivacy;
     private SwitchCompat swUpdates;
     private ImageButton ibChannelUpdated;
     private SwitchCompat swCheckWeekly;
@@ -129,6 +130,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swCleanupAttachments;
     private Button btnCleanup;
     private TextView tvLastCleanup;
+    private TextView tvSdcard;
 
     private CardView cardAdvanced;
     private SwitchCompat swWatchdog;
@@ -206,6 +208,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnAllPermissions;
     private TextView tvPermissions;
 
+    private Group grpVirusTotal;
     private Group grpUpdates;
     private Group grpTest;
     private CardView cardDebug;
@@ -217,7 +220,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "lt_enabled", "deepl_enabled",
+            "language", "lt_enabled", "deepl_enabled", "vt_enabled",
             "updates", "weekly", "show_changelog",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "protocol", "log_level", "debug", "leak_canary", "test1",
@@ -303,7 +306,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibLanguageTool = view.findViewById(R.id.ibLanguageTool);
         swDeepL = view.findViewById(R.id.swDeepL);
         ibDeepL = view.findViewById(R.id.ibDeepL);
-        tvSdcard = view.findViewById(R.id.tvSdcard);
+        swVirusTotal = view.findViewById(R.id.swVirusTotal);
+        tvVirusTotalPrivacy = view.findViewById(R.id.tvVirusTotalPrivacy);
         swUpdates = view.findViewById(R.id.swUpdates);
         ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
         swCheckWeekly = view.findViewById(R.id.swWeekly);
@@ -314,6 +318,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
         btnCleanup = view.findViewById(R.id.btnCleanup);
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
+        tvSdcard = view.findViewById(R.id.tvSdcard);
 
         cardAdvanced = view.findViewById(R.id.cardAdvanced);
         swWatchdog = view.findViewById(R.id.swWatchdog);
@@ -391,6 +396,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnAllPermissions = view.findViewById(R.id.btnAllPermissions);
         tvPermissions = view.findViewById(R.id.tvPermissions);
 
+        grpVirusTotal = view.findViewById(R.id.grpVirusTotal);
         grpUpdates = view.findViewById(R.id.grpUpdates);
         grpTest = view.findViewById(R.id.grpTest);
         cardDebug = view.findViewById(R.id.cardDebug);
@@ -623,11 +629,18 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        tvSdcard.setPaintFlags(tvSdcard.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        tvSdcard.setOnClickListener(new View.OnClickListener() {
+        swVirusTotal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("vt_enabled", checked).apply();
+            }
+        });
+
+        tvVirusTotalPrivacy.getPaint().setUnderlineText(true);
+        tvVirusTotalPrivacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 93);
+                Helper.view(v.getContext(), Uri.parse(Check.URI_PRIVACY), true);
             }
         });
 
@@ -699,6 +712,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View view) {
                 onCleanup();
+            }
+        });
+
+        tvSdcard.setPaintFlags(tvSdcard.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvSdcard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 93);
             }
         });
 
@@ -1565,6 +1586,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        grpVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+
         grpUpdates.setVisibility(!BuildConfig.DEBUG &&
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
                 ? View.GONE : View.VISIBLE);
@@ -1780,6 +1803,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swLanguageTool.setChecked(prefs.getBoolean("lt_enabled", false));
         swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
+        swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());
