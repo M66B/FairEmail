@@ -117,6 +117,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvLanguageToolPrivacy;
     private ImageButton ibLanguageTool;
     private SwitchCompat swDeepL;
+    private TextView tvDeepLPrivacy;
     private ImageButton ibDeepL;
     private SwitchCompat swVirusTotal;
     private TextView tvVirusTotalPrivacy;
@@ -305,6 +306,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvLanguageToolPrivacy = view.findViewById(R.id.tvLanguageToolPrivacy);
         ibLanguageTool = view.findViewById(R.id.ibLanguageTool);
         swDeepL = view.findViewById(R.id.swDeepL);
+        tvDeepLPrivacy = view.findViewById(R.id.tvDeepLPrivacy);
         ibDeepL = view.findViewById(R.id.ibDeepL);
         swVirusTotal = view.findViewById(R.id.swVirusTotal);
         tvVirusTotalPrivacy = view.findViewById(R.id.tvVirusTotalPrivacy);
@@ -612,6 +614,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 180);
+            }
+        });
+
+        tvDeepLPrivacy.getPaint().setUnderlineText(true);
+        tvDeepLPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(DeepL.PRIVACY_URI), true);
             }
         });
 

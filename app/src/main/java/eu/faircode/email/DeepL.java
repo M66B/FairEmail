@@ -76,7 +76,8 @@ public class DeepL {
 
     private static final int DEEPL_TIMEOUT = 20; // seconds
     private static final String PLAN_URI = "https://www.deepl.com/pro-account/plan";
-    private static final String PRIVACY_URI = "https://www.deepl.com/privacy/";
+
+    static final String PRIVACY_URI = "https://www.deepl.com/privacy/";
 
     // curl https://api-free.deepl.com/v2/languages \
     //	-d auth_key=... \
