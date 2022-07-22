@@ -37,6 +37,7 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [Thunderbird autoconfiguration](https://wiki.mozilla.org/Thunderbird:Autoconfiguration) &#8211; [Privacy policy](https://www.mozilla.org/privacy/)
 * [DeepL](https://www.deepl.com/) &#8211; [Privacy policy](https://www.deepl.com/privacy/)
 * [LanguageTool](https://languagetool.org/) &#8211; [Privacy policy](https://languagetool.org/legal/privacy)
+* [VirusTotal](https://www.virustotal.com/) &#8211; [Privacy policy](https://support.virustotal.com/hc/en-us/articles/115002168385-Privacy-Policy)
 * [Gravatar](https://gravatar.com/) (GitHub version only) &#8211; [Privacy policy](https://automattic.com/privacy/)
 * [Libravatar](https://www.libravatar.org/) (GitHub version only)  &#8211; [Privacy policy](https://www.libravatar.org/privacy/)
 * [GitHub](https://github.com/) (GitHub version only) &#8211; [Privacy policy](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
@@ -58,24 +59,27 @@ FairEmail **is** [GDPR compliant](https://gdpr.eu/).
 
 This table provides a complete overview of all shared data and the conditions under which data will be shared:
 
-| Service/function   | Data sent                                                         | When the data will be sent                                                  |
-| ------------------ | ----------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| Mozilla autoconfig | Email address of email accounts                                   | Upon configuring an email account                                           |
-| Email server       | Login credentials, messages sent                                  | Upon configuring and using an account or identity and upon sending messages |
-| ipinfo.io          | IP (network) address of domain names of links or email addresses  | Upon pressing a button in the link confirmation dialog                      |
-| Spamhaus           | IP (network) address of domain names of links or email addresses  | If spam blocklists are enabled, upon receiving a message                    |
-| Spamcop            | IP (network) address of domain names of links or email addresses  | If spam blocklists are enabled, upon receiving a message                    |
-| Barracuda          | IP (network) address of domain names of links or email addresses  | If spam blocklists are enabled, upon receiving a message                    |
-| DeepL              | Received or entered message text and target language code         | If translating is enabled, upon pressing a translate button                 |
-| LanguageTool       | Entered message texts                                             | If LanguageTools is enabled, upon long pressing the save draft button       |
-| Gravatar           | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Gravatars are enabled, upon receiving a message (GitHub version only)    |
-| Libravatar         | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses  | If Libravatars are enabled, upon receiving a message (GitHub version only)  |
-| GitHub             | None, but see the remarks below                                   | Upon downloading Disconnect's Tracker Protection lists                      |
-|                    |                                                                   | Upon checking for updates (GitHub version only)                             |
-| BIMI               | Domain name of email addresses                                    | If BIMI is enabled, upon receiving a message                                |
-| Favicons           | Domain name of email addresses                                    | If favicons are enabled, upon receiving a message                           |
-| Link title         | Link address                                                      | Upon pressing a download button in the insert link dialog                   |
-| Bugsnag            | Information about warnings and errors                             | If error reporting is enabled, upon detecting an abnormal situation         |
+| Service/function   | Data sent                                                          | When the data will be sent                                                  |
+| ------------------ | ------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| Mozilla autoconfig | Email address of email accounts                                    | Upon configuring an email account                                           |
+| Email server       | Login credentials, messages sent                                   | Upon configuring and using an account or identity and upon sending messages |
+| ipinfo.io          | IP (network) address of domain names of links or email addresses   | Upon pressing a button in the link confirmation dialog                      |
+| Spamhaus           | IP (network) address of domain names of links or email addresses   | If spam blocklists are enabled, upon receiving a message                    |
+| Spamcop            | IP (network) address of domain names of links or email addresses   | If spam blocklists are enabled, upon receiving a message                    |
+| Barracuda          | IP (network) address of domain names of links or email addresses   | If spam blocklists are enabled, upon receiving a message                    |
+| DeepL              | Received or entered message text and target language code          | If translating is enabled, upon pressing a translate button                 |
+| LanguageTool       | Entered message texts                                              | If LanguageTools is enabled, upon long pressing the save draft button       |
+| VirusTotal         | [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of attachments | If VirusTotal is enabled, upon long pressing a scan button (*)              |
+| Gravatar           | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Gravatars are enabled, upon receiving a message (*)                      |
+| Libravatar         | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Libravatars are enabled, upon receiving a message (*)                    |
+| GitHub             | None, but see the remarks below                                    | Upon downloading Disconnect's Tracker Protection lists                      |
+|                    |                                                                    | Upon checking for updates (*)                                               |
+| BIMI               | Domain name of email addresses                                     | If BIMI is enabled, upon receiving a message                                |
+| Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message                           |
+| Link title         | Link address                                                       | Upon pressing a download button in the insert link dialog                   |
+| Bugsnag            | Information about warnings and errors                              | If error reporting is enabled, upon detecting an abnormal situation         |
+
+(*) Only available in the GitHub version of the app
 
 All data is sent to improve the user experience in some way,
 like to simplify account setup, identify spam and malicious messages, display message and sender information, find bugs and errors, etc.
