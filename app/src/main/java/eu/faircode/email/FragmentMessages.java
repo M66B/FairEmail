@@ -2659,7 +2659,7 @@ public class FragmentMessages extends FragmentBase
             if (EntityMessage.SWIPE_ACTION_ASK.equals(action))
                 icon = R.drawable.twotone_help_24;
             else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
-                icon = (message.ui_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24);
+                icon = (message.unseen > 0 ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24);
             else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                 icon = (message.ui_flagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
             else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
@@ -2795,7 +2795,7 @@ public class FragmentMessages extends FragmentBase
                 adapter.notifyItemChanged(pos);
                 onSwipeAsk(message, viewHolder);
             } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
-                onActionSeenSelection(!message.ui_seen, message.id, false);
+                onActionSeenSelection(message.unseen > 0, message.id, false);
             else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                 onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id, false);
             else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
