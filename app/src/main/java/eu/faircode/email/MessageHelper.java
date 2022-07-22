@@ -4278,7 +4278,9 @@ public class MessageHelper {
                                 "report".equalsIgnoreCase(ct.getSubType()) ||
                                 "parallel".equalsIgnoreCase(ct.getSubType()) ||
                                 "digest".equalsIgnoreCase(ct.getSubType()) ||
-                                "appledouble".equalsIgnoreCase(ct.getSubType())))
+                                "appledouble".equalsIgnoreCase(ct.getSubType()) ||
+                                "voice-message".equalsIgnoreCase(ct.getSubType())))
+                    // voice-message: https://www.rfc-editor.org/rfc/rfc3458.txt
                     Log.e(part.getContentType());
             } catch (Throwable ex) {
                 Log.e(ex);
