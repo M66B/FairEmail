@@ -29,6 +29,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.FileInputStream;
@@ -66,7 +67,6 @@ public class Check {
                 String apikey = prefs.getString("vt_apikey", null);
 
                 if (!TextUtils.isEmpty(apikey)) {
-                    //hash = "51e31f76c8d70eaeda1aba0e21fc50f44d261b81416c4338ac3f71694a6648b3";
                     URL url = new URL(URI_VT_ENDPOINT + "api/v3/files/" + hash);
                     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
@@ -94,13 +94,35 @@ public class Check {
                             String response = Helper.readStream(connection.getInputStream());
                             Log.i("VT response=" + response);
 
+                            // https://developers.virustotal.com/reference/files
+                            // Example: https://gist.github.com/M66B/4ea95fdb93fb10bf4047761fcc9ec21a
                             JSONObject jroot = new JSONObject(response);
                             JSONObject jdata = jroot.getJSONObject("data");
                             JSONObject jattributes = jdata.getJSONObject("attributes");
+
                             JSONObject jclassification = jattributes.getJSONObject("popular_threat_classification");
                             String label = jclassification.getString("suggested_threat_label");
 
+                            int count = 0;
+                            int malicious = 0;
+                            JSONObject jlast_analysis_results = jattributes.getJSONObject("last_analysis_results");
+                            JSONArray jnames = jlast_analysis_results.names();
+                            for (int i = 0; i < jnames.length(); i++) {
+                                String name = jnames.getString(i);
+                                JSONObject jresult = jlast_analysis_results.getJSONObject(name);
+                                String category = jresult.getString("category");
+                                Log.i("VT " + name + "=" + category);
+                                if (!"type-unsupported".equals(category))
+                                    count++;
+                                if ("malicious".equals(category))
+                                    malicious++;
+                            }
+
+                            Log.i("VT label=" + label + " " + malicious + "/" + count);
+
                             args.putString("label", label);
+                            args.putInt("count", count);
+                            args.putInt("malicious", malicious);
                         }
                     } finally {
                         connection.disconnect();
