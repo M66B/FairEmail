@@ -43,8 +43,11 @@ import android.os.Bundle;
 import android.os.Debug;
 import android.os.Environment;
 import android.provider.Settings;
+import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.util.Pair;
@@ -59,6 +62,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -120,6 +124,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private ImageButton ibDeepL;
     private SwitchCompat swVirusTotal;
     private TextView tvVirusTotalPrivacy;
+    private EditText etVirusTotal;
     private SwitchCompat swUpdates;
     private ImageButton ibChannelUpdated;
     private SwitchCompat swCheckWeekly;
@@ -220,7 +225,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "lt_enabled", "deepl_enabled", "vt_enabled",
+            "language", "lt_enabled", "deepl_enabled", "vt_enabled", "vt_apikey",
             "updates", "weekly", "show_changelog",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "protocol", "log_level", "debug", "leak_canary", "test1",
@@ -309,6 +314,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibDeepL = view.findViewById(R.id.ibDeepL);
         swVirusTotal = view.findViewById(R.id.swVirusTotal);
         tvVirusTotalPrivacy = view.findViewById(R.id.tvVirusTotalPrivacy);
+        etVirusTotal = view.findViewById(R.id.etVirusTotal);
         swUpdates = view.findViewById(R.id.swUpdates);
         ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
         swCheckWeekly = view.findViewById(R.id.swWeekly);
@@ -650,6 +656,27 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.view(v.getContext(), Uri.parse(Check.URI_VT_PRIVACY), true);
+            }
+        });
+
+        etVirusTotal.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String apikey = s.toString().trim();
+                if (TextUtils.isEmpty(apikey))
+                    prefs.edit().remove("vt_apikey").apply();
+                else
+                    prefs.edit().putString("vt_apikey", apikey).apply();
             }
         });
 
@@ -1670,6 +1697,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if ("last_cleanup".equals(key))
             setLastCleanup(prefs.getLong(key, -1));
 
+        if ("vt_apikey".equals(key))
+            return;
+
         setOptions();
     }
 
@@ -1813,6 +1843,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swLanguageTool.setChecked(prefs.getBoolean("lt_enabled", false));
         swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
         swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
+        etVirusTotal.setText(prefs.getString("vt_apikey", null));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());

@@ -20,12 +20,14 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.preference.PreferenceManager;
 
 import org.json.JSONObject;
 
@@ -60,7 +62,10 @@ public class Check {
                     hash = Helper.getHash(is, "SHA-256");
                 }
 
-                if (!TextUtils.isEmpty(BuildConfig.VT_APIKEY)) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                String apikey = prefs.getString("vt_apikey", null);
+
+                if (!TextUtils.isEmpty(apikey)) {
                     //hash = "51e31f76c8d70eaeda1aba0e21fc50f44d261b81416c4338ac3f71694a6648b3";
                     URL url = new URL(URI_VT_ENDPOINT + "api/v3/files/" + hash);
                     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -68,7 +73,7 @@ public class Check {
                     connection.setReadTimeout(VT_TIMEOUT * 1000);
                     connection.setConnectTimeout(VT_TIMEOUT * 1000);
                     ConnectionHelper.setUserAgent(context, connection);
-                    connection.setRequestProperty("x-apikey", BuildConfig.VT_APIKEY);
+                    connection.setRequestProperty("x-apikey", apikey);
                     connection.connect();
 
                     try {
