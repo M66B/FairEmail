@@ -22,16 +22,24 @@ package eu.faircode.email;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LifecycleOwner;
 
+import org.json.JSONObject;
+
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class Check {
-    static final String URI_PRIVACY = "https://support.virustotal.com/hc/en-us/articles/115002168385-Privacy-Policy";
-    private static final String URI_VIRUS_TOTAL = "https://www.virustotal.com/";
+    static final String URI_VT_PRIVACY = "https://support.virustotal.com/hc/en-us/articles/115002168385-Privacy-Policy";
+    private static final int VT_TIMEOUT = 20; // seconds
+    private static final String URI_VT_ENDPOINT = "https://www.virustotal.com/";
 
     static void virus(Context context, LifecycleOwner owner, FragmentManager fm, long id) {
         Bundle args = new Bundle();
@@ -47,9 +55,54 @@ public class Check {
                 if (attachment == null)
                     return null;
 
+                String hash;
                 try (InputStream is = new FileInputStream(attachment.getFile(context))) {
-                    return Helper.getHash(is, "SHA-256");
+                    hash = Helper.getHash(is, "SHA-256");
                 }
+
+                if (!TextUtils.isEmpty(BuildConfig.VT_APIKEY)) {
+                    //hash = "51e31f76c8d70eaeda1aba0e21fc50f44d261b81416c4338ac3f71694a6648b3";
+                    URL url = new URL(URI_VT_ENDPOINT + "api/v3/files/" + hash);
+                    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                    connection.setRequestMethod("GET");
+                    connection.setReadTimeout(VT_TIMEOUT * 1000);
+                    connection.setConnectTimeout(VT_TIMEOUT * 1000);
+                    ConnectionHelper.setUserAgent(context, connection);
+                    connection.setRequestProperty("x-apikey", BuildConfig.VT_APIKEY);
+                    connection.connect();
+
+                    try {
+                        int status = connection.getResponseCode();
+                        if (status != HttpsURLConnection.HTTP_OK && status != HttpsURLConnection.HTTP_NOT_FOUND) {
+                            String error = "Error " + status + ": " + connection.getResponseMessage();
+                            try {
+                                InputStream is = connection.getErrorStream();
+                                if (is != null)
+                                    error += "\n" + Helper.readStream(is);
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
+                            throw new FileNotFoundException(error);
+                        }
+
+                        if (status == HttpsURLConnection.HTTP_OK) {
+                            String response = Helper.readStream(connection.getInputStream());
+                            Log.i("VT response=" + response);
+
+                            JSONObject jroot = new JSONObject(response);
+                            JSONObject jdata = jroot.getJSONObject("data");
+                            JSONObject jattributes = jdata.getJSONObject("attributes");
+                            JSONObject jclassification = jattributes.getJSONObject("popular_threat_classification");
+                            String label = jclassification.getString("suggested_threat_label");
+
+                            args.putString("label", label);
+                        }
+                    } finally {
+                        connection.disconnect();
+                    }
+                }
+
+                return hash;
             }
 
             @Override
@@ -57,7 +110,7 @@ public class Check {
                 if (hash == null)
                     return;
 
-                Uri uri = Uri.parse(URI_VIRUS_TOTAL + "gui/file/" + hash);
+                Uri uri = Uri.parse(URI_VT_ENDPOINT + "gui/file/" + hash);
                 Helper.view(context, uri, false);
             }
 

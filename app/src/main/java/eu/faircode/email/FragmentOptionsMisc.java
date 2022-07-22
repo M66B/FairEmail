@@ -71,7 +71,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
-import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
@@ -650,7 +649,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvVirusTotalPrivacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Check.URI_PRIVACY), true);
+                Helper.view(v.getContext(), Uri.parse(Check.URI_VT_PRIVACY), true);
             }
         });
 
