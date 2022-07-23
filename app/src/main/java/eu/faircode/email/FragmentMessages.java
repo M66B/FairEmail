@@ -3328,7 +3328,10 @@ public class FragmentMessages extends FragmentBase
     }
 
     private void onMenuReply(TupleMessageEx message, String action, CharSequence selected) {
-        Intent reply = new Intent(getContext(), ActivityCompose.class)
+        final Context context = getContext();
+        if (context == null)
+            return;
+        Intent reply = new Intent(context, ActivityCompose.class)
                 .putExtra("action", action)
                 .putExtra("reference", message.id)
                 .putExtra("selected", selected);
