@@ -4858,7 +4858,10 @@ public class FragmentCompose extends FragmentBase {
                             // https://tools.ietf.org/html/rfc5322#section-3.6.4
                             // The "References:" field will contain the contents of the parent's "References:" field (if any)
                             // followed by the contents of the parent's "Message-ID:" field (if any).
-                            data.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
+                            String refs = (ref.references == null ? "" : ref.references);
+                            if (!TextUtils.isEmpty(ref.msgid))
+                                refs = (TextUtils.isEmpty(refs) ? ref.msgid : refs + " " + ref.msgid);
+                            data.draft.references = refs;
                             data.draft.inreplyto = ref.msgid;
                             data.draft.thread = ref.thread;
 
