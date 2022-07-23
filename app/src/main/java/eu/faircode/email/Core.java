@@ -3983,7 +3983,8 @@ class Core {
                     if (dup.uid == null) {
                         Log.i(folder.name + " set uid=" + uid);
                         dup.uid = uid;
-                        dup.thread = thread;
+                        if (dup.thread == null)
+                            dup.thread = thread;
 
                         if (EntityFolder.SENT.equals(folder.type) &&
                                 (folder.auto_add == null || !folder.auto_add)) {
