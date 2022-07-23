@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -36,6 +37,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -330,7 +332,38 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 @Override
                 protected void onExecuted(Bundle args, Bundle result) {
                     String uri = result.getString("uri");
-                    Helper.view(context, Uri.parse(uri), true);
+                    int count = result.getInt("count", -1);
+                    int malicious = result.getInt("malicious", -1);
+                    String label = result.getString("label");
+
+                    if (count < 0) {
+                        Helper.view(context, Uri.parse(uri), true);
+                        return;
+                    }
+
+                    View view = LayoutInflater.from(context).inflate(R.layout.dialog_virus_total, null);
+                    final TextView tvName = view.findViewById(R.id.tvName);
+                    final ProgressBar pbAnalysis = view.findViewById(R.id.pbAnalysis);
+                    final TextView tvAnalysis = view.findViewById(R.id.tvAnalysis);
+                    final TextView tvLabel = view.findViewById(R.id.tvLabel);
+
+                    tvName.setText(attachment.name);
+                    pbAnalysis.setMax(count);
+                    pbAnalysis.setProgress(malicious);
+                    tvAnalysis.setText(malicious + "/" + count);
+                    tvLabel.setText(label);
+                    tvLabel.setVisibility(TextUtils.isEmpty(label) ? View.GONE : View.VISIBLE);
+
+                    new AlertDialog.Builder(context)
+                            .setView(view)
+                            .setPositiveButton(R.string.title_info, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Helper.view(context, Uri.parse(uri), true);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
                 }
 
                 @Override

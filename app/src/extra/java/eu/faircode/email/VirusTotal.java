@@ -52,8 +52,11 @@ public class VirusTotal {
             hash = Helper.getHash(is, "SHA-256");
         }
 
+        String uri = URI_ENDPOINT + "gui/file/" + hash;
+        Log.i("VT uri=" + uri);
+
         Bundle result = new Bundle();
-        result.putString("uri", URI_ENDPOINT + "gui/file/" + hash);
+        result.putString("uri", uri);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String apikey = prefs.getString("vt_apikey", null);
@@ -83,7 +86,10 @@ public class VirusTotal {
                 throw new FileNotFoundException(error);
             }
 
-            if (status == HttpsURLConnection.HTTP_OK) {
+            if (status == HttpsURLConnection.HTTP_NOT_FOUND) {
+                result.putInt("count", 0);
+                result.putInt("malicious", 0);
+            } else {
                 String response = Helper.readStream(connection.getInputStream());
                 Log.i("VT response=" + response);
 
@@ -93,8 +99,8 @@ public class VirusTotal {
                 JSONObject jdata = jroot.getJSONObject("data");
                 JSONObject jattributes = jdata.getJSONObject("attributes");
 
-                JSONObject jclassification = jattributes.getJSONObject("popular_threat_classification");
-                String label = jclassification.getString("suggested_threat_label");
+                JSONObject jclassification = jattributes.optJSONObject("popular_threat_classification");
+                String label = (jclassification == null ? null : jclassification.getString("suggested_threat_label"));
 
                 int count = 0;
                 int malicious = 0;
@@ -111,11 +117,11 @@ public class VirusTotal {
                         malicious++;
                 }
 
-                Log.i("VT label=" + label + " " + malicious + "/" + count);
+                Log.i("VT analysis=" + malicious + "/" + count + " label=" + label);
 
-                result.putString("label", label);
                 result.putInt("count", count);
                 result.putInt("malicious", malicious);
+                result.putString("label", label);
             }
         } finally {
             connection.disconnect();
