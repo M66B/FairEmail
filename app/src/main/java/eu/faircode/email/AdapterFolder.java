@@ -1095,6 +1095,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
 
                 private void onActionExportMessages() {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    prefs.edit().putBoolean("debug", false).apply();
+
                     String filename = Helper.sanitizeFilename(
                             folder.accountName.replace(" ", "_") + "_" +
                                     folder.getDisplayName(context).replace(" ", "_") + "_" +
