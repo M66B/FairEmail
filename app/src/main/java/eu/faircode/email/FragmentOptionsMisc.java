@@ -655,7 +655,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvVirusTotalPrivacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Check.URI_VT_PRIVACY), true);
+                Helper.view(v.getContext(), Uri.parse(VirusTotal.URI_PRIVACY), true);
             }
         });
 

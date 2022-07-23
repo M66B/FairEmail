@@ -20,14 +20,14 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.os.Bundle;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.LifecycleOwner;
+import java.io.File;
 
-public class Check {
+public class VirusTotal {
     static final String URI_PRIVACY = "";
 
-    static void virus(Context context, LifecycleOwner owner, FragmentManager fm, long id) {
-        // Do nothing
+    static Bundle scan(Context context, File file) {
+        return null;
     }
 }

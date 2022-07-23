@@ -215,7 +215,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             else if (id == R.id.ibSave)
                 onSave(attachment);
             else if (id == R.id.ibScan)
-                Check.virus(context, owner, parentFragment.getParentFragmentManager(), attachment.id);
+                onScan(attachment);
             else {
                 if (attachment.available)
                     onShare(attachment);
@@ -308,6 +308,36 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                             .putExtra("id", attachment.id)
                             .putExtra("name", Helper.sanitizeFilename(attachment.name))
                             .putExtra("type", attachment.getMimeType()));
+        }
+
+        private void onScan(EntityAttachment attachment) {
+            Bundle args = new Bundle();
+            args.putLong("id", attachment.id);
+
+            new SimpleTask<Bundle>() {
+                @Override
+                protected Bundle onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityAttachment attachment = db.attachment().getAttachment(id);
+                    if (attachment == null)
+                        return null;
+
+                    return VirusTotal.scan(context, attachment.getFile(context));
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Bundle result) {
+                    String uri = result.getString("uri");
+                    Helper.view(context, Uri.parse(uri), true);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "attachment:scan");
         }
 
         private void onShare(EntityAttachment attachment) {
