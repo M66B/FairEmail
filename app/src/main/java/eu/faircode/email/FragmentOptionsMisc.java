@@ -124,6 +124,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private ImageButton ibDeepL;
     private SwitchCompat swVirusTotal;
     private TextView tvVirusTotalPrivacy;
+    private ImageButton ibVirusTotal;
     private EditText etVirusTotal;
     private SwitchCompat swUpdates;
     private ImageButton ibChannelUpdated;
@@ -314,6 +315,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibDeepL = view.findViewById(R.id.ibDeepL);
         swVirusTotal = view.findViewById(R.id.swVirusTotal);
         tvVirusTotalPrivacy = view.findViewById(R.id.tvVirusTotalPrivacy);
+        ibVirusTotal = view.findViewById(R.id.ibVirusTotal);
         etVirusTotal = view.findViewById(R.id.etVirusTotal);
         swUpdates = view.findViewById(R.id.swUpdates);
         ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
@@ -656,6 +658,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.view(v.getContext(), Uri.parse(VirusTotal.URI_PRIVACY), true);
+            }
+        });
+
+        ibVirusTotal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 181);
             }
         });
 
