@@ -4869,6 +4869,8 @@ Tapping on the info button will open the corresponding file report on the VirusT
 
 To get an API key, you'll need to register on the VirusTotal website.
 
+Note that only the hash of a file will be sent and that files won't be uploaded.
+
 This feature was added in version 1.1941 and is available in non Play store versions only.
 
 <br />
