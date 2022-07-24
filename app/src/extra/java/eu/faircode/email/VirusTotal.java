@@ -70,6 +70,7 @@ public class VirusTotal {
         connection.setConnectTimeout(VT_TIMEOUT * 1000);
         ConnectionHelper.setUserAgent(context, connection);
         connection.setRequestProperty("x-apikey", apikey);
+        connection.setRequestProperty("Accept", "application/json");
         connection.connect();
 
         try {
