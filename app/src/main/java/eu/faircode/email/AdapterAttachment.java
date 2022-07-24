@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,6 +39,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
@@ -320,165 +322,14 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String apiKey = prefs.getString("vt_apikey", null);
 
-            View view = LayoutInflater.from(context).inflate(R.layout.dialog_virus_total, null);
-            final TextView tvName = view.findViewById(R.id.tvName);
-            final ProgressBar pbAnalysis = view.findViewById(R.id.pbAnalysis);
-            final TextView tvCount = view.findViewById(R.id.tvCount);
-            final TextView tvLabel = view.findViewById(R.id.tvLabel);
-            final TextView tvUnknown = view.findViewById(R.id.tvUnknown);
-            final Button btnUpload = view.findViewById(R.id.btnUpload);
-            final ProgressBar pbUpload = view.findViewById(R.id.pbUpload);
-            final ProgressBar pbWait = view.findViewById(R.id.pbWait);
-            final TextView tvAnalyzing = view.findViewById(R.id.tvAnalyzing);
-            final Group grpAnalysis = view.findViewById(R.id.grpAnalysis);
-
-            tvName.setText(attachment.name);
-            tvLabel.setVisibility(View.GONE);
-            tvUnknown.setVisibility(View.GONE);
-            btnUpload.setVisibility(View.GONE);
-            pbUpload.setVisibility(View.GONE);
-            tvAnalyzing.setVisibility(View.GONE);
-            grpAnalysis.setVisibility(View.GONE);
-
             Bundle args = new Bundle();
             args.putString("apiKey", apiKey);
+            args.putString("name", attachment.name);
             args.putSerializable("file", attachment.getFile(context));
 
-            final SimpleTask<Bundle> taskLookup = new SimpleTask<Bundle>() {
-                @Override
-                protected void onPreExecute(Bundle args) {
-                    pbWait.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                protected void onPostExecute(Bundle args) {
-                    pbWait.setVisibility(View.GONE);
-                }
-
-                @Override
-                protected Bundle onExecute(Context context, Bundle args) throws Throwable {
-                    String apiKey = args.getString("apiKey");
-                    File file = (File) args.getSerializable("file");
-                    return VirusTotal.lookup(context, file, apiKey);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, Bundle result) {
-                    int count = result.getInt("count", -1);
-                    int malicious = result.getInt("malicious", -1);
-                    String label = result.getString("label");
-
-                    pbAnalysis.setMax(count);
-                    pbAnalysis.setProgress(malicious);
-                    tvCount.setText(malicious + "/" + count);
-                    tvLabel.setText(label);
-                    tvLabel.setVisibility(TextUtils.isEmpty(label) ? View.GONE : View.VISIBLE);
-                    tvUnknown.setVisibility(count == 0 ? View.VISIBLE : View.GONE);
-                    btnUpload.setVisibility(count == 0 && !TextUtils.isEmpty(apiKey) ? View.VISIBLE : View.GONE);
-                    grpAnalysis.setVisibility(count == 0 ? View.GONE : View.VISIBLE);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            };
-
-            final SimpleTask<Void> taskUpload = new SimpleTask<Void>() {
-                @Override
-                protected void onPreExecute(Bundle args) {
-                    btnUpload.setEnabled(false);
-                    pbUpload.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                protected void onPostExecute(Bundle args) {
-                    btnUpload.setEnabled(true);
-                    tvAnalyzing.setVisibility(View.GONE);
-                    pbUpload.setVisibility(View.GONE);
-                }
-
-                @Override
-                protected Void onExecute(Context context, Bundle args) throws Throwable {
-                    String apiKey = args.getString("apiKey");
-                    File file = (File) args.getSerializable("file");
-                    VirusTotal.upload(context, file, apiKey, new Runnable() {
-                        private int step = 0;
-
-                        @Override
-                        public void run() {
-                            postProgress(Integer.toString(++step));
-                        }
-                    });
-                    return null;
-                }
-
-                @Override
-                protected void onProgress(CharSequence status, Bundle data) {
-                    tvAnalyzing.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, Void data) {
-                    taskLookup.execute(context, owner, args, "attachment:lookup");
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            };
-
-            final SimpleTask<String> taskUrl = new SimpleTask<String>() {
-                @Override
-                protected String onExecute(Context context, Bundle args) throws Throwable {
-                    File file = (File) args.getSerializable("file");
-                    return VirusTotal.getUrl(file);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, String uri) {
-                    Helper.view(context, Uri.parse(uri), true);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            };
-
-            btnUpload.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    taskUpload.execute(context, owner, args, "attachment:upload");
-                }
-            });
-
-            if (!TextUtils.isEmpty(apiKey))
-                taskLookup.execute(context, owner, args, "attachment:lookup");
-            else
-                pbWait.setVisibility(View.GONE);
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(context)
-                    .setView(view)
-                    .setPositiveButton(R.string.title_info, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            taskUrl.execute(context, owner, args, "attachment:virustotal");
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null);
-
-            AlertDialog dialog = builder.create();
-            dialog.show();
-
-            powner.getLifecycle().addObserver(new LifecycleObserver() {
-                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-                public void onDestroy() {
-                    dialog.dismiss();
-                    powner.getLifecycle().removeObserver(this);
-                }
-            });
+            FragmentDialogVirusTotal fragment = new FragmentDialogVirusTotal();
+            fragment.setArguments(args);
+            fragment.show(parentFragment.getParentFragmentManager(), "attachment:scan");
         }
 
         private void onShare(EntityAttachment attachment) {
@@ -670,5 +521,162 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         holder.bindTo(attachment);
 
         holder.wire();
+    }
+
+    public static class FragmentDialogVirusTotal extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            Bundle args = getArguments();
+            String apiKey = args.getString("apiKey");
+            String name = args.getString("name");
+
+            final Context context = getContext();
+            View view = LayoutInflater.from(context).inflate(R.layout.dialog_virus_total, null);
+            final TextView tvName = view.findViewById(R.id.tvName);
+            final ProgressBar pbAnalysis = view.findViewById(R.id.pbAnalysis);
+            final TextView tvCount = view.findViewById(R.id.tvCount);
+            final TextView tvLabel = view.findViewById(R.id.tvLabel);
+            final TextView tvUnknown = view.findViewById(R.id.tvUnknown);
+            final Button btnUpload = view.findViewById(R.id.btnUpload);
+            final ProgressBar pbUpload = view.findViewById(R.id.pbUpload);
+            final ProgressBar pbWait = view.findViewById(R.id.pbWait);
+            final TextView tvAnalyzing = view.findViewById(R.id.tvAnalyzing);
+            final Group grpAnalysis = view.findViewById(R.id.grpAnalysis);
+
+            tvName.setText(name);
+            tvLabel.setVisibility(View.GONE);
+            tvUnknown.setVisibility(View.GONE);
+            btnUpload.setVisibility(View.GONE);
+            pbUpload.setVisibility(View.GONE);
+            tvAnalyzing.setVisibility(View.GONE);
+            grpAnalysis.setVisibility(View.GONE);
+
+            final SimpleTask<Bundle> taskLookup = new SimpleTask<Bundle>() {
+                @Override
+                protected void onPreExecute(Bundle args) {
+                    pbWait.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onPostExecute(Bundle args) {
+                    pbWait.setVisibility(View.GONE);
+                }
+
+                @Override
+                protected Bundle onExecute(Context context, Bundle args) throws Throwable {
+                    String apiKey = args.getString("apiKey");
+                    File file = (File) args.getSerializable("file");
+                    return VirusTotal.lookup(context, file, apiKey);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Bundle result) {
+                    int count = result.getInt("count", -1);
+                    int malicious = result.getInt("malicious", -1);
+                    String label = result.getString("label");
+
+                    pbAnalysis.setMax(count);
+                    pbAnalysis.setProgress(malicious);
+                    tvCount.setText(malicious + "/" + count);
+                    tvLabel.setText(label);
+                    tvLabel.setVisibility(TextUtils.isEmpty(label) ? View.GONE : View.VISIBLE);
+                    tvUnknown.setVisibility(count == 0 ? View.VISIBLE : View.GONE);
+                    btnUpload.setVisibility(count == 0 && !TextUtils.isEmpty(apiKey) ? View.VISIBLE : View.GONE);
+                    grpAnalysis.setVisibility(count == 0 ? View.GONE : View.VISIBLE);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            };
+
+            final SimpleTask<Void> taskUpload = new SimpleTask<Void>() {
+                @Override
+                protected void onPreExecute(Bundle args) {
+                    btnUpload.setEnabled(false);
+                    pbUpload.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onPostExecute(Bundle args) {
+                    btnUpload.setEnabled(true);
+                    tvAnalyzing.setVisibility(View.GONE);
+                    pbUpload.setVisibility(View.GONE);
+                }
+
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    String apiKey = args.getString("apiKey");
+                    File file = (File) args.getSerializable("file");
+                    VirusTotal.upload(context, file, apiKey, new Runnable() {
+                        private int step = 0;
+
+                        @Override
+                        public void run() {
+                            postProgress(Integer.toString(++step));
+                        }
+                    });
+                    return null;
+                }
+
+                @Override
+                protected void onProgress(CharSequence status, Bundle data) {
+                    tvAnalyzing.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    taskLookup.execute(FragmentDialogVirusTotal.this, args, "attachment:lookup");
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            };
+
+            final SimpleTask<String> taskUrl = new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    File file = (File) args.getSerializable("file");
+                    return VirusTotal.getUrl(file);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String uri) {
+                    Helper.view(context, Uri.parse(uri), true);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            };
+
+            btnUpload.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    taskUpload.execute(FragmentDialogVirusTotal.this, args, "attachment:upload");
+                }
+            });
+
+            if (!TextUtils.isEmpty(apiKey))
+                taskLookup.execute(this, args, "attachment:lookup");
+            else
+                pbWait.setVisibility(View.GONE);
+
+            return new AlertDialog.Builder(context)
+                    .setView(view)
+                    .setPositiveButton(R.string.title_info, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            taskUrl.execute(FragmentDialogVirusTotal.this, args, "attachment:virustotal");
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+        }
     }
 }
