@@ -87,6 +87,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         private TextView tvError;
         private ProgressBar progressbar;
 
+        private TwoStateOwner powner = new TwoStateOwner(owner, "AttachmentPopup");
+
         ViewHolder(View itemView) {
             super(itemView);
 
@@ -356,7 +358,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     tvLabel.setVisibility(TextUtils.isEmpty(label) ? View.GONE : View.VISIBLE);
                     tvUnknown.setVisibility(count == 0 ? View.VISIBLE : View.GONE);
 
-                    new AlertDialog.Builder(context)
+                    AlertDialog dialog = new AlertDialog.Builder(context)
                             .setView(view)
                             .setPositiveButton(R.string.title_info, new DialogInterface.OnClickListener() {
                                 @Override
@@ -365,7 +367,16 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                 }
                             })
                             .setNegativeButton(android.R.string.cancel, null)
-                            .show();
+                            .create();
+                    dialog.show();
+
+                    powner.getLifecycle().addObserver(new LifecycleObserver() {
+                        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                        public void onDestroy() {
+                            dialog.dismiss();
+                            powner.getLifecycle().removeObserver(this);
+                        }
+                    });
                 }
 
                 @Override
@@ -560,6 +571,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         holder.unwire();
 
         EntityAttachment attachment = items.get(position);
+        holder.powner.recreate(attachment == null ? null : attachment.id);
         holder.bindTo(attachment);
 
         holder.wire();
