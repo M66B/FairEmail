@@ -4868,6 +4868,7 @@ With entering an API key, there will be a dialog showing the number of virus sca
 Tapping on the info button will open the corresponding file report on the VirusTotal website.
 
 To get an API key, you'll need to register on the VirusTotal website.
+You can enter the API key in the miscellaneous settings of the app.
 
 Note that only the hash of a file will be sent and that files won't be uploaded.
 
