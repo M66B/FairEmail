@@ -38,6 +38,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -346,17 +347,19 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     View view = LayoutInflater.from(context).inflate(R.layout.dialog_virus_total, null);
                     final TextView tvName = view.findViewById(R.id.tvName);
                     final ProgressBar pbAnalysis = view.findViewById(R.id.pbAnalysis);
-                    final TextView tvAnalysis = view.findViewById(R.id.tvAnalysis);
+                    final TextView tvCount = view.findViewById(R.id.tvCount);
                     final TextView tvLabel = view.findViewById(R.id.tvLabel);
                     final TextView tvUnknown = view.findViewById(R.id.tvUnknown);
+                    final Group grpAnalysis = view.findViewById(R.id.grpAnalysis);
 
                     tvName.setText(attachment.name);
                     pbAnalysis.setMax(count);
                     pbAnalysis.setProgress(malicious);
-                    tvAnalysis.setText(malicious + "/" + count);
+                    tvCount.setText(malicious + "/" + count);
                     tvLabel.setText(label);
                     tvLabel.setVisibility(TextUtils.isEmpty(label) ? View.GONE : View.VISIBLE);
                     tvUnknown.setVisibility(count == 0 ? View.VISIBLE : View.GONE);
+                    grpAnalysis.setVisibility(count == 0 ? View.GONE : View.VISIBLE);
 
                     AlertDialog dialog = new AlertDialog.Builder(context)
                             .setView(view)

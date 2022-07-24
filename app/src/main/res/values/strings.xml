@@ -1467,6 +1467,7 @@
     <string name="title_send_dsn">Status report</string>
     <string name="title_send_receipt">Request receipt</string>
     <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>
+    <string name="title_vt_count">Number of virus scanners that flag this file as malicious:</string>
     <string name="title_vt_unknown">This file hasn\'t been seen by VirusTotal before, so it has not been scanned yet</string>
 
     <string name="title_from_missing">Sender missing</string>

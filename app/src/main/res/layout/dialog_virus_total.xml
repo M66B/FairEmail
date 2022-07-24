@@ -31,6 +31,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
+        <TextView
+            android:id="@+id/tvAnalysis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_vt_count"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
         <ProgressBar
             android:id="@+id/pbAnalysis"
             style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
@@ -40,12 +50,12 @@
             android:layout_marginEnd="6dp"
             android:progress="50"
             android:scaleY="3"
-            app:layout_constraintEnd_toStartOf="@+id/tvAnalysis"
+            app:layout_constraintEnd_toStartOf="@+id/tvCount"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvName" />
+            app:layout_constraintTop_toBottomOf="@id/tvAnalysis" />
 
         <TextView
-            android:id="@+id/tvAnalysis"
+            android:id="@+id/tvCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -62,7 +72,7 @@
             android:text="Label"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAnalysis" />
+            app:layout_constraintTop_toBottomOf="@id/pbAnalysis" />
 
         <TextView
             android:id="@+id/tvUnknown"
@@ -73,5 +83,11 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvLabel" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpAnalysis"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvAnalysis,pbAnalysis,tvCount" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
