@@ -62,7 +62,6 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         Bundle args = getArguments();
-        long account = args.getLong("account");
         long[] ids = args.getLongArray("ids");
 
         if (savedInstanceState != null)
@@ -235,6 +234,8 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                 .setPositiveButton(R.string.title_send, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        long account = getArguments().getLong("account", -1L);
+                        long[] ids = getArguments().getLongArray("ids");
                         send(account, ids);
                     }
                 })
