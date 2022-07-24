@@ -4858,7 +4858,7 @@ else you can double tap or long press the marked text to show suggestions.
 <a name="faq181"></a>
 **(181) How do I use VirusTotal?**
 
-VirusTotal integration needs to be enabled in the miscellaneous settings.
+[VirusTotal](https://www.virustotal.com/) integration needs to be enabled in the miscellaneous settings.
 This will show a *scan* icon button for each attachment.
 
 Without entering an API key, tapping on the scan button will calculate the SHA-256 hash of the attached file and open the corresponding file report on the VirusTotal website.
