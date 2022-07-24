@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Pair;
 
 import androidx.preference.PreferenceManager;
 
@@ -58,12 +59,60 @@ public class VirusTotal {
         Bundle result = new Bundle();
         result.putString("uri", uri);
 
+        Pair<Integer, String> response = call(context, "api/v3/files/" + hash);
+
+        if (response == null)
+            return result;
+
+        if (response.first != HttpsURLConnection.HTTP_OK &&
+                response.first != HttpsURLConnection.HTTP_NOT_FOUND)
+            throw new FileNotFoundException(response.second);
+
+        if (response.first == HttpsURLConnection.HTTP_NOT_FOUND) {
+            result.putInt("count", 0);
+            result.putInt("malicious", 0);
+        } else {
+            // https://developers.virustotal.com/reference/files
+            // Example: https://gist.github.com/M66B/4ea95fdb93fb10bf4047761fcc9ec21a
+            JSONObject jroot = new JSONObject(response.second);
+            JSONObject jdata = jroot.getJSONObject("data");
+            JSONObject jattributes = jdata.getJSONObject("attributes");
+
+            JSONObject jclassification = jattributes.optJSONObject("popular_threat_classification");
+            String label = (jclassification == null ? null : jclassification.getString("suggested_threat_label"));
+
+            int count = 0;
+            int malicious = 0;
+            JSONObject janalysis = jattributes.getJSONObject("last_analysis_results");
+            JSONArray jnames = janalysis.names();
+            for (int i = 0; i < jnames.length(); i++) {
+                String name = jnames.getString(i);
+                JSONObject jresult = janalysis.getJSONObject(name);
+                String category = jresult.getString("category");
+                Log.i("VT " + name + "=" + category);
+                if (!"type-unsupported".equals(category))
+                    count++;
+                if ("malicious".equals(category))
+                    malicious++;
+            }
+
+            Log.i("VT analysis=" + malicious + "/" + count + " label=" + label);
+
+            result.putInt("count", count);
+            result.putInt("malicious", malicious);
+            result.putString("label", label);
+        }
+
+        return result;
+    }
+
+    static Pair<Integer, String> call(Context context, String api) throws IOException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String apikey = prefs.getString("vt_apikey", null);
         if (TextUtils.isEmpty(apikey))
-            return result;
+            return null;
 
-        URL url = new URL(URI_ENDPOINT + "api/v3/files/" + hash);
+        URL url = new URL(URI_ENDPOINT + api);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setReadTimeout(VT_TIMEOUT * 1000);
@@ -75,7 +124,7 @@ public class VirusTotal {
 
         try {
             int status = connection.getResponseCode();
-            if (status != HttpsURLConnection.HTTP_OK && status != HttpsURLConnection.HTTP_NOT_FOUND) {
+            if (status != HttpsURLConnection.HTTP_OK) {
                 String error = "Error " + status + ": " + connection.getResponseMessage();
                 try {
                     InputStream is = connection.getErrorStream();
@@ -84,50 +133,15 @@ public class VirusTotal {
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
-                throw new FileNotFoundException(error);
+                return new Pair<>(status, error);
             }
 
-            if (status == HttpsURLConnection.HTTP_NOT_FOUND) {
-                result.putInt("count", 0);
-                result.putInt("malicious", 0);
-            } else {
-                String response = Helper.readStream(connection.getInputStream());
-                Log.i("VT response=" + response);
+            String response = Helper.readStream(connection.getInputStream());
+            Log.i("VT response=" + response);
+            return new Pair<>(status, response);
 
-                // https://developers.virustotal.com/reference/files
-                // Example: https://gist.github.com/M66B/4ea95fdb93fb10bf4047761fcc9ec21a
-                JSONObject jroot = new JSONObject(response);
-                JSONObject jdata = jroot.getJSONObject("data");
-                JSONObject jattributes = jdata.getJSONObject("attributes");
-
-                JSONObject jclassification = jattributes.optJSONObject("popular_threat_classification");
-                String label = (jclassification == null ? null : jclassification.getString("suggested_threat_label"));
-
-                int count = 0;
-                int malicious = 0;
-                JSONObject janalysis = jattributes.getJSONObject("last_analysis_results");
-                JSONArray jnames = janalysis.names();
-                for (int i = 0; i < jnames.length(); i++) {
-                    String name = jnames.getString(i);
-                    JSONObject jresult = janalysis.getJSONObject(name);
-                    String category = jresult.getString("category");
-                    Log.i("VT " + name + "=" + category);
-                    if (!"type-unsupported".equals(category))
-                        count++;
-                    if ("malicious".equals(category))
-                        malicious++;
-                }
-
-                Log.i("VT analysis=" + malicious + "/" + count + " label=" + label);
-
-                result.putInt("count", count);
-                result.putInt("malicious", malicious);
-                result.putString("label", label);
-            }
         } finally {
             connection.disconnect();
         }
-
-        return result;
     }
 }
