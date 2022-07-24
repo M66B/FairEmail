@@ -20,12 +20,9 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Pair;
-
-import androidx.preference.PreferenceManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,8 +33,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
+import java.util.concurrent.TimeoutException;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -46,8 +47,10 @@ public class VirusTotal {
     static final String URI_PRIVACY = "https://support.virustotal.com/hc/en-us/articles/115002168385-Privacy-Policy";
 
     private static final int VT_TIMEOUT = 20; // seconds
+    private static final long VT_ANALYSIS_WAIT = 6000L; // milliseconds
+    private static final int VT_ANALYSIS_CHECKS = 50; // 50 x 6 sec = 5 minutes
 
-    static Bundle scan(Context context, File file) throws NoSuchAlgorithmException, IOException, JSONException {
+    static Bundle lookup(Context context, File file, String apiKey) throws NoSuchAlgorithmException, IOException, JSONException {
         String hash;
         try (InputStream is = new FileInputStream(file)) {
             hash = Helper.getHash(is, "SHA-256");
@@ -59,11 +62,10 @@ public class VirusTotal {
         Bundle result = new Bundle();
         result.putString("uri", uri);
 
-        Pair<Integer, String> response = call(context, "api/v3/files/" + hash);
-
-        if (response == null)
+        if (TextUtils.isEmpty(apiKey))
             return result;
 
+        Pair<Integer, String> response = call(context, "api/v3/files/" + hash, apiKey);
         if (response.first != HttpsURLConnection.HTTP_OK &&
                 response.first != HttpsURLConnection.HTTP_NOT_FOUND)
             throw new FileNotFoundException(response.second);
@@ -106,19 +108,111 @@ public class VirusTotal {
         return result;
     }
 
-    static Pair<Integer, String> call(Context context, String api) throws IOException {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String apikey = prefs.getString("vt_apikey", null);
-        if (TextUtils.isEmpty(apikey))
-            return null;
+    static void upload(Context context, File file, String apiKey) throws IOException, JSONException, InterruptedException, TimeoutException {
+        // Get upload URL
+        Pair<Integer, String> response = call(context, "api/v3/files/upload_url", apiKey);
+        if (response.first != HttpsURLConnection.HTTP_OK)
+            throw new FileNotFoundException(response.second);
+        JSONObject jurl = new JSONObject(response.second);
+        String upload_url = jurl.getString("data");
 
+        // Upload file
+        String id;
+        String boundary = "----FairEmail." + System.currentTimeMillis();
+
+        URL url = new URL(upload_url);
+        Log.i("VT upload url=" + url);
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod("POST");
+        connection.setDoOutput(true);
+        connection.setReadTimeout(VT_TIMEOUT * 1000);
+        connection.setConnectTimeout(VT_TIMEOUT * 1000);
+        ConnectionHelper.setUserAgent(context, connection);
+        connection.setRequestProperty("x-apikey", apiKey);
+        connection.setRequestProperty("Accept", "application/json");
+        connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
+        connection.connect();
+
+        try {
+            OutputStream os = connection.getOutputStream();
+
+            PrintWriter writer = new PrintWriter(new OutputStreamWriter(os));
+            writer
+                    .append("--").append(boundary).append("\r\n")
+                    .append("Content-Disposition: form-data;")
+                    .append(" name=\"file\";")
+                    .append(" filename=\"").append(file.getName()).append("\"").append("\r\n")
+                    .append("Content-Type: application/octet-stream").append("\r\n")
+                    .append("Content-Transfer-Encoding: binary").append("\r\n")
+                    .append("\r\n")
+                    .flush();
+
+            try (InputStream is = new FileInputStream(file)) {
+                Helper.copy(is, os);
+            }
+
+            os.flush();
+
+            writer
+                    .append("\r\n")
+                    .append("--").append(boundary).append("--").append("\r\n")
+                    .flush();
+
+            writer.close();
+
+            int status = connection.getResponseCode();
+            if (status != HttpsURLConnection.HTTP_OK) {
+                String error = "Error " + status + ": " + connection.getResponseMessage();
+                try {
+                    InputStream is = connection.getErrorStream();
+                    if (is != null)
+                        error += "\n" + Helper.readStream(is);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+                Log.w("VT " + error);
+                throw new FileNotFoundException(error);
+            }
+
+            String r = Helper.readStream(connection.getInputStream());
+            Log.i("VT response=" + r);
+            JSONObject jfile = new JSONObject(r);
+            JSONObject jdata = jfile.getJSONObject("data");
+            id = jdata.getString("id");
+
+        } finally {
+            connection.disconnect();
+        }
+
+        // Get analysis result
+        for (int i = 0; i < VT_ANALYSIS_CHECKS; i++) {
+            Pair<Integer, String> analyses = call(context, "api/v3/analyses/" + id, apiKey);
+            if (analyses.first != HttpsURLConnection.HTTP_OK)
+                throw new FileNotFoundException(analyses.second);
+
+            JSONObject janalysis = new JSONObject(analyses.second);
+            JSONObject jdata = janalysis.getJSONObject("data");
+            JSONObject jattributes = jdata.getJSONObject("attributes");
+            String status = jattributes.getString("status");
+            Log.i("VT status=" + status);
+
+            if (!"queued".equals(status))
+                return;
+
+            Thread.sleep(VT_ANALYSIS_WAIT);
+        }
+
+        throw new TimeoutException("Analysis");
+    }
+
+    static Pair<Integer, String> call(Context context, String api, String apiKey) throws IOException {
         URL url = new URL(URI_ENDPOINT + api);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setReadTimeout(VT_TIMEOUT * 1000);
         connection.setConnectTimeout(VT_TIMEOUT * 1000);
         ConnectionHelper.setUserAgent(context, connection);
-        connection.setRequestProperty("x-apikey", apikey);
+        connection.setRequestProperty("x-apikey", apiKey);
         connection.setRequestProperty("Accept", "application/json");
         connection.connect();
 
@@ -137,7 +231,7 @@ public class VirusTotal {
             }
 
             String response = Helper.readStream(connection.getInputStream());
-            Log.i("VT response=" + response);
+            //Log.i("VT response=" + response);
             return new Pair<>(status, response);
 
         } finally {

@@ -316,20 +316,19 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void onScan(EntityAttachment attachment) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String apiKey = prefs.getString("vt_apikey", null);
+
             Bundle args = new Bundle();
-            args.putLong("id", attachment.id);
+            args.putSerializable("file", attachment.getFile(context));
+            args.putString("apiKey", apiKey);
 
             new SimpleTask<Bundle>() {
                 @Override
                 protected Bundle onExecute(Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    EntityAttachment attachment = db.attachment().getAttachment(id);
-                    if (attachment == null)
-                        return null;
-
-                    return VirusTotal.scan(context, attachment.getFile(context));
+                    File file = (File) args.getSerializable("file");
+                    String apiKey = args.getString("apiKey");
+                    return VirusTotal.lookup(context, file, apiKey);
                 }
 
                 @Override
@@ -361,7 +360,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     tvUnknown.setVisibility(count == 0 ? View.VISIBLE : View.GONE);
                     grpAnalysis.setVisibility(count == 0 ? View.GONE : View.VISIBLE);
 
-                    AlertDialog dialog = new AlertDialog.Builder(context)
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context)
                             .setView(view)
                             .setPositiveButton(R.string.title_info, new DialogInterface.OnClickListener() {
                                 @Override
@@ -369,8 +368,30 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                     Helper.view(context, Uri.parse(uri), true);
                                 }
                             })
-                            .setNegativeButton(android.R.string.cancel, null)
-                            .create();
+                            .setNegativeButton(android.R.string.cancel, null);
+
+                    if (!TextUtils.isEmpty(apiKey) && BuildConfig.DEBUG)
+                        builder.setNeutralButton("Upload", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                        File file = (File) args.getSerializable("file");
+                                        String apiKey = args.getString("apiKey");
+                                        VirusTotal.upload(context, file, apiKey);
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                                    }
+                                }.execute(context, owner, args, "attachment:upload");
+                            }
+                        });
+
+                    AlertDialog dialog = builder.create();
                     dialog.show();
 
                     powner.getLifecycle().addObserver(new LifecycleObserver() {

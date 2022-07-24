@@ -27,7 +27,11 @@ import java.io.File;
 public class VirusTotal {
     static final String URI_PRIVACY = "";
 
-    static Bundle scan(Context context, File file) {
+    static Bundle lookup(Context context, File file, String apiKey) {
+        return null;
+    }
+
+    static Bundle upload(Context context, File file, String apiKey) {
         return null;
     }
 }
