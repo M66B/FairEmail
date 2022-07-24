@@ -84,6 +84,50 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvLabel" />
 
+        <Button
+            android:id="@+id/btnUpload"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_file_upload_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_vt_upload"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUnknown" />
+
+        <eu.faircode.email.ContentLoadingProgressBar
+            android:id="@+id/pbUpload"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="@id/btnUpload"
+            app:layout_constraintStart_toEndOf="@id/btnUpload"
+            app:layout_constraintTop_toTopOf="@id/btnUpload" />
+
+        <TextView
+            android:id="@+id/tvAnalyzing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_vt_analyzing"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnUpload" />
+
+        <eu.faircode.email.ContentLoadingProgressBar
+            android:id="@+id/pbWait"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAnalysis"
             android:layout_width="0dp"

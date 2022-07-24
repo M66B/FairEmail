@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Pair;
 
 import org.json.JSONArray;
@@ -50,30 +49,20 @@ public class VirusTotal {
     private static final long VT_ANALYSIS_WAIT = 6000L; // milliseconds
     private static final int VT_ANALYSIS_CHECKS = 50; // 50 x 6 sec = 5 minutes
 
+    static String getUrl(File file) throws IOException, NoSuchAlgorithmException {
+        return URI_ENDPOINT + "gui/file/" + getHash(file);
+    }
+
     static Bundle lookup(Context context, File file, String apiKey) throws NoSuchAlgorithmException, IOException, JSONException {
-        String hash;
-        try (InputStream is = new FileInputStream(file)) {
-            hash = Helper.getHash(is, "SHA-256");
-        }
-
-        String uri = URI_ENDPOINT + "gui/file/" + hash;
-        Log.i("VT uri=" + uri);
-
         Bundle result = new Bundle();
-        result.putString("uri", uri);
 
-        if (TextUtils.isEmpty(apiKey))
-            return result;
-
-        Pair<Integer, String> response = call(context, "api/v3/files/" + hash, apiKey);
-        if (response.first != HttpsURLConnection.HTTP_OK &&
-                response.first != HttpsURLConnection.HTTP_NOT_FOUND)
-            throw new FileNotFoundException(response.second);
-
+        Pair<Integer, String> response = call(context, "api/v3/files/" + getHash(file), apiKey);
         if (response.first == HttpsURLConnection.HTTP_NOT_FOUND) {
             result.putInt("count", 0);
             result.putInt("malicious", 0);
-        } else {
+        } else if (response.first != HttpsURLConnection.HTTP_OK)
+            throw new FileNotFoundException(response.second);
+        else {
             // https://developers.virustotal.com/reference/files
             // Example: https://gist.github.com/M66B/4ea95fdb93fb10bf4047761fcc9ec21a
             JSONObject jroot = new JSONObject(response.second);
@@ -91,14 +80,14 @@ public class VirusTotal {
                 String name = jnames.getString(i);
                 JSONObject jresult = janalysis.getJSONObject(name);
                 String category = jresult.getString("category");
-                Log.i("VT " + name + "=" + category);
+                //Log.i("VT " + name + "=" + category);
                 if (!"type-unsupported".equals(category))
                     count++;
                 if ("malicious".equals(category))
                     malicious++;
             }
 
-            Log.i("VT analysis=" + malicious + "/" + count + " label=" + label);
+            Log.i("VT lookup=" + malicious + "/" + count + " label=" + label);
 
             result.putInt("count", count);
             result.putInt("malicious", malicious);
@@ -108,7 +97,8 @@ public class VirusTotal {
         return result;
     }
 
-    static void upload(Context context, File file, String apiKey) throws IOException, JSONException, InterruptedException, TimeoutException {
+    static void upload(Context context, File file, String apiKey, Runnable analyzing)
+            throws IOException, JSONException, InterruptedException, TimeoutException {
         // Get upload URL
         Pair<Integer, String> response = call(context, "api/v3/files/upload_url", apiKey);
         if (response.first != HttpsURLConnection.HTTP_OK)
@@ -186,6 +176,8 @@ public class VirusTotal {
 
         // Get analysis result
         for (int i = 0; i < VT_ANALYSIS_CHECKS; i++) {
+            analyzing.run();
+
             Pair<Integer, String> analyses = call(context, "api/v3/analyses/" + id, apiKey);
             if (analyses.first != HttpsURLConnection.HTTP_OK)
                 throw new FileNotFoundException(analyses.second);
@@ -205,7 +197,13 @@ public class VirusTotal {
         throw new TimeoutException("Analysis");
     }
 
-    static Pair<Integer, String> call(Context context, String api, String apiKey) throws IOException {
+    private static String getHash(File file) throws IOException, NoSuchAlgorithmException {
+        try (InputStream is = new FileInputStream(file)) {
+            return Helper.getHash(is, "SHA-256");
+        }
+    }
+
+    private static Pair<Integer, String> call(Context context, String api, String apiKey) throws IOException {
         URL url = new URL(URI_ENDPOINT + api);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");

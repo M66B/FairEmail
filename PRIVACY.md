@@ -70,6 +70,7 @@ This table provides a complete overview of all shared data and the conditions un
 | DeepL              | Received or entered message text and target language code          | If translating is enabled, upon pressing a translate button                 |
 | LanguageTool       | Entered message texts                                              | If LanguageTools is enabled, upon long pressing the save draft button       |
 | VirusTotal         | [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of attachments | If VirusTotal is enabled, upon long pressing a scan button (*)              |
+| VirusTotal         | Attached file contents                                             | If VirusTotal is enabled, upon long pressing an upload button (*)           |
 | Gravatar           | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Gravatars are enabled, upon receiving a message (*)                      |
 | Libravatar         | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Libravatars are enabled, upon receiving a message (*)                    |
 | GitHub             | None, but see the remarks below                                    | Upon downloading Disconnect's Tracker Protection lists                      |
