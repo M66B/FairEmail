@@ -346,6 +346,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     final ProgressBar pbAnalysis = view.findViewById(R.id.pbAnalysis);
                     final TextView tvAnalysis = view.findViewById(R.id.tvAnalysis);
                     final TextView tvLabel = view.findViewById(R.id.tvLabel);
+                    final TextView tvUnknown = view.findViewById(R.id.tvUnknown);
 
                     tvName.setText(attachment.name);
                     pbAnalysis.setMax(count);
@@ -353,6 +354,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     tvAnalysis.setText(malicious + "/" + count);
                     tvLabel.setText(label);
                     tvLabel.setVisibility(TextUtils.isEmpty(label) ? View.GONE : View.VISIBLE);
+                    tvUnknown.setVisibility(count == 0 ? View.VISIBLE : View.GONE);
 
                     new AlertDialog.Builder(context)
                             .setView(view)
