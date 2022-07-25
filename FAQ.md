@@ -4858,21 +4858,15 @@ else you can double tap or long press the marked text to show suggestions.
 <a name="faq181"></a>
 **(181) How do I use VirusTotal?**
 
-[VirusTotal](https://www.virustotal.com/) integration needs to be enabled in the miscellaneous settings.
-This will show a *scan* icon button for each attachment.
+VirusTotal integration needs to be enabled in the miscellaneous settings and an API key needs to be entered.
+To get an API key, you'll need to sign up via the [VirusTotal website](https://www.virustotal.com/).
 
-Without entering an API key, tapping on the scan button will calculate the SHA-256 hash of the attached file and open the corresponding file report on the VirusTotal website.
-If the file is not known by VirusTotal ("*Item not found*"), it is probably okay, unless it contains a new virus not being detected by virus scanners yet.
+When integration is enabled and an API key is available, a *scan* icon button will be shown for each attachment.
+Tapping on the scan button will calculate the SHA-256 hash of the attachment and lookup the file via the VirusTotal API.
+If the file is known by VirusTotal, the number of virus scanners considering the file as malicious will be shown.
+If the file isn't known by VirusTotal, an upload button will be shown to upload the file for analysis by VirusTotal.
 
-With entering an API key, there will be a dialog showing the number of virus scanners detecting the file.
-Tapping on the info button will open the corresponding file report on the VirusTotal website.
-
-To get an API key, you'll need to register on the VirusTotal website.
-You can enter the API key in the miscellaneous settings of the app.
-
-Note that only the hash of a file will be sent and that files won't be uploaded.
-
-This feature was added in version 1.1941 and is available in non Play store versions only.
+This feature was added in version 1.1942 and is available in non Play store versions of the app only.
 
 <br />
 

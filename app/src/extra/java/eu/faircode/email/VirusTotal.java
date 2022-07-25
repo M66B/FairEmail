@@ -21,7 +21,11 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Pair;
+
+import androidx.annotation.NonNull;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +41,8 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -72,25 +78,17 @@ public class VirusTotal {
             JSONObject jclassification = jattributes.optJSONObject("popular_threat_classification");
             String label = (jclassification == null ? null : jclassification.getString("suggested_threat_label"));
 
-            int count = 0;
-            int malicious = 0;
+            List<ScanResult> scanResult = new ArrayList<>();
             JSONObject janalysis = jattributes.getJSONObject("last_analysis_results");
             JSONArray jnames = janalysis.names();
             for (int i = 0; i < jnames.length(); i++) {
                 String name = jnames.getString(i);
                 JSONObject jresult = janalysis.getJSONObject(name);
                 String category = jresult.getString("category");
-                //Log.i("VT " + name + "=" + category);
-                if (!"type-unsupported".equals(category))
-                    count++;
-                if ("malicious".equals(category))
-                    malicious++;
+                scanResult.add(new ScanResult(name, category));
             }
 
-            Log.i("VT lookup=" + malicious + "/" + count + " label=" + label);
-
-            result.putInt("count", count);
-            result.putInt("malicious", malicious);
+            result.putParcelableArrayList("scans", (ArrayList<? extends Parcelable>) scanResult);
             result.putString("label", label);
         }
 
@@ -235,5 +233,43 @@ public class VirusTotal {
         } finally {
             connection.disconnect();
         }
+    }
+
+    public static class ScanResult implements Parcelable {
+        public String name;
+        public String category;
+
+        ScanResult(String name, String category) {
+            this.name = name;
+            this.category = category;
+        }
+
+        protected ScanResult(Parcel in) {
+            name = in.readString();
+            category = in.readString();
+        }
+
+        @Override
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
+            parcel.writeString(name);
+            parcel.writeString(category);
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        public static final Creator<ScanResult> CREATOR = new Creator<ScanResult>() {
+            @Override
+            public ScanResult createFromParcel(Parcel in) {
+                return new ScanResult(in);
+            }
+
+            @Override
+            public ScanResult[] newArray(int size) {
+                return new ScanResult[size];
+            }
+        };
     }
 }

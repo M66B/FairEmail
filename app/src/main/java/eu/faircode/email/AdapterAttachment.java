@@ -21,10 +21,10 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -41,7 +41,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -51,10 +50,12 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -71,6 +72,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
     private boolean readonly;
     private boolean vt_enabled;
+    private String vt_apikey;
     private boolean debug;
     private int dp12;
     private int dp36;
@@ -114,8 +116,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             view.setOnClickListener(this);
             ibDelete.setOnClickListener(this);
             ibSave.setOnClickListener(this);
-            if (vt_enabled)
-                ibScan.setOnClickListener(this);
+            ibScan.setOnClickListener(this);
             view.setOnLongClickListener(this);
         }
 
@@ -123,8 +124,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             view.setOnClickListener(null);
             ibDelete.setOnClickListener(null);
             ibSave.setOnClickListener(null);
-            if (vt_enabled)
-                ibScan.setOnClickListener(null);
+            ibScan.setOnClickListener(null);
             view.setOnLongClickListener(null);
         }
 
@@ -183,7 +183,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             }
 
             ibSave.setVisibility(attachment.available ? View.VISIBLE : View.GONE);
-            ibScan.setVisibility(attachment.available && vt_enabled ? View.VISIBLE : View.GONE);
+            ibScan.setVisibility(attachment.available &&
+                    vt_enabled && !TextUtils.isEmpty(vt_apikey) && !BuildConfig.PLAY_STORE_RELEASE
+                    ? View.VISIBLE : View.GONE);
 
             if (attachment.progress != null)
                 progressbar.setProgress(attachment.progress);
@@ -319,11 +321,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void onScan(EntityAttachment attachment) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            String apiKey = prefs.getString("vt_apikey", null);
-
             Bundle args = new Bundle();
-            args.putString("apiKey", apiKey);
+            args.putString("apiKey", vt_apikey);
             args.putString("name", attachment.name);
             args.putSerializable("file", attachment.getFile(context));
 
@@ -402,7 +401,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        this.vt_enabled = (prefs.getBoolean("vt_enabled", false) && !BuildConfig.PLAY_STORE_RELEASE);
+        this.vt_enabled = prefs.getBoolean("vt_enabled", false);
+        this.vt_apikey = prefs.getString("vt_apikey", null);
         this.debug = prefs.getBoolean("debug", false);
         this.dp12 = Helper.dp2pixels(context, 12);
         this.dp36 = Helper.dp2pixels(context, 36);
@@ -534,27 +534,44 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             final Context context = getContext();
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_virus_total, null);
             final TextView tvName = view.findViewById(R.id.tvName);
-            final ProgressBar pbAnalysis = view.findViewById(R.id.pbAnalysis);
-            final TextView tvCount = view.findViewById(R.id.tvCount);
-            final TextView tvLabel = view.findViewById(R.id.tvLabel);
+            final TextView tvError = view.findViewById(R.id.tvError);
             final TextView tvUnknown = view.findViewById(R.id.tvUnknown);
+            final TextView tvSummary = view.findViewById(R.id.tvSummary);
+            final TextView tvLabel = view.findViewById(R.id.tvLabel);
+            final TextView tvReport = view.findViewById(R.id.tvReport);
+            final RecyclerView rvScan = view.findViewById(R.id.rvScan);
             final Button btnUpload = view.findViewById(R.id.btnUpload);
             final ProgressBar pbUpload = view.findViewById(R.id.pbUpload);
-            final ProgressBar pbWait = view.findViewById(R.id.pbWait);
             final TextView tvAnalyzing = view.findViewById(R.id.tvAnalyzing);
-            final Group grpAnalysis = view.findViewById(R.id.grpAnalysis);
+            final ProgressBar pbWait = view.findViewById(R.id.pbWait);
 
             tvName.setText(name);
-            tvLabel.setVisibility(View.GONE);
+            tvName.setVisibility(TextUtils.isEmpty(name) ? View.GONE : View.VISIBLE);
+            tvError.setVisibility(View.GONE);
             tvUnknown.setVisibility(View.GONE);
+            tvSummary.setVisibility(View.GONE);
+            tvLabel.setVisibility(View.GONE);
+            tvReport.getPaint().setUnderlineText(true);
+            tvReport.setVisibility(View.GONE);
+
+            rvScan.setHasFixedSize(false);
+            LinearLayoutManager llm = new LinearLayoutManager(getContext());
+            rvScan.setLayoutManager(llm);
+
+            final AdapterVirusTotal adapter = new AdapterVirusTotal(getContext(), getViewLifecycleOwner());
+            rvScan.setAdapter(adapter);
+
+            rvScan.setVisibility(View.GONE);
+
             btnUpload.setVisibility(View.GONE);
             pbUpload.setVisibility(View.GONE);
             tvAnalyzing.setVisibility(View.GONE);
-            grpAnalysis.setVisibility(View.GONE);
+            pbWait.setVisibility(View.GONE);
 
             final SimpleTask<Bundle> taskLookup = new SimpleTask<Bundle>() {
                 @Override
                 protected void onPreExecute(Bundle args) {
+                    tvError.setVisibility(View.GONE);
                     pbWait.setVisibility(View.VISIBLE);
                 }
 
@@ -572,23 +589,34 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
                 @Override
                 protected void onExecuted(Bundle args, Bundle result) {
-                    int count = result.getInt("count", -1);
-                    int malicious = result.getInt("malicious", -1);
+                    List<VirusTotal.ScanResult> scans = result.getParcelableArrayList("scans");
                     String label = result.getString("label");
 
-                    pbAnalysis.setMax(count);
-                    pbAnalysis.setProgress(malicious);
-                    tvCount.setText(malicious + "/" + count);
+                    int malicious = 0;
+                    if (scans != null)
+                        for (VirusTotal.ScanResult scan : scans)
+                            if ("malicious".equals(scan.category))
+                                malicious++;
+
+                    NumberFormat NF = NumberFormat.getNumberInstance();
+
+                    tvUnknown.setVisibility(scans == null ? View.VISIBLE : View.GONE);
+                    tvSummary.setText(getString(R.string.title_vt_summary, NF.format(malicious)));
+                    tvSummary.setTextColor(Helper.resolveColor(context,
+                            malicious == 0 ? android.R.attr.textColorPrimary : R.attr.colorWarning));
+                    tvSummary.setTypeface(malicious == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+                    tvSummary.setVisibility(scans == null ? View.GONE : View.VISIBLE);
                     tvLabel.setText(label);
-                    tvLabel.setVisibility(TextUtils.isEmpty(label) ? View.GONE : View.VISIBLE);
-                    tvUnknown.setVisibility(count == 0 ? View.VISIBLE : View.GONE);
-                    btnUpload.setVisibility(count == 0 && !TextUtils.isEmpty(apiKey) ? View.VISIBLE : View.GONE);
-                    grpAnalysis.setVisibility(count == 0 ? View.GONE : View.VISIBLE);
+                    tvReport.setVisibility(scans == null ? View.GONE : View.VISIBLE);
+                    adapter.set(scans == null ? new ArrayList<>() : scans);
+                    rvScan.setVisibility(scans == null ? View.GONE : View.VISIBLE);
+                    btnUpload.setVisibility(scans == null && !TextUtils.isEmpty(apiKey) ? View.VISIBLE : View.GONE);
                 }
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                    tvError.setText(Log.formatThrowable(ex, false));
+                    tvError.setVisibility(View.VISIBLE);
                 }
             };
 
@@ -655,6 +683,13 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 }
             };
 
+            tvReport.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    taskUrl.execute(FragmentDialogVirusTotal.this, args, "attachment:report");
+                }
+            });
+
             btnUpload.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -669,13 +704,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             return new AlertDialog.Builder(context)
                     .setView(view)
-                    .setPositiveButton(R.string.title_info, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            taskUrl.execute(FragmentDialogVirusTotal.this, args, "attachment:virustotal");
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
+                    .setNegativeButton(R.string.title_setup_done, null)
                     .create();
         }
     }

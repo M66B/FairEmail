@@ -157,7 +157,8 @@ public class FragmentOptions extends FragmentBase {
             "webview_legacy", "browser_zoom", "fake_dark",
             "show_recent",
             "biometrics",
-            "default_light"
+            "default_light",
+            "vt_enabled", "vt_apikey"
     };
 
     @Override

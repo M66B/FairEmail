@@ -28,51 +28,22 @@
             android:layout_marginTop="24dp"
             android:text="File name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
         <TextView
-            android:id="@+id/tvAnalysis"
+            android:id="@+id/tvError"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/title_vt_count"
+            android:layout_marginTop="12dp"
+            android:fontFamily="monospace"
+            android:text="Error"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
-
-        <ProgressBar
-            android:id="@+id/pbAnalysis"
-            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="6dp"
-            android:progress="50"
-            android:scaleY="3"
-            app:layout_constraintEnd_toStartOf="@+id/tvCount"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAnalysis" />
-
-        <TextView
-            android:id="@+id/tvCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="10/100"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/pbAnalysis"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <TextView
-            android:id="@+id/tvLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Label"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pbAnalysis" />
 
         <TextView
             android:id="@+id/tvUnknown"
@@ -82,7 +53,7 @@
             android:text="@string/title_vt_unknown"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvLabel" />
+            app:layout_constraintTop_toBottomOf="@id/tvError" />
 
         <Button
             android:id="@+id/btnUpload"
@@ -104,6 +75,7 @@
             android:layout_marginStart="12dp"
             android:indeterminate="true"
             app:layout_constraintBottom_toBottomOf="@id/btnUpload"
+            app:layout_constraintBottom_toTopOf="@+id/tvAnalyzing"
             app:layout_constraintStart_toEndOf="@id/btnUpload"
             app:layout_constraintTop_toTopOf="@id/btnUpload" />
 
@@ -117,6 +89,53 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnUpload" />
 
+        <TextView
+            android:id="@+id/tvSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_vt_summary"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAnalyzing" />
+
+        <TextView
+            android:id="@+id/tvLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSummary" />
+
+        <TextView
+            android:id="@+id/tvReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_open_in_new_12"
+            android:drawablePadding="6dp"
+            android:drawableTint="?android:attr/textColorLink"
+            android:text="@string/title_vt_report"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorLink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLabel" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvScan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvReport" />
+
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbWait"
             style="@style/Base.Widget.AppCompat.ProgressBar"
@@ -127,11 +146,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpAnalysis"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:constraint_referenced_ids="tvAnalysis,pbAnalysis,tvCount" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
