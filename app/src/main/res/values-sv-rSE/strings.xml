@@ -399,6 +399,7 @@
     <string name="title_advanced_two_col">Använd två kolumner</string>
     <string name="title_advanced_min_screen_size">Minsta skärmstorlek för uppdelning av skärmen</string>
     <string name="title_advanced_close_pane">Kollapsa rad eller kolumn när en konversation stängs</string>
+    <string name="title_advanced_column_width">Meddelandekolumnens bredd / radhöjd: %1$s %%</string>
     <string name="title_advanced_nav_options">Visa alternativ för navigeringsmeny</string>
     <string name="title_advanced_nav_categories">Visa kontokategorier i navigeringsmenyn</string>
     <string name="title_advanced_nav_pin">Fäst navigeringsmenyn</string>
@@ -623,6 +624,7 @@
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">Språkintegration för verktyg</string>
     <string name="title_advanced_deepl">DeepL integration</string>
+    <string name="title_advanced_virus_total">VirusTotal integration</string>
     <string name="title_advanced_sdcard">Jag vill använda ett SD-kort</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
     <string name="title_advanced_updates">Sök efter GitHub-uppdateringar</string>
@@ -1335,6 +1337,7 @@
     <string name="title_search_in">Sök i</string>
     <string name="title_search_sender">Sök efter avsändare</string>
     <string name="title_search_delete">Ta bort sparad sökning?</string>
+    <string name="title_save_search">Sparad sökning</string>
     <string name="title_save_search_name">Namn</string>
     <string name="title_save_search_order">Ordning</string>
     <string name="title_save_search_color">Färg</string>

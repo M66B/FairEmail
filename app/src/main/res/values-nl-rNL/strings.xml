@@ -1242,6 +1242,11 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_send_dsn">Statusrapport</string>
     <string name="title_send_receipt">Vraag bevestiging</string>
     <string name="title_send_receipt_remark">De meeste providers en e-mail clients negeren bevestigingsverzoeken</string>
+    <string name="title_vt_unknown">Dit bestand is nog niet bekend bij VirusTotal</string>
+    <string name="title_vt_summary">%1$s virus scanners melden dit bestand als kwaadaardig</string>
+    <string name="title_vt_report">Volledig rapport</string>
+    <string name="title_vt_upload">Uploaden</string>
+    <string name="title_vt_analyzing">VirusTotal analyseert het bestand, dit kan een tijdje duren &#8230;</string>
     <string name="title_from_missing">Zender ontbreekt</string>
     <string name="title_pgp_reminder">PGP-sleutels beschikbaar</string>
     <string name="title_smime_reminder">S/MIME-sleutels beschikbaar</string>

@@ -651,6 +651,7 @@
     <string name="title_advanced_language_system">מערכת</string>
     <string name="title_advanced_lt">שילוב מול LanguageTool</string>
     <string name="title_advanced_deepl">שילוב של DeepL</string>
+    <string name="title_advanced_virus_total">שילוב של VirusTotal</string>
     <string name="title_advanced_sdcard">ארצה להשתמש בכרטיס SD</string>
     <string name="title_advanced_watchdog">לבדוק מדי פעם אם FairEmail עדיין פעיל</string>
     <string name="title_advanced_updates">איתור עדכונים ב־GitHub</string>

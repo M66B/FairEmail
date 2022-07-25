@@ -629,6 +629,7 @@
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integração LanguageTool</string>
     <string name="title_advanced_deepl">Integração DeepL</string>
+    <string name="title_advanced_virus_total">Integração VirusTotal</string>
     <string name="title_advanced_sdcard">Quero utilizar um cartão SD</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_updates">Verificar atualizações do GitHub</string>
@@ -772,7 +773,7 @@
     <string name="title_account_name">Nome da conta</string>
     <string name="title_account_category">Categoria</string>
     <string name="title_account_name_hint">Utilizado para diferenciar pastas</string>
-    <string name="title_account_interval_hint">Frequência para atualizar a ligação para mensagens push ou frequência de verificação de novas mensagens (não é para defenir o tempo de verificação de novas mensagens, para isso ir ao menu \"Ligação\")</string>
+    <string name="title_account_interval_hint">Frequência para atualizar a ligação para mensagens push ou frequência de verificação de novas mensagens (não é para defenir o tempo de verificação de novas mensagens, para isso ir ao menu \"Receber\")</string>
     <string name="title_account_partial_fetch_hint">Desactivar isto apenas em caso de mensagens vazias ou anexos corrompidos</string>
     <string name="title_color">Cor</string>
     <string name="title_background">Fundo</string>
