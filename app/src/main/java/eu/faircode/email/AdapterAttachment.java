@@ -543,6 +543,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             final Button btnUpload = view.findViewById(R.id.btnUpload);
             final ProgressBar pbUpload = view.findViewById(R.id.pbUpload);
             final TextView tvAnalyzing = view.findViewById(R.id.tvAnalyzing);
+            final TextView tvPrivacy = view.findViewById(R.id.tvPrivacy);
             final ProgressBar pbWait = view.findViewById(R.id.pbWait);
 
             tvName.setText(name);
@@ -551,8 +552,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             tvUnknown.setVisibility(View.GONE);
             tvSummary.setVisibility(View.GONE);
             tvLabel.setVisibility(View.GONE);
-            tvReport.getPaint().setUnderlineText(true);
             tvReport.setVisibility(View.GONE);
+            tvReport.getPaint().setUnderlineText(true);
 
             rvScan.setHasFixedSize(false);
             LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -566,6 +567,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             btnUpload.setVisibility(View.GONE);
             pbUpload.setVisibility(View.GONE);
             tvAnalyzing.setVisibility(View.GONE);
+            tvPrivacy.setVisibility(View.GONE);
+            tvPrivacy.getPaint().setUnderlineText(true);
             pbWait.setVisibility(View.GONE);
 
             final SimpleTask<Bundle> taskLookup = new SimpleTask<Bundle>() {
@@ -611,6 +614,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     adapter.set(scans == null ? new ArrayList<>() : scans);
                     rvScan.setVisibility(scans == null ? View.GONE : View.VISIBLE);
                     btnUpload.setVisibility(scans == null && !TextUtils.isEmpty(apiKey) ? View.VISIBLE : View.GONE);
+                    tvPrivacy.setVisibility(btnUpload.getVisibility());
                 }
 
                 @Override
@@ -694,6 +698,13 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 @Override
                 public void onClick(View view) {
                     taskUpload.execute(FragmentDialogVirusTotal.this, args, "attachment:upload");
+                }
+            });
+
+            tvPrivacy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.view(v.getContext(), Uri.parse(VirusTotal.URI_PRIVACY), true);
                 }
             });
 
