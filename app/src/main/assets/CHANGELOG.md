@@ -4,6 +4,12 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### 1.1942 - 2022-07-25
+
+* Improved VirusTotal integration
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1941 - 2022-07-24
 
 * Added VirusTotal integration
