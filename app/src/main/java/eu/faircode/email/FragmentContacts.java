@@ -461,7 +461,7 @@ public class FragmentContacts extends FragmentBase {
                             continue;
 
                         FormattedName fn = vcard.getFormattedName();
-                        String name = (fn == null) ? null : fn.getValue();
+                        String name = (fn == null ? null : fn.getValue());
 
                         List<String> categories = new ArrayList<>();
                         if (vcard.getCategories() != null)
