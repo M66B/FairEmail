@@ -63,12 +63,7 @@ public class VirusTotal {
         Bundle result = new Bundle();
 
         Pair<Integer, String> response = call(context, "api/v3/files/" + getHash(file), apiKey);
-        if (response.first == HttpsURLConnection.HTTP_NOT_FOUND) {
-            result.putInt("count", 0);
-            result.putInt("malicious", 0);
-        } else if (response.first != HttpsURLConnection.HTTP_OK)
-            throw new FileNotFoundException(response.second);
-        else {
+        if (response.first == HttpsURLConnection.HTTP_OK) {
             // https://developers.virustotal.com/reference/files
             // Example: https://gist.github.com/M66B/4ea95fdb93fb10bf4047761fcc9ec21a
             JSONObject jroot = new JSONObject(response.second);
@@ -81,16 +76,19 @@ public class VirusTotal {
             List<ScanResult> scanResult = new ArrayList<>();
             JSONObject janalysis = jattributes.getJSONObject("last_analysis_results");
             JSONArray jnames = janalysis.names();
-            for (int i = 0; i < jnames.length(); i++) {
-                String name = jnames.getString(i);
-                JSONObject jresult = janalysis.getJSONObject(name);
-                String category = jresult.getString("category");
-                scanResult.add(new ScanResult(name, category));
-            }
+            if (jnames != null) {
+                for (int i = 0; i < jnames.length(); i++) {
+                    String name = jnames.getString(i);
+                    JSONObject jresult = janalysis.getJSONObject(name);
+                    String category = jresult.getString("category");
+                    scanResult.add(new ScanResult(name, category));
+                }
 
-            result.putParcelableArrayList("scans", (ArrayList<? extends Parcelable>) scanResult);
-            result.putString("label", label);
-        }
+                result.putParcelableArrayList("scans", (ArrayList<? extends Parcelable>) scanResult);
+                result.putString("label", label);
+            }
+        } else if (response.first != HttpsURLConnection.HTTP_NOT_FOUND)
+            throw new FileNotFoundException(response.second);
 
         return result;
     }
