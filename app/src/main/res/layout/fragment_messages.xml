@@ -88,15 +88,27 @@
 
             <TextView
                 android:id="@+id/tvCancelled"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:padding="6dp"
                 android:text="@string/app_cancelled"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ibCancelled"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vSeparatorSupport" />
+
+            <ImageButton
+                android:id="@+id/ibCancelled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_legend_close_hint"
+                android:padding="9dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvCancelled"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvCancelled"
+                app:srcCompat="@drawable/twotone_close_24" />
 
             <View
                 android:id="@+id/vSeparatorCancelled"
@@ -487,6 +499,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="tvSupport,vSeparatorSupport" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpCancelled"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvCancelled,ibCancelled,vSeparatorCancelled" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpHintSupport"
