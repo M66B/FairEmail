@@ -78,6 +78,8 @@ public class ServiceAuthenticator extends Authenticator {
         } catch (Throwable ex) {
             if (ex.getCause() instanceof InterruptedException)
                 Log.i(ex);
+            else if (ex.getMessage() != null && ex.getMessage().startsWith("OAuth refresh"))
+                Log.w(ex);
             else
                 Log.e(ex);
         }
