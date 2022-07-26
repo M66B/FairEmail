@@ -683,7 +683,7 @@
     <string name="title_advanced_validate_hint">Isto pode resultar em problemas na sincronização de mensagens, por exemplo, ao utilizar uma VPN, mas também noutras situações</string>
     <string name="title_advanced_timeout_hint">O tempo de leitura/gravação será definido para o dobro do tempo limite de ligação. Valores maiores resultarão em mais uso de bateria.</string>
     <string name="title_advanced_cert_strict_hint">Desativar isto irá relaxar a verificação de certificados de servidor</string>
-    <string name="title_advanced_ssl_harden_hint">Habilitar isto desativará os protocolos e cifras SSL fracos, o que pode levar a problemas de ligação</string>
+    <string name="title_advanced_ssl_harden_hint">Ao activar isto, serão desactivados os protocolos e cifras SSL fracos, o que pode levar a problemas de ligação</string>
     <string name="title_advanced_roaming_hint">Os cabeçalhos de mensagens serão sempre obtidos em roaming. Pode usar a configuração de roaming do dispositivo para desactivar a internet em roaming.</string>
     <string name="title_advanced_browse_hint">Procurar mais mensagens ao deslizar para baixo</string>
     <string name="title_advanced_layout_hint">Pode mudar para um layout mais compacto e alterar o tamanho do texto da mensagem no menu da barra de acção presente na parte superior da vista de mensagens</string>
@@ -706,7 +706,7 @@
     <string name="title_advanced_inline_hint">Imagens embutidas estão incluídas na mensagem</string>
     <string name="compressed">O conteúdo dos ficheiros comprimidos (%1$s) com mais de %2$s ficheiros ou com ficheiros maiores do que %3$s não será mostrado</string>
     <string name="title_advanced_parse_classes_hint">Mostrará as mensagens com maior precisão, mas com um possível atraso</string>
-    <string name="title_advanced_restore_on_launch_hint">Restaurar o último estado do aplicativo quando reiniciado através do ícone do launcher em %1$d minutos</string>
+    <string name="title_advanced_restore_on_launch_hint">Restaurar o último estado da aplicação quando for reiniciada, através do ícone do launcher, no espaço de %1$d minuto(s)</string>
     <string name="title_advanced_language_detection_hint">Suporte de detecção de idioma depende do fabricante do dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensagem automaticamente quando houver apenas uma mensagem ou uma mensagem não lida numa conversa</string>
     <string name="title_advanced_expandall_hint">O botão de resposta não será mostrado quando várias mensagens são expandidas porque não está claro a qual mensagem o botão se aplica</string>
@@ -981,7 +981,7 @@
     <string name="title_no_messages">Sem mensagens</string>
     <string name="title_filters_active">Um ou mais filtros activos</string>
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
-    <string name="title_trashed_from">Mensagem na lixeira de %1$s</string>
+    <string name="title_trashed_from">Mensagem de %1$s colocada no lixo</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1247,6 +1247,11 @@
     <string name="title_send_dsn">Relatório de entrega</string>
     <string name="title_send_receipt">Pedir recibo de leitura</string>
     <string name="title_send_receipt_remark">A maioria dos fornecedores e clientes de correio electrónico ignoram as solicitações dos recibos de leitura</string>
+    <string name="title_vt_unknown">Este ficheiro ainda não é conhecido pelo VirusTotal</string>
+    <string name="title_vt_summary">%1$s base de dados de vírus reportam este arquivo como malicioso</string>
+    <string name="title_vt_report">Relatório completo</string>
+    <string name="title_vt_upload">Enviar para verificação</string>
+    <string name="title_vt_analyzing">O VirusTotal está a analisar o ficheiro, esta operação pode demorar algum tempo &#8230;</string>
     <string name="title_from_missing">Remetente em falta</string>
     <string name="title_pgp_reminder">Chaves PGP disponíveis</string>
     <string name="title_smime_reminder">Chaves S/MIME disponíveis</string>

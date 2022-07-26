@@ -478,6 +478,7 @@
     <string name="title_advanced_text_size">Benyt tekststørrelser</string>
     <string name="title_advanced_text_font">Benyt skrifttyper</string>
     <string name="title_advanced_text_align">Benyt tekstjustering</string>
+    <string name="title_advanced_text_titles">Vis {HTML titles}</string>
     <string name="title_advanced_text_separators">Benyt separatorlinjer</string>
     <string name="title_advanced_collapse_quotes">Skjul citeret tekst</string>
     <string name="title_advanced_image_placeholders">Vis billedpladsholdere</string>
@@ -1248,6 +1249,11 @@
     <string name="title_send_dsn">Statusrapport</string>
     <string name="title_send_receipt">Bed om kvittering</string>
     <string name="title_send_receipt_remark">De fleste udbydere og e-mailklienter ignorerer kvitteringsanmodninger</string>
+    <string name="title_vt_unknown">VirusTotal kender endnu ikke denne fil</string>
+    <string name="title_vt_summary">%1$s virusskannere rapporterer denne fil som ondsindet</string>
+    <string name="title_vt_report">Fuld rapport</string>
+    <string name="title_vt_upload">Upload</string>
+    <string name="title_vt_analyzing">VirusTotal analyserer filen, hvilket kan noget tid &#8230;</string>
     <string name="title_from_missing">Afsender mangler</string>
     <string name="title_pgp_reminder">PGP-nøgler tilgængelige</string>
     <string name="title_smime_reminder">S/MIME-nøgler tilgængelige</string>

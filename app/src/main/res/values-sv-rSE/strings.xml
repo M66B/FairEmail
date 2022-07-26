@@ -1241,6 +1241,11 @@
     <string name="title_send_dsn">Statusrapport</string>
     <string name="title_send_receipt">Begär läskvitto</string>
     <string name="title_send_receipt_remark">De flesta leverantörer och e-postklienter ignorerar kvittonförfrågningar</string>
+    <string name="title_vt_unknown">Denna fil är ännu inte känd för VirusTotal</string>
+    <string name="title_vt_summary">%1$s virusskannrar rapporterar denna fil som skadlig</string>
+    <string name="title_vt_report">Fullständig rapport</string>
+    <string name="title_vt_upload">Ladda upp</string>
+    <string name="title_vt_analyzing">VirusTotal analyserar filen, detta kan ta ett tag &#8230;</string>
     <string name="title_from_missing">Avsändaren saknas</string>
     <string name="title_pgp_reminder">PGP-nycklar tillgängliga</string>
     <string name="title_smime_reminder">S/MIME-nycklar tillgängliga</string>

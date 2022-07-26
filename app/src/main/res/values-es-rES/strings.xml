@@ -11,6 +11,9 @@
     <string name="app_cake">Espacio de almacenamiento insuficiente</string>
     <string name="app_updated">Última actualización: %1$s</string>
     <string name="app_download">Descargado de: %1$s</string>
+    <string name="app_cancelled">        Lo siento, pero me he visto obligado a detener este proyecto debido a <a href="https://email.faircode.eu/status/">comportamiento abusivo por parte de Google</a>.
+        Puede continuar usando la aplicación por ahora, pero dada la situación, ya no tiene sentido poner esfuerzo en esta aplicación.
+    </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Correo electrónico</string>
@@ -627,6 +630,7 @@
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integración con LanguageTool</string>
     <string name="title_advanced_deepl">Integración con DeepL</string>
+    <string name="title_advanced_virus_total">Integración con VirusTotal</string>
     <string name="title_advanced_sdcard">Quiero usar una tarjeta SD</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Comprobar actualizaciones de GitHub</string>
@@ -1243,6 +1247,11 @@
     <string name="title_send_dsn">Informe de estado</string>
     <string name="title_send_receipt">Solicitar acuse</string>
     <string name="title_send_receipt_remark">La mayoría de los clientes y proveedores de email ignoran los pedidos de recibos</string>
+    <string name="title_vt_unknown">Este archivo aún no es conocido por VirusTotal</string>
+    <string name="title_vt_summary">%1$s antivirus informan este archivo como malicioso</string>
+    <string name="title_vt_report">Reporte completo</string>
+    <string name="title_vt_upload">Subir</string>
+    <string name="title_vt_analyzing">VirusTotal está analizando el archivo, esto puede tomae un tiempo &#8230;</string>
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_pgp_reminder">Claves PGP disponibles</string>
     <string name="title_smime_reminder">Claves S/MIME disponibles</string>

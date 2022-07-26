@@ -11,6 +11,9 @@
     <string name="app_cake">לא נותר די שטח אחסון</string>
     <string name="app_updated">עדכון אחרון: %1$s</string>
     <string name="app_download">מקור ההורדה: %1$s</string>
+    <string name="app_cancelled">        אני מתנצל אבל אולצתי לעצור את המיזם הזה עקב <a href="https://email.faircode.eu/status/">התנהגות פוגענית מצד Google</a>.
+        אפשר להמשיך להשתמש ביישומון לבינתיים, אך עקב המצב, אני לא רואה טעם להמשיך להשקיע עוד ביישומון הזה.
+    </string>
     <string name="channel_service">מעקב</string>
     <string name="channel_send">שליחה</string>
     <string name="channel_notification">דוא״ל</string>
@@ -1270,6 +1273,11 @@
     <string name="title_send_dsn">דוח מצב</string>
     <string name="title_send_receipt">בקשת אישור</string>
     <string name="title_send_receipt_remark">רוב ספקי ולקוחות הדוא״ל מתעלמים מבקשות אישור</string>
+    <string name="title_vt_unknown">הקובץ הזה עדיין לא מוכר ל־VirusTotal</string>
+    <string name="title_vt_summary">%1$s סורקי וירוסים מעידים שהקובץ הזה מסוכן</string>
+    <string name="title_vt_report">דוח מלא</string>
+    <string name="title_vt_upload">העלאה</string>
+    <string name="title_vt_analyzing">VirusTotal מנתח את הקובץ, פעולה זו עלולה לארוך זמן מה&#8230;</string>
     <string name="title_from_missing">חסר מוען</string>
     <string name="title_pgp_reminder">מפתחות PGP זמינים</string>
     <string name="title_smime_reminder">מפתחות S/MIME זמינים</string>

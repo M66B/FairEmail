@@ -11,6 +11,9 @@
     <string name="app_cake">Espaço de armazenamento insuficiente</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Baixado de: %1$s</string>
+    <string name="app_cancelled">        Sinto muito, mas fui forçado a parar este projeto devido a <a href="https://email.faircode.eu/status/">comportamento abusivo da Google</a>.
+        Você pode continuar usando o aplicativo por enquanto, mas, dada a situação, não faz mais sentido colocar esforço neste aplicativo.
+    </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>
@@ -1245,6 +1248,11 @@
     <string name="title_send_dsn">Relatório de status</string>
     <string name="title_send_receipt">Solicitar recibo</string>
     <string name="title_send_receipt_remark">A maioria dos provedores e clientes de e-mail ignoram as solicitações de confirmação</string>
+    <string name="title_vt_unknown">Este arquivo ainda não é conhecido pelo VirusTotal</string>
+    <string name="title_vt_summary">%1$s varreduras de vírus reportam este arquivo como malicioso</string>
+    <string name="title_vt_report">Relatório completo</string>
+    <string name="title_vt_upload">Enviar</string>
+    <string name="title_vt_analyzing">VirusTotal está analisando o arquivo, isso pode demorar um pouco &#8230;</string>
     <string name="title_from_missing">Remetente faltante</string>
     <string name="title_pgp_reminder">Chaves PGP disponíveis</string>
     <string name="title_smime_reminder">Chaves S/MIME disponíveis</string>

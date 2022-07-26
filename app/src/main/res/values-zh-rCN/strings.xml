@@ -1231,6 +1231,11 @@
     <string name="title_send_dsn">状态报告</string>
     <string name="title_send_receipt">请求回执</string>
     <string name="title_send_receipt_remark">大多数供应商和电子邮件客户都忽略回执请求</string>
+    <string name="title_vt_unknown">VirusTotal 尚无此文件信息</string>
+    <string name="title_vt_summary">%1$s 个病毒扫描器将此文件报告为恶意文件</string>
+    <string name="title_vt_report">完整报告</string>
+    <string name="title_vt_upload">上传</string>
+    <string name="title_vt_analyzing">VirusTotal 正在分析文件，这可能需要一段时间 &#8230;</string>
     <string name="title_from_missing">缺少发件人</string>
     <string name="title_pgp_reminder">PGP 密钥可用</string>
     <string name="title_smime_reminder">S/MIME 密钥可用</string>

@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail je opensource aplikácia zameraná na súkromie a bezpečnosť. Z toho dôvodu môžu niektoré vlastnosti fungovať inak, ako ste zvyknutí.</string>
     <string name="app_limitations">Napríklad, správy sú implicitne preformátované aby sa odstránili nebezpečné elementy a zvýšila čitateľnosť, a otváranie odkazov je potrebné potvrdiť kvôli bezpečnosti. Obe nastavenia je možné podľa potreby vypnúť.</string>
     <string name="app_unsupported">Chyby vo verzii systému Android na tomto zariadení spôsobujú pády</string>
+    <string name="app_data_loss">Môžete prísť o všetky údaje</string>
     <string name="app_continue">Napriek tomu pokračovať</string>
     <string name="app_exit">Znova stlačte \"Späť\" pre ukončenie</string>
     <string name="app_cake">Nedostatok voľného miesta na úložisku</string>
@@ -101,6 +102,12 @@
         Na blokovanie domény odosielateľa sa používajú pravidlá filtrovania, čo je Pro funkcia.
     </string>
     <string name="title_blocked_senders">Zablokovaní odosielatelia</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Zablokovať odosielateľa %1$s správy?</item>
+        <item quantity="few">Zablokovať odosielateľa %1$s správ?</item>
+        <item quantity="many">Zablokovať odosielateľa %1$s správ?</item>
+        <item quantity="other">Zablokovať odosielateľa %1$s správ?</item>
+    </plurals>
     <string name="title_junk_filter">Použiť lokálny spam filter</string>
     <string name="title_junk_filter_hint">Môže zvýšiť spotrebu batérie a nesprávne označovať správy ako nevyžiadané</string>
     <string name="title_junk_blocklist">Používať zoznami na blokovanie nevyžiadanej pošty</string>
@@ -160,6 +167,7 @@
     <string name="title_setup_quick_smtp">SMTP server na odosielanie správ</string>
     <string name="title_setup_quick_certificates">Certifikáty servera</string>
     <string name="title_setup_wizard">Sprievodca</string>
+    <string name="title_setup_wizard_tutorials">Tutoriály</string>
     <string name="title_setup_wizard_multiple">Sprievodcu môžete spustiť viac krát, ak chcete nastaviť viac účtov</string>
     <string name="title_setup_wizard_new">Potrebujem novú emailovú adresu</string>
     <string name="title_setup_manual">Manuálne nastavenie a možnosti účtu</string>
@@ -170,12 +178,16 @@
     <string name="title_setup_account_identity_hint">Môžete nastaviť meno, farbu a akcie pre potiahnutie v nastaveniach konta, a nastaviť podpis v nastaveniach totožnosti</string>
     <string name="title_setup_accounts">Účty</string>
     <string name="title_setup_identities">Totožnosti</string>
+    <string name="title_setup_google_sign_in">Prihlásiť sa s účtom Google</string>
     <string name="title_setup_other">Iný poskytovateľ</string>
+    <string name="title_setup_inbound">Len prichádzajúca pošta (Email nie je možné odosielať!)</string>
     <string name="title_setup_pop3">POP3 účet</string>
     <string name="title_setup_oauth_permission">Poskytovateľ schválil použitie oauth len pre verzie z obchodu Play a Github</string>
     <string name="title_setup_gmail_support">Autorizácia účtov Google funguje len vo verziách z obchodu Play a Github, pretože systém Android kontroluje podpis aplikácií</string>
     <string name="title_setup_gmail_rationale">Prosím o udelenie povolenia na výberr účtu a načítanie Vášho mena</string>
     <string name="title_setup_gmail_permissions">Google sa opýta na povolenia pre čítanie, písanie, odosielanie a trvalé vymazanie všetkých vašich e-mailov. FairEmail nikdy nevymaže vaše správy bez vášho vysloveného súhlasu.</string>
+    <string name="title_setup_gmail_on_device">Prečo musím vybrať účet nastavený v zariadení?</string>
+    <string name="title_setup_gmail_password">Chcem sa do účtu prihlásiť zadaním hesla namiesto výberu účtu prihláseného v zariadení</string>
     <string name="title_setup_office_auth">Chyba \"OVERENIE zlyhalo\" môže byť zapríčinená zakázanými IMAP/SMTP správcom systému</string>
     <string name="title_setup_oauth_rationale">Autorizovať prístup do vášho %1$s účtu</string>
     <string name="title_setup_oauth_update">Opätovne autorizovať existujúci účet (ak neexistuje, bude vytvorený nový)</string>
@@ -201,6 +213,8 @@
     <string name="title_setup_permissions">Udeliť oprávnenia</string>
     <string name="title_setup_permissions_remark">Prístup k informáciám kontaktov (voliteľné)</string>
     <string name="title_setup_permissions_explanation">Oprávnenie pristupovať ku kontaktom je potrebné na získavanie informácií o kontaktoch a na návrhy príjemcov</string>
+    <string name="title_setup_permissions_notify">Na zobrazovanie upozornení na nové prichádzajúce správy (voliteľné)</string>
+    <string name="title_setup_permissions_notify_explanation">Povolenie pristupovať k upozorneniam je vyžadované na zobrazovanie upozornení na nové prichádzajúce správy v stavovom riadku</string>
     <string name="title_setup_permission_why">Aké oprávnenia sú potrebné a prečo?</string>
     <string name="title_setup_permission_import_contacts">Ako importovať kontakty?</string>
     <string name="title_setup_doze">Vypnite optimalizáciu batérie</string>
@@ -224,6 +238,7 @@
     <string name="title_setup_still">Zostáva dokončiť</string>
     <string name="title_setup_error">Chyba</string>
     <string name="title_setup_pop">Používať POP3 protokol (neodporúča sa)</string>
+    <string name="title_setup_recent">Použiť \'recent\' pre viaceré aplikácie elektronickej pošty</string>
     <string name="title_setup_configuring">Nastavenie účtu &#8230;</string>
     <string name="title_setup_app_password">Možno budete potrebovať použiť heslo aplikácie</string>
     <string name="title_setup_extra">Viac</string>
@@ -391,6 +406,7 @@
     <string name="title_advanced_timeout">Časový limit pripojenia (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Uprednostňovať IPv4 pred IPv6</string>
     <string name="title_advanced_ssl_harden">Obrniť SSL pripojenia</string>
+    <string name="title_advanced_ssl_harden_strict">Vyžadovať TLS 1.3</string>
     <string name="title_advanced_cert_strict">Prísna kontrola certifikátov</string>
     <string name="title_advanced_manage_connectivity">Spravovať pripojenie</string>
     <string name="title_advanced_caption_general">Všeobecné</string>
@@ -407,6 +423,7 @@
     <string name="title_advanced_two_col">Použiť dva stĺpce</string>
     <string name="title_advanced_min_screen_size">Minimálna veľkosť obrazovky pre funkciu rozdelenie obrazovky</string>
     <string name="title_advanced_close_pane">Zbaliť riadok alebo stĺpec pri zatvorení konverzácie</string>
+    <string name="title_advanced_column_width">Šírka stĺpca / výška riadku správy: %1$s %%</string>
     <string name="title_advanced_nav_options">Zobrazovať možnosti navigačnej ponuky</string>
     <string name="title_advanced_nav_categories">Zobrazovať kategórie účtov v navigačnej ponuke</string>
     <string name="title_advanced_nav_pin">Pripnúť navigačnú ponuku</string>
@@ -472,6 +489,7 @@
     <string name="title_advanced_message_text_zoom2">Predvolené priblíženie textu správy: %1$s %%</string>
     <string name="title_advanced_overview_mode">Pôvodné zobrazenie správy prispôsobiť veľkosti obrazovky</string>
     <string name="title_advanced_override_width">Potlačiť pevnú šírku v pôvodných správach</string>
+    <string name="title_advanced_hyphenation">Použiť automatické delenie slov</string>
     <string name="title_advanced_contrast">Vysoký kontrast pre text správy</string>
     <string name="title_advanced_monospaced">Text správy písmom s pevnou šírkou</string>
     <string name="title_advanced_monospaced_pre">Používať písmo s pevnou šírkou pre predformátovaný text</string>
@@ -480,6 +498,7 @@
     <string name="title_advanced_text_size">Veľkosti textu</string>
     <string name="title_advanced_text_font">Písma</string>
     <string name="title_advanced_text_align">Zarovnanie textu</string>
+    <string name="title_advanced_text_titles">Zobrazovať HTML vlastnosť {title}</string>
     <string name="title_advanced_text_separators">Používať oddelovacie čiary</string>
     <string name="title_advanced_collapse_quotes">Zbaliť citovaný text</string>
     <string name="title_advanced_image_placeholders">Zobrazovať náhrady obrázkov</string>
@@ -490,6 +509,7 @@
     <string name="title_advanced_actionbar_color">Použiť farbu účtu ako farbu pozadia panela akcií konverzácie</string>
     <string name="title_advanced_category_header">Zoskupiť podľa kategórie účtu</string>
     <string name="title_advanced_navbar_colorize">Zafarbiť navigačný panel Androidu</string>
+    <string name="title_advanced_list_count">Zobrazovať počet správ alebo konverzácií na vrchnom panely akcií</string>
     <string name="title_advanced_bundled_fonts">Používať zabudované písma</string>
     <string name="title_advanced_parse_classes">Spracovať štýly CSS</string>
     <string name="title_advanced_authentication">Zobrazovať varovania overenia</string>

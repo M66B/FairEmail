@@ -1266,6 +1266,11 @@
     <string name="title_send_dsn">Poročilo o stanju</string>
     <string name="title_send_receipt">Zahtevaj potrdilo</string>
     <string name="title_send_receipt_remark">Večina ponudnikov in e-poštnih odjemalcev prezre zahteve za potrdilo.</string>
+    <string name="title_vt_unknown">VirusTotal še ne pozna te datoteke.</string>
+    <string name="title_vt_summary">%1$s pregledovalnikov za viruse poroča o tej datoteki kot zlonamerni.</string>
+    <string name="title_vt_report">Polno poročilo</string>
+    <string name="title_vt_upload">Pošlji</string>
+    <string name="title_vt_analyzing">VirusTotal preučuje datoteko.  To lahko traja nekaj časa &#8230;</string>
     <string name="title_from_missing">Manjka pošiljatelj.</string>
     <string name="title_pgp_reminder">Ključi PGP so na voljo.</string>
     <string name="title_smime_reminder">Ključu S/MIME so na voljo.</string>

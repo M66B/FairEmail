@@ -11,6 +11,9 @@
     <string name="app_cake">Nedostatek místa v úložišti</string>
     <string name="app_updated">Poslední aktualizace: %1$s</string>
     <string name="app_download">Staženo z: %1$s</string>
+    <string name="app_cancelled">        Omlouvám se, ale byl jsem nucen zastavit tento projekt z důvodu <a href="https://email.faircode.eu/status/">zneužívání ze strany Google</a>.
+        Můžete pokračovat v používání aplikace, ale vzhledem k situaci, již nemá smysl vyvíjet úsilí pro vývoj této aplikace.
+    </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Odesílání</string>
     <string name="channel_notification">E-mail</string>
@@ -649,6 +652,7 @@
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_lt">Integrace LanguageTool</string>
     <string name="title_advanced_deepl">DeepL integrace</string>
+    <string name="title_advanced_virus_total">Integrace VirusTotal</string>
     <string name="title_advanced_sdcard">Chci použít Sd kartu</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace na GitHubu</string>
@@ -1265,6 +1269,11 @@
     <string name="title_send_dsn">Hlášení o stavu</string>
     <string name="title_send_receipt">Požádat o potvrzení</string>
     <string name="title_send_receipt_remark">Většina poskytovatelů a e-mailových klientů ignoruje žádosti o potvrzení</string>
+    <string name="title_vt_unknown">Tento soubor ještě není VirusTotal znám</string>
+    <string name="title_vt_summary">Virové scannery hlásí soubor %1$s jako škodlivý</string>
+    <string name="title_vt_report">Úplný přehled</string>
+    <string name="title_vt_upload">Odeslat</string>
+    <string name="title_vt_analyzing">VirusTotal analyzuje soubor, což může chvíli trvat &#8230;</string>
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_pgp_reminder">PGP klíče k dispozici</string>
     <string name="title_smime_reminder">S/MIME klíče k dispozici</string>

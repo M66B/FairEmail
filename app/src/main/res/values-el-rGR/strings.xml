@@ -1242,6 +1242,11 @@
     <string name="title_send_dsn">Αναφορά κατάστασης</string>
     <string name="title_send_receipt">Αίτημα για αποδεικτικό</string>
     <string name="title_send_receipt_remark">Οι περισσότεροι πάροχοι και πελάτες ταχυδρομείου αγνοούν τα αιτήματα αποδεικτικού</string>
+    <string name="title_vt_unknown">Το αρχείο αυτό δεν είναι ακόμη γνωστό στο VirusTotal</string>
+    <string name="title_vt_summary">%1$s σαρωτές ιών αναφέρουν το αρχείο αυτό ως κακόβουλο</string>
+    <string name="title_vt_report">Πλήρης αναφορά</string>
+    <string name="title_vt_upload">Ανέβασμα</string>
+    <string name="title_vt_analyzing">Το VirusTotal αναλύει το αρχείο, αυτό μπορεί να διαρκέσει λίγο &#8230;</string>
     <string name="title_from_missing">Λείπει αποστολέας</string>
     <string name="title_pgp_reminder">Κλειδιά PGP διαθέσιμα</string>
     <string name="title_smime_reminder">Κλειδιά S/MIME διαθέσιμα</string>

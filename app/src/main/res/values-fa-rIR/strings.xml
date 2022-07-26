@@ -865,6 +865,11 @@
     <string name="title_send_plain_text">فقط متن ساده</string>
     <string name="title_send_receipt">درخواست رسید دریافت</string>
     <string name="title_send_receipt_remark">بیشتر فراهم‌کنندگان و کارخواه‌ها، درخواست‌های رسید دریافت را نادیده می‌گیرند</string>
+    <string name="title_vt_unknown">این فایل هنوز برای ویروس توتال شناخته شده نیست</string>
+    <string name="title_vt_summary">%1$s از آنتی‌ویروس‌ها این فایل را خطرناک دسته‌بندی کرده‌اند</string>
+    <string name="title_vt_report">گزارش کامل</string>
+    <string name="title_vt_upload">بارگذاری</string>
+    <string name="title_vt_analyzing">ویروس توتال در حال بررسی فایل است، این امر شاید مدتی زمان ببرد &#8230;</string>
     <string name="title_from_missing">فرستنده وجود ندارد</string>
     <string name="title_pgp_reminder">کلیدهای PGP در دسترس هستند</string>
     <string name="title_to_missing">گیرنده وجود ندارد</string>

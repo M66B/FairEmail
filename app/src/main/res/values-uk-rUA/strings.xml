@@ -11,6 +11,9 @@
     <string name="app_cake">Залишилося недостатньо вільного місця для зберігання</string>
     <string name="app_updated">Останнє оновлення: %1$s</string>
     <string name="app_download">Завантажено з: %1$s</string>
+    <string name="app_cancelled">        Мені шкода, але я був змушений зупинити цей проєкт через <a href="https://email.faircode.eu/status/">образливу поведінку Google</a>.
+        Ви можете продовжувати використовувати додаток зараз, але в умовах цієї ситуації, немає більше сенсу класти зусилля для цього додатку.
+    </string>
     <string name="channel_service">Монітор</string>
     <string name="channel_send">Надсилання</string>
     <string name="channel_notification">Email</string>
@@ -419,6 +422,7 @@
     <string name="title_advanced_two_col">Використовувати два стовпчики</string>
     <string name="title_advanced_min_screen_size">Мінімальний розмір екрану для його розділення</string>
     <string name="title_advanced_close_pane">Згорнути рядок або стовпець при закритті розмови</string>
+    <string name="title_advanced_column_width">Повідомлення колонки ширина / висота рядку: %1$s %%</string>
     <string name="title_advanced_nav_options">Показати параметри меню навігації</string>
     <string name="title_advanced_nav_categories">Показувати категорії облікових записів у навігаційному меню</string>
     <string name="title_advanced_nav_pin">Прикріпити меню навігації</string>
@@ -513,6 +517,7 @@
     <string name="title_advanced_authentication_none">Без автентифікації</string>
     <string name="title_advanced_authentication_some">Часткова автентифікація</string>
     <string name="title_advanced_authentication_all">Повна автентифікація</string>
+    <string name="title_advanced_restore_on_launch">Відновлювати стан програми під час запуску</string>
     <string name="title_advanced_sync_on_launch">Синхронізувати при старті</string>
     <string name="title_advanced_double_back">Подвійне натискання \'назад\' для виходу</string>
     <string name="title_advanced_conversation_actions">Запропонувати дії (Android 10+)</string>
@@ -682,6 +687,7 @@
     <string name="title_advanced_folder_nav_hint">Це завжди буде повертати до переліку тек що пов\'язані до облікового запису зі списку повідомлень</string>
     <string name="title_advanced_suggest_names_hint">Якщо вимкнено, використовуватимуться лише адреси електронної пошти при виборі контактів</string>
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Будуть зберігатися дані про контакт для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
+    <string name="title_advanced_auto_identity_hint">Це може обрати останню ідентифікацію, коли використовувалася для одержувача нових повідомлень</string>
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
@@ -718,6 +724,7 @@
     <string name="title_advanced_inline_hint">Вбудовані зображення включені в повідомлення</string>
     <string name="compressed">Вміст стиснутих файлів (%1$s) із кількістю файлів більшою за %2$s, або з файлами більшими за %3$s, небуде показаний</string>
     <string name="title_advanced_parse_classes_hint">Можливо, це буде більш точно відображати повідомлення, але, можливо, з затримкою</string>
+    <string name="title_advanced_restore_on_launch_hint">Відновлювати останній стан програми після перезапуску через іконку лаунчера протягом %1$d хвилин</string>
     <string name="title_advanced_language_detection_hint">Підтримка виявлення мови залежить від виробника пристрою</string>
     <string name="title_advanced_autoexpand_hint">Автоматично відкривати повідомлення, коли є тільки одне повідомлення або тільки одне непрочитане повідомлення в розмові</string>
     <string name="title_advanced_expandall_hint">Кнопка відповіді не відображатиметься, коли буде розгорнуто кілька повідомлень, тому що не зрозуміло, до котрого з них вона має бути застосовна</string>
@@ -1257,6 +1264,11 @@
     <string name="title_send_dsn">Звіти про стан</string>
     <string name="title_send_receipt">Запит підтвердження отримання</string>
     <string name="title_send_receipt_remark">Більшість постачальників та email клієнтів ігнорують запити на отримання</string>
+    <string name="title_vt_unknown">Цей файл ще не відомий VirusTotal</string>
+    <string name="title_vt_summary">%1$s сканери на вірус повідомляють: цей файл шкідливий</string>
+    <string name="title_vt_report">Повний звіт</string>
+    <string name="title_vt_upload">Вивантажити</string>
+    <string name="title_vt_analyzing">VirusTotal аналізує файл, це може зайняти деякий час &#8230;</string>
     <string name="title_from_missing">Відсутній відправник</string>
     <string name="title_pgp_reminder">Доступні PGP ключі</string>
     <string name="title_smime_reminder">Доступні S/MIME ключі</string>

@@ -1269,6 +1269,11 @@
     <string name="title_send_dsn">Отчёт о состоянии</string>
     <string name="title_send_receipt">Запросить уведомление</string>
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы уведомлений</string>
+    <string name="title_vt_unknown">Этот файл ещё не известен VirusTotal</string>
+    <string name="title_vt_summary">%1$s антивирусных сканеров считают этот файл вредоносным</string>
+    <string name="title_vt_report">Подробный отчёт</string>
+    <string name="title_vt_upload">Загрузить</string>
+    <string name="title_vt_analyzing">VirusTotal анализирует файл, это может занять некоторое время&#8230;</string>
     <string name="title_from_missing">Отсутствует отправитель</string>
     <string name="title_pgp_reminder">Доступные ключи PGP</string>
     <string name="title_smime_reminder">Доступные ключи S/MIME</string>

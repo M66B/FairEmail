@@ -626,6 +626,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Dil Aracı entegrasyonu</string>
     <string name="title_advanced_deepl">DeepL entegrasyonu</string>
+    <string name="title_advanced_virus_total">VirüsTotal entegrasyonu</string>
     <string name="title_advanced_sdcard">SD kart kullanmak istiyorum</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">GitHub güncellemelerini kontrol et</string>
@@ -1242,6 +1243,11 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_send_dsn">Durum raporu</string>
     <string name="title_send_receipt">Makbuz iste</string>
     <string name="title_send_receipt_remark">Çoğu sağlayıcı ve e-posta istemcisi alındı isteklerini yok saymaktadır</string>
+    <string name="title_vt_unknown">Bu dosya henüz VirusTotal tarafından bilinmiyor</string>
+    <string name="title_vt_summary">%1$s virüs tarayıcıları bu dosyayı kötü amaçlı olarak bildiriyor</string>
+    <string name="title_vt_report">Tam rapor</string>
+    <string name="title_vt_upload">Yükle</string>
+    <string name="title_vt_analyzing">VirusTotal dosyayı analiz ediyor, bu biraz zaman alabilir &#8230;</string>
     <string name="title_from_missing">Gönderici Eksik</string>
     <string name="title_pgp_reminder">PGP anahtarı var</string>
     <string name="title_smime_reminder">S/MIME anahtarları mevcut</string>
