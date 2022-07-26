@@ -416,17 +416,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swVirusTotal" />
 
-                <ImageButton
-                    android:id="@+id/ibVirusTotal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:contentDescription="@string/title_info"
-                    android:tooltipText="@string/title_info"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvVirusTotalPrivacy"
-                    app:srcCompat="@drawable/twotone_info_24" />
-
                 <EditText
                     android:id="@+id/etVirusTotal"
                     android:layout_width="0dp"
@@ -437,7 +426,18 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibVirusTotal" />
+                    app:layout_constraintTop_toBottomOf="@id/tvVirusTotalPrivacy" />
+
+                <ImageButton
+                    android:id="@+id/ibVirusTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/title_info"
+                    android:tooltipText="@string/title_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etVirusTotal"
+                    app:srcCompat="@drawable/twotone_info_24" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swUpdates"
@@ -448,7 +448,7 @@
                     android:text="@string/title_advanced_updates"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etVirusTotal"
+                    app:layout_constraintTop_toBottomOf="@id/ibVirusTotal"
                     app:switchPadding="12dp" />
 
                 <ImageButton

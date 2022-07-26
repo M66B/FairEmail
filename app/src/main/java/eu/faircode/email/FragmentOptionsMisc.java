@@ -124,8 +124,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private ImageButton ibDeepL;
     private SwitchCompat swVirusTotal;
     private TextView tvVirusTotalPrivacy;
-    private ImageButton ibVirusTotal;
     private EditText etVirusTotal;
+    private ImageButton ibVirusTotal;
     private SwitchCompat swUpdates;
     private ImageButton ibChannelUpdated;
     private SwitchCompat swCheckWeekly;
@@ -315,8 +315,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibDeepL = view.findViewById(R.id.ibDeepL);
         swVirusTotal = view.findViewById(R.id.swVirusTotal);
         tvVirusTotalPrivacy = view.findViewById(R.id.tvVirusTotalPrivacy);
-        ibVirusTotal = view.findViewById(R.id.ibVirusTotal);
         etVirusTotal = view.findViewById(R.id.etVirusTotal);
+        ibVirusTotal = view.findViewById(R.id.ibVirusTotal);
         swUpdates = view.findViewById(R.id.swUpdates);
         ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
         swCheckWeekly = view.findViewById(R.id.swWeekly);
@@ -661,13 +661,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        ibVirusTotal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 181);
-            }
-        });
-
         etVirusTotal.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -686,6 +679,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     prefs.edit().remove("vt_apikey").apply();
                 else
                     prefs.edit().putString("vt_apikey", apikey).apply();
+            }
+        });
+
+        ibVirusTotal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 181);
             }
         });
 
