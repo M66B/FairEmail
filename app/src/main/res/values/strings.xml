@@ -14,6 +14,10 @@
     <string name="app_cake">Insufficient storage space left</string>
     <string name="app_updated">Last update: %1$s</string>
     <string name="app_download">Downloaded from: %1$s</string>
+    <string name="app_cancelled">
+        I\'m sorry, but I have been forced to stop this project due to <a href="https://email.faircode.eu/status/">abusive behavior by Google</a>.
+        You can continue to use the app for now, but given the situation, there is no point in putting effort into this app anymore.
+    </string>
 
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Send</string>
