@@ -5015,223 +5015,231 @@ public class FragmentMessages extends FragmentBase
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_messages, menu);
+        try {
+            inflater.inflate(R.menu.menu_messages, menu);
 
-        final Context context = getContext();
-        PopupMenuLifecycle.insertIcons(context, menu, false);
+            final Context context = getContext();
+            PopupMenuLifecycle.insertIcons(context, menu, false);
 
-        LayoutInflater infl = LayoutInflater.from(context);
-        ImageButton ib = (ImageButton) infl.inflate(R.layout.action_button, null);
-        ib.setId(View.generateViewId());
-        ib.setImageResource(R.drawable.twotone_folder_24);
-        ib.setContentDescription(getString(R.string.title_legend_section_folders));
-        ib.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onMenuFolders(primary);
-            }
-        });
-        ib.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
-                fragment.setArguments(new Bundle());
-                fragment.setTargetFragment(FragmentMessages.this, REQUEST_ACCOUNT);
-                fragment.show(getParentFragmentManager(), "messages:accounts");
-                return true;
-            }
-        });
-        menu.findItem(R.id.menu_folders).setActionView(ib);
+            LayoutInflater infl = LayoutInflater.from(context);
+            ImageButton ib = (ImageButton) infl.inflate(R.layout.action_button, null);
+            ib.setId(View.generateViewId());
+            ib.setImageResource(R.drawable.twotone_folder_24);
+            ib.setContentDescription(getString(R.string.title_legend_section_folders));
+            ib.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onMenuFolders(primary);
+                }
+            });
+            ib.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+                    fragment.setArguments(new Bundle());
+                    fragment.setTargetFragment(FragmentMessages.this, REQUEST_ACCOUNT);
+                    fragment.show(getParentFragmentManager(), "messages:accounts");
+                    return true;
+                }
+            });
+            menu.findItem(R.id.menu_folders).setActionView(ib);
 
-        MenuCompat.setGroupDividerEnabled(menu, true);
+            MenuCompat.setGroupDividerEnabled(menu, true);
 
-        super.onCreateOptionsMenu(menu, inflater);
+            super.onCreateOptionsMenu(menu, inflater);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        boolean drafts = EntityFolder.DRAFTS.equals(type);
-        boolean outbox = EntityFolder.OUTBOX.equals(type);
-        boolean sent = EntityFolder.SENT.equals(type);
+        try {
+            boolean drafts = EntityFolder.DRAFTS.equals(type);
+            boolean outbox = EntityFolder.OUTBOX.equals(type);
+            boolean sent = EntityFolder.SENT.equals(type);
 
-        final Context context = getContext();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String sort = prefs.getString(getSort(context, viewType, type), "time");
-        boolean ascending = prefs.getBoolean(getSortOrder(context, viewType, type), outbox);
-        boolean filter_seen = prefs.getBoolean(getFilter(context, "seen", viewType, type), false);
-        boolean filter_unflagged = prefs.getBoolean(getFilter(context, "unflagged", viewType, type), false);
-        boolean filter_unknown = prefs.getBoolean(getFilter(context, "unknown", viewType, type), false);
-        boolean filter_snoozed = prefs.getBoolean(getFilter(context, "snoozed", viewType, type), true);
-        boolean filter_deleted = prefs.getBoolean(getFilter(context, "deleted", viewType, type), false);
-        boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
-        boolean filter_trash = prefs.getBoolean("filter_trash", false);
-        boolean language_detection = prefs.getBoolean("language_detection", false);
-        String filter_language = prefs.getString("filter_language", null);
-        boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-        boolean compact = prefs.getBoolean("compact", false);
-        boolean confirm_links = prefs.getBoolean("confirm_links", true);
-        int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
-        int padding = prefs.getInt("view_padding", compact || !cards ? 0 : 1);
-        boolean quick_filter = prefs.getBoolean("quick_filter", false);
+            final Context context = getContext();
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String sort = prefs.getString(getSort(context, viewType, type), "time");
+            boolean ascending = prefs.getBoolean(getSortOrder(context, viewType, type), outbox);
+            boolean filter_seen = prefs.getBoolean(getFilter(context, "seen", viewType, type), false);
+            boolean filter_unflagged = prefs.getBoolean(getFilter(context, "unflagged", viewType, type), false);
+            boolean filter_unknown = prefs.getBoolean(getFilter(context, "unknown", viewType, type), false);
+            boolean filter_snoozed = prefs.getBoolean(getFilter(context, "snoozed", viewType, type), true);
+            boolean filter_deleted = prefs.getBoolean(getFilter(context, "deleted", viewType, type), false);
+            boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
+            boolean filter_trash = prefs.getBoolean("filter_trash", false);
+            boolean language_detection = prefs.getBoolean("language_detection", false);
+            String filter_language = prefs.getString("filter_language", null);
+            boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+            boolean compact = prefs.getBoolean("compact", false);
+            boolean confirm_links = prefs.getBoolean("confirm_links", true);
+            int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
+            int padding = prefs.getInt("view_padding", compact || !cards ? 0 : 1);
+            boolean quick_filter = prefs.getBoolean("quick_filter", false);
 
-        boolean folder =
-                (viewType == AdapterMessage.ViewType.UNIFIED ||
-                        (viewType == AdapterMessage.ViewType.FOLDER && !outbox));
+            boolean folder =
+                    (viewType == AdapterMessage.ViewType.UNIFIED ||
+                            (viewType == AdapterMessage.ViewType.FOLDER && !outbox));
 
-        boolean filter_active = (filter_seen || filter_unflagged || filter_unknown ||
-                (language_detection && !TextUtils.isEmpty(filter_language)));
-        int filterColor = Helper.resolveColor(context, R.attr.colorAccent);
-        float filterLighten = 0.7f - (float) ColorUtils.calculateLuminance(filterColor);
-        if (filterLighten > 0)
-            filterColor = ColorUtils.blendARGB(filterColor, Color.WHITE, filterLighten);
-        MenuItem menuFilter = menu.findItem(R.id.menu_filter);
-        menuFilter.setShowAsAction(folder && filter_active
-                ? MenuItem.SHOW_AS_ACTION_ALWAYS
-                : MenuItem.SHOW_AS_ACTION_NEVER);
-        MenuItemCompat.setIconTintList(menuFilter, folder && filter_active
-                ? ColorStateList.valueOf(filterColor) : null);
-        menuFilter.setIcon(folder && filter_active ? R.drawable.twotone_filter_alt_24 : R.drawable.twotone_filter_list_24);
+            boolean filter_active = (filter_seen || filter_unflagged || filter_unknown ||
+                    (language_detection && !TextUtils.isEmpty(filter_language)));
+            int filterColor = Helper.resolveColor(context, R.attr.colorAccent);
+            float filterLighten = 0.7f - (float) ColorUtils.calculateLuminance(filterColor);
+            if (filterLighten > 0)
+                filterColor = ColorUtils.blendARGB(filterColor, Color.WHITE, filterLighten);
+            MenuItem menuFilter = menu.findItem(R.id.menu_filter);
+            menuFilter.setShowAsAction(folder && filter_active
+                    ? MenuItem.SHOW_AS_ACTION_ALWAYS
+                    : MenuItem.SHOW_AS_ACTION_NEVER);
+            MenuItemCompat.setIconTintList(menuFilter, folder && filter_active
+                    ? ColorStateList.valueOf(filterColor) : null);
+            menuFilter.setIcon(folder && filter_active ? R.drawable.twotone_filter_alt_24 : R.drawable.twotone_filter_list_24);
 
-        MenuItem menuSearch = menu.findItem(R.id.menu_search);
-        menuSearch.setVisible(folder);
+            MenuItem menuSearch = menu.findItem(R.id.menu_search);
+            menuSearch.setVisible(folder);
 
-        menu.findItem(R.id.menu_save_search).setVisible(
-                viewType == AdapterMessage.ViewType.SEARCH &&
-                        criteria != null && criteria.id == null);
-        menu.findItem(R.id.menu_edit_search).setVisible(
-                viewType == AdapterMessage.ViewType.SEARCH &&
-                        criteria != null && criteria.id != null);
+            menu.findItem(R.id.menu_save_search).setVisible(
+                    viewType == AdapterMessage.ViewType.SEARCH &&
+                            criteria != null && criteria.id == null);
+            menu.findItem(R.id.menu_edit_search).setVisible(
+                    viewType == AdapterMessage.ViewType.SEARCH &&
+                            criteria != null && criteria.id != null);
 
-        menu.findItem(R.id.menu_folders).setVisible(
-                viewType == AdapterMessage.ViewType.UNIFIED &&
-                        type == null && primary >= 0);
-        ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
-        ib.setImageResource(connected
-                ? R.drawable.twotone_folder_special_24 : R.drawable.twotone_folder_24);
+            menu.findItem(R.id.menu_folders).setVisible(
+                    viewType == AdapterMessage.ViewType.UNIFIED &&
+                            type == null && primary >= 0);
+            ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
+            ib.setImageResource(connected
+                    ? R.drawable.twotone_folder_special_24 : R.drawable.twotone_folder_24);
 
-        menu.findItem(R.id.menu_sort_on).setVisible(viewType != AdapterMessage.ViewType.SEARCH);
+            menu.findItem(R.id.menu_sort_on).setVisible(viewType != AdapterMessage.ViewType.SEARCH);
 
-        if (viewType == AdapterMessage.ViewType.THREAD) {
-            menu.findItem(R.id.menu_sort_on_time).setVisible(false);
-            menu.findItem(R.id.menu_sort_on_unread).setVisible(false);
-            menu.findItem(R.id.menu_sort_on_priority).setVisible(false);
-            menu.findItem(R.id.menu_sort_on_starred).setVisible(false);
-            menu.findItem(R.id.menu_sort_on_sender).setVisible(false);
-            menu.findItem(R.id.menu_sort_on_subject).setVisible(false);
-            menu.findItem(R.id.menu_sort_on_size).setVisible(false);
-            menu.findItem(R.id.menu_sort_on_attachments).setVisible(false);
-            menu.findItem(R.id.menu_sort_on_snoozed).setVisible(false);
+            if (viewType == AdapterMessage.ViewType.THREAD) {
+                menu.findItem(R.id.menu_sort_on_time).setVisible(false);
+                menu.findItem(R.id.menu_sort_on_unread).setVisible(false);
+                menu.findItem(R.id.menu_sort_on_priority).setVisible(false);
+                menu.findItem(R.id.menu_sort_on_starred).setVisible(false);
+                menu.findItem(R.id.menu_sort_on_sender).setVisible(false);
+                menu.findItem(R.id.menu_sort_on_subject).setVisible(false);
+                menu.findItem(R.id.menu_sort_on_size).setVisible(false);
+                menu.findItem(R.id.menu_sort_on_attachments).setVisible(false);
+                menu.findItem(R.id.menu_sort_on_snoozed).setVisible(false);
+            }
+
+            boolean unselected = (selectionTracker == null || !selectionTracker.hasSelection());
+            menu.findItem(R.id.menu_empty_trash).setVisible(EntityFolder.TRASH.equals(type) && folder && unselected);
+            menu.findItem(R.id.menu_empty_spam).setVisible(EntityFolder.JUNK.equals(type) && folder && unselected);
+
+            if ("time".equals(sort))
+                menu.findItem(R.id.menu_sort_on_time).setChecked(true);
+            else if ("unread".equals(sort))
+                menu.findItem(R.id.menu_sort_on_unread).setChecked(true);
+            else if ("starred".equals(sort))
+                menu.findItem(R.id.menu_sort_on_starred).setChecked(true);
+            else if ("priority".equals(sort))
+                menu.findItem(R.id.menu_sort_on_priority).setChecked(true);
+            else if ("sender".equals(sort))
+                menu.findItem(R.id.menu_sort_on_sender).setChecked(true);
+            else if ("subject".equals(sort))
+                menu.findItem(R.id.menu_sort_on_subject).setChecked(true);
+            else if ("size".equals(sort))
+                menu.findItem(R.id.menu_sort_on_size).setChecked(true);
+            else if ("attachments".equals(sort))
+                menu.findItem(R.id.menu_sort_on_attachments).setChecked(true);
+            else if ("snoozed".equals(sort))
+                menu.findItem(R.id.menu_sort_on_snoozed).setChecked(true);
+            menu.findItem(R.id.menu_ascending).setChecked(ascending);
+
+            menu.findItem(R.id.menu_filter).setVisible(viewType != AdapterMessage.ViewType.SEARCH && !outbox);
+            menu.findItem(R.id.menu_filter_seen).setVisible(folder);
+            menu.findItem(R.id.menu_filter_unflagged).setVisible(folder);
+            menu.findItem(R.id.menu_filter_unknown).setVisible(folder && !drafts && !sent);
+            menu.findItem(R.id.menu_filter_snoozed).setVisible(folder && !drafts);
+            menu.findItem(R.id.menu_filter_deleted).setVisible(folder && !perform_expunge);
+            menu.findItem(R.id.menu_filter_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
+            menu.findItem(R.id.menu_filter_trash).setVisible(viewType == AdapterMessage.ViewType.THREAD);
+
+            menu.findItem(R.id.menu_filter_seen).setChecked(filter_seen);
+            menu.findItem(R.id.menu_filter_unflagged).setChecked(filter_unflagged);
+            menu.findItem(R.id.menu_filter_unknown).setChecked(filter_unknown);
+            menu.findItem(R.id.menu_filter_snoozed).setChecked(filter_snoozed);
+            menu.findItem(R.id.menu_filter_deleted).setChecked(filter_deleted);
+            menu.findItem(R.id.menu_filter_language).setVisible(language_detection && folder);
+            menu.findItem(R.id.menu_filter_duplicates).setChecked(filter_duplicates);
+            menu.findItem(R.id.menu_filter_trash).setChecked(filter_trash);
+
+            SpannableStringBuilder ssbZoom = new SpannableStringBuilder(getString(R.string.title_zoom));
+            ssbZoom.append(' ');
+            for (int i = 0; i <= zoom; i++)
+                ssbZoom.append('+');
+
+            SpannableStringBuilder ssbPadding = new SpannableStringBuilder(getString(R.string.title_padding));
+            ssbPadding.append(' ');
+            for (int i = 0; i <= padding; i++)
+                ssbPadding.append('+');
+
+            menu.findItem(R.id.menu_compact).setChecked(compact);
+
+            menu.findItem(R.id.menu_zoom).setTitle(ssbZoom);
+            PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom), false);
+
+            menu.findItem(R.id.menu_padding).setTitle(ssbPadding);
+            PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_padding), false);
+
+            menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
+
+            menu.findItem(R.id.menu_confirm_links)
+                    .setChecked(confirm_links)
+                    .setVisible(viewType == AdapterMessage.ViewType.THREAD);
+
+            menu.findItem(R.id.menu_select_all).setVisible(folder);
+            menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
+            menu.findItem(R.id.menu_mark_all_read).setVisible(folder);
+
+            menu.findItem(R.id.menu_view_thread).setVisible(viewType == AdapterMessage.ViewType.THREAD && !threading);
+
+            MenuItem menuSync = menu.findItem(R.id.menu_sync);
+            if (lastSync == null)
+                menuSync.setVisible(false);
+            else {
+                CharSequence title = DateUtils.getRelativeTimeSpanString(
+                        lastSync,
+                        new Date().getTime(),
+                        DateUtils.MINUTE_IN_MILLIS,
+                        DateUtils.FORMAT_ABBREV_RELATIVE);
+                menuSync.setTitle(title)
+                        .setVisible(true);
+                PopupMenuLifecycle.insertIcon(context, menuSync, false);
+            }
+
+            menu.findItem(R.id.menu_sync_more).setVisible(folder);
+            menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
+            menu.findItem(R.id.menu_force_send).setVisible(outbox);
+
+            menu.findItem(R.id.menu_edit_properties).setVisible(viewType == AdapterMessage.ViewType.FOLDER && !outbox);
+
+            // In some cases onPrepareOptionsMenu can be called before onCreateView
+            if (ibSeen == null)
+                ibSeen = view.findViewById(R.id.ibSeen);
+            if (ibUnflagged == null)
+                ibUnflagged = view.findViewById(R.id.ibUnflagged);
+            if (ibSnoozed == null)
+                ibSnoozed = view.findViewById(R.id.ibSnoozed);
+
+            ibSeen.setImageResource(filter_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24);
+            ibUnflagged.setImageResource(filter_unflagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
+            ibSnoozed.setImageResource(filter_snoozed ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
+
+            ibSeen.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
+            ibUnflagged.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
+            ibSnoozed.setVisibility(quick_filter && folder && !drafts ? View.VISIBLE : View.GONE);
+
+            super.onPrepareOptionsMenu(menu);
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
-
-        boolean unselected = (selectionTracker == null || !selectionTracker.hasSelection());
-        menu.findItem(R.id.menu_empty_trash).setVisible(EntityFolder.TRASH.equals(type) && folder && unselected);
-        menu.findItem(R.id.menu_empty_spam).setVisible(EntityFolder.JUNK.equals(type) && folder && unselected);
-
-        if ("time".equals(sort))
-            menu.findItem(R.id.menu_sort_on_time).setChecked(true);
-        else if ("unread".equals(sort))
-            menu.findItem(R.id.menu_sort_on_unread).setChecked(true);
-        else if ("starred".equals(sort))
-            menu.findItem(R.id.menu_sort_on_starred).setChecked(true);
-        else if ("priority".equals(sort))
-            menu.findItem(R.id.menu_sort_on_priority).setChecked(true);
-        else if ("sender".equals(sort))
-            menu.findItem(R.id.menu_sort_on_sender).setChecked(true);
-        else if ("subject".equals(sort))
-            menu.findItem(R.id.menu_sort_on_subject).setChecked(true);
-        else if ("size".equals(sort))
-            menu.findItem(R.id.menu_sort_on_size).setChecked(true);
-        else if ("attachments".equals(sort))
-            menu.findItem(R.id.menu_sort_on_attachments).setChecked(true);
-        else if ("snoozed".equals(sort))
-            menu.findItem(R.id.menu_sort_on_snoozed).setChecked(true);
-        menu.findItem(R.id.menu_ascending).setChecked(ascending);
-
-        menu.findItem(R.id.menu_filter).setVisible(viewType != AdapterMessage.ViewType.SEARCH && !outbox);
-        menu.findItem(R.id.menu_filter_seen).setVisible(folder);
-        menu.findItem(R.id.menu_filter_unflagged).setVisible(folder);
-        menu.findItem(R.id.menu_filter_unknown).setVisible(folder && !drafts && !sent);
-        menu.findItem(R.id.menu_filter_snoozed).setVisible(folder && !drafts);
-        menu.findItem(R.id.menu_filter_deleted).setVisible(folder && !perform_expunge);
-        menu.findItem(R.id.menu_filter_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
-        menu.findItem(R.id.menu_filter_trash).setVisible(viewType == AdapterMessage.ViewType.THREAD);
-
-        menu.findItem(R.id.menu_filter_seen).setChecked(filter_seen);
-        menu.findItem(R.id.menu_filter_unflagged).setChecked(filter_unflagged);
-        menu.findItem(R.id.menu_filter_unknown).setChecked(filter_unknown);
-        menu.findItem(R.id.menu_filter_snoozed).setChecked(filter_snoozed);
-        menu.findItem(R.id.menu_filter_deleted).setChecked(filter_deleted);
-        menu.findItem(R.id.menu_filter_language).setVisible(language_detection && folder);
-        menu.findItem(R.id.menu_filter_duplicates).setChecked(filter_duplicates);
-        menu.findItem(R.id.menu_filter_trash).setChecked(filter_trash);
-
-        SpannableStringBuilder ssbZoom = new SpannableStringBuilder(getString(R.string.title_zoom));
-        ssbZoom.append(' ');
-        for (int i = 0; i <= zoom; i++)
-            ssbZoom.append('+');
-
-        SpannableStringBuilder ssbPadding = new SpannableStringBuilder(getString(R.string.title_padding));
-        ssbPadding.append(' ');
-        for (int i = 0; i <= padding; i++)
-            ssbPadding.append('+');
-
-        menu.findItem(R.id.menu_compact).setChecked(compact);
-
-        menu.findItem(R.id.menu_zoom).setTitle(ssbZoom);
-        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom), false);
-
-        menu.findItem(R.id.menu_padding).setTitle(ssbPadding);
-        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_padding), false);
-
-        menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
-
-        menu.findItem(R.id.menu_confirm_links)
-                .setChecked(confirm_links)
-                .setVisible(viewType == AdapterMessage.ViewType.THREAD);
-
-        menu.findItem(R.id.menu_select_all).setVisible(folder);
-        menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
-        menu.findItem(R.id.menu_mark_all_read).setVisible(folder);
-
-        menu.findItem(R.id.menu_view_thread).setVisible(viewType == AdapterMessage.ViewType.THREAD && !threading);
-
-        MenuItem menuSync = menu.findItem(R.id.menu_sync);
-        if (lastSync == null)
-            menuSync.setVisible(false);
-        else {
-            CharSequence title = DateUtils.getRelativeTimeSpanString(
-                    lastSync,
-                    new Date().getTime(),
-                    DateUtils.MINUTE_IN_MILLIS,
-                    DateUtils.FORMAT_ABBREV_RELATIVE);
-            menuSync.setTitle(title)
-                    .setVisible(true);
-            PopupMenuLifecycle.insertIcon(context, menuSync, false);
-        }
-
-        menu.findItem(R.id.menu_sync_more).setVisible(folder);
-        menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
-        menu.findItem(R.id.menu_force_send).setVisible(outbox);
-
-        menu.findItem(R.id.menu_edit_properties).setVisible(viewType == AdapterMessage.ViewType.FOLDER && !outbox);
-
-        // In some cases onPrepareOptionsMenu can be called before onCreateView
-        if (ibSeen == null)
-            ibSeen = view.findViewById(R.id.ibSeen);
-        if (ibUnflagged == null)
-            ibUnflagged = view.findViewById(R.id.ibUnflagged);
-        if (ibSnoozed == null)
-            ibSnoozed = view.findViewById(R.id.ibSnoozed);
-
-        ibSeen.setImageResource(filter_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24);
-        ibUnflagged.setImageResource(filter_unflagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
-        ibSnoozed.setImageResource(filter_snoozed ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
-
-        ibSeen.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
-        ibUnflagged.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
-        ibSnoozed.setVisibility(quick_filter && folder && !drafts ? View.VISIBLE : View.GONE);
-
-        super.onPrepareOptionsMenu(menu);
     }
 
     @Override
