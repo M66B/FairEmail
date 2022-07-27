@@ -11,9 +11,6 @@
     <string name="app_cake">Залишилося недостатньо вільного місця для зберігання</string>
     <string name="app_updated">Останнє оновлення: %1$s</string>
     <string name="app_download">Завантажено з: %1$s</string>
-    <string name="app_cancelled">        Мені шкода, але я був змушений зупинити цей проєкт через <a href="https://email.faircode.eu/status/">образливу поведінку Google</a>.
-        Ви можете продовжувати використовувати додаток зараз, але в умовах цієї ситуації, немає більше сенсу класти зусилля для цього додатку.
-    </string>
     <string name="channel_service">Монітор</string>
     <string name="channel_send">Надсилання</string>
     <string name="channel_notification">Email</string>

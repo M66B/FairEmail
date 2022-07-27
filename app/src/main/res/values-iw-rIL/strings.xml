@@ -11,9 +11,6 @@
     <string name="app_cake">לא נותר די שטח אחסון</string>
     <string name="app_updated">עדכון אחרון: %1$s</string>
     <string name="app_download">מקור ההורדה: %1$s</string>
-    <string name="app_cancelled">        אני מתנצל אבל אולצתי לעצור את המיזם הזה עקב <a href="https://email.faircode.eu/status/">התנהגות פוגענית מצד Google</a>.
-        אפשר להמשיך להשתמש ביישומון לבינתיים, אך עקב המצב, אני לא רואה טעם להמשיך להשקיע עוד ביישומון הזה.
-    </string>
     <string name="channel_service">מעקב</string>
     <string name="channel_send">שליחה</string>
     <string name="channel_notification">דוא״ל</string>

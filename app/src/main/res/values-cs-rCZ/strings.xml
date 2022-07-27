@@ -11,9 +11,6 @@
     <string name="app_cake">Nedostatek místa v úložišti</string>
     <string name="app_updated">Poslední aktualizace: %1$s</string>
     <string name="app_download">Staženo z: %1$s</string>
-    <string name="app_cancelled">        Omlouvám se, ale byl jsem nucen zastavit tento projekt z důvodu <a href="https://email.faircode.eu/status/">zneužívání ze strany Google</a>.
-        Můžete pokračovat v používání aplikace, ale vzhledem k situaci, již nemá smysl vyvíjet úsilí pro vývoj této aplikace.
-    </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Odesílání</string>
     <string name="channel_notification">E-mail</string>

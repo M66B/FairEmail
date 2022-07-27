@@ -177,7 +177,7 @@
     <string name="title_setup_account_remark">Prejemanje e-pošte</string>
     <string name="title_setup_identity_remark">Pošiljanje e-pošte</string>
     <string name="title_setup_account_identity_hint">Ime, barvo in dejanja potegov lahko nastavite v nastavitvah računa, podpis pa lahko nastavite v nastavitvah identitete.</string>
-    <string name="title_setup_accounts">račune</string>
+    <string name="title_setup_accounts">Računi</string>
     <string name="title_setup_identities">Identitete</string>
     <string name="title_setup_google_sign_in">Prijavi se z Googlom</string>
     <string name="title_setup_other">Drug ponudnik</string>
@@ -330,7 +330,7 @@
     <string name="title_advanced_receive">Prejmi sporočila za vse račune</string>
     <string name="title_advanced_when">Kdaj</string>
     <string name="title_advanced_optimize">Samodejno optimiziraj</string>
-    <string name="title_advanced_always">Vedno prejmi sporoila za te račune</string>
+    <string name="title_advanced_always">Vedno prejmi sporočila za te račune</string>
     <string name="title_advanced_schedule">Urnik</string>
     <string name="title_advanced_advanced">Napredno</string>
     <string name="title_advanced_quick_sync">Hitra sinhronizacija</string>
@@ -1109,7 +1109,7 @@
     <string name="title_no_stream_help">To lahko rešite tako, da datoteko izberete z bolj sodobnim programom za upravljanje datotek ali da odobrite dovoljenje za branje datotek.</string>
     <string name="title_no_permissions">Program za izbiro datoteke ni odobril dovoljenja za branje.</string>
     <string name="title_no_internet">Ni primerne internetne povezave.</string>
-    <string name="title_no_connection">Povezovanje na enega ali več računov &#8230;</string>
+    <string name="title_no_connection">Povezovanje z enim ali več računov &#8230;</string>
     <string name="title_no_folder">Mapa ne obstaja</string>
     <string name="title_no_format">Izvirno prejeto sporočilo bo vključeno.</string>
     <string name="title_no_search">Iskanje na strežniku za ta račun ni na voljo.</string>

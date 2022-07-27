@@ -11,9 +11,6 @@
     <string name="app_cake">Espaço de armazenamento insuficiente</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Baixado de: %1$s</string>
-    <string name="app_cancelled">        Sinto muito, mas fui forçado a parar este projeto devido a <a href="https://email.faircode.eu/status/">comportamento abusivo da Google</a>.
-        Você pode continuar usando o aplicativo por enquanto, mas, dada a situação, não faz mais sentido colocar esforço neste aplicativo.
-    </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>

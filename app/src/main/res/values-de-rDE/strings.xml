@@ -11,9 +11,6 @@
     <string name="app_cake">Unzureichender Speicherplatz</string>
     <string name="app_updated">Letzte Aktualisierung: %1$s</string>
     <string name="app_download">Heruntergeladen von: %1$s</string>
-    <string name="app_cancelled">        Es tut mir leid, aber ich musste dieses Projekt wegen <a href="https://email.faircode.eu/status/">missbräuchlichen Verhaltens von Google</a>beenden.
-        Sie können die App im Moment weiterhin verwenden, aber angesichts der Situation macht es keinen Sinn, mehr Anstrengungen in diese App zu stecken.
-    </string>
     <string name="channel_service">Überwachen</string>
     <string name="channel_send">Senden</string>
     <string name="channel_notification">Neue E-Mail</string>

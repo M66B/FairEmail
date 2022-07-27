@@ -1237,6 +1237,11 @@
     <string name="title_send_dsn">ステータスレポート</string>
     <string name="title_send_receipt">開封確認メッセージを要求する</string>
     <string name="title_send_receipt_remark">ほとんどのプロバイダーとメールクライアントは開封確認メッセージの要求を無視します</string>
+    <string name="title_vt_unknown">このファイルは VirusTotal にデータがありません</string>
+    <string name="title_vt_summary">%1$s 件のウイルススキャナーが、このファイルを悪意のあるものとして報告しています</string>
+    <string name="title_vt_report">レポートの完全版</string>
+    <string name="title_vt_upload">アップロード</string>
+    <string name="title_vt_analyzing">VirusTotal がファイルを分析しています。時間がかかる場合があります&#8230;</string>
     <string name="title_from_missing">差出人が見つかりません</string>
     <string name="title_pgp_reminder">PGP が利用できます</string>
     <string name="title_smime_reminder">S/MIME が利用できます</string>
@@ -1332,6 +1337,7 @@
     <string name="title_search_in">検索場所</string>
     <string name="title_search_sender">差出人を検索</string>
     <string name="title_search_delete">保存した検索を削除しますか？</string>
+    <string name="title_save_search">検索を保存</string>
     <string name="title_save_search_name">名前</string>
     <string name="title_save_search_order">順番</string>
     <string name="title_save_search_color">カラー</string>

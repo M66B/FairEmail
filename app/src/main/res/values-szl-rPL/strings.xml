@@ -11,9 +11,6 @@
     <string name="app_cake">Za mało miejsca w pamięci</string>
     <string name="app_updated">Ostatnia aktualizacja: %1$s</string>
     <string name="app_download">Pobrano z: %1$s</string>
-    <string name="app_cancelled">        Przykro mi, ale zostałem zmuszony do zatrzymania tego projektu z powodu  zachowania Google <a href="https://email.faircode.eu/status/"></a>.
-        Możesz nadal korzystać z aplikacji na razie, ale biorąc pod uwagę sytuację, nie ma sensu wkładać wysiłku w tę aplikację już.
-    </string>
     <string name="channel_service">Monitorowanie</string>
     <string name="channel_send">Wyślij</string>
     <string name="channel_notification">E-mail</string>
