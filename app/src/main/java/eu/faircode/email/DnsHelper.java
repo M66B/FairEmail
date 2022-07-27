@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import static android.system.OsConstants.ETIMEDOUT;
-
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.DnsResolver;
@@ -28,7 +26,6 @@ import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Build;
-import android.system.ErrnoException;
 
 import androidx.annotation.NonNull;
 

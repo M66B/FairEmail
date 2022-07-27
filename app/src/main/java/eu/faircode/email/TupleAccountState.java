@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
-
 import java.util.Objects;
 
 public class TupleAccountState extends EntityAccount {
