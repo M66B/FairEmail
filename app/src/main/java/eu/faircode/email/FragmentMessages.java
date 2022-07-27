@@ -4680,7 +4680,7 @@ public class FragmentMessages extends FragmentBase
 
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean redmi_note = prefs.getBoolean("redmi_note", true);
+        boolean redmi_note = prefs.getBoolean("redmi_note", false);
         if (!redmi_note)
             return false;
 
