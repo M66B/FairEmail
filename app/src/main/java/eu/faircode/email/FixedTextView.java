@@ -32,6 +32,7 @@ import android.util.AttributeSet;
 import android.view.ActionMode;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.accessibility.AccessibilityNodeInfo;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -442,6 +443,36 @@ public class FixedTextView extends AppCompatTextView {
                         at android.widget.Editor$TextActionModeCallback.onActionItemClicked(Editor.java:3303)
              */
             return false;
+        }
+    }
+
+    @Override
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
+        try {
+            super.onInitializeAccessibilityNodeInfo(info);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                java.lang.IndexOutOfBoundsException: setSpan (-1 ... -1) starts before 0
+                    at android.text.SpannableStringBuilder.checkRange(SpannableStringBuilder.java:1331)
+                    at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:685)
+                    at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:677)
+                    at android.view.accessibility.AccessibilityNodeInfo.replaceClickableSpan(AccessibilityNodeInfo.java:2926)
+                    at android.view.accessibility.AccessibilityNodeInfo.setText(AccessibilityNodeInfo.java:2890)
+                    at android.widget.TextView.onInitializeAccessibilityNodeInfoInternal(TextView.java:12033)
+                    at android.view.View.onInitializeAccessibilityNodeInfo(View.java:8627)
+                    at android.view.View.createAccessibilityNodeInfoInternal(View.java:8586)
+                    at android.view.View.createAccessibilityNodeInfo(View.java:8571)
+                    at android.view.AccessibilityInteractionController$AccessibilityNodePrefetcher.prefetchDescendantsOfRealNode(AccessibilityInteractionController.java:1358)
+                    at android.view.AccessibilityInteractionController$AccessibilityNodePrefetcher.prefetchDescendantsOfRealNode(AccessibilityInteractionController.java:1381)
+                    at android.view.AccessibilityInteractionController$AccessibilityNodePrefetcher.prefetchDescendantsOfRealNode(AccessibilityInteractionController.java:1381)
+                    at android.view.AccessibilityInteractionController$AccessibilityNodePrefetcher.prefetchDescendantsOfRealNode(AccessibilityInteractionController.java:1381)
+                    at android.view.AccessibilityInteractionController$AccessibilityNodePrefetcher.prefetchAccessibilityNodeInfos(AccessibilityInteractionController.java:1183)
+                    at android.view.AccessibilityInteractionController.findAccessibilityNodeInfoByAccessibilityIdUiThread(AccessibilityInteractionController.java:368)
+                    at android.view.AccessibilityInteractionController.access$500(AccessibilityInteractionController.java:74)
+                    at android.view.AccessibilityInteractionController$PrivateHandler.handleMessage(AccessibilityInteractionController.java:1547)
+                    at android.os.Handler.dispatchMessage(Handler.java:106)
+             */
         }
     }
 }
