@@ -68,7 +68,7 @@
 
             <TextView
                 android:id="@+id/tvSupport"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:padding="6dp"
@@ -87,26 +87,6 @@
                 app:layout_constraintTop_toBottomOf="@id/tvSupport" />
 
             <TextView
-                android:id="@+id/tvCancelled"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:padding="6dp"
-                android:text="@string/app_cancelled"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vSeparatorSupport" />
-
-            <View
-                android:id="@+id/vSeparatorCancelled"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?attr/colorSeparator"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCancelled" />
-
-            <TextView
                 android:id="@+id/tvHintSupport"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -117,7 +97,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toStartOf="@+id/ibHintSupport"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorCancelled" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorSupport" />
 
             <ImageButton
                 android:id="@+id/ibHintSupport"

@@ -90,7 +90,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.format.DateUtils;
-import android.text.method.LinkMovementMethod;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
@@ -265,7 +264,6 @@ public class FragmentMessages extends FragmentBase
     private TextView tvAirplane;
     private TextView tvNotifications;
     private TextView tvSupport;
-    private TextView tvCancelled;
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
@@ -552,7 +550,6 @@ public class FragmentMessages extends FragmentBase
         tvAirplane = view.findViewById(R.id.tvAirplane);
         tvNotifications = view.findViewById(R.id.tvNotifications);
         tvSupport = view.findViewById(R.id.tvSupport);
-        tvCancelled = view.findViewById(R.id.tvCancelled);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
@@ -647,9 +644,6 @@ public class FragmentMessages extends FragmentBase
                 startActivity(new Intent(getContext(), ActivityBilling.class));
             }
         });
-
-        //tvCancelled.setVisibility(BuildConfig.DEBUG ? View.GONE : View.VISIBLE);
-        tvCancelled.setMovementMethod(LinkMovementMethod.getInstance());
 
         ibHintSupport.setOnClickListener(new View.OnClickListener() {
             @Override
