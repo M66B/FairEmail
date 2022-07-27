@@ -480,7 +480,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 else {
                     ArrayList<Uri> processed = new ArrayList<>();
                     for (Uri uri : uris)
-                        processed.add(processUri(uri));
+                        if (uri != null)
+                            processed.add(processUri(uri));
                     intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, processed);
                 }
             } else {
