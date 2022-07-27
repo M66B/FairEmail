@@ -264,9 +264,8 @@ public class FragmentMessages extends FragmentBase
     private SwipeRefreshLayoutEx swipeRefresh;
     private TextView tvAirplane;
     private TextView tvNotifications;
-    private TextView tvCancelled;
-    private ImageButton ibCancelled;
     private TextView tvSupport;
+    private TextView tvCancelled;
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
@@ -289,7 +288,6 @@ public class FragmentMessages extends FragmentBase
     private ContentLoadingProgressBar pbWait;
     private Group grpAirplane;
     private Group grpNotifications;
-    private Group grpCancelled;
     private Group grpSupport;
     private Group grpHintSupport;
     private Group grpHintSwipe;
@@ -553,9 +551,8 @@ public class FragmentMessages extends FragmentBase
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
         tvAirplane = view.findViewById(R.id.tvAirplane);
         tvNotifications = view.findViewById(R.id.tvNotifications);
-        tvCancelled = view.findViewById(R.id.tvCancelled);
-        ibCancelled = view.findViewById(R.id.ibCancelled);
         tvSupport = view.findViewById(R.id.tvSupport);
+        tvCancelled = view.findViewById(R.id.tvCancelled);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
@@ -579,7 +576,6 @@ public class FragmentMessages extends FragmentBase
         pbWait = view.findViewById(R.id.pbWait);
         grpAirplane = view.findViewById(R.id.grpAirplane);
         grpNotifications = view.findViewById(R.id.grpNotifications);
-        grpCancelled = view.findViewById(R.id.grpCancelled);
         grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
@@ -652,15 +648,8 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
+        //tvCancelled.setVisibility(BuildConfig.DEBUG ? View.GONE : View.VISIBLE);
         tvCancelled.setMovementMethod(LinkMovementMethod.getInstance());
-
-        ibCancelled.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                prefs.edit().putBoolean("app_cancelled", true).apply();
-                grpCancelled.setVisibility(View.GONE);
-            }
-        });
 
         ibHintSupport.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -4403,14 +4392,12 @@ public class FragmentMessages extends FragmentBase
         boolean junk = EntityFolder.JUNK.equals(type);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean app_cancelled = prefs.getBoolean("app_cancelled", false);
         boolean app_support = prefs.getBoolean("app_support", false);
         boolean message_swipe = prefs.getBoolean("message_swipe", false);
         boolean message_select = prefs.getBoolean("message_select", false);
         boolean message_junk = prefs.getBoolean("message_junk", false);
         boolean send_pending = prefs.getBoolean("send_pending", true);
 
-        grpCancelled.setVisibility(app_cancelled || !hints || junk ? View.GONE : View.VISIBLE);
         grpHintSupport.setVisibility(app_support || !hints || junk ? View.GONE : View.VISIBLE);
         grpHintSwipe.setVisibility(message_swipe || !hints || junk ? View.GONE : View.VISIBLE);
         grpHintSelect.setVisibility(message_select || !hints || junk ? View.GONE : View.VISIBLE);
