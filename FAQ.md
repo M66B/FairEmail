@@ -4714,6 +4714,7 @@ Related questions:
 * The Play Store version does not support Gravatars/Libravatars due to Play Store policies
 * The GitHub version will check for [updates on GitHub](https://github.com/M66B/FairEmail/releases) and is updated more frequently
 * The GitHub version has some different links, some more options (like sharing the HTML of a message) and some different default values (more geared to advanced users)
+* The GitHub version can be installed as an update over the Play store version
 * The F-Droid build does not support OAuth, see [this FAQ](#user-content-faq147) about why not
 * The F-Droid build does not include [Google Play Billing](https://developer.android.com/google/play/billing/integrate), so Play store purchases cannot be reused
 * The F-Droid build is supported only if the version number is the same as the the version number of the latest GitHub version, see also [this FAQ](#user-content-faq147)
