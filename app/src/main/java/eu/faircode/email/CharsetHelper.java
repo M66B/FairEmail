@@ -51,6 +51,7 @@ public class CharsetHelper {
             "Big5", "BIG5-CP950",
             "ISO-2022-JP", "Shift_JIS",
             "cp852",
+            "KOI8-R",
             "x-binaryenc"
     ));
     private static final int MIN_W1252 = 10;
