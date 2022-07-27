@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.system.OsConstants.ETIMEDOUT;
+
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.DnsResolver;
@@ -26,6 +28,7 @@ import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.system.ErrnoException;
 
 import androidx.annotation.NonNull;
 
@@ -150,8 +153,7 @@ public class DnsHelper {
                                     @Override
                                     public void onError(@NonNull DnsResolver.DnsException e) {
                                         try {
-                                            Log.w(e);
-                                            ex = new IOException(e.getMessage());
+                                            ex = new IOException(e.getMessage(), e);
                                         } finally {
                                             sem.release();
                                         }
@@ -172,7 +174,7 @@ public class DnsHelper {
                             Log.i("DNS answer=" + result.toString() + " flags=" + result.getHeader().printFlags());
                             return result;
                         } else {
-                            Log.w(ex);
+                            Log.i(ex);
                             throw ex;
                         }
                     }
