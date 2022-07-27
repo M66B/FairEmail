@@ -4,6 +4,12 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### Next version
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### 1.1946 - 2022-07-27
 
 * Small improvements and minor bug fixes
