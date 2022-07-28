@@ -196,7 +196,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 35);
+                Helper.viewFAQ(v.getContext(), 182);
             }
         });
 
