@@ -384,8 +384,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
             popupMenu.getMenu().add(Menu.NONE, 0, order++, ss).setEnabled(false);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, order++, R.string.title_enabled)
-                    .setCheckable(true).setChecked(account.synchronize);
+            if (settings)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, order++, R.string.title_enabled)
+                        .setCheckable(true).setChecked(account.synchronize);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, order++, R.string.title_primary)
                     .setCheckable(true).setChecked(account.primary);
 
