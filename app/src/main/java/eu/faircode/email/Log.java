@@ -2212,6 +2212,12 @@ public class Log {
                     } catch (Throwable ignored) {
                     }
 
+                Integer filter = null;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
+                    filter = nm.getCurrentInterruptionFilter();
+                }
+
                 size += write(os, "enabled=" + enabled + (enabled ? "" : " !!!") +
                         " interval=" + pollInterval + "\r\n" +
                         "metered=" + metered + (metered ? "" : " !!!") +
@@ -2219,11 +2225,14 @@ public class Log {
                         " vpn=" + vpn + (vpn ? " !!!" : "") +
                         " ng=" + ng + " tc=" + tc + "\r\n" +
                         "optimizing=" + (ignoring == null ? null : !ignoring) + (Boolean.FALSE.equals(ignoring) ? " !!!" : "") +
-                        " bucket=" +
-                        (bucket == null ? null : Helper.getStandbyBucketName(bucket)) +
-                        (bucket != null && bucket > UsageStatsManager.STANDBY_BUCKET_ACTIVE ? " !!!" : "") +
+                        " bucket=" + (bucket == null ? null :
+                        Helper.getStandbyBucketName(bucket) +
+                                (bucket > UsageStatsManager.STANDBY_BUCKET_ACTIVE ? " !!!" : "")) +
                         " canSchedule=" + canSchedule + (canSchedule ? "" : " !!!") +
-                        " auto_optimize=" + auto_optimize + (auto_optimize ? " !!!" : "") + "\r\n" +
+                        " auto_optimize=" + auto_optimize + (auto_optimize ? " !!!" : "") +
+                        " notifications=" + (filter == null ? null :
+                        Helper.getInterruptionFilter(filter) +
+                                (filter == NotificationManager.INTERRUPTION_FILTER_ALL ? "" : "!!!")) + "\r\n" +
                         "accounts=" + accounts.size() +
                         " folders=" + db.folder().countTotal() +
                         " messages=" + db.message().countTotal() +
