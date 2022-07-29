@@ -2674,37 +2674,17 @@ public class Log {
                             paused, (paused ? "!!!" : "")));
                 }
 
-                String name;
                 int filter = nm.getCurrentInterruptionFilter();
-                switch (filter) {
-                    case NotificationManager.INTERRUPTION_FILTER_UNKNOWN:
-                        name = "Unknown";
-                        break;
-                    case NotificationManager.INTERRUPTION_FILTER_ALL:
-                        name = "All";
-                        break;
-                    case NotificationManager.INTERRUPTION_FILTER_PRIORITY:
-                        name = "Priority";
-                        break;
-                    case NotificationManager.INTERRUPTION_FILTER_NONE:
-                        name = "None";
-                        break;
-                    case NotificationManager.INTERRUPTION_FILTER_ALARMS:
-                        name = "Alarms";
-                        break;
-                    default:
-                        name = Integer.toString(filter);
-                }
-
                 size += write(os, String.format("Interruption filter allow=%s %s\r\n\r\n",
-                        name, (filter == NotificationManager.INTERRUPTION_FILTER_ALL ? "" : "!!!")));
+                        Helper.getInterruptionFilter(filter),
+                        (filter == NotificationManager.INTERRUPTION_FILTER_ALL ? "" : "!!!")));
 
                 for (NotificationChannel channel : nm.getNotificationChannels())
                     try {
                         JSONObject jchannel = NotificationHelper.channelToJSON(channel);
                         size += write(os, jchannel.toString(2) + "\r\n\r\n");
                     } catch (JSONException ex) {
-                        size += write(os, ex.toString() + "\r\n");
+                        size += write(os, ex + "\r\n");
                     }
 
                 size += write(os,

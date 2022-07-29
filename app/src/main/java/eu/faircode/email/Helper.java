@@ -30,6 +30,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ApplicationExitInfo;
 import android.app.KeyguardManager;
+import android.app.NotificationManager;
 import android.app.UiModeManager;
 import android.app.usage.UsageEvents;
 import android.app.usage.UsageStatsManager;
@@ -729,6 +730,23 @@ public class Helper {
                 return "Other";
             default:
                 return Integer.toString(reason);
+        }
+    }
+
+    static String getInterruptionFilter(int filter) {
+        switch (filter) {
+            case NotificationManager.INTERRUPTION_FILTER_UNKNOWN:
+                return "Unknown";
+            case NotificationManager.INTERRUPTION_FILTER_ALL:
+                return "All";
+            case NotificationManager.INTERRUPTION_FILTER_PRIORITY:
+                return "Priority";
+            case NotificationManager.INTERRUPTION_FILTER_NONE:
+                return "None";
+            case NotificationManager.INTERRUPTION_FILTER_ALARMS:
+                return "Alarms";
+            default:
+                return Integer.toString(filter);
         }
     }
 
