@@ -93,8 +93,7 @@ public class VirusTotal {
         return result;
     }
 
-    static void upload(Context context, File file, String apiKey, Runnable analyzing)
-            throws IOException, JSONException, InterruptedException, TimeoutException {
+    static String upload(Context context, File file, String apiKey) throws IOException, JSONException {
         // Get upload URL
         Pair<Integer, String> response = call(context, "api/v3/files/upload_url", apiKey);
         if (response.first != HttpsURLConnection.HTTP_OK)
@@ -103,7 +102,6 @@ public class VirusTotal {
         String upload_url = jurl.getString("data");
 
         // Upload file
-        String id;
         String boundary = "----FairEmail." + System.currentTimeMillis();
 
         URL url = new URL(upload_url);
@@ -164,16 +162,16 @@ public class VirusTotal {
             Log.i("VT response=" + r);
             JSONObject jfile = new JSONObject(r);
             JSONObject jdata = jfile.getJSONObject("data");
-            id = jdata.getString("id");
+            return jdata.getString("id");
 
         } finally {
             connection.disconnect();
         }
+    }
 
+    static void waitForAnalysis(Context context, String id, String apiKey) throws IOException, JSONException, InterruptedException, TimeoutException {
         // Get analysis result
         for (int i = 0; i < VT_ANALYSIS_CHECKS; i++) {
-            analyzing.run();
-
             Pair<Integer, String> analyses = call(context, "api/v3/analyses/" + id, apiKey);
             if (analyses.first != HttpsURLConnection.HTTP_OK)
                 throw new FileNotFoundException(analyses.second);

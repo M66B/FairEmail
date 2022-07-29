@@ -594,6 +594,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 protected void onExecuted(Bundle args, Bundle result) {
                     List<VirusTotal.ScanResult> scans = result.getParcelableArrayList("scans");
                     String label = result.getString("label");
+                    String analysis = args.getString("analysis");
 
                     int malicious = 0;
                     if (scans != null)
@@ -615,6 +616,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     rvScan.setVisibility(scans == null ? View.GONE : View.VISIBLE);
                     btnUpload.setVisibility(scans == null && !TextUtils.isEmpty(apiKey) ? View.VISIBLE : View.GONE);
                     tvPrivacy.setVisibility(btnUpload.getVisibility());
+
+                    if (analysis != null && args.getBoolean("init")) {
+                        args.remove("init");
+                        btnUpload.callOnClick();
+                    }
                 }
 
                 @Override
@@ -642,14 +648,14 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 protected Void onExecute(Context context, Bundle args) throws Throwable {
                     String apiKey = args.getString("apiKey");
                     File file = (File) args.getSerializable("file");
-                    VirusTotal.upload(context, file, apiKey, new Runnable() {
-                        private int step = 0;
 
-                        @Override
-                        public void run() {
-                            postProgress(Integer.toString(++step));
-                        }
-                    });
+                    String analysis = args.getString("analysis");
+                    if (analysis == null) {
+                        analysis = VirusTotal.upload(context, file, apiKey);
+                        args.putString("analysis", analysis);
+                    }
+                    postProgress(analysis);
+                    VirusTotal.waitForAnalysis(context, analysis, apiKey);
                     return null;
                 }
 
@@ -708,10 +714,12 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 }
             });
 
-            if (!TextUtils.isEmpty(apiKey))
-                taskLookup.execute(this, args, "attachment:lookup");
-            else
+            if (TextUtils.isEmpty(apiKey))
                 pbWait.setVisibility(View.GONE);
+            else {
+                args.putBoolean("init", true);
+                taskLookup.execute(this, args, "attachment:lookup");
+            }
 
             return new AlertDialog.Builder(context)
                     .setView(view)

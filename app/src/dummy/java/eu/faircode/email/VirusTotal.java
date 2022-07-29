@@ -39,8 +39,11 @@ public class VirusTotal {
         return null;
     }
 
-    static Bundle upload(Context context, File file, String apiKey, Runnable analyzing) {
+    static String upload(Context context, File file, String apiKey) {
         return null;
+    }
+
+    static void waitForAnalysis(Context context, String id, String apiKey) {
     }
 
     public static class ScanResult implements Parcelable {
