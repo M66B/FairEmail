@@ -183,7 +183,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         future = getExecutor(context).submit(new Runnable() {
             private Object data;
             private long elapsed;
-            private Throwable ex;
+            private Throwable error;
 
             @Override
             public void run() {
@@ -206,7 +206,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                         Log.i(ex);
                     else
                         Log.e(ex);
-                    this.ex = ex;
+                    error = ex;
                 } finally {
                     if (wl.isHeld())
                         wl.release();
@@ -283,7 +283,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                             }
                         } finally {
                             try {
-                                if (ex == null) {
+                                if (error == null) {
                                     if (log && BuildConfig.BETA_RELEASE) {
                                         Log.i("Crumb " + name);
                                         Map<String, String> crumb = new HashMap<>();
@@ -294,7 +294,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                                     onExecuted(args, (T) data);
                                 } else
                                     try {
-                                        onException(args, ex);
+                                        onException(args, error);
                                     } catch (Throwable exex) {
                                         Log.e(exex);
                                     }
