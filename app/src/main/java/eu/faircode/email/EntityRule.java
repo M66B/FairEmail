@@ -906,7 +906,7 @@ public class EntityRule {
             @Override
             public void run() {
                 try {
-                    if (MediaPlayerHelper.isInCall(context))
+                    if (MediaPlayerHelper.isInCall(context) || MediaPlayerHelper.isDnd(context))
                         return;
                     speak(context, EntityRule.this, message);
                 } catch (Throwable ex) {

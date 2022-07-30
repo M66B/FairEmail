@@ -2688,6 +2688,10 @@ public class Log {
                         Helper.getInterruptionFilter(filter),
                         (filter == NotificationManager.INTERRUPTION_FILTER_ALL ? "" : "!!!")));
 
+                size += write(os, String.format("InCall=%b DND=%b\r\n\r\n",
+                        MediaPlayerHelper.isInCall(context),
+                        MediaPlayerHelper.isDnd(context)));
+
                 for (NotificationChannel channel : nm.getNotificationChannels())
                     try {
                         JSONObject jchannel = NotificationHelper.channelToJSON(channel);

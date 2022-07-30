@@ -1,5 +1,6 @@
 package eu.faircode.email;
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
@@ -38,8 +39,9 @@ public class MediaPlayerHelper {
             @Override
             public void run() {
                 try {
-                    if (!isInCall(context))
-                        play(context, uri, alarm, duration);
+                    if (isInCall(context) || isDnd(context))
+                        return;
+                    play(context, uri, alarm, duration);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
@@ -144,6 +146,15 @@ public class MediaPlayerHelper {
             Log.e(ex);
             return false;
         }
+    }
+
+    static boolean isDnd(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+            return false;
+        NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
+        int filter = nm.getCurrentInterruptionFilter();
+        // All: no notifications are suppressed
+        return (filter != NotificationManager.INTERRUPTION_FILTER_ALL);
     }
 
     static boolean isInCall(int mode) {
