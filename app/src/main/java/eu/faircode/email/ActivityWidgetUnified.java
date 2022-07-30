@@ -150,6 +150,7 @@ public class ActivityWidgetUnified extends ActivityBase {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 btnHighlight.setVisibility(checked && cbHighlight.isEnabled() ? View.VISIBLE : View.GONE);
+                btnHighlight.setEnabled(checked && cbHighlight.isEnabled());
             }
         });
 
