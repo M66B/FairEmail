@@ -41,4 +41,8 @@
         name="Ville Rantanen"
         alias="vrntnn"
         contribution="Finnish" />
+    <contributor
+        name="Önder Nuray"
+        alias="ondernuray"
+        contribution="Turkish translation" />
 </contributors>
