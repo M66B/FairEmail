@@ -7,7 +7,7 @@
 ### Next version
 
 * Small improvements and minor bug fixes
-* Updated AndroidX
+* Updated AndroidX and BouncyCastle
 * Updated translations
 
 ### 1.1946 - 2022-07-27
