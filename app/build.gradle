@@ -386,6 +386,7 @@ dependencies {
     def compress_version = "1.21"
     def ipaddress_version = "5.3.4"
     def canary_version = "2.9.1"
+    def ws_version = "2.14"
 
     // https://developer.android.com/jetpack/androidx/releases/startup
     implementation "androidx.startup:startup-runtime:$startup_version"
@@ -600,4 +601,7 @@ dependencies {
     // https://square.github.io/leakcanary/getting_started/
     // https://mvnrepository.com/artifact/com.squareup.leakcanary/leakcanary-android
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$canary_version"
+
+    // https://github.com/TakahikoKawasaki/nv-websocket-client
+    implementation "com.neovisionaries:nv-websocket-client:$ws_version"
 }
