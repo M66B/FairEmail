@@ -264,7 +264,8 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         sbDLimit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                tvDLimit.setText(getString(R.string.title_style_link_ffsend_dlimit, progress));
+                progress++;
+                tvDLimit.setText(getString(R.string.title_style_link_ffsend_dlimit, Integer.toString(progress)));
             }
 
             @Override
@@ -281,7 +282,16 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         sbTLimit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                tvTLimit.setText(getString(R.string.title_style_link_ffsend_tlimit, progress));
+                progress++;
+
+                if (progress < 24)
+                    tvTLimit.setText(getString(R.string.title_style_link_ffsend_tlimit,
+                            getResources().getQuantityString(R.plurals.title_hours, progress, progress)));
+                else {
+                    progress = (progress - 24 + 1);
+                    tvTLimit.setText(getString(R.string.title_style_link_ffsend_tlimit,
+                            getResources().getQuantityString(R.plurals.title_days, progress, progress)));
+                }
             }
 
             @Override
@@ -304,8 +314,8 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             etTitle.setText(savedInstanceState.getString("fair:text"));
         }
 
-        sbDLimit.setProgress(FFSend.FF_DEFAULT_DLIMIT);
-        sbTLimit.setProgress(FFSend.FF_DEFAULT_TLIMIT);
+        sbDLimit.setProgress(FFSend.FF_DEFAULT_DLIMIT - 1);
+        sbTLimit.setProgress(FFSend.FF_DEFAULT_TLIMIT - 1);
 
         pbWait.setVisibility(View.GONE);
         pbUpload.setVisibility(View.GONE);
@@ -349,10 +359,16 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
     }
 
     private void onFFSend(Uri uri) {
+        int dlimit = sbDLimit.getProgress() + 1;
+        int tlimit = sbTLimit.getProgress() + 1;
+
+        if (tlimit >= 24)
+            tlimit = (tlimit - 24 + 1) * 24;
+
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
-        args.putInt("dlimit", sbDLimit.getProgress());
-        args.putInt("tlimit", sbTLimit.getProgress());
+        args.putInt("dlimit", dlimit);
+        args.putInt("tlimit", tlimit);
 
         new SimpleTask<String>() {
             @Override
@@ -391,6 +407,8 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                     dlimit = FFSend.FF_DEFAULT_DLIMIT;
                 if (tlimit == 0)
                     tlimit = FFSend.FF_DEFAULT_TLIMIT;
+
+                Log.i("FFSend uri=" + uri + " dlimit=" + dlimit + " tlimit=" + tlimit);
 
                 args.putString("title", dfile.getName());
 

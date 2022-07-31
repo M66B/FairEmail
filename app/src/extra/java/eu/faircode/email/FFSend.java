@@ -51,7 +51,7 @@ public class FFSend {
     */
 
     static final int FF_DEFAULT_DLIMIT = 10;
-    static final int FF_DEFAULT_TLIMIT = 36; // hours
+    static final int FF_DEFAULT_TLIMIT = 24; // hours
     static final String FF_DEFAULT_SERVER = "https://send.vis.ee/";
     static final String FF_INSTANCES = "https://github.com/timvisee/send-instances/";
 
