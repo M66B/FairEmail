@@ -413,7 +413,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                 args.putString("title", dfile.getName());
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                String send_host = prefs.getString("send_host", Send.FF_DEFAULT_SERVER);
+                String send_host = prefs.getString("send_host", Send.DEFAULT_SERVER);
 
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {

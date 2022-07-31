@@ -53,9 +53,9 @@ public class Send {
 
     static final int DEFAULT_DLIMIT = 10;
     static final int DEFAULT_TLIMIT = 24; // hours
-    static final String FF_DEFAULT_SERVER = "https://send.vis.ee/";
+    static final String DEFAULT_SERVER = "https://send.vis.ee/";
 
-    private static final int FF_TIMEOUT = 20 * 1000; // milliseconds
+    private static final int TIMEOUT = 20 * 1000; // milliseconds
 
     public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String host) throws Throwable {
         String result;
@@ -68,7 +68,7 @@ public class Send {
 
         Uri uri = Uri.parse("wss://" + Uri.parse(host).getHost() + "/api/ws");
 
-        WebSocket ws = new WebSocketFactory().createSocket(uri.toString(), FF_TIMEOUT);
+        WebSocket ws = new WebSocketFactory().createSocket(uri.toString(), TIMEOUT);
 
         Semaphore sem = new Semaphore(0);
         List<String> queue = Collections.synchronizedList(new ArrayList<>());
@@ -90,7 +90,7 @@ public class Send {
             ws.sendText(jupload.toString());
 
             Log.i("Send wait reply");
-            if (!sem.tryAcquire(FF_TIMEOUT, TimeUnit.MILLISECONDS))
+            if (!sem.tryAcquire(TIMEOUT, TimeUnit.MILLISECONDS))
                 throw new TimeoutException("reply");
 
             JSONObject jreply = new JSONObject(queue.remove(0));
@@ -188,7 +188,7 @@ public class Send {
             ws.sendBinary(new byte[]{0}, true);
 
             Log.i("Send wait confirm");
-            if (!sem.tryAcquire(FF_TIMEOUT, TimeUnit.MILLISECONDS))
+            if (!sem.tryAcquire(TIMEOUT, TimeUnit.MILLISECONDS))
                 throw new TimeoutException("confirm");
 
             JSONObject jconfirm = new JSONObject(queue.remove(0));

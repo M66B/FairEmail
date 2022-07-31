@@ -704,7 +704,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        etSend.setHint(Send.FF_DEFAULT_SERVER);
+        etSend.setHint(Send.DEFAULT_SERVER);
         etSend.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
