@@ -6481,8 +6481,16 @@ public class FragmentMessages extends FragmentBase
                 }
 
                 if (expand != null &&
-                        (expand.content || unmetered || (expand.size != null && expand.size < download)))
+                        (expand.content || unmetered || (expand.size != null && expand.size < download))) {
                     iProperties.setExpanded(expand, true, false);
+                    for (int pos = 0; pos < messages.size(); pos++) {
+                        TupleMessageEx message = messages.get(pos);
+                        if (message == expand) {
+                            adapter.gotoPos(pos);
+                            break;
+                        }
+                    }
+                }
             }
 
             // Auto expand all seen messages
