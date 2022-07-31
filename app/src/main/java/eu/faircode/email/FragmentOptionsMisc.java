@@ -729,7 +729,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibFFSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(FFSend.FF_INSTANCES), true);
+                Helper.viewFAQ(v.getContext(), 183);
             }
         });
 

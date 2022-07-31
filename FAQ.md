@@ -385,6 +385,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(180) How do I use LanguageTool?](#user-content-faq180)
 * [(181) How do I use VirusTotal?](#user-content-faq181)
 * [(182) How can I select how a link should be opened?](#user-content-faq182)
+* [(183) How do I use FFSend?](#user-content-faq183)
 
 [I have another question.](#user-content-get-support)
 
@@ -4890,6 +4891,23 @@ If you disabled confirming links, you can enable this (temporarily) again in the
 Note that you might need to enable confirming links and reset questions to show the link confirmation dialog again.
 
 Please see [this FAQ](#user-content-faq35) on why you should be careful when opening links.
+
+<br />
+
+<a name="faq183"></a>
+**(183) How do I use FFSend?**
+
+[FFSend](https://github.com/timvisee/send) is designed as temporary encrypted file storage.
+Only people with a link to a file can download and decrypt a file.
+
+FFSend integration needs to be enabled in the miscellaneous settings.
+
+Optionally, you can change the host address of the FFSend server.
+Please [see here](https://github.com/timvisee/send-instances) for a list of public instances.
+
+To upload a file and insert a link, you can use the insert link button in the message editor.
+
+FFSend is only available in non-Play Store versions of the app (since version 1.1947).
 
 <br />
 
