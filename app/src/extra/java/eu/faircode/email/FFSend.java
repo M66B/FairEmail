@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.security.InvalidAlgorithmParameterException;
@@ -93,6 +94,9 @@ public class FFSend {
 
             JSONObject jreply = new JSONObject(queue.remove(0));
             Log.i("FFSend reply=" + jreply);
+
+            if (jreply.has("error"))
+                throw new IOException("Error: " + jreply.getString("error"));
 
             result = jreply.getString("url") +
                     "#" + Base64.encodeToString(secret, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
