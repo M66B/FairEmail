@@ -107,7 +107,8 @@ public class Send {
             // network byte order = transmitting the most significant byte first
             // Java = big endian = network byte order
             // sizeof(int) = 4 bytes
-            int seq = 0;
+            // sizeof(long) = 8 bytes
+            long seq = 0;
             byte[] buffer = new byte[65536];
 
             byte[] salt = new byte[16];
@@ -168,7 +169,7 @@ public class Send {
 
                 byte[] nonce = Arrays.copyOf(nonce_base, nonce_base.length);
                 ByteBuffer xor = ByteBuffer.wrap(nonce);
-                xor.putInt(nonce.length - 4, xor.getInt(nonce.length - 4) ^ seq);
+                xor.putLong(nonce.length - 8, xor.getLong(nonce.length - 8) ^ seq);
                 Log.i("Send seq=" + seq + " nonce=" + Helper.hex(nonce));
 
                 // encrypt with AEAD_AES_128_GCM; final size is rs; the last record can be smaller
