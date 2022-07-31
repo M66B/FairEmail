@@ -28,7 +28,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -40,6 +39,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -64,8 +64,10 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
     private EditText etTitle;
     private Button btnUpload;
     private ProgressBar pbUpload;
-    private EditText etDlimit;
-    private EditText etTlimit;
+    private TextView tvDLimit;
+    private SeekBar sbDLimit;
+    private TextView tvTLimit;
+    private SeekBar sbTLimit;
 
     private static final int METADATA_CONNECT_TIMEOUT = 10 * 1000; // milliseconds
     private static final int METADATA_READ_TIMEOUT = 15 * 1000; // milliseconds
@@ -94,8 +96,10 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         final ProgressBar pbWait = view.findViewById(R.id.pbWait);
         btnUpload = view.findViewById(R.id.btnUpload);
         pbUpload = view.findViewById(R.id.pbUpload);
-        etDlimit = view.findViewById(R.id.etDlimit);
-        etTlimit = view.findViewById(R.id.etTlimit);
+        tvDLimit = view.findViewById(R.id.tvDLimit);
+        sbDLimit = view.findViewById(R.id.sbDLimit);
+        tvTLimit = view.findViewById(R.id.tvTLimit);
+        sbTLimit = view.findViewById(R.id.sbTLimit);
         Group grpUpload = view.findViewById(R.id.grpUpload);
 
         etLink.addTextChangedListener(new TextWatcher() {
@@ -254,6 +258,40 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             }
         });
 
+        sbDLimit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                tvDLimit.setText(getString(R.string.title_style_link_ffsend_dlimit, progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+        });
+
+        sbTLimit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                tvTLimit.setText(getString(R.string.title_style_link_ffsend_tlimit, progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+        });
+
         if (savedInstanceState == null) {
             String link = (uri == null ? "https://" : uri.toString());
             etLink.setText(link);
@@ -263,8 +301,8 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             etTitle.setText(savedInstanceState.getString("fair:text"));
         }
 
-        etDlimit.setHint(Integer.toString(FFSend.FF_DEFAULT_DLIMIT));
-        etTlimit.setHint(Integer.toString(FFSend.FF_DEFAULT_TLIMIT));
+        sbDLimit.setProgress(FFSend.FF_DEFAULT_DLIMIT);
+        sbTLimit.setProgress(FFSend.FF_DEFAULT_TLIMIT);
 
         pbWait.setVisibility(View.GONE);
         pbUpload.setVisibility(View.GONE);
@@ -309,31 +347,31 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
     private void onFFSend(Uri uri) {
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
-        args.putString("dlimit", etDlimit.getText().toString());
-        args.putString("tlimit", etTlimit.getText().toString());
+        args.putInt("dlimit", sbDLimit.getProgress());
+        args.putInt("tlimit", sbTLimit.getProgress());
 
         new SimpleTask<String>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 btnUpload.setEnabled(false);
-                etDlimit.setEnabled(false);
-                etTlimit.setEnabled(false);
+                sbDLimit.setEnabled(false);
+                sbTLimit.setEnabled(false);
                 pbUpload.setVisibility(View.VISIBLE);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
                 btnUpload.setEnabled(true);
-                etDlimit.setEnabled(true);
-                etTlimit.setEnabled(true);
+                sbDLimit.setEnabled(true);
+                sbTLimit.setEnabled(true);
                 pbUpload.setVisibility(View.GONE);
             }
 
             @Override
             protected String onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
-                String _dlimit = args.getString("dlimit");
-                String _tlimit = args.getString("tlimit");
+                int dlimit = args.getInt("dlimit");
+                int tlimit = args.getInt("tlimit");
 
                 if (uri == null)
                     throw new FileNotFoundException("uri");
@@ -345,8 +383,10 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                 if (dfile == null)
                     throw new FileNotFoundException("dfile");
 
-                int dlimit = (TextUtils.isEmpty(_dlimit) ? FFSend.FF_DEFAULT_DLIMIT : Integer.parseInt(_dlimit));
-                int tlimit = (TextUtils.isEmpty(_tlimit) ? FFSend.FF_DEFAULT_TLIMIT : Integer.parseInt(_tlimit));
+                if (dlimit == 0)
+                    dlimit = FFSend.FF_DEFAULT_DLIMIT;
+                if (tlimit == 0)
+                    tlimit = FFSend.FF_DEFAULT_TLIMIT;
 
                 args.putString("title", dfile.getName());
 
