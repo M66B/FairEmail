@@ -439,18 +439,18 @@
                     app:srcCompat="@drawable/twotone_info_24" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swFFSend"
+                    android:id="@+id/swSend"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_ffsend"
+                    android:text="@string/title_advanced_send"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ibVirusTotal"
                     app:switchPadding="12dp" />
 
                 <EditText
-                    android:id="@+id/etFFSend"
+                    android:id="@+id/etSend"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
@@ -459,17 +459,17 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swFFSend" />
+                    app:layout_constraintTop_toBottomOf="@id/swSend" />
 
                 <ImageButton
-                    android:id="@+id/ibFFSend"
+                    android:id="@+id/ibSend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:contentDescription="@string/title_info"
                     android:tooltipText="@string/title_info"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etFFSend"
+                    app:layout_constraintTop_toBottomOf="@id/etSend"
                     app:srcCompat="@drawable/twotone_info_24" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -481,7 +481,7 @@
                     android:text="@string/title_advanced_updates"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibFFSend"
+                    app:layout_constraintTop_toBottomOf="@id/ibSend"
                     app:switchPadding="12dp" />
 
                 <ImageButton
@@ -634,10 +634,10 @@
                     app:constraint_referenced_ids="swVirusTotal,tvVirusTotalPrivacy,ibVirusTotal,etVirusTotal" />
 
                 <androidx.constraintlayout.widget.Group
-                    android:id="@+id/grpFFSend"
+                    android:id="@+id/grpSend"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="swFFSend,etFFSend,ibFFSend" />
+                    app:constraint_referenced_ids="swSend,etSend,ibSend" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpUpdates"

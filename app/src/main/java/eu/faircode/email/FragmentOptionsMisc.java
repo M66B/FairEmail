@@ -126,9 +126,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvVirusTotalPrivacy;
     private EditText etVirusTotal;
     private ImageButton ibVirusTotal;
-    private SwitchCompat swFFSend;
-    private EditText etFFSend;
-    private ImageButton ibFFSend;
+    private SwitchCompat swSend;
+    private EditText etSend;
+    private ImageButton ibSend;
     private SwitchCompat swUpdates;
     private ImageButton ibChannelUpdated;
     private SwitchCompat swCheckWeekly;
@@ -218,7 +218,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvPermissions;
 
     private Group grpVirusTotal;
-    private Group grpFFSend;
+    private Group grpSend;
     private Group grpUpdates;
     private Group grpTest;
     private CardView cardDebug;
@@ -230,7 +230,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "lt_enabled", "deepl_enabled", "vt_enabled", "vt_apikey", "ffsend_enabled", "ffsend_host",
+            "language", "lt_enabled", "deepl_enabled", "vt_enabled", "vt_apikey", "send_enabled", "send_host",
             "updates", "weekly", "show_changelog",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "protocol", "log_level", "debug", "leak_canary",
@@ -321,9 +321,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvVirusTotalPrivacy = view.findViewById(R.id.tvVirusTotalPrivacy);
         etVirusTotal = view.findViewById(R.id.etVirusTotal);
         ibVirusTotal = view.findViewById(R.id.ibVirusTotal);
-        swFFSend = view.findViewById(R.id.swFFSend);
-        etFFSend = view.findViewById(R.id.etFFSend);
-        ibFFSend = view.findViewById(R.id.ibFFSend);
+        swSend = view.findViewById(R.id.swSend);
+        etSend = view.findViewById(R.id.etSend);
+        ibSend = view.findViewById(R.id.ibSend);
         swUpdates = view.findViewById(R.id.swUpdates);
         ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
         swCheckWeekly = view.findViewById(R.id.swWeekly);
@@ -413,7 +413,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvPermissions = view.findViewById(R.id.tvPermissions);
 
         grpVirusTotal = view.findViewById(R.id.grpVirusTotal);
-        grpFFSend = view.findViewById(R.id.grpFFSend);
+        grpSend = view.findViewById(R.id.grpSend);
         grpUpdates = view.findViewById(R.id.grpUpdates);
         grpTest = view.findViewById(R.id.grpTest);
         cardDebug = view.findViewById(R.id.cardDebug);
@@ -697,15 +697,15 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swFFSend.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swSend.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("ffsend_enabled", checked).apply();
+                prefs.edit().putBoolean("send_enabled", checked).apply();
             }
         });
 
-        etFFSend.setHint(FFSend.FF_DEFAULT_SERVER);
-        etFFSend.addTextChangedListener(new TextWatcher() {
+        etSend.setHint(Send.FF_DEFAULT_SERVER);
+        etSend.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // Do nothing
@@ -720,13 +720,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void afterTextChanged(Editable s) {
                 String apikey = s.toString().trim();
                 if (TextUtils.isEmpty(apikey))
-                    prefs.edit().remove("ffsend_host").apply();
+                    prefs.edit().remove("send_host").apply();
                 else
-                    prefs.edit().putString("ffsend_host", apikey).apply();
+                    prefs.edit().putString("send_host", apikey).apply();
             }
         });
 
-        ibFFSend.setOnClickListener(new View.OnClickListener() {
+        ibSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 183);
@@ -1676,7 +1676,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         });
 
         grpVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
-        grpFFSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        grpSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
 
         grpUpdates.setVisibility(!BuildConfig.DEBUG &&
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
@@ -1751,7 +1751,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if ("last_cleanup".equals(key))
             setLastCleanup(prefs.getLong(key, -1));
 
-        if ("vt_apikey".equals(key) || "ffsend_host".equals(key))
+        if ("vt_apikey".equals(key) || "send_host".equals(key))
             return;
 
         setOptions();
@@ -1898,8 +1898,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
         swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
         etVirusTotal.setText(prefs.getString("vt_apikey", null));
-        swFFSend.setChecked(prefs.getBoolean("ffsend_enabled", false));
-        etFFSend.setText(prefs.getString("ffsend_host", null));
+        swSend.setChecked(prefs.getBoolean("send_enabled", false));
+        etSend.setText(prefs.getString("send_host", null));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());

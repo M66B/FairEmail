@@ -120,7 +120,7 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_file_upload_24"
             android:drawablePadding="6dp"
-            android:text="@string/title_style_link_ffsend"
+            android:text="@string/title_style_link_send"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMetadataRemark" />
 
@@ -141,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:labelFor="@+id/sbDLimit"
-            android:text="@string/title_style_link_ffsend_dlimit"
+            android:text="@string/title_style_link_send_dlimit"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnUpload" />
@@ -162,7 +162,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:labelFor="@+id/sbTLimit"
-            android:text="@string/title_style_link_ffsend_tlimit"
+            android:text="@string/title_style_link_send_tlimit"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sbDLimit" />

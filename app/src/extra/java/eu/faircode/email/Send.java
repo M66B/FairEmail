@@ -39,7 +39,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class FFSend {
+public class Send {
     // https://datatracker.ietf.org/doc/html/rfc8188
     // https://github.com/nneonneo/ffsend/blob/master/ffsend.py
 
@@ -50,8 +50,8 @@ public class FFSend {
             --data '{"owner_token": "..."}'
     */
 
-    static final int FF_DEFAULT_DLIMIT = 10;
-    static final int FF_DEFAULT_TLIMIT = 24; // hours
+    static final int DEFAULT_DLIMIT = 10;
+    static final int DEFAULT_TLIMIT = 24; // hours
     static final String FF_DEFAULT_SERVER = "https://send.vis.ee/";
     static final String FF_INSTANCES = "https://github.com/timvisee/send-instances/";
 
@@ -76,31 +76,31 @@ public class FFSend {
         ws.addListener(new WebSocketAdapter() {
             @Override
             public void onTextMessage(WebSocket ws, String text) throws Exception {
-                Log.i("FFSend text message=" + text);
+                Log.i("Send text message=" + text);
                 queue.add(text);
                 sem.release();
             }
         });
 
-        Log.i("FFSend connect");
+        Log.i("Send connect");
         ws.connect();
 
         try {
-            Log.i("FFSend upload=" + jupload);
+            Log.i("Send upload=" + jupload);
             ws.sendText(jupload.toString());
 
-            Log.i("FFSend wait reply");
+            Log.i("Send wait reply");
             sem.tryAcquire(FF_TIMEOUT, TimeUnit.MILLISECONDS);
 
             JSONObject jreply = new JSONObject(queue.remove(0));
-            Log.i("FFSend reply=" + jreply);
+            Log.i("Send reply=" + jreply);
 
             if (jreply.has("error"))
                 throw new IOException("Error: " + jreply.getString("error"));
 
             result = jreply.getString("url") +
                     "#" + Base64.encodeToString(secret, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
-            Log.i("FFSend url=" + result);
+            Log.i("Send url=" + result);
 
             // The record sequence number (SEQ) is a 96-bit unsigned integer in network byte order that starts at zero.
             // network byte order = transmitting the most significant byte first
@@ -120,7 +120,7 @@ public class FFSend {
             // idlen = 0
             // keyid = ""
 
-            Log.i("FFSend header=" + Helper.hex(header));
+            Log.i("Send header=" + Helper.hex(header));
             ws.sendBinary(header);
 
             // https://datatracker.ietf.org/doc/html/rfc8188#section-2.2
@@ -141,7 +141,7 @@ public class FFSend {
             hkdf = new HKDFBytesGenerator(new SHA256Digest());
             hkdf.init(new HKDFParameters(secret /* ikm */, salt, "Content-Encoding: nonce\0".getBytes()));
             hkdf.generateBytes(nonce_base /* okm */, 0, nonce_base.length);
-            Log.i("FFSend nonce base=" + Helper.hex(nonce_base));
+            Log.i("Send nonce base=" + Helper.hex(nonce_base));
 
             // TODO zero length files
             int len;
@@ -149,7 +149,7 @@ public class FFSend {
             long fileSize = dfile.length();
             // content any length up to rs-17 octets
             while ((len = is.read(buffer, 0, buffer.length - 17)) > 0) {
-                Log.i("FFSend read=" + len);
+                Log.i("Send read=" + len);
 
                 // add a delimiter octet (0x01 or 0x02)
                 //   then 0x00-valued octets to rs-16 (or less on the last record)
@@ -163,12 +163,12 @@ public class FFSend {
                     while (len < buffer.length - 17)
                         buffer[len++] = 0x00;
                 }
-                Log.i("FFSend record len=" + len + " size=" + size + "/" + fileSize);
+                Log.i("Send record len=" + len + " size=" + size + "/" + fileSize);
 
                 byte[] nonce = Arrays.copyOf(nonce_base, nonce_base.length);
                 ByteBuffer xor = ByteBuffer.wrap(nonce);
                 xor.putInt(nonce.length - 4, xor.getInt(nonce.length - 4) ^ seq);
-                Log.i("FFSend seq=" + seq + " nonce=" + Helper.hex(nonce));
+                Log.i("Send seq=" + seq + " nonce=" + Helper.hex(nonce));
 
                 // encrypt with AEAD_AES_128_GCM; final size is rs; the last record can be smaller
                 Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
@@ -176,20 +176,20 @@ public class FFSend {
                         new SecretKeySpec(cek, "AES"),
                         new GCMParameterSpec(16 * 8, nonce));
                 byte[] message = cipher.doFinal(buffer, 0, len);
-                Log.i("FFSend message len=" + message.length);
+                Log.i("Send message len=" + message.length);
                 ws.sendBinary(message);
 
                 seq++;
             }
 
-            Log.i("FFSend EOF size=" + size);
+            Log.i("Send EOF size=" + size);
             ws.sendBinary(new byte[]{0}, true);
 
-            Log.i("FFSend wait confirm");
+            Log.i("Send wait confirm");
             sem.tryAcquire(FF_TIMEOUT, TimeUnit.MILLISECONDS);
 
             JSONObject jconfirm = new JSONObject(queue.remove(0));
-            Log.i("FFSend confirm=" + jconfirm);
+            Log.i("Send confirm=" + jconfirm);
             if (!jconfirm.getBoolean("ok"))
                 throw new FileNotFoundException();
         } finally {
@@ -225,7 +225,7 @@ public class FFSend {
         jmeta.put("type", mimeType);
         jmeta.put("manifest", jmanifest);
 
-        Log.i("FFSend meta=" + jmeta);
+        Log.i("Send meta=" + jmeta);
 
         byte[] auth_key = new byte[64];
         HKDFBytesGenerator hkdf = new HKDFBytesGenerator(new SHA256Digest());

@@ -71,7 +71,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
 
     private static final int METADATA_CONNECT_TIMEOUT = 10 * 1000; // milliseconds
     private static final int METADATA_READ_TIMEOUT = 15 * 1000; // milliseconds
-    private static final int REQUEST_FFSEND = 1;
+    private static final int REQUEST_SEND = 1;
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
@@ -103,7 +103,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         Group grpUpload = view.findViewById(R.id.grpUpload);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean ffsend_enabled = prefs.getBoolean("ffsend_enabled", false);
+        boolean send_enabled = prefs.getBoolean("send_enabled", false);
 
         etLink.addTextChangedListener(new TextWatcher() {
             @Override
@@ -257,7 +257,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 intent.setType("*/*");
-                startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_FFSEND);
+                startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_SEND);
             }
         });
 
@@ -265,7 +265,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progress++;
-                tvDLimit.setText(getString(R.string.title_style_link_ffsend_dlimit, Integer.toString(progress)));
+                tvDLimit.setText(getString(R.string.title_style_link_send_dlimit, Integer.toString(progress)));
             }
 
             @Override
@@ -285,11 +285,11 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                 progress++;
 
                 if (progress < 24)
-                    tvTLimit.setText(getString(R.string.title_style_link_ffsend_tlimit,
+                    tvTLimit.setText(getString(R.string.title_style_link_send_tlimit,
                             getResources().getQuantityString(R.plurals.title_hours, progress, progress)));
                 else {
                     progress = (progress - 24 + 1);
-                    tvTLimit.setText(getString(R.string.title_style_link_ffsend_tlimit,
+                    tvTLimit.setText(getString(R.string.title_style_link_send_tlimit,
                             getResources().getQuantityString(R.plurals.title_days, progress, progress)));
                 }
             }
@@ -314,12 +314,12 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             etTitle.setText(savedInstanceState.getString("fair:text"));
         }
 
-        sbDLimit.setProgress(FFSend.FF_DEFAULT_DLIMIT - 1);
-        sbTLimit.setProgress(FFSend.FF_DEFAULT_TLIMIT - 1);
+        sbDLimit.setProgress(Send.DEFAULT_DLIMIT - 1);
+        sbTLimit.setProgress(Send.DEFAULT_TLIMIT - 1);
 
         pbWait.setVisibility(View.GONE);
         pbUpload.setVisibility(View.GONE);
-        grpUpload.setVisibility(ffsend_enabled && !BuildConfig.PLAY_STORE_RELEASE
+        grpUpload.setVisibility(send_enabled && !BuildConfig.PLAY_STORE_RELEASE
                 ? View.VISIBLE : View.GONE);
 
         return new AlertDialog.Builder(context)
@@ -348,9 +348,9 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
 
         try {
             switch (requestCode) {
-                case REQUEST_FFSEND:
+                case REQUEST_SEND:
                     if (resultCode == RESULT_OK && data != null)
-                        onFFSend(data.getData());
+                        onSend(data.getData());
                     break;
             }
         } catch (Throwable ex) {
@@ -358,7 +358,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         }
     }
 
-    private void onFFSend(Uri uri) {
+    private void onSend(Uri uri) {
         int dlimit = sbDLimit.getProgress() + 1;
         int tlimit = sbTLimit.getProgress() + 1;
 
@@ -404,26 +404,26 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                     throw new FileNotFoundException("dfile");
 
                 if (dlimit == 0)
-                    dlimit = FFSend.FF_DEFAULT_DLIMIT;
+                    dlimit = Send.DEFAULT_DLIMIT;
                 if (tlimit == 0)
-                    tlimit = FFSend.FF_DEFAULT_TLIMIT;
+                    tlimit = Send.DEFAULT_TLIMIT;
 
-                Log.i("FFSend uri=" + uri + " dlimit=" + dlimit + " tlimit=" + tlimit);
+                Log.i("Send uri=" + uri + " dlimit=" + dlimit + " tlimit=" + tlimit);
 
                 args.putString("title", dfile.getName());
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                String ffsend_host = prefs.getString("ffsend_host", FFSend.FF_DEFAULT_SERVER);
+                String send_host = prefs.getString("send_host", Send.FF_DEFAULT_SERVER);
 
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
-                    return FFSend.upload(is, dfile, dlimit, tlimit * 60 * 60, ffsend_host);
+                    return Send.upload(is, dfile, dlimit, tlimit * 60 * 60, send_host);
                 }
             }
 
             @Override
-            protected void onExecuted(Bundle args, String ffsend) {
-                etLink.setText(ffsend);
+            protected void onExecuted(Bundle args, String link) {
+                etLink.setText(link);
                 etTitle.setText(args.getString("title"));
             }
 
@@ -431,7 +431,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "ffsend");
+        }.execute(this, args, "send");
     }
 
     private static class OpenGraph {
