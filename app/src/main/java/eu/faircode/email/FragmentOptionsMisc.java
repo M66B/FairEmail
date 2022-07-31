@@ -126,6 +126,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvVirusTotalPrivacy;
     private EditText etVirusTotal;
     private ImageButton ibVirusTotal;
+    private EditText etFFSend;
+    private ImageButton ibFFSend;
     private SwitchCompat swUpdates;
     private ImageButton ibChannelUpdated;
     private SwitchCompat swCheckWeekly;
@@ -215,6 +217,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvPermissions;
 
     private Group grpVirusTotal;
+    private Group grpFFSend;
     private Group grpUpdates;
     private Group grpTest;
     private CardView cardDebug;
@@ -226,11 +229,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "lt_enabled", "deepl_enabled", "vt_enabled", "vt_apikey",
+            "language", "lt_enabled", "deepl_enabled", "vt_enabled", "vt_apikey", "ff_send",
             "updates", "weekly", "show_changelog",
             "crash_reports", "cleanup_attachments",
-            "watchdog", "experiments", "main_log", "protocol", "log_level", "debug", "leak_canary", "test1",
-            "test2", "test3", "test4", "test5",
+            "watchdog", "experiments", "main_log", "protocol", "log_level", "debug", "leak_canary",
+            "test1", "test2", "test3", "test4", "test5",
             "work_manager", // "external_storage",
             "query_threads", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_auto_vacuum", "sqlite_cache",
             "chunk_size", "thread_range", "undo_manager",
@@ -317,6 +320,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvVirusTotalPrivacy = view.findViewById(R.id.tvVirusTotalPrivacy);
         etVirusTotal = view.findViewById(R.id.etVirusTotal);
         ibVirusTotal = view.findViewById(R.id.ibVirusTotal);
+        etFFSend = view.findViewById(R.id.etFFSend);
+        ibFFSend = view.findViewById(R.id.ibFFSend);
         swUpdates = view.findViewById(R.id.swUpdates);
         ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
         swCheckWeekly = view.findViewById(R.id.swWeekly);
@@ -406,6 +411,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvPermissions = view.findViewById(R.id.tvPermissions);
 
         grpVirusTotal = view.findViewById(R.id.grpVirusTotal);
+        grpFFSend = view.findViewById(R.id.grpFFSend);
         grpUpdates = view.findViewById(R.id.grpUpdates);
         grpTest = view.findViewById(R.id.grpTest);
         cardDebug = view.findViewById(R.id.cardDebug);
@@ -686,6 +692,35 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 181);
+            }
+        });
+
+        etFFSend.setHint(FFSend.FF_DEFAULT_SERVER);
+        etFFSend.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String apikey = s.toString().trim();
+                if (TextUtils.isEmpty(apikey))
+                    prefs.edit().remove("ff_send").apply();
+                else
+                    prefs.edit().putString("ff_send", apikey).apply();
+            }
+        });
+
+        ibFFSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(FFSend.FF_INSTANCES), true);
             }
         });
 
@@ -1632,6 +1667,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         });
 
         grpVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        grpFFSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
 
         grpUpdates.setVisibility(!BuildConfig.DEBUG &&
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
@@ -1706,7 +1742,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if ("last_cleanup".equals(key))
             setLastCleanup(prefs.getLong(key, -1));
 
-        if ("vt_apikey".equals(key))
+        if ("vt_apikey".equals(key) || "ff_send".equals(key))
             return;
 
         setOptions();
@@ -1853,6 +1889,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
         swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
         etVirusTotal.setText(prefs.getString("vt_apikey", null));
+        etFFSend.setText(prefs.getString("ff_send", null));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());

@@ -439,6 +439,42 @@
                     app:layout_constraintTop_toBottomOf="@id/etVirusTotal"
                     app:srcCompat="@drawable/twotone_info_24" />
 
+                <TextView
+                    android:id="@+id/tvFFSend"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_ffsend_server"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibVirusTotal" />
+
+                <EditText
+                    android:id="@+id/etFFSend"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="wss://send.vis.ee/api/ws"
+                    android:inputType="textUri"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvFFSend" />
+
+                <ImageButton
+                    android:id="@+id/ibFFSend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/title_info"
+                    android:tooltipText="@string/title_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etFFSend"
+                    app:srcCompat="@drawable/twotone_info_24" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swUpdates"
                     android:layout_width="0dp"
@@ -448,7 +484,7 @@
                     android:text="@string/title_advanced_updates"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibVirusTotal"
+                    app:layout_constraintTop_toBottomOf="@id/ibFFSend"
                     app:switchPadding="12dp" />
 
                 <ImageButton
@@ -599,6 +635,12 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="swVirusTotal,tvVirusTotalPrivacy,ibVirusTotal,etVirusTotal" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpFFSend"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="tvFFSend,etFFSend,ibFFSend" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpUpdates"

@@ -1,6 +1,10 @@
 package eu.faircode.email;
 
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Base64;
+
+import androidx.documentfile.provider.DocumentFile;
 
 import com.neovisionaries.ws.client.WebSocket;
 import com.neovisionaries.ws.client.WebSocketAdapter;
@@ -13,8 +17,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -37,11 +39,8 @@ import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 public class FFSend {
-    // https://github.com/timvisee/send-instances/
-    // https://github.com/nneonneo/ffsend/blob/master/ffsend.py
     // https://datatracker.ietf.org/doc/html/rfc8188
-
-    // wss://send.vis.ee/api/ws
+    // https://github.com/nneonneo/ffsend/blob/master/ffsend.py
 
     /*
         curl --request POST \
@@ -50,17 +49,23 @@ public class FFSend {
             --data '{"owner_token": "..."}'
     */
 
-    private static final int FF_TIMEOUT = 5000;
+    static final String FF_DEFAULT_SERVER = "https://send.vis.ee/";
+    static final String FF_INSTANCES = "https://github.com/timvisee/send-instances/";
 
-    public static void upload(File file, int dLimit, int timeLimit, String uri) throws Throwable {
+    private static final int FF_TIMEOUT = 20 * 1000;
+
+    public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String server) throws Throwable {
+        String result;
         SecureRandom rnd = new SecureRandom();
 
         byte[] secret = new byte[16];
         rnd.nextBytes(secret);
 
-        JSONObject jupload = getMetadata(file, dLimit, timeLimit, secret);
+        JSONObject jupload = getMetadata(dfile, dLimit, timeLimit, secret);
 
-        WebSocket ws = new WebSocketFactory().createSocket(uri, FF_TIMEOUT);
+        Uri uri = Uri.parse("wss://" + Uri.parse(server).getHost() + "/api/ws");
+
+        WebSocket ws = new WebSocketFactory().createSocket(uri.toString(), FF_TIMEOUT);
 
         Semaphore sem = new Semaphore(0);
         List<String> queue = Collections.synchronizedList(new ArrayList<>());
@@ -87,8 +92,9 @@ public class FFSend {
             JSONObject jreply = new JSONObject(queue.remove(0));
             Log.i("FFSend reply=" + jreply);
 
-            Log.i("FFSend url=" + jreply.getString("url") +
-                    "#" + Base64.encodeToString(secret, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP));
+            result = jreply.getString("url") +
+                    "#" + Base64.encodeToString(secret, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
+            Log.i("FFSend url=" + result);
 
             // The record sequence number (SEQ) is a 96-bit unsigned integer in network byte order that starts at zero.
             // network byte order = transmitting the most significant byte first
@@ -132,48 +138,46 @@ public class FFSend {
             Log.i("FFSend nonce base=" + Helper.hex(nonce_base));
 
             // TODO zero length files
-            try (InputStream is = new FileInputStream(file)) {
-                int len;
-                long size = 0;
-                long fileSize = file.length();
-                // content any length up to rs-17 octets
-                while ((len = is.read(buffer, 0, buffer.length - 17)) > 0) {
-                    Log.i("FFSend read=" + len);
+            int len;
+            long size = 0;
+            long fileSize = dfile.length();
+            // content any length up to rs-17 octets
+            while ((len = is.read(buffer, 0, buffer.length - 17)) > 0) {
+                Log.i("FFSend read=" + len);
 
-                    // add a delimiter octet (0x01 or 0x02)
-                    //   then 0x00-valued octets to rs-16 (or less on the last record)
-                    // The last record uses a padding delimiter octet set to the value 2,
-                    //   all other records have a padding delimiter octet value of 1.
-                    size += len;
-                    if (size == fileSize)
-                        buffer[len++] = 0x02;
-                    else {
-                        buffer[len++] = 0x01;
-                        while (len < buffer.length - 17)
-                            buffer[len++] = 0x00;
-                    }
-                    Log.i("FFSend record len=" + len + " size=" + size + "/" + fileSize);
-
-                    byte[] nonce = Arrays.copyOf(nonce_base, nonce_base.length);
-                    ByteBuffer xor = ByteBuffer.wrap(nonce);
-                    xor.putInt(nonce.length - 4, xor.getInt(nonce.length - 4) ^ seq);
-                    Log.i("FFSend seq=" + seq + " nonce=" + Helper.hex(nonce));
-
-                    // encrypt with AEAD_AES_128_GCM; final size is rs; the last record can be smaller
-                    Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                    cipher.init(Cipher.ENCRYPT_MODE,
-                            new SecretKeySpec(cek, "AES"),
-                            new GCMParameterSpec(16 * 8, nonce));
-                    byte[] message = cipher.doFinal(buffer, 0, len);
-                    Log.i("FFSend message len=" + message.length);
-                    ws.sendBinary(message);
-
-                    seq++;
+                // add a delimiter octet (0x01 or 0x02)
+                //   then 0x00-valued octets to rs-16 (or less on the last record)
+                // The last record uses a padding delimiter octet set to the value 2,
+                //   all other records have a padding delimiter octet value of 1.
+                size += len;
+                if (size == fileSize)
+                    buffer[len++] = 0x02;
+                else {
+                    buffer[len++] = 0x01;
+                    while (len < buffer.length - 17)
+                        buffer[len++] = 0x00;
                 }
+                Log.i("FFSend record len=" + len + " size=" + size + "/" + fileSize);
 
-                Log.i("FFSend EOF size=" + size);
-                ws.sendBinary(new byte[]{0}, true);
+                byte[] nonce = Arrays.copyOf(nonce_base, nonce_base.length);
+                ByteBuffer xor = ByteBuffer.wrap(nonce);
+                xor.putInt(nonce.length - 4, xor.getInt(nonce.length - 4) ^ seq);
+                Log.i("FFSend seq=" + seq + " nonce=" + Helper.hex(nonce));
+
+                // encrypt with AEAD_AES_128_GCM; final size is rs; the last record can be smaller
+                Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+                cipher.init(Cipher.ENCRYPT_MODE,
+                        new SecretKeySpec(cek, "AES"),
+                        new GCMParameterSpec(16 * 8, nonce));
+                byte[] message = cipher.doFinal(buffer, 0, len);
+                Log.i("FFSend message len=" + message.length);
+                ws.sendBinary(message);
+
+                seq++;
             }
+
+            Log.i("FFSend EOF size=" + size);
+            ws.sendBinary(new byte[]{0}, true);
 
             Log.i("FFSend wait confirm");
             sem.tryAcquire(FF_TIMEOUT, TimeUnit.MILLISECONDS);
@@ -185,13 +189,18 @@ public class FFSend {
         } finally {
             ws.disconnect();
         }
+
+        return result;
     }
 
-    private static JSONObject getMetadata(File file, int dLimit, int timeLimit, byte[] secret)
+    private static JSONObject getMetadata(DocumentFile dfile, int dLimit, int timeLimit, byte[] secret)
             throws JSONException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-        String fileName = file.getName();
-        long fileSize = file.length();
-        String mimeType = Helper.guessMimeType(fileName);
+        String fileName = dfile.getName();
+        long fileSize = dfile.length();
+        String mimeType = dfile.getType();
+
+        if (TextUtils.isEmpty(mimeType))
+            mimeType = Helper.guessMimeType(fileName);
 
         JSONObject jfile = new JSONObject();
         jfile.put("name", fileName);

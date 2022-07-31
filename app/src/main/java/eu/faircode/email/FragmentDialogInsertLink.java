@@ -23,8 +23,12 @@ import static android.app.Activity.RESULT_OK;
 
 import android.app.Dialog;
 import android.content.ClipboardManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -41,10 +45,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.documentfile.provider.DocumentFile;
+import androidx.preference.PreferenceManager;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -54,9 +61,12 @@ import java.nio.charset.StandardCharsets;
 public class FragmentDialogInsertLink extends FragmentDialogBase {
     private EditText etLink;
     private EditText etTitle;
+    private Button btnUpload;
+    private ProgressBar pbUpload;
 
     private static final int METADATA_CONNECT_TIMEOUT = 10 * 1000; // milliseconds
     private static final int METADATA_READ_TIMEOUT = 15 * 1000; // milliseconds
+    private static final int REQUEST_FFSEND = 1;
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
@@ -79,6 +89,8 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         etTitle = view.findViewById(R.id.etTitle);
         final Button btnMetadata = view.findViewById(R.id.btnMetadata);
         final ProgressBar pbWait = view.findViewById(R.id.pbWait);
+        btnUpload = view.findViewById(R.id.btnUpload);
+        pbUpload = view.findViewById(R.id.pbUpload);
 
         etLink.addTextChangedListener(new TextWatcher() {
             @Override
@@ -225,6 +237,17 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             }
         });
 
+        btnUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                intent.setType("*/*");
+                startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_FFSEND);
+            }
+        });
+
         if (savedInstanceState == null) {
             String link = (uri == null ? "https://" : uri.toString());
             etLink.setText(link);
@@ -234,7 +257,9 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             etTitle.setText(savedInstanceState.getString("fair:text"));
         }
 
+        btnUpload.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         pbWait.setVisibility(View.GONE);
+        pbUpload.setVisibility(View.GONE);
 
         return new AlertDialog.Builder(context)
                 .setView(view)
@@ -254,6 +279,76 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                     }
                 })
                 .create();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_FFSEND:
+                    if (resultCode == RESULT_OK && data != null)
+                        onFFSend(data.getData());
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void onFFSend(Uri uri) {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", uri);
+
+        new SimpleTask<String>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                btnUpload.setEnabled(false);
+                pbUpload.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                btnUpload.setEnabled(true);
+                pbUpload.setVisibility(View.GONE);
+            }
+
+            @Override
+            protected String onExecute(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+                if (uri == null)
+                    throw new FileNotFoundException("uri");
+
+                if (!"content".equals(uri.getScheme()))
+                    throw new FileNotFoundException("content");
+
+                DocumentFile dfile = DocumentFile.fromSingleUri(context, uri);
+                if (dfile == null)
+                    throw new FileNotFoundException("dfile");
+
+                args.putString("title", dfile.getName());
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                String server = prefs.getString("ff_send", FFSend.FF_DEFAULT_SERVER);
+
+                ContentResolver resolver = context.getContentResolver();
+                try (InputStream is = resolver.openInputStream(uri)) {
+                    return FFSend.upload(is, dfile, 10, 60 * 60, server);
+                }
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, String ffsend) {
+                etLink.setText(ffsend);
+                etTitle.setText(args.getString("title"));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "ffsend");
     }
 
     private static class OpenGraph {
