@@ -256,6 +256,8 @@ public class ContactInfo {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean avatars = prefs.getBoolean("avatars", true);
+        boolean prefer_contact = prefs.getBoolean("prefer_contact", false);
+        boolean distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
         boolean bimi = prefs.getBoolean("bimi", false);
         boolean gravatars = (prefs.getBoolean("gravatars", false) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean libravatars = (prefs.getBoolean("libravatars", false) && !BuildConfig.PLAY_STORE_RELEASE);
@@ -266,6 +268,7 @@ public class ContactInfo {
 
         // Contact photo
         if (!TextUtils.isEmpty(info.email) &&
+                (avatars || prefer_contact || distinguish_contacts) &&
                 Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
             ContentResolver resolver = context.getContentResolver();
             Uri uri = Uri.withAppendedPath(
@@ -308,7 +311,8 @@ public class ContactInfo {
 
         // Favicon
         if (info.bitmap == null &&
-                !EntityFolder.JUNK.equals(folderType) && (bimi || gravatars || libravatars || favicons)) {
+                (bimi || gravatars || libravatars || favicons) &&
+                !EntityFolder.JUNK.equals(folderType)) {
             String d = UriHelper.getEmailDomain(info.email);
             if (d != null) {
                 // Prevent using Doodles
