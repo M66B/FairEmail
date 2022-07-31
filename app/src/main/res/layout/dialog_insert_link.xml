@@ -138,5 +138,57 @@
             app:layout_constraintBottom_toBottomOf="@id/btnUpload"
             app:layout_constraintStart_toEndOf="@id/btnUpload"
             app:layout_constraintTop_toTopOf="@id/btnUpload" />
+
+        <TextView
+            android:id="@+id/tvDLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:labelFor="@+id/etLink"
+            android:text="@string/title_style_link_ffsend_dlimit"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnUpload" />
+
+        <eu.faircode.email.EditTextPlain
+            android:id="@+id/etDlimit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDLimit" />
+
+        <TextView
+            android:id="@+id/tvTLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:labelFor="@+id/etLink"
+            android:text="@string/title_style_link_ffsend_tlimit"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etDlimit" />
+
+        <eu.faircode.email.EditTextPlain
+            android:id="@+id/etTlimit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTLimit" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpUpload"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="btnUpload,tvDLimit,etDlimit,tvTLimit,etTlimit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

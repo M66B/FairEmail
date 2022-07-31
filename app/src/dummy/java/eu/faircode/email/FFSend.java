@@ -5,6 +5,8 @@ import androidx.documentfile.provider.DocumentFile;
 import java.io.InputStream;
 
 public class FFSend {
+    static final int FF_DEFAULT_DLIMIT = 0;
+    static final int FF_DEFAULT_TLIMIT = 0;
     static final String FF_DEFAULT_SERVER = "";
     static final String FF_INSTANCES = "";
 

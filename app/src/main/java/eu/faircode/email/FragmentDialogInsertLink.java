@@ -45,6 +45,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.Group;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;
 
@@ -63,6 +64,8 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
     private EditText etTitle;
     private Button btnUpload;
     private ProgressBar pbUpload;
+    private EditText etDlimit;
+    private EditText etTlimit;
 
     private static final int METADATA_CONNECT_TIMEOUT = 10 * 1000; // milliseconds
     private static final int METADATA_READ_TIMEOUT = 15 * 1000; // milliseconds
@@ -91,6 +94,9 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         final ProgressBar pbWait = view.findViewById(R.id.pbWait);
         btnUpload = view.findViewById(R.id.btnUpload);
         pbUpload = view.findViewById(R.id.pbUpload);
+        etDlimit = view.findViewById(R.id.etDlimit);
+        etTlimit = view.findViewById(R.id.etTlimit);
+        Group grpUpload = view.findViewById(R.id.grpUpload);
 
         etLink.addTextChangedListener(new TextWatcher() {
             @Override
@@ -257,9 +263,12 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             etTitle.setText(savedInstanceState.getString("fair:text"));
         }
 
-        btnUpload.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        etDlimit.setHint(Integer.toString(FFSend.FF_DEFAULT_DLIMIT));
+        etTlimit.setHint(Integer.toString(FFSend.FF_DEFAULT_TLIMIT));
+
         pbWait.setVisibility(View.GONE);
         pbUpload.setVisibility(View.GONE);
+        grpUpload.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
 
         return new AlertDialog.Builder(context)
                 .setView(view)
@@ -300,23 +309,32 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
     private void onFFSend(Uri uri) {
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
+        args.putString("dlimit", etDlimit.getText().toString());
+        args.putString("tlimit", etTlimit.getText().toString());
 
         new SimpleTask<String>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 btnUpload.setEnabled(false);
+                etDlimit.setEnabled(false);
+                etTlimit.setEnabled(false);
                 pbUpload.setVisibility(View.VISIBLE);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
                 btnUpload.setEnabled(true);
+                etDlimit.setEnabled(true);
+                etTlimit.setEnabled(true);
                 pbUpload.setVisibility(View.GONE);
             }
 
             @Override
             protected String onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
+                String _dlimit = args.getString("dlimit");
+                String _tlimit = args.getString("tlimit");
+
                 if (uri == null)
                     throw new FileNotFoundException("uri");
 
@@ -327,6 +345,9 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                 if (dfile == null)
                     throw new FileNotFoundException("dfile");
 
+                int dlimit = (TextUtils.isEmpty(_dlimit) ? FFSend.FF_DEFAULT_DLIMIT : Integer.parseInt(_dlimit));
+                int tlimit = (TextUtils.isEmpty(_tlimit) ? FFSend.FF_DEFAULT_TLIMIT : Integer.parseInt(_tlimit));
+
                 args.putString("title", dfile.getName());
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -334,7 +355,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
 
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
-                    return FFSend.upload(is, dfile, 10, 60 * 60, server);
+                    return FFSend.upload(is, dfile, dlimit, tlimit * 60 * 60, server);
                 }
             }
 
