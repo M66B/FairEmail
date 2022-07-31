@@ -4897,8 +4897,9 @@ Please see [this FAQ](#user-content-faq35) on why you should be careful when ope
 <a name="faq183"></a>
 **(183) How do I use Send?**
 
-[Send](https://github.com/timvisee/send) is designed as temporary encrypted file storage.
+[Send](https://github.com/timvisee/send) is designed as temporary end-to-end encrypted file storage.
 Only people with a link to a file can download and decrypt a file.
+See for some more information [Wikipedia](https://en.wikipedia.org/wiki/Firefox_Send).
 
 Send integration needs to be enabled in the miscellaneous settings.
 
