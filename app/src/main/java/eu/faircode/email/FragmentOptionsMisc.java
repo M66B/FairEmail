@@ -126,6 +126,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvVirusTotalPrivacy;
     private EditText etVirusTotal;
     private ImageButton ibVirusTotal;
+    private SwitchCompat swFFSend;
     private EditText etFFSend;
     private ImageButton ibFFSend;
     private SwitchCompat swUpdates;
@@ -229,7 +230,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "lt_enabled", "deepl_enabled", "vt_enabled", "vt_apikey", "ff_send",
+            "language", "lt_enabled", "deepl_enabled", "vt_enabled", "vt_apikey", "ffsend_enabled", "ffsend_host",
             "updates", "weekly", "show_changelog",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "protocol", "log_level", "debug", "leak_canary",
@@ -320,6 +321,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvVirusTotalPrivacy = view.findViewById(R.id.tvVirusTotalPrivacy);
         etVirusTotal = view.findViewById(R.id.etVirusTotal);
         ibVirusTotal = view.findViewById(R.id.ibVirusTotal);
+        swFFSend = view.findViewById(R.id.swFFSend);
         etFFSend = view.findViewById(R.id.etFFSend);
         ibFFSend = view.findViewById(R.id.ibFFSend);
         swUpdates = view.findViewById(R.id.swUpdates);
@@ -695,6 +697,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swFFSend.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("ffsend_enabled", checked).apply();
+            }
+        });
+
         etFFSend.setHint(FFSend.FF_DEFAULT_SERVER);
         etFFSend.addTextChangedListener(new TextWatcher() {
             @Override
@@ -711,9 +720,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void afterTextChanged(Editable s) {
                 String apikey = s.toString().trim();
                 if (TextUtils.isEmpty(apikey))
-                    prefs.edit().remove("ff_send").apply();
+                    prefs.edit().remove("ffsend_host").apply();
                 else
-                    prefs.edit().putString("ff_send", apikey).apply();
+                    prefs.edit().putString("ffsend_host", apikey).apply();
             }
         });
 
@@ -1742,7 +1751,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if ("last_cleanup".equals(key))
             setLastCleanup(prefs.getLong(key, -1));
 
-        if ("vt_apikey".equals(key) || "ff_send".equals(key))
+        if ("vt_apikey".equals(key) || "ffsend_host".equals(key))
             return;
 
         setOptions();
@@ -1889,7 +1898,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
         swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
         etVirusTotal.setText(prefs.getString("vt_apikey", null));
-        etFFSend.setText(prefs.getString("ff_send", null));
+        swFFSend.setChecked(prefs.getBoolean("ffsend_enabled", false));
+        etFFSend.setText(prefs.getString("ffsend_host", null));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());

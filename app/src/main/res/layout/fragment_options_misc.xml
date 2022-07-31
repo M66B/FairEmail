@@ -359,7 +359,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:checked="true"
                     android:text="@string/title_advanced_deepl"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -439,18 +438,16 @@
                     app:layout_constraintTop_toBottomOf="@id/etVirusTotal"
                     app:srcCompat="@drawable/twotone_info_24" />
 
-                <TextView
-                    android:id="@+id/tvFFSend"
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swFFSend"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_ffsend_server"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?android:attr/textColorPrimary"
+                    android:text="@string/title_advanced_ffsend"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibVirusTotal" />
+                    app:layout_constraintTop_toBottomOf="@id/ibVirusTotal"
+                    app:switchPadding="12dp" />
 
                 <EditText
                     android:id="@+id/etFFSend"
@@ -462,7 +459,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvFFSend" />
+                    app:layout_constraintTop_toBottomOf="@id/swFFSend" />
 
                 <ImageButton
                     android:id="@+id/ibFFSend"
@@ -640,7 +637,7 @@
                     android:id="@+id/grpFFSend"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvFFSend,etFFSend,ibFFSend" />
+                    app:constraint_referenced_ids="swFFSend,etFFSend,ibFFSend" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpUpdates"

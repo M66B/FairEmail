@@ -56,7 +56,7 @@ public class FFSend {
 
     private static final int FF_TIMEOUT = 20 * 1000;
 
-    public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String server) throws Throwable {
+    public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String host) throws Throwable {
         String result;
         SecureRandom rnd = new SecureRandom();
 
@@ -65,7 +65,7 @@ public class FFSend {
 
         JSONObject jupload = getMetadata(dfile, dLimit, timeLimit, secret);
 
-        Uri uri = Uri.parse("wss://" + Uri.parse(server).getHost() + "/api/ws");
+        Uri uri = Uri.parse("wss://" + Uri.parse(host).getHost() + "/api/ws");
 
         WebSocket ws = new WebSocketFactory().createSocket(uri.toString(), FF_TIMEOUT);
 

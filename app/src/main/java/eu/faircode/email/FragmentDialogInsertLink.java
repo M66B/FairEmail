@@ -102,6 +102,9 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         sbTLimit = view.findViewById(R.id.sbTLimit);
         Group grpUpload = view.findViewById(R.id.grpUpload);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean ffsend_enabled = prefs.getBoolean("ffsend_enabled", false);
+
         etLink.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -306,7 +309,8 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
 
         pbWait.setVisibility(View.GONE);
         pbUpload.setVisibility(View.GONE);
-        grpUpload.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        grpUpload.setVisibility(ffsend_enabled && !BuildConfig.PLAY_STORE_RELEASE
+                ? View.VISIBLE : View.GONE);
 
         return new AlertDialog.Builder(context)
                 .setView(view)
@@ -391,11 +395,11 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                 args.putString("title", dfile.getName());
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                String server = prefs.getString("ff_send", FFSend.FF_DEFAULT_SERVER);
+                String ffsend_host = prefs.getString("ffsend_host", FFSend.FF_DEFAULT_SERVER);
 
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
-                    return FFSend.upload(is, dfile, dlimit, tlimit * 60 * 60, server);
+                    return FFSend.upload(is, dfile, dlimit, tlimit * 60 * 60, ffsend_host);
                 }
             }
 

@@ -10,7 +10,7 @@ public class FFSend {
     static final String FF_DEFAULT_SERVER = "";
     static final String FF_INSTANCES = "";
 
-    public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String server) {
+    public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String host) {
         return null;
     }
 }
