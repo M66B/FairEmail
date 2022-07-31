@@ -31,6 +31,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -53,9 +54,8 @@ public class Send {
     static final int DEFAULT_DLIMIT = 10;
     static final int DEFAULT_TLIMIT = 24; // hours
     static final String FF_DEFAULT_SERVER = "https://send.vis.ee/";
-    static final String FF_INSTANCES = "https://github.com/timvisee/send-instances/";
 
-    private static final int FF_TIMEOUT = 20 * 1000;
+    private static final int FF_TIMEOUT = 20 * 1000; // milliseconds
 
     public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String host) throws Throwable {
         String result;
@@ -75,7 +75,7 @@ public class Send {
 
         ws.addListener(new WebSocketAdapter() {
             @Override
-            public void onTextMessage(WebSocket ws, String text) throws Exception {
+            public void onTextMessage(WebSocket ws, String text) {
                 Log.i("Send text message=" + text);
                 queue.add(text);
                 sem.release();
@@ -90,7 +90,8 @@ public class Send {
             ws.sendText(jupload.toString());
 
             Log.i("Send wait reply");
-            sem.tryAcquire(FF_TIMEOUT, TimeUnit.MILLISECONDS);
+            if (!sem.tryAcquire(FF_TIMEOUT, TimeUnit.MILLISECONDS))
+                throw new TimeoutException("reply");
 
             JSONObject jreply = new JSONObject(queue.remove(0));
             Log.i("Send reply=" + jreply);
@@ -186,7 +187,8 @@ public class Send {
             ws.sendBinary(new byte[]{0}, true);
 
             Log.i("Send wait confirm");
-            sem.tryAcquire(FF_TIMEOUT, TimeUnit.MILLISECONDS);
+            if (!sem.tryAcquire(FF_TIMEOUT, TimeUnit.MILLISECONDS))
+                throw new TimeoutException("confirm");
 
             JSONObject jconfirm = new JSONObject(queue.remove(0));
             Log.i("Send confirm=" + jconfirm);
