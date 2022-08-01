@@ -638,6 +638,7 @@
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Integrare cu LanguageTool</string>
     <string name="title_advanced_deepl">Integrare DeepL</string>
+    <string name="title_advanced_virus_total">Integrare VirusTotal</string>
     <string name="title_advanced_sdcard">Vreau să folosesc un sdcard</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificați dacă există actualizări pe Github</string>
@@ -1254,6 +1255,11 @@
     <string name="title_send_dsn">Raport de stare</string>
     <string name="title_send_receipt">Solicitare confirmare</string>
     <string name="title_send_receipt_remark">Majoritatea furnizorilor și clienților de email ignoră cererile de confirmare</string>
+    <string name="title_vt_unknown">Acest fișier nu este încă cunoscut de VirusTotal</string>
+    <string name="title_vt_summary">%1$s scanerele de virus raportează acest fișier ca fiind malițios</string>
+    <string name="title_vt_report">Raport complet</string>
+    <string name="title_vt_upload">Încărcaţi</string>
+    <string name="title_vt_analyzing">VirusTotal analizează fișierul, acest lucru poate dura ceva timp &#8230;</string>
     <string name="title_from_missing">Expeditor lipsă</string>
     <string name="title_pgp_reminder">Chei PGP disponibile</string>
     <string name="title_smime_reminder">Chei S/MIME disponibile</string>

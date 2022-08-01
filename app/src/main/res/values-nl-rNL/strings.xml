@@ -86,6 +86,14 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item quantity="one">Blokkeer afzender van één bericht?</item>
         <item quantity="other">Blokkeer de afzender van %1$s berichten?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s uur</item>
+        <item quantity="other">%1$s uren</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s dag</item>
+        <item quantity="other">%1$s dagen</item>
+    </plurals>
     <string name="title_junk_filter">Lokale spam filter gebruiken</string>
     <string name="title_junk_filter_hint">Dit kan het batterijgebruik verhogen en berichten onjuist markeren als spam</string>
     <string name="title_junk_blocklist">Gebruik spam blokkeerlijsten</string>
@@ -1195,6 +1203,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_style_link_title">Titel</string>
     <string name="title_style_link_metadata">Titel ophalen</string>
     <string name="title_style_link_metadata_remark">Dit zal de titel ophalen op het ingevoerde adres</string>
+    <string name="title_style_link_send_dlimit" comment="title_style_link_send_dlimit&#10;Max. times a file can be downloaded">Download limiet (%1$s)</string>
+    <string name="title_style_link_send_tlimit" comment="title_style_link_send_tlimit&#10;Maximum time a file can be downloaded">Tijdslimiet (%1$s)</string>
     <string name="title_add_image">Afbeelding toevoegen</string>
     <string name="title_add_image_inline">Invoegen</string>
     <string name="title_add_image_attach">Bijlage</string>

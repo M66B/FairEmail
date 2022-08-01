@@ -1259,6 +1259,11 @@
     <string name="title_send_dsn">Izvještaj o statusu</string>
     <string name="title_send_receipt">Zahtijevaj potvrdu</string>
     <string name="title_send_receipt_remark">Većina provajdera i e-mail klijenata ignorišu zahtjeve za potvrdama</string>
+    <string name="title_vt_unknown">Ova datoteka je još uvijek nepoznata za VirusTotal</string>
+    <string name="title_vt_summary">%1$s skenera na viruse prijavljuje ovu datoteku kao malicioznu</string>
+    <string name="title_vt_report">Puni izvještaj</string>
+    <string name="title_vt_upload">Prenesi</string>
+    <string name="title_vt_analyzing">VirusTotal analizira datoteku, ovo može malo potrajati &#8230;</string>
     <string name="title_from_missing">Nedostaje pošiljalac</string>
     <string name="title_pgp_reminder">Dostupni PGP ključevi</string>
     <string name="title_smime_reminder">Dostupni S/MIME ključevi</string>

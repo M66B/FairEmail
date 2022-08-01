@@ -3,8 +3,11 @@
     <string name="app_search">FairEmail търсене</string>
     <string name="app_changelog">Преглед на измененията</string>
     <string name="app_welcome">FairEmail е приложение за електронна поща с отворен код, фокусирано върху поверителността и сигурността. Поради тази причина някои функции могат да работят различно от това с което сте свикнали. Превод на български plimboster.</string>
+    <string name="app_data_loss">Всички данни може да се загубят</string>
     <string name="app_exit">Натиснете отново „назад“, за изход</string>
     <string name="app_updated">Последно обновяване: %1$s</string>
+    <string name="app_download">Изтеглено от: %1$s</string>
+    <string name="channel_service">Наблюдение</string>
     <string name="channel_send">Изпращане</string>
     <string name="channel_notification">Имейл</string>
     <string name="channel_progress">Напредък</string>
@@ -13,6 +16,7 @@
     <string name="channel_error">Грешки</string>
     <string name="channel_alert">Предупреждения от сървъра</string>
     <string name="channel_group_contacts">Контакти</string>
+    <string name="channel_service_description">Уеднаквяване по време и наблюдение на акаунтите</string>
     <string name="channel_send_description">Изпращане на съобщения</string>
     <string name="channel_notification_description">Известия за нови съобщения</string>
     <plurals name="page_conversation">
@@ -62,6 +66,7 @@
     <string name="title_block">Блокиране %1$s</string>
     <string name="title_block_sender">Блокиране на подателя</string>
     <string name="title_block_sender_domain">Блокиране на домейна \'%1$s\'</string>
+    <string name="title_blocked_senders">Блокирани податели</string>
     <string name="title_junk_clear">Изчистване</string>
     <string name="title_notification_sending">Изпращане на съобщения</string>
     <string name="title_notification_waiting">Изчаква се подходяща връзка</string>
@@ -71,6 +76,7 @@
     <string name="title_notification_sending_failed">Изпращането до %1$s неуспешно</string>
     <string name="title_factor_minutes">%1$d минути</string>
     <string name="menu_answers">Образци</string>
+    <string name="menu_rules">Правила</string>
     <string name="menu_operations">Операции</string>
     <string name="menu_contacts">Местни контакти</string>
     <string name="menu_setup">Настройки</string>
@@ -106,6 +112,7 @@
     <string name="title_setup_quick_smtp">SMTP сървър за изпращане на съобщения</string>
     <string name="title_setup_quick_certificates">Удостоверения на сървъра</string>
     <string name="title_setup_wizard">Помощник</string>
+    <string name="title_setup_wizard_tutorials">Ръководства</string>
     <string name="title_setup_wizard_new">Трябва ми друг адрес на е-поща</string>
     <string name="title_setup_classic">Класическо конфигуриране</string>
     <string name="title_setup_account_remark">Получаване на е-писмо</string>
@@ -174,6 +181,8 @@
     <string name="title_setup_theme_red_green">Червено/зелено</string>
     <string name="title_setup_theme_grey">Сиво</string>
     <string name="title_setup_theme_black">Черно</string>
+    <string name="title_setup_theme_white">Бяло</string>
+    <string name="title_setup_theme_black_or_white">Черно или бяло</string>
     <string name="title_setup_theme_black_and_white">Черно-бяло</string>
     <string name="title_setup_theme_reverse">Обратни цветове</string>
     <string name="title_setup_theme_light">Светла</string>
@@ -257,6 +266,7 @@
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
     <string name="title_advanced_manage_connectivity">Управление на свързаността</string>
     <string name="title_advanced_caption_general">Общи</string>
+    <string name="title_advanced_caption_navigation">Навигация</string>
     <string name="title_advanced_caption_checks">Проверки</string>
     <string name="title_advanced_caption_list">Списък</string>
     <string name="title_advanced_caption_conversation">Разговор</string>

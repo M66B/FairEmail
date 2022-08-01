@@ -113,6 +113,7 @@
     <string name="title_list_accounts">Акаўнты</string>
     <string name="title_setup">Налады</string>
     <string name="title_setup_help">Дапамога</string>
+    <string name="title_setup_accounts">Акаўнты</string>
     <string name="title_advanced_section_send">Адправіць</string>
     <string name="title_advanced_section_privacy">Прыватнасць</string>
     <string name="title_advanced_caption_conversation">Размова</string>
@@ -132,7 +133,14 @@
     <string name="title_legend_section_compose">Стварыць</string>
     <string name="title_legend_thread">Размова</string>
     <string name="title_legend_c">Стварыць</string>
+    <string name="title_log_clear">Сцерцi</string>
     <!-- Thunderbird -->
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Primary account folders</item>
+        <item>Акаўнты</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
