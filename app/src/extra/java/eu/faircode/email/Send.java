@@ -57,7 +57,7 @@ public class Send {
 
     private static final int TIMEOUT = 20 * 1000; // milliseconds
 
-    public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String host) throws Throwable {
+    public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String host, IProgress intf) throws Throwable {
         String result;
         SecureRandom rnd = new SecureRandom();
 
@@ -153,11 +153,13 @@ public class Send {
             while ((len = is.read(buffer, 0, buffer.length - 17)) > 0) {
                 Log.i("Send read=" + len);
 
+                size += len;
+                intf.onProgress((int) (100 * size / fileSize));
+
                 // add a delimiter octet (0x01 or 0x02)
                 //   then 0x00-valued octets to rs-16 (or less on the last record)
                 // The last record uses a padding delimiter octet set to the value 2,
                 //   all other records have a padding delimiter octet value of 1.
-                size += len;
                 if (size == fileSize)
                     buffer[len++] = 0x02;
                 else {
@@ -254,5 +256,9 @@ public class Send {
         jupload.put("timeLimit", timeLimit); // seconds
 
         return jupload;
+    }
+
+    public interface IProgress {
+        void onProgress(int percentage);
     }
 }

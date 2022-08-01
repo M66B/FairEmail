@@ -124,27 +124,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMetadataRemark" />
 
-        <eu.faircode.email.ContentLoadingProgressBar
+        <ProgressBar
             android:id="@+id/pbUpload"
-            style="@style/Base.Widget.AppCompat.ProgressBar"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:indeterminate="true"
-            app:layout_constraintBottom_toBottomOf="@id/btnUpload"
-            app:layout_constraintStart_toEndOf="@id/btnUpload"
-            app:layout_constraintTop_toTopOf="@id/btnUpload" />
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:progress="25"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnUpload" />
 
         <TextView
             android:id="@+id/tvDLimit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:labelFor="@+id/sbDLimit"
             android:text="@string/title_style_link_send_dlimit"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnUpload" />
+            app:layout_constraintTop_toBottomOf="@id/pbUpload" />
 
         <SeekBar
             android:id="@+id/sbDLimit"
@@ -160,7 +160,7 @@
             android:id="@+id/tvTLimit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:labelFor="@+id/sbTLimit"
             android:text="@string/title_style_link_send_tlimit"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"

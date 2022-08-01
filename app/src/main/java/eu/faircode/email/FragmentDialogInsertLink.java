@@ -376,6 +376,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                 btnUpload.setEnabled(false);
                 sbDLimit.setEnabled(false);
                 sbTLimit.setEnabled(false);
+                pbUpload.setProgress(0);
                 pbUpload.setVisibility(View.VISIBLE);
             }
 
@@ -417,8 +418,22 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
 
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
-                    return Send.upload(is, dfile, dlimit, tlimit * 60 * 60, send_host);
+                    return Send.upload(is, dfile, dlimit, tlimit * 60 * 60, send_host, new Send.IProgress() {
+                        @Override
+                        public void onProgress(int percentage) {
+                            Bundle args = new Bundle();
+                            args.putInt("progress", percentage);
+                            postProgress(null, args);
+                        }
+                    });
                 }
+            }
+
+            @Override
+            protected void onProgress(CharSequence status, Bundle data) {
+                int progress = data.getInt("progress");
+                Log.i("Send progress=" + progress);
+                pbUpload.setProgress(progress);
             }
 
             @Override

@@ -9,7 +9,11 @@ public class Send {
     static final int DEFAULT_TLIMIT = 0;
     static final String DEFAULT_SERVER = "";
 
-    public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String host) {
+    public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String host, IProgress intf) {
         return null;
+    }
+
+    public interface IProgress {
+        void onProgress(int percentage);
     }
 }
