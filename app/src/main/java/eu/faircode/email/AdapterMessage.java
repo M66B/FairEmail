@@ -5538,7 +5538,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setTitle(message.isPlainOnly()
                             ? R.string.title_alternative_html : R.string.title_alternative_text)
                     .setEnabled(message.uid != null && message.hasAlt())
-                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP && !message.isEncrypted());
 
             popupMenu.insertIcons(context);
 

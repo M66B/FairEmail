@@ -8103,8 +8103,7 @@ public class FragmentMessages extends FragmentBase
                                     String protect_subject = parts.getProtectedSubject();
 
                                     // Write decrypted body
-                                    boolean download_plain = prefs.getBoolean("download_plain", false);
-                                    String html = parts.getHtml(context, download_plain);
+                                    String html = parts.getHtml(context, false);
                                     Helper.writeText(message.getFile(context), html);
                                     Log.i("pgp html=" + (html == null ? null : html.length()));
 
@@ -8121,7 +8120,7 @@ public class FragmentMessages extends FragmentBase
                                         db.message().setMessageContent(message.id,
                                                 true,
                                                 message.language,
-                                                parts.isPlainOnly(download_plain),
+                                                parts.isPlainOnly(false),
                                                 message.preview,
                                                 message.warning);
 
@@ -8798,8 +8797,7 @@ public class FragmentMessages extends FragmentBase
 
                 // Write decrypted body
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean download_plain = prefs.getBoolean("download_plain", false);
-                String html = parts.getHtml(context, download_plain);
+                String html = parts.getHtml(context, false);
                 Helper.writeText(message.getFile(context), html);
                 Log.i("s/mime html=" + (html == null ? null : html.length()));
 
@@ -8814,7 +8812,7 @@ public class FragmentMessages extends FragmentBase
                     db.message().setMessageContent(message.id,
                             true,
                             message.language,
-                            parts.isPlainOnly(download_plain),
+                            parts.isPlainOnly(false),
                             message.preview,
                             message.warning);
 
