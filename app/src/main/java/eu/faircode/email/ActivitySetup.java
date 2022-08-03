@@ -1307,6 +1307,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                             // Prevent restart
                             if ("secure".equals(key) ||
+                                    "load_emoji".equals(key) ||
                                     "shortcuts".equals(key) ||
                                     "language".equals(key) ||
                                     "wal".equals(key))
