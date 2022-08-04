@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/twotone_bolt_24"
             android:drawablePadding="6dp"
-            android:drawableTint="?attr/colorAccent"
+            app:drawableTint="?attr/colorAccent"
             android:paddingTop="6dp"
             android:text="@string/title_ask_show_amp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"

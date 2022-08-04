@@ -1036,7 +1036,7 @@
                     android:layout_marginTop="12dp"
                     android:drawableStart="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
-                    android:drawableTint="?attr/colorWarning"
+                    app:drawableTint="?attr/colorWarning"
                     android:text="@string/title_rule_delete_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?attr/colorWarning"

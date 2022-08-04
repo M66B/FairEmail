@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/twotone_report_24"
             android:drawablePadding="6dp"
-            android:drawableTint="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
             android:paddingTop="6dp"
             android:text="Spam"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"

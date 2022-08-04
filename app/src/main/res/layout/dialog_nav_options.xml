@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/twotone_visibility_off_24"
             android:drawablePadding="6dp"
-            android:drawableTint="?android:attr/textColorPrimary"
+            app:drawableTint="?android:attr/textColorPrimary"
             android:text="@string/title_advanced_nav_hide_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"

@@ -40,7 +40,7 @@
             android:layout_marginTop="24dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            android:drawableTint="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_need_help"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
