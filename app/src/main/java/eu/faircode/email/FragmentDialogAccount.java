@@ -41,6 +41,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
@@ -68,8 +69,8 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         final Button btnAccount = dview.findViewById(R.id.btnAccount);
         final Button btnGmail = dview.findViewById(R.id.btnGmail);
 
-        final Drawable check = context.getDrawable(R.drawable.twotone_check_24);
-        final Drawable close = context.getDrawable(R.drawable.twotone_close_24);
+        final Drawable check = ContextCompat.getDrawable(context, R.drawable.twotone_check_24);
+        final Drawable close = ContextCompat.getDrawable(context, R.drawable.twotone_close_24);
 
         check.setBounds(0, 0, check.getIntrinsicWidth(), check.getIntrinsicHeight());
         close.setBounds(0, 0, close.getIntrinsicWidth(), close.getIntrinsicHeight());

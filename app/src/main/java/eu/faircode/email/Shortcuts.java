@@ -41,6 +41,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.Person;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.drawable.IconCompat;
@@ -293,7 +294,7 @@ class Shortcuts {
             bm = contactInfo[0].getPhotoBitmap();
         else {
             int resid = R.drawable.baseline_mail_24;
-            Drawable d = context.getDrawable(resid);
+            Drawable d = ContextCompat.getDrawable(context, resid);
             bm = Bitmap.createBitmap(
                     d.getIntrinsicWidth(),
                     d.getIntrinsicHeight(),
@@ -326,7 +327,7 @@ class Shortcuts {
         view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         int resid = EntityFolder.getIcon(folder.type);
-        Drawable d = context.getDrawable(resid);
+        Drawable d = ContextCompat.getDrawable(context, resid);
         Bitmap bm = Bitmap.createBitmap(
                 d.getIntrinsicWidth(),
                 d.getIntrinsicHeight(),

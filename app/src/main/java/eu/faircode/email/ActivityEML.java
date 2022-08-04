@@ -47,6 +47,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -294,9 +295,9 @@ public class ActivityEML extends ActivityBase {
                             public Drawable getDrawable(Element img) {
                                 Drawable d;
                                 if (TextUtils.isEmpty(img.attr("x-tracking")))
-                                    d = context.getDrawable(R.drawable.twotone_image_24);
+                                    d = ContextCompat.getDrawable(context, R.drawable.twotone_image_24);
                                 else {
-                                    d = context.getDrawable(R.drawable.twotone_my_location_24);
+                                    d = ContextCompat.getDrawable(context, R.drawable.twotone_my_location_24);
                                     d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
                                 }
                                 d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());

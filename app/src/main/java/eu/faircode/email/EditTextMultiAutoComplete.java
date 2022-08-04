@@ -47,6 +47,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 
@@ -359,7 +360,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                             }
                                         });
                                     } else if (has != 0) {
-                                        cd.setCloseIcon(context.getDrawable(icons[has - 1]));
+                                        cd.setCloseIcon(ContextCompat.getDrawable(context, icons[has - 1]));
                                         cd.setCloseIconVisible(true);
                                     }
 

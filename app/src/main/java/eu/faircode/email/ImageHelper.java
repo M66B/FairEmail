@@ -53,6 +53,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.preference.PreferenceManager;
@@ -331,7 +332,7 @@ class ImageHelper {
 
         try {
             if (TextUtils.isEmpty(source)) {
-                Drawable d = context.getDrawable(R.drawable.twotone_broken_image_24);
+                Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
                 d.setBounds(0, 0, px, px);
                 return d;
             }
@@ -349,12 +350,12 @@ class ImageHelper {
                 EntityAttachment attachment = db.attachment().getAttachment(id, cid);
                 if (attachment == null) {
                     Log.i("Image not found CID=" + cid);
-                    Drawable d = context.getDrawable(R.drawable.twotone_broken_image_24);
+                    Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
                     d.setBounds(0, 0, px, px);
                     return d;
                 } else if (!attachment.available) {
                     Log.i("Image not available CID=" + cid);
-                    Drawable d = context.getDrawable(R.drawable.twotone_photo_library_24);
+                    Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_photo_library_24);
                     d.setBounds(0, 0, px, px);
                     return d;
                 } else {
@@ -370,7 +371,7 @@ class ImageHelper {
                             return d;
                         } catch (IOException ex) {
                             Log.w(ex);
-                            Drawable d = context.getDrawable(R.drawable.twotone_broken_image_24);
+                            Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
                             d.setBounds(0, 0, px, px);
                             return d;
                         }
@@ -381,7 +382,7 @@ class ImageHelper {
                                 scaleToPixels);
                         if (bm == null) {
                             Log.i("Image not decodable CID=" + cid);
-                            Drawable d = context.getDrawable(R.drawable.twotone_broken_image_24);
+                            Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
                             d.setBounds(0, 0, px, px);
                             return d;
                         } else {
@@ -413,7 +414,7 @@ class ImageHelper {
                     return d;
                 } catch (IllegalArgumentException ex) {
                     Log.i(ex);
-                    Drawable d = context.getDrawable(R.drawable.twotone_broken_image_24);
+                    Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
                     d.setBounds(0, 0, px, px);
                     return d;
                 }
@@ -442,7 +443,7 @@ class ImageHelper {
                 } catch (Throwable ex) {
                     // FileNotFound, Security
                     Log.w(ex);
-                    Drawable d = context.getDrawable(R.drawable.twotone_broken_image_24);
+                    Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
                     d.setBounds(0, 0, px, px);
                     return d;
                 }
@@ -450,7 +451,7 @@ class ImageHelper {
             if (!show) {
                 // Show placeholder icon
                 int resid = (embedded || data ? R.drawable.twotone_photo_library_24 : R.drawable.twotone_image_24);
-                Drawable d = context.getDrawable(resid);
+                Drawable d = ContextCompat.getDrawable(context, resid);
                 d.setBounds(0, 0, px, px);
                 return d;
             }
@@ -460,7 +461,7 @@ class ImageHelper {
             if (cached != null || view == null) {
                 if (view == null)
                     if (cached == null) {
-                        Drawable d = context.getDrawable(R.drawable.twotone_hourglass_top_24);
+                        Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_hourglass_top_24);
                         d.setBounds(0, 0, px, px);
                         return d;
                     } else
@@ -471,7 +472,7 @@ class ImageHelper {
             }
 
             final LevelListDrawable lld = new LevelListDrawable();
-            Drawable wait = context.getDrawable(R.drawable.twotone_hourglass_top_24);
+            Drawable wait = ContextCompat.getDrawable(context, R.drawable.twotone_hourglass_top_24);
             lld.addLevel(1, 1, wait);
             lld.setBounds(0, 0, px, px);
             lld.setLevel(1);
@@ -522,7 +523,7 @@ class ImageHelper {
                         int resid = (ex instanceof IOException && !(ex instanceof FileNotFoundException)
                                 ? R.drawable.twotone_cloud_off_24
                                 : R.drawable.twotone_broken_image_24);
-                        Drawable d = context.getDrawable(resid);
+                        Drawable d = ContextCompat.getDrawable(context, resid);
                         d.setBounds(0, 0, px, px);
                         post(d, source);
                     }
@@ -558,7 +559,7 @@ class ImageHelper {
         } catch (Throwable ex) {
             Log.e(ex);
 
-            Drawable d = context.getDrawable(R.drawable.twotone_broken_image_24);
+            Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
             d.setBounds(0, 0, px, px);
             return d;
         }

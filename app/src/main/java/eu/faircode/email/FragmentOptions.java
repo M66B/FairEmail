@@ -43,6 +43,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.content.ContextCompat;
 import androidx.cursoradapter.widget.CursorAdapter;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
@@ -240,7 +241,7 @@ public class FragmentOptions extends FragmentBase {
         final Context context = getContext();
         int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
-            Drawable d = context.getDrawable(PAGE_ICONS[i]);
+            Drawable d = ContextCompat.getDrawable(context, PAGE_ICONS[i]);
             d.setColorFilter(colorAccent, PorterDuff.Mode.SRC_ATOP);
             SpannableStringBuilder title = new SpannableStringBuilderEx(getString(PAGE_TITLES[i]));
             if (i > 0)

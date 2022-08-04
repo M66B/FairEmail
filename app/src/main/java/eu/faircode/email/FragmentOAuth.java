@@ -53,6 +53,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
@@ -197,7 +198,7 @@ public class FragmentOAuth extends FragmentBase {
             final boolean dark = Helper.isDarkTheme(context);
             int dp12 = Helper.dp2pixels(context, 12);
             int dp24 = Helper.dp2pixels(context, 24);
-            Drawable g = context.getDrawable(R.drawable.google_logo);
+            Drawable g = ContextCompat.getDrawable(context, R.drawable.google_logo);
             g.setBounds(0, 0, g.getIntrinsicWidth(), g.getIntrinsicHeight());
             btnOAuth.setCompoundDrawablesRelative(g, null, null, null);
             btnOAuth.setCompoundDrawablePadding(dp24);
@@ -212,7 +213,7 @@ public class FragmentOAuth extends FragmentBase {
                             Color.LTGRAY // 0xffcccccc
                     }
             ));
-            btnOAuth.setBackground(context.getDrawable(dark
+            btnOAuth.setBackground(ContextCompat.getDrawable(context, dark
                     ? R.drawable.google_signin_background_dark
                     : R.drawable.google_signin_background_light));
             btnOAuth.setPaddingRelative(dp12, 0, dp12, 0);

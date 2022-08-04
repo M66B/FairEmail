@@ -52,6 +52,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
 import org.jsoup.nodes.Document;
@@ -156,7 +157,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
                 if (language != null) {
                     TextView tv = view.findViewById(android.R.id.text1);
 
-                    Drawable icon = context.getDrawable(language.icon);
+                    Drawable icon = ContextCompat.getDrawable(context, language.icon);
                     int iconSize = context.getResources()
                             .getDimensionPixelSize(R.dimen.menu_item_icon_size);
                     icon.setBounds(0, 0, iconSize, iconSize);

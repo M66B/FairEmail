@@ -132,6 +132,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.MenuItemCompat;
@@ -2683,7 +2684,7 @@ public class FragmentMessages extends FragmentBase
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
 
-            Drawable d = context.getDrawable(icon).mutate();
+            Drawable d = ContextCompat.getDrawable(context, icon).mutate();
             d.setTint(Helper.resolveColor(context, android.R.attr.textColorSecondary));
 
             int half = rect.width() / 2;
@@ -5999,7 +6000,7 @@ public class FragmentMessages extends FragmentBase
             tvSelectedCount.setText(NF.format(count));
             if (count > (BuildConfig.DEBUG ? 10 : MAX_MORE)) {
                 int ts = Math.round(tvSelectedCount.getTextSize());
-                Drawable w = context.getDrawable(R.drawable.twotone_warning_24);
+                Drawable w = ContextCompat.getDrawable(context, R.drawable.twotone_warning_24);
                 w.setBounds(0, 0, ts, ts);
                 w.setTint(tvSelectedCount.getCurrentTextColor());
                 tvSelectedCount.setCompoundDrawablesRelative(null, null, w, null);
@@ -10443,20 +10444,20 @@ public class FragmentMessages extends FragmentBase
 
             Drawable source = null;
             if (sources.size() == 1) {
-                source = context.getDrawable(EntityFolder.getIcon(sources.get(0)));
+                source = ContextCompat.getDrawable(context, EntityFolder.getIcon(sources.get(0)));
                 if (source != null)
                     source.setBounds(0, 0, source.getIntrinsicWidth(), source.getIntrinsicHeight());
                 if (sourceColor == null)
                     sourceColor = EntityFolder.getDefaultColor(sources.get(0), context);
             } else {
-                source = context.getDrawable(R.drawable.twotone_folders_24);
+                source = ContextCompat.getDrawable(context, R.drawable.twotone_folders_24);
                 source.setBounds(0, 0, source.getIntrinsicWidth(), source.getIntrinsicHeight());
                 sourceColor = null;
             }
 
             Drawable target = null;
             if (targets.size() == 1) {
-                target = context.getDrawable(EntityFolder.getIcon(targets.get(0)));
+                target = ContextCompat.getDrawable(context, EntityFolder.getIcon(targets.get(0)));
                 if (target != null)
                     target.setBounds(0, 0, target.getIntrinsicWidth(), target.getIntrinsicHeight());
                 if (targetColor == null)

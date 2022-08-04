@@ -69,6 +69,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.core.net.MailTo;
 import androidx.core.util.PatternsCompat;
 import androidx.lifecycle.Lifecycle;
@@ -587,7 +588,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         }
                     }
 
-                    Drawable android = context.getDrawable(R.drawable.android_robot);
+                    Drawable android = ContextCompat.getDrawable(context, R.drawable.android_robot);
                     android.setBounds(0, 0, dp24, dp24);
                     pkgs.add(new Package(
                             android,
@@ -782,10 +783,10 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             super(context, 0, pkgs);
             this.context = context;
             this.pkgs = pkgs;
-            this.external = context.getDrawable(R.drawable.twotone_open_in_new_24);
+            this.external = ContextCompat.getDrawable(context, R.drawable.twotone_open_in_new_24);
             if (external != null)
                 external.setBounds(0, 0, external.getIntrinsicWidth(), external.getIntrinsicHeight());
-            this.browser = context.getDrawable(R.drawable.twotone_language_24);
+            this.browser = ContextCompat.getDrawable(context, R.drawable.twotone_language_24);
             if (browser != null)
                 browser.setBounds(0, 0, browser.getIntrinsicWidth(), browser.getIntrinsicHeight());
         }

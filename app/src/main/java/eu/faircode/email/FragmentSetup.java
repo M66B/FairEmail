@@ -61,6 +61,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.MenuCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
@@ -1075,7 +1076,7 @@ public class FragmentSetup extends FragmentBase {
 
         final Context context = getContext();
 
-        Drawable d = context.getDrawable(R.drawable.twotone_warning_24);
+        Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_warning_24);
         d.mutate();
         d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
 

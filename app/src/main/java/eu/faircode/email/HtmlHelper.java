@@ -64,6 +64,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.ColorUtils;
@@ -2234,7 +2235,7 @@ public class HtmlHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean disconnect_images = (prefs.getBoolean("disconnect_images", false) && BuildConfig.DEBUG);
 
-        Drawable d = context.getDrawable(R.drawable.twotone_my_location_24);
+        Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_my_location_24);
         d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
 
         Bitmap bm = Bitmap.createBitmap(d.getIntrinsicWidth(), d.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
@@ -2818,7 +2819,7 @@ public class HtmlHelper {
                     ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
 
                     if (blocklist && i == received.length - 1) {
-                        Drawable d = context.getDrawable(R.drawable.twotone_flag_24);
+                        Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_flag_24);
 
                         int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
                         d.setBounds(0, 0, iconSize, iconSize);
@@ -3474,7 +3475,7 @@ public class HtmlHelper {
                                 String src = element.attr("src");
                                 if (!TextUtils.isEmpty(src)) {
                                     Drawable d = (imageGetter == null
-                                            ? context.getDrawable(R.drawable.twotone_broken_image_24)
+                                            ? ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24)
                                             : imageGetter.getDrawable(element));
                                     ssb.insert(start, "\uFFFC"); // Object replacement character
                                     setSpan(ssb, new ImageSpanEx(d, element), start, start + 1);

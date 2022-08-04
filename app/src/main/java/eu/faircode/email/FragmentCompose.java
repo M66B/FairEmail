@@ -125,6 +125,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -3150,7 +3151,7 @@ public class FragmentCompose extends FragmentBase {
 
                     if (d == null) {
                         int px = Helper.dp2pixels(context, (zoom + 1) * 24);
-                        d = context.getDrawable(R.drawable.twotone_broken_image_24);
+                        d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
                         d.setBounds(0, 0, px, px);
                     }
 

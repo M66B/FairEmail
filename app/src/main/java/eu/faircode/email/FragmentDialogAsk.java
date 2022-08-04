@@ -37,6 +37,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
 public class FragmentDialogAsk extends FragmentDialogBase {
@@ -72,7 +73,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         ibInfo.setVisibility(faq == 0 ? View.GONE : View.VISIBLE);
 
         if (warning) {
-            Drawable w = context.getDrawable(R.drawable.twotone_warning_24);
+            Drawable w = ContextCompat.getDrawable(context, R.drawable.twotone_warning_24);
             w.setBounds(0, 0, w.getIntrinsicWidth(), w.getIntrinsicHeight());
             w.setTint(colorError);
             tvMessage.setCompoundDrawablesRelative(w, null, null, null);
