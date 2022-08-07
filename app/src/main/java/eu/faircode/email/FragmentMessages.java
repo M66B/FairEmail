@@ -1274,11 +1274,24 @@ public class FragmentMessages extends FragmentBase
             }
 
             private void onActionSnooze() {
+                Long time = null;
+                List<TupleMessageEx> list = adapter.getCurrentList();
+                if (list != null)
+                    for (TupleMessageEx message : list)
+                        if (message != null && message.ui_snoozed != null) {
+                            if (time == null || message.ui_snoozed < time || message.id.equals(id))
+                                time = message.ui_snoozed;
+                            if (message.id.equals(id))
+                                break;
+                        }
+
                 Bundle args = new Bundle();
                 args.putString("title", getString(R.string.title_snooze));
                 args.putLong("account", account);
                 args.putString("thread", thread);
                 args.putLong("id", id);
+                if (time != null)
+                    args.putLong("time", time);
                 args.putBoolean("finish", true);
 
                 FragmentDialogDuration fragment = new FragmentDialogDuration();
@@ -2922,6 +2935,8 @@ public class FragmentMessages extends FragmentBase
                                 args.putLong("account", message.account);
                                 args.putString("thread", message.thread);
                                 args.putLong("id", message.id);
+                                if (message.ui_snoozed != null)
+                                    args.putLong("time", message.ui_snoozed);
                                 args.putBoolean("finish", false);
 
                                 FragmentDialogDuration fragment = new FragmentDialogDuration();

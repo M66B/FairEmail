@@ -5875,6 +5875,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putLong("folder", message.folder);
             args.putString("thread", message.thread);
             args.putLong("id", message.id);
+            if (message.ui_snoozed != null)
+                args.putLong("time", message.ui_snoozed);
             args.putBoolean("finish", true);
 
             FragmentDialogDuration fragment = new FragmentDialogDuration();
