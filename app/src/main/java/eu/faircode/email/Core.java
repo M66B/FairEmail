@@ -2627,7 +2627,7 @@ class Core {
                 nameFolder.put(folder.name, folder);
                 String parentName = folder.getParentName();
                 if (!parentFolders.containsKey(parentName))
-                    parentFolders.put(parentName, new ArrayList<EntityFolder>());
+                    parentFolders.put(parentName, new ArrayList<>());
                 parentFolders.get(parentName).add(folder);
             }
         }
@@ -2657,8 +2657,18 @@ class Core {
         Log.i("Updating folders parents=" + parentFolders.size());
         for (String parentName : parentFolders.keySet()) {
             EntityFolder parent = nameFolder.get(parentName);
-            for (EntityFolder child : parentFolders.get(parentName))
+            for (EntityFolder child : parentFolders.get(parentName)) {
+                String rootType = null;
+                EntityFolder r = parent;
+                while (r != null) {
+                    if (!r.selectable)
+                        break;
+                    rootType = r.type;
+                    r = nameFolder.get(r.getParentName());
+                }
+                db.folder().setFolderInheritedType(child.id, rootType);
                 db.folder().setFolderParent(child.id, parent == null ? null : parent.id);
+            }
         }
 
         Log.i("Delete local count=" + local.size());

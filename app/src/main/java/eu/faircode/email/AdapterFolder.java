@@ -364,7 +364,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 if (account < 0 && !primary)
                     tvType.setText(folder.accountName);
                 else
-                    tvType.setText(EntityFolder.localizeType(context, folder.type));
+                    tvType.setText(EntityFolder.localizeType(context, folder.type) +
+                            (folder.inherited_type == null || !(BuildConfig.DEBUG || EntityFolder.SENT.equals(folder.inherited_type))
+                                    ? ""
+                                    : "/" + EntityFolder.localizeType(context, folder.inherited_type)));
 
                 tvTotal.setText(folder.total == null ? null : NF.format(folder.total));
 

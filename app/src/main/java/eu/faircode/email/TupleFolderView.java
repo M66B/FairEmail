@@ -30,7 +30,7 @@ import java.util.Objects;
         value = TupleFolderView.query
 )
 public class TupleFolderView {
-    static final String query = "SELECT id, account, name, type, display, color, unified, notify, read_only FROM folder";
+    static final String query = "SELECT id, account, name, type, inherited_type, display, color, unified, notify, read_only FROM folder";
 
     @NonNull
     public Long id;
@@ -39,6 +39,7 @@ public class TupleFolderView {
     public String name;
     @NonNull
     public String type;
+    public String inherited_type;
     public String display;
     public Integer color;
     @NonNull
@@ -56,6 +57,7 @@ public class TupleFolderView {
                     Objects.equals(this.account, other.account) &&
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
+                    Objects.equals(this.inherited_type, other.inherited_type) &&
                     Objects.equals(this.display, other.display) &&
                     Objects.equals(this.color, other.color) &&
                     this.unified == other.unified &&

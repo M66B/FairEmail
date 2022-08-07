@@ -300,6 +300,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET type = :type WHERE id = :id AND NOT (type IS :type)")
     int setFolderType(long id, String type);
 
+    @Query("UPDATE folder SET inherited_type = :type WHERE id = :id AND NOT (inherited_type IS :type)")
+    int setFolderInheritedType(long id, String type);
+
     @Query("UPDATE folder SET `order` = :order WHERE id = :id AND NOT (`order` IS :order)")
     int setFolderOrder(long id, Integer order);
 

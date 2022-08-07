@@ -3794,7 +3794,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private boolean isOutgoing(TupleMessageEx message) {
-            if (EntityFolder.isOutgoing(message.folderType))
+            if (EntityFolder.isOutgoing(message.folderType) || EntityFolder.isOutgoing(message.folderInheritedType))
                 return true;
             else {
                 if (message.identityEmail == null)

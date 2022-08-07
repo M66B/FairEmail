@@ -2301,7 +2301,8 @@ public class Log {
                             if (folder.synchronize) {
                                 int unseen = db.message().countUnseen(folder.id);
                                 int notifying = db.message().countNotifying(folder.id);
-                                size += write(os, "- " + folder.name + " " + folder.type +
+                                size += write(os, "- " + folder.name + " " +
+                                        folder.type + (folder.inherited_type == null ? "" : "/" + folder.inherited_type) +
                                         (folder.unified ? " unified" : "") +
                                         (folder.notify ? " notify" : "") +
                                         " poll=" + folder.poll + "/" + folder.poll_factor +
@@ -2375,6 +2376,7 @@ public class Log {
                                 Collections.sort(folders, folders.get(0).getComparator(context));
                             for (EntityFolder folder : folders) {
                                 JSONObject jfolder = folder.toJSON();
+                                jfolder.put("inherited_type", folder.inherited_type);
                                 jfolder.put("level", folder.level);
                                 jfolder.put("total", folder.total);
                                 jfolder.put("initialize", folder.initialize);

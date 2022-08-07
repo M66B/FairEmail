@@ -77,6 +77,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public String name;
     @NonNull
     public String type;
+    public String inherited_type;
     @NonNull
     public Integer level = 0; // obsolete
     @NonNull
