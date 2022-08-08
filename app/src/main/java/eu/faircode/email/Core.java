@@ -1500,7 +1500,15 @@ class Core {
 
             // https://tools.ietf.org/html/rfc6851
             if (!copy && canMove)
-                ifolder.moveMessages(map.keySet().toArray(new Message[0]), itarget);
+                try {
+                    ifolder.moveMessages(map.keySet().toArray(new Message[0]), itarget);
+                } catch (MessagingException ex) {
+                    if (!(map.size() == 1 &&
+                            ex.getCause() instanceof CommandFailedException &&
+                            ex.getCause().getMessage() != null &&
+                            ex.getCause().getMessage().contains("[EXPUNGEISSUED]")))
+                        throw ex;
+                }
             else
                 ifolder.copyMessages(map.keySet().toArray(new Message[0]), itarget);
         }
