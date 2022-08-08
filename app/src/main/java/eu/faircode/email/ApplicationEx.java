@@ -643,7 +643,8 @@ public class ApplicationEx extends Application
                 editor.putBoolean("use_top", !prefs.getBoolean("disable_top", false));
                 editor.remove("disable_top");
             }
-        }
+        } else if (version < 1947)
+            editor.putBoolean("accept_unsupported", true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");

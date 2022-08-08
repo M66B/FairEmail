@@ -1241,6 +1241,44 @@ public class Helper {
             return false;
         }
 
+        /*
+            Brand: HUAWEI
+            Manufacturer: HUAWEI
+            Model: BAH2-L09
+            Product: BAH2-L09
+            Device: HWBAH2
+            Android: 8.0.0
+
+            java.lang.ArrayIndexOutOfBoundsException: length=3; index=-1
+            at android.text.DynamicLayout.getBlockIndex(DynamicLayout.java:646)
+            at android.widget.Editor.drawHardwareAccelerated(Editor.java:1744)
+            at android.widget.Editor.onDraw(Editor.java:1713)
+            at android.widget.TextView.onDraw(TextView.java:7051)
+            at eu.faircode.email.FixedEditText.onDraw(SourceFile:1)
+            at android.view.View.draw(View.java:19314)
+            at android.view.View.updateDisplayListIfDirty(View.java:18250)
+            at android.view.View.draw(View.java:19042)
+            at android.view.ViewGroup.drawChild(ViewGroup.java:4271)
+            at android.view.ViewGroup.dispatchDraw(ViewGroup.java:4054)
+            at androidx.constraintlayout.widget.ConstraintLayout.dispatchDraw(SourceFile:5)
+            at android.view.View.updateDisplayListIfDirty(View.java:18241)
+            at android.view.ViewGroup.recreateChildDisplayList(ViewGroup.java:4252)
+            at android.view.ViewGroup.dispatchGetDisplayList(ViewGroup.java:4232)
+            at android.view.View.updateDisplayListIfDirty(View.java:18209)
+            at android.view.View.draw(View.java:19042)
+            at android.view.ViewGroup.drawChild(ViewGroup.java:4271)
+            at android.view.ViewGroup.dispatchDraw(ViewGroup.java:4054)
+            at androidx.constraintlayout.widget.ConstraintLayout.dispatchDraw(SourceFile:5)
+            at android.view.View.updateDisplayListIfDirty(View.java:18241)
+            at android.view.View.draw(View.java:19042)
+            at android.view.ViewGroup.drawChild(ViewGroup.java:4271)
+            at androidx.coordinatorlayout.widget.CoordinatorLayout.drawChild(SourceFile:17)
+            at android.view.ViewGroup.dispatchDraw(ViewGroup.java:4054)
+            at android.view.View.draw(View.java:19317)
+         */
+        if ("HWBAH2".equals(Build.DEVICE))
+            return false;
+
         return true;
     }
 

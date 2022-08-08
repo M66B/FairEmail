@@ -1310,6 +1310,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             if ("pro".equals(key) && !BuildConfig.DEBUG)
                                 continue;
 
+                            if ("accept_unsupported".equals(key))
+                                continue;
+
                             if ("biometrics".equals(key) || "pin".equals(key))
                                 continue;
 
