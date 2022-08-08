@@ -1087,7 +1087,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 prefs.edit().remove("debug").commit();
-                ApplicationEx.restart(v.getContext());
+                ApplicationEx.restart(v.getContext(), "query_threads");
             }
         });
 
@@ -1119,7 +1119,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         .putBoolean("sqlite_auto_vacuum", checked)
                         .remove("debug")
                         .apply();
-                ApplicationEx.restart(v.getContext());
+                ApplicationEx.restart(v.getContext(), "sqlite_auto_vacuum");
             }
         });
 
@@ -1144,7 +1144,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 prefs.edit().remove("debug").commit();
-                ApplicationEx.restart(v.getContext());
+                ApplicationEx.restart(v.getContext(), "sqlite_cache");
             }
         });
 

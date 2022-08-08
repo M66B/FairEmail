@@ -298,7 +298,7 @@ public class ApplicationEx extends Application
                 case "language": // misc
                 case "wal": // misc
                     // Should be excluded for import
-                    restart(this);
+                    restart(this, key);
                     break;
                 case "debug":
                 case "log_level":
@@ -310,7 +310,8 @@ public class ApplicationEx extends Application
         }
     }
 
-    static void restart(Context context) {
+    static void restart(Context context, String reason) {
+        Log.i("Restart because " + reason);
         Intent intent = new Intent(context, ActivityMain.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(intent);

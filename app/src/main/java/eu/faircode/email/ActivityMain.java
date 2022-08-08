@@ -64,7 +64,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 @Override
                 public void onClick(View v) {
                     prefs.edit().putBoolean("accept_unsupported", true).commit();
-                    ApplicationEx.restart(v.getContext());
+                    ApplicationEx.restart(v.getContext(), "accept_unsupported");
                 }
             });
 
