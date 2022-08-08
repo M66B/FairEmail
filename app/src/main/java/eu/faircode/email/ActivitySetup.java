@@ -910,9 +910,27 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         TextView tvLog = dview.findViewById(R.id.tvLog);
         tvLog.setText(null);
 
+        Map<String, Object> defer = new HashMap<>();
+
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setView(dview)
-                .setPositiveButton(android.R.string.ok, null)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(dview.getContext());
+                        SharedPreferences.Editor editor = prefs.edit();
+
+                        for (String key : defer.keySet()) {
+                            Object value = defer.get(key);
+                            if (value instanceof Boolean)
+                                editor.putBoolean(key, (Boolean) value);
+                            else if (value instanceof String)
+                                editor.putString(key, (String) value);
+                        }
+
+                        editor.apply();
+                    }
+                })
                 .show();
 
         Button ok = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
@@ -1312,6 +1330,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                     "language".equals(key) ||
                                     "wal".equals(key))
                                 continue;
+
+                            if ("theme".equals(key) || "beige".equals(key)) {
+                                defer.put(key, jsetting.get("value"));
+                                continue;
+                            }
 
                             if (key != null && key.startsWith("widget."))
                                 continue;
