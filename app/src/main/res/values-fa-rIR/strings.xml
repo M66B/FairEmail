@@ -423,6 +423,7 @@
     <string name="title_advanced_double_back">برای خروج دوبار \'بازگشت\' را بزنید</string>
     <string name="title_advanced_conversation_actions_replies">پیشنهاد پاسخ (اندروید +۱۰)</string>
     <string name="title_advanced_language_detection">تشخیص زبان متن پیام</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">از انتخاب کننده تصاویر اندروید استفاده کنید</string>
     <string name="title_advanced_pull_refresh">برای بروزرسانی به پایین بکشید</string>
     <string name="title_advanced_swipenav">کشیدن به چپ/راست برای رفتن به مکالمه بعدی/قبلی</string>
     <string name="title_advanced_volumenav">بالا/پایین بردن صدا برای رفتن به گفتگوی بعدی/قبلی</string>
@@ -833,6 +834,8 @@
     <string name="title_style_link_title">عنوان</string>
     <string name="title_style_link_metadata">عنوان را بیاور</string>
     <string name="title_style_link_metadata_remark">این عمل، عنوان را به نشانی وارد شده خواهد آورد</string>
+    <string name="title_style_link_send_dlimit">محدودیت دانلود (%1$s)</string>
+    <string name="title_style_link_send_tlimit">محدودیت زمانی (%1$s)</string>
     <string name="title_add_image">افزودن تصویر</string>
     <string name="title_add_image_inline">درج</string>
     <string name="title_add_image_attach">پیوست</string>

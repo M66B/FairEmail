@@ -98,6 +98,16 @@
         <item quantity="few">Blokirati pošiljaoca %1$s poruke?</item>
         <item quantity="other">Blokirati pošiljaoca %1$s poruka?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s sat</item>
+        <item quantity="few">%1$s sata</item>
+        <item quantity="other">%1$s sati</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s dan</item>
+        <item quantity="few">%1$s dana</item>
+        <item quantity="other">%1$s dana</item>
+    </plurals>
     <string name="title_junk_filter">Koristi lokalni filter za spam poruke</string>
     <string name="title_junk_filter_hint">Ovo može povećati potrošnju baterije i netačno označavati poruke kao spam</string>
     <string name="title_junk_blocklist">Koristi liste blokiranja za spam poruke</string>
@@ -1212,6 +1222,8 @@
     <string name="title_style_link_title">Naslov</string>
     <string name="title_style_link_metadata">Dohvati naslov</string>
     <string name="title_style_link_metadata_remark">Ovo će dohvatiti naslov pri unesenoj adresi</string>
+    <string name="title_style_link_send_dlimit">Ograničenje preuzimanja (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Ograničenje trajanja (%1$s)</string>
     <string name="title_add_image">Dodaj sliku</string>
     <string name="title_add_image_inline">Ubaci</string>
     <string name="title_add_image_attach">Priloži</string>

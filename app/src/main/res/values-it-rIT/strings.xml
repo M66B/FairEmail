@@ -87,6 +87,14 @@
         <item quantity="one">Bloccare il mittente di %1$s messaggio?</item>
         <item quantity="other">Bloccare il mittente di %1$s messaggi?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s ora</item>
+        <item quantity="other">%1$s ore</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s giorno</item>
+        <item quantity="other">%1$s giorni</item>
+    </plurals>
     <string name="title_junk_filter">Usa filtro spam locale</string>
     <string name="title_junk_filter_hint">Questo può aumentare l\'uso della batteria e contrassegnare erroneamente i messaggi come spam</string>
     <string name="title_junk_blocklist">Usa le blacklist per lo spam</string>
@@ -504,6 +512,7 @@
     <string name="title_advanced_conversation_actions">Suggerisci azioni (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Suggerisci i testi di risposta (Android 10+)</string>
     <string name="title_advanced_language_detection">Rileva la lingua del testo del messaggio</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Usa il selettore foto di Android</string>
     <string name="title_advanced_pull_refresh">Scorri in giù per aggiornare</string>
     <string name="title_advanced_autoscroll">Scorri in su alla ricezione di nuovi messaggi</string>
     <string name="title_advanced_double_tap">Tocca due volte per contrassegnare un messaggio come letto/non letto</string>
@@ -1202,6 +1211,8 @@
     <string name="title_style_link_title">Titolo</string>
     <string name="title_style_link_metadata">Recupera titolo</string>
     <string name="title_style_link_metadata_remark">Questo recupererà il titolo all\'indirizzo inserito</string>
+    <string name="title_style_link_send_dlimit">Limite di download (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Limite di durata (%1$s)</string>
     <string name="title_add_image">Aggiungi immagine</string>
     <string name="title_add_image_inline">Inserisci</string>
     <string name="title_add_image_attach">Allega</string>

@@ -103,6 +103,24 @@
         Блокування домену відправника використовує правила фільтрів, які є функцією професійної версії.
     </string>
     <string name="title_blocked_senders">Заблоковані відправники</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Заблокувати відправника повідомлення %1$s?</item>
+        <item quantity="few">Заблокувати відправників повідомлень %1$s?</item>
+        <item quantity="many">Заблокувати відправників повідомлень %1$s?</item>
+        <item quantity="other">Заблокувати відправників повідомлень %1$s?</item>
+    </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s година</item>
+        <item quantity="few">%1$s годин</item>
+        <item quantity="many">%1$s годин</item>
+        <item quantity="other">%1$s годин</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s день</item>
+        <item quantity="few">%1$s днів</item>
+        <item quantity="many">%1$s годин</item>
+        <item quantity="other">%1$s днів</item>
+    </plurals>
     <string name="title_junk_filter">Використовувати локальний фільтр спаму</string>
     <string name="title_junk_filter_hint">Це може збільшити використання заряду акумулятора та неправильно позначати повідомлення як спам</string>
     <string name="title_junk_blocklist">Використовувати списки блокування спаму</string>
@@ -520,6 +538,7 @@
     <string name="title_advanced_conversation_actions">Запропонувати дії (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Пропонувати текст для відповіді (Android 10+)</string>
     <string name="title_advanced_language_detection">Виявити мову тексту повідомлень</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Використовувати Android для вибору фото</string>
     <string name="title_advanced_pull_refresh">Щоб оновити, потягніть вниз</string>
     <string name="title_advanced_autoscroll">Перейти до самого початку після отримання нових повідомлень</string>
     <string name="title_advanced_double_tap">Натисніть двічі, щоб позначити прочитаним або непрочитаним</string>
@@ -1214,6 +1233,8 @@
     <string name="title_style_link_title">Назва</string>
     <string name="title_style_link_metadata">Отримати заголовок</string>
     <string name="title_style_link_metadata_remark">Ця опція отримає заголовок на введену адресу</string>
+    <string name="title_style_link_send_dlimit">Обмеження на завантаження (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Обмеження у часі (%1$s)</string>
     <string name="title_add_image">Додати зображення</string>
     <string name="title_add_image_inline">Вставити</string>
     <string name="title_add_image_attach">Долучити</string>

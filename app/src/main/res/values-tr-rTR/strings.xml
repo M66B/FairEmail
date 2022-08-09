@@ -86,6 +86,14 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         <item quantity="one">%1$s iletisinin göndericisi engellensin mi?</item>
         <item quantity="other">%1$s iletisinin göndericisi engellensin mi?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s saat</item>
+        <item quantity="other">%1$s saat</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s gün</item>
+        <item quantity="other">%1$s gün</item>
+    </plurals>
     <string name="title_junk_filter">Yerel spam filtreleri</string>
     <string name="title_junk_filter_hint">Bu, pil kullanımını artırabilir ve iletileri yanlış olarak spam işaretleyebilir</string>
     <string name="title_junk_blocklist">Spam engelleme listelerini kullan</string>
@@ -1196,6 +1204,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_style_link_title">Başlık</string>
     <string name="title_style_link_metadata">Başlığı getir</string>
     <string name="title_style_link_metadata_remark">Bu, girilen adreste ki başlığı getirecektir</string>
+    <string name="title_style_link_send_dlimit">İndirme limiti (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Zaman limiti (%1$s)</string>
     <string name="title_add_image">Görsel ekle</string>
     <string name="title_add_image_inline">Ekle</string>
     <string name="title_add_image_attach">Ekle</string>

@@ -109,6 +109,18 @@
         <item quantity="many">Zablokować nadawcę %1$s wiadomości?</item>
         <item quantity="other">Zablokować nadawcę %1$s wiadomości?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s godzina</item>
+        <item quantity="few">%1$s godziny</item>
+        <item quantity="many">%1$s godzin</item>
+        <item quantity="other">%1$s godzin</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s dzień</item>
+        <item quantity="few">%1$s dni</item>
+        <item quantity="many">%1$s dni</item>
+        <item quantity="other">%1$s dni</item>
+    </plurals>
     <string name="title_junk_filter">Użyj lokalnego filtra spamu</string>
     <string name="title_junk_filter_hint">Może to zwiększyć zużycie baterii i niepoprawnie oznaczać wiadomości jako spam</string>
     <string name="title_junk_blocklist">Użyj listy zablokowanego spamu</string>
@@ -1219,6 +1231,8 @@
     <string name="title_style_link_title">Tytuł</string>
     <string name="title_style_link_metadata">Pobierz tytuł</string>
     <string name="title_style_link_metadata_remark">Spowoduje to pobranie tytułu pod wprowadzonym adresem</string>
+    <string name="title_style_link_send_dlimit">Limit pobierania (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Czas trwania (%1$s)</string>
     <string name="title_add_image">Dodaj obraz</string>
     <string name="title_add_image_inline">Wstaw</string>
     <string name="title_add_image_attach">Załącz</string>

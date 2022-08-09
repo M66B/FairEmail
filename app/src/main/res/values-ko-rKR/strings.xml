@@ -69,6 +69,12 @@
     <plurals name="title_ask_block_sender">
         <item quantity="other">%1$s 메시지를 보낸 이를 차단하겠습니까?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="other">%1$s시간</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="other">%1$s일</item>
+    </plurals>
     <string name="title_junk_filter">로컬 스팸 필터 사용</string>
     <string name="title_junk_filter_hint">배터리 사용량이 증가할 수 있으며 스팸 메일로 잘못 인식할 수도 있습니다.</string>
     <string name="title_junk_blocklist">스팸 차단 목록 사용</string>
@@ -647,6 +653,8 @@
     <string name="title_style_link_title">제목</string>
     <string name="title_style_link_metadata">제목 가져오기</string>
     <string name="title_style_link_metadata_remark">입력한 주소의 제목을 가져옵니다</string>
+    <string name="title_style_link_send_dlimit">다운로드 제한 (%1$s)</string>
+    <string name="title_style_link_send_tlimit">기간 제한 (%1$s)</string>
     <string name="title_add_image">사진 추가</string>
     <string name="title_add_image_inline">삽입</string>
     <string name="title_add_image_attach">첨부</string>

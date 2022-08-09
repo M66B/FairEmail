@@ -109,6 +109,18 @@
         <item quantity="many">לחסום את מוען %1$s ההודעות?</item>
         <item quantity="other">לחסום את מוען %1$s ההודעות?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">שעה</item>
+        <item quantity="two">שעתיים</item>
+        <item quantity="many">%1$s שעות</item>
+        <item quantity="other">%1$s שעות</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">יום</item>
+        <item quantity="two">יומיים</item>
+        <item quantity="many">%1$s ימים</item>
+        <item quantity="other">%1$s ימים</item>
+    </plurals>
     <string name="title_junk_filter">להשתמש במסנן ספאם מקומי</string>
     <string name="title_junk_filter_hint">עשוי להגדיל את צריכת הסלוללה ולסמן הודעות כספאם בשוגג</string>
     <string name="title_junk_blocklist">להשתמש ברשימות חסימת ספאם</string>
@@ -526,6 +538,7 @@
     <string name="title_advanced_conversation_actions">להציע פעולות (Android 10+‎)</string>
     <string name="title_advanced_conversation_actions_replies">להציע טקסטים כתגובה (Android 10+‎)</string>
     <string name="title_advanced_language_detection">זיהוי שפת טקסט ההודעה</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">להשתמש בבורר התמונות של Android</string>
     <string name="title_advanced_pull_refresh">לרענון - למשוך למטה</string>
     <string name="title_advanced_autoscroll">יש לגלול למעלה כדי לקבל הודעות חדשות</string>
     <string name="title_advanced_double_tap">נגיעה כפולה תסמן הודעות כנקראו/לא נקראו</string>
@@ -1223,6 +1236,8 @@
     <string name="title_style_link_title">כותרת</string>
     <string name="title_style_link_metadata">משיכת כותרת</string>
     <string name="title_style_link_metadata_remark">פעולה זו תמשוך את הכותרת בכתובת שמולאה</string>
+    <string name="title_style_link_send_dlimit">מגבלת הורדה (%1$s)</string>
+    <string name="title_style_link_send_tlimit">מגבלת זמן (%1$s)</string>
     <string name="title_add_image">הוספת תמונה</string>
     <string name="title_add_image_inline">הוספה</string>
     <string name="title_add_image_attach">צירוף</string>

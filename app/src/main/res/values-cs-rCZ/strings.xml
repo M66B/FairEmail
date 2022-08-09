@@ -109,6 +109,18 @@
         <item quantity="many">Blokovat odesílatele %1$s zpráv?</item>
         <item quantity="other">Blokovat odesílatele %1$s zpráv?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s hodina</item>
+        <item quantity="few">%1$s hodin(y)</item>
+        <item quantity="many">%1$s hodin</item>
+        <item quantity="other">%1$s hodin</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s den</item>
+        <item quantity="few">%1$s dny</item>
+        <item quantity="many">%1$s dní</item>
+        <item quantity="other">%1$s dní</item>
+    </plurals>
     <string name="title_junk_filter">Použít lokální filtr nevyžádané pošty</string>
     <string name="title_junk_filter_hint">Může zvýšit využití baterie a nesprávně označovat zprávy jako nevyžádané</string>
     <string name="title_junk_blocklist">Použít seznam blokovaných adres</string>
@@ -1219,6 +1231,8 @@
     <string name="title_style_link_title">Předmět</string>
     <string name="title_style_link_metadata">Načíst předmět</string>
     <string name="title_style_link_metadata_remark">Tímto se načte předmět na zadané adrese</string>
+    <string name="title_style_link_send_dlimit">Limit stahování (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Časový limit (%1$s)</string>
     <string name="title_add_image">Přidat obrázek</string>
     <string name="title_add_image_inline">Vložit</string>
     <string name="title_add_image_attach">Přiložit</string>
@@ -1267,7 +1281,7 @@
     <string name="title_send_receipt">Požádat o potvrzení</string>
     <string name="title_send_receipt_remark">Většina poskytovatelů a e-mailových klientů ignoruje žádosti o potvrzení</string>
     <string name="title_vt_unknown">Tento soubor ještě není VirusTotal znám</string>
-    <string name="title_vt_summary">Virové scannery hlásí soubor %1$s jako škodlivý</string>
+    <string name="title_vt_summary">%1$s virových scannerů hlásí tento soubor jako škodlivý</string>
     <string name="title_vt_report">Úplný přehled</string>
     <string name="title_vt_upload">Odeslat</string>
     <string name="title_vt_analyzing">VirusTotal analyzuje soubor, což může chvíli trvat &#8230;</string>

@@ -87,6 +87,14 @@
         <item quantity="one">Αποκλεισμός αποστολέα του %1$s μηνύματος;</item>
         <item quantity="other">Αποκλεισμός αποστολέα των %1$s μηνυμάτων;</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s ώρα</item>
+        <item quantity="other">%1$s ώρες</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s ημέρα</item>
+        <item quantity="other">%1$s ημέρες</item>
+    </plurals>
     <string name="title_junk_filter">Χρήση τοπικού φίλτρου ανεπιθ. αλληλογραφίας</string>
     <string name="title_junk_filter_hint">Αυτό μπορεί να αυξήσει τη χρήση της μπαταρίας και εσφαλμένα να επισημαίνει μηνύματα ως ανεπιθύμητα</string>
     <string name="title_junk_blocklist">Χρήση λιστών αποκλεισμού Ανεπιθύμητων</string>
@@ -503,6 +511,7 @@
     <string name="title_advanced_conversation_actions">Να προτείνονται ενέργειες (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Να προτείνονται κείμενα απάντησης (Android 10+)</string>
     <string name="title_advanced_language_detection">Αναγνώριση της γλώσσας του κειμένου του μηνύματος</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Χρήση του επιλογέα φωτογραφιών του Android</string>
     <string name="title_advanced_pull_refresh">Σύρετε προς τα κάτω για ανανέωση</string>
     <string name="title_advanced_autoscroll">Κύλιση προς τα πάνω κατά τη λήψη νέων μηνυμάτων</string>
     <string name="title_advanced_double_tap">Διπλό άγγιγμα για να επισημαίνεται ένα μήνυμα ως αναγνωσμένο/μη αναγνωσμένο</string>
@@ -1195,6 +1204,8 @@
     <string name="title_style_link_title">Τίτλος</string>
     <string name="title_style_link_metadata">Ανάκτηση τίτλου</string>
     <string name="title_style_link_metadata_remark">Με αυτό θα γίνει ανάκτηση του τίτλου και της εισαχθείσας διεύθυνσης</string>
+    <string name="title_style_link_send_dlimit">Όριο λήψεων (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Χρονικό όριο (%1$s)</string>
     <string name="title_add_image">Προσθήκη εικόνας</string>
     <string name="title_add_image_inline">Εισαγωγή</string>
     <string name="title_add_image_attach">Επισύναψη</string>

@@ -108,6 +108,18 @@
         <item quantity="many">Zablokovať odosielateľa %1$s správ?</item>
         <item quantity="other">Zablokovať odosielateľa %1$s správ?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s hodina</item>
+        <item quantity="few">%1$s hodiny</item>
+        <item quantity="many">%1$s hodín</item>
+        <item quantity="other">%1$s hodín</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s deň</item>
+        <item quantity="few">%1$s dni</item>
+        <item quantity="many">%1$s dní</item>
+        <item quantity="other">%1$s dní</item>
+    </plurals>
     <string name="title_junk_filter">Použiť lokálny spam filter</string>
     <string name="title_junk_filter_hint">Môže zvýšiť spotrebu batérie a nesprávne označovať správy ako nevyžiadané</string>
     <string name="title_junk_blocklist">Používať zoznami na blokovanie nevyžiadanej pošty</string>
@@ -1218,6 +1230,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_style_link_title">Názov</string>
     <string name="title_style_link_metadata">Získať názov</string>
     <string name="title_style_link_metadata_remark">Stiahne názov pre zadanú adresu</string>
+    <string name="title_style_link_send_dlimit">Limit preberania (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Časový limit (%1$s)</string>
     <string name="title_add_image">Pridať obrázok</string>
     <string name="title_add_image_inline">Vložiť</string>
     <string name="title_add_image_attach">Priložiť</string>

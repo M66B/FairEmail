@@ -86,6 +86,14 @@
         <item quantity="one">Absender von %1$s Nachricht sperren?</item>
         <item quantity="other">Absender von %1$s Nachrichten sperren?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s Stunde</item>
+        <item quantity="other">%1$s Stunden</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s Tag</item>
+        <item quantity="other">%1$s Tage</item>
+    </plurals>
     <string name="title_junk_filter">Lokalen Spam-Filter verwenden</string>
     <string name="title_junk_filter_hint">Das kann den Akkuverbrauch erhöhen und Nachrichten fälschlicherweise als Spam kennzeichnen</string>
     <string name="title_junk_blocklist">Spam-Sperrlisten verwenden</string>
@@ -502,6 +510,7 @@
     <string name="title_advanced_conversation_actions">Aktionen vorschlagen (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Antworttexte vorschlagen (Android 10+)</string>
     <string name="title_advanced_language_detection">Sprache des Nachrichtentextes erkennen</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Verwenden Sie die Android-Fotoauswahl</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten nach oben scrollen</string>
     <string name="title_advanced_double_tap">Doppelt antippen, um eine Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
@@ -1195,6 +1204,8 @@
     <string name="title_style_link_title">Titel</string>
     <string name="title_style_link_metadata">Titel abrufen</string>
     <string name="title_style_link_metadata_remark">Damit wird der Titel der eingegebenen Adresse abgerufen</string>
+    <string name="title_style_link_send_dlimit">Maximale Dateiladevorgänge (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Zeitlimit (%1$s)</string>
     <string name="title_add_image">Bild hinzufügen</string>
     <string name="title_add_image_inline">Einfügen</string>
     <string name="title_add_image_attach">Anhängen</string>

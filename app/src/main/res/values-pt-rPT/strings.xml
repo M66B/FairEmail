@@ -86,6 +86,14 @@
         <item quantity="one">Bloquear o remetente de %1$s mensagem?</item>
         <item quantity="other">Bloquear o remetente de %1$s mensagens?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s hora</item>
+        <item quantity="other">%1$s horas</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s dia</item>
+        <item quantity="other">%1$s dias</item>
+    </plurals>
     <string name="title_junk_filter">Usar filtro de spam local</string>
     <string name="title_junk_filter_hint">Isto pode aumentar o uso de bateria e marcar incorrectamente mensagens como sendo ‘spam’</string>
     <string name="title_junk_blocklist">Usar listas de bloqueio de spam</string>
@@ -1200,6 +1208,8 @@
     <string name="title_style_link_title">Título</string>
     <string name="title_style_link_metadata">Buscar título</string>
     <string name="title_style_link_metadata_remark">Isto irá obter o título do endereço inserido</string>
+    <string name="title_style_link_send_dlimit">Limite de download (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Limite de tempo (%1$s)</string>
     <string name="title_add_image">Adicionar imagem</string>
     <string name="title_add_image_inline">Inserir</string>
     <string name="title_add_image_attach">Anexar</string>

@@ -98,6 +98,16 @@
         <item quantity="few">Blochează expeditorul a %1$s mesaje?</item>
         <item quantity="other">Blochează expeditorul a %1$s de mesaje?</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s oră</item>
+        <item quantity="few">%1$s ore</item>
+        <item quantity="other">%1$s de ore</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s zi</item>
+        <item quantity="few">%1$s de zile</item>
+        <item quantity="other">%1$s zile</item>
+    </plurals>
     <string name="title_junk_filter">Utilizați filtrul de spam local</string>
     <string name="title_junk_filter_hint">Acest lucru poate crește utilizarea bateriei și marchează incorect mesajele ca spam</string>
     <string name="title_junk_blocklist">Utilizați listele de blocare a spam-ului</string>
@@ -1208,6 +1218,8 @@
     <string name="title_style_link_title">Titlu</string>
     <string name="title_style_link_metadata">Obține titlul</string>
     <string name="title_style_link_metadata_remark">Acest lucru va prelua titlul la adresa introdusă</string>
+    <string name="title_style_link_send_dlimit">Limita de descărcare (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Limita de timp (%1$s)</string>
     <string name="title_add_image">Adăugare imagine</string>
     <string name="title_add_image_inline">Inserare</string>
     <string name="title_add_image_attach">Atașare</string>

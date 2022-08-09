@@ -76,6 +76,12 @@
     <plurals name="title_ask_block_sender">
         <item quantity="other">%1$s 件のメッセージの差出人をブロックしますか？</item>
     </plurals>
+    <plurals name="title_hours">
+        <item quantity="other">%1$s 時間</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="other">%1$s 日</item>
+    </plurals>
     <string name="title_junk_filter">ローカルの迷惑メールフィルターを使用</string>
     <string name="title_junk_filter_hint">バッテリー使用量が増加します。また、メッセージを誤って迷惑メールと判定する可能性が高まります</string>
     <string name="title_junk_blocklist">迷惑メールブロックリストを使用</string>
@@ -1190,6 +1196,8 @@
     <string name="title_style_link_title">タイトル</string>
     <string name="title_style_link_metadata">タイトルを取得</string>
     <string name="title_style_link_metadata_remark">入力されたアドレスのタイトルを取得します</string>
+    <string name="title_style_link_send_dlimit">ダウンロード期限 (%1$s)</string>
+    <string name="title_style_link_send_tlimit">時間制限 (%1$s)</string>
     <string name="title_add_image">画像を追加</string>
     <string name="title_add_image_inline">挿入</string>
     <string name="title_add_image_attach">添付</string>
@@ -1274,6 +1282,7 @@
     <string name="title_alternative_html">HTML を表示</string>
     <string name="title_no_openpgp">OpenKeychain が見つかりません</string>
     <string name="title_user_interaction">OpenKeychain へ転送しています</string>
+    <string name="title_padlock">鍵をタップしてメッセージを復号</string>
     <string name="title_signed_data">電子署名を確認して本文を表示</string>
     <string name="title_not_encrypted">メッセージは電子署名または暗号化されていません</string>
     <string name="title_no_sign_key">電子署名鍵が選択されていません</string>

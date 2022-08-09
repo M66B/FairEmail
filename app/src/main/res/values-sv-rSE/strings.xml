@@ -87,6 +87,10 @@
         <item quantity="one">Blockera avsändare av %1$s meddelande?</item>
         <item quantity="other">Blockera avsändare av %1$s meddelanden?</item>
     </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s dag</item>
+        <item quantity="other">%1$s dagar</item>
+    </plurals>
     <string name="title_junk_filter">Använd lokalt skräppostfilter</string>
     <string name="title_junk_filter_hint">Detta kan öka batterianvändningen och felaktigt markera meddelanden som skräppost</string>
     <string name="title_junk_blocklist">Använd skräppostblockeringslistor</string>
@@ -1194,6 +1198,8 @@
     <string name="title_style_link_title">Rubrik</string>
     <string name="title_style_link_metadata">Hämta rubrik</string>
     <string name="title_style_link_metadata_remark">Detta kommer att hämta rubriken på den angivna adressen</string>
+    <string name="title_style_link_send_dlimit">Nedladdningsgräns (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Tidsgräns (%1$s)</string>
     <string name="title_add_image">Lägg till bild</string>
     <string name="title_add_image_inline">Infoga</string>
     <string name="title_add_image_attach">Bifoga</string>
