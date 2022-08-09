@@ -2125,7 +2125,10 @@ public class FragmentMessages extends FragmentBase
     private AdapterMessage.IProperties iProperties = new AdapterMessage.IProperties() {
         @Override
         public void setValue(String key, String value) {
-            kv.put(key, value);
+            if (value == null)
+                kv.remove(key);
+            else
+                kv.put(key, value);
         }
 
         @Override
@@ -2172,6 +2175,11 @@ public class FragmentMessages extends FragmentBase
                     }
                 });
             }
+        }
+
+        @Override
+        public String getValue(String key) {
+            return kv.get(key);
         }
 
         @Override

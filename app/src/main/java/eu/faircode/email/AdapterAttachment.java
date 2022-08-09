@@ -71,6 +71,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     private LayoutInflater inflater;
 
     private boolean readonly;
+    private AdapterMessage.IProperties properties;
+
     private boolean vt_enabled;
     private String vt_apikey;
     private boolean debug;
@@ -207,6 +209,16 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             tvError.setText(attachment.error);
             tvError.setVisibility(attachment.error == null ? View.GONE : View.VISIBLE);
+
+            if (properties != null) {
+                String aid = properties.getValue("attachment");
+                if (aid != null) {
+                    if (attachment.id.equals(Long.parseLong(aid)) && attachment.available) {
+                        properties.setValue("attachment", null);
+                        onShare(attachment);
+                    }
+                }
+            }
         }
 
         @Override
@@ -337,6 +349,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void onDownload(EntityAttachment attachment) {
+            if (properties != null)
+                properties.setValue("attachment", Long.toString(attachment.id));
+
             Bundle args = new Bundle();
             args.putLong("id", attachment.id);
             args.putLong("message", attachment.message);
@@ -392,9 +407,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
     }
 
-    AdapterAttachment(Fragment parentFragment, boolean readonly) {
+    AdapterAttachment(Fragment parentFragment, boolean readonly, final AdapterMessage.IProperties properties) {
         this.parentFragment = parentFragment;
         this.readonly = readonly;
+        this.properties = properties;
 
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();

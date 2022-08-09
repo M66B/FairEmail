@@ -1367,7 +1367,7 @@ public class FragmentCompose extends FragmentBase {
         rvAttachment.setLayoutManager(llm);
         rvAttachment.setItemAnimator(null);
 
-        adapter = new AdapterAttachment(this, false);
+        adapter = new AdapterAttachment(this, false, null);
         rvAttachment.setAdapter(adapter);
 
         tvNoInternetAttachments.setVisibility(View.GONE);

@@ -841,7 +841,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             rvAttachment.setLayoutManager(llm);
             rvAttachment.setItemAnimator(null);
 
-            adapterAttachment = new AdapterAttachment(parentFragment, true);
+            adapterAttachment = new AdapterAttachment(parentFragment, true, properties);
             rvAttachment.setAdapter(adapterAttachment);
 
             cbInline = attachments.findViewById(R.id.cbInline);
@@ -7998,6 +7998,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void setValue(String key, String value);
 
         void setValue(String name, long id, boolean enabled);
+
+        String getValue(String key);
 
         boolean getValue(String name, long id);
 
