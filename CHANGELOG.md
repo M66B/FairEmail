@@ -4,14 +4,13 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
-### Next version
+### 1.1947 - 2022-08-09
 
-* Added POP3 bacth delete
+* Added POP3 batch delete
 * Added FFSend (not available in the Play store version)
 * Added option to disable Android photo picker (Android 13+)
 * Small improvements and minor bug fixes
-* Updated AndroidX and BouncyCastle
-* Updated Public Suffix List
+* Updated AndroidX, BouncyCastle and Public Suffix List
 * Updated translations
 
 ### 1.1946 - 2022-07-27
