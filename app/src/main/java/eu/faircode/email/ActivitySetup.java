@@ -101,6 +101,7 @@ import java.security.cert.X509Certificate;
 import java.security.spec.KeySpec;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -910,13 +911,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         TextView tvLog = dview.findViewById(R.id.tvLog);
         tvLog.setText(null);
 
-        Map<String, Object> defer = new HashMap<>();
+        Map<String, Object> defer = Collections.synchronizedMap(new HashMap<>());
 
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setView(dview)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                .setPositiveButton(android.R.string.ok, null)
+                .setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    public void onDismiss(DialogInterface dialogInterface) {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(dview.getContext());
                         SharedPreferences.Editor editor = prefs.edit();
 
