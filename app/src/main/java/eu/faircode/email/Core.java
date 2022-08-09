@@ -300,6 +300,17 @@ class Core {
                                                 similar.put(next, m);
                                         }
                                     }
+                                    if (group &&
+                                            op.name.equals(next.name) &&
+                                            account.protocol == EntityAccount.TYPE_POP) {
+                                        JSONArray jnext = new JSONArray(next.args);
+                                        // Same target
+                                        if (jargs.getLong(0) == jnext.getLong(0)) {
+                                            EntityMessage m = db.message().getMessage(next.message);
+                                            if (m != null)
+                                                similar.put(next, m);
+                                        }
+                                    }
                                     break;
 
                                 case EntityOperation.DELETE:
@@ -310,6 +321,13 @@ class Core {
                                         EntityMessage m = db.message().getMessage(next.message);
                                         if (m != null &&
                                                 m.uid != null && m.ui_deleted == message.ui_deleted)
+                                            similar.put(next, m);
+                                    }
+                                    if (group &&
+                                            op.name.equals(next.name) &&
+                                            account.protocol == EntityAccount.TYPE_POP) {
+                                        EntityMessage m = db.message().getMessage(next.message);
+                                        if (m != null)
                                             similar.put(next, m);
                                     }
                                     break;
@@ -367,7 +385,11 @@ class Core {
                             db.endTransaction();
                         }
 
-                        if (istore instanceof POP3Store)
+                        if (istore instanceof POP3Store) {
+                            List<EntityMessage> messages = new ArrayList<>();
+                            messages.add(message);
+                            messages.addAll(similar.values());
+
                             switch (op.name) {
                                 case EntityOperation.SEEN:
                                     onSeen(context, jargs, folder, message, (POP3Folder) ifolder);
@@ -388,11 +410,11 @@ class Core {
                                     break;
 
                                 case EntityOperation.MOVE:
-                                    onMove(context, jargs, account, folder, message, (POP3Folder) ifolder, (POP3Store) istore, state);
+                                    onMove(context, jargs, account, folder, messages, (POP3Folder) ifolder, (POP3Store) istore, state);
                                     break;
 
                                 case EntityOperation.DELETE:
-                                    onDelete(context, jargs, account, folder, message, (POP3Folder) ifolder, (POP3Store) istore, state);
+                                    onDelete(context, jargs, account, folder, messages, (POP3Folder) ifolder, (POP3Store) istore, state);
                                     break;
 
                                 case EntityOperation.RAW:
@@ -412,7 +434,7 @@ class Core {
                                 default:
                                     Log.w(folder.name + " ignored=" + op.name);
                             }
-                        else {
+                        } else {
                             List<EntityMessage> messages = new ArrayList<>();
                             messages.add(message);
                             if (similar.size() == 0)
@@ -852,13 +874,11 @@ class Core {
             return ifolder.search(new MessageIDTerm(msgid));
     }
 
-    private static Message findMessage(Context context, EntityFolder folder, EntityMessage message, POP3Store istore, POP3Folder ifolder) throws MessagingException, IOException {
+    private static Map<EntityMessage, Message> findMessages(Context context, EntityFolder folder, List<EntityMessage> messages, POP3Store istore, POP3Folder ifolder) throws MessagingException, IOException {
         Map<String, String> caps = istore.capabilities();
         boolean hasUidl = caps.containsKey("UIDL");
 
         Message[] imessages = ifolder.getMessages();
-        Log.i(folder.name + " POP searching for=" + message.uidl + "/" + message.msgid +
-                " messages=" + imessages.length + " uidl=" + hasUidl);
 
         if (hasUidl) {
             FetchProfile ifetch = new FetchProfile();
@@ -866,21 +886,28 @@ class Core {
             ifolder.fetch(imessages, ifetch);
         }
 
-        for (Message imessage : imessages) {
-            MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
+        Map<EntityMessage, Message> result = new HashMap<>();
 
-            String uidl = (hasUidl ? ifolder.getUID(imessage) : null);
-            String msgid = helper.getMessageID();
+        for (EntityMessage message : messages) {
+            result.put(message, null);
+            Log.i(folder.name + " POP searching for=" + message.uidl + "/" + message.msgid +
+                    " messages=" + imessages.length + " uidl=" + hasUidl);
 
-            if ((uidl != null && uidl.equals(message.uidl)) ||
-                    (msgid != null && msgid.equals(message.msgid))) {
-                Log.i(folder.name + " POP found=" + uidl + "/" + msgid);
-                return imessage;
+            for (Message imessage : imessages) {
+                MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
+
+                String uidl = (hasUidl ? ifolder.getUID(imessage) : null);
+                String msgid = (TextUtils.isEmpty(uidl) ? helper.getMessageID() : null);
+
+                if ((uidl != null && uidl.equals(message.uidl)) ||
+                        (msgid != null && msgid.equals(message.msgid))) {
+                    Log.i(folder.name + " POP found=" + uidl + "/" + msgid);
+                    result.put(message, imessage);
+                }
             }
         }
 
-        Log.i(folder.name + " POP not found=" + message.uidl + "/" + message.msgid);
-        return null;
+        return result;
     }
 
     private static void onSetFlag(Context context, JSONArray jargs, EntityFolder folder, List<EntityMessage> messages, IMAPFolder ifolder, Flags.Flag flag) throws MessagingException, JSONException {
@@ -1615,7 +1642,7 @@ class Core {
             }
     }
 
-    private static void onMove(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore, State state) throws JSONException, FolderNotFoundException, IOException, MessagingException {
+    private static void onMove(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, List<EntityMessage> messages, POP3Folder ifolder, POP3Store istore, State state) throws JSONException, FolderNotFoundException, IOException, MessagingException {
         // Move message
         DB db = DB.getInstance(context);
 
@@ -1634,7 +1661,7 @@ class Core {
         if (Boolean.TRUE.equals(account.leave_deleted) &&
                 EntityFolder.INBOX.equals(folder.type) &&
                 EntityFolder.TRASH.equals(target.type)) {
-            onDelete(context, jargs, account, folder, message, ifolder, istore, state);
+            onDelete(context, jargs, account, folder, messages, ifolder, istore, state);
             return;
         }
 
@@ -1646,14 +1673,16 @@ class Core {
                     " source=" + folder.type + " target=" + target.type +
                     " leave deleted=" + account.leave_deleted);
 
-        message.folder = target.id;
-        if (seen)
-            message.ui_seen = seen;
-        if (unflag)
-            message.ui_flagged = false;
-        message.ui_hide = false;
+        for (EntityMessage message : messages) {
+            message.folder = target.id;
+            if (seen)
+                message.ui_seen = seen;
+            if (unflag)
+                message.ui_flagged = false;
+            message.ui_hide = false;
 
-        db.message().updateMessage(message);
+            db.message().updateMessage(message);
+        }
     }
 
     private static void onFetch(Context context, JSONArray jargs, EntityFolder folder, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
@@ -1847,17 +1876,22 @@ class Core {
         }
     }
 
-    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore, State state) throws MessagingException, IOException {
+    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, List<EntityMessage> messages, POP3Folder ifolder, POP3Store istore, State state) throws MessagingException, IOException {
         // Delete message
         DB db = DB.getInstance(context);
 
         // Delete from server
         if (EntityFolder.INBOX.equals(folder.type) && !account.leave_deleted) {
-            Message imessage = findMessage(context, folder, message, istore, ifolder);
-            if (imessage != null) {
-                Log.i(folder.name + " POP delete=" + message.uidl + "/" + message.msgid);
-                imessage.setFlag(Flags.Flag.DELETED, true);
+            Map<EntityMessage, Message> map = findMessages(context, folder, messages, istore, ifolder);
+            for (EntityMessage message : messages) {
+                Message imessage = map.get(message);
+                if (imessage != null) {
+                    Log.i(folder.name + " POP delete=" + message.uidl + "/" + message.msgid);
+                    imessage.setFlag(Flags.Flag.DELETED, true);
+                }
+            }
 
+            if (map.size() > 0)
                 try {
                     Log.i(folder.name + " POP expunge");
                     ifolder.close(true);
@@ -1866,61 +1900,62 @@ class Core {
                     Log.e(ex);
                     state.error(new FolderClosedException(ifolder, "POP", new Exception(ex)));
                 }
-            }
         }
 
-        // Move to trash folder
-        if (!EntityFolder.DRAFTS.equals(folder.type) &&
-                !EntityFolder.TRASH.equals(folder.type)) {
-            EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-            if (trash == null) {
-                trash = new EntityFolder();
-                trash.account = account.id;
-                trash.name = context.getString(R.string.title_folder_trash);
-                trash.type = EntityFolder.TRASH;
-                trash.synchronize = false;
-                trash.unified = false;
-                trash.notify = false;
-                trash.sync_days = Integer.MAX_VALUE;
-                trash.keep_days = Integer.MAX_VALUE;
-                trash.initialize = 0;
-                trash.id = db.folder().insertFolder(trash);
+        for (EntityMessage message : messages) {
+            // Move to trash folder
+            if (!EntityFolder.DRAFTS.equals(folder.type) &&
+                    !EntityFolder.TRASH.equals(folder.type)) {
+                EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                if (trash == null) {
+                    trash = new EntityFolder();
+                    trash.account = account.id;
+                    trash.name = context.getString(R.string.title_folder_trash);
+                    trash.type = EntityFolder.TRASH;
+                    trash.synchronize = false;
+                    trash.unified = false;
+                    trash.notify = false;
+                    trash.sync_days = Integer.MAX_VALUE;
+                    trash.keep_days = Integer.MAX_VALUE;
+                    trash.initialize = 0;
+                    trash.id = db.folder().insertFolder(trash);
+                }
+
+                long id = message.id;
+
+                message.id = null;
+                message.folder = trash.id;
+                message.msgid = null; // virtual message
+                message.ui_hide = false;
+                message.ui_seen = true;
+                message.id = db.message().insertMessage(message);
+
+                try {
+                    File source = EntityMessage.getFile(context, id);
+                    File target = message.getFile(context);
+                    Helper.copy(source, target);
+                } catch (IOException ex) {
+                    Log.e(ex);
+                }
+
+                EntityAttachment.copy(context, id, message.id);
+
+                message.id = id;
             }
 
-            long id = message.id;
+            // Delete from device
+            if (EntityFolder.INBOX.equals(folder.type)) {
+                if (account.leave_deleted) {
+                    // Remove message/attachments files on cleanup
+                    db.message().resetMessageContent(message.id);
+                    db.attachment().resetAvailable(message.id);
+                }
 
-            message.id = null;
-            message.folder = trash.id;
-            message.msgid = null; // virtual message
-            message.ui_hide = false;
-            message.ui_seen = true;
-            message.id = db.message().insertMessage(message);
-
-            try {
-                File source = EntityMessage.getFile(context, id);
-                File target = message.getFile(context);
-                Helper.copy(source, target);
-            } catch (IOException ex) {
-                Log.e(ex);
-            }
-
-            EntityAttachment.copy(context, id, message.id);
-
-            message.id = id;
+                // Synchronize will delete messages when needed
+                db.message().setMessageUiHide(message.id, true);
+            } else
+                db.message().deleteMessage(message.id);
         }
-
-        // Delete from device
-        if (EntityFolder.INBOX.equals(folder.type)) {
-            if (account.leave_deleted) {
-                // Remove message/attachments files on cleanup
-                db.message().resetMessageContent(message.id);
-                db.attachment().resetAvailable(message.id);
-            }
-
-            // Synchronize will delete messages when needed
-            db.message().setMessageUiHide(message.id, true);
-        } else
-            db.message().deleteMessage(message.id);
     }
 
     private static void onHeaders(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
@@ -1981,13 +2016,13 @@ class Core {
             throw new IllegalArgumentException("Unexpected folder=" + folder.type);
 
         if (message.raw == null || !message.raw) {
-            Message imessage = findMessage(context, folder, message, istore, ifolder);
-            if (imessage == null)
+            Map<EntityMessage, Message> map = findMessages(context, folder, Arrays.asList(message), istore, ifolder);
+            if (map.get(message) == null)
                 throw new IllegalArgumentException("Message not found msgid=" + message.msgid);
 
             File file = message.getRawFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                imessage.writeTo(os);
+                map.get(message).writeTo(os);
             }
 
             DB db = DB.getInstance(context);
