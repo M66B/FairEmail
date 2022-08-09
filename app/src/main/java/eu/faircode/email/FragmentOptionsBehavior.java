@@ -67,6 +67,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swConversationActionsReplies;
     private SwitchCompat swLanguageDetection;
     private EditText etDefaultSnooze;
+    private SwitchCompat swPhotoPicker;
     private SwitchCompat swPull;
     private SwitchCompat swAutoScroll;
     private SwitchCompat swQuickFilter;
@@ -104,7 +105,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
     private final static String[] RESET_OPTIONS = new String[]{
             "restore_on_launch", "sync_on_launch", "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
-            "default_snooze",
+            "photo_picker", "default_snooze",
             "pull", "autoscroll", "quick_filter", "quick_scroll", "swipe_sensitivity", "foldernav",
             "doubletap", "swipenav", "volumenav", "reversed", "swipe_close", "swipe_move",
             "autoexpand", "expand_first", "expand_all", "expand_one", "collapse_multiple",
@@ -133,6 +134,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swConversationActionsReplies = view.findViewById(R.id.swConversationActionsReplies);
         swLanguageDetection = view.findViewById(R.id.swLanguageDetection);
         etDefaultSnooze = view.findViewById(R.id.etDefaultSnooze);
+        swPhotoPicker = view.findViewById(R.id.swPhotoPicker);
         swPull = view.findViewById(R.id.swPull);
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
         swQuickFilter = view.findViewById(R.id.swQuickFilter);
@@ -246,6 +248,14 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void afterTextChanged(Editable s) {
                 // Do nothing
+            }
+        });
+
+        swPhotoPicker.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ? View.GONE : View.VISIBLE);
+        swPhotoPicker.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("photo_picker", checked).apply();
             }
         });
 
@@ -547,6 +557,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         int default_snooze = prefs.getInt("default_snooze", 1);
         etDefaultSnooze.setText(default_snooze == 1 ? null : Integer.toString(default_snooze));
         etDefaultSnooze.setHint("1");
+
+        swPhotoPicker.setChecked(prefs.getBoolean("photo_picker", true));
 
         swPull.setChecked(prefs.getBoolean("pull", true));
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
