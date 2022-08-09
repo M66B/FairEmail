@@ -225,6 +225,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean suitable;
     private boolean unmetered;
 
+    private int colorCardBackground;
     private int colorStripeWidth;
     private int colorAccent;
     private int textColorPrimary;
@@ -1837,7 +1838,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean split = (viewType != ViewType.THREAD && properties.getValue("split", message.id));
 
             int color = Color.TRANSPARENT;
-            if (split)
+            if (cards && shadow_unread && message.unseen > 0)
+                color = ColorUtils.setAlphaComponent(colorCardBackground, 192);
+            else if (split)
                 color = ColorUtils.setAlphaComponent(textColorHighlightInverse, 127);
             else if (flags_background && flagged && !expanded)
                 color = ColorUtils.setAlphaComponent(mcolor, 127);
@@ -7035,6 +7038,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.suitable = state.isSuitable();
         this.unmetered = state.isUnmetered();
 
+        this.colorCardBackground = Helper.resolveColor(context, R.attr.colorCardBackground);
         boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
         this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
