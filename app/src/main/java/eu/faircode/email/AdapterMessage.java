@@ -1820,8 +1820,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void bindFlagged(TupleMessageEx message, boolean expanded) {
             boolean pro = ActivityBilling.isPro(context);
             boolean flagged = (message.count - message.unflagged) > 0;
-            int color = (message.color == null || !pro ? colorAccent : message.color);
-            int tint = (flagged ? color : textColorSecondary);
+            int mcolor = (message.color == null || !pro ? colorAccent : message.color);
+            int tint = (flagged ? mcolor : textColorSecondary);
 
             if (!Objects.equals(ibFlagged.getTag(), flagged)) {
                 ibFlagged.setTag(flagged);
@@ -1835,12 +1835,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlagged.setEnabled(message.uid != null || message.accountProtocol != EntityAccount.TYPE_IMAP);
 
             boolean split = (viewType != ViewType.THREAD && properties.getValue("split", message.id));
-            if (split)
-                color = textColorHighlightInverse;
 
-            card.setCardBackgroundColor(
-                    split || (flags_background && flagged && !expanded)
-                            ? ColorUtils.setAlphaComponent(color, 127) : Color.TRANSPARENT);
+            int color = Color.TRANSPARENT;
+            if (split)
+                color = ColorUtils.setAlphaComponent(textColorHighlightInverse, 127);
+            else if (flags_background && flagged && !expanded)
+                color = ColorUtils.setAlphaComponent(mcolor, 127);
+
+            card.setCardBackgroundColor(color);
 
             ibFlagged.setVisibility(flags || message.ui_flagged ? View.VISIBLE : View.GONE);
         }
