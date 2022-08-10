@@ -4,6 +4,11 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### Next version
+
+* Extended unread shadow
+* Updated AndroidX
+
 ### 1.1947 - 2022-08-09
 
 * Added POP3 batch delete
