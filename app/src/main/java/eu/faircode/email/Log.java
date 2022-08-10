@@ -60,6 +60,7 @@ import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.TransactionTooLargeException;
+import android.os.ext.SdkExtensions;
 import android.provider.Settings;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -2776,6 +2777,14 @@ public class Log {
                 size += write(os, String.format("Database: %s\r\n",
                         context.getDatabasePath(DB.DB_NAME)));
                 size += write(os, "\r\n");
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    Map<Integer, Integer> exts = SdkExtensions.getAllExtensionVersions();
+                    for (Integer ext : exts.keySet())
+                        size += write(os, String.format("Extension %d / %d\r\n", ext, exts.get(ext)));
+                    if (exts.size() > 0)
+                        size += write(os, "\r\n");
+                }
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     try {
