@@ -107,12 +107,12 @@ public class NavMenuItem {
         return this.count;
     }
 
-    boolean isSeparated() {
-        return this.separated;
-    }
-
     boolean hasWarning() {
         return this.warning;
+    }
+
+    boolean isSeparated() {
+        return this.separated;
     }
 
     void onClick() {
