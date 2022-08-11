@@ -2413,7 +2413,7 @@ public class HtmlHelper {
         StringBuilder sb = new StringBuilder();
         sb.append("<style type=\"text/css\">");
         for (String tag : tags)
-            sb.append(tag).append("{width: auto !important; min-width: 0 !important;max-width: 100% !important;}");
+            sb.append(tag).append("{width: auto !important; min-width: 0 !important; max-width: 100% !important; overflow: auto !important;}");
         sb.append("</style>");
 
         document.select("head").append(sb.toString());
