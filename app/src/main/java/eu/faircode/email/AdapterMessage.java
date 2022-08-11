@@ -8239,14 +8239,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             db.message().liveMessageKeywords(id).observe(getViewLifecycleOwner(), new Observer<TupleKeyword.Persisted>() {
                 @Override
                 public void onChanged(TupleKeyword.Persisted data) {
+                    if (data == null)
+                        data = new TupleKeyword.Persisted();
+
                     String global = prefs.getString("global_keywords", null);
                     if (global != null) {
                         List<String> available = new ArrayList<>();
                         available.addAll(Arrays.asList(global.split(" ")));
-                        if (data != null && data.available != null)
+                        if (data.available != null)
                             available.addAll(Arrays.asList(data.available));
                         data.available = available.toArray(new String[0]);
                     }
+
                     pbWait.setVisibility(View.GONE);
                     adapter.set(id, TupleKeyword.from(context, data));
                 }

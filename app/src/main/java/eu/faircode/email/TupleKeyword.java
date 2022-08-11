@@ -29,6 +29,7 @@ import androidx.preference.PreferenceManager;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -54,8 +55,6 @@ public class TupleKeyword {
     }
 
     static List<TupleKeyword> from(Context context, Persisted data) {
-        if (data == null)
-            data = new Persisted();
         if (data.selected == null)
             data.selected = new String[0];
         if (data.available == null)
@@ -63,24 +62,32 @@ public class TupleKeyword {
 
         List<TupleKeyword> result = new ArrayList<>();
 
-        List<String> keywords = new ArrayList<>();
+        List<String> all = new ArrayList<>();
+        List<String> selected = Arrays.asList(data.selected);
 
         for (String keyword : data.selected)
-            if (!keywords.contains(keyword))
-                keywords.add(keyword);
+            if (!all.contains(keyword))
+                all.add(keyword);
 
         for (String keyword : data.available)
-            if (!keywords.contains(keyword))
-                keywords.add(keyword);
-
-        Collections.sort(keywords);
+            if (!all.contains(keyword))
+                all.add(keyword);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        for (String keyword : keywords) {
+        Collections.sort(all, new Comparator<String>() {
+            @Override
+            public int compare(String k1, String k2) {
+                k1 = prefs.getString("kwtitle." + k1, getDefaultKeywordAlias(context, k1));
+                k2 = prefs.getString("kwtitle." + k2, getDefaultKeywordAlias(context, k2));
+                return k1.compareTo(k2);
+            }
+        });
+
+        for (String keyword : all) {
             TupleKeyword k = new TupleKeyword();
             k.name = keyword;
-            k.selected = Arrays.asList(data.selected).contains(keyword);
+            k.selected = selected.contains(keyword);
 
             String c1 = "kwcolor." + keyword;
             String c2 = "keyword." + keyword; // legacy
