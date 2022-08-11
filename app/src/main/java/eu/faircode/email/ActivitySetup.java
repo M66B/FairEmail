@@ -1913,7 +1913,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
             Dialog dialog = new AlertDialog.Builder(context)
                     .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.title_add_image_select, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             String password1 = etPassword1.getEditText().getText().toString();
@@ -1978,7 +1978,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
             Dialog dialog = new AlertDialog.Builder(context)
                     .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.title_add_image_select, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             String password1 = etPassword1.getEditText().getText().toString();
