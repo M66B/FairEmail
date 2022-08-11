@@ -197,6 +197,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExactAlarms;
     private SwitchCompat swInfra;
     private SwitchCompat swDupMsgId;
+    private EditText etKeywords;
     private SwitchCompat swTestIab;
     private Button btnImportProviders;
     private TextView tvProcessors;
@@ -243,7 +244,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "use_modseq", "uid_command", "perform_expunge", "uid_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", "use_top",
             "keep_alive_poll", "empty_pool", "idle_done", "logarithmic_backoff",
-            "exact_alarms", "infra", "dkim_verify", "dup_msgids", "test_iab"
+            "exact_alarms", "infra", "dkim_verify", "dup_msgids", "global_keywords", "test_iab"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -392,6 +393,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExactAlarms = view.findViewById(R.id.swExactAlarms);
         swInfra = view.findViewById(R.id.swInfra);
         swDupMsgId = view.findViewById(R.id.swDupMsgId);
+        etKeywords = view.findViewById(R.id.etKeywords);
         swTestIab = view.findViewById(R.id.swTestIab);
         btnImportProviders = view.findViewById(R.id.btnImportProviders);
         tvProcessors = view.findViewById(R.id.tvProcessors);
@@ -1347,6 +1349,32 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        etKeywords.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String keywords = s.toString().trim();
+                String[] keyword = keywords.replaceAll("\\s+", " ").split(" ");
+                for (int i = 0; i < keyword.length; i++)
+                    keyword[i] = MessageHelper.sanitizeKeyword(keyword[i]);
+                keywords = String.join(" ", keyword);
+
+                if (TextUtils.isEmpty(keywords))
+                    prefs.edit().remove("global_keywords").apply();
+                else
+                    prefs.edit().putString("global_keywords", keywords).apply();
+            }
+        });
+
         swTestIab.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1754,6 +1782,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if ("vt_apikey".equals(key) || "send_host".equals(key))
             return;
 
+        if ("global_keywords".equals(key))
+            return;
+
         setOptions();
     }
 
@@ -1974,6 +2005,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExactAlarms.setChecked(prefs.getBoolean("exact_alarms", true));
         swInfra.setChecked(prefs.getBoolean("infra", false));
         swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
+        etKeywords.setText(prefs.getString("global_keywords", null));
         swTestIab.setChecked(prefs.getBoolean("test_iab", false));
 
         tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));

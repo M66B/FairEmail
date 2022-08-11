@@ -8206,16 +8206,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final long id = getArguments().getLong("id");
 
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_keyword_manage, null);
+            final Context context = getContext();
+            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_keyword_manage, null);
             final RecyclerView rvKeyword = dview.findViewById(R.id.rvKeyword);
             final FloatingActionButton fabAdd = dview.findViewById(R.id.fabAdd);
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
             rvKeyword.setHasFixedSize(false);
-            final LinearLayoutManager llm = new LinearLayoutManager(getContext());
+            final LinearLayoutManager llm = new LinearLayoutManager(context);
             rvKeyword.setLayoutManager(llm);
 
-            final AdapterKeyword adapter = new AdapterKeyword(getContext(), getViewLifecycleOwner());
+            final AdapterKeyword adapter = new AdapterKeyword(context, getViewLifecycleOwner());
             rvKeyword.setAdapter(adapter);
 
             fabAdd.setOnClickListener(new View.OnClickListener() {
@@ -8232,16 +8233,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             pbWait.setVisibility(View.VISIBLE);
 
-            DB db = DB.getInstance(getContext());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+            DB db = DB.getInstance(context);
             db.message().liveMessageKeywords(id).observe(getViewLifecycleOwner(), new Observer<TupleKeyword.Persisted>() {
                 @Override
                 public void onChanged(TupleKeyword.Persisted data) {
+                    String global = prefs.getString("global_keywords", null);
+                    if (global != null) {
+                        List<String> available = new ArrayList<>();
+                        available.addAll(Arrays.asList(global.split(" ")));
+                        if (data != null && data.available != null)
+                            available.addAll(Arrays.asList(data.available));
+                        data.available = available.toArray(new String[0]);
+                    }
                     pbWait.setVisibility(View.GONE);
-                    adapter.set(id, TupleKeyword.from(getContext(), data));
+                    adapter.set(id, TupleKeyword.from(context, data));
                 }
             });
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setIcon(R.drawable.twotone_label_important_24)
                     .setTitle(R.string.title_manage_keywords)
                     .setView(dview)

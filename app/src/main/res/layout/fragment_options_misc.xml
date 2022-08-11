@@ -322,10 +322,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    app:drawableTint="?attr/colorWarning"
                     android:text="@string/title_advanced_privacy_risk"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?attr/colorWarning"
+                    app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swLanguageTool" />
 
@@ -336,10 +336,10 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_privacy_policy"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvLanguageToolHint" />
 
@@ -372,10 +372,10 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_privacy_policy"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swDeepL" />
 
@@ -408,10 +408,10 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_privacy_policy"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swVirusTotal" />
 
@@ -620,10 +620,10 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_advanced_sdcard"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvLastCleanup" />
 
@@ -672,12 +672,12 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?attr/colorWarning"
                     android:gravity="center"
                     android:text="@string/title_setup_advanced"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="?attr/colorWarning"
                     android:textStyle="bold"
+                    app:drawableTint="?attr/colorWarning"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -716,10 +716,10 @@
                     android:layout_marginTop="6dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_advanced_experiments_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swExperiments" />
 
@@ -910,11 +910,11 @@
                     android:drawableStart="@drawable/twotone_warning_24"
                     android:drawableEnd="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?attr/colorWarning"
                     android:gravity="center"
                     android:text="@string/title_advanced_caption_debug"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textStyle="bold"
+                    app:drawableTint="?attr/colorWarning"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -962,8 +962,8 @@
                     android:layout_marginTop="12dp"
                     android:drawableStart="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?attr/colorWarning"
                     android:text="@string/title_advanced_external_storage"
+                    app:drawableTint="?attr/colorWarning"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swWorkManager"
@@ -1648,6 +1648,7 @@
                     android:id="@+id/tvDkimVerifyHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:layout_marginEnd="48dp"
                     android:text="@string/title_advanced_usage_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -1668,6 +1669,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tvDkimVerifyHint"
                     app:switchPadding="12dp" />
 
+                <EditText
+                    android:id="@+id/etKeywords"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Global keywords"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swDupMsgId" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swTestIab"
                     android:layout_width="0dp"
@@ -1676,7 +1689,7 @@
                     android:text="@string/title_advanced_test_iab"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swDupMsgId"
+                    app:layout_constraintTop_toBottomOf="@id/etKeywords"
                     app:switchPadding="12dp" />
 
                 <Button
