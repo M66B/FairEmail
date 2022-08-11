@@ -103,7 +103,9 @@ android {
                     'META-INF/LICENSE.gpl.txt',
                     'META-INF/LICENSE.commercial.txt',
                     'LICENSE-2.0.txt',
-                    'RELEASE.txt'
+                    'RELEASE.txt',
+                    'DebugProbesKt.bin',
+                    'font_metrics.properties'
             ]
         }
     }
