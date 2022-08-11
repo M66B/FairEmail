@@ -8,6 +8,8 @@
 
 * Extended unread shadow
 * Updated AndroidX
+* Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1947 - 2022-08-09
 
