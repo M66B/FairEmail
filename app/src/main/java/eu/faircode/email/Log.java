@@ -142,6 +142,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.TimeZone;
 import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 
@@ -1877,6 +1878,7 @@ public class Log {
         sb.append(String.format("Updated: %s\r\n", new Date(Helper.getUpdateTime(context))));
         sb.append(String.format("Last cleanup: %s\r\n", new Date(last_cleanup)));
         sb.append(String.format("Now: %s\r\n", new Date()));
+        sb.append(String.format("Zone: %s\r\n", TimeZone.getDefault().getID()));
 
         sb.append("\r\n");
 
