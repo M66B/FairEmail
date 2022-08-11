@@ -2704,11 +2704,13 @@ class Core {
                 String rootType = null;
                 EntityFolder r = parent;
                 while (r != null) {
-                    if (!r.selectable)
-                        break;
                     rootType = r.type;
+                    if (!EntityFolder.USER.equals(r.type) && !EntityFolder.SYSTEM.equals(r.type))
+                        break;
                     r = nameFolder.get(r.getParentName());
                 }
+                if (EntityFolder.USER.equals(rootType) || EntityFolder.SYSTEM.equals(rootType))
+                    rootType = null;
                 db.folder().setFolderInheritedType(child.id, rootType);
                 db.folder().setFolderParent(child.id, parent == null ? null : parent.id);
             }
