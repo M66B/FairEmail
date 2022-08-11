@@ -41,9 +41,10 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         // https://developer.android.com/ndk/downloads
-        ndkVersion "23.2.8568313" // r23c
+        ndkVersion "25.0.8775105" // r25
         ndk {
             // Bugsnag, sqlite
+            // https://developer.android.com/ndk/guides/abis
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
     }
