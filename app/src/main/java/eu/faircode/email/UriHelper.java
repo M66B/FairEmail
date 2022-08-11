@@ -31,6 +31,7 @@ import androidx.core.util.PatternsCompat;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.IDN;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -217,11 +218,22 @@ public class UriHelper {
                 String line;
                 while ((line = br.readLine()) != null) {
                     line = line.trim();
+
                     if (TextUtils.isEmpty(line))
                         continue;
+
                     if (line.startsWith("//"))
                         continue;
+
                     suffixList.add(line);
+
+                    try {
+                        String ascii = IDN.toASCII(line, IDN.ALLOW_UNASSIGNED);
+                        if (!line.equals(ascii))
+                            suffixList.add(line);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                 }
                 Log.i(SUFFIX_LIST_NAME + "=" + suffixList.size());
             } catch (Throwable ex) {
