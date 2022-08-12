@@ -211,7 +211,7 @@ public class ServiceAuthenticator extends Authenticator {
             if (holder.error != null)
                 throw holder.error;
         } catch (Exception ex) {
-            throw new MessagingException("OAuth refresh id=" + id + ":" + user, ex);
+            throw new MessagingException("OAuth refresh id=" + id, ex);
         }
     }
 
