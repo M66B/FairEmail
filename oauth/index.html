@@ -26,12 +26,15 @@
 				var url = new URL(window.location.href);
 				var error = url.searchParams.get('error');
 				if (error) {
-					document.getElementById('error').innerHTML = '<span>The email server said: <span class="error">' + error + '</span></span>';
+					document.getElementById('errmsg').innerText = error;
 					document.getElementById('error').style.display = 'block';
 				}
 			} catch (error) {
 				console.error(error);
 			}
+
+			document.getElementById('debug').innerText = window.location.search;
+			document.getElementById('debug').style.display = 'none';
 		}
 
 		function oauth() {
@@ -43,8 +46,9 @@
 	<h1>FairEmail</h1>
 	<p><img src="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/ic_launcher-web.png" alt="FairEmail" height="72" width="72" /></p>
 	<h2>&#x1F6E1; OAuth</h2>
-	<p id="error" style="display: none;"></p>
+	<p id="error" style="display: none;"><span>The email server said: <span id="errmsg" class="error"></span></span></p>
 	<p><button id="oauth" class="button-large">Continue</button> to the app</p>
+	<p id="debug" style="display: none; font-size: x-small;"></p>
 	<noscript><h2>Please enable JavaScript or disable your ad blocker</h2></noscript>
 	<br>
 	<p style="font-size: smaller;"><a href="https://en.wikipedia.org/wiki/OAuth" target="_blank">What is OAuth?</a></p>
