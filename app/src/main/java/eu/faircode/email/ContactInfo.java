@@ -117,6 +117,13 @@ public class ContactInfo {
     private static final long CACHE_FAVICON_DURATION = 2 * 7 * 24 * 60 * 60 * 1000L; // milliseconds
     private static final float MIN_FAVICON_LUMINANCE = 0.2f;
 
+    // https://realfavicongenerator.net/faq
+    private static final String[] FIXED_FAVICONS = new String[]{
+            "apple-touch-icon.png", // 57x57
+            "apple-touch-icon-precomposed.png", // 57x57
+            "favicon.ico"
+    };
+
     // https://css-tricks.com/prefetching-preloading-prebrowsing/
     // https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
     private static final List<String> REL_EXCLUDE = Collections.unmodifiableList(Arrays.asList(
@@ -390,9 +397,10 @@ public class ContactInfo {
 
                         if (favicons) {
                             String host = domain;
+                            if (!host.startsWith("www."))
+                                host = "www." + host;
                             while (host.indexOf('.') > 0) {
                                 final URL base = new URL("https://" + host);
-                                final URL www = new URL("https://www." + host);
 
                                 futures.add(executorFavicon.submit(new Callable<Favicon>() {
                                     @Override
@@ -401,35 +409,23 @@ public class ContactInfo {
                                     }
                                 }));
 
-                                futures.add(executorFavicon.submit(new Callable<Favicon>() {
-                                    @Override
-                                    public Favicon call() throws Exception {
-                                        return parseFavicon(www, scaleToPixels, context);
-                                    }
-                                }));
-
                                 int dot = host.indexOf('.');
                                 host = host.substring(dot + 1);
                             }
 
                             host = domain;
+                            if (!host.startsWith("www."))
+                                host = "www." + host;
                             while (host.indexOf('.') > 0) {
                                 final URL base = new URL("https://" + host);
-                                final URL www = new URL("https://www." + host);
 
-                                futures.add(executorFavicon.submit(new Callable<Favicon>() {
-                                    @Override
-                                    public Favicon call() throws Exception {
-                                        return getFavicon(new URL(base, "favicon.ico"), null, scaleToPixels, context);
-                                    }
-                                }));
-
-                                futures.add(executorFavicon.submit(new Callable<Favicon>() {
-                                    @Override
-                                    public Favicon call() throws Exception {
-                                        return getFavicon(new URL(www, "favicon.ico"), null, scaleToPixels, context);
-                                    }
-                                }));
+                                for (String name : FIXED_FAVICONS)
+                                    futures.add(executorFavicon.submit(new Callable<Favicon>() {
+                                        @Override
+                                        public Favicon call() throws Exception {
+                                            return getFavicon(new URL(base, name), null, scaleToPixels, context);
+                                        }
+                                    }));
 
                                 int dot = host.indexOf('.');
                                 host = host.substring(dot + 1);
