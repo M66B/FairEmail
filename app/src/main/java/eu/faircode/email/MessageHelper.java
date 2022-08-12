@@ -4637,13 +4637,18 @@ public class MessageHelper {
             return null;
 
         int skip = 0;
+        boolean quoted = false;
         StringBuilder sb = new StringBuilder();
         int len = text.length();
         for (int i = 0; i < len; i++) {
             char kar = text.charAt(i);
-            if (kar == '(' && text.indexOf(')', i) > 0)
+
+            if (kar == '"' && (quoted || text.indexOf('"', i + 1) > 0))
+                quoted = !quoted;
+
+            if (!quoted && kar == '(' && text.indexOf(')', i) > 0)
                 skip++;
-            else if (kar == ')' && skip > 0)
+            else if (!quoted && kar == ')' && skip > 0)
                 skip--;
             else if (skip == 0)
                 sb.append(kar);
