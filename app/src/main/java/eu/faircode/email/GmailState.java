@@ -24,8 +24,10 @@ import android.accounts.AccountManager;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,6 +73,19 @@ public class GmailState {
                 expiration - ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL < now)
             needsRefresh = true;
 
+        if (needsRefresh) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String key = "token." + id + "." + user;
+            long last_refresh = prefs.getLong(key, 0);
+            long ago = now - last_refresh;
+            EntityLog.log(context, EntityLog.Type.Debug, "Token needs refresh" +
+                    " user=" + id + ":" + user + " ago=" + (ago / 60 / 1000L) + " min");
+            if (ago < ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL) {
+                Log.e("Blocked token refresh id=" + id + " ago=" + (ago / 1000L));
+                return;
+            }
+            prefs.edit().putLong(key, now).apply();
+        }
 
         EntityLog.log(context, EntityLog.Type.Debug, "Token user=" + id + ":" + user +
                 " expiration=" + (expiration == null ? null : new Date(expiration)) +
