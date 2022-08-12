@@ -467,6 +467,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibMore;
         private ImageButton ibTools;
         private View vwEmpty;
+        private Flow buttons;
         private TextView tvReformatted;
         private TextView tvDecrypt;
         private TextView tvSignedData;
@@ -885,6 +886,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibMore = vsBody.findViewById(R.id.ibMore);
             ibTools = vsBody.findViewById(R.id.ibTools);
             vwEmpty = vsBody.findViewById(R.id.vwEmpty);
+            buttons = vsBody.findViewById(R.id.buttons);
             tvReformatted = vsBody.findViewById(R.id.tvReformatted);
             tvDecrypt = vsBody.findViewById(R.id.tvDecrypt);
             tvSignedData = vsBody.findViewById(R.id.tvSignedData);
@@ -1708,6 +1710,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibMore.setVisibility(View.GONE);
             ibTools.setVisibility(View.GONE);
             vwEmpty.setVisibility(View.GONE);
+            clearButtons();
             tvReformatted.setVisibility(View.GONE);
             tvDecrypt.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
@@ -1728,6 +1731,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSeenBottom.setVisibility(View.GONE);
 
             ibStoreMedia.setVisibility(View.GONE);
+        }
+
+        private void clearButtons() {
+            ConstraintLayout cl = (ConstraintLayout) buttons.getParent();
+            for (int id : buttons.getReferencedIds()) {
+                View v = cl.findViewById(id);
+                cl.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            buttons.removeView(v);
+                            cl.removeView(v);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
+                // https://github.com/androidx/constraintlayout/issues/430
+                // v.setVisibility(View.GONE);
+            }
         }
 
         private void clearActions() {
@@ -1968,6 +1991,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibMore.setVisibility(View.GONE);
             ibTools.setVisibility(View.GONE);
             vwEmpty.setVisibility(View.GONE);
+            clearButtons();
             tvReformatted.setVisibility(View.GONE);
             tvDecrypt.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
@@ -2215,6 +2239,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibTools.setVisibility(outbox ? View.GONE : View.VISIBLE);
                     vwEmpty.setVisibility(outbox ? View.GONE : View.VISIBLE);
 
+                    if (tools)
+                        bindButtons(message);
+                    else
+                        clearButtons();
+
                     if (bind)
                         bindBody(message, scroll);
                     else
@@ -2226,6 +2255,77 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.setLog(false).execute(context, owner, sargs, "message:tools");
+        }
+
+        private void bindButtons(TupleMessageEx message) {
+            String keywords = prefs.getString("global_keywords", null);
+            if (keywords == null)
+                return;
+
+            int dp3 = Helper.dp2pixels(context, 3);
+            Drawable on = ContextCompat.getDrawable(context, R.drawable.twotone_check_12);
+            Drawable off = ContextCompat.getDrawable(context, R.drawable.twotone_close_12);
+            on.setBounds(0, 0, on.getIntrinsicWidth(), on.getIntrinsicHeight());
+            off.setBounds(0, 0, off.getIntrinsicWidth(), off.getIntrinsicHeight());
+
+            List<String> selected = Arrays.asList(message.keywords);
+            for (String keyword : keywords.split(" ")) {
+                boolean set = selected.contains(keyword);
+                String title = prefs.getString("kwtitle." + keyword, keyword);
+                String c = "kwcolor." + keyword;
+                Integer color = (prefs.contains(c) ? prefs.getInt(c, Color.GRAY) : null);
+
+                Button button = new Button(context, null, android.R.attr.buttonStyleSmall);
+                button.setId(View.generateViewId());
+                button.setText(title);
+                button.setCompoundDrawablePadding(dp3);
+                button.setCompoundDrawablesRelative(null, null, set ? off : on, null);
+                if (color != null)
+                    button.setBackgroundTintList(ColorStateList.valueOf(color));
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle args = new Bundle();
+                        args.putLong("id", message.id);
+                        args.putString("keyword", keyword);
+                        args.putBoolean("set", !set);
+
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                long id = args.getLong("id");
+                                String keyword = args.getString("keyword");
+                                boolean set = args.getBoolean("set");
+
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    EntityMessage message = db.message().getMessage(id);
+                                    if (message == null)
+                                        return null;
+
+                                    EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, set);
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+
+                            }
+                        }.execute(context, owner, args, "toggle:keyword");
+                    }
+                });
+
+                ((ConstraintLayout) buttons.getParent()).addView(button);
+                buttons.addView(button);
+            }
         }
 
         private String formatAddresses(Address[] addresses, MessageHelper.AddressFormat format, int max) {
