@@ -71,7 +71,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 241,
+        version = 242,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2417,6 +2417,13 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `inherited_type` TEXT");
                         db.execSQL("DROP VIEW `folder_view`");
                         db.execSQL("CREATE VIEW IF NOT EXISTS `folder_view` AS " + TupleFolderView.query);
+                    }
+
+                }).addMigrations(new Migration(241, 242) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("ALTER TABLE `account` ADD COLUMN `unicode` INTEGER NOT NULL DEFAULT 0");
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override

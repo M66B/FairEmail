@@ -269,7 +269,7 @@ public class ActivityEML extends ActivityBase {
                     if (is == null)
                         throw new FileNotFoundException(uri.toString());
 
-                    Properties props = MessageHelper.getSessionProperties();
+                    Properties props = MessageHelper.getSessionProperties(false);
                     Session isession = Session.getInstance(props, null);
                     MimeMessage imessage = new MimeMessage(isession, is);
 
@@ -665,12 +665,12 @@ public class ActivityEML extends ActivityBase {
                     if (is == null)
                         throw new FileNotFoundException(uri.toString());
 
-                    Properties props = MessageHelper.getSessionProperties();
+                    Properties props = MessageHelper.getSessionProperties(false);
                     Session isession = Session.getInstance(props, null);
                     MimeMessage imessage = new MimeMessage(isession, is);
 
                     try (EmailService iservice = new EmailService(
-                            context, account.getProtocol(), account.realm, account.encryption, account.insecure, true)) {
+                            context, account.getProtocol(), account.realm, account.encryption, account.insecure, account.unicode, true)) {
                         iservice.setPartialFetch(account.partial_fetch);
                         iservice.setIgnoreBodyStructureSize(account.ignore_size);
                         iservice.connect(account);

@@ -296,10 +296,10 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_setup_app_password"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvCaseSensitive" />
 
@@ -310,10 +310,10 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_password_storage"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAppPassword" />
 
@@ -679,13 +679,22 @@
             app:layout_constraintTop_toBottomOf="@id/rgDate" />
 
         <CheckBox
+            android:id="@+id/cbUnicode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_unicode"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDateRemark" />
+
+        <CheckBox
             android:id="@+id/cbUnmeteredOnly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_unmetered_only"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDateRemark" />
+            app:layout_constraintTop_toBottomOf="@id/cbUnicode" />
 
         <!-- check -->
 
@@ -1013,10 +1022,10 @@
             android:backgroundTint="?attr/colorInfoBackground"
             android:drawableEnd="@drawable/twotone_support_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorInfoForeground"
             android:text="@string/menu_faq"
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorInfoForeground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbTrust" />
 
@@ -1028,10 +1037,10 @@
             android:backgroundTint="?attr/colorInfoBackground"
             android:drawableEnd="@drawable/twotone_help_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorInfoForeground"
             android:text="@string/title_setup_help"
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorInfoForeground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbTrust" />
 
@@ -1087,7 +1096,7 @@
                 cbAutoSeen,
                 tvInterval,etInterval,tvIntervalRemark,
                 cbPartialFetch,tvPartialFetchRemark,cbIgnoreSize,rgDate,tvDateRemark,
-                cbUnmeteredOnly" />
+                cbUnicode,cbUnmeteredOnly" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpFolders"

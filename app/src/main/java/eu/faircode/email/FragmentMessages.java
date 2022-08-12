@@ -8115,7 +8115,7 @@ public class FragmentMessages extends FragmentBase
                                 } else {
                                     // Decode message
                                     MessageHelper.MessageParts parts;
-                                    Properties props = MessageHelper.getSessionProperties();
+                                    Properties props = MessageHelper.getSessionProperties(false);
                                     Session isession = Session.getInstance(props, null);
                                     MimeMessage imessage;
                                     try (InputStream fis = new FileInputStream(plain)) {
@@ -8814,7 +8814,7 @@ public class FragmentMessages extends FragmentBase
                 boolean duplicate = args.getBoolean("duplicate");
 
                 // Decode message
-                Properties props = MessageHelper.getSessionProperties();
+                Properties props = MessageHelper.getSessionProperties(false);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession, is);
                 MessageHelper helper = new MessageHelper(imessage, context);
@@ -8927,7 +8927,7 @@ public class FragmentMessages extends FragmentBase
         for (EntityAttachment remote : remotes)
             if ("message/rfc822".equals(remote.getMimeType()))
                 try {
-                    Properties props = MessageHelper.getSessionProperties();
+                    Properties props = MessageHelper.getSessionProperties(false);
                     Session isession = Session.getInstance(props, null);
 
                     MimeMessage imessage;

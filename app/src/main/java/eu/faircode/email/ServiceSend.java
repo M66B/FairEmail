@@ -558,10 +558,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         db.message().setMessageSent(message.id, message.sent);
 
         // Create message
-        Properties props = MessageHelper.getSessionProperties();
-        // https://javaee.github.io/javamail/docs/api/javax/mail/internet/package-summary.html
-        if (ident.unicode)
-            props.put("mail.mime.allowutf8", "true");
+        Properties props = MessageHelper.getSessionProperties(ident.unicode);
         Session isession = Session.getInstance(props, null);
         MimeMessage imessage = MessageHelper.from(this, message, ident, isession, true);
 
@@ -671,10 +668,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         long start, end;
         Long max_size = null;
         EmailService iservice = new EmailService(
-                this, ident.getProtocol(), ident.realm, ident.encryption, ident.insecure, debug);
+                this, ident.getProtocol(), ident.realm, ident.encryption, ident.insecure, ident.unicode, debug);
         try {
             iservice.setUseIp(ident.use_ip, ident.ehlo);
-            iservice.setUnicode(ident.unicode);
             iservice.set8BitMime(ident.octetmime);
 
             // 0=Read receipt

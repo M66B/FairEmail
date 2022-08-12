@@ -125,6 +125,7 @@ public class FragmentAccount extends FragmentBase {
     private CheckBox cbPartialFetch;
     private CheckBox cbIgnoreSize;
     private RadioGroup rgDate;
+    private CheckBox cbUnicode;
     private CheckBox cbUnmetered;
 
     private Button btnCheck;
@@ -235,6 +236,7 @@ public class FragmentAccount extends FragmentBase {
         cbPartialFetch = view.findViewById(R.id.cbPartialFetch);
         cbIgnoreSize = view.findViewById(R.id.cbIgnoreSize);
         rgDate = view.findViewById(R.id.rgDate);
+        cbUnicode = view.findViewById(R.id.cbUnicode);
         cbUnmetered = view.findViewById(R.id.cbUnmeteredOnly);
 
         btnCheck = view.findViewById(R.id.btnCheck);
@@ -675,6 +677,7 @@ public class FragmentAccount extends FragmentBase {
         args.putString("certificate", certificate);
         args.putString("realm", etRealm.getText().toString());
         args.putString("fingerprint", cbTrust.isChecked() ? (String) cbTrust.getTag() : null);
+        args.putBoolean("unicode", cbUnicode.isChecked());
 
         new SimpleTask<CheckResult>() {
             @Override
@@ -719,6 +722,7 @@ public class FragmentAccount extends FragmentBase {
                 String certificate = args.getString("certificate");
                 String realm = args.getString("realm");
                 String fingerprint = args.getString("fingerprint");
+                boolean unicode = args.getBoolean("unicode");
 
                 int semi = host.indexOf(':');
                 if (semi > 0 && host.indexOf(':', semi + 1) < 0)
@@ -745,7 +749,7 @@ public class FragmentAccount extends FragmentBase {
                 // Check IMAP server / get folders
                 String protocol = "imap" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
                 try (EmailService iservice = new EmailService(
-                        context, protocol, realm, encryption, insecure,
+                        context, protocol, realm, encryption, insecure, unicode,
                         EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             host, Integer.parseInt(port),
@@ -899,6 +903,7 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("ignore_size", cbIgnoreSize.isChecked());
         args.putBoolean("use_date", rgDate.getCheckedRadioButtonId() == R.id.radio_date_header);
         args.putBoolean("use_received", rgDate.getCheckedRadioButtonId() == R.id.radio_received_header);
+        args.putBoolean("unicode", cbUnicode.isChecked());
         args.putBoolean("unmetered", cbUnmetered.isChecked());
 
         args.putSerializable("drafts", drafts);
@@ -970,6 +975,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean ignore_size = args.getBoolean("ignore_size");
                 boolean use_date = args.getBoolean("use_date");
                 boolean use_received = args.getBoolean("use_received");
+                boolean unicode = args.getBoolean("unicode");
                 boolean unmetered = args.getBoolean("unmetered");
 
                 EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
@@ -1077,6 +1083,8 @@ public class FragmentAccount extends FragmentBase {
                         return true;
                     if (!Objects.equals(account.use_received, use_received))
                         return true;
+                    if (!Objects.equals(account.unicode, unicode))
+                        return true;
                     if (unmetered != jconditions.optBoolean("unmetered"))
                         return true;
                     if (account.error != null && account.synchronize)
@@ -1139,7 +1147,7 @@ public class FragmentAccount extends FragmentBase {
                 if (check) {
                     String protocol = "imap" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
                     try (EmailService iservice = new EmailService(
-                            context, protocol, realm, encryption, insecure,
+                            context, protocol, realm, encryption, insecure, unicode,
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.connect(
                                 host, Integer.parseInt(port),
@@ -1219,6 +1227,8 @@ public class FragmentAccount extends FragmentBase {
                     account.ignore_size = ignore_size;
                     account.use_date = use_date;
                     account.use_received = use_received;
+
+                    account.unicode = unicode;
 
                     jconditions.put("unmetered", unmetered);
                     account.conditions = jconditions.toString();
@@ -1580,6 +1590,7 @@ public class FragmentAccount extends FragmentBase {
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
                     cbPartialFetch.setChecked(account == null ? true : account.partial_fetch);
                     cbIgnoreSize.setChecked(account == null ? false : account.ignore_size);
+                    cbUnicode.setChecked(account == null ? false : account.unicode);
                     cbUnmetered.setChecked(jcondition.optBoolean("unmetered"));
 
                     if (account != null && account.use_date)

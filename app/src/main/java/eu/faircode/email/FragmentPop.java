@@ -505,7 +505,7 @@ public class FragmentPop extends FragmentBase {
                 if (check) {
                     String protocol = "pop3" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
                     try (EmailService iservice = new EmailService(
-                            context, protocol, null, encryption, insecure,
+                            context, protocol, null, encryption, insecure, false,
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.connect(
                                 host, Integer.parseInt(port),

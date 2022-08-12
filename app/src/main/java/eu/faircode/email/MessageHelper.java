@@ -268,11 +268,12 @@ public class MessageHelper {
         System.setProperty("fairemail.uid_command", Boolean.toString(uid_command));
     }
 
-    static Properties getSessionProperties() {
+    static Properties getSessionProperties(boolean unicode) {
         Properties props = new Properties();
 
         // MIME
-        props.put("mail.mime.allowutf8", "false"); // SMTPTransport, MimeMessage
+        // https://javaee.github.io/javamail/docs/api/javax/mail/internet/package-summary.html
+        props.put("mail.mime.allowutf8", Boolean.toString(unicode)); // SMTPTransport, MimeMessage
         props.put("mail.mime.address.strict", "false");
 
         return props;
@@ -1366,7 +1367,7 @@ public class MessageHelper {
                             reportHeaders = new InternetHeaders(apart.part.getInputStream());
                             break;
                         } else if ("message/rfc822".equalsIgnoreCase(apart.attachment.type)) {
-                            Properties props = MessageHelper.getSessionProperties();
+                            Properties props = MessageHelper.getSessionProperties(false);
                             Session isession = Session.getInstance(props, null);
                             MimeMessage amessage = new MimeMessage(isession, apart.part.getInputStream());
                             reportHeaders = amessage.getHeaders();
@@ -3622,7 +3623,7 @@ public class MessageHelper {
 
                 if ("message/rfc822".equals(local.type))
                     try (FileInputStream fis = new FileInputStream(local.getFile(context))) {
-                        Properties props = MessageHelper.getSessionProperties();
+                        Properties props = MessageHelper.getSessionProperties(false);
                         Session isession = Session.getInstance(props, null);
                         MimeMessage imessage = new MimeMessage(isession, fis);
                         MessageHelper helper = new MessageHelper(imessage, context);
@@ -4543,7 +4544,7 @@ public class MessageHelper {
                     if (bis.available() == 0)
                         throw new IOException("NIL");
 
-                    Properties props = MessageHelper.getSessionProperties();
+                    Properties props = MessageHelper.getSessionProperties(false);
                     Session isession = Session.getInstance(props, null);
 
                     Log.w("Decoding raw message");

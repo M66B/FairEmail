@@ -2840,7 +2840,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     for (EntityAttachment attachment : attachments)
                         if (attachment.available && "message/rfc822".equals(attachment.getMimeType()))
                             try (FileInputStream fis = new FileInputStream(attachment.getFile(context))) {
-                                Properties props = MessageHelper.getSessionProperties();
+                                Properties props = MessageHelper.getSessionProperties(false);
                                 Session isession = Session.getInstance(props, null);
                                 MimeMessage imessage = new MimeMessage(isession, fis);
                                 MessageHelper helper = new MessageHelper(imessage, context);

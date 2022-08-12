@@ -950,7 +950,7 @@ public class FragmentIdentity extends FragmentBase {
                     // Create transport
                     String protocol = (encryption == EmailService.ENCRYPTION_SSL ? "smtps" : "smtp");
                     try (EmailService iservice = new EmailService(
-                            context, protocol, realm, encryption, insecure,
+                            context, protocol, realm, encryption, insecure, unicode,
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.setUseIp(use_ip, ehlo);
                         iservice.connect(

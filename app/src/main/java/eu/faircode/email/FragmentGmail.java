@@ -468,7 +468,7 @@ public class FragmentGmail extends FragmentBase {
                 String aprotocol = (pop ? (inbound.starttls ? "pop3" : "pop3s") : (inbound.starttls ? "imap" : "imaps"));
                 int aencryption = (inbound.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
                 try (EmailService aservice = new EmailService(
-                        context, aprotocol, null, aencryption, false,
+                        context, aprotocol, null, aencryption, false, false,
                         EmailService.PURPOSE_CHECK, true)) {
                     aservice.connect(
                             inbound.host, inbound.port,
@@ -486,7 +486,7 @@ public class FragmentGmail extends FragmentBase {
                 String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
                 int iencryption = (provider.smtp.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
                 try (EmailService iservice = new EmailService(
-                        context, iprotocol, null, iencryption, false,
+                        context, iprotocol, null, iencryption, false, false,
                         EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             provider.smtp.host, provider.smtp.port,

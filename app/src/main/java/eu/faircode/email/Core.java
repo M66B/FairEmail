@@ -1164,7 +1164,7 @@ class Core {
             db.message().setMessageMsgId(message.id, message.msgid);
         }
 
-        Properties props = MessageHelper.getSessionProperties();
+        Properties props = MessageHelper.getSessionProperties(account.unicode);
         Session isession = Session.getInstance(props, null);
         Flags flags = ifolder.getPermanentFlags();
 
@@ -1461,7 +1461,7 @@ class Core {
                         imessage.writeTo(os);
                     }
 
-                    Properties props = MessageHelper.getSessionProperties();
+                    Properties props = MessageHelper.getSessionProperties(account.unicode);
                     Session isession = Session.getInstance(props, null);
 
                     Message icopy;

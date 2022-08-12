@@ -168,18 +168,18 @@ public class EmailService implements AutoCloseable {
         // Prevent instantiation
     }
 
-    EmailService(Context context, String protocol, String realm, int encryption, boolean insecure, boolean debug) throws NoSuchProviderException {
-        this(context, protocol, realm, encryption, insecure, PURPOSE_USE, debug);
+    EmailService(Context context, String protocol, String realm, int encryption, boolean insecure, boolean unicode, boolean debug) throws NoSuchProviderException {
+        this(context, protocol, realm, encryption, insecure, unicode, PURPOSE_USE, debug);
     }
 
-    EmailService(Context context, String protocol, String realm, int encryption, boolean insecure, int purpose, boolean debug) throws NoSuchProviderException {
+    EmailService(Context context, String protocol, String realm, int encryption, boolean insecure, boolean unicode, int purpose, boolean debug) throws NoSuchProviderException {
         this.context = context.getApplicationContext();
         this.protocol = protocol;
         this.insecure = insecure;
         this.purpose = purpose;
         this.debug = debug;
 
-        properties = MessageHelper.getSessionProperties();
+        properties = MessageHelper.getSessionProperties(unicode);
 
         long now = new Date().getTime();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -322,10 +322,6 @@ public class EmailService implements AutoCloseable {
 
     void setLeaveOnServer(boolean keep) {
         properties.put("mail." + protocol + ".rsetbeforequit", Boolean.toString(keep));
-    }
-
-    void setUnicode(boolean value) {
-        properties.put("mail.mime.allowutf8", Boolean.toString(value));
     }
 
     void set8BitMime(boolean value) {

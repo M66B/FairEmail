@@ -144,6 +144,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Boolean use_received = false; // Received header
     public String prefix; // namespace, obsolete
+    @NonNull
+    public Boolean unicode = false;
 
     public String conditions;
 
@@ -307,6 +309,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("ignore_size", ignore_size);
         json.put("use_date", use_date);
         json.put("use_received", use_received);
+        json.put("unicode", unicode);
         json.put("conditions", conditions);
         // not prefix
         // not created
@@ -396,6 +399,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         account.ignore_size = json.optBoolean("ignore_size", false);
         account.use_date = json.optBoolean("use_date", false);
         account.use_received = json.optBoolean("use_received", false);
+        account.unicode = json.optBoolean("unicode", false);
         account.conditions = json.optString("conditions", null);
 
         return account;
@@ -434,6 +438,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
                     this.ignore_size == other.ignore_size &&
                     this.use_date == other.use_date &&
                     this.use_received == other.use_received &&
+                    this.unicode == other.unicode &&
                     Objects.equals(this.conditions, other.conditions) &&
                     Objects.equals(this.quota_usage, other.quota_usage) &&
                     Objects.equals(this.quota_limit, other.quota_limit) &&
