@@ -162,7 +162,7 @@ public class ServiceAuthenticator extends Authenticator {
             if (needsRefresh)
                 authState.setNeedsTokenRefresh(true);
 
-            if (needsRefresh) {
+            if (needsRefresh || authState.getNeedsTokenRefresh()) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 String key = "token." + id + "." + user;
                 long last_refresh = prefs.getLong(key, 0);
