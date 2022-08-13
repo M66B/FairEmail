@@ -3368,7 +3368,7 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                     // Build message
-                    Properties props = MessageHelper.getSessionProperties(false);
+                    Properties props = MessageHelper.getSessionProperties(true);
                     Session isession = Session.getInstance(props, null);
                     MimeMessage imessage = new MimeMessage(isession);
                     MessageHelper.build(context, draft, attachments, identity, true, imessage);
@@ -3720,7 +3720,7 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                 // Build message to sign
-                Properties props = MessageHelper.getSessionProperties(false);
+                Properties props = MessageHelper.getSessionProperties(true);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
                 MessageHelper.build(context, draft, attachments, identity, true, imessage);
@@ -6405,7 +6405,7 @@ public class FragmentCompose extends FragmentBase {
                             // Check size
                             if (identity != null && identity.max_size != null)
                                 try {
-                                    Properties props = MessageHelper.getSessionProperties(false);
+                                    Properties props = MessageHelper.getSessionProperties(true);
                                     if (identity.unicode)
                                         props.put("mail.mime.allowutf8", "true");
                                     Session isession = Session.getInstance(props, null);

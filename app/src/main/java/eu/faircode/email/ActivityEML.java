@@ -269,7 +269,7 @@ public class ActivityEML extends ActivityBase {
                     if (is == null)
                         throw new FileNotFoundException(uri.toString());
 
-                    Properties props = MessageHelper.getSessionProperties(false);
+                    Properties props = MessageHelper.getSessionProperties(true);
                     Session isession = Session.getInstance(props, null);
                     MimeMessage imessage = new MimeMessage(isession, is);
 
@@ -665,7 +665,7 @@ public class ActivityEML extends ActivityBase {
                     if (is == null)
                         throw new FileNotFoundException(uri.toString());
 
-                    Properties props = MessageHelper.getSessionProperties(false);
+                    Properties props = MessageHelper.getSessionProperties(true);
                     Session isession = Session.getInstance(props, null);
                     MimeMessage imessage = new MimeMessage(isession, is);
 

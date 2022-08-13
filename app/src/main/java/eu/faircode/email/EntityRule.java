@@ -330,7 +330,7 @@ public class EntityRule {
                             throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
 
                         ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
-                        headers = Collections.list(new InternetHeaders(bis).getAllHeaders());
+                        headers = Collections.list(new InternetHeaders(bis, true).getAllHeaders());
                     }
 
                     boolean matches = false;

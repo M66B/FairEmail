@@ -1364,10 +1364,10 @@ public class MessageHelper {
                     getMessageParts(null, imessage, parts, null);
                     for (AttachmentPart apart : parts.attachments)
                         if ("text/rfc822-headers".equalsIgnoreCase(apart.attachment.type)) {
-                            reportHeaders = new InternetHeaders(apart.part.getInputStream());
+                            reportHeaders = new InternetHeaders(apart.part.getInputStream(), true);
                             break;
                         } else if ("message/rfc822".equalsIgnoreCase(apart.attachment.type)) {
-                            Properties props = MessageHelper.getSessionProperties(false);
+                            Properties props = MessageHelper.getSessionProperties(true);
                             Session isession = Session.getInstance(props, null);
                             MimeMessage amessage = new MimeMessage(isession, apart.part.getInputStream());
                             reportHeaders = amessage.getHeaders();
@@ -3623,7 +3623,7 @@ public class MessageHelper {
 
                 if ("message/rfc822".equals(local.type))
                     try (FileInputStream fis = new FileInputStream(local.getFile(context))) {
-                        Properties props = MessageHelper.getSessionProperties(false);
+                        Properties props = MessageHelper.getSessionProperties(true);
                         Session isession = Session.getInstance(props, null);
                         MimeMessage imessage = new MimeMessage(isession, fis);
                         MessageHelper helper = new MessageHelper(imessage, context);
@@ -4544,7 +4544,7 @@ public class MessageHelper {
                     if (bis.available() == 0)
                         throw new IOException("NIL");
 
-                    Properties props = MessageHelper.getSessionProperties(false);
+                    Properties props = MessageHelper.getSessionProperties(true);
                     Session isession = Session.getInstance(props, null);
 
                     Log.w("Decoding raw message");
@@ -4834,7 +4834,7 @@ public class MessageHelper {
             content = content.replaceAll("(\\r?\\n)+", "\n");
             ByteArrayInputStream bis = new ByteArrayInputStream(content.getBytes());
             try {
-                Enumeration<Header> headers = new InternetHeaders(bis).getAllHeaders();
+                Enumeration<Header> headers = new InternetHeaders(bis, true).getAllHeaders();
                 while (headers.hasMoreElements()) {
                     Header header = headers.nextElement();
                     String name = header.getName();

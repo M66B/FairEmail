@@ -1270,7 +1270,7 @@ public class FragmentFolders extends FragmentBase {
                 String PATTERN_ASCTIME = "EEE MMM d HH:mm:ss yyyy";
                 SimpleDateFormat df = new SimpleDateFormat(PATTERN_ASCTIME, Locale.US);
 
-                Properties props = MessageHelper.getSessionProperties(false);
+                Properties props = MessageHelper.getSessionProperties(true);
                 Session isession = Session.getInstance(props, null);
 
                 // https://www.ietf.org/rfc/rfc4155.txt (Appendix A)

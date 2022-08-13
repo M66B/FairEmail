@@ -2783,7 +2783,7 @@ public class HtmlHelper {
 
             MailDateFormat mdf = new MailDateFormat();
             ByteArrayInputStream bis = new ByteArrayInputStream(headers.getBytes());
-            InternetHeaders iheaders = new InternetHeaders(bis);
+            InternetHeaders iheaders = new InternetHeaders(bis, true);
 
             String dh = iheaders.getHeader("Date", null);
             Date tx = null;
