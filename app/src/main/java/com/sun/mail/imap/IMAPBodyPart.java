@@ -420,7 +420,7 @@ public class IMAPBodyPart extends MimeBodyPart implements ReadableMime {
 		    if (bis == null)
 			throw new MessagingException("Failed to fetch headers");
 
-		    headers.load(bis);
+		    headers.load(bis, message.allowutf8);
 
 		} else {
 

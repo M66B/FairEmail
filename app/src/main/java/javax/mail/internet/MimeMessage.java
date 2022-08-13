@@ -160,7 +160,7 @@ public class MimeMessage extends Message implements MimePart {
     // Should addresses in headers be parsed in "strict" mode?
     private boolean strict = true;
     // Is UTF-8 allowed in headers?
-    private boolean allowutf8 = false;
+    public boolean allowutf8 = false;
 
     /**
      * Default constructor. An empty message object is created.

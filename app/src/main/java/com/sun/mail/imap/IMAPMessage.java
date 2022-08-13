@@ -978,7 +978,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 
 	if (headers == null)
 	    headers = new InternetHeaders();
-	headers.load(is); // load this header into the Headers object.
+	headers.load(is, allowutf8); // load this header into the Headers object.
 	setHeaderLoaded(name); // Mark this header as loaded
 
 	return headers.getHeader(name);
@@ -1365,7 +1365,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 		// instead of a string just containing a CR/LF
 		// when the header list is empty.
 		if (headerStream != null)
-		    h.load(headerStream);
+		    h.load(headerStream, allowutf8);
 		if (headers == null || allHeaders)
 		    headers = h;
 		else {
@@ -1634,7 +1634,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 
 	if (is == null)
 	    throw new MessagingException("Cannot load header");
-	headers = new InternetHeaders(is);
+	headers = new InternetHeaders(is, allowutf8);
 	headersLoaded = true;
     }
 
