@@ -4,6 +4,10 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### 1.1949 - 2022-08-13
+
+* Fixed a crash caused by fixing an issue
+
 ### 1.1948 - 2022-08-13
 
 * Extended unread shadow

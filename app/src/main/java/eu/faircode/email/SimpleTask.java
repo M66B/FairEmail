@@ -150,7 +150,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         // prevent garbage collection
         synchronized (tasks) {
             if (id != null)
-                for (SimpleTask task : tasks)
+                for (SimpleTask task : new ArrayList<>(tasks))
                     if (id.equals(task.id))
                         task.cancel(context);
             tasks.add(this);
