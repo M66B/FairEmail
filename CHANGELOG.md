@@ -4,11 +4,11 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
-### Next version
+### 1.1948 - 2022-08-13
 
 * Extended unread shadow
-* Updated AndroidX
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated build tools (NDK)
 * Updated translations
 
