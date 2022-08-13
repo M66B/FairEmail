@@ -144,6 +144,7 @@
     <string name="title_setup_account_identity_hint">이름, 색상, 및 밀기 동작은 계정 설정에서 구성하실 수 있고, ID 설정에서 서명을 구성할 수 있습니다</string>
     <string name="title_setup_accounts">계정</string>
     <string name="title_setup_identities">ID</string>
+    <string name="title_setup_google_sign_in">Google 로그인</string>
     <string name="title_setup_other">기타 제공업체</string>
     <string name="title_setup_pop3">POP3 계정</string>
     <string name="title_setup_oauth_permission">이메일 공급자가 Play 스토어 및 Github 버전의 OAuth만 승인했습니다</string>
@@ -173,6 +174,7 @@
     <string name="title_setup_doze_stopped">동기화가 중단되었습니까?</string>
     <string name="title_setup_doze_device">이 기기에 필요한 작업으로 예상됩니다</string>
     <string name="title_setup_alarm_12">앱이 작동하지 않습니다</string>
+    <string name="title_setup_data">데이터 절약 모드를 사용합니다</string>
     <string name="title_setup_advanced_options">고급 설정 표시</string>
     <string name="title_setup_inbox">받은편지함으로 이동</string>
     <string name="title_setup_go">시작</string>
@@ -203,6 +205,7 @@
     <string name="title_importing_account">계정 %1$s</string>
     <string name="title_importing_identity">ID %1$s</string>
     <string name="title_importing_exists">건너뜀: 이미 존재</string>
+    <string name="title_importing_wizard">재인증을 위해 마법사 다시 실행하기</string>
     <string name="title_setup_reorder_accounts">계정 정렬</string>
     <string name="title_setup_reorder_folders">폴더 정렬</string>
     <string name="title_reset_order">정렬 초기화</string>

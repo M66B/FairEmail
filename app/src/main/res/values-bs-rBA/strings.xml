@@ -525,6 +525,7 @@
     <string name="title_advanced_conversation_actions">Predloži radnje (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Predloži tekst odgovora (Android 10+)</string>
     <string name="title_advanced_language_detection">Otkrij jezik poruke</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Koristi Androidov birač fotografija</string>
     <string name="title_advanced_pull_refresh">Povuci dolje za osvježavanje</string>
     <string name="title_advanced_autoscroll">Pomakni na vrh za prijem novih poruka</string>
     <string name="title_advanced_double_tap">Dupli dodir za markiranje poruke kao pročitana/nepročitana</string>

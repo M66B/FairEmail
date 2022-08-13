@@ -499,6 +499,7 @@
     <string name="title_advanced_conversation_actions">アクションを提案 (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">返信テキストを提案 (Android 10+)</string>
     <string name="title_advanced_language_detection">メッセージの言語を検出</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Android の写真選択ツールを使用</string>
     <string name="title_advanced_pull_refresh">プルダウンして更新</string>
     <string name="title_advanced_autoscroll">新着メッセージを受信したら一番上にスクロール</string>
     <string name="title_advanced_double_tap">ダブルタップでメッセージを既読/未読にする</string>

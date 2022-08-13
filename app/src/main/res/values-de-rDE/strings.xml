@@ -510,7 +510,7 @@
     <string name="title_advanced_conversation_actions">Aktionen vorschlagen (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Antworttexte vorschlagen (Android 10+)</string>
     <string name="title_advanced_language_detection">Sprache des Nachrichtentextes erkennen</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Verwenden Sie die Android-Fotoauswahl</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Android-Fotoauswahl verwenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten nach oben scrollen</string>
     <string name="title_advanced_double_tap">Doppelt antippen, um eine Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>

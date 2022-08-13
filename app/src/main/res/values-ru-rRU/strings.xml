@@ -537,6 +537,7 @@
     <string name="title_advanced_conversation_actions">Предлагать действия (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Предлагать ответы (Android 10+)</string>
     <string name="title_advanced_language_detection">Определять язык сообщения</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Использовать выбор фото Android</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
     <string name="title_advanced_autoscroll">Прокручивать к началу списка при получении новых сообщений</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>

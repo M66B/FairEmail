@@ -524,6 +524,7 @@
     <string name="title_advanced_conversation_actions">Sugerare acțiuni (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Sugerare texte de răspuns (Android 10+)</string>
     <string name="title_advanced_language_detection">Detectează limba textului mesajului</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Folosiți selectorul de fotografii Android</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>
     <string name="title_advanced_double_tap">Atingeți de două ori pentru a marca mesajul ca ne/citit</string>

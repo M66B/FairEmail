@@ -512,6 +512,7 @@
     <string name="title_advanced_conversation_actions">Sugerir ações (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Sugerir mensagens de resposta (Android 10+)</string>
     <string name="title_advanced_language_detection">Detectar idioma do texto da mensagem</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Use o seletor de fotos do Android</string>
     <string name="title_advanced_pull_refresh">Arrastar para baixo para atualizar</string>
     <string name="title_advanced_autoscroll">Voltar ao topo quando recebe novas mensagens</string>
     <string name="title_advanced_double_tap">Toque duplo para marcar a mensagem como lida/não lida</string>

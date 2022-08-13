@@ -512,6 +512,7 @@
     <string name="title_advanced_conversation_actions">Əməliyyat təklifi (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Cavablama mətn təklifi (Android 10+)</string>
     <string name="title_advanced_language_detection">Mesaj mətninin dilini aşkarla</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Android foto seçicini istifadə et</string>
     <string name="title_advanced_pull_refresh">Təzələmək üçün aşağı çək</string>
     <string name="title_advanced_autoscroll">Yeni mesajları almaq üçün yuxarı sürüşdür</string>
     <string name="title_advanced_double_tap">Mesajı oxundu/oxunmadı kimi işarələmək üçün iki dəfə toxun</string>

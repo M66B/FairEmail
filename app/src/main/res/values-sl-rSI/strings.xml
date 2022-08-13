@@ -537,6 +537,7 @@
     <string name="title_advanced_conversation_actions">Predlagaj dejanja (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Predlagaj besedila za odgovor (Android 10+)</string>
     <string name="title_advanced_language_detection">Zaznaj jezik besedila sporočila</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Uporabi izbirnika fotografij Android</string>
     <string name="title_advanced_pull_refresh">Povleci dol za osvežitev</string>
     <string name="title_advanced_autoscroll">Ob prejemanju novih sporočil se pomakni na vrh</string>
     <string name="title_advanced_double_tap">Dvojni dotik za označevanje sporočil kot prebranih/neprebranih</string>

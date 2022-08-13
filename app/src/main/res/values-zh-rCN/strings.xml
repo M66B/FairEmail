@@ -498,6 +498,7 @@
     <string name="title_advanced_conversation_actions">建议操作 (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">建议回复内容 (Android 10+)</string>
     <string name="title_advanced_language_detection">检测消息文本的语言</string>
+    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">使用 Android 照片选择器</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
