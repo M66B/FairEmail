@@ -75,13 +75,13 @@ public class GmailState {
 
         if (needsRefresh && token != null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            String key = "token." + id + "." + user;
+            String key = ServiceAuthenticator.getTokenKey(id, user);
             long last_refresh = prefs.getLong(key, 0);
             long ago = now - last_refresh;
             EntityLog.log(context, EntityLog.Type.Debug, "Token needs refresh" +
                     " user=" + id + ":" + user + " ago=" + (ago / 60 / 1000L) + " min");
             if (ago < ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL) {
-                Log.e("Blocked token refresh id=" + id + " ago=" + (ago / 1000L));
+                Log.e("Blocked token refresh id=" + id + " ago=" + (ago / 1000L) + " s");
                 return;
             }
             prefs.edit().putLong(key, now).apply();

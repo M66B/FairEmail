@@ -438,7 +438,7 @@ public class EmailService implements AutoCloseable {
         }
 
         properties.put("mail." + protocol + ".forcepasswordrefresh", "true");
-        authenticator = new ServiceAuthenticator(context, auth, provider, user, password, intf);
+        authenticator = new ServiceAuthenticator(context, auth, provider, user, password, purpose == PURPOSE_CHECK, intf);
 
         if ("imap.wp.pl".equals(host))
             properties.put("mail.idledone", "false");

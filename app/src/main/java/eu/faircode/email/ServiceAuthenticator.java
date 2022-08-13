@@ -64,6 +64,7 @@ public class ServiceAuthenticator extends Authenticator {
             Context context,
             int auth, String provider,
             String user, String password,
+            boolean check,
             IAuthenticated intf) {
         this.context = context.getApplicationContext();
         this.auth = auth;
@@ -71,6 +72,13 @@ public class ServiceAuthenticator extends Authenticator {
         this.user = user;
         this.password = password;
         this.intf = intf;
+
+        if (check) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String key = getTokenKey(provider, user);
+            prefs.edit().remove(key).apply();
+            EntityLog.log(context, "Removed " + key);
+        }
     }
 
     @Override
@@ -164,13 +172,13 @@ public class ServiceAuthenticator extends Authenticator {
 
             if (needsRefresh || authState.getNeedsTokenRefresh()) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                String key = "token." + id + "." + user;
+                String key = getTokenKey(id, user);
                 long last_refresh = prefs.getLong(key, 0);
                 long ago = now - last_refresh;
                 EntityLog.log(context, EntityLog.Type.Debug, "Token needs refresh" +
                         " user=" + id + ":" + user + " ago=" + (ago / 60 / 1000L) + " min");
                 if (ago < ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL) {
-                    Log.e("Blocked token refresh id=" + id + " ago=" + (ago / 1000L));
+                    Log.e("Blocked token refresh id=" + id + " ago=" + (ago / 1000L) + " s");
                     return;
                 }
                 prefs.edit().putLong(key, now).apply();
@@ -213,6 +221,10 @@ public class ServiceAuthenticator extends Authenticator {
         } catch (Exception ex) {
             throw new MessagingException("OAuth refresh id=" + id, ex);
         }
+    }
+
+    static String getTokenKey(String id, String user) {
+        return "token." + id + "." + user;
     }
 
     static String getAuthTokenType(String type) {
