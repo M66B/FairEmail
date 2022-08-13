@@ -80,13 +80,11 @@ import java.util.concurrent.Future;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLProtocolException;
-import javax.net.ssl.SSLSession;
 
 public class ContactInfo {
     private String email;
@@ -552,19 +550,8 @@ public class ContactInfo {
         boolean favicons_partial = prefs.getBoolean("favicons_partial", true);
 
         Log.i("PARSE favicon " + base);
-        HttpsURLConnection connection = (HttpsURLConnection) base.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setReadTimeout(FAVICON_READ_TIMEOUT);
-        connection.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
-        connection.setInstanceFollowRedirects(true);
-        connection.setHostnameVerifier(new HostnameVerifier() {
-            @Override
-            public boolean verify(String hostname, SSLSession session) {
-                return true;
-            }
-        });
-        ConnectionHelper.setUserAgent(context, connection);
-        connection.connect();
+        HttpURLConnection connection = ConnectionHelper
+                .openConnectionUnsafe(context, base, FAVICON_CONNECT_TIMEOUT, FAVICON_READ_TIMEOUT);
 
         Document doc;
         try {
@@ -840,19 +827,8 @@ public class ContactInfo {
         if (!"https".equals(url.getProtocol()))
             throw new FileNotFoundException(url.toString());
 
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setReadTimeout(FAVICON_READ_TIMEOUT);
-        connection.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
-        connection.setInstanceFollowRedirects(true);
-        connection.setHostnameVerifier(new HostnameVerifier() {
-            @Override
-            public boolean verify(String hostname, SSLSession session) {
-                return true;
-            }
-        });
-        ConnectionHelper.setUserAgent(context, connection);
-        connection.connect();
+        HttpURLConnection connection = ConnectionHelper
+                .openConnectionUnsafe(context, url, FAVICON_CONNECT_TIMEOUT, FAVICON_READ_TIMEOUT);
 
         try {
             int status = connection.getResponseCode();

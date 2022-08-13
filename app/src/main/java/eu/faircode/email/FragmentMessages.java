@@ -9568,7 +9568,7 @@ public class FragmentMessages extends FragmentBase
 
                                     HttpURLConnection connection = null;
                                     try {
-                                        connection = Helper.openUrlRedirect(context, src, timeout);
+                                        connection = ConnectionHelper.openConnectionUnsafe(context, src, timeout, timeout);
                                         Helper.copy(connection.getInputStream(), os);
                                     } finally {
                                         if (connection != null)

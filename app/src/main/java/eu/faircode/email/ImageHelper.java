@@ -692,7 +692,7 @@ class ImageHelper {
         Bitmap bm;
         HttpURLConnection urlConnection = null;
         try {
-            urlConnection = Helper.openUrlRedirect(context, source, timeout);
+            urlConnection = ConnectionHelper.openConnectionUnsafe(context, source, timeout, timeout);
 
             if (id > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 File file = getCacheFile(context, id, source, ".blob");

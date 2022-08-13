@@ -79,6 +79,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swSslHarden;
     private SwitchCompat swSslHardenStrict;
     private SwitchCompat swCertStrict;
+    private SwitchCompat swOpenUnsafe;
     private Button btnManage;
     private TextView tvNetworkMetered;
     private TextView tvNetworkRoaming;
@@ -93,7 +94,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             "download_headers", "download_eml", "download_plain",
             "require_validated", "vpn_only",
             "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive",
-            "ssl_harden", "ssl_harden_strict", "cert_strict"
+            "ssl_harden", "ssl_harden_strict", "cert_strict", "open_unsafe"
     };
 
     @Override
@@ -125,6 +126,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swSslHarden = view.findViewById(R.id.swSslHarden);
         swSslHardenStrict = view.findViewById(R.id.swSslHardenStrict);
         swCertStrict = view.findViewById(R.id.swCertStrict);
+        swOpenUnsafe = view.findViewById(R.id.swOpenUnsafe);
         btnManage = view.findViewById(R.id.btnManage);
 
         tvNetworkMetered = view.findViewById(R.id.tvNetworkMetered);
@@ -307,6 +309,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             }
         });
 
+        swOpenUnsafe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("open_unsafe", checked).apply();
+            }
+        });
+
         final Intent manage = getIntentConnectivity();
         PackageManager pm = getContext().getPackageManager();
         btnManage.setVisibility(
@@ -441,6 +450,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swSslHardenStrict.setChecked(prefs.getBoolean("ssl_harden_strict", false));
         swSslHardenStrict.setEnabled(swSslHarden.isChecked());
         swCertStrict.setChecked(prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE));
+        swOpenUnsafe.setChecked(prefs.getBoolean("open_unsafe", true));
     }
 
     private static Intent getIntentConnectivity() {

@@ -44,7 +44,10 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
@@ -57,12 +60,17 @@ import java.util.Locale;
 import java.util.Objects;
 
 import javax.net.SocketFactory;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
 import inet.ipaddr.IPAddressString;
 
 public class ConnectionHelper {
+    static final int MAX_REDIRECTS = 5; // https://www.freesoft.org/CIE/RFC/1945/46.htm
+
     static final List<String> PREF_NETWORK = Collections.unmodifiableList(Arrays.asList(
             "metered", "roaming", "rlah", "require_validated", "vpn_only" // update network state
     ));
@@ -655,6 +663,74 @@ public class ConnectionHelper {
                 connection.setRequestProperty("Sec-CH-UA-Platform-Version", "\"" + release + "\"");
                 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Model
                 connection.setRequestProperty("Sec-CH-UA-Model", "\"" + model + "\"");
+            }
+        }
+    }
+
+    static HttpURLConnection openConnectionUnsafe(Context context, String source, int ctimeout, int rtimeout) throws IOException {
+        return openConnectionUnsafe(context, new URL(source), ctimeout, rtimeout);
+    }
+
+    static HttpURLConnection openConnectionUnsafe(Context context, URL url, int ctimeout, int rtimeout) throws IOException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean open_unsafe = prefs.getBoolean("open_unsafe", true);
+
+        int redirects = 0;
+        while (true) {
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.setDoOutput(false);
+            urlConnection.setReadTimeout(ctimeout);
+            urlConnection.setConnectTimeout(rtimeout);
+            urlConnection.setInstanceFollowRedirects(true);
+
+            if (urlConnection instanceof HttpsURLConnection) {
+                if (open_unsafe)
+                    ((HttpsURLConnection) urlConnection).setHostnameVerifier(new HostnameVerifier() {
+                        @Override
+                        public boolean verify(String hostname, SSLSession session) {
+                            return true;
+                        }
+                    });
+            } else {
+                if (!open_unsafe)
+                    throw new IOException("https required url=" + url);
+            }
+
+            ConnectionHelper.setUserAgent(context, urlConnection);
+            urlConnection.connect();
+
+            try {
+                int status = urlConnection.getResponseCode();
+
+                if (open_unsafe &&
+                        (status == HttpURLConnection.HTTP_MOVED_PERM ||
+                                status == HttpURLConnection.HTTP_MOVED_TEMP ||
+                                status == HttpURLConnection.HTTP_SEE_OTHER ||
+                                status == 307 /* Temporary redirect */ ||
+                                status == 308 /* Permanent redirect */)) {
+                    if (++redirects > MAX_REDIRECTS)
+                        throw new IOException("Too many redirects");
+
+                    String header = urlConnection.getHeaderField("Location");
+                    if (header == null)
+                        throw new IOException("Location header missing");
+
+                    String location = URLDecoder.decode(header, StandardCharsets.UTF_8.name());
+                    url = new URL(url, location);
+                    Log.i("Redirect #" + redirects + " to " + url);
+
+                    urlConnection.disconnect();
+                    continue;
+                }
+
+                if (status != HttpURLConnection.HTTP_OK)
+                    throw new IOException("Error " + status + ": " + urlConnection.getResponseMessage());
+
+                return urlConnection;
+            } catch (IOException ex) {
+                urlConnection.disconnect();
+                throw ex;
             }
         }
     }
