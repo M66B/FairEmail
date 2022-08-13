@@ -73,7 +73,7 @@ public class GmailState {
                 expiration - ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL < now)
             needsRefresh = true;
 
-        if (needsRefresh) {
+        if (needsRefresh && token != null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String key = "token." + id + "." + user;
             long last_refresh = prefs.getLong(key, 0);
