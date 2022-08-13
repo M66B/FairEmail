@@ -371,8 +371,7 @@ public class FragmentOAuth extends FragmentBase {
 
                         @Override
                         public boolean matches(@NonNull BrowserDescriptor descriptor) {
-                            boolean accept =
-                                    (!SBROWSER.matches(descriptor) && !descriptor.useCustomTab);
+                            boolean accept = !SBROWSER.matches(descriptor);
                             EntityLog.log(context,
                                     "Browser=" + descriptor.packageName +
                                             ":" + descriptor.version +
