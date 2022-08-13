@@ -6138,7 +6138,7 @@ public class FragmentMessages extends FragmentBase
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                 }
-            }.setExecutor(executor).execute(this, args, "quickactions");
+            }.setExecutor(executor).setId("messages:" + FragmentMessages.this.hashCode()).execute(this, args, "quickactions");
         } else {
             fabMore.hide();
             tvSelectedCount.setVisibility(View.GONE);
