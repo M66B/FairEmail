@@ -473,7 +473,7 @@
     <string name="title_advanced_ssl_harden">Harden SSL connections</string>
     <string name="title_advanced_ssl_harden_strict">Require TLS 1.3</string>
     <string name="title_advanced_cert_strict">Strict certificate checking</string>
-    <string name="title_advanced_open_unsafe">Open insecure connections</string>
+    <string name="title_advanced_open_safe">Open secure connections only</string>
     <string name="title_advanced_manage_connectivity">Manage connectivity</string>
 
     <string name="title_advanced_caption_general">General</string>
@@ -866,7 +866,7 @@
     <string name="title_advanced_timeout_hint">The read/write timeout will be set to the double of the connection timeout. Higher values will result in more battery use.</string>
     <string name="title_advanced_cert_strict_hint">Disabling this will relax checking of server certificates</string>
     <string name="title_advanced_ssl_harden_hint">Enabling this will disable weak SSL protocols and ciphers, which can lead to connection problems</string>
-    <string name="title_advanced_open_unsafe_hint">Disabling this will require secure connections to download images</string>
+    <string name="title_advanced_open_safe_hint">Enabling this will require secure connections to download images, etc</string>
     <string name="title_advanced_roaming_hint">Messages headers will always be fetched when roaming. You can use the device\'s roaming setting to disable internet while roaming.</string>
 
     <string name="title_advanced_browse_hint">Fetch more messages when scrolling down</string>
