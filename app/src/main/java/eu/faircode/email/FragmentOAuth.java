@@ -45,6 +45,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -105,6 +106,7 @@ public class FragmentOAuth extends FragmentBase {
     private String personal;
     private String address;
     private boolean pop;
+    private boolean recent;
     private boolean update;
 
     private ViewGroup view;
@@ -117,6 +119,7 @@ public class FragmentOAuth extends FragmentBase {
     private EditText etTenant;
     private CheckBox cbInboundOnly;
     private CheckBox cbPop;
+    private CheckBox cbRecent;
     private CheckBox cbUpdate;
     private Button btnOAuth;
     private ContentLoadingProgressBar pbOAuth;
@@ -147,6 +150,7 @@ public class FragmentOAuth extends FragmentBase {
         personal = args.getString("personal");
         address = args.getString("address");
         pop = args.getBoolean("pop", false);
+        recent = args.getBoolean("recent", false);
         update = args.getBoolean("update", true);
     }
 
@@ -167,6 +171,7 @@ public class FragmentOAuth extends FragmentBase {
         etTenant = view.findViewById(R.id.etTenant);
         cbInboundOnly = view.findViewById(R.id.cbInboundOnly);
         cbPop = view.findViewById(R.id.cbPop);
+        cbRecent = view.findViewById(R.id.cbRecent);
         cbUpdate = view.findViewById(R.id.cbUpdate);
         btnOAuth = view.findViewById(R.id.btnOAuth);
         pbOAuth = view.findViewById(R.id.pbOAuth);
@@ -189,6 +194,13 @@ public class FragmentOAuth extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Helper.view(v.getContext(), Uri.parse(privacy), false);
+            }
+        });
+
+        cbPop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                cbRecent.setVisibility(checked && "gmail".equals(id) ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -251,6 +263,7 @@ public class FragmentOAuth extends FragmentBase {
         etEmail.setVisibility(askAccount ? View.VISIBLE : View.GONE);
         grpTenant.setVisibility(askTenant ? View.VISIBLE : View.GONE);
         cbPop.setVisibility(pop ? View.VISIBLE : View.GONE);
+        cbRecent.setVisibility(View.GONE);
         pbOAuth.setVisibility(View.GONE);
         tvConfiguring.setVisibility(View.GONE);
         tvGmailHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
@@ -261,6 +274,7 @@ public class FragmentOAuth extends FragmentBase {
         etTenant.setText(null);
         cbInboundOnly.setChecked(false);
         cbPop.setChecked(false);
+        cbRecent.setChecked(false);
         cbUpdate.setChecked(update);
 
         return view;
@@ -317,6 +331,7 @@ public class FragmentOAuth extends FragmentBase {
             etTenant.setEnabled(false);
             cbInboundOnly.setEnabled(false);
             cbPop.setEnabled(false);
+            cbRecent.setEnabled(false);
             cbUpdate.setEnabled(false);
             btnOAuth.setEnabled(false);
             pbOAuth.setVisibility(View.VISIBLE);
@@ -466,6 +481,7 @@ public class FragmentOAuth extends FragmentBase {
             etTenant.setEnabled(true);
             cbInboundOnly.setEnabled(true);
             cbPop.setEnabled(true);
+            cbRecent.setEnabled(true);
             cbUpdate.setEnabled(true);
 
             AuthorizationResponse auth = AuthorizationResponse.fromIntent(data);
@@ -554,6 +570,7 @@ public class FragmentOAuth extends FragmentBase {
         args.putString("address", etEmail.getText().toString().trim());
         args.putBoolean("inbound_only", cbInboundOnly.isChecked());
         args.putBoolean("pop", cbPop.isChecked());
+        args.putBoolean("recent", cbRecent.isChecked());
         args.putBoolean("update", cbUpdate.isChecked());
 
         new SimpleTask<Void>() {
@@ -579,6 +596,7 @@ public class FragmentOAuth extends FragmentBase {
                 String address = args.getString("address");
                 boolean inbound_only = args.getBoolean("inbound_only");
                 boolean pop = args.getBoolean("pop");
+                boolean recent = args.getBoolean("recent");
 
                 EmailProvider provider = EmailProvider.getProvider(context, id);
                 if (provider.pop == null)
@@ -760,6 +778,9 @@ public class FragmentOAuth extends FragmentBase {
                 NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
                 if (ani == null || !ani.isConnected())
                     throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
+
+                if (pop && recent && "gmail".equals(id))
+                    username = "recent:" + username;
 
                 Log.i("OAuth username=" + username);
                 for (Pair<String, String> identity : identities)
@@ -951,6 +972,7 @@ public class FragmentOAuth extends FragmentBase {
         etTenant.setEnabled(true);
         cbInboundOnly.setEnabled(true);
         cbPop.setEnabled(true);
+        cbRecent.setEnabled(true);
         cbUpdate.setEnabled(true);
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
@@ -989,6 +1011,7 @@ public class FragmentOAuth extends FragmentBase {
         etTenant.setEnabled(true);
         cbInboundOnly.setEnabled(true);
         cbPop.setEnabled(true);
+        cbRecent.setEnabled(true);
         cbUpdate.setEnabled(true);
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
