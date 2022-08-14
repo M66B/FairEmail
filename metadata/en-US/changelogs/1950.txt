@@ -4,6 +4,13 @@ Changelog
 
 Ledumahadi
 
+Next version
+
+* Added option to download images, etc via secure connections only
+* Small improvements and minor bug fixes
+* Updated libraries (OAuth)
+* Updated translations
+
 1.1950 - 2022-08-13
 
 * Fixed authenticating on-device Gmail accounts in some cases
