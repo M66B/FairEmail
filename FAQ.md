@@ -4884,6 +4884,7 @@ In addition, *Select app* will be listed, which means that the link will be hand
 In most cases, this will be with the default browser, which you can select in the Android settings.
 If there is choice, Android will ask you how to open the link. You can select *Always* or *Just Once*.
 If you want to reset *Always*, please [see here](https://support.google.com/pixelphone/answer/6271667) about how to.
+Note that Android will always use the default browser as selected in the Android settings and therefore will never ask which browser to use.
 
 If you ticked *Do not ask this again for [domain name]*, you can undo this by using the *Reset questions* button in the miscellaneous settings tab page of the app.
 
