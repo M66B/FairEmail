@@ -680,8 +680,8 @@ public class ConnectionHelper {
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.setDoOutput(false);
-            urlConnection.setReadTimeout(ctimeout);
-            urlConnection.setConnectTimeout(rtimeout);
+            urlConnection.setReadTimeout(rtimeout);
+            urlConnection.setConnectTimeout(ctimeout);
             urlConnection.setInstanceFollowRedirects(true);
 
             if (urlConnection instanceof HttpsURLConnection) {
