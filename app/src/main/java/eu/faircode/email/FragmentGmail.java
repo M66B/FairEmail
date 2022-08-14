@@ -228,8 +228,8 @@ public class FragmentGmail extends FragmentBase {
         Helper.setViewsEnabled(view, false);
         tvTitle.setText(getString(R.string.title_setup_oauth_rationale, "Gmail"));
         etName.setText(personal);
-        cbPop.setChecked(pop);
-        cbRecent.setChecked(recent);
+        cbPop.setChecked(false);
+        cbRecent.setChecked(false);
         cbRecent.setVisibility(pop ? View.VISIBLE : View.GONE);
         cbUpdate.setChecked(update);
         pbSelect.setVisibility(View.GONE);
@@ -453,14 +453,14 @@ public class FragmentGmail extends FragmentBase {
                 int at = user.indexOf('@');
                 String username = user.substring(0, at);
 
-                if (pop && recent)
-                    user = "recent:" + user;
-
                 EmailProvider provider = EmailProvider
                         .fromDomain(context, "gmail.com", EmailProvider.Discover.ALL)
                         .get(0);
                 if (provider.pop == null)
                     pop = false;
+
+                if (pop && recent)
+                    user = "recent:" + user;
 
                 List<EntityFolder> folders;
 
