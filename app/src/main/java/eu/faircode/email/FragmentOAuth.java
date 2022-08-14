@@ -125,6 +125,7 @@ public class FragmentOAuth extends FragmentBase {
     private ContentLoadingProgressBar pbOAuth;
     private TextView tvConfiguring;
     private TextView tvGmailHint;
+    private TextView tvGmailLoginHint;
 
     private TextView tvError;
     private TextView tvOfficeAuthHint;
@@ -177,6 +178,7 @@ public class FragmentOAuth extends FragmentBase {
         pbOAuth = view.findViewById(R.id.pbOAuth);
         tvConfiguring = view.findViewById(R.id.tvConfiguring);
         tvGmailHint = view.findViewById(R.id.tvGmailHint);
+        tvGmailLoginHint = view.findViewById(R.id.tvGmailLoginHint);
 
         tvError = view.findViewById(R.id.tvError);
         tvOfficeAuthHint = view.findViewById(R.id.tvOfficeAuthHint);
@@ -267,6 +269,7 @@ public class FragmentOAuth extends FragmentBase {
         pbOAuth.setVisibility(View.GONE);
         tvConfiguring.setVisibility(View.GONE);
         tvGmailHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
+        tvGmailLoginHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
         hideError();
 
         etName.setText(personal);
@@ -429,6 +432,7 @@ public class FragmentOAuth extends FragmentBase {
                 redirectUri = Uri.parse("eu.faircode.email.debug:/");
             }
 
+            // https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
             AuthorizationRequest.Builder authRequestBuilder =
                     new AuthorizationRequest.Builder(
                             serviceConfig,
