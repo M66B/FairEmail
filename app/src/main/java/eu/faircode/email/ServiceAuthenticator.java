@@ -178,7 +178,10 @@ public class ServiceAuthenticator extends Authenticator {
                 EntityLog.log(context, EntityLog.Type.Debug, "Token needs refresh" +
                         " user=" + id + ":" + user + " ago=" + (ago / 60 / 1000L) + " min");
                 if (ago < ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL) {
-                    Log.e("Blocked token refresh id=" + id + " ago=" + (ago / 1000L) + " s");
+                    Log.e("Blocked token refresh id=" + id +
+                            " ago=" + (ago / 1000L) + " s" +
+                            " force=" + forceRefresh +
+                            " exp=" + (expiration == null ? null : new Date(expiration)));
                     return;
                 }
                 prefs.edit().putLong(key, now).apply();
