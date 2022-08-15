@@ -181,7 +181,7 @@ public class ServiceAuthenticator extends Authenticator {
                     Log.e("Blocked token refresh id=" + id +
                             " ago=" + (ago / 1000L) + " s" +
                             " force=" + forceRefresh +
-                            " exp=" + (expiration == null ? null : new Date(expiration)));
+                            " exp=" + (expiration == null ? -1 : (expiration - now) / 1000L) + " s");
                     return;
                 }
                 prefs.edit().putLong(key, now).apply();
