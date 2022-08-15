@@ -647,7 +647,8 @@ public class EntityOperation {
         EntityLog.log(context, "Cleanup op=" + id + "/" + name + " folder=" + folder + " message=" + message);
 
         if (message != null) {
-            db.message().setMessageUiHide(message, false);
+            if (MOVE.equals(name) || DELETE.equals(name))
+                db.message().setMessageUiHide(message, false);
 
             if (SEEN.equals(name)) {
                 EntityMessage m = db.message().getMessage(message);
