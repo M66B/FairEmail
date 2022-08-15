@@ -36,6 +36,7 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.util.FolderClosedIOException;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.Inet4Address;
@@ -724,6 +725,8 @@ public class ConnectionHelper {
                     continue;
                 }
 
+                if (status == HttpURLConnection.HTTP_NOT_FOUND)
+                    throw new FileNotFoundException("Error " + status + ": " + urlConnection.getResponseMessage());
                 if (status != HttpURLConnection.HTTP_OK)
                     throw new IOException("Error " + status + ": " + urlConnection.getResponseMessage());
 
