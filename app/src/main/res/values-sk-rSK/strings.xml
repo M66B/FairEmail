@@ -420,6 +420,7 @@
     <string name="title_advanced_ssl_harden">Obrniť SSL pripojenia</string>
     <string name="title_advanced_ssl_harden_strict">Vyžadovať TLS 1.3</string>
     <string name="title_advanced_cert_strict">Prísna kontrola certifikátov</string>
+    <string name="title_advanced_open_safe">Otvárať len zabezpečené spojenia</string>
     <string name="title_advanced_manage_connectivity">Spravovať pripojenie</string>
     <string name="title_advanced_caption_general">Všeobecné</string>
     <string name="title_advanced_caption_navigation">Navigácia</string>
@@ -536,6 +537,7 @@
     <string name="title_advanced_conversation_actions">Odporúčať akcie (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Odporúčať text odpovedí (Android 10+)</string>
     <string name="title_advanced_language_detection">Rozpoznať jazyk textu správy</string>
+    <string name="title_advanced_photo_picker">Používať rozhranie výberu fotografií systému Android</string>
     <string name="title_advanced_pull_refresh">Obnoviť stiahnutím</string>
     <string name="title_advanced_autoscroll">Po prijatí nových správ posunúť zoznam na začiatok</string>
     <string name="title_advanced_double_tap">Dvojitým klepnutím označiť správu ako prečítanú/neprečítanú</string>
@@ -716,6 +718,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_timeout_hint">Časový limit čítania/zápisu bude nastavený na dvojnásobok limitu spojenia. Čím vyššia hodnota, tým vyšší nárok na využívanie batérie.</string>
     <string name="title_advanced_cert_strict_hint">Vypnutím upustíte od kontroly dôveryhodnosti certifikátov servera</string>
     <string name="title_advanced_ssl_harden_hint">Povolením zakážete slabé metódy a protokoly SSL, čo môže viesť k problémom so spojením</string>
+    <string name="title_advanced_open_safe_hint">Ak je toto povolené, aj na sťahovanie obrázkov a ostatných bude potrebné zabezpečené spojenie</string>
     <string name="title_advanced_roaming_hint">Hlavičky správ budú vždy preberané počas roamingu. Na zakázanie internetu v roamingu použite nastavenia zariadenia.</string>
     <string name="title_advanced_browse_hint">Načítať viac správ pri posúvaní dolu</string>
     <string name="title_advanced_layout_hint">Úspornejšie rozloženie a veľkosť textu si môžete nastaviť v hornej ponuke akcií zobrazenia správ</string>

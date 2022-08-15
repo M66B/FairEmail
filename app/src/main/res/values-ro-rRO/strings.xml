@@ -408,6 +408,7 @@
     <string name="title_advanced_ssl_harden">Întârire conexiuni SSL</string>
     <string name="title_advanced_ssl_harden_strict">Necesită TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificarea strictă a certificatelor</string>
+    <string name="title_advanced_open_safe">Deschideți numai conexiuni sigure</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_navigation">Navigaţie</string>
@@ -524,7 +525,7 @@
     <string name="title_advanced_conversation_actions">Sugerare acțiuni (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Sugerare texte de răspuns (Android 10+)</string>
     <string name="title_advanced_language_detection">Detectează limba textului mesajului</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Folosiți selectorul de fotografii Android</string>
+    <string name="title_advanced_photo_picker">Folosiți selectorul de fotografii Android</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>
     <string name="title_advanced_double_tap">Atingeți de două ori pentru a marca mesajul ca ne/citit</string>
@@ -705,6 +706,7 @@
     <string name="title_advanced_timeout_hint">Timpul de expirare a citirii/scrierii va fi setat la dublul intervalului de expirare a conexiunii. Valori mai mari au ca rezultat o utilizare mai mare a bateriei.</string>
     <string name="title_advanced_cert_strict_hint">Dezactivarea acestui lucru va relaxa verificarea certificatelor serverului</string>
     <string name="title_advanced_ssl_harden_hint">Activând această setare se vor dezactiva protocoalele și cifrările SSL slabe, putând duce la probleme de conectare</string>
+    <string name="title_advanced_open_safe_hint">Activarea acestui lucru va necesita conexiuni securizate pentru a descărca imagini, etc</string>
     <string name="title_advanced_roaming_hint">Antetele mesajelor vor fi mereu descărcate și în roaming. Puteți folosi setările roaming ale dispozitivului pentru a dezactiva internetul atunci când sunteți în roaming.</string>
     <string name="title_advanced_browse_hint">Descarcă mai multe mesaje când se derulează în jos</string>
     <string name="title_advanced_layout_hint">Selectarea unui aspect mai compact și mărimea textului se poate face din meniul paginii de mesaje</string>

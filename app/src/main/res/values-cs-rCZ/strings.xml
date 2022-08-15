@@ -421,6 +421,7 @@
     <string name="title_advanced_ssl_harden">Obrnit SSL připojení</string>
     <string name="title_advanced_ssl_harden_strict">Vyžadovat TLS 1.3</string>
     <string name="title_advanced_cert_strict">Přísná kontrola certifikátu</string>
+    <string name="title_advanced_open_safe">Otevřít pouze zabezpečená připojení</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_caption_general">Obecné</string>
     <string name="title_advanced_caption_navigation">Navigace</string>
@@ -537,7 +538,7 @@
     <string name="title_advanced_conversation_actions">Navrhovat akce (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Navrhovat odpovědní texty (Android 10+)</string>
     <string name="title_advanced_language_detection">Rozpoznat jazyk textu zprávy</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Použít nástroj výběru fotografií Android</string>
+    <string name="title_advanced_photo_picker">Použít nástroj výběru fotografií Android</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
@@ -718,6 +719,7 @@
     <string name="title_advanced_timeout_hint">Časový limit čtení/zápisu bude nastaven na dvojnásobek časového limitu připojení. Vyšší hodnoty povedou k větší spotřebě baterie.</string>
     <string name="title_advanced_cert_strict_hint">Zakázáním této funkce se uvolní kontrola serverových certifikátů</string>
     <string name="title_advanced_ssl_harden_hint">Povolení této volby zakáže slabé SSL protokoly a šifry, což může vést k problémům s připojením</string>
+    <string name="title_advanced_open_safe_hint">Povolením této funkce bude vyžadována zabezpečená připojení ke stahování obrázků, atd.</string>
     <string name="title_advanced_roaming_hint">Hlavičky zpráv budou během roamingu stahovány vždy. Použijte nastavení svého zařízení pro zakázání internetu při roamingu.</string>
     <string name="title_advanced_browse_hint">Načte další zprávy při posouvání dolů</string>
     <string name="title_advanced_layout_hint">Přepnutí na kompaktnější rozvržení a změnu velikosti textu lze provést v zobrazení zprávy skrze menu v horním panelu akcí</string>

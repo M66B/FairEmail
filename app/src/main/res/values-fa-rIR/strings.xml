@@ -340,6 +340,7 @@
     <string name="title_advanced_timeout">اتصال برقرار نشد (ثانیه)</string>
     <string name="title_advanced_prefer_ip4">ترجیح IPv4 به IPv6</string>
     <string name="title_advanced_ssl_harden">اتصالات SSL را محکم کن</string>
+    <string name="title_advanced_open_safe">فقط ارتباطات اوپن‌سورس</string>
     <string name="title_advanced_manage_connectivity">مدیریت اتصال</string>
     <string name="title_advanced_caption_general">عمومی</string>
     <string name="title_advanced_caption_navigation">ناوبری</string>
@@ -423,7 +424,7 @@
     <string name="title_advanced_double_back">برای خروج دوبار \'بازگشت\' را بزنید</string>
     <string name="title_advanced_conversation_actions_replies">پیشنهاد پاسخ (اندروید +۱۰)</string>
     <string name="title_advanced_language_detection">تشخیص زبان متن پیام</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">از انتخاب کننده تصاویر اندروید استفاده کنید</string>
+    <string name="title_advanced_photo_picker">از انتخاب کننده تصاویر اندروید استفاده کنید</string>
     <string name="title_advanced_pull_refresh">برای بروزرسانی به پایین بکشید</string>
     <string name="title_advanced_swipenav">کشیدن به چپ/راست برای رفتن به مکالمه بعدی/قبلی</string>
     <string name="title_advanced_volumenav">بالا/پایین بردن صدا برای رفتن به گفتگوی بعدی/قبلی</string>
@@ -514,6 +515,7 @@
     <string name="title_advanced_metered_warning">غیرفعال‌سازی این گزینه، دریافت و فرستادن پیام‌ها را روی داده همراه غیرفعال خواهد کرد</string>
     <string name="title_advanced_tcp_keep_alive_hint">فعال کردنش می‌تواند منجر به اختلال در ارتباط در بعضی دستگاه‌ها و یا افزایش مصرف باتری شود</string>
     <string name="title_advanced_ssl_harden_hint">فعال‌سازی این باعث غیرفعال‌سازی SSL و رمز‌های ضعیف خواهد شد، که می‌تواند موجب مشکلات اتصال شود</string>
+    <string name="title_advanced_open_safe_hint">فعال کردن این نیازمند ارتباطات امن برای دانلود تصاویر و غیره خواهد بود</string>
     <string name="title_advanced_browse_hint">واکشی پیام‌های بیشتر هنگام پیمایش به پایین</string>
     <string name="title_advanced_threading_hint">پیام‌های گروهی مرتبط با یکدیگر</string>
     <string name="title_advanced_privacy_risk">شاید خطر حریم خصوصی وجود داشته باشد</string>

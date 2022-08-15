@@ -396,6 +396,7 @@
     <string name="title_advanced_ssl_harden">Indurisci connessioni SSL</string>
     <string name="title_advanced_ssl_harden_strict">Richiede TLS 1.3</string>
     <string name="title_advanced_cert_strict">Controllo rigoroso del certificato</string>
+    <string name="title_advanced_open_safe">Apri solo connessioni sicure</string>
     <string name="title_advanced_manage_connectivity">Gestisci la connettività</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_navigation">Navigazione</string>
@@ -512,7 +513,7 @@
     <string name="title_advanced_conversation_actions">Suggerisci azioni (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Suggerisci i testi di risposta (Android 10+)</string>
     <string name="title_advanced_language_detection">Rileva la lingua del testo del messaggio</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Usa il selettore foto di Android</string>
+    <string name="title_advanced_photo_picker">Usa il selettore foto di Android</string>
     <string name="title_advanced_pull_refresh">Scorri in giù per aggiornare</string>
     <string name="title_advanced_autoscroll">Scorri in su alla ricezione di nuovi messaggi</string>
     <string name="title_advanced_double_tap">Tocca due volte per contrassegnare un messaggio come letto/non letto</string>
@@ -694,6 +695,7 @@
     <string name="title_advanced_timeout_hint">Il timeout di lettura/scrittura sarà impostato al doppio del timeout di connessione. Valori superiori risulteranno in un maggiore uso della batteria.</string>
     <string name="title_advanced_cert_strict_hint">Disabilitarlo rilasserà la verifica dei certificati del server</string>
     <string name="title_advanced_ssl_harden_hint">Abilitarlo disabiliterà i protocolli SSL e cifrari deboli, che possono condurre a problemi di connessione</string>
+    <string name="title_advanced_open_safe_hint">Abilitarlo richiederà connessioni sicure per scaricare immagini, etc.</string>
     <string name="title_advanced_roaming_hint">Le intestazioni dei messaggi saranno sempre recuperate in roaming. Puoi usare le impostazioni di roaming del dispositivo per disabilitare internet in roaming.</string>
     <string name="title_advanced_browse_hint">Recupera altri messaggi scorrendo in giù</string>
     <string name="title_advanced_layout_hint">Passare a un layout più compatto e cambiare la dimensione del testo del messaggio si può fare nel menu della barra d\'azione superiore nella visualizzazione del messaggio</string>

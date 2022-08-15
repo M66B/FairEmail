@@ -409,6 +409,7 @@
     <string name="title_advanced_ssl_harden">Ojačaj SSL konekcije</string>
     <string name="title_advanced_ssl_harden_strict">Zahtjevaj TLS 1.3</string>
     <string name="title_advanced_cert_strict">Striktna provjera certifikata</string>
+    <string name="title_advanced_open_safe">Otvaraj samo sigurne konekcije</string>
     <string name="title_advanced_manage_connectivity">Upravljanje konekcijama</string>
     <string name="title_advanced_caption_general">Općenito</string>
     <string name="title_advanced_caption_navigation">Navigacija</string>
@@ -525,7 +526,7 @@
     <string name="title_advanced_conversation_actions">Predloži radnje (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Predloži tekst odgovora (Android 10+)</string>
     <string name="title_advanced_language_detection">Otkrij jezik poruke</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Koristi Androidov birač fotografija</string>
+    <string name="title_advanced_photo_picker">Koristi Androidov birač fotografija</string>
     <string name="title_advanced_pull_refresh">Povuci dolje za osvježavanje</string>
     <string name="title_advanced_autoscroll">Pomakni na vrh za prijem novih poruka</string>
     <string name="title_advanced_double_tap">Dupli dodir za markiranje poruke kao pročitana/nepročitana</string>
@@ -706,6 +707,7 @@
     <string name="title_advanced_timeout_hint">Vrijeme isteka čitanja/pisanja bit će postavljeno na dvostruku vrijednost vremena isteka konekcije. Više vrijednosti će rezultirati u većoj potrošnji baterije.</string>
     <string name="title_advanced_cert_strict_hint">Onemogućavanje ove opcije će olakšati provjeru certifikata servera</string>
     <string name="title_advanced_ssl_harden_hint">Uključivanjem ove opcije će se isključiti slabi SSL protokoli i šifre, što može dovesti do problema s konekcijom</string>
+    <string name="title_advanced_open_safe_hint">Ako je ova opcija omogućena, potrebne su sigurne konekcije za preuzimanje slika itd.</string>
     <string name="title_advanced_roaming_hint">Zaglavlja poruka će se uvijek dohvatati tokom roaminga. Možete isključiti internet podatke u postavkama roaminga za vaš uređaj.</string>
     <string name="title_advanced_browse_hint">Dohvati više poruka kada pomičete prema dolje</string>
     <string name="title_advanced_layout_hint">Prebacivanje na kompaktniji izgled i promjena veličine teksta poruke mogu se uraditi preko menija na gornjoj traci u pregledu poruke</string>

@@ -421,6 +421,7 @@
     <string name="title_advanced_ssl_harden">Utrdi povezave SSL</string>
     <string name="title_advanced_ssl_harden_strict">Zahtevaj TLS 3.1</string>
     <string name="title_advanced_cert_strict">Strogo preverjanje potrdil</string>
+    <string name="title_advanced_open_safe">Odpri samo varne povezave</string>
     <string name="title_advanced_manage_connectivity">Upravljaj s povezljivostjo</string>
     <string name="title_advanced_caption_general">Splošno</string>
     <string name="title_advanced_caption_navigation">Krmarjenje</string>
@@ -537,7 +538,7 @@
     <string name="title_advanced_conversation_actions">Predlagaj dejanja (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Predlagaj besedila za odgovor (Android 10+)</string>
     <string name="title_advanced_language_detection">Zaznaj jezik besedila sporočila</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Uporabi izbirnika fotografij Android</string>
+    <string name="title_advanced_photo_picker">Uporabi izbirnika fotografij Android</string>
     <string name="title_advanced_pull_refresh">Povleci dol za osvežitev</string>
     <string name="title_advanced_autoscroll">Ob prejemanju novih sporočil se pomakni na vrh</string>
     <string name="title_advanced_double_tap">Dvojni dotik za označevanje sporočil kot prebranih/neprebranih</string>
@@ -717,6 +718,7 @@
     <string name="title_advanced_timeout_hint">Časovna omejitev za branje/pisanje bo nastavljena na dvakratno vrednost časovne omejitve povezave.  Višje vrednosti bodo povzročile večjo porabo energije.</string>
     <string name="title_advanced_cert_strict_hint">Onemogočanje tega bo razbremenilo preverjanje potrdil strežnika.</string>
     <string name="title_advanced_ssl_harden_hint">Omogočanje tega bo onemogočilo šibke protokole SSL in šifre, kar lahko povzroči težave pri povezavi.</string>
+    <string name="title_advanced_open_safe_hint">Omogočanje tega bo zahtevalo varne povezave za prejem slik itd.</string>
     <string name="title_advanced_roaming_hint">Med gostovanjem bodo glave sporočil vedno prenesene.  Za onemogočanje interneta med gostovanjem lahko uporabite nastavitve naprave za gostovanje.</string>
     <string name="title_advanced_browse_hint">Ob pomikanju navzdol prenesi več sporočil</string>
     <string name="title_advanced_layout_hint">Preklop na bolj strnjeno razporeditev in spremembo velikosti pisave sporočila lahko opravite v meniju zgornje vrstice z dejanji v pogledu sporočil.</string>

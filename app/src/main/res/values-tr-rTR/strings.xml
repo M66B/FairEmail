@@ -394,6 +394,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlamlaştır</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 gerektir</string>
     <string name="title_advanced_cert_strict">Katı sertifika kontrolü</string>
+    <string name="title_advanced_open_safe">Yalnızca güvenli bağlantıları aç</string>
     <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
     <string name="title_advanced_caption_general">Genel</string>
     <string name="title_advanced_caption_navigation">Gezinme</string>
@@ -510,7 +511,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_conversation_actions">Eylem öner (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Yanıt iletileri öner (Android 10+)</string>
     <string name="title_advanced_language_detection">İletinin dilini tespit et</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Android fotoğraf seçiciyi kullan</string>
+    <string name="title_advanced_photo_picker">Android fotoğraf seçiciyi kullan</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
     <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>
     <string name="title_advanced_double_tap">İletiyi okundu/okunmadı olarak işaretlemek için iki kez dokunun</string>
@@ -691,6 +692,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_timeout_hint">Okuma / yazma zaman aşımı, bağlantı zaman aşımının iki katına ayarlanacaktır. Daha yüksek değerler daha fazla pil kullanımına neden olacaktır.</string>
     <string name="title_advanced_cert_strict_hint">Bunu devre dışı bırakmak, sunucu sertifikalarının kontrol edilmesini esnetecektir</string>
     <string name="title_advanced_ssl_harden_hint">Bunu etkinleştirmek, zayıf SSL protokollerini ve şifrelerini devre dışı bırakır ve bu da bağlantı sorunlarına yol açabilir.</string>
+    <string name="title_advanced_open_safe_hint">Bunu etkinleştirmek, resimleri vb. indirmek için güvenli bağlantılar gerektirir</string>
     <string name="title_advanced_roaming_hint">Dolaşım halindeyken mesaj başlıkları her zaman alınacaktır. Cihazın dolaşım ayarlarından dolaşım halindeyken interneti devre dışı bırakabilirsiniz.</string>
     <string name="title_advanced_browse_hint">Aşağı doğru kaydırdığında daha çok ileti getirir</string>
     <string name="title_advanced_layout_hint">Daha kompakt bir yerleşime geçmek ve mesaj metin boyutunu değiştirmek, mesaj görünümündeki üst eylem çubuğu menüsünden yapılabilir</string>

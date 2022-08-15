@@ -421,6 +421,7 @@
     <string name="title_advanced_ssl_harden">Усиленные SSL-подключения</string>
     <string name="title_advanced_ssl_harden_strict">Требовать TLS 1.3</string>
     <string name="title_advanced_cert_strict">Строгая проверка сертификатов</string>
+    <string name="title_advanced_open_safe">Только безопасные подключения</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_caption_general">По умолчанию</string>
     <string name="title_advanced_caption_navigation">Навигация</string>
@@ -537,7 +538,7 @@
     <string name="title_advanced_conversation_actions">Предлагать действия (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Предлагать ответы (Android 10+)</string>
     <string name="title_advanced_language_detection">Определять язык сообщения</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Использовать выбор фото Android</string>
+    <string name="title_advanced_photo_picker">Использовать выбор фото Android</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
     <string name="title_advanced_autoscroll">Прокручивать к началу списка при получении новых сообщений</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
@@ -719,6 +720,7 @@
     <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания подключения. Ещё большие значения могут увеличить расход аккумулятора.</string>
     <string name="title_advanced_cert_strict_hint">Отключение приведёт к ослаблению проверки сертификатов сервера</string>
     <string name="title_advanced_ssl_harden_hint">Если включено, будут отключены слабые протоколы и алгоритмы SSL, что может привести к проблемам с подключением</string>
+    <string name="title_advanced_open_safe_hint">Включение потребует использовать безопасные подключения для загрузки изображений и т.п.</string>
     <string name="title_advanced_roaming_hint">Заголовки сообщений всегда будут загружаться в роуминге. Вы можете использовать настройки устройства для отключения интернета в роуминге.</string>
     <string name="title_advanced_browse_hint">Получать больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_layout_hint">Переключиться на компактный вид и изменить размера текста сообщения можно через верхнее меню панели действий при просмотре сообщения</string>

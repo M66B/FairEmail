@@ -395,6 +395,7 @@
     <string name="title_advanced_ssl_harden">Reforçar conexões SSL</string>
     <string name="title_advanced_ssl_harden_strict">Requer TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificação rigorosa de certificado</string>
+    <string name="title_advanced_open_safe">Abrir apenas conexões seguras</string>
     <string name="title_advanced_manage_connectivity">Gerenciar conectividade</string>
     <string name="title_advanced_caption_general">Geral</string>
     <string name="title_advanced_caption_navigation">Navegação</string>
@@ -511,7 +512,7 @@
     <string name="title_advanced_conversation_actions">Sugerir ações (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Sugerir respostas (Android 10+)</string>
     <string name="title_advanced_language_detection">Detectar idioma da mensagem</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Use o seletor de fotos do Android</string>
+    <string name="title_advanced_photo_picker">Use o seletor de fotos do Android</string>
     <string name="title_advanced_pull_refresh">Puxe para baixo para atualizar</string>
     <string name="title_advanced_autoscroll">Role para cima ao receber novas mensagens</string>
     <string name="title_advanced_double_tap">Toque duplo para marcar mensagem lida/não lida</string>
@@ -692,6 +693,7 @@
     <string name="title_advanced_timeout_hint">O tempo limite de leitura/escrita será definido para o dobro do tempo limite de conexão. Valores mais altos resultarão em mais uso da bateria.</string>
     <string name="title_advanced_cert_strict_hint">Desabilitar isso vai relaxar a verificação de certificados de servidor</string>
     <string name="title_advanced_ssl_harden_hint">Habilitar isso irá desabilitar protocolos SSL fracos e cifras, o que pode levar a problemas de conexão</string>
+    <string name="title_advanced_open_safe_hint">Habilitando isto irá requerer conexões seguras para baixar imagens, etc</string>
     <string name="title_advanced_roaming_hint">Os cabeçalhos de mensagens serão sempre buscados quando estiver em roaming. Você pode usar a configuração de roaming do dispositivo para desativar a internet enquanto estiver em roaming.</string>
     <string name="title_advanced_browse_hint">Obter mais mensagens ao rolar para baixo</string>
     <string name="title_advanced_layout_hint">Mudar para um layout mais compacto e alterar o tamanho do texto da mensagem pode ser feito no menu da barra de ação superior na exibição de mensagem</string>

@@ -394,6 +394,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_ssl_harden_strict">Vereis TLS 1.3</string>
     <string name="title_advanced_cert_strict">Strenge certificaatcontrole</string>
+    <string name="title_advanced_open_safe">Alleen beveiligde verbindingen openen</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
     <string name="title_advanced_caption_general">Algemeen</string>
     <string name="title_advanced_caption_navigation">Navigatie</string>
@@ -510,7 +511,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_conversation_actions">Acties voorstellen (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Stel antwoordteksten voor (Android 10+)</string>
     <string name="title_advanced_language_detection">Detecteer de taal van de berichttekst</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Gebruik de Android fotokiezer</string>
+    <string name="title_advanced_photo_picker">Gebruik de Android fotokiezer</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
     <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
@@ -691,6 +692,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_timeout_hint">De lees/schrijf time-out wordt ingesteld op de dubbele waarde van de verbinding time-out. Hogere waarden zullen leiden tot meer batterijgebruik.</string>
     <string name="title_advanced_cert_strict_hint">Dit uitschakelen zal de controle op de servercertificaten versoepelen</string>
     <string name="title_advanced_ssl_harden_hint">Door dit in te schakelen, worden zwakke SSL-protocollen en -coderingen uitgeschakeld, wat kan leiden tot verbindingsproblemen</string>
+    <string name="title_advanced_open_safe_hint">Als u dit inschakelt, zijn beveiligde verbindingen vereist om afbeeldingen te downloaden, enz.</string>
     <string name="title_advanced_roaming_hint">Berichtkoppen zullen altijd worden opgehaald bij roaming. Je kunt de roaming-instelling van het apparaat gebruiken om internet uit te schakelen tijdens roaming.</string>
     <string name="title_advanced_browse_hint">Meer berichten ophalen bij het naar beneden scrollen</string>
     <string name="title_advanced_layout_hint">Overschakelen naar een compactere layout en het wijzigen van de berichttekst grootte kan worden gedaan in het menu van de top actiebalk in het berichtweergave</string>

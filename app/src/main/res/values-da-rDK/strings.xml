@@ -396,6 +396,7 @@
     <string name="title_advanced_ssl_harden">Hærd SSL-forbindelser</string>
     <string name="title_advanced_ssl_harden_strict">Kræv TLS 1.3</string>
     <string name="title_advanced_cert_strict">Striks certifikatkontrol</string>
+    <string name="title_advanced_open_safe">Åbn kun sikre forbindelser</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_caption_general">Generelt</string>
     <string name="title_advanced_caption_navigation">Navigering</string>
@@ -512,7 +513,7 @@
     <string name="title_advanced_conversation_actions">Foreslå handlinger (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Foreslå svartekster (Android 10+)</string>
     <string name="title_advanced_language_detection">Detektér beskedtekstsprog</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Brug Android-fotovælger</string>
+    <string name="title_advanced_photo_picker">Brug Android-fotovælger</string>
     <string name="title_advanced_pull_refresh">Træk ned for at opfriske</string>
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
     <string name="title_advanced_double_tap">Dobbelttryk for at markere besked læst/ulæst</string>
@@ -694,6 +695,7 @@
     <string name="title_advanced_timeout_hint">Læse-/skrive-timeout indstilles til det dobbelte af forbindelses-timeout. Højere værdier vil resultere i øget batteriforbrug.</string>
     <string name="title_advanced_cert_strict_hint">Deaktivering af dette gør servercertifikatkontrol mindre striks</string>
     <string name="title_advanced_ssl_harden_hint">Aktivering af dette vil deaktivere svage SSL-protokoller og algoritmer, hvilket kan føre til forbindelsesproblemer</string>
+    <string name="title_advanced_open_safe_hint">Aktivering af dette kræver sikre forbindelser for download af billeder mv.</string>
     <string name="title_advanced_roaming_hint">Beskedoverskrifter hentes altid under roaming. Du kan benytte enhedens roamingindstilling til at deaktivere mobilnetværk under roaming.</string>
     <string name="title_advanced_browse_hint">Hent flere beskeder, når du ruller nedad</string>
     <string name="title_advanced_layout_hint">Skift til et mere kompakt layout og ændring af beskedtekststørrelse kan ske via den øverste handlingsbjælkemenu fra beskedvisning</string>

@@ -421,6 +421,7 @@
     <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
     <string name="title_advanced_ssl_harden_strict">Wymagaj TLS 1.3</string>
     <string name="title_advanced_cert_strict">Ścisła kontrola certyfikatu</string>
+    <string name="title_advanced_open_safe">Otwieraj tylko bezpieczne połączenia</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_caption_general">Ogólne</string>
     <string name="title_advanced_caption_navigation">Nawigacja</string>
@@ -537,7 +538,7 @@
     <string name="title_advanced_conversation_actions">Sugeruj akcje (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Sugeruj teksty odpowiedzi (Android 10+)</string>
     <string name="title_advanced_language_detection">Wykryj język tekstu wiadomości</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">Użyj selektora zdjęć z Androida</string>
+    <string name="title_advanced_photo_picker">Użyj selektora zdjęć z Androida</string>
     <string name="title_advanced_pull_refresh">Przeciągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
     <string name="title_advanced_double_tap">Podwójne kliknięcie, aby oznaczyć odczytane/nieodczytane</string>
@@ -718,6 +719,7 @@
     <string name="title_advanced_timeout_hint">Limit czasu odczytu/zapisu zostanie ustawiony na dwukrotność limitu czasu połączenia. Wyższe wartości spowodują większe zużycie baterii.</string>
     <string name="title_advanced_cert_strict_hint">Wyłączenie tej opcji spowoduje złagodzenie sprawdzania certyfikatów serwera</string>
     <string name="title_advanced_ssl_harden_hint">Włączenie tego spowoduje wyłączenie słabych protokołów SSL i szyfrowania, co może prowadzić do problemów z połączeniem</string>
+    <string name="title_advanced_open_safe_hint">Włączenie tej opcji będzie wymagało bezpiecznych połączeń do pobierania zdjęć itp.</string>
     <string name="title_advanced_roaming_hint">Nagłówki wiadomości będą zawsze pobierane podczas roamingu. Możesz użyć ustawienia roamingu urządzenia, aby wyłączyć Internet podczas roamingu.</string>
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>
     <string name="title_advanced_layout_hint">Przełączanie do bardziej zwartego układu i zmianę rozmiaru tekstu wiadomości można wykonać w menu górnego paska działań w widoku wiadomości</string>

@@ -382,6 +382,7 @@
     <string name="title_advanced_ssl_harden">加强 SSL 连接</string>
     <string name="title_advanced_ssl_harden_strict">需要 TLS 1.3</string>
     <string name="title_advanced_cert_strict">严格的证书检查</string>
+    <string name="title_advanced_open_safe">仅打开安全连接</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_caption_general">常规​​​​​</string>
     <string name="title_advanced_caption_navigation">导航栏</string>
@@ -498,7 +499,7 @@
     <string name="title_advanced_conversation_actions">建议操作 (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">建议回复内容 (Android 10+)</string>
     <string name="title_advanced_language_detection">检测消息文本的语言</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">使用 Android 照片选择器</string>
+    <string name="title_advanced_photo_picker">使用 Android 照片选择器</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
@@ -679,6 +680,7 @@
     <string name="title_advanced_timeout_hint">读/写超时时间将翻倍，值越高将越耗电</string>
     <string name="title_advanced_cert_strict_hint">禁用此项将放松服务器证书检查</string>
     <string name="title_advanced_ssl_harden_hint">启用此选项将禁用较弱的 SSL 协议和加密算法，这可能导致连接遇到问题</string>
+    <string name="title_advanced_open_safe_hint">启用此选项需要安全连接下才能下载图像等</string>
     <string name="title_advanced_roaming_hint">当漫游时，将始终获取消息头。您可以使用设备的漫游设置在漫游时禁用互联网。</string>
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_layout_hint">切换到更为紧凑的布局，改变消息文本大小可以在邮件视图中的顶部动作栏菜单中完成</string>

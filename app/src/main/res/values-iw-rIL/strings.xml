@@ -538,7 +538,7 @@
     <string name="title_advanced_conversation_actions">להציע פעולות (Android 10+‎)</string>
     <string name="title_advanced_conversation_actions_replies">להציע טקסטים כתגובה (Android 10+‎)</string>
     <string name="title_advanced_language_detection">זיהוי שפת טקסט ההודעה</string>
-    <string name="title_advanced_photo_picker" comment="title_advanced_photo_picker&#10;https://developer.android.com/about/versions/13/features/photopicker">להשתמש בבורר התמונות של Android</string>
+    <string name="title_advanced_photo_picker">להשתמש בבורר התמונות של Android</string>
     <string name="title_advanced_pull_refresh">לרענון - למשוך למטה</string>
     <string name="title_advanced_autoscroll">יש לגלול למעלה כדי לקבל הודעות חדשות</string>
     <string name="title_advanced_double_tap">נגיעה כפולה תסמן הודעות כנקראו/לא נקראו</string>
