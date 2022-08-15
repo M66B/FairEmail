@@ -4,7 +4,7 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
-### Next version
+### 1.1951 - 2022-08-15
 
 * Added option to download images, etc via secure connections only
 * Small improvements and minor bug fixes
