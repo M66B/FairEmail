@@ -8,13 +8,13 @@ buildscript {
 
     dependencies {
         // https://developer.android.com/studio/releases/gradle-plugin
-        classpath 'com.android.tools.build:gradle:7.2.1'
+        classpath 'com.android.tools.build:gradle:7.2.2'
         // https://github.com/bugsnag/bugsnag-android-gradle-plugin
         // https://mvnrepository.com/artifact/com.bugsnag/bugsnag-android-gradle-plugin
-        classpath 'com.bugsnag:bugsnag-android-gradle-plugin:7.2.1'
+        classpath 'com.bugsnag:bugsnag-android-gradle-plugin:7.3.0'
         // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.7.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.7.10"
     }
 }
 
