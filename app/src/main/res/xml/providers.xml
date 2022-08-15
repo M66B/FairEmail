@@ -1373,6 +1373,7 @@
     </provider>
     <provider
         name="Xfinity/Comcast"
+        documentation="Please check if &lt;a href=&quot;https://www.xfinity.com/support/articles/third-party-email-access&quot;&gt;third party email access&lt;/a&gt; is enabled"
         domain="comcast\\.net"
         link="https://www.xfinity.com/support/articles/email-client-programs-with-xfinity-email">
         <imap
