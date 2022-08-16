@@ -573,7 +573,7 @@
     <string name="title_advanced_notify_subtext">Mostrar nome da conta ou pasta como subtexto</string>
     <string name="title_advanced_wearable_preview">Enviar notificações apenas com uma visualização de mensagem para wearables</string>
     <string name="title_advanced_notify_messaging">Utilizar o \'estilo de mensagens\' do Android como formato de notificação</string>
-    <string name="title_advanced_biometrics_notify">Mostrar conteúdo de notificação ao usar autenticação biométrica</string>
+    <string name="title_advanced_biometrics_notify">Mostrar o resumo de correio e outro conteúdo nas notificações ao utilizar a autenticação biométrica</string>
     <string name="title_advanced_light">Usar luz de notificações</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_notify_screen_on">Ligar o ecrã por breves instantes para novas notificações de mensagens</string>

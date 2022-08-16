@@ -513,7 +513,7 @@
     <string name="title_advanced_conversation_actions">Suggerisci azioni (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Suggerisci i testi di risposta (Android 10+)</string>
     <string name="title_advanced_language_detection">Rileva la lingua del testo del messaggio</string>
-    <string name="title_advanced_photo_picker">Usa il selettore foto di Android</string>
+    <string name="title_advanced_photo_picker">Use the Android photo picker</string>
     <string name="title_advanced_pull_refresh">Scorri in giù per aggiornare</string>
     <string name="title_advanced_autoscroll">Scorri in su alla ricezione di nuovi messaggi</string>
     <string name="title_advanced_double_tap">Tocca due volte per contrassegnare un messaggio come letto/non letto</string>

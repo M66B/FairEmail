@@ -388,6 +388,7 @@
     <string name="title_advanced_ssl_harden">Strikta SSL-anslutningar</string>
     <string name="title_advanced_ssl_harden_strict">Kräv TLS 1.3</string>
     <string name="title_advanced_cert_strict">Strikt certifikatkontroll</string>
+    <string name="title_advanced_open_safe">Skapa endast säkra anslutningar</string>
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
     <string name="title_advanced_caption_general">Allmänt</string>
     <string name="title_advanced_caption_navigation">Navigering</string>
@@ -504,6 +505,7 @@
     <string name="title_advanced_conversation_actions">Föreslå åtgärder (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Föreslå svarstexter (Android 10+)</string>
     <string name="title_advanced_language_detection">Identifiera meddelandetextspråk</string>
+    <string name="title_advanced_photo_picker">Använd Androids bildväljare</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
     <string name="title_advanced_autoscroll">Bläddra till toppen vid mottagning av nya meddelanden</string>
     <string name="title_advanced_double_tap">Dubbeltryck för att markera meddelande läst/oläst</string>
@@ -684,6 +686,7 @@
     <string name="title_advanced_timeout_hint">Tidsgräns för läs/skriva kommer att ställas in på den dubbla av anslutningens tidsgräns. Högre värden kommer att resultera i mer batterianvändning.</string>
     <string name="title_advanced_cert_strict_hint">Inaktivering av detta kommer att stänga av kontroll av servercertifikat</string>
     <string name="title_advanced_ssl_harden_hint">Aktivering av detta kommer att inaktivera svaga SSL-protokoll och chiffer, vilket kan leda till anslutningsproblem</string>
+    <string name="title_advanced_open_safe_hint">Aktivering av detta kommer att kräva säkra anslutningar för att ladda ner bilder, etc</string>
     <string name="title_advanced_roaming_hint">Meddelanderubriker kommer alltid att hämtas vid roaming. Du kan använda enhetens roaminginställning för att inaktivera internet vid roaming.</string>
     <string name="title_advanced_browse_hint">Hämta fler meddelanden när du rullar ner</string>
     <string name="title_advanced_layout_hint">Växla till en mer kompakt layout och ändra meddelandetextstorleken kan göras i menyn högst upp i meddelandevyn</string>

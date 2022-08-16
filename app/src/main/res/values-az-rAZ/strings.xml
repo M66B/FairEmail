@@ -396,6 +396,7 @@
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlam et</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 tələb et</string>
     <string name="title_advanced_cert_strict">Ciddi sertifikat yoxlanışı</string>
+    <string name="title_advanced_open_safe">Yalnız güvənli bağlantıları aç</string>
     <string name="title_advanced_manage_connectivity">Bağlantını idarə et</string>
     <string name="title_advanced_caption_general">Ümumi</string>
     <string name="title_advanced_caption_navigation">Hərəkət</string>
@@ -693,6 +694,7 @@
     <string name="title_advanced_timeout_hint">Oxuma/yazma üçün bitmə vaxtı, bağlantı üçün bitmə vaxtının iki qatına tənzimlənəcək. Yüksək dəyərlər, daha çox batareya istifadəsi ilə nəticələnəcək.</string>
     <string name="title_advanced_cert_strict_hint">Bunu sıradan çıxartmaq, server sertifikatlarının yoxlanışını rahatladacaq</string>
     <string name="title_advanced_ssl_harden_hint">Bunu fəallaşdırmaq, zəif SSL protokollarını və şifrələrini sıradan çıxardacaq, bu da bağlantı problemlərinə səbəb ola bilər</string>
+    <string name="title_advanced_open_safe_hint">Bunu fəallaşdırmaq, şəkillər və ya faylları endirmək üçün güvənli bağlantı tələb edir</string>
     <string name="title_advanced_roaming_hint">Mesaj başlıqları roaminqdə həmişə götürüləcəkdir. Roaminqdə ikən interneti bağlamaq üçün cihazın roaminq tənzimləməsini istifadə edə bilərsiniz.</string>
     <string name="title_advanced_browse_hint">Aşağı sürüşdürəndə daha çox mesaj gətiriləcək</string>
     <string name="title_advanced_layout_hint">Daha yığcam bir düzülüşə keçmək və mesaj mətn ölçüsünü dəyişdirmək, mesaj görünüşündəki üst əməliyyat sətir menyusundan edilə bilər</string>
