@@ -4,6 +4,12 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### 1.1951 - 2022-08-16
+
+* Small improvements and minor bug fixes
+* Updated build tools (Android Studio, gradle)
+* Updated translations
+
 ### 1.1951 - 2022-08-15
 
 * Added option to download images, etc via secure connections only
