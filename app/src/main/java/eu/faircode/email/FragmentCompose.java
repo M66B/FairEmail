@@ -1463,22 +1463,6 @@ public class FragmentCompose extends FragmentBase {
             }
 
             private void convertRef(boolean plain) {
-                if (plain)
-                    _convertRef(plain);
-                else
-                    new AlertDialog.Builder(getContext())
-                            .setMessage(R.string.title_ask_show_html)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    _convertRef(false);
-                                }
-                            })
-                            .setNegativeButton(android.R.string.cancel, null)
-                            .show();
-            }
-
-            private void _convertRef(boolean plain) {
                 etBody.clearComposingText();
 
                 Bundle args = new Bundle();
