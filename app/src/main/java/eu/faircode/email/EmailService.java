@@ -526,6 +526,11 @@ public class EmailService implements AutoCloseable {
     private void connect(
             String host, int port, int auth, String user,
             SSLSocketFactoryService factory) throws MessagingException {
+        Map<String, String> crumb = new HashMap<>();
+        crumb.put("host", host);
+        crumb.put("port", Integer.toString(port));
+        crumb.put("auth", Integer.toString(auth));
+
         InetAddress main = null;
         boolean require_id = (purpose == PURPOSE_CHECK &&
                 auth == AUTH_TYPE_OAUTH &&
@@ -569,10 +574,17 @@ public class EmailService implements AutoCloseable {
                     }
             }
 
+            Log.breadcrumb("Connecting", crumb);
             _connect(main, port, require_id, user, factory);
+            Log.breadcrumb("Connected", crumb);
         } catch (UnknownHostException ex) {
+            crumb.put("exception", ex + "\n" + android.util.Log.getStackTraceString(ex));
+            Log.breadcrumb("Connection failed", crumb);
             throw new MessagingException(ex.getMessage(), ex);
         } catch (MessagingException ex) {
+            crumb.put("exception", ex + "\n" + android.util.Log.getStackTraceString(ex));
+            Log.breadcrumb("Connection failed", crumb);
+
             /*
                 com.sun.mail.util.MailConnectException: Couldn't connect to host, port: 74.125.140.108, 993; timeout 20000;
                   nested exception is:
