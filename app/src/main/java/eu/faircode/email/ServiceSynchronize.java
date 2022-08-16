@@ -2591,6 +2591,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         state.setBackoff(b);
                     }
 
+                    Map<String, String> crumb = new HashMap<>();
+                    crumb.put("account", account.name);
+                    crumb.put("backoff", Integer.toString(backoff));
+                    crumb.put("recently", Integer.toString(recently));
+                    crumb.put("logarithmic", Boolean.toString(logarithmic_backoff));
+                    Log.breadcrumb("Backing off", crumb);
+
                     if (backoff <= CONNECT_BACKOFF_MAX) {
                         // Short back-off period, keep device awake
                         try {
