@@ -122,7 +122,8 @@ public class GmailState {
         if (newToken != null && !newToken.equals(token)) {
             token = newToken;
             acquired = new Date().getTime();
-        }
+        } else
+            Log.e("Token refresh failed id=" + id + " token=" + (token != null));
 
         if (token == null)
             throw new AuthenticatorException("No token for " + id + ":" + user);

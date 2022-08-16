@@ -219,8 +219,10 @@ public class ServiceAuthenticator extends Authenticator {
             semaphore.acquire();
             Log.i("OAuth refreshed user=" + id + ":" + user);
 
-            if (holder.error != null)
+            if (holder.error != null) {
+                Log.e(new Throwable("Token refresh failed id=" + id, holder.error));
                 throw holder.error;
+            }
         } catch (Exception ex) {
             throw new MessagingException("OAuth refresh id=" + id, ex);
         }
