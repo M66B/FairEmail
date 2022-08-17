@@ -4,7 +4,7 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
-### 1.1953 - 2022-08-17
+### 1.1954 - 2022-08-17
 
 * Small improvements and minor bug fixes
 * Updated translations
