@@ -6,6 +6,7 @@
     <string name="app_limitations">على سبيل المثال، يتم إعادة تنسيق الرسائل بشكل افتراضي لإزالة العناصر غير الآمنة وتحسين إمكانية القراءة، كما ويجب تأكيد فتح الروابط من أجل السلامة. وكلاهما يمكن أن يُعطلا إذا رُغب في ذلك.</string>
     <string name="app_unsupported">الأخطاء في إصدار الأندرويد لهذا الجهاز المعين تسبب أعطال</string>
     <string name="app_data_loss">قد تفقد جميع البيانات</string>
+    <string name="app_continue">استمر على أي حال</string>
     <string name="app_exit">أنقر مرة أخرى للخروج من التطبيق</string>
     <string name="app_cake">مساحة تخزين غير كافية</string>
     <string name="app_updated">آخر تحديث: %1$s</string>

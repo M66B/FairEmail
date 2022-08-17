@@ -395,6 +395,7 @@
     <string name="title_advanced_ssl_harden">Endurecer conexiones SSL</string>
     <string name="title_advanced_ssl_harden_strict">Requerir TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificación estricta de certificados</string>
+    <string name="title_advanced_open_safe">Abrir solo conexiones seguras</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
     <string name="title_advanced_caption_general">General</string>
     <string name="title_advanced_caption_navigation">Navegación</string>
@@ -692,6 +693,7 @@
     <string name="title_advanced_timeout_hint">El tiempo de espera de lectura/escritura se establecerá al doble del tiempo de espera de conexión. Valores más altos resultarán en un mayor uso de la batería.</string>
     <string name="title_advanced_cert_strict_hint">Desactivar esto relajará la comprobación de los certificados del servidor</string>
     <string name="title_advanced_ssl_harden_hint">Activar esto desactivará los protocolos SSL y cifrados débiles, lo que puede provocar problemas de conexión</string>
+    <string name="title_advanced_open_safe_hint">Habilitar esto requerirá conexiones seguras para descargar imágenes, etc</string>
     <string name="title_advanced_roaming_hint">Los encabezados de mensajes siempre se obtendrán cuando en itinerancia. Puede usar la configuración de itinerancia del dispositivo para desactivar internet mientras se está en itinerancia.</string>
     <string name="title_advanced_browse_hint">Obtener más mensajes al desplazarse hacia abajo</string>
     <string name="title_advanced_layout_hint">Cambiar a un diseño más compacto y cambiar el tamaño del texto del mensaje puede hacerse en el menú de la barra de acción superior en la vista de mensaje</string>

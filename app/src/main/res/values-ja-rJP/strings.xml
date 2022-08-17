@@ -383,6 +383,7 @@
     <string name="title_advanced_ssl_harden">より強固な SSL 接続</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 を要求</string>
     <string name="title_advanced_cert_strict">厳格な証明書確認</string>
+    <string name="title_advanced_open_safe">保護された接続のみ使用</string>
     <string name="title_advanced_manage_connectivity">接続を管理</string>
     <string name="title_advanced_caption_general">概要</string>
     <string name="title_advanced_caption_navigation">ナビゲーション</string>
@@ -680,6 +681,7 @@
     <string name="title_advanced_timeout_hint">読み取り/書き込みタイムアウトは接続タイムアウトの 2 倍に設定されます。値を大きくするとバッテリーの使用量が増加します</string>
     <string name="title_advanced_cert_strict_hint">無効にすると、サーバー証明書の確認基準が緩和されます</string>
     <string name="title_advanced_ssl_harden_hint">有効にすると、弱い SSL プロトコルと暗号化が無効になるため、接続の問題が発生する可能性があります</string>
+    <string name="title_advanced_open_safe_hint">有効にすると、画像などのダウンロードに保護された接続が必要になります</string>
     <string name="title_advanced_roaming_hint">ローミング中もメッセージヘッダーが常に取得されます。デバイスの設定で、ローミング時はインターネットを無効にできます</string>
     <string name="title_advanced_browse_hint">下にスクロールして、さらにメッセージを取得します</string>
     <string name="title_advanced_layout_hint">レイアウトの簡易表示への切り替えとテキストサイズの変更は、メッセージ上部のアクションバーメニューから行えます</string>

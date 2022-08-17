@@ -5,6 +5,8 @@
     <string name="app_welcome">FairEmail تطبيق مفتوح المصدر للبريد الإلكتروني يُركّز على الخصوصية والأمان. ولهذا السبب قد تعمل بعض الميزات بشكل مختلف مما كنت مُعتادًا عليه.</string>
     <string name="app_limitations">على سبيل المثال، يتم إعادة تنسيق الرسائل بشكل افتراضي لإزالة العناصر غير الآمنة وتحسين إمكانية القراءة، كما ويجب تأكيد فتح الروابط من أجل السلامة. وكلاهما يمكن أن يُعطلا إذا رُغب في ذلك.</string>
     <string name="app_unsupported">Bugs in the Android version of this particular device cause crashes</string>
+    <string name="app_data_loss">قد يتم فقدان جميع البيانات</string>
+    <string name="app_continue">استمر على أي حال</string>
     <string name="app_exit">اذهب إلى \"الوراء\" مجددًا للإغلاق</string>
     <string name="app_cake">مساحة تخزين غير كافية</string>
     <string name="app_updated">آخر تحديث: %1$s</string>

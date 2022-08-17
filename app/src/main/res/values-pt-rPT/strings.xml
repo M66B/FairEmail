@@ -73,7 +73,8 @@
     </plurals>
     <string name="title_ask_spam_who">Definir a mensagem de %1$s como indesejada?</string>
     <string name="title_junk_hint">O seu fornecedor de correio electrónico é responsável por filtrar o ‘spam’. Uma aplicação de correio eletrónico não possui toda a informação necessária para o fazer de forma confiável.</string>
-    <string name="title_junk_pop_hint">Mensagens de remetentes bloqueados não serão baixadas. Se \"Deixar mensagens no servidor\" não estiver ativado, essas mensagens serão perdidas permanentemente!
+    <string name="title_junk_pop_hint">        Mensagens de remetentes bloqueados não serão transferidas.
+        Se \"Deixar mensagens no servidor\" não estiver activado, essas mensagens serão perdidas permanentemente!
     </string>
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear Remetente</string>
@@ -408,8 +409,8 @@
     <string name="title_advanced_caption_message_body">Corpo da mensagem</string>
     <string name="title_advanced_portrait">Modo retrato</string>
     <string name="title_advanced_landscape">Modo paisagem</string>
-    <string name="title_advanced_two_row">Use duas linhas</string>
-    <string name="title_advanced_two_col">Use duas colunas</string>
+    <string name="title_advanced_two_row">Usar duas linhas</string>
+    <string name="title_advanced_two_col">Usar duas colunas</string>
     <string name="title_advanced_min_screen_size">Tamanho mínimo de ecrã para dividir</string>
     <string name="title_advanced_close_pane">Recolher linha ou coluna ao fechar uma conversa</string>
     <string name="title_advanced_column_width">Largura / altura da linha da Mensagem: %1$s %%</string>
@@ -692,9 +693,9 @@
     <string name="title_advanced_tcp_keep_alive_hint">Habilitar isto pode causar problemas de ligação em alguns dispositivos e aumentar o uso da bateria</string>
     <string name="title_advanced_validate_hint">Isto pode resultar em problemas na sincronização de mensagens, por exemplo, ao utilizar uma VPN, mas também noutras situações</string>
     <string name="title_advanced_timeout_hint">O tempo de leitura/gravação será definido para o dobro do tempo limite de ligação. Valores maiores resultarão em mais uso de bateria.</string>
-    <string name="title_advanced_cert_strict_hint">Desativar isto irá relaxar a verificação de certificados de servidor</string>
-    <string name="title_advanced_ssl_harden_hint">Ao activar isto, serão desactivados os protocolos e cifras SSL fracos, o que pode levar a problemas de ligação</string>
-    <string name="title_advanced_open_safe_hint">Ativar isto irá exigir ligação segura para baixar imagens, etc</string>
+    <string name="title_advanced_cert_strict_hint">Desactivar isto irá aliviar a verificação de certificados do servidor</string>
+    <string name="title_advanced_ssl_harden_hint">Ao activar isto, os protocolos e cifras SSL fracos serão desactivados, o que pode levar a problemas de ligação</string>
+    <string name="title_advanced_open_safe_hint">Activar isto exigirá uma ligação segura para transferir imagens, etc.</string>
     <string name="title_advanced_roaming_hint">Os cabeçalhos de mensagens serão sempre obtidos em roaming. Pode usar a configuração de roaming do dispositivo para desactivar a internet em roaming.</string>
     <string name="title_advanced_browse_hint">Procurar mais mensagens ao deslizar para baixo</string>
     <string name="title_advanced_layout_hint">Pode mudar para um layout mais compacto e alterar o tamanho do texto da mensagem no menu da barra de acção presente na parte superior da vista de mensagens</string>
