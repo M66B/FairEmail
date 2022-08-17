@@ -382,7 +382,7 @@ public class MessageHelper {
         } else {
             // https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6
             ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
-            List<Header> headers = Collections.list(new InternetHeaders(bis, identity.unicode).getAllHeaders());
+            List<Header> headers = Collections.list(new InternetHeaders(bis, identity != null && identity.unicode).getAllHeaders());
 
             for (Header header : headers)
                 try {
