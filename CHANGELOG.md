@@ -4,7 +4,12 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
-### 1.1951 - 2022-08-16
+### 1.1953 - 2022-08-17
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+### 1.1952 - 2022-08-16
 
 * Small improvements and minor bug fixes
 * Updated build tools (Android Studio, gradle)
