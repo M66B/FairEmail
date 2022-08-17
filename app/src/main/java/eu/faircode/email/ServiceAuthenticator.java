@@ -58,13 +58,13 @@ public class ServiceAuthenticator extends Authenticator {
     static final int AUTH_TYPE_GMAIL = 2;
     static final int AUTH_TYPE_OAUTH = 3;
 
+    static final long MIN_REFRESH_INTERVAL = 15 * 60 * 1000L;
     static final long MIN_FORCE_REFRESH_INTERVAL = 15 * 60 * 1000L;
 
     ServiceAuthenticator(
             Context context,
             int auth, String provider,
             String user, String password,
-            boolean check,
             IAuthenticated intf) {
         this.context = context.getApplicationContext();
         this.auth = auth;
@@ -72,13 +72,6 @@ public class ServiceAuthenticator extends Authenticator {
         this.user = user;
         this.password = password;
         this.intf = intf;
-
-        if (check) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            String key = getTokenKey(provider, user);
-            prefs.edit().remove(key).apply();
-            EntityLog.log(context, "Removed " + key);
-        }
     }
 
     @Override
@@ -164,28 +157,11 @@ public class ServiceAuthenticator extends Authenticator {
 
             if (!needsRefresh && forceRefresh &&
                     expiration != null &&
-                    expiration - ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL < now)
+                    expiration - MIN_FORCE_REFRESH_INTERVAL < now)
                 needsRefresh = true;
 
             if (needsRefresh)
                 authState.setNeedsTokenRefresh(true);
-
-            if (needsRefresh || authState.getNeedsTokenRefresh()) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                String key = getTokenKey(id, user);
-                long last_refresh = prefs.getLong(key, 0);
-                long ago = now - last_refresh;
-                EntityLog.log(context, EntityLog.Type.Debug, "Token needs refresh" +
-                        " user=" + id + ":" + user + " ago=" + (ago / 60 / 1000L) + " min");
-                if (ago < ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL) {
-                    Log.e("Blocked token refresh id=" + id +
-                            " ago=" + (ago / 1000L) + " s" +
-                            " force=" + forceRefresh +
-                            " exp=" + (expiration == null ? -1 : (expiration - now) / 1000L) + " s");
-                    return;
-                }
-                prefs.edit().putLong(key, now).apply();
-            }
 
             EntityLog.log(context, EntityLog.Type.Debug, "Token user=" + id + ":" + user +
                     " expiration=" + (expiration == null ? null : new Date(expiration)) +
@@ -226,10 +202,6 @@ public class ServiceAuthenticator extends Authenticator {
         } catch (Exception ex) {
             throw new MessagingException("OAuth refresh id=" + id, ex);
         }
-    }
-
-    static String getTokenKey(String id, String user) {
-        return "token." + id + "." + user;
     }
 
     static String getAuthTokenType(String type) {

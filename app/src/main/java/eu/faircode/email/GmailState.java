@@ -34,6 +34,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class GmailState {
@@ -67,66 +69,80 @@ public class GmailState {
         long now = new Date().getTime();
         Long expiration = getAccessTokenExpirationTime();
         boolean needsRefresh = (expiration != null && expiration < now);
+        boolean neededRefresh = needsRefresh;
 
         if (!needsRefresh && forceRefresh &&
                 expiration != null &&
                 expiration - ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL < now)
             needsRefresh = true;
 
-        if (needsRefresh && token != null) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            String key = ServiceAuthenticator.getTokenKey(id, user);
-            long last_refresh = prefs.getLong(key, 0);
-            long ago = now - last_refresh;
-            EntityLog.log(context, EntityLog.Type.Debug, "Token needs refresh" +
-                    " user=" + id + ":" + user + " ago=" + (ago / 60 / 1000L) + " min");
-            if (ago < ServiceAuthenticator.MIN_FORCE_REFRESH_INTERVAL) {
-                Log.e("Blocked token refresh id=" + id +
-                        " ago=" + (ago / 1000L) + " s" +
-                        " force=" + forceRefresh +
-                        " exp=" + (expiration == null ? -1 : (expiration - now) / 1000L) + " s");
-                return;
-            }
-            prefs.edit().putLong(key, now).apply();
-        }
+        Map<String, String> crumb = new HashMap<>();
+        crumb.put("id", id);
+        crumb.put("force", Boolean.toString(forceRefresh));
+        crumb.put("need", Boolean.toString(needsRefresh));
+        crumb.put("needed", Boolean.toString(neededRefresh));
+        crumb.put("expiration", expiration == null ? "n/a" : Long.toString((expiration - now) / 1000L));
+        Log.breadcrumb("Token refresh", crumb);
 
-        EntityLog.log(context, EntityLog.Type.Debug, "Token user=" + id + ":" + user +
-                " expiration=" + (expiration == null ? null : new Date(expiration)) +
+        EntityLog.log(context, EntityLog.Type.Debug, "Token refresh user=" + id + ":" + user +
+                " force=" + forceRefresh +
                 " need=" + needsRefresh +
-                " force=" + forceRefresh);
+                " needed=" + neededRefresh +
+                " expiration=" + (expiration == null ? null : new Date(expiration)));
+        try {
+            if (needsRefresh && token != null) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                String key = "token." + id + "." + user;
+                long last_refresh = prefs.getLong(key, 0);
+                long ago = now - last_refresh;
+                if (ago < ServiceAuthenticator.MIN_REFRESH_INTERVAL)
+                    Log.e("Blocked token refresh id=" + id +
+                            " force=" + forceRefresh +
+                            " ago=" + (ago / 1000L) + " s" +
+                            " exp=" + (expiration == null ? -1 : (expiration - now) / 1000L) + " s");
+                else
+                    try {
+                        EntityLog.log(context, "Invalidating token user=" + id + ":" + user);
+                        AccountManager am = AccountManager.get(context);
+                        am.invalidateAuthToken(TYPE_GOOGLE, token);
 
-        if (needsRefresh)
-            try {
-                if (token != null) {
-                    EntityLog.log(context, "Invalidating token user=" + id + ":" + user);
-                    AccountManager am = AccountManager.get(context);
-                    am.invalidateAuthToken(TYPE_GOOGLE, token);
-                }
-                token = null;
-                acquired = 0;
-            } catch (Throwable ex) {
-                Log.e(ex);
+                        token = null;
+                        acquired = 0;
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    } finally {
+                        prefs.edit().putLong(key, now).apply();
+                    }
             }
 
-        Account account = getAccount(context, user.replace("recent:", ""));
-        if (account == null)
-            throw new AuthenticatorException("Account not found for " + id + ":" + user);
+            Account account = getAccount(context, user.replace("recent:", ""));
+            if (account == null)
+                throw new AuthenticatorException("Account not found for " + id + ":" + user);
 
-        EntityLog.log(context, "Getting token user=" + id + ":" + user);
-        AccountManager am = AccountManager.get(context);
-        String newToken = am.blockingGetAuthToken(
-                account,
-                ServiceAuthenticator.getAuthTokenType(TYPE_GOOGLE),
-                true);
+            EntityLog.log(context, "Getting token user=" + id + ":" + user);
+            AccountManager am = AccountManager.get(context);
+            String newToken = am.blockingGetAuthToken(
+                    account,
+                    ServiceAuthenticator.getAuthTokenType(TYPE_GOOGLE),
+                    true);
 
-        if (newToken != null && !newToken.equals(token)) {
-            token = newToken;
-            acquired = new Date().getTime();
-        } else
-            Log.e("Token refresh failed id=" + id + " token=" + (token != null));
+            crumb.put("acquired", Boolean.toString(newToken != null));
+            if (newToken != null)
+                crumb.put("refreshed", Boolean.toString(!newToken.equals(token)));
+            Log.breadcrumb("Token get", crumb);
 
-        if (token == null)
-            throw new AuthenticatorException("No token for " + id + ":" + user);
+            if (newToken != null && !newToken.equals(token)) {
+                token = newToken;
+                acquired = new Date().getTime();
+            } else
+                Log.e("Token refresh failed id=" + id);
+
+            if (token == null)
+                throw new AuthenticatorException("Got no token id=" + id);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            throw ex;
+        }
     }
 
     static Account getAccount(Context context, String user) {
