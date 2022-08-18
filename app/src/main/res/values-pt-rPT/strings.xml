@@ -149,13 +149,13 @@
     <string name="title_setup_quick_accounts">Adicionar ou alterar contas</string>
     <string name="title_setup_quick_support">Alguns provedores tornam difícil adicionar uma conta. Por favor, não culpe o FairEmail por isso, peça-lhes suporte.</string>
     <string name="title_setup_quick_hint">O endereço de e-mail inserido é usado para consultar o servidor de e-mail e autoconfig.thunderbird.net para informações de configuração</string>
-    <string name="title_setup_quick_patience">Por favor seja paciente &#8230;</string>
+    <string name="title_setup_quick_patience">Por favor, seja paciente &#8230;</string>
     <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
     <string name="title_setup_quick_certificates">Certificados do servidor</string>
     <string name="title_setup_wizard">Assistente</string>
     <string name="title_setup_wizard_tutorials">Tutoriais</string>
-    <string name="title_setup_wizard_multiple">O assistente pode ser usado várias vezes para configurar várias contas</string>
+    <string name="title_setup_wizard_multiple">O assistente pode ser novamente utilizado para configurar mais contas</string>
     <string name="title_setup_wizard_new">Preciso de um novo endereço de e-mail</string>
     <string name="title_setup_manual">Configuração manual e opções da conta</string>
     <string name="title_setup_classic">Configuração clássica</string>
@@ -175,7 +175,7 @@
     <string name="title_setup_gmail_permissions">O Google pedirá permissões para ler, compor, enviar e eliminar permanentemente todos os seus e-mails. O FairEmail nunca apagará as suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_on_device">Por que é que preciso selecionar uma conta no dispositivo?</string>
     <string name="title_setup_gmail_password">Quero autorizar uma conta com a palavra-passe ao invés da conta em utilização no dispositivo</string>
-    <string name="title_setup_office_auth">O erro \'AUTHENTICATE falhou\' pode ser causado por IMAP/SMTP estar desativado pelo administrador do sistema</string>
+    <string name="title_setup_office_auth">O erro \'AUTHENTICATE failed\' pode ser causado pelo protocolo IMAP/SMTP ter sido desactivado pelo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar o acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar novamente uma conta existente (caso contrário, criar uma conta)</string>
     <string name="title_setup_oauth_updated">Autorização de conta actualizada</string>
@@ -187,10 +187,10 @@
     <string name="title_setup_no_auth_hint">Por favor, verifique novamente o seu endereço de correio electrónico e a palavra-passe, e confirme se o acesso externo (IMAP/SMTP) está activado para a sua conta</string>
     <string name="title_setup_app_password_hint">Este fornecedor requer uma palavra-passe de aplicação em vez da palavra-passe da conta, por favor verifique as instruções do seu fornecedor</string>
     <string name="title_setup_no_inbox">Caixa de entrada não encontrada</string>
-    <string name="title_setup_advanced_protection">Quando inscrito no programa avançado de proteção não é possível usar uma aplicação de e-mail de terceiros. Esta é uma restrição imposta pelo Google.</string>
+    <string name="title_setup_advanced_protection">Quando inscrito no programa avançado de protecção não é possível usar uma aplicação de correio electrónico de terceiros. Esta é uma restrição imposta pela Google.</string>
     <string name="title_setup_quick_success">Uma conta foi adicionada com sucesso</string>
-    <string name="title_setup_quick_no_sent">Não foi selecionada nenhuma pasta de mensagens enviadas. As mensagens enviadas podem não ser armazenadas.</string>
-    <string name="title_setup_quick_configure">Para editar o nome, cor, ações de puxe, etc</string>
+    <string name="title_setup_quick_no_sent">Não foi seleccionada qualquer pasta de mensagens enviadas. As mensagens enviadas poderão não ser guardadas.</string>
+    <string name="title_setup_quick_configure">Para editar o nome, cor, acções de deslize, etc.</string>
     <string name="title_setup_manage">Gerir</string>
     <string name="title_setup_grant">Conceder</string>
     <string name="title_setup_grant_again">Conceder as permissões necessárias</string>
@@ -201,7 +201,7 @@
     <string name="title_setup_permissions_remark">Para aceder a informações de contacto (opcional)</string>
     <string name="title_setup_permissions_explanation">As permissões de contacto são necessárias para procurar informações de contacto e sugerir contactos</string>
     <string name="title_setup_permissions_notify">Para mostrar novas notificações de mensagens (opcional)</string>
-    <string name="title_setup_permissions_notify_explanation">São necessárias permissões de notificação para mostrar notificações de novas mensagens na barra de status</string>
+    <string name="title_setup_permissions_notify_explanation">São necessárias permissões de notificação para mostrar notificações de novas mensagens na barra de estado</string>
     <string name="title_setup_permission_why">Que permissões são necessárias e porquê?</string>
     <string name="title_setup_permission_import_contacts">Como posso importar contactos?</string>
     <string name="title_setup_doze">Desactivar optimização de bateria</string>
