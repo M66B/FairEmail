@@ -671,7 +671,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 this, ident.getProtocol(), ident.realm, ident.encryption, ident.insecure, ident.unicode, debug);
         try {
             iservice.setUseIp(ident.use_ip, ident.ehlo);
-            iservice.set8BitMime(ident.octetmime);
+            if (!message.isSigned() && !message.isEncrypted())
+                iservice.set8BitMime(ident.octetmime);
 
             // 0=Read receipt
             // 1=Delivery receipt
