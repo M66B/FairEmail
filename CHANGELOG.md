@@ -4,6 +4,11 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### 1.1955 - 2022-08-18
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1954 - 2022-08-17
 
 * Small improvements and minor bug fixes
