@@ -648,6 +648,9 @@ public class ApplicationEx extends Application
         else if (version < 1951) {
             if (prefs.contains("open_unsafe"))
                 editor.putBoolean("open_safe", !prefs.getBoolean("open_unsafe", true));
+        } else if (version < 1955) {
+            if (!prefs.contains("doubletap"))
+                editor.putBoolean("doubletap", true);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

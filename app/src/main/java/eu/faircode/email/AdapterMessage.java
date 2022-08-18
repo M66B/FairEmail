@@ -4133,7 +4133,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("found", viewType == ViewType.SEARCH)
                             .putExtra("searched", searched);
 
-                    boolean doubletap = prefs.getBoolean("doubletap", true);
+                    boolean doubletap = prefs.getBoolean("doubletap", false);
 
                     if (!doubletap ||
                             (message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP) ||

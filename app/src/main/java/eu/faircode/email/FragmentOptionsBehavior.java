@@ -570,7 +570,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         swFolderNav.setChecked(prefs.getBoolean("foldernav", false));
 
-        swDoubleTap.setChecked(prefs.getBoolean("doubletap", true));
+        swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
         swVolumeNav.setChecked(prefs.getBoolean("volumenav", false));
         swReversed.setChecked(prefs.getBoolean("reversed", false));
