@@ -3704,6 +3704,7 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                 // Build message to sign
+                //   openssl smime -verify <xxx.eml
                 Properties props = MessageHelper.getSessionProperties(true);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
