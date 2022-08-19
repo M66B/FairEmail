@@ -4532,6 +4532,8 @@ because Google rejected the application of FairEmail for this reason:
 At this time, we are only accepting apps within the Media, short form Messaging,
 or categories supported by the Android for Cars App Library.*
 
+Also, not all Android Auto versions support this (as installed in the car).
+
 **Use of this feature with the Github version is expressly at your own risk!**
 
 For notification (messaging) support you'll need to enable the following notification options:
