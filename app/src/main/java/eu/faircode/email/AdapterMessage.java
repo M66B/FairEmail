@@ -171,6 +171,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -283,6 +284,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean preview;
     private boolean preview_italic;
     private int preview_lines;
+    private boolean large_buttons;
     private int message_zoom;
     private boolean attachments_alt;
     private boolean thumbnails;
@@ -465,8 +467,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibJunk;
         private ImageButton ibInbox;
         private ImageButton ibMore;
-        private ImageButton ibTools;
         private View vwEmpty;
+        private Flow ibFlow;
+        private ImageButton ibTools;
         private Flow buttons;
         private TextView tvReformatted;
         private TextView tvDecrypt;
@@ -884,9 +887,32 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibJunk = vsBody.findViewById(R.id.ibJunk);
             ibInbox = vsBody.findViewById(R.id.ibInbox);
             ibMore = vsBody.findViewById(R.id.ibMore);
-            ibTools = vsBody.findViewById(R.id.ibTools);
             vwEmpty = vsBody.findViewById(R.id.vwEmpty);
+            ibFlow = vsBody.findViewById(R.id.ibFlow);
+
+            if (large_buttons) {
+                int dp36 = Helper.dp2pixels(context, 48);
+                ConstraintLayout cl = (ConstraintLayout) ibFlow.getParent();
+                List<Integer> ids = new ArrayList<>();
+                for (int id : ibFlow.getReferencedIds())
+                    ids.add(id);
+                for (int id : new int[]{
+                        R.id.ibTools, R.id.vwEmpty,
+                        R.id.ibFull, R.id.ibImages, R.id.ibAmp,
+                        R.id.ibDecrypt, R.id.ibVerify})
+                    ids.add(id);
+                for (int id : ids) {
+                    View v = cl.findViewById(id);
+                    ViewGroup.LayoutParams lparam = v.getLayoutParams();
+                    lparam.width = dp36;
+                    lparam.height = dp36;
+                }
+            }
+
+            ibTools = vsBody.findViewById(R.id.ibTools);
+
             buttons = vsBody.findViewById(R.id.buttons);
+
             tvReformatted = vsBody.findViewById(R.id.tvReformatted);
             tvDecrypt = vsBody.findViewById(R.id.tvDecrypt);
             tvSignedData = vsBody.findViewById(R.id.tvSignedData);
@@ -1709,8 +1735,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibJunk.setVisibility(View.GONE);
             ibInbox.setVisibility(View.GONE);
             ibMore.setVisibility(View.GONE);
-            ibTools.setVisibility(View.GONE);
             vwEmpty.setVisibility(View.GONE);
+            ibTools.setVisibility(View.GONE);
             clearButtons();
             tvReformatted.setVisibility(View.GONE);
             tvDecrypt.setVisibility(View.GONE);
@@ -1990,8 +2016,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibJunk.setVisibility(View.GONE);
             ibInbox.setVisibility(View.GONE);
             ibMore.setVisibility(View.GONE);
-            ibTools.setVisibility(View.GONE);
             vwEmpty.setVisibility(View.GONE);
+            ibTools.setVisibility(View.GONE);
             clearButtons();
             tvReformatted.setVisibility(View.GONE);
             tvDecrypt.setVisibility(View.GONE);
@@ -2233,12 +2259,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibJunk.setVisibility(tools && button_junk && report ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
                     ibMore.setVisibility(tools && !outbox ? View.VISIBLE : View.GONE);
+                    vwEmpty.setVisibility(outbox ? View.GONE : View.VISIBLE);
                     ibTools.setImageLevel(tools ? 0 : 1);
                     ibTools.setContentDescription(context.getString(tools ? R.string.title_less : R.string.title_more));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                         ibTools.setTooltipText(ibTools.getContentDescription());
                     ibTools.setVisibility(outbox ? View.GONE : View.VISIBLE);
-                    vwEmpty.setVisibility(outbox ? View.GONE : View.VISIBLE);
 
                     if (tools)
                         bindButtons(message);
@@ -7218,6 +7244,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.preview = prefs.getBoolean("preview", false);
         this.preview_italic = prefs.getBoolean("preview_italic", true);
         this.preview_lines = prefs.getInt("preview_lines", 1);
+        this.large_buttons = prefs.getBoolean("large_buttons", false);
         this.message_zoom = prefs.getInt("message_zoom", 100);
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.thumbnails = prefs.getBoolean("thumbnails", true);
