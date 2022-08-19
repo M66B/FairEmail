@@ -891,7 +891,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlow = vsBody.findViewById(R.id.ibFlow);
 
             if (large_buttons) {
-                int dp36 = Helper.dp2pixels(context, 48);
+                int dp36 = Helper.dp2pixels(context, 42);
                 ConstraintLayout cl = (ConstraintLayout) ibFlow.getParent();
                 List<Integer> ids = new ArrayList<>();
                 for (int id : ibFlow.getReferencedIds())
