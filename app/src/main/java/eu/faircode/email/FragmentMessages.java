@@ -6061,6 +6061,8 @@ public class FragmentMessages extends FragmentBase
                     boolean more_delete = prefs.getBoolean("more_delete", false);
                     boolean more_move = prefs.getBoolean("more_move", true);
 
+                    boolean inJunk = EntityFolder.JUNK.equals(type);
+
                     int count = 0;
 
                     boolean move = (more_move && count < MAX_QUICK_ACTIONS && result.canMove());
@@ -6116,6 +6118,8 @@ public class FragmentMessages extends FragmentBase
                     boolean seen = (more_seen && count < MAX_QUICK_ACTIONS && result.unseen);
                     if (seen)
                         count++;
+
+                    ibInbox.setImageResource(inJunk ? R.drawable.twotone_report_off_24 : R.drawable.twotone_inbox_24);
 
                     ibBatchSeen.setVisibility(seen ? View.VISIBLE : View.GONE);
                     ibBatchUnseen.setVisibility(unseen ? View.VISIBLE : View.GONE);
