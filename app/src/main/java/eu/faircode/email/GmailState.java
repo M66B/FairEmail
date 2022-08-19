@@ -83,7 +83,7 @@ public class GmailState {
         crumb.put("need", Boolean.toString(needsRefresh));
         crumb.put("needed", Boolean.toString(neededRefresh));
         crumb.put("token", Boolean.toString(token != null));
-        crumb.put("expiration", expiration == null ? "n/a" : Long.toString((expiration - now) / 1000L));
+        crumb.put("expiration", expiration == null ? "n/a" : ((expiration - now) / 1000L) + " s");
         Log.breadcrumb("Token refresh", crumb);
 
         EntityLog.log(context, EntityLog.Type.Debug, "Token refresh user=" + id + ":" + user +
@@ -97,12 +97,14 @@ public class GmailState {
                 String key = "token." + id + "." + user;
                 long last_refresh = prefs.getLong(key, 0);
                 long ago = now - last_refresh;
-                if (ago < ServiceAuthenticator.MIN_REFRESH_INTERVAL)
-                    Log.e("Blocked token refresh id=" + id +
+                if (ago < ServiceAuthenticator.MIN_REFRESH_INTERVAL) {
+                    crumb.put("ago", (ago / 1000L) + " s");
+                    Log.breadcrumb("Blocked token refresh", crumb);
+                    EntityLog.log(context, "Blocked token refresh id=" + id +
                             " force=" + forceRefresh +
                             " ago=" + (ago / 1000L) + " s" +
                             " exp=" + (expiration == null ? -1 : (expiration - now) / 1000L) + " s");
-                else
+                } else
                     try {
                         EntityLog.log(context, logType, "Invalidating token user=" + id + ":" + user);
                         AccountManager am = AccountManager.get(context);
