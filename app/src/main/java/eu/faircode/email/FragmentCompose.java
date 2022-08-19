@@ -3923,8 +3923,9 @@ public class FragmentCompose extends FragmentBase {
                 // Encrypt
                 CMSEnvelopedDataGenerator cmsEnvelopedDataGenerator = new CMSEnvelopedDataGenerator();
                 if ("EC".equals(privkey.getAlgorithm())) {
+                    // https://datatracker.ietf.org/doc/html/draft-ietf-smime-3278bis
                     JceKeyAgreeRecipientInfoGenerator gen = new JceKeyAgreeRecipientInfoGenerator(
-                            CMSAlgorithm.ECDH_SHA256KDF,
+                            CMSAlgorithm.ECCDH_SHA256KDF,
                             privkey,
                             chain[0].getPublicKey(),
                             CMSAlgorithm.AES128_WRAP);
