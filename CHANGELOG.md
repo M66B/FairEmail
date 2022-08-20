@@ -4,13 +4,17 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
-### 1.1955 - 2022-08-18
+### 1.1956 - 2022-08-20
 
-* Added menu item for larger message action buttons
-* Added recognition of a series of new tracking parameters
-* Added batch enable showing child folders in the navigation menu
+* Added overflow menu item for larger message action buttons
+* Added recognition of a series tracking parameters
 * Small improvements and minor bug fixes
 * Updated libraries
+* Updated translations
+
+### 1.1955 - 2022-08-18
+
+* Small improvements and minor bug fixes
 * Updated translations
 
 ### 1.1954 - 2022-08-17
