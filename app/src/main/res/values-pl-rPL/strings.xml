@@ -199,6 +199,7 @@
     <string name="title_setup_gmail_support">Autoryzacja kont Google będzie działać tylko w wersji Sklep Play i GitHub, ponieważ Android sprawdza podpis aplikacji cyfrowej</string>
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać twoje imię</string>
     <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do odczytu, tworzenia, wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez Twojej wyraźnej zgody.</string>
+    <string name="title_setup_gmail_login">Jeśli Chrome jest zalogowany do konta, nowe konto można dodać tylko przez Androida. Można tego uniknąć wylogowując się z Chrome poprzez ustawienia synchronizacji Chrome.</string>
     <string name="title_setup_gmail_on_device">Dlaczego muszę wybrać konto na urządzeniu?</string>
     <string name="title_setup_gmail_password">Chcę autoryzować konto za pomocą hasła zamiast konta na urządzeniu</string>
     <string name="title_setup_office_auth">Błąd \"AUTHENTICATE failed\" może być spowodowany wyłączeniem protokołu IMAP/SMTP przez administratora systemu</string>
@@ -974,6 +975,7 @@
     <string name="title_hide_seen_folder_hint">Tylko na liście folderów wyświetlanej na ekranie startowym</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce</string>
     <string name="title_navigation_folder">Pokaż w menu nawigacji</string>
+    <string name="title_navigation_folder_hide">Ukryj w menu nawigacji</string>
     <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
     <string name="title_poll_folder_remark">Większość serwerów e-mail pozwala na wysyłanie wiadomości tylko dla kilku folderów!</string>

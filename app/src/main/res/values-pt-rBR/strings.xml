@@ -173,6 +173,7 @@
     <string name="title_setup_gmail_support">A autorização de contas Google funcionará apenas nas versões Play Store e GitHub porque o Android verifica a assinatura do aplicativo digital</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permissão para ler, compor, enviar e excluir permanentemente todo seu e-mail. O FairEmail nunca apagará suas mensagens sem o seu consentimento explícito.</string>
+    <string name="title_setup_gmail_login">Se o Chrome estiver conectado a uma conta, uma nova conta só poderá ser adicionada através do Android. Isso pode ser evitado saindo do Chrome através das configurações de sincronização do Chrome.</string>
     <string name="title_setup_gmail_on_device">Por que eu preciso selecionar uma conta no dispositivo?</string>
     <string name="title_setup_gmail_password">Eu quero autorizar uma conta com uma senha ao invés de uma conta no dispositivo</string>
     <string name="title_setup_office_auth">O erro \'Falha de Autenticação\' pode ser causadado por desativação do IMAP/SMTP pelo administrador do sistema</string>
@@ -948,6 +949,7 @@
     <string name="title_hide_seen_folder_hint">Somente na lista de pastas mostrada na tela inicial</string>
     <string name="title_unified_folder">Mostrar na caixa de entrada unificada</string>
     <string name="title_navigation_folder">Mostrar no menu de navegação</string>
+    <string name="title_navigation_folder_hide">Ocultar no menu de navegação</string>
     <string name="title_synchronize_folder">Sincronizar (receber mensagens)</string>
     <string name="title_poll_folder">Verificar periodicamente ao invés da sincronização contínua</string>
     <string name="title_poll_folder_remark">A maioria dos servidores de e-mail permite notificações push apenas para certa quantidade de pastas!</string>

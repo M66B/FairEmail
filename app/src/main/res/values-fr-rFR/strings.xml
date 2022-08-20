@@ -173,6 +173,7 @@
     <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement avec les versions Play Store et GitHub parce qu\'Android vérifie la signature numérique de l\'application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_gmail_permissions">Google vous demandera l’autorisation pour lire, rédiger, envoyer et supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>
+    <string name="title_setup_gmail_login">Si Chrome est connecté à un compte, un nouveau compte ne peut être ajouté que via Android. Ceci peut être évité en vous déconnectant de Chrome via les paramètres de synchronisation de Chrome.</string>
     <string name="title_setup_gmail_on_device">Pourquoi dois-je sélectionner un compte présent sur mon appareil ?</string>
     <string name="title_setup_gmail_password">Je veux autoriser un compte avec un mot de passe au lieu d\'un compte de l\'appareil</string>
     <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur système</string>
@@ -950,6 +951,7 @@
     <string name="title_hide_seen_folder_hint">Seulement dans la liste des dossiers affichée sur l\'écran de démarrage</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_navigation_folder">Afficher dans le menu de navigation</string>
+    <string name="title_navigation_folder_hide">Masquer dans le menu de navigation</string>
     <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
     <string name="title_poll_folder">Vérifier périodiquement au lieu de synchroniser en continu</string>
     <string name="title_poll_folder_remark">La plupart des serveurs de messagerie autorisent les messages push pour un petit nombre de dossiers seulement !</string>
@@ -1389,6 +1391,7 @@
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
     <string name="title_padding">Espacement des messages</string>
+    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Boutons plus grands</string>
     <string name="title_select_language">Sélectionner la langue</string>
     <string name="title_select_all">Tout sélectionner</string>
     <string name="title_select_found">Sélectionner tous les messages trouvés</string>

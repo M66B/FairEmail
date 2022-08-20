@@ -200,6 +200,7 @@
     <string name="title_setup_gmail_support">Авторизація облікових записів Google працюватиме тільки в версії з Play Store та GitHub, тому що Android перевіряє підпис цифрового додатку</string>
     <string name="title_setup_gmail_rationale">Будь ласка, надайте дозвіл для вибору облікового запису та читання вашого імені</string>
     <string name="title_setup_gmail_permissions">Google буде запитувати про дозволи на читання, створення, надсилання і остаточне видаляння всієї Вашої електронної пошти. FairEmail ніколи не буде видаляти ваші повідомлення без вашої явної згоди.</string>
+    <string name="title_setup_gmail_login">Якщо Chrome увійшов до облікового запису, то новий обліковий запис можна додавати лише через Android. Цього можна уникнути, виходячи з Chrome за допомогою налаштувань синхронізації Chrome.</string>
     <string name="title_setup_gmail_on_device">Навіщо мені обрати обліковий запис на пристрої?</string>
     <string name="title_setup_gmail_password">Я хочу авторизувати обліковий запис за допомогою пароля замість облікового запису на пристрої</string>
     <string name="title_setup_office_auth">Помилка \'Автентифікація не вдалася\' викликана помилкою IMAP/SMTP можливо вимкненою системним адміністратором</string>
@@ -974,6 +975,7 @@
     <string name="title_hide_seen_folder_hint">Показуватися тільки в списку тек при стартовому екрані</string>
     <string name="title_unified_folder">Показати в об\'єднаній вхідній теці</string>
     <string name="title_navigation_folder">Показати в меню навігації</string>
+    <string name="title_navigation_folder_hide">Не показувати у меню навігації</string>
     <string name="title_synchronize_folder">Синхронізувати (отрим. повідомлення)</string>
     <string name="title_poll_folder">Перевіряти періодично замість неперервної синхронізації</string>
     <string name="title_poll_folder_remark">Більшість серверів електронної пошти дозволяють push повідомлення тільки для невеликої кількості тек!</string>

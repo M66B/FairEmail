@@ -1395,7 +1395,7 @@
     <string name="title_sort_on_priority">Prednosti</string>
     <string name="title_sort_on_sender">Pošiljatelju</string>
     <string name="title_sort_on_subject">Zadevi</string>
-    <string name="title_sort_on_size">Velik.</string>
+    <string name="title_sort_on_size">Velikosti</string>
     <string name="title_sort_on_attachments">Prilogah</string>
     <string name="title_sort_on_hidden">Skrito</string>
     <string name="title_sort_ascending">Najprej najstarejša</string>
@@ -1746,7 +1746,7 @@
     <string name="title_pro_activated">Vse značilnosti Pro so aktivirane.</string>
     <string name="title_pro_valid">Vse značilnosti Pro so aktivirane.</string>
     <string name="title_pro_invalid">Neveljaven odziv.</string>
-    <string name="title_pro_support">FarMail potrebuje vašo pomoč.  Dotaknite se za nakup značilnosti Pro, da projekt ohranite pri življenju ali da izklopite to sporočilo.</string>
+    <string name="title_pro_support">FairMail potrebuje vašo pomoč.  Dotaknite se za nakup značilnosti Pro, da projekt ohranite pri življenju ali da izklopite to sporočilo.</string>
     <string name="title_boundary_error">Napaka pri prejemanju sporočil s poštnega strežnika.</string>
     <string name="title_boundary_retry">Poizkusi znova</string>
     <string name="title_unexpected_error">Nepričakovana napaka</string>

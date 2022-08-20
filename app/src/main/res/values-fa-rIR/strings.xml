@@ -647,6 +647,7 @@
     <string name="title_hide_seen_folder_hint">تنها در فهرست پوشه‌‌های نمایش داده شده در صفحه شروع</string>
     <string name="title_unified_folder">نمایش در صندوق دریافت یکپارچه</string>
     <string name="title_navigation_folder">نمایش در منوی ناوبری</string>
+    <string name="title_navigation_folder_hide">در منوی ناوبری پنهان کن</string>
     <string name="title_synchronize_folder">همگام سازی (دریافت پیام‌ها)</string>
     <string name="title_poll_folder">بررسی دوره‌ای به جای همگام سازی پیوسته</string>
     <string name="title_download_folder">دریافت خودکار متن پیام و پیوست</string>

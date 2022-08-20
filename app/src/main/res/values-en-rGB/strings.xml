@@ -211,6 +211,33 @@ You can also configure a signature in the identity settings.</string>
     <string name="title_setup_doze_hint">Although this may sound contradictory, turning off battery optimisations for this app will result in less battery usage</string>
     <string name="title_setup_doze_why">Why should battery optimisations be disabled?</string>
     <string name="title_setup_doze_instructions">In the next Android dialog change \"Not optimised\" to \"All apps\", select this app and select \"Don\'t optimise\"</string>
+    <string name="title_setup_doze_battery">High battery usage?</string>
+    <string name="title_setup_doze_stopped">Sync stopped?</string>
+    <string name="title_setup_doze_device">This is probably required for this device</string>
+    <string name="title_setup_alarm_12">The app won\'t work</string>
+    <string name="title_setup_inexact">Alarms &amp; reminders are disabled</string>
+    <string name="title_setup_background">Background restrictions are enabled</string>
+    <string name="title_setup_data">Data saver is enabled</string>
+    <string name="title_setup_advanced_options">Show advanced options</string>
+    <string name="title_setup_inbox">Go to inbox</string>
+    <string name="title_setup_go">Go</string>
+    <string name="title_setup_to_do">To do</string>
+    <string name="title_setup_done">Done</string>
+    <string name="title_setup_still">Still to do</string>
+    <string name="title_setup_error">Error</string>
+    <string name="title_setup_pop">Use POP3 (not recommended)</string>
+    <string name="title_setup_recent">Use \'recent\' for multiple email clients</string>
+    <string name="title_setup_configuring">Configuring account &#8230;</string>
+    <string name="title_setup_app_password">You might need to use an app password</string>
+    <string name="title_setup_extra">Extra</string>
+    <string name="title_setup_delete_account_hint">This will only remove accounts from the app</string>
+    <string name="title_setup_close">Close settings</string>
+    <string name="title_setup_export">Export settings</string>
+    <string name="title_setup_import">Import settings</string>
+    <string name="title_setup_export_remark">        Since the settings file contains all settings and account information, it is encrypted with a password.
+        The password is required to import the settings again, so please don\'t forget it!
+    </string>
+    <string name="title_setup_export_do">The export file will contain all settings and data, but no messages and no images referenced in signatures</string>
     <string name="title_reset_order">Reset order</string>
     <string name="title_setup_authentication">Authentication</string>
     <string name="title_setup_biometrics">Biometric authentication</string>
@@ -547,17 +574,34 @@ You can also configure a signature in the identity settings.</string>
     <string name="title_auto_trash">Automatically move old messages to bin</string>
     <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
     </string>
+    <string name="title_folder_all">Archive</string>
     <string name="title_folder_trash">Bin</string>
+    <string name="title_folder_junk">Spam</string>
+    <string name="title_folder_system">System</string>
+    <string name="title_hide">Hide</string>
     <string name="title_flag_color">Coloured star &#8230;</string>
     <string name="title_raw_send_message">Message</string>
     <string name="title_raw_send_thread">Conversation</string>
+    <string name="title_quick_actions_snooze">Snooze</string>
     <string name="title_trash">Delete</string>
+    <string name="title_delete">Remove</string>
+    <string name="title_spam">Spam</string>
+    <string name="title_move">Move</string>
+    <string name="title_archive">Archive</string>
+    <string name="title_reply">Reply</string>
     <string name="title_ask_show_image_hint">Images recognised as tracking images will not be shown</string>
+    <string name="title_ask_reporting">Automatically submit error reports?</string>
     <string name="title_compose">Compose</string>
+    <string name="title_language">Language:</string>
     <string name="title_send">Send</string>
     <string name="title_send_encryption">Encryption</string>
     <string name="title_style_list">List</string>
+    <string name="title_search_more">More options</string>
     <string name="title_save_search_color">Colour</string>
+    <string name="title_filter_seen">Read</string>
+    <string name="title_rule_hide">Hide</string>
+    <string name="title_rule_snooze">Snooze</string>
+    <string name="title_rule_move">Move</string>
     <string name="title_legend_section_synchronize">Synchronise</string>
     <string name="title_legend_section_folders">Folders</string>
     <string name="title_legend_section_messages">Messages</string>
@@ -567,23 +611,32 @@ You can also configure a signature in the identity settings.</string>
     <string name="title_legend_synchronize_off">Synchronise off</string>
     <string name="title_legend_synchronize_poll">Synchronise periodically</string>
     <string name="title_legend_synchronizing">Synchronising</string>
+    <string name="title_legend_archive">Archive</string>
     <string name="title_legend_trash">Bin</string>
+    <string name="title_legend_junk">Spam</string>
     <string name="title_legend_sync_keep">Number of days to synchronise / to keep messages</string>
     <string name="title_legend_thread">Conversation</string>
     <string name="title_legend_show_images">Reset show pictures</string>
     <string name="title_legend_default_color">Default colour</string>
     <string name="title_legend_sync_state">Synchronisation state</string>
+    <string name="title_legend_delete">Remove</string>
+    <string name="title_legend_a">Archive</string>
     <string name="title_legend_c">Compose</string>
     <string name="title_legend_d">Delete</string>
+    <string name="title_legend_r">Reply</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronised by default</string>
     <string name="title_hint_message_actions">Swipe left to delete; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
     <string name="title_enable">Enable</string>
     <string name="title_disable">Disable</string>
+    <string name="title_snooze_now">Snooze</string>
     <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
         To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
         FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
+    <string name="title_log_clear">Clear</string>
+    <string name="title_accessibility_seen">Read</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label4">To do</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>

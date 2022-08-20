@@ -199,6 +199,7 @@
     <string name="title_setup_gmail_support">Авторизация учётных записей Google будет работать только в официальных версиях из Play Store и GitHub, так как Android проверяет подпись приложения</string>
     <string name="title_setup_gmail_rationale">Пожалуйста, предоставьте разрешения для выбора учётной записи и чтения вашего имени</string>
     <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и безвозвратное удаление всех ваших сообщений. FairEmail никогда не будет удалять ваши сообщения без вашего явного согласия.</string>
+    <string name="title_setup_gmail_login">Если в Chrome выполнен вход в учётную запись, новую учётную запись можно добавить только через Android. Этого можно избежать, выйдя из учётной записи в Chrome через его настройки синхронизации.</string>
     <string name="title_setup_gmail_on_device">Зачем выбирать учётную запись на устройстве?</string>
     <string name="title_setup_gmail_password">Я хочу авторизовать учётную запись паролем вместо учётной записи на устройстве</string>
     <string name="title_setup_office_auth">Ошибка \"AUTHENTICATE failed\" может быть вызвана отключением IMAP/SMTP системным администратором</string>
@@ -975,6 +976,7 @@
     <string name="title_hide_seen_folder_hint">Только в списке папок, отображаемом на начальном экране</string>
     <string name="title_unified_folder">Показывать в единой папке \"Входящие\"</string>
     <string name="title_navigation_folder">Показывать в меню навигации</string>
+    <string name="title_navigation_folder_hide">Скрыть в меню навигации</string>
     <string name="title_synchronize_folder">Синхронизировать (получать сообщения)</string>
     <string name="title_poll_folder">Периодическая проверка вместо непрерывной синхронизации</string>
     <string name="title_poll_folder_remark">Большинство почтовых серверов позволяют отправлять сообщения только для некоторых папок!</string>
@@ -1413,6 +1415,7 @@
     <string name="title_compact">Компактный вид</string>
     <string name="title_zoom">Размер текста</string>
     <string name="title_padding">Размер отступа</string>
+    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Большие кнопки</string>
     <string name="title_select_language">Выбрать язык</string>
     <string name="title_select_all">Выбрать все</string>
     <string name="title_select_found">Выбрать найденное</string>

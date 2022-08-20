@@ -172,6 +172,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_gmail_support">Autoriseren van Google accounts werkt alleen in de Play Store en GitHub versie omdat Android de digitale app handtekening controleert</string>
     <string name="title_setup_gmail_rationale">Geef a.u.b. toestemming om een account te selecteren en uw naam te lezen</string>
     <string name="title_setup_gmail_permissions">Google zal machtigingen vragen om al uw e-mail te lezen, op te stellen, te verzenden en definitief te verwijderen. FairEmail zal uw berichten nooit verwijderen zonder uw expliciete toestemming.</string>
+    <string name="title_setup_gmail_login">Als Chrome is aangemeld bij een account, kan een nieuwe account alleen via Android worden toegevoegd. Dit kan worden voorkomen door uit te loggen uit Chrome via de Chrome synchronisatie-instellingen.</string>
     <string name="title_setup_gmail_on_device">Waarom moet ik een account op het apparaat selecteren?</string>
     <string name="title_setup_gmail_password">Ik wil een account autoriseren met een wachtwoord in plaats van een account op het apparaat</string>
     <string name="title_setup_office_auth">De fout \'AUTHENTICATE failed\' kan worden veroorzaakt doordat IMAP/SMTP door de systeemadministrator is uitgeschakeld</string>
@@ -946,6 +947,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_hide_seen_folder_hint">Alleen in de mappenlijst die wordt weergegeven op het startscherm</string>
     <string name="title_unified_folder">Toon in het gecombineerde postvak in</string>
     <string name="title_navigation_folder">Toon in navigatiemenu</string>
+    <string name="title_navigation_folder_hide">Verbergen in navigatiemenu</string>
     <string name="title_synchronize_folder">Synchroniseren (ontvang berichten)</string>
     <string name="title_poll_folder">Controleer periodiek in plaats van continu synchroniseren</string>
     <string name="title_poll_folder_remark">De meeste e-mailservers staan push-berichten slechts voor een handvol mappen toe!</string>
@@ -1380,6 +1382,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_compact">Compacte weergave</string>
     <string name="title_zoom">Tekstgrootte</string>
     <string name="title_padding">Opvul grootte</string>
+    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Grotere knoppen</string>
     <string name="title_select_language">Selecteer taal</string>
     <string name="title_select_all">Selecteer alles</string>
     <string name="title_select_found">Selecteer gevonden</string>
