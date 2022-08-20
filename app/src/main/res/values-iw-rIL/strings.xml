@@ -1416,6 +1416,7 @@
     <string name="title_compact">תצוגה מצומצמת</string>
     <string name="title_zoom">גודל טקסט</string>
     <string name="title_padding">גודל ריפוד</string>
+    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">כפתורים גדולים יותר</string>
     <string name="title_select_language">בחירת שפה</string>
     <string name="title_select_all">לבחור הכול</string>
     <string name="title_select_found">לבחור את מה שנמצא</string>

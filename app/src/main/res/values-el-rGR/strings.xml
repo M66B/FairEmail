@@ -1384,6 +1384,7 @@
     <string name="title_compact">Συνεπτυγμένη προβολή</string>
     <string name="title_zoom">Μέγεθος κειμένου</string>
     <string name="title_padding">Μέγεθος διαστήματος μεταξύ μηνυμάτων</string>
+    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Μεγαλύτερα κουμπιά</string>
     <string name="title_select_language">Επιλογή γλώσσας</string>
     <string name="title_select_all">Επιλογή όλων</string>
     <string name="title_select_found">Επιλογή αποτελεσμάτων αναζήτησης</string>

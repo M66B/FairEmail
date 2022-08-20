@@ -173,7 +173,7 @@
     <string name="title_setup_gmail_support">Autorizzare i profili di Google funzionerà solo nella versione del Play Store e di GitHub, poiché Android controlla la firma digitale dell\'app</string>
     <string name="title_setup_gmail_rationale">Sei pregato di garantire i permessi per selezionare un profilo e leggere il tuo nome</string>
     <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, scrivere, inviare ed eliminare permanentemente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza il tuo consenso esplicito.</string>
-    <string name="title_setup_gmail_login">Se Chrome è collegato a un profilo, un nuovo profilo può essere aggiunto solo tramite Android. Questo può essere evitato scollegandosi da Chrome tramite le impostazioni di sincronizzazione Chrome.</string>
+    <string name="title_setup_gmail_login">Se Chrome è connesso a un profilo, puoi aggiungere un nuovo profilo solo tramite Android. Ciò si può evitare disconnettendosi da Chrome tramite le impostazioni di sincronizzazione di Chrome.</string>
     <string name="title_setup_gmail_on_device">Perché devo selezionare un profilo presente sul dispositivo?</string>
     <string name="title_setup_gmail_password">Desidero autorizzare un profilo con una password, invece di un profilo su dispositivo</string>
     <string name="title_setup_office_auth">L\'errore \'AUTHENTICATE fallita\' può esser causato dalla disabilitazione di IMAP/SMTP dall\'amministratore di sistema</string>
@@ -397,7 +397,7 @@
     <string name="title_advanced_ssl_harden">Indurisci connessioni SSL</string>
     <string name="title_advanced_ssl_harden_strict">Richiede TLS 1.3</string>
     <string name="title_advanced_cert_strict">Controllo rigoroso del certificato</string>
-    <string name="title_advanced_open_safe">Apri solo connessioni sicure</string>
+    <string name="title_advanced_open_safe">Apri solo le connessioni sicure</string>
     <string name="title_advanced_manage_connectivity">Gestisci la connettività</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_navigation">Navigazione</string>
@@ -413,7 +413,7 @@
     <string name="title_advanced_two_col">Usa due colonne</string>
     <string name="title_advanced_min_screen_size">Dimensione minima dello schermo per la sua divisione</string>
     <string name="title_advanced_close_pane">Comprimi riga o colonna chiudendo una conversazione</string>
-    <string name="title_advanced_column_width">Larghezza colonna / altezza riga del messaggio: %1$s %%</string>
+    <string name="title_advanced_column_width">Larghezza colonna/altezza riga del messaggio: %1$s %%</string>
     <string name="title_advanced_nav_options">Mostra le opzioni del menu di navigazione</string>
     <string name="title_advanced_nav_categories">Mostra le categorie di profili nel menu di navigazione</string>
     <string name="title_advanced_nav_pin">Fissa il menu di navigazione</string>
@@ -514,7 +514,7 @@
     <string name="title_advanced_conversation_actions">Suggerisci azioni (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Suggerisci i testi di risposta (Android 10+)</string>
     <string name="title_advanced_language_detection">Rileva la lingua del testo del messaggio</string>
-    <string name="title_advanced_photo_picker">Usa selettore di foto di Android</string>
+    <string name="title_advanced_photo_picker">Usa il selettore delle foto di Android</string>
     <string name="title_advanced_pull_refresh">Scorri in giù per aggiornare</string>
     <string name="title_advanced_autoscroll">Scorri in su alla ricezione di nuovi messaggi</string>
     <string name="title_advanced_double_tap">Tocca due volte per contrassegnare un messaggio come letto/non letto</string>
@@ -696,7 +696,7 @@
     <string name="title_advanced_timeout_hint">Il timeout di lettura/scrittura sarà impostato al doppio del timeout di connessione. Valori superiori risulteranno in un maggiore uso della batteria.</string>
     <string name="title_advanced_cert_strict_hint">Disabilitarlo rilasserà la verifica dei certificati del server</string>
     <string name="title_advanced_ssl_harden_hint">Abilitarlo disabiliterà i protocolli SSL e cifrari deboli, che possono condurre a problemi di connessione</string>
-    <string name="title_advanced_open_safe_hint">Abilitarlo richiederà connessioni sicure per scaricare immagini, etc</string>
+    <string name="title_advanced_open_safe_hint">Abilitarlo richiederà connessioni sicure per scaricare immagini, etc.</string>
     <string name="title_advanced_roaming_hint">Le intestazioni dei messaggi saranno sempre recuperate in roaming. Puoi usare le impostazioni di roaming del dispositivo per disabilitare internet in roaming.</string>
     <string name="title_advanced_browse_hint">Recupera altri messaggi scorrendo in giù</string>
     <string name="title_advanced_layout_hint">Passare a un layout più compatto e cambiare la dimensione del testo del messaggio si può fare nel menu della barra d\'azione superiore nella visualizzazione del messaggio</string>
@@ -737,7 +737,7 @@
     <string name="title_advanced_safe_browsing_hint">Il server di Google sa quali indirizzi sono cercati</string>
     <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
     <string name="title_advanced_notify_action_hint">Saranno mostrate al massimo tre azioni</string>
-    <string name="title_advanced_notify_car_hint">Connesso significa che qualcosa viene proiettato, come una mappa per la navigazione</string>
+    <string name="title_advanced_notify_car_hint">Connesso indica che qualcosa è in proiezione, come una mappa per la navigazione</string>
     <string name="title_advanced_notify_remove_hint">Le notifiche dei nuovi messaggi saranno sempre rimosse scorrendo via e contrassegnando i messaggi come letti</string>
     <string name="title_advanced_notify_manage_hint">Tocca sul nome del canale per impostare le proprietà del canale</string>
     <string name="title_advanced_notify_manage_default_hint">Per impostare il suono predefinito, etc.</string>
@@ -804,7 +804,7 @@
     <string name="title_custom">Personalizzato</string>
     <string name="title_host">Nome dell\'host</string>
     <string name="title_encryption">Crittografia</string>
-    <string name="title_encryption_none">Nessuno (insicuro)</string>
+    <string name="title_encryption_none">Nessuna (non sicuro)</string>
     <string name="title_allow_insecure">Consenti connessioni non sicure</string>
     <string name="title_insecure_remark">Le connessioni non sicure dovrebbero esser consentite solo su reti affidabili e mai sulle reti pubbliche</string>
     <string name="title_notify_remark">Puoi abilitarlo per le notifiche specifiche del profilo</string>
@@ -1265,10 +1265,10 @@
     <string name="title_send_receipt">Richiedi conferma</string>
     <string name="title_send_receipt_remark">Gran parte dei provider e client email ignorano le richieste di conferma</string>
     <string name="title_vt_unknown">Questo file non è ancora noto a VirusTotal</string>
-    <string name="title_vt_summary">%1$s virus scanner segnalano questo file come dannoso</string>
+    <string name="title_vt_summary">%1$s scanner di virus segnalano questo file come dannoso</string>
     <string name="title_vt_report">Segnalazione completa</string>
     <string name="title_vt_upload">Carica</string>
-    <string name="title_vt_analyzing">VirusTotal sta analizzando il file, questo può richiedere un po\' di tempo &#8230;</string>
+    <string name="title_vt_analyzing">VirusTotal sta analizzando il file, ciò potrebe richiedere un po\' di tempo&#8230;</string>
     <string name="title_from_missing">Mittente mancante</string>
     <string name="title_pgp_reminder">Chiavi PGP disponibili</string>
     <string name="title_smime_reminder">Chiavi S/MIME disponibili</string>

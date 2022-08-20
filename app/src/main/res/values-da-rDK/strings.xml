@@ -1391,6 +1391,7 @@
     <string name="title_compact">Kompaktvisning</string>
     <string name="title_zoom">Tekststørrelse</string>
     <string name="title_padding">Fyldstørrelse</string>
+    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Større knapper</string>
     <string name="title_select_language">Vælg sprog</string>
     <string name="title_select_all">Markér alle</string>
     <string name="title_select_found">Markér fundne</string>

@@ -1412,6 +1412,7 @@
     <string name="title_compact">Kompaktní zobrazení</string>
     <string name="title_zoom">Velikost textu</string>
     <string name="title_padding">Velikost odsazení položek</string>
+    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Větší tlačítka</string>
     <string name="title_select_language">Vybrat jazyk</string>
     <string name="title_select_all">Vybrat vše</string>
     <string name="title_select_found">Vybrat nalezené</string>

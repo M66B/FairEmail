@@ -1390,6 +1390,7 @@
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamanho do texto</string>
     <string name="title_padding">Tamanho do espaçamento</string>
+    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Botões maiores</string>
     <string name="title_select_language">Seleccionar idioma</string>
     <string name="title_select_all">Seleccionar todas</string>
     <string name="title_select_found">Seleccionar encontradas</string>
