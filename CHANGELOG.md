@@ -7,7 +7,7 @@
 ### 1.1955 - 2022-08-18
 
 * Added batch enable showing child folders in the navigation menu
-* Added display option for large message action buttons
+* Added menu item for larger message action buttons
 * Small improvements and minor bug fixes
 * Updated libraries
 * Updated translations

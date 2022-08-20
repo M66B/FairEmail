@@ -1034,6 +1034,7 @@ public class FragmentMessages extends FragmentBase
 
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
+        boolean large_buttons = prefs.getBoolean("large_buttons", false);
         boolean outbox = EntityFolder.OUTBOX.equals(type);
         boolean ascending = prefs.getBoolean(getSortOrder(getContext(), viewType, type), outbox);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
@@ -1044,7 +1045,7 @@ public class FragmentMessages extends FragmentBase
 
         adapter = new AdapterMessage(
                 this, type, found, searched, viewType,
-                compact, zoom, sort, ascending,
+                compact, zoom, large_buttons, sort, ascending,
                 filter_duplicates, filter_trash,
                 iProperties);
         if (viewType == AdapterMessage.ViewType.THREAD)
@@ -5097,6 +5098,7 @@ public class FragmentMessages extends FragmentBase
             boolean language_detection = prefs.getBoolean("language_detection", false);
             String filter_language = prefs.getString("filter_language", null);
             boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+            boolean large_buttons = prefs.getBoolean("large_buttons", false);
             boolean compact = prefs.getBoolean("compact", false);
             boolean confirm_links = prefs.getBoolean("confirm_links", true);
             int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
@@ -5204,14 +5206,17 @@ public class FragmentMessages extends FragmentBase
             for (int i = 0; i <= padding; i++)
                 ssbPadding.append('+');
 
-            menu.findItem(R.id.menu_compact).setChecked(compact);
-
             menu.findItem(R.id.menu_zoom).setTitle(ssbZoom);
             PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom), false);
 
             menu.findItem(R.id.menu_padding).setTitle(ssbPadding);
             PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_padding), false);
 
+            menu.findItem(R.id.menu_large_buttons)
+                    .setChecked(large_buttons)
+                    .setVisible(viewType == AdapterMessage.ViewType.THREAD);
+
+            menu.findItem(R.id.menu_compact).setChecked(compact);
             menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
             menu.findItem(R.id.menu_confirm_links)
@@ -5352,6 +5357,9 @@ public class FragmentMessages extends FragmentBase
             return true;
         } else if (itemId == R.id.menu_padding) {
             onMenuPadding();
+            return true;
+        } else if (itemId == R.id.menu_large_buttons) {
+            onMenuLargeButtons();
             return true;
         } else if (itemId == R.id.menu_compact) {
             onMenuCompact();
@@ -5650,6 +5658,13 @@ public class FragmentMessages extends FragmentBase
         clearMeasurements();
         adapter.setPadding(padding);
         invalidateOptionsMenu();
+    }
+
+    private void onMenuLargeButtons() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean large_buttons = !prefs.getBoolean("large_buttons", false);
+        prefs.edit().putBoolean("large_buttons", large_buttons).apply();
+        adapter.setLargeButtons(large_buttons);
     }
 
     private void onMenuCompact() {

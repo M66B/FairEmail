@@ -152,7 +152,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private TextView tvPreviewLinesHint;
 
     private SwitchCompat swAddresses;
-    private SwitchCompat swLargeButtons;
     private TextView tvMessageZoom;
     private SeekBar sbMessageZoom;
     private SwitchCompat swOverviewMode;
@@ -204,7 +203,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "subject_top", "subject_italic", "highlight_subject", "font_size_subject", "subject_ellipsize",
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines",
-            "addresses", "large_buttons",
+            "addresses",
             "message_zoom", "overview_mode", "override_width",
             "hyphenation", "display_font", "contrast", "monospaced_pre",
             "text_separators",
@@ -312,7 +311,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         spPreviewLines = view.findViewById(R.id.spPreviewLines);
         tvPreviewLinesHint = view.findViewById(R.id.tvPreviewLinesHint);
         swAddresses = view.findViewById(R.id.swAddresses);
-        swLargeButtons = view.findViewById(R.id.swLargeButtons);
         tvMessageZoom = view.findViewById(R.id.tvMessageZoom);
         sbMessageZoom = view.findViewById(R.id.sbMessageZoom);
         swOverviewMode = view.findViewById(R.id.swOverviewMode);
@@ -1070,13 +1068,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swLargeButtons.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("large_buttons", checked).apply();
-            }
-        });
-
         sbMessageZoom.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -1488,7 +1479,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         spPreviewLines.setEnabled(swPreview.isChecked());
 
         swAddresses.setChecked(prefs.getBoolean("addresses", false));
-        swLargeButtons.setChecked(prefs.getBoolean("large_buttons", false));
 
         int message_zoom = prefs.getInt("message_zoom", 100);
         tvMessageZoom.setText(getString(R.string.title_advanced_message_text_zoom2, NF.format(message_zoom)));

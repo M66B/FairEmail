@@ -889,26 +889,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibMore = vsBody.findViewById(R.id.ibMore);
             vwEmpty = vsBody.findViewById(R.id.vwEmpty);
             ibFlow = vsBody.findViewById(R.id.ibFlow);
-
-            if (large_buttons) {
-                int dp36 = Helper.dp2pixels(context, 42);
-                ConstraintLayout cl = (ConstraintLayout) ibFlow.getParent();
-                List<Integer> ids = new ArrayList<>();
-                for (int id : ibFlow.getReferencedIds())
-                    ids.add(id);
-                for (int id : new int[]{
-                        R.id.ibTools, R.id.vwEmpty,
-                        R.id.ibFull, R.id.ibImages, R.id.ibAmp,
-                        R.id.ibDecrypt, R.id.ibVerify})
-                    ids.add(id);
-                for (int id : ids) {
-                    View v = cl.findViewById(id);
-                    ViewGroup.LayoutParams lparam = v.getLayoutParams();
-                    lparam.width = dp36;
-                    lparam.height = dp36;
-                }
-            }
-
             ibTools = vsBody.findViewById(R.id.ibTools);
 
             buttons = vsBody.findViewById(R.id.buttons);
@@ -957,6 +937,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpCalendarResponse = vsBody.findViewById(R.id.grpCalendarResponse);
             grpAttachments = attachments.findViewById(R.id.grpAttachments);
             grpImages = vsBody.findViewById(R.id.grpImages);
+
+            if (large_buttons) {
+                int dp36 = Helper.dp2pixels(context, 42);
+                List<Integer> ids = new ArrayList<>();
+                ids.addAll(Helper.fromIntArray(ibFlow.getReferencedIds()));
+                ids.addAll(Arrays.asList(R.id.ibTools, R.id.vwEmpty,
+                        R.id.ibFull, R.id.ibImages, R.id.ibAmp,
+                        R.id.ibDecrypt, R.id.ibVerify,
+                        R.id.ibInfrastructure,
+                        R.id.ibTrashBottom, R.id.ibArchiveBottom, R.id.ibMoveBottom,
+                        R.id.ibSeenBottom));
+                for (int id : ids) {
+                    View v = view.findViewById(id);
+                    ViewGroup.LayoutParams lparam = v.getLayoutParams();
+                    lparam.width = dp36;
+                    lparam.height = dp36;
+                }
+            }
 
             unwire();
             wire();
@@ -7131,7 +7129,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     AdapterMessage(Fragment parentFragment,
                    String type, boolean found, String searched, ViewType viewType,
-                   boolean compact, int zoom, String sort, boolean ascending,
+                   boolean compact, int zoom, boolean large_buttons, String sort, boolean ascending,
                    boolean filter_duplicates, boolean filter_trash,
                    final IProperties properties) {
         this.parentFragment = parentFragment;
@@ -7141,6 +7139,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.viewType = viewType;
         this.compact = compact;
         this.zoom = zoom;
+        this.large_buttons = large_buttons;
         this.sort = sort;
         this.ascending = ascending;
         this.filter_duplicates = filter_duplicates;
@@ -7244,7 +7243,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.preview = prefs.getBoolean("preview", false);
         this.preview_italic = prefs.getBoolean("preview_italic", true);
         this.preview_lines = prefs.getInt("preview_lines", 1);
-        this.large_buttons = prefs.getBoolean("large_buttons", false);
         this.message_zoom = prefs.getInt("message_zoom", 100);
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.thumbnails = prefs.getBoolean("thumbnails", true);
@@ -7879,6 +7877,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void setPadding(int padding) {
+        if (rv != null) {
+            rv.getRecycledViewPool().clear();
+            rv.getLayoutManager().removeAllViews();
+        }
+        properties.refresh();
+    }
+
+    void setLargeButtons(boolean large_buttons) {
+        this.large_buttons = large_buttons;
         if (rv != null) {
             rv.getRecycledViewPool().clear();
             rv.getLayoutManager().removeAllViews();

@@ -558,7 +558,6 @@
     <string name="title_advanced_preview_italic">Show message preview in italics</string>
     <string name="title_advanced_preview_lines">Number of preview lines</string>
     <string name="title_advanced_addresses">Expand address details by default</string>
-    <string name="title_advanced_large_buttons">Use larger buttons for message actions</string>
     <string name="title_advanced_unzip">Show contents of compressed attachments</string>
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_thumbnails">Show image thumbnails after the message text</string>
@@ -1630,6 +1629,7 @@
     <string name="title_compact">Compact view</string>
     <string name="title_zoom">Text size</string>
     <string name="title_padding">Padding size</string>
+    <string name="title_large_buttons">Larger buttons</string>
     <string name="title_select_language">Select language</string>
     <string name="title_select_all">Select all</string>
     <string name="title_select_found">Select found</string>

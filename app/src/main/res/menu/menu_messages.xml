@@ -148,6 +148,13 @@
             app:showAsAction="never" />
 
         <item
+            android:id="@+id/menu_large_buttons"
+            android:checkable="true"
+            android:icon="@drawable/twotone_smart_button_24"
+            android:title="@string/title_large_buttons"
+            app:showAsAction="never" />
+
+        <item
             android:id="@+id/menu_compact"
             android:checkable="true"
             android:icon="@drawable/outline_unfold_less_24"
