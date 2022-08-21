@@ -279,26 +279,35 @@ public class FragmentAnswers extends FragmentBase {
             }
         });
 
+        Menu smenu = menu.findItem(R.id.menu_placeholders).getSubMenu();
+
+        List<String> names = EntityAnswer.getCustomPlaceholders(getContext());
+        for (int i = 0; i < names.size(); i++)
+            smenu.add(Menu.FIRST, i + 1, i + 1, names.get(i));
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.menu_define) {
-            onDefine();
+        if (item.getGroupId() == Menu.FIRST) {
+            onDefine(item.getTitle().toString());
             return true;
-        } else
-            return super.onOptionsItemSelected(item);
+        } else {
+            int id = item.getItemId();
+            if (id == R.id.menu_define) {
+                onDefine(null);
+                return true;
+            } else
+                return super.onOptionsItemSelected(item);
+        }
     }
 
-    private void onDefine() {
+    private void onDefine(String name) {
         final Context context = getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_placeholder, null);
         final EditText etName = view.findViewById(R.id.etName);
         final EditText etValue = view.findViewById(R.id.etValue);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         etName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -313,11 +322,13 @@ public class FragmentAnswers extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable s) {
-                String value = prefs.getString(EntityAnswer.PREF_PLACEHOLDER + s.toString().trim(), null);
+                String value = EntityAnswer.getCustomPlaceholder(context, s.toString().trim());
                 if (!TextUtils.isEmpty(value))
                     etValue.setText(value);
             }
         });
+
+        etName.setText(name);
 
         new AlertDialog.Builder(context)
                 .setView(view)
@@ -328,10 +339,7 @@ public class FragmentAnswers extends FragmentBase {
                         String value = etValue.getText().toString();
                         if (TextUtils.isEmpty(name))
                             return;
-                        if (TextUtils.isEmpty(value))
-                            prefs.edit().remove(EntityAnswer.PREF_PLACEHOLDER + name).apply();
-                        else
-                            prefs.edit().putString(EntityAnswer.PREF_PLACEHOLDER + name, value).apply();
+                        EntityAnswer.setCustomPlaceholder(context, name, value);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)

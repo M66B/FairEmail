@@ -99,7 +99,7 @@ public class EntityAnswer implements Serializable {
     public Integer applied = 0;
     public Long last_applied;
 
-    static final String PREF_PLACEHOLDER = "answer.value.";
+    private static final String PREF_PLACEHOLDER = "answer.value.";
 
     String getHtml(Context context, Address[] address) {
         return replacePlaceholders(context, text, address);
@@ -189,6 +189,39 @@ public class EntityAnswer implements Serializable {
             }
 
         return text;
+    }
+
+    static void setCustomPlaceholder(Context context, String name, String value) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        if (TextUtils.isEmpty(value))
+            prefs.edit().remove(EntityAnswer.PREF_PLACEHOLDER + name).apply();
+        else
+            prefs.edit().putString(EntityAnswer.PREF_PLACEHOLDER + name, value).apply();
+    }
+
+    static String getCustomPlaceholder(Context context, String name) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString(EntityAnswer.PREF_PLACEHOLDER + name, null);
+    }
+
+    static List<String> getCustomPlaceholders(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        List<String> names = new ArrayList<>();
+        for (String key : prefs.getAll().keySet())
+            if (key.startsWith(EntityAnswer.PREF_PLACEHOLDER))
+                names.add(key.substring(EntityAnswer.PREF_PLACEHOLDER.length()));
+
+        final Collator collator = Collator.getInstance(Locale.getDefault());
+        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+        Collections.sort(names, new Comparator<String>() {
+            @Override
+            public int compare(String n1, String n2) {
+                return collator.compare(n1, n2);
+            }
+        });
+
+        return names;
     }
 
     static void fillMenu(Menu main, boolean compose, List<EntityAnswer> answers, Context context) {

@@ -56,12 +56,7 @@ import com.google.android.material.snackbar.Snackbar;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import java.text.Collator;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 
 public class FragmentAnswer extends FragmentBase {
     private ViewGroup view;
@@ -287,22 +282,9 @@ public class FragmentAnswer extends FragmentBase {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_answer, menu);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        List<String> names = new ArrayList<>();
-        for (String key : prefs.getAll().keySet())
-            if (key.startsWith(EntityAnswer.PREF_PLACEHOLDER))
-                names.add(key.substring(EntityAnswer.PREF_PLACEHOLDER.length()));
-
-        final Collator collator = Collator.getInstance(Locale.getDefault());
-        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-        Collections.sort(names, new Comparator<String>() {
-            @Override
-            public int compare(String n1, String n2) {
-                return collator.compare(n1, n2);
-            }
-        });
-
         Menu smenu = menu.findItem(R.id.menu_placeholders).getSubMenu();
+
+        List<String> names = EntityAnswer.getCustomPlaceholders(getContext());
         for (int i = 0; i < names.size(); i++)
             smenu.add(Menu.FIRST, i + 1, i + 1, names.get(i));
 

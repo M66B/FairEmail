@@ -9,7 +9,13 @@
         app:showAsAction="collapseActionView|always" />
 
     <item
-        android:id="@+id/menu_define"
-        android:icon="@drawable/twotone_add_24"
-        android:title="@string/title_answer_define" />
+        android:id="@+id/menu_placeholders"
+        android:title="@string/title_answer_placeholder">
+        <menu>
+            <item
+                android:id="@+id/menu_define"
+                android:icon="@drawable/twotone_add_24"
+                android:title="@string/title_add" />
+        </menu>
+    </item>
 </menu>
