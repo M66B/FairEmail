@@ -4,6 +4,12 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### Next version
+
+* Added custom placeholder values for reply templates
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1956 - 2022-08-20
 
 * Added overflow menu item for larger message action buttons
