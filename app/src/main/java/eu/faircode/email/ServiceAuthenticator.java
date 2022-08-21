@@ -24,9 +24,6 @@ import static eu.faircode.email.GmailState.TYPE_GOOGLE;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.content.Context;
-import android.content.SharedPreferences;
-
-import androidx.preference.PreferenceManager;
 
 import net.openid.appauth.AuthState;
 import net.openid.appauth.AuthorizationException;
