@@ -962,6 +962,7 @@
     <string name="title_edit_signature">Редактиране на подписа</string>
     <string name="title_edit_signature_text">Текст на подписа</string>
     <string name="title_edit_signature_image">Вмъкни изображение</string>
+    <string name="title_answer_define_name">Име</string>
     <string name="title_answer_caption">Ред. шаблон</string>
     <string name="title_answer_reply">Отговор с шаблони</string>
     <string name="title_answer_name">Име на шаблон</string>

@@ -1384,7 +1384,7 @@
     <string name="title_compact">Συνεπτυγμένη προβολή</string>
     <string name="title_zoom">Μέγεθος κειμένου</string>
     <string name="title_padding">Μέγεθος διαστήματος μεταξύ μηνυμάτων</string>
-    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Μεγαλύτερα κουμπιά</string>
+    <string name="title_large_buttons">Μεγαλύτερα κουμπιά</string>
     <string name="title_select_language">Επιλογή γλώσσας</string>
     <string name="title_select_all">Επιλογή όλων</string>
     <string name="title_select_found">Επιλογή αποτελεσμάτων αναζήτησης</string>
@@ -1402,6 +1402,7 @@
     <string name="title_edit_signature_image_hint">        Κατά την αποστολή μηνύματος, η εικόνα αντιγράφεται στο μήνυμα από την επιλεγμένη τοποθεσία.
         Άρα, μην διαγράψετε το αρχείο εικόνας!
     </string>
+    <string name="title_answer_define_name">Όνομα</string>
     <string name="title_answer_caption">Επεξεργασία προτύπου</string>
     <string name="title_answer_reply">Πρότυπο απάντησης</string>
     <string name="title_answer_name">Όνομα προτύπου</string>

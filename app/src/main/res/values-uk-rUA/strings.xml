@@ -1429,6 +1429,7 @@
     <string name="title_edit_signature_image_hint">        При надсиланні повідомлення зображення копіюється в повідомлення з вибраного розташування.
         Отже, не видаляйте файл зображення!
     </string>
+    <string name="title_answer_define_name">Ім\'я</string>
     <string name="title_answer_caption">Редагувати шаблон</string>
     <string name="title_answer_reply">Шаблон відповіді</string>
     <string name="title_answer_name">Ім\'я шаблону</string>

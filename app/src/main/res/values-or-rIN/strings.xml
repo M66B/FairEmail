@@ -520,6 +520,7 @@
     <string name="title_edit_signature_image_hint">        ଗୋଟିଏ ବାର୍ତ୍ତା ପଠାଇବାବେଳେ, ପ୍ରତିଛବି ମନୋନୀତ ସ୍ଥାନରୁ ସନ୍ଦେଶରେ କପି କରାଯାଇଥାଏ।
         ତେଣୁ, ପ୍ରତିଛବିର ଫାଇଲକୁ ବିଲୋପ କରନ୍ତୁନି!
     </string>
+    <string name="title_answer_define_name">ନାମ</string>
     <string name="title_answer_caption">ଟେମ୍ପଲେଟ୍ ସମ୍ପାଦନା</string>
     <string name="title_answer_reply">ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟ୍</string>
     <string name="title_answer_name">ଟେମ୍ପଲେଟ୍ ନାମ</string>

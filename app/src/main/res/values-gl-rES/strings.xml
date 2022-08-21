@@ -1345,6 +1345,7 @@
     <string name="title_edit_signature_image_hint">        Cando se envía unha mensaxe, a imaxe se copia nela desde a localización seleccionada.
         Por iso non debe borrar o ficheiro da imaxe!
     </string>
+    <string name="title_answer_define_name">Nome</string>
     <string name="title_answer_caption">Modificar patrón</string>
     <string name="title_answer_reply">Patrón de resposta</string>
     <string name="title_answer_name">Nome do patrón</string>

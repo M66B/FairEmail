@@ -1370,6 +1370,7 @@
     <string name="title_edit_signature_image_hint">        Khi gửi thư, hình ảnh được sao chép vào thư từ vị trí được chọn.
         Vậy nên đừng xoá tệp hình ảnh!
     </string>
+    <string name="title_answer_define_name">Tên</string>
     <string name="title_answer_caption">Chỉnh sửa mẫu</string>
     <string name="title_answer_reply">Mẫu trả lời</string>
     <string name="title_answer_name">Tên mẫu</string>

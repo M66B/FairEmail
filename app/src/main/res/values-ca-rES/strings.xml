@@ -856,6 +856,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_edit_signature">Edita la signatura</string>
     <string name="title_edit_signature_text">Text de signatura</string>
     <string name="title_edit_signature_image">Insereix imatge</string>
+    <string name="title_answer_define_name">Nom</string>
     <string name="title_answer_caption">Editar la plantilla</string>
     <string name="title_answer_reply">Respondre plantilla</string>
     <string name="title_answer_name">Nom de la plantilla</string>

@@ -1340,6 +1340,7 @@
     <string name="title_edit_signature_remark">雖然 Android 不支援顯示部分 HTML 元素，但此部分將按原樣傳送</string>
     <string name="title_edit_signature_text">簽名文字</string>
     <string name="title_edit_signature_image">插入圖片</string>
+    <string name="title_answer_define_name">名稱</string>
     <string name="title_answer_caption">編輯模板</string>
     <string name="title_answer_reply">回覆模板</string>
     <string name="title_answer_name">模板名稱</string>

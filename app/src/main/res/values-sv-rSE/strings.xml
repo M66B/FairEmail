@@ -1394,6 +1394,7 @@
     <string name="title_edit_signature_image_hint">        När du skickar ett meddelande kopieras bilden till meddelandet från den valda platsen.
         Ta alltså inte bort bildfilen!
     </string>
+    <string name="title_answer_define_name">Namn</string>
     <string name="title_answer_caption">Redigera mall</string>
     <string name="title_answer_reply">Svarsmall</string>
     <string name="title_answer_name">Mallnamn</string>

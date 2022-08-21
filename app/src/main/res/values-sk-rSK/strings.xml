@@ -1424,6 +1424,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_edit_signature_image_hint">        Obrázok je z vybratého umiestnenia priložený k správe až pri odoslaní.
         Dovtedy prosím nezmašte tento obrázok!
     </string>
+    <string name="title_answer_define_name">Názov</string>
     <string name="title_answer_caption">Upraviť šablónu</string>
     <string name="title_answer_reply">Šablóna odpovede</string>
     <string name="title_answer_name">Názov šablóny</string>

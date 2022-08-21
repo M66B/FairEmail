@@ -1412,6 +1412,7 @@
     <string name="title_compact">Widok kompaktowy</string>
     <string name="title_zoom">Rozmiar tekstu</string>
     <string name="title_padding">Rozmiar wypełnienia</string>
+    <string name="title_large_buttons">Większe przyciski</string>
     <string name="title_select_language">Wybierz język</string>
     <string name="title_select_all">Wybierz wszystkie</string>
     <string name="title_select_found">Wybierz znalezione</string>
@@ -1430,6 +1431,7 @@
         Nie usuwaj więc pliku z obrazem!
     
     </string>
+    <string name="title_answer_define_name">Nazwa</string>
     <string name="title_answer_caption">Edytuj szablon</string>
     <string name="title_answer_reply">Szablon odpowiedzi</string>
     <string name="title_answer_name">Nazwa szablonu</string>

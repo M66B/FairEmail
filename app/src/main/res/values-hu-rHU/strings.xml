@@ -1291,6 +1291,7 @@
     <string name="title_edit_signature_remark">Habár az Android nem tudja a HTML-t megjeleníteni, elküldésre kerül ahogy van</string>
     <string name="title_edit_signature_text">Aláírás szövege</string>
     <string name="title_edit_signature_image">Kép beillesztése</string>
+    <string name="title_answer_define_name">Név</string>
     <string name="title_answer_caption">Sablon szerkesztése</string>
     <string name="title_answer_reply">Válaszsablon</string>
     <string name="title_answer_name">Sablon neve</string>

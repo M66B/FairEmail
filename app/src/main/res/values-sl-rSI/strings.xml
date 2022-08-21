@@ -1412,7 +1412,7 @@
     <string name="title_compact">Strnjen pogled</string>
     <string name="title_zoom">Velikost besedila</string>
     <string name="title_padding">Velikost blazinjenja</string>
-    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Večji gumbi</string>
+    <string name="title_large_buttons">Večji gumbi</string>
     <string name="title_select_language">Izberite jezik</string>
     <string name="title_select_all">Izberi vse</string>
     <string name="title_select_found">Izberi najdene</string>
@@ -1430,6 +1430,7 @@
     <string name="title_edit_signature_image_hint">        Med pošiljanjem sporočila se slika kopira v sporočilo z izbranega mesta..
         Ne izbrišite datoteke slike!
     </string>
+    <string name="title_answer_define_name">Ime</string>
     <string name="title_answer_caption">Uredi predlogo</string>
     <string name="title_answer_reply">Predloga za odgovor</string>
     <string name="title_answer_name">Ime predloge</string>

@@ -1159,6 +1159,7 @@
     <string name="title_edit_signature_image">Txertatu irudia</string>
     <string name="title_edit_signature_image_hint">        Mezu bat bidaltzean, aukeratutako kokalekutik kopiatzen da irudia mezuan. Beraz, ez ezabatu irudi-fitxategia!
     </string>
+    <string name="title_answer_define_name">Izena</string>
     <string name="title_answer_caption">Editatu txantiloia</string>
     <string name="title_answer_reply">Erantzun txantiloia</string>
     <string name="title_answer_name">Txantiloi-izena</string>

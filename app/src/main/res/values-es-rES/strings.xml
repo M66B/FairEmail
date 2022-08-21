@@ -1402,6 +1402,7 @@
     <string name="title_edit_signature_image_hint">        Al enviar un mensaje, la imagen se copia en el mensaje desde la ubicación seleccionada.
         ¡Así que no borre el archivo de imagen!
     </string>
+    <string name="title_answer_define_name">Nombre</string>
     <string name="title_answer_caption">Editar plantilla</string>
     <string name="title_answer_reply">Plantilla de respuesta</string>
     <string name="title_answer_name">Nombre de plantilla</string>

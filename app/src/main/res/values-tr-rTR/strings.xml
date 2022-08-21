@@ -1399,6 +1399,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_edit_signature_image_hint">        Mesaj gönderirken, görüntü seçilen konumdan mesajın içine kopyalanır.
         Bu nedenle, görüntü dosyasını silmeyin!
     </string>
+    <string name="title_answer_define_name">Ad</string>
     <string name="title_answer_caption">Kalıbı Düzenle</string>
     <string name="title_answer_reply">Yanıt kalıbı</string>
     <string name="title_answer_name">Kalıp adı</string>

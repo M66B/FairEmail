@@ -1405,6 +1405,7 @@
     <string name="title_edit_signature_image_hint">        Bir mesaj göndəriləndə, təsvir, seçilən bölmədən mesaja kopyalanır.
         Ona görə də, təsvir faylını silməyin!
     </string>
+    <string name="title_answer_define_name">Ad</string>
     <string name="title_answer_caption">Şablona düzəliş et</string>
     <string name="title_answer_reply">Cavab şablonu</string>
     <string name="title_answer_name">Şablon adı</string>

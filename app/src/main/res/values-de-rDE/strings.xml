@@ -1385,7 +1385,7 @@
     <string name="title_compact">Kompaktansicht</string>
     <string name="title_zoom">Schriftgröße</string>
     <string name="title_padding">Abstand zwischen den Texten</string>
-    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Größere Tasten</string>
+    <string name="title_large_buttons">Größere Tasten</string>
     <string name="title_select_language">Sprache wählen</string>
     <string name="title_select_all">Alle auswählen</string>
     <string name="title_select_found">Alle gefundenen Nachrichten auswählen</string>
@@ -1403,6 +1403,8 @@
     <string name="title_edit_signature_image_hint">        Erst beim Versenden einer Nachricht wird die Bilddatei vom gewählten Speicherort in die Nachricht kopiert.
         Löschen Sie deshalb nicht die Bilddatei, bevor die Nachricht gesendet wurde!
     </string>
+    <string name="title_answer_define_name">Name</string>
+    <string name="title_answer_define_value">Inhalt</string>
     <string name="title_answer_caption">Vorlage bearbeiten</string>
     <string name="title_answer_reply">Antwortvorlage</string>
     <string name="title_answer_name">Vorlagenname</string>

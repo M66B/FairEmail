@@ -1391,7 +1391,7 @@
     <string name="title_compact">Vista compatta</string>
     <string name="title_zoom">Dimensione testo</string>
     <string name="title_padding">Dimensione del rientro</string>
-    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Pulsanti più grandi</string>
+    <string name="title_large_buttons">Pulsanti più grandi</string>
     <string name="title_select_language">Seleziona lingua</string>
     <string name="title_select_all">Seleziona tutto</string>
     <string name="title_select_found">Seleziona trovati</string>
@@ -1409,6 +1409,8 @@
     <string name="title_edit_signature_image_hint">        Inviando un messaggio, l\'immagine è copiata nel messaggio dalla posizione selezionata.
         Quindi, non eliminare il file immagine!
     </string>
+    <string name="title_answer_define_name">Nome</string>
+    <string name="title_answer_define_value">Valore</string>
     <string name="title_answer_caption">Modifica modello</string>
     <string name="title_answer_reply">Modello di risposta</string>
     <string name="title_answer_name">Nome del modello</string>

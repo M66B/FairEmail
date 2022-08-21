@@ -1382,7 +1382,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_compact">Compacte weergave</string>
     <string name="title_zoom">Tekstgrootte</string>
     <string name="title_padding">Opvul grootte</string>
-    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Grotere knoppen</string>
+    <string name="title_large_buttons">Grotere knoppen</string>
     <string name="title_select_language">Selecteer taal</string>
     <string name="title_select_all">Selecteer alles</string>
     <string name="title_select_found">Selecteer gevonden</string>
@@ -1399,6 +1399,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_edit_signature_image">Afbeelding invoegen</string>
     <string name="title_edit_signature_image_hint">Bij het verzenden van een bericht wordt de afbeelding vanaf de geselecteerde locatie naar het bericht gekopieerd.
          Verwijder het afbeeldingsbestand dus niet!    </string>
+    <string name="title_answer_define_name">Naam</string>
+    <string name="title_answer_define_value">Waarde</string>
     <string name="title_answer_caption">Bewerk sjabloon</string>
     <string name="title_answer_reply">Antwoord sjabloon</string>
     <string name="title_answer_name">Sjabloonnaam</string>

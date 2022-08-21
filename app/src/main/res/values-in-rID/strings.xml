@@ -1261,6 +1261,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_edit_signature_remark">Meskipun Android tidak dapat menampilkan seluruh HTML, akan dikirim sebagaimana adanya</string>
     <string name="title_edit_signature_text">Teks tanda tangan</string>
     <string name="title_edit_signature_image">Sisipkan gambar</string>
+    <string name="title_answer_define_name">Nama</string>
     <string name="title_answer_caption">Sunting Template</string>
     <string name="title_answer_reply">Balas dengan template</string>
     <string name="title_answer_name">Nama template</string>

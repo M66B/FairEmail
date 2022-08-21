@@ -1404,6 +1404,7 @@
     <string name="title_edit_signature_image_hint">        Ao enviar uma mensagem, a imagem é copiada na mensagem a partir do local selecionado.
         Então, não exclua o arquivo de imagem!
     </string>
+    <string name="title_answer_define_name">Nome</string>
     <string name="title_answer_caption">Editar template</string>
     <string name="title_answer_reply">Modelo de resposta</string>
     <string name="title_answer_name">Nome do modelo</string>

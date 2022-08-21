@@ -411,6 +411,7 @@
     <string name="title_next">التالي</string>
     <string name="title_edit_signature_text">نص التوقيع</string>
     <string name="title_edit_signature_image">إرفاق صورة</string>
+    <string name="title_answer_define_name">الإسم</string>
     <string name="title_answer_reply">نموذج الرد</string>
     <string name="title_answer_name">اسم النموذج</string>
     <string name="title_answer_text">نص النموذج</string>

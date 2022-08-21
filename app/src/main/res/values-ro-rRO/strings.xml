@@ -1399,7 +1399,7 @@
     <string name="title_compact">Vizualizare compactă</string>
     <string name="title_zoom">Mărime text</string>
     <string name="title_padding">Mărime spațiu liber</string>
-    <string name="title_large_buttons" comment="title_large_buttons&#10;Title for options menu item">Butoane mai mari</string>
+    <string name="title_large_buttons">Butoane mai mari</string>
     <string name="title_select_language">Selectare limbă</string>
     <string name="title_select_all">Selectează tot</string>
     <string name="title_select_found">Selectare găsite</string>
@@ -1417,6 +1417,7 @@
     <string name="title_edit_signature_image_hint">        Când trimiteți un mesaj, imaginea este copiată în mesaj din locația selectată.
         Deci, nu ștergeți fișierul imagine!
     </string>
+    <string name="title_answer_define_name">Nume</string>
     <string name="title_answer_caption">Editare șablon</string>
     <string name="title_answer_reply">Șablon răspuns</string>
     <string name="title_answer_name">Nume șablon</string>

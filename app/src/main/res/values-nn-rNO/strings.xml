@@ -939,6 +939,7 @@
     <string name="title_edit_signature">Rediger signatur</string>
     <string name="title_edit_signature_text">Signaturtekst</string>
     <string name="title_edit_signature_image">Sett inn bilde</string>
+    <string name="title_answer_define_name">Navn</string>
     <string name="title_answer_caption">Rediger mal</string>
     <string name="title_answer_reply">Svarmal</string>
     <string name="title_answer_name">Navn på mal</string>

@@ -1394,6 +1394,7 @@
     <string name="title_edit_signature_image_hint">        毎回メッセージを送信するときに、画像を選択した時点の保存場所からコピーします。
         画像ファイルは削除しないでください！
     </string>
+    <string name="title_answer_define_name">名前</string>
     <string name="title_answer_caption">テンプレートを編集</string>
     <string name="title_answer_reply">テンプレートで返信</string>
     <string name="title_answer_name">テンプレート名</string>

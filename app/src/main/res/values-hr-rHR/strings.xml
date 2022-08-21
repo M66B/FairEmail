@@ -1367,6 +1367,7 @@
     <string name="title_edit_signature_image_hint">        Prilikom slanja poruke, slika se kopira u poruku s odabranog mjesta.
         Dakle, ne brišite slikovnu datoteku!
     </string>
+    <string name="title_answer_define_name">Ime</string>
     <string name="title_answer_caption">Uredi predložak</string>
     <string name="title_answer_reply">Predložak odgovora</string>
     <string name="title_answer_name">Naziv predloška</string>

@@ -1339,6 +1339,7 @@
     <string name="title_edit_signature_image_hint">        Kun viesti lähetetään, kuva kopioidaan valitusta sijainnista viestiin.
         Älä siis poista kuvatiedostoa!
     </string>
+    <string name="title_answer_define_name">Nimi</string>
     <string name="title_answer_caption">Muokkaa viestipohjaa</string>
     <string name="title_answer_reply">Vastausviestipohja</string>
     <string name="title_answer_name">Viestipohjan nimi</string>

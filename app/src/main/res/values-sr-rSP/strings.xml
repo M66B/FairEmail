@@ -682,6 +682,7 @@
     <string name="title_edit_signature">Промени потпис</string>
     <string name="title_edit_signature_text">Текст потписа</string>
     <string name="title_edit_signature_image">Убаци слику</string>
+    <string name="title_answer_define_name">Име</string>
     <string name="title_answer_caption">Шаблон измене</string>
     <string name="title_answer_reply">Шаблон одговора</string>
     <string name="title_answer_name">Назив шаблона</string>
