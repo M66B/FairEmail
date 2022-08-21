@@ -21,21 +21,27 @@ package eu.faircode.email;
 
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
@@ -274,5 +280,61 @@ public class FragmentAnswers extends FragmentBase {
         });
 
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menu_define) {
+            onDefine();
+            return true;
+        } else
+            return super.onOptionsItemSelected(item);
+    }
+
+    private void onDefine() {
+        final Context context = getContext();
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_placeholder, null);
+        final EditText etName = view.findViewById(R.id.etName);
+        final EditText etValue = view.findViewById(R.id.etValue);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        etName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String value = prefs.getString(EntityAnswer.PREF_PLACEHOLDER + s.toString().trim(), null);
+                if (!TextUtils.isEmpty(value))
+                    etValue.setText(value);
+            }
+        });
+
+        new AlertDialog.Builder(context)
+                .setView(view)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String name = etName.getText().toString().trim();
+                        String value = etValue.getText().toString();
+                        if (TextUtils.isEmpty(name))
+                            return;
+                        if (TextUtils.isEmpty(value))
+                            prefs.edit().remove(EntityAnswer.PREF_PLACEHOLDER + name).apply();
+                        else
+                            prefs.edit().putString(EntityAnswer.PREF_PLACEHOLDER + name, value).apply();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 }

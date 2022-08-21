@@ -2230,7 +2230,7 @@ public class FragmentCompose extends FragmentBase {
                                 } catch (AddressException ignored) {
                                 }
 
-                                String html = EntityAnswer.replacePlaceholders(answer.text, to);
+                                String html = EntityAnswer.replacePlaceholders(context, answer.text, to);
 
                                 Spanned spanned = HtmlHelper.fromHtml(html, new HtmlHelper.ImageGetterEx() {
                                     @Override
@@ -4821,7 +4821,7 @@ public class FragmentCompose extends FragmentBase {
                             if (answer > 0)
                                 data.draft.subject = a.name;
                             if (TextUtils.isEmpty(external_body)) {
-                                Document d = JsoupEx.parse(a.getHtml(null));
+                                Document d = JsoupEx.parse(a.getHtml(context, null));
                                 document.body().append(d.body().html());
                             }
                         }
@@ -5004,7 +5004,7 @@ public class FragmentCompose extends FragmentBase {
                                 else {
                                     db.answer().applyAnswer(receipt.id, new Date().getTime());
                                     texts = new String[0];
-                                    Document d = JsoupEx.parse(receipt.getHtml(null));
+                                    Document d = JsoupEx.parse(receipt.getHtml(context, null));
                                     document.body().append(d.body().html());
                                 }
                             }
@@ -5066,7 +5066,7 @@ public class FragmentCompose extends FragmentBase {
 
                         if (a != null) {
                             db.answer().applyAnswer(a.id, new Date().getTime());
-                            Document d = JsoupEx.parse(a.getHtml(data.draft.to));
+                            Document d = JsoupEx.parse(a.getHtml(context, data.draft.to));
                             document.body().append(d.body().html());
                         }
 

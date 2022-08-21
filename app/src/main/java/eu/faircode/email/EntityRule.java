@@ -805,7 +805,7 @@ public class EntityRule {
         if (resend)
             body = Helper.readText(message.getFile(context));
         else {
-            body = answer.getHtml(message.from);
+            body = answer.getHtml(context, message.from);
 
             if (original_text) {
                 Document msg = JsoupEx.parse(body);

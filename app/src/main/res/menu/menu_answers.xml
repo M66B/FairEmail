@@ -7,4 +7,9 @@
         android:title="@string/title_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|always" />
+
+    <item
+        android:id="@+id/menu_define"
+        android:icon="@drawable/twotone_add_24"
+        android:title="@string/title_answer_define" />
 </menu>

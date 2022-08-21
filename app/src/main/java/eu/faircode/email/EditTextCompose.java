@@ -242,7 +242,7 @@ public class EditTextCompose extends FixedEditText {
 
                     for (EntityAnswer snippet : snippets)
                         if (snippet.id.equals(id)) {
-                            String html = snippet.getHtml(to);
+                            String html = snippet.getHtml(context, to);
 
                             executor.submit(new Runnable() {
                                 @Override

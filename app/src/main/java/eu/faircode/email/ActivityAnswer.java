@@ -83,7 +83,7 @@ public class ActivityAnswer extends ActivityBase {
                     }
                 });
 
-                String html = answer.getHtml(null);
+                String html = answer.getHtml(context, null);
                 String text = HtmlHelper.getText(context, html);
 
                 ClipboardManager cbm = Helper.getSystemService(ActivityAnswer.this, ClipboardManager.class);

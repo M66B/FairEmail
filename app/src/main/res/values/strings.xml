@@ -1652,6 +1652,9 @@
         So, don\'t delete the image file!
     </string>
 
+    <string name="title_answer_define">Define placeholder</string>
+    <string name="title_answer_define_name">Name</string>
+    <string name="title_answer_define_value">Value</string>
     <string name="title_answer_caption">Edit template</string>
     <string name="title_answer_reply">Reply template</string>
     <string name="title_answer_name">Template name</string>

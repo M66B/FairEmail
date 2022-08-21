@@ -99,11 +99,13 @@ public class EntityAnswer implements Serializable {
     public Integer applied = 0;
     public Long last_applied;
 
-    String getHtml(Address[] address) {
-        return replacePlaceholders(text, address);
+    static final String PREF_PLACEHOLDER = "answer.value.";
+
+    String getHtml(Context context, Address[] address) {
+        return replacePlaceholders(context, text, address);
     }
 
-    static String replacePlaceholders(String text, Address[] address) {
+    static String replacePlaceholders(Context context, String text, Address[] address) {
         String fullName = null;
         String email = null;
         if (address != null && address.length > 0) {
@@ -172,6 +174,19 @@ public class EntityAnswer implements Serializable {
         text = text.replace("$firstname$", first == null ? "" : Html.escapeHtml(first));
         text = text.replace("$lastname$", last == null ? "" : Html.escapeHtml(last));
         text = text.replace("$email$", email == null ? "" : Html.escapeHtml(email));
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        for (String key : prefs.getAll().keySet())
+            if (key.startsWith(PREF_PLACEHOLDER)) {
+                String name = key.substring(PREF_PLACEHOLDER.length());
+                String value = prefs.getString(key, null);
+
+                String[] lines = (value == null ? new String[0] : value.split("\n"));
+                for (int i = 0; i < lines.length; i++)
+                    lines[i] = Html.escapeHtml(lines[i]);
+
+                text = text.replace("$" + name + "$", TextUtils.join("<br>", lines));
+            }
 
         return text;
     }
