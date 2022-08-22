@@ -1409,6 +1409,7 @@
         Por isso, não elimine o ficheiro da imagem!
     </string>
     <string name="title_answer_define_name">Nome</string>
+    <string name="title_answer_define_value">Texto</string>
     <string name="title_answer_caption">Editar modelo</string>
     <string name="title_answer_reply">Modelo de resposta</string>
     <string name="title_answer_name">Nome do modelo</string>

@@ -984,6 +984,7 @@
     <string name="title_edit_signature_text">متن امضا</string>
     <string name="title_edit_signature_image">درج تصویر</string>
     <string name="title_answer_define_name">نام</string>
+    <string name="title_answer_define_value">مقدار</string>
     <string name="title_answer_caption">ویرایش قالب</string>
     <string name="title_answer_reply">الگوی پاسخ</string>
     <string name="title_answer_name">نام الگو</string>

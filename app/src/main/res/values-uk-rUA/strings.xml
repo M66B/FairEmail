@@ -720,6 +720,7 @@
     <string name="title_advanced_timeout_hint">Тайм-аут читання/запису буде застосовано два рази часу підключення. Більш високі значення призведуть до збільшення використання заряду акумулятора.</string>
     <string name="title_advanced_cert_strict_hint">Якщо вимкнути це, перевірку сертифікатів сервера буде послаблено</string>
     <string name="title_advanced_ssl_harden_hint">Увімкнення цієї опції дозволить відключити слабкі SSL протоколи і шифри, що може призвести до проблем з підключенням</string>
+    <string name="title_advanced_open_safe_hint">Для включення завантажень зображень і інших об\'єктів потрібні захищені з\'єднання</string>
     <string name="title_advanced_roaming_hint">Заголовки повідомлень завжди будуть отримуватися під час роумінгу. Ви можете використовувати налаштування роумінгу в Вашому пристрої для вимкнення Інтернету під час роумінгу.</string>
     <string name="title_advanced_browse_hint">Завантажувати більше повідомлень при прокручуванні вниз</string>
     <string name="title_advanced_layout_hint">Перемикання на більш компактний макет і зміну розміру тексту повідомлень можна зробити у верхньому меню панелі повідомлень</string>
@@ -1412,6 +1413,7 @@
     <string name="title_compact">Компактний вигляд</string>
     <string name="title_zoom">Розмір тексту</string>
     <string name="title_padding">Розмір відступів</string>
+    <string name="title_large_buttons">Більші кнопки</string>
     <string name="title_select_language">Вибрати мову</string>
     <string name="title_select_all">Виділити все</string>
     <string name="title_select_found">Вибрати знайдене</string>
@@ -1430,6 +1432,7 @@
         Отже, не видаляйте файл зображення!
     </string>
     <string name="title_answer_define_name">Ім\'я</string>
+    <string name="title_answer_define_value">Значення</string>
     <string name="title_answer_caption">Редагувати шаблон</string>
     <string name="title_answer_reply">Шаблон відповіді</string>
     <string name="title_answer_name">Ім\'я шаблону</string>

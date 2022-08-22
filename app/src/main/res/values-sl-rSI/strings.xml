@@ -1431,6 +1431,7 @@
         Ne izbrišite datoteke slike!
     </string>
     <string name="title_answer_define_name">Ime</string>
+    <string name="title_answer_define_value">Vrednost</string>
     <string name="title_answer_caption">Uredi predlogo</string>
     <string name="title_answer_reply">Predloga za odgovor</string>
     <string name="title_answer_name">Ime predloge</string>

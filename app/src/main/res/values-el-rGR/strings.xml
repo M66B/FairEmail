@@ -1403,6 +1403,7 @@
         Άρα, μην διαγράψετε το αρχείο εικόνας!
     </string>
     <string name="title_answer_define_name">Όνομα</string>
+    <string name="title_answer_define_value">Τιμή</string>
     <string name="title_answer_caption">Επεξεργασία προτύπου</string>
     <string name="title_answer_reply">Πρότυπο απάντησης</string>
     <string name="title_answer_name">Όνομα προτύπου</string>

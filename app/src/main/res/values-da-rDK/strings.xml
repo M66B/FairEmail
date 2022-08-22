@@ -1410,6 +1410,7 @@
         Slet derfor ikke billedfilen!
     </string>
     <string name="title_answer_define_name">Navn</string>
+    <string name="title_answer_define_value">Værdi</string>
     <string name="title_answer_caption">Redigér skabelon</string>
     <string name="title_answer_reply">Svarskabelon</string>
     <string name="title_answer_name">Skabelonnavn</string>

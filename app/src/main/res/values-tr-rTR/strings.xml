@@ -172,6 +172,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek Android dijital uygulama imzasını kontrol ettiğinden, yalnızca Play Store ve GitHub sürümünde çalışır</string>
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
+    <string name="title_setup_gmail_login">Chrome bir hesapta oturum açtıysa, yalnızca Android üzerinden yeni bir hesap eklenebilir. Bu, Chrome senkronizasyon ayarları aracılığıyla Chrome\'dan çıkış yapılarak önlenebilir.</string>
     <string name="title_setup_gmail_on_device">Neden bir cihaz hesabı seçmem gerekiyor?</string>
     <string name="title_setup_gmail_password">Cihazdaki bir hesap yerine şifreli bir hesabı yetkilendirmek istiyorum</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
@@ -947,6 +948,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_hide_seen_folder_hint">Yalnızca başlangıç ​​ekranında gösterilen klasör listesinde</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>
+    <string name="title_navigation_folder_hide">Gezinme menüsünde gizle</string>
     <string name="title_synchronize_folder">Eşzamanla (iletileri al)</string>
     <string name="title_poll_folder">Sürekli eşzamanlama yerine belirli aralıklarla bakın</string>
     <string name="title_poll_folder_remark">Çoğu e-posta sunucusu push mesajlarına yalnızca birkaç klasör için izin verir!</string>
@@ -1382,6 +1384,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_compact">Derlitoplu görünüm</string>
     <string name="title_zoom">Metin boyutu</string>
     <string name="title_padding">Boşluk boyutu</string>
+    <string name="title_large_buttons">Daha büyük düğmeler</string>
     <string name="title_select_language">Dil seçiniz</string>
     <string name="title_select_all">Hepsini seç</string>
     <string name="title_select_found">Bulunanları seç</string>
@@ -1400,6 +1403,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         Bu nedenle, görüntü dosyasını silmeyin!
     </string>
     <string name="title_answer_define_name">Ad</string>
+    <string name="title_answer_define_value">Değer</string>
     <string name="title_answer_caption">Kalıbı Düzenle</string>
     <string name="title_answer_reply">Yanıt kalıbı</string>
     <string name="title_answer_name">Kalıp adı</string>

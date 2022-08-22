@@ -1390,6 +1390,7 @@
         因此，不要删除图像文件！
     </string>
     <string name="title_answer_define_name">名称</string>
+    <string name="title_answer_define_value">值</string>
     <string name="title_answer_caption">编辑模板</string>
     <string name="title_answer_reply">回复模板</string>
     <string name="title_answer_name">模板名称</string>

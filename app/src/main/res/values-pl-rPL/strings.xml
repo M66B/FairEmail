@@ -1432,6 +1432,7 @@
     
     </string>
     <string name="title_answer_define_name">Nazwa</string>
+    <string name="title_answer_define_value">Wartość</string>
     <string name="title_answer_caption">Edytuj szablon</string>
     <string name="title_answer_reply">Szablon odpowiedzi</string>
     <string name="title_answer_name">Nazwa szablonu</string>

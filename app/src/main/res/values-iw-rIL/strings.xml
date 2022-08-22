@@ -1435,6 +1435,7 @@
         לכן, אין למחוק את קובץ התמונה!
     </string>
     <string name="title_answer_define_name">שם</string>
+    <string name="title_answer_define_value">ערך</string>
     <string name="title_answer_caption">עריכת תבנית</string>
     <string name="title_answer_reply">תבנית מענה</string>
     <string name="title_answer_name">שם תבנית</string>

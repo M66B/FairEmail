@@ -1377,6 +1377,7 @@
     <string name="title_compact">簡易表示</string>
     <string name="title_zoom">テキストサイズ</string>
     <string name="title_padding">余白のサイズ</string>
+    <string name="title_large_buttons">大きめボタン</string>
     <string name="title_select_language">言語を選択</string>
     <string name="title_select_all">すべて選択</string>
     <string name="title_select_found">検索結果をすべて選択</string>
@@ -1395,6 +1396,7 @@
         画像ファイルは削除しないでください！
     </string>
     <string name="title_answer_define_name">名前</string>
+    <string name="title_answer_define_value">値</string>
     <string name="title_answer_caption">テンプレートを編集</string>
     <string name="title_answer_reply">テンプレートで返信</string>
     <string name="title_answer_name">テンプレート名</string>

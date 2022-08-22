@@ -186,6 +186,7 @@
     <string name="title_setup_gmail_support">Autorizacija Google računa radit će samo u verzijama Play trgovine i GitHub-a, jer Android provjerava digitalne potpise aplikacija</string>
     <string name="title_setup_gmail_rationale">Molimo da potvrdite dopuštenja za izbor računa i čitanje vašeg imena</string>
     <string name="title_setup_gmail_permissions">Google će pitati za dopuštenja za čitanje, pisanje, slanje i trajno brisanje svih vaših poruka. FairEmail nikada neće brisati vaše poruke bez vaše saglasnosti.</string>
+    <string name="title_setup_gmail_login">Ako je u Chrome-u prijavljen račun, novi račun (nalog) može se dodati samo u postavkama Androida. Da biste izbjegli ovu situaciju, odjavite se iz Chrome-a preko postavki za sinhronizaciju.</string>
     <string name="title_setup_gmail_on_device">Zašto trebam izabrati račun na lokalnom uređaju?</string>
     <string name="title_setup_gmail_password">Želim autorizovati račun sa lozinkom umjesto lokalnog računa na uređaju</string>
     <string name="title_setup_office_auth">Greška \'PROVJERA nije uspjela\' može biti uzrokovana postavkama IMAP/SMTP-a koje je isključio sistemski administrator</string>
@@ -962,6 +963,7 @@
     <string name="title_hide_seen_folder_hint">Samo na spisku foldera prikazanom na početnom ekranu</string>
     <string name="title_unified_folder">Prikaži u objedinjenom inboxu</string>
     <string name="title_navigation_folder">Prikaži u navigacijskom meniju</string>
+    <string name="title_navigation_folder_hide">Sakrij u navigacijskom meniju</string>
     <string name="title_synchronize_folder">Sinhronizuj (primaj poruke)</string>
     <string name="title_poll_folder">Provjeri povremeno umjesto stalnog sinhroniziranja</string>
     <string name="title_poll_folder_remark">Većina e-mail servera dopušta trenutna obavještenja samo za određene foldere!</string>
@@ -1401,6 +1403,7 @@
     <string name="title_compact">Kompaktni izgled</string>
     <string name="title_zoom">Veličina teksta</string>
     <string name="title_padding">Veličina razmaka</string>
+    <string name="title_large_buttons">Veća dugmad</string>
     <string name="title_select_language">Izaberite jezik</string>
     <string name="title_select_all">Označi sve</string>
     <string name="title_select_found">Označi pronađene</string>
@@ -1419,6 +1422,7 @@
         Zbog toga nemojte brisati datoteku slike!
     </string>
     <string name="title_answer_define_name">Naziv</string>
+    <string name="title_answer_define_value">Vrijednost</string>
     <string name="title_answer_caption">Uredi prijedložak</string>
     <string name="title_answer_reply">Prijedložak za odgovore</string>
     <string name="title_answer_name">Naziv prijedloška</string>
