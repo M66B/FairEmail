@@ -4,7 +4,7 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
-### Next version
+### 1.1957 - 2022-08-22
 
 * Added custom placeholder values for reply templates
 * Small improvements and minor bug fixes
