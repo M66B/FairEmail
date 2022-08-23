@@ -242,7 +242,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             public void onClick(View v) {
                 dismiss();
                 v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         .putExtra("tab", "display"));
             }
         });
