@@ -306,6 +306,12 @@ public class EntityRule {
                     } else if ("$automatic".equals(keyword)) {
                         if (!Boolean.TRUE.equals(message.auto_submitted))
                             return false;
+                    } else if ("$lowpriority".equals(keyword)) {
+                        if (!EntityMessage.PRIORITIY_LOW.equals(message.priority))
+                            return false;
+                    } else if ("$highpriority".equals(keyword)) {
+                        if (!EntityMessage.PRIORITIY_HIGH.equals(message.priority))
+                            return false;
                     } else {
                         List<String> keywords = new ArrayList<>();
                         keywords.addAll(Arrays.asList(message.keywords));

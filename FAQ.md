@@ -2624,6 +2624,8 @@ $$replydomain$
 $$nofrom$ (since version 1.1791)
 $$multifrom$ (since version 1.1791)
 $$automatic$ (since version 1.1862)
+$$lowpriority (since version 1.1958)
+$$highpriority (since version 1.1958)
 ```
 
 Note that *regex* should be disable and that there should be no white space.
