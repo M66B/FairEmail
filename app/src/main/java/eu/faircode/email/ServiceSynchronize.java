@@ -2245,7 +2245,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             if (!account.isTransient(this)) {
                                 Long expirationTime = iservice.getAccessTokenExpirationTime();
                                 if (expirationTime != null && expirationTime < new Date().getTime()) {
-                                    EntityLog.log(this, EntityLog.Type.Debug, "Token" +
+                                    EntityLog.log(this, "### " + account.name + " token expired" +
                                             " expired=" + new Date(expirationTime) +
                                             " user=" + account.provider + ":" + account.user);
                                     throw new IllegalStateException(Log.TOKEN_REFRESH_REQUIRED);
@@ -2367,13 +2367,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             long duration = account.poll_interval * 60 * 1000L;
                             long trigger = System.currentTimeMillis() + duration;
 
+                            Long expirationTime = null;
                             if (!account.isTransient(this)) {
-                                Long expirationTime = iservice.getAccessTokenExpirationTime();
+                                expirationTime = iservice.getAccessTokenExpirationTime();
                                 if (expirationTime != null &&
                                         expirationTime < trigger &&
                                         expirationTime > new Date().getTime()) {
                                     expirationTime += AuthState.EXPIRY_TIME_TOLERANCE_MS;
-                                    EntityLog.log(this, EntityLog.Type.Debug, "Expedite keep alive" +
+                                    EntityLog.log(this, "### " + account.name + " expedite keep alive" +
                                             " from " + new Date(trigger) + " to " + new Date(expirationTime));
                                     trigger = expirationTime;
                                 }
@@ -2381,7 +2382,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             EntityLog.log(this, EntityLog.Type.Account, account,
                                     "### " + account.name + " keep alive" +
-                                            " wait=" + account.poll_interval + " until=" + new Date(trigger));
+                                            " wait=" + account.poll_interval +
+                                            " until=" + new Date(trigger) +
+                                            " expiration=" + (expirationTime == null ? null : new Date(expirationTime)));
                             AlarmManagerCompatEx.setAndAllowWhileIdle(ServiceSynchronize.this, am, AlarmManager.RTC_WAKEUP, trigger, pi);
 
                             try {
