@@ -450,10 +450,10 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_password_storage"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCaseSensitiveHint" />
 
@@ -680,8 +680,8 @@
             android:id="@+id/etCc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:autofillHints="emailAddress"
             android:hint="@string/title_optional"
+            android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
@@ -712,8 +712,8 @@
             android:id="@+id/etBcc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:autofillHints="emailAddress"
             android:hint="@string/title_optional"
+            android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
@@ -904,10 +904,10 @@
             android:backgroundTint="?attr/colorInfoBackground"
             android:drawableEnd="@drawable/twotone_support_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorInfoForeground"
             android:text="@string/menu_faq"
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorInfoForeground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbTrust" />
 
@@ -919,10 +919,10 @@
             android:backgroundTint="?attr/colorInfoBackground"
             android:drawableEnd="@drawable/twotone_help_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorInfoForeground"
             android:text="@string/title_setup_help"
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorInfoForeground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbTrust" />
 
