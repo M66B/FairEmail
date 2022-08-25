@@ -633,7 +633,7 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ActivitySetup.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 v.getContext().startActivity(intent);
             }
         });
@@ -2109,7 +2109,7 @@ public class FragmentMessages extends FragmentBase
                         @Override
                         public void onClick(View v) {
                             v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra("tab", "connection"));
                         }
                     });
@@ -4748,7 +4748,7 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
             }
         });
         snackbar.show();
@@ -6248,7 +6248,7 @@ public class FragmentMessages extends FragmentBase
                         @Override
                         public void onClick(View v) {
                             v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra("tab", "connection"));
                         }
                     });

@@ -190,13 +190,15 @@
             android:name=".ActivitySetup"
             android:exported="false"
             android:launchMode="singleTask"
-            android:parentActivityName=".ActivityMain" />
+            android:parentActivityName=".ActivityMain"
+            android:taskAffinity="${applicationId}.SETUP" />
 
         <activity
             android:name=".ActivitySignature"
             android:exported="false"
             android:launchMode="singleTask"
-            android:parentActivityName=".ActivitySetup" />
+            android:parentActivityName=".ActivitySetup"
+            android:taskAffinity="${applicationId}.SETUP" />
 
         <activity
             android:name=".ActivityWidget"
