@@ -63,6 +63,7 @@ import android.os.TransactionTooLargeException;
 import android.os.ext.SdkExtensions;
 import android.provider.Settings;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StrikethroughSpan;
@@ -611,6 +612,8 @@ public class Log {
                         Object element = Array.get(v, i);
                         if (element instanceof Long)
                             elements[i] = element + " (0x" + Long.toHexString((Long) element) + ")";
+                        else if (element instanceof Spanned)
+                            elements[i] = "<redacted>";
                         else
                             elements[i] = (element == null ? "<null>" : printableString(element.toString()));
                     }
@@ -620,6 +623,8 @@ public class Log {
                     value = "[" + value + "]";
                 } else if (v instanceof Long)
                     value = v + " (0x" + Long.toHexString((Long) v) + ")";
+                else if (v instanceof Spanned)
+                    value = "<redacted>";
                 else if (v instanceof Bundle)
                     value = "{" + TextUtils.join(" ", getExtras((Bundle) v)) + "}";
 
