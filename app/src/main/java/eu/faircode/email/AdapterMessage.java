@@ -2286,6 +2286,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (keywords == null)
                 return;
 
+            if (buttons.getReferencedIds().length > 0)
+                return;
+
             int dp3 = Helper.dp2pixels(context, 3);
             Drawable on = ContextCompat.getDrawable(context, R.drawable.twotone_check_12);
             Drawable off = ContextCompat.getDrawable(context, R.drawable.twotone_close_12);
