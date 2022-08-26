@@ -5044,13 +5044,15 @@ public class FragmentCompose extends FragmentBase {
                                     EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt)) {
                                 if (Helper.isOpenKeychainInstalled(context) &&
                                         selected.sign_key != null &&
-                                        PgpHelper.hasPgpKey(context, recipients))
+                                        (EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt) ||
+                                                PgpHelper.hasPgpKey(context, recipients)))
                                     data.draft.ui_encrypt = ref.ui_encrypt;
                             } else if (EntityMessage.SMIME_SIGNONLY.equals(ref.ui_encrypt) ||
                                     EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)) {
                                 if (ActivityBilling.isPro(context) &&
                                         selected.sign_key_alias != null &&
-                                        SmimeHelper.hasSmimeKey(context, recipients))
+                                        (EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt) ||
+                                                SmimeHelper.hasSmimeKey(context, recipients)))
                                     data.draft.ui_encrypt = ref.ui_encrypt;
                             }
                         }
