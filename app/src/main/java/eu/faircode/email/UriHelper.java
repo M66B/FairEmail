@@ -338,7 +338,7 @@ public class UriHelper {
         } else
             url = uri;
 
-        if (url.isOpaque() || !UriHelper.isHyperLink(url))
+        if (url.isOpaque() || !isHyperLink(url))
             return uri;
 
         Uri.Builder builder = url.buildUpon();
@@ -402,12 +402,24 @@ public class UriHelper {
     }
 
     static boolean isSecure(Uri uri) {
-        return (!uri.isOpaque() && "https".equals(uri.getScheme()));
+        return (!uri.isOpaque() && "https".equalsIgnoreCase(uri.getScheme()));
     }
 
     static boolean isHyperLink(Uri uri) {
         return (!uri.isOpaque() &&
-                ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())));
+                ("http".equalsIgnoreCase(uri.getScheme()) ||
+                        "https".equalsIgnoreCase(uri.getScheme())));
+    }
+
+    static Uri fix(Uri uri) {
+        if ("HTTP".equals(uri.getScheme()) || "HTTPS".equals(uri.getScheme())) {
+            String u = uri.toString();
+            int semi = u.indexOf(':');
+            if (semi > 0)
+                return Uri.parse(u.substring(0, semi).toLowerCase(Locale.ROOT) + u.substring(semi));
+        }
+
+        return uri;
     }
 
     static void test(Context context) {

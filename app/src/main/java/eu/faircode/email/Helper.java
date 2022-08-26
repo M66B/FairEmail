@@ -888,7 +888,7 @@ public class Helper {
 
     static void view(Context context, Intent intent) {
         Uri uri = intent.getData();
-        if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
+        if (UriHelper.isHyperLink(uri))
             view(context, intent.getData(), false);
         else
             try {
@@ -924,7 +924,9 @@ public class Helper {
                 " isInstalled=" + isInstalled(context, open_with_pkg) +
                 " hasCustomTabs=" + hasCustomTabs(context, uri, open_with_pkg));
 
-        if (!UriHelper.isHyperLink(uri)) {
+        if (UriHelper.isHyperLink(uri))
+            uri = UriHelper.fix(uri);
+        else {
             open_with_pkg = null;
             open_with_tabs = false;
         }

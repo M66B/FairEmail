@@ -499,7 +499,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again, uri.getHost()));
         cbNotAgain.setVisibility(
-                "https".equals(uri.getScheme()) && !TextUtils.isEmpty(uri.getHost())
+                UriHelper.isSecure(uri) && !TextUtils.isEmpty(uri.getHost())
                         ? View.VISIBLE : View.GONE);
 
         setMore(false);
@@ -520,7 +520,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                             PackageManager pm = context.getPackageManager();
                             Intent intent = new Intent(Intent.ACTION_VIEW)
                                     .addCategory(Intent.CATEGORY_BROWSABLE)
-                                    .setData(uri);
+                                    .setData(UriHelper.fix(uri));
 
                             ResolveInfo main = pm.resolveActivity(intent, 0);
                             if (main != null) {
@@ -659,7 +659,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         // https://developer.android.com/training/basics/intents/sending#AppChooser
                         Uri uri = Uri.parse(etLink.getText().toString());
                         Log.i("Open link with uri=" + uri);
-                        Intent view = new Intent(Intent.ACTION_VIEW, uri);
+                        Intent view = new Intent(Intent.ACTION_VIEW, UriHelper.fix(uri));
                         Intent chooser = Intent.createChooser(view, context.getString(R.string.title_select_app));
                         try {
                             startActivity(chooser);
@@ -719,7 +719,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             if (scheme != null) {
                 int index = text.indexOf(scheme);
                 if (index >= 0)
-                    if ("http".equals(scheme)) {
+                    if ("http".equalsIgnoreCase(scheme)) {
                         ssb.setSpan(new ForegroundColorSpan(colorWarning),
                                 index, index + scheme.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         ssb.setSpan(new StyleSpan(Typeface.BOLD),
