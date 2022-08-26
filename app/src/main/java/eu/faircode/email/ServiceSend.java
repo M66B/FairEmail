@@ -529,6 +529,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean reply_move = prefs.getBoolean("reply_move", false);
+        boolean reply_move_inbox = prefs.getBoolean("reply_move_inbox", true);
         boolean protocol = prefs.getBoolean("protocol", false);
         boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
 
@@ -573,7 +574,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     if (!m.ui_hide) {
                         EntityFolder folder = db.folder().getFolder(m.folder);
                         if (folder != null &&
-                                (EntityFolder.INBOX.equals(folder.type) ||
+                                ((EntityFolder.INBOX.equals(folder.type) && reply_move_inbox) ||
                                         EntityFolder.ARCHIVE.equals(folder.type) ||
                                         EntityFolder.USER.equals(folder.type))) {
                             sent = folder;

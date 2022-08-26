@@ -104,6 +104,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swForwardNew;
     private SwitchCompat swLookupMx;
     private SwitchCompat swReplyMove;
+    private SwitchCompat swReplyMoveInbox;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "keyboard_no_fullscreen",
@@ -120,7 +121,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "attach_new", "auto_link", "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
             "receipt_default", "receipt_type", "receipt_legacy",
             "forward_new",
-            "lookup_mx", "reply_move"
+            "lookup_mx", "reply_move", "reply_move_inbox"
     };
 
     @Override
@@ -182,6 +183,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swForwardNew = view.findViewById(R.id.swForwardNew);
         swLookupMx = view.findViewById(R.id.swLookupMx);
         swReplyMove = view.findViewById(R.id.swReplyMove);
+        swReplyMoveInbox = view.findViewById(R.id.swReplyMoveInbox);
 
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
 
@@ -577,6 +579,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("reply_move", checked).apply();
+                swReplyMoveInbox.setEnabled(checked);
+            }
+        });
+
+        swReplyMoveInbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("reply_move_inbox", checked).apply();
             }
         });
 
@@ -716,6 +726,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swForwardNew.setChecked(prefs.getBoolean("forward_new", true));
         swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
         swReplyMove.setChecked(prefs.getBoolean("reply_move", false));
+        swReplyMoveInbox.setChecked(prefs.getBoolean("reply_move_inbox", true));
+        swReplyMoveInbox.setEnabled(swReplyMove.isChecked());
     }
 
     @Override
