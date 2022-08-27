@@ -163,9 +163,25 @@ public class StyleHelper {
                 {
                     SubMenu smenu = popupMenu.getMenu().findItem(R.id.menu_style_size).getSubMenu();
                     smenu.clear();
-                    int[] ids = new int[]{R.id.menu_style_size_small, R.id.menu_style_size_medium, R.id.menu_style_size_large};
-                    int[] titles = new int[]{R.string.title_style_size_small, R.string.title_style_size_medium, R.string.title_style_size_large};
-                    float[] sizes = new float[]{HtmlHelper.FONT_SMALL, 1.0f, HtmlHelper.FONT_LARGE};
+                    int[] ids = new int[]{
+                            R.id.menu_style_size_xsmall,
+                            R.id.menu_style_size_small,
+                            R.id.menu_style_size_medium,
+                            R.id.menu_style_size_large,
+                            R.id.menu_style_size_xlarge
+                    };
+                    int[] titles = new int[]{
+                            R.string.title_style_size_xsmall,
+                            R.string.title_style_size_small,
+                            R.string.title_style_size_medium,
+                            R.string.title_style_size_large,
+                            R.string.title_style_size_xlarge};
+                    float[] sizes = new float[]{
+                            HtmlHelper.FONT_XSMALL,
+                            HtmlHelper.FONT_SMALL,
+                            1.0f,
+                            HtmlHelper.FONT_LARGE,
+                            HtmlHelper.FONT_XLARGE};
                     for (int i = 0; i < ids.length; i++) {
                         SpannableStringBuilder ssb = new SpannableStringBuilderEx(context.getString(titles[i]));
                         ssb.setSpan(new RelativeSizeSpan(sizes[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -252,10 +268,14 @@ public class StyleHelper {
                         Log.breadcrumb("style", "action", "size");
 
                         Float size;
-                        if (item.getItemId() == R.id.menu_style_size_small)
+                        if (item.getItemId() == R.id.menu_style_size_xsmall)
+                            size = HtmlHelper.FONT_XSMALL;
+                        else if (item.getItemId() == R.id.menu_style_size_small)
                             size = HtmlHelper.FONT_SMALL;
                         else if (item.getItemId() == R.id.menu_style_size_large)
                             size = HtmlHelper.FONT_LARGE;
+                        else if (item.getItemId() == R.id.menu_style_size_xlarge)
+                            size = HtmlHelper.FONT_XLARGE;
                         else
                             size = null;
 

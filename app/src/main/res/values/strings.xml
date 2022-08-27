@@ -1412,9 +1412,11 @@
     <string name="title_style_underline">Underline</string>
 
     <string name="title_style_size">Size</string>
+    <string name="title_style_size_xsmall">Extra small</string>
     <string name="title_style_size_small">Small</string>
     <string name="title_style_size_medium">Medium</string>
     <string name="title_style_size_large">Large</string>
+    <string name="title_style_size_xlarge">Extra large</string>
     <string name="title_style_align">Align</string>
     <string name="title_style_align_start">Start</string>
     <string name="title_style_align_center">Center</string>

@@ -8,6 +8,10 @@
         <menu>
             <group android:id="@+id/group_style_size">
                 <item
+                    android:id="@+id/menu_style_size_xsmall"
+                    android:title="@string/title_style_size_xsmall" />
+
+                <item
                     android:id="@+id/menu_style_size_small"
                     android:title="@string/title_style_size_small" />
 
@@ -18,6 +22,10 @@
                 <item
                     android:id="@+id/menu_style_size_large"
                     android:title="@string/title_style_size_large" />
+
+                <item
+                    android:id="@+id/menu_style_size_xlarge"
+                    android:title="@string/title_style_size_xlarge" />
             </group>
         </menu>
     </item>

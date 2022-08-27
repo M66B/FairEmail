@@ -132,8 +132,12 @@ import javax.mail.internet.MimeUtility;
 public class HtmlHelper {
     static final int PREVIEW_SIZE = 500; // characters
 
-    static final float FONT_SMALL = 0.8f;
-    static final float FONT_LARGE = 1.25f;
+    // https://drafts.csswg.org/css-fonts/#absolute-size-mapping
+    static final float FONT_XSMALL = 0.6f; // 10px=0.625
+    static final float FONT_SMALL = 0.8f; // 13px=0.8125
+    // 16 px
+    static final float FONT_LARGE = 1.25f; // 20px=1.2
+    static final float FONT_XLARGE = 1.50f; // 24px=1.5
 
     static final int MAX_FULL_TEXT_SIZE = 1024 * 1024; // characters
     static final int MAX_SHARE_TEXT_SIZE = 50 * 1024; // characters
@@ -848,9 +852,9 @@ public class HtmlHelper {
                                 } else {
                                     if (!view) {
                                         if (fsize < 1)
-                                            fsize = FONT_SMALL;
+                                            fsize = (fsize < FONT_SMALL ? FONT_XSMALL : FONT_SMALL);
                                         else if (fsize > 1)
-                                            fsize = FONT_LARGE;
+                                            fsize = (fsize > FONT_LARGE ? FONT_XLARGE : FONT_LARGE);
                                     }
                                     element.attr("x-font-size", Float.toString(fsize));
                                     element.attr("x-font-size-rel", Float.toString(fsize / current));
@@ -1919,15 +1923,17 @@ public class HtmlHelper {
         switch (value) {
             case "xx-small":
             case "x-small":
+                return FONT_XSMALL;
             case "small":
                 return FONT_SMALL;
             case "medium":
                 return 1.0f;
             case "large":
+                return FONT_LARGE;
             case "x-large":
             case "xx-large":
             case "xxx-large":
-                return FONT_LARGE;
+                return FONT_XLARGE;
         }
 
         // Relative
@@ -3780,17 +3786,6 @@ public class HtmlHelper {
                 String value = param.substring(semi + 1).trim();
 
                 switch (key) {
-                    case "font-size":
-                        // @Google: why convert size to and from in a different way?
-                        String v = value.replace(',', '.');
-                        Float size = getFontSize(v, 1.0f);
-                        if (size != null) {
-                            if (size < 1.0f)
-                                span.tagName("small");
-                            else if (size > 1.0f)
-                                span.tagName("big");
-                        }
-                        break;
                     case "text-align":
                         sb.append(" display:block;");
                         // fall through

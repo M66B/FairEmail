@@ -446,7 +446,12 @@ public class HtmlEx {
                 }
                 if (style[j] instanceof RelativeSizeSpan) {
                     float sizeEm = ((RelativeSizeSpan) style[j]).getSizeChange();
-                    out.append(String.format("<span style=\"font-size:%.2fem;\">", sizeEm));
+                    if (sizeEm < 1)
+                        out.append(String.format("<span style=\"font-size:%s;\">",
+                                sizeEm < HtmlHelper.FONT_SMALL ? "x-small" : "small"));
+                    else if (sizeEm > 1)
+                        out.append(String.format("<span style=\"font-size:%s;\">",
+                                sizeEm > HtmlHelper.FONT_LARGE ? "x-large" : "large"));
                 }
                 if (style[j] instanceof ForegroundColorSpan) {
                     int color = ((ForegroundColorSpan) style[j]).getForegroundColor();
