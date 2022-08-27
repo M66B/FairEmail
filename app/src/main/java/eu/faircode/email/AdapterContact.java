@@ -331,8 +331,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 }
 
                 private void onActionSearch() {
-                    Intent search = new Intent(context, ActivitySearch.class);
-                    search.putExtra(Intent.EXTRA_PROCESS_TEXT, contact.email);
+                    Intent search = new Intent(context, ActivityView.class)
+                            .putExtra(Intent.EXTRA_PROCESS_TEXT, contact.email)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     context.startActivity(search);
                 }
 
