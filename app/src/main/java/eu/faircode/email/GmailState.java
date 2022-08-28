@@ -137,7 +137,8 @@ public class GmailState {
                 acquired = new Date().getTime();
             } else if (needsRefresh) {
                 EntityLog.log(context, logType, "Token refresh failed user=" + id + ":" + user);
-                Log.e("Token refresh failed id=" + id);
+                if (!BuildConfig.PLAY_STORE_RELEASE)
+                    Log.e("Token refresh failed id=" + id);
             }
 
             if (token == null)
