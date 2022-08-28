@@ -38,6 +38,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
 import javax.mail.Authenticator;
 import javax.mail.MessagingException;
@@ -57,6 +58,7 @@ public class ServiceAuthenticator extends Authenticator {
 
     static final long MIN_REFRESH_INTERVAL = 15 * 60 * 1000L;
     static final long MIN_FORCE_REFRESH_INTERVAL = 15 * 60 * 1000L;
+    static final int MAX_TOKEN_WAIT = 90; // seconds
 
     ServiceAuthenticator(
             Context context,
@@ -189,7 +191,9 @@ public class ServiceAuthenticator extends Authenticator {
                         }
                     });
 
-            semaphore.acquire();
+            if (!semaphore.tryAcquire(MAX_TOKEN_WAIT, TimeUnit.SECONDS))
+                throw new InterruptedException("Timeout getting token id=" + id);
+
             Log.i("OAuth refreshed user=" + id + ":" + user);
 
             if (holder.error != null) {
