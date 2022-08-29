@@ -2547,6 +2547,7 @@ You can use multiple rules, possibly with a *stop processing*, for an *or* or a 
 
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
 Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions.
+Note that you need to match the complete text from the first to the last character.
 You can test a regex [here](https://regexr.com/).
 
 Note that a regular expression supports an *or* operator, so if you want to match multiple senders, you can do this:
