@@ -2151,6 +2151,21 @@ public class Helper {
         return (c == '.' /* Latin */ || c == '。' /* Chinese */);
     }
 
+    static String trim(String value, String chars) {
+        if (value == null)
+            return null;
+
+        for (Character kar : chars.toCharArray()) {
+            String k = kar.toString();
+            while (value.startsWith(k))
+                value = value.substring(1);
+            while (value.endsWith(k))
+                value = value.substring(0, value.length() - 1);
+        }
+
+        return value;
+    }
+
     // Files
 
     static {

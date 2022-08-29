@@ -170,6 +170,9 @@ public class EntityAnswer implements Serializable {
             }
         }
 
+        first = Helper.trim(first, ".");
+        last = Helper.trim(last, ".");
+
         text = text.replace("$name$", fullName == null ? "" : Html.escapeHtml(fullName));
         text = text.replace("$firstname$", first == null ? "" : Html.escapeHtml(first));
         text = text.replace("$lastname$", last == null ? "" : Html.escapeHtml(last));
