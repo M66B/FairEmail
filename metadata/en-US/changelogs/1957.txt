@@ -4,6 +4,16 @@ Changelog
 
 Ledumahadi
 
+
+Next version
+
+* Added extra small/large font size to message editor
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated AndroidX
+* Updated translations
+
+
 1.1957 - 2022-08-22
 
 * Added custom placeholder values for reply templates
