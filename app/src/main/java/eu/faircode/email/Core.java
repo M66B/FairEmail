@@ -4055,6 +4055,19 @@ class Core {
 
                         message = dup;
                         process = true;
+                    } else if (dup.uid < uid && EntityFolder.DRAFTS.equals(folder.type)) {
+                        try {
+                            Message existing = ifolder.getMessageByUID(dup.uid);
+                            Log.e(folder.name + " late draft host=" + account.host +
+                                    " uid=" + dup.uid + "<" + uid + " found=" + (existing != null));
+                            if (existing != null) {
+                                existing.setFlag(Flags.Flag.DELETED, true);
+                                expunge(context, ifolder, Arrays.asList(existing));
+                                db.message().setMessageUiHide(dup.id, true);
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                     }
                 }
 
