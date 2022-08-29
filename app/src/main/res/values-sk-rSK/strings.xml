@@ -1209,9 +1209,11 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_style_italic">Kurzíva</string>
     <string name="title_style_underline">Podčiarknutie</string>
     <string name="title_style_size">Veľkosť</string>
+    <string name="title_style_size_xsmall">Veľmi malá</string>
     <string name="title_style_size_small">Malé</string>
     <string name="title_style_size_medium">Stredná</string>
     <string name="title_style_size_large">Veľká</string>
+    <string name="title_style_size_xlarge">Veľmi veľká</string>
     <string name="title_style_align">Zarovnať</string>
     <string name="title_style_align_start">Začiatok</string>
     <string name="title_style_align_center">Stred</string>
@@ -1642,7 +1644,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hint_folder_actions">Podržaním priečinka zobrazíte možnosti, napríklad pridanie priečinka do navigačného menu pre rýchly prístup</string>
     <string name="title_hint_folder_sync">Nie všetky priečinky a všetky správy budú predvolene synchronizované z dôvodu šetrenia energie a prenosu údajov</string>
     <string name="title_hint_airplane">Je zapnutý režim v lietadle</string>
-    <string name="title_hint_notification">Upozornenia nie sú povolené</string>
     <string name="title_hint_support">Ak máte otázky alebo chcete nahlásiť problémy, pomoc získate cez ponuku Podpora</string>
     <string name="title_hint_message_actions">Potiahnutím vľavo premiestnite do koša. Potiahnutím vpravo archivujete (ak je to možné). Tieto akcie je možné zmeniť v nastaveniach účtu</string>
     <string name="title_hint_message_selection">Pridržaním správy začnete viac násobný výber, držte a posúvajte hore alebo dolu, a vyberiete viac správ</string>

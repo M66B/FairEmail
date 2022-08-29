@@ -376,6 +376,7 @@
     <string name="title_advanced_signature_forward">Usar assinatura quando encaminhar</string>
     <string name="title_advanced_discard_delete">Ao descartar um rascunho, elimina-lo permanentemente</string>
     <string name="title_advanced_reply_move">Ao responder a uma mensagem, guarde a resposta na mesma pasta</string>
+    <string name="title_advanced_reply_move_inbox">Também para as mensagens na caixa de entrada</string>
     <string name="title_advanced_auto_link">Criar ligações automaticamente</string>
     <string name="title_advanced_plain_only">Enviar texto simples por omissão</string>
     <string name="title_advanced_flow">\'formato modificado\' para texto simples</string>
@@ -1156,6 +1157,7 @@
     <string name="title_compose">Compor</string>
     <string name="title_submitter">Enviado por:</string>
     <string name="title_delivered_to">Entregue a:</string>
+    <string name="title_return_path">Endereço do remetente:</string>
     <string name="title_from">De:</string>
     <string name="title_to">Para:</string>
     <string name="title_reply_to">Responder a:</string>
@@ -1190,9 +1192,11 @@
     <string name="title_style_italic">Itálico</string>
     <string name="title_style_underline">Sublinhado</string>
     <string name="title_style_size">Tamanho</string>
+    <string name="title_style_size_xsmall">Extra pequeno</string>
     <string name="title_style_size_small">Pequeno</string>
     <string name="title_style_size_medium">Médio</string>
     <string name="title_style_size_large">Grande</string>
+    <string name="title_style_size_xlarge">Extra grande</string>
     <string name="title_style_align">Alinhamento</string>
     <string name="title_style_align_start">Iniciar</string>
     <string name="title_style_align_center">Centrado</string>
@@ -1409,7 +1413,7 @@
         Por isso, não elimine o ficheiro da imagem!
     </string>
     <string name="title_answer_define_name">Nome</string>
-    <string name="title_answer_define_value">Texto</string>
+    <string name="title_answer_define_value">Valor</string>
     <string name="title_answer_caption">Editar modelo</string>
     <string name="title_answer_reply">Modelo de resposta</string>
     <string name="title_answer_name">Nome do modelo</string>
@@ -1627,7 +1631,7 @@
     <string name="title_hint_folder_actions">Toque prolongadamente numa pasta para aceder às opções, como adicionar uma pasta ao menu de navegação para um acesso rápido</string>
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e rede, por predefinição, nem todas as pastas e mensagens serão sincronizadas</string>
     <string name="title_hint_airplane">O modo de avião está ligado</string>
-    <string name="title_hint_notification">As notificações estão desactivadas</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Sem permissão de notificação</string>
     <string name="title_hint_support">Se tiver alguma questão ou um problema, por favor utilize o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para o lixo; Deslize para a direita para o arquivo (se disponível); As acções de deslizar pode ser configuradas nas definições de conta</string>
     <string name="title_hint_message_selection">Seleccione mensagens ao tocar prolongadamente numa mensagem; Para seleccionar várias mensagens de seguida, toque sem soltar numa mensagem e deslize para cima ou para baixo</string>

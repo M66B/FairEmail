@@ -568,6 +568,7 @@
     <string name="title_style_size_small">Мала</string>
     <string name="title_style_size_medium">Средња</string>
     <string name="title_style_size_large">Велика</string>
+    <string name="title_style_size_xlarge">Веома велика</string>
     <string name="title_style_list">Листи</string>
     <string name="title_style_font_default">Подразумевана</string>
     <string name="title_style_clear">Очисти форматирање</string>

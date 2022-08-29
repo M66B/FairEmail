@@ -374,6 +374,7 @@
     <string name="title_advanced_signature_forward">Χρήση υπογραφής κατά την προώθηση</string>
     <string name="title_advanced_discard_delete">Οριστική διαγραφή ενός προχείρου όταν αυτό απορρίπτεται</string>
     <string name="title_advanced_reply_move">Κατά την απάντηση ενός μηνύματος, να αποθηκεύεται η απάντηση μέσα στον ίδιο φάκελο</string>
+    <string name="title_advanced_reply_move_inbox">Το ίδιο για τα μηνύματα στα εισερχόμενα</string>
     <string name="title_advanced_auto_link">Αυτόματη δημιουργία συνδέσμων</string>
     <string name="title_advanced_plain_only">Αποστολή απλού κειμένου από προεπιλογή</string>
     <string name="title_advanced_flow">Αναπροσαρμοσμένη μορφοποίηση για απλό κείμενο</string>
@@ -1150,6 +1151,7 @@
     <string name="title_compose">Σύνταξη</string>
     <string name="title_submitter">Στάλθηκε από:</string>
     <string name="title_delivered_to">Παραδόθηκε σε:</string>
+    <string name="title_return_path">Διαδρομή επιστροφής:</string>
     <string name="title_from">Από:</string>
     <string name="title_to">Προς:</string>
     <string name="title_reply_to">Απάντηση σε:</string>
@@ -1184,9 +1186,11 @@
     <string name="title_style_italic">Πλάγια</string>
     <string name="title_style_underline">Υπογράμμιση</string>
     <string name="title_style_size">Μέγεθος</string>
+    <string name="title_style_size_xsmall">Πολύ μικρό</string>
     <string name="title_style_size_small">Μικρά</string>
     <string name="title_style_size_medium">Μεσαία</string>
     <string name="title_style_size_large">Μεγάλα</string>
+    <string name="title_style_size_xlarge">Πολύ μεγάλο</string>
     <string name="title_style_align">Στοίχιση</string>
     <string name="title_style_align_start">Αρχή</string>
     <string name="title_style_align_center">Κέντρο</string>
@@ -1621,7 +1625,7 @@
     <string name="title_hint_folder_actions">Παρατεταμένο πάτημα σε έναν φάκελο για επιλογές, όπως προσθήκη ενός φακέλου στο μενού πλοήγησης για γρήγορη πρόσβαση</string>
     <string name="title_hint_folder_sync">Για να μειωθεί η χρήση μπαταρίας και δικτύου δεν συγχρονίζονται όλοι οι φάκελοι και όλα τα μηνύματα από προεπιλογή</string>
     <string name="title_hint_airplane">Η λειτουργία πτήσης είναι ενεργοποιημένη</string>
-    <string name="title_hint_notification">Οι ειδοποιήσεις είναι απενεργοποιημένες</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Δεν έχει δοθεί καμία άδεια ειδοποιήσεων</string>
     <string name="title_hint_support">Αν έχετε μία ερώτηση ή ένα πρόβλημα, παρακαλώ χρησιμοποιήστε το μενού \"Υποστήριξη\" για να λάβετε βοήθεια</string>
     <string name="title_hint_message_actions">Σάρωση αριστερά για απορρίμματα• σάρωση δεξιά για αρχειοθέτηση (αν είναι διαθέσιμη)• μπορείτε να ρυθμίσετε τις ενέργειες σάρωσης στις ρυθμίσεις του λογαριασμού</string>
     <string name="title_hint_message_selection">Πατήστε παρατεταμένα σε ένα μήνυμα για να αρχίσετε να επιλέγετε πολλαπλά μηνύματα. Συνεχίστε το πάτημα και σύρετε προς τα πάνω ή κάτω για να επιλέξετε περισσότερα μηνύματα</string>

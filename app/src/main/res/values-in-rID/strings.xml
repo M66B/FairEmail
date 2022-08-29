@@ -1077,6 +1077,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_style_size_small">Kecil</string>
     <string name="title_style_size_medium">Sedang</string>
     <string name="title_style_size_large">Besar</string>
+    <string name="title_style_size_xlarge">Ekstra besar</string>
     <string name="title_style_align">Format Perataan</string>
     <string name="title_style_align_start">Mulai</string>
     <string name="title_style_align_center">Tengah</string>

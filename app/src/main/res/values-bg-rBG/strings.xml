@@ -800,6 +800,7 @@
     <string name="title_style_size_small">Малък</string>
     <string name="title_style_size_medium">Среден</string>
     <string name="title_style_size_large">Голям</string>
+    <string name="title_style_size_xlarge">Много голям</string>
     <string name="title_style_align">Подравняване</string>
     <string name="title_style_align_start">Начало</string>
     <string name="title_style_align_center">Среда</string>

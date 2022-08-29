@@ -1093,9 +1093,11 @@
     <string name="title_style_italic">Dőlt</string>
     <string name="title_style_underline">Aláhúzott</string>
     <string name="title_style_size">Méret</string>
+    <string name="title_style_size_xsmall">Nagyon kicsi</string>
     <string name="title_style_size_small">Kicsi</string>
     <string name="title_style_size_medium">Közepes</string>
     <string name="title_style_size_large">Nagy</string>
+    <string name="title_style_size_xlarge">Óriási</string>
     <string name="title_style_align">Igazítás</string>
     <string name="title_style_align_start">Kezdet</string>
     <string name="title_style_align_center">Középre</string>

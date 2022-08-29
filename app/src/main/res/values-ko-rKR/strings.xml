@@ -157,6 +157,7 @@
     <string name="title_setup_instructions">설정 방법</string>
     <string name="title_setup_no_settings">\'%1$s\' 도메인에 대한 설정을 찾을 수 없음</string>
     <string name="title_setup_no_inbox">받은 편지함을 찾을 수 없음</string>
+    <string name="title_setup_quick_success">계정을 성공적으로 추가했습니다</string>
     <string name="title_setup_manage">관리</string>
     <string name="title_setup_grant">권한 허용</string>
     <string name="title_setup_grant_again">필요한 권한 허용하기</string>
@@ -634,9 +635,11 @@
     <string name="title_style_italic">기울임꼴</string>
     <string name="title_style_underline">밑줄</string>
     <string name="title_style_size">크기</string>
+    <string name="title_style_size_xsmall">매우 작게</string>
     <string name="title_style_size_small">작게</string>
     <string name="title_style_size_medium">보통</string>
     <string name="title_style_size_large">크게</string>
+    <string name="title_style_size_xlarge">매우 크게</string>
     <string name="title_style_align">정렬</string>
     <string name="title_style_align_start">시작</string>
     <string name="title_style_align_center">가운데</string>
@@ -890,7 +893,6 @@
     <string name="title_legend_r">답장</string>
     <string name="title_legend_s">선택/선택 해제</string>
     <string name="title_legend_t">글자에 포커스</string>
-    <string name="title_hint_notification">알림이 꺼졌습니다</string>
     <string name="title_hint_message_junk">이 메시지들은 이메일 서버의 스팸함에 들어 있습니다. 본 앱에서 스팸 수신 자체를 막지는 못합니다.</string>
     <string name="title_hint_important">중요</string>
     <string name="title_open_link">링크 열기</string>

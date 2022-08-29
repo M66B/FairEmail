@@ -388,6 +388,7 @@
     <string name="title_advanced_signature_forward">Koristi potpis za prosljeđenje</string>
     <string name="title_advanced_discard_delete">Pri odbacivanju nacrta, trajno izbriši nacrt</string>
     <string name="title_advanced_reply_move">Pri odgovaranju na poruku, sačuvaj odgovor u isti folder</string>
+    <string name="title_advanced_reply_move_inbox">Također za poruke u inbox-u</string>
     <string name="title_advanced_auto_link">Automatski kreiraj linkove (hiperveze)</string>
     <string name="title_advanced_plain_only">Pošalji običan tekst po zadanom</string>
     <string name="title_advanced_flow">\'format flowed\' način prikaza običnog teksta</string>
@@ -1169,6 +1170,7 @@
     <string name="title_compose">Napiši</string>
     <string name="title_submitter">Poslao/la:</string>
     <string name="title_delivered_to">Dostavljeno:</string>
+    <string name="title_return_path">Povratna putanja:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Za:</string>
     <string name="title_reply_to">Odgovori za:</string>
@@ -1203,9 +1205,11 @@
     <string name="title_style_italic">Kurziv</string>
     <string name="title_style_underline">Podvučen</string>
     <string name="title_style_size">Veličina</string>
+    <string name="title_style_size_xsmall">Vrlo mali</string>
     <string name="title_style_size_small">Mali</string>
     <string name="title_style_size_medium">Srednji</string>
     <string name="title_style_size_large">Veliki</string>
+    <string name="title_style_size_xlarge">Vrlo veliki</string>
     <string name="title_style_align">Poravnat</string>
     <string name="title_style_align_start">Početak</string>
     <string name="title_style_align_center">Sredina</string>
@@ -1640,7 +1644,7 @@
     <string name="title_hint_folder_actions">Dugi dodir na folder za opcije, poput dodavanja foldera u navigacijski meni za brzi pristup</string>
     <string name="title_hint_folder_sync">Da bi ograničili potrošnju baterije i podataka, po zadanom neće biti sinhronizirani svi folderi i poruke</string>
     <string name="title_hint_airplane">Način rada u avionu je uključen</string>
-    <string name="title_hint_notification">Obavještenja su isključena</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Nema dozvola za notifikacije</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevucite lijevo za otpad; Prevucite desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>

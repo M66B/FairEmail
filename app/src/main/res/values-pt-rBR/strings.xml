@@ -1187,9 +1187,11 @@
     <string name="title_style_italic">Itálico</string>
     <string name="title_style_underline">Sublinhado</string>
     <string name="title_style_size">Tamanho</string>
+    <string name="title_style_size_xsmall">Extra pequeno</string>
     <string name="title_style_size_small">Pequeno</string>
     <string name="title_style_size_medium">Médio</string>
     <string name="title_style_size_large">Grande</string>
+    <string name="title_style_size_xlarge">Muito grande</string>
     <string name="title_style_align">Alinhar</string>
     <string name="title_style_align_start">Início</string>
     <string name="title_style_align_center">Meio</string>
@@ -1622,7 +1624,6 @@
     <string name="title_hint_folder_actions">Pressione e segure uma pasta para opções, como adicionar uma pasta ao menu de navegação para acesso rápido</string>
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e de rede nem todas as pastas e mensagens serão sincronizadas por padrão</string>
     <string name="title_hint_airplane">Modo avião está ativado</string>
-    <string name="title_hint_notification">Notificações estão desabilitadas</string>
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para a lixeira; Deslize para a direita para o arquivo (se disponível); As ações de deslize podem ser configuradas nas configurações da conta</string>
     <string name="title_hint_message_selection">Pressione uma mensagem para começar a selecionar múltiplas mensagens; segure e deslize para cima ou para baixo para selecionar mais mensagens</string>

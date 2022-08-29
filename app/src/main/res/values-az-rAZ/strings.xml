@@ -173,6 +173,7 @@
     <string name="title_setup_gmail_support">Google hesablarının səlahiyyətləndirilməsi, Android tətbiq imzalarını yoxladığı üçün yalnız Play Store və GitHub versiyalarında işləyəcək</string>
     <string name="title_setup_gmail_rationale">Zəhmət olmasa bir hesab seçmək və adınızı oxumaq üçün icazə verin</string>
     <string name="title_setup_gmail_permissions">Google, bütün e-poçtları oxumaq, yaratmaq, göndərmək və birdəfəlik silmək üçün icazə istəyəcək. FairEmail, açıq-aşkar razılığınız olmadan heç vaxt mesajlarınızı silməyəcək.</string>
+    <string name="title_setup_gmail_login">Chrome bir hesaba daxil olubsa, yalnız Android üzərindən yeni bir hesab əlavə edilə bilər. Chrome sinxronlaşdırma tənzimləmələri vasitəsilə Chrome-dan çıxış edilərək bunun qarşısı alına bilər.</string>
     <string name="title_setup_gmail_on_device">Niyə bir cihaz hesabı seçməliyəm?</string>
     <string name="title_setup_gmail_password">Cihazdakı bir hesabın əvəzinə parollu bir hesaba səlahiyyət vermək istəyirəm</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem administratorunun IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_signature_forward">Yönləndirəndə imza istifadə et</string>
     <string name="title_advanced_discard_delete">Qaralamanı ləğv edəndə, onu birdəfəlik sil</string>
     <string name="title_advanced_reply_move">Bir mesaja cavab verəndə, cavabı eyni qovluqda saxla</string>
+    <string name="title_advanced_reply_move_inbox">Həmçinin gələn qutusundakı mesajlar üçün</string>
     <string name="title_advanced_auto_link">Bağlantıları avtomatik yarat</string>
     <string name="title_advanced_plain_only">İlkin olaraq yalnız düz mətn göndər</string>
     <string name="title_advanced_flow">Düz mətn üçün \"format axını\"</string>
@@ -949,6 +951,7 @@
     <string name="title_hide_seen_folder_hint">Yalnız başlanğıc ekranında göstərilən qovluq siyahısında</string>
     <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
     <string name="title_navigation_folder">Naviqasiya menyusunda göstər</string>
+    <string name="title_navigation_folder_hide">Hərəkət menyusunda gizlət</string>
     <string name="title_synchronize_folder">Eyniləşdir (mesajları al)</string>
     <string name="title_poll_folder">Davamlı eyniləşdirmə əvəzinə vaxtaşırı yoxlayın</string>
     <string name="title_poll_folder_remark">Əksər e-poçt serverləri, ani mesajlara yalnız bir neçə qovluq üçün icazə verir!</string>
@@ -1154,6 +1157,7 @@
     <string name="title_compose">Yaz</string>
     <string name="title_submitter">Göndərən:</string>
     <string name="title_delivered_to">Çatdırıldı:</string>
+    <string name="title_return_path">Qayıdış yolu:</string>
     <string name="title_from">Göndərən:</string>
     <string name="title_to">Alıcı:</string>
     <string name="title_reply_to">Cavabla:</string>
@@ -1188,9 +1192,11 @@
     <string name="title_style_italic">Italic</string>
     <string name="title_style_underline">Altdan xətt</string>
     <string name="title_style_size">Həcmi</string>
+    <string name="title_style_size_xsmall">Ekstra kiçik</string>
     <string name="title_style_size_small">Kiçik</string>
     <string name="title_style_size_medium">Orta</string>
     <string name="title_style_size_large">Böyük</string>
+    <string name="title_style_size_xlarge">Ekstra böyük</string>
     <string name="title_style_align">Align</string>
     <string name="title_style_align_start">Başlat</string>
     <string name="title_style_align_center">Mərkəz</string>
@@ -1388,6 +1394,7 @@
     <string name="title_compact">Yığcam baxış</string>
     <string name="title_zoom">Mətn həcmi</string>
     <string name="title_padding">Doldurma ölçüsü</string>
+    <string name="title_large_buttons">Daha böyük düymələr</string>
     <string name="title_select_language">Dil seçin</string>
     <string name="title_select_all">Hamısını seçin</string>
     <string name="title_select_found">Tapılanı seçin</string>
@@ -1406,6 +1413,7 @@
         Ona görə də, təsvir faylını silməyin!
     </string>
     <string name="title_answer_define_name">Ad</string>
+    <string name="title_answer_define_value">Dəyər</string>
     <string name="title_answer_caption">Şablona düzəliş et</string>
     <string name="title_answer_reply">Cavab şablonu</string>
     <string name="title_answer_name">Şablon adı</string>
@@ -1623,7 +1631,6 @@
     <string name="title_hint_folder_actions">Cəld müraciət üçün bir qovluğu naviqasiya menyusuna əlavə etmək kimi, seçimlər üçün bir qovluğa uzun basın</string>
     <string name="title_hint_folder_sync">Batareya və şəbəkə istifadəsini məhdudlaşdırmaq üçün bütün qovluqlar və bütün mesajlar ilkin olaraq eyniləşdirilməyəcək</string>
     <string name="title_hint_airplane">Təyyarə rejimi açıqdır</string>
-    <string name="title_hint_notification">Bildirişlər sıradan çıxarıldı</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantıya atmaq üçün sola sürüşdürün; (əgər varsa) arxivləmək üçün sağa; Sürüşdürmə əməliyyatları hesab tənzimləmələrindən konfiqurasiya edilə bilər</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın; daha çox mesaj seçmək üçün basıb yuxarı və ya aşağı sürüşdürün</string>

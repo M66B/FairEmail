@@ -1145,6 +1145,7 @@
     <string name="title_style_size_small">小</string>
     <string name="title_style_size_medium">中</string>
     <string name="title_style_size_large">大</string>
+    <string name="title_style_size_xlarge">超大</string>
     <string name="title_style_align">對齊</string>
     <string name="title_style_align_start">左對齊</string>
     <string name="title_style_align_center">置中對齊</string>

@@ -401,6 +401,7 @@
     <string name="title_advanced_signature_forward">להשתמש בחתימה להעברות</string>
     <string name="title_advanced_discard_delete">השלכת טיוטה מוחקת אותה לצמיתות</string>
     <string name="title_advanced_reply_move">בעת מענה להודעה, המענה יישמר באותה התיקייה</string>
+    <string name="title_advanced_reply_move_inbox">גם להודעות בדואר הנכנס</string>
     <string name="title_advanced_auto_link">ליצור קישורים אוטומטית</string>
     <string name="title_advanced_plain_only">לשלוח טקסט פשוט בלבד כבררת מחדל</string>
     <string name="title_advanced_flow">‚שורות תחומות’ לטקסט פשוט</string>
@@ -1182,6 +1183,7 @@
     <string name="title_compose">כתיבת הודעה</string>
     <string name="title_submitter">נשלח על ידי:</string>
     <string name="title_delivered_to">נמסר אל:</string>
+    <string name="title_return_path">נתיב חזרה:</string>
     <string name="title_from">מאת:</string>
     <string name="title_to">אל:</string>
     <string name="title_reply_to">מענה אל:</string>
@@ -1216,9 +1218,11 @@
     <string name="title_style_italic">נטוי</string>
     <string name="title_style_underline">קו תחתון</string>
     <string name="title_style_size">גודל</string>
+    <string name="title_style_size_xsmall">קטן במיוחד</string>
     <string name="title_style_size_small">קטן</string>
     <string name="title_style_size_medium">בינוני</string>
     <string name="title_style_size_large">גודל</string>
+    <string name="title_style_size_xlarge">גדול במיוחד</string>
     <string name="title_style_align">יישור</string>
     <string name="title_style_align_start">התחלה</string>
     <string name="title_style_align_center">מרכז</string>
@@ -1653,7 +1657,7 @@
     <string name="title_hint_folder_actions">לחיצה ארוכה על תיקייה מציגה אפשרויות כגון הוספת התיקייה לתפריט הניווט לגישה מהירה</string>
     <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כבררת מחדל</string>
     <string name="title_hint_airplane">מצב טיסה מופעל</string>
-    <string name="title_hint_notification">התראות מושבתות</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">אין הרשאות להתראות</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
     <string name="title_hint_message_selection">לחיצה ארוכה על הודעה מתחילה בחירה במגוון הודעות, יש להחזיק ולהחליק כלפי מעלה או מטה כדי לבחור הודעות נוספות</string>

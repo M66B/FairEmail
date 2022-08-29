@@ -400,6 +400,7 @@
     <string name="title_advanced_signature_forward">Использовать подпись при пересылке</string>
     <string name="title_advanced_discard_delete">При отказе от черновика удалять его безвозвратно</string>
     <string name="title_advanced_reply_move">При ответе на сообщение сохранять ответ в той же папке</string>
+    <string name="title_advanced_reply_move_inbox">Также для сообщений во \"Входящих\"</string>
     <string name="title_advanced_auto_link">Автоматическое создание ссылок</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_flow">\"Пластичное\" форматирование обычного текста</string>
@@ -1181,6 +1182,7 @@
     <string name="title_compose">Создать</string>
     <string name="title_submitter">Отправлено:</string>
     <string name="title_delivered_to">Доставлено:</string>
+    <string name="title_return_path">Обратный путь:</string>
     <string name="title_from">От:</string>
     <string name="title_to">Кому:</string>
     <string name="title_reply_to">Обратный адрес:</string>
@@ -1215,9 +1217,11 @@
     <string name="title_style_italic">Курсив</string>
     <string name="title_style_underline">Подчёркнутый</string>
     <string name="title_style_size">Размер</string>
+    <string name="title_style_size_xsmall">Очень маленький</string>
     <string name="title_style_size_small">Маленький</string>
     <string name="title_style_size_medium">Средний</string>
     <string name="title_style_size_large">Большой</string>
+    <string name="title_style_size_xlarge">Очень большой</string>
     <string name="title_style_align">Выравнивание</string>
     <string name="title_style_align_start">Слева</string>
     <string name="title_style_align_center">По центру</string>
@@ -1652,7 +1656,6 @@
     <string name="title_hint_folder_actions">Длительное нажатие на папку откроет другие действия, например, добавление папки в меню навигации для быстрого доступа.</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика по умолчанию синхронизируются не все папки и сообщения.</string>
     <string name="title_hint_airplane">Режим полета включён</string>
-    <string name="title_hint_notification">Уведомления отключены</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи.</string>
     <string name="title_hint_message_actions">Смахните влево, чтобы поместить в корзину; смахните вправо, чтобы поместить в архив (если имеется); действия жестов можно изменить в настройках учётной записи.</string>
     <string name="title_hint_message_selection">Длительное нажатие на сообщение начинает выбор нескольких сообщений; удерживайте нажатие и смахните вверх или вниз, чтобы выбрать больше сообщений.</string>

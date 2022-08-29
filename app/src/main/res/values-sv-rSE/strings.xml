@@ -169,6 +169,7 @@
     <string name="title_setup_gmail_support">Auktorisera Google-konton kommer endast att fungera i Play Store- och GitHub-versionen eftersom Android kontrollerar den digitala app-signaturen</string>
     <string name="title_setup_gmail_rationale">Vänligen bevilja behörigheter för att välja ett konto och läsa ditt namn</string>
     <string name="title_setup_gmail_permissions">Google kommer att be om behörighet att läsa, komponera, skicka och permanent ta bort all din e-post. FairEmail kommer aldrig att ta bort dina meddelanden utan ditt uttryckliga medgivande.</string>
+    <string name="title_setup_gmail_login">Om Chrome är inloggad på ett konto kan ett nytt konto endast läggas till via Android. Detta kan undvikas genom att logga ut från Chrome via Chromes synkroniseringsinställningar.</string>
     <string name="title_setup_gmail_on_device">Varför måste jag välja ett lokalt konto på enheten?</string>
     <string name="title_setup_gmail_password">Jag vill auktorisera ett konto med ett lösenord istället för ett konto på enheten</string>
     <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP inaktiveras av systemadministratören</string>
@@ -941,6 +942,7 @@
     <string name="title_hide_seen_folder_hint">Endast i mapplistan som visas på startskärmen</string>
     <string name="title_unified_folder">Visa i en samlad inkorg</string>
     <string name="title_navigation_folder">Visa i navigeringsmenyn</string>
+    <string name="title_navigation_folder_hide">Dölj i navigeringsmenyn</string>
     <string name="title_synchronize_folder">Synkronisera (hämta meddelanden)</string>
     <string name="title_poll_folder">Kontrollera regelbundet istället för kontinuerlig synkronisering</string>
     <string name="title_poll_folder_remark">De flesta e-postservrar tillåter endast push-meddelanden för en handfull mappar!</string>
@@ -1177,9 +1179,11 @@
     <string name="title_style_italic">Kursiv</string>
     <string name="title_style_underline">Understryk</string>
     <string name="title_style_size">Storlek</string>
+    <string name="title_style_size_xsmall">Extra liten</string>
     <string name="title_style_size_small">Liten</string>
     <string name="title_style_size_medium">Medel</string>
     <string name="title_style_size_large">Stor</string>
+    <string name="title_style_size_xlarge">Extra stor</string>
     <string name="title_style_align">Justera</string>
     <string name="title_style_align_start">Start</string>
     <string name="title_style_align_center">Centrera</string>
@@ -1377,6 +1381,7 @@
     <string name="title_compact">Kompakt vy</string>
     <string name="title_zoom">Textstorlek</string>
     <string name="title_padding">Utfyllnadsstorlek</string>
+    <string name="title_large_buttons">Större knappar</string>
     <string name="title_select_language">Välj språk</string>
     <string name="title_select_all">Markera alla</string>
     <string name="title_select_found">Välj hittade</string>
@@ -1395,6 +1400,7 @@
         Ta alltså inte bort bildfilen!
     </string>
     <string name="title_answer_define_name">Namn</string>
+    <string name="title_answer_define_value">Värde</string>
     <string name="title_answer_caption">Redigera mall</string>
     <string name="title_answer_reply">Svarsmall</string>
     <string name="title_answer_name">Mallnamn</string>
@@ -1612,7 +1618,6 @@
     <string name="title_hint_folder_actions">Tryck länge på en mapp för alternativ, som att lägga till en mapp till navigationsmenyn för snabb åtkomst</string>
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
     <string name="title_hint_airplane">Flygplansläge är på</string>
-    <string name="title_hint_notification">Aviseringar är inaktiverade</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_message_actions">Dra åt vänster för att kasta; Svep åt höger för att arkivera (om tillgängligt); Svepåtgärderna kan konfigureras i kontoinställningarna</string>
     <string name="title_hint_message_selection">Långt tryck på ett meddelande för att börja välja flera meddelanden; håll och svep uppåt eller nedåt för att välja fler meddelanden</string>

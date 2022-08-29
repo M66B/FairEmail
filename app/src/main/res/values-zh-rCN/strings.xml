@@ -361,6 +361,7 @@
     <string name="title_advanced_signature_forward">转发时使用签名</string>
     <string name="title_advanced_discard_delete">舍弃草稿时将其永久删除</string>
     <string name="title_advanced_reply_move">回复邮件时，将回复保存在相同文件夹中</string>
+    <string name="title_advanced_reply_move_inbox">也适用于收件箱中的消息</string>
     <string name="title_advanced_auto_link">自动创建链接</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_flow">纯文本中采用可流动换行格式（format=flowed）</string>
@@ -1137,6 +1138,7 @@
     <string name="title_compose">撰写</string>
     <string name="title_submitter">发送自：</string>
     <string name="title_delivered_to">发送给：</string>
+    <string name="title_return_path">返回路径：</string>
     <string name="title_from">发件人：</string>
     <string name="title_to">收件人：</string>
     <string name="title_reply_to">回复：</string>
@@ -1171,9 +1173,11 @@
     <string name="title_style_italic">斜体</string>
     <string name="title_style_underline">下划线</string>
     <string name="title_style_size">大小</string>
+    <string name="title_style_size_xsmall">超小</string>
     <string name="title_style_size_small">小</string>
     <string name="title_style_size_medium">中等</string>
     <string name="title_style_size_large">大</string>
+    <string name="title_style_size_xlarge">特大</string>
     <string name="title_style_align">对齐</string>
     <string name="title_style_align_start">起始</string>
     <string name="title_style_align_center">居中</string>
@@ -1608,7 +1612,7 @@
     <string name="title_hint_folder_actions">长按文件夹查看选项，例如将文件夹添加到导航菜单以便快速访问</string>
     <string name="title_hint_folder_sync">为了降低电量和网络流量的消耗，默认不会同步全部的文件夹和消息</string>
     <string name="title_hint_airplane">飞行模式已开启</string>
-    <string name="title_hint_notification">通知已禁用</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">无通知权限</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑移动到回收站；向右滑存档（如果支持） ；可在账户设置中配置滑动操作</string>
     <string name="title_hint_message_selection">长按进行多选；按住的同时并上下滑动可选择多个邮件</string>

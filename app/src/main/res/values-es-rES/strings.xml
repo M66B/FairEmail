@@ -374,6 +374,7 @@
     <string name="title_advanced_signature_forward">Usar firma al reenviar</string>
     <string name="title_advanced_discard_delete">Al descartar borrador eliminarlo permanentemente</string>
     <string name="title_advanced_reply_move">Al responder un mensaje, guardar la respuesta en la misma carpeta</string>
+    <string name="title_advanced_reply_move_inbox">También para mensajes en la bandeja de entrada</string>
     <string name="title_advanced_auto_link">Crear enlaces automáticamente</string>
     <string name="title_advanced_plain_only">Enviar sólo texto plano por defecto</string>
     <string name="title_advanced_flow">\'format flowed\' para texto plano</string>
@@ -1152,6 +1153,7 @@
     <string name="title_compose">Redactar</string>
     <string name="title_submitter">Enviado por:</string>
     <string name="title_delivered_to">Entregado a:</string>
+    <string name="title_return_path">Ruta de retorno:</string>
     <string name="title_from">De:</string>
     <string name="title_to">A:</string>
     <string name="title_reply_to">Responder a:</string>
@@ -1186,9 +1188,11 @@
     <string name="title_style_italic">Cursiva</string>
     <string name="title_style_underline">Subrayado</string>
     <string name="title_style_size">Tamaño</string>
+    <string name="title_style_size_xsmall">Muy pequeño</string>
     <string name="title_style_size_small">Pequeño</string>
     <string name="title_style_size_medium">Mediano</string>
     <string name="title_style_size_large">Grande</string>
+    <string name="title_style_size_xlarge">Extra grande</string>
     <string name="title_style_align">Alinear</string>
     <string name="title_style_align_start">Comienzo</string>
     <string name="title_style_align_center">Centro</string>
@@ -1385,6 +1389,7 @@
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
     <string name="title_padding">Tamaño de margen interno</string>
+    <string name="title_large_buttons">Botones más grandes</string>
     <string name="title_select_language">Seleccionar idioma</string>
     <string name="title_select_all">Seleccionar todo</string>
     <string name="title_select_found">Seleccionar lo encontrado</string>
@@ -1403,6 +1408,7 @@
         ¡Así que no borre el archivo de imagen!
     </string>
     <string name="title_answer_define_name">Nombre</string>
+    <string name="title_answer_define_value">Valor</string>
     <string name="title_answer_caption">Editar plantilla</string>
     <string name="title_answer_reply">Plantilla de respuesta</string>
     <string name="title_answer_name">Nombre de plantilla</string>
@@ -1620,7 +1626,6 @@
     <string name="title_hint_folder_actions">Mantenga pulsada una carpeta para las opciones, como añadir una carpeta al menú de navegación para acceso rápido</string>
     <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
     <string name="title_hint_airplane">El modo avión está activado</string>
-    <string name="title_hint_notification">Las notificaciones están desactivadas</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Desliza a la izquierda para enviar a la papelera; Desliza a la derecha para archivar (si está disponible); las acciones de deslizamiento pueden configurarse en la configuración de la cuenta</string>
     <string name="title_hint_message_selection">Mantenga pulsado un mensaje para empezar a seleccionar varios mensajes; mantenga pulsado y deslice hacia arriba o abajo para seleccionar más mensajes</string>

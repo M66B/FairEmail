@@ -1143,6 +1143,7 @@
     <string name="title_compose">作成</string>
     <string name="title_submitter">送信元:</string>
     <string name="title_delivered_to">配信先:</string>
+    <string name="title_return_path">返送先:</string>
     <string name="title_from">差出人:</string>
     <string name="title_to">宛先:</string>
     <string name="title_reply_to">返信先:</string>
@@ -1177,9 +1178,11 @@
     <string name="title_style_italic">斜体</string>
     <string name="title_style_underline">下線</string>
     <string name="title_style_size">サイズ</string>
+    <string name="title_style_size_xsmall">極小</string>
     <string name="title_style_size_small">小</string>
     <string name="title_style_size_medium">標準</string>
     <string name="title_style_size_large">大</string>
+    <string name="title_style_size_xlarge">特大</string>
     <string name="title_style_align">配置</string>
     <string name="title_style_align_start">行頭揃え</string>
     <string name="title_style_align_center">中央揃え</string>
@@ -1614,7 +1617,7 @@
     <string name="title_hint_folder_actions">フォルダーを長押して、ナビゲーションメニューにフォルダーのショートカットを表示するなどの設定ができます</string>
     <string name="title_hint_folder_sync">バッテリーとネットワークの使用を抑えるためにデフォルトでは一部のフォルダーとメッセージのみ同期されます</string>
     <string name="title_hint_airplane">機内モードが ON です</string>
-    <string name="title_hint_notification">通知が無効です</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">通知が許可されていません</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてゴミ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>
     <string name="title_hint_message_selection">メッセージを長押しして、複数のメッセージを選択します。そのまま上または下にスワイプすると、まとめてメッセージを選択できます</string>

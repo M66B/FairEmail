@@ -1159,9 +1159,11 @@
     <string name="title_style_italic">Kurziv</string>
     <string name="title_style_underline">Naglasi</string>
     <string name="title_style_size">Veličina</string>
+    <string name="title_style_size_xsmall">Vrlo mala</string>
     <string name="title_style_size_small">Maleno</string>
     <string name="title_style_size_medium">Srednje</string>
     <string name="title_style_size_large">Veliko</string>
+    <string name="title_style_size_xlarge">Extra veliko</string>
     <string name="title_style_align">Poravnaj</string>
     <string name="title_style_align_start">Početak</string>
     <string name="title_style_align_center">Sredina</string>
@@ -1584,7 +1586,6 @@
     <string name="title_hint_folder_actions">Dugo pritisnite mapu za opcije, poput dodavanja mape navigacijskom izborniku za brzi pristup</string>
     <string name="title_hint_folder_sync">Da biste ograničili korištenje baterije i mreže prema zadanim postavkama neće se sve mape i sve poruke biti sinkronizirane</string>
     <string name="title_hint_airplane">Zrakoplovni račin rada je uključen</string>
-    <string name="title_hint_notification">Obavijesti su onemogućene</string>
     <string name="title_hint_support">Ako imate pitanje ili problem, upotrijebite izbornik za podršku da biste dobili pomoć</string>
     <string name="title_hint_message_actions">Prijeđite prstom ulijevo za otpad; Prstom povucite udesno za arhivu (ako dostupno); Akcije prelaska prstom možete konfigurirati u postavkama računa</string>
     <string name="title_hint_message_selection">Dugo pritisnite poruku za početak odabiranja više poruka; Držite i prelazite prstom prema gore ili dolje da biste odabrali više poruka</string>

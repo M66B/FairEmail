@@ -375,6 +375,7 @@
     <string name="title_advanced_signature_forward">Utiliser la signature lors du transfert</string>
     <string name="title_advanced_discard_delete">Lors de l’abandon d’un brouillon, le supprimer définitivement</string>
     <string name="title_advanced_reply_move">Lors de la réponse à un message, enregistrer la réponse dans le même dossier</string>
+    <string name="title_advanced_reply_move_inbox">Également pour les messages dans la boîte de réception</string>
     <string name="title_advanced_auto_link">Créer automatiquement des liens</string>
     <string name="title_advanced_plain_only">Envoyer uniquement le texte brut par défaut</string>
     <string name="title_advanced_flow">Utiliser \'format flowed\' pour le texte brut</string>
@@ -1157,6 +1158,7 @@
     <string name="title_compose">Rédiger</string>
     <string name="title_submitter">Envoyé par :</string>
     <string name="title_delivered_to">Envoyé à :</string>
+    <string name="title_return_path">Chemin de retour:</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>
     <string name="title_reply_to">Répondre à :</string>
@@ -1191,9 +1193,11 @@
     <string name="title_style_italic">Italique</string>
     <string name="title_style_underline">Souligner</string>
     <string name="title_style_size">Taille</string>
+    <string name="title_style_size_xsmall">Très petit</string>
     <string name="title_style_size_small">Petit</string>
     <string name="title_style_size_medium">Moyen</string>
     <string name="title_style_size_large">Grand</string>
+    <string name="title_style_size_xlarge">Très grand</string>
     <string name="title_style_align">Aligner</string>
     <string name="title_style_align_start">A gauche</string>
     <string name="title_style_align_center">Centré</string>
@@ -1421,7 +1425,7 @@
     <string name="title_answer_receipt">Utiliser comme confirmation de lecture</string>
     <string name="title_answer_hide">Masquer du menu « Répondre »</string>
     <string name="title_answer_text">Texte du modèle</string>
-    <string name="title_answer_placeholder">Place réservée</string>
+    <string name="title_answer_placeholder">Espace réservé</string>
     <string name="title_answer_placeholder_name">Nom complet de l\'expéditeur</string>
     <string name="title_answer_placeholder_email">Adresse courriel de l’expéditeur</string>
     <string name="title_answer_placeholder_firstname">Prénom de l\'expéditeur</string>
@@ -1628,7 +1632,7 @@
     <string name="title_hint_folder_actions">Appuyez longuement sur un dossier pour afficher les options, comme ajouter un dossier au menu de navigation pour un accès rapide</string>
     <string name="title_hint_folder_sync">Afin de limiter l’utilisation de la pile et du réseau, les dossiers et messages ne seront pas tous synchronisés par défaut</string>
     <string name="title_hint_airplane">Le mode avion est activé</string>
-    <string name="title_hint_notification">Les notifications sont désactivées</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Aucune autorisation de notification</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu « Assistance » pour obtenir de l’aide</string>
     <string name="title_hint_message_actions">Balayer vers la gauche pour mettre à la corbeille; balayer vers la droite pour archiver (si disponible); les actions de balayage peuvent être configurées dans les paramètres du compte</string>
     <string name="title_hint_message_selection">Appuyez longuement sur un message pour activer la sélection multiple; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner davantage de messages</string>

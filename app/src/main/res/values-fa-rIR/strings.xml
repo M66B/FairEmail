@@ -326,6 +326,7 @@
     <string name="title_advanced_signature_reply_once">تنها برای اولین پاسخ</string>
     <string name="title_advanced_signature_forward">هنگام هدایت کردن از امضا استفاده کن</string>
     <string name="title_advanced_discard_delete">هنگام دورانداختن پیش‌نویس، پیش‌نویس را برای همیشه حذف کن</string>
+    <string name="title_advanced_reply_move_inbox">همچنین برای پیام‌های درون صندوق ورودی</string>
     <string name="title_advanced_auto_link">ایجاد خودکار لینک</string>
     <string name="title_advanced_plain_only">فقط متن ساده را به صورت پیش‌فرض بفرست</string>
     <string name="title_advanced_remove_signatures">امضاء های شناخته شده را حذف کن</string>
@@ -795,6 +796,7 @@
     <string name="title_compose">ایجاد پیام</string>
     <string name="title_submitter">ارسال توسط:</string>
     <string name="title_delivered_to">تحویل شده به:</string>
+    <string name="title_return_path">مسیر برگشت:</string>
     <string name="title_from">از:</string>
     <string name="title_to">به:</string>
     <string name="title_reply_to">پاسخ به:</string>
@@ -823,9 +825,11 @@
     <string name="title_style_italic">مورب</string>
     <string name="title_style_underline">خط زیر</string>
     <string name="title_style_size">اندازه</string>
+    <string name="title_style_size_xsmall">خیلی کوچک</string>
     <string name="title_style_size_small">کوچک</string>
     <string name="title_style_size_medium">متوسط</string>
     <string name="title_style_size_large">بزرگ</string>
+    <string name="title_style_size_xlarge">خیلی بزرگ</string>
     <string name="title_style_align_start">آغاز</string>
     <string name="title_style_list">فهرست</string>
     <string name="title_style_font">فونت</string>
@@ -1147,7 +1151,7 @@
     <string name="title_legend_s">انتخاب/عدم انتخاب</string>
     <string name="title_hint_folder_sync">برای محدود کردن مصرف دیتا و باتری تمامی پوشه‌ها و پیام‌ها به صورت پیش‌فرض همگام سازی نخواهند شد</string>
     <string name="title_hint_airplane">حالت هواپیما روشن است</string>
-    <string name="title_hint_notification">اعلان‌ها غیرفعالند</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">اجازه اعلان داده نشده</string>
     <string name="title_hint_support">اگر سوال یا مشکلی دارید لطفا از قسمت پشتیبانی برای کمک گرفتن استفاده کنید</string>
     <string name="title_hint_message_actions">برای حذف به چپ بکشید؛ برای بایگانی به راست بکشید (اگر در دسترس باشد)؛ کنش‌های کشیدن می‌تواند در تنظیمات حساب پیکربندی شوند</string>
     <string name="title_hint_message_junk">این پیام‌ها در پوشه هرزنامه سرور ایمیل قرار دارند. واضح است که اپلیکیشن نمی‌تواند جلوی فرستادن هرزنامه برای شما را بگیرد.</string>

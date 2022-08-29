@@ -400,6 +400,7 @@
     <string name="title_advanced_signature_forward">Użyj podpisu podczas przesyłania dalej</string>
     <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej usuń ją trwale</string>
     <string name="title_advanced_reply_move">Przy odpowiadaniu na wiadomość, zapisz odpowiedź w tym samym folderze</string>
+    <string name="title_advanced_reply_move_inbox">Również dla wiadomości w skrzynce odbiorczej</string>
     <string name="title_advanced_auto_link">Automatycznie utwórz linki</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_flow">\'format flowed\' dla zwykłego tekstu</string>
@@ -1178,6 +1179,7 @@
     <string name="title_compose">Napisz</string>
     <string name="title_submitter">Wysłane przez:</string>
     <string name="title_delivered_to">Dostarczone do:</string>
+    <string name="title_return_path">Ścieżka powrotna:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Do:</string>
     <string name="title_reply_to">Odpisz do:</string>
@@ -1212,9 +1214,11 @@
     <string name="title_style_italic">Kursywa</string>
     <string name="title_style_underline">Podkreślenie</string>
     <string name="title_style_size">Rozmiar</string>
+    <string name="title_style_size_xsmall">Bardzo mały</string>
     <string name="title_style_size_small">Mały</string>
     <string name="title_style_size_medium">Średni</string>
     <string name="title_style_size_large">Duży</string>
+    <string name="title_style_size_xlarge">Bardzo duży</string>
     <string name="title_style_align">Wyrównanie</string>
     <string name="title_style_align_start">Na początku</string>
     <string name="title_style_align_center">Wyśrodkowane</string>
@@ -1650,7 +1654,7 @@
     <string name="title_hint_folder_actions">Naciśnij długo folder, aby wyświetlić opcje, takie jak dodanie folderu do menu nawigacji w celu szybkiego dostępu</string>
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_airplane">Tryb samolotowy jest włączony</string>
-    <string name="title_hint_notification">Powiadomienia są wyłączone</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Brak uprawnień dla powiadomień</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
     <string name="title_hint_message_selection">Naciśnij długo wiadomość, aby rozpocząć wybieranie wielu wiadomości; Przytrzymaj i przeciągnij w górę lub w dół, aby wybrać więcej wiadomości</string>

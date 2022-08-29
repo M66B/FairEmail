@@ -375,6 +375,7 @@
     <string name="title_advanced_signature_forward">Usa la firma quando inoltri</string>
     <string name="title_advanced_discard_delete">Scartando la bozza, eliminala permanentemente</string>
     <string name="title_advanced_reply_move">Alla risposta a un messaggio, salvala nella stessa cartella</string>
+    <string name="title_advanced_reply_move_inbox">Anche per i messaggi nella posta in arrivo</string>
     <string name="title_advanced_auto_link">Crea automaticamente i link</string>
     <string name="title_advanced_plain_only">Invia testo semplice di default</string>
     <string name="title_advanced_flow">\'format flowed\' per il testo semplice</string>
@@ -1157,6 +1158,7 @@
     <string name="title_compose">Scrivi</string>
     <string name="title_submitter">Inviato da:</string>
     <string name="title_delivered_to">Consegnato a:</string>
+    <string name="title_return_path">Percorso di ritorno:</string>
     <string name="title_from">Da:</string>
     <string name="title_to">A:</string>
     <string name="title_reply_to">Rispondi a:</string>
@@ -1191,9 +1193,11 @@
     <string name="title_style_italic">Corsivo</string>
     <string name="title_style_underline">Sottolineato</string>
     <string name="title_style_size">Dimensioni</string>
+    <string name="title_style_size_xsmall">Molto piccolo</string>
     <string name="title_style_size_small">Piccolo</string>
     <string name="title_style_size_medium">Medio</string>
     <string name="title_style_size_large">Grande</string>
+    <string name="title_style_size_xlarge">Molto grande</string>
     <string name="title_style_align">Allinea</string>
     <string name="title_style_align_start">A sinistra</string>
     <string name="title_style_align_center">Centrato</string>
@@ -1628,7 +1632,7 @@
     <string name="title_hint_folder_actions">Tieni premuta una cartella per le opzioni, come aggiungere una cartella al menu di navigazione per l\'accesso rapido</string>
     <string name="title_hint_folder_sync">Per limitare l\'uso della batteria e di rete, non tutte le cartelle e messaggi saranno sincronizzati di default</string>
     <string name="title_hint_airplane">La modalità offline è attivata</string>
-    <string name="title_hint_notification">Le notifiche sono disabilitate</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Nessuna autorizzazione di notifica</string>
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>
     <string name="title_hint_message_selection">Tieni premuto un messaggio per iniziare a selezionare più messaggi: Tieni premuto e scorri in su o in giù per selezionare più messaggi</string>

@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimia eri tavalla kuin mihin olet tottunut.</string>
     <string name="app_limitations">Esimerkiksi viestit oletusarvoisesti uudelleenmuotoillaan turvattomien elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen on vahvistettava turvallisuuden vuoksi. Molemmat ominaisuudet voidaan haluttaessa poistaa käytöstä.</string>
     <string name="app_unsupported">Tämän laitteen Android-versiossa olevat bugit aiheuttavat kaatumisia</string>
+    <string name="app_data_loss">Kaikki data saatetaan menettää</string>
     <string name="app_continue">Jatka joka tapauksessa</string>
     <string name="app_exit">Poistu menemällä \'takaisin\' uudelleen</string>
     <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
@@ -82,6 +83,18 @@
         Lähettäjän verkkotunnuksen esto käyttää suodatussääntöjä ja on pro-ominaisuus.
     </string>
     <string name="title_blocked_senders">Estetyt lähettäjät</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Estä %1$s viestin lähettäjä?</item>
+        <item quantity="other">Estä %1$s viestin lähettäjä?</item>
+    </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s tunti</item>
+        <item quantity="other">%1$s tuntia</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s päivä</item>
+        <item quantity="other">%1$s päivää</item>
+    </plurals>
     <string name="title_junk_filter">Käytä paikallista roskapostisuodinta</string>
     <string name="title_junk_filter_hint">Tämä voi lisätä akun käyttöä ja merkitä viestit virheellisesti roskapostiksi</string>
     <string name="title_junk_blocklist">Käytä roskapostin estolistoja</string>
@@ -141,6 +154,7 @@
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
     <string name="title_setup_quick_certificates">Palvelinvarmenteet</string>
     <string name="title_setup_wizard">Asetusvelho</string>
+    <string name="title_setup_wizard_tutorials">Oppaat</string>
     <string name="title_setup_wizard_multiple">Asetusvelholla voidaan asettaa monta tiliä käyttämällä sitä useamman kerran</string>
     <string name="title_setup_wizard_new">Tarvitsen uuden sähköpostiosoitteen</string>
     <string name="title_setup_manual">Manuaalinen asettaminen ja tiliasetukset</string>
@@ -151,12 +165,17 @@
     <string name="title_setup_account_identity_hint">Voit määrittää nimen, värin ja pyyhkäisytoiminnot tilin asetuksissa ja allekirjoituksen identiteettiasetuksissa</string>
     <string name="title_setup_accounts">Tilit</string>
     <string name="title_setup_identities">Identiteetit</string>
+    <string name="title_setup_google_sign_in">Kirjaudu Google-tunnuksella</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
+    <string name="title_setup_inbound">Vain saapuva sähköposti (sähköpostia ei voi lähettää!)</string>
     <string name="title_setup_pop3">POP3-tili</string>
     <string name="title_setup_oauth_permission">Sähköpostipalveluntarjoaja on hyväksynyt OAuthin vain Play Kaupan ja GitHubin versioille</string>
     <string name="title_setup_gmail_support">Google-tilien valtuutus toimii vain Play Kaupan ja GitHubin versioissa, koska Android tarkistaa sovelluksen digitaalisen allekirjoituksen</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
     <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
+    <string name="title_setup_gmail_login">Uusi tili voidaan lisätä vain Androidin kautta, jos Chrome on kirjautunut tilille. Tämä voidaan välttää kirjautumalla ulos Chromesta sen synkronointiasetuksissa.</string>
+    <string name="title_setup_gmail_on_device">Miksi minun täytyy valita laitteessa oleva tili?</string>
+    <string name="title_setup_gmail_password">Haluan valtuuttaa tilin salasanalla enkä käyttää valtuutukseen laitteeseen asetettua tiliä</string>
     <string name="title_setup_office_auth">Virhe \'AUTHENTICATE failed\' voi aiheutua siitä, että järjestelmän ylläpitäjän on poistanut IMAP/SMTP-protokollat käytöstä</string>
     <string name="title_setup_oauth_rationale">Valtuuta pääsy tilillesi %1$s</string>
     <string name="title_setup_oauth_update">Valtuuta olemassa oleva tili uudelleen (muussa tapauksessa luo uusi tili)</string>
@@ -182,6 +201,8 @@
     <string name="title_setup_permissions">Myönnä käyttöoikeudet</string>
     <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
     <string name="title_setup_permissions_explanation">Yhteystietojen käyttöoikeudet tarvitaan yhteystietojen etsimiseen ja ehdottamiseen</string>
+    <string name="title_setup_permissions_notify">Uusien viestien ilmoitusten näyttämiseksi (valinnainen)</string>
+    <string name="title_setup_permissions_notify_explanation">Ilmoitusten käyttöoikeudet tarvitaan, että voidaan näyttää uusien viestien ilmoitukset tilapalkissa</string>
     <string name="title_setup_permission_why">Mitä käyttöoikeuksia tarvitaan ja miksi?</string>
     <string name="title_setup_permission_import_contacts">Miten voin tuoda yhteystietoja?</string>
     <string name="title_setup_doze">Ota akun käytön optimointi pois käytöstä</string>
@@ -205,6 +226,7 @@
     <string name="title_setup_still">Vielä tehtävänä</string>
     <string name="title_setup_error">Virhe</string>
     <string name="title_setup_pop">Käytä POP3:a (ei suositeltu)</string>
+    <string name="title_setup_recent">Käytä \'recent\' useille sähköpostiohjelmille</string>
     <string name="title_setup_configuring">Määritetään tiliä &#8230;</string>
     <string name="title_setup_app_password">Saatat joutua käyttämään sovelluksen salasanaa</string>
     <string name="title_setup_extra">Lisää</string>
@@ -372,7 +394,9 @@
     <string name="title_advanced_timeout">Yhteyden aikakatkaisu (sekuntia)</string>
     <string name="title_advanced_prefer_ip4">Käytä IPv4:ää ensisijaisesti IPv6:n sijaan</string>
     <string name="title_advanced_ssl_harden">Koveta SSL-yhteydet</string>
+    <string name="title_advanced_ssl_harden_strict">Vaadi TLS 1.3</string>
     <string name="title_advanced_cert_strict">Tiukka varmenteiden tarkistus</string>
+    <string name="title_advanced_open_safe">Käytä vain turvallisia yhteyksiä</string>
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
     <string name="title_advanced_caption_general">Yleiset</string>
     <string name="title_advanced_caption_navigation">Navigointi</string>
@@ -388,6 +412,7 @@
     <string name="title_advanced_two_col">Käytä kahta saraketta</string>
     <string name="title_advanced_min_screen_size">Näytön vähimmäiskoko näytön jakamiseksi</string>
     <string name="title_advanced_close_pane">Tiivistä rivi tai sarake, kun keskustelu suljetaan</string>
+    <string name="title_advanced_column_width">Viestisarakkeen leveys / rivin korkeus: %1$s %%</string>
     <string name="title_advanced_nav_options">Näytä asetukset navigointivalikossa</string>
     <string name="title_advanced_nav_categories">Näytä tilien luokat navigointivalikossa</string>
     <string name="title_advanced_nav_pin">Kiinnitä navigointivalikko</string>
@@ -453,6 +478,7 @@
     <string name="title_advanced_message_text_zoom2">Viestien tekstin oletuszoomaus: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zoomaa alkuperäiset viestit ruudulle sopivaksi</string>
     <string name="title_advanced_override_width">Poista alkuperäisten viestien kiinteät leveydet</string>
+    <string name="title_advanced_hyphenation">Käytä automaattista tavutusta</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
     <string name="title_advanced_monospaced">Käytä tasavälistä kirjasinta oletuksena viestien tekstille</string>
     <string name="title_advanced_monospaced_pre">Käytä tasavälistä kirjasinta valmiiksi muotoillulle tekstille</string>
@@ -461,6 +487,7 @@
     <string name="title_advanced_text_size">Käytä tekstin kokoja</string>
     <string name="title_advanced_text_font">Käytä kirjasimia</string>
     <string name="title_advanced_text_align">Käytä tekstin tasausta</string>
+    <string name="title_advanced_text_titles">Näytä {HTML titles}</string>
     <string name="title_advanced_text_separators">Käytä erotinrivejä</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
     <string name="title_advanced_image_placeholders">Näytä kuvien paikkamerkit</string>
@@ -471,6 +498,7 @@
     <string name="title_advanced_actionbar_color">Käytä tilin väriä taustavärinä keskustelun toimintopalkissa</string>
     <string name="title_advanced_category_header">Ryhmittele tilin luokan mukaan</string>
     <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
+    <string name="title_advanced_list_count">Näytä viestien tai keskustelujen määrä toimintopalkissa ylhäällä</string>
     <string name="title_advanced_bundled_fonts">Käytä mukaan paketoituja kirjasimia</string>
     <string name="title_advanced_parse_classes">Jäsennä tyylisäännöstöt</string>
     <string name="title_advanced_authentication">Näytä todennusvaroitukset</string>
@@ -479,11 +507,13 @@
     <string name="title_advanced_authentication_none">Ei todennusta</string>
     <string name="title_advanced_authentication_some">Osittainen todennus</string>
     <string name="title_advanced_authentication_all">Täydellinen todennus</string>
+    <string name="title_advanced_restore_on_launch">Palauta sovelluksen tila käynnistettäessä</string>
     <string name="title_advanced_sync_on_launch">Synkronoi käynnistettäessä</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_conversation_actions">Ehdota toimintoja (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Ehdota vastaustekstejä (Android 10+)</string>
     <string name="title_advanced_language_detection">Tunnista viestin tekstin kieli</string>
+    <string name="title_advanced_photo_picker">Käytä Androidin valokuvanvalitsinta</string>
     <string name="title_advanced_pull_refresh">Päivitä vetämällä alas</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
     <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
@@ -520,6 +550,8 @@
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän vastata ilmoitusten lukumäärää</string>
     <string name="title_advanced_notify_background">Näytä ilmoitukset vain, kun sovellus on taustalla</string>
     <string name="title_advanced_notify_known">Näytä ilmoitukset vain yhteystiedoille</string>
+    <string name="title_advanced_notify_suppress_in_call">Viivästytä ilmoitukset puhelun aikana</string>
+    <string name="title_advanced_notify_suppress_in_car">Viivytä ilmoitukset, kun Android Auto on yhdistetty</string>
     <string name="title_advanced_notify_summary">Näytä vain yhteenvetoilmoitus</string>
     <string name="title_advanced_notify_preview">Näytä viestin esikatselu ilmoituksissa</string>
     <string name="title_advanced_notify_preview_all">Esikatsele teksti kokonaisuudessaan</string>
@@ -603,7 +635,9 @@
     <string name="title_advanced_class_min_difference">Luokkien välinen vähimmäisero: %1$s %%</string>
     <string name="title_advanced_language">Kieli</string>
     <string name="title_advanced_language_system">Järjestelmä</string>
+    <string name="title_advanced_lt">LanguageTool-integraatio</string>
     <string name="title_advanced_deepl">DeepL-integraatio</string>
+    <string name="title_advanced_virus_total">VirusTotal-integraatio</string>
     <string name="title_advanced_sdcard">Haluan käyttää SD-korttia</string>
     <string name="title_advanced_watchdog">Tarkista väliajoin, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Tarkista GitHub-päivitykset</string>
@@ -616,7 +650,8 @@
     <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
     <string name="title_advanced_app">Sovellusasetukset</string>
     <string name="title_advanced_more">Lisää asetuksia</string>
-    <string name="title_advanced_protocol">Protokollan kirjaaminen lokiin</string>
+    <string name="title_advanced_main_log">Pääasiallinen lokiin kirjaaminen</string>
+    <string name="title_advanced_protocol">Protokollan kirjaaminen</string>
     <string name="title_advanced_log_info">Vianetsintätietojen kirjaaminen</string>
     <string name="title_advanced_debug">Vianetsintätila</string>
     <string name="title_advanced_manual_hint">Jos viestien vastaanotto on pois käytöstä, voi viestejä silti vastaanottaa manuaalisesti vetämällä alaspäin viestilistassa</string>
@@ -643,6 +678,7 @@
     <string name="title_advanced_folder_nav_hint">Tämä palaa aina viestilistasta kyseisen tilin kansiolistaan</string>
     <string name="title_advanced_suggest_names_hint">Jos poistettu käytöstä, yhteystietoja valittaessa käytetään vain sähköpostiosoitteita</string>
     <string name="title_advanced_suggest_local_hint">Androidin yhteystietojen lisäksi. Yhteystietoja tallennetaan uusista lähetetyistä ja vastaanotetuista viesteistä vain, jos asetus on päällä.</string>
+    <string name="title_advanced_auto_identity_hint">Tämä valitsee viimeksi käytetyn identiteetin, kun valitaan uusien viestien vastaanottajaa</string>
     <string name="title_advanced_send_reminders_hint">Näytä varoitus, kun viestin teksti tai aihe on tyhjä tai kun liite puuttuu</string>
     <string name="title_advanced_reply_move_hint">Sähköpostipalvelin voi silti lisätä viestit lähetettyjen viestien kansioon</string>
     <string name="title_advanced_usenet_hint">Lisää \'--\' tekstin ja allekirjoituksen väliin</string>
@@ -652,10 +688,12 @@
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_usage_hint">Tämä lisää akun, datan ja tallennustilan käyttöä</string>
     <string name="title_advanced_plain_hint">Tämän ottaminen käyttöön rajoittaa datan käyttöä, mutta viestit näytetään ilman muotoilua</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Tämän käyttöönotto voi aiheuttaa ongelmia joissakin laitteissa ja lisätä akun käyttöä</string>
     <string name="title_advanced_validate_hint">Tämä voi aiheuttaa sen, ettei viestejä synkronoida esimerkiksi VPN:ää käytettäessä tai joissakin muissakaan tilanteissa</string>
     <string name="title_advanced_timeout_hint">Luku-/kirjoitusaikakatkaisu asetetaan kaksi kertaa niin pitkäksi kuin yhteyden aikakatkaisu. Korkeat arvot aiheuttavat enemmän akun käyttöä.</string>
     <string name="title_advanced_cert_strict_hint">Tämän poistaminen käytöstä tekee palvelinvarmenteiden tarkistamisesta vähemmän tiukan</string>
     <string name="title_advanced_ssl_harden_hint">Tämän käyttöönotto kytkee heikot SSL-protokollat ja salakirjoitukset pois käytöstä, mikä voi aiheuttaa yhteysongelmia</string>
+    <string name="title_advanced_open_safe_hint">Tämän käyttöönotto edellyttää turvallisia yhteyksiä kuvien lataamiseen jne.</string>
     <string name="title_advanced_roaming_hint">Viestien tunnistetiedot haetaan aina myös verkkovierailun aikana. Laitteen asetuksista voi kytkeä verkkoyhteyden pois verkkovieraillessa.</string>
     <string name="title_advanced_browse_hint">Hae lisää viestejä alaspäin vieritettäessä</string>
     <string name="title_advanced_layout_hint">Tiiviimpään näkymään vaihtaminen ja viestin tekstin koon vaihtaminen voidaan tehdä viestinäkymän yläreunan toimintopalkista</string>
@@ -678,6 +716,7 @@
     <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>
     <string name="compressed">Pakattujen tiedostojen (%1$s) sisältöä yli %2$s tiedostolla tai suuremmilla tiedostoilla kuin %3$s ei näytetä</string>
     <string name="title_advanced_parse_classes_hint">Tämä näyttää viestit tarkemmin, mutta saattaa aiheuttaa viiveen</string>
+    <string name="title_advanced_restore_on_launch_hint">Palauta viimeisin sovelluksen tila, kun käynnistetään uudelleen käynnistyskuvakkeella %1$d minuutin kuluessa</string>
     <string name="title_advanced_language_detection_hint">Kielen tunnistuksen tuki riippuu laitteen valmistajasta</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
     <string name="title_advanced_expandall_hint">Vastauspainiketta ei näytetä, kun useita viestejä on laajennettuna, koska on epäselvää, mihin viestiin halutaan vastata</string>
@@ -691,9 +730,11 @@
     <string name="title_advanced_display_hidden_hint">Saattaa näyttää omituiselta ja tekstejä voi näkyä kahteen kertaan</string>
     <string name="title_advanced_display_pin_hint">PIN on ensisijainen ennen biometristä tunnistautumista</string>
     <string name="title_advanced_display_autolock_nav_hint">Käytössä on %1$d sekunnin viive</string>
+    <string name="title_advanced_user_agent_hint">Jotkin palvelimet eivät hyväksy geneerisiä käyttäjäagenttimerkkijonoja</string>
     <string name="title_advanced_safe_browsing_hint">Google-palvelin tietää, mitä osoitteita haetaan</string>
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>
     <string name="title_advanced_notify_action_hint">Enintään kolme toimintoa näytetään</string>
+    <string name="title_advanced_notify_car_hint">Yhdistetty tarkoittaa, että jotain projisoidaan, kuten karttaa navigointia varten</string>
     <string name="title_advanced_notify_remove_hint">Ilmoitukset uusista viesteistä poistetaan aina pyyhkäisemällä tai merkitsemällä viestit luetuiksi</string>
     <string name="title_advanced_notify_manage_hint">Aseta kanavan ominaisuudet napauttamalla sen nimeä</string>
     <string name="title_advanced_notify_manage_default_hint">Oletusäänten jne. asettamiseksi</string>
@@ -728,7 +769,9 @@
     <string name="title_advanced_sender_regex">Regex lähettäjän sähköpostiosoitteen käyttäjätunnuksen vastaavuuden määrittämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_internal">Sisäiset verkkotunnukset (pilkulla erotettu)</string>
+    <string name="title_identity_unicode">Salli UTF-8 viestien otsikoissa</string>
     <string name="title_identity_unicode_remark">Suurin osa palvelimista ei tue tätä</string>
+    <string name="title_identity_octetmime">Salli 8BITMIME</string>
     <string name="title_identity_max_size">Viestin suurin mahdollinen koko (Mt)</string>
     <string name="title_identity_receipt">Pyydä toimitus-/vastaanottokuittaus oletuksena</string>
     <string name="title_identity_receipt_legacy">Käytä vanhoja kuittauspyyntöjen tunnistetietoja</string>
@@ -758,8 +801,10 @@
     <string name="title_custom">Mukautettu</string>
     <string name="title_host">Verkko-osoite</string>
     <string name="title_encryption">Salaus</string>
+    <string name="title_encryption_none">Ei mitään (turvaton)</string>
     <string name="title_allow_insecure">Salli salaamattomat yhteydet</string>
     <string name="title_insecure_remark">Salaamattomat yhteydet tulisi sallia vain turvallisissa verkoissa eikä koskaan julkisissa verkoissa</string>
+    <string name="title_notify_remark">Voit ottaa tämän käyttöön saadaksesi tilikohtaiset ilmoitukset</string>
     <string name="title_port">Porttinumero</string>
     <string name="title_user">Käyttäjätunnus</string>
     <string name="title_password">Salasana</string>
@@ -816,6 +861,7 @@
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>
+    <string name="title_import_file">Tuo tiedosto</string>
     <string name="title_sign_key">Allekirjoitusavain: %1$s</string>
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
     <string name="title_backoff_until">Odottaa epäonnistumisen jälkeen ajanhetkeen: %1$s</string>
@@ -896,11 +942,13 @@
     <string name="title_search_folder">Hae kansiota</string>
     <string name="title_apply_to_all">Käytä kaikkiin</string>
     <string name="title_edit_account_name">Muokkaa tilin nimeä</string>
+    <string name="title_edit_account_color">Muokkaa tilin väriä</string>
     <string name="title_hide_folder">Piilota kansio</string>
     <string name="title_hide_seen_folder">Piilota kansio, jos kaikki viestit on luettu</string>
     <string name="title_hide_seen_folder_hint">Vain kansiolistassa, joka näkyy aloitusnäytöllä</string>
     <string name="title_unified_folder">Näytä yhdistetyssä saapuneet-kansiossa</string>
     <string name="title_navigation_folder">Näytä navigointivalikossa</string>
+    <string name="title_navigation_folder_hide">Piilota navigointivalikosta</string>
     <string name="title_synchronize_folder">Synkronoi (vastaanota viestejä)</string>
     <string name="title_poll_folder">Tarkista väliajoin jatkuvan synkronoinnin sijaan</string>
     <string name="title_poll_folder_remark">Useimmat sähköpostipalvelimet sallivat push-viestit vain rajalliselle määrälle kansioita!</string>
@@ -1029,6 +1077,7 @@
     <string name="title_archive">Arkistoi</string>
     <string name="title_reply">Vastaa</string>
     <string name="title_reply_to_sender">Vastaa lähettäjälle</string>
+    <string name="title_reply_to_recipient">Vastaa vastaanottajalle</string>
     <string name="title_reply_to_all">Vastaa kaikille</string>
     <string name="title_reply_list">Vastaa listalle</string>
     <string name="title_reply_receipt">Lähetä vastaanottokuittaus</string>
@@ -1137,9 +1186,11 @@
     <string name="title_style_italic">Kursiivi</string>
     <string name="title_style_underline">Alleviivaus</string>
     <string name="title_style_size">Koko</string>
+    <string name="title_style_size_xsmall">Erittäin pieni</string>
     <string name="title_style_size_small">Pieni</string>
     <string name="title_style_size_medium">Keskikokoinen</string>
     <string name="title_style_size_large">Suuri</string>
+    <string name="title_style_size_xlarge">Erittäin suuri</string>
     <string name="title_style_align">Tasaus</string>
     <string name="title_style_align_start">Alku</string>
     <string name="title_style_align_center">Keskikohta</string>
@@ -1157,6 +1208,12 @@
     <string name="title_style_strikethrough">Yliviivattu</string>
     <string name="title_style_clear">Poista muotoilu</string>
     <string name="title_style_link">Lisää linkki</string>
+    <string name="title_style_link_address">Osoite</string>
+    <string name="title_style_link_title">Otsikko</string>
+    <string name="title_style_link_metadata">Hae otsikko</string>
+    <string name="title_style_link_metadata_remark">Tämä hakee otsikkoa syötetystä osoitteesta</string>
+    <string name="title_style_link_send_dlimit">Latausraja (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Aikaraja (%1$s)</string>
     <string name="title_add_image">Lisää kuva</string>
     <string name="title_add_image_inline">Lisää</string>
     <string name="title_add_image_attach">Liitä</string>
@@ -1200,10 +1257,15 @@
     <string name="title_unknown_key">Yksityinen avain ei vastaa mitään salausavainta</string>
     <string name="title_key_missing">Ei avaimia sähköpostiosoitteille %1$s</string>
     <string name="title_send_reminder_remark">Muistutukset voidaan ottaa uudelleen käyttöön lähetysasetuksissa</string>
-    <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
+    <string name="title_send_plain_text">Vain muotoilematon teksti</string>
     <string name="title_send_dsn">Tilanneraportti</string>
     <string name="title_send_receipt">Pyydä kuittausta</string>
     <string name="title_send_receipt_remark">Useimmat palveluntarjoajat ja sähköpostisovellukset jättävät kuittauspyynnöt huomioimatta</string>
+    <string name="title_vt_unknown">Tämä tiedosto ei ole vielä VirusTotalin tiedossa</string>
+    <string name="title_vt_summary">%1$s virusskannerit raportoivat tämän tiedoston haitalliseksi</string>
+    <string name="title_vt_report">Koko raportti</string>
+    <string name="title_vt_upload">Lataa</string>
+    <string name="title_vt_analyzing">VirusTotal analysoi tiedostoa, tämä voi kestää jonkin aikaa &#8230;</string>
     <string name="title_from_missing">Lähettäjä puuttuu</string>
     <string name="title_pgp_reminder">PGP-avaimet saatavilla</string>
     <string name="title_smime_reminder">S/MIME-avaimet saatavilla</string>
@@ -1230,10 +1292,13 @@
     <string name="title_encrypt">Salaa</string>
     <string name="title_decrypt">Pura salaus</string>
     <string name="title_resync">Synkronoi uudelleen</string>
-    <string name="title_alternative_text">Näytä pelkkä teksti</string>
+    <string name="title_charset">Merkistökoodaus</string>
+    <string name="title_charset_auto">Automaattinen</string>
+    <string name="title_alternative_text">Näytä muotoilematon teksti</string>
     <string name="title_alternative_html">Näytä HTML</string>
     <string name="title_no_openpgp">OpenKeychain ei löytynyt</string>
     <string name="title_user_interaction">Siirretään OpenKeychain-sovellukseen</string>
+    <string name="title_padlock">Pura viestin salaus lukolla</string>
     <string name="title_signed_data">Todenna allekirjoitus näyttääksesi viestin tekstin</string>
     <string name="title_not_encrypted">Viestiä ei ole allekirjoitettu tai salattu</string>
     <string name="title_no_sign_key">Allekirjoitusavainta ei valittuna</string>
@@ -1297,6 +1362,7 @@
     <string name="title_search_in">Hae kohteesta</string>
     <string name="title_search_sender">Hae lähettäjää</string>
     <string name="title_search_delete">Poistetaanko tallennettu haku?</string>
+    <string name="title_save_search">Tallennettu haku</string>
     <string name="title_save_search_name">Nimi</string>
     <string name="title_save_search_order">Järjestys</string>
     <string name="title_save_search_color">Väri</string>
@@ -1322,6 +1388,7 @@
     <string name="title_compact">Tiivistetty näkymä</string>
     <string name="title_zoom">Tekstin koko</string>
     <string name="title_padding">Tyhjän tilan koko</string>
+    <string name="title_large_buttons">Suuremmat painikkeet</string>
     <string name="title_select_language">Valitse kieli</string>
     <string name="title_select_all">Valitse kaikki</string>
     <string name="title_select_found">Valitse löytyneet</string>
@@ -1340,6 +1407,7 @@
         Älä siis poista kuvatiedostoa!
     </string>
     <string name="title_answer_define_name">Nimi</string>
+    <string name="title_answer_define_value">Arvo</string>
     <string name="title_answer_caption">Muokkaa viestipohjaa</string>
     <string name="title_answer_reply">Vastausviestipohja</string>
     <string name="title_answer_name">Viestipohjan nimi</string>
@@ -1508,6 +1576,7 @@
     <string name="title_legend_embedded_image">Upotetun kuvan paikkamerkki</string>
     <string name="title_legend_tracking_pixel">Seurantakuva</string>
     <string name="title_legend_broken_image">Rikkoutunut kuva</string>
+    <string name="title_legend_open_external">Avaa sovelluksen ulkopuolella</string>
     <string name="title_legend_pick">Valitse yhteystieto</string>
     <string name="title_legend_cc">Näytä kopio/piilokopio</string>
     <string name="title_legend_link">Lisää linkki</string>
@@ -1590,6 +1659,7 @@
     <string name="title_yes">Kyllä</string>
     <string name="title_no">Ei</string>
     <string name="title_later">Myöhemmin</string>
+    <string name="title_paste_plain">Liitä muotoilemattomana tekstinä</string>
     <string name="title_undo">Kumoa</string>
     <string name="title_redo">Tee uudelleen</string>
     <string name="title_insert_line">Lisää viiva</string>
@@ -1692,6 +1762,7 @@
     <string name="title_widget_compose">Näytä painike uudelle viestille</string>
     <string name="title_widget_background">Taustaväri</string>
     <string name="title_widget_day_night">Noudata järjestelmän tummaa teemaa</string>
+    <string name="title_compat_dark">Google poisti tumman tilan versiota 10 vanhemmista Android-versioista</string>
     <string name="title_accessibility_collapsed">Tiivistetty</string>
     <string name="title_accessibility_expanded">Laajennettu</string>
     <string name="title_accessibility_seen">Luettu</string>

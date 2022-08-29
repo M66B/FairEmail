@@ -387,6 +387,7 @@
     <string name="title_advanced_signature_forward">Utilizați semnătura la redirecționare</string>
     <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>
     <string name="title_advanced_reply_move">Când răspundeți la un mesaj, salvați răspunsul în același dosar</string>
+    <string name="title_advanced_reply_move_inbox">De asemenea, pentru mesajele din inbox</string>
     <string name="title_advanced_auto_link">Creează automat adrese</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_flow">\'format fluent\' pentru text simplu</string>
@@ -1165,6 +1166,7 @@
     <string name="title_compose">Compune</string>
     <string name="title_submitter">Trimis de:</string>
     <string name="title_delivered_to">Livrare către:</string>
+    <string name="title_return_path">Calea de întoarcere:</string>
     <string name="title_from">De la:</string>
     <string name="title_to">Către:</string>
     <string name="title_reply_to">Răspunde la:</string>
@@ -1199,9 +1201,11 @@
     <string name="title_style_italic">Cursiv</string>
     <string name="title_style_underline">Subliniere</string>
     <string name="title_style_size">Mărime</string>
+    <string name="title_style_size_xsmall">Extra mic</string>
     <string name="title_style_size_small">Mic</string>
     <string name="title_style_size_medium">Mediu</string>
     <string name="title_style_size_large">Mare</string>
+    <string name="title_style_size_xlarge">Foarte mare</string>
     <string name="title_style_align">Aliniere</string>
     <string name="title_style_align_start">Start</string>
     <string name="title_style_align_center">Centru</string>
@@ -1418,6 +1422,7 @@
         Deci, nu ștergeți fișierul imagine!
     </string>
     <string name="title_answer_define_name">Nume</string>
+    <string name="title_answer_define_value">Valoare</string>
     <string name="title_answer_caption">Editare șablon</string>
     <string name="title_answer_reply">Șablon răspuns</string>
     <string name="title_answer_name">Nume șablon</string>
@@ -1635,7 +1640,7 @@
     <string name="title_hint_folder_actions">Atingeți lung un dosar pentru opțiuni, precum adăugarea la meniul de navigare pentru acces rapid</string>
     <string name="title_hint_folder_sync">Pentru a limita utilizarea bateriei şi a conexiunii, nu vor fi sincronizate în mod implicit toate dosarele si mesajele</string>
     <string name="title_hint_airplane">Modul Avion este activat</string>
-    <string name="title_hint_notification">Notificările sunt dezactivate</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Nu există permisiuni de notificare</string>
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
     <string name="title_hint_message_actions">Glisați stânga pentru Gunoi sau dreapta pentru Arhivă (dacă este disponibilă). Acțiunile de glisare se pot configura în setările contului</string>
     <string name="title_hint_message_selection">Atingeți lung un mesaj pentru a începe selecția multiplă. Țineți și glisați sus sau jos pentru a selecta mai multe mesaje</string>

@@ -975,9 +975,11 @@
     <string name="title_style_italic">Etzana</string>
     <string name="title_style_underline">Azpimarra</string>
     <string name="title_style_size">Tamaina</string>
+    <string name="title_style_size_xsmall">Estra txikia</string>
     <string name="title_style_size_small">Txikia</string>
     <string name="title_style_size_medium">Ertaina</string>
     <string name="title_style_size_large">Handia</string>
+    <string name="title_style_size_xlarge">Oso handia</string>
     <string name="title_style_align">Lerrotzea</string>
     <string name="title_style_align_start">Hasieran</string>
     <string name="title_style_align_center">Erdian</string>
@@ -1360,7 +1362,6 @@
     <string name="title_hint_folder_actions">Sakatu luze karpetako aukerak ikusteko, hala nola karpeta bat gehitzeko abio bizkorreko nabigazio menuan</string>
     <string name="title_hint_folder_sync">Bateria eta sarearen erabilera mugatzeko ez dira karpeta eta mezu guztiak sinkronizatuko lehenetsita</string>
     <string name="title_hint_airplane">Hegaldi modua aktibatuta dago</string>
-    <string name="title_hint_notification">Jakinarazpenak desgaituta daude</string>
     <string name="title_hint_support">Galdera edo arazoren bat baduzu, erabili laguntza menua laguntza jasotzeko</string>
     <string name="title_hint_message_actions">Pasatu hatza ezkerrera zakarrontzira botatzeko, pasatu hatza eskuinera artxibatzeko (eskuragarri badago). Hatza pasatzeko ekintzak kontuaren ezarpenetan konfiguratu daitezke</string>
     <string name="title_hint_message_selection">Sakatu luze mezu bat hainbat mezu hautatzen hasteko. Mantendu eta pasatu hatza gora edo behera mezu gehiago hautatzeko</string>

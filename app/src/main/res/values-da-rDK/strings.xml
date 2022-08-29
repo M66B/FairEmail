@@ -375,6 +375,7 @@
     <string name="title_advanced_signature_forward">Benyt signatur ved videresendelse</string>
     <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>
     <string name="title_advanced_reply_move">Ved beskedbesvarelse, gem svaret i pågældende mappe</string>
+    <string name="title_advanced_reply_move_inbox">Også for beskeder i indbakken</string>
     <string name="title_advanced_auto_link">Opret links automatisk</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
     <string name="title_advanced_flow">\'format flowed\' til simpel tekst</string>
@@ -1157,6 +1158,7 @@
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Sendt af:</string>
     <string name="title_delivered_to">Leveret til:</string>
+    <string name="title_return_path">Retursti:</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>
     <string name="title_reply_to">Svar til:</string>
@@ -1191,9 +1193,11 @@
     <string name="title_style_italic">Kursiv</string>
     <string name="title_style_underline">Understegning</string>
     <string name="title_style_size">Størrelse</string>
+    <string name="title_style_size_xsmall">Ekstra lille</string>
     <string name="title_style_size_small">Lille</string>
     <string name="title_style_size_medium">Mellem</string>
     <string name="title_style_size_large">Stor</string>
+    <string name="title_style_size_xlarge">Ekstra stor</string>
     <string name="title_style_align">Justér</string>
     <string name="title_style_align_start">Start</string>
     <string name="title_style_align_center">Centrér</string>
@@ -1628,7 +1632,7 @@
     <string name="title_hint_folder_actions">Langt tryk på en mappe for indstillinger, såsom tilføjelse af en mappe til navigeringsmenuen for hurtig adgang</string>
     <string name="title_hint_folder_sync">For at reducere strøm- og dataforbruget synkroniseres visse mapper og beskeder ikke som standard</string>
     <string name="title_hint_airplane">Flytilstand er Til</string>
-    <string name="title_hint_notification">Notifikationer er deaktiveret</string>
+    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Ingen notifikationstilladelser</string>
     <string name="title_hint_support">Har du et spørgsmål eller problem, så benyt venligst supportmenuen for at få hjælp</string>
     <string name="title_hint_message_actions">Stryg til venstre for Papirkurv; Stryg til højre for at arkivere (hvis tilgængeligt); Strygehandlingerne kan opsættes i kontoindstillingerne</string>
     <string name="title_hint_message_selection">Langt tryk på en besked for at tilgå valg af flere beskeder; Hold og stryg op/ned for at vælge flere beskeder</string>

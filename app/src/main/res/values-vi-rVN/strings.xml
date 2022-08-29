@@ -1160,9 +1160,11 @@
     <string name="title_style_italic">Nghiêng</string>
     <string name="title_style_underline">Gạch chân</string>
     <string name="title_style_size">Kích cỡ</string>
+    <string name="title_style_size_xsmall">Rất nhỏ</string>
     <string name="title_style_size_small">Nhỏ</string>
     <string name="title_style_size_medium">Vừa</string>
     <string name="title_style_size_large">Lớn</string>
+    <string name="title_style_size_xlarge">Rất lớn</string>
     <string name="title_style_align">Căn chỉnh</string>
     <string name="title_style_align_start">Bắt đầu</string>
     <string name="title_style_align_center">Chính giữa</string>
@@ -1588,7 +1590,6 @@
     <string name="title_hint_folder_actions">Nhấn giữ một thư mục để xem các tuỳ chọn, như là thêm thư mục vào menu điều hướng để truy cập nhanh</string>
     <string name="title_hint_folder_sync">Để giới hạn sử dụng pin và mạng, không phải tất cả thư mục và thư sẽ được đồng bộ hoá theo mặc định</string>
     <string name="title_hint_airplane">Đang bật chế độ máy bay</string>
-    <string name="title_hint_notification">Thông báo bị tắt</string>
     <string name="title_hint_support">Nếu bạn có câu hỏi hoặc vấn đề, hãy sử dụng menu hỗ trợ để có trợ giúp</string>
     <string name="title_hint_message_actions">Vuốt trái để đưa vào thùng rác; Vuốt phải để lưu trữ (nếu có); Các hành động vuốt có thể được thiết lập trong cài đặt tài khoản</string>
     <string name="title_hint_message_selection">Nhấn giữ một thư để bắt đầu chọn nhiều thư; Giữ và vuốt lên hoặc xuống để chọn thêm thư</string>
