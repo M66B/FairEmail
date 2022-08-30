@@ -198,10 +198,15 @@ class NotificationHelper {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     static NotificationChannel channelFromJSON(Context context, JSONObject jchannel) throws JSONException {
+        int importance = jchannel.getInt("importance");
+        if (importance < NotificationManager.IMPORTANCE_MIN ||
+                importance > NotificationManager.IMPORTANCE_MAX)
+            importance = NotificationManager.IMPORTANCE_DEFAULT;
+
         NotificationChannel channel = new NotificationChannel(
                 jchannel.getString("id"),
                 jchannel.getString("name"),
-                jchannel.getInt("importance"));
+                importance);
 
         String group = jchannel.optString("group");
         if (!TextUtils.isEmpty(group))
