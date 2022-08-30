@@ -4,15 +4,13 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
-
-### Next version
+### 1.1958 - 2022-08-30
 
 * Added extra small/large font size to message editor
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
 * Updated AndroidX
 * Updated translations
-
 
 ### 1.1957 - 2022-08-22
 
