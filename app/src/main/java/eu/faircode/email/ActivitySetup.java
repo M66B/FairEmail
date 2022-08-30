@@ -1120,17 +1120,22 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 account.deleteNotificationChannel(context);
 
                                 if (account.notify)
-                                    if (jaccount.has("channel")) {
-                                        NotificationChannelGroup group = new NotificationChannelGroup("group." + account.id, account.name);
-                                        nm.createNotificationChannelGroup(group);
+                                    if (jaccount.has("channel"))
+                                        try {
+                                            NotificationChannelGroup group = new NotificationChannelGroup("group." + account.id, account.name);
+                                            nm.createNotificationChannelGroup(group);
 
-                                        JSONObject jchannel = (JSONObject) jaccount.get("channel");
-                                        jchannel.put("id", EntityAccount.getNotificationChannelId(account.id));
-                                        jchannel.put("group", group.getId());
-                                        nm.createNotificationChannel(NotificationHelper.channelFromJSON(context, jchannel));
+                                            JSONObject jchannel = (JSONObject) jaccount.get("channel");
+                                            jchannel.put("id", EntityAccount.getNotificationChannelId(account.id));
+                                            jchannel.put("group", group.getId());
+                                            nm.createNotificationChannel(NotificationHelper.channelFromJSON(context, jchannel));
 
-                                        Log.i("Imported account channel=" + jchannel);
-                                    } else
+                                            Log.i("Imported account channel=" + jchannel);
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                            account.createNotificationChannel(context);
+                                        }
+                                    else
                                         account.createNotificationChannel(context);
                             }
 
@@ -1172,17 +1177,20 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                     String channelId = EntityFolder.getNotificationChannelId(folder.id);
                                     nm.deleteNotificationChannel(channelId);
 
-                                    if (jfolder.has("channel")) {
-                                        NotificationChannelGroup group = new NotificationChannelGroup("group." + account.id, account.name);
-                                        nm.createNotificationChannelGroup(group);
+                                    if (jfolder.has("channel"))
+                                        try {
+                                            NotificationChannelGroup group = new NotificationChannelGroup("group." + account.id, account.name);
+                                            nm.createNotificationChannelGroup(group);
 
-                                        JSONObject jchannel = (JSONObject) jfolder.get("channel");
-                                        jchannel.put("id", channelId);
-                                        jchannel.put("group", group.getId());
-                                        nm.createNotificationChannel(NotificationHelper.channelFromJSON(context, jchannel));
+                                            JSONObject jchannel = (JSONObject) jfolder.get("channel");
+                                            jchannel.put("id", channelId);
+                                            jchannel.put("group", group.getId());
+                                            nm.createNotificationChannel(NotificationHelper.channelFromJSON(context, jchannel));
 
-                                        Log.i("Imported folder channel=" + jchannel);
-                                    }
+                                            Log.i("Imported folder channel=" + jchannel);
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                        }
                                 }
 
                                 if (jfolder.has("rules")) {
@@ -1397,16 +1405,19 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             if (jimport.has("channels")) {
                                 JSONArray jchannels = jimport.getJSONArray("channels");
-                                for (int i = 0; i < jchannels.length(); i++) {
-                                    JSONObject jchannel = (JSONObject) jchannels.get(i);
+                                for (int i = 0; i < jchannels.length(); i++)
+                                    try {
+                                        JSONObject jchannel = (JSONObject) jchannels.get(i);
 
-                                    String channelId = jchannel.getString("id");
-                                    nm.deleteNotificationChannel(channelId);
+                                        String channelId = jchannel.getString("id");
+                                        nm.deleteNotificationChannel(channelId);
 
-                                    nm.createNotificationChannel(NotificationHelper.channelFromJSON(context, jchannel));
+                                        nm.createNotificationChannel(NotificationHelper.channelFromJSON(context, jchannel));
 
-                                    Log.i("Imported contact channel=" + jchannel);
-                                }
+                                        Log.i("Imported contact channel=" + jchannel);
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
                             }
                         }
                     }
