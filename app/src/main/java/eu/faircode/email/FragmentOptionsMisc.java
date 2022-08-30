@@ -267,7 +267,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "eml_auto_confirm",
             "open_with_pkg", "open_with_tabs",
             "gmail_checked", "outlook_checked",
-            "redmi_note"
+            "redmi_note",
+            "accept_space", "accept_unsupported"
     };
 
     @Override

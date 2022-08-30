@@ -174,7 +174,7 @@ public class Helper {
     static final float LOW_LIGHT = 0.6f;
 
     static final int BUFFER_SIZE = 8192; // Same as in Files class
-    static final long MIN_REQUIRED_SPACE = 250 * 1024L * 1024L;
+    static final long MIN_REQUIRED_SPACE = 100 * 1000L * 1000L;
     static final int AUTOLOCK_GRACE = 15; // seconds
     static final long PIN_FAILURE_DELAY = 3; // seconds
 

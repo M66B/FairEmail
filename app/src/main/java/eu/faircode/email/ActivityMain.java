@@ -28,6 +28,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -46,11 +47,50 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
     private static final long SPLASH_DELAY = 1500L; // milliseconds
     private static final long SERVICE_START_DELAY = 5 * 1000L; // milliseconds
+    private static final long IGNORE_STORAGE_SPACE = 24 * 60 * 60 * 1000L; // milliseconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        long now = new Date().getTime();
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean accept_unsupported = prefs.getBoolean("accept_unsupported", false);
+        long accept_space = prefs.getLong("accept_space", 0);
+
+        long cake = Helper.getAvailableStorageSpace();
+        if (cake < Helper.MIN_REQUIRED_SPACE && accept_space < now) {
+            setTheme(R.style.AppThemeBlueOrangeLight);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_space);
+
+            TextView tvRemaining = findViewById(R.id.tvRemaining);
+            tvRemaining.setText(getString(R.string.app_cake_remaining,
+                    Helper.humanReadableByteCount(cake)));
+
+            TextView tvRequired = findViewById(R.id.tvRequired);
+            tvRequired.setText(getString(R.string.app_cake_required,
+                    Helper.humanReadableByteCount(Helper.MIN_REQUIRED_SPACE, true)));
+
+            Button btnFix = findViewById(R.id.btnFix);
+            btnFix.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Settings.ACTION_INTERNAL_STORAGE_SETTINGS);
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            Button btnContinue = findViewById(R.id.btnContinue);
+            btnContinue.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    prefs.edit().putLong("accept_space", now + IGNORE_STORAGE_SPACE).commit();
+                    ApplicationEx.restart(v.getContext(), "accept_space");
+                }
+            });
+
+            return;
+        }
 
         if (!accept_unsupported &&
                 !Helper.isSupportedDevice() &&
