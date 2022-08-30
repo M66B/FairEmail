@@ -9,6 +9,8 @@
     <string name="app_continue">Continuar de todas formas</string>
     <string name="app_exit">Volver \'atrás\' para salir</string>
     <string name="app_cake">Espacio de almacenamiento insuficiente</string>
+    <string name="app_cake_remaining">Espacio de almacenamiento restante en el dispositivo: %1$s</string>
+    <string name="app_cake_required">Espacio de almacenamiento mínimo requerido: %1$s</string>
     <string name="app_updated">Última actualización: %1$s</string>
     <string name="app_download">Descargado de: %1$s</string>
     <string name="channel_service">Monitor</string>
@@ -1626,6 +1628,7 @@
     <string name="title_hint_folder_actions">Mantenga pulsada una carpeta para las opciones, como añadir una carpeta al menú de navegación para acceso rápido</string>
     <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
     <string name="title_hint_airplane">El modo avión está activado</string>
+    <string name="title_hint_notifications">Sin permisos de notificación</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Desliza a la izquierda para enviar a la papelera; Desliza a la derecha para archivar (si está disponible); las acciones de deslizamiento pueden configurarse en la configuración de la cuenta</string>
     <string name="title_hint_message_selection">Mantenga pulsado un mensaje para empezar a seleccionar varios mensajes; mantenga pulsado y deslice hacia arriba o abajo para seleccionar más mensajes</string>

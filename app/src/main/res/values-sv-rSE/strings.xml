@@ -1620,7 +1620,7 @@
     <string name="title_hint_folder_actions">Tryck länge på en mapp för alternativ, som att lägga till en mapp till navigationsmenyn för snabb åtkomst</string>
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
     <string name="title_hint_airplane">Flygplansläge är på</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Inga aviseringsbehörigheter</string>
+    <string name="title_hint_notifications">Inga aviseringsbehörigheter</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_message_actions">Dra åt vänster för att kasta; Svep åt höger för att arkivera (om tillgängligt); Svepåtgärderna kan konfigureras i kontoinställningarna</string>
     <string name="title_hint_message_selection">Långt tryck på ett meddelande för att börja välja flera meddelanden; håll och svep uppåt eller nedåt för att välja fler meddelanden</string>

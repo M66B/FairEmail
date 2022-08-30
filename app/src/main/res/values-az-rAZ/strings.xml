@@ -9,6 +9,8 @@
     <string name="app_continue">Yenə də davam edilsin</string>
     <string name="app_exit">Çıxmaq üçün yenidən \'geri\'yə basın</string>
     <string name="app_cake">Anbar sahəsi yetərsizdir</string>
+    <string name="app_cake_remaining">Cihazda qalan anbar sahəsi: %1$s</string>
+    <string name="app_cake_required">Tələb olunan minimum anbar sahəsi: %1$s</string>
     <string name="app_updated">Son yeniləmə: %1$s</string>
     <string name="app_download">%1$s üzərindən endirildi</string>
     <string name="channel_service">Müşahidə</string>
@@ -1631,6 +1633,7 @@
     <string name="title_hint_folder_actions">Cəld müraciət üçün bir qovluğu naviqasiya menyusuna əlavə etmək kimi, seçimlər üçün bir qovluğa uzun basın</string>
     <string name="title_hint_folder_sync">Batareya və şəbəkə istifadəsini məhdudlaşdırmaq üçün bütün qovluqlar və bütün mesajlar ilkin olaraq eyniləşdirilməyəcək</string>
     <string name="title_hint_airplane">Təyyarə rejimi açıqdır</string>
+    <string name="title_hint_notifications">Bildiriş icazəsi yoxdur</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantıya atmaq üçün sola sürüşdürün; (əgər varsa) arxivləmək üçün sağa; Sürüşdürmə əməliyyatları hesab tənzimləmələrindən konfiqurasiya edilə bilər</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın; daha çox mesaj seçmək üçün basıb yuxarı və ya aşağı sürüşdürün</string>

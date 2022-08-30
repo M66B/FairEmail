@@ -9,6 +9,8 @@
     <string name="app_continue">Continuar mesmo assim</string>
     <string name="app_exit">Pressione \'voltar\' novamente para sair</string>
     <string name="app_cake">Espaço de armazenamento insuficiente</string>
+    <string name="app_cake_remaining">Espaço de armazenamento restante no dispositivo: %1$s</string>
+    <string name="app_cake_required">Espaço mínimo de armazenamento necessário: %1$s</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Baixado de: %1$s</string>
     <string name="channel_service">Monitor</string>
@@ -374,6 +376,7 @@
     <string name="title_advanced_signature_forward">Usar assinatura quando encaminhar</string>
     <string name="title_advanced_discard_delete">No rascunho de descarte, excluir permanentemente o rascunho</string>
     <string name="title_advanced_reply_move">Ao responder a uma mensagem, salve a resposta na mesma pasta</string>
+    <string name="title_advanced_reply_move_inbox">Também para mensagens na caixa de entrada</string>
     <string name="title_advanced_auto_link">Criar links automaticamente</string>
     <string name="title_advanced_plain_only">Enviar texto simples por padrão</string>
     <string name="title_advanced_flow">Usar \'formato fluído\' para texto simples</string>
@@ -1153,6 +1156,7 @@
     <string name="title_compose">Escrever</string>
     <string name="title_submitter">Enviado por:</string>
     <string name="title_delivered_to">Entregue a:</string>
+    <string name="title_return_path">Caminho de volta:</string>
     <string name="title_from">De:</string>
     <string name="title_to">Para:</string>
     <string name="title_reply_to">Responder a:</string>
@@ -1389,6 +1393,7 @@
     <string name="title_compact">Visualização compacta</string>
     <string name="title_zoom">Tamanho do texto</string>
     <string name="title_padding">Tamanho do preenchimento</string>
+    <string name="title_large_buttons">Botões maiores</string>
     <string name="title_select_language">Selecionar idioma</string>
     <string name="title_select_all">Selecionar todos</string>
     <string name="title_select_found">Selecionar encontrados</string>
@@ -1407,6 +1412,7 @@
         Então, não exclua o arquivo de imagem!
     </string>
     <string name="title_answer_define_name">Nome</string>
+    <string name="title_answer_define_value">Valor</string>
     <string name="title_answer_caption">Editar template</string>
     <string name="title_answer_reply">Modelo de resposta</string>
     <string name="title_answer_name">Nome do modelo</string>
@@ -1624,6 +1630,7 @@
     <string name="title_hint_folder_actions">Pressione e segure uma pasta para opções, como adicionar uma pasta ao menu de navegação para acesso rápido</string>
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e de rede nem todas as pastas e mensagens serão sincronizadas por padrão</string>
     <string name="title_hint_airplane">Modo avião está ativado</string>
+    <string name="title_hint_notifications">Sem permissões de notificação</string>
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para a lixeira; Deslize para a direita para o arquivo (se disponível); As ações de deslize podem ser configuradas nas configurações da conta</string>
     <string name="title_hint_message_selection">Pressione uma mensagem para começar a selecionar múltiplas mensagens; segure e deslize para cima ou para baixo para selecionar mais mensagens</string>

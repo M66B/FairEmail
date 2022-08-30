@@ -9,6 +9,8 @@
     <string name="app_continue">Přesto pokračovat</string>
     <string name="app_exit">Znovu „zpět“ pro ukončení</string>
     <string name="app_cake">Nedostatek místa v úložišti</string>
+    <string name="app_cake_remaining">Zbývající úložný prostor v zařízení: %1$s</string>
+    <string name="app_cake_required">Minimální požadovaná kapacita úložiště: %1$s</string>
     <string name="app_updated">Poslední aktualizace: %1$s</string>
     <string name="app_download">Staženo z: %1$s</string>
     <string name="channel_service">Monitor</string>
@@ -1653,6 +1655,7 @@
     <string name="title_hint_folder_actions">Dlouze podržet složku pro možnosti, např. přidání složky do navigačního menu pro rychlý přístup</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_airplane">Režim Letadlo je zapnutý</string>
+    <string name="title_hint_notifications">Žádná oprávnění pro oznámení</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (je-li k dispozici); Akce tažením lze změnit v nastavení účtu</string>
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>

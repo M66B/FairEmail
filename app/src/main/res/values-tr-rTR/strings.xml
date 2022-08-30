@@ -9,6 +9,8 @@
     <string name="app_continue">Yine de devam et</string>
     <string name="app_exit">Çıkmak için tekrar \'Geri\'yi tıklayın</string>
     <string name="app_cake">Yeterli depolama alanı kalmadı</string>
+    <string name="app_cake_remaining">Cihazda kalan depolama alanı: %1$s</string>
+    <string name="app_cake_required">Minimum gerekli depolama alanı: %1$s</string>
     <string name="app_updated">Son güncelleme %1$s</string>
     <string name="app_download">Şuradan indirildi: %1$s</string>
     <string name="channel_service">Monitör</string>
@@ -1625,7 +1627,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_hint_folder_actions">Hızlı erişim için navigasyon menüsüne klasör eklerkenki gibi, seçenekler için bir klasöre uzun basın</string>
     <string name="title_hint_folder_sync">Pil ve ağ kullanımını sınırlamak için, öntanımlı olarak tüm klasörler ve tüm iletilere eşzamanlama yapılmayacak</string>
     <string name="title_hint_airplane">Uçak modu açık</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Bildirim izni yok</string>
+    <string name="title_hint_notifications">Bildirim izni yok</string>
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp için sola kaydırın; Arşiv için sağa kaydırın (mevcut ise); Kaydırma eylemleri hesap ayarlarından yapılandırılabilir</string>
     <string name="title_hint_message_selection">Birden fazla ileti seçmeye başlamak için bir mesaja uzun basın; basılı tutarak ve yukarı veya aşağı kaydırın ve iletileri seçin</string>

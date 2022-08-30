@@ -9,6 +9,8 @@
     <string name="app_continue">Continuar mesmo assim</string>
     <string name="app_exit">Pressione novamente \'voltar\' para sair</string>
     <string name="app_cake">Espaço insuficiente</string>
+    <string name="app_cake_remaining">Espaço de armazenamento restante no dispositivo: %1$s</string>
+    <string name="app_cake_required">Espaço mínimo de armazenamento necessário: %1$s</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Descarregada via: %1$s</string>
     <string name="channel_service">Monitorização</string>
@@ -1631,7 +1633,7 @@
     <string name="title_hint_folder_actions">Toque prolongadamente numa pasta para aceder às opções, como adicionar uma pasta ao menu de navegação para um acesso rápido</string>
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e rede, por predefinição, nem todas as pastas e mensagens serão sincronizadas</string>
     <string name="title_hint_airplane">O modo de avião está ligado</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Sem permissão de notificação</string>
+    <string name="title_hint_notifications">Sem permissão de notificação</string>
     <string name="title_hint_support">Se tiver alguma questão ou um problema, por favor utilize o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para o lixo; Deslize para a direita para o arquivo (se disponível); As acções de deslizar pode ser configuradas nas definições de conta</string>
     <string name="title_hint_message_selection">Seleccione mensagens ao tocar prolongadamente numa mensagem; Para seleccionar várias mensagens de seguida, toque sem soltar numa mensagem e deslize para cima ou para baixo</string>

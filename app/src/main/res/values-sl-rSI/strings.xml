@@ -9,6 +9,8 @@
     <string name="app_continue">Vseeno nadaljuj</string>
     <string name="app_exit">Za izhod še enkrat pritisnite \'Nazaj\'.</string>
     <string name="app_cake">Premalo prostora za shranjevanje.</string>
+    <string name="app_cake_remaining">Nezaseden prostor na napravi: %1$s</string>
+    <string name="app_cake_required">Najmanjša zahtevana velikost prostora: %1$s</string>
     <string name="app_updated">Zadnja posodobitev: %1$s</string>
     <string name="app_download">Preneseno iz: %1$s</string>
     <string name="channel_service">Nadzor</string>
@@ -1653,7 +1655,7 @@
     <string name="title_hint_folder_actions">Dolg pritisk na mapo prikaže možnosti, kot so dodajanje mape v meni za krmarjenje za hitri dostop.</string>
     <string name="title_hint_folder_sync">Zaradi omejitve porabe energije in podatkov privzeto vse mape in sporočila ne bodo sinhronizirana.</string>
     <string name="title_hint_airplane">Način za letalo je vklopljen</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Ni dovoljenj za obvestila.</string>
+    <string name="title_hint_notifications">Ni dovoljenj za obvestila.</string>
     <string name="title_hint_support">Če imate vprašanje ali težavo, uporabite meni za podporo, da pridobite pomoč.</string>
     <string name="title_hint_message_actions">Povlecite levo za premik v smeti; povlecite desno za arhiviranje (če je na voljo).  Dejanja vlečenja lahko nastavite v nastavitvah računa.</string>
     <string name="title_hint_message_selection">Dolg pritisk na sporočilo omogoča izbiro več sporočil; držite in povlecite gor in dol za izbiro več sporočil.</string>

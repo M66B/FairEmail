@@ -9,6 +9,8 @@
     <string name="app_continue">Toch doorgaan</string>
     <string name="app_exit">Ga nogmaals \'terug\' om af te sluiten</string>
     <string name="app_cake">Onvoldoende opslagruimte over</string>
+    <string name="app_cake_remaining">Resterende opslagruimte op het apparaat: %1$s</string>
+    <string name="app_cake_required">Minimum vereiste opslagruimte: %1$s</string>
     <string name="app_updated">Laatst bijgewerkt: %1$s</string>
     <string name="app_download">Gedownload van: %1$s</string>
     <string name="channel_service">Bewaken</string>
@@ -1622,7 +1624,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_hint_folder_actions">Druk lang op de map voor opties, zoals het toevoegen van een map aan het navigatiemenu voor snelle toegang</string>
     <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
     <string name="title_hint_airplane">Vliegtuigmodus is ingeschakeld</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Geen meldingsrechten</string>
+    <string name="title_hint_notifications">Geen meldingsrechten</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veegacties kunnen worden geconfigureerd in de accountinstellingen</string>
     <string name="title_hint_message_selection">Druk lang op een bericht om meerdere berichten te selecteren; Hou vast en veeg omhoog of omlaag om meer berichten te selecteren</string>

@@ -9,6 +9,8 @@
     <string name="app_continue">Kontynuuj mimo to</string>
     <string name="app_exit">Użyj przycisku \'wstecz\', aby wyjść</string>
     <string name="app_cake">Za mało miejsca w pamięci</string>
+    <string name="app_cake_remaining">Pozostała ilość miejsca na urządzeniu: %1$s</string>
+    <string name="app_cake_required">Minimalna wymagana ilość miejsca na dysku: %1$s</string>
     <string name="app_updated">Ostatnia aktualizacja: %1$s</string>
     <string name="app_download">Pobrano z: %1$s</string>
     <string name="channel_service">Monitorowanie</string>
@@ -1654,7 +1656,7 @@
     <string name="title_hint_folder_actions">Naciśnij długo folder, aby wyświetlić opcje, takie jak dodanie folderu do menu nawigacji w celu szybkiego dostępu</string>
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_airplane">Tryb samolotowy jest włączony</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Brak uprawnień dla powiadomień</string>
+    <string name="title_hint_notifications">Brak uprawnień dla powiadomień</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
     <string name="title_hint_message_selection">Naciśnij długo wiadomość, aby rozpocząć wybieranie wielu wiadomości; Przytrzymaj i przeciągnij w górę lub w dół, aby wybrać więcej wiadomości</string>

@@ -9,6 +9,8 @@
     <string name="app_continue">それでも続行する</string>
     <string name="app_exit">もう一度「戻る」で終了します</string>
     <string name="app_cake">ストレージの空き容量が不足しています</string>
+    <string name="app_cake_remaining">デバイスの空き容量: %1$s</string>
+    <string name="app_cake_required">最低限必要な空き容量: %1$s</string>
     <string name="app_updated">最終更新: %1$s</string>
     <string name="app_download">ダウンロード元: %1$s</string>
     <string name="channel_service">モニター</string>
@@ -1617,7 +1619,7 @@
     <string name="title_hint_folder_actions">フォルダーを長押して、ナビゲーションメニューにフォルダーのショートカットを表示するなどの設定ができます</string>
     <string name="title_hint_folder_sync">バッテリーとネットワークの使用を抑えるためにデフォルトでは一部のフォルダーとメッセージのみ同期されます</string>
     <string name="title_hint_airplane">機内モードが ON です</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">通知が許可されていません</string>
+    <string name="title_hint_notifications">通知が許可されていません</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてゴミ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>
     <string name="title_hint_message_selection">メッセージを長押しして、複数のメッセージを選択します。そのまま上または下にスワイプすると、まとめてメッセージを選択できます</string>

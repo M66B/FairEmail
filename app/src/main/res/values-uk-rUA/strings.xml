@@ -9,6 +9,8 @@
     <string name="app_continue">Все одно продовжити</string>
     <string name="app_exit">Натисніть \"Назад\" знову, щоб вийти</string>
     <string name="app_cake">Залишилося недостатньо вільного місця для зберігання</string>
+    <string name="app_cake_remaining">Залишилось вільного місця на пристрої: %1$s</string>
+    <string name="app_cake_required">Мінімальний потрібний розмір сховища: %1$s</string>
     <string name="app_updated">Останнє оновлення: %1$s</string>
     <string name="app_download">Завантажено з: %1$s</string>
     <string name="channel_service">Монітор</string>
@@ -1654,7 +1656,7 @@
     <string name="title_hint_folder_actions">Довге натиснення на теку - налаштування, наприклад для швидкого доступу, додавання теки в меню навігації</string>
     <string name="title_hint_folder_sync">Щоб обмежити використання батареї та мережі не всі теки й не всі повідомлення буде синхронізовано за замовчуванням</string>
     <string name="title_hint_airplane">Режим «у літаку» ввімкнено</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Немає дозволів для сповіщень</string>
+    <string name="title_hint_notifications">Немає дозволів для сповіщень</string>
     <string name="title_hint_support">Якщо у вас є питання або проблема, будь ласка, використовуйте меню підтримки для отримання допомоги</string>
     <string name="title_hint_message_actions">Гортайте ліворуч до кошика; проведіть праворуч щоб архівувати (якщо доступно); ці дії можна налаштувати в налаштуваннях облікового запису</string>
     <string name="title_hint_message_selection">Довго натисніть на повідомлення, щоб почати вибирати кілька повідомлень; Натиснувши потягніть вгору або вниз, щоб обрати більше повідомлень</string>

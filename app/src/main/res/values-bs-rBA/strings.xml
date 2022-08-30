@@ -1644,7 +1644,7 @@
     <string name="title_hint_folder_actions">Dugi dodir na folder za opcije, poput dodavanja foldera u navigacijski meni za brzi pristup</string>
     <string name="title_hint_folder_sync">Da bi ograničili potrošnju baterije i podataka, po zadanom neće biti sinhronizirani svi folderi i poruke</string>
     <string name="title_hint_airplane">Način rada u avionu je uključen</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Nema dozvola za notifikacije</string>
+    <string name="title_hint_notifications">Nema dozvola za notifikacije</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevucite lijevo za otpad; Prevucite desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>

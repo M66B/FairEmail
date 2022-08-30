@@ -1657,7 +1657,7 @@
     <string name="title_hint_folder_actions">לחיצה ארוכה על תיקייה מציגה אפשרויות כגון הוספת התיקייה לתפריט הניווט לגישה מהירה</string>
     <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כבררת מחדל</string>
     <string name="title_hint_airplane">מצב טיסה מופעל</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">אין הרשאות להתראות</string>
+    <string name="title_hint_notifications">אין הרשאות להתראות</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
     <string name="title_hint_message_selection">לחיצה ארוכה על הודעה מתחילה בחירה במגוון הודעות, יש להחזיק ולהחליק כלפי מעלה או מטה כדי לבחור הודעות נוספות</string>

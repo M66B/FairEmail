@@ -9,6 +9,8 @@
     <string name="app_continue">Всё равно продолжить</string>
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
     <string name="app_cake">Недостаточно места</string>
+    <string name="app_cake_remaining">Оставшееся место на устройстве: %1$s</string>
+    <string name="app_cake_required">Минимально необходимое место: %1$s</string>
     <string name="app_updated">Последнее обновление: %1$s</string>
     <string name="app_download">Загружено из: %1$s</string>
     <string name="channel_service">Отслеживание</string>
@@ -1656,6 +1658,7 @@
     <string name="title_hint_folder_actions">Длительное нажатие на папку откроет другие действия, например, добавление папки в меню навигации для быстрого доступа.</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика по умолчанию синхронизируются не все папки и сообщения.</string>
     <string name="title_hint_airplane">Режим полета включён</string>
+    <string name="title_hint_notifications">Отсутствует разрешение на отображение уведомлений</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи.</string>
     <string name="title_hint_message_actions">Смахните влево, чтобы поместить в корзину; смахните вправо, чтобы поместить в архив (если имеется); действия жестов можно изменить в настройках учётной записи.</string>
     <string name="title_hint_message_selection">Длительное нажатие на сообщение начинает выбор нескольких сообщений; удерживайте нажатие и смахните вверх или вниз, чтобы выбрать больше сообщений.</string>

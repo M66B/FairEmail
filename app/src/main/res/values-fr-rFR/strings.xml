@@ -9,6 +9,8 @@
     <string name="app_continue">Poursuivre tout de même</string>
     <string name="app_exit">Faire de nouveau « Retour » pour quitter</string>
     <string name="app_cake">Espace de stockage restant insuffisant</string>
+    <string name="app_cake_remaining">Espace de stockage restant sur l\'appareil : %1$s</string>
+    <string name="app_cake_required">Espace de stockage minimum requis : %1$s</string>
     <string name="app_updated">Dernière mise à jour : %1$s</string>
     <string name="app_download">Téléchargé depuis : %1$s</string>
     <string name="channel_service">Moniteur</string>
@@ -1632,7 +1634,7 @@
     <string name="title_hint_folder_actions">Appuyez longuement sur un dossier pour afficher les options comme ajouter un dossier au menu de navigation pour un accès rapide</string>
     <string name="title_hint_folder_sync">Afin de limiter l’utilisation de la batterie et du réseau, les dossiers et messages ne seront pas tous synchronisés par défaut</string>
     <string name="title_hint_airplane">Le mode avion est activé</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">Aucune autorisation de notification</string>
+    <string name="title_hint_notifications">Aucune autorisation de notification</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu « Assistance » pour obtenir de l’aide</string>
     <string name="title_hint_message_actions">Balayez vers la gauche pour mettre à la corbeille ; balayez vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
     <string name="title_hint_message_selection">Appuyez longuement sur un message pour activer la sélection multiple ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner davantage de messages</string>

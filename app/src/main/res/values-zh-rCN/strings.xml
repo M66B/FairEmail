@@ -9,6 +9,8 @@
     <string name="app_continue">仍然继续</string>
     <string name="app_exit">再按一次退出</string>
     <string name="app_cake">剩余存储空间不足</string>
+    <string name="app_cake_remaining">设备上剩余的存储空间： %1$s</string>
+    <string name="app_cake_required">需要的最小存储空间： %1$s</string>
     <string name="app_updated">上次更新：%1$s</string>
     <string name="app_download">下载自：%1$s</string>
     <string name="channel_service">监控</string>
@@ -1612,7 +1614,7 @@
     <string name="title_hint_folder_actions">长按文件夹查看选项，例如将文件夹添加到导航菜单以便快速访问</string>
     <string name="title_hint_folder_sync">为了降低电量和网络流量的消耗，默认不会同步全部的文件夹和消息</string>
     <string name="title_hint_airplane">飞行模式已开启</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">无通知权限</string>
+    <string name="title_hint_notifications">无通知权限</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑移动到回收站；向右滑存档（如果支持） ；可在账户设置中配置滑动操作</string>
     <string name="title_hint_message_selection">长按进行多选；按住的同时并上下滑动可选择多个邮件</string>

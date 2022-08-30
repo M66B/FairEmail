@@ -9,6 +9,8 @@
     <string name="app_continue">به هر حال ادامه بده</string>
     <string name="app_exit">برای خروج دوباره روی \'بازگشت\' کلیک کنید</string>
     <string name="app_cake">فضای ذخیره سازی کافی باقی نمانده است</string>
+    <string name="app_cake_remaining">فضای ذخیره‌سازی باقی‌مانده روی این دستگاه: %1$s</string>
+    <string name="app_cake_required">کمترین مقدار فضای ذخیره‌سازی لازم: %1$s</string>
     <string name="app_updated">آخرین به روز رسانی: %1$s</string>
     <string name="app_download">در حال دانلود از %1$s</string>
     <string name="channel_service">نظارت</string>
@@ -1151,7 +1153,7 @@
     <string name="title_legend_s">انتخاب/عدم انتخاب</string>
     <string name="title_hint_folder_sync">برای محدود کردن مصرف دیتا و باتری تمامی پوشه‌ها و پیام‌ها به صورت پیش‌فرض همگام سازی نخواهند شد</string>
     <string name="title_hint_airplane">حالت هواپیما روشن است</string>
-    <string name="title_hint_notifications" comment="title_hint_notifications&#10;Warning text above messages">اجازه اعلان داده نشده</string>
+    <string name="title_hint_notifications">اجازه اعلان داده نشده</string>
     <string name="title_hint_support">اگر سوال یا مشکلی دارید لطفا از قسمت پشتیبانی برای کمک گرفتن استفاده کنید</string>
     <string name="title_hint_message_actions">برای حذف به چپ بکشید؛ برای بایگانی به راست بکشید (اگر در دسترس باشد)؛ کنش‌های کشیدن می‌تواند در تنظیمات حساب پیکربندی شوند</string>
     <string name="title_hint_message_junk">این پیام‌ها در پوشه هرزنامه سرور ایمیل قرار دارند. واضح است که اپلیکیشن نمی‌تواند جلوی فرستادن هرزنامه برای شما را بگیرد.</string>
