@@ -410,10 +410,18 @@ public abstract class DB extends RoomDatabase {
 
                         // https://www.sqlite.org/pragma.html#pragma_auto_vacuum
                         // https://android.googlesource.com/platform/external/sqlite.git/+/6ab557bdc070f11db30ede0696888efd19800475%5E!/
-                        boolean sqlite_auto_vacuum = prefs.getBoolean("sqlite_auto_vacuum", !Helper.isRedmiNote());
+                        boolean sqlite_auto_vacuum = prefs.getBoolean("sqlite_auto_vacuum", false);
                         String mode = (sqlite_auto_vacuum ? "FULL" : "INCREMENTAL");
                         Log.i("Set PRAGMA auto_vacuum = " + mode);
                         try (Cursor cursor = db.query("PRAGMA auto_vacuum = " + mode + ";", null)) {
+                            cursor.moveToNext(); // required
+                        }
+
+                        // https://sqlite.org/pragma.html#pragma_synchronous
+                        boolean sqlite_sync_extra = prefs.getBoolean("sqlite_sync_extra", true);
+                        String sync = (sqlite_sync_extra ? "EXTRA" : "NORMAL");
+                        Log.i("Set PRAGMA synchronous = " + sync);
+                        try (Cursor cursor = db.query("PRAGMA synchronous = " + sync + ";", null)) {
                             cursor.moveToNext(); // required
                         }
 

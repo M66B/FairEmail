@@ -651,7 +651,8 @@ public class ApplicationEx extends Application
         } else if (version < 1955) {
             if (!prefs.contains("doubletap"))
                 editor.putBoolean("doubletap", true);
-        }
+        } else if (version < 1960)
+            editor.remove("sqlite_auto_vacuum");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
