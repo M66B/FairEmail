@@ -48,6 +48,7 @@ import androidx.core.view.MenuCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -352,6 +353,7 @@ public class FragmentAccounts extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.menu_search).setVisible(!settings);
         menu.findItem(R.id.menu_unified).setVisible(!settings);
+        menu.findItem(R.id.menu_outbox).setVisible(!settings);
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_compact).setVisible(!settings);
         menu.findItem(R.id.menu_theme).setVisible(!settings);
@@ -368,6 +370,9 @@ public class FragmentAccounts extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_unified) {
             onMenuUnified();
+            return true;
+        } else if (itemId == R.id.menu_outbox) {
+            onMenuOutbox();
             return true;
         } else if (itemId == R.id.menu_compact) {
             onMenuCompact();
@@ -400,6 +405,11 @@ public class FragmentAccounts extends FragmentBase {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuOutbox() {
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+        lbm.sendBroadcast(new Intent(ActivityView.ACTION_VIEW_OUTBOX));
     }
 
     private void onMenuCompact() {

@@ -14,6 +14,12 @@
         android:title="@string/title_folders_unified"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/menu_outbox"
+        android:icon="@drawable/twotone_outbox_24"
+        android:title="@string/title_folder_outbox"
+        app:showAsAction="ifRoom" />
+
     <group android:id="@+id/group_appearance">
         <item
             android:id="@+id/menu_compact"
