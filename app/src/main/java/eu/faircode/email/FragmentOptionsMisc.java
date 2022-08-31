@@ -164,6 +164,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvRoomQueryThreads;
     private SeekBar sbRoomQueryThreads;
     private ImageButton ibRoom;
+    private SwitchCompat swIntegrity;
     private SwitchCompat swWal;
     private SwitchCompat swCheckpoints;
     private SwitchCompat swAnalyze;
@@ -238,8 +239,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "watchdog", "experiments", "main_log", "protocol", "log_level", "debug", "leak_canary",
             "test1", "test2", "test3", "test4", "test5",
             "work_manager", // "external_storage",
-            "query_threads", "wal",
-            "sqlite_checkpoints", "sqlite_analyze", "sqlite_auto_vacuum", "sqlite_sync_extra", "sqlite_cache",
+            "query_threads",
+            "sqlite_integrity_check", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_auto_vacuum", "sqlite_sync_extra", "sqlite_cache",
             "chunk_size", "thread_range", "undo_manager",
             "webview_legacy", "browser_zoom", "fake_dark",
             "show_recent",
@@ -363,6 +364,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvRoomQueryThreads = view.findViewById(R.id.tvRoomQueryThreads);
         sbRoomQueryThreads = view.findViewById(R.id.sbRoomQueryThreads);
         ibRoom = view.findViewById(R.id.ibRoom);
+        swIntegrity = view.findViewById(R.id.swIntegrity);
         swWal = view.findViewById(R.id.swWal);
         swCheckpoints = view.findViewById(R.id.swCheckpoints);
         swAnalyze = view.findViewById(R.id.swAnalyze);
@@ -1094,6 +1096,17 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onClick(View v) {
                 prefs.edit().remove("debug").commit();
                 ApplicationEx.restart(v.getContext(), "query_threads");
+            }
+        });
+
+        swIntegrity.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton v, boolean checked) {
+                prefs.edit()
+                        .putBoolean("sqlite_integrity_check", checked)
+                        .remove("debug")
+                        .commit();
+                ApplicationEx.restart(v.getContext(), "sqlite_integrity_check");
             }
         });
 
@@ -1975,6 +1988,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvRoomQueryThreads.setText(getString(R.string.title_advanced_room_query_threads, NF.format(query_threads)));
         sbRoomQueryThreads.setProgress(query_threads);
 
+        swIntegrity.setChecked(prefs.getBoolean("sqlite_integrity_check", true));
         swWal.setChecked(prefs.getBoolean("wal", true));
         swCheckpoints.setChecked(prefs.getBoolean("sqlite_checkpoints", true));
         swAnalyze.setChecked(prefs.getBoolean("sqlite_analyze", true));

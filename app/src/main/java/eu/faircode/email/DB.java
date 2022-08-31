@@ -6,6 +6,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
@@ -142,15 +143,38 @@ public abstract class DB extends RoomDatabase {
 
     @Override
     public void init(@NonNull DatabaseConfiguration configuration) {
-        // https://www.sqlite.org/pragma.html#pragma_wal_autocheckpoint
-        if (BuildConfig.DEBUG) {
-            File dbfile = configuration.context.getDatabasePath(DB_NAME);
-            if (dbfile.exists()) {
-                try (SQLiteDatabase db = SQLiteDatabase.openDatabase(dbfile.getPath(), null, SQLiteDatabase.OPEN_READWRITE)) {
-                    Log.i("Set PRAGMA wal_autocheckpoint=" + DB_CHECKPOINT);
-                    try (Cursor cursor = db.rawQuery("PRAGMA wal_autocheckpoint=" + DB_CHECKPOINT + ";", null)) {
-                        cursor.moveToNext(); // required
+        File dbfile = configuration.context.getDatabasePath(DB_NAME);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(configuration.context);
+        boolean sqlite_integrity_check = prefs.getBoolean("sqlite_integrity_check", true);
+
+        // https://www.sqlite.org/pragma.html#pragma_integrity_check
+        if (sqlite_integrity_check && dbfile.exists()) {
+            String check = (Helper.isRedmiNote() || Helper.isOnePlus() || BuildConfig.DEBUG
+                    ? "integrity_check" : "quick_check");
+            try (SQLiteDatabase db = SQLiteDatabase.openDatabase(dbfile.getPath(), null, SQLiteDatabase.OPEN_READWRITE)) {
+                Log.i("PRAGMA " + check);
+                try (Cursor cursor = db.rawQuery("PRAGMA " + check + ";", null)) {
+                    while (cursor.moveToNext()) {
+                        String line = cursor.getString(0);
+                        if ("ok".equals(line))
+                            Log.i("PRAGMA " + check + "=" + line);
+                        else
+                            Log.e("PRAGMA " + check + "=" + line);
                     }
+                }
+            } catch (SQLiteDatabaseCorruptException ex) {
+                Log.e(ex);
+                dbfile.delete();
+            }
+        }
+
+        // https://www.sqlite.org/pragma.html#pragma_wal_autocheckpoint
+        if (BuildConfig.DEBUG && dbfile.exists()) {
+            try (SQLiteDatabase db = SQLiteDatabase.openDatabase(dbfile.getPath(), null, SQLiteDatabase.OPEN_READWRITE)) {
+                Log.i("Set PRAGMA wal_autocheckpoint=" + DB_CHECKPOINT);
+                try (Cursor cursor = db.rawQuery("PRAGMA wal_autocheckpoint=" + DB_CHECKPOINT + ";", null)) {
+                    cursor.moveToNext(); // required
                 }
             }
         }
