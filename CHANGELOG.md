@@ -4,6 +4,10 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### 1.1960 - 2022-08-31
+
+* Enabled sqlite sync extra
+
 ### 1.1959 - 2022-08-31
 
 * Small improvements and minor bug fixes
