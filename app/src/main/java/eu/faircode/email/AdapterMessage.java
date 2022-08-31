@@ -301,7 +301,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private boolean language_detection;
     private List<String> languages;
-    private boolean experiments;
     private static boolean debug;
     private int level;
     private boolean canDarken;
@@ -390,7 +389,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private TextView tvSubmitterTitle;
         private TextView tvDeliveredToTitle;
-        private TextView tvReturnPathTitle;
         private TextView tvFromExTitle;
         private TextView tvToTitle;
         private TextView tvReplyToTitle;
@@ -406,7 +404,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private TextView tvSubmitter;
         private TextView tvDeliveredTo;
-        private TextView tvReturnPath;
         private TextView tvFromEx;
         private TextView tvTo;
         private TextView tvReplyTo;
@@ -791,7 +788,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvSubmitterTitle = vsBody.findViewById(R.id.tvSubmitterTitle);
             tvDeliveredToTitle = vsBody.findViewById(R.id.tvDeliveredToTitle);
-            tvReturnPathTitle = vsBody.findViewById(R.id.tvReturnPathTitle);
             tvFromExTitle = vsBody.findViewById(R.id.tvFromExTitle);
             tvToTitle = vsBody.findViewById(R.id.tvToTitle);
             tvReplyToTitle = vsBody.findViewById(R.id.tvReplyToTitle);
@@ -807,7 +803,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvSubmitter = vsBody.findViewById(R.id.tvSubmitter);
             tvDeliveredTo = vsBody.findViewById(R.id.tvDeliveredTo);
-            tvReturnPath = vsBody.findViewById(R.id.tvReturnPath);
             tvFromEx = vsBody.findViewById(R.id.tvFromEx);
             tvTo = vsBody.findViewById(R.id.tvTo);
             tvReplyTo = vsBody.findViewById(R.id.tvReplyTo);
@@ -1660,7 +1655,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvSubmitterTitle.setVisibility(View.GONE);
             tvDeliveredToTitle.setVisibility(View.GONE);
-            tvReturnPathTitle.setVisibility(View.GONE);
             tvFromExTitle.setVisibility(View.GONE);
             tvToTitle.setVisibility(View.GONE);
             tvReplyToTitle.setVisibility(View.GONE);
@@ -1676,7 +1670,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvSubmitter.setVisibility(View.GONE);
             tvDeliveredTo.setVisibility(View.GONE);
-            tvReturnPath.setVisibility(View.GONE);
             tvFromEx.setVisibility(View.GONE);
             tvTo.setVisibility(View.GONE);
             tvReplyTo.setVisibility(View.GONE);
@@ -2462,10 +2455,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvDeliveredToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(message.deliveredto) ? View.VISIBLE : View.GONE);
             tvDeliveredTo.setVisibility(show_addresses && !TextUtils.isEmpty(message.deliveredto) ? View.VISIBLE : View.GONE);
             tvDeliveredTo.setText(formatAddresses(new Address[]{deliveredto}, true));
-
-            tvReturnPathTitle.setVisibility(show_addresses && experiments && message.return_path != null && message.return_path.length > 0 ? View.VISIBLE : View.GONE);
-            tvReturnPath.setVisibility(show_addresses && experiments && message.return_path != null && message.return_path.length > 0 ? View.VISIBLE : View.GONE);
-            tvReturnPath.setText(formatAddresses(message.return_path, true));
 
             tvFromExTitle.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
             tvFromEx.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
@@ -7278,8 +7267,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 languages.add(ll.get(i).getLanguage());
         } else
             languages = null;
-
-        this.experiments = prefs.getBoolean("experiments", false);
 
         debug = prefs.getBoolean("debug", false);
         level = prefs.getInt("log_level", Log.getDefaultLogLevel());
