@@ -4,6 +4,11 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### 1.1959 - 2022-08-31
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1958 - 2022-08-30
 
 * Added extra small/large font size to message editor
