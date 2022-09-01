@@ -69,6 +69,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swDownloadEml;
     private SwitchCompat swDownloadPlain;
     private SwitchCompat swValidated;
+    private SwitchCompat swValidatedCaptive;
     private SwitchCompat swVpnOnly;
     private EditText etTimeout;
     private SwitchCompat swPreferIp4;
@@ -92,7 +93,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private final static String[] RESET_OPTIONS = new String[]{
             "metered", "download", "roaming", "rlah",
             "download_headers", "download_eml", "download_plain",
-            "require_validated", "vpn_only",
+            "require_validated", "require_validated_captive", "vpn_only",
             "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive",
             "ssl_harden", "ssl_harden_strict", "cert_strict", "open_safe"
     };
@@ -116,6 +117,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swDownloadEml = view.findViewById(R.id.swDownloadEml);
         swDownloadPlain = view.findViewById(R.id.swDownloadPlain);
         swValidated = view.findViewById(R.id.swValidated);
+        swValidatedCaptive = view.findViewById(R.id.swValidatedCaptive);
         swVpnOnly = view.findViewById(R.id.swVpnOnly);
         etTimeout = view.findViewById(R.id.etTimeout);
         swPreferIp4 = view.findViewById(R.id.swPreferIp4);
@@ -212,6 +214,14 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("require_validated", checked).apply();
+                swValidatedCaptive.setEnabled(!checked);
+            }
+        });
+
+        swValidatedCaptive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("require_validated_captive", checked).apply();
             }
         });
 
@@ -436,6 +446,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swDownloadPlain.setChecked(prefs.getBoolean("download_plain", false));
 
         swValidated.setChecked(prefs.getBoolean("require_validated", false));
+        swValidatedCaptive.setChecked(prefs.getBoolean("require_validated_captive", true));
+        swValidatedCaptive.setEnabled(!swValidated.isChecked());
         swVpnOnly.setChecked(prefs.getBoolean("vpn_only", false));
 
         int timeout = prefs.getInt("timeout", 0);

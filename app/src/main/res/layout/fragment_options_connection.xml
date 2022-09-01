@@ -301,10 +301,23 @@
                     app:layout_constraintTop_toBottomOf="@id/tvPlainHint"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swValidatedCaptive"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_validated_captive"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swValidated"
+                    app:switchPadding="12dp" />
+
                 <TextView
                     android:id="@+id/tvValidatedHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="48dp"
                     android:text="@string/title_advanced_validate_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -312,7 +325,7 @@
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swValidated" />
+                    app:layout_constraintTop_toBottomOf="@id/swValidatedCaptive" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swVpnOnly"

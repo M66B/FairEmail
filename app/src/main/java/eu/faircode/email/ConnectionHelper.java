@@ -73,7 +73,7 @@ public class ConnectionHelper {
     static final int MAX_REDIRECTS = 5; // https://www.freesoft.org/CIE/RFC/1945/46.htm
 
     static final List<String> PREF_NETWORK = Collections.unmodifiableList(Arrays.asList(
-            "metered", "roaming", "rlah", "require_validated", "vpn_only" // update network state
+            "metered", "roaming", "rlah", "require_validated", "require_validated_captive", "vpn_only" // update network state
     ));
 
     // Roam like at home
@@ -252,6 +252,7 @@ public class ConnectionHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean standalone_vpn = prefs.getBoolean("standalone_vpn", false);
         boolean require_validated = prefs.getBoolean("require_validated", false);
+        boolean require_validated_captive = prefs.getBoolean("require_validated_captive", true);
         boolean vpn_only = prefs.getBoolean("vpn_only", false);
 
         ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
@@ -300,7 +301,7 @@ public class ConnectionHelper {
                 return null;
             }
             boolean captive = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_CAPTIVE_PORTAL);
-            if ((require_validated || captive) &&
+            if ((require_validated || (require_validated_captive && captive)) &&
                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                     !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)) {
                 Log.i("isMetered: not validated captive=" + captive);
