@@ -2796,7 +2796,8 @@ public class MessageHelper {
                             }
                         if (quote)
                             personal = "\"" + personal + "\"";
-                    }
+                    } else
+                        personal = Helper.transformMathematical(personal);
 
                     if (format == AddressFormat.NAME_EMAIL && !TextUtils.isEmpty(email))
                         formatted.add(personal + " <" + email + ">");
