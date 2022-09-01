@@ -4318,6 +4318,10 @@ public class FragmentCompose extends FragmentBase {
         EntityAttachment attachment = new EntityAttachment();
         UriInfo info = getInfo(uri, context);
 
+        EntityLog.log(context, "Add attachment" +
+                " uri=" + uri + " image=" + image + " resize=" + resize + " privacy=" + privacy +
+                " name=" + info.name + " type=" + info.type + " size=" + info.size);
+
         String ext = Helper.getExtension(info.name);
         if (info.name != null && ext == null && info.type != null) {
             String guessed = MimeTypeMap.getSingleton()
@@ -8079,6 +8083,7 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
+    @NonNull
     private static UriInfo getInfo(Uri uri, Context context) {
         UriInfo result = new UriInfo();
         try {
