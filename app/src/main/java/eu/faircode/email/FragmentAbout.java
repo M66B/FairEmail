@@ -78,6 +78,15 @@ public class FragmentAbout extends FragmentBase {
             source = "Debug";
         else
             source = "?";
+
+        try {
+            String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+            if (installer != null && !"com.android.vending".equals(installer))
+                source += " (" + installer + ")";
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
         tvDownloaded.setText(getString(R.string.app_download, source));
 
         long last = 0;
