@@ -4,6 +4,12 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### 1.1961 - 2022-09-01
+
+* Fixed OAuth
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1960 - 2022-08-31
 
 * Enabled sqlite sync extra
