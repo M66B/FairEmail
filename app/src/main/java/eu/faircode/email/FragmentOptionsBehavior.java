@@ -558,7 +558,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         etDefaultSnooze.setText(default_snooze == 1 ? null : Integer.toString(default_snooze));
         etDefaultSnooze.setHint("1");
 
-        swPhotoPicker.setChecked(prefs.getBoolean("photo_picker", true));
+        swPhotoPicker.setChecked(prefs.getBoolean("photo_picker", false));
 
         swPull.setChecked(prefs.getBoolean("pull", true));
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));

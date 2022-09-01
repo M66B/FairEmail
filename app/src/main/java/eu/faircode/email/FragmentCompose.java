@@ -3051,7 +3051,7 @@ public class FragmentCompose extends FragmentBase {
             // https://developer.android.com/reference/android/provider/MediaStore#ACTION_PICK_IMAGES
             // Android 12: cmd device_config put storage_native_boot picker_intent_enabled true
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean photo_picker = prefs.getBoolean("photo_picker", true);
+            boolean photo_picker = prefs.getBoolean("photo_picker", false);
             Intent picker = new Intent(MediaStore.ACTION_PICK_IMAGES);
             picker.setType("image/*");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
