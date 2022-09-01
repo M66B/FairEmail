@@ -198,7 +198,8 @@ public class StyleHelper {
                     smenu.add(font.custom ? R.id.group_style_font_custom : R.id.group_style_font_standard, i, 0, ssb)
                             .setIntent(new Intent().putExtra("face", font.type));
                 }
-                smenu.add(R.id.group_style_font_standard, fonts.size(), 0, R.string.title_style_font_default);
+                smenu.add(R.id.group_style_font_standard, fonts.size(), 0, R.string.title_style_font_default)
+                        .setIntent(new Intent());
 
                 int level = -1;
                 BulletSpan[] spans = edit.getSpans(start, end, BulletSpan.class);
