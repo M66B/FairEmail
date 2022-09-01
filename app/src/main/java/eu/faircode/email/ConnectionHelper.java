@@ -299,10 +299,11 @@ public class ConnectionHelper {
                 Log.i("isMetered: no internet");
                 return null;
             }
-            if (require_validated &&
+            boolean captive = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_CAPTIVE_PORTAL);
+            if ((require_validated || captive) &&
                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                     !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)) {
-                Log.i("isMetered: not validated");
+                Log.i("isMetered: not validated captive=" + captive);
                 return null;
             }
         }
