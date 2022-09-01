@@ -2396,7 +2396,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
                         }
                     } else {
-                        personal = Helper.transformMathematical(personal);
                         if (full) {
                             ssb.append(personal).append(" <");
                             if (!TextUtils.isEmpty(email)) {

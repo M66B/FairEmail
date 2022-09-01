@@ -2166,47 +2166,6 @@ public class Helper {
         return value;
     }
 
-    static String transformMathematical(String value) {
-        if (!BuildConfig.DEBUG)
-            return value;
-
-        // https://www.w3.org/TR/xml-entity-names/1D4.html
-        // https://www.utf8-chartable.de/unicode-utf8-table.pl?start=119808
-
-        StringBuilder sb = new StringBuilder();
-
-        int k = 0;
-        while (k < value.length()) {
-            int cp = value.codePointAt(k);
-
-            if (cp >= 0x1D400 && cp <= 0x1D419) // MATHEMATICAL BOLD CAPITAL A-Z
-                sb.append((char) (cp - 0x1D400 + 65));
-            else if (cp >= 0x1D41A && cp <= 0x1D433) // MATHEMATICAL BOLD SMALL A-Z
-                sb.append((char) (cp - 0x1D41A + 97));
-            else if (cp >= 0x1D434 && cp <= 0x1D44D) // MATHEMATICAL ITALIC CAPITAL A-Z
-                sb.append((char) (cp - 0x1D434 + 65));
-            else if (cp >= 0x1D44E && cp <= 0x1D467) // MATHEMATICAL ITALIC SMALL A-Z
-                sb.append((char) (cp - 0x1D44E + 97));
-            else if (cp >= 0x1D468 && cp <= 0x1D481) // MATHEMATICAL BOLD ITALIC CAPITAL A-Z
-                sb.append((char) (cp - 0x1D468 + 65));
-            else if (cp >= 0x1D482 && cp <= 0x1D49B) // MATHEMATICAL BOLD ITALIC SMALL A-Z
-                sb.append((char) (cp - 0x1D482 + 97));
-            else if (cp >= 0x1D49C && cp <= 0x1D4B5) // MATHEMATICAL SCRIPT CAPITAL A-Z
-                sb.append((char) (cp - 0x1D49C + 65));
-            else if (cp >= 0x1D4B6 && cp <= 0x1D4CF) // MATHEMATICAL SCRIPT SMALL A-Z
-                sb.append((char) (cp - 0x1D4B6 + 97));
-            else if (cp >= 0x1D4D0 && cp <= 0x1D4E9) // MATHEMATICAL BOLD SCRIPT CAPITAL A-Z
-                sb.append((char) (cp - 0x1D4D0 + 65));
-            else if (cp >= 0x1D4EA && cp <= 0x1D4FF) // MATHEMATICAL BOLD SCRIPT SMALL A-Z
-                sb.append((char) (cp - 0x1D4EA + 97));
-            else
-                sb.appendCodePoint(cp);
-
-            k += Character.charCount(cp);
-        }
-        return sb.toString();
-    }
-
     // Files
 
     static {
