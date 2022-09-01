@@ -4065,8 +4065,17 @@ public class MessageHelper {
         }
 
         String getWarnings(String existing) {
-            if (existing != null)
-                warnings.add(0, existing);
+            if (existing != null) {
+                boolean exists = false;
+                for (String warning : warnings)
+                    if (existing.equals(warning)) {
+                        exists = true;
+                        break;
+                    }
+                if (!exists)
+                    warnings.add(0, existing);
+            }
+
             if (warnings.size() == 0)
                 return null;
             else
