@@ -455,6 +455,7 @@
         <activity
             android:name="net.openid.appauth.RedirectUriReceiverActivity"
             android:exported="true"
+            android:taskAffinity="${applicationId}.SETUP"
             tools:node="replace">
             <intent-filter android:autoVerify="false">
                 <action android:name="android.intent.action.VIEW" />
@@ -485,6 +486,15 @@
                 <data android:scheme="eu.faircode.email.debug" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="net.openid.appauth.AuthorizationManagementActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboard|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity="${applicationId}.SETUP"
+            android:theme="@style/Theme.AppCompat.Translucent.NoTitleBar"
+            tools:node="replace" />
 
         <service
             android:name=".ServiceSynchronize"
