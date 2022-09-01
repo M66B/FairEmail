@@ -2167,6 +2167,9 @@ public class Helper {
     }
 
     static String transformMathematical(String value) {
+        if (!BuildConfig.DEBUG)
+            return value;
+
         // https://www.w3.org/TR/xml-entity-names/1D4.html
         // https://www.utf8-chartable.de/unicode-utf8-table.pl?start=119808
 
