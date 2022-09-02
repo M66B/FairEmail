@@ -1155,7 +1155,6 @@
     <string name="title_compose">Redactar</string>
     <string name="title_submitter">Enviado por:</string>
     <string name="title_delivered_to">Entregado a:</string>
-    <string name="title_return_path">Ruta de retorno:</string>
     <string name="title_from">De:</string>
     <string name="title_to">A:</string>
     <string name="title_reply_to">Responder a:</string>

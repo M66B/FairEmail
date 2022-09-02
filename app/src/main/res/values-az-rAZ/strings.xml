@@ -1159,7 +1159,6 @@
     <string name="title_compose">Yaz</string>
     <string name="title_submitter">Göndərən:</string>
     <string name="title_delivered_to">Çatdırıldı:</string>
-    <string name="title_return_path">Qayıdış yolu:</string>
     <string name="title_from">Göndərən:</string>
     <string name="title_to">Alıcı:</string>
     <string name="title_reply_to">Cavabla:</string>

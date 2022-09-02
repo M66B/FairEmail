@@ -380,6 +380,7 @@
     <string name="title_advanced_download_eml">下载原始消息文件</string>
     <string name="title_advanced_download_plain">默认只下载纯文本部分（如果可用）</string>
     <string name="title_advanced_validated">仅限已通过可用性检查的连接</string>
+    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">需要经确认的无线网络强制认证门户连接</string>
     <string name="title_advanced_vpn_only">仅通过 VPN 连接</string>
     <string name="title_advanced_timeout">连接超时 (秒)</string>
     <string name="title_advanced_prefer_ip4">IPv4 优先于 IPv6</string>
@@ -1140,7 +1141,6 @@
     <string name="title_compose">撰写</string>
     <string name="title_submitter">发送自：</string>
     <string name="title_delivered_to">发送给：</string>
-    <string name="title_return_path">返回路径：</string>
     <string name="title_from">发件人：</string>
     <string name="title_to">收件人：</string>
     <string name="title_reply_to">回复：</string>

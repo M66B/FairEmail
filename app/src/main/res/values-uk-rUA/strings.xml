@@ -420,6 +420,7 @@
     <string name="title_advanced_download_eml">Завантажити неформатовані повідомлення</string>
     <string name="title_advanced_download_plain">Звантажити лише частини повідомлення з простим текстом (якщо доступно)</string>
     <string name="title_advanced_validated">Вимагати надійне (перевірене) підключення</string>
+    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Вимагати з\'єднання засвідчене порталом для перевірки</string>
     <string name="title_advanced_vpn_only">Під’єднатися тільки через VPN</string>
     <string name="title_advanced_timeout">Час очікування зв\'язку (секунди)</string>
     <string name="title_advanced_prefer_ip4">Віддавати перевагу IPv4 над IPv6</string>
@@ -1182,7 +1183,6 @@
     <string name="title_compose">Написати лист</string>
     <string name="title_submitter">Надіслав:</string>
     <string name="title_delivered_to">Доставлено:</string>
-    <string name="title_return_path">Return path:</string>
     <string name="title_from">Від:</string>
     <string name="title_to">До:</string>
     <string name="title_reply_to">Відповісти:</string>

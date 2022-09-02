@@ -1170,7 +1170,6 @@
     <string name="title_compose">Napiši</string>
     <string name="title_submitter">Poslao/la:</string>
     <string name="title_delivered_to">Dostavljeno:</string>
-    <string name="title_return_path">Povratna putanja:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Za:</string>
     <string name="title_reply_to">Odgovori za:</string>

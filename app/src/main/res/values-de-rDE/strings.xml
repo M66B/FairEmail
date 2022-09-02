@@ -1153,7 +1153,6 @@
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>
     <string name="title_delivered_to">Zugestellt an:</string>
-    <string name="title_return_path">Wenn unzustellbar, zurück an:</string>
     <string name="title_from">Von:</string>
     <string name="title_to">An:</string>
     <string name="title_reply_to">Antworten an:</string>

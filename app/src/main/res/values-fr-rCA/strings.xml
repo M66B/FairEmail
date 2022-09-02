@@ -394,6 +394,7 @@
     <string name="title_advanced_download_eml">Télécharger les fichiers de messages bruts</string>
     <string name="title_advanced_download_plain">Télécharger uniquement les parties en texte brut par défaut (si disponible)</string>
     <string name="title_advanced_validated">Nécessite une connexion validée (vérifiée)</string>
+    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Nécessite une connexion validée sur un portail captif</string>
     <string name="title_advanced_vpn_only">Se connecter uniquement via un RPV</string>
     <string name="title_advanced_timeout">Délai d’expiration de la connexion (secondes)</string>
     <string name="title_advanced_prefer_ip4">Préférer IPv4 à IPv6</string>
@@ -1160,7 +1161,6 @@
     <string name="title_compose">Rédiger</string>
     <string name="title_submitter">Envoyé par :</string>
     <string name="title_delivered_to">Envoyé à :</string>
-    <string name="title_return_path">Chemin de retour:</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>
     <string name="title_reply_to">Répondre à :</string>

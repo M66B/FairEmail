@@ -419,6 +419,7 @@
     <string name="title_advanced_download_eml">Stáhnout zdrojové soubory zprávy</string>
     <string name="title_advanced_download_plain">Stahovat pouze prostý text (vždy v případě dostupnosti)</string>
     <string name="title_advanced_validated">Vyžadovat ověřené (zkontrolované) připojení</string>
+    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Vyžadovat ověření při připojení přes captive portál</string>
     <string name="title_advanced_vpn_only">Připojit pouze pomocí VPN</string>
     <string name="title_advanced_timeout">Časový limit připojení (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Upřednostňovat IPv4 před IPv6</string>
@@ -1181,7 +1182,6 @@
     <string name="title_compose">Napsat zprávu</string>
     <string name="title_submitter">Odeslal:</string>
     <string name="title_delivered_to">Doručeno na:</string>
-    <string name="title_return_path">Return path:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Komu:</string>
     <string name="title_reply_to">Odpovědět na:</string>

@@ -419,6 +419,7 @@
     <string name="title_advanced_download_eml">Pobierz nieprzetworzone pliki wiadomości</string>
     <string name="title_advanced_download_plain">Domyślnie pobieraj tylko części w postaci zwykłego tekstu (jeśli jest dostępny)</string>
     <string name="title_advanced_validated">Wymagaj zweryfikowanego (sprawdzonego) połączenia</string>
+    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Wymagaj potwierdzonego połączenia z portalem przechwytującym</string>
     <string name="title_advanced_vpn_only">Połącz tylko przez VPN</string>
     <string name="title_advanced_timeout">Limit czasu połączenia (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Preferuj IPv4 nad IPv6</string>
@@ -1181,7 +1182,6 @@
     <string name="title_compose">Napisz</string>
     <string name="title_submitter">Wysłane przez:</string>
     <string name="title_delivered_to">Dostarczone do:</string>
-    <string name="title_return_path">Ścieżka powrotna:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Do:</string>
     <string name="title_reply_to">Odpisz do:</string>

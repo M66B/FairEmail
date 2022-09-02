@@ -392,6 +392,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_download_eml">Ruwe berichtbestanden downloaden</string>
     <string name="title_advanced_download_plain">Standaard alleen platte tekst delen downloaden (indien beschikbaar)</string>
     <string name="title_advanced_validated">Vereis een gevalideerde (gecontroleerde) verbinding</string>
+    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Vereis een gevalideerde captive portal verbinding</string>
     <string name="title_advanced_vpn_only">Alleen via een VPN verbinden</string>
     <string name="title_advanced_timeout">Verbinding timeout (seconden)</string>
     <string name="title_advanced_prefer_ip4">Geef de voorkeur aan IPv4 boven IPv6</string>
@@ -1153,7 +1154,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_compose">Opstellen</string>
     <string name="title_submitter">Verstuurd door:</string>
     <string name="title_delivered_to">Afgeleverd aan:</string>
-    <string name="title_return_path">Retour pad:</string>
     <string name="title_from">Van:</string>
     <string name="title_to">Aan:</string>
     <string name="title_reply_to">Antwoord aan:</string>

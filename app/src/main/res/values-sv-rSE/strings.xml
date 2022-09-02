@@ -9,6 +9,8 @@
     <string name="app_continue">Fortsätt ändå</string>
     <string name="app_exit">Tryck \"tillbaka\" igen för att avsluta</string>
     <string name="app_cake">Otillräckligt lagringsutrymme kvar</string>
+    <string name="app_cake_remaining">Återstående lagringsutrymme på enheten: %1$s</string>
+    <string name="app_cake_required">Minsta nödvändiga lagringsutrymme: %1$s</string>
     <string name="app_updated">Senast uppdaterad: %1$s</string>
     <string name="app_download">Hämtad från: %1$s</string>
     <string name="channel_service">Övervakning</string>
@@ -384,6 +386,7 @@
     <string name="title_advanced_download_eml">Ladda ner råa meddelande-filer</string>
     <string name="title_advanced_download_plain">Ladda ner delar med ren text som standard (om tillgängligt)</string>
     <string name="title_advanced_validated">Kräv en validerad (kontrollerad) anslutning</string>
+    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Kräv en validerad portalanslutning</string>
     <string name="title_advanced_vpn_only">Anslut endast via VPN</string>
     <string name="title_advanced_timeout">Timeout för anslutning (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Föredra IPv4 över IPv6</string>
@@ -1146,7 +1149,6 @@
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Skickad av:</string>
     <string name="title_delivered_to">Levererad till:</string>
-    <string name="title_return_path">Returväg:</string>
     <string name="title_from">Från:</string>
     <string name="title_to">Till:</string>
     <string name="title_reply_to">Svara till:</string>

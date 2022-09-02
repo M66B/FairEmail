@@ -1183,7 +1183,6 @@
     <string name="title_compose">כתיבת הודעה</string>
     <string name="title_submitter">נשלח על ידי:</string>
     <string name="title_delivered_to">נמסר אל:</string>
-    <string name="title_return_path">נתיב חזרה:</string>
     <string name="title_from">מאת:</string>
     <string name="title_to">אל:</string>
     <string name="title_reply_to">מענה אל:</string>

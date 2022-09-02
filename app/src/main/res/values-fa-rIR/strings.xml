@@ -798,7 +798,6 @@
     <string name="title_compose">ایجاد پیام</string>
     <string name="title_submitter">ارسال توسط:</string>
     <string name="title_delivered_to">تحویل شده به:</string>
-    <string name="title_return_path">مسیر برگشت:</string>
     <string name="title_from">از:</string>
     <string name="title_to">به:</string>
     <string name="title_reply_to">پاسخ به:</string>

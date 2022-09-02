@@ -392,6 +392,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_download_eml">Ham mesaj dosyalarını indir</string>
     <string name="title_advanced_download_plain">Varsayılan olarak yalnızca düz metin kısımlarını indirin (varsa)</string>
     <string name="title_advanced_validated">Doğrulanmış (kontrol edilmiş) bir bağlantı gerektir</string>
+    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Doğrulanmış bir sabit portal bağlantısı gerektir</string>
     <string name="title_advanced_vpn_only">Yalnızca bir VPN aracılığıyla bağlanın</string>
     <string name="title_advanced_timeout">Bağlantı zaman aşımı (saniye)</string>
     <string name="title_advanced_prefer_ip4">IPv6 yerine IPv4\'ü tercih edin</string>
@@ -1154,7 +1155,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_submitter">Gönderen:</string>
     <string name="title_delivered_to">Teslim edilen:</string>
-    <string name="title_return_path">Dönüş yolu:</string>
     <string name="title_from">Gönderen:</string>
     <string name="title_to">Alıcı:</string>
     <string name="title_reply_to">Yanıt adresi:</string>

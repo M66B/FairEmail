@@ -1145,7 +1145,6 @@
     <string name="title_compose">作成</string>
     <string name="title_submitter">送信元:</string>
     <string name="title_delivered_to">配信先:</string>
-    <string name="title_return_path">返送先:</string>
     <string name="title_from">差出人:</string>
     <string name="title_to">宛先:</string>
     <string name="title_reply_to">返信先:</string>
