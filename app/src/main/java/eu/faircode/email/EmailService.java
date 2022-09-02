@@ -329,6 +329,10 @@ public class EmailService implements AutoCloseable {
         properties.put("mail." + protocol + ".allow8bitmime", Boolean.toString(value));
     }
 
+    void setRestartIdleInterval(int seconds) {
+        properties.put("mail." + protocol + ".restartidleinterval", Integer.toString(seconds));
+    }
+
     // https://tools.ietf.org/html/rfc3461
     void setDsnNotify(String what) {
         properties.put("mail." + protocol + ".dsn.notify", what);

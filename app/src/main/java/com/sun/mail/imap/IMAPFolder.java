@@ -16,6 +16,8 @@
 
 package com.sun.mail.imap;
 
+import android.os.SystemClock;
+
 import java.util.Date;
 import java.util.Vector;
 import java.util.Hashtable;
@@ -3284,6 +3286,8 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
      */
     boolean handleIdle(boolean once) throws MessagingException {
 	Response r = null;
+	long start = SystemClock.elapsedRealtime();
+	long restartIdleInterval = ((IMAPStore)store).getRestartIdleInterval() * 1000L;
 	do {
 	    r = protocol.readIdleResponse();
 	    try {
@@ -3304,6 +3308,12 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 				logger.finest(
 				    "handleIdle: ignoring socket timeout");
 				r = null;	// repeat do/while loop
+				long elapsed = SystemClock.elapsedRealtime() - start;
+				if (restartIdleInterval > 0 && elapsed > restartIdleInterval) {
+					logger.finest("handleIdle: restart elapsed=" + elapsed);
+					protocol.idleAbort();
+					idleState = ABORTING;
+				}
 			    } else {
 				logger.finest("handleIdle: interrupting IDLE");
 				IdleManager im = idleManager;

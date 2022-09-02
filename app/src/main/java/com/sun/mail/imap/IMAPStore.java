@@ -175,6 +175,8 @@ public class IMAPStore extends Store
 
     private final int minIdleTime;	// minimum idle time
 
+    private final int restartIdleInterval;
+
     private volatile int port = -1;	// port to use
 
     // Auth info
@@ -476,6 +478,9 @@ public class IMAPStore extends Store
 	    "mail." + name + ".minidletime", 10);
 	if (logger.isLoggable(Level.CONFIG))
 	    logger.config("mail.imap.minidletime: " + minIdleTime);
+
+	restartIdleInterval = PropUtil.getIntProperty(props,
+	    "mail." + name + ".restartidleinterval", 0);
 
 	// check if we should do a PROXYAUTH login
 	String s = session.getProperty("mail." + name + ".proxyauth.user");
@@ -1578,6 +1583,10 @@ public class IMAPStore extends Store
     int getMinIdleTime() {
 	return minIdleTime;
     }
+
+	int getRestartIdleInterval() {
+	return restartIdleInterval;
+	}
 
     /**
      * Throw a SearchException if the search expression is too complex?
