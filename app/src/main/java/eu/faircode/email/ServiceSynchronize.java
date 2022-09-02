@@ -1328,11 +1328,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             if (scheduled || jcondition.optBoolean("ignore_schedule")) {
                                 work = true;
+
                                 List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
                                 if (folders.size() > 0)
                                     Collections.sort(folders, folders.get(0).getComparator(ServiceSynchronize.this));
                                 for (EntityFolder folder : folders)
-                                    EntityOperation.poll(ServiceSynchronize.this, folder.id);
+                                    if (folder.poll ||
+                                            !account.poll_exempted ||
+                                            account.protocol == EntityAccount.TYPE_POP ||
+                                            !BuildConfig.DEBUG)
+                                        EntityOperation.poll(ServiceSynchronize.this, folder.id);
                             }
                         }
 
