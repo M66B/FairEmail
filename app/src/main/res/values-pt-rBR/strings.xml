@@ -393,7 +393,7 @@
     <string name="title_advanced_download_eml">Baixar arquivos de mensagem brutas</string>
     <string name="title_advanced_download_plain">Baixe apenas partes de texto simples por padrão (se disponível)</string>
     <string name="title_advanced_validated">Exigir uma conexão validada (verificada)</string>
-    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Requer uma conexão validada com o portal</string>
+    <string name="title_advanced_validated_captive">Requer uma conexão validada com o portal</string>
     <string name="title_advanced_vpn_only">Conectar somente via VPN</string>
     <string name="title_advanced_timeout">Conexão expira em (segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 ao invés de IPv6</string>

@@ -419,7 +419,7 @@
     <string name="title_advanced_download_eml">Prejmi datoteke surovega sporočila</string>
     <string name="title_advanced_download_plain">Privzeto prejmi samo dele z golim besedilom (če je na voljo)</string>
     <string name="title_advanced_validated">Zahtevaj preverjeno povezavo</string>
-    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Zahtevaj povezavo s preverjenim prestrežnim portalom</string>
+    <string name="title_advanced_validated_captive">Zahtevaj povezavo s preverjenim prestrežnim portalom</string>
     <string name="title_advanced_vpn_only">Poveži se samo preko VPN-a</string>
     <string name="title_advanced_timeout">Časovna omejitev povezave (v sekundah)</string>
     <string name="title_advanced_prefer_ip4">Prednost ima IPv4 pred IPv6</string>

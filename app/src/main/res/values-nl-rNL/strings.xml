@@ -392,7 +392,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_download_eml">Ruwe berichtbestanden downloaden</string>
     <string name="title_advanced_download_plain">Standaard alleen platte tekst delen downloaden (indien beschikbaar)</string>
     <string name="title_advanced_validated">Vereis een gevalideerde (gecontroleerde) verbinding</string>
-    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Vereis een gevalideerde captive portal verbinding</string>
+    <string name="title_advanced_validated_captive">Vereis een gevalideerde captive portal verbinding</string>
     <string name="title_advanced_vpn_only">Alleen via een VPN verbinden</string>
     <string name="title_advanced_timeout">Verbinding timeout (seconden)</string>
     <string name="title_advanced_prefer_ip4">Geef de voorkeur aan IPv4 boven IPv6</string>
@@ -788,6 +788,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_account_category">Categorie</string>
     <string name="title_account_name_hint">Wordt gebruikt voor het onderscheiden van mappen</string>
     <string name="title_account_interval_hint">Frequentie van het verversen van de verbinding voor push berichten of frequentie van het controleren op nieuwe berichten</string>
+    <string name="title_account_noop_hint">Dit zal de verbinding actiever vernieuwen, maar ook meer batterijvermogen gebruiken</string>
     <string name="title_account_partial_fetch_hint">Schakel dit alleen uit in het geval van lege berichten of corrupte bijlagen</string>
     <string name="title_color">Kleur</string>
     <string name="title_background">Achtergrond</string>
@@ -828,6 +829,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_max_messages">Maximum aantal berichten om te downloaden (leeg voor allen)</string>
     <string name="title_keep_poll_interval">Poll interval (minuten)</string>
     <string name="title_keep_alive_interval">Keep-alive interval (minuten)</string>
+    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">Herstart IMAP IDLE periodiek</string>
     <string name="title_server_time">Gebruik ontvangsttijd (server)</string>
     <string name="title_received_header">Gebruik de kop \'Received\'</string>
     <string name="title_date_header">Gebruik de kop \'Date\' (verzonden tijd)</string>

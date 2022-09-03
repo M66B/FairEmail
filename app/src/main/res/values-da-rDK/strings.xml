@@ -394,7 +394,7 @@
     <string name="title_advanced_download_eml">Download råformat beskedfiler</string>
     <string name="title_advanced_download_plain">Download som standard kun simpel tekst dele (hvis tilgængelig)</string>
     <string name="title_advanced_validated">Kræv en valideret (kontrolleret) forbindelse</string>
-    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Kræv testet/kontrolleret captive portal-forbindelse</string>
+    <string name="title_advanced_validated_captive">Kræv testet/kontrolleret captive portal-forbindelse</string>
     <string name="title_advanced_vpn_only">Tilslut kun vha. VPN</string>
     <string name="title_advanced_timeout">Forbindelses-timeout (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Foretræk IPv4 frem for IPv6</string>

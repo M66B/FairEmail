@@ -419,7 +419,7 @@
     <string name="title_advanced_download_eml">Загружать оригиналы сообщений</string>
     <string name="title_advanced_download_plain">По умолчанию загружать только обычный текст (если доступно)</string>
     <string name="title_advanced_validated">Требовать проверенное подключение</string>
-    <string name="title_advanced_validated_captive" comment="title_advanced_validated_captive&#10;Captive portal: https://en.wikipedia.org/wiki/Captive_portal&#10;Validated: the internet connection was tested (by Android) and found to be working">Требовать подключение, подтверждённое порталом авторизации</string>
+    <string name="title_advanced_validated_captive">Требовать подключение, подтверждённое порталом авторизации</string>
     <string name="title_advanced_vpn_only">Подключаться только через VPN</string>
     <string name="title_advanced_timeout">Время ожидания подключения (сек.)</string>
     <string name="title_advanced_prefer_ip4">Предпочитать IPv4</string>

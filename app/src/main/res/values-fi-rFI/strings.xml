@@ -9,6 +9,8 @@
     <string name="app_continue">Jatka joka tapauksessa</string>
     <string name="app_exit">Poistu menemällä \'takaisin\' uudelleen</string>
     <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
+    <string name="app_cake_remaining">Tallennustilaa jäljellä laitteessasi: %1$s</string>
+    <string name="app_cake_required">Tallennustilaa vaaditaan: %1$s</string>
     <string name="app_updated">Päivitetty viimeksi: %1$s</string>
     <string name="app_download">Ladattu palvelusta: %1$s</string>
     <string name="channel_service">Monitorointi</string>
@@ -374,6 +376,7 @@
     <string name="title_advanced_signature_forward">Käytä allekirjoitusta edelleenlähetettäessä</string>
     <string name="title_advanced_discard_delete">Poista luonnos hylättäessä</string>
     <string name="title_advanced_reply_move">Tallenna vastaus samaan kansioon, kun vastataan viestiin</string>
+    <string name="title_advanced_reply_move_inbox">Myös postilaatikon viesteille</string>
     <string name="title_advanced_auto_link">Luo linkkejä automaattisesti</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_flow">\'format flowed\' muotoilemattomalle tekstille</string>
@@ -390,6 +393,7 @@
     <string name="title_advanced_download_eml">Lataa viestien raakatiedostot</string>
     <string name="title_advanced_download_plain">Lataa oletuksena vain muotoilemattomat tekstit (jos saatavilla)</string>
     <string name="title_advanced_validated">Vaadi vahvistettu (tarkistettu) yhteys</string>
+    <string name="title_advanced_validated_captive">Vaadi vahvistettu portaaliyhteys</string>
     <string name="title_advanced_vpn_only">Yhdistä vain VPN-yhteyden kautta</string>
     <string name="title_advanced_timeout">Yhteyden aikakatkaisu (sekuntia)</string>
     <string name="title_advanced_prefer_ip4">Käytä IPv4:ää ensisijaisesti IPv6:n sijaan</string>
@@ -784,6 +788,7 @@
     <string name="title_account_category">Luokka</string>
     <string name="title_account_name_hint">Käytetään kansioiden tunnistamiseen</string>
     <string name="title_account_interval_hint">Push-viestien tai uusien viestien tarkistuksen aikaväli</string>
+    <string name="title_account_noop_hint">Tämä päivittää yhteyttä useammin, mutta käyttää enemmän akkua</string>
     <string name="title_account_partial_fetch_hint">Kytke tämä pois ainoastaan, jos ilmenee tyhjiä viestejä tai korruptoituneita liitteitä</string>
     <string name="title_color">Väri</string>
     <string name="title_background">Tausta</string>
@@ -824,6 +829,7 @@
     <string name="title_max_messages">Ladattavien viestien maksimimäärä (tyhjä lataa kaikki)</string>
     <string name="title_keep_poll_interval">Kyselyn aikaväli (minuuttia)</string>
     <string name="title_keep_alive_interval">Yhteyden ylläpitokyselyn aikaväli (minuuttia)</string>
+    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">Käynnistä IMAP IDLE uudelleen säännöllisesti</string>
     <string name="title_server_time">Käytä vastaanottoaikaa (palvelin)</string>
     <string name="title_received_header">Käytä \'Received\'-tunnistetta</string>
     <string name="title_date_header">Käytä \'Date\'-tunnistetta (lähetysaika)</string>
@@ -1625,6 +1631,7 @@
     <string name="title_hint_folder_actions">Painamalla pitkään kansiota pääset toimintoihin, kuten kansion lisäämiseen navigointivalikkoon</string>
     <string name="title_hint_folder_sync">Akun ja verkon käytön rajoittamiseksi kaikkia kansioita ja viestejä ei oletusarvoisesti synkronoida</string>
     <string name="title_hint_airplane">Lentokonetila on käytössä</string>
+    <string name="title_hint_notifications">Ei lupaa ilmoituksiin</string>
     <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, käytä tukivalikkoa</string>
     <string name="title_hint_message_actions">Pyyhkäisy vasemmalle siirtää roskakoriin; Pyyhkäisy oikealle arkistoi (kun mahdollista); Pyyhkäisytoimintoja voi muokata tilin asetuksissa</string>
     <string name="title_hint_message_selection">Aloita useamman viestin valinta painamalla viestiä pitkään; Valitse useampi pitkään painamalla ja pyyhkäisemällä ylös tai alas</string>
