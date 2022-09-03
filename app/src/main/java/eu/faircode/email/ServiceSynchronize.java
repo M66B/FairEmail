@@ -1518,7 +1518,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 if (account.protocol != EntityAccount.TYPE_IMAP)
                     iservice.setLeaveOnServer(account.leave_on_server);
 
-                if ("outlook.office365.com".equalsIgnoreCase(account.host)) {
+                if (account.keep_alive_noop) {
                     int timeout = prefs.getInt("timeout", EmailService.DEFAULT_CONNECT_TIMEOUT);
                     iservice.setRestartIdleInterval(timeout * 2 * 6); // 20 x 2 x 6 = 4 min
                 }

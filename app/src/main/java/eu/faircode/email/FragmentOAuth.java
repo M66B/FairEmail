@@ -863,6 +863,7 @@ public class FragmentOAuth extends FragmentBase {
 
                         if (provider.keepalive > 0)
                             account.poll_interval = provider.keepalive;
+                        account.keep_alive_noop = provider.noop;
 
                         account.partial_fetch = provider.partial;
 

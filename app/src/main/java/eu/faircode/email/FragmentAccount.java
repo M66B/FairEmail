@@ -122,6 +122,7 @@ public class FragmentAccount extends FragmentBase {
     private CheckBox cbBrowse;
     private CheckBox cbAutoSeen;
     private EditText etInterval;
+    private CheckBox cbNoop;
     private CheckBox cbPartialFetch;
     private CheckBox cbIgnoreSize;
     private RadioGroup rgDate;
@@ -233,6 +234,7 @@ public class FragmentAccount extends FragmentBase {
         cbBrowse = view.findViewById(R.id.cbBrowse);
         cbAutoSeen = view.findViewById(R.id.cbAutoSeen);
         etInterval = view.findViewById(R.id.etInterval);
+        cbNoop = view.findViewById(R.id.cbNoop);
         cbPartialFetch = view.findViewById(R.id.cbPartialFetch);
         cbIgnoreSize = view.findViewById(R.id.cbIgnoreSize);
         rgDate = view.findViewById(R.id.rgDate);
@@ -313,6 +315,7 @@ public class FragmentAccount extends FragmentBase {
 
                 etName.setText(position > 1 ? provider.name : null);
                 etInterval.setText(provider.keepalive > 0 ? Integer.toString(provider.keepalive) : null);
+                cbNoop.setChecked(provider.noop);
                 cbPartialFetch.setChecked(provider.partial);
 
                 tvSentWarning.setVisibility(View.GONE);
@@ -899,6 +902,7 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("browse", cbBrowse.isChecked());
         args.putBoolean("auto_seen", cbAutoSeen.isChecked());
         args.putString("interval", etInterval.getText().toString());
+        args.putBoolean("noop", cbNoop.isChecked());
         args.putBoolean("partial_fetch", cbPartialFetch.isChecked());
         args.putBoolean("ignore_size", cbIgnoreSize.isChecked());
         args.putBoolean("use_date", rgDate.getCheckedRadioButtonId() == R.id.radio_date_header);
@@ -971,6 +975,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean browse = args.getBoolean("browse");
                 boolean auto_seen = args.getBoolean("auto_seen");
                 String interval = args.getString("interval");
+                boolean noop = args.getBoolean("noop");
                 boolean partial_fetch = args.getBoolean("partial_fetch");
                 boolean ignore_size = args.getBoolean("ignore_size");
                 boolean use_date = args.getBoolean("use_date");
@@ -1074,6 +1079,8 @@ public class FragmentAccount extends FragmentBase {
                     if (!Objects.equals(account.auto_seen, auto_seen))
                         return true;
                     if (!Objects.equals(account.poll_interval, poll_interval))
+                        return true;
+                    if (!Objects.equals(account.keep_alive_noop, noop))
                         return true;
                     if (!Objects.equals(account.partial_fetch, partial_fetch))
                         return true;
@@ -1222,7 +1229,7 @@ public class FragmentAccount extends FragmentBase {
                         account.keep_alive_succeeded = 0;
                     }
                     account.poll_interval = Math.max(1, poll_interval);
-
+                    account.keep_alive_noop = noop;
                     account.partial_fetch = partial_fetch;
                     account.ignore_size = ignore_size;
                     account.use_date = use_date;
@@ -1588,6 +1595,7 @@ public class FragmentAccount extends FragmentBase {
                     cbBrowse.setChecked(account == null ? true : account.browse);
                     cbAutoSeen.setChecked(account == null ? true : account.auto_seen);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
+                    cbNoop.setChecked(account == null ? true : account.keep_alive_noop);
                     cbPartialFetch.setChecked(account == null ? true : account.partial_fetch);
                     cbIgnoreSize.setChecked(account == null ? false : account.ignore_size);
                     cbUnicode.setChecked(account == null ? false : account.unicode);

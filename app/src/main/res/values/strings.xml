@@ -975,6 +975,7 @@
     <string name="title_account_category">Category</string>
     <string name="title_account_name_hint">Used to differentiate folders</string>
     <string name="title_account_interval_hint">Frequency of refreshing the connection for push messages or frequency of checking for new messages</string>
+    <string name="title_account_noop_hint">This will refresh the connection more actively, but also use more battery power</string>
     <string name="title_account_partial_fetch_hint">Disable this only in case of empty messages or corrupt attachments</string>
     <string name="title_color">Color</string>
     <string name="title_background">Background</string>
@@ -1020,6 +1021,7 @@
     <string name="title_max_messages">Maximum number of messages to download (blank for all)</string>
     <string name="title_keep_poll_interval">Poll interval (minutes)</string>
     <string name="title_keep_alive_interval">Keep-alive interval (minutes)</string>
+    <string name="title_keep_alive_noop">Restart IMAP IDLE periodically</string>
     <string name="title_partial_fetch" translatable="false">Partial fetch</string>
     <string name="title_ignore_size" translatable="false">Ignore bodystructure size</string>
     <string name="title_server_time">Use received time (server)</string>
