@@ -217,6 +217,7 @@ public class ApplicationEx extends Application
         if (Helper.hasWebView(this))
             CookieManager.getInstance().setAcceptCookie(false);
 
+        // https://issuetracker.google.com/issues/233525229
         Log.i("Load emoji=" + load_emoji);
         if (!load_emoji)
             try {
