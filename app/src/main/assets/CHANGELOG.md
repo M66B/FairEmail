@@ -4,6 +4,11 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### 1.1963 - 2022-09-03
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1962 - 2022-09-02
 
 * Added workaround for Outlook push messages (IMAP IDLE) bug
