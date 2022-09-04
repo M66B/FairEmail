@@ -461,7 +461,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         ibInfo.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Uri uri = Uri.parse("https://en.wikipedia.org/wiki/WHOIS");
+                                Uri uri = Uri.parse(Whois.WHOIS_INFO);
                                 Helper.view(v.getContext(), uri, true);
                             }
                         });
