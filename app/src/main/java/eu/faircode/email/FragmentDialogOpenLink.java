@@ -365,7 +365,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             @Override
             public void onClick(View view) {
                 Bundle args = new Bundle();
-                args.putParcelable("uri", uri);
+                args.putParcelable("uri", Uri.parse(etLink.getText().toString()));
 
                 new SimpleTask<Pair<InetAddress, IPInfo.Organization>>() {
                     @Override
@@ -422,7 +422,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
-                args.putParcelable("uri", uri);
+                args.putParcelable("uri", Uri.parse(etLink.getText().toString()));
 
                 new SimpleTask<String>() {
                     @Override
