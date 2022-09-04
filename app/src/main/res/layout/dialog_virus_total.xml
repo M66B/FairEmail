@@ -76,7 +76,6 @@
             android:layout_marginStart="12dp"
             android:indeterminate="true"
             app:layout_constraintBottom_toBottomOf="@id/btnUpload"
-            app:layout_constraintBottom_toTopOf="@+id/tvAnalyzing"
             app:layout_constraintStart_toEndOf="@id/btnUpload"
             app:layout_constraintTop_toTopOf="@id/btnUpload" />
 
@@ -97,10 +96,10 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_privacy_policy"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAnalyzing" />
 
@@ -132,10 +131,10 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_vt_report"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvLabel" />
 
