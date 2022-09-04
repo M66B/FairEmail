@@ -23,16 +23,20 @@ import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.Pair;
 import android.webkit.URLUtil;
 
 import androidx.annotation.NonNull;
+import androidx.core.net.MailTo;
 import androidx.core.util.PatternsCompat;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.IDN;
+import java.net.InetAddress;
 import java.net.URLDecoder;
+import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
@@ -420,6 +424,14 @@ public class UriHelper {
         }
 
         return uri;
+    }
+
+    static String getHost(Uri uri) {
+        if ("mailto".equalsIgnoreCase(uri.getScheme())) {
+            MailTo email = MailTo.parse(uri.toString());
+            return getEmailDomain(email.getTo());
+        } else
+            return uri.getHost();
     }
 
     static void test(Context context) {
