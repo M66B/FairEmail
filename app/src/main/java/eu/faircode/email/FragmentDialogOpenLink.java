@@ -78,6 +78,7 @@ import androidx.preference.PreferenceManager;
 
 import java.net.IDN;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -93,6 +94,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     private TextView tvOwnerRemark;
     private TextView tvHost;
     private TextView tvOwner;
+    private Button btnWhois;
     private Group grpOwner;
     private Button btnSettings;
     private Button btnDefault;
@@ -185,6 +187,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         tvHost = dview.findViewById(R.id.tvHost);
         tvOwner = dview.findViewById(R.id.tvOwner);
         grpOwner = dview.findViewById(R.id.grpOwner);
+        btnWhois = dview.findViewById(R.id.btnWhois);
         btnSettings = dview.findViewById(R.id.btnSettings);
         btnDefault = dview.findViewById(R.id.btnDefault);
         tvReset = dview.findViewById(R.id.tvReset);
@@ -393,6 +396,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                     protected void onExecuted(Bundle args, Pair<InetAddress, IPInfo.Organization> data) {
                         tvHost.setText(data.first.toString());
                         tvOwner.setText(data.second.name == null ? "?" : data.second.name);
+
                         ApplicationEx.getMainHandler().post(new Runnable() {
                             @Override
                             public void run() {
@@ -413,6 +417,46 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         });
 
         tvOwnerRemark.setMovementMethod(LinkMovementMethod.getInstance());
+
+        btnWhois.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putParcelable("uri", uri);
+
+                new SimpleTask<String>() {
+                    @Override
+                    protected String onExecute(Context context, Bundle args) throws Throwable {
+                        Uri uri = args.getParcelable("uri");
+                        String host = UriHelper.getRootDomain(context, UriHelper.getHost(uri));
+                        if (TextUtils.isEmpty(host))
+                            throw new UnknownHostException("Host unknown " + uri);
+                        args.putString("host", host);
+                        return Whois.get(host);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, String whois) {
+                        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_whois, null);
+                        final TextView tvHost = dview.findViewById(R.id.tvHost);
+                        final TextView tvWhois = dview.findViewById(R.id.tvWhois);
+
+                        tvHost.setText(args.getString("host"));
+                        tvWhois.setText(whois);
+
+                        new AlertDialog.Builder(getContext())
+                                .setView(dview)
+                                .setPositiveButton(android.R.string.ok, null)
+                                .show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentDialogOpenLink.this, args, "link:whois");
+            }
+        });
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -679,6 +723,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         pbWait.setVisibility(View.GONE);
         tvOwnerRemark.setVisibility(show ? View.VISIBLE : View.GONE);
         grpOwner.setVisibility(View.GONE);
+        btnWhois.setVisibility(show && !BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
         btnSettings.setVisibility(show ? View.VISIBLE : View.GONE);
         btnDefault.setVisibility(show && n ? View.VISIBLE : View.GONE);
         tvReset.setVisibility(show ? View.VISIBLE : View.GONE);

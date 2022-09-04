@@ -1926,6 +1926,7 @@
     <string name="title_check_owner">Check owner</string>
     <string name="title_remark_owner">Information will be retrieved from <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Owner IP address</string>
+    <string name="title_whois" translatable="false">Whois</string>
     <string name="title_default_apps">Default apps</string>
     <string name="title_reset_open">Set or clear default apps</string>
     <string name="title_select_app">Select app</string>
