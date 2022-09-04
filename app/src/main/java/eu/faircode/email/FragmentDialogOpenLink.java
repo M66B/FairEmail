@@ -454,8 +454,17 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_whois, null);
                         final TextView tvHost = dview.findViewById(R.id.tvHost);
                         final TextView tvWhois = dview.findViewById(R.id.tvWhois);
+                        final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
 
                         tvWhois.setMovementMethod(LinkMovementMethod.getInstance());
+
+                        ibInfo.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Uri uri = Uri.parse("https://en.wikipedia.org/wiki/WHOIS");
+                                Helper.view(v.getContext(), uri, true);
+                            }
+                        });
 
                         tvHost.setText(args.getString("host"));
                         tvWhois.setText(whois);
