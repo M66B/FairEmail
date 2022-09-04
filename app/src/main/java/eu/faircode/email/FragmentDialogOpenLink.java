@@ -455,6 +455,8 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         final TextView tvHost = dview.findViewById(R.id.tvHost);
                         final TextView tvWhois = dview.findViewById(R.id.tvWhois);
 
+                        tvWhois.setMovementMethod(LinkMovementMethod.getInstance());
+
                         tvHost.setText(args.getString("host"));
                         tvWhois.setText(whois);
 
