@@ -95,6 +95,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     private TextView tvHost;
     private TextView tvOwner;
     private Button btnWhois;
+    private ContentLoadingProgressBar pbWhois;
     private Group grpOwner;
     private Button btnSettings;
     private Button btnDefault;
@@ -188,6 +189,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         tvOwner = dview.findViewById(R.id.tvOwner);
         grpOwner = dview.findViewById(R.id.grpOwner);
         btnWhois = dview.findViewById(R.id.btnWhois);
+        pbWhois = dview.findViewById(R.id.pbWhois);
         btnSettings = dview.findViewById(R.id.btnSettings);
         btnDefault = dview.findViewById(R.id.btnDefault);
         tvReset = dview.findViewById(R.id.tvReset);
@@ -425,6 +427,18 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 args.putParcelable("uri", Uri.parse(etLink.getText().toString()));
 
                 new SimpleTask<String>() {
+                    @Override
+                    protected void onPreExecute(Bundle args) {
+                        btnWhois.setEnabled(false);
+                        pbWhois.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Bundle args) {
+                        btnWhois.setEnabled(true);
+                        pbWhois.setVisibility(View.GONE);
+                    }
+
                     @Override
                     protected String onExecute(Context context, Bundle args) throws Throwable {
                         Uri uri = args.getParcelable("uri");
@@ -724,6 +738,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         tvOwnerRemark.setVisibility(show ? View.VISIBLE : View.GONE);
         grpOwner.setVisibility(View.GONE);
         btnWhois.setVisibility(show && !BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
+        pbWhois.setVisibility(View.GONE);
         btnSettings.setVisibility(show ? View.VISIBLE : View.GONE);
         btnDefault.setVisibility(show && n ? View.VISIBLE : View.GONE);
         tvReset.setVisibility(show ? View.VISIBLE : View.GONE);
