@@ -21,13 +21,13 @@ package eu.faircode.email;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class Whois {
-    private static final String WHOIS_HOST = "whois.internic.net";
     private static final int WHOIS_PORT = 43;
 
     static String get(String domain) throws IOException {
-        return get(domain, WHOIS_HOST, WHOIS_PORT);
+        return get(domain, getServer(domain), WHOIS_PORT);
     }
 
     static String get(String domain, String host) throws IOException {
@@ -37,7 +37,16 @@ public class Whois {
     static String get(String domain, String host, int port) throws IOException {
         try (Socket socket = new Socket(host, port)) {
             socket.getOutputStream().write((domain + "\n").getBytes());
-            return Helper.readStream(socket.getInputStream());
+            return host + ":" + port + "\n" + Helper.readStream(socket.getInputStream());
         }
+    }
+
+    private static String getServer(String domain) throws IOException {
+        String who = get(domain, "whois.iana.org");
+        for (String w : who.split("\\r?\\n"))
+            if (w.startsWith("whois:"))
+                return w.substring(6).trim();
+        Log.w(who);
+        throw new UnknownHostException("whois server unknown " + domain);
     }
 }
