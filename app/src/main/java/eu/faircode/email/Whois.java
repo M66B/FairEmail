@@ -20,11 +20,13 @@ package eu.faircode.email;
 */
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class Whois {
     private static final int WHOIS_PORT = 43;
+    private static final int WHOIS_TIMEOUT = 15 * 1000; // milliseconds
 
     static String get(String domain) throws IOException {
         return get(domain, getServer(domain), WHOIS_PORT);
@@ -35,9 +37,13 @@ public class Whois {
     }
 
     static String get(String domain, String host, int port) throws IOException {
-        try (Socket socket = new Socket(host, port)) {
+        Socket socket = new Socket();
+        socket.connect(new InetSocketAddress(host, port), WHOIS_TIMEOUT);
+        try {
             socket.getOutputStream().write((domain + "\n").getBytes());
             return host + ":" + port + "\n" + Helper.readStream(socket.getInputStream());
+        } finally {
+            socket.close();
         }
     }
 
