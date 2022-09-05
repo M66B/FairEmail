@@ -4,6 +4,12 @@
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
+### 1.1964 - 2022-09-05
+
+* Added 'whois' to open link dialog options
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1963 - 2022-09-03
 
 * Small improvements and minor bug fixes
