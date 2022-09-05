@@ -814,6 +814,7 @@
     <string name="title_account_category">Kategorija</string>
     <string name="title_account_name_hint">Uporablja se za razlikovanje map.</string>
     <string name="title_account_interval_hint">Pogostost osveževanja povezave za potisna sporočila ali preverjanja za nova sporočila.</string>
+    <string name="title_account_noop_hint">To bo dejavneje osveževalo povezavo, vendar tudi porabilo več energije.</string>
     <string name="title_account_partial_fetch_hint">Onemogočite to samo v primeru praznih sporočil ali okvarjenih prilog.</string>
     <string name="title_color">Barva</string>
     <string name="title_background">Ozadje</string>
@@ -854,6 +855,7 @@
     <string name="title_max_messages">Največje število prejetih sporočil (prazno za vse)</string>
     <string name="title_keep_poll_interval">Razmik med poizvedbami (min.)</string>
     <string name="title_keep_alive_interval">Razmik med osvežitvami (min.)</string>
+    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">Občasno ponovno zaženi IMAP IDLE</string>
     <string name="title_server_time">Uporabi čas prejema (strežnik)</string>
     <string name="title_received_header">Uporabi glavo \'Prejeto\'</string>
     <string name="title_date_header">Uporabi glavo \'Datum\' (datum pošiljanja)</string>

@@ -776,6 +776,7 @@
     <string name="title_account_category">类别</string>
     <string name="title_account_name_hint">用于区分文件夹</string>
     <string name="title_account_interval_hint">刷新连接推送消息的频率或检查新消息的频率</string>
+    <string name="title_account_noop_hint">这将更加主动地刷新连接，但也会消耗更多电量</string>
     <string name="title_account_partial_fetch_hint">仅在空消息或损坏的附件时禁用此功能</string>
     <string name="title_color">颜色</string>
     <string name="title_background">背景</string>
@@ -816,6 +817,7 @@
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
     <string name="title_keep_poll_interval">轮询间隔(分钟)</string>
     <string name="title_keep_alive_interval">保活间隔（分钟）</string>
+    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">定期重启 IMAP IDLE</string>
     <string name="title_server_time">使用接收时间 (服务器)</string>
     <string name="title_received_header">使用“已接收”标头</string>
     <string name="title_date_header">使用“日期”标头 (发送时间)</string>

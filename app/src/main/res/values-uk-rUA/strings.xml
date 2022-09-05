@@ -34,8 +34,8 @@
     </plurals>
     <plurals name="page_message">
         <item quantity="one">Повідомлення</item>
-        <item quantity="few">Повідомлень</item>
-        <item quantity="many">Повідомлень</item>
+        <item quantity="few">Повідомлення</item>
+        <item quantity="many">Повідомлення</item>
         <item quantity="other">Повідомлення</item>
     </plurals>
     <string name="page_folders">Теки</string>
@@ -815,6 +815,7 @@
     <string name="title_account_category">Категорія</string>
     <string name="title_account_name_hint">Використовується для диференціювання тек</string>
     <string name="title_account_interval_hint">Частота оновлення з\'єднання для push-повідомлень або частота перевірки на нові повідомлення</string>
+    <string name="title_account_noop_hint">Це буде оновлювати підключення активніше, але також буде використовувати більше заряду акумулятора</string>
     <string name="title_account_partial_fetch_hint">Вимкнути це лише у випадку пустих повідомлень або пошкоджених вкладень</string>
     <string name="title_color">Колір</string>
     <string name="title_background">Тло</string>
@@ -855,6 +856,7 @@
     <string name="title_max_messages">Максимальна кількість повідомлень для завантаження (якщо порожньо то всі)</string>
     <string name="title_keep_poll_interval">Інтервал опитування (хвилини)</string>
     <string name="title_keep_alive_interval">Інтервал підтримування каналу (хв.)</string>
+    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">Періодично перезапускати IDLE IMAP</string>
     <string name="title_server_time">Використовувати отриманий час (сервер)</string>
     <string name="title_received_header">Використовувати заголовок \'Received\'</string>
     <string name="title_date_header">Використовувати заголовок \'Date\' (час відправлення)</string>

@@ -9,6 +9,8 @@
     <string name="app_continue">להמשיך בכל זאת</string>
     <string name="app_exit">יש ‚לחזור’ שוב אחורה כדי לצאת</string>
     <string name="app_cake">לא נותר די שטח אחסון</string>
+    <string name="app_cake_remaining">המקום הפנוי שנותר במכשיר: %1$s</string>
+    <string name="app_cake_required">נפח האחסון המזערי הנחוץ: %1$s</string>
     <string name="app_updated">עדכון אחרון: %1$s</string>
     <string name="app_download">מקור ההורדה: %1$s</string>
     <string name="channel_service">מעקב</string>
@@ -418,6 +420,7 @@
     <string name="title_advanced_download_eml">הורדת קובצי הודעה גולמיים</string>
     <string name="title_advanced_download_plain">להוריד רק חלקים בטקסט פשוט כברירת מחדל (אם זמינים)</string>
     <string name="title_advanced_validated">דורש חיבור מאומת (שנבדק)</string>
+    <string name="title_advanced_validated_captive">דורש חיבור מאומת לשער גישה לוכד</string>
     <string name="title_advanced_vpn_only">התחברות רק דרך VPN</string>
     <string name="title_advanced_timeout">זמן קצוב לחיבור (בשניות)</string>
     <string name="title_advanced_prefer_ip4">להעדיף IPv4 על פני IPv6</string>
@@ -813,6 +816,7 @@
     <string name="title_account_category">קטגוריה</string>
     <string name="title_account_name_hint">משמש להבדלי בין צבעים</string>
     <string name="title_account_interval_hint">תדירות רענון החיבור להודעות בדחיפה או תדירות בדיקת הודעות חדשות</string>
+    <string name="title_account_noop_hint">הגדרה זו תרענן את החיבור בצורה יותר פעילה אך גם תצרוך יותר סוללה</string>
     <string name="title_account_partial_fetch_hint">יש להשבית את זה רק במקרה של הודעות ריקות או קבצים מצורפים פגומים</string>
     <string name="title_color">צבע</string>
     <string name="title_background">רקע</string>
@@ -853,6 +857,7 @@
     <string name="title_max_messages">מספר ההודעות המרבי להורדה (ריק בשביל כולן)</string>
     <string name="title_keep_poll_interval">משך תשאול (דקות)</string>
     <string name="title_keep_alive_interval">הפרשים בין Keep-alive (דקות)</string>
+    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">הפעלת IMAP IDLE מחדש באופן תדיר</string>
     <string name="title_server_time">להשתמש בזמן קבלה (שרת)</string>
     <string name="title_received_header">להשתמש בכותרת ‚קבלה’</string>
     <string name="title_date_header">להשתמש בכותרת ‚תאריך’ (זמן השליחה)</string>

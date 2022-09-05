@@ -406,6 +406,7 @@
     <string name="title_advanced_download_eml">Descărcați fișiere cu mesaje brute</string>
     <string name="title_advanced_download_plain">Descărcați în mod implicit numai părți de text simplu (dacă sunt disponibile)</string>
     <string name="title_advanced_validated">Necesită o conexiune validată (verificată)</string>
+    <string name="title_advanced_validated_captive">Necesită o conexiune validată la portalul captiv</string>
     <string name="title_advanced_vpn_only">Conectați-vă numai prin intermediul unui VPN</string>
     <string name="title_advanced_timeout">Expirarea conexiunii (secunde)</string>
     <string name="title_advanced_prefer_ip4">Preferă IPv4 înaintea IPv6</string>
@@ -801,6 +802,7 @@
     <string name="title_account_category">Categorie</string>
     <string name="title_account_name_hint">Folosit la diferențierea dosarelor</string>
     <string name="title_account_interval_hint">Frecvența de actualizare a conexiunii pentru mesaje push sau frecventa de verificare de mesaje noi</string>
+    <string name="title_account_noop_hint">Acest lucru va reîmprospăta conexiunea mai activ, dar va consuma mai multă energie din baterie</string>
     <string name="title_account_partial_fetch_hint">Dezactivați numai pentru mesaje goale sau atașamente corupte</string>
     <string name="title_color">Culoare</string>
     <string name="title_background">Fundal</string>
@@ -841,6 +843,7 @@
     <string name="title_max_messages">Numărul maxim de mesaje de descărcat (liber pentru toate)</string>
     <string name="title_keep_poll_interval">Interval verificare (minute)</string>
     <string name="title_keep_alive_interval">Interval menținere conexiune (minute)</string>
+    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">Reporniți periodic IMAP IDLE</string>
     <string name="title_server_time">Utilizează ora primită (server)</string>
     <string name="title_received_header">Folosește antetul \"Primit\"</string>
     <string name="title_date_header">Folosește antetul \'Dată\' (ora trimisă)</string>

@@ -192,6 +192,7 @@
     <string name="title_recommended">موصى به</string>
     <string name="title_account_linked">الحساب المرتبط</string>
     <string name="title_account_name">اسم الحساب</string>
+    <string name="title_account_noop_hint">سيؤدي هذا إلى تحديث الاتصال بشكل أكثر نشاطاً، ولكن يؤدي لاستهلاك أكثر من طاقة البطارية</string>
     <string name="title_color">اللون</string>
     <string name="title_account_left">مرر يسارا</string>
     <string name="title_account_right">مرر يمينا</string>
@@ -206,6 +207,7 @@
     <string name="title_password">الكلمة السرية</string>
     <string name="title_primary_account">الرئيسي (الحساب الافتراضي)</string>
     <string name="title_primary_identity">الرئيسية (الهوية الافتراضية)</string>
+    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">إعادة تشغيل IMAP IDLE بشكل دوري</string>
     <string name="title_check">تحقق</string>
     <string name="title_no_name">الاسم مفقود</string>
     <string name="title_no_email">عنوان البريد الإلكتروني مفقود</string>
