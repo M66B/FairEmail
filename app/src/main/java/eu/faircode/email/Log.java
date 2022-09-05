@@ -53,6 +53,7 @@ import android.os.Bundle;
 import android.os.DeadObjectException;
 import android.os.DeadSystemException;
 import android.os.Debug;
+import android.os.Environment;
 import android.os.IBinder;
 import android.os.LocaleList;
 import android.os.OperationCanceledException;
@@ -2775,8 +2776,9 @@ public class Log {
                 if (ai != null)
                     size += write(os, String.format("Source: %s\r\n public: %s\r\n",
                             ai.sourceDir, ai.publicSourceDir));
-                size += write(os, String.format("Files: %s\r\n  external: %s\r\n",
-                        context.getFilesDir(), context.getExternalFilesDir(null)));
+                size += write(os, String.format("Files: %s\r\n  external: %s\r\n  storage: %s\r\n",
+                        context.getFilesDir(), context.getExternalFilesDir(null),
+                        Environment.getExternalStorageDirectory()));
                 size += write(os, String.format("Cache: %s\r\n  external: %s\n",
                         context.getCacheDir(), context.getExternalCacheDir()));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
