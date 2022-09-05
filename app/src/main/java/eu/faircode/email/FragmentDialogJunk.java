@@ -101,6 +101,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         boolean block_sender = prefs.getBoolean("block_sender", true);
         boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
         boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
+        boolean junk_hint = prefs.getBoolean("junk_hint", true);
 
         boolean canBlock = false;
         if (froms != null && froms.length > 0) {
@@ -110,10 +111,13 @@ public class FragmentDialogJunk extends FragmentDialogBase {
 
         // Wire controls
 
+        tvJunkHint.setVisibility(junk_hint ? View.VISIBLE : View.GONE);
         tvJunkHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 92);
+                prefs.edit().putBoolean("junk_hint", false).apply();
+                tvJunkHint.setVisibility(View.GONE);
             }
         });
 
