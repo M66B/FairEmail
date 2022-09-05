@@ -48,7 +48,7 @@ public class Whois {
             byte[] request = (domain + "\r\n").getBytes(StandardCharsets.ISO_8859_1);
             socket.getOutputStream().write(request);
             String response = Helper.readStream(socket.getInputStream(), StandardCharsets.ISO_8859_1);
-            return host + ":" + port + "\n" + response;
+            return host + ":" + port + "\n\n" + response;
         } finally {
             socket.close();
         }
