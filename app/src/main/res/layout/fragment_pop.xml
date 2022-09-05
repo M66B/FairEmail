@@ -226,10 +226,10 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_password_storage"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCaseSensitive" />
 
@@ -484,6 +484,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvIntervalRemark" />
 
+        <CheckBox
+            android:id="@+id/cbVpnOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_vpn_only"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbUnmeteredOnly" />
+
         <TextView
             android:id="@+id/tvLeft"
             android:layout_width="wrap_content"
@@ -492,7 +501,7 @@
             android:text="@string/title_account_left"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cbUnmeteredOnly" />
+            app:layout_constraintTop_toBottomOf="@+id/cbVpnOnly" />
 
         <Spinner
             android:id="@+id/spLeft"

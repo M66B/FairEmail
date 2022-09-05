@@ -98,6 +98,7 @@ public class FragmentPop extends FragmentBase {
     private EditText etMax;
     private EditText etInterval;
     private CheckBox cbUnmetered;
+    private CheckBox cbVpnOnly;
 
     private ArrayAdapter<EntityFolder> adapterSwipe;
     private Spinner spLeft;
@@ -165,6 +166,7 @@ public class FragmentPop extends FragmentBase {
         etMax = view.findViewById(R.id.etMax);
         etInterval = view.findViewById(R.id.etInterval);
         cbUnmetered = view.findViewById(R.id.cbUnmeteredOnly);
+        cbVpnOnly = view.findViewById(R.id.cbVpnOnly);
 
         spLeft = view.findViewById(R.id.spLeft);
         spRight = view.findViewById(R.id.spRight);
@@ -332,6 +334,7 @@ public class FragmentPop extends FragmentBase {
         args.putString("max", etMax.getText().toString());
         args.putString("interval", etInterval.getText().toString());
         args.putBoolean("unmetered", cbUnmetered.isChecked());
+        args.putBoolean("vpn_only", cbVpnOnly.isChecked());
 
         args.putLong("left", ((EntityFolder) spLeft.getSelectedItem()).id);
         args.putLong("right", ((EntityFolder) spRight.getSelectedItem()).id);
@@ -384,6 +387,7 @@ public class FragmentPop extends FragmentBase {
                 String max = args.getString("max");
                 String interval = args.getString("interval");
                 boolean unmetered = args.getBoolean("unmetered");
+                boolean vpn_only = args.getBoolean("vpn_only");
 
                 long left = args.getLong("left");
                 long right = args.getLong("right");
@@ -476,6 +480,8 @@ public class FragmentPop extends FragmentBase {
                         return true;
                     if (unmetered != jconditions.optBoolean("unmetered"))
                         return true;
+                    if (vpn_only != jconditions.optBoolean("vpn_only"))
+                        return true;
 
                     if (!Objects.equals(account.swipe_left, left))
                         return true;
@@ -557,6 +563,7 @@ public class FragmentPop extends FragmentBase {
                     account.poll_interval = poll_interval;
 
                     jconditions.put("unmetered", unmetered);
+                    jconditions.put("vpn_only", vpn_only);
                     account.conditions = jconditions.toString();
 
                     account.swipe_left = left;
@@ -755,6 +762,7 @@ public class FragmentPop extends FragmentBase {
 
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
                     cbUnmetered.setChecked(jcondition.optBoolean("unmetered"));
+                    cbVpnOnly.setChecked(jcondition.optBoolean("vpn_only"));
                     cbIdentity.setChecked(account == null);
 
                     List<EntityFolder> folders = getSwipeActions();

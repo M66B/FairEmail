@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 
@@ -61,13 +62,15 @@ public class TupleAccountNetworkState {
             this.enabled = false;
     }
 
-    public boolean canConnect() {
+    public boolean canConnect(Context context) {
         boolean unmetered = jconditions.optBoolean("unmetered");
-        return (!unmetered || this.networkState.isUnmetered());
+        boolean vpn_only = jconditions.optBoolean("vpn_only");
+        return (!unmetered || this.networkState.isUnmetered()) &&
+                (!vpn_only || ConnectionHelper.vpnActive(context));
     }
 
-    public boolean canRun() {
-        if (!canConnect())
+    public boolean canRun(Context context) {
+        if (!canConnect(context))
             return false;
 
         return (this.networkState.isSuitable() && this.accountState.shouldRun(enabled));

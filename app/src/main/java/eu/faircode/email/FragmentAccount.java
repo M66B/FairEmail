@@ -128,6 +128,7 @@ public class FragmentAccount extends FragmentBase {
     private RadioGroup rgDate;
     private CheckBox cbUnicode;
     private CheckBox cbUnmetered;
+    private CheckBox cbVpnOnly;
 
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
@@ -240,6 +241,7 @@ public class FragmentAccount extends FragmentBase {
         rgDate = view.findViewById(R.id.rgDate);
         cbUnicode = view.findViewById(R.id.cbUnicode);
         cbUnmetered = view.findViewById(R.id.cbUnmeteredOnly);
+        cbVpnOnly = view.findViewById(R.id.cbVpnOnly);
 
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -909,6 +911,7 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("use_received", rgDate.getCheckedRadioButtonId() == R.id.radio_received_header);
         args.putBoolean("unicode", cbUnicode.isChecked());
         args.putBoolean("unmetered", cbUnmetered.isChecked());
+        args.putBoolean("vpn_only", cbVpnOnly.isChecked());
 
         args.putSerializable("drafts", drafts);
         args.putSerializable("sent", sent);
@@ -982,6 +985,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean use_received = args.getBoolean("use_received");
                 boolean unicode = args.getBoolean("unicode");
                 boolean unmetered = args.getBoolean("unmetered");
+                boolean vpn_only = args.getBoolean("vpn_only");
 
                 EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
                 EntityFolder sent = (EntityFolder) args.getSerializable("sent");
@@ -1093,6 +1097,8 @@ public class FragmentAccount extends FragmentBase {
                     if (!Objects.equals(account.unicode, unicode))
                         return true;
                     if (unmetered != jconditions.optBoolean("unmetered"))
+                        return true;
+                    if (vpn_only != jconditions.optBoolean("vpn_only"))
                         return true;
                     if (account.error != null && account.synchronize)
                         return true;
@@ -1238,6 +1244,7 @@ public class FragmentAccount extends FragmentBase {
                     account.unicode = unicode;
 
                     jconditions.put("unmetered", unmetered);
+                    jconditions.put("vpn_only", vpn_only);
                     account.conditions = jconditions.toString();
 
                     if (!update)
@@ -1600,6 +1607,7 @@ public class FragmentAccount extends FragmentBase {
                     cbIgnoreSize.setChecked(account == null ? false : account.ignore_size);
                     cbUnicode.setChecked(account == null ? false : account.unicode);
                     cbUnmetered.setChecked(jcondition.optBoolean("unmetered"));
+                    cbVpnOnly.setChecked(jcondition.optBoolean("vpn_only"));
 
                     if (account != null && account.use_date)
                         rgDate.check(R.id.radio_date_header);

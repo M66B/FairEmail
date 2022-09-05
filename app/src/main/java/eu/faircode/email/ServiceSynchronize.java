@@ -297,7 +297,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                         if (current.accountState.synchronize)
                             operations += current.accountState.operations;
-                        if (current.accountState.operations > 0 && current.canConnect())
+                        if (current.accountState.operations > 0 && current.canConnect(ServiceSynchronize.this))
                             runFts = false;
 
                         long account = current.command.getLong("account", -1);
@@ -313,11 +313,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                         int index = accountStates.indexOf(current);
                         if (index < 0) {
-                            if (current.canRun()) {
+                            if (current.canRun(ServiceSynchronize.this)) {
                                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                                         "### new " + current +
                                                 " force=" + force +
-                                                " start=" + current.canRun() +
+                                                " start=" + current.canRun(ServiceSynchronize.this) +
                                                 " sync=" + current.accountState.isEnabled(current.enabled) +
                                                 " enabled=" + current.accountState.synchronize +
                                                 " ondemand=" + current.accountState.ondemand +
@@ -347,15 +347,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             // Some networks disallow email server connections:
                             // - reload on network type change when disconnected
                             if (reload ||
-                                    prev.canRun() != current.canRun() ||
+                                    prev.canRun(ServiceSynchronize.this) != current.canRun(ServiceSynchronize.this) ||
                                     !prev.accountState.equals(current.accountState)) {
-                                if (prev.canRun() || current.canRun())
+                                if (prev.canRun(ServiceSynchronize.this) || current.canRun(ServiceSynchronize.this))
                                     EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                                             "### changed " + current +
                                                     " reload=" + reload +
                                                     " force=" + force +
-                                                    " stop=" + prev.canRun() +
-                                                    " start=" + current.canRun() +
+                                                    " stop=" + prev.canRun(ServiceSynchronize.this) +
+                                                    " start=" + current.canRun(ServiceSynchronize.this) +
                                                     " sync=" + sync +
                                                     " enabled=" + current.accountState.isEnabled(current.enabled) +
                                                     " should=" + current.accountState.shouldRun(current.enabled) +
@@ -367,15 +367,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     " tbd=" + current.accountState.tbd +
                                                     " state=" + current.accountState.state +
                                                     " active=" + prev.networkState.getActive() + "/" + current.networkState.getActive());
-                                if (prev.canRun()) {
+                                if (prev.canRun(ServiceSynchronize.this)) {
                                     event = true;
                                     stop(prev);
                                 }
-                                if (current.canRun()) {
+                                if (current.canRun(ServiceSynchronize.this)) {
                                     event = true;
                                     start(current, current.accountState.isEnabled(current.enabled) || sync, force);
                                 }
-                            } else if (current.canRun() && !state.isAlive()) {
+                            } else if (current.canRun(ServiceSynchronize.this) && !state.isAlive()) {
                                 Log.e(current + " died");
                                 EntityLog.log(ServiceSynchronize.this, "### died " + current);
                                 event = true;
