@@ -3,22 +3,22 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md)
 
-If you have a question, please check the following frequently asked questions first.
-[At the bottom](#user-content-get-support),
+&#x1F1EC;&#x1F1E7; If you have a question, please check the following frequently asked questions first.
+[At the bottom](#user-content-quick-support),
 you can find out how to ask other questions, request features, and report bugs.
 You will receive an answer in your own language.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen.
-[Unten](#user-content-get-support) erfahren Sie, wie Sie andere Fragen stellen, Funktionen anfordern und Fehler melden können.
+&#x1F1E9;&#x1F1EA; Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen.
+[Unten](#user-content-quick-support) erfahren Sie, wie Sie andere Fragen stellen, Funktionen anfordern und Fehler melden können.
 Sie erhalten eine Antwort in Ihrer eigenen Sprache.
 
-Si vous avez une question, veuillez d'abord vérifier les questions fréquemment posées suivantes.
-[En bas](#user-content-get-support), vous pouvez découvrir comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
+&#x1F1EB;&#x1F1F7; Si vous avez une question, veuillez d'abord vérifier les questions fréquemment posées suivantes.
+[En bas](#user-content-quick-support), vous pouvez découvrir comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
 Vous recevrez une réponse dans votre propre langue.
 
 ## Tutorials
 
-Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for tutorials.
+Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for tutorials &#x1F4D6;.
 
 ## Index
 
@@ -4952,11 +4952,19 @@ This is also to keep maintenance and support in the long term feasible.
 
 Note that there are already more features and options in FairEmail than in any other Android email client.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+<a name="quick-support"></a>
 
-Wenn Sie eine Frage haben, eine Funktion anfordern oder einen Fehler melden möchten, **verwenden Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport)**.
+<br />
 
-Si vous avez une question, souhaitez demander une fonctionnalité ou signaler un bogue, **veuillez utiliser [ce formulaire](https://contact.faircode.eu/?product=fairemailsupport)**.
+&#x1F6DF; &#x1F6DF; &#x1F6DF; &#x1F6DF; &#x1F6DF;
+
+&#x1F1EC;&#x1F1E7; If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+
+&#x1F1E9;&#x1F1EA; Wenn Sie eine Frage haben, eine Funktion anfordern oder einen Fehler melden möchten, **verwenden Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport)**.
+
+&#x1F1EB;&#x1F1F7; Si vous avez une question, souhaitez demander une fonctionnalité ou signaler un bogue, **veuillez utiliser [ce formulaire](https://contact.faircode.eu/?product=fairemailsupport)**.
+
+<br />
 
 GitHub issues are disabled due to frequent misusage.
 
