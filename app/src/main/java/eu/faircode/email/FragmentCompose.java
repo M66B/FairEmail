@@ -332,14 +332,13 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_IMAGE_FILE = 6;
     private static final int REQUEST_ATTACHMENT = 7;
     private static final int REQUEST_TAKE_PHOTO = 8;
-    private static final int REQUEST_CAPTURE_VIDEO = 9;
-    private static final int REQUEST_RECORD_AUDIO = 10;
-    private static final int REQUEST_OPENPGP = 11;
-    private static final int REQUEST_CONTACT_GROUP = 12;
-    private static final int REQUEST_LINK = 13;
-    private static final int REQUEST_DISCARD = 14;
-    private static final int REQUEST_SEND = 15;
-    private static final int REQUEST_REMOVE_ATTACHMENTS = 16;
+    private static final int REQUEST_RECORD_AUDIO = 9;
+    private static final int REQUEST_OPENPGP = 10;
+    private static final int REQUEST_CONTACT_GROUP = 11;
+    private static final int REQUEST_LINK = 12;
+    private static final int REQUEST_DISCARD = 13;
+    private static final int REQUEST_SEND = 14;
+    private static final int REQUEST_REMOVE_ATTACHMENTS = 15;
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "compose");
 
@@ -1861,16 +1860,6 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
-        View photo = media_bar.findViewById(R.id.menu_take_photo);
-        if (photo != null)
-            photo.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    onActionVideo(v.getContext());
-                    return true;
-                }
-            });
-
         View image = media_bar.findViewById(R.id.menu_image);
         if (image != null)
             image.setOnLongClickListener(new View.OnLongClickListener() {
@@ -2622,29 +2611,6 @@ public class FragmentCompose extends FragmentBase {
             onAddImage(photo);
     }
 
-    private void onActionVideo(Context context) {
-        Long limit = null;
-        EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
-        if (identity != null && identity.max_size != null) {
-            limit = 80 * identity.max_size / 100;
-            Log.i("Video size limit=" + Helper.humanReadableByteCount(limit));
-        }
-
-        File dir = new File(context.getFilesDir(), "video");
-        if (!dir.exists())
-            dir.mkdir();
-        File file = new File(dir, working + ".mp4");
-        Uri videoUri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-
-        // https://developer.android.com/reference/android/provider/MediaStore#ACTION_VIDEO_CAPTURE
-        Intent capture = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-        capture.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
-        if (limit != null)
-            capture.putExtra(MediaStore.EXTRA_SIZE_LIMIT, limit);
-        capture.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0); // 0=low, 1=high
-        startActivityForResult(capture, REQUEST_CAPTURE_VIDEO);
-    }
-
     private void onActionAttachment() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -2855,7 +2821,6 @@ public class FragmentCompose extends FragmentBase {
                             onAddImageFile(Arrays.asList(photoURI));
                     }
                     break;
-                case REQUEST_CAPTURE_VIDEO:
                 case REQUEST_ATTACHMENT:
                 case REQUEST_RECORD_AUDIO:
                     if (resultCode == RESULT_OK && data != null)
@@ -4444,8 +4409,7 @@ public class FragmentCompose extends FragmentBase {
 
             if (BuildConfig.APPLICATION_ID.equals(uri.getAuthority()) &&
                     uri.getPathSegments().size() > 0 &&
-                    ("photo".equals(uri.getPathSegments().get(0)) ||
-                            "video".equals(uri.getPathSegments().get(0)))) {
+                    "photo".equals(uri.getPathSegments().get(0))) {
                 // content://eu.faircode.email/photo/nnn.jpg
                 File tmp = new File(context.getFilesDir(), uri.getPath());
                 Log.i("Deleting " + tmp);

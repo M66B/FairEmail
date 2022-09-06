@@ -212,7 +212,6 @@ public class WorkerCleanup extends Worker {
             File[] references = new File(context.getFilesDir(), "references").listFiles();
             File[] encryption = new File(context.getFilesDir(), "encryption").listFiles();
             File[] photos = new File(context.getFilesDir(), "photo").listFiles();
-            File[] videos = new File(context.getFilesDir(), "video").listFiles();
             File[] calendars = new File(context.getFilesDir(), "calendar").listFiles();
 
             if (messages != null)
@@ -225,8 +224,6 @@ public class WorkerCleanup extends Worker {
                 files.addAll(Arrays.asList(encryption));
             if (photos != null)
                 files.addAll(Arrays.asList(photos));
-            if (videos != null)
-                files.addAll(Arrays.asList(videos));
             if (calendars != null)
                 files.addAll(Arrays.asList(calendars));
 
