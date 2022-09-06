@@ -1910,6 +1910,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuRulesFolder(Bundle args) {
+        args.putInt("icon", R.drawable.twotone_filter_alt_24);
         args.putString("title", getString(R.string.title_edit_rules));
         args.putLongArray("disabled", new long[0]);
 

@@ -450,6 +450,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
                 private void onActionMove() {
                     Bundle args = new Bundle();
+                    args.putInt("icon", R.drawable.twotone_drive_file_move_24);
                     args.putString("title", context.getString(R.string.title_move_to_folder));
                     args.putLong("account", rule.account);
                     args.putLongArray("disabled", new long[]{rule.folder});

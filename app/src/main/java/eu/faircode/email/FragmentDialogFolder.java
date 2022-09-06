@@ -65,6 +65,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         Bundle aargs = getArguments();
+        final int icon = aargs.getInt("icon", R.drawable.twotone_folder_open_24);
         final String title = aargs.getString("title");
         final long account = aargs.getLong("account");
         final long[] disabled = aargs.getLongArray("disabled");
@@ -336,7 +337,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         }.execute(this, args, "folder:select");
 
         return new AlertDialog.Builder(context)
-                .setIcon(R.drawable.twotone_folder_open_24)
+                .setIcon(icon)
                 .setTitle(title)
                 .setView(dview)
                 .setNegativeButton(android.R.string.cancel, null)

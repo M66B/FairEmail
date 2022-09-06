@@ -5435,6 +5435,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return;
 
             Bundle args = new Bundle();
+            args.putInt("icon", copy ? R.drawable.twotone_file_copy_24 : R.drawable.twotone_drive_file_move_24);
             args.putString("title", context.getString(copy ? R.string.title_copy_to : R.string.title_move_to_folder));
             args.putLong("account", account);
             args.putLongArray("disabled", disabled);
