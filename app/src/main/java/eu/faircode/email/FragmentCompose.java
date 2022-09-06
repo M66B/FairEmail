@@ -341,8 +341,6 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_SEND = 15;
     private static final int REQUEST_REMOVE_ATTACHMENTS = 16;
 
-    private static final int VIDEO_CAPTURE_TIME_LIMIT = 30; // seconds
-
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "compose");
 
     @Override
@@ -2625,6 +2623,13 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onActionVideo(Context context) {
+        Long limit = null;
+        EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
+        if (identity != null && identity.max_size != null) {
+            limit = 80 * identity.max_size / 100;
+            Log.i("Video size limit=" + Helper.humanReadableByteCount(limit));
+        }
+
         File dir = new File(context.getFilesDir(), "video");
         if (!dir.exists())
             dir.mkdir();
@@ -2632,10 +2637,11 @@ public class FragmentCompose extends FragmentBase {
         Uri videoUri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
 
         // https://developer.android.com/reference/android/provider/MediaStore#ACTION_VIDEO_CAPTURE
-        Intent capture = new Intent(MediaStore.ACTION_VIDEO_CAPTURE)
-                .putExtra(MediaStore.EXTRA_OUTPUT, videoUri)
-                .putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0) // 0=low; 1=high
-                .putExtra(MediaStore.EXTRA_DURATION_LIMIT, VIDEO_CAPTURE_TIME_LIMIT);
+        Intent capture = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        capture.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
+        if (limit != null)
+            capture.putExtra(MediaStore.EXTRA_SIZE_LIMIT, limit);
+        capture.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0); // 0=low, 1=high
         startActivityForResult(capture, REQUEST_CAPTURE_VIDEO);
     }
 
