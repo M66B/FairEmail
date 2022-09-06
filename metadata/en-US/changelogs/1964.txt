@@ -2,6 +2,12 @@ Changelog
 
 --------------------
 
+Mei long
+
+* Added an advanced account option to use a VPN only
+* Small improvements and minor bug fixes
+* Updated translations
+
 Ledumahadi
 
 1.1964 - 2022-09-05

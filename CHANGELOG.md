@@ -2,6 +2,12 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
+
+* Added an advanced account option to use a VPN only
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
 
 ### 1.1964 - 2022-09-05
