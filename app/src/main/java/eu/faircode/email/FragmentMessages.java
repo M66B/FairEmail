@@ -2812,7 +2812,11 @@ public class FragmentMessages extends FragmentBase
                 actionType = null;
             }
 
-            Log.i("Swiped dir=" + direction + " message=" + message.id);
+            Log.i("Swiped dir=" + direction +
+                    " action=" + action +
+                    " type=" + actionType +
+                    " message=" + message.id +
+                    " folder=" + message.folderType);
 
             if (EntityMessage.SWIPE_ACTION_ASK.equals(action)) {
                 adapter.notifyItemChanged(pos);
