@@ -16,6 +16,9 @@
         name="photo"
         path="photo" />
     <files-path
+        name="video"
+        path="video" />
+    <files-path
         name="calendar"
         path="calendar" />
     <files-path
