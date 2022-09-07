@@ -520,7 +520,8 @@ public class FragmentMessages extends FragmentBase
             setTitle(server ? R.string.title_search_server : R.string.title_search_device);
         }
 
-        if (viewType != AdapterMessage.ViewType.THREAD && EntityFolder.ARCHIVE.equals(type))
+        if (viewType != AdapterMessage.ViewType.THREAD &&
+                (EntityFolder.ARCHIVE.equals(type) || viewType == AdapterMessage.ViewType.SEARCH))
             filter_archive = false;
 
         try {
