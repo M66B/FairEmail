@@ -79,68 +79,16 @@ public class ActivityError extends ActivityBase {
         tvMessage.setMovementMethod(LinkMovementMethod.getInstance());
         tvMessage.setText(message);
 
-        boolean outlook = (auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH &&
-                ("office365".equals(provider) || "outlook".equals(provider)));
-        btnPassword.setVisibility(outlook && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        btnPassword.setVisibility(account < 0 ? View.GONE : View.VISIBLE);
         btnPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle args = new Bundle();
-                args.putLong("id", account);
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) throws Throwable {
-                        long id = args.getLong("id");
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            EntityAccount account = db.account().getAccount(id);
-                            if (account == null)
-                                return null;
-
-                            if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH &&
-                                    ("office365".equals(account.provider) ||
-                                            "outlook".equals(account.provider))) {
-                                account.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
-                                account.password = "";
-                                db.account().updateAccount(account);
-
-                                List<EntityIdentity> identities = db.identity().getIdentities(account.id);
-                                if (identities != null)
-                                    for (EntityIdentity identity : identities)
-                                        if (identity.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH) {
-                                            identity.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
-                                            identity.password = "";
-                                            db.identity().updateIdentity(identity);
-                                        }
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        startActivity(new Intent(ActivityError.this, ActivitySetup.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                                .putExtra("target", "accounts")
-                                .putExtra("id", account)
-                                .putExtra("protocol", protocol));
-                        finish();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getSupportFragmentManager(), ex);
-                    }
-                }.execute(ActivityError.this, args, "error:password");
+                startActivity(new Intent(ActivityError.this, ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .putExtra("target", "accounts")
+                        .putExtra("id", account)
+                        .putExtra("protocol", protocol));
+                finish();
             }
         });
 
