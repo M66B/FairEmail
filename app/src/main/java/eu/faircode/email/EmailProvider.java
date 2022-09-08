@@ -356,8 +356,7 @@ public class EmailProvider implements Parcelable {
                 for (String d : provider.domain)
                     if (domain.toLowerCase(Locale.ROOT).matches(d)) {
                         EntityLog.log(context, "Provider from domain=" + domain + " (" + d + ")");
-                        if (!BuildConfig.DEBUG)
-                            return Arrays.asList(provider);
+                        return Arrays.asList(provider);
                     }
 
         List<EmailProvider> candidates =

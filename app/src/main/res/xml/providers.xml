@@ -1300,6 +1300,36 @@
         <!-- Unusual, but no STARTTLS at port 587 -->
     </provider>
     <provider
+        name="Spectrum"
+        appPassword="true"
+        domain="brighthouse\\.com,bak\\.rr\\.com,bham\\.rr\\.com,cfl\\.rr\\.com,emore\\.rr\\.com,eufala\\.rr\\.com,indy\\.rr\\.com,mi\\.rr\\.com,panhandle\\.rr\\.com,tampabay\\.rr\\.com"
+        link="https://www.spectrum.net/support/internet/spectrum-email-server-settings/">
+        <imap
+            host="mail.brighthouse.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.brighthouse.com"
+            port="587"
+            starttls="false" />
+        <!-- Unusual, but no STARTTLS at port 587 -->
+    </provider>
+    <provider
+        name="TWC"
+        appPassword="true"
+        domain=".*\\.rr\\.com"
+        link="https://www.spectrum.net/support/internet/spectrum-email-server-settings/">
+        <imap
+            host="mail.twc.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.twc.com"
+            port="587"
+            starttls="false" />
+        <!-- Unusual, but no STARTTLS at port 587 -->
+    </provider>
+    <provider
         name="Tin.it"
         domain="tim\\.it"
         link="https://assistenzatecnica.tim.it/at/portals/mini.portal?_nfpb=true&amp;_pageLabel=null&amp;nodeId=/AT_REPOSITORY/302010&amp;radice=help_virgilio">
