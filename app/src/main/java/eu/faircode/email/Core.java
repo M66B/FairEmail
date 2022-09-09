@@ -5036,7 +5036,7 @@ class Core {
         }
 
         // Auto disable partial fetch
-        if (account.partial_fetch) {
+        if (account.partial_fetch && false) {
             account.partial_fetch = false;
             DB db = DB.getInstance(context);
             db.account().setAccountPartialFetch(account.id, account.partial_fetch);
