@@ -504,7 +504,7 @@ public class MessageClassifier {
         if (backup.exists())
             file = backup;
         try {
-            _load(file);
+            _load(context, file);
         } catch (Throwable ex) {
             Log.e(ex);
             file.delete();
@@ -512,7 +512,7 @@ public class MessageClassifier {
         }
     }
 
-    private static synchronized void _load(File file) throws IOException {
+    private static synchronized void _load(Context context, File file) throws IOException {
         Log.i("Classifier read " + file);
         long start = new Date().getTime();
         if (file.exists())
@@ -650,7 +650,13 @@ public class MessageClassifier {
         dirty = false;
 
         long elapsed = new Date().getTime() - start;
-        Log.i("Classifier data loaded elapsed=" + elapsed);
+        EntityLog.log(context, "Classifier data loaded elapsed=" + elapsed);
+        for (long account : classMessages.keySet())
+            EntityLog.log(context, "Messages account=" + account + " classes=" + classMessages.get(account).size());
+        for (long account : wordClassFrequency.keySet())
+            EntityLog.log(context, "Words account=" + account + " words=" + wordClassFrequency.get(account).size());
+        for (long account : accountMsgIds.keySet())
+            EntityLog.log(context, "Classified account=" + account + " ids=" + accountMsgIds.get(account).size());
     }
 
     static synchronized void cleanup(@NonNull Context context) {
