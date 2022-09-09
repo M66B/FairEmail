@@ -174,6 +174,37 @@ public class Log {
     private static final int MAX_CRASH_REPORTS = (BuildConfig.TEST_RELEASE ? 50 : 5);
     private static final String TAG = "fairemail";
 
+    // https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html
+    // https://docs.oracle.com/javase/8/docs/api/java/net/doc-files/net-properties.html
+    private static final List<String> NETWORK_PROPS = Collections.unmodifiableList(Arrays.asList(
+            "java.net.preferIPv4Stack",
+            "java.net.preferIPv6Addresses",
+            "http.proxyHost",
+            "http.proxyPort",
+            "http.nonProxyHosts",
+            "https.proxyHost",
+            "https.proxyPort",
+            //"ftp.proxyHost",
+            //"ftp.proxyPort",
+            //"ftp.nonProxyHosts",
+            "socksProxyHost",
+            "socksProxyPort",
+            "socksProxyVersion",
+            "java.net.socks.username",
+            //"java.net.socks.password",
+            "http.agent",
+            "http.keepalive",
+            "http.maxConnections",
+            "http.maxRedirects",
+            "http.auth.digest.validateServer",
+            "http.auth.digest.validateProxy",
+            "http.auth.digest.cnonceRepeat",
+            "http.auth.ntlm.domain",
+            "jdk.https.negotiate.cbt",
+            "networkaddress.cache.ttl",
+            "networkaddress.cache.negative.ttl"
+    ));
+
     static final String TOKEN_REFRESH_REQUIRED =
             "Token refresh required. Is there a VPN based app running?";
 
@@ -2770,6 +2801,10 @@ public class Log {
                 } catch (Throwable ex) {
                     size += write(os, String.format("%s\r\n", ex));
                 }
+                size += write(os, "\r\n");
+
+                for (String prop : NETWORK_PROPS)
+                    size += write(os, prop + "=" + System.getProperty(prop) + "\r\n");
                 size += write(os, "\r\n");
 
                 ApplicationInfo ai = context.getApplicationInfo();
