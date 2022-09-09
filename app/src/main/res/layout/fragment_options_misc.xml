@@ -1736,6 +1736,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swTestIab" />
 
+                <Button
+                    android:id="@+id/btnExportClassifier"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_export_classifier"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnImportProviders" />
+
                 <TextView
                     android:id="@+id/tvProcessors"
                     android:layout_width="0dp"
@@ -1745,7 +1755,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnImportProviders" />
+                    app:layout_constraintTop_toBottomOf="@id/btnExportClassifier" />
 
                 <TextView
                     android:id="@+id/tvMemoryClass"

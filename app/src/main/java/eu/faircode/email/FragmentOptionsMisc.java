@@ -19,9 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -79,7 +81,10 @@ import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.nio.charset.Charset;
 import java.text.NumberFormat;
@@ -203,6 +208,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private EditText etKeywords;
     private SwitchCompat swTestIab;
     private Button btnImportProviders;
+    private Button btnExportClassifier;
     private TextView tvProcessors;
     private TextView tvMemoryClass;
     private TextView tvMemoryUsage;
@@ -229,7 +235,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
-    private final static long MIN_FILE_SIZE = 1024 * 1024L;
+    private static final int REQUEST_CLASSIFIER = 1;
+    private static final long MIN_FILE_SIZE = 1024 * 1024L;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "sort_answers", "shortcuts", "fts",
@@ -405,6 +412,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         etKeywords = view.findViewById(R.id.etKeywords);
         swTestIab = view.findViewById(R.id.swTestIab);
         btnImportProviders = view.findViewById(R.id.btnImportProviders);
+        btnExportClassifier = view.findViewById(R.id.btnExportClassifier);
         tvProcessors = view.findViewById(R.id.tvProcessors);
         tvMemoryClass = view.findViewById(R.id.tvMemoryClass);
         tvMemoryUsage = view.findViewById(R.id.tvMemoryUsage);
@@ -1433,6 +1441,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        btnExportClassifier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onExportClassifier(v.getContext());
+            }
+        });
+
         btnGC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1811,6 +1826,22 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     public void onDestroyView() {
         PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
         super.onDestroyView();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_CLASSIFIER:
+                    if (resultCode == Activity.RESULT_OK && data != null)
+                        onHandleExportClassifier(data);
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     @Override
@@ -2274,6 +2305,48 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 tvPermissions.setText(ex.toString());
             }
         }.execute(this, new Bundle(), "permissions");
+    }
+
+    private void onExportClassifier(Context context) {
+        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_TITLE, "classifier.json");
+        Helper.openAdvanced(intent);
+        startActivityForResult(intent, REQUEST_CLASSIFIER);
+    }
+
+    private void onHandleExportClassifier(Intent intent) {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", intent.getData());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+
+                ContentResolver resolver = context.getContentResolver();
+                File file = MessageClassifier.getFile(context, false);
+                try (OutputStream os = resolver.openOutputStream(uri)) {
+                    try (InputStream is = new FileInputStream(file)) {
+                        Helper.copy(is, os);
+                    }
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ToastEx.makeText(getContext(), R.string.title_setup_exported, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "classifier");
     }
 
     private static class StorageData {
