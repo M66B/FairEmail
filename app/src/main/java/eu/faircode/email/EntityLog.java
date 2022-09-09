@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Debug;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -119,6 +120,13 @@ public class EntityLog {
         boolean main_log = prefs.getBoolean("main_log", true);
         if (!main_log)
             return;
+
+        boolean main_log_memory = prefs.getBoolean("main_log_memory", false);
+        if (main_log_memory) {
+            long j = Log.getAvailableMb() - Log.getFreeMemMb();
+            long n = Debug.getNativeHeapSize() / 1024L / 1024L;
+            data = j + "/" + n + " " + data;
+        }
 
         final EntityLog entry = new EntityLog();
         entry.time = new Date().getTime();

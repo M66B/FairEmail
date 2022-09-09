@@ -146,6 +146,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExperiments;
     private TextView tvExperimentsHint;
     private SwitchCompat swMainLog;
+    private SwitchCompat swMainLogMem;
     private SwitchCompat swProtocol;
     private SwitchCompat swLogInfo;
     private SwitchCompat swDebug;
@@ -236,7 +237,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "language", "lt_enabled", "deepl_enabled", "vt_enabled", "vt_apikey", "send_enabled", "send_host",
             "updates", "weekly", "show_changelog",
             "crash_reports", "cleanup_attachments",
-            "watchdog", "experiments", "main_log", "protocol", "log_level", "debug", "leak_canary",
+            "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
             "test1", "test2", "test3", "test4", "test5",
             "work_manager", // "external_storage",
             "query_threads",
@@ -347,6 +348,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExperiments = view.findViewById(R.id.swExperiments);
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
         swMainLog = view.findViewById(R.id.swMainLog);
+        swMainLogMem = view.findViewById(R.id.swMainLogMem);
         swProtocol = view.findViewById(R.id.swProtocol);
         swLogInfo = view.findViewById(R.id.swLogInfo);
         swDebug = view.findViewById(R.id.swDebug);
@@ -847,6 +849,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("main_log", checked).apply();
+                swMainLogMem.setEnabled(checked);
+            }
+        });
+
+        swMainLogMem.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("main_log_memory", checked).apply();
             }
         });
 
@@ -1971,6 +1981,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swMainLog.setChecked(prefs.getBoolean("main_log", true));
+        swMainLogMem.setChecked(prefs.getBoolean("main_log_memory", false));
+        swMainLogMem.setEnabled(swMainLog.isChecked());
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
         swLogInfo.setChecked(prefs.getInt("log_level", Log.getDefaultLogLevel()) <= android.util.Log.INFO);
         swDebug.setChecked(prefs.getBoolean("debug", false));
