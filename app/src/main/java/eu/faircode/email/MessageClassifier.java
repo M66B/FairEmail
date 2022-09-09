@@ -504,7 +504,7 @@ public class MessageClassifier {
         if (backup.exists())
             file = backup;
         try {
-            _load(context, file);
+            _load(file);
         } catch (Throwable ex) {
             Log.e(ex);
             file.delete();
@@ -512,7 +512,7 @@ public class MessageClassifier {
         }
     }
 
-    private static synchronized void _load(Context context, File file) throws IOException {
+    private static synchronized void _load(File file) throws IOException {
         Log.i("Classifier read " + file);
         long start = new Date().getTime();
         if (file.exists())
@@ -650,13 +650,42 @@ public class MessageClassifier {
         dirty = false;
 
         long elapsed = new Date().getTime() - start;
-        EntityLog.log(context, "Classifier data loaded elapsed=" + elapsed);
-        for (long account : classMessages.keySet())
-            EntityLog.log(context, "Messages account=" + account + " classes=" + classMessages.get(account).size());
-        for (long account : wordClassFrequency.keySet())
-            EntityLog.log(context, "Words account=" + account + " words=" + wordClassFrequency.get(account).size());
-        for (long account : accountMsgIds.keySet())
-            EntityLog.log(context, "Classified account=" + account + " ids=" + accountMsgIds.get(account).size());
+        Log.i("Classifier data loaded elapsed=" + elapsed);
+
+        for (long account : wordClassFrequency.keySet()) {
+            Map<String, Long> total = new HashMap<>();
+            Map<String, Integer> count = new HashMap<>();
+
+            for (String word : wordClassFrequency.get(account).keySet())
+                for (String clazz : wordClassFrequency.get(account).get(word).keySet()) {
+                    int f = wordClassFrequency.get(account).get(word).get(clazz).count;
+
+                    if (!total.containsKey(clazz))
+                        total.put(clazz, 0L);
+                    total.put(clazz, total.get(clazz) + f);
+
+                    if (!count.containsKey(clazz))
+                        count.put(clazz, 0);
+                    count.put(clazz, count.get(clazz) + 1);
+                }
+
+            for (String word : wordClassFrequency.get(account).keySet())
+                for (String clazz : new ArrayList<>(wordClassFrequency.get(account).get(word).keySet())) {
+                    int freq = wordClassFrequency.get(account).get(word).get(clazz).count;
+                    long avg = total.get(clazz) / count.get(clazz);
+                    if (freq < avg / 2) {
+                        Log.i("Classifier dropping account=" + account +
+                                " word=" + word + " class=" + clazz + " freq=" + freq + " avg=" + avg);
+                        wordClassFrequency.get(account).get(word).remove(clazz);
+                    }
+                }
+
+            // Source 47 MB
+            // avg/1 = 21.3
+            // avg/2 = 25.5
+            // avg/3 = 29.0
+            // avg/5 = 34.6
+        }
     }
 
     static synchronized void cleanup(@NonNull Context context) {
