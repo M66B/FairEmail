@@ -392,6 +392,7 @@
     <string name="title_advanced_download_eml">Rohnachrichtendateien herunterladen</string>
     <string name="title_advanced_download_plain">Standardmäßig nur Textteile herunterladen (falls verfügbar)</string>
     <string name="title_advanced_validated">Erfordert eine validierte (geprüfte) Verbindung</string>
+    <string name="title_advanced_validated_captive">Erfordert eine geprüfte Captive-Portal-Verbindung</string>
     <string name="title_advanced_vpn_only">Nur über ein VPN verbinden</string>
     <string name="title_advanced_timeout">Zeitüberschreitung der Verbindung (Sekunden)</string>
     <string name="title_advanced_prefer_ip4">IPv4 gegenüber IPv6 bevorzugen</string>
@@ -654,6 +655,7 @@
     <string name="title_advanced_app">Android-App-Einstellungen</string>
     <string name="title_advanced_more">Weitere Optionen</string>
     <string name="title_advanced_main_log">Hauptprotokollierung</string>
+    <string name="title_advanced_main_log_mem">Speichernutzung protokollieren</string>
     <string name="title_advanced_protocol">Protokollaufzeichnung</string>
     <string name="title_advanced_log_info">Fehlerprotokollierung</string>
     <string name="title_advanced_debug">Fehlersuchmodus</string>
@@ -828,7 +830,7 @@
     <string name="title_max_messages">Maximale Anzahl der Nachrichten zum Herunterladen (leer für alle)</string>
     <string name="title_keep_poll_interval">Abrufintervall (Minuten)</string>
     <string name="title_keep_alive_interval">Aktivitätsintervall (Minuten)</string>
-    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">IMAP IDLE periodisch neu starten</string>
+    <string name="title_keep_alive_noop">IMAP IDLE periodisch neu starten</string>
     <string name="title_server_time">Empfangzeit verwenden (Server)</string>
     <string name="title_received_header">Received-Kopfzeile verwenden</string>
     <string name="title_date_header">Date-Kopfzeile verwenden (Sendezeit)</string>

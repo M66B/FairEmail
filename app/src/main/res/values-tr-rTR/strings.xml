@@ -829,7 +829,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_max_messages">İndirilecek mesajların maksimum sayısı (hepsi için boş)</string>
     <string name="title_keep_poll_interval">Anket aralığı (dakika)</string>
     <string name="title_keep_alive_interval">Canlı tutma aralığı (dakika)</string>
-    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">IMAP IDLE\'ı periyodik olarak yeniden başlat</string>
+    <string name="title_keep_alive_noop">IMAP IDLE\'ı periyodik olarak yeniden başlat</string>
     <string name="title_server_time">Alınan zamanı kullan (sunucu)</string>
     <string name="title_received_header">\'Recieved\' başlığını kullan</string>
     <string name="title_date_header">\'Date\' başlığını kullan (gönderme zamanı)</string>

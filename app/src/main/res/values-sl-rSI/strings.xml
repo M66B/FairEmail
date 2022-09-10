@@ -681,6 +681,7 @@
     <string name="title_advanced_app">Nastavitve programa</string>
     <string name="title_advanced_more">Več možnosti</string>
     <string name="title_advanced_main_log">Glavno beleženje</string>
+    <string name="title_advanced_main_log_mem">Beleži porabo pomnilnika</string>
     <string name="title_advanced_protocol">Beleženje protokolov</string>
     <string name="title_advanced_log_info">Razhroščevalno beleženje</string>
     <string name="title_advanced_debug">Razhroščevalni način</string>
@@ -855,7 +856,7 @@
     <string name="title_max_messages">Največje število prejetih sporočil (prazno za vse)</string>
     <string name="title_keep_poll_interval">Razmik med poizvedbami (min.)</string>
     <string name="title_keep_alive_interval">Razmik med osvežitvami (min.)</string>
-    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">Občasno ponovno zaženi IMAP IDLE</string>
+    <string name="title_keep_alive_noop">Občasno ponovno zaženi IMAP IDLE</string>
     <string name="title_server_time">Uporabi čas prejema (strežnik)</string>
     <string name="title_received_header">Uporabi glavo \'Prejeto\'</string>
     <string name="title_date_header">Uporabi glavo \'Datum\' (datum pošiljanja)</string>

@@ -682,6 +682,7 @@
     <string name="title_advanced_app">Nastavení aplikace</string>
     <string name="title_advanced_more">Více možností</string>
     <string name="title_advanced_main_log">Hlavní logování</string>
+    <string name="title_advanced_main_log_mem">Využití paměti protokolu</string>
     <string name="title_advanced_protocol">Protokolovat protokoly</string>
     <string name="title_advanced_log_info">Protokolování při ladění</string>
     <string name="title_advanced_debug">Režim ladění</string>
@@ -815,6 +816,7 @@
     <string name="title_account_category">Kategorie</string>
     <string name="title_account_name_hint">Použito k odlišení složek</string>
     <string name="title_account_interval_hint">Četnost obnovy spojení pro okamžité zprávy nebo četnost kontroly nových zpráv</string>
+    <string name="title_account_noop_hint">Tímto se připojení bude obnovovat aktivněji, ale sníží se výdrž baterie</string>
     <string name="title_account_partial_fetch_hint">Vypnout pouze v případě prázdných zpráv nebo poškozených příloh</string>
     <string name="title_color">Barva</string>
     <string name="title_background">Pozadí</string>
@@ -855,6 +857,7 @@
     <string name="title_max_messages">Maximální počet zpráv ke stažení (prázdné pro všechny)</string>
     <string name="title_keep_poll_interval">Interval dotazování (minuty)</string>
     <string name="title_keep_alive_interval">Interval udržování spojení (minuty)</string>
+    <string name="title_keep_alive_noop">Restartovat IMAP IDLE periodicky</string>
     <string name="title_server_time">Použít čas přijetí (server)</string>
     <string name="title_received_header">Použít hlavičku „přijato“</string>
     <string name="title_date_header">Použít hlavičku „datum“ (čas odeslání)</string>

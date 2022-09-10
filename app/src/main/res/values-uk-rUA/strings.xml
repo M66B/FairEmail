@@ -682,6 +682,7 @@
     <string name="title_advanced_app">Налаштування додатка</string>
     <string name="title_advanced_more">Інші параметри</string>
     <string name="title_advanced_main_log">Основне журналювання</string>
+    <string name="title_advanced_main_log_mem">Вести журнал використання пам\'яті</string>
     <string name="title_advanced_protocol">Журналювання протоколів</string>
     <string name="title_advanced_log_info">Журнал налагодження</string>
     <string name="title_advanced_debug">Режим зневадження</string>
@@ -856,7 +857,7 @@
     <string name="title_max_messages">Максимальна кількість повідомлень для завантаження (якщо порожньо то всі)</string>
     <string name="title_keep_poll_interval">Інтервал опитування (хвилини)</string>
     <string name="title_keep_alive_interval">Інтервал підтримування каналу (хв.)</string>
-    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">Періодично перезапускати IDLE IMAP</string>
+    <string name="title_keep_alive_noop">Періодично перезапускати IDLE IMAP</string>
     <string name="title_server_time">Використовувати отриманий час (сервер)</string>
     <string name="title_received_header">Використовувати заголовок \'Received\'</string>
     <string name="title_date_header">Використовувати заголовок \'Date\' (час відправлення)</string>

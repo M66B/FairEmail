@@ -857,7 +857,7 @@
     <string name="title_max_messages">Максимальное количество загружаемых сообщений (пусто для всех)</string>
     <string name="title_keep_poll_interval">Интервал опроса (мин.)</string>
     <string name="title_keep_alive_interval">Интервал поддержания активности (мин.)</string>
-    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">Периодически перезапускать IMAP IDLE</string>
+    <string name="title_keep_alive_noop">Периодически перезапускать IMAP IDLE</string>
     <string name="title_server_time">Использовать время получения (сервер)</string>
     <string name="title_received_header">Использовать заголовок \"Received\"</string>
     <string name="title_date_header">Использовать заголовок \"Date\" (время отправки)</string>

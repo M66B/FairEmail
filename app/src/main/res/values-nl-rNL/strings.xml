@@ -655,6 +655,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_app">App instellingen</string>
     <string name="title_advanced_more">Meer opties</string>
     <string name="title_advanced_main_log">Hoofdlog</string>
+    <string name="title_advanced_main_log_mem">Log geheugengebruik</string>
     <string name="title_advanced_protocol">Protocol logging</string>
     <string name="title_advanced_log_info">Debug logging</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
@@ -829,7 +830,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_max_messages">Maximum aantal berichten om te downloaden (leeg voor allen)</string>
     <string name="title_keep_poll_interval">Poll interval (minuten)</string>
     <string name="title_keep_alive_interval">Keep-alive interval (minuten)</string>
-    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">Herstart IMAP IDLE periodiek</string>
+    <string name="title_keep_alive_noop">Herstart IMAP IDLE periodiek</string>
     <string name="title_server_time">Gebruik ontvangsttijd (server)</string>
     <string name="title_received_header">Gebruik de kop \'Received\'</string>
     <string name="title_date_header">Gebruik de kop \'Date\' (verzonden tijd)</string>

@@ -393,6 +393,7 @@
     <string name="title_advanced_download_eml">Descargar archivos de mensajes sin procesar</string>
     <string name="title_advanced_download_plain">Descargar sólo partes de texto plano por defecto (si está disponible)</string>
     <string name="title_advanced_validated">Requerir una conexión validada (comprobada)</string>
+    <string name="title_advanced_validated_captive">Requiere una conexión de portal cautivo validada</string>
     <string name="title_advanced_vpn_only">Conectar sólo a través de una VPN</string>
     <string name="title_advanced_timeout">Tiempo de espera de conexión (segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 sobre IPv6</string>
@@ -788,6 +789,7 @@
     <string name="title_account_category">Categoría</string>
     <string name="title_account_name_hint">Usado para diferenciar carpetas</string>
     <string name="title_account_interval_hint">Frecuencia de actualizar la conexión para mensajes push o frecuencia de comprobación de nuevos mensajes</string>
+    <string name="title_account_noop_hint">Esto actualizará la conexión más activamente, pero también usará más batería</string>
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
     <string name="title_color">Color</string>
     <string name="title_background">Fondo</string>
@@ -828,6 +830,7 @@
     <string name="title_max_messages">Número máximo de mensajes a descargar (en blanco para descargar todos)</string>
     <string name="title_keep_poll_interval">Intervalo de espera (minutos)</string>
     <string name="title_keep_alive_interval">Intervalo de keep-alive (minutos)</string>
+    <string name="title_keep_alive_noop">Reiniciar IMAP IDLE periódicamente</string>
     <string name="title_server_time">Usar hora de recepción (servidor)</string>
     <string name="title_received_header">Usar encabezado \'Received\'</string>
     <string name="title_date_header">Usar encabezado \'Date\' (fecha de envío)</string>

@@ -394,6 +394,7 @@
     <string name="title_advanced_download_eml">Xam mesaj fayllarını endir</string>
     <string name="title_advanced_download_plain">Ilkin olaraq yalnız düz mətn hissələrini endir (əgər varsa)</string>
     <string name="title_advanced_validated">Təsdiqlənmiş (yoxlanılmış) bir bağlantı tələb et</string>
+    <string name="title_advanced_validated_captive">Təsdiqlənmiş bir sabit portal bağlantısı tələb et</string>
     <string name="title_advanced_vpn_only">Yalnız VPN vasitəsilə bağlantı qurun</string>
     <string name="title_advanced_timeout">Bağlantı bitmə vaxtı (saniyə)</string>
     <string name="title_advanced_prefer_ip4">IPv6 əvəzinə IPv4 tərcih et</string>
@@ -656,6 +657,7 @@
     <string name="title_advanced_app">Tətbiq tənzimləmələri</string>
     <string name="title_advanced_more">Daha çox seçim</string>
     <string name="title_advanced_main_log">Əsas jurnal qeydi</string>
+    <string name="title_advanced_main_log_mem">Yaddaş istifadəsini qeyd et</string>
     <string name="title_advanced_protocol">Protokol jurnalı</string>
     <string name="title_advanced_log_info">Sazlama jurnalı</string>
     <string name="title_advanced_debug">Sazlama rejimi</string>
@@ -789,6 +791,7 @@
     <string name="title_account_category">Kateqoriya</string>
     <string name="title_account_name_hint">Qovluqları fərqləndirmək üçün istifadə edilir</string>
     <string name="title_account_interval_hint">Ani mesajlar üçün bağlantını təzələmə tezliyi və ya yeni mesajların yoxlanış tezliyi</string>
+    <string name="title_account_noop_hint">Bu, bağlantını daha aktiv şəkildə təzələyəcək, ancaq daha çox batareya istifadəsinə səbəb olacaq</string>
     <string name="title_account_partial_fetch_hint">Bunu yalnız boş mesajlar və ya zədəli qoşmalar olduğu halda sıradan çıxardın</string>
     <string name="title_color">Rəng</string>
     <string name="title_background">Arxaplan</string>
@@ -829,6 +832,7 @@
     <string name="title_max_messages">Endiriləcək mesajların maksimum sayı (hamısı üçün boş)</string>
     <string name="title_keep_poll_interval">Anket aralığı (dəqiqə)</string>
     <string name="title_keep_alive_interval">Canlı saxlama aralığı (dəqiqə)</string>
+    <string name="title_keep_alive_noop">IMAP IDLE-i vaxtaşırı yenidən başlat</string>
     <string name="title_server_time">Alınan vaxtı istifadə et (server)</string>
     <string name="title_received_header">\"Alındı\" başlığı istifadə et</string>
     <string name="title_date_header">\"Tarix\" başlığı istifadə et (göndərilən vaxt)</string>

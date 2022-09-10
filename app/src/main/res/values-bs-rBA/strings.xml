@@ -9,6 +9,8 @@
     <string name="app_continue">Želite nastaviti</string>
     <string name="app_exit">Ponovo pritisnite \'nazad\' za izlaz</string>
     <string name="app_cake">Nedovoljno prostora za pohranu</string>
+    <string name="app_cake_remaining">Preostali prostor za skladištenje na uređaju: %1$s</string>
+    <string name="app_cake_required">Minimalno zahtijevani skladišni prostor: %1$s</string>
     <string name="app_updated">Posljednje ažuriranje: %1$s</string>
     <string name="app_download">Preuzeto sa: %1$s</string>
     <string name="channel_service">Monitoring</string>
@@ -405,6 +407,7 @@
     <string name="title_advanced_download_eml">Preuzmi datoteke izvornih poruka</string>
     <string name="title_advanced_download_plain">Preuzmi samo dijelove poruke sa običnim tekstom (ako je dostupan)</string>
     <string name="title_advanced_validated">Zahtijevaj provjerenu (validnu) konekciju</string>
+    <string name="title_advanced_validated_captive">Zathijevaj provjerenu Captive portal konekciju</string>
     <string name="title_advanced_vpn_only">Poveži se samo putem VPN-a</string>
     <string name="title_advanced_timeout">Konekcija na isteku (sekunde)</string>
     <string name="title_advanced_prefer_ip4">Preferiraj IPv4 preko IPv6</string>
@@ -800,6 +803,7 @@
     <string name="title_account_category">Kategorija</string>
     <string name="title_account_name_hint">Koristi se za raspoznavanje foldera</string>
     <string name="title_account_interval_hint">Učestalost osvježavanja konekcije zbog trenutnih obavještenja ili učestalost provjeravanja novih poruka</string>
+    <string name="title_account_noop_hint">Ovo će aktivnije osvježavati konekciju, ali i trošiti više baterije</string>
     <string name="title_account_partial_fetch_hint">Isključite ovu opciju u slučaju praznih poruka ili nevaljanih priloga</string>
     <string name="title_color">Boja</string>
     <string name="title_background">Pozadina</string>
@@ -840,6 +844,7 @@
     <string name="title_max_messages">Maksimalan broj poruka za preuzimanje (prazno za sve)</string>
     <string name="title_keep_poll_interval">Interval odaziva (minute)</string>
     <string name="title_keep_alive_interval">Interval provjere konekcije (minute)</string>
+    <string name="title_keep_alive_noop">Povremeno restartuj IMAP IDLE</string>
     <string name="title_server_time">Koristi vrijeme prijema (serversko)</string>
     <string name="title_received_header">Koristi zaglavlje za \'primljeno\'</string>
     <string name="title_date_header">Koristi zaglavlje za \'datum\' (vrijeme slanja)</string>

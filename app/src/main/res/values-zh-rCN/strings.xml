@@ -643,6 +643,7 @@
     <string name="title_advanced_app">应用信息</string>
     <string name="title_advanced_more">更多选项</string>
     <string name="title_advanced_main_log">主要日志</string>
+    <string name="title_advanced_main_log_mem">记录内存使用情况</string>
     <string name="title_advanced_protocol">协议日志</string>
     <string name="title_advanced_log_info">调试日志</string>
     <string name="title_advanced_debug">调试模式</string>
@@ -817,7 +818,7 @@
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
     <string name="title_keep_poll_interval">轮询间隔(分钟)</string>
     <string name="title_keep_alive_interval">保活间隔（分钟）</string>
-    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">定期重启 IMAP IDLE</string>
+    <string name="title_keep_alive_noop">定期重启 IMAP IDLE</string>
     <string name="title_server_time">使用接收时间 (服务器)</string>
     <string name="title_received_header">使用“已接收”标头</string>
     <string name="title_date_header">使用“日期”标头 (发送时间)</string>

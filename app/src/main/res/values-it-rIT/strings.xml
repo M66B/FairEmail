@@ -658,6 +658,7 @@
     <string name="title_advanced_app">Impostazioni dell\'app</string>
     <string name="title_advanced_more">Altre opzioni</string>
     <string name="title_advanced_main_log">Registrazione principale</string>
+    <string name="title_advanced_main_log_mem">Registra l\'utilizzo della memoria</string>
     <string name="title_advanced_protocol">Registrazione del protocollo</string>
     <string name="title_advanced_log_info">Registrazione di debug</string>
     <string name="title_advanced_debug">Modalità di debug</string>
@@ -832,7 +833,7 @@
     <string name="title_max_messages">Numero massimo di messaggi da scaricare (vuoto per tutti)</string>
     <string name="title_keep_poll_interval">Intervallo di controllo (minuti)</string>
     <string name="title_keep_alive_interval">Intervallo di mantenimento attivo (minuti)</string>
-    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">Riavvia periodicamente IDLE IMAP</string>
+    <string name="title_keep_alive_noop">Riavvia periodicamente IDLE IMAP</string>
     <string name="title_server_time">Usa orario di ricezione (server)</string>
     <string name="title_received_header">Usa intestazione \'Ricevuto\'</string>
     <string name="title_date_header">Usa intestazione \'Data\' (ora di invio)</string>

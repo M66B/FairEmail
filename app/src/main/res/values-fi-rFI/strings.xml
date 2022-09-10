@@ -829,7 +829,7 @@
     <string name="title_max_messages">Ladattavien viestien maksimimäärä (tyhjä lataa kaikki)</string>
     <string name="title_keep_poll_interval">Kyselyn aikaväli (minuuttia)</string>
     <string name="title_keep_alive_interval">Yhteyden ylläpitokyselyn aikaväli (minuuttia)</string>
-    <string name="title_keep_alive_noop" comment="title_keep_alive_noop&#10;Option to workaround Outlook bug: https://gist.github.com/M66B/4c26197ba77983ee5f0851a5f5d86816">Käynnistä IMAP IDLE uudelleen säännöllisesti</string>
+    <string name="title_keep_alive_noop">Käynnistä IMAP IDLE uudelleen säännöllisesti</string>
     <string name="title_server_time">Käytä vastaanottoaikaa (palvelin)</string>
     <string name="title_received_header">Käytä \'Received\'-tunnistetta</string>
     <string name="title_date_header">Käytä \'Date\'-tunnistetta (lähetysaika)</string>
