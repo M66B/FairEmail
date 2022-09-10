@@ -4,8 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-* Added an advanced account option to use a VPN only
+### 1.1965 - 2022-09-10
+
+* Added an advanced account option to use a VPN connection only
+* Reduced memory usage of message classifier
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated translations
 
 ### [Ledumahadi](https://en.wikipedia.org/wiki/Ledumahadi)
