@@ -548,6 +548,7 @@ public class HtmlHelper {
                 .addAttributes("tr", "width")
                 .addAttributes("tr", "height")
                 .addAttributes(":all", "title")
+                .addAttributes("blockquote", "type")
                 .removeAttributes("td", "colspan", "rowspan", "width")
                 .removeAttributes("th", "colspan", "rowspan", "width")
                 .addProtocols("img", "src", "cid")
@@ -2549,6 +2550,10 @@ public class HtmlHelper {
 
     static boolean hasBorder(Element e) {
         if ("true".equals(e.attr("x-border")))
+            return true;
+
+        // https://groups.google.com/g/mozilla.support.thunderbird/c/rwLNk3MU3Gs?pli=1
+        if ("cite".equals(e.attr("type")))
             return true;
 
         String style = e.attr("style");
