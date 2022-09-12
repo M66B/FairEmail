@@ -100,6 +100,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private boolean subscriptions;
 
     private int dp3;
+    private int dp6;
     private int dp12;
     private float textSize;
     private int colorStripeWidth;
@@ -116,7 +117,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
-    private static final int DENSE_ITEMS_THRESHOLD = 50;
+    private static final int DENSE_ITEMS_THRESHOLD_FEW = 10;
+    private static final int DENSE_ITEMS_THRESHOLD_MANY = 50;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
@@ -237,7 +239,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             boolean hide_seen = (account < 0 && !primary &&
                     folder.hide_seen && folder.unseen + folder.childs_unseen == 0);
 
-            int p = (show_compact && all.size() < DENSE_ITEMS_THRESHOLD ? dp3 : 0);
+            int p = 0;
+            if (show_compact)
+                if (all.size() < DENSE_ITEMS_THRESHOLD_FEW)
+                    p = dp6;
+                else if (all.size() < DENSE_ITEMS_THRESHOLD_MANY)
+                    p = dp3;
             view.setPadding(p, p, p, p);
             view.setActivated(folder.tbc != null || folder.rename != null || folder.tbd != null);
             view.setAlpha(folder.hide || hide_seen || disabled ? Helper.LOW_LIGHT : 1.0f);
@@ -1270,6 +1277,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.sort_unread_atop = prefs.getBoolean("sort_unread_atop", false);
 
         this.dp3 = Helper.dp2pixels(context, 3);
+        this.dp6 = Helper.dp2pixels(context, 6);
         this.dp12 = Helper.dp2pixels(context, 12);
         this.textSize = Helper.getTextSize(context, zoom);
         boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
