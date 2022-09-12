@@ -6117,6 +6117,8 @@ class Core {
                 return true;
             if (!running)
                 return false;
+            if (thread == null)
+                return false;
             return thread.isAlive();
         }
 
