@@ -2762,93 +2762,106 @@ public class FragmentMessages extends FragmentBase
 
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-            int pos = viewHolder.getAdapterPosition();
-            if (pos == NO_POSITION) {
-                adapter.notifyDataSetChanged();
-                return;
-            }
-
-            TupleMessageEx message = getMessage(pos);
-            if (message == null) {
-                adapter.notifyDataSetChanged();
-                return;
-            }
-
-            boolean expanded = iProperties.getValue("expanded", message.id);
-
-            if (expanded && swipe_reply) {
-                adapter.notifyItemChanged(pos);
-                onMenuReply(message, "reply", null);
-                return;
-            }
-
-            if (EntityFolder.OUTBOX.equals(message.folderType)) {
-                ActivityCompose.undoSend(message.id, getContext(), getViewLifecycleOwner(), getParentFragmentManager());
-                return;
-            }
-
-            TupleAccountSwipes swipes = accountSwipes.get(message.account);
-            if (swipes == null) {
-                adapter.notifyDataSetChanged();
-                return;
-            }
-
-            if (message.accountProtocol != EntityAccount.TYPE_IMAP) {
-                if (swipes.swipe_right == null)
-                    swipes.swipe_right = EntityMessage.SWIPE_ACTION_SEEN;
-                if (swipes.swipe_left == null)
-                    swipes.swipe_left = EntityMessage.SWIPE_ACTION_DELETE;
-            }
-
-            Long action = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
-            String actionType = (direction == ItemTouchHelper.LEFT ? swipes.left_type : swipes.right_type);
-            if (action == null) {
-                adapter.notifyDataSetChanged();
-                return;
-            }
-
-            if (message.uid == null &&
-                    message.accountProtocol == EntityAccount.TYPE_IMAP &&
-                    EntityFolder.DRAFTS.equals(message.folderType) &&
-                    EntityFolder.TRASH.equals(actionType)) {
-                action = EntityMessage.SWIPE_ACTION_DELETE;
-                actionType = null;
-            }
-
-            Log.i("Swiped dir=" + direction +
-                    " action=" + action +
-                    " type=" + actionType +
-                    " message=" + message.id +
-                    " folder=" + message.folderType);
-
-            if (EntityMessage.SWIPE_ACTION_ASK.equals(action)) {
-                adapter.notifyItemChanged(pos);
-                onSwipeAsk(message, viewHolder);
-            } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
-                onActionSeenSelection(message.unseen > 0, message.id, false);
-            else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
-                onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id, false);
-            else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
-                if (ActivityBilling.isPro(getContext()))
-                    onActionSnooze(message);
-                else {
-                    adapter.notifyItemChanged(pos);
-                    startActivity(new Intent(getContext(), ActivityBilling.class));
+            try {
+                int pos = viewHolder.getAdapterPosition();
+                if (pos == NO_POSITION) {
+                    adapter.notifyDataSetChanged();
+                    return;
                 }
-            else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
-                onActionHide(message);
-            else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action)) {
-                adapter.notifyItemChanged(pos);
-                onSwipeMove(message);
-            } else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action)) {
-                adapter.notifyItemChanged(pos);
-                onSwipeJunk(message);
-            } else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
-                    (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
-                    (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))
-                onSwipeDelete(message, pos);
-            else
-                swipeFolder(message, action);
+
+                TupleMessageEx message = getMessage(pos);
+                if (message == null) {
+                    adapter.notifyDataSetChanged();
+                    return;
+                }
+
+                boolean expanded = iProperties.getValue("expanded", message.id);
+
+                if (expanded && swipe_reply) {
+                    adapter.notifyItemChanged(pos);
+                    onMenuReply(message, "reply", null);
+                    return;
+                }
+
+                if (EntityFolder.OUTBOX.equals(message.folderType)) {
+                    ActivityCompose.undoSend(message.id, getContext(), getViewLifecycleOwner(), getParentFragmentManager());
+                    return;
+                }
+
+                TupleAccountSwipes swipes = accountSwipes.get(message.account);
+                if (swipes == null) {
+                    adapter.notifyDataSetChanged();
+                    return;
+                }
+
+                if (message.accountProtocol != EntityAccount.TYPE_IMAP) {
+                    if (swipes.swipe_right == null)
+                        swipes.swipe_right = EntityMessage.SWIPE_ACTION_SEEN;
+                    if (swipes.swipe_left == null)
+                        swipes.swipe_left = EntityMessage.SWIPE_ACTION_DELETE;
+                }
+
+                Long action = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
+                String actionType = (direction == ItemTouchHelper.LEFT ? swipes.left_type : swipes.right_type);
+                if (action == null) {
+                    adapter.notifyDataSetChanged();
+                    return;
+                }
+
+                if (message.uid == null &&
+                        message.accountProtocol == EntityAccount.TYPE_IMAP &&
+                        EntityFolder.DRAFTS.equals(message.folderType) &&
+                        EntityFolder.TRASH.equals(actionType)) {
+                    action = EntityMessage.SWIPE_ACTION_DELETE;
+                    actionType = null;
+                }
+
+                Log.i("Swiped dir=" + direction +
+                        " action=" + action +
+                        " type=" + actionType +
+                        " message=" + message.id +
+                        " folder=" + message.folderType);
+
+                if (EntityMessage.SWIPE_ACTION_ASK.equals(action)) {
+                    adapter.notifyItemChanged(pos);
+                    onSwipeAsk(message, viewHolder);
+                } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
+                    onActionSeenSelection(message.unseen > 0, message.id, false);
+                else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
+                    onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id, false);
+                else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
+                    if (ActivityBilling.isPro(getContext()))
+                        onActionSnooze(message);
+                    else {
+                        adapter.notifyItemChanged(pos);
+                        startActivity(new Intent(getContext(), ActivityBilling.class));
+                    }
+                else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
+                    onActionHide(message);
+                else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action)) {
+                    adapter.notifyItemChanged(pos);
+                    onSwipeMove(message);
+                } else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action)) {
+                    adapter.notifyItemChanged(pos);
+                    onSwipeJunk(message);
+                } else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
+                        (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
+                        (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))
+                    onSwipeDelete(message, pos);
+                else
+                    swipeFolder(message, action);
+            } catch (Throwable ex) {
+                Log.e(ex);
+                /*
+                    java.lang.IllegalStateException: Cannot call this method while RecyclerView is computing a layout or scrolling ...
+                            at androidx.recyclerview.widget.RecyclerView.assertNotInLayoutOrScroll(RecyclerView:3185)
+                            at androidx.recyclerview.widget.RecyclerView$RecyclerViewDataObserver.onItemRangeChanged(RecyclerView:5712)
+                            at androidx.recyclerview.widget.RecyclerView$AdapterDataObservable.notifyItemRangeChanged(RecyclerView:12674)
+                            at androidx.recyclerview.widget.RecyclerView$AdapterDataObservable.notifyItemRangeChanged(RecyclerView:12664)
+                            at androidx.recyclerview.widget.RecyclerView$Adapter.notifyItemChanged(RecyclerView:7599)
+                            at eu.faircode.email.FragmentMessages$60.onSwiped(FragmentMessages:2818)
+                 */
+            }
         }
 
         private TupleMessageEx getMessage(int pos) {
