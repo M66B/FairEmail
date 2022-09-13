@@ -191,14 +191,16 @@ public class EntityAnswer implements Serializable {
             String v = text.substring(s + 5, e);
             if (v.startsWith("-") || v.startsWith("+")) {
                 Integer days = Helper.parseInt(v.substring(1));
-                if (days != null) {
+                if (days != null && days >= 0 && days < 10 * 365) {
                     c = Calendar.getInstance();
                     c.add(Calendar.DATE, days * (v.startsWith("-") ? -1 : 1));
                 }
             } else if (TextUtils.isEmpty(v))
                 c = Calendar.getInstance();
 
-            if (c != null) {
+            if (c == null)
+                s = text.indexOf("$date", e + 1);
+            else {
                 v = Html.escapeHtml(SimpleDateFormat.getDateInstance(SimpleDateFormat.LONG).format(c.getTime()));
                 text = text.substring(0, s) + v + text.substring(e + 1);
                 s = text.indexOf("$date", s + v.length());
