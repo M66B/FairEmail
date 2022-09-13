@@ -48,9 +48,12 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.text.Collator;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -177,6 +180,30 @@ public class EntityAnswer implements Serializable {
         text = text.replace("$firstname$", first == null ? "" : Html.escapeHtml(first));
         text = text.replace("$lastname$", last == null ? "" : Html.escapeHtml(last));
         text = text.replace("$email$", email == null ? "" : Html.escapeHtml(email));
+
+        int s = text.indexOf("$date");
+        while (s >= 0) {
+            int e = text.indexOf('$', s + 5);
+            if (e < 0)
+                break;
+
+            Calendar c = null;
+            String v = text.substring(s + 5, e);
+            if (v.startsWith("-") || v.startsWith("+")) {
+                Integer days = Helper.parseInt(v.substring(1));
+                if (days != null) {
+                    c = Calendar.getInstance();
+                    c.add(Calendar.DATE, days * (v.startsWith("-") ? -1 : 1));
+                }
+            } else if (TextUtils.isEmpty(v))
+                c = Calendar.getInstance();
+
+            if (c != null) {
+                v = Html.escapeHtml(SimpleDateFormat.getDateInstance(SimpleDateFormat.LONG).format(c.getTime()));
+                text = text.substring(0, s) + v + text.substring(e);
+                s = text.indexOf("$date", s + v.length());
+            }
+        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         for (String key : prefs.getAll().keySet())
