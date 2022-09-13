@@ -191,7 +191,9 @@ import javax.mail.internet.MimeMessage;
 import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
+import biweekly.parameter.CalendarUserType;
 import biweekly.parameter.ParticipationStatus;
+import biweekly.parameter.Role;
 import biweekly.property.Attendee;
 import biweekly.property.CalendarScale;
 import biweekly.property.Created;
@@ -3715,6 +3717,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 name = name.replaceAll("\\s+", " ");
 
                             Attendee attendee = new Attendee(name, email);
+                            attendee.setCalendarUserType(CalendarUserType.INDIVIDUAL);
+                            attendee.setRole(Role.ATTENDEE);
 
                             if (action == R.id.btnCalendarAccept) {
                                 ev.setStatus(Status.accepted());
