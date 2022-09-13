@@ -200,7 +200,7 @@ public class EntityAnswer implements Serializable {
 
             if (c != null) {
                 v = Html.escapeHtml(SimpleDateFormat.getDateInstance(SimpleDateFormat.LONG).format(c.getTime()));
-                text = text.substring(0, s) + v + text.substring(e);
+                text = text.substring(0, s) + v + text.substring(e + 1);
                 s = text.indexOf("$date", s + v.length());
             }
         }
