@@ -193,9 +193,14 @@ import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.parameter.ParticipationStatus;
 import biweekly.property.Attendee;
+import biweekly.property.CalendarScale;
+import biweekly.property.Created;
+import biweekly.property.LastModified;
 import biweekly.property.Method;
 import biweekly.property.Organizer;
 import biweekly.property.RawProperty;
+import biweekly.property.Status;
+import biweekly.property.Transparency;
 import biweekly.util.ICalDate;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
@@ -3633,8 +3638,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 return intent;
                             }
 
+                            Created created = event.getCreated();
+                            LastModified modified = event.getLastModified();
+                            Transparency transparancy = event.getTransparency();
+
                             // https://tools.ietf.org/html/rfc5546#section-4.2.2
                             VEvent ev = new VEvent();
+
+                            if (created != null)
+                                ev.setCreated(created);
+                            if (modified != null)
+                                ev.setLastModified(modified);
+                            if (transparancy != null)
+                                ev.setTransparency(transparancy);
 
                             ev.setOrganizer(event.getOrganizer());
 
@@ -3701,17 +3717,29 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Attendee attendee = new Attendee(name, email);
 
                             if (action == R.id.btnCalendarAccept) {
+                                ev.setStatus(Status.accepted());
                                 attendee.setParticipationStatus(ParticipationStatus.ACCEPTED);
                             } else if (action == R.id.btnCalendarDecline) {
+                                ev.setStatus(Status.declined());
                                 attendee.setParticipationStatus(ParticipationStatus.DECLINED);
                             } else if (action == R.id.btnCalendarMaybe) {
+                                ev.setStatus(Status.tentative());
                                 attendee.setParticipationStatus(ParticipationStatus.TENTATIVE);
                             }
 
                             ev.addAttendee(attendee);
 
+                            // Microsoft specific properties:
+                            // X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+                            // X-MICROSOFT-CDO-IMPORTANCE:1
+                            // X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+                            // X-MICROSOFT-DISALLOW-COUNTER:FALSE
+                            // X-MS-OLK-AUTOSTARTCHECK:FALSE
+                            // X-MS-OLK-CONFTYPE:0
+
                             // https://icalendar.org/validator.html
                             ICalendar response = new ICalendar();
+                            response.setCalendarScale(CalendarScale.gregorian());
                             response.setMethod(Method.REPLY);
                             response.addEvent(ev);
 
