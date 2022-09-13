@@ -1613,7 +1613,8 @@ public class SMTPTransport extends Transport {
     private boolean convertTo8Bit(MimePart part) {
 	boolean changed = false;
 	try {
-	    if (part.isMimeType("text/*")) {
+		// text/* will cause problems for text/calendar, etc
+	    if (part.isMimeType("text/plain") || part.isMimeType("text/html")) {
 		String enc = part.getEncoding();
 		if (enc != null && (enc.equalsIgnoreCase("quoted-printable") ||
 		    enc.equalsIgnoreCase("base64"))) {
