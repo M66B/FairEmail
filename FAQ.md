@@ -889,22 +889,24 @@ Signing in short:
 * **Incoming** messages are verified with the **public key** of the sender
 
 To sign/encrypt a message, just select the appropriate method in the send dialog.
-You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+The simplest way to show the send dialog (again) is to long press the *Send* button in the bottom action bar.
+It might be necessary to disable signing/encryption with the padlock icon in the top action bar first, to prevent the select key dialog, etc. from being in the way.
+The encryption method will be remembered for the selected identity (at the top of the message editor).
 
 To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
 
-The first time you send a signed/encrypted message you might be asked for a sign key.
+The first time you send a signed/encrypted message, you might be asked for a sign key.
 FairEmail will automatically store the selected sign key in the used identity for the next time.
 If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*.
 The selected sign key is visible in the list of identities.
 If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
 
-In the encryption settings you can select the default encryption method (PGP or S/MIME),
+In the encryption settings, you can select the default encryption method (PGP or S/MIME),
 enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*,
 but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
 
 The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server.
-If you want to undo decryption, you can use the *resync* menu item in the three-dots menu of the message action bar.
+If you want to undo decryption, you can tap on the "close" padlock icon.
 
 <br />
 
