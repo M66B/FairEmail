@@ -3647,11 +3647,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             // https://tools.ietf.org/html/rfc5546#section-4.2.2
                             VEvent ev = new VEvent();
 
-                            if (created != null)
+                            if (created != null && false)
                                 ev.setCreated(created);
-                            if (modified != null)
+                            if (modified != null && false)
                                 ev.setLastModified(modified);
-                            if (transparancy != null)
+                            if (transparancy != null && false)
                                 ev.setTransparency(transparancy);
 
                             ev.setOrganizer(event.getOrganizer());
@@ -3717,17 +3717,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 name = name.replaceAll("\\s+", " ");
 
                             Attendee attendee = new Attendee(name, email);
-                            attendee.setCalendarUserType(CalendarUserType.INDIVIDUAL);
-                            attendee.setRole(Role.ATTENDEE);
+                            //attendee.setCalendarUserType(CalendarUserType.INDIVIDUAL);
+                            //attendee.setRole(Role.ATTENDEE);
 
                             if (action == R.id.btnCalendarAccept) {
-                                ev.setStatus(Status.accepted());
+                                //ev.setStatus(Status.accepted());
                                 attendee.setParticipationStatus(ParticipationStatus.ACCEPTED);
                             } else if (action == R.id.btnCalendarDecline) {
-                                ev.setStatus(Status.declined());
+                                //ev.setStatus(Status.declined());
                                 attendee.setParticipationStatus(ParticipationStatus.DECLINED);
                             } else if (action == R.id.btnCalendarMaybe) {
-                                ev.setStatus(Status.tentative());
+                                //ev.setStatus(Status.tentative());
                                 attendee.setParticipationStatus(ParticipationStatus.TENTATIVE);
                             }
 
