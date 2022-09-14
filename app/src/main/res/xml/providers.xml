@@ -1761,4 +1761,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="PenTeleData"
+        domain="ptd\\.net"
+        link="https://www.ptd.net/support/email-communication/how-setup-your-email/smartphone-imap">
+        <imap
+            host="promail.ptd.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="promail.ptd.net"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
