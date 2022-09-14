@@ -235,6 +235,7 @@ import javax.mail.util.ByteArrayDataSource;
 import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
+import biweekly.property.Method;
 import biweekly.property.Organizer;
 
 public class FragmentCompose extends FragmentBase {
@@ -5283,11 +5284,19 @@ public class FragmentCompose extends FragmentBase {
                             null);
 
                     if ("participation".equals(action)) {
+                        ICalendar icalendar = Biweekly.parse(ics).first();
+                        VEvent event = icalendar.getEvents().get(0);
+
+                        // https://www.rfc-editor.org/rfc/rfc6047#section-2.4
+                        Method method = icalendar.getMethod();
+
                         EntityAttachment attachment = new EntityAttachment();
                         attachment.message = data.draft.id;
                         attachment.sequence = 1;
                         attachment.name = "meeting.ics";
-                        attachment.type = "text/calendar";
+                        attachment.type = "text/calendar;" +
+                                (method == null ? "" : " method=" + method.getValue() + ";") +
+                                " charset=UTF-8;";
                         attachment.disposition = Part.ATTACHMENT;
                         attachment.size = ics.length();
                         attachment.progress = null;
@@ -5296,8 +5305,6 @@ public class FragmentCompose extends FragmentBase {
                         File file = attachment.getFile(context);
                         ics.renameTo(file);
 
-                        ICalendar icalendar = Biweekly.parse(file).first();
-                        VEvent event = icalendar.getEvents().get(0);
                         Organizer organizer = event.getOrganizer();
                         if (organizer != null) {
                             String email = organizer.getEmail();
