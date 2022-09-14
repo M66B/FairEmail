@@ -413,6 +413,8 @@ public class MessageClassifier {
 
         long start = new Date().getTime();
 
+        reduce();
+
         File file = getFile(context, false);
         File backup = getFile(context, true);
         backup.delete();
@@ -646,12 +648,17 @@ public class MessageClassifier {
                 reader.endObject();
             }
 
+        reduce();
+
         loaded = true;
         dirty = false;
 
         long elapsed = new Date().getTime() - start;
         Log.i("Classifier data loaded elapsed=" + elapsed);
+    }
 
+    private static void reduce() {
+        Log.i("Classifier reduce");
         for (long account : wordClassFrequency.keySet()) {
             Map<String, Long> total = new HashMap<>();
             Map<String, Integer> count = new HashMap<>();
@@ -671,20 +678,34 @@ public class MessageClassifier {
 
             for (String word : wordClassFrequency.get(account).keySet())
                 for (String clazz : new ArrayList<>(wordClassFrequency.get(account).get(word).keySet())) {
-                    int freq = wordClassFrequency.get(account).get(word).get(clazz).count;
                     long avg = total.get(clazz) / count.get(clazz);
-                    if (freq < avg / 2) {
+                    Frequency freq = wordClassFrequency.get(account).get(word).get(clazz);
+                    if (freq.count < avg / 2) {
                         Log.i("Classifier dropping account=" + account +
-                                " word=" + word + " class=" + clazz + " freq=" + freq + " avg=" + avg);
+                                " word=" + word + " class=" + clazz + " freq=" + freq.count + " avg=" + avg);
                         wordClassFrequency.get(account).get(word).remove(clazz);
+                    } else if (false) {
+                        for (String b : new ArrayList<>(freq.before.keySet()))
+                            if (freq.before.get(b) < freq.count / 20)
+                                freq.before.remove(b);
+                        for (String a : new ArrayList<>(freq.after.keySet()))
+                            if (freq.after.get(a) < freq.count / 20)
+                                freq.after.remove(a);
                     }
                 }
 
             // Source 47 MB
+
             // avg/1 = 21.3
             // avg/2 = 25.5
             // avg/3 = 29.0
             // avg/5 = 34.6
+
+            // ba/5  = 27.2
+            // ba/10 = 29.3
+            // ba/20 = 31.5
+
+            // avg/2 + ba/20 = 10 MB
         }
     }
 
