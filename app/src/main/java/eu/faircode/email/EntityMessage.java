@@ -50,6 +50,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.TimeZone;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -467,10 +468,13 @@ public class EntityMessage implements Serializable {
 
     Element getReplyHeader(Context context, Document document, boolean separate, boolean extended) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean hide_timezone = prefs.getBoolean("hide_timezone", false);
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String l = (language_detection ? language : null);
 
         DateFormat DTF = Helper.getDateTimeInstance(context);
+        DTF.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
+        String date = DTF.format(received);
 
         Element p = document.createElement("p");
         if (extended) {
@@ -499,7 +503,7 @@ public class EntityMessage implements Serializable {
                 Element strong = document.createElement("strong");
                 strong.text(Helper.getString(context, l, R.string.title_date) + " ");
                 p.appendChild(strong);
-                p.appendText(DTF.format(received));
+                p.appendText(date);
                 p.appendElement("br");
             }
             if (!TextUtils.isEmpty(subject)) {
@@ -510,7 +514,7 @@ public class EntityMessage implements Serializable {
                 p.appendElement("br");
             }
         } else
-            p.text(DTF.format(new Date(received)) + " " + MessageHelper.formatAddresses(from) + ":");
+            p.text(date + " " + MessageHelper.formatAddresses(from) + ":");
 
         Element div = document.createElement("div")
                 .attr("fairemail", "reply");

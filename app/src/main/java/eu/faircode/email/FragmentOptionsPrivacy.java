@@ -587,7 +587,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swAutoLockNav.setChecked(prefs.getBoolean("autolock_nav", false));
 
         swClientId.setChecked(prefs.getBoolean("client_id", true));
-        swHideTimeZone.setChecked(prefs.getBoolean("hide_timezone", true));
+        swHideTimeZone.setChecked(prefs.getBoolean("hide_timezone", false));
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
         swIncognitoKeyboard.setChecked(prefs.getBoolean("incognito_keyboard", false));
         swSecure.setChecked(prefs.getBoolean("secure", false));

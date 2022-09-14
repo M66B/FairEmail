@@ -285,7 +285,7 @@ public class MessageHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         int receipt_type = prefs.getInt("receipt_type", 2);
         boolean receipt_legacy = prefs.getBoolean("receipt_legacy", false);
-        boolean hide_timezone = prefs.getBoolean("hide_timezone", true);
+        boolean hide_timezone = prefs.getBoolean("hide_timezone", false);
         boolean autocrypt = prefs.getBoolean("autocrypt", true);
         boolean mutual = prefs.getBoolean("autocrypt_mutual", true);
         boolean encrypt_subject = prefs.getBoolean("encrypt_subject", false);
