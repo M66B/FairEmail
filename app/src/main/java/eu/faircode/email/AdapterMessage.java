@@ -3719,6 +3719,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Attendee attendee = new Attendee(name, email);
                             //attendee.setCalendarUserType(CalendarUserType.INDIVIDUAL);
                             //attendee.setRole(Role.ATTENDEE);
+                            //attendee.setRsvp(true);
 
                             if (action == R.id.btnCalendarAccept) {
                                 //ev.setStatus(Status.accepted());

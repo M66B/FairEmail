@@ -137,6 +137,7 @@ import javax.mail.internet.ParseException;
 
 import biweekly.Biweekly;
 import biweekly.ICalendar;
+import biweekly.property.Method;
 
 public class MessageHelper {
     private boolean ensuredEnvelope = false;
@@ -1085,6 +1086,22 @@ public class MessageHelper {
         altMultiPart.addBodyPart(plainPart);
         altMultiPart.addBodyPart(htmlPart);
 
+        for (EntityAttachment attachment : attachments)
+            if (attachment.available &&
+                    "text/calendar".equals(attachment.type)) {
+                File file = attachment.getFile(context);
+                ICalendar icalendar = Biweekly.parse(file).first();
+                Method method = (icalendar == null ? null : icalendar.getMethod());
+                if (method != null && method.isReply()) {
+                    // https://www.rfc-editor.org/rfc/rfc6047#section-2.4
+                    BodyPart calPart = new MimeBodyPart();
+                    calPart.setContent(icalendar.write(), attachment.type + ";" +
+                            " method=" + method.getValue() + ";" +
+                            " charset=UTF-8;");
+                    altMultiPart.addBodyPart(calPart);
+                }
+            }
+
         int availableAttachments = 0;
         boolean hasInline = false;
         for (EntityAttachment attachment : attachments)
@@ -1131,17 +1148,7 @@ public class MessageHelper {
                         public String getContentType(File file) {
                             // https://tools.ietf.org/html/rfc6047
                             if ("text/calendar".equals(attachment.type))
-                                try {
-                                    ICalendar icalendar = Biweekly.parse(file).first();
-                                    if (icalendar != null &&
-                                            icalendar.getMethod() != null &&
-                                            icalendar.getMethod().isReply())
-                                        return "text/calendar" +
-                                                "; method=REPLY" +
-                                                "; charset=" + Charset.defaultCharset().name();
-                                } catch (IOException ex) {
-                                    Log.e(ex);
-                                }
+                                return attachment.type + "; charset=UTF-8;";
 
                             return attachment.type;
                         }
