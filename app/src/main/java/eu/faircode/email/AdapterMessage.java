@@ -3721,16 +3721,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             //attendee.setRole(Role.ATTENDEE);
                             //attendee.setRsvp(true);
 
+                            String status = null;
                             if (action == R.id.btnCalendarAccept) {
                                 //ev.setStatus(Status.accepted());
                                 attendee.setParticipationStatus(ParticipationStatus.ACCEPTED);
+                                status = context.getString(R.string.title_icalendar_accept);
                             } else if (action == R.id.btnCalendarDecline) {
                                 //ev.setStatus(Status.declined());
                                 attendee.setParticipationStatus(ParticipationStatus.DECLINED);
+                                status = context.getString(R.string.title_icalendar_decline);
                             } else if (action == R.id.btnCalendarMaybe) {
                                 //ev.setStatus(Status.tentative());
                                 attendee.setParticipationStatus(ParticipationStatus.TENTATIVE);
+                                status = context.getString(R.string.title_icalendar_maybe);
                             }
+                            args.putString("status", status);
 
                             ev.addAttendee(attendee);
 
@@ -3763,14 +3768,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onExecuted(Bundle args, Object result) {
                     if (result instanceof File) {
-                        String status = null;
-                        if (action == R.id.btnCalendarAccept) {
-                            status = context.getString(R.string.title_icalendar_accept);
-                        } else if (action == R.id.btnCalendarDecline) {
-                            status = context.getString(R.string.title_icalendar_decline);
-                        } else if (action == R.id.btnCalendarMaybe) {
-                            status = context.getString(R.string.title_icalendar_maybe);
-                        }
+                        String status = args.getString("status");
 
                         if (args.getBoolean("share"))
                             Helper.share(context, (File) result, "text/calendar", status + ".ics");
