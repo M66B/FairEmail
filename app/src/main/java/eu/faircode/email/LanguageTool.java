@@ -76,6 +76,12 @@ public class LanguageTool {
         if (code != null)
             request += "&preferredVariants=" + code;
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean lt_picky = prefs.getBoolean("lt_picky", false);
+
+        if (lt_picky)
+            request += "&level=picky";
+
         Log.i("LT locale=" + locale + " request=" + request);
 
         URL url = new URL(LT_URI + "check");
