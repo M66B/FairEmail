@@ -202,6 +202,7 @@ import biweekly.property.Method;
 import biweekly.property.Organizer;
 import biweekly.property.RawProperty;
 import biweekly.property.Status;
+import biweekly.property.Summary;
 import biweekly.property.Transparency;
 import biweekly.util.ICalDate;
 
@@ -3735,9 +3736,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 attendee.setParticipationStatus(ParticipationStatus.TENTATIVE);
                                 status = context.getString(R.string.title_icalendar_maybe);
                             }
-                            args.putString("status", status);
 
                             ev.addAttendee(attendee);
+
+                            if (status != null) {
+                                args.putString("status", status);
+                                Summary summary = ev.getSummary();
+                                ev.setSummary(status + ": " + (summary == null ? "" : summary.getValue()));
+                            }
 
                             // Microsoft specific properties:
                             // X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
