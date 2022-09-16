@@ -627,16 +627,13 @@ public class EntityRule {
             create = create.replace("$year$", year);
             create = create.replace("$month$", month);
 
-            String email = null;
             String domain = null;
             if (message.from != null &&
                     message.from.length > 0 &&
                     message.from[0] instanceof InternetAddress) {
                 InternetAddress from = (InternetAddress) message.from[0];
-                email = from.getAddress();
-                domain = UriHelper.getEmailDomain(email);
+                domain = UriHelper.getEmailDomain(from.getAddress());
             }
-            create = create.replace("$email$", email == null ? "" : email);
             create = create.replace("$domain$", domain == null ? "" : domain);
 
             String name = folder.name + (folder.separator == null ? "" : folder.separator) + create;
