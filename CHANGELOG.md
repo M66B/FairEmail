@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### Next version
+
+* Added create subfolder option to move filter rule
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1965 - 2022-09-10
 
 * Added an advanced account option to use a VPN connection only
