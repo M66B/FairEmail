@@ -2587,6 +2587,16 @@ and to set up auto deletion for the trash folder in the folder properties (long 
 If you want to forward a message, consider to use a *move* action instead.
 This will be more reliable than forwarding because forwarded messages might be considered as spam.
 
+<br>
+
+A *move* action can optionally create subfolders (since version 1.1966) to move messages to, for which you can use the following placeholders:
+
+```
+$month$
+$year$
+$domain$
+```
+
 <br />
 
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space
