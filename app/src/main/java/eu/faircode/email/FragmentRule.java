@@ -465,7 +465,7 @@ public class FragmentRule extends FragmentBase {
                         Bundle args = new Bundle();
                         args.putString("title", getString(R.string.title_rule_folder));
                         args.putLong("account", account);
-                        args.putLongArray("disabled", new long[]{folder});
+                        args.putLongArray("disabled", new long[]{});
 
                         FragmentDialogFolder fragment = new FragmentDialogFolder();
                         fragment.setArguments(args);
