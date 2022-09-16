@@ -639,9 +639,6 @@ public class EntityRule {
             create = create.replace("$email$", email == null ? "" : email);
             create = create.replace("$domain$", domain == null ? "" : domain);
 
-            if (folder.separator != null)
-                create = create.replace(folder.separator, '_');
-
             String name = folder.name + (folder.separator == null ? "" : folder.separator) + create;
             EntityFolder created = db.folder().getFolderByName(message.account, name);
             if (created == null) {
