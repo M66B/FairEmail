@@ -320,7 +320,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(112) Which email provider do you recommend?](#user-content-faq112)
 * [(113) How does biometric authentication work?](#user-content-faq113)
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
-* [(115) Can you add email address chips?](#user-content-faq115)
+* [~~(115) Can you add email address chips?~~](#user-content-faq115)
 * [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
 * [(117) How can I restore a purchase (on another device) ?](#user-content-faq117)
 * [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
@@ -3498,19 +3498,19 @@ Moreover, setting up an account/identity with the quick setup wizard is simple, 
 <br />
 
 <a name="faq115"></a>
-**(115) Can you add email address chips?**
+**~~(115) Can you add email address chips?~~**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq115)
 
-Email address [chips](https://material.io/design/components/chips.html) look nice, but cannot be edited,
-which is quite inconvenient when you made a typo in an email address.
+~~Email address [chips](https://material.io/design/components/chips.html) look nice, but cannot be edited,~~
+~~which is quite inconvenient when you made a typo in an email address.~~
 
-Note that FairEmail will select the address only when long pressing an address, which makes it easy to delete an address.
+~~Note that FairEmail will select the address only when long pressing an address, which makes it easy to delete an address.~~
 
-Chips are not suitable for showing in a list
-and since the message header in a list should look similar to the message header of the message view it is not an option to use chips for viewing messages.
+~~Chips are not suitable for showing in a list~~
+~~and since the message header in a list should look similar to the message header of the message view it is not an option to use chips for viewing messages.~~
 
-Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f471b882ec87d5a5a5015).
+~~Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f471b882ec87d5a5a5015).~~
 
 <br />
 
