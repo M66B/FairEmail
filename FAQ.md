@@ -2594,6 +2594,7 @@ A *move* action can optionally create subfolders (since version 1.1966) to move 
 ```
 $month$
 $year$
+$email$
 $domain$
 ```
 
