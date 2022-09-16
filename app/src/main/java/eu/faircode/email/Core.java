@@ -1423,6 +1423,7 @@ class Core {
                     }
                 });
                 ifolder.setSubscribed(true);
+                db.folder().resetFolderTbc(target.id);
             }
         }
 
