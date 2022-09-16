@@ -671,7 +671,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
                             if ((left != null && EntityMessage.SWIPE_ACTION_HIDE.equals(left.id)) ||
                                     (right != null && EntityMessage.SWIPE_ACTION_HIDE.equals(right.id)))
-                                prefs.edit().putBoolean("button_hide", true).apply();
+                                prefs.edit()
+                                        .putBoolean("message_tools", true)
+                                        .putBoolean("button_hide", true)
+                                        .apply();
 
                             Bundle args = new Bundle();
                             args.putLong("left", left == null ? 0 : left.id);
