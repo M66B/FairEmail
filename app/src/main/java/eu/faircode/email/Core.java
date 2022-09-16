@@ -1399,6 +1399,7 @@ class Core {
         boolean seen = jargs.optBoolean(1);
         boolean unflag = jargs.optBoolean(3);
         boolean delete = jargs.optBoolean(4);
+        boolean create = jargs.optBoolean(5);
 
         Flags flags = ifolder.getPermanentFlags();
 
@@ -1410,6 +1411,20 @@ class Core {
             throw new IllegalArgumentException("self");
         if (!target.selectable)
             throw new IllegalArgumentException("not selectable type=" + target.type);
+
+        if (create) {
+            Folder icreate = istore.getFolder(target.name);
+            if (!icreate.exists()) {
+                ((IMAPFolder) ifolder).doCommand(new IMAPFolder.ProtocolCommand() {
+                    @Override
+                    public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                        protocol.create(target.name);
+                        return null;
+                    }
+                });
+                ifolder.setSubscribed(true);
+            }
+        }
 
         // De-classify
         if (!copy &&
@@ -2625,6 +2640,8 @@ class Core {
                             folder.download = parent.download;
                             folder.auto_classify_source = parent.auto_classify_source;
                             folder.auto_classify_target = parent.auto_classify_target;
+                            folder.sync_days = parent.sync_days;
+                            folder.keep_days = parent.keep_days;
                             folder.unified = parent.unified;
                             folder.navigation = parent.navigation;
                             folder.notify = parent.notify;
@@ -2845,7 +2862,7 @@ class Core {
         }
     }
 
-    private static void onRule(Context context, JSONArray jargs, EntityMessage message) throws JSONException, IOException, AddressException {
+    private static void onRule(Context context, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException {
         // Download message body
         DB db = DB.getInstance(context);
 

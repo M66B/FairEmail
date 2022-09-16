@@ -609,18 +609,71 @@ public class EntityRule {
 
     private boolean onActionMove(Context context, EntityMessage message, JSONObject jargs) {
         long target = jargs.optLong("target", -1);
+        String create = jargs.optString("create");
         boolean seen = jargs.optBoolean("seen");
         boolean thread = jargs.optBoolean("thread");
 
         DB db = DB.getInstance(context);
+
         EntityFolder folder = db.folder().getFolder(target);
         if (folder == null)
             throw new IllegalArgumentException("Rule move to folder not found name=" + name);
 
+        if (!TextUtils.isEmpty(create)) {
+            Calendar calendar = Calendar.getInstance();
+            String year = String.format(Locale.ROOT, "%04d", calendar.get(Calendar.YEAR));
+            String month = String.format(Locale.ROOT, "%02d", calendar.get(Calendar.MONTH) + 1);
+
+            create = create.replace("$year$", year);
+            create = create.replace("$month$", month);
+
+            String domain = "";
+            if (message.from != null &&
+                    message.from.length > 0 &&
+                    message.from[0] instanceof InternetAddress) {
+                InternetAddress from = (InternetAddress) message.from[0];
+                domain = UriHelper.getEmailDomain(from.getAddress());
+            }
+            create = create.replace("$domain$", domain);
+
+            String name = folder.name + folder.separator + create;
+            EntityFolder created = db.folder().getFolderByName(message.account, name);
+            if (created == null) {
+                created = new EntityFolder();
+                created.tbc = true;
+                created.account = folder.account;
+                created.namespace = folder.namespace;
+                created.separator = folder.separator;
+                created.name = name;
+                created.type = EntityFolder.USER;
+                created.subscribed = true;
+                created.setProperties();
+
+                EntityAccount account = db.account().getAccount(folder.account);
+                created.setSpecials(account);
+
+                created.synchronize = folder.synchronize;
+                created.poll = folder.poll;
+                created.poll_factor = folder.poll_factor;
+                created.download = folder.download;
+                created.auto_classify_source = folder.auto_classify_source;
+                created.auto_classify_target = folder.auto_classify_target;
+                created.sync_days = folder.sync_days;
+                created.keep_days = folder.keep_days;
+                created.unified = folder.unified;
+                created.navigation = folder.navigation;
+                created.notify = folder.notify;
+
+                created.id = db.folder().insertFolder(created);
+            }
+            target = created.id;
+        }
+
         List<EntityMessage> messages = db.message().getMessagesByThread(
                 message.account, message.thread, thread ? null : message.id, message.folder);
         for (EntityMessage threaded : messages)
-            EntityOperation.queue(context, threaded, EntityOperation.MOVE, target, seen, null, true);
+            EntityOperation.queue(context, threaded, EntityOperation.MOVE, target,
+                    seen, null, true, false, !TextUtils.isEmpty(create));
 
         message.ui_hide = true;
 

@@ -136,6 +136,7 @@ public class FragmentRule extends FragmentBase {
     private EditText etKeyword;
 
     private Button btnFolder;
+    private EditText etMoveCreate;
     private CheckBox cbMoveSeen;
     private CheckBox cbMoveThread;
 
@@ -290,6 +291,7 @@ public class FragmentRule extends FragmentBase {
         etKeyword = view.findViewById(R.id.etKeyword);
 
         btnFolder = view.findViewById(R.id.btnFolder);
+        etMoveCreate = view.findViewById(R.id.etMoveCreate);
         cbMoveSeen = view.findViewById(R.id.cbMoveSeen);
         cbMoveThread = view.findViewById(R.id.cbMoveThread);
 
@@ -1170,6 +1172,7 @@ public class FragmentRule extends FragmentBase {
                                     long target = jaction.optLong("target", -1);
                                     showFolder(target);
                                     if (type == EntityRule.TYPE_MOVE) {
+                                        etMoveCreate.setText(jaction.optString("create"));
                                         cbMoveSeen.setChecked(jaction.optBoolean("seen"));
                                         cbMoveThread.setChecked(jaction.optBoolean("thread"));
                                     }
@@ -1525,6 +1528,7 @@ public class FragmentRule extends FragmentBase {
                     Object tag = btnFolder.getTag();
                     jaction.put("target", tag instanceof Long ? (long) tag : -1);
                     if (action.type == EntityRule.TYPE_MOVE) {
+                        jaction.put("create", etMoveCreate.getText().toString().trim());
                         jaction.put("seen", cbMoveSeen.isChecked());
                         jaction.put("thread", cbMoveThread.isChecked());
                     }

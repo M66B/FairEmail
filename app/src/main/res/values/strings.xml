@@ -1728,6 +1728,7 @@
     <string name="title_rule_hours">Hours</string>
     <string name="title_rule_schedule_end">From the end of the time condition</string>
     <string name="title_rule_folder">Folder</string>
+    <string name="title_rule_folder_create">Create subfolder</string>
     <string name="title_rule_thread">All messages in same conversation and folder</string>
     <string name="title_rule_identity">Identity</string>
     <string name="title_rule_template">Reply template</string>
