@@ -141,36 +141,33 @@ public class HtmlEx {
             int n1 = text.nextSpanTransition(i, end, QuoteSpan.class);
             int n2 = text.nextSpanTransition(i, end, eu.faircode.email.IndentSpan.class);
             next = Math.min(n1, n2);
-            if (next > end) {
-                StringBuilder sb = new StringBuilder();
-                TextUtils.dumpSpans(text, new StringBuilderPrinter(sb), "withinDiv ");
-                sb.append(" next=").append(next);
-                sb.append(" start=").append(start);
-                sb.append(" end=").append(end);
-                eu.faircode.email.Log.e(sb.toString());
-                next = end;
-            }
-            List<Object> spans = new ArrayList<>();
-            for (Object span : getSpans(text, i, next, LeadingMarginSpan.class))
-                if (span instanceof QuoteSpan ||
-                        span instanceof eu.faircode.email.IndentSpan)
-                    spans.add(span);
+            try {
+                List<Object> spans = new ArrayList<>();
+                for (Object span : getSpans(text, i, next, LeadingMarginSpan.class))
+                    if (span instanceof QuoteSpan ||
+                            span instanceof eu.faircode.email.IndentSpan)
+                        spans.add(span);
 
-            for (Object span : spans) {
-                if (span instanceof QuoteSpan)
-                    out.append("<blockquote style=\"")
-                            .append(eu.faircode.email.HtmlHelper.getQuoteStyle(text, next, end))
-                            .append("\">");
-                else if (span instanceof eu.faircode.email.IndentSpan)
-                    out.append("<blockquote style=\"")
-                            .append(eu.faircode.email.HtmlHelper.getIndentStyle(text, next, end))
-                            .append("\">");
-            }
+                for (Object span : spans) {
+                    if (span instanceof QuoteSpan)
+                        out.append("<blockquote style=\"")
+                                .append(eu.faircode.email.HtmlHelper.getQuoteStyle(text, next, end))
+                                .append("\">");
+                    else if (span instanceof eu.faircode.email.IndentSpan)
+                        out.append("<blockquote style=\"")
+                                .append(eu.faircode.email.HtmlHelper.getIndentStyle(text, next, end))
+                                .append("\">");
+                }
 
-            withinBlockquote(out, text, i, next, option);
+                withinBlockquote(out, text, i, next, option);
 
-            for (Object span : spans) {
-                out.append("</blockquote>\n");
+                for (Object span : spans) {
+                    out.append("</blockquote>\n");
+                }
+            } catch (Throwable ex) {
+                Log.e("withinDiv " + start + "..." + end + "/" + text.length() +
+                        " i=" + i + " n1=" + n1 + " n2=" + n2);
+                throw ex;
             }
         }
     }
@@ -248,85 +245,91 @@ public class HtmlEx {
         int next;
         for (int i = start; i <= end; i = next) {
             next = TextUtils.indexOf(text, '\n', i, end);
-            if (next < 0) {
-                next = end;
-            }
-
-            if (next == i) {
-                if (levels.size() > 0) {
-                    // Current paragraph is no longer a list item; close the previously opened list
-                    for (int l = levels.size() - 1; l >= 0; l--)
-                        out.append(levels.get(l) ? "</ul>\n" : "</ol>\n");
-                    levels.clear();
-                }
-                if (i != text.length())
-                    out.append("<br>\n");
-            } else {
-                eu.faircode.email.LineSpan[] line = getSpans(text, i, next, eu.faircode.email.LineSpan.class);
-                if (line.length > 0) {
-                    for (int l = 0; l < line.length; l++)
-                        out.append("<hr>");
-                    continue;
+            try {
+                if (next < 0) {
+                    next = end;
                 }
 
-                int level = 0;
-                Boolean isBulletListItem = null;
-                ParagraphStyle[] paragraphStyles = getSpans(text, i, next, ParagraphStyle.class);
-                for (ParagraphStyle paragraphStyle : paragraphStyles) {
-                    final int spanFlags = text.getSpanFlags(paragraphStyle);
-                    if ((spanFlags & Spanned.SPAN_PARAGRAPH) == Spanned.SPAN_PARAGRAPH
-                            && paragraphStyle instanceof BulletSpan) {
-                        isBulletListItem = !(paragraphStyle instanceof eu.faircode.email.NumberSpan);
-                        if (paragraphStyle instanceof NumberSpan)
-                            level = ((NumberSpan) paragraphStyle).getLevel();
-                        else if (paragraphStyle instanceof BulletSpanEx)
-                            level = ((BulletSpanEx) paragraphStyle).getLevel();
-                        break;
+                if (next == i) {
+                    if (levels.size() > 0) {
+                        // Current paragraph is no longer a list item; close the previously opened list
+                        for (int l = levels.size() - 1; l >= 0; l--)
+                            out.append(levels.get(l) ? "</ul>\n" : "</ol>\n");
+                        levels.clear();
+                    }
+                    if (i != text.length())
+                        out.append("<br>\n");
+                } else {
+                    eu.faircode.email.LineSpan[] line = getSpans(text, i, next, eu.faircode.email.LineSpan.class);
+                    if (line.length > 0) {
+                        for (int l = 0; l < line.length; l++)
+                            out.append("<hr>");
+                        continue;
+                    }
+
+                    int level = 0;
+                    Boolean isBulletListItem = null;
+                    ParagraphStyle[] paragraphStyles = getSpans(text, i, next, ParagraphStyle.class);
+                    for (ParagraphStyle paragraphStyle : paragraphStyles) {
+                        final int spanFlags = text.getSpanFlags(paragraphStyle);
+                        if ((spanFlags & Spanned.SPAN_PARAGRAPH) == Spanned.SPAN_PARAGRAPH
+                                && paragraphStyle instanceof BulletSpan) {
+                            isBulletListItem = !(paragraphStyle instanceof eu.faircode.email.NumberSpan);
+                            if (paragraphStyle instanceof NumberSpan)
+                                level = ((NumberSpan) paragraphStyle).getLevel();
+                            else if (paragraphStyle instanceof BulletSpanEx)
+                                level = ((BulletSpanEx) paragraphStyle).getLevel();
+                            break;
+                        }
+                    }
+
+                    if (isBulletListItem == null)
+                        level = -1;
+
+                    while (levels.size() > level + 1) {
+                        Boolean bullet = levels.remove(levels.size() - 1);
+                        out.append(bullet ? "</ul>\n" : "</ol>\n");
+                    }
+                    if (level >= 0 &&
+                            levels.size() == level + 1 &&
+                            levels.get(level) != isBulletListItem) {
+                        Boolean bullet = levels.remove(level);
+                        out.append(bullet ? "</ul>\n" : "</ol>\n");
+                    }
+                    while (levels.size() < level + 1) {
+                        levels.add(isBulletListItem);
+                        out.append(isBulletListItem ? "<ul" : "<ol")
+                                .append(getTextStyles(text, i, next, true, false))
+                                .append(">\n");
+                    }
+
+                    String tagType = isBulletListItem != null ? "li" : "span";
+                    out.append("<").append(tagType)
+                            .append(getTextDirection(text, i, next))
+                            .append(getTextStyles(text, i, next, isBulletListItem == null, true))
+                            .append(">");
+
+                    withinParagraph(out, text, i, next);
+
+                    out.append("</");
+                    out.append(tagType);
+                    out.append(">\n");
+                    if (isBulletListItem == null)
+                        out.append("<br>\n");
+
+                    if (next == end && levels.size() > 0) {
+                        for (int l = levels.size() - 1; l >= 0; l--)
+                            out.append(levels.get(l) ? "</ul>\n" : "</ol>\n");
+                        levels.clear();
                     }
                 }
 
-                if (isBulletListItem == null)
-                    level = -1;
-
-                while (levels.size() > level + 1) {
-                    Boolean bullet = levels.remove(levels.size() - 1);
-                    out.append(bullet ? "</ul>\n" : "</ol>\n");
-                }
-                if (level >= 0 &&
-                        levels.size() == level + 1 &&
-                        levels.get(level) != isBulletListItem) {
-                    Boolean bullet = levels.remove(level);
-                    out.append(bullet ? "</ul>\n" : "</ol>\n");
-                }
-                while (levels.size() < level + 1) {
-                    levels.add(isBulletListItem);
-                    out.append(isBulletListItem ? "<ul" : "<ol")
-                            .append(getTextStyles(text, i, next, true, false))
-                            .append(">\n");
-                }
-
-                String tagType = isBulletListItem != null ? "li" : "span";
-                out.append("<").append(tagType)
-                        .append(getTextDirection(text, i, next))
-                        .append(getTextStyles(text, i, next, isBulletListItem == null, true))
-                        .append(">");
-
-                withinParagraph(out, text, i, next);
-
-                out.append("</");
-                out.append(tagType);
-                out.append(">\n");
-                if (isBulletListItem == null)
-                    out.append("<br>\n");
-
-                if (next == end && levels.size() > 0) {
-                    for (int l = levels.size() - 1; l >= 0; l--)
-                        out.append(levels.get(l) ? "</ul>\n" : "</ol>\n");
-                    levels.clear();
-                }
+                next++;
+            } catch (Throwable ex) {
+                Log.e("withinBlockquoteIndividual " + start + "..." + end + "/" + text.length() +
+                        " i=" + i + " next=" + next);
+                throw ex;
             }
-
-            next++;
         }
     }
 
@@ -371,155 +374,161 @@ public class HtmlEx {
         int next;
         for (int i = start; i < end; i = next) {
             next = text.nextSpanTransition(i, end, CharacterStyle.class);
-            CharacterStyle[] style = getSpans(text, i, next, CharacterStyle.class);
+            try {
+                CharacterStyle[] style = getSpans(text, i, next, CharacterStyle.class);
 
-            for (int j = 0; j < style.length; j++) {
-                if (style[j] instanceof StyleSpan) {
-                    int s = ((StyleSpan) style[j]).getStyle();
+                for (int j = 0; j < style.length; j++) {
+                    if (style[j] instanceof StyleSpan) {
+                        int s = ((StyleSpan) style[j]).getStyle();
 
-                    if ((s & Typeface.BOLD) != 0) {
-                        out.append("<b>");
+                        if ((s & Typeface.BOLD) != 0) {
+                            out.append("<b>");
+                        }
+                        if ((s & Typeface.ITALIC) != 0) {
+                            out.append("<i>");
+                        }
                     }
-                    if ((s & Typeface.ITALIC) != 0) {
-                        out.append("<i>");
+                    if (style[j] instanceof TypefaceSpan) {
+                        String s = ((TypefaceSpan) style[j]).getFamily();
+
+                        //if ("monospace".equals(s)) {
+                        //    out.append("<tt>");
+                        //}
+
+                        out.append("<span style='font-family:" + s + ";'>");
                     }
-                }
-                if (style[j] instanceof TypefaceSpan) {
-                    String s = ((TypefaceSpan) style[j]).getFamily();
-
-                    //if ("monospace".equals(s)) {
-                    //    out.append("<tt>");
-                    //}
-
-                    out.append("<span style='font-family:" + s + ";'>");
-                }
-                if (style[j] instanceof SuperscriptSpan) {
-                    out.append("<sup>");
-                }
-                if (style[j] instanceof SubscriptSpan) {
-                    out.append("<sub>");
-                }
-                if (style[j] instanceof UnderlineSpan) {
-                    out.append("<u>");
-                }
-                if (style[j] instanceof StyleHelper.MarkSpan) {
-                    out.append("<mark>");
-                }
-                if (style[j] instanceof StrikethroughSpan) {
-                    out.append("<span style=\"text-decoration:line-through;\">");
-                }
-                if (style[j] instanceof URLSpan) {
-                    out.append("<a href=\"");
-                    out.append(((URLSpan) style[j]).getURL());
-                    out.append("\">");
-                }
-                if (style[j] instanceof ImageSpan) {
-                    out.append("<img src=\"");
-                    out.append(((ImageSpan) style[j]).getSource());
-                    out.append("\"");
-
-                    if (style[j] instanceof ImageSpanEx) {
-                        ImageSpanEx img = (ImageSpanEx) style[j];
-                        int w = img.getWidth();
-                        if (w > 0)
-                            out.append(" width=\"").append(w).append("\"");
-                        int h = img.getHeight();
-                        if (h > 0)
-                            out.append(" height=\"").append(h).append("\"");
+                    if (style[j] instanceof SuperscriptSpan) {
+                        out.append("<sup>");
                     }
-
-                    out.append(">");
-
-                    // Don't output the dummy character underlying the image.
-                    i = next;
-                }
-                if (style[j] instanceof AbsoluteSizeSpan) {
-                    AbsoluteSizeSpan s = ((AbsoluteSizeSpan) style[j]);
-                    float sizeDip = s.getSize();
-                    if (!s.getDip()) {
-                        //Application application = ActivityThread.currentApplication();
-                        sizeDip /= context.getResources().getDisplayMetrics().density;
+                    if (style[j] instanceof SubscriptSpan) {
+                        out.append("<sub>");
                     }
-
-                    // px in CSS is the equivalance of dip in Android
-                    out.append(String.format("<span style=\"font-size:%.0fpx\";>", sizeDip));
-                }
-                if (style[j] instanceof RelativeSizeSpan) {
-                    float sizeEm = ((RelativeSizeSpan) style[j]).getSizeChange();
-                    if (sizeEm < 1)
-                        out.append(String.format("<span style=\"font-size:%s;\">",
-                                sizeEm < HtmlHelper.FONT_SMALL ? "x-small" : "small"));
-                    else if (sizeEm > 1)
-                        out.append(String.format("<span style=\"font-size:%s;\">",
-                                sizeEm > HtmlHelper.FONT_LARGE ? "x-large" : "large"));
-                }
-                if (style[j] instanceof ForegroundColorSpan) {
-                    int color = ((ForegroundColorSpan) style[j]).getForegroundColor();
-                    //out.append(String.format("<span style=\"color:#%06X;\">", 0xFFFFFF & color));
-                    out.append(String.format("<span style=\"color:%s;\">",
-                            eu.faircode.email.HtmlHelper.encodeWebColor(color)));
-                }
-                if (style[j] instanceof BackgroundColorSpan && !(style[j] instanceof StyleHelper.MarkSpan)) {
-                    int color = ((BackgroundColorSpan) style[j]).getBackgroundColor();
-                    //out.append(String.format("<span style=\"background-color:#%06X;\">",
-                    //        0xFFFFFF & color));
-                    out.append(String.format("<span style=\"background-color:%s;\">",
-                            eu.faircode.email.HtmlHelper.encodeWebColor(color)));
-                }
-            }
-
-            withinStyle(out, text, i, next);
-
-            for (int j = style.length - 1; j >= 0; j--) {
-                if (style[j] instanceof BackgroundColorSpan && !(style[j] instanceof StyleHelper.MarkSpan)) {
-                    out.append("</span>");
-                }
-                if (style[j] instanceof ForegroundColorSpan) {
-                    out.append("</span>");
-                }
-                if (style[j] instanceof RelativeSizeSpan) {
-                    out.append("</span>");
-                }
-                if (style[j] instanceof AbsoluteSizeSpan) {
-                    out.append("</span>");
-                }
-                if (style[j] instanceof URLSpan) {
-                    out.append("</a>");
-                }
-                if (style[j] instanceof StrikethroughSpan) {
-                    out.append("</span>");
-                }
-                if (style[j] instanceof StyleHelper.MarkSpan) {
-                    out.append("</mark>");
-                }
-                if (style[j] instanceof UnderlineSpan) {
-                    out.append("</u>");
-                }
-                if (style[j] instanceof SubscriptSpan) {
-                    out.append("</sub>");
-                }
-                if (style[j] instanceof SuperscriptSpan) {
-                    out.append("</sup>");
-                }
-                if (style[j] instanceof TypefaceSpan) {
-                    //String s = ((TypefaceSpan) style[j]).getFamily();
-
-                    //if (s.equals("monospace")) {
-                    //    out.append("</tt>");
-                    //}
-
-                    out.append("</span>");
-                }
-                if (style[j] instanceof StyleSpan) {
-                    int s = ((StyleSpan) style[j]).getStyle();
-
-                    if ((s & Typeface.BOLD) != 0) {
-                        out.append("</b>");
+                    if (style[j] instanceof UnderlineSpan) {
+                        out.append("<u>");
                     }
-                    if ((s & Typeface.ITALIC) != 0) {
-                        out.append("</i>");
+                    if (style[j] instanceof StyleHelper.MarkSpan) {
+                        out.append("<mark>");
+                    }
+                    if (style[j] instanceof StrikethroughSpan) {
+                        out.append("<span style=\"text-decoration:line-through;\">");
+                    }
+                    if (style[j] instanceof URLSpan) {
+                        out.append("<a href=\"");
+                        out.append(((URLSpan) style[j]).getURL());
+                        out.append("\">");
+                    }
+                    if (style[j] instanceof ImageSpan) {
+                        out.append("<img src=\"");
+                        out.append(((ImageSpan) style[j]).getSource());
+                        out.append("\"");
+
+                        if (style[j] instanceof ImageSpanEx) {
+                            ImageSpanEx img = (ImageSpanEx) style[j];
+                            int w = img.getWidth();
+                            if (w > 0)
+                                out.append(" width=\"").append(w).append("\"");
+                            int h = img.getHeight();
+                            if (h > 0)
+                                out.append(" height=\"").append(h).append("\"");
+                        }
+
+                        out.append(">");
+
+                        // Don't output the dummy character underlying the image.
+                        i = next;
+                    }
+                    if (style[j] instanceof AbsoluteSizeSpan) {
+                        AbsoluteSizeSpan s = ((AbsoluteSizeSpan) style[j]);
+                        float sizeDip = s.getSize();
+                        if (!s.getDip()) {
+                            //Application application = ActivityThread.currentApplication();
+                            sizeDip /= context.getResources().getDisplayMetrics().density;
+                        }
+
+                        // px in CSS is the equivalance of dip in Android
+                        out.append(String.format("<span style=\"font-size:%.0fpx\";>", sizeDip));
+                    }
+                    if (style[j] instanceof RelativeSizeSpan) {
+                        float sizeEm = ((RelativeSizeSpan) style[j]).getSizeChange();
+                        if (sizeEm < 1)
+                            out.append(String.format("<span style=\"font-size:%s;\">",
+                                    sizeEm < HtmlHelper.FONT_SMALL ? "x-small" : "small"));
+                        else if (sizeEm > 1)
+                            out.append(String.format("<span style=\"font-size:%s;\">",
+                                    sizeEm > HtmlHelper.FONT_LARGE ? "x-large" : "large"));
+                    }
+                    if (style[j] instanceof ForegroundColorSpan) {
+                        int color = ((ForegroundColorSpan) style[j]).getForegroundColor();
+                        //out.append(String.format("<span style=\"color:#%06X;\">", 0xFFFFFF & color));
+                        out.append(String.format("<span style=\"color:%s;\">",
+                                eu.faircode.email.HtmlHelper.encodeWebColor(color)));
+                    }
+                    if (style[j] instanceof BackgroundColorSpan && !(style[j] instanceof StyleHelper.MarkSpan)) {
+                        int color = ((BackgroundColorSpan) style[j]).getBackgroundColor();
+                        //out.append(String.format("<span style=\"background-color:#%06X;\">",
+                        //        0xFFFFFF & color));
+                        out.append(String.format("<span style=\"background-color:%s;\">",
+                                eu.faircode.email.HtmlHelper.encodeWebColor(color)));
                     }
                 }
+
+                withinStyle(out, text, i, next);
+
+                for (int j = style.length - 1; j >= 0; j--) {
+                    if (style[j] instanceof BackgroundColorSpan && !(style[j] instanceof StyleHelper.MarkSpan)) {
+                        out.append("</span>");
+                    }
+                    if (style[j] instanceof ForegroundColorSpan) {
+                        out.append("</span>");
+                    }
+                    if (style[j] instanceof RelativeSizeSpan) {
+                        out.append("</span>");
+                    }
+                    if (style[j] instanceof AbsoluteSizeSpan) {
+                        out.append("</span>");
+                    }
+                    if (style[j] instanceof URLSpan) {
+                        out.append("</a>");
+                    }
+                    if (style[j] instanceof StrikethroughSpan) {
+                        out.append("</span>");
+                    }
+                    if (style[j] instanceof StyleHelper.MarkSpan) {
+                        out.append("</mark>");
+                    }
+                    if (style[j] instanceof UnderlineSpan) {
+                        out.append("</u>");
+                    }
+                    if (style[j] instanceof SubscriptSpan) {
+                        out.append("</sub>");
+                    }
+                    if (style[j] instanceof SuperscriptSpan) {
+                        out.append("</sup>");
+                    }
+                    if (style[j] instanceof TypefaceSpan) {
+                        //String s = ((TypefaceSpan) style[j]).getFamily();
+
+                        //if (s.equals("monospace")) {
+                        //    out.append("</tt>");
+                        //}
+
+                        out.append("</span>");
+                    }
+                    if (style[j] instanceof StyleSpan) {
+                        int s = ((StyleSpan) style[j]).getStyle();
+
+                        if ((s & Typeface.BOLD) != 0) {
+                            out.append("</b>");
+                        }
+                        if ((s & Typeface.ITALIC) != 0) {
+                            out.append("</i>");
+                        }
+                    }
+                }
+            } catch (Throwable ex) {
+                Log.e("withinParagraph " + start + "..." + end + "/" + text.length() +
+                        " i=" + i + " next=" + next);
+                throw ex;
             }
         }
     }
@@ -528,34 +537,39 @@ public class HtmlEx {
     private /* static */ void withinStyle(StringBuilder out, CharSequence text,
                                     int start, int end) {
         for (int i = start; i < end; i++) {
-            char c = text.charAt(i);
+            try {
+                char c = text.charAt(i);
 
-            if (c == '<') {
-                out.append("&lt;");
-            } else if (c == '>') {
-                out.append("&gt;");
-            } else if (c == '&') {
-                out.append("&amp;");
-            } else if (c >= 0xD800 && c <= 0xDFFF) {
-                if (c < 0xDC00 && i + 1 < end) {
-                    char d = text.charAt(i + 1);
-                    if (d >= 0xDC00 && d <= 0xDFFF) {
-                        i++;
-                        int codepoint = 0x010000 | (int) c - 0xD800 << 10 | (int) d - 0xDC00;
-                        out.append("&#").append(codepoint).append(";");
+                if (c == '<') {
+                    out.append("&lt;");
+                } else if (c == '>') {
+                    out.append("&gt;");
+                } else if (c == '&') {
+                    out.append("&amp;");
+                } else if (c >= 0xD800 && c <= 0xDFFF) {
+                    if (c < 0xDC00 && i + 1 < end) {
+                        char d = text.charAt(i + 1);
+                        if (d >= 0xDC00 && d <= 0xDFFF) {
+                            i++;
+                            int codepoint = 0x010000 | (int) c - 0xD800 << 10 | (int) d - 0xDC00;
+                            out.append("&#").append(codepoint).append(";");
+                        }
                     }
-                }
-            } else if (c > 0x7E || c < ' ') {
-                out.append("&#").append((int) c).append(";");
-            } else if (c == ' ') {
-                while (i + 1 < end && text.charAt(i + 1) == ' ') {
-                    out.append("&nbsp;");
-                    i++;
-                }
+                } else if (c > 0x7E || c < ' ') {
+                    out.append("&#").append((int) c).append(";");
+                } else if (c == ' ') {
+                    while (i + 1 < end && text.charAt(i + 1) == ' ') {
+                        out.append("&nbsp;");
+                        i++;
+                    }
 
-                out.append(' ');
-            } else {
-                out.append(c);
+                    out.append(' ');
+                } else {
+                    out.append(c);
+                }
+            } catch (Throwable ex) {
+                Log.e("withinStyle " + start + "..." + end + "/" + text.length() + " i=" + i);
+                throw ex;
             }
         }
     }
