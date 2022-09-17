@@ -8168,8 +8168,17 @@ public class FragmentMessages extends FragmentBase
                                     String protect_subject = parts.getProtectedSubject();
 
                                     // Write decrypted body
+                                    boolean debug = prefs.getBoolean("debug", false);
                                     boolean download_plain = prefs.getBoolean("download_plain", false);
                                     String html = parts.getHtml(context, download_plain);
+
+                                    if (html == null && (debug || BuildConfig.DEBUG)) {
+                                        int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
+                                        SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+                                        MessageHelper.getStructure(imessage, ssb, 0, textColorLink);
+                                        html = HtmlHelper.toHtml(ssb, context);
+                                    }
+
                                     Helper.writeText(message.getFile(context), html);
                                     Log.i("pgp html=" + (html == null ? null : html.length()));
 
@@ -8863,8 +8872,17 @@ public class FragmentMessages extends FragmentBase
 
                 // Write decrypted body
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean debug = prefs.getBoolean("debug", false);
                 boolean download_plain = prefs.getBoolean("download_plain", false);
                 String html = parts.getHtml(context, download_plain);
+
+                if (html == null && (debug || BuildConfig.DEBUG)) {
+                    int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
+                    SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+                    MessageHelper.getStructure(imessage, ssb, 0, textColorLink);
+                    html = HtmlHelper.toHtml(ssb, context);
+                }
+
                 Helper.writeText(message.getFile(context), html);
                 Log.i("s/mime html=" + (html == null ? null : html.length()));
 
