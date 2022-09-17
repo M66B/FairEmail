@@ -8610,7 +8610,7 @@ public class FragmentMessages extends FragmentBase
                     if (chain == null || chain.length == 0)
                         throw new IllegalArgumentException("Public key missing");
 
-                    // Get encrypted message
+                    // Get last encrypted message
                     File input = null;
                     List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                     for (EntityAttachment attachment : attachments)
@@ -8618,7 +8618,6 @@ public class FragmentMessages extends FragmentBase
                             if (!attachment.available)
                                 throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
                             input = attachment.getFile(context);
-                            break;
                         }
 
                     if (input == null)
