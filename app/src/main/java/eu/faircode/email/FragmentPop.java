@@ -808,7 +808,7 @@ public class FragmentPop extends FragmentBase {
 
                 if (auth != AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);
-                    tilPassword.setEnabled(false);
+                    tilPassword.getEditText().setEnabled(false);
                 }
 
                 cbIgnoreSchedule.setEnabled(cbSynchronize.isChecked());
