@@ -1456,6 +1456,7 @@
     <string name="title_answer_placeholder_email">Pošiljateljev e-poštni naslov</string>
     <string name="title_answer_placeholder_firstname">Pošiljateljevo ime</string>
     <string name="title_answer_placeholder_lastname">Pošiljateljev priimek</string>
+    <string name="title_answer_placeholder_date">Trenutni datum</string>
     <string name="title_rule_noop">Brez dejanja</string>
     <string name="title_rule_seen">Označi kot prebrano</string>
     <string name="title_rule_unseen">Označi kot neprebrano</string>

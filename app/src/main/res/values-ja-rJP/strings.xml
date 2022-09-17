@@ -364,6 +364,7 @@
     <string name="title_advanced_signature_forward">転送に署名を使用</string>
     <string name="title_advanced_discard_delete">下書きを破棄するときに下書きを完全に削除</string>
     <string name="title_advanced_reply_move">メッセージに返信したときに返信を同じフォルダーに保存</string>
+    <string name="title_advanced_reply_move_inbox">受信トレイにあるメッセージにも適用</string>
     <string name="title_advanced_auto_link">自動的にリンクを作成</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_flow">プレーンテキストに「format flowed」を適用</string>
@@ -380,6 +381,7 @@
     <string name="title_advanced_download_eml">元のメッセージファイルをダウンロード</string>
     <string name="title_advanced_download_plain">デフォルトでプレーンテキストのみの部分をダウンロード (可能な場合)</string>
     <string name="title_advanced_validated">ネットワークの種類が確定するまで使用しない</string>
+    <string name="title_advanced_validated_captive">キャプティブポータルを認証するまで接続しない</string>
     <string name="title_advanced_vpn_only">VPN 経由でのみ接続</string>
     <string name="title_advanced_timeout">接続タイムアウト (秒)</string>
     <string name="title_advanced_prefer_ip4">IPv6 より IPv4 を優先</string>
@@ -642,6 +644,7 @@
     <string name="title_advanced_app">アプリ設定</string>
     <string name="title_advanced_more">その他のオプション</string>
     <string name="title_advanced_main_log">メインログ</string>
+    <string name="title_advanced_main_log_mem">メモリ使用量ログ</string>
     <string name="title_advanced_protocol">プロトコルログ</string>
     <string name="title_advanced_log_info">デバッグログ</string>
     <string name="title_advanced_debug">デバッグモード</string>
@@ -775,6 +778,7 @@
     <string name="title_account_category">カテゴリー</string>
     <string name="title_account_name_hint">フォルダーを区別するために使用</string>
     <string name="title_account_interval_hint">プッシュメッセージの接続を更新する頻度または新着メッセージを確認する頻度</string>
+    <string name="title_account_noop_hint">より頻繁に接続を更新しますが、バッテリー使用量が増加します</string>
     <string name="title_account_partial_fetch_hint">メッセージが空の場合や添付ファイルが破損している場合にのみ無効にする</string>
     <string name="title_color">色</string>
     <string name="title_background">背景</string>
@@ -815,6 +819,7 @@
     <string name="title_max_messages">ダウンロードするメッセージの最大数 (空白にするとすべてダウンロードします)</string>
     <string name="title_keep_poll_interval">ポーリング間隔 (分)</string>
     <string name="title_keep_alive_interval">キープアライブ間隔 (分)</string>
+    <string name="title_keep_alive_noop">IMAP IDLEを定期的に更新</string>
     <string name="title_server_time">サーバーの受信時刻を使用</string>
     <string name="title_received_header">「Received」ヘッダーを使用</string>
     <string name="title_date_header">「Date」ヘッダーを使用 (送信時刻)</string>

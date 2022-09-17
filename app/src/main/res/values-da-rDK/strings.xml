@@ -658,6 +658,7 @@
     <string name="title_advanced_app">App-indstillinger</string>
     <string name="title_advanced_more">Flere valgmuligheder</string>
     <string name="title_advanced_main_log">Hovedlogning</string>
+    <string name="title_advanced_main_log_mem">Log hukommelsesforbrug</string>
     <string name="title_advanced_protocol">Protokollogning</string>
     <string name="title_advanced_log_info">Fejllogning</string>
     <string name="title_advanced_debug">Fejlretningstilstand</string>
@@ -1434,6 +1435,7 @@
     <string name="title_answer_placeholder_email">Afsenders e-mailadresse</string>
     <string name="title_answer_placeholder_firstname">Afsenders: fornavn</string>
     <string name="title_answer_placeholder_lastname">Afsenders: efternavn</string>
+    <string name="title_answer_placeholder_date">Aktuelle dato</string>
     <string name="title_rule_noop">Ingen handling</string>
     <string name="title_rule_seen">Markér som læst</string>
     <string name="title_rule_unseen">Markér som ulæst</string>

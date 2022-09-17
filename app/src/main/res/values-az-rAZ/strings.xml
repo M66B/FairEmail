@@ -1434,6 +1434,7 @@
     <string name="title_answer_placeholder_email">Göndərənin e-poçt ünvanı</string>
     <string name="title_answer_placeholder_firstname">Göndərinin adı</string>
     <string name="title_answer_placeholder_lastname">Göndərənin soyadı</string>
+    <string name="title_answer_placeholder_date">Hazırkı tarix</string>
     <string name="title_rule_noop">Əməliyyat yoxdur</string>
     <string name="title_rule_seen">Oxundu kimi işarələ</string>
     <string name="title_rule_unseen">Oxunmadı kimi işarələ</string>

@@ -1456,6 +1456,7 @@
     <string name="title_answer_placeholder_email">E-mailová adresa odesílatele</string>
     <string name="title_answer_placeholder_firstname">Křestní jméno odesílatele</string>
     <string name="title_answer_placeholder_lastname">Příjmení odesílatele</string>
+    <string name="title_answer_placeholder_date">Aktuální datum</string>
     <string name="title_rule_noop">Žádná akce</string>
     <string name="title_rule_seen">Označit přečtené</string>
     <string name="title_rule_unseen">Označit nepřečtené</string>

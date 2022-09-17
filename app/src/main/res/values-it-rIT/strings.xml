@@ -394,7 +394,7 @@
     <string name="title_advanced_download_eml">Scarica i file dei messaggi non elaborati</string>
     <string name="title_advanced_download_plain">Scarica le parti in solo testo semplice di default (se disponibile)</string>
     <string name="title_advanced_validated">Richiede una connessione convalidata (verificata)</string>
-    <string name="title_advanced_validated_captive">Richiede una connessione convalidata su un captive portal</string>
+    <string name="title_advanced_validated_captive">Richiede una connessione convalidata su un portale bloccato</string>
     <string name="title_advanced_vpn_only">Connettiti solo tramite una VPN</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
     <string name="title_advanced_prefer_ip4">Preferisce IPv4 su IPv6</string>
@@ -658,7 +658,7 @@
     <string name="title_advanced_app">Impostazioni dell\'app</string>
     <string name="title_advanced_more">Altre opzioni</string>
     <string name="title_advanced_main_log">Registrazione principale</string>
-    <string name="title_advanced_main_log_mem">Registra l\'utilizzo della memoria</string>
+    <string name="title_advanced_main_log_mem">Registra l\'uso della memoria</string>
     <string name="title_advanced_protocol">Registrazione del protocollo</string>
     <string name="title_advanced_log_info">Registrazione di debug</string>
     <string name="title_advanced_debug">Modalità di debug</string>
@@ -1435,6 +1435,7 @@
     <string name="title_answer_placeholder_email">Indirizzo e-mail del mittente</string>
     <string name="title_answer_placeholder_firstname">Nome del mittente</string>
     <string name="title_answer_placeholder_lastname">Cognome del mittente</string>
+    <string name="title_answer_placeholder_date">Data attuale</string>
     <string name="title_rule_noop">Nessun\'azione</string>
     <string name="title_rule_seen">Segna come letto</string>
     <string name="title_rule_unseen">Segna come non letto</string>

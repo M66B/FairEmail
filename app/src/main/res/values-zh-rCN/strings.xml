@@ -1415,6 +1415,7 @@
     <string name="title_answer_placeholder_email">发件人电子邮件地址</string>
     <string name="title_answer_placeholder_firstname">发件人名字</string>
     <string name="title_answer_placeholder_lastname">发件人姓氏</string>
+    <string name="title_answer_placeholder_date">当前日期</string>
     <string name="title_rule_noop">无操作</string>
     <string name="title_rule_seen">标为已读</string>
     <string name="title_rule_unseen">标记为未读</string>

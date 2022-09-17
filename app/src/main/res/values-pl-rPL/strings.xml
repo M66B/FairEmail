@@ -682,6 +682,7 @@
     <string name="title_advanced_app">Ustawienia aplikacji</string>
     <string name="title_advanced_more">Więcej opcji</string>
     <string name="title_advanced_main_log">Logowanie główne</string>
+    <string name="title_advanced_main_log_mem">Rejestruj użycie pamięci</string>
     <string name="title_advanced_protocol">Rejestrowanie protokołów</string>
     <string name="title_advanced_log_info">Rejestrowanie debugowania</string>
     <string name="title_advanced_debug">Debuguj</string>
@@ -1456,6 +1457,7 @@
     <string name="title_answer_placeholder_email">Adres e-mail nadawcy</string>
     <string name="title_answer_placeholder_firstname">Imię nadawcy</string>
     <string name="title_answer_placeholder_lastname">Nazwisko nadawcy</string>
+    <string name="title_answer_placeholder_date">Bieżąca data</string>
     <string name="title_rule_noop">Brak akcji</string>
     <string name="title_rule_seen">Oznacz jako przeczytane</string>
     <string name="title_rule_unseen">Oznacz jako nieprzeczytane</string>

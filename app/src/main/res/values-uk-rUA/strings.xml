@@ -1457,6 +1457,7 @@
     <string name="title_answer_placeholder_email">Адреса електронної пошти відправника</string>
     <string name="title_answer_placeholder_firstname">Ім\'я відправника</string>
     <string name="title_answer_placeholder_lastname">Прізвище відправника</string>
+    <string name="title_answer_placeholder_date">Поточна дата</string>
     <string name="title_rule_noop">Жодної дії</string>
     <string name="title_rule_seen">Позначити як прочитане</string>
     <string name="title_rule_unseen">Позначити як непрочитане</string>

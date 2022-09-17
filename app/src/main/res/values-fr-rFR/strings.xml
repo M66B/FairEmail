@@ -1435,6 +1435,7 @@
     <string name="title_answer_placeholder_email">Adresse e-mail de l’expéditeur</string>
     <string name="title_answer_placeholder_firstname">Prénom de l\'expéditeur</string>
     <string name="title_answer_placeholder_lastname">Nom de l\'expéditeur</string>
+    <string name="title_answer_placeholder_date">Date actuelle</string>
     <string name="title_rule_noop">Aucune action</string>
     <string name="title_rule_seen">Marquer comme lu</string>
     <string name="title_rule_unseen">Marquer comme non lu</string>

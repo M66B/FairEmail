@@ -655,6 +655,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_app">Uygulama ayarları</string>
     <string name="title_advanced_more">Daha fazla seçenek</string>
     <string name="title_advanced_main_log">Ana günlük kaydı</string>
+    <string name="title_advanced_main_log_mem">Bellek kullanımını günlüğe kaydet</string>
     <string name="title_advanced_protocol">Protokol günlüğü</string>
     <string name="title_advanced_log_info">Hata ayıklama günlüğü</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
@@ -1427,6 +1428,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_answer_placeholder_email">Gönderenin e-posta adresi</string>
     <string name="title_answer_placeholder_firstname">Gönderenin ilk adı</string>
     <string name="title_answer_placeholder_lastname">Gönderenin soyadı</string>
+    <string name="title_answer_placeholder_date">Geçerli tarih</string>
     <string name="title_rule_noop">Eylem yok</string>
     <string name="title_rule_seen">Okundu olarak işaretle</string>
     <string name="title_rule_unseen">Okunmadı olarak işaretle</string>

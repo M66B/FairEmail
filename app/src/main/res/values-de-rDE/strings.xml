@@ -1429,6 +1429,7 @@
     <string name="title_answer_placeholder_email">E-Mail-Adresse des Absenders</string>
     <string name="title_answer_placeholder_firstname">Vorname des Absenders</string>
     <string name="title_answer_placeholder_lastname">Nachname des Absenders</string>
+    <string name="title_answer_placeholder_date">Aktuelles Datum</string>
     <string name="title_rule_noop">Keine Aktion</string>
     <string name="title_rule_seen">Gelesen kennzeichnen</string>
     <string name="title_rule_unseen">Als ungelesen kennzeichnen</string>

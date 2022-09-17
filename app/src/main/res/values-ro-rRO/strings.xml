@@ -669,6 +669,7 @@
     <string name="title_advanced_app">Setări aplicație</string>
     <string name="title_advanced_more">Mai multe opțiuni</string>
     <string name="title_advanced_main_log">Jurnal principal de depanare</string>
+    <string name="title_advanced_main_log_mem">Înregistrează utilizarea memoriei</string>
     <string name="title_advanced_protocol">Jurnalizare protocol</string>
     <string name="title_advanced_log_info">Jurnal depanare</string>
     <string name="title_advanced_debug">Depanare</string>
@@ -1442,6 +1443,7 @@
     <string name="title_answer_placeholder_email">Adresa de e-mail a expeditorului</string>
     <string name="title_answer_placeholder_firstname">Prenumele expeditorului</string>
     <string name="title_answer_placeholder_lastname">Numele de familie al expeditorului</string>
+    <string name="title_answer_placeholder_date">Data curentă</string>
     <string name="title_rule_noop">Nicio acțiune</string>
     <string name="title_rule_seen">Marcare ca citit</string>
     <string name="title_rule_unseen">Marcare ca necitit</string>

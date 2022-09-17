@@ -683,6 +683,7 @@
     <string name="title_advanced_app">הגדרות היישומון</string>
     <string name="title_advanced_more">אפשרויות נוספות</string>
     <string name="title_advanced_main_log">תיעוד ראשי ביומן</string>
+    <string name="title_advanced_main_log_mem">תיעוד ניצולת זיכרון</string>
     <string name="title_advanced_protocol">תיעוד פרוטוקול</string>
     <string name="title_advanced_log_info">תיעוד תקלות</string>
     <string name="title_advanced_debug">מצב ניפוי תקלות</string>

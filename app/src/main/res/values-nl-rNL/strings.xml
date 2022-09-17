@@ -1425,6 +1425,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_answer_placeholder_email">E-mailadres afzender</string>
     <string name="title_answer_placeholder_firstname">Voornaam afzender</string>
     <string name="title_answer_placeholder_lastname">Achternaam afzender</string>
+    <string name="title_answer_placeholder_date">Huidige datum</string>
     <string name="title_rule_noop">Geen actie</string>
     <string name="title_rule_seen">Markeer als gelezen</string>
     <string name="title_rule_unseen">Markeren als ongelezen</string>
