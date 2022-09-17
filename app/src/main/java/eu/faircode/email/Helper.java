@@ -145,6 +145,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -216,6 +217,25 @@ public class Helper {
                     "[\\p{L}0-9][\\p{L}0-9\\-\\_]{0,25}" +
                     ")+"
     );
+
+    // https://support.google.com/mail/answer/6590#zippy=%2Cmessages-that-have-attachments
+    static final List<String> DANGEROUS_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(
+            "ade", "adp", "apk", "appx", "appxbundle",
+            "bat",
+            "cab", "chm", "cmd", "com", "cpl",
+            "dll", "dmg",
+            "ex", "ex_", "exe",
+            "hta",
+            "ins", "isp", "iso",
+            "jar", "js", "jse",
+            "lib", "lnk",
+            "mde", "msc", "msi", "msix", "msixbundle", "msp", "mst",
+            "nsh",
+            "pif", "ps1",
+            "scr", "sct", "shb", "sys",
+            "vb", "vbe", "vbs", "vxd",
+            "wsc", "wsf", "wsh"
+    ));
 
     private static final ExecutorService executor = getBackgroundExecutor(1, "helper");
 

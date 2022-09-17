@@ -29,11 +29,11 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_setup_quick_no_sent"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMessage" />
 
@@ -56,11 +56,11 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="Invalid address"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnFixSent" />
 
@@ -71,11 +71,11 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_dsn_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAddressError" />
 
@@ -86,11 +86,11 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_size_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindDsn" />
 
@@ -101,11 +101,11 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_pgp_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindSize" />
 
@@ -116,11 +116,11 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_smime_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindPgp" />
 
@@ -131,11 +131,11 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_to_missing"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindSmime" />
 
@@ -146,10 +146,10 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_extra_missing"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindTo" />
 
@@ -160,10 +160,10 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_noreply_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindExtra" />
 
@@ -174,10 +174,10 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_external_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindNoReply" />
 
@@ -188,10 +188,10 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_subject_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindExternal" />
 
@@ -202,10 +202,10 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_text_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindSubject" />
 
@@ -216,12 +216,26 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_attachment_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindText" />
+
+        <TextView
+            android:id="@+id/tvRemindExtension"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/twotone_warning_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_attachment_warning"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRemindAttachment" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSendReminders"
@@ -232,7 +246,7 @@
             android:text="@string/title_advanced_send_reminders"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindAttachment"
+            app:layout_constraintTop_toBottomOf="@id/tvRemindExtension"
             app:switchPadding="12dp" />
 
         <TextView
@@ -306,10 +320,10 @@
             android:layout_marginTop="6dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_plain_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPlainOnly" />
 

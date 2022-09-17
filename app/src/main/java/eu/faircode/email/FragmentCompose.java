@@ -6368,11 +6368,18 @@ public class FragmentCompose extends FragmentBase {
                             args.putBoolean("styled", styled);
 
                             int attached = 0;
-                            for (EntityAttachment attachment : attachments)
+                            List<String> dangerous = new ArrayList<>();
+                            for (EntityAttachment attachment : attachments) {
                                 if (!attachment.available)
                                     throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
                                 else if (attachment.isAttachment())
                                     attached++;
+                                String ext = Helper.getExtension(attachment.name);
+                                if (Helper.DANGEROUS_EXTENSIONS.contains(ext))
+                                    dangerous.add(attachment.name);
+                            }
+                            if (dangerous.size() > 0)
+                                args.putString("remind_extension", String.join(", ", dangerous));
 
                             // Check for missing attachments
                             if (attached == 0) {
@@ -6611,6 +6618,7 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
+                String remind_extension = args.getString("remind_extension");
                 boolean styled = args.getBoolean("styled", false);
 
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
@@ -6623,7 +6631,8 @@ public class FragmentCompose extends FragmentBase {
                         recipients > RECIPIENTS_WARNING ||
                         (styled && draft.isPlainOnly()) ||
                         (send_reminders &&
-                                (remind_extra || remind_subject || remind_text || remind_attachment))) {
+                                (remind_extra || remind_subject || remind_text ||
+                                        remind_attachment || remind_extension != null))) {
                     setBusy(false);
 
                     Helper.hideKeyboard(view);
@@ -7504,6 +7513,7 @@ public class FragmentCompose extends FragmentBase {
             final boolean remind_subject = args.getBoolean("remind_subject", false);
             final boolean remind_text = args.getBoolean("remind_text", false);
             final boolean remind_attachment = args.getBoolean("remind_attachment", false);
+            final String remind_extension = args.getString("remind_extension");
             final boolean styled = args.getBoolean("styled", false);
             final long size = args.getLong("size", -1);
             final long max_size = args.getLong("max_size", -1);
@@ -7535,6 +7545,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
+            final TextView tvRemindExtension = dview.findViewById(R.id.tvRemindExtension);
             final SwitchCompat swSendReminders = dview.findViewById(R.id.swSendReminders);
             final TextView tvSendRemindersHint = dview.findViewById(R.id.tvSendRemindersHint);
             final TextView tvTo = dview.findViewById(R.id.tvTo);
@@ -7590,6 +7601,9 @@ public class FragmentCompose extends FragmentBase {
             tvRemindText.setVisibility(send_reminders && remind_text ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(send_reminders && remind_attachment ? View.VISIBLE : View.GONE);
 
+            tvRemindExtension.setText(getString(R.string.title_attachment_warning, remind_extension));
+            tvRemindExtension.setVisibility(send_reminders && remind_extension != null ? View.VISIBLE : View.GONE);
+
             tvTo.setText(null);
             tvVia.setText(null);
             tvPlainHint.setVisibility(View.GONE);
@@ -7608,7 +7622,8 @@ public class FragmentCompose extends FragmentBase {
 
             Helper.setViewsEnabled(dview, false);
 
-            boolean reminder = (remind_extra || remind_subject || remind_text || remind_attachment);
+            boolean reminder = (remind_extra || remind_subject || remind_text ||
+                    remind_attachment || remind_extension != null);
             swSendReminders.setChecked(send_reminders);
             swSendReminders.setVisibility(send_reminders && reminder ? View.VISIBLE : View.GONE);
             tvSendRemindersHint.setVisibility(View.GONE);
@@ -7620,6 +7635,7 @@ public class FragmentCompose extends FragmentBase {
                     tvRemindSubject.setVisibility(checked && remind_subject ? View.VISIBLE : View.GONE);
                     tvRemindText.setVisibility(checked && remind_text ? View.VISIBLE : View.GONE);
                     tvRemindAttachment.setVisibility(checked && remind_attachment ? View.VISIBLE : View.GONE);
+                    tvRemindExtension.setVisibility(checked && remind_extension != null ? View.VISIBLE : View.GONE);
                     tvSendRemindersHint.setVisibility(checked ? View.GONE : View.VISIBLE);
                 }
             });

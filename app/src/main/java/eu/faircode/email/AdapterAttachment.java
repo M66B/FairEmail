@@ -78,6 +78,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     private boolean debug;
     private int dp12;
     private int dp36;
+    private int textColorTertiary;
+    private int colorWarning;
 
     private List<EntityAttachment> items = new ArrayList<>();
 
@@ -167,7 +169,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                 ? View.VISIBLE : View.INVISIBLE);
             }
 
+            boolean dangerous = Helper.DANGEROUS_EXTENSIONS.contains(Helper.getExtension(attachment.name));
             tvName.setText(attachment.name);
+            tvName.setTextColor(dangerous ? colorWarning : textColorTertiary);
+            tvName.setTypeface(null, dangerous ? Typeface.BOLD : Typeface.NORMAL);
 
             if (attachment.size != null)
                 tvSize.setText(Helper.humanReadableByteCount(attachment.size));
@@ -422,6 +427,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         this.debug = prefs.getBoolean("debug", false);
         this.dp12 = Helper.dp2pixels(context, 12);
         this.dp36 = Helper.dp2pixels(context, 36);
+        this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
+        this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
 
         setHasStableIds(true);
 
