@@ -63,23 +63,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.Flags;
 import javax.mail.Folder;
-import javax.mail.Header;
 import javax.mail.Message;
-import javax.mail.Multipart;
-import javax.mail.Part;
 import javax.mail.Session;
-import javax.mail.internet.ContentType;
 import javax.mail.internet.MimeMessage;
 
 public class ActivityEML extends ActivityBase {
@@ -308,7 +298,7 @@ public class ActivityEML extends ActivityBase {
 
                     int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
                     SpannableStringBuilder ssb = new SpannableStringBuilderEx();
-                    getStructure(imessage, ssb, 0, textColorLink);
+                    MessageHelper.getStructure(imessage, ssb, 0, textColorLink);
                     result.structure = ssb;
 
                     result.headers = HtmlHelper.highlightHeaders(context, helper.getHeaders(), false);
@@ -402,109 +392,6 @@ public class ActivityEML extends ActivityBase {
                     ((NoStreamException) ex).report(ActivityEML.this);
                 else
                     Log.unexpectedError(getSupportFragmentManager(), ex, false);
-            }
-
-            private void getStructure(Part part, SpannableStringBuilder ssb, int level, int textColorLink) {
-                try {
-                    Enumeration<Header> headers;
-                    if (level == 0) {
-                        List<Header> h = new ArrayList<>();
-
-                        String[] cte = part.getHeader("Content-Transfer-Encoding");
-                        if (cte != null)
-                            for (String header : cte)
-                                h.add(new Header("Content-Transfer-Encoding", header));
-
-                        String[] ct = part.getHeader("Content-Type");
-                        if (ct == null)
-                            h.add(new Header("Content-Type", "text/plain"));
-                        else
-                            for (String header : ct)
-                                h.add(new Header("Content-Type", header));
-
-                        headers = new Enumeration<Header>() {
-                            private int index = -1;
-
-                            @Override
-                            public boolean hasMoreElements() {
-                                return (index + 1 < h.size());
-                            }
-
-                            @Override
-                            public Header nextElement() {
-                                return h.get(++index);
-                            }
-                        };
-                    } else
-                        headers = part.getAllHeaders();
-
-                    while (headers.hasMoreElements()) {
-                        Header header = headers.nextElement();
-                        for (int i = 0; i < level; i++)
-                            ssb.append("  ");
-                        int start = ssb.length();
-                        ssb.append(header.getName());
-                        ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
-                        ssb.append(": ").append(header.getValue()).append('\n');
-                    }
-
-                    for (int i = 0; i < level; i++)
-                        ssb.append("  ");
-                    int size = part.getSize();
-                    ssb.append("Size: ")
-                            .append(size > 0 ? Helper.humanReadableByteCount(size) : "?")
-                            .append('\n');
-
-                    if (BuildConfig.DEBUG &&
-                            !part.isMimeType("multipart/*")) {
-                        Object content = part.getContent();
-                        if (content instanceof String) {
-                            String text = (String) content;
-
-                            String charset;
-                            try {
-                                ContentType ct = new ContentType(part.getContentType());
-                                charset = ct.getParameter("charset");
-                            } catch (Throwable ignored) {
-                                charset = null;
-                            }
-                            if (charset == null)
-                                charset = StandardCharsets.ISO_8859_1.name();
-
-                            Charset cs = Charset.forName(charset);
-                            Charset detected = CharsetHelper.detect(text, cs);
-                            boolean isUtf8 = CharsetHelper.isUTF8(text.getBytes(cs));
-                            boolean isUtf16 = CharsetHelper.isUTF16(text.getBytes(cs));
-                            boolean isW1252 = !Objects.equals(text, CharsetHelper.utf8toW1252(text));
-
-                            for (int i = 0; i < level; i++)
-                                ssb.append("  ");
-
-                            ssb.append("Detected: ")
-                                    .append(detected == null ? "?" : detected.toString())
-                                    .append(" isUTF8=").append(Boolean.toString(isUtf8))
-                                    .append(" isUTF16=").append(Boolean.toString(isUtf16))
-                                    .append(" isW1252=").append(Boolean.toString(isW1252))
-                                    .append('\n');
-                        }
-                    }
-
-                    ssb.append('\n');
-
-                    if (part.isMimeType("multipart/*")) {
-                        Multipart multipart = (Multipart) part.getContent();
-                        for (int i = 0; i < multipart.getCount(); i++)
-                            try {
-                                getStructure(multipart.getBodyPart(i), ssb, level + 1, textColorLink);
-                            } catch (Throwable ex) {
-                                Log.w(ex);
-                                ssb.append(ex.toString()).append('\n');
-                            }
-                    }
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                    ssb.append(ex.toString()).append('\n');
-                }
             }
         }.execute(this, args, "eml:decode");
     }
