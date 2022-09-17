@@ -2447,7 +2447,7 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `inherited_type` TEXT");
-                        db.execSQL("DROP VIEW `folder_view`");
+                        db.execSQL("DROP VIEW IF EXISTS `folder_view`");
                         db.execSQL("CREATE VIEW IF NOT EXISTS `folder_view` AS " + TupleFolderView.query);
                     }
                 }).addMigrations(new Migration(241, 242) {
