@@ -4,7 +4,7 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### Next version
+### 1.1966 - 2022-09-17
 
 * Added create subfolder option to move filter rule
 * Small improvements and minor bug fixes
