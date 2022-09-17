@@ -369,7 +369,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 Bundle args = new Bundle();
                 args.putParcelable("uri", Uri.parse(etLink.getText().toString()));
 
-                new SimpleTask<Pair<InetAddress, IPInfo.Organization>>() {
+                new SimpleTask<Pair<InetAddress, IPInfo>>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         ibMore.setEnabled(false);
@@ -389,15 +389,23 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                     }
 
                     @Override
-                    protected Pair<InetAddress, IPInfo.Organization> onExecute(Context context, Bundle args) throws Throwable {
+                    protected Pair<InetAddress, IPInfo> onExecute(Context context, Bundle args) throws Throwable {
                         Uri uri = args.getParcelable("uri");
                         return IPInfo.getOrganization(uri, context);
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, Pair<InetAddress, IPInfo.Organization> data) {
+                    protected void onExecuted(Bundle args, Pair<InetAddress, IPInfo> data) {
+                        StringBuilder sb = new StringBuilder();
+                        for (String value : new String[]{data.second.org, data.second.city, data.second.country})
+                            if (!TextUtils.isEmpty(value)) {
+                                if (sb.length() != 0)
+                                    sb.append("; ");
+                                sb.append(value.replaceAll("\\r?\\n", " "));
+                            }
+
                         tvHost.setText(data.first.toString());
-                        tvOwner.setText(data.second.name == null ? "?" : data.second.name);
+                        tvOwner.setText(sb.length() == 0 ? "?" : sb.toString());
 
                         ApplicationEx.getMainHandler().post(new Runnable() {
                             @Override

@@ -26,6 +26,9 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.IDN;
@@ -38,11 +41,15 @@ import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 
 public class IPInfo {
-    private static Map<InetAddress, Organization> addressOrganization = new HashMap<>();
+    public String org;
+    public String city;
+    public String country;
+
+    private static final Map<InetAddress, IPInfo> addressOrganization = new HashMap<>();
 
     private final static int FETCH_TIMEOUT = 15 * 1000; // milliseconds
 
-    static Pair<InetAddress, Organization> getOrganization(@NonNull Uri uri, Context context) throws IOException, ParseException {
+    static Pair<InetAddress, IPInfo> getOrganization(@NonNull Uri uri, Context context) throws IOException, ParseException, JSONException {
         String host = UriHelper.getHost(uri);
         if (host == null)
             throw new UnknownHostException();
@@ -57,14 +64,29 @@ public class IPInfo {
         return new Pair<>(address, getOrganization(address, context));
     }
 
-    static Organization getOrganization(InetAddress address, Context context) throws IOException {
+    static IPInfo getOrganization(InetAddress address, Context context) throws IOException, JSONException {
         synchronized (addressOrganization) {
             if (addressOrganization.containsKey(address))
                 return addressOrganization.get(address);
         }
 
         // https://ipinfo.io/developers
-        URL url = new URL("https://ipinfo.io/" + address.getHostAddress() + "/org");
+
+        //{
+        //  "ip": "8.8.8.8",
+        //  "hostname": "dns.google",
+        //  "anycast": true,
+        //  "city": "Mountain View",
+        //  "region": "California",
+        //  "country": "US",
+        //  "loc": "37.4056,-122.0775",
+        //  "org": "AS15169 Google LLC",
+        //  "postal": "94043",
+        //  "timezone": "America/Los_Angeles",
+        //  "readme": "https://ipinfo.io/missingauth"
+        //}
+
+        URL url = new URL("https://ipinfo.io/" + address.getHostAddress() + "/json");
         Log.i("GET " + url);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
@@ -73,28 +95,25 @@ public class IPInfo {
         ConnectionHelper.setUserAgent(context, connection);
         connection.connect();
 
-        Organization organization = new Organization();
+        IPInfo info = new IPInfo();
         try {
             int status = connection.getResponseCode();
             if (status != HttpsURLConnection.HTTP_OK)
                 throw new FileNotFoundException("Error " + status + ": " + connection.getResponseMessage());
 
             String response = Helper.readStream(connection.getInputStream());
-            organization.name = response.trim();
-            if ("".equals(organization.name) || "undefined".equals(organization.name))
-                organization.name = null;
+            JSONObject jroot = new JSONObject(response);
+            info.org = jroot.optString("org");
+            info.city = jroot.optString("city");
+            info.country = jroot.optString("country");
         } finally {
             connection.disconnect();
         }
 
         synchronized (addressOrganization) {
-            addressOrganization.put(address, organization);
+            addressOrganization.put(address, info);
         }
 
-        return organization;
-    }
-
-    static class Organization {
-        String name;
+        return info;
     }
 }

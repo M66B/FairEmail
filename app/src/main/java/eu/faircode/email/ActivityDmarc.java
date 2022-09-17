@@ -324,9 +324,8 @@ public class ActivityDmarc extends ActivityBase {
 
                                             try {
                                                 InetAddress addr = InetAddress.getByName(text);
-                                                IPInfo.Organization info =
-                                                        IPInfo.getOrganization(addr, context);
-                                                ssb.append('(').append(info.name).append(") ");
+                                                IPInfo info = IPInfo.getOrganization(addr, context);
+                                                ssb.append('(').append(info.org).append(") ");
                                             } catch (Throwable ex) {
                                                 Log.w(ex);
                                                 ssb.append(ex.toString()).append('\n');
