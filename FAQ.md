@@ -2592,6 +2592,7 @@ This will be more reliable than forwarding because forwarded messages might be c
 A *move* action can optionally create subfolders (since version 1.1966) to move messages to, for which you can use the following placeholders:
 
 ```
+$week$
 $month$
 $year$
 $domain$

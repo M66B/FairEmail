@@ -623,9 +623,11 @@ public class EntityRule {
             Calendar calendar = Calendar.getInstance();
             String year = String.format(Locale.ROOT, "%04d", calendar.get(Calendar.YEAR));
             String month = String.format(Locale.ROOT, "%02d", calendar.get(Calendar.MONTH) + 1);
+            String week = String.format(Locale.ROOT, "%02d", calendar.get(Calendar.WEEK_OF_YEAR));
 
             create = create.replace("$year$", year);
             create = create.replace("$month$", month);
+            create = create.replace("$week$", week);
 
             String domain = null;
             if (message.from != null &&
