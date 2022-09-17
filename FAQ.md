@@ -4743,6 +4743,12 @@ Related questions:
 * The F-Droid build does not include [Google Play Billing](https://developer.android.com/google/play/billing/integrate), so Play store purchases cannot be reused
 * The F-Droid build is supported only if the version number is the same as the the version number of the latest GitHub version, see also [this FAQ](#user-content-faq147)
 
+The Play store and GitHub version are signed with the [same digital signature](https://github.com/M66B/FairEmail#user-content-downloads) (security certificate).
+The F-Droid build is signed by the F-Droid organization with a different digital key.
+This means you can't update the F-Droid build with the Play store or GitHub version or the other way around without reinstalling.
+However, it is possible to install the GitHub version over the Play store version,
+and the Play store app will do the same, when auto updating isn't disabled for the app in the app description.
+
 <br />
 
 <a name="faq174"></a>
