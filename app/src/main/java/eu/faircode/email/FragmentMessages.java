@@ -341,6 +341,7 @@ public class FragmentMessages extends FragmentBase
     private boolean dividers;
     private boolean category;
     private boolean date;
+    private boolean date_week;
     private boolean date_fixed;
     private boolean date_bold;
     private boolean threading;
@@ -481,6 +482,7 @@ public class FragmentMessages extends FragmentBase
         dividers = prefs.getBoolean("dividers", true);
         category = prefs.getBoolean("group_category", false);
         date = prefs.getBoolean("date", true);
+        date_week = prefs.getBoolean("date_week", false);
         date_fixed = (!date && prefs.getBoolean("date_fixed", false));
         date_bold = prefs.getBoolean("date_bold", false);
         threading = (prefs.getBoolean("threading", true) ||
@@ -946,8 +948,8 @@ public class FragmentMessages extends FragmentBase
                     cal1.setTimeInMillis(message.received);
                     int year0 = cal0.get(Calendar.YEAR);
                     int year1 = cal1.get(Calendar.YEAR);
-                    int day0 = cal0.get(Calendar.DAY_OF_YEAR);
-                    int day1 = cal1.get(Calendar.DAY_OF_YEAR);
+                    int day0 = cal0.get(date_week ? Calendar.WEEK_OF_YEAR : Calendar.DAY_OF_YEAR);
+                    int day1 = cal1.get(date_week ? Calendar.WEEK_OF_YEAR : Calendar.DAY_OF_YEAR);
                     if (year0 == year1 && day0 == day1)
                         dh = false;
                 }
@@ -980,7 +982,9 @@ public class FragmentMessages extends FragmentBase
                         vSeparator.setVisibility(View.GONE);
                     }
 
-                    tvDate.setText(getRelativeDate(message.received, parent.getContext()));
+                    tvDate.setText(date_week
+                            ? getWeek(message.received, parent.getContext())
+                            : getRelativeDate(message.received, parent.getContext()));
 
                     view.setContentDescription(tvDate.getText().toString());
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
@@ -1015,6 +1019,17 @@ public class FragmentMessages extends FragmentBase
                             time, now.getTime(),
                             DAY_IN_MILLIS, 0);
                 return (rtime == null ? "" : rtime.toString());
+            }
+
+            @NonNull
+            String getWeek(long time, Context context) {
+                StringBuilder sb = new StringBuilder();
+                Calendar cal = Calendar.getInstance();
+                cal.setTimeInMillis(time);
+                sb.append(cal.get(Calendar.YEAR)).append('-').append(cal.get(Calendar.WEEK_OF_YEAR));
+                cal.set(Calendar.DAY_OF_WEEK, 1);
+                sb.append(' ').append(Helper.getDateInstance(context).format(cal.getTimeInMillis()));
+                return sb.toString();
             }
         };
         rvMessage.addItemDecoration(dateDecorator);

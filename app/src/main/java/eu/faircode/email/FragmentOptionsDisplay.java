@@ -68,6 +68,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private Button btnTheme;
     private Spinner spStartup;
     private SwitchCompat swDate;
+    private SwitchCompat swDateWeek;
     private SwitchCompat swDateFixed;
     private SwitchCompat swDateBold;
     private SwitchCompat swCategory;
@@ -190,7 +191,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup",
-            "date", "date_fixed", "date_bold", "group_category",
+            "date", "date_week", "date_fixed", "date_bold", "group_category",
             "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_highlight", "dividers",
             "portrait2", "portrait2c", "landscape", "close_pane", "column_width",
             "nav_options", "nav_categories", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
@@ -228,6 +229,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         btnTheme = view.findViewById(R.id.btnTheme);
         spStartup = view.findViewById(R.id.spStartup);
         swDate = view.findViewById(R.id.swDate);
+        swDateWeek = view.findViewById(R.id.swDateWeek);
         swDateFixed = view.findViewById(R.id.swDateFixed);
         swDateBold = view.findViewById(R.id.swDateBold);
         swCategory = view.findViewById(R.id.swCategory);
@@ -401,8 +403,16 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("date", checked).apply();
+                swDateWeek.setEnabled(checked);
                 swDateFixed.setEnabled(!checked);
                 swDateBold.setEnabled(checked || swDateFixed.isChecked());
+            }
+        });
+
+        swDateWeek.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("date_week", checked).apply();
             }
         });
 
@@ -1347,6 +1357,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
 
         swDate.setChecked(prefs.getBoolean("date", true));
+        swDateWeek.setChecked(prefs.getBoolean("date_week", false));
+        swDateWeek.setEnabled(swDate.isChecked());
         swDateFixed.setChecked(prefs.getBoolean("date_fixed", false));
         swDateFixed.setEnabled(!swDate.isChecked());
         swDateBold.setChecked(prefs.getBoolean("date_bold", false));
