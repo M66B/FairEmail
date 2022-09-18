@@ -27,11 +27,9 @@ import android.content.res.Resources;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -155,45 +153,6 @@ public class DeepL {
             String json = Helper.readStream(is);
             jlanguages = new JSONArray(json);
         }
-    }
-
-    public static Pair<Integer, Integer> getParagraph(EditText etBody) {
-        int start = etBody.getSelectionStart();
-        int end = etBody.getSelectionEnd();
-        Editable edit = etBody.getText();
-
-        if (start < 0 || end < 0)
-            return null;
-
-        if (start > end) {
-            int tmp = start;
-            start = end;
-            end = tmp;
-        }
-
-        // Expand selection at start
-        while (start > 0 && edit.charAt(start - 1) != '\n')
-            start--;
-
-        if (start == end && end < edit.length())
-            end++;
-
-        // Expand selection at end
-        while (end > 0 && end < edit.length() && edit.charAt(end - 1) != '\n')
-            end++;
-
-        // Trim start
-        while (start < edit.length() - 1 && edit.charAt(start) == '\n')
-            start++;
-
-        // Trim end
-        while (end > 0 && edit.charAt(end - 1) == '\n')
-            end--;
-
-        if (start < end)
-            return new Pair(start, end);
-
-        return null;
     }
 
     public static Translation translate(CharSequence text, boolean html, String target, Context context) throws IOException, JSONException {

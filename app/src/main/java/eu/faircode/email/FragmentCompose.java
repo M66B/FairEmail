@@ -2310,7 +2310,7 @@ public class FragmentCompose extends FragmentBase {
         if (languages == null)
             languages = new ArrayList<>();
 
-        Pair<Integer, Integer> paragraph = DeepL.getParagraph(etBody);
+        Pair<Integer, Integer> paragraph = StyleHelper.getParagraph(etBody);
         boolean canTranslate = (DeepL.canTranslate(context) && paragraph != null);
 
         PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), anchor);
@@ -2355,7 +2355,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
             private void onMenuTranslate(String target) {
-                final Pair<Integer, Integer> paragraph = DeepL.getParagraph(etBody);
+                final Pair<Integer, Integer> paragraph = StyleHelper.getParagraph(etBody);
                 if (paragraph == null)
                     return;
 

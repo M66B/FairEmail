@@ -113,19 +113,10 @@
         </menu>
     </item>
 
-    <group
-        android:id="@+id/group_style_blockquote"
-        android:orderInCategory="7">
-        <item
-            android:id="@+id/menu_style_blockquote"
-            android:icon="@drawable/twotone_format_quote_24"
-            android:title="@string/title_style_blockquote" />
-    </group>
-
     <item
         android:id="@+id/menu_style_indentation"
         android:icon="@drawable/twotone_format_indent_increase_24"
-        android:orderInCategory="8"
+        android:orderInCategory="7"
         android:title="@string/title_style_indentation">
         <menu>
             <group android:id="@+id/group_style_indentation">
@@ -140,6 +131,15 @@
             </group>
         </menu>
     </item>
+
+    <group
+        android:id="@+id/group_style_blockquote"
+        android:orderInCategory="8">
+        <item
+            android:id="@+id/menu_style_blockquote"
+            android:icon="@drawable/twotone_format_quote_24"
+            android:title="@string/title_style_blockquote" />
+    </group>
 
     <group
         android:id="@+id/group_style_mark"
