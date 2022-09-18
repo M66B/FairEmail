@@ -643,11 +643,11 @@ public class StyleHelper {
         for (BulletSpan span : spans)
             if (span instanceof BulletSpanEx) {
                 BulletSpanEx bs = (BulletSpanEx) span;
-                bs.setLevel(bs.getLevel() + add);
+                bs.setLevel(Math.max(0, bs.getLevel() + add));
             } else if (span instanceof NumberSpan) {
                 renum = true;
                 NumberSpan ns = (NumberSpan) span;
-                ns.setLevel(ns.getLevel() + add);
+                ns.setLevel(Math.max(0, ns.getLevel() + add));
             }
 
         if (renum)
