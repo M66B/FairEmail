@@ -1029,12 +1029,35 @@ public class FragmentCompose extends FragmentBase {
                     return true;
                 } else {
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), block_bar.findViewById(action));
+
                     if (action == R.id.menu_alignment)
                         popupMenu.inflate(R.menu.popup_style_alignment);
                     else if (action == R.id.menu_list)
                         popupMenu.inflate(R.menu.popup_style_list);
                     else if (action == R.id.menu_indentation)
                         popupMenu.inflate(R.menu.popup_style_indentation);
+
+                    Menu menu = popupMenu.getMenu();
+                    Editable edit = etBody.getText();
+
+                    Pair<Integer, Integer> b = StyleHelper.getParagraph(etBody, true);
+                    BulletSpan[] bullets = (b == null ? null : edit.getSpans(b.first, b.second, BulletSpan.class));
+                    IndentSpan[] indents = (b == null ? null : edit.getSpans(b.first, b.second, IndentSpan.class));
+                    if (b == null ||
+                            (action == R.id.menu_list && indents.length > 0) ||
+                            (action == R.id.menu_indentation && bullets.length > 0)) {
+                        for (int i = 0; i < menu.size(); i++)
+                            menu.getItem(i).setEnabled(false);
+                    } else {
+                        if (action == R.id.menu_list) {
+                            Pair<Integer, Integer> p = StyleHelper.getParagraph(etBody, false);
+                            Integer maxLevel = (p == null ? null : StyleHelper.getMaxListLevel(edit, p.first, p.second));
+                            menu.findItem(R.id.menu_style_list_increase).setEnabled(maxLevel != null);
+                            menu.findItem(R.id.menu_style_list_decrease).setEnabled(maxLevel != null && maxLevel > 0);
+                        } else if (action == R.id.menu_indentation)
+                            popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
+                    }
+
                     popupMenu.insertIcons(getContext());
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override

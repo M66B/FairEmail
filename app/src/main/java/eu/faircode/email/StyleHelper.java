@@ -201,18 +201,15 @@ public class StyleHelper {
                 smenu.add(R.id.group_style_font_standard, fonts.size(), 0, R.string.title_style_font_default)
                         .setIntent(new Intent());
 
-                int level = -1;
-                BulletSpan[] spans = edit.getSpans(start, end, BulletSpan.class);
-                for (BulletSpan span : spans)
-                    if (span instanceof NumberSpan)
-                        level = ((NumberSpan) span).getLevel();
-                    else if (span instanceof BulletSpanEx)
-                        level = ((BulletSpanEx) span).getLevel();
-
-                popupMenu.getMenu().findItem(R.id.menu_style_list_increase).setVisible(level >= 0);
-                popupMenu.getMenu().findItem(R.id.menu_style_list_decrease).setVisible(level > 0);
-
+                Integer maxLevel = getMaxListLevel(edit, start, end);
                 IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
+
+                popupMenu.getMenu().findItem(R.id.menu_style_list_bullets).setEnabled(indents.length == 0);
+                popupMenu.getMenu().findItem(R.id.menu_style_list_numbered).setEnabled(indents.length == 0);
+                popupMenu.getMenu().findItem(R.id.menu_style_list_increase).setEnabled(indents.length == 0 && maxLevel != null);
+                popupMenu.getMenu().findItem(R.id.menu_style_list_decrease).setEnabled(indents.length == 0 && maxLevel != null && maxLevel > 0);
+
+                popupMenu.getMenu().findItem(R.id.menu_style_indentation_increase).setEnabled(maxLevel == null);
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
 
                 popupMenu.getMenu().findItem(R.id.menu_style_parenthesis).setEnabled(BuildConfig.DEBUG);
@@ -964,6 +961,21 @@ public class StyleHelper {
 
         } else
             throw new IllegalArgumentException(type.getName());
+    }
+
+    static Integer getMaxListLevel(Editable edit, int start, int end) {
+        Integer maxLevel = null;
+        BulletSpan[] bullets = edit.getSpans(start, end, BulletSpan.class);
+        for (BulletSpan span : bullets) {
+            Integer level = null;
+            if (span instanceof NumberSpan)
+                level = ((NumberSpan) span).getLevel();
+            else if (span instanceof BulletSpanEx)
+                level = ((BulletSpanEx) span).getLevel();
+            if (level != null && (maxLevel == null || level > maxLevel))
+                maxLevel = level;
+        }
+        return maxLevel;
     }
 
     static void renumber(Editable text, boolean clean, Context context) {
