@@ -43,6 +43,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class IPInfo {
     public String org;
     public String city;
+    public String region;
     public String country;
 
     private static final Map<InetAddress, IPInfo> addressOrganization = new HashMap<>();
@@ -105,6 +106,7 @@ public class IPInfo {
             JSONObject jroot = new JSONObject(response);
             info.org = jroot.optString("org");
             info.city = jroot.optString("city");
+            info.region = jroot.optString("region");
             info.country = jroot.optString("country");
         } finally {
             connection.disconnect();

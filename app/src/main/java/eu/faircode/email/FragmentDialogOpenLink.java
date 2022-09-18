@@ -397,7 +397,8 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                     @Override
                     protected void onExecuted(Bundle args, Pair<InetAddress, IPInfo> data) {
                         StringBuilder sb = new StringBuilder();
-                        for (String value : new String[]{data.second.org, data.second.city, data.second.country})
+                        IPInfo ipinfo = data.second;
+                        for (String value : new String[]{ipinfo.org, ipinfo.city, ipinfo.region, ipinfo.country})
                             if (!TextUtils.isEmpty(value)) {
                                 if (sb.length() != 0)
                                     sb.append("; ");
