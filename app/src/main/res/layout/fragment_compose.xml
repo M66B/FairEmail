@@ -577,9 +577,22 @@
             android:maxLines="1"
             android:padding="6dp"
             app:end_drawable="@drawable/twotone_fast_forward_24"
-            app:layout_constraintBottom_toTopOf="@id/style_bar"
+            app:layout_constraintBottom_toTopOf="@id/block_bar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/block_bar"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:background="?attr/colorActionBackground"
+            app:itemIconTint="@color/action_foreground"
+            app:itemTextColor="@color/action_foreground"
+            app:labelVisibilityMode="unlabeled"
+            app:layout_constraintBottom_toTopOf="@+id/style_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/action_compose_paragraph" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/style_bar"

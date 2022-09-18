@@ -3735,6 +3735,13 @@ See [this FAQ](#user-content-faq71) for a header condition to recognize receipts
 
 <br />
 
+*Block toolbar (version 1.1967+)*
+
+When enabled in the three-dots overflow menu of the message editor,
+a toolbar to perform operations (align text, insert list, indent text, insert blockquote) on a block of text (consecutive non-empty lines) will be shown.
+
+<br />
+
 <a name="faq126"></a>
 **(126) Can message previews be sent to my wearable?**
 

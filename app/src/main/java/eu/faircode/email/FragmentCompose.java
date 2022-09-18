@@ -272,6 +272,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibReferenceImages;
     private View vwAnchor;
     private TextViewAutoCompleteAction etSearch;
+    private BottomNavigationView block_bar;
     private BottomNavigationView style_bar;
     private BottomNavigationView media_bar;
     private BottomNavigationView bottom_navigation;
@@ -291,6 +292,7 @@ public class FragmentCompose extends FragmentBase {
     private String display_font;
     private boolean dsn = true;
     private Integer encrypt = null;
+    private boolean block = false;
     private boolean media = true;
     private boolean compact = false;
     private int zoom = 0;
@@ -347,8 +349,11 @@ public class FragmentCompose extends FragmentBase {
         super.onCreate(savedInstanceState);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean experiments = prefs.getBoolean("experiments", false);
+
         compose_font = prefs.getString("compose_font", "");
         display_font = prefs.getString("display_font", "");
+        block = experiments && prefs.getBoolean("compose_block", false);
         media = prefs.getBoolean("compose_media", true);
         compact = prefs.getBoolean("compose_compact", false);
         zoom = prefs.getInt("compose_zoom", compact ? 0 : 1);
@@ -394,6 +399,7 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         vwAnchor = view.findViewById(R.id.vwAnchor);
         etSearch = view.findViewById(R.id.etSearch);
+        block_bar = view.findViewById(R.id.block_bar);
         style_bar = view.findViewById(R.id.style_bar);
         media_bar = view.findViewById(R.id.media_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
@@ -1011,6 +1017,51 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        block_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int action = item.getItemId();
+                if (action == R.id.menu_blockquote) {
+                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
+                    if (block == null)
+                        return false;
+                    StyleHelper.setBlockQuote(etBody, block.first, block.second, false);
+                    return true;
+                } else {
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), block_bar.findViewById(action));
+                    if (action == R.id.menu_alignment)
+                        popupMenu.inflate(R.menu.popup_style_alignment);
+                    else if (action == R.id.menu_list)
+                        popupMenu.inflate(R.menu.popup_style_list);
+                    else if (action == R.id.menu_indentation)
+                        popupMenu.inflate(R.menu.popup_style_indentation);
+                    popupMenu.insertIcons(getContext());
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            int itemId = item.getItemId();
+                            boolean level = (itemId == R.id.menu_style_list_decrease || itemId == R.id.menu_style_list_increase);
+                            Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, !level);
+                            if (block == null)
+                                return false;
+                            if (action == R.id.menu_alignment)
+                                StyleHelper.setAlignment(item.getItemId(), etBody, block.first, block.second, false);
+                            else if (action == R.id.menu_list) {
+                                if (level)
+                                    StyleHelper.setListLevel(itemId, etBody, block.first, block.second, false);
+                                else
+                                    StyleHelper.setList(itemId, etBody, block.first, block.second, false);
+                            } else if (action == R.id.menu_indentation)
+                                StyleHelper.setIndentation(item.getItemId(), etBody, block.first, block.second, false);
+                            return true;
+                        }
+                    });
+                    popupMenu.show();
+                    return true;
+                }
+            }
+        });
+
         style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -1102,6 +1153,7 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceImages.setVisibility(View.GONE);
         tvReference.setVisibility(View.GONE);
         etSearch.setVisibility(View.GONE);
+        block_bar.setVisibility(View.GONE);
         style_bar.setVisibility(View.GONE);
         media_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
@@ -1848,6 +1900,7 @@ public class FragmentCompose extends FragmentBase {
         ibZoom.setEnabled(state == State.LOADED);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean experiments = prefs.getBoolean("experiments", false);
         boolean save_drafts = prefs.getBoolean("save_drafts", true);
         boolean send_chips = prefs.getBoolean("send_chips", true);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
@@ -1857,6 +1910,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_send_chips).setChecked(send_chips);
         menu.findItem(R.id.menu_send_dialog).setChecked(send_dialog);
         menu.findItem(R.id.menu_image_dialog).setChecked(image_dialog);
+        menu.findItem(R.id.menu_block).setChecked(block).setVisible(experiments);
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
@@ -1928,6 +1982,9 @@ public class FragmentCompose extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_image_dialog) {
             onMenuImageDialog();
+            return true;
+        } else if (itemId == R.id.menu_block) {
+            onMenuBlockBar();
             return true;
         } else if (itemId == R.id.menu_media) {
             onMenuMediaBar();
@@ -2080,6 +2137,14 @@ public class FragmentCompose extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
         prefs.edit().putBoolean("image_dialog", !image_dialog).apply();
+    }
+
+    private void onMenuBlockBar() {
+        block = !block;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("compose_block", block).apply();
+        block_bar.setVisibility(block ? View.VISIBLE : View.GONE);
+        invalidateOptionsMenu();
     }
 
     private void onMenuMediaBar() {
@@ -6767,6 +6832,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onPostExecute(Bundle args) {
                 pbWait.setVisibility(View.GONE);
+                block_bar.setVisibility(block ? View.VISIBLE : View.GONE);
                 media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
                 bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
                 bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);

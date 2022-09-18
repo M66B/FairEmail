@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_style_list_bullets"
+        android:icon="@drawable/twotone_format_list_bulleted_24"
+        android:title="@string/title_style_list_bullets" />
+    <item
+        android:id="@+id/menu_style_list_numbered"
+        android:icon="@drawable/twotone_format_list_numbered_24"
+        android:title="@string/title_style_list_numbered" />
+    <item
+        android:id="@+id/menu_style_list_increase"
+        android:icon="@drawable/twotone_format_indent_increase_24"
+        android:title="@string/title_style_list_level_increase" />
+    <item
+        android:id="@+id/menu_style_list_decrease"
+        android:icon="@drawable/twotone_format_indent_decrease_24"
+        android:title="@string/title_style_list_level_decrease" />
+</menu>

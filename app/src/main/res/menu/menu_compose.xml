@@ -52,6 +52,14 @@
             app:showAsAction="never" />
 
         <item
+            android:id="@+id/menu_block"
+            android:checkable="true"
+            android:checked="false"
+            android:icon="@drawable/twotone_format_list_bulleted_24"
+            android:title="@string/title_block_toolbar"
+            app:showAsAction="never" />
+
+        <item
             android:id="@+id/menu_media"
             android:checkable="true"
             android:checked="true"

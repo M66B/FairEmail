@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_alignment"
+        android:icon="@drawable/twotone_format_align_center_24"
+        android:title="@string/title_style_align" />
+
+    <item
+        android:id="@+id/menu_list"
+        android:icon="@drawable/twotone_format_list_bulleted_24"
+        android:title="@string/title_style_list" />
+
+    <item
+        android:id="@+id/menu_indentation"
+        android:icon="@drawable/twotone_format_indent_increase_24"
+        android:title="@string/title_style_indentation" />
+
+    <item
+        android:id="@+id/menu_blockquote"
+        android:icon="@drawable/twotone_format_quote_24"
+        android:title="@string/title_style_blockquote" />
+</menu>

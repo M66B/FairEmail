@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_style_align_start"
+        android:icon="@drawable/twotone_format_align_left_24"
+        android:title="@string/title_style_align_start" />
+
+    <item
+        android:id="@+id/menu_style_align_center"
+        android:icon="@drawable/twotone_format_align_center_24"
+        android:title="@string/title_style_align_center" />
+
+    <item
+        android:id="@+id/menu_style_align_end"
+        android:icon="@drawable/twotone_format_align_right_24"
+        android:title="@string/title_style_align_end" />
+</menu>
