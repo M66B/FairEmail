@@ -236,17 +236,17 @@ public class StyleHelper {
                                     groupId == R.id.group_style_font_custom) {
                                 return setFont(item);
                             } else if (groupId == R.id.group_style_align) {
-                                return setAlignment(item.getItemId(), etBody, start, end);
+                                return setAlignment(item.getItemId(), etBody, start, end, true);
                             } else if (groupId == R.id.group_style_list) {
                                 if (item.getItemId() == R.id.menu_style_list_increase ||
                                         item.getItemId() == R.id.menu_style_list_decrease)
-                                    return setListLevel(item.getItemId(), etBody, start, end);
+                                    return setListLevel(item.getItemId(), etBody, start, end, true);
                                 else
-                                    return setList(item.getItemId(), etBody, start, end);
+                                    return setList(item.getItemId(), etBody, start, end, true);
                             } else if (groupId == R.id.group_style_indentation) {
-                                return setIndentation(item.getItemId(), etBody, start, end);
+                                return setIndentation(item.getItemId(), etBody, start, end, true);
                             } else if (groupId == R.id.group_style_blockquote) {
-                                return setBlockQuote(etBody, start, end);
+                                return setBlockQuote(etBody, start, end, true);
                             } else if (groupId == R.id.group_style_mark) {
                                 return setMark(item);
                             } else if (groupId == R.id.group_style_strikethrough) {
@@ -596,7 +596,7 @@ public class StyleHelper {
         }
     }
 
-    static boolean setAlignment(int itemId, EditText etBody, int start, int end) {
+    static boolean setAlignment(int itemId, EditText etBody, int start, int end, boolean select) {
         Log.breadcrumb("style", "action", "alignment");
 
         Editable edit = etBody.getText();
@@ -626,12 +626,12 @@ public class StyleHelper {
                     s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
 
         etBody.setText(edit);
-        etBody.setSelection(s, e);
+        etBody.setSelection(select ? s : e, e);
 
         return true;
     }
 
-    static boolean setListLevel(int itemId, EditText etBody, int start, int end) {
+    static boolean setListLevel(int itemId, EditText etBody, int start, int end, boolean select) {
         Log.breadcrumb("style", "action", "level");
 
         Context context = etBody.getContext();
@@ -654,12 +654,12 @@ public class StyleHelper {
             renumber(edit, false, context);
 
         etBody.setText(edit);
-        etBody.setSelection(start, end);
+        etBody.setSelection(select ? start : end, end);
 
         return true;
     }
 
-    static boolean setList(int itemId, EditText etBody, int start, int end) {
+    static boolean setList(int itemId, EditText etBody, int start, int end, boolean select) {
         Log.breadcrumb("style", "action", "list");
 
         Context context = etBody.getContext();
@@ -708,12 +708,12 @@ public class StyleHelper {
         renumber(edit, false, context);
 
         etBody.setText(edit);
-        etBody.setSelection(s, e);
+        etBody.setSelection(select ? s : e, e);
 
         return true;
     }
 
-    static boolean setIndentation(int itemId, EditText etBody, int start, int end) {
+    static boolean setIndentation(int itemId, EditText etBody, int start, int end, boolean select) {
         Log.breadcrumb("style", "action", "indent");
 
         Editable edit = etBody.getText();
@@ -748,12 +748,12 @@ public class StyleHelper {
         }
 
         etBody.setText(edit);
-        etBody.setSelection(paragraph.first, paragraph.second);
+        etBody.setSelection(select ? paragraph.first : paragraph.second, paragraph.second);
 
         return true;
     }
 
-    static boolean setBlockQuote(EditText etBody, int start, int end) {
+    static boolean setBlockQuote(EditText etBody, int start, int end, boolean select) {
         Log.breadcrumb("style", "action", "quote");
 
         Context context = etBody.getContext();
@@ -787,7 +787,7 @@ public class StyleHelper {
         edit.setSpan(q, paragraph.first, paragraph.second, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
         etBody.setText(edit);
-        etBody.setSelection(paragraph.first, paragraph.second);
+        etBody.setSelection(select ? paragraph.first : paragraph.second, paragraph.second);
 
         return true;
     }
