@@ -459,6 +459,7 @@
     <string name="title_advanced_cards_shadow_highlight">Použít barvu zvýraznění namísto kontrastní barvy</string>
     <string name="title_advanced_tabular_dividers">Použít dělicí čáry při použití stylu tabulky</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
+    <string name="title_advanced_date_week">Seskupit podle týdne namísto dne</string>
     <string name="title_advanced_date_fixed">Zobrazit nahoře datovou hlavičku</string>
     <string name="title_advanced_date_bold">Zobrazit datum tučně</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
@@ -1263,6 +1264,7 @@
     <string name="title_save_drafts">Ukládat koncepty na serveru</string>
     <string name="title_send_dialog">Zobrazit možnosti odeslání</string>
     <string name="title_image_dialog">Zobrazit možnosti obrázku</string>
+    <string name="title_block_toolbar">Panel nástrojů (text)</string>
     <string name="title_media_toolbar">Panel médií</string>
     <string name="title_manage_local_contacts">Správa místních kontaktů</string>
     <string name="title_insert_contact_group">Vložit skupinu kontaktů</string>
@@ -1310,6 +1312,7 @@
     <string name="title_text_reminder">Zpráva je prázdná</string>
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
     <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
+    <string name="title_attachment_warning">Potenciálně nebezpečné: %1$s</string>
     <string name="title_plain_reminder">Veškeré formátování bude ztraceno</string>
     <string name="title_dsn_reminder">Oznámení o nedoručitelnosti (hard bounce) poškozují e-mailovou reputaci původního odesílatele!</string>
     <string name="title_size_reminder">Zpráva (%1$s) je větší než limit serveru (%2$s)</string>
@@ -1499,6 +1502,7 @@
     <string name="title_rule_hours">Hodiny</string>
     <string name="title_rule_schedule_end">Od konce časové podmínky</string>
     <string name="title_rule_folder">Složka</string>
+    <string name="title_rule_folder_create">Vytvořit podsložku</string>
     <string name="title_rule_thread">Všechny zprávy ve stejné konverzaci a složce</string>
     <string name="title_rule_identity">Identita</string>
     <string name="title_rule_template">Šablona odpovědi</string>

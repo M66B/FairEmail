@@ -385,7 +385,7 @@
     <string name="title_advanced_receipt">Al solicitar un acuse</string>
     <string name="title_advanced_forward_new">Iniciar una nueva conversación al reenviar</string>
     <string name="title_advanced_lookup_mx">Comprobar direcciones de correo electrónico del destinatario antes de enviar</string>
-    <string name="title_advanced_metered">Usar conexión de datos</string>
+    <string name="title_advanced_metered">Usar conexiones de uso medido</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_roaming">Descargar mensajes y adjuntos en itinerancia</string>
     <string name="title_advanced_rlah">Itinerancia como en casa</string>
@@ -431,7 +431,7 @@
     <string name="title_advanced_tabular_background">Usar el color de la tarjeta como color de fondo al utilizar el estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensajes no leídos al usar estilo de tarjeta</string>
     <string name="title_advanced_cards_shadow_highlight">Usar color de resaltado en lugar de color de acento</string>
-    <string name="title_advanced_tabular_dividers">Usar líneas divisoras al usar estilo tabular</string>
+    <string name="title_advanced_tabular_dividers">Usar líneas divisorias al usar estilo tabular</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>
     <string name="title_advanced_date_fixed">Mostrar encabezado de fecha fijado en la parte superior</string>
     <string name="title_advanced_date_bold">Mostrar fecha en negrita</string>
@@ -439,7 +439,7 @@
     <string name="title_advanced_threading_unread">Mostrar número de mensajes no leídos en conversaciones</string>
     <string name="title_advanced_indentation">Sangría izquierda/derecha para mensajes recibidos/enviados en conversaciones</string>
     <string name="title_advanced_highlight_unread">Resaltar mensajes no leídos</string>
-    <string name="title_advanced_color_stripe">Mostrar raya de color</string>
+    <string name="title_advanced_color_stripe">Mostrar franja de color</string>
     <string name="title_advanced_color_stripe_wide">Usar banda de color ancha</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_bimi_unverified">Remitente no verificado</string>
@@ -536,7 +536,7 @@
     <string name="title_advanced_autoclose_unread">Cerrar conversaciones al marcar mensajes como no leídos</string>
     <string name="title_advanced_collapse_marked">Colapsar mensajes que se marcan manualmente como leídos o no leídos</string>
     <string name="title_advanced_undo">Tiempo de espera para deshacer</string>
-    <string name="title_advanced_quick_filter">Mostrar iconos de filtro rápido no intrusivos</string>
+    <string name="title_advanced_quick_filter">Mostrar iconos no intrusivos para filtro rápido</string>
     <string name="title_advanced_quick_scroll">Mostrar iconos rápidos de arriba/abajo no intrusivos</string>
     <string name="title_advanced_folder_nav">Siempre volver a la lista de carpetas de una lista de mensajes</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
@@ -689,7 +689,7 @@
     <string name="title_advanced_reply_move_hint">El servidor de correo electrónico todavía puede añadir los mensajes a la carpeta de mensajes enviados</string>
     <string name="title_advanced_usenet_hint">Insertar \'-- \' entre el texto y la firma</string>
     <string name="title_advanced_remove_signature_hint">Esto puede dar lugar a que se elimine demasiado poco o demasiado texto</string>
-    <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
+    <string name="title_advanced_metered_hint">Las conexiones de uso medido son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
     <string name="title_advanced_usage_hint">Esto aumentará el uso de batería, datos y espacio de almacenamiento</string>
@@ -1284,6 +1284,7 @@
     <string name="title_text_reminder">El mensaje está vacío</string>
     <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>
     <string name="title_attachment_reminder">¿Tuvo la intención de añadir un archivo adjunto?</string>
+    <string name="title_attachment_warning">Potencialmente peligroso: %1$s</string>
     <string name="title_plain_reminder">Todo el formato se perderá</string>
     <string name="title_dsn_reminder">¡Los rebotes duros dañan la reputación de correo del remitente original!</string>
     <string name="title_size_reminder">Mensaje (%1$s) más grande que el límite del servidor (%2$s)</string>
@@ -1383,7 +1384,7 @@
     <string name="title_sort_on_attachments">Adjuntos</string>
     <string name="title_sort_on_hidden">Oculto</string>
     <string name="title_sort_ascending">Más antiguo primero</string>
-    <string name="title_filter">Filtrar fuera</string>
+    <string name="title_filter">Excluir</string>
     <string name="title_filter_seen">Leído</string>
     <string name="title_filter_unflagged">No destacado</string>
     <string name="title_filter_unknown">Remitentes desconocidos</string>
@@ -1429,6 +1430,7 @@
     <string name="title_answer_placeholder_email">Dirección de correo del remitente</string>
     <string name="title_answer_placeholder_firstname">Nombre del remitente</string>
     <string name="title_answer_placeholder_lastname">Apellido del remitente</string>
+    <string name="title_answer_placeholder_date">Fechal actual</string>
     <string name="title_rule_noop">Ninguna acción</string>
     <string name="title_rule_seen">Marcar como leído</string>
     <string name="title_rule_unseen">Marcar como no leído</string>
@@ -1458,7 +1460,7 @@
     <string name="title_rule_attachments">Tiene adjuntos</string>
     <string name="title_rule_header">Encabezado contiene</string>
     <string name="title_rule_body">El texto contiene</string>
-    <string name="title_rule_skip_quotes">Saltear texto citado</string>
+    <string name="title_rule_skip_quotes">Omitir texto citado</string>
     <string name="title_rule_body_remark">Utilizar esta condición siempre descargará el texto del mensaje, que puede ralentizar la sincronización de la lista de mensajes</string>
     <string name="title_rule_time_abs">Tiempo absoluto (recibido) entre</string>
     <string name="title_rule_time_after">Recibido después de</string>
@@ -1471,6 +1473,7 @@
     <string name="title_rule_hours">Horas</string>
     <string name="title_rule_schedule_end">Desde el final de la condición de tiempo</string>
     <string name="title_rule_folder">Carpeta</string>
+    <string name="title_rule_folder_create">Crear subcarpeta</string>
     <string name="title_rule_thread">Todos los mensajes en la misma conversación y carpeta</string>
     <string name="title_rule_identity">Identidad</string>
     <string name="title_rule_template">Plantilla de respuesta</string>

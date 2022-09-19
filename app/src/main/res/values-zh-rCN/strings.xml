@@ -420,6 +420,7 @@
     <string name="title_advanced_cards_shadow_highlight">使用高亮色而不是强调色</string>
     <string name="title_advanced_tabular_dividers">使用表格样式时使用分隔线</string>
     <string name="title_advanced_date_header">按日期分组</string>
+    <string name="title_advanced_date_week">按星期而不是按日分组</string>
     <string name="title_advanced_date_fixed">在顶部显示固定日期标题</string>
     <string name="title_advanced_date_bold">以粗体显示日期</string>
     <string name="title_advanced_threading">邮件会话</string>
@@ -1222,6 +1223,7 @@
     <string name="title_save_drafts">将草稿保存在服务器上</string>
     <string name="title_send_dialog">显示发送选项</string>
     <string name="title_image_dialog">显示图像选项</string>
+    <string name="title_block_toolbar">多功能文本操作栏</string>
     <string name="title_media_toolbar">媒体工具栏</string>
     <string name="title_manage_local_contacts">管理本地联系人</string>
     <string name="title_insert_contact_group">插入联系人组</string>
@@ -1269,6 +1271,7 @@
     <string name="title_text_reminder">消息为空</string>
     <string name="title_attachment_keywords">至少包含一个附件</string>
     <string name="title_attachment_reminder">您是否打算添加一个附件？</string>
+    <string name="title_attachment_warning">潜在危险： %1$s</string>
     <string name="title_plain_reminder">所有文本格式都将丢失</string>
     <string name="title_dsn_reminder">“硬退信”会损害原发件人的邮件声誉！</string>
     <string name="title_size_reminder">消息 (%1$s) 超出服务器限制 (%2$s)</string>
@@ -1458,6 +1461,7 @@
     <string name="title_rule_hours">小时</string>
     <string name="title_rule_schedule_end">从时间条件结束开始</string>
     <string name="title_rule_folder">文件夹</string>
+    <string name="title_rule_folder_create">创建子文件夹</string>
     <string name="title_rule_thread">在同一会话和文件夹中的所有消息</string>
     <string name="title_rule_identity">身份</string>
     <string name="title_rule_template">回复模板</string>

@@ -426,6 +426,7 @@
     <string name="title_advanced_cards_shadow_highlight">Använd markeringsfärg istället för accentfärg</string>
     <string name="title_advanced_tabular_dividers">Använd avdelare när du använder tabulär stil</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
+    <string name="title_advanced_date_week">Gruppera efter vecka istället för dag</string>
     <string name="title_advanced_date_fixed">Visa fast datumrubrik högst upp</string>
     <string name="title_advanced_date_bold">Visa datum i fetstil</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
@@ -1230,6 +1231,7 @@
     <string name="title_save_drafts">Spara utkast på servern</string>
     <string name="title_send_dialog">Visa alternativ för skicka</string>
     <string name="title_image_dialog">Visa bildalternativ</string>
+    <string name="title_block_toolbar">Verktygsfält för textblock</string>
     <string name="title_media_toolbar">Verktygsfält för media</string>
     <string name="title_manage_local_contacts">Hantera lokala kontakter</string>
     <string name="title_insert_contact_group">Infoga kontaktgrupp</string>
@@ -1277,6 +1279,7 @@
     <string name="title_text_reminder">Meddelandet är tomt</string>
     <string name="title_attachment_keywords">bifogad,bilaga,bilaga,inkluderat</string>
     <string name="title_attachment_reminder">Hade du för avsikt att lägga till en bifogad fil?</string>
+    <string name="title_attachment_warning">Potentiellt farligt: %1$s</string>
     <string name="title_plain_reminder">All formatering kommer att förloras</string>
     <string name="title_dsn_reminder">Hard bounce skadar den ursprungliga sändaren e-postomdömme!</string>
     <string name="title_size_reminder">Meddelande (%1$s) större än gränsen på servern (%2$s)</string>
@@ -1423,6 +1426,7 @@
     <string name="title_answer_placeholder_email">Avsändarens e-postadress</string>
     <string name="title_answer_placeholder_firstname">Avsändarens förnamn</string>
     <string name="title_answer_placeholder_lastname">Avsändarens efternamn</string>
+    <string name="title_answer_placeholder_date">Aktuellt datum</string>
     <string name="title_rule_noop">Ingen åtgärd</string>
     <string name="title_rule_seen">Markera som läst</string>
     <string name="title_rule_unseen">Markera som oläst</string>
@@ -1465,6 +1469,7 @@
     <string name="title_rule_hours">Timmar</string>
     <string name="title_rule_schedule_end">Från slutet av tidsvillkoret</string>
     <string name="title_rule_folder">Mapp</string>
+    <string name="title_rule_folder_create">Skapa undermapp</string>
     <string name="title_rule_thread">Alla meddelanden i samma konversation och mapp</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Svarsmall</string>

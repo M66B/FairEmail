@@ -1235,6 +1235,7 @@
     <string name="title_save_drafts">Entwürfe auf dem Server speichern</string>
     <string name="title_send_dialog">Sendeoptionen anzeigen</string>
     <string name="title_image_dialog">Grafikoptionen anzeigen</string>
+    <string name="title_block_toolbar">Symbolleiste sperren</string>
     <string name="title_media_toolbar">Mediensymbolleiste</string>
     <string name="title_manage_local_contacts">Lokale Kontakte verwalten</string>
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
@@ -1282,6 +1283,7 @@
     <string name="title_text_reminder">Nachricht ist leer</string>
     <string name="title_attachment_keywords">angehängt,Anhang,Anhänge,beigefügt,Anlage,Anlagen,anbei,liegt bei,beigelegt</string>
     <string name="title_attachment_reminder">Beabsichtigen Sie einen Anhang hinzuzufügen?</string>
+    <string name="title_attachment_warning">Möglicherweise gefährlich: %1$s</string>
     <string name="title_plain_reminder">Alle Formatierungen gehen verloren</string>
     <string name="title_dsn_reminder">Unzustellbarkeitsnachrichten schaden dem E-Mail-Ruf des ursprünglichen Absenders!</string>
     <string name="title_size_reminder">Nachricht (%1$s) größer als Serverbegrenzung (%2$s)</string>
@@ -1472,6 +1474,7 @@
     <string name="title_rule_hours">Stunden</string>
     <string name="title_rule_schedule_end">Vom Ende der Zeitbedingung</string>
     <string name="title_rule_folder">Ordner</string>
+    <string name="title_rule_folder_create">Unterordner erstellen</string>
     <string name="title_rule_thread">Alle Nachrichten zur selben Unterhaltung und Ordner</string>
     <string name="title_rule_identity">Identität</string>
     <string name="title_rule_template">Antwortvorlage</string>

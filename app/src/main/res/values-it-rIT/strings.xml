@@ -434,6 +434,7 @@
     <string name="title_advanced_cards_shadow_highlight">Usa il colore d\'evidenziazione invece del colore secondario</string>
     <string name="title_advanced_tabular_dividers">Usa le linee divisorie usando lo stile tabulare</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
+    <string name="title_advanced_date_week">Raggruppa per settimana invece che per giorno</string>
     <string name="title_advanced_date_fixed">Mostra l\'intestazione a data fissa in cima</string>
     <string name="title_advanced_date_bold">Mostra la data in grassetto</string>
     <string name="title_advanced_threading">Thread della conversazione</string>
@@ -1242,6 +1243,7 @@
     <string name="title_save_drafts">Salva bozze sul server</string>
     <string name="title_send_dialog">Mostra opzioni di invio</string>
     <string name="title_image_dialog">Mostra opzioni dell\'immagine</string>
+    <string name="title_block_toolbar">Barra strumenti per blocco di testo</string>
     <string name="title_media_toolbar">Barra multimediale</string>
     <string name="title_manage_local_contacts">Gestisci i contatti locali</string>
     <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>
@@ -1289,6 +1291,7 @@
     <string name="title_text_reminder">Messaggio vuoto</string>
     <string name="title_attachment_keywords">allegato,allegati,incluso,inclusi</string>
     <string name="title_attachment_reminder">Desideravi aggiungere un allegato?</string>
+    <string name="title_attachment_warning">Potenzialmente pericoloso: %1$s</string>
     <string name="title_plain_reminder">Tutta la formattazione sarà perduta</string>
     <string name="title_dsn_reminder">Gli hard bounce danneggiano la reputazione dell\'email del mittente originale!</string>
     <string name="title_size_reminder">Messaggio (%1$s) più grande del limite del server (%2$s)</string>
@@ -1435,7 +1438,7 @@
     <string name="title_answer_placeholder_email">Indirizzo e-mail del mittente</string>
     <string name="title_answer_placeholder_firstname">Nome del mittente</string>
     <string name="title_answer_placeholder_lastname">Cognome del mittente</string>
-    <string name="title_answer_placeholder_date">Data attuale</string>
+    <string name="title_answer_placeholder_date">Data corrente</string>
     <string name="title_rule_noop">Nessun\'azione</string>
     <string name="title_rule_seen">Segna come letto</string>
     <string name="title_rule_unseen">Segna come non letto</string>
@@ -1478,6 +1481,7 @@
     <string name="title_rule_hours">Ore</string>
     <string name="title_rule_schedule_end">Dal termine della condizione temporale</string>
     <string name="title_rule_folder">Cartella</string>
+    <string name="title_rule_folder_create">Crea cartella secondaria</string>
     <string name="title_rule_thread">Tutti i messaggi nella stessa conversazione e cartella</string>
     <string name="title_rule_identity">Identità</string>
     <string name="title_rule_template">Modello di risposta</string>
@@ -1638,7 +1642,7 @@
     <string name="title_hint_folder_actions">Tieni premuta una cartella per le opzioni, come aggiungere una cartella al menu di navigazione per l\'accesso rapido</string>
     <string name="title_hint_folder_sync">Per limitare l\'uso della batteria e di rete, non tutte le cartelle e messaggi saranno sincronizzati di default</string>
     <string name="title_hint_airplane">La modalità offline è attivata</string>
-    <string name="title_hint_notifications">Nessuna autorizzazione di notifica</string>
+    <string name="title_hint_notifications">Nessun\'autorizzazione di notifica</string>
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>
     <string name="title_hint_message_selection">Tieni premuto un messaggio per iniziare a selezionare più messaggi: Tieni premuto e scorri in su o in giù per selezionare più messaggi</string>

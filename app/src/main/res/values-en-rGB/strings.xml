@@ -4,7 +4,6 @@
     <string name="app_changelog">Changelog</string>
     <string name="app_welcome">FairEmail is an open-source email app focused on privacy and security. Therefore, some features might work differently from what you are used to.</string>
     <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links will need to be confirmed for your safety. Both can be disabled if you desire.</string>
-    <string name="app_unsupported">Bugs in the Android version of this particular device can cause crashes</string>
     <string name="app_data_loss">All data may be lost</string>
     <string name="app_continue">Continue anyway</string>
     <string name="app_exit">Navigate back again to exit</string>
@@ -23,7 +22,6 @@
     <string name="channel_service_description">Synchronising and monitoring of accounts</string>
     <string name="channel_send_description">Sending of messages</string>
     <string name="channel_notification_description">New message notifications</string>
-    <string name="channel_progress_description">Progress notifications for activities that are longer</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversation</item>
         <item quantity="other">Conversations</item>
@@ -78,7 +76,6 @@
     </string>
     <string name="title_block">Block %1$s</string>
     <string name="title_block_sender">Block sender</string>
-    <string name="title_block_sender_domain">Block the domain \'%1$s\'</string>
     <string name="title_block_sender_hint">        Blocking a sender is a free feature.
         Blocking a sender domain uses filter rules, which is a pro feature.
     </string>
@@ -146,7 +143,6 @@
     <string name="title_setup_simple">You don\'t need to change any other options</string>
     <string name="title_setup_issue">FairEmail was developed to help you protect your privacy and thousands of hours of work has been put into it. If you have any problems, please contact me first for support before leaving a bad review. I am always happy to help!</string>
     <string name="title_setup_analytics">FairEmail does not display advertisements and does not track or analyse your behaviour. Bugsnag is used for error-reporting and is disabled by default.</string>
-    <string name="title_setup_quick_accounts">Add or switch accounts</string>
     <string name="title_setup_quick_support">Some providers may make it difficult to add an account. If you need support with this please contact us.</string>
     <string name="title_setup_quick_hint">The entered email address is used to ask the email server and autoconfig.thunderbird.net for configuration information</string>
     <string name="title_setup_quick_patience">Please be patient &#8230;</string>

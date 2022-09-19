@@ -435,6 +435,7 @@
     <string name="title_advanced_cards_shadow_highlight">Usar a cor destacada em vez da cor de ênfase</string>
     <string name="title_advanced_tabular_dividers">Usar linhas do divisor quando o estilo tabular seja utilizado</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
+    <string name="title_advanced_date_week">Agrupar por semana em vez de dia</string>
     <string name="title_advanced_date_fixed">Mostrar cabeçalho de data fixo no topo</string>
     <string name="title_advanced_date_bold">Mostrar data em negrito</string>
     <string name="title_advanced_threading">Encadeamento de conversas</string>
@@ -579,7 +580,7 @@
     <string name="title_advanced_notify_subtext">Mostrar nome da conta ou pasta como subtexto</string>
     <string name="title_advanced_wearable_preview">Enviar notificações apenas com uma visualização de mensagem para wearables</string>
     <string name="title_advanced_notify_messaging">Utilizar o \'estilo de mensagens\' do Android como formato de notificação</string>
-    <string name="title_advanced_biometrics_notify">Mostrar o resumo de correio e outro conteúdo nas notificações ao utilizar a autenticação biométrica</string>
+    <string name="title_advanced_biometrics_notify">Mostrar conteúdo de notificação ao usar autenticação biométrica</string>
     <string name="title_advanced_light">Usar luz de notificações</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_notify_screen_on">Ligar o ecrã por breves instantes para novas notificações de mensagens</string>
@@ -1241,6 +1242,7 @@
     <string name="title_save_drafts">Guardar rascunhos no servidor</string>
     <string name="title_send_dialog">Mostrar opções de envio</string>
     <string name="title_image_dialog">Mostrar opções de imagem</string>
+    <string name="title_block_toolbar">Bloquear barra de ferramentas</string>
     <string name="title_media_toolbar">Barra de ferramentas de conteúdos multimédia</string>
     <string name="title_manage_local_contacts">Gerir contactos locais</string>
     <string name="title_insert_contact_group">Inserir grupo de contactos</string>
@@ -1288,6 +1290,7 @@
     <string name="title_text_reminder">A mensagem está vazia</string>
     <string name="title_attachment_keywords">anexado,anexo,anexos,incluído</string>
     <string name="title_attachment_reminder">Tinha a intenção de adicionar um anexo?</string>
+    <string name="title_attachment_warning">Potencialmente perigoso: %1$s</string>
     <string name="title_plain_reminder">Todas as formatações serão perdidas</string>
     <string name="title_dsn_reminder">Mensagens devolvidas (Hard Bounce) destrui a reputação do remetente original!</string>
     <string name="title_size_reminder">Mensagem (%1$s) é maior do que o limite de servidor (%2$s)</string>
@@ -1477,6 +1480,7 @@
     <string name="title_rule_hours">Horas</string>
     <string name="title_rule_schedule_end">A partir da condição do término do período</string>
     <string name="title_rule_folder">Pasta</string>
+    <string name="title_rule_folder_create">Criar sub pasta</string>
     <string name="title_rule_thread">Todas as mensagens na mesma conversa e pasta</string>
     <string name="title_rule_identity">Identidade</string>
     <string name="title_rule_template">Modelo de resposta</string>
