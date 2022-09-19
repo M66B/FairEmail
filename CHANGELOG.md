@@ -4,6 +4,15 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1967 - 2022-09-19
+
+* Added warnings for unsafe attachment types
+* Added experimental text block toolbar
+* Added option for grouping messages by week
+* Extended ipinfo with city, region and country
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1966 - 2022-09-17
 
 * Added create subfolder option to move filter rule
