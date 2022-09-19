@@ -8890,6 +8890,20 @@ public class FragmentMessages extends FragmentBase
                 boolean download_plain = prefs.getBoolean("download_plain", false);
                 String html = parts.getHtml(context, download_plain);
 
+                if (!parts.hasBody() && parts.getAttachmentParts().size() == 1)
+                    try {
+                        InputStream i = parts.getAttachmentParts().get(0).part.getInputStream();
+                        CMSSignedData signedData = new CMSSignedData(i);
+                        CMSTypedData sc = signedData.getSignedContent();
+                        InputStream bis = new ByteArrayInputStream((byte[]) sc.getContent());
+                        MimeMessage inner = new MimeMessage(isession, bis);
+                        MessageHelper h = new MessageHelper(inner, context);
+                        parts = h.getMessageParts();
+                        html = parts.getHtml(context, download_plain);
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+
                 if (html == null && (debug || BuildConfig.DEBUG)) {
                     int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
                     SpannableStringBuilder ssb = new SpannableStringBuilderEx();
