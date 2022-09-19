@@ -72,7 +72,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 243,
+        version = 244,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2462,6 +2462,13 @@ public abstract class DB extends RoomDatabase {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `keep_alive_noop` INTEGER NOT NULL DEFAULT 0");
                         db.execSQL("UPDATE account SET keep_alive_noop = 1" +
+                                " WHERE host = 'outlook.office365.com' AND pop = " + EntityAccount.TYPE_IMAP);
+                    }
+                }).addMigrations(new Migration(243, 244) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("UPDATE account SET keep_alive_noop = 0" +
                                 " WHERE host = 'outlook.office365.com' AND pop = " + EntityAccount.TYPE_IMAP);
                     }
                 }).addMigrations(new Migration(998, 999) {

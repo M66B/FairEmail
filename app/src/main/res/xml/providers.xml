@@ -44,7 +44,6 @@
         name="Outlook"
         domain="outlook\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
-        noop="true"
         order="2"
         partial="false"
         useip="false">
@@ -61,7 +60,6 @@
         name="Live"
         domain="live\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
-        noop="true"
         order="3"
         partial="false"
         useip="false">
@@ -78,7 +76,6 @@
         name="Hotmail"
         domain="hotmail\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
-        noop="true"
         order="4"
         partial="false"
         useip="false">
@@ -109,7 +106,6 @@
         description="Outlook/Office 365"
         id="office365"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
-        noop="true"
         order="5"
         partial="false"
         useip="false">
@@ -146,7 +142,6 @@
         description="Outlook"
         id="outlook"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
-        noop="true"
         order="5"
         partial="false"
         useip="false">
