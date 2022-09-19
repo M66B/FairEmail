@@ -1026,7 +1026,7 @@ public class FragmentMessages extends FragmentBase
                 StringBuilder sb = new StringBuilder();
                 Calendar cal = Calendar.getInstance();
                 cal.setTimeInMillis(time);
-                sb.append(cal.get(Calendar.YEAR)).append('-').append(cal.get(Calendar.WEEK_OF_YEAR));
+                sb.append(cal.get(Calendar.YEAR)).append("-W").append(cal.get(Calendar.WEEK_OF_YEAR));
                 cal.set(Calendar.DAY_OF_WEEK, 1);
                 sb.append(' ').append(Helper.getDateInstance(context).format(cal.getTimeInMillis()));
                 return sb.toString();
