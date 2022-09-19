@@ -128,6 +128,12 @@ public interface DaoAttachment {
     void setCid(long id, String cid, Boolean related);
 
     @Query("UPDATE attachment" +
+            " SET encryption = :encryption" +
+            " WHERE id = :id" +
+            " AND NOT (encryption IS :encryption)")
+    void setEncryption(long id, Integer encryption);
+
+    @Query("UPDATE attachment" +
             " SET media_uri = :media_uri" +
             " WHERE id = :id" +
             " AND NOT (media_uri IS :media_uri)")

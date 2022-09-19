@@ -8187,7 +8187,7 @@ public class FragmentMessages extends FragmentBase
                                     boolean download_plain = prefs.getBoolean("download_plain", false);
                                     String html = parts.getHtml(context, download_plain);
 
-                                    if (html == null && (debug || BuildConfig.DEBUG)) {
+                                    if (html == null && debug) {
                                         int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
                                         SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                                         MessageHelper.getStructure(imessage, ssb, 0, textColorLink);
@@ -8890,21 +8890,7 @@ public class FragmentMessages extends FragmentBase
                 boolean download_plain = prefs.getBoolean("download_plain", false);
                 String html = parts.getHtml(context, download_plain);
 
-                if (!parts.hasBody() && parts.getAttachmentParts().size() == 1)
-                    try {
-                        InputStream i = parts.getAttachmentParts().get(0).part.getInputStream();
-                        CMSSignedData signedData = new CMSSignedData(i);
-                        CMSTypedData sc = signedData.getSignedContent();
-                        InputStream bis = new ByteArrayInputStream((byte[]) sc.getContent());
-                        MimeMessage inner = new MimeMessage(isession, bis);
-                        MessageHelper h = new MessageHelper(inner, context);
-                        parts = h.getMessageParts();
-                        html = parts.getHtml(context, download_plain);
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-
-                if (html == null && (debug || BuildConfig.DEBUG)) {
+                if (html == null && debug) {
                     int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
                     SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                     MessageHelper.getStructure(imessage, ssb, 0, textColorLink);
@@ -8936,23 +8922,36 @@ public class FragmentMessages extends FragmentBase
                     });
 
                     // Add decrypted attachments
+                    boolean signedData = false;
                     List<EntityAttachment> remotes = parts.getAttachments();
                     for (int index = 0; index < remotes.size(); index++) {
                         EntityAttachment remote = remotes.get(index);
                         remote.message = message.id;
                         remote.sequence = index + 1;
                         remote.id = db.attachment().insertAttachment(remote);
+                        Log.i("s/mime attachment=" + remote);
+
                         try {
                             parts.downloadAttachment(context, index, remote);
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
-                        Log.i("s/mime attachment=" + remote);
+
+                        if (!parts.hasBody() && remotes.size() == 1)
+                            try (FileInputStream fos = new FileInputStream(remote.getFile(context))) {
+                                new CMSSignedData(fos).getSignedContent().getContent();
+                                signedData = true;
+                                remote.encryption = EntityAttachment.SMIME_SIGNED_DATA;
+                                db.attachment().setEncryption(remote.id, remote.encryption);
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
                     }
 
                     checkPep(message, remotes, context);
 
-                    db.message().setMessageEncrypt(message.id, parts.getEncryption());
+                    db.message().setMessageEncrypt(message.id,
+                            signedData ? EntityMessage.SMIME_SIGNONLY : parts.getEncryption());
                     db.message().setMessageStored(message.id, new Date().getTime());
                     db.message().setMessageFts(message.id, false);
 
