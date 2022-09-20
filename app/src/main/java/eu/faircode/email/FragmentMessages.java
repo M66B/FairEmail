@@ -8937,7 +8937,9 @@ public class FragmentMessages extends FragmentBase
                             Log.e(ex);
                         }
 
-                        if (!parts.hasBody() && remotes.size() == 1)
+                        if (!parts.hasBody() && remotes.size() == 1 &&
+                                ("application/pkcs7-mime".equals(remote.type) ||
+                                        "application/x-pkcs7-mime".equals(remote.type)))
                             try (FileInputStream fos = new FileInputStream(remote.getFile(context))) {
                                 new CMSSignedData(fos).getSignedContent().getContent();
                                 signedData = true;
