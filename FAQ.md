@@ -4891,6 +4891,8 @@ Texts with suggestions will be marked and if you tap on a marked suggestion,
 it will be shown by the keyboard if the keyboard supports this,
 else you can double tap or long press the marked text to show suggestions.
 
+The suboption *Use formal form* can be enabled to let LanguageTool suggest more formal text (business, legal, etc).
+
 <br />
 
 <a name="faq181"></a>
