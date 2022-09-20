@@ -3146,7 +3146,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                                             bindConversationActions(message, args.getParcelable("actions"));
                                         bindExtras(message);
-
                                         cowner.start(); // Show attachments
                                     } catch (Throwable ex) {
                                         Log.e(ex);
@@ -3169,7 +3168,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                                             bindConversationActions(message, args.getParcelable("actions"));
                                         bindExtras(message);
-
                                         cowner.start(); // Show attachments
                                     } catch (Throwable ex) {
                                         Log.e(ex);
@@ -3177,8 +3175,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 }
                             });
                         }
-                    } else
+                    } else {
                         bindExtras(message);
+                        cowner.start(); // Show attachments
+                    }
 
                     if (scroll)
                         properties.scrollTo(getAdapterPosition(), 0);
