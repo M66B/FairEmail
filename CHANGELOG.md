@@ -4,6 +4,11 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1968 - 2022-09-20
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1967 - 2022-09-19
 
 * Added warnings for unsafe attachment types
