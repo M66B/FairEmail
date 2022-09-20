@@ -1155,7 +1155,7 @@
     <string name="title_attachments_incomplete">Nekatere predloge ali slike niso bile prejete in jih ni bilo mogoče dodati.</string>
     <string name="title_ask_save">Shrani spremembe?</string>
     <string name="title_ask_delete">Trajno izbriši sporočilo?</string>
-    <string name="title_ask_delete_accept">Razumem, da je trajen izbris sporočil nepovratno.</string>
+    <string name="title_ask_delete_accept">Razumem, da je trajen izbris sporočil nepovraten.</string>
     <string name="title_ask_delete_answer">Trajno izbriši predlogo za odgovor?</string>
     <string name="title_ask_delete_rule">Trajno izbriši pravilo?</string>
     <string name="title_ask_delete_attachments">Odstrani vse priloge?</string>

@@ -432,6 +432,7 @@
     <string name="title_advanced_cards_shadow_highlight">Hervorhebungsfarbe statt Akzentfarbe verwenden</string>
     <string name="title_advanced_tabular_dividers">Trennlinien bei Verwendung der Tabellenform verwenden</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
+    <string name="title_advanced_date_week">Nach Woche statt nach Tag gruppieren</string>
     <string name="title_advanced_date_fixed">Feste Datumskopfzeile oben anzeigen</string>
     <string name="title_advanced_date_bold">Datum fett anzeigen</string>
     <string name="title_advanced_threading">Themenbaum</string>

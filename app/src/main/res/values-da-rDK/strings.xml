@@ -434,6 +434,7 @@
     <string name="title_advanced_cards_shadow_highlight">Brug fremhævningsfarve i stedet for accentfarve</string>
     <string name="title_advanced_tabular_dividers">Brug skillelinjer ifm. tabelform</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
+    <string name="title_advanced_date_week">Gruppér efter uge i stedet for dag</string>
     <string name="title_advanced_date_fixed">Vis fast datohoved øverst</string>
     <string name="title_advanced_date_bold">Vis dato med fed</string>
     <string name="title_advanced_threading">Samtaler i tråde</string>
@@ -1242,6 +1243,7 @@
     <string name="title_save_drafts">Gem udkast på serveren</string>
     <string name="title_send_dialog">Vis Send-muligheder</string>
     <string name="title_image_dialog">Vis Billed-muligheder</string>
+    <string name="title_block_toolbar">Blokværktøjsbjælke</string>
     <string name="title_media_toolbar">Medieværktøjsbjælke</string>
     <string name="title_manage_local_contacts">Håndtér lokale kontakter</string>
     <string name="title_insert_contact_group">Indsæt kontaktgruppe</string>

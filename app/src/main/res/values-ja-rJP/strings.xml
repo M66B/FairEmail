@@ -421,6 +421,7 @@
     <string name="title_advanced_cards_shadow_highlight">アクセントカラーの代わりにハイライトカラーを使用</string>
     <string name="title_advanced_tabular_dividers">表形式のとき、区切り線を表示</string>
     <string name="title_advanced_date_header">日付でグループ化</string>
+    <string name="title_advanced_date_week">日付ではなく週でグループ化</string>
     <string name="title_advanced_date_fixed">日付を上部に固定表示</string>
     <string name="title_advanced_date_bold">日付を太字で表示</string>
     <string name="title_advanced_threading">会話スレッド</string>
@@ -1228,6 +1229,7 @@
     <string name="title_save_drafts">下書きをサーバーに保存</string>
     <string name="title_send_dialog">送信オプションを表示</string>
     <string name="title_image_dialog">画像オプションを表示</string>
+    <string name="title_block_toolbar">ブロックツールバー</string>
     <string name="title_media_toolbar">メディアツールバー</string>
     <string name="title_manage_local_contacts">ローカルの連絡先を管理</string>
     <string name="title_insert_contact_group">連絡先グループを挿入</string>
@@ -1275,6 +1277,7 @@
     <string name="title_text_reminder">本文がありません</string>
     <string name="title_attachment_keywords">添付,付属</string>
     <string name="title_attachment_reminder">添付ファイルを追加しましたか？</string>
+    <string name="title_attachment_warning">潜在的に危険な形式: %1$s</string>
     <string name="title_plain_reminder">すべての書式が失われます</string>
     <string name="title_dsn_reminder">ハードバウンスは、送信元のメールアドレスの評判を損ないます！</string>
     <string name="title_size_reminder">メッセージの大きさ (%1$s) がサーバーの制限 (%2$s) を超えています</string>
@@ -1421,6 +1424,7 @@
     <string name="title_answer_placeholder_email">差出人のメールアドレス</string>
     <string name="title_answer_placeholder_firstname">差出人の名</string>
     <string name="title_answer_placeholder_lastname">差出人の姓</string>
+    <string name="title_answer_placeholder_date">現在の日付</string>
     <string name="title_rule_noop">何もしない</string>
     <string name="title_rule_seen">既読にする</string>
     <string name="title_rule_unseen">未読にする</string>
@@ -1463,6 +1467,7 @@
     <string name="title_rule_hours">時間</string>
     <string name="title_rule_schedule_end">時間条件の終わりから</string>
     <string name="title_rule_folder">フォルダー</string>
+    <string name="title_rule_folder_create">サブフォルダーを作成</string>
     <string name="title_rule_thread">同じ会話内またはフォルダー内のすべてのメッセージ</string>
     <string name="title_rule_identity">ID</string>
     <string name="title_rule_template">返信テンプレート</string>
