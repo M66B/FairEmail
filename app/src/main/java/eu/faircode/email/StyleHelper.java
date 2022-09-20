@@ -52,6 +52,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
@@ -889,14 +890,14 @@ public class StyleHelper {
         return new Pair<>(start, end);
     }
 
-    public static Pair<Integer, Integer> getParagraph(EditText etBody) {
-        return getParagraph(etBody, false);
+    public static Pair<Integer, Integer> getParagraph(TextView tvBody) {
+        return getParagraph(tvBody, false);
     }
 
-    public static Pair<Integer, Integer> getParagraph(EditText etBody, boolean block) {
-        int start = etBody.getSelectionStart();
-        int end = etBody.getSelectionEnd();
-        Editable edit = etBody.getText();
+    public static Pair<Integer, Integer> getParagraph(TextView tvBody, boolean block) {
+        int start = tvBody.getSelectionStart();
+        int end = tvBody.getSelectionEnd();
+        Spannable edit = (Spannable) tvBody.getText();
 
         if (start < 0 || end < 0)
             return null;

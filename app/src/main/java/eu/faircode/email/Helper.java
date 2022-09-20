@@ -71,6 +71,7 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.util.DisplayMetrics;
+import android.util.Pair;
 import android.util.TypedValue;
 import android.view.ActionMode;
 import android.view.KeyEvent;
@@ -2093,11 +2094,28 @@ public class Helper {
         return new ActionMode.Callback() {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                try {
+                    int order = 1000;
+                    menu.add(Menu.CATEGORY_SECONDARY, R.string.title_select_block, order++,
+                            view.getContext().getString(R.string.title_select_block));
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
                 return true;
             }
 
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                try {
+                    Pair<Integer, Integer> block = StyleHelper.getParagraph(view, true);
+                    boolean ablock = (block != null &&
+                            block.first == view.getSelectionStart() &&
+                            block.second == view.getSelectionEnd());
+                    menu.findItem(R.string.title_select_block).setVisible(!ablock);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+
                 for (int i = 0; i < menu.size(); i++) {
                     MenuItem item = menu.getItem(i);
                     Intent intent = item.getIntent();
@@ -2158,6 +2176,18 @@ public class Helper {
 
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                if (item.getGroupId() == Menu.CATEGORY_SECONDARY)
+                    try {
+                        int id = item.getItemId();
+                        if (id == R.string.title_select_block) {
+                            Pair<Integer, Integer> block = StyleHelper.getParagraph(view, true);
+                            if (block != null)
+                                android.text.Selection.setSelection((Spannable) view.getText(), block.first, block.second);
+                            return true;
+                        }
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                 return false;
             }
 
