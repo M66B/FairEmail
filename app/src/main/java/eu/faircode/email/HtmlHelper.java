@@ -2653,6 +2653,49 @@ public class HtmlHelper {
         });
     }
 
+    static void removeSignatures(Document d) {
+        d.body().filter(new NodeFilter() {
+            private boolean remove = false;
+            private boolean noremove = false;
+
+            @Override
+            public FilterResult head(Node node, int depth) {
+                if (node instanceof TextNode) {
+                    TextNode tnode = (TextNode) node;
+                    String text = tnode.getWholeText()
+                            .replaceAll("[\r\n]+$", "")
+                            .replaceAll("^[\r\n]+", "");
+                    if ("-- ".equals(text)) {
+                        if (tnode.getWholeText().endsWith("\n"))
+                            remove = true;
+                        else {
+                            Node next = node.nextSibling();
+                            if (next == null) {
+                                Node parent = node.parent();
+                                if (parent != null)
+                                    next = parent.nextSibling();
+                            }
+                            if (next != null && "br".equals(next.nodeName()))
+                                remove = true;
+                        }
+                    }
+                } else if (node instanceof Element) {
+                    Element element = (Element) node;
+                    if (remove && "blockquote".equals(element.tagName()))
+                        noremove = true;
+                }
+
+                return (remove && !noremove
+                        ? FilterResult.REMOVE : FilterResult.CONTINUE);
+            }
+
+            @Override
+            public FilterResult tail(Node node, int depth) {
+                return FilterResult.CONTINUE;
+            }
+        });
+    }
+
     static String truncate(String text, int at) {
         if (text.length() < at)
             return text;

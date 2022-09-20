@@ -170,10 +170,7 @@ import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.bouncycastle.util.Store;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Node;
-import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
-import org.jsoup.select.NodeFilter;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.w3c.dom.css.CSSStyleSheet;
@@ -5215,46 +5212,7 @@ public class FragmentCompose extends FragmentBase {
                                     // Remove signature separators
                                     boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
                                     if (remove_signatures)
-                                        d.body().filter(new NodeFilter() {
-                                            private boolean remove = false;
-                                            private boolean noremove = false;
-
-                                            @Override
-                                            public FilterResult head(Node node, int depth) {
-                                                if (node instanceof TextNode) {
-                                                    TextNode tnode = (TextNode) node;
-                                                    String text = tnode.getWholeText()
-                                                            .replaceAll("[\r\n]+$", "")
-                                                            .replaceAll("^[\r\n]+", "");
-                                                    if ("-- ".equals(text)) {
-                                                        if (tnode.getWholeText().endsWith("\n"))
-                                                            remove = true;
-                                                        else {
-                                                            Node next = node.nextSibling();
-                                                            if (next == null) {
-                                                                Node parent = node.parent();
-                                                                if (parent != null)
-                                                                    next = parent.nextSibling();
-                                                            }
-                                                            if (next != null && "br".equals(next.nodeName()))
-                                                                remove = true;
-                                                        }
-                                                    }
-                                                } else if (node instanceof Element) {
-                                                    Element element = (Element) node;
-                                                    if (remove && "blockquote".equals(element.tagName()))
-                                                        noremove = true;
-                                                }
-
-                                                return (remove && !noremove
-                                                        ? FilterResult.REMOVE : FilterResult.CONTINUE);
-                                            }
-
-                                            @Override
-                                            public FilterResult tail(Node node, int depth) {
-                                                return FilterResult.CONTINUE;
-                                            }
-                                        });
+                                        HtmlHelper.removeSignatures(d);
 
                                     // Limit number of nested block quotes
                                     boolean quote_limit = prefs.getBoolean("quote_limit", true);
