@@ -350,6 +350,11 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
         String html = Helper.readText(file);
         Document d = HtmlHelper.sanitizeCompose(context, html, false);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
+        if (remove_signatures)
+            HtmlHelper.removeSignatures(d);
+
         d.select("blockquote").remove();
 
         HtmlHelper.truncate(d, HtmlHelper.MAX_TRANSLATABLE_TEXT_SIZE);
