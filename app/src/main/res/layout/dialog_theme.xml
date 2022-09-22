@@ -96,6 +96,14 @@
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_you"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeYouMono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_you_mono"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </RadioGroup>
 
         <TextView
@@ -216,10 +224,10 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_setup_theme_more_colors"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnMore" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -333,6 +333,7 @@
     <string name="title_setup_theme_black_or_white">Black or white</string>
     <string name="title_setup_theme_black_and_white">Black and white</string>
     <string name="title_setup_theme_you" translatable="false">Material You</string>
+    <string name="title_setup_theme_you_mono" translatable="false">Material You mono</string>
 
     <string name="title_setup_theme_reverse">Swap colors</string>
     <string name="title_setup_theme_light">Light</string>
