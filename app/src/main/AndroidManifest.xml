@@ -576,6 +576,8 @@
                 android:resource="@xml/fileprovider_paths" />
         </provider>
 
+        <!-- https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration -->
+        <!-- https://issuetracker.google.com/issues/138465476 -->
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
