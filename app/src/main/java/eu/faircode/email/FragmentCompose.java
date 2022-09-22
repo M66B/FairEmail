@@ -269,8 +269,8 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibReferenceImages;
     private View vwAnchor;
     private TextViewAutoCompleteAction etSearch;
-    private BottomNavigationView block_bar;
     private BottomNavigationView style_bar;
+    private BottomNavigationView block_bar;
     private BottomNavigationView media_bar;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -396,8 +396,8 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         vwAnchor = view.findViewById(R.id.vwAnchor);
         etSearch = view.findViewById(R.id.etSearch);
-        block_bar = view.findViewById(R.id.block_bar);
         style_bar = view.findViewById(R.id.style_bar);
+        block_bar = view.findViewById(R.id.block_bar);
         media_bar = view.findViewById(R.id.media_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
@@ -1014,6 +1014,14 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int action = item.getItemId();
+                return onActionStyle(action, style_bar.findViewById(action));
+            }
+        });
+
         block_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -1079,14 +1087,6 @@ public class FragmentCompose extends FragmentBase {
                     popupMenu.show();
                     return true;
                 }
-            }
-        });
-
-        style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int action = item.getItemId();
-                return onActionStyle(action, style_bar.findViewById(action));
             }
         });
 
@@ -1173,8 +1173,8 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceImages.setVisibility(View.GONE);
         tvReference.setVisibility(View.GONE);
         etSearch.setVisibility(View.GONE);
-        block_bar.setVisibility(View.GONE);
         style_bar.setVisibility(View.GONE);
+        block_bar.setVisibility(View.GONE);
         media_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
