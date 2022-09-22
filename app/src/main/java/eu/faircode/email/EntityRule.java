@@ -1050,7 +1050,7 @@ public class EntityRule {
         Integer color = (jargs.has("color") && !jargs.isNull("color")
                 ? jargs.getInt("color") : null);
 
-        EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
+        EntityOperation.queue(context, message, EntityOperation.FLAG, true, color, false);
 
         message.ui_flagged = true;
         message.color = color;
