@@ -1669,6 +1669,7 @@
     <string name="title_undo">Ångra</string>
     <string name="title_redo">Gör om</string>
     <string name="title_insert_line">Infoga rad</string>
+    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Välj block</string>
     <string name="title_add">Lägg till</string>
     <string name="title_browse">Öppna med</string>
     <string name="title_info">Info</string>

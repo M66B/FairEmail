@@ -1706,6 +1706,7 @@
     <string name="title_undo">ביטול</string>
     <string name="title_redo">ביצוע מחדש</string>
     <string name="title_insert_line">הוספת שורה</string>
+    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">בחירת מקטע</string>
     <string name="title_add">הוספה</string>
     <string name="title_browse">פתיחה באמצעות</string>
     <string name="title_info">פרטים</string>

@@ -433,6 +433,7 @@
     <string name="title_advanced_cards_shadow_highlight">Usar color de resaltado en lugar de color de acento</string>
     <string name="title_advanced_tabular_dividers">Usar líneas divisorias al usar estilo tabular</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>
+    <string name="title_advanced_date_week">Agrupar por semana en lugar de día</string>
     <string name="title_advanced_date_fixed">Mostrar encabezado de fecha fijado en la parte superior</string>
     <string name="title_advanced_date_bold">Mostrar fecha en negrita</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
@@ -1237,6 +1238,7 @@
     <string name="title_save_drafts">Guardar borradores en el servidor</string>
     <string name="title_send_dialog">Mostrar opciones de envío</string>
     <string name="title_image_dialog">Mostrar opciones de imagen</string>
+    <string name="title_block_toolbar">Barra de herramientas de bloque</string>
     <string name="title_media_toolbar">Barra de herramientas multimedia</string>
     <string name="title_manage_local_contacts">Administrar contactos locales</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
@@ -1673,6 +1675,7 @@
     <string name="title_undo">Deshacer</string>
     <string name="title_redo">Rehacer</string>
     <string name="title_insert_line">Insertar línea</string>
+    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Seleccionar bloque</string>
     <string name="title_add">Agregar</string>
     <string name="title_browse">Abrir con</string>
     <string name="title_info">Información</string>

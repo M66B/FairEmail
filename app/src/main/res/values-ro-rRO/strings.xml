@@ -446,6 +446,7 @@
     <string name="title_advanced_cards_shadow_highlight">Utilizați culoarea de evidențiere în loc de culoarea de accent</string>
     <string name="title_advanced_tabular_dividers">Utilizați linii despărțitoare atunci când utilizați stilul tabelar</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
+    <string name="title_advanced_date_week">Grupare pe săptămână în loc de zi</string>
     <string name="title_advanced_date_fixed">Afișați antetul cu dată fixă în partea de sus</string>
     <string name="title_advanced_date_bold">Afișați data marcată cu bold</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
@@ -1250,6 +1251,7 @@
     <string name="title_save_drafts">Salvează ciorne pe server</string>
     <string name="title_send_dialog">Afișare opțiuni de trimitere</string>
     <string name="title_image_dialog">Afișare opțiuni imagine</string>
+    <string name="title_block_toolbar">Bara de instrumente pentru blocuri</string>
     <string name="title_media_toolbar">Bară atașare</string>
     <string name="title_manage_local_contacts">Gestionați contactele locale</string>
     <string name="title_insert_contact_group">Introduceți grup de contacte</string>
@@ -1297,6 +1299,7 @@
     <string name="title_text_reminder">Mesajul este gol</string>
     <string name="title_attachment_keywords">atasez,atasat,atasate,atsament,atașez,atașat,atașament</string>
     <string name="title_attachment_reminder">Ați intenționat să adăugați un atașament?</string>
+    <string name="title_attachment_warning">Potențial periculos: %1$s</string>
     <string name="title_plain_reminder">Toate formatările vor fi pierdute</string>
     <string name="title_dsn_reminder">Mesajul de eroare serios deteriorează reputația expeditorului e-mailului original!</string>
     <string name="title_size_reminder">Mesajul (%1$s) mai mare decât limita serverului (%2$s)</string>
@@ -1486,6 +1489,7 @@
     <string name="title_rule_hours">Ore</string>
     <string name="title_rule_schedule_end">Condiția de la terminarea timpului</string>
     <string name="title_rule_folder">Dosar</string>
+    <string name="title_rule_folder_create">Creează sub-dosar</string>
     <string name="title_rule_thread">Toate mesajele în aceeași conversație și dosar</string>
     <string name="title_rule_identity">Identitate</string>
     <string name="title_rule_template">Șablon răspuns</string>
@@ -1685,6 +1689,7 @@
     <string name="title_undo">Anulează</string>
     <string name="title_redo">Refacere</string>
     <string name="title_insert_line">Inserați linia</string>
+    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Selectează bloc</string>
     <string name="title_add">Adaugă</string>
     <string name="title_browse">Deschide cu</string>
     <string name="title_info">Informații</string>

@@ -432,6 +432,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_cards_shadow_highlight">Vurgu rengi yerine vurgu rengi kullanın</string>
     <string name="title_advanced_tabular_dividers">Tablo stilini kullanırken ayırıcı çizgiler kullan</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
+    <string name="title_advanced_date_week">Gün yerine haftaya göre gruplandır</string>
     <string name="title_advanced_date_fixed">Sabit tarih başlığını üstte göster</string>
     <string name="title_advanced_date_bold">Tarihi kalın olarak göster</string>
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
@@ -1236,6 +1237,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_save_drafts">Taslakları sunucuya kaydet</string>
     <string name="title_send_dialog">Gönderme seçeneklerini göster</string>
     <string name="title_image_dialog">Görsel seçeneklerini göster</string>
+    <string name="title_block_toolbar">Araç çubuğunu engelle</string>
     <string name="title_media_toolbar">Medya araç çubuğu</string>
     <string name="title_manage_local_contacts">Yerel kişileri yönet</string>
     <string name="title_insert_contact_group">Kişi grubuna ekle</string>
@@ -1283,6 +1285,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_text_reminder">İleti boş</string>
     <string name="title_attachment_keywords">eklendi,ek,ekler,dahil edildi</string>
     <string name="title_attachment_reminder">Bir ek eklemek niyetinde misiniz?</string>
+    <string name="title_attachment_warning">Potansiyel olarak tehlikeli: %1$s</string>
     <string name="title_plain_reminder">Tüm biçimlendirme kaybolacak</string>
     <string name="title_dsn_reminder">Sert zıplama, orijinal gönderenin e-posta itibarına zarar verir!</string>
     <string name="title_size_reminder">İleti (%1$s) sunucu sınırından (%2$s) yüksek</string>
@@ -1471,6 +1474,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_hours">Saatler</string>
     <string name="title_rule_schedule_end">Zaman koşulunun sonundan</string>
     <string name="title_rule_folder">Klasör</string>
+    <string name="title_rule_folder_create">Alt dizin oluştur</string>
     <string name="title_rule_thread">Aynı sohbet ve klasördeki tüm iletiler</string>
     <string name="title_rule_identity">Kimlik</string>
     <string name="title_rule_template">Yanıt kalıbı</string>
@@ -1670,6 +1674,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_undo">Geri Al</string>
     <string name="title_redo">Yinele</string>
     <string name="title_insert_line">Satır ekle</string>
+    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Blok seç</string>
     <string name="title_add">Ekle</string>
     <string name="title_browse">Birlikte aç</string>
     <string name="title_info">Bilgi</string>

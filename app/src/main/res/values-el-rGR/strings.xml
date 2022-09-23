@@ -1674,6 +1674,7 @@
     <string name="title_undo">Αναίρεση</string>
     <string name="title_redo">Επαναφορά</string>
     <string name="title_insert_line">Εισαγωγή γραμμής</string>
+    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Επιλογή τμήματος</string>
     <string name="title_add">Προσθήκη</string>
     <string name="title_browse">Άνοιγμα με</string>
     <string name="title_info">Πληροφορίες</string>

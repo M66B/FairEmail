@@ -1703,6 +1703,7 @@
     <string name="title_undo">Скасувати</string>
     <string name="title_redo">Повторити</string>
     <string name="title_insert_line">Вставити текст</string>
+    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Виберіть блок</string>
     <string name="title_add">Додати</string>
     <string name="title_browse">Відкрити за допомогою</string>
     <string name="title_info">Інформація</string>

@@ -434,6 +434,7 @@
     <string name="title_advanced_cards_shadow_highlight">Rəngi vurğulamaq əvəzinə vurğu rəngini istifadə et</string>
     <string name="title_advanced_tabular_dividers">Cədvəl stilini istifadə edərkən ayırıcı xətləri də istifadə et</string>
     <string name="title_advanced_date_header">Tarixə görə qruplaşdır</string>
+    <string name="title_advanced_date_week">Gün əvəzinə həftəyə görə qruplaşdır</string>
     <string name="title_advanced_date_fixed">Sabit tarix başlığını üstdə göstər</string>
     <string name="title_advanced_date_bold">Tarixi qalın göstər</string>
     <string name="title_advanced_threading">Əlaqəli danışıqlar</string>
@@ -1241,6 +1242,7 @@
     <string name="title_save_drafts">Qaralamaları serverdə saxla</string>
     <string name="title_send_dialog">Göndəriş seçimlərini göstər</string>
     <string name="title_image_dialog">Təsvir seçimlərini göstər</string>
+    <string name="title_block_toolbar">Blok alət sətri</string>
     <string name="title_media_toolbar">Media alət sətri</string>
     <string name="title_manage_local_contacts">Yerli əlaqələri idarə et</string>
     <string name="title_insert_contact_group">Əlaqə qrupuna daxil et</string>
@@ -1288,6 +1290,7 @@
     <string name="title_text_reminder">Mesaj boşdur</string>
     <string name="title_attachment_keywords">əlavə edildi, qoşma, qoşmalar, daxil edildi</string>
     <string name="title_attachment_reminder">Bir qoşma əlavə etmək istəyirsiniz?</string>
+    <string name="title_attachment_warning">Potensial təhlükə: %1$s</string>
     <string name="title_plain_reminder">Bütün formatlama itəcək</string>
     <string name="title_dsn_reminder">Sərt sıçrayışlar, orijinal göndərənin e-poçt nüfuzuna zərər verir!</string>
     <string name="title_size_reminder">Mesaj (%1$s) server limitindən (%2$s) böyükdür</string>
@@ -1477,6 +1480,7 @@
     <string name="title_rule_hours">Saat</string>
     <string name="title_rule_schedule_end">Vaxt şərtinin sonundan</string>
     <string name="title_rule_folder">Qovluq</string>
+    <string name="title_rule_folder_create">Alt qovluq yarat</string>
     <string name="title_rule_thread">Eyni danışıq və qovluqdakı bütün mesajlar</string>
     <string name="title_rule_identity">Kimlik</string>
     <string name="title_rule_template">Cavab şablonu</string>
@@ -1676,6 +1680,7 @@
     <string name="title_undo">Geri qaytar</string>
     <string name="title_redo">Təkrar et</string>
     <string name="title_insert_line">Sətir daxil et</string>
+    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Bloku seç</string>
     <string name="title_add">Əlavə et</string>
     <string name="title_browse">Aç</string>
     <string name="title_info">Məlumat</string>
