@@ -124,6 +124,7 @@ Related questions:
 
 <a name="redmi"></a>
 <a name="oneplus"></a>
+<a name="oppo"></a>
 
 <br />
 
@@ -131,7 +132,7 @@ Related questions:
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23redmi)
 
-On some Xiaomi Redmi (Note) and some OnePlus devices the database occasionally gets corrupted, resulting in total data loss
+On some Xiaomi Redmi (Note) devices, some OnePlus devices with Android 12 and some Oppo devices with Android 12 the database occasionally gets corrupted, resulting in total data loss
 (on the device only, unless you are using a POP3 account with the option *Leave messages on server* disabled).
 
 The cause of this problem are disk I/O errors due to an Android bug (more likely) or maybe a hardware issue (less likely),
