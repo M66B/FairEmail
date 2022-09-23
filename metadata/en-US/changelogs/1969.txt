@@ -6,7 +6,7 @@ Mei long
 
 1.1968 - 2022-09-23
 
-* Added Material You monochrome themes
+* Added Material You monochrome themes (Android 12+)
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations
