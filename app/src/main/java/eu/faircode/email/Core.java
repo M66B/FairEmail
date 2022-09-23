@@ -1089,7 +1089,7 @@ class Core {
                 archived = (imessages != null && imessages.length > 0);
             } finally {
                 if (iarchive.isOpen())
-                    iarchive.close();
+                    iarchive.close(false);
             }
 
             if (archived)
@@ -1642,7 +1642,7 @@ class Core {
                 Log.w(ex);
             } finally {
                 if (itarget.isOpen())
-                    itarget.close();
+                    itarget.close(false);
             }
 
         // Delete junk contacts
@@ -2337,7 +2337,7 @@ class Core {
                             try {
                                 itarget.open(READ_WRITE);
                                 itarget.setSubscribed(subscribed);
-                                itarget.close();
+                                itarget.close(false);
                             } catch (MessagingException ex) {
                                 Log.w(ex);
                             }

@@ -814,7 +814,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         try {
             if (state.ifolder != null && state.ifolder.isOpen())
-                state.ifolder.close();
+                state.ifolder.close(false);
         } catch (Throwable ex) {
             Log.e("Boundary", ex);
         }
