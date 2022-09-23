@@ -4,6 +4,13 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1968 - 2022-09-23
+
+* Added Material You monochrome themes
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### 1.1968 - 2022-09-20
 
 * Small improvements and minor bug fixes

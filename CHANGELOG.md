@@ -4,12 +4,11 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### Next version
+### 1.1968 - 2022-09-23
 
-* Added select text block
 * Added Material You monochrome themes
-* Updated AndroidX
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated translations
 
 ### 1.1968 - 2022-09-20
