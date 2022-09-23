@@ -417,6 +417,13 @@ public interface DaoMessage {
             " AND msgid = :msgid")
     List<EntityMessage> getMessagesByMsgId(long account, String msgid);
 
+    @Query("SELECT message.* FROM message" +
+            " JOIN folder ON folder.id = message.folder" +
+            " WHERE message.account = :account" +
+            " AND folder.type = :folderType" +
+            " AND message.msgid = :msgid")
+    EntityMessage getMessage(long account, String folderType, String msgid);
+
     @Query("SELECT * FROM message" +
             " WHERE account = :account" +
             " AND inreplyto = :inreplyto")

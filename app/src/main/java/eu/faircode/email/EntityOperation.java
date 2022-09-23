@@ -280,10 +280,22 @@ public class EntityOperation {
                         if (!message.ui_deleted)
                             db.message().setMessageUiHide(message.id, true);
 
-                    if (account != null && account.isGmail() &&
-                            EntityFolder.ARCHIVE.equals(source.type) &&
-                            !(EntityFolder.TRASH.equals(target.type) || EntityFolder.JUNK.equals(target.type)))
-                        name = COPY;
+                    if (account != null && account.isGmail()) {
+                        if (EntityFolder.ARCHIVE.equals(source.type) &&
+                                !(EntityFolder.SENT.equals(target.type) ||
+                                        EntityFolder.TRASH.equals(target.type) ||
+                                        EntityFolder.JUNK.equals(target.type)))
+                            name = COPY;
+
+                        if (!TextUtils.isEmpty(message.msgid) && !TextUtils.isEmpty(message.hash) &&
+                                (EntityFolder.SENT.equals(target.type) ||
+                                        EntityFolder.TRASH.equals(target.type) ||
+                                        EntityFolder.JUNK.equals(target.type))) {
+                            EntityMessage archived = db.message().getMessage(message.account, EntityFolder.ARCHIVE, message.msgid);
+                            if (archived != null && message.hash.equals(archived.hash))
+                                db.message().setMessageUiHide(archived.id, true);
+                        }
+                    }
 
                     if (account != null && account.isGmail() &&
                             (EntityFolder.DRAFTS.equals(source.type) || EntityFolder.DRAFTS.equals(target.type)))
