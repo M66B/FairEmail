@@ -63,6 +63,7 @@ ext {
 task downloadSqlite(type: Download) {
     src project.sqliteDistributionUrl
     dest 'src/main/jni/sqlite.zip'
+    overwrite false
 }
 
 task installSqlite(dependsOn: downloadSqlite, type: Copy) {
