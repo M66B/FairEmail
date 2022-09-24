@@ -3035,13 +3035,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         return document.html();
                     } else {
+                        if (message.ui_found && found && !TextUtils.isEmpty(searched))
+                            HtmlHelper.highlightSearched(context, document, searched);
+
                         // Cleanup message
                         document = HtmlHelper.sanitizeView(context, document, show_images);
 
                         HtmlHelper.autoLink(document);
-
-                        if (message.ui_found && found && !TextUtils.isEmpty(searched))
-                            HtmlHelper.highlightSearched(context, document, searched);
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                             args.putParcelable("actions", getConversationActions(message, document, context));
