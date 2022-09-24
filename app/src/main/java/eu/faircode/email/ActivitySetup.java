@@ -470,9 +470,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     public void onBackStackChanged() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if (count == 0) {
-            if (hasAccount)
+            if (hasAccount) {
                 startActivity(new Intent(this, ActivityView.class));
-            finish();
+                finishAndRemoveTask();
+            } else
+                finish();
         } else {
             if (drawerLayout.isDrawerOpen(drawerContainer))
                 drawerLayout.closeDrawer(drawerContainer);

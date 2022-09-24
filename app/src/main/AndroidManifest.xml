@@ -187,7 +187,6 @@
 
         <activity
             android:name=".ActivitySetup"
-            android:excludeFromRecents="true"
             android:exported="false"
             android:launchMode="singleTask"
             android:parentActivityName=".ActivityMain"
@@ -195,7 +194,6 @@
 
         <activity
             android:name=".ActivitySignature"
-            android:excludeFromRecents="true"
             android:exported="false"
             android:launchMode="singleTask"
             android:parentActivityName=".ActivitySetup"
