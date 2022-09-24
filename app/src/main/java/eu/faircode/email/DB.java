@@ -138,7 +138,8 @@ public abstract class DB extends RoomDatabase {
             "page_count", "page_size", "max_page_count", "freelist_count",
             "cache_size", "cache_spill",
             "soft_heap_limit", "hard_heap_limit", "mmap_size",
-            "foreign_keys", "auto_vacuum"
+            "foreign_keys", "auto_vacuum",
+            "compile_options"
     ));
 
     @Override
@@ -468,9 +469,16 @@ public abstract class DB extends RoomDatabase {
 
                         // https://www.sqlite.org/pragma.html
                         for (String pragma : DB_PRAGMAS)
-                            try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
-                                Log.i("Get PRAGMA " + pragma + "=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
-                            }
+                            if (!"compile_options".equals(pragma) || BuildConfig.DEBUG)
+                                try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
+                                    boolean has = false;
+                                    while (cursor.moveToNext()) {
+                                        has = true;
+                                        Log.i("Get PRAGMA " + pragma + "=" + (cursor.isNull(0) ? "<null>" : cursor.getString(0)));
+                                    }
+                                    if (!has)
+                                        Log.i("Get PRAGMA " + pragma + "=<?>");
+                                }
 
                         if (BuildConfig.DEBUG && false) {
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
