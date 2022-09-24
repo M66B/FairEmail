@@ -150,7 +150,7 @@ public abstract class DB extends RoomDatabase {
 
         // https://www.sqlite.org/pragma.html#pragma_integrity_check
         if (sqlite_integrity_check && dbfile.exists()) {
-            String check = (Helper.isRedmiNote() || Helper.isOnePlus() || BuildConfig.DEBUG
+            String check = (Helper.isRedmiNote() || Helper.isOnePlus() || Helper.isOppo() || BuildConfig.DEBUG
                     ? "integrity_check" : "quick_check");
             try (SQLiteDatabase db = SQLiteDatabase.openDatabase(dbfile.getPath(), null, SQLiteDatabase.OPEN_READWRITE)) {
                 Log.i("PRAGMA " + check);
