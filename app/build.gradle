@@ -468,7 +468,8 @@ dependencies {
     // https://www.sqlite.org/changes.html
     // https://github.com/requery/sqlite-android/
     // https://jitpack.io/#requery/sqlite-android
-    implementation "com.github.requery:sqlite-android:$requery_version"
+    //implementation "com.github.requery:sqlite-android:$requery_version"
+    implementation project(':sqlite-android')
 
     // https://mvnrepository.com/artifact/androidx.paging/paging-runtime
     // https://developer.android.com/jetpack/androidx/releases/paging
