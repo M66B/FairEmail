@@ -127,6 +127,7 @@ public abstract class DB extends RoomDatabase {
     static final String DB_NAME = "fairemail";
     static final int DEFAULT_QUERY_THREADS = 4; // AndroidX default thread count: 4
     static final int DEFAULT_CACHE_SIZE = 10; // percentage of memory class
+    private static final int DB_JOURNAL_SIZE_LIMIT = 1048576; // requery/sqlite-android default
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
 
     private static final String[] DB_TABLES = new String[]{
@@ -437,16 +438,21 @@ public abstract class DB extends RoomDatabase {
                         // https://android.googlesource.com/platform/external/sqlite.git/+/6ab557bdc070f11db30ede0696888efd19800475%5E!/
                         boolean sqlite_auto_vacuum = prefs.getBoolean("sqlite_auto_vacuum", false);
                         String mode = (sqlite_auto_vacuum ? "FULL" : "INCREMENTAL");
-                        Log.i("Set PRAGMA auto_vacuum = " + mode);
-                        try (Cursor cursor = db.query("PRAGMA auto_vacuum = " + mode + ";", null)) {
+                        Log.i("Set PRAGMA auto_vacuum=" + mode);
+                        try (Cursor cursor = db.query("PRAGMA auto_vacuum=" + mode + ";", null)) {
                             cursor.moveToNext(); // required
                         }
 
                         // https://sqlite.org/pragma.html#pragma_synchronous
                         boolean sqlite_sync_extra = prefs.getBoolean("sqlite_sync_extra", true);
                         String sync = (sqlite_sync_extra ? "EXTRA" : "NORMAL");
-                        Log.i("Set PRAGMA synchronous = " + sync);
-                        try (Cursor cursor = db.query("PRAGMA synchronous = " + sync + ";", null)) {
+                        Log.i("Set PRAGMA synchronous=" + sync);
+                        try (Cursor cursor = db.query("PRAGMA synchronous=" + sync + ";", null)) {
+                            cursor.moveToNext(); // required
+                        }
+
+                        Log.i("Set PRAGMA journal_size_limit=" + DB_JOURNAL_SIZE_LIMIT);
+                        try (Cursor cursor = db.query("PRAGMA journal_size_limit=" + DB_JOURNAL_SIZE_LIMIT + ";", null)) {
                             cursor.moveToNext(); // required
                         }
 
