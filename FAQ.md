@@ -128,7 +128,7 @@ Related questions:
 
 <br />
 
-**Xiaomi Redmi / OnePlus**
+**Xiaomi Redmi / OnePlus / Oppo**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23redmi)
 
@@ -156,6 +156,8 @@ android.database.sqlite.SQLiteDiskIOException: disk I/O error (code 778)
         at androidx.room.RoomDatabase.internalEndTransaction(RoomDatabase:594)
         at androidx.room.RoomDatabase.endTransaction(RoomDatabase:584)
 ```
+
+The cause might be [changes in Android 7 Nougat](https://ericsink.com/entries/sqlite_android_n.html), which is why sqlite isn't bundled anymore since version 1.1970.
 
 <h2><a name="planned-features"></a>Planned features</h2>
 
