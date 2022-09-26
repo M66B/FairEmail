@@ -137,7 +137,8 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         try (Cursor cursor = db.rawQuery(
                 "SELECT term FROM message_terms" +
                         " WHERE term LIKE ?" +
-                        " ORDER BY occurrences DESC" +
+                        " GROUP BY term" +
+                        " ORDER BY SUM(occurrences) DESC" +
                         " LIMIT " + max,
                 new String[]{query})) {
             while (cursor != null && cursor.moveToNext())
