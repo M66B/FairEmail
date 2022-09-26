@@ -6,6 +6,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.net.Uri;
 import android.os.Build;
@@ -46,9 +47,6 @@ import java.util.concurrent.ExecutorService;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
-
-import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
-import io.requery.android.database.sqlite.SQLiteDatabase;
 
 /*
     This file is part of FairEmail.
@@ -422,7 +420,7 @@ public abstract class DB extends RoomDatabase {
 
         return Room
                 .databaseBuilder(context, DB.class, DB_NAME)
-                .openHelperFactory(new RequerySQLiteOpenHelperFactory())
+                //.openHelperFactory(new RequerySQLiteOpenHelperFactory())
                 .setQueryExecutor(executorQuery)
                 .setTransactionExecutor(executorTransaction)
                 .setJournalMode(wal ? JournalMode.WRITE_AHEAD_LOGGING : JournalMode.TRUNCATE) // using the latest sqlite
@@ -2561,7 +2559,14 @@ public abstract class DB extends RoomDatabase {
     @Override
     @SuppressWarnings("deprecation")
     public void endTransaction() {
-        super.endTransaction();
+        try {
+            super.endTransaction();
+        } catch (IllegalStateException ex) {
+            if ("Cannot perform this operation because there is no current transaction.".equals(ex.getMessage()))
+                Log.w(ex);
+            else
+                throw ex;
+        }
     }
 
     public static class Converters {

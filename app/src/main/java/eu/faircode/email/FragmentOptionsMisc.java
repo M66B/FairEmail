@@ -34,6 +34,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.content.res.Resources;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -86,6 +87,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -97,8 +99,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.SortedMap;
-
-import io.requery.android.database.sqlite.SQLiteDatabase;
 
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private boolean resumed = false;
@@ -2115,16 +2115,16 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         tvFingerprint.setText(Helper.getFingerprint(getContext()));
 
-        int cursorWindowSize = -1;
+        Integer cursorWindowSize = null;
         try {
-            Field fCursorWindowSize = io.requery.android.database.CursorWindow.class.getDeclaredField("sDefaultCursorWindowSize");
-            fCursorWindowSize.setAccessible(true);
-            cursorWindowSize = fCursorWindowSize.getInt(null);
+            //Field fCursorWindowSize = android.database.CursorWindow.class.getDeclaredField("sDefaultCursorWindowSize");
+            //fCursorWindowSize.setAccessible(true);
+            //cursorWindowSize = fCursorWindowSize.getInt(null);
         } catch (Throwable ex) {
             Log.w(ex);
         }
         tvCursorWindow.setText(getString(R.string.title_advanced_cursor_window,
-                Helper.humanReadableByteCount(cursorWindowSize, false)));
+                cursorWindowSize == null ? "?" : Helper.humanReadableByteCount(cursorWindowSize, false)));
 
         cardDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
     }

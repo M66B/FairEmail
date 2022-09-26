@@ -1,3 +1,2 @@
-include ':app', ':openpgp-api', ':sqlite-android'
+include ':app', ':openpgp-api'
 project(':openpgp-api').projectDir = new File('openpgp-api')
-project(':sqlite-android').projectDir = new File('sqlite-android')

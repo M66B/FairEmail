@@ -23,6 +23,8 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 
 import java.util.ArrayList;
@@ -30,9 +32,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.mail.Address;
-
-import io.requery.android.database.sqlite.SQLiteDatabase;
-import io.requery.android.database.sqlite.SQLiteOpenHelper;
 
 // https://www.sqlite.org/fts3.html
 // fts4 requires sqlite version 3.7.4, API 21 Android
@@ -121,7 +120,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         cv.put("keyword", TextUtils.join(", ", message.keywords));
         cv.put("text", text);
         cv.put("notes", message.notes);
-        db.insert("message", SQLiteDatabase.CONFLICT_FAIL, cv);
+        db.insertWithOnConflict("message", null, cv, SQLiteDatabase.CONFLICT_FAIL);
     }
 
     static void delete(SQLiteDatabase db) {
@@ -129,18 +128,18 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
     }
 
     static void delete(SQLiteDatabase db, long id) {
-        db.delete("message", "rowid = ?", new Object[]{id});
+        db.delete("message", "rowid = ?", new String[]{Long.toString(id)});
     }
 
     static List<String> getSuggestions(SQLiteDatabase db, String query, int max) {
         List<String> result = new ArrayList<>();
 
-        try (Cursor cursor = db.query(
+        try (Cursor cursor = db.rawQuery(
                 "SELECT term FROM message_terms" +
                         " WHERE term LIKE ?" +
                         " ORDER BY occurrences DESC" +
                         " LIMIT " + max,
-                new Object[]{query})) {
+                new String[]{query})) {
             while (cursor != null && cursor.moveToNext())
                 result.add(cursor.getString(0));
         }
@@ -232,7 +231,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         try (Cursor cursor = db.query(
                 "message", new String[]{"rowid"},
                 select + "message MATCH ?",
-                new Object[]{search},
+                new String[]{search},
                 null, null, "time DESC", null)) {
             while (cursor != null && cursor.moveToNext())
                 result.add(cursor.getLong(0));

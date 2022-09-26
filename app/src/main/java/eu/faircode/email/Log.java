@@ -39,6 +39,7 @@ import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.CursorWindowAllocationException;
 import android.database.sqlite.SQLiteFullException;
 import android.graphics.Point;
 import android.graphics.Typeface;
@@ -163,8 +164,6 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
-
-import io.requery.android.database.CursorWindowAllocationException;
 
 public class Log {
     private static Context ctx;
