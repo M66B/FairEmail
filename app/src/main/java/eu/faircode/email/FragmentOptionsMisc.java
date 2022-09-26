@@ -502,12 +502,12 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         @Override
                         protected Void onExecute(Context context, Bundle args) {
                             try {
-                                SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
-                                FtsDbHelper.delete(sdb);
-                                FtsDbHelper.optimize(sdb);
+                                SQLiteDatabase sdb = Fts4DbHelper.getInstance(context);
+                                Fts4DbHelper.delete(sdb);
+                                Fts4DbHelper.optimize(sdb);
                             } catch (SQLiteDatabaseCorruptException ex) {
                                 Log.e(ex);
-                                FtsDbHelper.delete(context);
+                                Fts4DbHelper.delete(context);
                             }
 
                             DB db = DB.getInstance(context);
@@ -1762,7 +1762,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     tvFtsIndexed.setText(getString(R.string.title_advanced_fts_indexed,
                             stats.fts,
                             stats.total,
-                            Helper.humanReadableByteCount(FtsDbHelper.size(tvFtsIndexed.getContext()))));
+                            Helper.humanReadableByteCount(Fts4DbHelper.size(tvFtsIndexed.getContext()))));
                 last = stats;
             }
         });

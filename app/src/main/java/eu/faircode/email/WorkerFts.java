@@ -65,7 +65,7 @@ public class WorkerFts extends Worker {
             List<Long> ids = new ArrayList<>(INDEX_BATCH_SIZE);
             DB db = DB.getInstance(context);
 
-            SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
+            SQLiteDatabase sdb = Fts4DbHelper.getInstance(context);
 
             try (Cursor cursor = db.message().getMessageFts()) {
                 while (cursor != null && cursor.moveToNext())
@@ -92,7 +92,7 @@ public class WorkerFts extends Worker {
 
                         try {
                             sdb.beginTransaction();
-                            FtsDbHelper.insert(sdb, message, text);
+                            Fts4DbHelper.insert(sdb, message, text);
                             sdb.setTransactionSuccessful();
                         } finally {
                             sdb.endTransaction();

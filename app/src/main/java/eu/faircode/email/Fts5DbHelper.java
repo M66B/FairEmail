@@ -35,23 +35,23 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 import io.requery.android.database.sqlite.SQLiteOpenHelper;
 
 // https://www.sqlite.org/fts5.html
-public class FtsDbHelper extends SQLiteOpenHelper {
+public class Fts5DbHelper extends SQLiteOpenHelper {
     private Context context;
 
     @SuppressLint("StaticFieldLeak")
-    private static FtsDbHelper instance = null;
+    private static Fts5DbHelper instance = null;
 
     private static final int DATABASE_VERSION = 5;
     private static final String DATABASE_NAME = "fts.db";
 
-    private FtsDbHelper(Context context) {
+    private Fts5DbHelper(Context context) {
         super(context.getApplicationContext(), DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context.getApplicationContext();
     }
 
     static SQLiteDatabase getInstance(Context context) {
         if (instance == null)
-            instance = new FtsDbHelper(context);
+            instance = new Fts5DbHelper(context);
         return instance.getWritableDatabase();
     }
 

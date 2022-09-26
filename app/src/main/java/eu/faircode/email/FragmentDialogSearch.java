@@ -154,8 +154,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                     return cursor;
 
                 if (cbSearchIndex.isEnabled() && cbSearchIndex.isChecked()) {
-                    SQLiteDatabase db = FtsDbHelper.getInstance(context);
-                    List<String> suggestions = FtsDbHelper.getSuggestions(
+                    SQLiteDatabase db = Fts4DbHelper.getInstance(context);
+                    List<String> suggestions = Fts4DbHelper.getSuggestions(
                             db,
                             typed + "%",
                             MAX_SUGGESTIONS);
