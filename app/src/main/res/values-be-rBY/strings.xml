@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail пошук</string>
-    <string name="app_changelog">Спіс зменаў</string>
+    <string name="app_changelog">Журнал змяненняў</string>
     <string name="app_welcome">FairEmail - гэта праграма электроннай пошты з адкрытым зыходным кодам, арыентаваная на канфідэнцыяльнасць і бяспеку. Па гэтай прычыне некаторыя функцыі могуць працаваць інакш, чым вы прывыклі.</string>
     <string name="app_limitations">Напрыклад, паведамленні перафарматуюцца па змаўчанні, каб выдаліць небяспечныя элементы і палепшыць чытальнасць, а адкрыццё спасылак павінна быць пацверджана для бяспекі. Пры жаданні гэта можна адключыць.</string>
     <string name="app_unsupported">Памылкі ў версіі Android гэтай канкрэтнай прылады выклікаюць збоі</string>
+    <string name="app_data_loss">Усе даныя праграмы будуць страчаныя</string>
     <string name="app_continue">Усё роўна працягнуць</string>
     <string name="app_exit">Націсніце \'назад\' яшчэ раз, каб выйсці</string>
     <string name="app_cake">Недастаткова месца ў сховішчы</string>
+    <string name="app_cake_remaining">Засталося месца ў памяці прылады: %1$s</string>
+    <string name="app_cake_required">Мінімальна патрэбны памер сховішча: %1$s</string>
     <string name="app_updated">Апошняе абнаўленне: %1$s</string>
     <string name="app_download">Спампавана з %1$s</string>
     <string name="channel_service">Маніторынг</string>
@@ -84,10 +87,47 @@
         <item quantity="many">Выдаліць %1$d паведамленняў назаўжды?</item>
         <item quantity="other">Выдаліць %1$d паведамленняў назаўжды?</item>
     </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Пазначыць %1$d паведамленне як спам?</item>
+        <item quantity="few">Пазначыць %1$d паведамленні як спам?</item>
+        <item quantity="many">Пазначыць %1$d паведамленняў як спам?</item>
+        <item quantity="other">Пазначыць %1$d паведамленняў як спам?</item>
+    </plurals>
+    <string name="title_ask_spam_who">Пазначыць паведамленне ад %1$s як спам?</string>
     <string name="title_junk_hint">Ваш пастаўшчык электроннай пошты адказвае за фільтрацыю спаму. Прыкладанне электроннай пошты не мае ўсіх дадзеных, неабходных для надзейнага выканання гэтага.</string>
+    <string name="title_junk_pop_hint">         Паведамленні ад заблакіраваных адпраўнікоў не будуць загружаецца.
+         Калі опцыя \"Пакідаць паведамленні на серверы\" не ўключана, гэтыя паведамленні будуць страчаны назаўсёды!
+   </string>
+    <string name="title_block">Блакіраваць %1$s</string>
     <string name="title_block_sender">Заблакаваць адпраўніка</string>
+    <string name="title_block_sender_domain">Блакіраваць дамен \'%1$s\'</string>
+    <string name="title_block_sender_hint">         Блакіраванне адпраўніка - бясплатная функцыя.
+         Блакіроўка дамена адпраўніка выкарыстоўваюцца правілы фільтра, што з\'яўляецца функцыяй з прафесійнай версіі.
+   </string>
     <string name="title_blocked_senders">Заблакаваныя адпраўнікi</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Заблакіраваць адпраўніка %1$s паведамлення?</item>
+        <item quantity="few">Заблакіраваць адпраўніка %1$s паведамленняў?</item>
+        <item quantity="many">Заблакіраваць адпраўніка %1$s паведамленняў?</item>
+        <item quantity="other">Заблакіраваць адпраўніка %1$s паведамленняў?</item>
+    </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s гадзіна</item>
+        <item quantity="few">%1$s гадзіны</item>
+        <item quantity="many">%1$s гадзін</item>
+        <item quantity="other">%1$s гадзін</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s дзень</item>
+        <item quantity="few">%1$s дні</item>
+        <item quantity="many">%1$s дзён</item>
+        <item quantity="other">%1$s дзён</item>
+    </plurals>
+    <string name="title_junk_filter">Выкарыстоўваць лакальны фільтр спама</string>
+    <string name="title_junk_filter_hint">Гэта можа павялічыць выкарыстанне батарэі і памылкова пазначаць паведамленні як спам</string>
+    <string name="title_junk_blocklist">Выкарыстоўваць спісы блакіроўкі спама</string>
     <string name="title_junk_clear">Сцерцi</string>
+    <string name="title_junk_clear_hint">Гэта выдаліць усе правілы блакіроўкі адпраўніка</string>
     <string name="title_notification_idle">Неактыўны</string>
     <string name="menu_answers">Шаблоны</string>
     <string name="menu_rules">Правілы</string>
