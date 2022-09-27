@@ -25,8 +25,6 @@ import androidx.room.TypeConverters;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.getkeepsafe.relinker.ReLinker;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -400,17 +398,6 @@ public abstract class DB extends RoomDatabase {
     }
 
     private static RoomDatabase.Builder<DB> getBuilder(Context context) {
-        try {
-            ReLinker.log(new ReLinker.Logger() {
-                @Override
-                public void log(String message) {
-                    Log.i("Relinker: " + message);
-                }
-            }).loadLibrary(context, "sqlite3x");
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         int threads = prefs.getInt("query_threads", DEFAULT_QUERY_THREADS);
         boolean wal = prefs.getBoolean("wal", true);

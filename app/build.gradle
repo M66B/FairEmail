@@ -548,7 +548,7 @@ dependencies {
 
     // https://github.com/KeepSafe/ReLinker
     // https://mvnrepository.com/artifact/com.getkeepsafe.relinker/relinker
-    implementation "com.getkeepsafe.relinker:relinker:$relinker_version"
+    //implementation "com.getkeepsafe.relinker:relinker:$relinker_version"
 
     // https://github.com/noties/Markwon
     // https://mvnrepository.com/artifact/io.noties.markwon/core
