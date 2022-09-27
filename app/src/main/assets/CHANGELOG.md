@@ -4,7 +4,14 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### 1.1968 - 2022-09-23
+### 1.1970 - 2022-09-27
+
+* Switched to native sqlite
+* Small improvements and minor bug fixes
+* Updated translations
+
+
+### 1.1969 - 2022-09-23
 
 * Added Material You monochrome themes (Android 12+)
 * Small improvements and minor bug fixes
