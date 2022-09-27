@@ -377,19 +377,20 @@ public class EntityMessage implements Serializable {
         DB db = DB.getInstance(context);
 
         boolean notJunk = false;
-        for (Address sender : from) {
-            String email = ((InternetAddress) sender).getAddress();
-            if (TextUtils.isEmpty(email))
-                continue;
+        if (from != null)
+            for (Address sender : from) {
+                String email = ((InternetAddress) sender).getAddress();
+                if (TextUtils.isEmpty(email))
+                    continue;
 
-            EntityContact contact = db.contact().getContact(account, EntityContact.TYPE_NO_JUNK, email);
-            if (contact != null) {
-                contact.times_contacted++;
-                contact.last_contacted = new Date().getTime();
-                db.contact().updateContact(contact);
-                notJunk = true;
+                EntityContact contact = db.contact().getContact(account, EntityContact.TYPE_NO_JUNK, email);
+                if (contact != null) {
+                    contact.times_contacted++;
+                    contact.last_contacted = new Date().getTime();
+                    db.contact().updateContact(contact);
+                    notJunk = true;
+                }
             }
-        }
         return notJunk;
     }
 
