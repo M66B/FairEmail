@@ -4,9 +4,14 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1972 - 2022-09-27
+
+* Fixed crash
+
 ### 1.1971 - 2022-09-27
 
-* Fixed sqlite tokenizer missing
+* Fixed sqlite compatibility
+* Updated translations
 
 ### 1.1970 - 2022-09-27
 
