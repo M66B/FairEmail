@@ -171,7 +171,7 @@ for more information.
 
 FairEmail requires at least Android 5 Lollipop.
 
-Due to many bugs in ChromeOS/Android, Chromebooks are not supported.
+FairEmail is supported on smartphones and tablets only, and for example not on E Ink devices.
 
 Individual message notifications are available on Android 7 Nougat and later only
 because earlier Android versions do not support notification grouping.
