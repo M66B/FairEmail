@@ -42,7 +42,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
     private static Fts4DbHelper instance = null;
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "fts4.db";
+    private static final String DATABASE_NAME = "fts4a.db";
 
     private Fts4DbHelper(Context context) {
         super(context.getApplicationContext(), DATABASE_NAME, null, DATABASE_VERSION);
@@ -75,8 +75,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
                 ", `notes`" +
                 ", notindexed=`account`" +
                 ", notindexed=`folder`" +
-                ", notindexed=`time`" +
-                ", tokenize=unicode61 \"remove_diacritics=2\")");
+                ", notindexed=`time`)");
         // https://www.sqlite.org/fts3.html#tokenizer
         // https://unicode.org/reports/tr29/
 
