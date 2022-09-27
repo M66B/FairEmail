@@ -1680,7 +1680,7 @@
     <string name="title_undo">Anular</string>
     <string name="title_redo">Refazer</string>
     <string name="title_insert_line">Inserir linha</string>
-    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Selecionar bloco</string>
+    <string name="title_select_block">Selecionar bloco</string>
     <string name="title_add">Adicionar</string>
     <string name="title_browse">Abrir com</string>
     <string name="title_info">Informação</string>

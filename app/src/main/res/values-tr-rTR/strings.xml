@@ -1674,7 +1674,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_undo">Geri Al</string>
     <string name="title_redo">Yinele</string>
     <string name="title_insert_line">Satır ekle</string>
-    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Blok seç</string>
+    <string name="title_select_block">Blok seç</string>
     <string name="title_add">Ekle</string>
     <string name="title_browse">Birlikte aç</string>
     <string name="title_info">Bilgi</string>

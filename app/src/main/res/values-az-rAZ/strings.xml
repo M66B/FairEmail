@@ -1680,7 +1680,7 @@
     <string name="title_undo">Geri qaytar</string>
     <string name="title_redo">Təkrar et</string>
     <string name="title_insert_line">Sətir daxil et</string>
-    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Bloku seç</string>
+    <string name="title_select_block">Bloku seç</string>
     <string name="title_add">Əlavə et</string>
     <string name="title_browse">Aç</string>
     <string name="title_info">Məlumat</string>

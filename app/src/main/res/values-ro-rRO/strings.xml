@@ -1689,7 +1689,7 @@
     <string name="title_undo">Anulează</string>
     <string name="title_redo">Refacere</string>
     <string name="title_insert_line">Inserați linia</string>
-    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Selectează bloc</string>
+    <string name="title_select_block">Selectează bloc</string>
     <string name="title_add">Adaugă</string>
     <string name="title_browse">Deschide cu</string>
     <string name="title_info">Informații</string>

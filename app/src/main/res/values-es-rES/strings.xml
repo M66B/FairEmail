@@ -1675,7 +1675,7 @@
     <string name="title_undo">Deshacer</string>
     <string name="title_redo">Rehacer</string>
     <string name="title_insert_line">Insertar línea</string>
-    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Seleccionar bloque</string>
+    <string name="title_select_block">Seleccionar bloque</string>
     <string name="title_add">Agregar</string>
     <string name="title_browse">Abrir con</string>
     <string name="title_info">Información</string>

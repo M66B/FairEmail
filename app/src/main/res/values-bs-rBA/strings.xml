@@ -1693,7 +1693,7 @@
     <string name="title_undo">Vrati</string>
     <string name="title_redo">Vrati</string>
     <string name="title_insert_line">Ubaci liniju</string>
-    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Selekcija bloka teksta</string>
+    <string name="title_select_block">Selekcija bloka teksta</string>
     <string name="title_add">Dodaj</string>
     <string name="title_browse">Otvori pomoću</string>
     <string name="title_info">Informacije</string>

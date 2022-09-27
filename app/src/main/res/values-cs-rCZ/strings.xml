@@ -1702,7 +1702,7 @@
     <string name="title_undo">Zpět</string>
     <string name="title_redo">Znovu</string>
     <string name="title_insert_line">Vložit řádek</string>
-    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Vybrat blok</string>
+    <string name="title_select_block">Vybrat blok</string>
     <string name="title_add">Přidat</string>
     <string name="title_browse">Otevřít s</string>
     <string name="title_info">Info</string>

@@ -169,6 +169,7 @@
     <string name="title_setup">Налады</string>
     <string name="title_setup_help">Дапамога</string>
     <string name="title_setup_accounts">Акаўнты</string>
+    <string name="title_setup_identities">Ідэнтыфікатары</string>
     <string name="title_setup_quick_no_sent">Папка для адпраўленых паведамленняў не выбрана. Адпраўленыя паведамленні могуць не захавацца.</string>
     <string name="title_setup_quick_configure">Перайменаванне, рэдагаванне колеру, жэстаў і т. п.</string>
     <string name="title_setup_done">Гатова</string>
@@ -223,6 +224,7 @@
     <string name="title_folder_primary">Папкі асноўнага ўліковага запісу</string>
     <string name="title_folders_unified">Агульныя папкі паштовай скрыні</string>
     <string name="title_no_folders">Няма папак</string>
+    <string name="title_importance_normal">Звычайны</string>
     <string name="title_editasnew">Рэдагаваць як новы</string>
     <string name="title_edit_notes">Рэдагаваць лакальныя нататкі</string>
     <string name="title_raw_send_message">Паведамленне</string>
@@ -238,6 +240,7 @@
     <string name="title_style_link_title">Назва</string>
     <string name="title_edit_plain_text">Рэдагаваць як звычайны тэкст</string>
     <string name="title_edit_formatted_text">Рэдагаваць як адфармаціраваны тэкст</string>
+    <string name="title_save_search_name">Імя</string>
     <string name="title_edit_signature">Рэдагаваць подпіс</string>
     <string name="title_edit_signature_remark">Хоць Android не можа адлюстраваць увесь код HTML, ён будзе адпраўлены як ёсць</string>
     <string name="title_edit_signature_text">Тэкст подпісу</string>
@@ -245,9 +248,11 @@
     <string name="title_edit_signature_image_hint">         Пры адпраўцы паведамлення выява капіруецца ў паведамленне з выбранага месца.
          Таму не выдаляйце зыходны файл выявы!
     </string>
+    <string name="title_answer_define_name">Імя</string>
     <string name="title_answer_caption">Рэдагаваць шаблон</string>
     <string name="title_rule_copy">Капіраваць (ярлык)</string>
     <string name="title_rule_caption">Рэдагаваць правіла</string>
+    <string name="title_rule_name">Імя</string>
     <string name="title_rule_folder">Папка</string>
     <string name="title_rule_folder_create">Стварыць падпапку</string>
     <string name="title_rule_folder_missing">Папка адсутнічае</string>
@@ -269,13 +274,14 @@
     <string name="title_hint_junk">Фільтрацыя непажаданай пошты павінна выконвацца серверам электроннай пошты, і яна не можа быць выканана надзейна на прыладзе з абмежаваным магчымасцямі і сілкаваннем ад батарэі.</string>
     <string name="title_paste_plain">Уставіць як звычайны тэкст</string>
     <string name="title_redo">Паўтарыць</string>
-    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Выбраць блок</string>
+    <string name="title_select_block">Выбраць блок</string>
     <string name="title_clipboard_copy">Капіраваць у буфер абмену</string>
     <string name="title_conversation_action_copy">Капіраваць: \'%1$s\'</string>
     <string name="title_log_clear">Сцерцi</string>
     <string name="title_widget_folder">Папка</string>
     <string name="title_widget_folder_unified">Агульныя папкі паштовай скрыні</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label3">Персанальны</string>
     <string name="title_accessibility_edit">Рэдагаваць</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
@@ -285,6 +291,11 @@
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="priorityNames">
+        <item>Low</item>
+        <item>Звычайны</item>
+        <item>High</item>
+    </string-array>
     <string-array name="sensitivityNames">
         <item>Звычайны</item>
         <item>Персанальны</item>
