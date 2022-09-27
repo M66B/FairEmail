@@ -2780,20 +2780,20 @@ public class FragmentMessages extends FragmentBase
             try {
                 int pos = viewHolder.getAdapterPosition();
                 if (pos == NO_POSITION) {
-                    adapter.notifyDataSetChanged();
+                    redraw(NO_POSITION);
                     return;
                 }
 
                 TupleMessageEx message = getMessage(pos);
                 if (message == null) {
-                    adapter.notifyDataSetChanged();
+                    redraw(NO_POSITION);
                     return;
                 }
 
                 boolean expanded = iProperties.getValue("expanded", message.id);
 
                 if (expanded && swipe_reply) {
-                    adapter.notifyItemChanged(pos);
+                    redraw(pos);
                     onMenuReply(message, "reply", null);
                     return;
                 }
@@ -2805,7 +2805,7 @@ public class FragmentMessages extends FragmentBase
 
                 TupleAccountSwipes swipes = accountSwipes.get(message.account);
                 if (swipes == null) {
-                    adapter.notifyDataSetChanged();
+                    redraw(NO_POSITION);
                     return;
                 }
 
@@ -2819,7 +2819,7 @@ public class FragmentMessages extends FragmentBase
                 Long action = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
                 String actionType = (direction == ItemTouchHelper.LEFT ? swipes.left_type : swipes.right_type);
                 if (action == null) {
-                    adapter.notifyDataSetChanged();
+                    redraw(NO_POSITION);
                     return;
                 }
 
@@ -2838,7 +2838,7 @@ public class FragmentMessages extends FragmentBase
                         " folder=" + message.folderType);
 
                 if (EntityMessage.SWIPE_ACTION_ASK.equals(action)) {
-                    adapter.notifyItemChanged(pos);
+                    redraw(pos);
                     onSwipeAsk(message, viewHolder);
                 } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
                     onActionSeenSelection(message.unseen > 0, message.id, false);
@@ -2848,16 +2848,16 @@ public class FragmentMessages extends FragmentBase
                     if (ActivityBilling.isPro(getContext()))
                         onActionSnooze(message);
                     else {
-                        adapter.notifyItemChanged(pos);
+                        redraw(pos);
                         startActivity(new Intent(getContext(), ActivityBilling.class));
                     }
                 else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
                     onActionHide(message);
                 else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action)) {
-                    adapter.notifyItemChanged(pos);
+                    redraw(pos);
                     onSwipeMove(message);
                 } else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action)) {
-                    adapter.notifyItemChanged(pos);
+                    redraw(pos);
                     onSwipeJunk(message);
                 } else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
                         (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
@@ -2900,6 +2900,24 @@ public class FragmentMessages extends FragmentBase
                 return null;
 
             return message;
+        }
+
+        private void redraw(int pos) {
+            rvMessage.post(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                            return;
+                        if (pos == NO_POSITION)
+                            adapter.notifyDataSetChanged();
+                        else
+                            adapter.notifyItemChanged(pos);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
         }
 
         private void onSwipeAsk(final @NonNull TupleMessageEx message, @NonNull RecyclerView.ViewHolder viewHolder) {
@@ -3081,7 +3099,7 @@ public class FragmentMessages extends FragmentBase
             }
 
             if (pos != NO_POSITION)
-                adapter.notifyItemChanged(pos);
+                redraw(pos);
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(args);
