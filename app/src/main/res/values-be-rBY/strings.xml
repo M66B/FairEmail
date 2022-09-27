@@ -128,7 +128,16 @@
     <string name="title_junk_blocklist">Выкарыстоўваць спісы блакіроўкі спама</string>
     <string name="title_junk_clear">Сцерцi</string>
     <string name="title_junk_clear_hint">Гэта выдаліць усе правілы блакіроўкі адпраўніка</string>
+    <string name="title_notification_sending">Адпраўка паведамленняў</string>
+    <string name="title_notification_waiting">Чаканне адпаведнага злучэння</string>
     <string name="title_notification_idle">Неактыўны</string>
+    <string name="title_notification_failed">\'%1$s\' не ўдалося</string>
+    <string name="title_notification_alert">Папярэджанне сервера: \'%1$s\'</string>
+    <string name="title_notification_sending_left">Засталося %1$d спроб</string>
+    <string name="title_notification_sending_retry">Спроба адпраўкі будзе выканана пры змяненні спосабу падключэння да інтэрнэту або пры праверцы пошты</string>
+    <string name="title_notification_sending_failed">Не ўдалося ажыццявіць адпраўку на %1$s</string>
+    <string name="title_notification_redacted">Зменена: біяметрычная аўтэнтыфікацыя або аўтэнтыфікацыя па PIN-кодзе ўключана</string>
+    <string name="title_factor_minutes">%1$d хвілін</string>
     <string name="menu_answers">Шаблоны</string>
     <string name="menu_rules">Правілы</string>
     <string name="menu_operations">Аперацыі</string>
@@ -150,31 +159,124 @@
     <string name="title_contributors">Удзельнікі</string>
     <string name="title_agree">Я згодны</string>
     <string name="title_disagree">Я не згодны</string>
+    <string name="title_version">Версія %1$s</string>
+    <string name="title_privacy_policy">Палітыка канфідэнцыяльнасці</string>
     <string name="title_list_accounts">Акаўнты</string>
+    <string name="title_list_identities">Ідэнтыфікатары</string>
+    <string name="title_edit_account">Рэдагаваць уліковы запіс</string>
+    <string name="title_edit_identity">Рэдагаваць ідэнтыфікатар</string>
+    <string name="title_edit_folder">Рэдагаваць папку</string>
     <string name="title_setup">Налады</string>
     <string name="title_setup_help">Дапамога</string>
     <string name="title_setup_accounts">Акаўнты</string>
+    <string name="title_setup_quick_no_sent">Папка для адпраўленых паведамленняў не выбрана. Адпраўленыя паведамленні могуць не захавацца.</string>
+    <string name="title_setup_quick_configure">Перайменаванне, рэдагаванне колеру, жэстаў і т. п.</string>
+    <string name="title_setup_done">Гатова</string>
+    <string name="title_setup_reorder_folders">Упарадкаваць папкі</string>
+    <string name="title_setup_theme_composer_light">Светлы фон для рэдактара паведамленняў</string>
     <string name="title_advanced_section_send">Адправіць</string>
     <string name="title_advanced_section_privacy">Прыватнасць</string>
+    <string name="title_advanced_sync_folders">Сінхранізаваць папкі</string>
+    <string name="title_advanced_sync_folders_poll">Актыўная сінхранізацыя спіса папак</string>
+    <string name="title_advanced_sync_shared_folders">Сінхранізаваць спіс абагуленых папак</string>
+    <string name="title_advanced_subscriptions">Кіраванне падпіскай на папкі</string>
+    <string name="title_advanced_use_blocklist">Перамяшчаць паведамленні са спісаў блакіроўкі на даменах у папку са спамам</string>
+    <string name="title_advanced_discard_delete">Пры адмове ад чарнавіка выдаляць яго канчаткова</string>
     <string name="title_advanced_caption_conversation">Размова</string>
     <string name="title_advanced_caption_message">Паведамленне</string>
+    <string name="title_advanced_folder_nav">Заўсёды вяртацца ў спіс папак са спісу паведамленняў</string>
+    <string name="title_advanced_sync_folders_hint">Адключэнне гэтага прывядзе да некаторага зніжэння выкарыстання даных і батарэі, але таксама адключыць абнаўленне спіса папак</string>
+    <string name="title_advanced_poll_folders_hint">Перыядычна дадаткова сінхранізаваць спіс папак пасля падключэння да ўліковага запісу</string>
+    <string name="title_advanced_folder_nav_hint">Гэта опцыя заўсёды будзе вяртаць у спіс папак звязанага ўліковага запісу са спісу паведамленняў</string>
     <string name="title_advanced_tcp_keep_alive_hint">Ўключэнне гэтага параметру можа выклікаць праблемы з падключэннем на некаторых прыладах і павялічыць расход батарэі</string>
+    <string name="title_advanced_layout_hint">Пераключыцца на больш кампактны макет і змяніць памер тэксту паведамлення можна ў меню верхняй панэлі дзеянняў у акне прагляду паведамлення</string>
+    <string name="title_advanced_edit_name">Перайменаваць</string>
+    <string name="title_advanced_sender">Дазволіць рэдагаванне адраса адпраўніка</string>
+    <string name="title_advanced_sender_name">Выкарыстоўваць імя, калі адрас адпраўніка быў заменены</string>
+    <string name="title_no_junk_folder">Для гэтага ўліковага запісу не выбрана папка са спамам</string>
+    <string name="title_edit_html">Рэдагаваць як HTML</string>
+    <string name="title_pop_folders">Пратакол POP3 не падтрымлівае стварэнне папак</string>
+    <string name="title_hint_alias">Доўгае націсканне на ідэнтыфікатар выкліча адлюстраванне такіх опцый, як капіраванне з мэтай стварэння псеўданімаў і т. п.</string>
+    <string name="title_synchronize_subfolders">Падпапкі</string>
     <string name="title_synchronize_enabled">Сінхранізаваць</string>
+    <string name="title_edit_properties">Рэдагаваць уласцівасці</string>
+    <string name="title_edit_rules">Рэдагаваць правілы</string>
+    <string name="title_edit_channel">Рэдагаваць канал апавяшчэнняў</string>
+    <string name="title_edit_contact">Рэдагаваць кантакт</string>
     <string name="title_contact_email">Электронная пошта</string>
+    <string name="title_contact_name">Імя</string>
+    <string name="title_create_sub_folder">Стварыць падпапку</string>
+    <string name="title_folder_name">Назва папкі</string>
+    <string name="title_show_folders">Паказаць схаваныя папкі</string>
+    <string name="title_search_folder">Знайсці папку</string>
+    <string name="title_edit_account_name">Рэдагаваць імя ўліковага запісу</string>
+    <string name="title_edit_account_color">Рэдагаваць колер уліковага запісу</string>
+    <string name="title_hide_folder">Схаваць папку</string>
+    <string name="title_hide_seen_folder">Схаваць папку, калі ўсе паведамленні прачытаны</string>
+    <string name="title_hide_seen_folder_hint">Толькі ў спісе папак, паказаным на стартавым экране</string>
+    <string name="title_poll_folder_remark">Большасць паштовых сервераў дазваляюць адпраўляць апавяшчэнні толькі для невялікай колькасці папак!</string>
+    <string name="title_poll_system">Задайце сістэмныя папкі для перыядычнай праверкі новых паведамленняў</string>
+    <string name="title_folder_name_missing">Адсутнічае назва папкі</string>
+    <string name="title_folder_exists">Папка %1$s ужо існуе</string>
+    <string name="title_folder_delete">Назаўсёды выдаліць гэту папку і ўсе паведамленні, якія яна змяшчае?</string>
+    <string name="title_folder_user_only">Толькі карыстальніцкія папкі</string>
+    <string name="title_folder_primary">Папкі асноўнага ўліковага запісу</string>
+    <string name="title_folders_unified">Агульныя папкі паштовай скрыні</string>
+    <string name="title_no_folders">Няма папак</string>
+    <string name="title_editasnew">Рэдагаваць як новы</string>
+    <string name="title_edit_notes">Рэдагаваць лакальныя нататкі</string>
     <string name="title_raw_send_message">Паведамленне</string>
     <string name="title_raw_send_thread">Размова</string>
+    <string name="title_copy">Капіраваць &#8230;</string>
+    <string name="title_copy_to">Капіраваць у &#8230;</string>
+    <string name="title_copy_btn">Капіраваць</string>
+    <string name="title_no_folder">Папкі не існуе</string>
     <string name="title_compose">Стварыць</string>
     <string name="title_send">Адправіць</string>
+    <string name="title_send_sensitivity">Адчувальнасць</string>
     <string name="title_style_link_address">Адрас</string>
     <string name="title_style_link_title">Назва</string>
+    <string name="title_edit_plain_text">Рэдагаваць як звычайны тэкст</string>
+    <string name="title_edit_formatted_text">Рэдагаваць як адфармаціраваны тэкст</string>
+    <string name="title_edit_signature">Рэдагаваць подпіс</string>
+    <string name="title_edit_signature_remark">Хоць Android не можа адлюстраваць увесь код HTML, ён будзе адпраўлены як ёсць</string>
+    <string name="title_edit_signature_text">Тэкст подпісу</string>
+    <string name="title_edit_signature_image">Уставіць выяву</string>
+    <string name="title_edit_signature_image_hint">         Пры адпраўцы паведамлення выява капіруецца ў паведамленне з выбранага месца.
+         Таму не выдаляйце зыходны файл выявы!
+    </string>
+    <string name="title_answer_caption">Рэдагаваць шаблон</string>
+    <string name="title_rule_copy">Капіраваць (ярлык)</string>
+    <string name="title_rule_caption">Рэдагаваць правіла</string>
+    <string name="title_rule_folder">Папка</string>
+    <string name="title_rule_folder_create">Стварыць падпапку</string>
+    <string name="title_rule_folder_missing">Папка адсутнічае</string>
     <string name="title_legend_section_synchronize">Сінхранізаваць</string>
     <string name="title_legend_section_folders">Папкі</string>
     <string name="title_legend_section_messages">Паведамленні</string>
     <string name="title_legend_section_compose">Стварыць</string>
+    <string name="title_legend_folder_connected">Папка падключана</string>
+    <string name="title_legend_folder_disconnected">Папка адключана</string>
     <string name="title_legend_thread">Размова</string>
+    <string name="title_legend_sensitivity_personal">Асабісты</string>
+    <string name="title_legend_sensitivity_private">Прыватны</string>
+    <string name="title_legend_sensitivity_confidential">Канфідэнцыяльны</string>
+    <string name="title_legend_edit">Рэдагаваць</string>
+    <string name="title_legend_folder_type">Тып папкі</string>
     <string name="title_legend_c">Стварыць</string>
+    <string name="title_hint_folder_actions">Доўгае націсканне на папку адкрые меню выбару такіх опцый як, дадаванне папкі ў меню навігацыі для хуткага доступу і т. п.</string>
+    <string name="title_hint_folder_sync">Для абмежавання выкарыстання батарэі і сеткі, не ўсе папкі і не ўсе паведамленні будуць сінхранізаваны па змаўчанні</string>
+    <string name="title_hint_junk">Фільтрацыя непажаданай пошты павінна выконвацца серверам электроннай пошты, і яна не можа быць выканана надзейна на прыладзе з абмежаваным магчымасцямі і сілкаваннем ад батарэі.</string>
+    <string name="title_paste_plain">Уставіць як звычайны тэкст</string>
+    <string name="title_redo">Паўтарыць</string>
+    <string name="title_select_block" comment="title_select_block&#10;Title for menu item in copy/paste menu to select a block of text&#10;This needs to be short!">Выбраць блок</string>
+    <string name="title_clipboard_copy">Капіраваць у буфер абмену</string>
+    <string name="title_conversation_action_copy">Капіраваць: \'%1$s\'</string>
     <string name="title_log_clear">Сцерцi</string>
+    <string name="title_widget_folder">Папка</string>
+    <string name="title_widget_folder_unified">Агульныя папкі паштовай скрыні</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_edit">Рэдагаваць</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>
@@ -183,6 +285,12 @@
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="sensitivityNames">
+        <item>Звычайны</item>
+        <item>Персанальны</item>
+        <item>Прыватны</item>
+        <item>Канфідэнцыяльны</item>
+    </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
