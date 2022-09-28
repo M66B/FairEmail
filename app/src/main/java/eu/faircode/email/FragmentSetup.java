@@ -946,6 +946,18 @@ public class FragmentSetup extends FragmentBase {
         grpExtra.setVisibility(setup_extra ? View.VISIBLE : View.GONE);
     }
 
+    void prepareSearch() {
+        try {
+            manual = true;
+            updateManual();
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            prefs.edit().putBoolean("setup_extra", true).apply();
+            updateExtra();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
     private void ensureVisible(View child) {
         view.post(new Runnable() {
             @Override

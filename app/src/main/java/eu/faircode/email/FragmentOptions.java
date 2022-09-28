@@ -286,6 +286,8 @@ public class FragmentOptions extends FragmentBase {
 
                     pager.setCurrentItem(tab);
                     FragmentBase fragment = (FragmentBase) adapter.instantiateItem(pager, tab);
+                    if (fragment instanceof FragmentSetup)
+                        ((FragmentSetup) fragment).prepareSearch();
                     fragment.scrollTo(resid, -48);
                     menuSearch.collapseActionView();
 
