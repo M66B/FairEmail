@@ -23,6 +23,9 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -283,10 +286,32 @@ public class ActivityEML extends ActivityBase {
                         result.body = HtmlHelper.fromDocument(context, document, new HtmlHelper.ImageGetterEx() {
                             @Override
                             public Drawable getDrawable(Element img) {
-                                Drawable d;
-                                if (TextUtils.isEmpty(img.attr("x-tracking")))
-                                    d = ContextCompat.getDrawable(context, R.drawable.twotone_image_24);
-                                else {
+                                Drawable d = null;
+                                if (TextUtils.isEmpty(img.attr("x-tracking"))) {
+                                    String src = img.attr("src");
+                                    if (src.startsWith("cid:")) {
+                                        String cid = "<" + src.substring(4) + ">";
+                                        Integer w = Helper.parseInt(img.attr("width"));
+                                        Integer h = Helper.parseInt(img.attr("height"));
+                                        Resources res = context.getResources();
+                                        int scaleToPixels = res.getDisplayMetrics().widthPixels;
+                                        for (MessageHelper.AttachmentPart apart : result.parts.getAttachmentParts())
+                                            if (cid.equals(apart.attachment.cid)) {
+                                                try {
+                                                    Bitmap bm = ImageHelper.getScaledBitmap(apart.part.getInputStream(), src, apart.attachment.type, scaleToPixels);
+                                                    d = new BitmapDrawable(res, bm);
+                                                    d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                                                    ImageHelper.fitDrawable(d, w == null ? 0 : w, h == null ? 0 : h, 1.0f, tvBody);
+                                                } catch (Throwable ex) {
+                                                    Log.e(ex);
+                                                    d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
+                                                }
+                                                break;
+                                            }
+                                        if (d == null)
+                                            d = ContextCompat.getDrawable(context, R.drawable.twotone_image_24);
+                                    }
+                                } else {
                                     d = ContextCompat.getDrawable(context, R.drawable.twotone_my_location_24);
                                     d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
                                 }
