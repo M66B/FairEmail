@@ -69,6 +69,7 @@ public class Send {
         Uri uri = Uri.parse("wss://" + Uri.parse(host).getHost() + "/api/ws");
 
         WebSocket ws = new WebSocketFactory().createSocket(uri.toString(), TIMEOUT);
+        ws.setFrameQueueSize(100);
 
         Semaphore sem = new Semaphore(0);
         List<String> queue = Collections.synchronizedList(new ArrayList<>());
