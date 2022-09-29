@@ -4,6 +4,14 @@ Changelog
 
 Mei long
 
+Next version
+
+* Added Ukrainian to DeepL languages
+* Added showing inline images in EML files
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
 1.1972 - 2022-09-27
 
 * Fixed crash
