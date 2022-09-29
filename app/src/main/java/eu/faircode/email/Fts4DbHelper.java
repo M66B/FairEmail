@@ -25,6 +25,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
 import android.text.TextUtils;
 
 import java.io.File;
@@ -117,10 +118,10 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         cv.put("folder", message.folder);
         cv.put("time", message.received);
         cv.put("address", MessageHelper.formatAddresses(address.toArray(new Address[0]), true, false));
-        cv.put("subject", message.subject == null ? "" : message.subject);
-        cv.put("keyword", TextUtils.join(", ", message.keywords));
-        cv.put("text", text);
-        cv.put("notes", message.notes);
+        cv.put("subject", breakText(message.subject));
+        cv.put("keyword", TextUtils.join(" ", message.keywords));
+        cv.put("text", breakText(text));
+        cv.put("notes", breakText(message.notes));
         db.insertWithOnConflict("message", null, cv, SQLiteDatabase.CONFLICT_FAIL);
     }
 
@@ -130,6 +131,30 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
 
     static void delete(SQLiteDatabase db, long id) {
         db.delete("message", "rowid = ?", new String[]{Long.toString(id)});
+    }
+
+    static String breakText(String text) {
+        if (TextUtils.isEmpty(text))
+            return "";
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+            return text;
+
+        StringBuilder sb = new StringBuilder();
+        android.icu.text.BreakIterator boundary = android.icu.text.BreakIterator.getWordInstance();
+        boundary.setText(text);
+        int start = boundary.first();
+        for (int end = boundary.next(); end != android.icu.text.BreakIterator.DONE; end = boundary.next()) {
+            String word = text.substring(start, end).trim();
+            if (!TextUtils.isEmpty(word)) {
+                if (sb.length() > 0)
+                    sb.append(' ');
+                sb.append(word);
+            }
+            start = end;
+        }
+
+        return sb.toString();
     }
 
     static List<String> getSuggestions(SQLiteDatabase db, String query, int max) {
