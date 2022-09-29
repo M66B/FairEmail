@@ -3209,8 +3209,8 @@ public class MessageHelper {
                                     if (h.contentType.match(ct)) {
                                         String _charset = ct.getParameter("charset");
                                         Charset _cs = (TextUtils.isEmpty(_charset)
-                                                ? StandardCharsets.ISO_8859_1 :
-                                                Charset.forName(_charset));
+                                                ? StandardCharsets.ISO_8859_1
+                                                : Charset.forName(_charset));
                                         result = Helper.readStream(bp.getInputStream(), _cs);
                                     }
                                 } catch (Throwable ex) {
