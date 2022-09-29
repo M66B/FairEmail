@@ -433,7 +433,8 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             protected void onProgress(CharSequence status, Bundle data) {
                 int progress = data.getInt("progress");
                 Log.i("Send progress=" + progress);
-                pbUpload.setProgress(progress);
+                if (pbUpload != null)
+                    pbUpload.setProgress(progress);
             }
 
             @Override
