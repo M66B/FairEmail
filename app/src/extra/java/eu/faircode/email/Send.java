@@ -185,6 +185,9 @@ public class Send {
                 ws.sendBinary(message);
 
                 seq++;
+
+                if (!intf.isRunning())
+                    throw new InterruptedException();
             }
 
             Log.i("Send EOF size=" + size);
@@ -261,5 +264,7 @@ public class Send {
 
     public interface IProgress {
         void onProgress(int percentage);
+
+        boolean isRunning();
     }
 }

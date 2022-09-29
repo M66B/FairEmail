@@ -425,6 +425,11 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                             args.putInt("progress", percentage);
                             postProgress(null, args);
                         }
+
+                        @Override
+                        public boolean isRunning() {
+                            return (pbUpload != null);
+                        }
                     });
                 }
             }
