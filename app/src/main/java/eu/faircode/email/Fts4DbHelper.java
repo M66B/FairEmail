@@ -38,7 +38,8 @@ import java.util.List;
 import javax.mail.Address;
 
 // https://www.sqlite.org/fts3.html
-// fts4 requires sqlite version 3.7.4, API 21 Android
+// fts4 requires sqlite 3.7.4, API 21
+// "unicode61" tokenizer requires sqlite 3.7.13, API 21
 public class Fts4DbHelper extends SQLiteOpenHelper {
     private Context context;
 
