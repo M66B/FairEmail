@@ -835,7 +835,7 @@ public interface DaoMessage {
     int setMessageContent(long id, boolean content, String language, Integer plain_only, String preview, String warning);
 
     @Query("UPDATE message" +
-            " SET notes = :notes, notes_color = :color" +
+            " SET notes = :notes, notes_color = :color, fts = 0" +
             " WHERE id = :id" +
             " AND NOT (notes IS :notes AND notes_color IS :color)")
     int setMessageNotes(long id, String notes, Integer color);

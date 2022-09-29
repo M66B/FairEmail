@@ -8313,6 +8313,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    WorkerFts.init(context, false);
+                }
+
+                @Override
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                 }
