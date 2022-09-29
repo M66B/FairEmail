@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -93,6 +94,9 @@ public class WorkerFts extends Worker {
                             sdb.beginTransaction();
                             Fts4DbHelper.insert(sdb, message, text);
                             sdb.setTransactionSuccessful();
+                        } catch (SQLiteException ex) {
+                            Log.w(ex);
+                            break;
                         } finally {
                             sdb.endTransaction();
                         }
