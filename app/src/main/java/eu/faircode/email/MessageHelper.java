@@ -3222,12 +3222,14 @@ public class MessageHelper {
                             m.append(content.getClass().getName());
 
                         String msg = "Expected " + h.contentType + " got " + m + " result=" + (result != null);
-                        Log.e(msg);
-                        warnings.add(msg);
 
-                        if (result == null)
+                        if (result == null) {
+                            Log.e(msg);
+                            warnings.add(msg);
                             result = Helper.readStream(h.part.getInputStream(),
                                     cs == null ? StandardCharsets.ISO_8859_1 : cs);
+                        } else
+                            Log.w(msg);
                     }
                 } catch (DecodingException ex) {
                     Log.e(ex);
