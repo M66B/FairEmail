@@ -29,6 +29,7 @@ import android.os.Build;
 import android.text.TextUtils;
 
 import java.io.File;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -145,8 +146,10 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         boundary.setText(text);
         int start = boundary.first();
         for (int end = boundary.next(); end != android.icu.text.BreakIterator.DONE; end = boundary.next()) {
-            String word = text.substring(start, end).trim();
+            String word = text.substring(start, end).trim().toLowerCase();
             if (!TextUtils.isEmpty(word)) {
+                word = Normalizer.normalize(word, Normalizer.Form.NFKD)
+                        .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
                 if (sb.length() > 0)
                     sb.append(' ');
                 sb.append(word);
@@ -179,12 +182,16 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
             Long account, Long folder, long[] exclude,
             BoundaryCallbackMessages.SearchCriteria criteria) {
 
+        String query = criteria.query.trim();
+        query = Normalizer.normalize(query, Normalizer.Form.NFKD)
+                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+
         List<String> word = new ArrayList<>();
         List<String> plus = new ArrayList<>();
         List<String> minus = new ArrayList<>();
         List<String> opt = new ArrayList<>();
         StringBuilder all = new StringBuilder();
-        for (String w : criteria.query.trim().split("\\s+")) {
+        for (String w : query.split("\\s+")) {
             if (all.length() > 0)
                 all.append(' ');
 

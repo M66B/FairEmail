@@ -345,23 +345,21 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     }
 
                     if (!matched && criteria.in_subject) {
-                        if (message.subject != null &&
-                                message.subject.toLowerCase().contains(query))
+                        if (contains(message.subject, query))
                             matched = true;
                     }
 
                     if (!matched && criteria.in_keywords) {
                         if (message.keywords != null)
                             for (String keyword : message.keywords)
-                                if (keyword.toLowerCase().contains(query)) {
+                                if (contains(keyword, query)) {
                                     matched = true;
                                     break;
                                 }
                     }
 
                     if (!matched && criteria.in_notes) {
-                        if (message.notes != null &&
-                                message.notes.toLowerCase().contains(query))
+                        if (contains(message.notes, query))
                             matched = true;
                     }
 
@@ -370,10 +368,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             File file = EntityMessage.getFile(context, id);
                             if (file.exists()) {
                                 String html = Helper.readText(file);
-                                if (html.toLowerCase().contains(query)) {
+                                if (contains(html, query)) {
                                     String text = HtmlHelper.getFullText(html);
-                                    if (text != null &&
-                                            text.toLowerCase().contains(query))
+                                    if (contains(text, query))
                                         matched = true;
                                 }
                             }
@@ -782,13 +779,24 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return imessages;
     }
 
-    private static boolean contains(Address[] addresses, String text) {
+    private static boolean contains(Address[] addresses, String query) {
         if (addresses == null)
             return false;
         for (Address address : addresses)
-            if (address.toString().toLowerCase().contains(text))
+            if (contains(address.toString(), query))
                 return true;
         return false;
+    }
+
+    private static boolean contains(String text, String query) {
+        if (TextUtils.isEmpty(text))
+            return false;
+        text = text.toLowerCase();
+        if (text.contains(query))
+            return true;
+        String normalized = Normalizer.normalize(text, Normalizer.Form.NFKD)
+                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+        return normalized.contains(query);
     }
 
     State getState() {
