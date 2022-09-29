@@ -22,10 +22,14 @@ package eu.faircode.email;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
+
+import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -63,6 +67,13 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.i("FTS create");
+
+        // https://www.sqlite.org/fts3.html#tokenizer
+        // https://unicode.org/reports/tr29/
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean unicode61 = prefs.getBoolean("unicode61", BuildConfig.DEBUG);
+        String tokenizer = (unicode61 ? "tokenize=unicode61 \"remove_diacritics=0\"" : null);
+
         db.execSQL("CREATE VIRTUAL TABLE `message`" +
                 " USING fts4" +
                 " (`account`" +
@@ -75,9 +86,8 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
                 ", `notes`" +
                 ", notindexed=`account`" +
                 ", notindexed=`folder`" +
-                ", notindexed=`time`)");
-        // https://www.sqlite.org/fts3.html#tokenizer
-        // https://unicode.org/reports/tr29/
+                ", notindexed=`time`" +
+                (tokenizer == null ? "" : ", " + tokenizer) + ")");
 
         // https://www.sqlite.org/fts3.html#fts4aux
         db.execSQL("CREATE VIRTUAL TABLE message_terms USING fts4aux('message');");
