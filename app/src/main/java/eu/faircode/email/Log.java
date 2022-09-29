@@ -39,7 +39,9 @@ import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.database.CursorWindowAllocationException;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteFullException;
 import android.graphics.Point;
 import android.graphics.Typeface;
@@ -2819,6 +2821,13 @@ public class Log {
                     size += write(os, String.format("Data: %s\r\n", context.getDataDir().getAbsolutePath()));
                 size += write(os, String.format("Database: %s\r\n",
                         context.getDatabasePath(DB.DB_NAME)));
+
+                try (Cursor cursor = SQLiteDatabase.create(null).rawQuery(
+                        "SELECT sqlite_version() AS sqlite_version", null)) {
+                    if (cursor.moveToNext())
+                        size += write(os, String.format("sqlite: %s\r\n", cursor.getString(0)));
+                }
+
                 size += write(os, "\r\n");
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
