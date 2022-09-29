@@ -14,6 +14,8 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 import com.sun.mail.imap.IMAPNestedMessage;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -261,7 +263,13 @@ public class DataHandler /*implements Transferable*/ {
 
 	    final DataContentHandler fdch = dch;
 
-	    // from bill s.
+		if (true) {
+			ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			fdch.writeTo(object, objectMimeType, bos);
+			return new ByteArrayInputStream(bos.toByteArray());
+		}
+
+		// from bill s.
 	    // ce n'est pas une pipe!
 	    //
 	    // NOTE: This block of code needs to throw exceptions, but
