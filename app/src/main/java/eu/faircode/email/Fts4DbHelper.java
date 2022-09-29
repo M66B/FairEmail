@@ -31,6 +31,7 @@ import android.text.TextUtils;
 
 import androidx.preference.PreferenceManager;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -272,6 +273,11 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
     }
 
     static void delete(Context context) {
-        context.getDatabasePath(DATABASE_NAME).delete();
+        File db = context.getDatabasePath(DATABASE_NAME);
+        for (File file : db.getParentFile().listFiles())
+            if (file.getName().startsWith(DATABASE_NAME)) {
+                Log.i("FTS delete=" + file);
+                file.delete();
+            }
     }
 }
