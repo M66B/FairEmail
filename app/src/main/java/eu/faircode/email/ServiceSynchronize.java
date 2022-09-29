@@ -375,7 +375,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     event = true;
                                     start(current, current.accountState.isEnabled(current.enabled) || sync, force);
                                 }
-                            } else if (current.canRun(ServiceSynchronize.this) && !state.isAlive()) {
+                            } else if (current.canRun(ServiceSynchronize.this) &&
+                                    state != null && !state.isAlive()) {
                                 Log.e(current + " died");
                                 EntityLog.log(ServiceSynchronize.this, "### died " + current);
                                 event = true;
