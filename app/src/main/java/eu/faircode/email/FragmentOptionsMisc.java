@@ -177,7 +177,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAnalyze;
     private SwitchCompat swAutoVacuum;
     private SwitchCompat swSyncExtra;
-    private SwitchCompat swUnicode61;
     private TextView tvSqliteCache;
     private SeekBar sbSqliteCache;
     private TextView tvChunkSize;
@@ -383,7 +382,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAnalyze = view.findViewById(R.id.swAnalyze);
         swAutoVacuum = view.findViewById(R.id.swAutoVacuum);
         swSyncExtra = view.findViewById(R.id.swSyncExtra);
-        swUnicode61 = view.findViewById(R.id.swUnicode61);
         tvSqliteCache = view.findViewById(R.id.tvSqliteCache);
         sbSqliteCache = view.findViewById(R.id.sbSqliteCache);
         ibSqliteCache = view.findViewById(R.id.ibSqliteCache);
@@ -507,7 +505,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 SQLiteDatabase sdb = Fts4DbHelper.getInstance(context);
                                 Fts4DbHelper.delete(sdb);
                                 Fts4DbHelper.optimize(sdb);
-                            } catch (Throwable ex) {
+                            } catch (SQLiteDatabaseCorruptException ex) {
                                 Log.e(ex);
                                 Fts4DbHelper.delete(context);
                             }
@@ -1181,37 +1179,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         .remove("debug")
                         .commit();
                 ApplicationEx.restart(v.getContext(), "sqlite_sync_extra");
-            }
-        });
-
-        swUnicode61.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton v, boolean checked) {
-                prefs.edit()
-                        .putBoolean("fts", false)
-                        .putBoolean("sqlite_unicode61", checked)
-                        .apply();
-                WorkerFts.init(getContext(), true);
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) throws Throwable {
-                        Fts4DbHelper.delete(context);
-                        Fts5DbHelper.delete(context);
-                        return null;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        prefs.edit().putBoolean("fts", true).apply();
-                        WorkerFts.init(getContext(), true);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex);
-                    }
-                }.execute(FragmentOptionsMisc.this, new Bundle(), "unicode61");
             }
         });
 
@@ -2083,7 +2050,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAnalyze.setChecked(prefs.getBoolean("sqlite_analyze", true));
         swAutoVacuum.setChecked(prefs.getBoolean("sqlite_auto_vacuum", false));
         swSyncExtra.setChecked(prefs.getBoolean("sqlite_sync_extra", true));
-        swUnicode61.setChecked(prefs.getBoolean("sqlite_unicode61", false));
 
         int sqlite_cache = prefs.getInt("sqlite_cache", DB.DEFAULT_CACHE_SIZE);
         Integer cache_size = DB.getCacheSizeKb(getContext());

@@ -56,9 +56,8 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
     }
 
     static SQLiteDatabase getInstance(Context context) {
-        boolean exists = context.getDatabasePath(DATABASE_NAME).exists();
-        if (instance == null || !exists) {
-            if (!exists) {
+        if (instance == null) {
+            if (!context.getDatabasePath(DATABASE_NAME).exists()) {
                 Fts5DbHelper.delete(context);
                 DB.getInstance(context).message().resetFts();
             }
@@ -74,8 +73,8 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         // https://www.sqlite.org/fts3.html#tokenizer
         // https://unicode.org/reports/tr29/
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean unicode61 = prefs.getBoolean("sqlite_unicode61", false);
-        String tokenizer = (unicode61 ? "tokenize=unicode61 \"remove_diacritics=2\"" : null);
+        boolean unicode61 = prefs.getBoolean("unicode61", BuildConfig.DEBUG);
+        String tokenizer = (unicode61 ? "tokenize=unicode61 \"remove_diacritics=0\"" : null);
 
         db.execSQL("CREATE VIRTUAL TABLE `message`" +
                 " USING fts4" +
