@@ -1119,6 +1119,17 @@
                     app:layout_constraintTop_toBottomOf="@id/swAutoVacuum"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swUnicode61"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_unicode61"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swSyncExtra"
+                    app:switchPadding="12dp" />
+
                 <TextView
                     android:id="@+id/tvSqliteCache"
                     android:layout_width="0dp"
@@ -1129,7 +1140,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swSyncExtra" />
+                    app:layout_constraintTop_toBottomOf="@id/swUnicode61" />
 
                 <SeekBar
                     android:id="@+id/sbSqliteCache"

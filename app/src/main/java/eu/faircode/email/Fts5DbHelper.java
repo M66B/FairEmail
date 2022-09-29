@@ -50,8 +50,12 @@ public class Fts5DbHelper extends SQLiteOpenHelper {
     }
 
     static SQLiteDatabase getInstance(Context context) {
-        if (instance == null)
+        boolean exists = context.getDatabasePath(DATABASE_NAME).exists();
+        if (instance == null || !exists) {
+            if (!exists)
+                DB.getInstance(context).message().resetFts();
             instance = new Fts5DbHelper(context);
+        }
         return instance.getWritableDatabase();
     }
 
