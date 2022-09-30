@@ -153,6 +153,8 @@ public class FragmentOAuth extends FragmentBase {
         pop = args.getBoolean("pop", false);
         recent = args.getBoolean("recent", false);
         update = args.getBoolean("update", true);
+
+        lockOrientation();
     }
 
     @Override

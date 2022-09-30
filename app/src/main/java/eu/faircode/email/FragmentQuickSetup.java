@@ -119,6 +119,8 @@ public class FragmentQuickSetup extends FragmentBase {
 
         Bundle args = getArguments();
         update = args.getBoolean("update", true);
+
+        lockOrientation();
     }
 
     @Override

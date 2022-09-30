@@ -22,8 +22,10 @@ package eu.faircode.email;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -42,6 +44,7 @@ public class FragmentDialogBase extends DialogFragment {
     private LifecycleRegistry registry;
     private String targetRequestKey;
     private int targetRequestCode;
+    private Integer orientation = null;
 
     public String getRequestKey() {
         return Helper.getRequestKey(this);
@@ -111,13 +114,6 @@ public class FragmentDialogBase extends DialogFragment {
     }
 
     @Override
-    public void onDestroy() {
-        registry.setCurrentState(Lifecycle.State.DESTROYED);
-        super.onDestroy();
-        Log.i("Destroy " + this);
-    }
-
-    @Override
     public void onStart() {
         registry.setCurrentState(Lifecycle.State.STARTED);
         try {
@@ -133,6 +129,26 @@ public class FragmentDialogBase extends DialogFragment {
         registry.setCurrentState(Lifecycle.State.CREATED);
         super.onStop();
         Log.d("Stop " + this);
+    }
+
+    @Override
+    public void onDestroy() {
+        registry.setCurrentState(Lifecycle.State.DESTROYED);
+        if (orientation != null) {
+            Activity activity = getActivity();
+            if (activity != null)
+                activity.setRequestedOrientation(orientation);
+        }
+        super.onDestroy();
+        Log.i("Destroy " + this);
+    }
+
+    protected void lockOrientation() {
+        Activity activity = getActivity();
+        if (activity != null) {
+            orientation = activity.getRequestedOrientation();
+            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
+        }
     }
 
     @Override

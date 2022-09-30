@@ -74,6 +74,12 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
     private static final int REQUEST_SEND = 1;
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        lockOrientation();
+    }
+
+    @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         outState.putString("fair:link", etLink == null ? null : etLink.getText().toString());
         outState.putString("fair:text", etTitle == null ? null : etTitle.getText().toString());

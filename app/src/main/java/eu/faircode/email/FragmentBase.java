@@ -22,6 +22,7 @@ package eu.faircode.email;
 import static android.app.ActionBar.DISPLAY_SHOW_CUSTOM;
 import static android.app.Activity.RESULT_OK;
 
+import android.app.Activity;
 import android.app.RecoverableSecurityException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -30,6 +31,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Rect;
@@ -84,6 +86,8 @@ public class FragmentBase extends Fragment {
 
     private int scrollToResid = 0;
     private int scrollToOffset = 0;
+
+    private Integer orientation = null;
 
     private static final int REQUEST_ATTACHMENT = 51;
     private static final int REQUEST_ATTACHMENTS = 52;
@@ -409,7 +413,20 @@ public class FragmentBase extends Fragment {
     @Override
     public void onDestroy() {
         Log.i("Destroy " + this);
+        if (orientation != null) {
+            Activity activity = getActivity();
+            if (activity != null)
+                activity.setRequestedOrientation(orientation);
+        }
         super.onDestroy();
+    }
+
+    protected void lockOrientation() {
+        Activity activity = getActivity();
+        if (activity != null) {
+            orientation = activity.getRequestedOrientation();
+            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
+        }
     }
 
     @Override
