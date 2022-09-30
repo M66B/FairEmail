@@ -15,5 +15,7 @@ public class Send {
 
     public interface IProgress {
         void onProgress(int percentage);
+
+        boolean isRunning();
     }
 }
