@@ -134,12 +134,17 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         db.delete("message", "rowid = ?", new String[]{Long.toString(id)});
     }
 
-    static String breakText(String text) {
+    private static String breakText(String text) {
         if (TextUtils.isEmpty(text))
             return "";
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
             return text;
+
+        // https://www.sqlite.org/fts3.html#tokenizer
+
+        text = Normalizer.normalize(text.toLowerCase(), Normalizer.Form.NFKD)
+                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
 
         StringBuilder sb = new StringBuilder();
         android.icu.text.BreakIterator boundary = android.icu.text.BreakIterator.getWordInstance();
@@ -148,8 +153,6 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         for (int end = boundary.next(); end != android.icu.text.BreakIterator.DONE; end = boundary.next()) {
             String word = text.substring(start, end).trim().toLowerCase();
             if (!TextUtils.isEmpty(word)) {
-                word = Normalizer.normalize(word, Normalizer.Form.NFKD)
-                        .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
                 if (sb.length() > 0)
                     sb.append(' ');
                 sb.append(word);

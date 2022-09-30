@@ -277,7 +277,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         int found = 0;
-        String query = (criteria.query == null ? null : criteria.query.toLowerCase());
 
         if (criteria.fts && criteria.query != null) {
             if (state.ids == null) {
@@ -333,33 +332,33 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     boolean matched = false;
 
                     if (!matched && criteria.in_senders) {
-                        if (contains(message.from, query))
+                        if (contains(message.from, criteria.query))
                             matched = true;
                     }
 
                     if (!matched && criteria.in_recipients) {
-                        if (contains(message.to, query) ||
-                                contains(message.cc, query) ||
-                                contains(message.bcc, query))
+                        if (contains(message.to, criteria.query) ||
+                                contains(message.cc, criteria.query) ||
+                                contains(message.bcc, criteria.query))
                             matched = true;
                     }
 
                     if (!matched && criteria.in_subject) {
-                        if (contains(message.subject, query))
+                        if (contains(message.subject, criteria.query))
                             matched = true;
                     }
 
                     if (!matched && criteria.in_keywords) {
                         if (message.keywords != null)
                             for (String keyword : message.keywords)
-                                if (contains(keyword, query)) {
+                                if (contains(keyword, criteria.query)) {
                                     matched = true;
                                     break;
                                 }
                     }
 
                     if (!matched && criteria.in_notes) {
-                        if (contains(message.notes, query))
+                        if (contains(message.notes, criteria.query))
                             matched = true;
                     }
 
@@ -368,9 +367,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             File file = EntityMessage.getFile(context, id);
                             if (file.exists()) {
                                 String html = Helper.readText(file);
-                                if (contains(html, query)) {
+                                if (contains(html, criteria.query)) {
                                     String text = HtmlHelper.getFullText(html);
-                                    if (contains(text, query))
+                                    if (contains(text, criteria.query))
                                         matched = true;
                                 }
                             }
@@ -437,26 +436,24 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 TupleMatch match = state.matches.get(i);
                 boolean matched = (match.matched != null && match.matched);
 
-                if (query != null) {
-                    if (!matched && (criteria.in_message || criteria.in_html))
-                        try {
-                            File file = EntityMessage.getFile(context, match.id);
-                            if (file.exists()) {
-                                String html = Helper.readText(file);
-                                if (html.toLowerCase().contains(query)) {
-                                    if (criteria.in_html)
+                if (!matched && criteria.query != null && (criteria.in_message || criteria.in_html))
+                    try {
+                        File file = EntityMessage.getFile(context, match.id);
+                        if (file.exists()) {
+                            String html = Helper.readText(file);
+                            if (contains(html, criteria.query)) {
+                                if (criteria.in_html)
+                                    matched = true;
+                                else {
+                                    String text = HtmlHelper.getFullText(html);
+                                    if (contains(text, criteria.query))
                                         matched = true;
-                                    else {
-                                        String text = HtmlHelper.getFullText(html);
-                                        if (text != null && text.toLowerCase().contains(query))
-                                            matched = true;
-                                    }
                                 }
                             }
-                        } catch (IOException ex) {
-                            Log.e(ex);
                         }
-                }
+                    } catch (IOException ex) {
+                        Log.e(ex);
+                    }
 
                 if (matched) {
                     found += db.message().setMessageFound(match.id, true);
@@ -791,12 +788,17 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private static boolean contains(String text, String query) {
         if (TextUtils.isEmpty(text))
             return false;
+
         text = text.toLowerCase();
-        if (text.contains(query))
-            return true;
-        String normalized = Normalizer.normalize(text, Normalizer.Form.NFKD)
+        query = query.toLowerCase();
+
+        query = Normalizer.normalize(query.toLowerCase(), Normalizer.Form.NFKD)
                 .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
-        return normalized.contains(query);
+
+        text = Normalizer.normalize(text, Normalizer.Form.NFKD)
+                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+
+        return text.contains(query);
     }
 
     State getState() {
