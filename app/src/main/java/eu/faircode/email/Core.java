@@ -616,8 +616,7 @@ class Core {
                                         EntityOperation.BODY.equals(op.name)) ||
                                 EntityOperation.ATTACHMENT.equals(op.name) ||
                                 ((op.tries >= LOCAL_RETRY_MAX || attachments > 0) &&
-                                        EntityOperation.ADD.equals(op.name) &&
-                                        EntityFolder.DRAFTS.equals(folder.type)) ||
+                                        EntityOperation.ADD.equals(op.name)) ||
                                 (op.tries >= LOCAL_RETRY_MAX &&
                                         EntityOperation.SYNC.equals(op.name) &&
                                         (account.protocol == EntityAccount.TYPE_POP ||
