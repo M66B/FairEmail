@@ -1076,6 +1076,7 @@
     <string name="title_download_all">להוריד הכול</string>
     <string name="title_save_all">לשמור הכול</string>
     <string name="title_save_eml">שמירת קובץ הודעה גולמית</string>
+    <string name="title_save_file">שמירת קובץ</string>
     <string name="title_eml_remark">כדי להעביר הודעה, יש להוריד את ההודעות (המקוריות) הגולמיות משרת הדוא״ל. פעולה זו דורשת חיבור לאינטרנט ושההודעה תהיה מאוחסת בשרת הדוא״ל.</string>
     <string name="title_eml_option">אפשר למנוע את זה באמצעות הפעלת הורדת קובצי הודעות גולמיות תמיד בהגדרות החיבור</string>
     <string name="title_eml_downloaded">הודעות גולמיות התקבלו: %1$s</string>

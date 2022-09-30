@@ -9,6 +9,8 @@
     <string name="app_continue">Napriek tomu pokračovať</string>
     <string name="app_exit">Znova stlačte \"Späť\" pre ukončenie</string>
     <string name="app_cake">Nedostatok voľného miesta na úložisku</string>
+    <string name="app_cake_remaining">Úložný priestor k dispozícii na zariadení: %1$s</string>
+    <string name="app_cake_required">Minimálne požadovaný úložný priestor: %1$s</string>
     <string name="app_updated">Posledná aktualizácia: %1$s</string>
     <string name="app_download">Stiahnuté z: %1$s</string>
     <string name="channel_send">Odoslať</string>
@@ -198,6 +200,7 @@
     <string name="title_setup_gmail_support">Autorizácia účtov Google funguje len vo verziách z obchodu Play a Github, pretože systém Android kontroluje podpis aplikácií</string>
     <string name="title_setup_gmail_rationale">Prosím o udelenie povolenia na výberr účtu a načítanie Vášho mena</string>
     <string name="title_setup_gmail_permissions">Google sa opýta na povolenia pre čítanie, písanie, odosielanie a trvalé vymazanie všetkých vašich e-mailov. FairEmail nikdy nevymaže vaše správy bez vášho vysloveného súhlasu.</string>
+    <string name="title_setup_gmail_login">Ak ste do účtu prihlásení v prehliadači Google Chrome, nový účet je možné pridať len zo systému android. Môžete sa tomu vyhnúť tak, že sa odhlásite v prehliadači Google Chrome cez Nastavenia synchronizácie.</string>
     <string name="title_setup_gmail_on_device">Prečo musím vybrať účet nastavený v zariadení?</string>
     <string name="title_setup_gmail_password">Chcem sa do účtu prihlásiť zadaním hesla namiesto výberu účtu prihláseného v zariadení</string>
     <string name="title_setup_office_auth">Chyba \"OVERENIE zlyhalo\" môže byť zapríčinená zakázanými IMAP/SMTP správcom systému</string>
@@ -398,6 +401,7 @@
     <string name="title_advanced_signature_forward">Používať podpis pri preposielaní</string>
     <string name="title_advanced_discard_delete">Pri odstránení konceptu nepoužívať kôš</string>
     <string name="title_advanced_reply_move">Ukladať odpovede v priečinku s pôvodnou správou</string>
+    <string name="title_advanced_reply_move_inbox">Aj pre správy v priečinku doručená pošta</string>
     <string name="title_advanced_auto_link">Automaticky vytvoriť odkazy</string>
     <string name="title_advanced_plain_only">Predvolene odosielať obyčajný text</string>
     <string name="title_advanced_flow">\"format flowed\" pre obyčajný text</string>
