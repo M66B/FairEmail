@@ -185,9 +185,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
             Long account, Long folder, long[] exclude,
             BoundaryCallbackMessages.SearchCriteria criteria) {
 
-        String query = criteria.query.trim();
-        query = Normalizer.normalize(query, Normalizer.Form.NFKD)
-                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+        String query = breakText(criteria.query.trim());
 
         List<String> word = new ArrayList<>();
         List<String> plus = new ArrayList<>();
@@ -242,7 +240,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
             }
         }
 
-        String search = (sb.length() > 0 ? sb.toString() : escape(criteria.query));
+        String search = (sb.length() > 0 ? sb.toString() : escape(query));
 
         String select = "";
         if (account != null)
