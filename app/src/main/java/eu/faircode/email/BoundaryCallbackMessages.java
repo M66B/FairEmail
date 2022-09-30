@@ -788,17 +788,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private static boolean contains(String text, String query) {
         if (TextUtils.isEmpty(text))
             return false;
-
-        text = text.toLowerCase();
-        query = query.toLowerCase();
-
-        query = Normalizer.normalize(query.toLowerCase(), Normalizer.Form.NFKD)
-                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
-
-        text = Normalizer.normalize(text, Normalizer.Form.NFKD)
-                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
-
-        return text.contains(query);
+        return Fts4DbHelper.preprocessText(text)
+                .contains(Fts4DbHelper.preprocessText(query));
     }
 
     State getState() {

@@ -134,17 +134,21 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         db.delete("message", "rowid = ?", new String[]{Long.toString(id)});
     }
 
+    static String preprocessText(String text) {
+        return Normalizer.normalize(text.trim().toLowerCase(), Normalizer.Form.NFKD)
+                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+    }
+
     private static String breakText(String text) {
         if (TextUtils.isEmpty(text))
             return "";
+
+        text = preprocessText(text);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
             return text;
 
         // https://www.sqlite.org/fts3.html#tokenizer
-
-        text = Normalizer.normalize(text.toLowerCase(), Normalizer.Form.NFKD)
-                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
 
         StringBuilder sb = new StringBuilder();
         android.icu.text.BreakIterator boundary = android.icu.text.BreakIterator.getWordInstance();
@@ -172,7 +176,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
                         " GROUP BY term" +
                         " ORDER BY SUM(occurrences) DESC" +
                         " LIMIT " + max,
-                new String[]{query})) {
+                new String[]{preprocessText(query)})) {
             while (cursor != null && cursor.moveToNext())
                 result.add(cursor.getString(0));
         }
@@ -185,7 +189,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
             Long account, Long folder, long[] exclude,
             BoundaryCallbackMessages.SearchCriteria criteria) {
 
-        String query = breakText(criteria.query.trim());
+        String query = breakText(criteria.query);
 
         List<String> word = new ArrayList<>();
         List<String> plus = new ArrayList<>();
