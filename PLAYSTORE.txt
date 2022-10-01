@@ -24,10 +24,10 @@ FairEmail might be for you if you value your privacy.
 * Two way synchronization
 * Push notifications
 * Offline storage and operations
-* Common text style options (size, color, lists, etc)
+* Common text style options (size, color, lists, etc.)
 * Battery friendly
 * Low data usage
-* Small (~20 MB)
+* Small (<25 MB)
 * Material design (including dark/black theme)
 * Maintained and supported
 
@@ -97,4 +97,4 @@ All pro features are convenience or advanced features.
 If you have a question or problem, please check here first:
 https://github.com/M66B/open-source-email/blob/master/FAQ.md
 
-If you cannot find what you are looking for, please contact me at marcel+fairemail@faircode.eu and I will try to help you.
+If you cannot find what you are looking for, please contact me at marcel+fairemail@faircode.eu, and I will try to help you.

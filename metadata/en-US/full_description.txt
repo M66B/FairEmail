@@ -23,7 +23,7 @@ FairEmail might be for you if you value your privacy.
 * Common text style options (size, color, lists, etc)
 * Battery friendly
 * Low data usage
-* Small (~25 MB)
+* Small (<25 MB)
 * Material design (including dark/black theme)
 * Maintained and supported
 
