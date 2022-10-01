@@ -46,7 +46,7 @@ import java.util.Locale;
 import javax.net.ssl.HttpsURLConnection;
 
 public class LanguageTool {
-    private static final String LT_URI = "https://api.languagetool.org/v2/";
+    static final String LT_URI = "https://api.languagetool.org/v2/";
     private static final int LT_TIMEOUT = 20; // seconds
 
     static boolean isEnabled(Context context) {
@@ -94,9 +94,13 @@ public class LanguageTool {
         if (lt_picky)
             request += "&level=picky";
 
-        Log.i("LT locale=" + locale + " request=" + request);
+        String uri = prefs.getString("lt_uri", LT_URI);
+        if (!uri.endsWith("/"))
+            uri += '/';
 
-        URL url = new URL(LT_URI + "check");
+        Log.i("LT locale=" + locale + " uri=" + uri + " request=" + request);
+
+        URL url = new URL(uri + "check");
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);

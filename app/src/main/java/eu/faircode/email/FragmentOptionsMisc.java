@@ -122,9 +122,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvFtsPro;
     private Spinner spLanguage;
     private SwitchCompat swLanguageTool;
+    private TextView tvLanguageToolPrivacy;
     private SwitchCompat swLanguageToolAuto;
     private SwitchCompat swLanguageToolPicky;
-    private TextView tvLanguageToolPrivacy;
+    private EditText etLanguageTool;
     private ImageButton ibLanguageTool;
     private SwitchCompat swDeepL;
     private TextView tvDeepLPrivacy;
@@ -243,7 +244,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "lt_enabled", "lt_auto", "lt_picky", "deepl_enabled", "vt_enabled", "vt_apikey", "send_enabled", "send_host",
+            "language",
+            "lt_enabled", "lt_auto", "lt_picky", "lt_uri",
+            "deepl_enabled",
+            "vt_enabled", "vt_apikey",
+            "send_enabled", "send_host",
             "updates", "weekly", "show_changelog",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
@@ -328,9 +333,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         spLanguage = view.findViewById(R.id.spLanguage);
         swLanguageTool = view.findViewById(R.id.swLanguageTool);
+        tvLanguageToolPrivacy = view.findViewById(R.id.tvLanguageToolPrivacy);
         swLanguageToolAuto = view.findViewById(R.id.swLanguageToolAuto);
         swLanguageToolPicky = view.findViewById(R.id.swLanguageToolPicky);
-        tvLanguageToolPrivacy = view.findViewById(R.id.tvLanguageToolPrivacy);
+        etLanguageTool = view.findViewById(R.id.etLanguageTool);
         ibLanguageTool = view.findViewById(R.id.ibLanguageTool);
         swDeepL = view.findViewById(R.id.swDeepL);
         tvDeepLPrivacy = view.findViewById(R.id.tvDeepLPrivacy);
@@ -642,6 +648,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        tvLanguageToolPrivacy.getPaint().setUnderlineText(true);
+        tvLanguageToolPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.LT_PRIVACY_URI), true);
+            }
+        });
+
         swLanguageToolAuto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -656,11 +670,25 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        tvLanguageToolPrivacy.getPaint().setUnderlineText(true);
-        tvLanguageToolPrivacy.setOnClickListener(new View.OnClickListener() {
+        etLanguageTool.setHint(LanguageTool.LT_URI);
+        etLanguageTool.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.LT_PRIVACY_URI), true);
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String apikey = s.toString().trim();
+                if (TextUtils.isEmpty(apikey))
+                    prefs.edit().remove("lt_uri").apply();
+                else
+                    prefs.edit().putString("lt_uri", apikey).apply();
             }
         });
 
@@ -1869,7 +1897,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if ("last_cleanup".equals(key))
             setLastCleanup(prefs.getLong(key, -1));
 
-        if ("vt_apikey".equals(key) || "send_host".equals(key))
+        if ("lt_uri".equals(key) || "vt_apikey".equals(key) || "send_host".equals(key))
             return;
 
         if ("global_keywords".equals(key))
@@ -2020,6 +2048,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swLanguageToolAuto.setEnabled(swLanguageTool.isChecked());
         swLanguageToolPicky.setChecked(prefs.getBoolean("lt_picky", false));
         swLanguageToolPicky.setEnabled(swLanguageTool.isChecked());
+        etLanguageTool.setText(prefs.getString("lt_uri", null));
         swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
         swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
         etVirusTotal.setText(prefs.getString("vt_apikey", null));
