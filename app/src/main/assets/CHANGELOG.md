@@ -4,6 +4,10 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### Next version
+
+* Added option to auto check with LanguageTool after each new line
+
 ### 1.1973 - 2022-10-01
 
 * Added Ukrainian to DeepL languages

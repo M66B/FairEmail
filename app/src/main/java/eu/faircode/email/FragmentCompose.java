@@ -291,6 +291,8 @@ public class FragmentCompose extends FragmentBase {
     private boolean media = true;
     private boolean compact = false;
     private int zoom = 0;
+    private boolean lt_enabled;
+    private boolean lt_auto;
 
     private long working = -1;
     private State state = State.NONE;
@@ -343,7 +345,8 @@ public class FragmentCompose extends FragmentBase {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean experiments = prefs.getBoolean("experiments", false);
 
         compose_font = prefs.getString("compose_font", "");
@@ -352,6 +355,9 @@ public class FragmentCompose extends FragmentBase {
         media = prefs.getBoolean("compose_media", true);
         compact = prefs.getBoolean("compose_compact", false);
         zoom = prefs.getInt("compose_zoom", compact ? 0 : 1);
+
+        lt_enabled = LanguageTool.isEnabled(context);
+        lt_auto = LanguageTool.isAuto(context);
 
         setTitle(R.string.page_compose);
         setSubtitle(getResources().getQuantityString(R.plurals.page_message, 1));
@@ -792,6 +798,9 @@ public class FragmentCompose extends FragmentBase {
 
                         if (renum)
                             StyleHelper.renumber(text, false, etBody.getContext());
+
+                        if (lt_auto)
+                            onLanguageTool(true);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
@@ -1958,8 +1967,8 @@ public class FragmentCompose extends FragmentBase {
         bottom_navigation.findViewById(R.id.action_save).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if (LanguageTool.isEnabled(v.getContext())) {
-                    onLanguageTool();
+                if (lt_enabled) {
+                    onLanguageTool(false);
                     return true;
                 } else
                     return false;
@@ -2559,7 +2568,7 @@ public class FragmentCompose extends FragmentBase {
         popupMenu.showWithIcons(context, anchor);
     }
 
-    private void onLanguageTool() {
+    private void onLanguageTool(boolean silent) {
         etBody.clearComposingText();
 
         Log.i("LT running enabled=" + etBody.isSuggestionsEnabled());
@@ -2572,16 +2581,20 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onPreExecute(Bundle args) {
-                toast = ToastEx.makeText(getContext(), R.string.title_suggestions_check, Toast.LENGTH_LONG);
-                toast.show();
-                setBusy(true);
+                if (!silent) {
+                    toast = ToastEx.makeText(getContext(), R.string.title_suggestions_check, Toast.LENGTH_LONG);
+                    toast.show();
+                    setBusy(true);
+                }
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
-                if (toast != null)
-                    toast.cancel();
-                setBusy(false);
+                if (!silent) {
+                    if (toast != null)
+                        toast.cancel();
+                    setBusy(false);
+                }
             }
 
             @Override
@@ -2592,12 +2605,11 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, List<LanguageTool.Suggestion> suggestions) {
-                if (suggestions == null || suggestions.size() == 0) {
-                    ToastEx.makeText(getContext(), R.string.title_suggestions_none, Toast.LENGTH_LONG).show();
-                    return;
-                }
-
                 LanguageTool.applySuggestions(etBody, suggestions);
+
+                if (!silent &&
+                        (suggestions == null || suggestions.size() == 0))
+                    ToastEx.makeText(getContext(), R.string.title_suggestions_none, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -2610,8 +2622,10 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Throwable exex = new Throwable("LanguageTool", ex);
-                Log.unexpectedError(getParentFragmentManager(), exex, false);
+                if (!silent) {
+                    Throwable exex = new Throwable("LanguageTool", ex);
+                    Log.unexpectedError(getParentFragmentManager(), exex, false);
+                }
             }
         }.execute(this, args, "compose:lt");
     }
@@ -6882,6 +6896,9 @@ public class FragmentCompose extends FragmentBase {
                 etBody.setHint(hint);
 
                 grpBody.setVisibility(View.VISIBLE);
+
+                if (lt_auto)
+                    onLanguageTool(true);
 
                 cbSignature.setChecked(draft.signature);
                 tvSignature.setAlpha(draft.signature ? 1.0f : Helper.LOW_LIGHT);

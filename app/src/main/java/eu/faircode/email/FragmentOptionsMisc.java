@@ -122,6 +122,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvFtsPro;
     private Spinner spLanguage;
     private SwitchCompat swLanguageTool;
+    private SwitchCompat swLanguageToolAuto;
     private SwitchCompat swLanguageToolPicky;
     private TextView tvLanguageToolPrivacy;
     private ImageButton ibLanguageTool;
@@ -242,7 +243,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "lt_enabled", "lt_picky", "deepl_enabled", "vt_enabled", "vt_apikey", "send_enabled", "send_host",
+            "language", "lt_enabled", "lt_auto", "lt_picky", "deepl_enabled", "vt_enabled", "vt_apikey", "send_enabled", "send_host",
             "updates", "weekly", "show_changelog",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
@@ -327,6 +328,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         spLanguage = view.findViewById(R.id.spLanguage);
         swLanguageTool = view.findViewById(R.id.swLanguageTool);
+        swLanguageToolAuto = view.findViewById(R.id.swLanguageToolAuto);
         swLanguageToolPicky = view.findViewById(R.id.swLanguageToolPicky);
         tvLanguageToolPrivacy = view.findViewById(R.id.tvLanguageToolPrivacy);
         ibLanguageTool = view.findViewById(R.id.ibLanguageTool);
@@ -635,7 +637,15 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("lt_enabled", checked).apply();
+                swLanguageToolAuto.setEnabled(checked);
                 swLanguageToolPicky.setEnabled(checked);
+            }
+        });
+
+        swLanguageToolAuto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("lt_auto", checked).apply();
             }
         });
 
@@ -2006,6 +2016,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             spLanguage.setSelection(selected);
 
         swLanguageTool.setChecked(prefs.getBoolean("lt_enabled", false));
+        swLanguageToolAuto.setChecked(prefs.getBoolean("lt_auto", false));
+        swLanguageToolAuto.setEnabled(swLanguageTool.isChecked());
         swLanguageToolPicky.setChecked(prefs.getBoolean("lt_picky", false));
         swLanguageToolPicky.setEnabled(swLanguageTool.isChecked());
         swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));

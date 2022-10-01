@@ -54,6 +54,13 @@ public class LanguageTool {
         return prefs.getBoolean("lt_enabled", false);
     }
 
+    static boolean isAuto(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean lt_enabled = prefs.getBoolean("lt_enabled", false);
+        boolean lt_auto = prefs.getBoolean("lt_auto", false);
+        return (lt_enabled && lt_auto);
+    }
+
     static List<Suggestion> getSuggestions(Context context, CharSequence text) throws IOException, JSONException {
         // https://languagetool.org/http-api/swagger-ui/#!/default/post_check
         String request =
@@ -154,6 +161,8 @@ public class LanguageTool {
     static void applySuggestions(EditText etBody, List<Suggestion> suggestions) {
         Editable edit = etBody.getText();
         if (edit == null)
+            return;
+        if (suggestions == null)
             return;
 
         // https://developer.android.com/reference/android/text/style/SuggestionSpan

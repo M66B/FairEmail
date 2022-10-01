@@ -751,6 +751,7 @@
     <string name="title_advanced_language">Language</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">LanguageTool integration</string>
+    <string name="title_advanced_lt_auto">Check message automatically after each new line</string>
     <string name="title_advanced_deepl">DeepL integration</string>
     <string name="title_advanced_virus_total">VirusTotal integration</string>
     <string name="title_advanced_send" translatable="false">Send integration</string>
