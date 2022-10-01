@@ -4,10 +4,11 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### Next version
+### 1.1973 - 2022-10-01
 
 * Added Ukrainian to DeepL languages
 * Added showing inline images in EML files
+* Improved word breaking for local searching
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
 * Updated translations
