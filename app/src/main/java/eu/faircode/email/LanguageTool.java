@@ -58,7 +58,7 @@ public class LanguageTool {
     static boolean isAuto(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean lt_enabled = prefs.getBoolean("lt_enabled", false);
-        boolean lt_auto = prefs.getBoolean("lt_auto", false);
+        boolean lt_auto = prefs.getBoolean("lt_auto", true);
         return (lt_enabled && lt_auto);
     }
 

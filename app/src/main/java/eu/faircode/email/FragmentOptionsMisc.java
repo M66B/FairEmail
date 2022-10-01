@@ -2043,7 +2043,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             spLanguage.setSelection(selected);
 
         swLanguageTool.setChecked(prefs.getBoolean("lt_enabled", false));
-        swLanguageToolAuto.setChecked(prefs.getBoolean("lt_auto", false));
+        swLanguageToolAuto.setChecked(prefs.getBoolean("lt_auto", true));
         swLanguageToolAuto.setEnabled(swLanguageTool.isChecked());
         swLanguageToolPicky.setChecked(prefs.getBoolean("lt_picky", false));
         swLanguageToolPicky.setEnabled(swLanguageTool.isChecked());
