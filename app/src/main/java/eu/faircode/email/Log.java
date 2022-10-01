@@ -1548,6 +1548,27 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof NullPointerException &&
+                ex.getMessage() != null &&
+                ex.getMessage().contains("com.android.server.job.controllers.JobStatus"))
+            /*
+                java.lang.RuntimeException: java.lang.NullPointerException: Attempt to invoke virtual method 'int com.android.server.job.controllers.JobStatus.getUid()' on a null object reference
+                    at android.app.job.JobService$JobHandler.handleMessage(JobService.java:139)
+                    at android.os.Handler.dispatchMessage(Handler.java:102)
+                    at android.os.Looper.loop(Looper.java:148)
+                    at android.app.ActivityThread.main(ActivityThread.java:5525)
+                    at java.lang.reflect.Method.invoke(Native Method)
+                    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:730)
+                    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:620)
+                Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'int com.android.server.job.controllers.JobStatus.getUid()' on a null object reference
+                    at android.os.Parcel.readException(Parcel.java:1605)
+                    at android.os.Parcel.readException(Parcel.java:1552)
+                    at android.app.job.IJobCallback$Stub$Proxy.acknowledgeStopMessage(IJobCallback.java:144)
+                    at android.app.job.JobService$JobHandler.ackStopMessage(JobService.java:183)
+                    at android.app.job.JobService$JobHandler.handleMessage(JobService.java:136)
+             */
+            return false;
+
         if (isDead(ex))
             return false;
 
