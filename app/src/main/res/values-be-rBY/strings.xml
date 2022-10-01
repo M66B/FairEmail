@@ -318,6 +318,9 @@
     <string name="title_advanced_parse_classes_hint">Гэта опцыя дазволіць больш дакладна адлюстроўваць паведамленні, але з верагоднасцю затрымкі</string>
     <string name="title_advanced_autoexpand_hint">Аўтаматычна адкрываць паведамленне, калі ў размове ёсць толькі адно паведамленне або толькі адно непрачытанае паведамленне</string>
     <string name="title_advanced_expandall_hint">Кнопка адказу не будзе паказвацца пры разгортванні некалькіх паведамленняў, таму што незразумела, да якога паведамлення будзе прымяняцца кнопка</string>
+    <string name="title_advanced_autoseen_hint">Аўтаматычнае адзначэнне паведамленняў як прачытаных пры разгортванні можна адключыць у дадатковых наладах кожнага з уліковых запісаў</string>
+    <string name="title_advanced_autoclose_hint">Аўтаматычна закрываць размовы, калі ўсе паведамленні перамешчаны ў архіў, адпраўлены або выдалены</string>
+    <string name="title_advanced_notify_remove_hint">Апавяшчэнні аб новых паведамленнях заўсёды будуць выдаляцца пры іх ссоўванні і адзначэнні паведамленняў прачытанымі</string>
     <string name="title_advanced_notify_separate_hint">Як мне наладзіць апавяшчэнні для ўліковых запісаў, папак і адпраўнікоў?</string>
     <string name="title_advanced_move_hint">Мэтавую папку можна задаць у наладах уліковага запісу</string>
     <string name="title_advanced_edit_name">Перайменаваць</string>
