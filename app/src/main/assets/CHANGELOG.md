@@ -6,7 +6,7 @@
 
 ### Next version
 
-* Added option to auto check with LanguageTool after each new line
+* Added option to check paragraph with LanguageTool after a newline
 
 ### 1.1973 - 2022-10-01
 

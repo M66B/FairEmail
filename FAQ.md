@@ -4895,7 +4895,7 @@ Texts with suggestions will be marked and if you tap on a marked suggestion,
 it will be shown by the keyboard if the keyboard supports this,
 else you can double tap or long press the marked text to show suggestions.
 
-Since version 1.1974 there is an option to check message texts after each new line.
+Since version 1.1974 there is an option to check paragraphs after a new line.
 
 The suboption *Use formal form* can be enabled to let LanguageTool suggest more formal text (business, legal, etc).
 

@@ -799,8 +799,13 @@ public class FragmentCompose extends FragmentBase {
                         if (renum)
                             StyleHelper.renumber(text, false, etBody.getContext());
 
-                        if (lt_auto)
-                            onLanguageTool(true);
+                        if (lt_auto) {
+                            int start = added;
+                            while (start > 0 && text.charAt(start - 1) != '\n')
+                                start--;
+                            if (start < added)
+                                onLanguageTool(start, added, true);
+                        }
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
@@ -1968,7 +1973,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public boolean onLongClick(View v) {
                 if (lt_enabled) {
-                    onLanguageTool(false);
+                    onLanguageTool(0, etBody.length(), false);
                     return true;
                 } else
                     return false;
@@ -2568,13 +2573,13 @@ public class FragmentCompose extends FragmentBase {
         popupMenu.showWithIcons(context, anchor);
     }
 
-    private void onLanguageTool(boolean silent) {
+    private void onLanguageTool(int start, int end, boolean silent) {
         etBody.clearComposingText();
 
         Log.i("LT running enabled=" + etBody.isSuggestionsEnabled());
 
         Bundle args = new Bundle();
-        args.putCharSequence("text", etBody.getText());
+        args.putCharSequence("text", etBody.getText().subSequence(start, end));
 
         new SimpleTask<List<LanguageTool.Suggestion>>() {
             private Toast toast = null;
@@ -2605,7 +2610,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, List<LanguageTool.Suggestion> suggestions) {
-                LanguageTool.applySuggestions(etBody, suggestions);
+                LanguageTool.applySuggestions(etBody, start, end, suggestions);
 
                 if (!silent &&
                         (suggestions == null || suggestions.size() == 0))
@@ -5692,15 +5697,17 @@ public class FragmentCompose extends FragmentBase {
 
                         Log.i("Draft content=" + draft.content);
                         if (draft.content && state == State.NONE) {
-                            Runnable postShow = null;
-                            if (args.containsKey("images")) {
-                                ArrayList<Uri> images = args.getParcelableArrayList("images");
-                                args.remove("images"); // once
+                            ArrayList<Uri> images = args.getParcelableArrayList("images");
+                            args.remove("images"); // once
 
-                                postShow = new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        try {
+                            Runnable postShow = new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        if (lt_auto)
+                                            onLanguageTool(0, etBody.length(), true);
+
+                                        if (images != null) {
                                             boolean image_dialog = prefs.getBoolean("image_dialog", true);
                                             if (image_dialog) {
                                                 Helper.hideKeyboard(view);
@@ -5715,12 +5722,12 @@ public class FragmentCompose extends FragmentBase {
                                                 fragment.show(getParentFragmentManager(), "compose:shared");
                                             } else
                                                 onAddImageFile(images);
-                                        } catch (Throwable ex) {
-                                            Log.e(ex);
                                         }
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
                                     }
-                                };
-                            }
+                                }
+                            };
 
                             showDraft(draft, false, postShow, args.getInt("selection"));
                         }
@@ -6896,9 +6903,6 @@ public class FragmentCompose extends FragmentBase {
                 etBody.setHint(hint);
 
                 grpBody.setVisibility(View.VISIBLE);
-
-                if (lt_auto)
-                    onLanguageTool(true);
 
                 cbSignature.setChecked(draft.signature);
                 tvSignature.setAlpha(draft.signature ? 1.0f : Helper.LOW_LIGHT);

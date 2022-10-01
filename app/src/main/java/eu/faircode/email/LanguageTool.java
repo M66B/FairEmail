@@ -166,13 +166,13 @@ public class LanguageTool {
         }
     }
 
-    static void applySuggestions(EditText etBody, List<Suggestion> suggestions) {
+    static void applySuggestions(EditText etBody, int start, int end, List<Suggestion> suggestions) {
         Editable edit = etBody.getText();
         if (edit == null)
             return;
 
         // https://developer.android.com/reference/android/text/style/SuggestionSpan
-        for (SuggestionSpanEx suggestion : edit.getSpans(0, edit.length(), SuggestionSpanEx.class)) {
+        for (SuggestionSpanEx suggestion : edit.getSpans(start, end, SuggestionSpanEx.class)) {
             Log.i("LT removing=" + suggestion);
             edit.removeSpan(suggestion);
         }
@@ -183,9 +183,13 @@ public class LanguageTool {
                 SuggestionSpan span = new SuggestionSpanEx(etBody.getContext(),
                         suggestion.replacements.toArray(new String[0]),
                         SuggestionSpan.FLAG_MISSPELLED);
-                int start = suggestion.offset;
-                int end = start + suggestion.length;
-                edit.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                int s = start + suggestion.offset;
+                int e = s + suggestion.length;
+                if (s < 0 || s > edit.length() || e < 0 || e > edit.length()) {
+                    Log.w("LT " + s + "..." + e + " length=" + edit.length());
+                    continue;
+                }
+                edit.setSpan(span, s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
     }
 
