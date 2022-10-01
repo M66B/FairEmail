@@ -170,24 +170,23 @@ public class LanguageTool {
         Editable edit = etBody.getText();
         if (edit == null)
             return;
-        if (suggestions == null)
-            return;
 
         // https://developer.android.com/reference/android/text/style/SuggestionSpan
-        for (SuggestionSpanEx span : edit.getSpans(0, edit.length(), SuggestionSpanEx.class)) {
-            Log.i("LT removing=" + span);
-            edit.removeSpan(span);
+        for (SuggestionSpanEx suggestion : edit.getSpans(0, edit.length(), SuggestionSpanEx.class)) {
+            Log.i("LT removing=" + suggestion);
+            edit.removeSpan(suggestion);
         }
 
-        for (LanguageTool.Suggestion suggestion : suggestions) {
-            Log.i("LT adding=" + suggestion);
-            SuggestionSpan span = new SuggestionSpanEx(etBody.getContext(),
-                    suggestion.replacements.toArray(new String[0]),
-                    SuggestionSpan.FLAG_MISSPELLED);
-            int start = suggestion.offset;
-            int end = start + suggestion.length;
-            edit.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }
+        if (suggestions != null)
+            for (LanguageTool.Suggestion suggestion : suggestions) {
+                Log.i("LT adding=" + suggestion);
+                SuggestionSpan span = new SuggestionSpanEx(etBody.getContext(),
+                        suggestion.replacements.toArray(new String[0]),
+                        SuggestionSpan.FLAG_MISSPELLED);
+                int start = suggestion.offset;
+                int end = start + suggestion.length;
+                edit.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
     }
 
     static class Suggestion {
