@@ -42,7 +42,6 @@ import android.text.style.SuperscriptSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
-import android.util.StringBuilderPrinter;
 
 import java.util.ArrayList;
 import java.util.List;

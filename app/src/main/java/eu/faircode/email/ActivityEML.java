@@ -34,7 +34,6 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.ArrowKeyMovementMethod;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.URLSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
