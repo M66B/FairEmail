@@ -74,7 +74,6 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.ArrowKeyMovementMethod;
@@ -85,7 +84,6 @@ import android.text.style.ImageSpan;
 import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
-import android.text.style.SuggestionSpan;
 import android.text.style.URLSpan;
 import android.util.LogPrinter;
 import android.util.Pair;
@@ -2599,25 +2597,7 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 }
 
-                Editable edit = etBody.getText();
-                if (edit == null)
-                    return;
-
-                // https://developer.android.com/reference/android/text/style/SuggestionSpan
-                for (SuggestionSpanEx span : edit.getSpans(0, edit.length(), SuggestionSpanEx.class)) {
-                    Log.i("LT removing=" + span);
-                    edit.removeSpan(span);
-                }
-
-                for (LanguageTool.Suggestion suggestion : suggestions) {
-                    Log.i("LT adding=" + suggestion);
-                    SuggestionSpan span = new SuggestionSpanEx(getContext(),
-                            suggestion.replacements.toArray(new String[0]),
-                            SuggestionSpan.FLAG_MISSPELLED);
-                    int start = suggestion.offset;
-                    int end = start + suggestion.length;
-                    edit.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                }
+                LanguageTool.applySuggestions(etBody, suggestions);
             }
 
             @Override
@@ -2634,20 +2614,6 @@ public class FragmentCompose extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), exex, false);
             }
         }.execute(this, args, "compose:lt");
-    }
-
-    private static class SuggestionSpanEx extends SuggestionSpan {
-        private final int textColorHighlight;
-
-        public SuggestionSpanEx(Context context, String[] suggestions, int flags) {
-            super(context, suggestions, flags);
-            textColorHighlight = Helper.resolveColor(context, android.R.attr.textColorHighlight);
-        }
-
-        @Override
-        public void updateDrawState(TextPaint tp) {
-            tp.bgColor = textColorHighlight;
-        }
     }
 
     private boolean onActionStyle(int action, View anchor) {

@@ -21,6 +21,11 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.Editable;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.style.SuggestionSpan;
+import android.widget.EditText;
 
 import androidx.preference.PreferenceManager;
 
@@ -146,6 +151,28 @@ public class LanguageTool {
         }
     }
 
+    static void applySuggestions(EditText etBody, List<Suggestion> suggestions) {
+        Editable edit = etBody.getText();
+        if (edit == null)
+            return;
+
+        // https://developer.android.com/reference/android/text/style/SuggestionSpan
+        for (SuggestionSpanEx span : edit.getSpans(0, edit.length(), SuggestionSpanEx.class)) {
+            Log.i("LT removing=" + span);
+            edit.removeSpan(span);
+        }
+
+        for (LanguageTool.Suggestion suggestion : suggestions) {
+            Log.i("LT adding=" + suggestion);
+            SuggestionSpan span = new SuggestionSpanEx(etBody.getContext(),
+                    suggestion.replacements.toArray(new String[0]),
+                    SuggestionSpan.FLAG_MISSPELLED);
+            int start = suggestion.offset;
+            int end = start + suggestion.length;
+            edit.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+    }
+
     static class Suggestion {
         String title; // shortMessage
         String description; // message
@@ -156,6 +183,20 @@ public class LanguageTool {
         @Override
         public String toString() {
             return title;
+        }
+    }
+
+    private static class SuggestionSpanEx extends SuggestionSpan {
+        private final int textColorHighlight;
+
+        public SuggestionSpanEx(Context context, String[] suggestions, int flags) {
+            super(context, suggestions, flags);
+            textColorHighlight = Helper.resolveColor(context, android.R.attr.textColorHighlight);
+        }
+
+        @Override
+        public void updateDrawState(TextPaint tp) {
+            tp.bgColor = textColorHighlight;
         }
     }
 }
