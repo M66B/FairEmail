@@ -24,6 +24,7 @@ import android.content.SharedPreferences;
 import android.text.Editable;
 import android.text.Spanned;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.text.style.SuggestionSpan;
 import android.widget.EditText;
 
@@ -62,6 +63,9 @@ public class LanguageTool {
     }
 
     static List<Suggestion> getSuggestions(Context context, CharSequence text) throws IOException, JSONException {
+        if (TextUtils.isEmpty(text))
+            return new ArrayList<>();
+
         // https://languagetool.org/http-api/swagger-ui/#!/default/post_check
         String request =
                 "text=" + URLEncoder.encode(text.toString(), StandardCharsets.UTF_8.name()) +
