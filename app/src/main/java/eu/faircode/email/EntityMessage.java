@@ -495,7 +495,7 @@ public class EntityMessage implements Serializable {
 
         DateFormat DTF = Helper.getDateTimeInstance(context);
         DTF.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
-        String date = DTF.format(received);
+        String date = (received instanceof Number ? DTF.format(received) : "-");
 
         Element p = document.createElement("p");
         if (extended) {
