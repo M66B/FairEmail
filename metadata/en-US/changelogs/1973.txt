@@ -6,6 +6,7 @@ Mei long
 
 Next version
 
+* Added long press date header to select messages
 * Added option to check paragraph with LanguageTool after a newline
 
 1.1973 - 2022-10-01

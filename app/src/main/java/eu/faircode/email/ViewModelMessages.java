@@ -441,7 +441,7 @@ public class ViewModelMessages extends ViewModel {
         });
     }
 
-    void getIds(Context context, LifecycleOwner owner, final Observer<List<Long>> observer) {
+    void getIds(Context context, LifecycleOwner owner, long from, long to, final Observer<List<Long>> observer) {
         final Model model = models.get(last);
         if (model == null) {
             Log.w("Get IDs without model");
@@ -465,8 +465,9 @@ public class ViewModelMessages extends ViewModel {
                 int count = ds.countItems();
                 for (int i = 0; i < count && isAlive(); i += 100)
                     for (TupleMessageEx message : ds.loadRange(i, Math.min(100, count - i)))
-                        if ((message.uid != null && !message.folderReadOnly) ||
-                                message.accountProtocol != EntityAccount.TYPE_IMAP)
+                        if ((message.received >= from && message.received < to) &&
+                                ((message.uid != null && !message.folderReadOnly) ||
+                                        message.accountProtocol != EntityAccount.TYPE_IMAP))
                             ids.add(message.id);
 
                 Log.i("Loaded messages #" + ids.size());

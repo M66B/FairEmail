@@ -98,6 +98,7 @@ import android.util.Base64;
 import android.util.LongSparseArray;
 import android.util.Pair;
 import android.util.TypedValue;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -1033,6 +1034,73 @@ public class FragmentMessages extends FragmentBase
             }
         };
         rvMessage.addItemDecoration(dateDecorator);
+
+        rvMessage.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            private final GestureDetector gestureDetector =
+                    new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
+                        @Override
+                        public void onLongPress(@NonNull MotionEvent e) {
+                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                return;
+
+                            int x = Math.round(e.getX());
+                            int y = Math.round(e.getY());
+
+                            Rect rect = new Rect();
+                            for (int i = 0; i < rvMessage.getChildCount(); i++) {
+                                View child = rvMessage.getChildAt(i);
+                                if (child == null)
+                                    continue;
+
+                                dateDecorator.getItemOffsets(rect, child, rvMessage, null);
+                                if (rect.height() == 0)
+                                    continue;
+
+                                rect.set(child.getLeft(), child.getTop() - rect.top, child.getRight(), child.getTop());
+                                if (!rect.contains(x, y))
+                                    continue;
+
+                                int pos = rvMessage.getChildAdapterPosition(child);
+                                if (pos == NO_POSITION)
+                                    continue;
+
+                                TupleMessageEx message = adapter.getItemAtPosition(pos);
+                                if (message == null)
+                                    continue;
+
+                                Calendar cal = Calendar.getInstance();
+                                cal.setTimeInMillis(message.received);
+                                cal.set(Calendar.HOUR_OF_DAY, 0);
+                                cal.set(Calendar.MINUTE, 0);
+                                cal.set(Calendar.SECOND, 0);
+                                cal.set(Calendar.MILLISECOND, 0);
+
+                                cal.add(Calendar.DATE, 1);
+                                long to = cal.getTimeInMillis();
+
+                                cal.add(Calendar.DATE, date_week ? -7 : -1);
+                                long from = cal.getTimeInMillis();
+
+                                onMenuSelect(from, to, true);
+                                return;
+                            }
+                        }
+                    });
+
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                gestureDetector.onTouchEvent(e);
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+            }
+        });
 
         rvMessage.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -5426,7 +5494,7 @@ public class FragmentMessages extends FragmentBase
             onMenuConfirmLinks();
             return true;
         } else if (itemId == R.id.menu_select_all || itemId == R.id.menu_select_found) {
-            onMenuSelectAll();
+            onMenuSelect(0, Long.MAX_VALUE, false);
             return true;
         } else if (itemId == R.id.menu_mark_all_read) {
             onMenuMarkAllRead();
@@ -5758,9 +5826,9 @@ public class FragmentMessages extends FragmentBase
         positions.clear();
     }
 
-    private void onMenuSelectAll() {
+    private void onMenuSelect(long from, long to, boolean extend) {
         ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
-        model.getIds(getContext(), getViewLifecycleOwner(), new Observer<List<Long>>() {
+        model.getIds(getContext(), getViewLifecycleOwner(), from, to, new Observer<List<Long>>() {
             @Override
             public void onChanged(List<Long> ids) {
                 view.post(new Runnable() {
@@ -5769,9 +5837,16 @@ public class FragmentMessages extends FragmentBase
                         try {
                             if (selectionTracker == null)
                                 return;
-                            selectionTracker.clearSelection();
+                            if (!extend)
+                                selectionTracker.clearSelection();
                             for (long id : ids)
-                                selectionTracker.select(id);
+                                if (extend) {
+                                    if (selectionTracker.isSelected(id))
+                                        selectionTracker.deselect(id);
+                                    else
+                                        selectionTracker.select(id);
+                                } else
+                                    selectionTracker.select(id);
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
