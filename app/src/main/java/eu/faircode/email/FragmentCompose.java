@@ -5697,17 +5697,15 @@ public class FragmentCompose extends FragmentBase {
 
                         Log.i("Draft content=" + draft.content);
                         if (draft.content && state == State.NONE) {
-                            ArrayList<Uri> images = args.getParcelableArrayList("images");
-                            args.remove("images"); // once
+                            Runnable postShow = null;
+                            if (args.containsKey("images")) {
+                                ArrayList<Uri> images = args.getParcelableArrayList("images");
+                                args.remove("images"); // once
 
-                            Runnable postShow = new Runnable() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        if (lt_auto)
-                                            onLanguageTool(0, etBody.length(), true);
-
-                                        if (images != null) {
+                                postShow = new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
                                             boolean image_dialog = prefs.getBoolean("image_dialog", true);
                                             if (image_dialog) {
                                                 Helper.hideKeyboard(view);
@@ -5722,12 +5720,12 @@ public class FragmentCompose extends FragmentBase {
                                                 fragment.show(getParentFragmentManager(), "compose:shared");
                                             } else
                                                 onAddImageFile(images);
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
                                         }
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
                                     }
-                                }
-                            };
+                                };
+                            }
 
                             showDraft(draft, false, postShow, args.getInt("selection"));
                         }
@@ -6965,6 +6963,9 @@ public class FragmentCompose extends FragmentBase {
                 setFocus(selStart < 0 ? null : R.id.etBody, selStart, selStart, postShow == null);
                 if (postShow != null)
                     getMainHandler().post(postShow);
+
+                if (lt_auto)
+                    onLanguageTool(0, etBody.length(), true);
             }
 
             @Override
