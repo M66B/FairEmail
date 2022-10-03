@@ -668,6 +668,7 @@
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_lt">Integrace LanguageTool</string>
+    <string name="title_advanced_lt_auto">Zkontrolujte odstavec po novém řádku</string>
     <string name="title_advanced_deepl">DeepL integrace</string>
     <string name="title_advanced_virus_total">Integrace VirusTotal</string>
     <string name="title_advanced_sdcard">Chci použít Sd kartu</string>

@@ -463,7 +463,7 @@
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_preview_italic">斜体字显示邮件预览</string>
     <string name="title_advanced_preview_lines">预览行数</string>
-    <string name="title_advanced_addresses">默认显示地址详情</string>
+    <string name="title_advanced_addresses">默认展开地址详情</string>
     <string name="title_advanced_unzip">显示压缩附件的内容</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
@@ -629,6 +629,7 @@
     <string name="title_advanced_language">界面语言</string>
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_lt">LanguageTool 集成</string>
+    <string name="title_advanced_lt_auto">换行后检查段落</string>
     <string name="title_advanced_deepl">DeepL 集成</string>
     <string name="title_advanced_virus_total">VirusTotal 集成</string>
     <string name="title_advanced_sdcard">我想使用 SD 卡</string>

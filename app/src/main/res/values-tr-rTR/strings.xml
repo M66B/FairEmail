@@ -641,6 +641,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Dil Aracı entegrasyonu</string>
+    <string name="title_advanced_lt_auto">Yeni bir satırdan sonra paragrafı kontrol et</string>
     <string name="title_advanced_deepl">DeepL entegrasyonu</string>
     <string name="title_advanced_virus_total">VirüsTotal entegrasyonu</string>
     <string name="title_advanced_sdcard">SD kart kullanmak istiyorum</string>

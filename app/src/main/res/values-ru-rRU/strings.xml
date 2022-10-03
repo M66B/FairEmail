@@ -669,6 +669,7 @@
     <string name="title_advanced_language">Язык</string>
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_lt">Интеграция с LanguageTool</string>
+    <string name="title_advanced_lt_auto">Проверять абзац после новой строки</string>
     <string name="title_advanced_deepl">Интеграция с DeepL</string>
     <string name="title_advanced_virus_total">Интеграция с VirusTotal</string>
     <string name="title_advanced_sdcard">Я хочу использовать SD-карту</string>

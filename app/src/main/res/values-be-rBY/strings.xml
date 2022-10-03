@@ -266,6 +266,9 @@
     <string name="title_advanced_badge">Паказваць колькасць новых паведамленняў побач з ярлыком праграмы</string>
     <string name="title_advanced_unseen_ignored">Колькасць новых паведамленняў адпавядае колькасці апавяшчэнняў</string>
     <string name="title_advanced_notify_preview">Адлюстроўваць папярэдні выгляд паведамленняў у апавяшчэннях</string>
+    <string name="title_advanced_notify_action_trash">Выдаленыя</string>
+    <string name="title_advanced_notify_action_junk">Спам</string>
+    <string name="title_advanced_notify_action_archive">Архіў</string>
     <string name="title_advanced_notify_action_flag">Пазнака</string>
     <string name="title_advanced_notify_remove">Выдаляць апавяшчэнне пра новыя паведамленні пры націсканні на апавяшчэнне</string>
     <string name="title_advanced_notify_clear">Выдаляць апавяшчэнні пра новыя паведамленні пры праглядзе спіса паведамленняў</string>
@@ -281,6 +284,7 @@
     <string name="title_advanced_external_search">Дазволіць іншым праграмам пошук у паведамленнях</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d паведамленняў праіндэксавана (%3$s)</string>
     <string name="title_advanced_classification">Класіфікаваць паведамленні</string>
+    <string name="title_advanced_language_system">Сістэмная</string>
     <string name="title_advanced_cleanup_attachments">Выдаліць укладанні ў старых паведамленнях</string>
     <string name="title_advanced_manual_hint">Калі атрыманне паведамленняў адключана, па-ранейшаму можна атрымліваць паведамленні ўручную, пацягнуўшы спіс паведамленняў уніз</string>
     <string name="title_advanced_poll_hint">Перыядычная праверка новых паведамленняў будзе кожны раз параўноўваць лакальныя паведамленні з паведамленнямі на серверы, што з\'яўляецца энергаёмістай аперацыяй, якая можа прывесці да дадатковага выкарыстання батарэі, асабліва калі паведамленняў шмат. Пастаяннае атрымліванне дазволіць прадухіліць гэту праблему, дзякуючы пастаяннаму адсочванню змяненняў.</string>
@@ -322,23 +326,51 @@
     <string name="title_advanced_autoclose_hint">Аўтаматычна закрываць размовы, калі ўсе паведамленні перамешчаны ў архіў, адпраўлены або выдалены</string>
     <string name="title_advanced_notify_remove_hint">Апавяшчэнні аб новых паведамленнях заўсёды будуць выдаляцца пры іх ссоўванні і адзначэнні паведамленняў прачытанымі</string>
     <string name="title_advanced_notify_separate_hint">Як мне наладзіць апавяшчэнні для ўліковых запісаў, папак і адпраўнікоў?</string>
+    <string name="title_advanced_notify_preview_only_hint">Гэта опцыя адкладае паказ апавяшчэнняў, пакуль тэкст паведамлення не будзе загружаны</string>
+    <string name="title_advanced_wearable_hint">Апавяшчэнні адпраўляюцца на партатыўную прыладу толькі пасля загрузкі тэксту паведамлення</string>
     <string name="title_advanced_move_hint">Мэтавую папку можна задаць у наладах уліковага запісу</string>
+    <string name="title_advanced_cleanup_attachments_hint">Пры ручной ачыстцы будуць выдалены ўкладанні з паведамленняў, якія больш не сінхранізуюцца</string>
     <string name="title_advanced_edit_name">Перайменаваць</string>
     <string name="title_identity_color_hint">Колеры ідэнтыфікатараў маюць прыярытэт перад колерамі папак і ўліковых запісаў</string>
     <string name="title_advanced_sender">Дазволіць рэдагаванне адраса адпраўніка</string>
     <string name="title_advanced_sender_name">Выкарыстоўваць імя, калі адрас адпраўніка быў зменены</string>
+    <string name="title_identity_unicode">Дазволіць фармат UTF-8 у загалоўках паведамленняў</string>
+    <string name="title_identity_max_size">Максімальны памер паведамлення (МБ)</string>
     <string name="title_account_name_hint">Выкарыстоўваюцца для адрознення папак</string>
+    <string name="title_account_interval_hint">Частата абнаўлення злучэння для апавяшчэнняў або частата праверкі новых паведамленняў</string>
+    <string name="title_account_partial_fetch_hint">Адключайце гэту опцыю толькі ў выпадку пустых паведамленняў або пашкоджаных укладанняў</string>
+    <string name="title_leave_on_server">Пакідаць паведамленні на серверы</string>
+    <string name="title_leave_deleted">Пакідаць выдаленыя паведамленні на серверы</string>
+    <string name="title_leave_on_device">Пакідаць паведамленні на прыладзе</string>
     <string name="title_max_messages">Максімальная колькасць паведамленняў для загрузкі (калі пуста, то для ўсіх)</string>
+    <string name="title_date_remark">Змяненні будуць ужывацца толькі да новых паведамленняў</string>
     <string name="title_no_drafts">Няма папкі з чарнавікамі</string>
     <string name="title_no_junk_folder">Для гэтага ўліковага запісу не выбрана папка са спамам</string>
     <string name="title_no_composable">Для адпраўкі электроннай пошты патрабуецца наладжванне ідэнтыфікатара і вызначэнне папкі для чарнавікоў у наладах уліковага запісу</string>
+    <string name="title_no_idle">Гэты правайдар не падтрымлівае апавяшчэнні. Гэта прывядзе да затрымкі атрымання новых паведамленняў і павелічэння выкарыстання батарэі.</string>
     <string name="title_drafts_required">Папка для чарнавікоў патрабуецца для адпраўкі электроннай пошты</string>
     <string name="title_drafts_select">Для адпраўкі электроннай пошты ў наладах уліковага запісу трэба выбраць папку для чарнавікоў</string>
     <string name="title_edit_html">Рэдагаваць як HTML</string>
+    <string name="title_pop_support">Пратакол POP3 можа толькі загружаць і выдаляць паведамленні з паштовай скрыні. Немагчыма адзначыць паведамленні як прачытаныя, паведаміць пра спам, перамясціць паведамленні і г. д. Па магчымасці выкарыстоўвайце пратакол IMAP.</string>
+    <string name="title_pop_sent">У выпадку страты або крадзяжу прылады адпраўленыя паведамленні могуць быць страчаны.</string>
     <string name="title_pop_folders">Пратакол POP3 не падтрымлівае стварэнне папак</string>
     <string name="title_hint_alias">Доўгае націсканне на ідэнтыфікатар выкліча адлюстраванне такіх опцый, як капіраванне з мэтай стварэння псеўданімаў і т. п.</string>
+    <string name="title_advanced_browse">Праглядзець паведамленні на серверы</string>
+    <string name="title_advanced_expand_read">Пры разгортванні адзначаць паведамленні прачытанымі</string>
     <string name="title_synchronize_subfolders">Падпапкі</string>
+    <string name="title_synchronize_more">Атрымаць больш паведамленняў</string>
+    <string name="title_synchronize_more_hint">Гэта прывядзе да аднаразовай загрузкі старых паведамленняў, так што гэта не павялічыць штодзённае выкарыстанне батарэі</string>
+    <string name="title_synchronize_more_hint2">        Паведамленні будуць атрыманы настолькі хутка, наколькі сервер электроннай пошты можа іх даставіць, і захаваны настолькі хутка, наколькі прылада зможа іх захаваць і праіндэксаваць.
+         Абмежавальным фактарам звычайна з\'яўляецца хуткасць унутранай памяці прылады.
+    
+    </string>
+    <string name="title_synchronize_more_hint3">Майце на ўвазе, што захоўванне вялікай колькасці паведамленняў (дзесяці тысяч і болей) на вашай прыладзе можа выклікаць затрымкі, таму што ўнутранае сховішча не бясконца хуткае.</string>
     <string name="title_synchronize_enabled">Сінхранізаваць</string>
+    <string name="title_notify_batch_enable">Уключыць апавяшчэнні аб новых паведамленнях</string>
+    <string name="title_notify_batch_disable">Адключыць апавяшчэнні аб новых паведамленнях</string>
+    <string name="title_delete_local">Выдаліць лакальныя паведамленні</string>
+    <string name="title_delete_browsed">Выдаліць прагледжаныя/знойдзеныя паведамленні</string>
+    <string name="title_expunge_remark">Гэта прывядзе да незваротнага выдалення ўсіх паведамленняў, адзначаных на выдаленне</string>
     <string name="title_edit_properties">Рэдагаваць уласцівасці</string>
     <string name="title_edit_rules">Рэдагаваць правілы</string>
     <string name="title_execute_rules">Выканаць правілы</string>
@@ -348,9 +380,18 @@
     <string name="title_contact_email">Электронная пошта</string>
     <string name="title_contact_name">Імя</string>
     <string name="title_create_sub_folder">Стварыць падпапку</string>
+    <string name="title_empty_trash_ask">Выдаліць усе выдаленыя паведамленні назаўсёды?</string>
+    <string name="title_empty_spam_ask">Выдаліць усе паведамленні са спама назаўсёды?</string>
+    <string name="title_empty_trash_all_ask">Выдаліць усе выдаленыя паведамленні са ўсіх уліковых запісаў назаўсёды?</string>
+    <string name="title_empty_spam_all_ask">Выдаліць усе паведамленні са спама са ўсіх уліковых запісаў назаўсёды?</string>
+    <string name="title_empty_all">Гэта прывядзе да выдалення ўсіх паведамленняў як з прылады, так і з сервера</string>
+    <string name="title_delete_operation_error">З паведамленнем аб памылцы</string>
+    <string name="title_hint_operations">Выдаленне аперацый можа прывесці да знікнення паведамленняў і праблем з сінхранізацыяй</string>
+    <string name="title_op_title_raw">Загрузка неапрацаванага паведамлення</string>
     <string name="title_folder_name">Назва папкі</string>
     <string name="title_display_name">Бачная назва</string>
     <string name="title_show_folders">Паказаць схаваныя папкі</string>
+    <string name="title_show_flagged">Паказаць колькасць пазначаных паведамленняў</string>
     <string name="title_subscribed_only">Толькі падпісаныя</string>
     <string name="title_sort_unread_atop">Сартаваць, непрачытаныя зверху</string>
     <string name="title_search_folder">Знайсці папку</string>
@@ -369,8 +410,13 @@
     <string name="title_notify_folder">Апавяшчаць пра новыя паведамленні</string>
     <string name="title_auto_classify_source">Класіфікаваць новыя паведамленні ў гэтай папцы</string>
     <string name="title_auto_classify_target">Аўтаматычна перамяшчаць сакрэтныя паведамленні ў гэту папку</string>
+    <string name="title_sync_days">Сінхранізаваць паведамленні (дні)</string>
+    <string name="title_keep_days">Захоўваць паведамленні (дні)</string>
+    <string name="title_keep_days_remark">Старыя паведамленні будуць выдалены з прылады, але застануцца на серверы</string>
+    <string name="title_keep_all">Захоўваць усе паведамленні</string>
     <string name="title_poll_system">Задайце сістэмныя папкі для перыядычнай праверкі новых паведамленняў</string>
     <string name="title_poll_user">Вызначыце карыстальніцкія папкі для перыядычнай праверкі новых паведамленняў</string>
+    <string name="title_auto_trash">Аўтаматычна выдаляць старыя паведамленні</string>
     <string name="title_auto_delete_archive_hint">Выдаленне элементаў з архіўнай папкі не заўсёды дазваляецца серверам электроннай пошты</string>
     <string name="title_inbox_root_hint">        Некаторыя правайдары патрабуюць стварэння новых папак у папцы \'Уваходныя\'.
         У гэтым выпадку вы можаце доўгім націсканнем на папку \'Уваходныя\' выклікаць меню і  выбраць опцыю \'Стварыць падпапку\'.
@@ -404,15 +450,20 @@
     <string name="title_edit_notes">Рэдагаваць лакальныя нататкі</string>
     <string name="title_raw_send_message">Паведамленне</string>
     <string name="title_raw_send_thread">Размова</string>
+    <string name="title_trash">Выдаленыя</string>
     <string name="title_copy">Капіраваць &#8230;</string>
     <string name="title_copy_to">Капіраваць у &#8230;</string>
+    <string name="title_spam">Спам</string>
     <string name="title_copy_btn">Капіраваць</string>
+    <string name="title_move_to">Перамясціць у &#8230;</string>
     <string name="title_move_to_folder">Перамясціць у &#8230;</string>
+    <string name="title_archive">Архіў</string>
     <string name="title_move_undo">Перамяшчэнне ў %1$s (%2$d)</string>
     <string name="title_no_folder">Папкі не існуе</string>
     <string name="title_attachment_eml">Прымацаванае паведамленне</string>
     <string name="title_compose">Стварыць</string>
     <string name="title_via_identity">Праз:</string>
+    <string name="title_sent">Адпраўленыя:</string>
     <string name="title_send">Адправіць</string>
     <string name="title_send_auto_archive">Архіваваць выходнае паведамленне</string>
     <string name="title_send_sensitivity">Адчувальнасць</string>
@@ -448,19 +499,29 @@
     <string name="title_rule_folder_create">Стварыць падпапку</string>
     <string name="title_rule_thread">Усе паведамленні ў той жа размове і папцы</string>
     <string name="title_rule_folder_missing">Папка адсутнічае</string>
+    <string name="title_rule_tts_prefix">Новае паведамленне</string>
     <string name="title_legend_section_synchronize">Сінхранізаваць</string>
     <string name="title_legend_section_folders">Папкі</string>
     <string name="title_legend_section_messages">Паведамленні</string>
     <string name="title_legend_section_compose">Стварыць</string>
     <string name="title_legend_folder_connected">Папка падключана</string>
     <string name="title_legend_folder_disconnected">Папка адключана</string>
+    <string name="title_legend_inbox">Уваходныя</string>
+    <string name="title_legend_outbox">Выходныя</string>
+    <string name="title_legend_drafts">Чарнавікі</string>
+    <string name="title_legend_sent">Адпраўленыя</string>
+    <string name="title_legend_archive">Архіў</string>
+    <string name="title_legend_trash">Выдаленыя</string>
+    <string name="title_legend_junk">Спам</string>
     <string name="title_legend_subscribed">Падпісаны на</string>
+    <string name="title_legend_notify">Апавяшчаць пра новыя паведамленні</string>
     <string name="title_legend_thread">Размова</string>
     <string name="title_legend_sensitivity_personal">Асабісты</string>
     <string name="title_legend_sensitivity_private">Прыватны</string>
     <string name="title_legend_sensitivity_confidential">Канфідэнцыяльны</string>
     <string name="title_legend_edit">Рэдагаваць</string>
     <string name="title_legend_folder_type">Тып папкі</string>
+    <string name="title_legend_a">Архіў</string>
     <string name="title_legend_c">Стварыць</string>
     <string name="title_hint_folder_actions">Доўгае націсканне на папку адкрые меню выбару такіх опцый як, дадаванне папкі ў меню навігацыі для хуткага доступу і т. п.</string>
     <string name="title_hint_folder_sync">Для абмежавання выкарыстання батарэі і сеткі, не ўсе папкі і не ўсе паведамленні будуць сінхранізаваны па змаўчанні</string>
@@ -492,7 +553,7 @@
     <string name="title_accessibility_filter_out_unflagged">Пераключыць фільтр пазначаных паведамленняў</string>
     <string name="title_accessibility_edit">Рэдагаваць</string>
     <string-array name="startupNames">
-        <item>Unified inbox</item>
+        <item>Агульная паштовая скрыня</item>
         <item>Агульныя папкі</item>
         <item>Папкі асноўнага ўліковага запісу</item>
         <item>Акаўнты</item>
