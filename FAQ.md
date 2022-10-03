@@ -3093,6 +3093,13 @@ Note that the POP3 protocol gives access to the inbox only. So, it is won't be p
 Note that you should not delete spam messages, also not from the spam folder,
 because the email server uses the messages in the spam folder to "learn" what spam messages are.
 
+If you are wondering why a message was moved into the spam folder, these are all possible reasons:
+
+* The email server of your email provider moved the message into the spam folder. The app can't undo this automatically because this can result in an endless loop.
+* The message classifier (miscellaneous settings tab page) moved the message into the spam folder.
+* A filter rule (navigation menu = left side menu of the start screen), for example a block domain name rule, moved the message into the spam folder.
+* An email address or a network address is on a block list (receive settings tab page).
+
 If you receive a lot of spam messages in your inbox, the best you can do is to contact the email provider to ask if spam filtering can be improved.
 
 Also, FairEmail can show a small red warning flag
