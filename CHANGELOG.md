@@ -4,10 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### Next version
+### 1.1974 - 2022-10-03
 
 * Added long press date header to select messages
 * Added option to check paragraph with LanguageTool after a newline
+* Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1973 - 2022-10-01
 
