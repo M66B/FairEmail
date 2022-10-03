@@ -29,6 +29,8 @@ import androidx.annotation.NonNull;
 import androidx.core.net.MailTo;
 import androidx.core.util.PatternsCompat;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -306,6 +308,21 @@ public class UriHelper {
             Uri result = Uri.parse(uri.getQueryParameter("url"));
             changed = (result != null);
             url = (result == null ? uri : result);
+        } else if (uri.getPath() != null &&
+                uri.getPath().startsWith("/track/click") &&
+                uri.getQueryParameter("p") != null) {
+            try {
+                // Mandrill
+                String p = new String(Base64.decode(uri.getQueryParameter("p"), Base64.DEFAULT));
+                JSONObject json = new JSONObject(p);
+                json = new JSONObject(json.getString("p"));
+                Uri result = Uri.parse(json.getString("url"));
+                changed = (result != null);
+                url = (result == null ? uri : result);
+            } catch (Throwable ex) {
+                Log.i(ex);
+                url = uri;
+            }
         } else if (uri.getQueryParameterNames().size() == 1) {
             // Sophos Email Appliance
             Uri result = null;
