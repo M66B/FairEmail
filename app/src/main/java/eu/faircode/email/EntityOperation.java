@@ -228,6 +228,7 @@ public class EntityOperation {
 
                 if (EntityFolder.JUNK.equals(target.type) &&
                         Objects.equals(source.account, target.account) &&
+                        !message.isNotJunk(context) &&
                         (jargs.opt(3) == null || !jargs.optBoolean(3))) {
                     jargs.remove(3);
                     EntityLog.log(context, "Auto block sender=" + MessageHelper.formatAddresses(message.from));
