@@ -2407,6 +2407,10 @@ public class FragmentCompose extends FragmentBase {
         if (languages == null)
             languages = new ArrayList<>();
 
+        int s = etBody.getSelectionStart();
+        if (s > 0 && s == etBody.length() && etBody.getText().charAt(s - 1) == '\n')
+            etBody.setSelection(s - 1, s - 1);
+
         Pair<Integer, Integer> paragraph = StyleHelper.getParagraph(etBody);
         boolean canTranslate = (DeepL.canTranslate(context) && paragraph != null);
 
