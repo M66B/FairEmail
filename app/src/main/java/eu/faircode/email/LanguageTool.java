@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.text.Editable;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -207,16 +208,26 @@ public class LanguageTool {
     }
 
     private static class SuggestionSpanEx extends SuggestionSpan {
-        private final int textColorHighlight;
+        private final int highlightColor;
+        private final int dp3;
 
         public SuggestionSpanEx(Context context, String[] suggestions, int flags) {
             super(context, suggestions, flags);
-            textColorHighlight = Helper.resolveColor(context, android.R.attr.textColorHighlight);
+            highlightColor = Helper.resolveColor(context,
+                    Build.VERSION.SDK_INT < Build.VERSION_CODES.Q
+                            ? android.R.attr.textColorHighlight
+                            : android.R.attr.colorError);
+            dp3 = Helper.dp2pixels(context, 2);
         }
 
         @Override
         public void updateDrawState(TextPaint tp) {
-            tp.bgColor = textColorHighlight;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
+                tp.bgColor = highlightColor;
+            else {
+                tp.underlineColor = highlightColor;
+                tp.underlineThickness = dp3;
+            }
         }
     }
 }
