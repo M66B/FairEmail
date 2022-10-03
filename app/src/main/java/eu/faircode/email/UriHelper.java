@@ -313,7 +313,7 @@ public class UriHelper {
                 uri.getQueryParameter("p") != null) {
             try {
                 // Mandrill
-                String p = new String(Base64.decode(uri.getQueryParameter("p"), Base64.DEFAULT));
+                String p = new String(Base64.decode(uri.getQueryParameter("p"), Base64.URL_SAFE));
                 JSONObject json = new JSONObject(p);
                 json = new JSONObject(json.getString("p"));
                 Uri result = Uri.parse(json.getString("url"));
@@ -330,7 +330,7 @@ public class UriHelper {
             String key = uri.getQueryParameterNames().iterator().next();
             if (TextUtils.isEmpty(uri.getQueryParameter(key)))
                 try {
-                    String data = new String(Base64.decode(key, Base64.DEFAULT));
+                    String data = new String(Base64.decode(key, Base64.URL_SAFE));
                     int v = data.indexOf("ver=");
                     int u = data.indexOf("&&url=");
                     if (v == 0 && u > 0)
@@ -344,7 +344,7 @@ public class UriHelper {
         } else if (uri.getQueryParameter("redirectUrl") != null) {
             // https://.../link-tracker?redirectUrl=<base64>&sig=...&iat=...&a=...&account=...&email=...&s=...&i=...
             try {
-                byte[] bytes = Base64.decode(uri.getQueryParameter("redirectUrl"), 0);
+                byte[] bytes = Base64.decode(uri.getQueryParameter("redirectUrl"), Base64.URL_SAFE);
                 String u = URLDecoder.decode(new String(bytes), StandardCharsets.UTF_8.name());
                 Uri result = Uri.parse(u);
                 changed = (result != null);
