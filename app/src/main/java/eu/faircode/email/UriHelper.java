@@ -323,6 +323,13 @@ public class UriHelper {
                 Log.i(ex);
                 url = uri;
             }
+        } else if (uri.getHost() != null && uri.getHost().endsWith(".awstrack.me")) {
+            // https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html
+            String path = uri.getPath();
+            int s = path.indexOf('/', 1);
+            Uri result = (s > 0 ? Uri.parse(path.substring(s + 1)) : null);
+            changed = (result != null);
+            url = (result == null ? uri : result);
         } else if (uri.getQueryParameterNames().size() == 1) {
             // Sophos Email Appliance
             Uri result = null;
