@@ -2408,7 +2408,11 @@ public class FragmentCompose extends FragmentBase {
             languages = new ArrayList<>();
 
         int s = etBody.getSelectionStart();
-        if (s > 0 && s == etBody.length() && etBody.getText().charAt(s - 1) == '\n')
+        Editable edit = etBody.getText();
+        if (s > 1 && s <= edit.length() &&
+                edit.charAt(s - 1) == '\n' &&
+                edit.charAt(s - 2) != '\n' &&
+                (s == edit.length() || edit.charAt(s) == '\n') )
             etBody.setSelection(s - 1, s - 1);
 
         Pair<Integer, Integer> paragraph = StyleHelper.getParagraph(etBody);
