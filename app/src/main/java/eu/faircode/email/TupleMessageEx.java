@@ -114,7 +114,7 @@ public class TupleMessageEx extends EntityMessage {
                 else if (prefs.contains(keyColor2))
                     color.add(prefs.getInt(keyColor2, Color.GRAY));
                 else
-                    color.add(null);
+                    color.add(TupleKeyword.getDefaultKeywordColor(context, keyword));
 
                 String keyTitle = "kwtitle." + keyword;
                 String def = TupleKeyword.getDefaultKeywordAlias(context, keyword);

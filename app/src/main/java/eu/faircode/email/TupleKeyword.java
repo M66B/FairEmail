@@ -118,4 +118,21 @@ public class TupleKeyword {
                 return keyword;
         }
     }
+
+    static Integer getDefaultKeywordColor(Context context, String keyword) {
+        switch (keyword) {
+            case "$label1": // Important
+                return Color.parseColor("#FF0000");
+            case "$label2": // Work
+                return Color.parseColor("#FF9900");
+            case "$label3": // Personal
+                return Color.parseColor("#009900");
+            case "$label4": // To do
+                return Color.parseColor("#3333FF");
+            case "$label5": // Later
+                return Color.parseColor("#993399");
+            default:
+                return null;
+        }
+    }
 }
