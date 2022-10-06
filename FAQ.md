@@ -3995,6 +3995,7 @@ The confusing Microsoft specific server error *User is authenticated but not con
 
 * External access was administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) about how an administrator can enable it again
 * SMTP was administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how an administrator can enable it again
+* Access was administratively restricted to specific apps only, like Thunderbird, Evolution, etc., and FairEmail isn't allowed
 * Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
 * There were too many login attempts in a too short time, for example by using multiple email clients at the same time
 * An ad blocker or DNS changer is being used
