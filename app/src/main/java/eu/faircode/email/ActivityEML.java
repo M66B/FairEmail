@@ -182,10 +182,7 @@ public class ActivityEML extends ActivityBase {
                         if (uri == null)
                             throw new FileNotFoundException();
 
-                        File dir = new File(context.getFilesDir(), "shared");
-                        if (!dir.exists())
-                            dir.mkdir();
-
+                        File dir = Helper.ensureExists(new File(context.getFilesDir(), "shared"));
                         File file = new File(dir, "email.eml");
 
                         Helper.copy(context, uri, file);

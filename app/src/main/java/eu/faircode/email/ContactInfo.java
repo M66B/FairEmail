@@ -340,9 +340,7 @@ public class ContactInfo {
                 final String domain = d.toLowerCase(Locale.ROOT);
                 final String email = info.email.toLowerCase(Locale.ROOT);
 
-                File dir = new File(context.getFilesDir(), "favicons");
-                if (!dir.exists())
-                    dir.mkdir();
+                File dir = Helper.ensureExists(new File(context.getFilesDir(), "favicons"));
 
                 try {
                     // check cache
@@ -511,10 +509,7 @@ public class ContactInfo {
         // Generated
         boolean identicon = false;
         if (info.bitmap == null && generated && !TextUtils.isEmpty(info.email)) {
-            File dir = new File(context.getFilesDir(), "generated");
-            if (!dir.exists())
-                dir.mkdir();
-
+            File dir = Helper.ensureExists(new File(context.getFilesDir(), "generated"));
             File[] files = dir.listFiles(new FilenameFilter() {
                 @Override
                 public boolean accept(File file, String name) {

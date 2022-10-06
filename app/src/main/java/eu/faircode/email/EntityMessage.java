@@ -577,9 +577,7 @@ public class EntityMessage implements Serializable {
     }
 
     static File getFile(Context context, Long id) {
-        File dir = new File(context.getFilesDir(), "messages");
-        if (!dir.exists())
-            dir.mkdir();
+        File dir = Helper.ensureExists(new File(context.getFilesDir(), "messages"));
         return new File(dir, id.toString());
     }
 
@@ -588,16 +586,12 @@ public class EntityMessage implements Serializable {
     }
 
     File getFile(Context context, int revision) {
-        File dir = new File(context.getFilesDir(), "revision");
-        if (!dir.exists())
-            dir.mkdir();
+        File dir = Helper.ensureExists(new File(context.getFilesDir(), "revision"));
         return new File(dir, id + "." + revision);
     }
 
     File getRefFile(Context context) {
-        File dir = new File(context.getFilesDir(), "references");
-        if (!dir.exists())
-            dir.mkdir();
+        File dir = Helper.ensureExists(new File(context.getFilesDir(), "references"));
         return new File(dir, id.toString());
     }
 
@@ -606,9 +600,7 @@ public class EntityMessage implements Serializable {
     }
 
     static File getRawFile(Context context, Long id) {
-        File dir = new File(context.getFilesDir(), "raw");
-        if (!dir.exists())
-            dir.mkdir();
+        File dir = Helper.ensureExists(new File(context.getFilesDir(), "raw"));
         return new File(dir, id + ".eml");
     }
 

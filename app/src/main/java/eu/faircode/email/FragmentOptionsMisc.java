@@ -1108,11 +1108,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 ? context.getExternalFilesDir(null)
                                 : context.getFilesDir());
 
-                        source = new File(source, "attachments");
-                        target = new File(target, "attachments");
-
-                        source.mkdirs();
-                        target.mkdirs();
+                        source = Helper.ensureExists(new File(source, "attachments"));
+                        target = Helper.ensureExists(new File(target, "attachments"));
 
                         File[] attachments = source.listFiles();
                         if (attachments != null)

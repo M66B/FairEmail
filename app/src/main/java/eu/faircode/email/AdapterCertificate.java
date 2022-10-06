@@ -132,10 +132,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
                             if (certificate == null)
                                 return null;
 
-                            File dir = new File(context.getFilesDir(), "shared");
-                            if (!dir.exists())
-                                dir.mkdir();
-
+                            File dir = Helper.ensureExists(new File(context.getFilesDir(), "shared"));
                             String name = Helper.sanitizeFilename(certificate.email);
                             File file = new File(dir, name + ".pem");
                             Helper.writeText(file, certificate.getPem());

@@ -2412,7 +2412,7 @@ public class FragmentCompose extends FragmentBase {
         if (s > 1 && s <= edit.length() &&
                 edit.charAt(s - 1) == '\n' &&
                 edit.charAt(s - 2) != '\n' &&
-                (s == edit.length() || edit.charAt(s) == '\n') )
+                (s == edit.length() || edit.charAt(s) == '\n'))
             etBody.setSelection(s - 1, s - 1);
 
         Pair<Integer, Integer> paragraph = StyleHelper.getParagraph(etBody);
@@ -3112,9 +3112,7 @@ public class FragmentCompose extends FragmentBase {
                 });
                 snackbar.show();
             } else {
-                File dir = new File(context.getFilesDir(), "photo");
-                if (!dir.exists())
-                    dir.mkdir();
+                File dir = Helper.ensureExists(new File(context.getFilesDir(), "photo"));
                 File file = new File(dir, working + ".jpg");
                 try {
                     photoURI = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
@@ -3410,9 +3408,7 @@ public class FragmentCompose extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
                 // Create files
-                File tmp = new File(context.getFilesDir(), "encryption");
-                if (!tmp.exists())
-                    tmp.mkdir();
+                File tmp = Helper.ensureExists(new File(context.getFilesDir(), "encryption"));
                 File input = new File(tmp, draft.id + "_" + session + ".pgp_input");
                 File output = new File(tmp, draft.id + "_" + session + ".pgp_output");
 
@@ -3759,9 +3755,7 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean check_certificate = prefs.getBoolean("check_certificate", true);
 
-                File tmp = new File(context.getFilesDir(), "encryption");
-                if (!tmp.exists())
-                    tmp.mkdir();
+                File tmp = Helper.ensureExists(new File(context.getFilesDir(), "encryption"));
 
                 DB db = DB.getInstance(context);
 

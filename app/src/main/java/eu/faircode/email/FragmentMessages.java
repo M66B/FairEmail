@@ -8113,9 +8113,7 @@ public class FragmentMessages extends FragmentBase
                 OutputStream out = null;
                 boolean inline = false;
 
-                File tmp = new File(context.getFilesDir(), "encryption");
-                if (!tmp.exists())
-                    tmp.mkdir();
+                File tmp = Helper.ensureExists(new File(context.getFilesDir(), "encryption"));
                 File plain = new File(tmp, message.id + ".pgp_out");
 
                 // Find encrypted data
