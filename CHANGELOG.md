@@ -4,6 +4,16 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1975 - 2022-10-06
+
+* Added Thunderbird label colors
+* Added decoding of Mandrill and Amazon tracking links
+* Fixed decoding of embedded messages
+* Reduced memory usage
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
 ### 1.1974 - 2022-10-03
 
 * Added long press date header to select messages
