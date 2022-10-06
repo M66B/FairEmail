@@ -55,6 +55,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.LocaleList;
+import android.os.Looper;
 import android.os.Parcel;
 import android.os.PowerManager;
 import android.os.StatFs;
@@ -2450,6 +2451,10 @@ public class Helper {
             this.buf = null;
             return in;
         }
+    }
+
+    static boolean isUiThread() {
+        return (Looper.myLooper() == Looper.getMainLooper());
     }
 
     // Cryptography

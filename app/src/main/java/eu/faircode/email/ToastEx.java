@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
-import android.os.Looper;
 import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -99,7 +98,7 @@ public class ToastEx extends Toast {
     @Override
     public void show() {
         // https://developer.android.com/preview/features/toasts
-        if (Looper.myLooper() != Looper.getMainLooper())
+        if (!Helper.isUiThread())
             Log.e("Toast from background");
 
         // https://stackoverflow.com/questions/56017928/toast-not-showing-in-android-q
