@@ -251,7 +251,7 @@ public class MessageHelper {
         System.setProperty("mail.mime.decodeparameters", "true");
         System.setProperty("mail.mime.encodeparameters", "true");
         System.setProperty("mail.mime.allowutf8", "false"); // InternetAddress, (MimeBodyPart: session), MimeUtility
-        System.setProperty("mail.mime.cachemultipart", "false");
+        System.setProperty("mail.mime.cachemultipart", "true");
 
         // https://docs.oracle.com/javaee/6/api/javax/mail/internet/MimeMultipart.html
         System.setProperty("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // default true, javax.mail.internet.ParseException: In parameter list
