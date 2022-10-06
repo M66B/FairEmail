@@ -657,6 +657,7 @@
     <string name="title_advanced_language">Jezik</string>
     <string name="title_advanced_language_system">Sistemski</string>
     <string name="title_advanced_lt">LanguageTool integracija</string>
+    <string name="title_advanced_lt_auto">Provjeri pasus nakon nove linije</string>
     <string name="title_advanced_deepl">DeepL integracija</string>
     <string name="title_advanced_virus_total">Integracija s VirusTotal-om</string>
     <string name="title_advanced_sdcard">Želim koristiti SD karticu</string>

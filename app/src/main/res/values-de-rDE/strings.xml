@@ -641,6 +641,7 @@
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">LanguageTool-Integration</string>
+    <string name="title_advanced_lt_auto">Absatz nach einer neuen Zeile prüfen</string>
     <string name="title_advanced_deepl">DeepL-Einbindung</string>
     <string name="title_advanced_virus_total">VirusTotal-Integration</string>
     <string name="title_advanced_sdcard">Ich möchte eine SD-Karte verwenden</string>
