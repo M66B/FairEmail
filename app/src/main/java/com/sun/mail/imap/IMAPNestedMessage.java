@@ -124,6 +124,11 @@ public class IMAPNestedMessage extends IMAPMessage {
 	return bs.size;
     }
 
+    @Override
+    public String getEncoding() throws MessagingException {
+	return bs.encoding;
+    }
+
     /*
      * Disallow setting flags on nested messages
      */
