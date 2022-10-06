@@ -912,6 +912,11 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 	    return;
 	}
 	InputStream is = getMimeStream();
+	if (this instanceof IMAPNestedMessage) {
+		String encoding = getEncoding();
+		if (encoding != null)
+			is = MimeUtility.decode(is, encoding);
+	}
 	try {
 	    // write out the bytes
 	    byte[] bytes = new byte[16*1024];
