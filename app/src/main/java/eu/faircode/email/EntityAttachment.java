@@ -150,14 +150,7 @@ public class EntityAttachment {
     }
 
     static File getFile(Context context, long id, String name) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean external_storage = prefs.getBoolean("external_storage", false);
-
-        File root = (external_storage
-                ? context.getExternalFilesDir(null)
-                : context.getFilesDir());
-
-        File dir = new File(root, "attachments");
+        File dir = new File(getRoot(context), "attachments");
         if (!dir.exists())
             dir.mkdir();
         String filename = Long.toString(id);
@@ -166,6 +159,16 @@ public class EntityAttachment {
         if (filename.length() > 127)
             filename = filename.substring(0, 127);
         return new File(dir, filename);
+    }
+
+    static File getRoot(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean external_storage = prefs.getBoolean("external_storage", false);
+
+        File root = (external_storage
+                ? context.getExternalFilesDir(null)
+                : context.getFilesDir());
+        return root;
     }
 
     static void copy(Context context, long oldid, long newid) {
