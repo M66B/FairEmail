@@ -29,7 +29,6 @@ import com.sun.mail.iap.ProtocolException;
 
 public class IMAPNestedMessage extends IMAPMessage {
     private IMAPMessage msg; // the enclosure of this nested message
-    private String encoding;
 
     /**
      * Package private constructor. <p>
@@ -37,10 +36,9 @@ public class IMAPNestedMessage extends IMAPMessage {
      * Note that nested messages have no containing folder, nor 
      * a message number.
      */
-    IMAPNestedMessage(IMAPMessage m, String enc, BODYSTRUCTURE b, ENVELOPE e, String sid) {
+    IMAPNestedMessage(IMAPMessage m, BODYSTRUCTURE b, ENVELOPE e, String sid) {
 	super(m._getSession());
 	msg = m;
-	encoding = enc;
 	bs = b;
 	envelope = e;
 	sectionId = sid;
@@ -124,11 +122,6 @@ public class IMAPNestedMessage extends IMAPMessage {
     @Override
     public int getSize() throws MessagingException {
 	return bs.size;
-    }
-
-    @Override
-    public String getEncoding() {
-        return encoding;
     }
 
     /*
