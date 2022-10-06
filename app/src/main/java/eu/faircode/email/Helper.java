@@ -2237,9 +2237,9 @@ public class Helper {
             exists.put(dir, true);
         }
 
-        if (!dir.exists())
+        if (!isUiThread() && !dir.exists())
             if (!dir.mkdirs())
-                Log.e("Cannot create directory=" + dir);
+                throw new IllegalArgumentException("Failed to create=" + dir);
 
         return dir;
     }
