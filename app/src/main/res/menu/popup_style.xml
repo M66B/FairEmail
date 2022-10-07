@@ -169,8 +169,17 @@
     </group>
 
     <group
+        android:id="@+id/group_style_quotes"
+        android:orderInCategory="12">
+        <item
+            android:id="@+id/menu_style_quotes"
+            android:icon="@drawable/twotone_horizontal_distribute_24"
+            android:title="@string/title_style_quotes" />
+    </group>
+
+    <group
         android:id="@+id/group_style_code"
-        android:orderInCategory="11">
+        android:orderInCategory="13">
         <item
             android:id="@+id/menu_style_code"
             android:icon="@drawable/twotone_code_24"
@@ -179,7 +188,7 @@
 
     <group
         android:id="@+id/group_style_clear"
-        android:orderInCategory="12">
+        android:orderInCategory="14">
         <item
             android:id="@+id/menu_style_clear"
             android:icon="@drawable/twotone_format_clear_24"

@@ -214,6 +214,7 @@ public class StyleHelper {
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
 
                 popupMenu.getMenu().findItem(R.id.menu_style_parenthesis).setEnabled(BuildConfig.DEBUG);
+                popupMenu.getMenu().findItem(R.id.menu_style_quotes).setEnabled(BuildConfig.DEBUG);
                 popupMenu.getMenu().findItem(R.id.menu_style_code).setEnabled(BuildConfig.DEBUG);
 
                 popupMenu.insertIcons(context);
@@ -250,7 +251,9 @@ public class StyleHelper {
                             } else if (groupId == R.id.group_style_strikethrough) {
                                 return setStrikeThrough(item);
                             } else if (groupId == R.id.group_style_parenthesis) {
-                                return setParenthesis(item);
+                                return surround(item, "(", ")");
+                            } else if (groupId == R.id.group_style_quotes) {
+                                return surround(item, "\"", "\"");
                             } else if (groupId == R.id.group_style_code) {
                                 return setCode(item);
                             } else if (groupId == R.id.group_style_clear) {
@@ -492,10 +495,10 @@ public class StyleHelper {
                         return true;
                     }
 
-                    private boolean setParenthesis(MenuItem item) {
+                    private boolean surround(MenuItem item, String before, String after) {
                         Log.breadcrumb("style", "action", "parenthesis");
-                        edit.insert(end, ")");
-                        edit.insert(start, "(");
+                        edit.insert(end, after);
+                        edit.insert(start, before);
                         return true;
                     }
 
