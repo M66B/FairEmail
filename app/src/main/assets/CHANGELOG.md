@@ -4,6 +4,14 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### Next version
+
+* © A means for the automated addition of intrinsically-paired punctuation marks to a string, through the use of text selection and interaction with a screen-based context menu
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
 ### 1.1975 - 2022-10-06
 
 * Added Thunderbird label colors
