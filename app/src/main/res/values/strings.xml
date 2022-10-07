@@ -1949,7 +1949,7 @@
     <string name="title_redo">Redo</string>
     <string name="title_insert_line">Insert line</string>
     <string name="title_select_block">Select block</string>
-    <string name="title_insert_parenthesis">Parenthesis</string>
+    <string name="title_insert_brackets">Bracket</string>
     <string name="title_insert_quotes">Quote</string>
     <string name="title_add">Add</string>
     <string name="title_browse">Open with</string>

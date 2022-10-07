@@ -111,7 +111,7 @@ public class EditTextCompose extends FixedEditText {
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                     try {
                         int order = 1000;
-                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_parenthesis, order++, context.getString(R.string.title_insert_parenthesis));
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_brackets, order++, context.getString(R.string.title_insert_brackets));
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_quotes, order++, context.getString(R.string.title_insert_quotes));
                     } catch (Throwable ex) {
                         Log.e(ex);
@@ -123,8 +123,8 @@ public class EditTextCompose extends FixedEditText {
                 public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
                     int start = getSelectionStart();
                     int end = getSelectionEnd();
-                    boolean selection = (BuildConfig.DEBUG && start >= 0 && start < end);
-                    menu.findItem(R.string.title_insert_parenthesis).setVisible(selection);
+                    boolean selection = (start >= 0 && start < end);
+                    menu.findItem(R.string.title_insert_brackets).setVisible(selection);
                     menu.findItem(R.string.title_insert_quotes).setVisible(selection);
                     return false;
                 }
@@ -133,7 +133,7 @@ public class EditTextCompose extends FixedEditText {
                 public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                     if (item.getGroupId() == Menu.CATEGORY_SECONDARY) {
                         int id = item.getItemId();
-                        if (id == R.string.title_insert_parenthesis)
+                        if (id == R.string.title_insert_brackets)
                             return surround("(", ")");
                         else if (id == R.string.title_insert_quotes)
                             return surround("\"", "\"");
