@@ -147,12 +147,22 @@ public class EditTextCompose extends FixedEditText {
                 }
 
                 private boolean surround(String before, String after) {
+                    Editable edit = getText();
                     int start = getSelectionStart();
                     int end = getSelectionEnd();
-                    boolean selection = (start >= 0 && start < end);
+                    boolean selection = (edit != null && start >= 0 && start < end);
                     if (selection) {
-                        getText().insert(end, after);
-                        getText().insert(start, before);
+                        int s = start - before.length();
+                        int e = end + after.length();
+                        if (s >= 0 && e < length() &&
+                                edit.subSequence(s, start).toString().equals(before) &&
+                                edit.subSequence(end, e).toString().equals(after)) {
+                            edit.delete(end, e);
+                            edit.delete(s, start);
+                        } else {
+                            edit.insert(end, after);
+                            edit.insert(start, before);
+                        }
                     }
                     return selection;
                 }
