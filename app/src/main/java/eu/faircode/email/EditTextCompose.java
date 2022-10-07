@@ -106,6 +106,58 @@ public class EditTextCompose extends FixedEditText {
         boolean undo_manager = prefs.getBoolean("undo_manager", false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            setCustomSelectionActionModeCallback(new ActionMode.Callback() {
+                @Override
+                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                    try {
+                        int order = 1000;
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_parenthesis, order++, context.getString(R.string.title_insert_parenthesis));
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_quotes, order++, context.getString(R.string.title_insert_quotes));
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                    return true;
+                }
+
+                @Override
+                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                    int start = getSelectionStart();
+                    int end = getSelectionEnd();
+                    boolean selection = (BuildConfig.DEBUG && start >= 0 && start < end);
+                    menu.findItem(R.string.title_insert_parenthesis).setVisible(selection);
+                    menu.findItem(R.string.title_insert_quotes).setVisible(selection);
+                    return false;
+                }
+
+                @Override
+                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                    if (item.getGroupId() == Menu.CATEGORY_SECONDARY) {
+                        int id = item.getItemId();
+                        if (id == R.string.title_insert_parenthesis)
+                            return surround("(", ")");
+                        else if (id == R.string.title_insert_quotes)
+                            return surround("\"", "\"");
+                    }
+                    return false;
+                }
+
+                @Override
+                public void onDestroyActionMode(ActionMode mode) {
+                    // Do nothing
+                }
+
+                private boolean surround(String before, String after) {
+                    int start = getSelectionStart();
+                    int end = getSelectionEnd();
+                    boolean selection = (start >= 0 && start < end);
+                    if (selection) {
+                        getText().insert(end, after);
+                        getText().insert(start, before);
+                    }
+                    return selection;
+                }
+            });
+
             setCustomInsertionActionModeCallback(new ActionMode.Callback() {
                 @Override
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {

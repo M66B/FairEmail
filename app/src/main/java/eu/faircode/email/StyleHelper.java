@@ -213,8 +213,6 @@ public class StyleHelper {
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_increase).setEnabled(maxLevel == null);
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
 
-                popupMenu.getMenu().findItem(R.id.menu_style_parenthesis).setEnabled(BuildConfig.DEBUG);
-                popupMenu.getMenu().findItem(R.id.menu_style_quotes).setEnabled(BuildConfig.DEBUG);
                 popupMenu.getMenu().findItem(R.id.menu_style_code).setEnabled(BuildConfig.DEBUG);
 
                 popupMenu.insertIcons(context);
@@ -250,10 +248,6 @@ public class StyleHelper {
                                 return setMark(item);
                             } else if (groupId == R.id.group_style_strikethrough) {
                                 return setStrikeThrough(item);
-                            } else if (groupId == R.id.group_style_parenthesis) {
-                                return surround(item, "(", ")");
-                            } else if (groupId == R.id.group_style_quotes) {
-                                return surround(item, "\"", "\"");
                             } else if (groupId == R.id.group_style_code) {
                                 return setCode(item);
                             } else if (groupId == R.id.group_style_clear) {
@@ -492,13 +486,6 @@ public class StyleHelper {
                         etBody.setText(edit);
                         etBody.setSelection(start, end);
 
-                        return true;
-                    }
-
-                    private boolean surround(MenuItem item, String before, String after) {
-                        Log.breadcrumb("style", "action", "parenthesis");
-                        edit.insert(end, after);
-                        edit.insert(start, before);
                         return true;
                     }
 

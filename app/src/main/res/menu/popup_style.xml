@@ -160,26 +160,8 @@
     </group>
 
     <group
-        android:id="@+id/group_style_parenthesis"
-        android:orderInCategory="11">
-        <item
-            android:id="@+id/menu_style_parenthesis"
-            android:icon="@drawable/twotone_data_object_24"
-            android:title="@string/title_style_parenthesis" />
-    </group>
-
-    <group
-        android:id="@+id/group_style_quotes"
-        android:orderInCategory="12">
-        <item
-            android:id="@+id/menu_style_quotes"
-            android:icon="@drawable/twotone_horizontal_distribute_24"
-            android:title="@string/title_style_quotes" />
-    </group>
-
-    <group
         android:id="@+id/group_style_code"
-        android:orderInCategory="13">
+        android:orderInCategory="11">
         <item
             android:id="@+id/menu_style_code"
             android:icon="@drawable/twotone_code_24"
@@ -188,7 +170,7 @@
 
     <group
         android:id="@+id/group_style_clear"
-        android:orderInCategory="14">
+        android:orderInCategory="12">
         <item
             android:id="@+id/menu_style_clear"
             android:icon="@drawable/twotone_format_clear_24"
