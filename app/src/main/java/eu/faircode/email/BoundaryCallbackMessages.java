@@ -886,6 +886,23 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         private static final String FROM = "from:";
 
+        boolean onServer() {
+            if (query == null)
+                return false;
+
+            for (String w : query.trim().split("\\s+"))
+                if (w.length() > 1 && w.startsWith("+"))
+                    return true;
+                else if (w.length() > 1 && w.startsWith("-"))
+                    return true;
+                else if (w.length() > 1 && w.startsWith("?"))
+                    return true;
+                else if (w.length() > FROM.length() && w.startsWith(FROM))
+                    return true;
+
+            return false;
+        }
+
         SearchTerm getTerms(boolean utf8, Flags flags, String[] keywords) {
             List<SearchTerm> or = new ArrayList<>();
             List<SearchTerm> and = new ArrayList<>();

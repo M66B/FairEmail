@@ -10015,6 +10015,15 @@ public class FragmentMessages extends FragmentBase
     static void search(
             final Context context, final LifecycleOwner owner, final FragmentManager manager,
             long account, long folder, boolean server, BoundaryCallbackMessages.SearchCriteria criteria) {
+        if (criteria.onServer()) {
+            if (account > 0 && folder > 0)
+                server = true;
+            else {
+                ToastEx.makeText(context, R.string.title_complex_search, Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
+
         if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
