@@ -189,62 +189,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
             Long account, Long folder, long[] exclude,
             BoundaryCallbackMessages.SearchCriteria criteria) {
 
-        String query = breakText(criteria.query);
-
-        List<String> word = new ArrayList<>();
-        List<String> plus = new ArrayList<>();
-        List<String> minus = new ArrayList<>();
-        List<String> opt = new ArrayList<>();
-        StringBuilder all = new StringBuilder();
-        for (String w : query.split("\\s+")) {
-            if (all.length() > 0)
-                all.append(' ');
-
-            if (w.length() > 1 && w.startsWith("+")) {
-                plus.add(w.substring(1));
-                all.append(w.substring(1));
-            } else if (w.length() > 1 && w.startsWith("-")) {
-                minus.add(w.substring(1));
-                all.append(w.substring(1));
-            } else if (w.length() > 1 && w.startsWith("?")) {
-                opt.add(w.substring(1));
-                all.append(w.substring(1));
-            } else {
-                word.add(w);
-                all.append(w);
-            }
-        }
-
-        StringBuilder sb = new StringBuilder();
-        if (plus.size() + minus.size() + opt.size() > 0) {
-            if (word.size() > 0)
-                sb.append(escape(TextUtils.join(" ", word)));
-
-            for (String p : plus) {
-                if (sb.length() > 0)
-                    sb.append(" AND ");
-                sb.append(escape(p));
-            }
-
-            for (String m : minus) {
-                if (sb.length() > 0)
-                    sb.append(" NOT ");
-                sb.append(escape(m));
-            }
-
-            if (sb.length() > 0) {
-                sb.insert(0, '(');
-                sb.append(')');
-            }
-
-            for (String o : opt) {
-                if (sb.length() > 0)
-                    sb.append(" OR ");
-                sb.append(escape(o));
-            }
-        }
-
-        String search = (sb.length() > 0 ? sb.toString() : escape(query));
+        String search = escape(breakText(criteria.query));
 
         String select = "";
         if (account != null)
@@ -280,7 +225,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
     }
 
     private static String escape(String word) {
-        return "\"" + word.replaceAll("\"", "\"\"") + "\"";
+        return "'" + word.replaceAll("'", "''") + "'";
     }
 
     static Cursor getIds(SQLiteDatabase db) {

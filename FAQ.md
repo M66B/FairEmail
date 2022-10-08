@@ -1146,8 +1146,7 @@ This will result in searching like this:
 ("apple" AND "banana" AND NOT "cherry") OR "nuts"
 ```
 
-Search expressions can be used for searching on the device via the search index and for searching on the email server,
-but not for searching on the device without search index for performance reasons.
+Search expressions can be used for searching on the email server only, and not for searching on the device.
 
 Since version 1.1733 it is possible to save searches, which means that a named entry in the navigation menu will be created to repeat the same search later.
 You can save a search after searching by tapping on the save button in the top action bar.
