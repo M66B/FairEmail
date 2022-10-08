@@ -1674,6 +1674,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_redo">Opnieuw</string>
     <string name="title_insert_line">Lijn invoegen</string>
     <string name="title_select_block">Selecteer blok</string>
+    <string name="title_insert_brackets" comment="title_insert_brackets&#10;Use as a verb, like copy, paste, select all, etc.">Haakjes</string>
+    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">Citeren</string>
     <string name="title_add">Toevoegen</string>
     <string name="title_browse">Open met</string>
     <string name="title_info">Info</string>

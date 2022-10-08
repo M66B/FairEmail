@@ -1664,6 +1664,8 @@
     <string name="title_redo">重做</string>
     <string name="title_insert_line">插入行</string>
     <string name="title_select_block">选择文本块</string>
+    <string name="title_insert_brackets" comment="title_insert_brackets&#10;Use as a verb, like copy, paste, select all, etc.">用括号括起来</string>
+    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">引用</string>
     <string name="title_add">添加</string>
     <string name="title_browse">打开方式</string>
     <string name="title_info">信息</string>

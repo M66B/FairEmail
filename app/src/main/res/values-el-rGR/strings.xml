@@ -641,6 +641,7 @@
     <string name="title_advanced_language">Γλώσσα</string>
     <string name="title_advanced_language_system">Σύστημα</string>
     <string name="title_advanced_lt">Ενσωμάτωση του LanguageTool</string>
+    <string name="title_advanced_lt_auto">Έλεγχος της παραγράφου μετά από μία νέα γραμμή</string>
     <string name="title_advanced_deepl">Ενσωμάτωση DeepL</string>
     <string name="title_advanced_virus_total">Ενσωμάτωση του VirusTotal</string>
     <string name="title_advanced_sdcard">Θέλω να χρησιμοποιήσω μια κάρτα SD</string>
@@ -1676,6 +1677,8 @@
     <string name="title_redo">Επαναφορά</string>
     <string name="title_insert_line">Εισαγωγή γραμμής</string>
     <string name="title_select_block">Επιλογή τμήματος</string>
+    <string name="title_insert_brackets" comment="title_insert_brackets&#10;Use as a verb, like copy, paste, select all, etc.">Σε αγκύλες</string>
+    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">Παράθεση</string>
     <string name="title_add">Προσθήκη</string>
     <string name="title_browse">Άνοιγμα με</string>
     <string name="title_info">Πληροφορίες</string>

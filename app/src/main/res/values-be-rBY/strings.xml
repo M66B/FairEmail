@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_search">FairEmail пошук</string>
+    <string name="app_search">Пошук FairEmail</string>
     <string name="app_changelog">Журнал змяненняў</string>
     <string name="app_welcome">FairEmail - гэта праграма электроннай пошты з адкрытым зыходным кодам, арыентаваная на канфідэнцыяльнасць і бяспеку. Па гэтай прычыне некаторыя функцыі могуць працаваць інакш, чым вы прывыклі.</string>
-    <string name="app_limitations">Напрыклад, паведамленні перафарматуюцца па змаўчанні, каб выдаліць небяспечныя элементы і палепшыць чытальнасць, а адкрыццё спасылак павінна быць пацверджана для бяспекі. Пры жаданні гэта можна адключыць.</string>
+    <string name="app_limitations">Напрыклад, для выдалення небяспечных элементаў і паляпшэння чытальнасці паведамленні падлягаюць фарматаванню, а адкрыццё спасылак для бяспекі патрабуе пацвярджэння. Пры жаданні гэта можна адключыць.</string>
     <string name="app_unsupported">Памылкі ў версіі Android гэтай канкрэтнай прылады выклікаюць збоі</string>
     <string name="app_data_loss">Усе даныя праграмы будуць страчаныя</string>
     <string name="app_continue">Усё роўна працягнуць</string>
@@ -12,7 +12,7 @@
     <string name="app_cake_remaining">Засталося месца ў памяці прылады: %1$s</string>
     <string name="app_cake_required">Мінімальна патрэбны памер сховішча: %1$s</string>
     <string name="app_updated">Апошняе абнаўленне: %1$s</string>
-    <string name="app_download">Спампавана з %1$s</string>
+    <string name="app_download">Загружана з %1$s</string>
     <string name="channel_service">Маніторынг</string>
     <string name="channel_send">Адправіць</string>
     <string name="channel_notification">Электронная пошта</string>
@@ -166,24 +166,35 @@
     <string name="title_edit_account">Рэдагаваць уліковы запіс</string>
     <string name="title_edit_identity">Рэдагаваць ідэнтыфікатар</string>
     <string name="title_edit_folder">Рэдагаваць папку</string>
+    <string name="title_disable_gmail">Адключыць праграму Gmail</string>
     <string name="title_setup">Налады</string>
     <string name="title_setup_help">Дапамога</string>
+    <string name="title_setup_quick">Хуткае наладжванне</string>
+    <string name="title_setup_intro">Наладжванне ўліковага запісу складаецца ўсяго з трох крокаў, пасля чаго вы можаце адпраўляць і атрымліваць электронную пошту</string>
+    <string name="title_setup_simple">Іншыя параметры мяняць не трэба</string>
+    <string name="title_setup_issue">FairEmail быў распрацаваны, каб дапамагчы вам абараніць вашу канфідэнцыяльнасць, праца па яго стварэнні заняла літаральна тысячы гадзін. Калі ў вас узніклі праблемы, перш чым пакінуць дрэнны водгук, звярніцеся да мяне па падтрымку. Я рады дапамагчы!</string>
     <string name="title_setup_quick_imap">Сервер IMAP для атрымання паведамленняў</string>
     <string name="title_setup_quick_smtp">Сервер SMTP для адпраўкі паведамленняў</string>
     <string name="title_setup_wizard">Майстар хуткага наладжвання</string>
     <string name="title_setup_wizard_tutorials">Навучальныя матэрыялы</string>
     <string name="title_setup_wizard_multiple">Майстар хуткага наладжвання можна неаднаразова выкарыстоўваць для наладжвання некалькіх уліковых запісаў</string>
     <string name="title_setup_wizard_new">Мне патрэбны новы адрас электроннай пошты</string>
+    <string name="title_setup_manual">Ручное наладжванне і параметры ўліковага запісу</string>
+    <string name="title_setup_documentation">Правільную канфігурацыю сервера электроннай пошты глядзіце ў дакументацыі вашага правайдара электроннай пошты</string>
     <string name="title_setup_account_identity_hint">Вы можаце наладзіць імя, колер і жэсты ў наладах уліковага запісу, а таксама наладзіць подпіс у наладах ідэнтыфікатара</string>
     <string name="title_setup_accounts">Акаўнты</string>
     <string name="title_setup_identities">Ідэнтыфікатары</string>
     <string name="title_setup_google_sign_in">Увайсці праз Google</string>
+    <string name="title_setup_gmail_rationale">Калі ласка, дайце дазвол на выбар уліковага запісу і чытанне вашага імя</string>
     <string name="title_setup_gmail_permissions">Google запытае дазвол на чытанне, напісанне, адпраўку і незваротнае выдаленне ўсёй вашай электроннай пошты. FairEmail ніколі не выдаліць вашыя паведамленні без вашай відавочнай згоды.</string>
+    <string name="title_setup_oauth_authorize">Аўтарызавацца</string>
     <string name="title_setup_quick_no_sent">Папка для адпраўленых паведамленняў не выбрана. Адпраўленыя паведамленні могуць не захавацца.</string>
     <string name="title_setup_quick_configure">Перайменаванне, рэдагаванне колеру, жэстаў і т. п.</string>
     <string name="title_setup_manage">Кіраваць</string>
-    <string name="title_setup_grant">Дазволіць</string>
+    <string name="title_setup_grant">Даць дазволы</string>
+    <string name="title_setup_grant_again">Даць неабходныя дазволы</string>
     <string name="title_setup_identity_what">Што такое ідэнтыфікатар?</string>
+    <string name="title_setup_permissions">Даць дазволы</string>
     <string name="title_setup_permissions_notify">Для паказу апавяшчэнняў пра новыя паведамленні (неабавязкова)</string>
     <string name="title_setup_permissions_notify_explanation">Дазволы на апавяшчэнні патрабуюцца для паказу апавяшчэнняў пра новыя паведамленні ў радку стану</string>
     <string name="title_setup_doze_explanation">Каб забяспечыць надзейную адпраўку і атрыманне паведамленняў у фонавым рэжыме, аптымізацыя батарэі для праграмы павінна быць адключана</string>
@@ -192,17 +203,28 @@
     <string name="title_setup_done">Гатова</string>
     <string name="title_setup_error">Памылка</string>
     <string name="title_setup_extra">Дадаткова</string>
+    <string name="title_setup_close">Закрыць налады</string>
+    <string name="title_setup_export">Экспартаваць налады</string>
+    <string name="title_setup_import">Імпартаваць налады</string>
+    <string name="title_setup_export_remark">        Паколькі файл налад змяшчае ўсе налады і інфармацыю аб уліковым запісе, ён зашыфраваны паролем.
+         Для паўторнага імпартавання налад спатрэбіцца пароль, не забывайце яго!
+    
+    </string>
     <string name="title_setup_export_do">Файл для экспартавання будзе змяшчаць усе налады і даныя, акрамя паведамленняў і выяў, на якія спасылаюцца подпісы</string>
     <string name="title_setup_password">Пароль</string>
+    <string name="title_setup_exported">Налады экспартаваны</string>
+    <string name="title_setup_imported">Налады імпартаваны</string>
     <string name="title_setup_import_invalid">Няправільны файл налад</string>
     <string name="title_importing_account">Уліковы запіс %1$s</string>
     <string name="title_importing_identity">Ідэнтыфікатар %1$s</string>
     <string name="title_importing_exists">Прапушчана: ужо існуе</string>
     <string name="title_importing_wizard">Запусціць майстар хуткага наладжвання для паўторнай праверкі аўтэнтыфікацыі</string>
+    <string name="title_setup_reorder_accounts">Упарадкаваць уліковыя запісы</string>
     <string name="title_setup_reorder_folders">Упарадкаваць папкі</string>
     <string name="title_setup_biometrics_enable">Уключыць</string>
     <string name="title_setup_biometrics_disable">Адключыць</string>
     <string name="title_setup_biometrics_unlock">Разблакіраваць</string>
+    <string name="title_setup_theme_red_green">Чырвоная/зялёная</string>
     <string name="title_setup_theme_grey">Шэрая</string>
     <string name="title_setup_theme_black">Чорная</string>
     <string name="title_setup_theme_white">Белая</string>
@@ -219,7 +241,7 @@
     <string name="title_advanced_hint_setup">Вы можаце наладзіць уліковы запіс, націснуўшы кнопку майстра хуткага наладжвання на галоўным экране налад.</string>
     <string name="title_advanced_section_main">Асноўныя</string>
     <string name="title_advanced_section_synchronize">Атрыманне</string>
-    <string name="title_advanced_section_send">Адправіць</string>
+    <string name="title_advanced_section_send">Адпраўка</string>
     <string name="title_advanced_section_display">Адлюстраванне</string>
     <string name="title_advanced_section_behavior">Паводзіны</string>
     <string name="title_advanced_section_privacy">Прыватнасць</string>
@@ -227,6 +249,7 @@
     <string name="title_advanced_when">Калі</string>
     <string name="title_advanced_always">Заўсёды атрымліваць паведамленні для гэтых уліковых запісаў</string>
     <string name="title_advanced_schedule">Расклад</string>
+    <string name="title_advanced_advanced">Дадаткова</string>
     <string name="title_advanced_no_date">Паведамленні без даты</string>
     <string name="title_advanced_unseen">Усе непрачытаныя паведамленні</string>
     <string name="title_advanced_flagged">Усе пазначаныя паведамленні</string>
@@ -271,6 +294,7 @@
     <string name="title_advanced_nav_unseen_drafts">Паказваць колькасць непрачытаных чарнавікоў у меню навігацыі</string>
     <string name="title_advanced_nav_pinned_count">Паказваць колькасць непрачытаных паведамленняў у замацаваным меню навігацыі</string>
     <string name="title_advanced_cards_shadow">Пры ўжыванні стылю карткі выкарыстоўваць цень для непрачытаных паведамленняў</string>
+    <string name="title_advanced_threading">Ланцугі паведамленняў</string>
     <string name="title_advanced_threading_unread">Паказваць колькасць непрачытаных паведамленняў у размовах</string>
     <string name="title_advanced_indentation">Водступ злева/справа для атрыманых/адпраўленых паведамленняў у размовах</string>
     <string name="title_advanced_highlight_unread">Вылучаць непрачытаныя паведамленні</string>
@@ -341,6 +365,7 @@
     <string name="title_advanced_external_search">Дазволіць іншым праграмам пошук у паведамленнях</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d паведамленняў праіндэксавана (%3$s)</string>
     <string name="title_advanced_classification">Класіфікаваць паведамленні</string>
+    <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Сістэмная</string>
     <string name="title_advanced_cleanup_attachments">Выдаліць укладанні ў старых паведамленнях</string>
     <string name="title_advanced_cleanup">Ачыстка</string>
@@ -393,12 +418,14 @@
     <string name="title_advanced_swipe_actions">Задаць жэсты</string>
     <string name="title_advanced_swipe_actions_hint">Гэта дазволіць задаць дзеянні пры правядзенні пальцам улева і ўправа для ўсіх уліковых запісаў IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Адчувальнасць правядзення пальцам улева/управа</string>
+    <string name="title_identity_name">Ваша імя</string>
     <string name="title_identity_color_hint">Колеры ідэнтыфікатараў маюць прыярытэт перад колерамі папак і ўліковых запісаў</string>
     <string name="title_advanced_sender">Дазволіць рэдагаванне адраса адпраўніка</string>
     <string name="title_advanced_sender_name">Выкарыстоўваць імя, калі адрас адпраўніка быў зменены</string>
     <string name="title_identity_unicode">Дазволіць фармат UTF-8 у загалоўках паведамленняў</string>
     <string name="title_identity_max_size">Максімальны памер паведамлення (МБ)</string>
     <string name="title_optional">Неабавязкова</string>
+    <string name="title_account_category">Катэгорыя</string>
     <string name="title_account_name_hint">Выкарыстоўваюцца для адрознення папак</string>
     <string name="title_account_interval_hint">Частата абнаўлення злучэння для апавяшчэнняў або частата праверкі новых паведамленняў</string>
     <string name="title_account_partial_fetch_hint">Адключайце гэту опцыю толькі ў выпадку пустых паведамленняў або пашкоджаных укладанняў</string>
@@ -409,6 +436,8 @@
     <string name="title_aliases">Псеўданімы</string>
     <string name="title_provider">Правайдар</string>
     <string name="title_custom">Карыстальніцкае</string>
+    <string name="title_host">Назва хоста</string>
+    <string name="title_user">Імя карыстальніка</string>
     <string name="title_password">Пароль</string>
     <string name="title_realm">Realm</string>
     <string name="title_primary">Асноўны</string>
@@ -526,11 +555,16 @@
     <string name="title_duplicate_in">Дублікат паведамлення ў %1$s</string>
     <string name="title_trashed_from">Выдаленыя паведамленні ад %1$s</string>
     <string name="title_subject_reply">Адк.: %1$s</string>
+    <string name="title_subject_forward">Прсл.: %1$s</string>
+    <string name="title_subject_reply_alt">Адк.: %1$s</string>
+    <string name="title_subject_forward_alt">Прсл.: %1$s</string>
+    <string name="title_seen">Пазначыць як прачытанае</string>
     <string name="title_hide">Схаваць</string>
     <string name="title_unhide">Паказаць</string>
     <string name="title_toggle_hide">Пераключыць бачнасць</string>
     <string name="title_flag">Да пазначаных</string>
     <string name="title_unflag">Прыбраць з пазначаных</string>
+    <string name="title_set_importance">Задаць важнасць</string>
     <string name="title_importance_low">Нізкая</string>
     <string name="title_importance_normal">Звычайны</string>
     <string name="title_importance_high">Высокая</string>
@@ -558,13 +592,16 @@
     <string name="title_trash">Выдаленыя</string>
     <string name="title_copy">Капіраваць &#8230;</string>
     <string name="title_copy_to">Капіраваць у &#8230;</string>
+    <string name="title_subscribe">Падпісацца</string>
     <string name="title_delete">Выдаліць</string>
     <string name="title_more">Яшчэ</string>
     <string name="title_less">Менш</string>
     <string name="title_spam">Спам</string>
     <string name="title_move">Перамясціць</string>
     <string name="title_copy_btn">Капіраваць</string>
+    <string name="title_keywords_btn">Ключавыя словы</string>
     <string name="title_message_rule">Стварыць правіла</string>
+    <string name="title_no_junk">Не спам</string>
     <string name="title_move_to">Перамясціць у &#8230;</string>
     <string name="title_move_to_folder">Перамясціць у &#8230;</string>
     <string name="title_archive">Архіў</string>
@@ -573,6 +610,8 @@
     <string name="title_reply_hard_bounce">Адправіць жорсткую адмову</string>
     <string name="title_move_undo">Перамяшчэнне ў %1$s (%2$d)</string>
     <string name="title_receipt_text">Гэта апавяшчэнне будзе паказана пры адлюстраванні паведамлення ў адрасата. Яно не гарантуе, што атрымальнік прачытаў змест паведамлення.</string>
+    <string name="title_no_stream_help">Гэтую праблему можна вырашыць, выбраўшы файл з дапамогай больш сучаснай праграмы дыспетчара файлаў або даўшы дазвол на чытанне файлаў</string>
+    <string name="title_no_permissions">Праграма, якая выкарыстоўвалася для выбару файла, не дала дазвол на яго чытанне</string>
     <string name="title_no_folder">Папкі не існуе</string>
     <string name="title_no_format">Будзе далучана зыходнае паведамленне</string>
     <string name="title_too_large">Паведамленне занадта вялікае для поўнага перафарматавання</string>
@@ -598,20 +637,25 @@
         Фарматаванне паведамленняў займае некаторы час, у залежнасці ад памеру паведамлення і хуткасці вашай прылады.
     </string>
     <string name="title_compose">Стварыць</string>
+    <string name="title_submitter">Адпраўлена:</string>
     <string name="title_from">Ад:</string>
     <string name="title_to">Каму:</string>
+    <string name="title_reply_to">Адказаць:</string>
     <string name="title_cc">Копія:</string>
     <string name="title_bcc">Схаваная копія:</string>
     <string name="title_via_identity">Праз:</string>
     <string name="title_sent">Адпраўленыя:</string>
+    <string name="title_received">Атрымана:</string>
     <string name="title_date">Дата:</string>
     <string name="title_stored">Захавана:</string>
     <string name="title_size">Памер:</string>
+    <string name="title_language">Мова:</string>
     <string name="title_subject">Тэма:</string>
     <string name="title_body_hint">Ваша паведамленне</string>
     <string name="title_discard">Адхіліць</string>
     <string name="title_save">Захаваць</string>
     <string name="title_send">Адправіць</string>
+    <string name="title_send_now">Адправіць цяпер</string>
     <string name="title_send_via">Адправіць праз</string>
     <string name="title_send_auto_archive">Архіваваць выходнае паведамленне</string>
     <string name="title_send_priority">Прыярытэт</string>
@@ -620,6 +664,7 @@
     <string name="title_style">Стыль</string>
     <string name="title_style_bold">Тлусты</string>
     <string name="title_style_italic">Курсіў</string>
+    <string name="title_style_underline">Падкрэслены</string>
     <string name="title_style_size">Памер</string>
     <string name="title_style_size_small">Маленькі</string>
     <string name="title_style_size_medium">Сярэдні</string>
@@ -695,6 +740,7 @@
     <string name="title_sort_on_time">Часу</string>
     <string name="title_sort_on_unread">Непрачытаныя</string>
     <string name="title_sort_on_starred">Пазначаныя</string>
+    <string name="title_sort_on_priority">Прыярытэту</string>
     <string name="title_sort_on_sender">Адпраўнік</string>
     <string name="title_sort_on_subject">Тэма</string>
     <string name="title_sort_on_size">Памеру</string>
@@ -705,6 +751,7 @@
     <string name="title_filter_deleted">Выдаленыя</string>
     <string name="title_filter_duplicates">Дублікаты</string>
     <string name="title_filter_trash">Выдаленыя</string>
+    <string name="title_zoom">Памер тэксту</string>
     <string name="title_select_found">Выбраць знойдзенае</string>
     <string name="title_view_thread">Праглядзець размову</string>
     <string name="title_language_all">Усе</string>
@@ -723,6 +770,8 @@
     <string name="title_answer_standard">Па змаўчанні</string>
     <string name="title_answer_favorite">Пазначыць</string>
     <string name="title_answer_snippet">Фрагмент</string>
+    <string name="title_rule_noop">Няма дзеяння</string>
+    <string name="title_rule_seen">Пазначыць як прачытанае</string>
     <string name="title_rule_hide">Схаваць</string>
     <string name="title_rule_snooze">Адкласці</string>
     <string name="title_rule_flag">Да пазначаных</string>
@@ -760,10 +809,12 @@
     <string name="title_legend_section_folders">Папкі</string>
     <string name="title_legend_section_messages">Паведамленні</string>
     <string name="title_legend_section_compose">Стварыць</string>
+    <string name="title_legend_section_keyboard">Клавіятура</string>
     <string name="title_legend_folder_connected">Папка падключана</string>
     <string name="title_legend_folder_disconnected">Папка адключана</string>
     <string name="title_legend_download_on">Аўтаматычная загрузка зместу паведамлення</string>
     <string name="title_legend_download_off">Загрузка зместу паведамлення па патрабаванні</string>
+    <string name="title_legend_connected">Падключана</string>
     <string name="title_legend_closing">Закрыццё</string>
     <string name="title_legend_inbox">Уваходныя</string>
     <string name="title_legend_outbox">Выходныя</string>
@@ -774,14 +825,17 @@
     <string name="title_legend_junk">Спам</string>
     <string name="title_legend_primary">Асноўнае</string>
     <string name="title_legend_subscribed">Падпісаны на</string>
+    <string name="title_legend_rule">Мае правілы</string>
     <string name="title_legend_similar">Пошук падобных паведамленняў</string>
     <string name="title_legend_notify">Апавяшчаць пра новыя паведамленні</string>
     <string name="title_legend_sync_keep">Колькасць дзён для сінхранізацыі / захоўвання паведамленняў</string>
     <string name="title_legend_download_fetch">Колькасць загружаных паведамленняў / атрыманых загалоўкаў</string>
     <string name="title_legend_thread">Размова</string>
+    <string name="title_legend_draft">Мае чарнавік</string>
     <string name="title_legend_sensitivity_personal">Асабісты</string>
     <string name="title_legend_sensitivity_private">Прыватны</string>
     <string name="title_legend_sensitivity_confidential">Канфідэнцыяльны</string>
+    <string name="title_legend_signed">Падпісана</string>
     <string name="title_legend_browsed">Прагледжана або знойдзена</string>
     <string name="title_legend_flagged">Пазначанае</string>
     <string name="title_legend_original">Прагляд зыходнага паведамлення</string>
@@ -789,6 +843,7 @@
     <string name="title_legend_roaming">Роўмінг</string>
     <string name="title_legend_expander">Разгарнуць</string>
     <string name="title_legend_avatar">Аватар</string>
+    <string name="title_legend_create_rule">Стварыць правіла</string>
     <string name="title_legend_show_full">Паказаць зыходнае паведамленне</string>
     <string name="title_legend_show_reformatted">Паказаць перафарматаванае паведамленне</string>
     <string name="title_legend_edit">Рэдагаваць</string>
@@ -800,6 +855,7 @@
     <string name="title_legend_a">Архіў</string>
     <string name="title_legend_c">Стварыць</string>
     <string name="title_legend_n">Далей</string>
+    <string name="title_legend_p">Папярэдняе</string>
     <string name="title_legend_r">Адказаць</string>
     <string name="title_hint_folder_actions">Доўгае націсканне на папку адкрые меню выбару такіх опцый як, дадаванне папкі ў меню навігацыі для хуткага доступу і т. п.</string>
     <string name="title_hint_folder_sync">Для абмежавання выкарыстання батарэі і сеткі, не ўсе папкі і не ўсе паведамленні будуць сінхранізаваны па змаўчанні</string>
@@ -814,6 +870,7 @@
     <string name="title_hint_junk">Фільтрацыя непажаданай пошты павінна выконвацца серверам электроннай пошты, і яна не можа быць выканана надзейна на прыладзе з абмежаваным магчымасцямі і сілкаваннем ад батарэі.</string>
     <string name="title_hint_junk_learn">Перамяшчаючы паведамленні ў папку са спамам і з яе, вы дапаможаце паштоваму серверу \"даведваецца\", што такое спам</string>
     <string name="title_hint_eml">Гэта кароткі змест неапрацаванага файла паведамлення. Захавайце неапрацаванае паведамленне з дапамогай значка захавання на панэлі дзеянняў, каб праглядзець увесь змест.</string>
+    <string name="title_open_link">Адкрыць спасылку</string>
     <string name="title_yes">Так</string>
     <string name="title_no">Не</string>
     <string name="title_later">Пазней</string>
@@ -822,15 +879,20 @@
     <string name="title_redo">Паўтарыць</string>
     <string name="title_select_block">Выбраць блок</string>
     <string name="title_add">Дадаць</string>
+    <string name="title_browse">Адкрыць з дапамогай</string>
     <string name="title_info">Інфармацыя</string>
+    <string name="title_download">Загрузіць</string>
     <string name="title_report">Справаздача</string>
     <string name="title_fix">Выправіць</string>
     <string name="title_show">Паказаць</string>
     <string name="title_enable">Уключыць</string>
     <string name="title_enabled">Уключана</string>
     <string name="title_disable">Адключыць</string>
+    <string name="title_executing">Выкананне</string>
+    <string name="title_completed">Завершана</string>
     <string name="title_clipboard_copy">Капіраваць у буфер абмену</string>
     <string name="title_no_body">Тэкст паведамлення не знойдзены</string>
+    <string name="title_via">Праз: %1$s</string>
     <string name="title_1hour">1 гадзіна</string>
     <string name="title_1day">1 дзень</string>
     <string name="title_1week">1 тыдзень</string>
@@ -870,8 +932,10 @@
     <string name="title_widget_folder_unified">Агульныя папкі паштовай скрыні</string>
     <string name="title_widget_unseen">Толькі непрачытаныя паведамленні</string>
     <string name="title_widget_flagged">Толькі пазначаныя паведамленні</string>
+    <string name="title_widget_font_size">Памер тэксту</string>
     <string name="title_widget_refresh">Паказваць кнопку абнаўлення паведамленняў</string>
     <string name="title_widget_compose">Паказаць кнопку для стварэння новага паведамлення</string>
+    <string name="title_accessibility_collapsed">Згорнута</string>
     <string name="title_accessibility_expanded">Разгорнута</string>
     <string name="title_accessibility_seen">Прачытана</string>
     <string name="title_accessibility_unseen">Непрачытанае</string>
@@ -890,6 +954,7 @@
     <string name="title_accessibility_unflagged">Не пазначаныя</string>
     <string name="title_accessibility_collapse">Згарнуць</string>
     <string name="title_accessibility_expand">Разгарнуць</string>
+    <string name="title_accessibility_view_help">Паглядзець даведку</string>
     <string name="title_accessibility_selected">Выбраныя</string>
     <string name="title_accessibility_answered">З адказам</string>
     <string name="title_accessibility_filter_out_seen">Пераключыць фільтр прачытаных паведамленняў</string>
@@ -914,9 +979,9 @@
         <item>15 seconds</item>
         <item>30 seconds</item>
         <item>1 хвіліна</item>
-        <item>2 minutes</item>
-        <item>5 minutes</item>
-        <item>10 minutes</item>
+        <item>2 хвіліны</item>
+        <item>5 хвілін</item>
+        <item>10 хвілін</item>
     </string-array>
     <string-array name="startupNames">
         <item>Агульная паштовая скрыня</item>
@@ -952,6 +1017,13 @@
         <item>Каму</item>
         <item>Копія</item>
         <item>Схаваная копія</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>One minute</item>
+        <item>2 хвіліны</item>
+        <item>5 хвілін</item>
+        <item>10 хвілін</item>
+        <item>20 хвілін</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Нізкі</item>

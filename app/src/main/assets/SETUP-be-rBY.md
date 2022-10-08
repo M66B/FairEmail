@@ -1,41 +1,41 @@
-# Setup help
+# Дапаможнік па наладжванню
 
-Setting up FairEmail is fairly simple. Для атрымання электроннай пошты вам будзе неабходна дадаць хаця б адзін уліковы запіс і хаця б адзін ідэнтыфікатар для яе адпраўкі. Хуткае наладжванне дазволіць за адзін крок хутка дадаць уліковы запіс і ідэнтыфікатар для большасці асноўных пастаўшчыкоў.
+Наладзіць FairEmail даволі проста. Для атрымання электроннай пошты вам будзе неабходна дадаць хаця б адзін уліковы запіс і хаця б адзін ідэнтыфікатар для яе адпраўкі. Хуткае наладжванне дазволіць за адзін крок хутка дадаць уліковы запіс і ідэнтыфікатар для большасці асноўных пастаўшчыкоў.
 
-## Requirements
+## Патрабаванні
 
-An internet connection is required to set up accounts and identities.
+Для наладжвання ўліковых запісаў і ідэнтыфікатараў патрабуецца падключэнне да Інтэрнэту.
 
-## Quick setup
+## Хуткае наладжванне
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+Проста выберыце адпаведнага правайдара (пастаўшчыка) або *Іншага правайдара* і ўвядзіце сваё імя, адрас электроннай пошты і пароль, а затым націсніце *Праверыць*.
 
-This will work for most email providers.
+Гэта будзе працаваць для большасці пастаўшчыкоў электроннай пошты.
 
 Калі хуткае наладжванне не спрацуе, вам прыйдзецца наладзіць уліковы запіс і ідэнтыфікатар уручную. Інструкцыі глядзіце ніжэй.
 
-## Set up account - to receive email
+## Наладжванне ўліковага запісу для атрымання электроннай пошты
 
-To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Select a provider from the list, enter the username, which is mostly your email address and enter your password. Націсніце кнопку *Праверыць*, каб дазволіць FairEmail падключыцца да сервера электроннай пошты і атрымаць спіс сістэмных папак. Пасля выбару сістэмнай папкі вы можаце дадаць уліковы запіс, націснуўшы *Захаваць*.
+Каб дадаць уліковы запіс, націсніце *Ручное наладжванне і дадатковыя параметры*, націсніце *Уліковыя запісы*, а затым націсніце кнопку «плюс» унізе і выберыце IMAP (або POP3). Выберыце правайдара са спісу, увядзіце імя карыстальніка, якое ў большасці выпадкаў з'яўляецца вашым адрасам электроннай пошты, і ўвядзіце пароль. Націсніце кнопку *Праверыць*, каб дазволіць FairEmail падключыцца да сервера электроннай пошты і атрымаць спіс сістэмных папак. Пасля выбару сістэмнай папкі вы можаце дадаць уліковы запіс, націснуўшы *Захаваць*.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Калі вашага правайдара няма ў спісе пастаўшчыкоў, а такое магчыма - іх тысячы, выберыце опцыю *Карыстальніцкі*. Увядзіце імя дамена, напрыклад *gmail.com* і націсніце *Атрымаць налады*. Калі ваш правайдар падтрымлівае [аўтаматычнае выяўленне](https://tools.ietf.org/html/rfc6186), FairEmail запоўніць імя хоста і нумар порта, у адваротным выпадку праверце ў дакументацыі вашага правайдара правільнае імя хоста IMAP, нумар порта і тып пратакола шыфравання (SSL/TLS або STARTTLS). Больш падрабязна пра гэта глядзіце [тут](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Каб адпраўляць электронную пошту наладзьце ідэнтыфікатар
 
-Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Для дадавання ідэнтыфікатара, па аналогіі з папярэднім пунктам націсніце *Ручное наладжванне і дадатковыя параметры*, націсніце на *Ідэнтыфікатары*, а затым націсніце кнопку «плюс» унізе. Увядзіце імя, якое павінна адлюстроўвацца ў радку «адпраўнік» для паведамленняў, якія вы адпраўляеце, і выберыце звязаны ўліковы запіс. Націсніце *Захаваць*, каб дадаць ідэнтыфікатар.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
+Калі ўліковы запіс быў наладжаны ўручную, вам, хутчэй за ўсё, прыйдзецца выканаць ручное наладжванне ідэнтыфікатара. Увядзіце імя дамена, напрыклад *gmail.com* і націсніце *Атрымаць налады*. Калі ваш правайдар падтрымлівае [аўтаматычнае выяўленне](https://tools.ietf.org/html/rfc6186), FairEmail запоўніць імя хоста і нумар порта, у адваротным выпадку праверце ў дакументацыі вашага правайдара правільнае імя хоста SMTP, нумар порта і тып пратакола шыфравання (SSL/TLS або STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Глядзіце [гэтыя частыя пытанні і адказы](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) пра выкарыстанне псеўданімаў.
 
-## Grant permissions - to access contact information
+## Дайце дазволы для доступу да кантактнай інфармацыі
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+Калі вы хочаце шукаць адрасы электроннай пошты, адлюстроўваць фатаграфіі кантактаў і г.д., вам будзе неабходна даць дазвол FairEmail на чытанне кантактнай інфармацыі Проста націсніце *Даць дазволы* і выберыце *Дазволіць*.
 
-## Setup battery optimizations - to continuously receive emails
+## Наладзьце аптымізацыю батарэі, каб пастаянна атрымліваць паведамленні
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
+У апошніх версіях Android для памяншэння выкарыстання батарэі пераводзіць праграмы ў рэжым сну, калі экран на некаторы час выключаны. Калі вы хочаце атрымліваць новыя паведамленні без затрымак, вам неабходна адключыць аптымізацыю батарэі для FairEmail. Націсніце *Кіраванне* і выконвайце інструкцыі.
 
-## Questions or problems
+## Пытанні або праблемы
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Калі ў вас ёсць пытанне або праблема, звяртайцеся па дапамогу [па гэтай спасылцы](https://github.com/M66B/FairEmail/blob/master/FAQ.md).

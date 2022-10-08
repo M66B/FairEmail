@@ -1680,6 +1680,8 @@
     <string name="title_redo">Refazer</string>
     <string name="title_insert_line">Inserir linha</string>
     <string name="title_select_block">Selecionar bloco</string>
+    <string name="title_insert_brackets" comment="title_insert_brackets&#10;Use as a verb, like copy, paste, select all, etc.">Colchete</string>
+    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">Citar</string>
     <string name="title_add">Adicionar</string>
     <string name="title_browse">Abrir com</string>
     <string name="title_info">Informações</string>

@@ -1670,6 +1670,8 @@
     <string name="title_redo">やり直す</string>
     <string name="title_insert_line">線を挿入</string>
     <string name="title_select_block">ブロックを選択</string>
+    <string name="title_insert_brackets" comment="title_insert_brackets&#10;Use as a verb, like copy, paste, select all, etc.">括弧</string>
+    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">引用</string>
     <string name="title_add">追加</string>
     <string name="title_browse">アプリで開く</string>
     <string name="title_info">Info</string>

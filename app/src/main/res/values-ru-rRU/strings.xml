@@ -1708,6 +1708,8 @@
     <string name="title_redo">Восстановить</string>
     <string name="title_insert_line">Вставить строку</string>
     <string name="title_select_block">Выбор блока</string>
+    <string name="title_insert_brackets" comment="title_insert_brackets&#10;Use as a verb, like copy, paste, select all, etc.">Взять в скобки</string>
+    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">Цитировать</string>
     <string name="title_add">Добавить</string>
     <string name="title_browse">В браузере</string>
     <string name="title_info">Информация</string>
