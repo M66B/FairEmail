@@ -4,9 +4,10 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### Next version
+### 1.1976 - 2022-10-08
 
-* © A means for the automated addition of intrinsically-paired punctuation marks to a string, through the use of text selection and interaction with a screen-based context menu
+* © A means for the automated addition of intrinsically-paired punctuation marks to a text, through the use of text selection and interaction with a screen-based context menu
+* Optimized storing of messages
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated Public Suffix List
