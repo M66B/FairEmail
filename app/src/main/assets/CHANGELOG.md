@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1977 - 2022-10-08
+
+* Copy/delete instead of move message files
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1976 - 2022-10-08
 
 * © A means for the automated addition of intrinsically-paired punctuation marks to a text, through the use of text selection and interaction with a screen-based context menu
