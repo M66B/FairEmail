@@ -2858,8 +2858,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                     File file = message.getFile(context);
-                    if (!file.exists())
+                    if (!file.exists()) {
+                        try {
+                            db.beginTransaction();
+
+                            db.message().resetMessageContent(message.id);
+                            EntityOperation.queue(context, message, EntityOperation.BODY);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
                         return null;
+                    }
 
                     if (file.length() > 0)
                         signed_data = false;
