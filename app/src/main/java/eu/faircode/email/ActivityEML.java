@@ -300,13 +300,13 @@ public class ActivityEML extends ActivityBase {
                                                     ImageHelper.fitDrawable(d, w == null ? 0 : w, h == null ? 0 : h, 1.0f, tvBody);
                                                 } catch (Throwable ex) {
                                                     Log.e(ex);
-                                                    d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
                                                 }
                                                 break;
                                             }
                                         if (d == null)
-                                            d = ContextCompat.getDrawable(context, R.drawable.twotone_image_24);
-                                    }
+                                            d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
+                                    } else
+                                        d = ContextCompat.getDrawable(context, R.drawable.twotone_image_24);
                                 } else {
                                     d = ContextCompat.getDrawable(context, R.drawable.twotone_my_location_24);
                                     d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
