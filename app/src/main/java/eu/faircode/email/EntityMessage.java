@@ -582,7 +582,7 @@ public class EntityMessage implements Serializable {
         return new File(dir, id.toString());
     }
 
-    static void convert(Context context) {
+    static void convert(Context context, boolean silent) {
         File root = new File(context.getFilesDir(), "messages");
         File[] files = root.listFiles();
         if (files == null)
@@ -595,7 +595,10 @@ public class EntityMessage implements Serializable {
                     Helper.copy(file, target);
                     file.delete();
                 } catch (Throwable ex) {
-                    Log.e(ex);
+                    if (silent)
+                        Log.i(ex);
+                    else
+                        Log.e(ex);
                 }
     }
 

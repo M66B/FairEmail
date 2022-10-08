@@ -2481,13 +2481,13 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
-                        EntityMessage.convert(context);
+                        EntityMessage.convert(context, true);
                     }
                 }).addMigrations(new Migration(246, 247) {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
-                        EntityMessage.convert(context);
+                        EntityMessage.convert(context, false);
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
