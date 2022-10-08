@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1978 - 2022-10-08
+
+* Fixed orphan message files
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1977 - 2022-10-08
 
 * Copy/delete instead of move message files
