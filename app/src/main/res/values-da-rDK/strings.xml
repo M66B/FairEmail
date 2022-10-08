@@ -1118,6 +1118,7 @@
     <string name="title_no_folder">Mappe findes ikke</string>
     <string name="title_no_format">Den oprindeligt modtagne besked bliver inkluderet</string>
     <string name="title_no_search">Søg på server er utilgængelig for denne konto</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Vælg en mappe til en kompleks søgning</string>
     <string name="title_too_large">Besked for stor til fuldstændig omformatering</string>
     <string name="title_truncated">Besked for stor til fuldstændig visning</string>
     <string name="title_insufficient_memory">Besked for stor ift. tilgængelige hukommelse (%1$d)</string>
@@ -1684,8 +1685,8 @@
     <string name="title_redo">Annullér fortryd</string>
     <string name="title_insert_line">Indsæt linje</string>
     <string name="title_select_block">Vælg blok</string>
-    <string name="title_insert_brackets" comment="title_insert_brackets&#10;Use as a verb, like copy, paste, select all, etc.">Beslag</string>
-    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">Citér</string>
+    <string name="title_insert_brackets">Beslag</string>
+    <string name="title_insert_quotes">Citér</string>
     <string name="title_add">Tilføj</string>
     <string name="title_browse">Åbn med</string>
     <string name="title_info">Info</string>

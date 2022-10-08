@@ -669,6 +669,7 @@
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Системи</string>
     <string name="title_advanced_lt">Інтеграція з LanguageTool</string>
+    <string name="title_advanced_lt_auto">Перевірити абзац після нового рядка</string>
     <string name="title_advanced_deepl">Інтеграція з DeepL</string>
     <string name="title_advanced_virus_total">Інтеграція з VirusTotal</string>
     <string name="title_advanced_sdcard">Я хочу використовувати SD-карту</string>
@@ -1141,6 +1142,7 @@
     <string name="title_no_folder">Тека не існує</string>
     <string name="title_no_format">Початкове повідомлення буде включено</string>
     <string name="title_no_search">Пошук на сервері недоступний для цього облікового запису</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Виберіть теку для складного пошуку</string>
     <string name="title_too_large">Лист завеликий для повного переформатування</string>
     <string name="title_truncated">Лист завеликий для показу</string>
     <string name="title_insufficient_memory">Повідомлення занадто велике для доступної пам\'яті (%1$d)</string>
@@ -1705,6 +1707,8 @@
     <string name="title_redo">Повторити</string>
     <string name="title_insert_line">Вставити текст</string>
     <string name="title_select_block">Виберіть блок</string>
+    <string name="title_insert_brackets">Дужки</string>
+    <string name="title_insert_quotes">Цитата</string>
     <string name="title_add">Додати</string>
     <string name="title_browse">Відкрити за допомогою</string>
     <string name="title_info">Інформація</string>

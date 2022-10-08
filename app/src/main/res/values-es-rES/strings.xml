@@ -1678,8 +1678,8 @@
     <string name="title_redo">Rehacer</string>
     <string name="title_insert_line">Insertar línea</string>
     <string name="title_select_block">Seleccionar bloque</string>
-    <string name="title_insert_brackets" comment="title_insert_brackets&#10;Use as a verb, like copy, paste, select all, etc.">Corchete</string>
-    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">Comillas</string>
+    <string name="title_insert_brackets">Corchete</string>
+    <string name="title_insert_quotes">Comillas</string>
     <string name="title_add">Agregar</string>
     <string name="title_browse">Abrir con</string>
     <string name="title_info">Información</string>

@@ -1113,6 +1113,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_no_folder">Map bestaat niet</string>
     <string name="title_no_format">Het oorspronkelijke ontvangen bericht zal worden opgenomen</string>
     <string name="title_no_search">Zoeken op server is niet beschikbaar voor dit account</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Selecteer een map voor een complexe zoekopdracht</string>
     <string name="title_too_large">Bericht te groot om volledig opnieuw op te maken</string>
     <string name="title_truncated">Bericht is te groot om volledig weer te geven</string>
     <string name="title_insufficient_memory">Bericht te groot voor het beschikbare geheugen (%1$d)</string>
@@ -1674,8 +1675,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_redo">Opnieuw</string>
     <string name="title_insert_line">Lijn invoegen</string>
     <string name="title_select_block">Selecteer blok</string>
-    <string name="title_insert_brackets" comment="title_insert_brackets&#10;Use as a verb, like copy, paste, select all, etc.">Haakjes</string>
-    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">Citeer</string>
+    <string name="title_insert_brackets">Haakjes</string>
+    <string name="title_insert_quotes">Citeer</string>
     <string name="title_add">Toevoegen</string>
     <string name="title_browse">Open met</string>
     <string name="title_info">Info</string>

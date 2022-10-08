@@ -1705,7 +1705,7 @@
     <string name="title_redo">Znovu</string>
     <string name="title_insert_line">Vložit řádek</string>
     <string name="title_select_block">Vybrat blok</string>
-    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">Citace</string>
+    <string name="title_insert_quotes">Citace</string>
     <string name="title_add">Přidat</string>
     <string name="title_browse">Otevřít s</string>
     <string name="title_info">Info</string>

@@ -1677,8 +1677,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_redo">Yinele</string>
     <string name="title_insert_line">Satır ekle</string>
     <string name="title_select_block">Blok seç</string>
-    <string name="title_insert_brackets" comment="title_insert_brackets&#10;Use as a verb, like copy, paste, select all, etc.">Parantez içine al</string>
-    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">Alıntıla</string>
+    <string name="title_insert_brackets">Parantez içine al</string>
+    <string name="title_insert_quotes">Alıntıla</string>
     <string name="title_add">Ekle</string>
     <string name="title_browse">Birlikte aç</string>
     <string name="title_info">Bilgi</string>

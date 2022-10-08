@@ -1683,6 +1683,8 @@
     <string name="title_redo">Təkrar et</string>
     <string name="title_insert_line">Sətir daxil et</string>
     <string name="title_select_block">Bloku seç</string>
+    <string name="title_insert_brackets">Mötərizə</string>
+    <string name="title_insert_quotes">Sitat</string>
     <string name="title_add">Əlavə et</string>
     <string name="title_browse">Aç</string>
     <string name="title_info">Məlumat</string>

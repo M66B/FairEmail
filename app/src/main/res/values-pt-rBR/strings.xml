@@ -1115,6 +1115,7 @@
     <string name="title_no_folder">A pasta não existe</string>
     <string name="title_no_format">Mensagem originalmente recebida será incluída</string>
     <string name="title_no_search">Pesquisa no servidor não está disponível para esta conta</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Selecione uma pasta para uma busca complexa</string>
     <string name="title_too_large">Mensagem muito grande para reformar completamente</string>
     <string name="title_truncated">Mensagem muito grande para exibir completamente</string>
     <string name="title_insufficient_memory">Mensagem muito grande para a memória disponível (%1$d)</string>
@@ -1680,8 +1681,8 @@
     <string name="title_redo">Refazer</string>
     <string name="title_insert_line">Inserir linha</string>
     <string name="title_select_block">Selecionar bloco</string>
-    <string name="title_insert_brackets" comment="title_insert_brackets&#10;Use as a verb, like copy, paste, select all, etc.">Colchete</string>
-    <string name="title_insert_quotes" comment="title_insert_quotes&#10;Use as a verb, like copy, paste, select all, etc.">Citar</string>
+    <string name="title_insert_brackets">Colchete</string>
+    <string name="title_insert_quotes">Citar</string>
     <string name="title_add">Adicionar</string>
     <string name="title_browse">Abrir com</string>
     <string name="title_info">Informações</string>
