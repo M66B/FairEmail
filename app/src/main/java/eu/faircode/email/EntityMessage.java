@@ -592,8 +592,8 @@ public class EntityMessage implements Serializable {
                 try {
                     long id = Long.parseLong(file.getName());
                     File target = getFile(context, id);
-                    if (!file.renameTo(target))
-                        throw new IllegalArgumentException("Failed renaming to " + target);
+                    Helper.copy(file, target);
+                    file.delete();
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
