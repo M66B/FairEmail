@@ -884,6 +884,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         Long after = null;
         Long before = null;
 
+        private static final String FROM = "from:";
+
         SearchTerm getTerms(boolean utf8, Flags flags, String[] keywords) {
             List<SearchTerm> or = new ArrayList<>();
             List<SearchTerm> and = new ArrayList<>();
@@ -904,6 +906,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 List<String> plus = new ArrayList<>();
                 List<String> minus = new ArrayList<>();
                 List<String> opt = new ArrayList<>();
+                List<String> from = new ArrayList<>();
                 StringBuilder all = new StringBuilder();
                 for (String w : search.trim().split("\\s+")) {
                     if (all.length() > 0)
@@ -918,13 +921,15 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     } else if (w.length() > 1 && w.startsWith("?")) {
                         opt.add(w.substring(1));
                         all.append(w.substring(1));
+                    } else if (w.length() > FROM.length() && w.startsWith(FROM)) {
+                        from.add(w.substring(FROM.length()));
                     } else {
                         word.add(w);
                         all.append(w);
                     }
                 }
 
-                if (plus.size() + minus.size() + opt.size() > 0)
+                if (plus.size() + minus.size() + opt.size() + from.size() > 0)
                     search = all.toString();
 
                 // Yahoo! does not support keyword search, but uses the flags $Forwarded $Junk $NotJunk
@@ -935,8 +940,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         break;
                     }
 
-                if (in_senders)
-                    or.add(new FromStringTerm(search));
+                if (from.size() > 0) {
+                    for (String term : from)
+                        and.add(new FromStringTerm(term));
+                } else {
+                    if (in_senders)
+                        or.add(new FromStringTerm(search));
+                }
+
                 if (in_recipients) {
                     or.add(new RecipientStringTerm(Message.RecipientType.TO, search));
                     or.add(new RecipientStringTerm(Message.RecipientType.CC, search));
