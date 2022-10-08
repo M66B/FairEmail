@@ -156,7 +156,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -2237,9 +2236,8 @@ public class Helper {
             exists.put(dir, true);
         }
 
-        if (!isUiThread() && !dir.exists())
-            if (!dir.mkdirs())
-                throw new IllegalArgumentException("Failed to create=" + dir);
+        if (!dir.exists() && !dir.mkdirs())
+            throw new IllegalArgumentException("Failed to create=" + dir);
 
         return dir;
     }
