@@ -2390,6 +2390,18 @@ public class Helper {
         return size;
     }
 
+    static List<File> listFiles(File dir) {
+        List<File> result = new ArrayList<>();
+        File[] files = dir.listFiles();
+        if (files != null)
+            for (File file : files)
+                if (file.isDirectory())
+                    result.addAll(listFiles(file));
+                else
+                    result.add(file);
+        return result;
+    }
+
     static long getAvailableStorageSpace() {
         StatFs stats = new StatFs(Environment.getDataDirectory().getAbsolutePath());
         return stats.getAvailableBlocksLong() * stats.getBlockSizeLong();

@@ -206,7 +206,7 @@ public class WorkerCleanup extends Worker {
             long now = new Date().getTime();
 
             List<File> files = new ArrayList<>();
-            File[] messages = new File(context.getFilesDir(), "messages").listFiles();
+            File[] messages = Helper.listFiles(new File(context.getFilesDir(), "messages")).toArray(new File[0]);
             File[] revision = new File(context.getFilesDir(), "revision").listFiles();
             File[] references = new File(context.getFilesDir(), "references").listFiles();
             File[] encryption = new File(context.getFilesDir(), "encryption").listFiles();

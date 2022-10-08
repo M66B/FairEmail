@@ -577,8 +577,26 @@ public class EntityMessage implements Serializable {
     }
 
     static File getFile(Context context, Long id) {
-        File dir = Helper.ensureExists(new File(context.getFilesDir(), "messages"));
+        File root = new File(context.getFilesDir(), "messages");
+        File dir = Helper.ensureExists(new File(root, Long.toString(id / 1000)));
         return new File(dir, id.toString());
+    }
+
+    static void convert(Context context) {
+        File root = new File(context.getFilesDir(), "messages");
+        File[] files = root.listFiles();
+        if (files == null)
+            return;
+        for (File file : files)
+            if (file.isFile())
+                try {
+                    long id = Long.parseLong(file.getName());
+                    File target = getFile(context, id);
+                    if (!file.renameTo(target))
+                        throw new IllegalArgumentException("Failed renaming to " + target);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
     }
 
     File getFile(Context context) {
