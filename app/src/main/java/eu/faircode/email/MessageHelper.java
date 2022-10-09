@@ -928,104 +928,110 @@ public class MessageHelper {
         // Build html body
         Document document = JsoupEx.parse(message.getFile(context));
 
+        boolean resend = false;
         if (message.headers != null && Boolean.TRUE.equals(message.resend)) {
             Element body = document.body();
             if (body.children().size() == 1) {
                 // Restore original body
                 Element ref = body.children().get(0);
-                body.replaceWith(ref.tagName("body").removeAttr("fairemail"));
+                if ("reference".equals(ref.attr("fairemail"))) {
+                    body.replaceWith(ref.tagName("body").removeAttr("fairemail"));
+                    resend = true;
+                }
             }
         }
 
-        // https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang
-        if (message.language != null)
-            document.body().attr("lang", message.language);
+        if (!resend) {
+            // https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang
+            if (message.language != null)
+                document.body().attr("lang", message.language);
 
-        // When sending message
-        if (identity != null && send) {
-            if (auto_link) {
-                HtmlHelper.guessSchemes(document);
-                HtmlHelper.autoLink(document, true);
-            }
-
-            if (!TextUtils.isEmpty(compose_font)) {
-                List<Node> childs = new ArrayList<>();
-                for (Node child : document.body().childNodes())
-                    if (TextUtils.isEmpty(child.attr("fairemail"))) {
-                        childs.add(child);
-                        child.remove();
-                    } else
-                        break;
-
-                Element div = document.createElement("div").attr("style",
-                        "font-family:" + StyleHelper.getFamily(compose_font));
-                for (Node child : childs)
-                    div.appendChild(child);
-                document.body().prependChild(div);
-            }
-
-            document.select("div[fairemail=signature]").removeAttr("fairemail");
-            document.select("div[fairemail=reference]").removeAttr("fairemail");
-
-            Elements reply = document.select("div[fairemail=reply]");
-            if (message.isPlainOnly())
-                reply.select("strong").tagName("span");
-            reply.removeAttr("fairemail");
-
-            DB db = DB.getInstance(context);
-            try {
-                db.beginTransaction();
-
-                for (Element img : document.select("img")) {
-                    String source = img.attr("src");
-                    if (!source.startsWith("content:"))
-                        continue;
-
-                    Uri uri = Uri.parse(source);
-                    DocumentFile dfile = DocumentFile.fromSingleUri(context, uri);
-                    if (dfile == null)
-                        continue;
-
-                    String name = dfile.getName();
-                    String type = dfile.getType();
-
-                    if (TextUtils.isEmpty(name))
-                        name = uri.getLastPathSegment();
-                    if (TextUtils.isEmpty(type))
-                        type = "image/*";
-
-                    String cid = BuildConfig.APPLICATION_ID + ".content." + Math.abs(source.hashCode());
-                    String acid = "<" + cid + ">";
-
-                    if (db.attachment().getAttachment(message.id, acid) == null) {
-                        EntityAttachment attachment = new EntityAttachment();
-                        attachment.message = message.id;
-                        attachment.sequence = db.attachment().getAttachmentSequence(message.id) + 1;
-                        attachment.name = name;
-                        attachment.type = type;
-                        attachment.disposition = Part.INLINE;
-                        attachment.cid = acid;
-                        attachment.related = true;
-                        attachment.size = null;
-                        attachment.progress = 0;
-                        attachment.id = db.attachment().insertAttachment(attachment);
-
-                        attachment.size = Helper.copy(context, uri, attachment.getFile(context));
-                        attachment.progress = null;
-                        attachment.available = true;
-                        db.attachment().setDownloaded(attachment.id, attachment.size);
-
-                        attachments.add(attachment);
-                    }
-
-                    img.attr("src", "cid:" + cid);
+            // When sending message
+            if (identity != null && send) {
+                if (auto_link) {
+                    HtmlHelper.guessSchemes(document);
+                    HtmlHelper.autoLink(document, true);
                 }
 
-                db.setTransactionSuccessful();
-            } catch (Throwable ex) {
-                Log.w(ex);
-            } finally {
-                db.endTransaction();
+                if (!TextUtils.isEmpty(compose_font)) {
+                    List<Node> childs = new ArrayList<>();
+                    for (Node child : document.body().childNodes())
+                        if (TextUtils.isEmpty(child.attr("fairemail"))) {
+                            childs.add(child);
+                            child.remove();
+                        } else
+                            break;
+
+                    Element div = document.createElement("div").attr("style",
+                            "font-family:" + StyleHelper.getFamily(compose_font));
+                    for (Node child : childs)
+                        div.appendChild(child);
+                    document.body().prependChild(div);
+                }
+
+                document.select("div[fairemail=signature]").removeAttr("fairemail");
+                document.select("div[fairemail=reference]").removeAttr("fairemail");
+
+                Elements reply = document.select("div[fairemail=reply]");
+                if (message.isPlainOnly())
+                    reply.select("strong").tagName("span");
+                reply.removeAttr("fairemail");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    for (Element img : document.select("img")) {
+                        String source = img.attr("src");
+                        if (!source.startsWith("content:"))
+                            continue;
+
+                        Uri uri = Uri.parse(source);
+                        DocumentFile dfile = DocumentFile.fromSingleUri(context, uri);
+                        if (dfile == null)
+                            continue;
+
+                        String name = dfile.getName();
+                        String type = dfile.getType();
+
+                        if (TextUtils.isEmpty(name))
+                            name = uri.getLastPathSegment();
+                        if (TextUtils.isEmpty(type))
+                            type = "image/*";
+
+                        String cid = BuildConfig.APPLICATION_ID + ".content." + Math.abs(source.hashCode());
+                        String acid = "<" + cid + ">";
+
+                        if (db.attachment().getAttachment(message.id, acid) == null) {
+                            EntityAttachment attachment = new EntityAttachment();
+                            attachment.message = message.id;
+                            attachment.sequence = db.attachment().getAttachmentSequence(message.id) + 1;
+                            attachment.name = name;
+                            attachment.type = type;
+                            attachment.disposition = Part.INLINE;
+                            attachment.cid = acid;
+                            attachment.related = true;
+                            attachment.size = null;
+                            attachment.progress = 0;
+                            attachment.id = db.attachment().insertAttachment(attachment);
+
+                            attachment.size = Helper.copy(context, uri, attachment.getFile(context));
+                            attachment.progress = null;
+                            attachment.available = true;
+                            db.attachment().setDownloaded(attachment.id, attachment.size);
+
+                            attachments.add(attachment);
+                        }
+
+                        img.attr("src", "cid:" + cid);
+                    }
+
+                    db.setTransactionSuccessful();
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                } finally {
+                    db.endTransaction();
+                }
             }
         }
 
