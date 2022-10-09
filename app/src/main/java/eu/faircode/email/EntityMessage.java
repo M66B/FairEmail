@@ -578,27 +578,22 @@ public class EntityMessage implements Serializable {
 
     static File getFile(Context context, Long id) {
         File root = new File(context.getFilesDir(), "messages");
-        File dir = Helper.ensureExists(new File(root, Long.toString(id / 1000)));
+        File dir = Helper.ensureExists(new File(root, "D" + (id / 1000)));
         return new File(dir, id.toString());
     }
 
-    static void convert(Context context, boolean silent) {
+    static void convert(Context context) {
         File root = new File(context.getFilesDir(), "messages");
-        File[] files = root.listFiles();
-        if (files == null)
-            return;
+        List<File> files = Helper.listFiles(root);
         for (File file : files)
             if (file.isFile())
                 try {
                     long id = Long.parseLong(file.getName());
                     File target = getFile(context, id);
-                    Helper.copy(file, target);
-                    file.delete();
+                    if (!file.renameTo(target))
+                        throw new IllegalArgumentException("Failed moving " + file);
                 } catch (Throwable ex) {
-                    if (silent)
-                        Log.i(ex);
-                    else
-                        Log.e(ex);
+                    Log.e(ex);
                 }
     }
 
