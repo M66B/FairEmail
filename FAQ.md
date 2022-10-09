@@ -1146,6 +1146,16 @@ This will result in searching like this:
 ("apple" AND "banana" AND NOT "cherry") OR "nuts"
 ```
 
+Since version 1.1979 it is possible to use these prefixes as a search expression:
+
+```
+from:<email address>
+to:<email address>
+keyword:<keyword>
+```
+
+There should be no space between the prefix and the search term, which will be applied as an AND-condition.
+
 Search expressions can be used for searching on the email server only, and not for searching on the device.
 
 Since version 1.1733 it is possible to save searches, which means that a named entry in the navigation menu will be created to repeat the same search later.

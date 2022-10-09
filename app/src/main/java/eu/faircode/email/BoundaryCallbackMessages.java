@@ -885,6 +885,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         Long before = null;
 
         private static final String FROM = "from:";
+        private static final String TO = "to:";
+        private static final String KEYWORD = "keyword:";
 
         boolean onServer() {
             if (query == null)
@@ -898,6 +900,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 else if (w.length() > 1 && w.startsWith("?"))
                     return true;
                 else if (w.length() > FROM.length() && w.startsWith(FROM))
+                    return true;
+                else if (w.length() > TO.length() && w.startsWith(TO))
+                    return true;
+                else if (w.length() > KEYWORD.length() && w.startsWith(KEYWORD))
                     return true;
 
             return false;
@@ -923,7 +929,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 List<String> plus = new ArrayList<>();
                 List<String> minus = new ArrayList<>();
                 List<String> opt = new ArrayList<>();
-                List<String> from = new ArrayList<>();
+                List<String> andFrom = new ArrayList<>();
+                List<String> andTo = new ArrayList<>();
+                List<String> andKeyword = new ArrayList<>();
                 StringBuilder all = new StringBuilder();
                 for (String w : search.trim().split("\\s+")) {
                     if (all.length() > 0)
@@ -938,15 +946,20 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     } else if (w.length() > 1 && w.startsWith("?")) {
                         opt.add(w.substring(1));
                         all.append(w.substring(1));
-                    } else if (w.length() > FROM.length() && w.startsWith(FROM)) {
-                        from.add(w.substring(FROM.length()));
-                    } else {
+                    } else if (w.length() > FROM.length() && w.startsWith(FROM))
+                        andFrom.add(w.substring(FROM.length()));
+                    else if (w.length() > TO.length() && w.startsWith(TO))
+                        andTo.add(w.substring(TO.length()));
+                    else if (w.length() > KEYWORD.length() && w.startsWith(KEYWORD))
+                        andKeyword.add(w.substring(KEYWORD.length()));
+                    else {
                         word.add(w);
                         all.append(w);
                     }
                 }
 
-                if (plus.size() + minus.size() + opt.size() + from.size() > 0)
+                if (plus.size() + minus.size() + opt.size() +
+                        andFrom.size() + andTo.size() + andKeyword.size() > 0)
                     search = all.toString();
 
                 // Yahoo! does not support keyword search, but uses the flags $Forwarded $Junk $NotJunk
@@ -957,21 +970,26 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         break;
                     }
 
-                if (from.size() > 0) {
-                    for (String term : from)
+                if (andFrom.size() > 0) {
+                    for (String term : andFrom)
                         and.add(new FromStringTerm(term));
                 } else {
-                    if (in_senders)
+                    if (in_senders && !TextUtils.isEmpty(search))
                         or.add(new FromStringTerm(search));
                 }
 
-                if (in_recipients) {
-                    or.add(new RecipientStringTerm(Message.RecipientType.TO, search));
-                    or.add(new RecipientStringTerm(Message.RecipientType.CC, search));
-                    or.add(new RecipientStringTerm(Message.RecipientType.BCC, search));
+                if (andTo.size() > 0) {
+                    for (String term : andTo)
+                        and.add(new RecipientStringTerm(Message.RecipientType.TO, term));
+                } else {
+                    if (in_recipients && !TextUtils.isEmpty(search)) {
+                        or.add(new RecipientStringTerm(Message.RecipientType.TO, search));
+                        or.add(new RecipientStringTerm(Message.RecipientType.CC, search));
+                        or.add(new RecipientStringTerm(Message.RecipientType.BCC, search));
+                    }
                 }
 
-                if (in_subject)
+                if (in_subject && !TextUtils.isEmpty(search))
                     if (plus.size() + minus.size() + opt.size() == 0)
                         or.add(new SubjectTerm(search));
                     else
@@ -982,15 +1000,21 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             or.add(new SubjectTerm(search));
                         }
 
-                if (in_keywords && hasKeywords) {
-                    String keyword = MessageHelper.sanitizeKeyword(search);
-                    if (TextUtils.isEmpty(keyword))
-                        Log.w("Keyword empty=" + search);
-                    else
-                        or.add(new FlagTerm(new Flags(keyword), true));
-                }
+                if (hasKeywords)
+                    if (andKeyword.size() > 0) {
+                        for (String term : andKeyword)
+                            and.add(new FlagTerm(new Flags(term), true));
+                    } else {
+                        if (in_keywords && !TextUtils.isEmpty(search)) {
+                            String keyword = MessageHelper.sanitizeKeyword(search);
+                            if (TextUtils.isEmpty(keyword))
+                                Log.w("Keyword empty=" + search);
+                            else
+                                or.add(new FlagTerm(new Flags(keyword), true));
+                        }
+                    }
 
-                if (in_message)
+                if (in_message && !TextUtils.isEmpty(search))
                     if (plus.size() + minus.size() + opt.size() == 0)
                         or.add(new BodyTerm(search));
                     else
