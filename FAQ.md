@@ -1146,11 +1146,13 @@ This will result in searching like this:
 ("apple" AND "banana" AND NOT "cherry") OR "nuts"
 ```
 
-Since version 1.1979 it is possible to use these prefixes as a search expression:
+Since version 1.1980 it is possible to use these prefixes as a search expression:
 
 ```
 from:<email address>
 to:<email address>
+cc:<email address>
+bcc:<email address>
 keyword:<keyword>
 ```
 

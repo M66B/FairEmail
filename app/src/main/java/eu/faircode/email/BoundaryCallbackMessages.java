@@ -886,6 +886,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         private static final String FROM = "from:";
         private static final String TO = "to:";
+        private static final String CC = "cc:";
+        private static final String BCC = "bcc:";
         private static final String KEYWORD = "keyword:";
 
         boolean onServer() {
@@ -902,6 +904,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 else if (w.length() > FROM.length() && w.startsWith(FROM))
                     return true;
                 else if (w.length() > TO.length() && w.startsWith(TO))
+                    return true;
+                else if (w.length() > CC.length() && w.startsWith(CC))
+                    return true;
+                else if (w.length() > BCC.length() && w.startsWith(BCC))
                     return true;
                 else if (w.length() > KEYWORD.length() && w.startsWith(KEYWORD))
                     return true;
@@ -931,6 +937,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 List<String> opt = new ArrayList<>();
                 List<String> andFrom = new ArrayList<>();
                 List<String> andTo = new ArrayList<>();
+                List<String> andCc = new ArrayList<>();
+                List<String> andBcc = new ArrayList<>();
                 List<String> andKeyword = new ArrayList<>();
                 StringBuilder all = new StringBuilder();
                 for (String w : search.trim().split("\\s+")) {
@@ -950,6 +958,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         andFrom.add(w.substring(FROM.length()));
                     else if (w.length() > TO.length() && w.startsWith(TO))
                         andTo.add(w.substring(TO.length()));
+                    else if (w.length() > CC.length() && w.startsWith(CC))
+                        andCc.add(w.substring(CC.length()));
+                    else if (w.length() > BCC.length() && w.startsWith(BCC))
+                        andBcc.add(w.substring(BCC.length()));
                     else if (w.length() > KEYWORD.length() && w.startsWith(KEYWORD))
                         andKeyword.add(w.substring(KEYWORD.length()));
                     else {
@@ -959,7 +971,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 }
 
                 if (plus.size() + minus.size() + opt.size() +
-                        andFrom.size() + andTo.size() + andKeyword.size() > 0)
+                        andFrom.size() +
+                        andTo.size() + andCc.size() + andBcc.size() +
+                        andKeyword.size() > 0)
                     search = all.toString();
 
                 // Yahoo! does not support keyword search, but uses the flags $Forwarded $Junk $NotJunk
@@ -978,9 +992,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         or.add(new FromStringTerm(search));
                 }
 
-                if (andTo.size() > 0) {
+                if (andTo.size() + andCc.size() + andBcc.size() > 0) {
                     for (String term : andTo)
                         and.add(new RecipientStringTerm(Message.RecipientType.TO, term));
+                    for (String term : andCc)
+                        and.add(new RecipientStringTerm(Message.RecipientType.CC, term));
+                    for (String term : andBcc)
+                        and.add(new RecipientStringTerm(Message.RecipientType.BCC, term));
                 } else {
                     if (in_recipients && !TextUtils.isEmpty(search)) {
                         or.add(new RecipientStringTerm(Message.RecipientType.TO, search));
