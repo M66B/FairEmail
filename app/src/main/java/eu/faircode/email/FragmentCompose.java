@@ -5158,6 +5158,7 @@ public class FragmentCompose extends FragmentBase {
 
                         if (ref.content && "resend".equals(action)) {
                             document = JsoupEx.parse(ref.getFile(context));
+                            HtmlHelper.clearAnnotations(document);
                             // Save original body
                             Element div = document.body()
                                     .tagName("div")
