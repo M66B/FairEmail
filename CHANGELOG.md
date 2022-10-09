@@ -4,6 +4,13 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1979 - 2022-10-09
+
+* Added *from:*, *to:* and *keyword:* search prefixes, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13)
+* Fixed orphan message files
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1978 - 2022-10-08
 
 * Fixed orphan message files
