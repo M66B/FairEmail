@@ -39,7 +39,7 @@ public class MediaPlayerHelper {
             @Override
             public void run() {
                 try {
-                    if (isInCall(context) || isDnd(context))
+                    if (!alarm && (isInCall(context) || isDnd(context)))
                         return;
                     play(context, uri, alarm, duration);
                 } catch (Throwable ex) {
