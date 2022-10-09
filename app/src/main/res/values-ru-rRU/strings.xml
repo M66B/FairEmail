@@ -1143,6 +1143,7 @@
     <string name="title_no_folder">Папка не существует</string>
     <string name="title_no_format">Исходное сообщение будет включено</string>
     <string name="title_no_search">Поиск на сервере недоступен для этой учётной записи</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Выберите папку для сложного поиска</string>
     <string name="title_too_large">Сообщение слишком большое для полного переформатирования</string>
     <string name="title_truncated">Сообщение слишком велико для полного отображения</string>
     <string name="title_insufficient_memory">Сообщение слишком большое для доступной памяти (%1$d)</string>

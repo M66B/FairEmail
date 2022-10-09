@@ -1685,8 +1685,8 @@
     <string name="title_redo">Annullér fortryd</string>
     <string name="title_insert_line">Indsæt linje</string>
     <string name="title_select_block">Vælg blok</string>
-    <string name="title_insert_brackets">Beslag</string>
-    <string name="title_insert_quotes">Citér</string>
+    <string name="title_insert_brackets">Indsæt kantede parenteser</string>
+    <string name="title_insert_quotes">Indsæt anførselstegn</string>
     <string name="title_add">Tilføj</string>
     <string name="title_browse">Åbn med</string>
     <string name="title_info">Info</string>

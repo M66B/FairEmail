@@ -1143,6 +1143,7 @@
     <string name="title_no_folder">התיקייה אינה קיימת</string>
     <string name="title_no_format">ההודעה המקורית שהתקבלה תצורף</string>
     <string name="title_no_search">אין תמיכה בחיפוש בשרת בחשבון הזה</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">נא לבחור תיקייה לחיפוש מורכב</string>
     <string name="title_too_large">ההודעה גדולה מכדי לעבור עיצוב מלא מחדש</string>
     <string name="title_truncated">ההודעה גדולה מכדי להופיע במלואה</string>
     <string name="title_insufficient_memory">ההודעה גדולה מדי לזיכרון הזמין (%1$d)</string>

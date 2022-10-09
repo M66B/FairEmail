@@ -1113,6 +1113,7 @@
     <string name="title_no_folder">Ο φάκελος δεν υπάρχει</string>
     <string name="title_no_format">Θα συμπεριληφθεί το μήνυμα που λήφθηκε αρχικά</string>
     <string name="title_no_search">Η αναζήτηση στο διακομιστή δεν είναι διαθέσιμη για αυτόν το λογαριασμό</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Επιλέξτε έναν φάκελο για μια σύνθετη αναζήτηση</string>
     <string name="title_too_large">Το μήνυμα είναι υπερβολικά μεγάλο για να αναμορφοποιηθεί πλήρως</string>
     <string name="title_truncated">Το μύνημα είναι πολύ μεγάλο για να προβληθεί ολόκληρο</string>
     <string name="title_insufficient_memory">Υπερβολικά μεγάλο μήνυμα για τη διαθέσιμη μνήμη (%1$d)</string>

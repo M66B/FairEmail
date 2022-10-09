@@ -1118,7 +1118,7 @@
     <string name="title_no_folder">Le dossier n\'existe pas</string>
     <string name="title_no_format">Le message initialement reçu sera inclus</string>
     <string name="title_no_search">La recherche sur le serveur n\'est pas disponible pour ce compte</string>
-    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Sélectionner un dossier pour une recherche complexe</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Sélectionner un dossier pour faire une recherche complexe</string>
     <string name="title_too_large">Message trop volumineux pour être complètement reformaté</string>
     <string name="title_truncated">Message trop volumineux pour être affiché complètement</string>
     <string name="title_insufficient_memory">Message trop volumineux pour la mémoire disponible (%1$d)</string>

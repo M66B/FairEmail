@@ -414,6 +414,7 @@
     <string name="title_no_viewer_search">ଆପ୍‌ ଖୋଜନ୍ତୁ</string>
     <string name="title_no_recorder">କୌଣସି ଉପଯୁକ୍ତ ଅଡ଼ିଓ ରେକର୍ଡର୍ ଆପ୍ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="title_no_folder">ଫୋଲ୍ଡର୍ ବିଦ୍ୟମାନ ନାହିଁ</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">ଏକ ଜଟିଳ ସନ୍ଧାନ ପାଇଁ ଗୋଟିଏ ଫୋଲ୍ଡର୍ ଚୟନ କରନ୍ତୁ</string>
     <string name="title_insufficient_memory">ଉପଲବ୍ଧ ମେମୋରୀ ଅପେକ୍ଷା ବାର୍ତ୍ତା ଅଧିକ ବଡ଼ ଅଟେ (%1$d)</string>
     <string name="title_show_full">ପୂର୍ଣ୍ଣ ବାର୍ତ୍ତା ଦେଖାନ୍ତୁ</string>
     <string name="title_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ ଦେଖାନ୍ତୁ</string>
@@ -597,6 +598,8 @@
     <string name="title_undo">ପୂର୍ବବତ୍</string>
     <string name="title_redo">ପୁନଃକରଣ</string>
     <string name="title_insert_line">ଲାଇନ୍ ସନ୍ନିବେଶ କର</string>
+    <string name="title_insert_brackets">ବନ୍ଧନୀରେ ଆବଦ୍ଧ</string>
+    <string name="title_insert_quotes">ଉଦ୍ଧୃତ</string>
     <string name="title_add">ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_info">ସୂଚନା</string>
     <string name="title_show">ଦେଖାଅ</string>

@@ -1100,6 +1100,7 @@
     <string name="title_no_folder">文件夹不存在</string>
     <string name="title_no_format">将包含最初收到的消息</string>
     <string name="title_no_search">在服务器上搜索对该账户不可用</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">选择进行复杂搜索的文件夹</string>
     <string name="title_too_large">消息内容太多，不能完全重新格式化</string>
     <string name="title_truncated">消息内容太多，无法完全显示</string>
     <string name="title_insufficient_memory">邮件过大，内存不足（可用内存为 %1$d）</string>

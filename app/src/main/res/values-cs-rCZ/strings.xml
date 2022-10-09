@@ -1141,6 +1141,7 @@
     <string name="title_no_folder">Složka neexistuje</string>
     <string name="title_no_format">Původní zpráva bude zahrnuta</string>
     <string name="title_no_search">Vyhledávání na serveru není pro tento účet k dispozici</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Vyberte složku pro komplexní vyhledávání</string>
     <string name="title_too_large">Zpráva je příliš velká pro úplné přeformátování</string>
     <string name="title_truncated">Zpráva je příliš velká pro úplné zobrazení</string>
     <string name="title_insufficient_memory">Zpráva je příliš velká na dostupnou paměť (%1$d)</string>

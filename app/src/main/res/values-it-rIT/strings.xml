@@ -1118,7 +1118,7 @@
     <string name="title_no_folder">La cartella non esiste</string>
     <string name="title_no_format">Il messaggio originale ricevuto sarà incluso</string>
     <string name="title_no_search">La ricerca sul server non è disponibile per questo profilo</string>
-    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Seleziona una cartella per una ricerca complessa</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Seleziona una cartella per fare una ricerca complessa</string>
     <string name="title_too_large">Messaggio troppo grande da riformattare completamente</string>
     <string name="title_truncated">Messaggio troppo grande da mostrare completamente</string>
     <string name="title_insufficient_memory">Messaggio troppo grande per la memoria disponibile (%1$d)</string>
@@ -1685,6 +1685,8 @@
     <string name="title_redo">Ripeti</string>
     <string name="title_insert_line">Inserisci riga</string>
     <string name="title_select_block">Seleziona blocco di testo</string>
+    <string name="title_insert_brackets">Tra parentesi</string>
+    <string name="title_insert_quotes">Cita</string>
     <string name="title_add">Aggiungi</string>
     <string name="title_browse">Apri con</string>
     <string name="title_info">Info</string>
