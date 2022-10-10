@@ -100,7 +100,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private final ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
     private static final int SEARCH_LIMIT_DEVICE = 1000;
-    private static final int SEARCH_LIMIT_SERVER = 250;
 
     interface IBoundaryCallbackMessages {
         void onLoading();
@@ -621,31 +620,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         });
 
                         state.imessages = (Message[]) result;
-
-                        FetchProfile fp = new FetchProfile();
-                        fp.add(UIDFolder.FetchProfileItem.UID);
-                        fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-                        state.ifolder.fetch(state.imessages, fp);
-                        Arrays.sort(state.imessages, new Comparator<Message>() {
-                            @Override
-                            public int compare(Message m1, Message m2) {
-                                Date d1 = null;
-                                try {
-                                    d1 = m1.getReceivedDate();
-                                } catch (Throwable ex) {
-                                    Log.w(ex);
-                                }
-
-                                Date d2 = null;
-                                try {
-                                    d2 = m2.getReceivedDate();
-                                } catch (Throwable ex) {
-                                    Log.w(ex);
-                                }
-
-                                return Long.compare(d1 == null ? 0 : d1.getTime(), d2 == null ? 0 : d2.getTime());
-                            }
-                        });
                     } catch (MessagingException ex) {
                         if (ex.getCause() instanceof ProtocolException)
                             throw (ProtocolException) ex.getCause();
@@ -653,6 +627,33 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             throw ex;
                     }
                 EntityLog.log(context, "Boundary found messages=" + state.imessages.length);
+
+                FetchProfile fp = new FetchProfile();
+                fp.add(UIDFolder.FetchProfileItem.UID);
+                fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                state.ifolder.fetch(state.imessages, fp);
+                Arrays.sort(state.imessages, new Comparator<Message>() {
+                    @Override
+                    public int compare(Message m1, Message m2) {
+                        Date d1 = null;
+                        try {
+                            d1 = m1.getReceivedDate();
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+
+                        Date d2 = null;
+                        try {
+                            d2 = m2.getReceivedDate();
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+
+                        return Long.compare(d1 == null ? 0 : d1.getTime(), d2 == null ? 0 : d2.getTime());
+                    }
+                });
+
+                EntityLog.log(context, "Boundary sorted messages=" + state.imessages.length);
 
                 state.index = state.imessages.length - 1;
             } catch (Throwable ex) {
@@ -698,7 +699,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 fp.add(IMAPFolder.FetchProfileItem.HEADERS);
                 //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
                 fp.add(FetchProfile.Item.SIZE);
-                fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                //fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
                 if (account.isGmail()) {
                     fp.add(GmailFolder.FetchProfileItem.THRID);
                     fp.add(GmailFolder.FetchProfileItem.LABELS);
@@ -782,7 +783,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             throw new ProtocolException(responses[responses.length - 1]);
 
         List<Integer> msgnums = new ArrayList<>();
-        for (int r = 0; r < Math.min(responses.length, SEARCH_LIMIT_SERVER); r++) {
+        for (int r = 0; r < responses.length; r++) {
             IMAPResponse response = (IMAPResponse) responses[r];
             if (response.keyEquals("SEARCH")) {
                 int msgnum;
