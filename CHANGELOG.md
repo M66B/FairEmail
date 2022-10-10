@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1980 - 2022-10-10
+
+* Added *cc:*, *bcc:* search prefixes, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1979 - 2022-10-09
 
 * Added *from:*, *to:* and *keyword:* search prefixes, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13)
