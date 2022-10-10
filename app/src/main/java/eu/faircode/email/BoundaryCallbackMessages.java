@@ -53,6 +53,7 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -535,6 +536,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         state.imessages = state.ifolder.getMessages();
                     else
                         state.imessages = state.ifolder.search(new AndTerm(and.toArray(new SearchTerm[0])));
+
                     EntityLog.log(context, "Boundary filter messages=" + state.imessages.length);
                 } else
                     try {
@@ -619,6 +621,31 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         });
 
                         state.imessages = (Message[]) result;
+
+                        FetchProfile fp = new FetchProfile();
+                        fp.add(UIDFolder.FetchProfileItem.UID);
+                        fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                        state.ifolder.fetch(state.imessages, fp);
+                        Arrays.sort(state.imessages, new Comparator<Message>() {
+                            @Override
+                            public int compare(Message m1, Message m2) {
+                                Date d1 = null;
+                                try {
+                                    d1 = m1.getReceivedDate();
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+
+                                Date d2 = null;
+                                try {
+                                    d2 = m2.getReceivedDate();
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+
+                                return Long.compare(d1 == null ? 0 : d1.getTime(), d2 == null ? 0 : d2.getTime());
+                            }
+                        });
                     } catch (MessagingException ex) {
                         if (ex.getCause() instanceof ProtocolException)
                             throw (ProtocolException) ex.getCause();
@@ -646,10 +673,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             Message[] isub = Arrays.copyOfRange(state.imessages, from, state.index + 1);
             Arrays.fill(state.imessages, from, state.index + 1, null);
             state.index -= (pageSize - found);
-
-            FetchProfile fp0 = new FetchProfile();
-            fp0.add(UIDFolder.FetchProfileItem.UID);
-            state.ifolder.fetch(isub, fp0);
 
             List<Message> add = new ArrayList<>();
             for (Message m : isub)
