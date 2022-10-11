@@ -452,8 +452,9 @@ public interface DaoMessage {
 
     @Query("SELECT COUNT(*) FROM message" +
             " WHERE folder = :folder" +
-            " AND msgid = :msgid")
-    int countMessageByMsgId(long folder, String msgid);
+            " AND msgid = :msgid" +
+            " AND (:hidden OR NOT message.ui_hide)")
+    int countMessageByMsgId(long folder, String msgid, boolean hidden);
 
     @Query("SELECT COUNT(*) FROM message" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +

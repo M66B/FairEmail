@@ -2929,7 +2929,7 @@ class Core {
                 MessageHelper helper = new MessageHelper((MimeMessage) imessages[imessages.length - 1], context);
                 String msgid = helper.getMessageID();
                 if (msgid != null) {
-                    int count = db.message().countMessageByMsgId(folder.id, msgid);
+                    int count = db.message().countMessageByMsgId(folder.id, msgid, true);
                     if (count == 1) {
                         Log.i(account.name + " POP having last msgid=" + msgid);
                         sync = false;

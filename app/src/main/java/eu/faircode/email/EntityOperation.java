@@ -334,7 +334,7 @@ public class EntityOperation {
                 if (premove &&
                         message.uid != null &&
                         !TextUtils.isEmpty(message.msgid) &&
-                        db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
+                        db.message().countMessageByMsgId(target.id, message.msgid, false) == 0) {
                     File msource = message.getFile(context);
 
                     // Copy message to target folder
