@@ -122,6 +122,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -2934,52 +2935,67 @@ public class HtmlHelper {
         return ssb;
     }
 
-    static Document highlightSearched(Context context, Document document, String searched) {
-        String find = searched.toLowerCase();
+    static Document highlightSearched(Context context, Document document, String query) {
         int color = Helper.resolveColor(context, R.attr.colorHighlight);
 
-        NodeTraversor.traverse(new NodeVisitor() {
-            @Override
-            public void head(Node node, int depth) {
-                if (node instanceof TextNode) {
-                    TextNode tnode = (TextNode) node;
-                    String text = tnode.getWholeText();
+        List<String> word = new ArrayList<>();
+        List<String> plus = new ArrayList<>();
+        for (String w : query.trim().split("\\s+"))
+            if (w.length() > 1 && (w.startsWith("+") || w.startsWith("-"))) {
+                if (w.startsWith("+"))
+                    plus.add(w.substring(1));
+            } else
+                word.add(w);
 
-                    int start = text.toLowerCase().indexOf(find);
-                    if (start < 0)
-                        return;
+        int flags = Pattern.DOTALL | Pattern.CASE_INSENSITIVE;
+        List<Pattern> pat = new ArrayList<>();
+        pat.add(Pattern.compile(".*(" + TextUtils.join("\\s+", word) + ").*", flags));
+        for (String w : plus)
+            pat.add(Pattern.compile(".*(" + w + ").*", flags));
 
-                    int prev = 0;
-                    Element holder = document.createElement("span");
+        for (Pattern p : pat)
+            NodeTraversor.traverse(new NodeVisitor() {
+                @Override
+                public void head(Node node, int depth) {
+                    if (node instanceof TextNode)
+                        try {
+                            TextNode tnode = (TextNode) node;
+                            String text = tnode.getWholeText();
 
-                    while (start >= 0) {
-                        if (start > prev)
-                            holder.appendText(text.substring(prev, start));
+                            Matcher result = p.matcher(text);
+                            if (!result.matches())
+                                return;
 
-                        Element span = document.createElement("span");
-                        span.attr("style", mergeStyles(
-                                span.attr("style"),
-                                "font-size:larger; background-color:" + encodeWebColor(color)
-                        ));
-                        span.text(text.substring(start, start + find.length()));
-                        holder.appendChild(span);
+                            int prev = 0;
+                            Element holder = document.createElement("span");
+                            for (int i = 1; i <= result.groupCount(); i++) {
+                                holder.appendText(text.substring(prev, result.start(i)));
 
-                        prev = start + find.length();
-                        start = text.toLowerCase().indexOf(find, prev);
-                    }
+                                Element span = document.createElement("span");
+                                span.attr("style", mergeStyles(
+                                        span.attr("style"),
+                                        "font-size:larger; background-color:" + encodeWebColor(color)
+                                ));
+                                span.text(text.substring(result.start(i), result.end(i)));
+                                holder.appendChild(span);
 
-                    if (prev < text.length())
-                        holder.appendText(text.substring(prev));
+                                prev = result.end(i);
+                            }
 
-                    tnode.before(holder);
-                    tnode.text("");
+                            if (prev < text.length())
+                                holder.appendText(text.substring(prev));
+
+                            tnode.before(holder);
+                            tnode.text("");
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                 }
-            }
 
-            @Override
-            public void tail(Node node, int depth) {
-            }
-        }, document);
+                @Override
+                public void tail(Node node, int depth) {
+                }
+            }, document);
 
         return document;
     }

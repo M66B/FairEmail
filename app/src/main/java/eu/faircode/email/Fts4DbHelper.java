@@ -187,9 +187,8 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
     static List<Long> match(
             SQLiteDatabase db,
             Long account, Long folder, long[] exclude,
-            BoundaryCallbackMessages.SearchCriteria criteria) {
-
-        String search = escape(breakText(criteria.query));
+            BoundaryCallbackMessages.SearchCriteria criteria, String query) {
+        String search = escape(breakText(query));
 
         String select = "";
         if (account != null)
