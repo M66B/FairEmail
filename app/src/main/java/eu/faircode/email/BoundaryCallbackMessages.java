@@ -986,9 +986,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 }
 
                 if (plus.size() + minus.size() + opt.size() +
-                        andFrom.size() +
-                        andTo.size() + andCc.size() + andBcc.size() +
-                        andKeyword.size() > 0)
+                        andFrom.size() + andTo.size() + andCc.size() + andBcc.size() + andKeyword.size() > 0)
                     search = all.toString();
 
                 // Yahoo! does not support keyword search, but uses the flags $Forwarded $Junk $NotJunk
@@ -1003,7 +1001,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     for (String term : andFrom)
                         and.add(new FromStringTerm(term));
                 } else {
-                    if (in_senders && !TextUtils.isEmpty(search))
+                    if (in_senders && !TextUtils.isEmpty(search) &&
+                            plus.size() + minus.size() + opt.size() == 0)
                         or.add(new FromStringTerm(search));
                 }
 
@@ -1015,7 +1014,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     for (String term : andBcc)
                         and.add(new RecipientStringTerm(Message.RecipientType.BCC, term));
                 } else {
-                    if (in_recipients && !TextUtils.isEmpty(search)) {
+                    if (in_recipients && !TextUtils.isEmpty(search) &&
+                            plus.size() + minus.size() + opt.size() == 0) {
                         or.add(new RecipientStringTerm(Message.RecipientType.TO, search));
                         or.add(new RecipientStringTerm(Message.RecipientType.CC, search));
                         or.add(new RecipientStringTerm(Message.RecipientType.BCC, search));
@@ -1038,7 +1038,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         for (String term : andKeyword)
                             and.add(new FlagTerm(new Flags(term), true));
                     } else {
-                        if (in_keywords && !TextUtils.isEmpty(search)) {
+                        if (in_keywords && !TextUtils.isEmpty(search) &&
+                                plus.size() + minus.size() + opt.size() == 0) {
                             String keyword = MessageHelper.sanitizeKeyword(search);
                             if (TextUtils.isEmpty(keyword))
                                 Log.w("Keyword empty=" + search);

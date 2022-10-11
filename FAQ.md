@@ -1140,7 +1140,7 @@ Since version 1.1315 it is possible to use search expressions like this:
 apple +banana -cherry ?nuts
 ```
 
-This will result in searching like this:
+This will result in searching in the subject or text (only) like this:
 
 ```
 ("apple" AND "banana" AND NOT "cherry") OR "nuts"
