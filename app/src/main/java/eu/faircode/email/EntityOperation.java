@@ -274,32 +274,36 @@ public class EntityOperation {
                 boolean premove = true;
                 if (source.account.equals(target.account)) {
                     EntityAccount account = db.account().getAccount(message.account);
-                    if ((account != null && !account.isGmail()) ||
-                            !EntityFolder.ARCHIVE.equals(source.type) ||
-                            EntityFolder.TRASH.equals(target.type) || EntityFolder.JUNK.equals(target.type))
-                        if (!message.ui_deleted)
-                            db.message().setMessageUiHide(message.id, true);
-
                     if (account != null && account.isGmail()) {
                         if (EntityFolder.ARCHIVE.equals(source.type) &&
                                 !(EntityFolder.SENT.equals(target.type) ||
                                         EntityFolder.TRASH.equals(target.type) ||
                                         EntityFolder.JUNK.equals(target.type)))
                             name = COPY;
+                        else {
+                            Log.i("Move: hide source=" + message.id);
+                            if (!message.ui_deleted)
+                                db.message().setMessageUiHide(message.id, true);
+                        }
 
                         if (!TextUtils.isEmpty(message.msgid) && !TextUtils.isEmpty(message.hash) &&
                                 (EntityFolder.SENT.equals(target.type) ||
                                         EntityFolder.TRASH.equals(target.type) ||
                                         EntityFolder.JUNK.equals(target.type))) {
                             EntityMessage archived = db.message().getMessage(message.account, EntityFolder.ARCHIVE, message.msgid);
-                            if (archived != null && message.hash.equals(archived.hash))
+                            if (archived != null && message.hash.equals(archived.hash)) {
+                                Log.i("Move: hide archived=" + archived.id);
                                 db.message().setMessageUiHide(archived.id, true);
+                            }
                         }
-                    }
 
-                    if (account != null && account.isGmail() &&
-                            (EntityFolder.DRAFTS.equals(source.type) || EntityFolder.DRAFTS.equals(target.type)))
-                        premove = false;
+                        if (EntityFolder.DRAFTS.equals(source.type) || EntityFolder.DRAFTS.equals(target.type))
+                            premove = false;
+                    } else {
+                        Log.i("Move: hide other=" + message.id);
+                        if (!message.ui_deleted)
+                            db.message().setMessageUiHide(message.id, true);
+                    }
                 }
 
                 if (message.ui_snoozed != null &&
