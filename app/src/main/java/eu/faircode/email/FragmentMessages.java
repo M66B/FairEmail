@@ -10030,6 +10030,18 @@ public class FragmentMessages extends FragmentBase
         if (manager.isDestroyed())
             return;
 
+        DB db = DB.getInstance(context);
+        db.getQueryExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    db.message().resetSearch();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
+
         Bundle args = new Bundle();
         args.putLong("account", account);
         args.putLong("folder", folder);

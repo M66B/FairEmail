@@ -133,15 +133,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         this.intf = intf;
         this.state = new State();
 
-        if (criteria != null)
-            executor.submit(new Runnable() {
-                @Override
-                public void run() {
-                    Log.i("Boundary reset search");
-                    DB.getInstance(context).message().resetSearch();
-                }
-            });
-
         return this.state;
     }
 
