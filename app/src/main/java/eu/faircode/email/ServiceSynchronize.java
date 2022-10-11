@@ -297,7 +297,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                         if (current.accountState.synchronize)
                             operations += current.accountState.operations;
-                        if (current.accountState.operations > 0 && current.canConnect(ServiceSynchronize.this))
+                        if (current.accountState.operations > 0 && current.canRun(ServiceSynchronize.this))
                             runFts = false;
 
                         long account = current.command.getLong("account", -1);
