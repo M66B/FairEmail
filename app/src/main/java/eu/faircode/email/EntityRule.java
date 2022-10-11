@@ -312,6 +312,12 @@ public class EntityRule {
                     } else if ("$highpriority".equals(keyword)) {
                         if (!EntityMessage.PRIORITIY_HIGH.equals(message.priority))
                             return false;
+                    } else if ("$signed".equals(keyword)) {
+                        if (!message.isSigned())
+                            return false;
+                    } else if ("$encrypted".equals(keyword)) {
+                        if (!message.isEncrypted())
+                            return false;
                     } else {
                         List<String> keywords = new ArrayList<>();
                         keywords.addAll(Arrays.asList(message.keywords));
