@@ -364,7 +364,7 @@ public interface DaoMessage {
             " AND (:before IS NULL OR received < :before)" +
             " AND NOT message.folder IN (:exclude)" +
             " GROUP BY message.id" +
-            " ORDER BY matched DESC, received DESC" +
+            " ORDER BY received DESC" +
             " LIMIT :limit OFFSET :offset")
     List<TupleMatch> matchMessages(
             Long account, Long folder, long[] exclude, String find,
