@@ -34,6 +34,7 @@ import org.xbill.DNS.ARecord;
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.MXRecord;
 import org.xbill.DNS.Message;
+import org.xbill.DNS.NSRecord;
 import org.xbill.DNS.Record;
 import org.xbill.DNS.SOARecord;
 import org.xbill.DNS.SRVRecord;
@@ -82,6 +83,9 @@ public class DnsHelper {
     static DnsRecord[] lookup(Context context, String name, String type, int timeout) throws UnknownHostException {
         int rtype;
         switch (type) {
+            case "ns":
+                rtype = Type.NS;
+                break;
             case "mx":
                 rtype = Type.MX;
                 break;
@@ -194,7 +198,10 @@ public class DnsHelper {
             if (records != null)
                 for (Record record : records) {
                     Log.i("Found record=" + record);
-                    if (record instanceof MXRecord) {
+                    if (record instanceof NSRecord) {
+                        NSRecord ns = (NSRecord) record;
+                        result.add(new DnsRecord(ns.getTarget().toString(true)));
+                    } else if (record instanceof MXRecord) {
                         MXRecord mx = (MXRecord) record;
                         result.add(new DnsRecord(mx.getTarget().toString(true)));
                     } else if (record instanceof SOARecord) {
