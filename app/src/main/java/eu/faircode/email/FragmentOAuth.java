@@ -788,7 +788,7 @@ public class FragmentOAuth extends FragmentBase {
                 if (pop && recent && "gmail".equals(id))
                     username = "recent:" + username;
 
-                Log.i("OAuth username=" + username);
+                Log.i("OAuth username=" + username + " shared=" + sharedname);
                 for (Pair<String, String> identity : identities)
                     Log.i("OAuth identity=" + identity.first + "/" + identity.second);
 
@@ -835,7 +835,7 @@ public class FragmentOAuth extends FragmentBase {
                     db.beginTransaction();
 
                     if (args.getBoolean("update")) {
-                        List<EntityAccount> accounts = db.account().getAccounts(username, protocol);
+                        List<EntityAccount> accounts = db.account().getAccounts(sharedname == null ? username : sharedname, protocol);
                         if (accounts != null && accounts.size() == 1)
                             update = accounts.get(0);
                     }
@@ -936,7 +936,7 @@ public class FragmentOAuth extends FragmentBase {
                         EntityLog.log(context, "OAuth update account=" + update.name);
                         db.account().setAccountSynchronize(update.id, true);
                         db.account().setAccountPassword(update.id, state, AUTH_TYPE_OAUTH, provider.id);
-                        db.identity().setIdentityPassword(update.id, update.user, state, update.auth_type, AUTH_TYPE_OAUTH, provider.id);
+                        db.identity().setIdentityPassword(update.id, username, state, update.auth_type, AUTH_TYPE_OAUTH, provider.id);
                     }
 
                     db.setTransactionSuccessful();
