@@ -134,12 +134,12 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         db.delete("message", "rowid = ?", new String[]{Long.toString(id)});
     }
 
-    static String preprocessText(String text) {
+    private static String preprocessText(String text) {
         return Normalizer.normalize(text.trim().toLowerCase(), Normalizer.Form.NFKD)
                 .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
     }
 
-    private static String breakText(String text) {
+    static String breakText(String text) {
         if (TextUtils.isEmpty(text))
             return "";
 
