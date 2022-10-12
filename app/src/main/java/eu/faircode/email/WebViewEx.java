@@ -245,13 +245,15 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        // Unable to create layer for WebViewEx, size 1088x16384 max size 16383 color type 4 has context 1)
+        int limitHeight = MeasureSpec.makeMeasureSpec(16000, MeasureSpec.AT_MOST);
         if (legacy) {
             if (height > getMinimumHeight())
                 super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
             else
-                super.onMeasure(widthMeasureSpec, heightMeasureSpec); // Unspecified
+                super.onMeasure(widthMeasureSpec, limitHeight);
         } else {
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+            super.onMeasure(widthMeasureSpec, limitHeight);
         }
 
         int mh = getMeasuredHeight();
