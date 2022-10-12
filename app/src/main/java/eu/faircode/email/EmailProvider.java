@@ -359,6 +359,18 @@ public class EmailProvider implements Parcelable {
                         return Arrays.asList(provider);
                     }
 
+        try {
+            DnsHelper.DnsRecord[] ns = DnsHelper.lookup(context, domain, "ns");
+            for (DnsHelper.DnsRecord record : ns)
+                for (EmailProvider provider : providers)
+                    if (provider.mx != null)
+                        for (String mx : provider.mx)
+                            if (record.name.matches(mx))
+                                return Arrays.asList(provider);
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
         List<EmailProvider> candidates =
                 new ArrayList<>(_fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover));
 
