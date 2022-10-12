@@ -2949,9 +2949,9 @@ public class HtmlHelper {
 
         int flags = Pattern.DOTALL | Pattern.CASE_INSENSITIVE;
         List<Pattern> pat = new ArrayList<>();
-        pat.add(Pattern.compile(".*(" + TextUtils.join("\\s+", word) + ").*", flags));
+        pat.add(Pattern.compile(".*?\\b(" + TextUtils.join("\\s+", word) + ")\\b.*?", flags));
         for (String w : plus)
-            pat.add(Pattern.compile(".*(" + w + ").*", flags));
+            pat.add(Pattern.compile(".*?\\b(" + w + ")\\b.*?", flags));
 
         for (Pattern p : pat)
             NodeTraversor.traverse(new NodeVisitor() {
@@ -2963,24 +2963,25 @@ public class HtmlHelper {
                             String text = tnode.getWholeText();
 
                             Matcher result = p.matcher(text);
-                            if (!result.matches())
-                                return;
 
                             int prev = 0;
                             Element holder = document.createElement("span");
-                            for (int i = 1; i <= result.groupCount(); i++) {
-                                holder.appendText(text.substring(prev, result.start(i)));
+                            while (result.find()) {
+                                holder.appendText(text.substring(prev, result.start(1)));
 
                                 Element span = document.createElement("span");
                                 span.attr("style", mergeStyles(
                                         span.attr("style"),
                                         "font-size:larger; background-color:" + encodeWebColor(color)
                                 ));
-                                span.text(text.substring(result.start(i), result.end(i)));
+                                span.text(text.substring(result.start(1), result.end(1)));
                                 holder.appendChild(span);
 
-                                prev = result.end(i);
+                                prev = result.end(1);
                             }
+
+                            if (prev == 0) // No matches
+                                return;
 
                             if (prev < text.length())
                                 holder.appendText(text.substring(prev));

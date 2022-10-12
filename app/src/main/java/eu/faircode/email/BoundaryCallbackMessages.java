@@ -854,7 +854,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         if (word.size() == 0)
             return true;
 
-        Pattern pat = Pattern.compile(".*" + TextUtils.join("\\s+", word) + ".*", Pattern.DOTALL);
+        Pattern pat = Pattern.compile(".*?\\b(" + TextUtils.join("\\s+", word) + ")\\b.*?", Pattern.DOTALL);
         return pat.matcher(text).matches();
     }
 
