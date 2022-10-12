@@ -2626,9 +2626,6 @@ Some common header conditions (regex):
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
 * *.&ast;List-Unsubscribe:.&ast;* [RFC3834](https://datatracker.ietf.org/doc/html/rfc2369)
 * *.&ast;Content-Type:.&ast;multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
-* *.&ast;Content-Type:.&ast;multipart/signed.&ast;* PGP or S/MIME signed
-* *.&ast;Content-Type:.&ast;multipart/encrypted.&ast;* PGP encrypted
-* *.&ast;Content-Type:.&ast;application/pkcs7-mime.&ast;* S/MIME encrypted
 
 To match *set* IMAP flags (keywords) via a header condition (since version 1.1777):
 
