@@ -854,7 +854,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     if (!text.contains(w))
                         return false;
                 } else if (minus) {
-                    if (text.contains(w))
+                    if (!html && text.contains(w))
                         return false;
                 } else
                     word.add(w);
