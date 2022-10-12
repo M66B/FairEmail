@@ -336,15 +336,15 @@ public interface DaoMessage {
     Cursor getMessageFts();
 
     @Query("SELECT message.id, account, thread, (:find IS NULL" +
-            " OR (:senders AND `from` LIKE :find COLLATE NOCASE)" + // no index
-            " OR (:recipients AND `to` LIKE :find COLLATE NOCASE)" + // no index
-            " OR (:recipients AND `cc` LIKE :find COLLATE NOCASE)" + // no index
-            " OR (:recipients AND `bcc` LIKE :find COLLATE NOCASE)" + // no index
-            " OR (:subject AND `subject` LIKE :find COLLATE NOCASE)" + // unsuitable index
-            " OR (:keywords AND `keywords` LIKE :find COLLATE NOCASE)" + // no index
-            " OR (:message AND `preview` LIKE :find COLLATE NOCASE)" + // no index
-            " OR (:notes AND `notes` LIKE :find COLLATE NOCASE)" + // no index
-            " OR (:headers AND `headers` LIKE :find COLLATE NOCASE)" + // no index
+            //" OR (:senders AND `from` LIKE :find COLLATE NOCASE)" + // no index
+            //" OR (:recipients AND `to` LIKE :find COLLATE NOCASE)" + // no index
+            //" OR (:recipients AND `cc` LIKE :find COLLATE NOCASE)" + // no index
+            //" OR (:recipients AND `bcc` LIKE :find COLLATE NOCASE)" + // no index
+            //" OR (:subject AND `subject` LIKE :find COLLATE NOCASE)" + // unsuitable index
+            //" OR (:keywords AND `keywords` LIKE :find COLLATE NOCASE)" + // no index
+            //" OR (:message AND `preview` LIKE :find COLLATE NOCASE)" + // no index
+            //" OR (:notes AND `notes` LIKE :find COLLATE NOCASE)" + // no index
+            //" OR (:headers AND `headers` LIKE :find COLLATE NOCASE)" + // no index
             " OR (attachment.name LIKE :find COLLATE NOCASE)" + // no index
             " OR (attachment.type LIKE :find COLLATE NOCASE)) AS matched" + // no index
             " FROM message" +
@@ -368,7 +368,7 @@ public interface DaoMessage {
             " LIMIT :limit OFFSET :offset")
     List<TupleMatch> matchMessages(
             Long account, Long folder, long[] exclude, String find,
-            boolean senders, boolean recipients, boolean subject, boolean keywords, boolean message, boolean notes, boolean headers,
+            //boolean senders, boolean recipients, boolean subject, boolean keywords, boolean message, boolean notes, boolean headers,
             boolean unseen, boolean flagged, boolean hidden, boolean encrypted, boolean with_attachments, boolean with_notes,
             int type_count, String[] types,
             Integer size,
