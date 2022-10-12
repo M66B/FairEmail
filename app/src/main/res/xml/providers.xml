@@ -883,7 +883,8 @@
     </provider>
     <provider
         name="Hetzner Online"
-        link="https://wiki.hetzner.de/index.php/KonsoleH:Email-Konto_einrichten/en">
+        link="https://wiki.hetzner.de/index.php/KonsoleH:Email-Konto_einrichten/en"
+        mx=".*your-server\\.de">
         <imap
             host="mail.your-server.de"
             port="993"
