@@ -4,6 +4,12 @@ Changelog
 
 Mei long
 
+Next release
+
+* Added AND (+) and NOT (-) on-device searching, see the FAQ
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.1980 - 2022-10-10
 
 * Added *cc:*, *bcc:* search prefixes, see the FAQ

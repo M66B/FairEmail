@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### Next release
+
+* Added AND (+) and NOT (-) on-device searching, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1980 - 2022-10-10
 
 * Added *cc:*, *bcc:* search prefixes, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13)
