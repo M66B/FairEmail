@@ -117,7 +117,7 @@ public class MessageClassifier {
                     EntityFolder dest = db.folder().getFolderByName(folder.account, classified);
                     if (dest != null && dest.auto_classify_target &&
                             (pro || EntityFolder.JUNK.equals(dest.type)) &&
-                                    (!EntityFolder.JUNK.equals(dest.type) || !message.isNotJunk(context))) {
+                            (!EntityFolder.JUNK.equals(dest.type) || !message.isNotJunk(context))) {
                         EntityOperation.queue(context, message, EntityOperation.KEYWORD, MessageHelper.FLAG_CLASSIFIED, true);
                         EntityOperation.queue(context, message, EntityOperation.MOVE, dest.id, false, true);
                         message.ui_hide = true;
@@ -173,7 +173,8 @@ public class MessageClassifier {
             texts.add(message.subject);
 
         String text = HtmlHelper.getFullText(file);
-        texts.add(text);
+        if (text != null)
+            texts.add(text);
 
         return texts;
     }
