@@ -839,28 +839,17 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             return false;
 
         text = Fts4DbHelper.breakText(text);
-        query = Fts4DbHelper.breakText(query);
 
-        boolean plus = false;
-        boolean minus = false;
         List<String> word = new ArrayList<>();
         for (String w : query.trim().split("\\s+"))
-            if ("+".equals(w))
-                plus = true;
-            else if ("-".equals(w))
-                minus = true;
-            else {
-                if (plus) {
-                    if (!text.contains(w))
-                        return false;
-                } else if (minus) {
-                    if (!html && text.contains(w))
-                        return false;
-                } else
-                    word.add(w);
-                plus = false;
-                minus = false;
-            }
+            if (w.length() > 1 && w.startsWith("+")) {
+                if (!text.contains(Fts4DbHelper.preprocessText(w.substring(1))))
+                    return false;
+            } else if (w.length() > 1 && w.startsWith("-")) {
+                if (!html && text.contains(Fts4DbHelper.preprocessText(w.substring(1))))
+                    return false;
+            } else
+                word.addAll(Arrays.asList(Fts4DbHelper.breakText(w).split("\\s+")));
 
         if (word.size() == 0)
             return true;
