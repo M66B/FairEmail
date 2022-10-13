@@ -21,6 +21,8 @@ package eu.faircode.email;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -29,6 +31,7 @@ import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -45,6 +48,7 @@ import android.widget.FilterQueryProvider;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -198,6 +202,21 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         };
 
+        View.OnLongClickListener onCopy = new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                String text = ((TextView) v).getText().toString();
+
+                ClipboardManager cbm = Helper.getSystemService(v.getContext(), ClipboardManager.class);
+                cbm.setPrimaryClip(ClipData.newPlainText(getString(R.string.app_name), text));
+
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+
+                return true;
+            }
+        };
+
         Button[] btn = new Button[]{btnSearch1, btnSearch2, btnSearch3};
 
         int searches = 0;
@@ -210,6 +229,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 String search = prefs.getString("last_search" + (i + 1), null);
                 btn[i].setText(search);
                 btn[i].setOnClickListener(onSearch);
+                btn[i].setOnLongClickListener(onCopy);
                 btn[i].setVisibility(View.VISIBLE);
             } else
                 btn[i].setVisibility(searches > 0 ? View.INVISIBLE : View.GONE);
