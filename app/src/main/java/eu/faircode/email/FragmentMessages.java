@@ -8974,6 +8974,7 @@ public class FragmentMessages extends FragmentBase
                 MimeMessage imessage = new MimeMessage(isession, is);
                 MessageHelper helper = new MessageHelper(imessage, context);
                 MessageHelper.MessageParts parts = helper.getMessageParts();
+                String protect_subject = parts.getProtectedSubject();
 
                 // Write decrypted body
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -8998,6 +8999,9 @@ public class FragmentMessages extends FragmentBase
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
+
+                    if (protect_subject != null)
+                        db.message().setMessageSubject(message.id, protect_subject);
 
                     db.message().setMessageContent(message.id,
                             true,
