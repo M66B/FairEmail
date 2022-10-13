@@ -1685,8 +1685,8 @@
     <string name="title_redo">Rétablir</string>
     <string name="title_insert_line">Insérer une ligne</string>
     <string name="title_select_block">Sélectionner le bloc</string>
-    <string name="title_insert_brackets">Mettre entre crochets</string>
-    <string name="title_insert_quotes">Mettre entre apostrophes</string>
+    <string name="title_insert_brackets">Mettre entre parenthèses</string>
+    <string name="title_insert_quotes">Mettre entre guillemets</string>
     <string name="title_add">Ajouter</string>
     <string name="title_browse">Ouvrir avec</string>
     <string name="title_info">Infos</string>

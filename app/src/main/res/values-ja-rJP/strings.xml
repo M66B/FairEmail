@@ -1104,6 +1104,7 @@
     <string name="title_no_folder">フォルダーが存在しません</string>
     <string name="title_no_format">受信したメッセージを引用しています</string>
     <string name="title_no_search">サーバー検索はこのアカウントでは利用できません</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">詳細検索するフォルダーを選択</string>
     <string name="title_too_large">メッセージのサイズがが大きすぎるため再フォーマットを完了できませんでした</string>
     <string name="title_truncated">メッセージが大きすぎて完全には表示できません</string>
     <string name="title_insufficient_memory">使用可能なメモリーに対してメッセージが大きすぎます (%1$d)</string>

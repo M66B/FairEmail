@@ -1113,7 +1113,7 @@
     <string name="title_no_folder">Ordner nicht vorhanden</string>
     <string name="title_no_format">Die ursprünglich empfangene Nachricht wird miteinbezogen</string>
     <string name="title_no_search">Die Suche auf dem Server ist für dieses Konto nicht verfügbar</string>
-    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Für eine komplexe Suche einen Ordner auswählen</string>
+    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Für eine umfangreiche Suche einen Ordner auswählen</string>
     <string name="title_too_large">Nachricht zu groß, um sie vollständig umformatieren zu können</string>
     <string name="title_truncated">Nachricht zu groß, um vollständig angezeigt zu werden</string>
     <string name="title_insufficient_memory">Nachricht zu groß für den verfügbaren Speicher (%1$d)</string>
