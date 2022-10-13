@@ -4,10 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### Next release
+### 1.1981 - 2022-10-13
 
-* Added AND (+) and NOT (-) on-device searching, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13)
+* Added AND (+) and NOT (-) search terms to on-device searching, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13)
+* Added filter conditions to match signed/encrypted messages, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71)
 * Small improvements and minor bug fixes
+* Updated Public Suffix List
 * Updated translations
 
 ### 1.1980 - 2022-10-10
