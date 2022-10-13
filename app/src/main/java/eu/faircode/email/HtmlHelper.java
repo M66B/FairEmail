@@ -111,6 +111,7 @@ import java.io.InputStream;
 import java.io.StringReader;
 import java.net.URI;
 import java.text.DateFormat;
+import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.ArrayList;
@@ -2937,6 +2938,10 @@ public class HtmlHelper {
 
     static Document highlightSearched(Context context, Document document, String query) {
         int color = Helper.resolveColor(context, R.attr.colorHighlight);
+        query = Normalizer.normalize(query, Normalizer.Form.NFKD)
+                .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+
+        // TODO: fix highlighting pre processed text
 
         List<String> word = new ArrayList<>();
         List<String> plus = new ArrayList<>();
@@ -2960,24 +2965,28 @@ public class HtmlHelper {
                     if (node instanceof TextNode)
                         try {
                             TextNode tnode = (TextNode) node;
-                            String text = tnode.getWholeText();
+                            String text = Normalizer.normalize(tnode.getWholeText(), Normalizer.Form.NFKD)
+                                    .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
 
                             Matcher result = p.matcher(text);
 
                             int prev = 0;
                             Element holder = document.createElement("span");
                             while (result.find()) {
-                                holder.appendText(text.substring(prev, result.start(1)));
+                                int start = result.start(1);
+                                int end = result.end(1);
+
+                                holder.appendText(text.substring(prev, start));
 
                                 Element span = document.createElement("span");
                                 span.attr("style", mergeStyles(
                                         span.attr("style"),
                                         "font-size:larger; background-color:" + encodeWebColor(color)
                                 ));
-                                span.text(text.substring(result.start(1), result.end(1)));
+                                span.text(text.substring(start, end));
                                 holder.appendChild(span);
 
-                                prev = result.end(1);
+                                prev = end;
                             }
 
                             if (prev == 0) // No matches
