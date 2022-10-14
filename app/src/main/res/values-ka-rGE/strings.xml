@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">FairEmail ძიება</string>
+    <string name="app_changelog">ცვლილებების ჟურნალი</string>
+    <string name="app_welcome">FairEmail არის ღია კოდის ელ. ფოსტის აპლიკაცია, რომელიც ორიენტირებულია კონფიდენციალურობასა და უსაფრთხოებაზე. ამ მიზეზით, ზოგიერთი ფუნქცია შეიძლება განსხვავებულად იმუშაოს, ვიდრე თქვენ შეჩვეული ხართ.</string>
+    <string name="app_limitations">მაგალითად, შეტყობინებები ნაგულისხმევად რეფორმატირებულია სახიფათო ელემენტების ამოსაშლელად და წაკითხვის გასაუმჯობესებლად, ხოლო უსაფრთხოებისთვის საჭიროა ბმულების გახსნის დადასტურება. სურვილის შემთხვევაში ორივე შეიძლება გამორთოთ.</string>
+    <string name="app_unsupported">ამ კონკრეტული მოწყობილობის Android ვერსიის შეცდომები იწვევს ავარიას</string>
+    <string name="app_data_loss">ყველა მონაცემი შეიძლება დაიკარგოს</string>
+    <string name="app_continue">განაგრძე მაინც</string>
+    <string name="app_exit">ისევ „უკან“ წადით გასასვლელად</string>
+    <string name="app_cake">დარჩა არასაკმარისი საცავი</string>
+    <string name="app_cake_remaining">მოწყობილობაზე დარჩენილი საცავი: %1$s</string>
+    <string name="app_cake_required">მინიმალური საჭირო მეხსიერება: %1$s</string>
+    <string name="app_updated">ბოლო განახლება: %1$s</string>
+    <string name="app_download">ჩამოტვირთულია: %1$s-დან</string>
+    <string name="channel_service">მონიტორი</string>
+    <string name="channel_send">გაგზავნა</string>
+    <string name="channel_notification">ელფოსტა</string>
+    <string name="channel_progress">პროგრესი</string>
+    <string name="channel_update">განახლებები</string>
+    <string name="channel_warning">გაფრთხილებები</string>
+    <string name="channel_error">შეცდომები</string>
+    <string name="channel_alert">სერვერის გაფრთხილებები</string>
+    <string name="channel_group_contacts">კონტაქტები</string>
+    <string name="channel_service_description">ანგარიშების სინქრონიზაცია და მონიტორინგი</string>
+    <string name="channel_send_description">შეტყობინებების გაგზავნა</string>
+    <string name="channel_notification_description">ახალი შეტყობინების შეტყობინებები</string>
+    <string name="channel_progress_description">პროგრესის შეტყობინებები უფრო ხანგრძლივი მოქმედებების შესახებ</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Საუბარი</item>
+        <item quantity="other">საუბრები</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">შეტყობინება</item>
+        <item quantity="other">შეტყობინებები</item>
+    </plurals>
+    <string name="page_folders">საქაღალდეები</string>
+    <string name="tile_synchronize">სინქრონიზირება</string>
+    <string name="tile_unseen">ახალი შეტყობინება</string>
+    <string name="shortcut_refresh">განახლება</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
