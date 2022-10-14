@@ -209,7 +209,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         if (criteria.before != null)
             select += "time < " + criteria.before + " AND ";
 
-        Log.i("FTS select=" + select + " search=" + search);
+        Log.i("FTS select=" + select + " search=" + search + " query=" + query);
         List<Long> result = new ArrayList<>();
         try (Cursor cursor = db.query(
                 "message", new String[]{"rowid"},
