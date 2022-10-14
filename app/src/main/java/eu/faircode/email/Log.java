@@ -2848,6 +2848,13 @@ public class Log {
                     if (cursor.moveToNext())
                         size += write(os, String.format("sqlite: %s\r\n", cursor.getString(0)));
                 }
+                try {
+                    TupleFtsStats stats = db.message().getFts();
+                    size += write(os, String.format("fts: %d/%d %s\r\n", stats.fts, stats.total,
+                            Helper.humanReadableByteCount(Fts4DbHelper.size(context))));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
 
                 size += write(os, "\r\n");
 

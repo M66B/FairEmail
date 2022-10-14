@@ -290,11 +290,16 @@ public interface DaoMessage {
             " AND NOT ui_hide")
     LiveData<List<EntityMessage>> liveUnreadThread(long account, String thread);
 
-    @Query("SELECT SUM(fts) AS fts, COUNT(*) AS total FROM message" +
+    static String FTS_STATS = "SELECT SUM(fts) AS fts, COUNT(*) AS total FROM message" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE content" +
-            " AND folder.type <> '" + EntityFolder.OUTBOX + "'")
+            " AND folder.type <> '" + EntityFolder.OUTBOX + "'";
+
+    @Query(FTS_STATS)
     LiveData<TupleFtsStats> liveFts();
+
+    @Query(FTS_STATS)
+    TupleFtsStats getFts();
 
     @Query("SELECT COUNT(*) FROM message" +
             " WHERE id IN (:ids)" +
