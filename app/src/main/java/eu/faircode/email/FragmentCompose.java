@@ -2547,7 +2547,7 @@ public class FragmentCompose extends FragmentBase {
                                     paragraph.first, paragraph.second, RelativeSizeSpan.class);
                             for (RelativeSizeSpan span : spans)
                                 edit.removeSpan(span);
-                            edit.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_XSMALL),
+                            edit.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
                                     paragraph.first, paragraph.second,
                                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         }
