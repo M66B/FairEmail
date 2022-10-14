@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1982 - 2022-10-14
+
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
 ### 1.1981 - 2022-10-13
 
 * Added AND (+) and NOT (-) search terms to on-device searching, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13)
