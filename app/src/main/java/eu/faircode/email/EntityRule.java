@@ -466,7 +466,7 @@ public class EntityRule {
     private boolean _execute(Context context, EntityMessage message) throws JSONException, IllegalArgumentException {
         JSONObject jaction = new JSONObject(action);
         int type = jaction.getInt("type");
-        Log.i("Executing rule=" + type + ":" + name + " message=" + message.id);
+        EntityLog.log(context, EntityLog.Type.Rules, message, "Executing rule=" + type + ":" + name);
 
         switch (type) {
             case TYPE_NOOP:
