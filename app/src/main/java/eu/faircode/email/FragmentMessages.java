@@ -2254,6 +2254,8 @@ public class FragmentMessages extends FragmentBase
                         try {
                             if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                                 return;
+                            if (rvMessage.isComputingLayout())
+                                Log.e("isComputingLayout");
                             for (Integer pos : changed)
                                 adapter.notifyItemChanged(pos);
                         } catch (Throwable ex) {
@@ -2302,6 +2304,8 @@ public class FragmentMessages extends FragmentBase
                         try {
                             if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                                 return;
+                            if (rvMessage.isComputingLayout())
+                                Log.e("isComputingLayout");
                             adapter.notifyItemChanged(p);
                         } catch (Throwable ex) {
                             Log.e(ex);
@@ -2328,8 +2332,9 @@ public class FragmentMessages extends FragmentBase
                                 try {
                                     if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                                         return;
-                                    if (adapter != null)
-                                        adapter.notifyItemChanged(pos);
+                                    if (rvMessage.isComputingLayout())
+                                        Log.e("isComputingLayout");
+                                    adapter.notifyItemChanged(pos);
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                     /*
@@ -2574,6 +2579,8 @@ public class FragmentMessages extends FragmentBase
                     try {
                         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                             return;
+                        if (rvMessage.isComputingLayout())
+                            Log.e("isComputingLayout");
                         rvMessage.setItemViewCacheSize(0);
                         rvMessage.getRecycledViewPool().clear();
                         rvMessage.setItemViewCacheSize(ITEM_CACHE_SIZE);
@@ -2977,6 +2984,8 @@ public class FragmentMessages extends FragmentBase
                     try {
                         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                             return;
+                        if (rvMessage.isComputingLayout())
+                            Log.e("isComputingLayout");
                         if (pos == NO_POSITION)
                             adapter.notifyDataSetChanged();
                         else
