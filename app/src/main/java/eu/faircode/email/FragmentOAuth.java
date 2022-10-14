@@ -383,7 +383,13 @@ public class FragmentOAuth extends FragmentBase {
 
             AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
                     .setBrowserMatcher(new BrowserMatcher() {
+                        // https://github.com/openid/AppAuth-Android/issues/116
                         final BrowserMatcher SBROWSER = new VersionedBrowserMatcher(
+                                Browsers.SBrowser.PACKAGE_NAME,
+                                Browsers.SBrowser.SIGNATURE_SET,
+                                false,
+                                VersionRange.atMost("5.3"));
+                        final BrowserMatcher SBROWSER_TAB = new VersionedBrowserMatcher(
                                 Browsers.SBrowser.PACKAGE_NAME,
                                 Browsers.SBrowser.SIGNATURE_SET,
                                 true,
@@ -391,7 +397,7 @@ public class FragmentOAuth extends FragmentBase {
 
                         @Override
                         public boolean matches(@NonNull BrowserDescriptor descriptor) {
-                            boolean accept = !SBROWSER.matches(descriptor);
+                            boolean accept = !(SBROWSER.matches(descriptor) || SBROWSER_TAB.matches(descriptor));
                             EntityLog.log(context,
                                     "Browser=" + descriptor.packageName +
                                             ":" + descriptor.version +
