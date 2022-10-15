@@ -1113,7 +1113,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_no_folder">Klasör yok</string>
     <string name="title_no_format">Alınan özgün iletiye eklenecek</string>
     <string name="title_no_search">Bu hesap için sunucuda arama yapılamıyor</string>
-    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Karmaşık bir arama için bir klasör seçin</string>
+    <string name="title_complex_search">Karmaşık bir arama için bir klasör seçin</string>
     <string name="title_too_large">Mesaj, tamamen yeniden biçimlendirilemeyecek kadar büyük</string>
     <string name="title_truncated">Mesaj tamamen görüntülenemeyecek kadar büyük</string>
     <string name="title_insufficient_memory">İleti, kullanılabilir bellek için çok büyük (%1$d)</string>

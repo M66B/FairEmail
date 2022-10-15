@@ -1108,7 +1108,7 @@
     <string name="title_no_folder">Mappen finns inte</string>
     <string name="title_no_format">Det ursprungligen mottagna meddelandet kommer att inkluderas</string>
     <string name="title_no_search">Sök på servern är inte tillgänglig för detta konto</string>
-    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Välj en mapp för en komplex sökning</string>
+    <string name="title_complex_search">Välj en mapp för en komplex sökning</string>
     <string name="title_too_large">Meddelandet är för stort för att omformatera</string>
     <string name="title_truncated">Meddelandet är för stort för att visas helt</string>
     <string name="title_insufficient_memory">Meddelande för stort för tillgängligt minne (%1$d)</string>

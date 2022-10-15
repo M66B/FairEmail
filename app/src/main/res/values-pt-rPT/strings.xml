@@ -1117,7 +1117,7 @@
     <string name="title_no_folder">A pasta não existe</string>
     <string name="title_no_format">A mensagem originalmente recebida será incluída</string>
     <string name="title_no_search">Pesquisa no servidor não está disponível para esta conta</string>
-    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Selecione uma pasta para uma busca complexa</string>
+    <string name="title_complex_search">Selecione uma pasta para uma busca complexa</string>
     <string name="title_too_large">Mensagem demasiado grande para reformatar na íntegra</string>
     <string name="title_truncated">Mensagem demasiado grande para ser mostrada na íntegra</string>
     <string name="title_insufficient_memory">Mensagem muito grande para a memória disponível (%1$d)</string>

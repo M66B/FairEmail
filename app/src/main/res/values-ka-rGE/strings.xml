@@ -38,6 +38,18 @@
     <string name="tile_synchronize">სინქრონიზირება</string>
     <string name="tile_unseen">ახალი შეტყობინება</string>
     <string name="shortcut_refresh">განახლება</string>
+    <string name="title_advanced_section_send">გაგზავნა</string>
+    <string name="title_advanced_caption_conversation">Საუბარი</string>
+    <string name="title_advanced_caption_message">შეტყობინება</string>
+    <string name="title_synchronize_enabled">სინქრონიზირება</string>
+    <string name="title_contact_email">ელფოსტა</string>
+    <string name="title_raw_send_message">შეტყობინება</string>
+    <string name="title_raw_send_thread">Საუბარი</string>
+    <string name="title_send">გაგზავნა</string>
+    <string name="title_legend_section_synchronize">სინქრონიზირება</string>
+    <string name="title_legend_section_folders">საქაღალდეები</string>
+    <string name="title_legend_section_messages">შეტყობინებები</string>
+    <string name="title_legend_thread">Საუბარი</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

@@ -1141,7 +1141,7 @@
     <string name="title_no_folder">Folder nie istnieje</string>
     <string name="title_no_format">Pierwotnie odebrana wiadomość zostanie dołączona</string>
     <string name="title_no_search">Wyszukiwanie na serwerze nie jest dostępne dla tego konta</string>
-    <string name="title_complex_search" comment="title_complex_search&#10;This message will be shown when using a complex search (AND, OR, NOT, etc) when no folder is selected (for example the unified inbox is showing)">Wybierz folder dla zaawansowanego wyszukiwania</string>
+    <string name="title_complex_search">Wybierz folder dla zaawansowanego wyszukiwania</string>
     <string name="title_too_large">Wiadomość jest zbyt duża, aby całkowicie sformatować</string>
     <string name="title_truncated">Wiadomość jest za duża, aby wyświetlić ją w całości</string>
     <string name="title_insufficient_memory">Wiadomość jest zbyt duża dla dostępnej pamięci (%1$d)</string>
