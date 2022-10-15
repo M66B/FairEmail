@@ -4,7 +4,7 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### Next version
+### 1.1983 - 2022-10-15
 
 * Added subscript and superscript to message editor
 * Small improvements and minor bug fixes
