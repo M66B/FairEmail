@@ -4,6 +4,14 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### Next version
+
+* Added subscript and superscript to message editor
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated build tools
+* Updated translations
+
 ### 1.1982 - 2022-10-14
 
 * Small improvements and minor bug fixes
