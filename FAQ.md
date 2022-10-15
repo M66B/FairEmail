@@ -1301,11 +1301,11 @@ See also [this FAQ](#user-content-faq15).
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq19)
 
-First of all, **FairEmail is basically free to use** and only some advanced features need to be purchased.
+**FairEmail is basically free to use** and only some advanced features need to be purchased.
 
-Zuerst, **FairEmail ist grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
+**FairEmail ist grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
 
-Tout d'abord, **FairEmail est au fond gratuit** et seulement quelques fonctionnalités avancées doivent être achetés.
+**FairEmail est au fond gratuit** et seulement quelques fonctionnalités avancées doivent être achetés.
 
 Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of pro features.
 
@@ -1322,7 +1322,7 @@ Also note that most free apps will appear not to be sustainable in the end, wher
 and that free apps may have a catch, like sending privacy sensitive information to the internet.
 There are no privacy violating ads in the app either.
 
-I have been working on FairEmail almost every day for more than three years, so I think the price is more than reasonable.
+I have been working on FairEmail almost every day for more than four years, so I think the price is more than reasonable.
 For this reason there won't be discounts either.
 
 <br />
