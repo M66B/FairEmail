@@ -203,6 +203,7 @@ public class FragmentOperations extends FragmentBase {
                                             addAll(ops, db.operation().getOperations(EntityOperation.FLAG));
                                             addAll(ops, db.operation().getOperations(EntityOperation.KEYWORD));
                                             addAll(ops, db.operation().getOperations(EntityOperation.LABEL));
+                                            addAll(ops, db.operation().getOperations(EntityOperation.REPORT));
                                         }
 
                                         if (delete) {
