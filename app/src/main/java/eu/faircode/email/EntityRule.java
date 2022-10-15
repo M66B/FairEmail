@@ -456,7 +456,7 @@ public class EntityRule {
 
     boolean execute(Context context, EntityMessage message) throws JSONException {
         boolean executed = _execute(context, message);
-        if (id != null && executed) {
+        if (this.id != null && executed) {
             DB db = DB.getInstance(context);
             db.rule().applyRule(id, new Date().getTime());
         }
@@ -744,9 +744,9 @@ public class EntityRule {
             EntityOperation.queue(context, message, EntityOperation.RAW);
         }
 
-        if (!complete) {
+        if (!complete && this.id != null) {
             EntityOperation.queue(context, message, EntityOperation.RULE, this.id);
-            return false;
+            return true;
         }
 
         executor.submit(new Runnable() {
@@ -963,7 +963,7 @@ public class EntityRule {
         if (message.ui_seen)
             return false;
 
-        if (!message.content) {
+        if (!message.content && this.id != null) {
             EntityOperation.queue(context, message, EntityOperation.BODY);
             EntityOperation.queue(context, message, EntityOperation.RULE, this.id);
             return true;

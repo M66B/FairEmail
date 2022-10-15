@@ -597,6 +597,7 @@ class Core {
                         long attachments = (op.message == null ? 0 : db.attachment().countAttachments(op.message));
 
                         if (op.tries >= TOTAL_RETRY_MAX ||
+                                ex instanceof JSONException ||
                                 ex instanceof OutOfMemoryError ||
                                 ex instanceof FileNotFoundException ||
                                 ex instanceof FolderNotFoundException ||
