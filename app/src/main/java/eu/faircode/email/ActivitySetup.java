@@ -728,7 +728,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 switch (type) {
                                     case EntityRule.TYPE_MOVE:
                                     case EntityRule.TYPE_COPY:
-                                        long target = jaction.getLong("target");
+                                        long target = jaction.optLong("target", -1L);
                                         EntityFolder f = db.folder().getFolder(target);
                                         EntityAccount a = (f == null ? null : db.account().getAccount(f.account));
                                         if (a != null)
@@ -737,8 +737,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                             jaction.put("targetFolderName", f.name);
                                         break;
                                     case EntityRule.TYPE_ANSWER:
-                                        long identity = jaction.getLong("identity");
-                                        long answer = jaction.getLong("answer");
+                                        long identity = jaction.optLong("identity", -1L);
+                                        long answer = jaction.optLong("answer", -1L);
                                         EntityIdentity i = db.identity().getIdentity(identity);
                                         EntityAnswer t = db.answer().getAnswer(answer);
                                         if (i != null)
