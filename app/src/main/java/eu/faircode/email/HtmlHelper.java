@@ -53,8 +53,6 @@ import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
-import android.text.style.SubscriptSpan;
-import android.text.style.SuperscriptSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
@@ -1205,13 +1203,6 @@ public class HtmlHelper {
         // Abbreviations
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
         document.select("abbr").tagName("u");
-
-        // Subscript/Superscript
-        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub
-        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup
-        if (!view)
-            for (Element subp : document.select("sub,sup"))
-                subp.tagName("small");
 
         // Tables
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
@@ -3645,12 +3636,10 @@ public class HtmlHelper {
                                 // Do nothing
                                 break;
                             case "sub":
-                                setSpan(ssb, new SubscriptSpan(), start, ssb.length());
-                                setSpan(ssb, new RelativeSizeSpan(FONT_SMALL), start, ssb.length());
+                                setSpan(ssb, new SubscriptSpanEx(), start, ssb.length());
                                 break;
                             case "sup":
-                                setSpan(ssb, new SuperscriptSpan(), start, ssb.length());
-                                setSpan(ssb, new RelativeSizeSpan(FONT_SMALL), start, ssb.length());
+                                setSpan(ssb, new SuperscriptSpanEx(), start, ssb.length());
                                 break;
                             case "table":
                             case "thead":

@@ -80,6 +80,7 @@ public class StyleHelper {
             AlignmentSpan.class,
             BulletSpanEx.class, NumberSpan.class,
             QuoteSpan.class, IndentSpan.class,
+            SubscriptSpanEx.class, SuperscriptSpanEx.class,
             StrikethroughSpan.class,
             URLSpan.class,
             TypefaceSpan.class, CustomTypefaceSpan.class,
@@ -246,6 +247,10 @@ public class StyleHelper {
                                 return setBlockQuote(etBody, start, end, true);
                             } else if (groupId == R.id.group_style_mark) {
                                 return setMark(item);
+                            } else if (groupId == R.id.group_style_subscript) {
+                                return setSubscript(item);
+                            } else if (groupId == R.id.group_style_superscript) {
+                                return setSuperscript(item);
                             } else if (groupId == R.id.group_style_strikethrough) {
                                 return setStrikeThrough(item);
                             } else if (groupId == R.id.group_style_code) {
@@ -461,6 +466,56 @@ public class StyleHelper {
 
                         etBody.setText(edit);
                         etBody.setSelection(end);
+
+                        return true;
+                    }
+
+                    private boolean setSubscript(MenuItem item) {
+                        Log.breadcrumb("style", "action", "subscript");
+
+                        boolean has = false;
+                        SubscriptSpanEx[] spans = edit.getSpans(start, end, SubscriptSpanEx.class);
+                        for (SubscriptSpanEx span : spans) {
+                            int s = edit.getSpanStart(span);
+                            int e = edit.getSpanEnd(span);
+                            int f = edit.getSpanFlags(span);
+                            edit.removeSpan(span);
+                            if (splitSpan(edit, start, end, s, e, f, true,
+                                    new SubscriptSpanEx(), new SubscriptSpanEx()))
+                                has = true;
+                        }
+
+                        if (!has)
+                            edit.setSpan(new SubscriptSpanEx(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        etBody.setText(edit);
+                        etBody.setSelection(start, end);
+
+                        return true;
+                    }
+
+                    private boolean setSuperscript(MenuItem item) {
+                        Log.breadcrumb("style", "action", "superscript");
+
+                        boolean has = false;
+                        SuperscriptSpanEx[] spans = edit.getSpans(start, end, SuperscriptSpanEx.class);
+                        for (SuperscriptSpanEx span : spans) {
+                            int s = edit.getSpanStart(span);
+                            int e = edit.getSpanEnd(span);
+                            int f = edit.getSpanFlags(span);
+                            edit.removeSpan(span);
+                            if (splitSpan(edit, start, end, s, e, f, true,
+                                    new SuperscriptSpanEx(), new SuperscriptSpanEx()))
+                                has = true;
+                        }
+
+                        if (!has) {
+                            edit.setSpan(new SuperscriptSpanEx(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            edit.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        }
+
+                        etBody.setText(edit);
+                        etBody.setSelection(start, end);
 
                         return true;
                     }

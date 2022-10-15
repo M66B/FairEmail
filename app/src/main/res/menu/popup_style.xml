@@ -151,8 +151,26 @@
     </group>
 
     <group
-        android:id="@+id/group_style_strikethrough"
+        android:id="@+id/group_style_subscript"
         android:orderInCategory="10">
+        <item
+            android:id="@+id/menu_style_subscript"
+            android:icon="@drawable/twotone_subscript_24"
+            android:title="@string/title_style_subscript" />
+    </group>
+
+    <group
+        android:id="@+id/group_style_superscript"
+        android:orderInCategory="11">
+        <item
+            android:id="@+id/menu_style_superscript"
+            android:icon="@drawable/twotone_superscript_24"
+            android:title="@string/title_style_superscript" />
+    </group>
+
+    <group
+        android:id="@+id/group_style_strikethrough"
+        android:orderInCategory="12">
         <item
             android:id="@+id/menu_style_strikethrough"
             android:icon="@drawable/twotone_format_strikethrough_24"
@@ -161,7 +179,7 @@
 
     <group
         android:id="@+id/group_style_code"
-        android:orderInCategory="11">
+        android:orderInCategory="13">
         <item
             android:id="@+id/menu_style_code"
             android:icon="@drawable/twotone_code_24"
@@ -170,7 +188,7 @@
 
     <group
         android:id="@+id/group_style_clear"
-        android:orderInCategory="12">
+        android:orderInCategory="14">
         <item
             android:id="@+id/menu_style_clear"
             android:icon="@drawable/twotone_format_clear_24"
