@@ -4,6 +4,11 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.[1984](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four) - 2022-10-16
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1983 - 2022-10-15
 
 * Added subscript and superscript to message editor
