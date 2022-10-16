@@ -37,7 +37,9 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
+import android.text.style.URLSpan;
 import android.util.AttributeSet;
+import android.util.Base64;
 import android.view.ActionMode;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -56,9 +58,16 @@ import androidx.preference.PreferenceManager;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.nio.ByteBuffer;
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.GCMParameterSpec;
+import javax.crypto.spec.PBEKeySpec;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
@@ -113,6 +122,7 @@ public class EditTextCompose extends FixedEditText {
                         int order = 1000;
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_brackets, order++, context.getString(R.string.title_insert_brackets));
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_quotes, order++, context.getString(R.string.title_insert_quotes));
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_protect_text, order++, context.getString(R.string.title_protect_text));
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
@@ -137,6 +147,8 @@ public class EditTextCompose extends FixedEditText {
                             return surround("(", ")");
                         else if (id == R.string.title_insert_quotes)
                             return surround("\"", "\"");
+                        else if (id == R.string.title_protect_text)
+                            return protect();
                     }
                     return false;
                 }
@@ -164,6 +176,81 @@ public class EditTextCompose extends FixedEditText {
                             edit.insert(start, before);
                         }
                     }
+                    return selection;
+                }
+
+                private boolean protect() {
+                    Editable edit = getText();
+                    int start = getSelectionStart();
+                    int end = getSelectionEnd();
+                    boolean selection = (edit != null && start >= 0 && start < end);
+                    if (selection)
+                        executor.submit(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    String password = "FairEmail";
+                                    String text = HtmlHelper.toHtml((Spanned) edit.subSequence(start, end), context);
+
+                                    SecureRandom random = new SecureRandom();
+
+                                    byte[] salt = new byte[16]; // 128 bits
+                                    random.nextBytes(salt);
+
+                                    byte[] iv = new byte[12]; // 96 bites
+                                    random.nextBytes(iv);
+
+                                    // Iterations = 120,000; Keylength = 256 bits = 32 bytes
+                                    PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 120000, 256);
+
+                                    SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+                                    SecretKey key = skf.generateSecret(spec);
+
+                                    // Authentication tag length = 128 bits = 16 bytes
+                                    GCMParameterSpec parameterSpec = new GCMParameterSpec(128, iv);
+
+                                    final Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+                                    cipher.init(Cipher.ENCRYPT_MODE, key, parameterSpec);
+
+                                    byte[] cipherText = cipher.doFinal(text.getBytes());
+
+                                    ByteBuffer out = ByteBuffer.allocate(1 + salt.length + iv.length + cipherText.length);
+                                    out.put((byte) 1); //version
+                                    out.put(salt);
+                                    out.put(iv);
+                                    out.put(cipherText);
+                                    String fragment = Base64.encodeToString(out.array(), Base64.URL_SAFE | Base64.NO_WRAP);
+
+                                    post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                if (getSelectionStart() != start || getSelectionEnd() != end)
+                                                    return;
+                                                String title = context.getString(R.string.title_decrypt);
+                                                String url = "https://email.faircode.eu/decrypt/#" + fragment;
+                                                edit.delete(start, end);
+                                                edit.insert(start, title);
+                                                edit.setSpan(new URLSpan(url), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                                setSelection(start + title.length());
+                                            } catch (Throwable ex) {
+                                                Log.e(ex);
+                                            }
+                                        }
+                                    });
+
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                    post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+                                }
+                            }
+                        });
+
                     return selection;
                 }
             });
