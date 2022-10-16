@@ -4992,16 +4992,20 @@ Only the latest Play store version and latest GitHub release are supported.
 The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release.
 This also means that downgrading is not supported.
 
-There is no support on things that are not directly related to FairEmail.
+There is no support for things that are not directly related to FairEmail.
 
 There is no support on building and developing things by yourself.
+
+A change will be considered only if more than a few people ask for it.
+Changes in the past resulted too often in lots of complaints of other people.
+You can ask for support for changes [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
 
 Requested features should:
 
 * be useful to most people
 * not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* fit within the philosophy of FairEmail (privacy-oriented, security-minded)
+* comply with common standards (IMAP, SMTP, etc.)
 * comply with the [Core app quality guidelines](https://developer.android.com/docs/quality-guidelines/core-app-quality)
 
 A feature will be considered useful to most people if more than 0.1% of the users request a feature, which in practice means about 500 people.
