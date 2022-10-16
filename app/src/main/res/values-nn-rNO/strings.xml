@@ -3,10 +3,20 @@
     <string name="app_search">FairEmail søk</string>
     <string name="app_changelog">Endringer</string>
     <string name="app_welcome">FairEmail er en åpen kildekode e-postprogram som er fokusert på personvern og sikkerhet. Av denne grunn kan noen funksjoner virke annerledes enn det du er vant til.</string>
+    <string name="app_limitations">For eksempel er meldinger omformatert som standard for å fjerne utrygge elementer og for å forbedre lesbarhet, og åpning av lenker må bekreftes for sikkerhet. Begge kan deaktiveres om ønskelig.</string>
+    <string name="app_unsupported">Bugs i Android-versjonen av denne spesifikke enheten forårsaker krasj</string>
+    <string name="app_data_loss">All data kan bli tapt</string>
+    <string name="app_continue">Fortsett likevel</string>
     <string name="app_exit">Gå \'tilbake\' igjen for å avslutte</string>
     <string name="app_cake">Ikke nok lagringsplass igjen</string>
+    <string name="app_cake_remaining">Gjenværende lagringsplass på enheten %1$s</string>
+    <string name="app_cake_required">Minimum lagringsplass krevd %1$s</string>
+    <string name="app_updated">Sist oppdatert %1$s</string>
+    <string name="app_download">Nedlastet fra %1$s</string>
+    <string name="channel_service">Monitor</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">E-post</string>
+    <string name="channel_progress">Fremgang</string>
     <string name="channel_update">Oppdateringer</string>
     <string name="channel_warning">Advarsler</string>
     <string name="channel_error">Feil</string>
@@ -15,6 +25,7 @@
     <string name="channel_service_description">Synkronisering og overvåking av kontoer</string>
     <string name="channel_send_description">Sending av meldingar</string>
     <string name="channel_notification_description">Varsler om nye meldinger</string>
+    <string name="channel_progress_description">Meddelelser om fremgang av lengre pågående aktiviteter</string>
     <plurals name="page_conversation">
         <item quantity="one">Samtale</item>
         <item quantity="other">Samtaler</item>
@@ -64,13 +75,38 @@
     </plurals>
     <string name="title_ask_spam_who">Behandle melding fra %1$s som spam?</string>
     <string name="title_junk_hint">Din e-postleverandør er ansvarlig for filtrering av nettsøppel. En e-postapp har ikke alle dataene som trengs for å gjøre dette pålitelig.</string>
+    <string name="title_junk_pop_hint">Meldinger fra blokkerte sendere vil ikke bli lastet ned.
+        Om \"Forlat meldinger på server\" ikke er aktivert, vil disse meldingene bli permanent tapt!
+    </string>
     <string name="title_block">Blokkere %1$s</string>
     <string name="title_block_sender">Blokker avsender</string>
+    <string name="title_block_sender_domain">Blokker domene %1$s</string>
+    <string name="title_block_sender_hint">Blokkerer en sender er en gratis egenskap.
+        Blokkering av en senderdomene bruker filterregler, som er en pro-egenskap.
+    </string>
+    <string name="title_blocked_senders">Blokkerte sendere</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Blokker sender av %1$s melding?</item>
+        <item quantity="other">Blokker sender av %1$s meldinger?</item>
+    </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s time</item>
+        <item quantity="other">%1$s timer</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s dag</item>
+        <item quantity="other">%1$s dager</item>
+    </plurals>
+    <string name="title_junk_filter">Bruk lokalt spamfilter</string>
+    <string name="title_junk_filter_hint">Dette kan øke batteribruk og feilaktig markere meldinger som spam</string>
+    <string name="title_junk_blocklist">Bruk lister for spamblokkering</string>
     <string name="title_junk_clear">Tøm</string>
+    <string name="title_junk_clear_hint">Dette vil slette alle regler for blokkering av sendere</string>
     <string name="title_notification_sending">Sender melding</string>
     <string name="title_notification_waiting">Venter på passende tilkobling</string>
     <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\'%1$s\' mislyktes</string>
+    <string name="title_notification_alert">Serveralarm: %1$s</string>
     <string name="title_notification_sending_left">Forsøk igjen: %1$d</string>
     <string name="title_notification_sending_failed">Sending til %1$s mislyktes</string>
     <string name="title_notification_redacted">Redigert: biometrisk eller PIN-autentisering aktivert</string>
