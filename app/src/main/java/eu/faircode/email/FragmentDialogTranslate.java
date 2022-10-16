@@ -154,7 +154,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
 
             private View _getView(int position, View view) {
                 DeepL.Language language = getItem(position);
-                if (language != null) {
+                if (language != null && language.icon != null && language.name != null) {
                     TextView tv = view.findViewById(android.R.id.text1);
 
                     Drawable icon = ContextCompat.getDrawable(context, language.icon);
