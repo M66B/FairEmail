@@ -573,7 +573,6 @@ public class HtmlHelper {
 
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font
         for (Element font : document.select("font")) {
-            // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font
             String style = font.attr("style");
             String color = font.attr("color").trim();
             String size = font.attr("size").trim();
@@ -605,12 +604,18 @@ public class HtmlHelper {
                             size = "larger";
                         else
                             throw new NumberFormatException("size=" + size);
-                    } else if (s < 3)
-                        size = "small";
-                    else if (s > 3)
-                        size = "large";
-                    else
-                        size = "medium";
+                    } else {
+                        if (s < 2)
+                            size = "x-small";
+                        else if (s < 3)
+                            size = "small";
+                        else if (s > 4)
+                            size = "x-large";
+                        else if (s > 3)
+                            size = "large";
+                        else
+                            size = "medium";
+                    }
                     sb.append("font-size:").append(size).append(";");
                 } catch (NumberFormatException ex) {
                     Log.i(ex);
