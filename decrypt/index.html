@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Decrypt message</title>
+
+		<meta name="theme-color" content="#006db3">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+		<meta name="description" content="Decrypt message">
+		<meta name="author" content="M66B">
+		<meta name="robots" content="noindex">
+
+		<!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
+
+		<style>
+			body { padding-left: 10px; padding-right: 10px; font-family: Arial, Helvetica, sans-serif; }
+		</style>
+
+		<style>
+			.noscript { display: none; }
+		</style>
+		<noscript>
+			<style>
+				.noscript { display: block; }
+			</style>
+		</noscript>
+
+		<script>
+			window.addEventListener('load', load);
+
+			function load() {
+				document.getElementById('getpassword').addEventListener('submit', getpassword);
+				if (window.location.hash)
+					if (crypto.subtle &&
+						typeof Uint8Array === 'function' &&
+						typeof TextEncoder === 'function') {
+						document.getElementById('getpassword').style.display = 'block';
+						document.getElementById('password').focus();
+					}
+					else {
+						document.getElementById('error').textContent = 'Your browser is not suitable for decrypting messages';
+						document.getElementById('error').style.display = 'block';
+						document.getElementById('details').innerHTML =
+							'crypto.subtle: ' + (crypto.subtle ? 'Yes' : 'No') + '<br>' +
+							'Uint8Array: ' + (Uint8Array ? 'Yes' : 'No') + '<br>' +
+							'TextEncoder: ' + (TextEncoder ? 'Yes' : 'No') + '<br>';
+						document.getElementById('details').style.display = 'block';
+					}
+				else {
+					document.getElementById('message').textContent = 'Nothing to see here';
+					document.getElementById('message').style.display = 'block';
+				}
+
+				document.getElementById('year').textContent = new Date().getFullYear();
+			}
+
+			function getpassword(event) {
+				event.preventDefault();
+				decrypt();
+			}
+
+			async function decrypt() {
+				document.getElementById('fields').disabled = true;
+				try {
+					document.getElementById('message').style.display = 'none';
+					document.getElementById('error').style.display = 'none';
+					document.getElementById('details').style.display = 'none';
+					let password = document.getElementById('password').value;
+					if (password) {
+						let message = await _decrypt(password);
+						document.getElementById('getpassword').style.display = 'none';
+						document.getElementById('message').innerHTML = message;
+						document.getElementById('message').style.display = 'block';
+						document.getElementById('copyright').style.display = 'none';
+					}
+					else
+						throw new Error('Password required');
+				} catch (e) {
+					console.log("%O", e);
+					document.getElementById('password').value = '';
+					document.getElementById('error').textContent = 'Could not decrypt the message. Is the password correct?';
+					document.getElementById('error').style.display = 'block';
+					document.getElementById('details').textContent = e.toString();
+					document.getElementById('details').style.display = 'block';
+				}
+				document.getElementById('fields').disabled = false;
+			}
+
+			async function _decrypt(password) {
+				let msg = atob(window.location.hash.substr(1).replaceAll('-', '+').replaceAll('_', '/'));
+
+				const buf = new Uint8Array(msg.length);
+				for (let i = 0; i < msg.length; i++)
+					buf[i] = msg.charCodeAt(i);
+
+				const version = buf[0];
+				const salt = buf.slice(1, 1 + 16);
+				const iv = buf.slice(1 + 16, 1 + 16 + 12);
+				const e = buf.slice(1 + 16 + 12, buf.length);
+
+				// https://developer.mozilla.org/en-US/docs/Web/API/Crypto/subtle
+				// https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder
+				const passwordBuffer = new TextEncoder('UTF-8').encode(password);
+				const importedKey = await crypto.subtle.importKey('raw', passwordBuffer, 'PBKDF2', false, ['deriveBits']);
+				const derivation = await crypto.subtle.deriveBits({name: 'PBKDF2', hash: 'SHA-512', salt: salt, iterations: 120000}, importedKey, 256);
+				const importedEncryptionKey = await crypto.subtle.importKey('raw', derivation, {name: 'AES-GCM'}, false, ['decrypt']);
+				const decrypted = await window.crypto.subtle.decrypt({name: 'AES-GCM', iv: iv, tagLength: 128}, importedEncryptionKey, e);
+
+				return new TextDecoder('UTF-8').decode(decrypted);
+			}
+		</script>
+	</head>
+	<body>
+		<p class="noscript" style="color: red; font-weight: bold;">Please enable JavaScript</p>
+
+		<form id="getpassword" action="#" method="GET" style="display: none;">
+			<p>
+				Someone sent you an encrypted message with <a href="https://email.faircode.eu/" target="_blank">FairEmail</a>.
+			</p>
+			<fieldset id="fields" style="border:0 none; margin: 0; padding: 0;">
+				<p>
+					<label for="password">Password</label><br>
+					<input id="password" name="password" type="password" required><br>
+					<span style="font-size: smaller;">Passwords are case-sensitive </span>
+				</p>
+				<p>
+					<input id="submit" type="submit" value="Decrypt">
+				</p>
+			</fieldset>
+			<p style="font-size: smaller;">
+				Messages are decrypted in the browser and not stored an a server.<br>
+				Messages are encrypted with AES/GCM with a 256 bits key derived with PBKDF2/SHA-512/120,000 iterations.
+			</p>
+		</form>
+
+		<p id="message" style="display: none;"></p>
+
+		<p id="error" style="color: red; font-weight: bold; display: none;"></p>
+
+		<p id="details" style="font-size: x-small; display: none;"></p>
+
+		<p id="copyright" style="padding-top: 20px;">
+			Copyright &copy; 2018&ndash;<span id="year">2022</span> by Marcel Bokhorst (M66B)
+			<br>
+			<br>
+			<span style="font-size: smaller;">This page is <a href="https://github.com/M66B/FairEmail/blob/master/decrypt/index.html" target="_blank">open source</a>.</span>
+		</p>
+	</body>
+</html>
