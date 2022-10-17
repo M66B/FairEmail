@@ -4996,6 +4996,7 @@ Password protected text is encrypted with AES/GCM with a 256 bits key derived wi
 With a sufficiently long/complex password, which is communicated to the recipient securely, this is considered safe in 2022 and for the foreseeable future.
 
 The maximum message text is 1,500 characters, which includes HTML formatting tags.
+Images will be replaced with place holders to reduce the content size.
 
 Cross-site scripting (XSS) is prevented by using [DOMPurify](https://github.com/cure53/DOMPurify) (Apache License Version 2.0).
 
