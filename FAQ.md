@@ -393,6 +393,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(181) How do I use VirusTotal?](#user-content-faq181)
 * [(182) How can I select how a link should be opened?](#user-content-faq182)
 * [(183) How do I use Send?](#user-content-faq183)
+* [(184) How do I password protect text?](#user-content-faq184)
 
 [I have another question.](#user-content-get-support)
 
@@ -4982,6 +4983,23 @@ Send is only available in non-Play Store versions of the app (since version 1.19
 
 <br />
 
+<a name="faq184"></a>
+**(184) How do I password protect text?**
+
+Select some text by long pressing it, and in the style toolbar at the bottom tap on the *<ins>A</ins>*-button and select *Password protect* in the pop-up menu.
+
+Password protected text is sent as a [URI fragment](https://en.wikipedia.org/wiki/URI_fragment) and not stored on a server, and decrypted in the browser with JavaScript.
+
+Password protected text is encrypted with AES/GCM with a 256 bits key derived with PBKDF2/SHA-512 with 120,000 iterations.
+
+The maximum message text is 1,500 characters, which includes HTML formatting tags.
+
+This feature is not available in the Play store version of the app.
+
+Sending protected text is a pro feature, decrypting protected text is a free feature.
+
+<br />
+
 <h2><a name="get-support"></a>Get support</h2>
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-get-support)
@@ -5033,4 +5051,4 @@ GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Copyright &copy; 2018-2022 Marcel Bokhorst.

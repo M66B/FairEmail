@@ -56,6 +56,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -88,6 +89,8 @@ import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 
 public class StyleHelper {
+    private static final int MAX_PROTECTED_TEXT = 1500;
+
     private static final List<Class> CLEAR_STYLES = Collections.unmodifiableList(Arrays.asList(
             StyleSpan.class,
             UnderlineSpan.class,
@@ -573,6 +576,14 @@ public class StyleHelper {
                         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_password_protect, null);
                         TextInputLayout etPassword1 = dview.findViewById(R.id.tilPassword1);
                         TextInputLayout etPassword2 = dview.findViewById(R.id.tilPassword2);
+                        Button btnInfo = dview.findViewById(R.id.btnInfo);
+
+                        btnInfo.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Helper.viewFAQ(v.getContext(), 184);
+                            }
+                        });
 
                         Dialog dialog = new AlertDialog.Builder(context)
                                 .setView(dview)
@@ -605,6 +616,9 @@ public class StyleHelper {
                                                             Spanned text = (Spanned) args.getCharSequence("text");
                                                             String password = args.getString("password");
                                                             String html = HtmlHelper.toHtml(text, context);
+
+                                                            if (html.length() > MAX_PROTECTED_TEXT)
+                                                                throw new IllegalArgumentException(context.getString(R.string.title_style_protect_size));
 
                                                             SecureRandom random = new SecureRandom();
 
@@ -655,8 +669,12 @@ public class StyleHelper {
 
                                                         @Override
                                                         protected void onException(Bundle args, Throwable ex) {
-                                                            Log.e(ex);
-                                                            ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                                            if (ex instanceof IllegalArgumentException)
+                                                                ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
+                                                            else {
+                                                                Log.e(ex);
+                                                                ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                                            }
                                                         }
                                                     }.execute(context, owner, args, "protect");
                                                 }

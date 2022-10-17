@@ -183,7 +183,7 @@
         <item
             android:id="@+id/menu_style_password"
             android:icon="@drawable/twotone_lock_24"
-            android:title="@string/title_style_password" />
+            android:title="@string/title_style_protect" />
     </group>
 
     <group

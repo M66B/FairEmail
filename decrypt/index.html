@@ -2,11 +2,11 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Decrypt message</title>
+		<title>Decrypt text</title>
 
 		<meta name="theme-color" content="#006db3">
 		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-		<meta name="description" content="Decrypt message">
+		<meta name="description" content="Decrypt text">
 		<meta name="author" content="M66B">
 		<meta name="robots" content="noindex">
 
@@ -116,11 +116,11 @@
 
 		<form id="getpassword" action="#" method="GET" style="display: none;">
 			<p>
-				Someone sent you an encrypted message with <a href="https://email.faircode.eu/" target="_blank">FairEmail</a>.
+				Someone sent you password protected text with <a href="https://email.faircode.eu/" target="_blank">FairEmail</a>.
 			</p>
 			<fieldset id="fields" style="border:0 none; margin: 0; padding: 0;">
 				<p>
-					<label for="password">Password</label><br>
+					<label for="password">Enter password:</label><br>
 					<input id="password" name="password" type="password" required><br>
 					<span style="font-size: smaller;">Passwords are case-sensitive </span>
 				</p>
@@ -129,8 +129,9 @@
 				</p>
 			</fieldset>
 			<p style="font-size: smaller;">
-				Messages are sent as a <a href="https://en.wikipedia.org/wiki/URI_fragment" target="_blank">URI fragment</a> and not stored on a server, and decrypted in the browser with JavaScript.<br>
-				Messages are encrypted with AES/GCM with a 256 bits key derived with PBKDF2/SHA-512/120,000 iterations.
+				Password protected text is sent as a <a href="https://en.wikipedia.org/wiki/URI_fragment" target="_blank">URI fragment</a> and not stored on a server, and decrypted in the browser with JavaScript.<br>
+				Password protected text is encrypted with AES/GCM with a 256 bits key derived with PBKDF2/SHA-512 with 120,000 iterations.<br>
+				Please see <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq184" target="_blank">here</a> for more information.
 			</p>
 		</form>
 
