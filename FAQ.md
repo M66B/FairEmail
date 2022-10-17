@@ -4990,9 +4990,10 @@ Send is only available in non-Play Store versions of the app (since version 1.19
 
 Select some text by long pressing it, and in the style toolbar at the bottom tap on the *<ins>A</ins>*-button and select *Password protect* in the pop-up menu.
 
-Password protected text is sent as a [URI fragment](https://en.wikipedia.org/wiki/URI_fragment) and not stored on a server, and decrypted in the browser with JavaScript.
+Password protected text is sent as a [URI fragment](https://en.wikipedia.org/wiki/URI_fragment) and not stored on third party servers, and decrypted in the browser with JavaScript.
 
 Password protected text is encrypted with AES/GCM with a 256 bits key derived with PBKDF2/SHA-512 with 120,000 iterations.
+With a sufficiently long/complex password, which is communicated to the recipient securely, this is considered safe in 2022 and for the foreseeable future.
 
 The maximum message text is 1,500 characters, which includes HTML formatting tags.
 
