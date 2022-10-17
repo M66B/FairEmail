@@ -4997,7 +4997,7 @@ With a sufficiently long/complex password, which is communicated to the recipien
 
 The maximum message text is 1,500 characters, which includes HTML formatting tags.
 
-This feature is not available in the Play store version of the app.
+This feature is available since version 1.1985. This feature is not available in the Play store version of the app.
 
 Sending protected text is a pro feature, decrypting protected text is a free feature.
 
