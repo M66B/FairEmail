@@ -11,7 +11,7 @@
 		<meta name="robots" content="noindex">
 
 		<!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline' *.faircode.eu;">
 
 		<style>
 			body { padding-left: 10px; padding-right: 10px; font-family: Arial, Helvetica, sans-serif; }
@@ -25,6 +25,9 @@
 				.noscript { display: block; }
 			</style>
 		</noscript>
+
+		<!-- https://github.com/cure53/DOMPurify 2.4.0 -->
+		<script src="https://email.faircode.eu/decrypt/purify.min.js"></script>
 
 		<script>
 			window.addEventListener('load', load);
@@ -85,10 +88,11 @@
 					if (!password.value)
 						throw new Error('Password required');
 
-					let html = await _decrypt(password.value);
+					let dirty = await _decrypt(password.value);
+					let clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } });
 
 					form.style.display = 'none';
-					message.innerHTML = html;
+					message.innerHTML = clean;
 					message.style.display = 'block';
 					copyright.style.display = 'none';
 				} catch (e) {
