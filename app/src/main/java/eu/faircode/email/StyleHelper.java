@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,6 +27,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.NoCopySpan;
@@ -47,14 +49,20 @@ import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
+import android.util.Base64;
 import android.util.Pair;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.lifecycle.LifecycleOwner;
@@ -63,12 +71,22 @@ import androidx.preference.PreferenceManager;
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+import com.google.android.material.textfield.TextInputLayout;
 
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.GCMParameterSpec;
+import javax.crypto.spec.PBEKeySpec;
 
 public class StyleHelper {
     private static final List<Class> CLEAR_STYLES = Collections.unmodifiableList(Arrays.asList(
@@ -214,6 +232,7 @@ public class StyleHelper {
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_increase).setEnabled(maxLevel == null);
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
 
+                popupMenu.getMenu().findItem(R.id.menu_style_password).setVisible(!BuildConfig.PLAY_STORE_RELEASE);
                 popupMenu.getMenu().findItem(R.id.menu_style_code).setEnabled(BuildConfig.DEBUG);
 
                 popupMenu.insertIcons(context);
@@ -253,6 +272,8 @@ public class StyleHelper {
                                 return setSuperscript(item);
                             } else if (groupId == R.id.group_style_strikethrough) {
                                 return setStrikeThrough(item);
+                            } else if (groupId == R.id.group_style_password) {
+                                return setPassword(item);
                             } else if (groupId == R.id.group_style_code) {
                                 return setCode(item);
                             } else if (groupId == R.id.group_style_clear) {
@@ -540,6 +561,117 @@ public class StyleHelper {
 
                         etBody.setText(edit);
                         etBody.setSelection(start, end);
+
+                        return true;
+                    }
+
+                    private boolean setPassword(MenuItem item) {
+                        if (!ActivityBilling.isPro(context)) {
+                            context.startActivity(new Intent(context, ActivityBilling.class));
+                            return true;
+                        }
+
+                        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_password_protect, null);
+                        TextInputLayout etPassword1 = dview.findViewById(R.id.tilPassword1);
+                        TextInputLayout etPassword2 = dview.findViewById(R.id.tilPassword2);
+
+                        Dialog dialog = new AlertDialog.Builder(context)
+                                .setView(dview)
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        String password1 = etPassword1.getEditText().getText().toString();
+                                        String password2 = etPassword2.getEditText().getText().toString();
+
+                                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                                        boolean debug = prefs.getBoolean("debug", false);
+
+                                        if (TextUtils.isEmpty(password1) && !(debug || BuildConfig.DEBUG))
+                                            ToastEx.makeText(context, R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
+                                        else {
+                                            if (password1.equals(password2)) {
+                                                int start = etBody.getSelectionStart();
+                                                int end = etBody.getSelectionEnd();
+                                                boolean selection = (start >= 0 && start < end);
+                                                if (selection) {
+                                                    Bundle args = new Bundle();
+                                                    args.putCharSequence("text", edit.subSequence(start, end));
+                                                    args.putString("password", password1);
+                                                    args.putInt("start", start);
+                                                    args.putInt("end", end);
+
+                                                    new SimpleTask<String>() {
+                                                        @Override
+                                                        protected String onExecute(Context context, Bundle args) throws Throwable {
+                                                            Spanned text = (Spanned) args.getCharSequence("text");
+                                                            String password = args.getString("password");
+                                                            String html = HtmlHelper.toHtml(text, context);
+
+                                                            SecureRandom random = new SecureRandom();
+
+                                                            byte[] salt = new byte[16]; // 128 bits
+                                                            random.nextBytes(salt);
+
+                                                            byte[] iv = new byte[12]; // 96 bites
+                                                            random.nextBytes(iv);
+
+                                                            // Iterations = 120,000; Keylength = 256 bits = 32 bytes
+                                                            PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 120000, 256);
+
+                                                            SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+                                                            SecretKey key = skf.generateSecret(spec);
+
+                                                            // Authentication tag length = 128 bits = 16 bytes
+                                                            GCMParameterSpec parameterSpec = new GCMParameterSpec(128, iv);
+
+                                                            final Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+                                                            cipher.init(Cipher.ENCRYPT_MODE, key, parameterSpec);
+
+                                                            byte[] cipherText = cipher.doFinal(html.getBytes(StandardCharsets.UTF_8));
+
+                                                            ByteBuffer out = ByteBuffer.allocate(1 + salt.length + iv.length + cipherText.length);
+                                                            out.put((byte) 1); // version
+                                                            out.put(salt);
+                                                            out.put(iv);
+                                                            out.put(cipherText);
+
+                                                            String fragment = Base64.encodeToString(out.array(), Base64.URL_SAFE | Base64.NO_WRAP);
+                                                            String url = "https://email.faircode.eu/decrypt/#" + fragment;
+
+                                                            return url;
+                                                        }
+
+                                                        @Override
+                                                        protected void onExecuted(Bundle args, String url) {
+                                                            if (etBody.getSelectionStart() != start ||
+                                                                    etBody.getSelectionEnd() != end)
+                                                                return;
+
+                                                            String title = context.getString(R.string.title_decrypt);
+                                                            edit.delete(start, end);
+                                                            edit.insert(start, title);
+                                                            edit.setSpan(new URLSpan(url), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                                            etBody.setSelection(start + title.length());
+                                                        }
+
+                                                        @Override
+                                                        protected void onException(Bundle args, Throwable ex) {
+                                                            Log.e(ex);
+                                                            ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                                        }
+                                                    }.execute(context, owner, args, "protect");
+                                                }
+                                            } else
+                                                ToastEx.makeText(context, R.string.title_setup_password_different, Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .create();
+
+                        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                        // WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
+                        dialog.show();
 
                         return true;
                     }
