@@ -24,8 +24,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -64,6 +67,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
@@ -73,6 +77,10 @@ import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
@@ -615,7 +623,26 @@ public class StyleHelper {
                                                         protected String onExecute(Context context, Bundle args) throws Throwable {
                                                             Spanned text = (Spanned) args.getCharSequence("text");
                                                             String password = args.getString("password");
+
+                                                            Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_image_24);
+                                                            d.setTint(Color.GRAY);
+                                                            Bitmap bm = Bitmap.createBitmap(24, 24, Bitmap.Config.ARGB_8888);
+                                                            Canvas c = new Canvas(bm);
+                                                            d.setBounds(0, 0, c.getWidth(), c.getHeight());
+                                                            d.draw(c);
+
+                                                            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                                                            bm.compress(Bitmap.CompressFormat.PNG, 100, bos);
+
+                                                            StringBuilder sb = new StringBuilder();
+                                                            sb.append("data:image/png;base64,");
+                                                            sb.append(Base64.encodeToString(bos.toByteArray(), Base64.NO_WRAP));
+
                                                             String html = HtmlHelper.toHtml(text, context);
+                                                            Document doc = JsoupEx.parse(html);
+                                                            for (Element img : doc.select("img"))
+                                                                img.attr("src", sb.toString());
+                                                            html = doc.body().html();
 
                                                             if (html.length() > MAX_PROTECTED_TEXT)
                                                                 throw new IllegalArgumentException(context.getString(R.string.title_style_protect_size));
