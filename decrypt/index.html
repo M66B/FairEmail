@@ -30,61 +30,77 @@
 			window.addEventListener('load', load);
 
 			function load() {
-				document.getElementById('getpassword').addEventListener('submit', getpassword);
+				let form = document.getElementById('form')
+				let password = document.getElementById('password');
+				let message = document.getElementById('message');
+				let error = document.getElementById('error');
+				let details = document.getElementById('details');
+
+				form.addEventListener('submit', submit);
+
 				if (window.location.hash)
 					if (crypto.subtle &&
 						typeof Uint8Array === 'function' &&
 						typeof TextEncoder === 'function') {
-						document.getElementById('getpassword').style.display = 'block';
-						document.getElementById('password').focus();
+						form.style.display = 'block';
+						password.focus();
 					}
 					else {
-						document.getElementById('error').textContent = 'Your browser is not suitable for decrypting messages';
-						document.getElementById('error').style.display = 'block';
-						document.getElementById('details').innerHTML =
+						error.textContent = 'Your browser is unsuitable for decrypting text';
+						error.style.display = 'block';
+						details.innerHTML =
 							'crypto.subtle: ' + (crypto.subtle ? 'Yes' : 'No') + '<br>' +
 							'Uint8Array: ' + (Uint8Array ? 'Yes' : 'No') + '<br>' +
 							'TextEncoder: ' + (TextEncoder ? 'Yes' : 'No') + '<br>';
-						document.getElementById('details').style.display = 'block';
+						details.style.display = 'block';
 					}
 				else {
-					document.getElementById('message').textContent = 'Nothing to see here';
-					document.getElementById('message').style.display = 'block';
+					message.innerHTML = 'Nothing to see here';
+					message.style.display = 'block';
 				}
 
 				document.getElementById('year').textContent = new Date().getFullYear();
 			}
 
-			function getpassword(event) {
+			function submit(event) {
 				event.preventDefault();
 				decrypt();
 			}
 
 			async function decrypt() {
-				document.getElementById('fields').disabled = true;
+				let fields = document.getElementById('fields');
+				let form = document.getElementById('form')
+				let password = document.getElementById('password');
+				let message = document.getElementById('message');
+				let error = document.getElementById('error');
+				let details = document.getElementById('details');
+				let copyright = document.getElementById('copyright');
+
 				try {
-					document.getElementById('message').style.display = 'none';
-					document.getElementById('error').style.display = 'none';
-					document.getElementById('details').style.display = 'none';
-					let password = document.getElementById('password').value;
-					if (password) {
-						let message = await _decrypt(password);
-						document.getElementById('getpassword').style.display = 'none';
-						document.getElementById('message').innerHTML = message;
-						document.getElementById('message').style.display = 'block';
-						document.getElementById('copyright').style.display = 'none';
-					}
-					else
+					fields.disabled = true;
+					message.style.display = 'none';
+					error.style.display = 'none';
+					details.style.display = 'none';
+
+					if (!password.value)
 						throw new Error('Password required');
+
+					let html = await _decrypt(password.value);
+
+					form.style.display = 'none';
+					message.innerHTML = html;
+					message.style.display = 'block';
+					copyright.style.display = 'none';
 				} catch (e) {
 					console.log("%O", e);
-					document.getElementById('password').value = '';
-					document.getElementById('error').textContent = 'Could not decrypt the message. Is the password correct?';
-					document.getElementById('error').style.display = 'block';
-					document.getElementById('details').textContent = e.toString();
-					document.getElementById('details').style.display = 'block';
+					fields.disabled = false;
+					password.value = '';
+					password.focus();
+					error.textContent = 'Could not decrypt the message. Is the password correct?';
+					error.style.display = 'block';
+					details.textContent = e.toString();
+					details.style.display = 'block';
 				}
-				document.getElementById('fields').disabled = false;
 			}
 
 			async function _decrypt(password) {
@@ -105,7 +121,7 @@
 				const importedKey = await crypto.subtle.importKey('raw', passwordBuffer, 'PBKDF2', false, ['deriveBits']);
 				const derivation = await crypto.subtle.deriveBits({name: 'PBKDF2', hash: 'SHA-512', salt: salt, iterations: 120000}, importedKey, 256);
 				const importedEncryptionKey = await crypto.subtle.importKey('raw', derivation, {name: 'AES-GCM'}, false, ['decrypt']);
-				const decrypted = await window.crypto.subtle.decrypt({name: 'AES-GCM', iv: iv, tagLength: 128}, importedEncryptionKey, e);
+				const decrypted = await crypto.subtle.decrypt({name: 'AES-GCM', iv: iv, tagLength: 128}, importedEncryptionKey, e);
 
 				return new TextDecoder('UTF-8').decode(decrypted);
 			}
@@ -114,7 +130,7 @@
 	<body>
 		<p class="noscript" style="color: red; font-weight: bold;">Please enable JavaScript</p>
 
-		<form id="getpassword" action="#" method="GET" style="display: none;">
+		<form id="form" action="#" method="GET" style="display: none;">
 			<p>
 				Someone sent you password protected text with <a href="https://email.faircode.eu/" target="_blank">FairEmail</a>.
 			</p>
