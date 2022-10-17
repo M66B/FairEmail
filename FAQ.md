@@ -4859,6 +4859,8 @@ Received: brown.elm.relay.mailchannels.net (brown.elm.relay.mailchannels.net. [2
 	for <test@example.org> (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
 ```
 
+The feature depends on the header *Authentication-Results*, which the receiving email server should add.
+
 <br />
 
 <a name="faq177"></a>
