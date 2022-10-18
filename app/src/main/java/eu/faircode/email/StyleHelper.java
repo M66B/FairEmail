@@ -598,16 +598,13 @@ public class StyleHelper {
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        String password1 = etPassword1.getEditText().getText().toString();
-                                        String password2 = etPassword2.getEditText().getText().toString();
-
                                         int start = etBody.getSelectionStart();
                                         int end = etBody.getSelectionEnd();
                                         boolean selection = (start >= 0 && start < end);
                                         if (selection) {
                                             Bundle args = new Bundle();
                                             args.putCharSequence("text", edit.subSequence(start, end));
-                                            args.putString("password", password1);
+                                            args.putString("password", etPassword1.getEditText().getText().toString());
                                             args.putInt("start", start);
                                             args.putInt("end", end);
 
