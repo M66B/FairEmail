@@ -393,7 +393,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(181) How do I use VirusTotal?](#user-content-faq181)
 * [(182) How can I select how a link should be opened?](#user-content-faq182)
 * [(183) How do I use Send?](#user-content-faq183)
-* [(184) How do I password protect text?](#user-content-faq184)
+* [(184) How do I password protect content?](#user-content-faq184)
 
 [I have another question.](#user-content-get-support)
 
@@ -4986,17 +4986,18 @@ Send is only available in non-Play Store versions of the app (since version 1.19
 <br />
 
 <a name="faq184"></a>
-**(184) How do I password protect text?**
+**(184) How do I password protect content?**
 
 Select some text by long pressing it, and in the style toolbar at the bottom tap on the *<ins>A</ins>*-button and select *Password protect* in the pop-up menu.
 
-Password protected text is sent as a [URI fragment](https://en.wikipedia.org/wiki/URI_fragment) and not stored on third party servers, and decrypted in the browser with JavaScript.
+Password protected content is sent as a [URI fragment](https://en.wikipedia.org/wiki/URI_fragment) and decrypted in the browser with JavaScript.
+In other words, password protected content is never stored on or seen by third party servers.
 
-Password protected text is encrypted with AES/GCM with a 256 bits key derived with PBKDF2/SHA-512 with 120,000 iterations.
+Password protected content is encrypted with AES/GCM with a 256 bits key derived with PBKDF2/SHA-512 with 120,000 iterations.
 With a sufficiently long/complex password, which is communicated to the recipient securely, this is considered safe in 2022 and for the foreseeable future.
 
-The maximum message text is 1,500 characters, which includes HTML formatting tags.
-Images will be replaced with place holders to reduce the content size.
+The maximum content size is 1,500 characters, which includes HTML formatting tags.
+Images will be replaced with placeholders to reduce the content size, but other formatting, like bold, italic, etc., will be retained.
 
 Cross-site scripting (XSS) is prevented by using [DOMPurify](https://github.com/cure53/DOMPurify) (Apache License Version 2.0).
 
