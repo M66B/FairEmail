@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -39,6 +38,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.BulletSpan;
@@ -593,7 +593,7 @@ public class StyleHelper {
                             }
                         });
 
-                        Dialog dialog = new AlertDialog.Builder(context)
+                        AlertDialog dialog = new AlertDialog.Builder(context)
                                 .setView(dview)
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                     @Override
@@ -601,112 +601,102 @@ public class StyleHelper {
                                         String password1 = etPassword1.getEditText().getText().toString();
                                         String password2 = etPassword2.getEditText().getText().toString();
 
-                                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                                        boolean debug = prefs.getBoolean("debug", false);
+                                        int start = etBody.getSelectionStart();
+                                        int end = etBody.getSelectionEnd();
+                                        boolean selection = (start >= 0 && start < end);
+                                        if (selection) {
+                                            Bundle args = new Bundle();
+                                            args.putCharSequence("text", edit.subSequence(start, end));
+                                            args.putString("password", password1);
+                                            args.putInt("start", start);
+                                            args.putInt("end", end);
 
-                                        if (TextUtils.isEmpty(password1) && !(debug || BuildConfig.DEBUG))
-                                            ToastEx.makeText(context, R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
-                                        else {
-                                            if (password1.equals(password2)) {
-                                                int start = etBody.getSelectionStart();
-                                                int end = etBody.getSelectionEnd();
-                                                boolean selection = (start >= 0 && start < end);
-                                                if (selection) {
-                                                    Bundle args = new Bundle();
-                                                    args.putCharSequence("text", edit.subSequence(start, end));
-                                                    args.putString("password", password1);
-                                                    args.putInt("start", start);
-                                                    args.putInt("end", end);
+                                            new SimpleTask<String>() {
+                                                @Override
+                                                protected String onExecute(Context context, Bundle args) throws Throwable {
+                                                    Spanned text = (Spanned) args.getCharSequence("text");
+                                                    String password = args.getString("password");
 
-                                                    new SimpleTask<String>() {
-                                                        @Override
-                                                        protected String onExecute(Context context, Bundle args) throws Throwable {
-                                                            Spanned text = (Spanned) args.getCharSequence("text");
-                                                            String password = args.getString("password");
+                                                    Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_image_24);
+                                                    d.setTint(Color.GRAY);
+                                                    Bitmap bm = Bitmap.createBitmap(24, 24, Bitmap.Config.ARGB_8888);
+                                                    Canvas c = new Canvas(bm);
+                                                    d.setBounds(0, 0, c.getWidth(), c.getHeight());
+                                                    d.draw(c);
 
-                                                            Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_image_24);
-                                                            d.setTint(Color.GRAY);
-                                                            Bitmap bm = Bitmap.createBitmap(24, 24, Bitmap.Config.ARGB_8888);
-                                                            Canvas c = new Canvas(bm);
-                                                            d.setBounds(0, 0, c.getWidth(), c.getHeight());
-                                                            d.draw(c);
+                                                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                                                    bm.compress(Bitmap.CompressFormat.PNG, 100, bos);
 
-                                                            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                                                            bm.compress(Bitmap.CompressFormat.PNG, 100, bos);
+                                                    StringBuilder sb = new StringBuilder();
+                                                    sb.append("data:image/png;base64,");
+                                                    sb.append(Base64.encodeToString(bos.toByteArray(), Base64.NO_WRAP));
 
-                                                            StringBuilder sb = new StringBuilder();
-                                                            sb.append("data:image/png;base64,");
-                                                            sb.append(Base64.encodeToString(bos.toByteArray(), Base64.NO_WRAP));
+                                                    String html = HtmlHelper.toHtml(text, context);
+                                                    Document doc = JsoupEx.parse(html);
+                                                    for (Element img : doc.select("img"))
+                                                        img.attr("src", sb.toString());
+                                                    html = doc.body().html();
 
-                                                            String html = HtmlHelper.toHtml(text, context);
-                                                            Document doc = JsoupEx.parse(html);
-                                                            for (Element img : doc.select("img"))
-                                                                img.attr("src", sb.toString());
-                                                            html = doc.body().html();
+                                                    if (html.length() > MAX_PROTECTED_TEXT)
+                                                        throw new IllegalArgumentException(context.getString(R.string.title_style_protect_size));
 
-                                                            if (html.length() > MAX_PROTECTED_TEXT)
-                                                                throw new IllegalArgumentException(context.getString(R.string.title_style_protect_size));
+                                                    SecureRandom random = new SecureRandom();
 
-                                                            SecureRandom random = new SecureRandom();
+                                                    byte[] salt = new byte[16]; // 128 bits
+                                                    random.nextBytes(salt);
 
-                                                            byte[] salt = new byte[16]; // 128 bits
-                                                            random.nextBytes(salt);
+                                                    byte[] iv = new byte[12]; // 96 bites
+                                                    random.nextBytes(iv);
 
-                                                            byte[] iv = new byte[12]; // 96 bites
-                                                            random.nextBytes(iv);
+                                                    // Iterations = 120,000; Keylength = 256 bits = 32 bytes
+                                                    PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 120000, 256);
 
-                                                            // Iterations = 120,000; Keylength = 256 bits = 32 bytes
-                                                            PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 120000, 256);
+                                                    SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+                                                    SecretKey key = skf.generateSecret(spec);
 
-                                                            SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
-                                                            SecretKey key = skf.generateSecret(spec);
+                                                    // Authentication tag length = 128 bits = 16 bytes
+                                                    GCMParameterSpec parameterSpec = new GCMParameterSpec(128, iv);
 
-                                                            // Authentication tag length = 128 bits = 16 bytes
-                                                            GCMParameterSpec parameterSpec = new GCMParameterSpec(128, iv);
+                                                    final Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+                                                    cipher.init(Cipher.ENCRYPT_MODE, key, parameterSpec);
 
-                                                            final Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                                                            cipher.init(Cipher.ENCRYPT_MODE, key, parameterSpec);
+                                                    byte[] cipherText = cipher.doFinal(html.getBytes(StandardCharsets.UTF_8));
 
-                                                            byte[] cipherText = cipher.doFinal(html.getBytes(StandardCharsets.UTF_8));
+                                                    ByteBuffer out = ByteBuffer.allocate(1 + salt.length + iv.length + cipherText.length);
+                                                    out.put((byte) 1); // version
+                                                    out.put(salt);
+                                                    out.put(iv);
+                                                    out.put(cipherText);
 
-                                                            ByteBuffer out = ByteBuffer.allocate(1 + salt.length + iv.length + cipherText.length);
-                                                            out.put((byte) 1); // version
-                                                            out.put(salt);
-                                                            out.put(iv);
-                                                            out.put(cipherText);
+                                                    String fragment = Base64.encodeToString(out.array(), Base64.URL_SAFE | Base64.NO_WRAP);
+                                                    String url = "https://email.faircode.eu/decrypt/#" + fragment;
 
-                                                            String fragment = Base64.encodeToString(out.array(), Base64.URL_SAFE | Base64.NO_WRAP);
-                                                            String url = "https://email.faircode.eu/decrypt/#" + fragment;
-
-                                                            return url;
-                                                        }
-
-                                                        @Override
-                                                        protected void onExecuted(Bundle args, String url) {
-                                                            if (etBody.getSelectionStart() != start ||
-                                                                    etBody.getSelectionEnd() != end)
-                                                                return;
-
-                                                            String title = context.getString(R.string.title_decrypt);
-                                                            edit.delete(start, end);
-                                                            edit.insert(start, title);
-                                                            edit.setSpan(new URLSpan(url), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                                            etBody.setSelection(start + title.length());
-                                                        }
-
-                                                        @Override
-                                                        protected void onException(Bundle args, Throwable ex) {
-                                                            if (ex instanceof IllegalArgumentException)
-                                                                ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
-                                                            else {
-                                                                Log.e(ex);
-                                                                ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
-                                                            }
-                                                        }
-                                                    }.execute(context, owner, args, "protect");
+                                                    return url;
                                                 }
-                                            } else
-                                                ToastEx.makeText(context, R.string.title_setup_password_different, Toast.LENGTH_LONG).show();
+
+                                                @Override
+                                                protected void onExecuted(Bundle args, String url) {
+                                                    if (etBody.getSelectionStart() != start ||
+                                                            etBody.getSelectionEnd() != end)
+                                                        return;
+
+                                                    String title = context.getString(R.string.title_decrypt);
+                                                    edit.delete(start, end);
+                                                    edit.insert(start, title);
+                                                    edit.setSpan(new URLSpan(url), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                                    etBody.setSelection(start + title.length());
+                                                }
+
+                                                @Override
+                                                protected void onException(Bundle args, Throwable ex) {
+                                                    if (ex instanceof IllegalArgumentException)
+                                                        ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
+                                                    else {
+                                                        Log.e(ex);
+                                                        ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                                    }
+                                                }
+                                            }.execute(context, owner, args, "protect");
                                         }
                                     }
                                 })
@@ -716,6 +706,34 @@ public class StyleHelper {
                         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                         // WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
                         dialog.show();
+
+                        Button btnOk = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+
+                        TextWatcher w = new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                                // Do nothing
+                            }
+
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                // Do nothing
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable s) {
+                                String p1 = etPassword1.getEditText().getText().toString();
+                                String p2 = etPassword2.getEditText().getText().toString();
+                                btnOk.setEnabled(!TextUtils.isEmpty(p1) && p1.equals(p2));
+                                etPassword2.setHint(!TextUtils.isEmpty(p2) && !p2.equals(p1)
+                                        ? R.string.title_setup_password_different
+                                        : R.string.title_setup_password_repeat);
+                            }
+                        };
+
+                        etPassword1.getEditText().addTextChangedListener(w);
+                        etPassword2.getEditText().addTextChangedListener(w);
+                        w.afterTextChanged(null);
 
                         return true;
                     }
