@@ -40,6 +40,7 @@
 				let form = document.getElementById('form')
 				let message = document.getElementById('message');
 				let copy = document.getElementById('copy');
+				let email = document.getElementById('email');
 				let error = document.getElementById('error');
 				let details = document.getElementById('details');
 				let year = document.getElementById('year');
@@ -78,6 +79,12 @@
 					}, function() {
 						alert('Copy failed');
 					});
+				}
+
+
+				email.onclick = function (event) {
+					event.preventDefault();
+					window.location.href = "mailto:?body=" + encodeURIComponent(message.textContent);
 				}
 
 				year.textContent = new Date().getFullYear();
@@ -179,6 +186,8 @@
 			<p id="message" style="width: 100%;"></p>
 			<hr>
 			<span id="copy" style="font-size: x-large">&#x1f4cb;</span>
+			&ensp;
+			<span id="email" style="font-size: x-large">&#x1F4E7;</span>
 		</div>
 
 		<p id="error" style="color: red; font-weight: bold; display: none;"></p>
