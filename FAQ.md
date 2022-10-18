@@ -3734,7 +3734,7 @@ Remarks:
 * The original attachments are sent as they are, unless attachments are being added or removed
 * Default CC and BCC addresses will not be applied
 * Read and delivery receipts will be requested when enabled, they could go to the original sender or to you
-* The email server might refuse resent messages
+* The email server might refuse or incorrectly process resent messages
 * DKIM, SPF and DMARC will likely fail, often causing resent messages to be considered as spam
 
 <br />
