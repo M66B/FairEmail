@@ -497,8 +497,13 @@ public class FragmentOAuth extends FragmentBase {
             cbUpdate.setEnabled(true);
 
             AuthorizationResponse auth = AuthorizationResponse.fromIntent(data);
-            if (auth == null)
-                throw AuthorizationException.fromIntent(data);
+            if (auth == null) {
+                AuthorizationException ex = AuthorizationException.fromIntent(data);
+                if (ex == null)
+                    throw new IllegalArgumentException("No response data");
+                else
+                    throw ex;
+            }
 
             final EmailProvider provider = EmailProvider.getProvider(getContext(), auth.state);
 
