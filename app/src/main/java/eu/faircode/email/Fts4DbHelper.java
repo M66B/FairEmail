@@ -54,11 +54,10 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
     }
 
     static SQLiteDatabase getInstance(Context context) {
-        if (instance == null) {
-            if (!context.getDatabasePath(DATABASE_NAME).exists()) {
-                Fts5DbHelper.delete(context);
+        boolean has = context.getDatabasePath(DATABASE_NAME).exists();
+        if (instance == null || !has) {
+            if (!has)
                 DB.getInstance(context).message().resetFts();
-            }
             instance = new Fts4DbHelper(context);
         }
         return instance.getWritableDatabase();
