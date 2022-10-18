@@ -444,6 +444,7 @@ public class MessageHelper {
             //   identically to the "To:", "Cc:", and "Bcc:" fields respectively,
             //   except that they indicate the recipients of the resent message, not
             //   the recipients of the original message.
+            // https://www.rfc-editor.org/rfc/rfc5322#appendix-A.3
             if (message.to != null && message.to.length > 0)
                 imessage.addHeader("Resent-To", InternetAddress.toString(message.to));
 
