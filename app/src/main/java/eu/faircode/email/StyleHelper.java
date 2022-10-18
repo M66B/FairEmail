@@ -581,6 +581,19 @@ public class StyleHelper {
                             return true;
                         }
 
+                        boolean toolong = false;
+                        if (end - start > MAX_PROTECTED_TEXT) {
+                            toolong = true;
+                        } else {
+                            String html = getProtectedContent((Spanned) edit.subSequence(start, end));
+                            if (html.length() > MAX_PROTECTED_TEXT)
+                                toolong = true;
+                        }
+                        if (toolong) {
+                            ToastEx.makeText(context, R.string.title_style_protect_size, Toast.LENGTH_LONG).show();
+                            return true;
+                        }
+
                         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_password_protect, null);
                         TextInputLayout etPassword1 = dview.findViewById(R.id.tilPassword1);
                         TextInputLayout etPassword2 = dview.findViewById(R.id.tilPassword2);
@@ -614,26 +627,7 @@ public class StyleHelper {
                                                     Spanned text = (Spanned) args.getCharSequence("text");
                                                     String password = args.getString("password");
 
-                                                    Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_image_24);
-                                                    d.setTint(Color.GRAY);
-                                                    Bitmap bm = Bitmap.createBitmap(24, 24, Bitmap.Config.ARGB_8888);
-                                                    Canvas c = new Canvas(bm);
-                                                    d.setBounds(0, 0, c.getWidth(), c.getHeight());
-                                                    d.draw(c);
-
-                                                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                                                    bm.compress(Bitmap.CompressFormat.PNG, 100, bos);
-
-                                                    StringBuilder sb = new StringBuilder();
-                                                    sb.append("data:image/png;base64,");
-                                                    sb.append(Base64.encodeToString(bos.toByteArray(), Base64.NO_WRAP));
-
-                                                    String html = HtmlHelper.toHtml(text, context);
-                                                    Document doc = JsoupEx.parse(html);
-                                                    for (Element img : doc.select("img"))
-                                                        img.attr("src", sb.toString());
-                                                    html = doc.body().html();
-
+                                                    String html = getProtectedContent(text);
                                                     if (html.length() > MAX_PROTECTED_TEXT)
                                                         throw new IllegalArgumentException(context.getString(R.string.title_style_protect_size));
 
@@ -686,12 +680,8 @@ public class StyleHelper {
 
                                                 @Override
                                                 protected void onException(Bundle args, Throwable ex) {
-                                                    if (ex instanceof IllegalArgumentException)
-                                                        ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
-                                                    else {
-                                                        Log.e(ex);
-                                                        ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
-                                                    }
+                                                    Log.e(ex);
+                                                    ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
                                                 }
                                             }.execute(context, owner, args, "protect");
                                         }
@@ -733,6 +723,30 @@ public class StyleHelper {
                         w.afterTextChanged(null);
 
                         return true;
+                    }
+
+                    private String getProtectedContent(Spanned text) {
+                        Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_image_24);
+                        d.setTint(Color.GRAY);
+
+                        Bitmap bm = Bitmap.createBitmap(24, 24, Bitmap.Config.ARGB_8888);
+                        Canvas c = new Canvas(bm);
+                        d.setBounds(0, 0, c.getWidth(), c.getHeight());
+                        d.draw(c);
+
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        bm.compress(Bitmap.CompressFormat.PNG, 100, bos);
+
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("data:image/png;base64,");
+                        sb.append(Base64.encodeToString(bos.toByteArray(), Base64.NO_WRAP));
+
+                        String html = HtmlHelper.toHtml(text, context);
+                        Document doc = JsoupEx.parse(html);
+                        for (Element img : doc.select("img"))
+                            img.attr("src", sb.toString());
+
+                        return doc.body().html();
                     }
 
                     private boolean setCode(MenuItem item) {
