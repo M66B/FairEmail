@@ -4915,6 +4915,8 @@ Templates can have the following options:
 <a name="faq180"></a>
 **(180) How do I use LanguageTool?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq180)
+
 LanguageTool integration needs to be enabled in the miscellaneous settings.
 
 After writing some text, you can long press on the save draft button to perform a grammar, style, and spell check via [LanguageTool](https://languagetool.org/).
@@ -4931,6 +4933,8 @@ The suboption *Use formal form* can be enabled to let LanguageTool suggest more 
 <a name="faq181"></a>
 **(181) How do I use VirusTotal?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq181)
+
 VirusTotal integration needs to be enabled in the miscellaneous settings and an API key needs to be entered.
 To get an API key, you'll need to sign up via the [VirusTotal website](https://www.virustotal.com/).
 
@@ -4946,6 +4950,8 @@ This feature was added in version 1.1942 and is available in non Play store vers
 
 <a name="faq182"></a>
 **(182) How can I select how a link should be opened?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq182)
 
 When clicking on a link, a confirmation dialog will be shown. You can select how to open a link below *Open with*.
 The available browser(s) will be listed and if a browser supports [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/), it will be listed twice,
@@ -4970,6 +4976,8 @@ Please see [this FAQ](#user-content-faq35) on why you should be careful when ope
 <a name="faq183"></a>
 **(183) How do I use Send?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq183)
+
 [Send](https://github.com/timvisee/send) is designed as temporary end-to-end encrypted file storage.
 Only people with a link to a file can download and decrypt a file.
 See for some more information [Wikipedia](https://en.wikipedia.org/wiki/Firefox_Send).
@@ -4987,6 +4995,8 @@ Send is only available in non-Play Store versions of the app (since version 1.19
 
 <a name="faq184"></a>
 **(184) How do I password protect content?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq184)
 
 Password protected content is a simple, yet secure form of end-to-end encryption that requires no configuration.
 
