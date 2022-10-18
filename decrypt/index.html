@@ -38,8 +38,11 @@
 
 			function load() {
 				let form = document.getElementById('form')
+				let message = document.getElementById('message');
+				let copy = document.getElementById('copy');
 				let error = document.getElementById('error');
 				let details = document.getElementById('details');
+				let year = document.getElementById('year');
 
 				form.addEventListener('submit', submit);
 
@@ -64,7 +67,20 @@
 					error.style.display = 'block';
 				}
 
-				document.getElementById('year').textContent = new Date().getFullYear();
+				copy.onclick = function (event) {
+					event.preventDefault();
+
+					const blob = new Blob([message.innerHTML], { type: 'text/html' });
+					const clip = new ClipboardItem({ 'text/html': blob });
+
+					navigator.clipboard.write([clip]).then(function() {
+						alert('Copied to clipboard');
+					}, function() {
+						alert('Copy failed');
+					});
+				}
+
+				year.textContent = new Date().getFullYear();
 			}
 
 			function submit(event) {
@@ -162,6 +178,7 @@
 			<hr>
 			<p id="message" style="width: 100%;"></p>
 			<hr>
+			<span id="copy" style="font-size: x-large">&#x1f4cb;</span>
 		</div>
 
 		<p id="error" style="color: red; font-weight: bold; display: none;"></p>
