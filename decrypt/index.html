@@ -38,8 +38,6 @@
 
 			function load() {
 				let form = document.getElementById('form')
-				let password = document.getElementById('password');
-				let message = document.getElementById('message');
 				let error = document.getElementById('error');
 				let details = document.getElementById('details');
 
@@ -50,7 +48,7 @@
 						typeof Uint8Array === 'function' &&
 						typeof TextEncoder === 'function') {
 						form.style.display = 'block';
-						password.focus();
+						form.password.focus();
 					}
 					else {
 						error.textContent = 'Your browser is unsuitable for decrypting content';
@@ -62,8 +60,8 @@
 						details.style.display = 'block';
 					}
 				else {
-					message.innerHTML = 'Nothing to see here';
-					message.style.display = 'block';
+					error.textContent = 'Nothing to see here';
+					error.style.display = 'block';
 				}
 
 				document.getElementById('year').textContent = new Date().getFullYear();
@@ -75,35 +73,34 @@
 			}
 
 			async function decrypt() {
-				let fields = document.getElementById('fields');
 				let form = document.getElementById('form')
-				let password = document.getElementById('password');
+				let content = document.getElementById('content');
 				let message = document.getElementById('message');
 				let error = document.getElementById('error');
 				let details = document.getElementById('details');
 				let copyright = document.getElementById('copyright');
 
 				try {
-					fields.disabled = true;
-					message.style.display = 'none';
+					form.fields.disabled = true;
+					content.style.display = 'none';
 					error.style.display = 'none';
 					details.style.display = 'none';
 
-					if (!password.value)
+					if (!form.password.value)
 						throw new Error('Password required');
 
-					let dirty = await _decrypt(password.value);
+					let dirty = await _decrypt(form.password.value);
 					let clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } });
 
 					form.style.display = 'none';
 					message.innerHTML = clean;
-					message.style.display = 'block';
+					content.style.display = 'block';
 					copyright.style.display = 'none';
 				} catch (e) {
 					console.log("%O", e);
-					fields.disabled = false;
-					password.value = '';
-					password.focus();
+					form.fields.disabled = false;
+					form.password.value = '';
+					form.password.focus();
 					error.textContent = 'Could not decrypt the message. Is the password correct?';
 					error.style.display = 'block';
 					details.textContent = e.toString();
@@ -160,7 +157,12 @@
 			</p>
 		</form>
 
-		<p id="message" style="display: none;"></p>
+		<div id="content" style="display: none; width: 100%;">
+			<h2>Decrypted content</h2>
+			<hr>
+			<p id="message" style="width: 100%;"></p>
+			<hr>
+		</div>
 
 		<p id="error" style="color: red; font-weight: bold; display: none;"></p>
 
