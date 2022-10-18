@@ -705,6 +705,11 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                         long id = args.getLong("id");
                         boolean exempted = args.getBoolean("exempted");
 
+                        if (exempted) {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            prefs.edit().remove("auto_optimize").apply();
+                        }
+
                         DB db = DB.getInstance(context);
                         db.account().setAccountPollExempted(id, exempted);
 
