@@ -41,8 +41,10 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.util.Pair;
@@ -1929,22 +1931,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     .setPositiveButton(R.string.title_save_file, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            String password1 = etPassword1.getEditText().getText().toString();
-                            String password2 = etPassword2.getEditText().getText().toString();
-
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            boolean debug = prefs.getBoolean("debug", false);
-
-                            if (TextUtils.isEmpty(password1) && !(debug || BuildConfig.DEBUG))
-                                ToastEx.makeText(context, R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
-                            else {
-                                if (password1.equals(password2)) {
-                                    ((ActivitySetup) getActivity()).password = password1;
-                                    getActivity().startActivityForResult(
-                                            Helper.getChooser(context, getIntentExport()), REQUEST_EXPORT);
-                                } else
-                                    ToastEx.makeText(context, R.string.title_setup_password_different, Toast.LENGTH_LONG).show();
-                            }
+                            ((ActivitySetup) getActivity()).password =
+                                    etPassword1.getEditText().getText().toString();
+                            getActivity().startActivityForResult(
+                                    Helper.getChooser(context, getIntentExport()), REQUEST_EXPORT);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
@@ -1953,6 +1943,42 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
             return dialog;
+        }
+
+        @Override
+        public void onStart() {
+            super.onStart();
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean debug = (BuildConfig.DEBUG || prefs.getBoolean("debug", false));
+
+            Button btnOk = ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE);
+
+            TextWatcher w = new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    // Do nothing
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    // Do nothing
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    String p1 = etPassword1.getEditText().getText().toString();
+                    String p2 = etPassword2.getEditText().getText().toString();
+                    btnOk.setEnabled((debug || !TextUtils.isEmpty(p1)) && p1.equals(p2));
+                    etPassword2.setHint(!TextUtils.isEmpty(p2) && !p2.equals(p1)
+                            ? R.string.title_setup_password_different
+                            : R.string.title_setup_password_repeat);
+                }
+            };
+
+            etPassword1.getEditText().addTextChangedListener(w);
+            etPassword2.getEditText().addTextChangedListener(w);
+            w.afterTextChanged(null);
         }
     }
 
