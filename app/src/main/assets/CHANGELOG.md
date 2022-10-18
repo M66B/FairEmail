@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1985 - 2022-10-18
+
+* Added password protected content, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq184)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.[1984](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four) - 2022-10-16
 
 * Small improvements and minor bug fixes
