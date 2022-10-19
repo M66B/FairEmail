@@ -1847,8 +1847,15 @@ Short version: AES 256 bit
 
 Long version:
 
-* The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
-* The cipher is *AES/CBC/PKCS5Padding*
+*Before version 1.1987*
+
+* A 256 bit key is derived with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
+* The used cipher is *AES/CBC/PKCS5Padding*
+
+*Since version 1.1987*
+
+* A 256 bit key is derived with *PBKDF2WithHmacSHA512* using a 128 bit secure random salt and 120000 iterations
+* The used cipher is *AES/GCM/NoPadding*
 
 <br />
 

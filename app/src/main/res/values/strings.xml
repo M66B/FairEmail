@@ -297,7 +297,7 @@
     <string name="title_setup_password_repeat">Repeat password</string>
     <string name="title_setup_password_missing">Password missing</string>
     <string name="title_setup_password_different">Passwords don\'t match</string>
-    <string name="title_setup_password_invalid">Password invalid</string>
+    <string name="title_setup_password_invalid">Incorrect password, or damaged settings file</string>
     <string name="title_setup_import_accounts">Import accounts and identities</string>
     <string name="title_setup_import_delete">Delete existing accounts first</string>
     <string name="title_setup_import_rules">Import filter rules</string>

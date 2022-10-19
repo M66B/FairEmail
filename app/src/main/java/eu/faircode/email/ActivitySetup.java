@@ -96,6 +96,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
@@ -136,9 +137,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     private boolean import_contacts;
     private boolean import_answers;
     private boolean import_settings;
-
-    private static final int KEY_ITERATIONS = 65536;
-    private static final int KEY_LENGTH = 256;
 
     static final int REQUEST_SOUND_INBOUND = 1;
     static final int REQUEST_SOUND_OUTBOUND = 2;
@@ -846,12 +844,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         random.nextBytes(salt);
 
                         // https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#Cipher
-                        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-                        KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);
+                        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+                        KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, 120000, 256);
                         SecretKey secret = keyFactory.generateSecret(keySpec);
-                        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
                         cipher.init(Cipher.ENCRYPT_MODE, secret);
 
+                        raw.write("___FairEmail___".getBytes(StandardCharsets.US_ASCII));
+                        raw.write(1); // version
                         raw.write(salt);
                         raw.write(cipher.getIV());
 
@@ -998,16 +998,36 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         in = raw;
                     else {
                         byte[] salt = new byte[16];
-                        byte[] prefix = new byte[16];
                         Helper.readBuffer(raw, salt);
-                        Helper.readBuffer(raw, prefix);
 
-                        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-                        KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);
+                        int version = 0;
+                        String magic = new String(salt, 0, 15, StandardCharsets.US_ASCII);
+                        if ("___FairEmail___".equals(magic)) {
+                            version = salt[15];
+                            Helper.readBuffer(raw, salt);
+                        }
+
+                        int ivLen = (version == 0 ? 16 : 12);
+                        String derivation = (version == 0 ? "PBKDF2WithHmacSHA1" : "PBKDF2WithHmacSHA512");
+                        int iterations = (version == 0 ? 65536 : 120000);
+                        int keyLen = 256;
+                        String transformation = (version == 0 ? "AES/CBC/PKCS5Padding" : "AES/GCM/NoPadding");
+                        Log.i("Import version=" + version +
+                                " ivLen=" + ivLen +
+                                " derivation=" + derivation +
+                                " iterations=" + iterations +
+                                " keyLen=" + keyLen +
+                                " transformation=" + transformation);
+
+                        byte[] iv = new byte[ivLen];
+                        Helper.readBuffer(raw, iv);
+
+                        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(derivation);
+                        KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, iterations, 256);
                         SecretKey secret = keyFactory.generateSecret(keySpec);
-                        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                        IvParameterSpec iv = new IvParameterSpec(prefix);
-                        cipher.init(Cipher.DECRYPT_MODE, secret, iv);
+                        Cipher cipher = Cipher.getInstance(transformation);
+                        IvParameterSpec ivSpec = new IvParameterSpec(iv);
+                        cipher.init(Cipher.DECRYPT_MODE, secret, ivSpec);
 
                         in = new CipherInputStream(raw, cipher);
                     }
@@ -1447,7 +1467,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     ((NoStreamException) ex).report(ActivitySetup.this);
                 else {
                     SpannableStringBuilder ssb = new SpannableStringBuilder();
-                    if (ex.getCause() instanceof BadPaddingException)
+                    if (ex.getCause() instanceof BadPaddingException /* GCM: AEADBadTagException */)
                         ssb.append(getString(R.string.title_setup_password_invalid));
                     else if (ex instanceof IOException && ex.getCause() instanceof IllegalBlockSizeException)
                         ssb.append(getString(R.string.title_setup_import_invalid));
