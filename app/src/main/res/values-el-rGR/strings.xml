@@ -1217,6 +1217,8 @@
     <string name="title_style_subscript">Δείκτης</string>
     <string name="title_style_superscript">Εκθέτης</string>
     <string name="title_style_strikethrough">Διακριτή διαγραφή</string>
+    <string name="title_style_protect" comment="title_style_protect&#10;Title of style menu item to password protect selected text">Προστασία με κωδικό πρόσβασης</string>
+    <string name="title_style_protect_size" comment="title_style_protect_size&#10;Error message indicating that selected text to be password protected is too long">Πολύ μεγάλο κείμενο</string>
     <string name="title_style_clear">Εκκαθάριση μορφοποίησης</string>
     <string name="title_style_link">Εισαγωγή συνδέσμου</string>
     <string name="title_style_link_address">Διεύθυνση</string>
