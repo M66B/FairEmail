@@ -98,6 +98,7 @@ import javax.crypto.spec.PBEKeySpec;
 
 public class StyleHelper {
     private static final int MAX_PROTECTED_TEXT = 1500;
+    private static final String DECRYPT_URL = "https://fairemail.net/decrypt/";
 
     private static final List<Class> CLEAR_STYLES = Collections.unmodifiableList(Arrays.asList(
             StyleSpan.class,
@@ -660,7 +661,7 @@ public class StyleHelper {
                                                     out.put(cipherText);
 
                                                     String fragment = Base64.encodeToString(out.array(), Base64.URL_SAFE | Base64.NO_WRAP);
-                                                    String url = "https://email.faircode.eu/decrypt/#" + fragment;
+                                                    String url = DECRYPT_URL + "#" + fragment;
 
                                                     return url;
                                                 }
