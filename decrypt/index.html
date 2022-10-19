@@ -124,7 +124,7 @@
 						throw new Error('Password required');
 
 					const dirty = await _decrypt(form.password.value);
-					const clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } });
+					const clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true }, SANITIZE_NAMED_PROPS: true });
 
 					form.password.value = '';
 					message.innerHTML = clean;
