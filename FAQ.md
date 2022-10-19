@@ -5010,9 +5010,11 @@ Password protected content is encrypted with [AES](https://en.wikipedia.org/wiki
 with a 256 bits key derived with [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) / [SHA](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms)-512 with 120,000 iterations.
 With a sufficiently long/complex password, which is communicated to the recipient securely, this is considered safe in 2022 and for the foreseeable future.
 
-Due to [URL](https://en.wikipedia.org/wiki/URL) length limits, the maximum content size is 1,500 bytes,
-which includes [HTML](https://en.wikipedia.org/wiki/HTML) formatting tags.
+Due to [length limitations](https://stackoverflow.com/a/417184/1794097) of [URL](https://en.wikipedia.org/wiki/URL)s and
+Android [binder limitations](https://developer.android.com/reference/android/os/TransactionTooLargeException),
+the maximum content size is 1,500 bytes, which includes [HTML](https://en.wikipedia.org/wiki/HTML) formatting tags.
 Images will be replaced with placeholders to reduce the content size, but other formatting, like bold, italic, links, etc., will be retained.
+If the content is too long, there will be a popup *Text too long*.
 
 The content size limit is also why complete messages (possibly including a long reply chain) cannot be password protected.
 You can use [PGP](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) or [S/MIME](https://en.wikipedia.org/wiki/S/MIME) encryption for this (see [this FAQ](#user-content-faq12)).
