@@ -595,8 +595,8 @@ public class StyleHelper {
                         }
 
                         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_password_protect, null);
-                        TextInputLayout etPassword1 = dview.findViewById(R.id.tilPassword1);
-                        TextInputLayout etPassword2 = dview.findViewById(R.id.tilPassword2);
+                        TextInputLayout tilPassword1 = dview.findViewById(R.id.tilPassword1);
+                        TextInputLayout tilPassword2 = dview.findViewById(R.id.tilPassword2);
                         Button btnInfo = dview.findViewById(R.id.btnInfo);
 
                         btnInfo.setOnClickListener(new View.OnClickListener() {
@@ -617,7 +617,7 @@ public class StyleHelper {
                                         if (selection) {
                                             Bundle args = new Bundle();
                                             args.putCharSequence("text", edit.subSequence(start, end));
-                                            args.putString("password", etPassword1.getEditText().getText().toString());
+                                            args.putString("password", tilPassword1.getEditText().getText().toString());
                                             args.putInt("start", start);
                                             args.putInt("end", end);
 
@@ -709,17 +709,17 @@ public class StyleHelper {
 
                             @Override
                             public void afterTextChanged(Editable s) {
-                                String p1 = etPassword1.getEditText().getText().toString();
-                                String p2 = etPassword2.getEditText().getText().toString();
+                                String p1 = tilPassword1.getEditText().getText().toString();
+                                String p2 = tilPassword2.getEditText().getText().toString();
                                 btnOk.setEnabled(!TextUtils.isEmpty(p1) && p1.equals(p2));
-                                etPassword2.setHint(!TextUtils.isEmpty(p2) && !p2.equals(p1)
+                                tilPassword2.setHint(!TextUtils.isEmpty(p2) && !p2.equals(p1)
                                         ? R.string.title_setup_password_different
                                         : R.string.title_setup_password_repeat);
                             }
                         };
 
-                        etPassword1.getEditText().addTextChangedListener(w);
-                        etPassword2.getEditText().addTextChangedListener(w);
+                        tilPassword1.getEditText().addTextChangedListener(w);
+                        tilPassword2.getEditText().addTextChangedListener(w);
                         w.afterTextChanged(null);
 
                         return true;

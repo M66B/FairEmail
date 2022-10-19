@@ -1903,13 +1903,13 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     public static class FragmentDialogExport extends FragmentDialogBase {
-        private TextInputLayout etPassword1;
-        private TextInputLayout etPassword2;
+        private TextInputLayout tilPassword1;
+        private TextInputLayout tilPassword2;
 
         @Override
         public void onSaveInstanceState(@NonNull Bundle outState) {
-            outState.putString("fair:password1", etPassword1 == null ? null : etPassword1.getEditText().getText().toString());
-            outState.putString("fair:password2", etPassword2 == null ? null : etPassword2.getEditText().getText().toString());
+            outState.putString("fair:password1", tilPassword1 == null ? null : tilPassword1.getEditText().getText().toString());
+            outState.putString("fair:password2", tilPassword2 == null ? null : tilPassword2.getEditText().getText().toString());
             super.onSaveInstanceState(outState);
         }
 
@@ -1918,12 +1918,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             Context context = getContext();
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_export, null);
-            etPassword1 = dview.findViewById(R.id.tilPassword1);
-            etPassword2 = dview.findViewById(R.id.tilPassword2);
+            tilPassword1 = dview.findViewById(R.id.tilPassword1);
+            tilPassword2 = dview.findViewById(R.id.tilPassword2);
 
             if (savedInstanceState != null) {
-                etPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
-                etPassword2.getEditText().setText(savedInstanceState.getString("fair:password2"));
+                tilPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
+                tilPassword2.getEditText().setText(savedInstanceState.getString("fair:password2"));
             }
 
             Dialog dialog = new AlertDialog.Builder(context)
@@ -1932,7 +1932,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             ((ActivitySetup) getActivity()).password =
-                                    etPassword1.getEditText().getText().toString();
+                                    tilPassword1.getEditText().getText().toString();
                             getActivity().startActivityForResult(
                                     Helper.getChooser(context, getIntentExport()), REQUEST_EXPORT);
                         }
@@ -1967,27 +1967,27 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                 @Override
                 public void afterTextChanged(Editable s) {
-                    String p1 = etPassword1.getEditText().getText().toString();
-                    String p2 = etPassword2.getEditText().getText().toString();
+                    String p1 = tilPassword1.getEditText().getText().toString();
+                    String p2 = tilPassword2.getEditText().getText().toString();
                     btnOk.setEnabled((debug || !TextUtils.isEmpty(p1)) && p1.equals(p2));
-                    etPassword2.setHint(!TextUtils.isEmpty(p2) && !p2.equals(p1)
+                    tilPassword2.setHint(!TextUtils.isEmpty(p2) && !p2.equals(p1)
                             ? R.string.title_setup_password_different
                             : R.string.title_setup_password_repeat);
                 }
             };
 
-            etPassword1.getEditText().addTextChangedListener(w);
-            etPassword2.getEditText().addTextChangedListener(w);
+            tilPassword1.getEditText().addTextChangedListener(w);
+            tilPassword2.getEditText().addTextChangedListener(w);
             w.afterTextChanged(null);
         }
     }
 
     public static class FragmentDialogImport extends FragmentDialogBase {
-        private TextInputLayout etPassword1;
+        private TextInputLayout tilPassword1;
 
         @Override
         public void onSaveInstanceState(@NonNull Bundle outState) {
-            outState.putString("fair:password1", etPassword1 == null ? null : etPassword1.getEditText().getText().toString());
+            outState.putString("fair:password1", tilPassword1 == null ? null : tilPassword1.getEditText().getText().toString());
             super.onSaveInstanceState(outState);
         }
 
@@ -1996,7 +1996,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             Context context = getContext();
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_import, null);
-            etPassword1 = dview.findViewById(R.id.tilPassword1);
+            tilPassword1 = dview.findViewById(R.id.tilPassword1);
             CheckBox cbAccounts = dview.findViewById(R.id.cbAccounts);
             CheckBox cbDelete = dview.findViewById(R.id.cbDelete);
             CheckBox cbRules = dview.findViewById(R.id.cbRules);
@@ -2013,14 +2013,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             });
 
             if (savedInstanceState != null)
-                etPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
+                tilPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
 
             Dialog dialog = new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(R.string.title_add_image_select, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            String password1 = etPassword1.getEditText().getText().toString();
+                            String password1 = tilPassword1.getEditText().getText().toString();
 
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             boolean debug = prefs.getBoolean("debug", false);
