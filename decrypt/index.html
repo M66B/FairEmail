@@ -19,6 +19,9 @@
 
 		<style>
 			body { padding-left: 10px; padding-right: 10px; font-family: Arial, Helvetica, sans-serif; }
+			.button { display: inline-block; text-align: center; cursor: pointer; }
+			.button span:first-child { font-size: x-large; }
+			.button span:last-child { font-size: smaller; }
 		</style>
 
 		<style>
@@ -37,13 +40,14 @@
 			window.addEventListener('load', load);
 
 			function load() {
-				let form = document.getElementById('form')
-				let message = document.getElementById('message');
-				let copy = document.getElementById('copy');
-				let email = document.getElementById('email');
-				let error = document.getElementById('error');
-				let details = document.getElementById('details');
-				let year = document.getElementById('year');
+				const form = document.getElementById('form')
+				const message = document.getElementById('message');
+				const copy = document.getElementById('copy');
+				const email = document.getElementById('email');
+				const close = document.getElementById('close');
+				const error = document.getElementById('error');
+				const details = document.getElementById('details');
+				const year = document.getElementById('year');
 
 				form.addEventListener('submit', submit);
 
@@ -81,10 +85,18 @@
 					});
 				}
 
-
 				email.onclick = function (event) {
 					event.preventDefault();
 					window.location.href = "mailto:?body=" + encodeURIComponent(message.textContent);
+				}
+
+				close.onclick = function (event) {
+					event.preventDefault();
+					form.fields.disabled = false;
+					form.style.display = 'block';
+					content.style.display = 'none';
+					message.innerHTML = '';
+					form.password.focus();
 				}
 
 				year.textContent = new Date().getFullYear();
@@ -96,12 +108,11 @@
 			}
 
 			async function decrypt() {
-				let form = document.getElementById('form')
-				let content = document.getElementById('content');
-				let message = document.getElementById('message');
-				let error = document.getElementById('error');
-				let details = document.getElementById('details');
-				let copyright = document.getElementById('copyright');
+				const form = document.getElementById('form')
+				const content = document.getElementById('content');
+				const message = document.getElementById('message');
+				const error = document.getElementById('error');
+				const details = document.getElementById('details');
 
 				try {
 					form.fields.disabled = true;
@@ -112,13 +123,13 @@
 					if (!form.password.value)
 						throw new Error('Password required');
 
-					let dirty = await _decrypt(form.password.value);
-					let clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } });
+					const dirty = await _decrypt(form.password.value);
+					const clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } });
 
-					form.style.display = 'none';
+					form.password.value = '';
 					message.innerHTML = clean;
+					form.style.display = 'none';
 					content.style.display = 'block';
-					copyright.style.display = 'none';
 				} catch (e) {
 					console.log("%O", e);
 					form.fields.disabled = false;
@@ -132,7 +143,7 @@
 			}
 
 			async function _decrypt(password) {
-				let msg = atob(window.location.hash.substr(1).replaceAll('-', '+').replaceAll('_', '/'));
+				const msg = atob(window.location.hash.substr(1).replaceAll('-', '+').replaceAll('_', '/'));
 
 				const buf = new Uint8Array(msg.length);
 				for (let i = 0; i < msg.length; i++)
@@ -167,12 +178,12 @@
 			</p>
 			<fieldset id="fields" style="border:0 none; margin: 0; padding: 0;">
 				<p>
-					<label for="password">Enter password:</label><br>
+					<label for="password">Enter password &#x1F511;</label><br>
 					<input id="password" name="password" type="password" required><br>
 					<span style="font-size: smaller;">Passwords are case-sensitive </span>
 				</p>
 				<p>
-					<input id="submit" type="submit" value="Decrypt">
+					<input id="submit" style="padding: 3px;" type="submit" value="&#x1F513; Decrypt">
 				</p>
 			</fieldset>
 			<p style="font-size: smaller;">
@@ -181,19 +192,24 @@
 		</form>
 
 		<div id="content" style="display: none; width: 100%;">
-			<h2>Decrypted content</h2>
-			<hr>
+			<p>The sender sent you this password protected content with <a href="https://email.faircode.eu/" target="_blank">FairEmail</a>:</p>
+			<hr style="margin-top: 30px;">
 			<p id="message" style="width: 100%;"></p>
-			<hr>
-			<div style="margin-top: 20px;">
-				<div id="copy" style="display: inline-block; text-align: center;">
-					<span style="font-size: x-large">&#x1f4cb;</span><br>
-					<span style="font-size: smaller;">Copy</span>
+			<hr style="margin-bottom: 30px;">
+			<div>
+				<div id="copy" class="button">
+					<span>&#x1f4cb;</span><br>
+					<span>Copy</span>
 				</div>
 				&ensp;
-				<div id="email" style="display: inline-block; text-align: center;">
-					<span style="font-size: x-large">&#x1F4E7;</span><br>
-					<span style="font-size: smaller;">Email</span><br>
+				<div id="email" class="button">
+					<span>&#x1F4E7;</span><br>
+					<span>Email</span>
+				</div>
+				&ensp;
+				<div id="close" class="button">
+					<span>&#x2715;</span><br>
+					<span>Close</span>
 				</div>
 			</div>
 		</div>
@@ -202,7 +218,7 @@
 
 		<p id="details" style="font-size: x-small; display: none;"></p>
 
-		<p id="copyright" style="padding-top: 20px;">
+		<p style="padding-top: 30px;">
 			Copyright &copy; 2018&ndash;<span id="year">2022</span> by Marcel Bokhorst (M66B)
 			<br>
 			<br>
