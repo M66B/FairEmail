@@ -4,6 +4,11 @@ Changelog
 
 Mei long
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.1985 - 2022-10-18
 
 * Added password protected content, see the FAQ
