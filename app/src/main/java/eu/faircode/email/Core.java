@@ -215,10 +215,21 @@ class Core {
                     if (!Objects.equals(folder.id, op.folder))
                         throw new IllegalArgumentException("Invalid folder=" + folder.id + "/" + op.folder);
 
-                    if (account.protocol == EntityAccount.TYPE_IMAP &&
-                            !folder.local &&
-                            ifolder != null && !ifolder.isOpen())
-                        throw new FolderClosedException(ifolder, account.name + "/" + folder.name + " unexpectedly closed");
+                    if (account.protocol == EntityAccount.TYPE_IMAP && !folder.local && ifolder != null) {
+                        try {
+                            ((IMAPFolder) ifolder).doCommand(new IMAPFolder.ProtocolCommand() {
+                                @Override
+                                public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                                    long ago = System.currentTimeMillis() - protocol.getTimestamp();
+                                    if (ago > 20000)
+                                        protocol.noop();
+                                    return null;
+                                }
+                            });
+                        } catch (MessagingException ex) {
+                            throw new FolderClosedException(ifolder, account.name + "/" + folder.name + " unexpectedly closed", ex);
+                        }
+                    }
 
                     if (account.protocol == EntityAccount.TYPE_POP &&
                             EntityFolder.INBOX.equals(folder.type) &&
