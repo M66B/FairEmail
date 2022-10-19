@@ -4,8 +4,11 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### Next version
+### 1.1986 - 2022-10-19
 
+* Improved password entry
+* Improved protected content length check
+* Fixed rebuilding full-text index
 * Small improvements and minor bug fixes
 * Updated translations
 
