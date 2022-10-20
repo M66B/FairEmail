@@ -84,6 +84,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private static final int CONNECTIVITY_DELAY = 5000; // milliseconds
     private static final int PROGRESS_UPDATE_INTERVAL = 1000; // milliseconds
 
+    // 10 min @ 128 kbit/s = 7.5 MiB
+    private static final long WAKELOCK_MAX = 10 * 60 * 1000L; // milliseconds
+
     static final int PI_SEND = 1;
 
     @Override
@@ -353,7 +356,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
     private void processOperations(List<EntityOperation> ops) {
         try {
-            wlOutbox.acquire();
+            wlOutbox.acquire(WAKELOCK_MAX * ops.size());
 
             DB db = DB.getInstance(this);
             EntityFolder outbox = db.folder().getOutbox();

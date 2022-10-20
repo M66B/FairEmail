@@ -149,6 +149,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int FAST_FAIL_COUNT = 3;
     private static final int FETCH_YIELD_DURATION = 50; // milliseconds
     private static final long WATCHDOG_INTERVAL = 60 * 60 * 1000L; // milliseconds
+    private static final long WAKELOCK_ACCOUNT_MAX = 3 * 60 * 1000L; // milliseconds
+    private static final long WAKELOCK_CONTENT_MAX = 10 * 60 * 1000L; // milliseconds
+    private static final long WAKELOCK_OPERATION_MAX = 10 * 1000L; // milliseconds
+    private static final int MESSAGES_HOUR_AVG = 10;
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -468,7 +472,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void delegate() {
                         try {
-                            wl.acquire();
+                            wl.acquire(WAKELOCK_ACCOUNT_MAX);
 
                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                                     "### init " + accountNetworkState);
@@ -523,7 +527,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void delegate() {
                         try {
-                            wl.acquire();
+                            wl.acquire(WAKELOCK_ACCOUNT_MAX);
 
                             Map<String, String> crumb = new HashMap<>();
                             crumb.put("account", accountNetworkState.accountState.id.toString());
@@ -560,7 +564,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void delegate() {
                         try {
-                            wl.acquire();
+                            wl.acquire(WAKELOCK_ACCOUNT_MAX);
 
                             Map<String, String> crumb = new HashMap<>();
                             crumb.put("account", accountNetworkState.accountState.id.toString());
@@ -594,7 +598,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void delegate() {
                         try {
-                            wl.acquire();
+                            wl.acquire(WAKELOCK_ACCOUNT_MAX);
 
                             DB db = DB.getInstance(ServiceSynchronize.this);
                             db.account().deleteAccount(accountNetworkState.accountState.id);
@@ -617,7 +621,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void delegate() {
                         try {
-                            wl.acquire();
+                            wl.acquire(WAKELOCK_ACCOUNT_MAX);
 
                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                                     "### quit eventId=" + eventId);
@@ -672,7 +676,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         @Override
                         public void delegate() {
                             try {
-                                wl.acquire();
+                                wl.acquire(WAKELOCK_ACCOUNT_MAX);
 
                                 MessageClassifier.save(ServiceSynchronize.this);
                             } catch (Throwable ex) {
@@ -1475,7 +1479,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":account." + account.id + ".message");
 
         try {
-            wlAccount.acquire();
+            wlAccount.acquire(WAKELOCK_ACCOUNT_MAX);
 
             boolean forced = false;
             final DB db = DB.getInstance(this);
@@ -1550,7 +1554,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
                         } else
                             try {
-                                wlFolder.acquire();
+                                wlFolder.acquire(WAKELOCK_OPERATION_MAX);
 
                                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, account,
                                         account.name + " alert: " + message);
@@ -1579,7 +1583,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             @Override
                             public void delegate() {
                                 try {
-                                    wlAccount.acquire();
+                                    wlAccount.acquire(WAKELOCK_ACCOUNT_MAX);
 
                                     // Close cached connections
                                     Log.i(account.name + " Empty connection pool");
@@ -1678,7 +1682,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         @Override
                         public void folderCreated(FolderEvent e) {
                             try {
-                                wlFolder.acquire();
+                                wlFolder.acquire(WAKELOCK_OPERATION_MAX);
 
                                 String name = e.getFolder().getFullName();
                                 Log.i("Folder created=" + name);
@@ -1692,7 +1696,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         @Override
                         public void folderRenamed(FolderEvent e) {
                             try {
-                                wlFolder.acquire();
+                                wlFolder.acquire(WAKELOCK_OPERATION_MAX);
 
                                 String old = e.getFolder().getFullName();
                                 String name = e.getNewFolder().getFullName();
@@ -1710,7 +1714,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         @Override
                         public void folderDeleted(FolderEvent e) {
                             try {
-                                wlFolder.acquire();
+                                wlFolder.acquire(WAKELOCK_OPERATION_MAX);
 
                                 String name = e.getFolder().getFullName();
                                 Log.i("Folder deleted=" + name);
@@ -1724,7 +1728,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         @Override
                         public void folderChanged(FolderEvent e) {
                             try {
-                                wlFolder.acquire();
+                                wlFolder.acquire(WAKELOCK_OPERATION_MAX);
 
                                 String name = e.getFolder().getFullName();
                                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, account,
@@ -1843,7 +1847,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 @Override
                                 public void messagesAdded(MessageCountEvent e) {
                                     try {
-                                        wlMessage.acquire();
+                                        wlMessage.acquire(WAKELOCK_OPERATION_MAX);
                                         fetch(folder, ifolder, e.getMessages(), false, false, "added");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
@@ -1859,7 +1863,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 @Override
                                 public void messagesRemoved(MessageCountEvent e) {
                                     try {
-                                        wlMessage.acquire();
+                                        wlMessage.acquire(WAKELOCK_OPERATION_MAX);
                                         fetch(folder, ifolder, e.getMessages(), false, true, "removed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
@@ -1880,7 +1884,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 @Override
                                 public void messageChanged(MessageChangedEvent e) {
                                     try {
-                                        wlMessage.acquire();
+                                        wlMessage.acquire(WAKELOCK_OPERATION_MAX);
                                         Message imessage = e.getMessage();
                                         fetch(folder, ifolder, new Message[]{imessage}, true, false, "changed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
@@ -2079,18 +2083,50 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 public void run() {
                                                     super.run();
                                                     try {
-                                                        wlOperations.acquire();
-
                                                         List<TupleOperationEx> partition;
                                                         synchronized (partitions) {
                                                             partition = partitions.get(key);
                                                             partitions.remove(key);
                                                         }
 
+                                                        // Estimate maximum execution duration
+                                                        long timeout = 0;
+                                                        if (mapFolders.get(folder) == null) {
+                                                            // Connect, sync folder list -> 3 minutes
+                                                            timeout += WAKELOCK_ACCOUNT_MAX;
+                                                        }
+                                                        for (TupleOperationEx op : partition)
+                                                            if (EntityOperation.SYNC.equals(op.name))
+                                                                if (folder.last_sync == null ||
+                                                                        (folder.initialize != 0 &&
+                                                                                account.protocol == EntityAccount.TYPE_IMAP)) {
+                                                                    // 30 days -> 20 hours
+                                                                    int hours = (folder.initialize == 0 ? 30 : folder.initialize) * 24;
+                                                                    timeout += WAKELOCK_OPERATION_MAX * hours * MESSAGES_HOUR_AVG;
+                                                                } else {
+                                                                    long now = new Date().getTime();
+                                                                    long hours = (now - folder.last_sync) / (3600 * 1000L) + 1;
+                                                                    // 10 messages/hour -> 100 seconds
+                                                                    timeout += WAKELOCK_OPERATION_MAX * hours * MESSAGES_HOUR_AVG;
+                                                                }
+                                                            else if (EntityOperation.ADD.equals(op.name) ||
+                                                                    EntityOperation.BODY.equals(op.name) ||
+                                                                    EntityOperation.ATTACHMENT.equals(op.name) ||
+                                                                    EntityOperation.RAW.equals(op.name))
+                                                                timeout += WAKELOCK_CONTENT_MAX; // -> 10 minutes
+                                                            else if (EntityOperation.MOVE.equals(op.name) ||
+                                                                    EntityOperation.COPY.equals(op.name))
+                                                                timeout += WAKELOCK_OPERATION_MAX * 2; // -> 20 seconds
+                                                            else
+                                                                timeout += WAKELOCK_OPERATION_MAX; // -> 10 seconds
+
+                                                        wlOperations.acquire(timeout);
+
                                                         Log.i(account.name + "/" + folder.name +
                                                                 " executing partition=" + key +
                                                                 " serial=" + serial +
-                                                                " operations=" + partition.size());
+                                                                " operations=" + partition.size() +
+                                                                " wakelock=" + (timeout / 1000) + "s");
 
                                                         Map<String, String> crumb = new HashMap<>();
                                                         crumb.put("account", folder.account == null ? null : Long.toString(folder.account));
@@ -2406,7 +2442,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 EntityLog.log(this, EntityLog.Type.Account, account,
                                         account.name + " waited state=" + state);
                             } finally {
-                                wlAccount.acquire();
+                                wlAccount.acquire(WAKELOCK_ACCOUNT_MAX);
                             }
                         } finally {
                             am.cancel(pi);
@@ -2657,7 +2693,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             } catch (InterruptedException ex) {
                                 Log.w(account.name + " backoff " + ex.toString());
                             } finally {
-                                wlAccount.acquire();
+                                wlAccount.acquire(WAKELOCK_ACCOUNT_MAX);
                                 db.account().setAccountBackoff(account.id, null);
                             }
                         } finally {
