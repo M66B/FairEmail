@@ -506,7 +506,7 @@ public class EntityOperation {
 
         } catch (JSONException ex) {
             Log.e(ex);
-        } catch (SQLiteConstraintException ex){
+        } catch (SQLiteConstraintException ex) {
             Log.w(ex);
             // folder or message gone
         }
