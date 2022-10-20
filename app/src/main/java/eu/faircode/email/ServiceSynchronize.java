@@ -2082,6 +2082,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 @Override
                                                 public void run() {
                                                     super.run();
+
+                                                    long start = new Date().getTime();
+                                                    long timeout = 0;
                                                     try {
                                                         List<TupleOperationEx> partition;
                                                         synchronized (partitions) {
@@ -2090,7 +2093,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                         }
 
                                                         // Estimate maximum execution duration
-                                                        long timeout = 0;
                                                         if (mapFolders.get(folder) == null) {
                                                             // Connect, sync folder list -> 3 minutes
                                                             timeout += WAKELOCK_ACCOUNT_MAX;
@@ -2104,8 +2106,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                     int hours = (folder.initialize == 0 ? 30 : folder.initialize) * 24;
                                                                     timeout += WAKELOCK_OPERATION_MAX * hours * MESSAGES_HOUR_AVG;
                                                                 } else {
-                                                                    long now = new Date().getTime();
-                                                                    long hours = (now - folder.last_sync) / (3600 * 1000L) + 1;
+                                                                    long hours = (start - folder.last_sync) / (3600 * 1000L) + 1;
                                                                     // 10 messages/hour -> 100 seconds
                                                                     timeout += WAKELOCK_OPERATION_MAX * hours * MESSAGES_HOUR_AVG;
                                                                 }
@@ -2253,6 +2254,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                         else
                                                             Log.e(ex);
                                                     } finally {
+                                                        if (!wlOperations.isHeld()) {
+                                                            long elapsed = new Date().getTime() - start;
+                                                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug,
+                                                                    key + " prematurely released" +
+                                                                            " elapsed=" + elapsed + " timeout=" + timeout);
+                                                        }
                                                         wlOperations.release();
                                                     }
                                                 }
