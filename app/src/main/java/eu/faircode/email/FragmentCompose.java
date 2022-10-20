@@ -633,6 +633,7 @@ public class FragmentCompose extends FragmentBase {
             private Integer added = null;
             private Integer removed = null;
             private Integer inserted = null;
+            private Pair<Integer, Integer> lt = null;
 
             @Override
             public void beforeTextChanged(CharSequence text, int start, int count, int after) {
@@ -803,7 +804,7 @@ public class FragmentCompose extends FragmentBase {
                             while (start > 0 && text.charAt(start - 1) != '\n')
                                 start--;
                             if (start < added)
-                                onLanguageTool(start, added, true);
+                                lt = new Pair<>(start, added);
                         }
                     } catch (Throwable ex) {
                         Log.e(ex);
@@ -853,6 +854,14 @@ public class FragmentCompose extends FragmentBase {
                     } finally {
                         save = false;
                     }
+
+                if (lt != null)
+                    try {
+                        onLanguageTool(lt.first, lt.second, true);
+                    } finally {
+                        lt = null;
+                    }
+
 
                 if (lp != null)
                     TextUtils.dumpSpans(text, lp, "---after>");
@@ -2590,10 +2599,16 @@ public class FragmentCompose extends FragmentBase {
 
         new SimpleTask<List<LanguageTool.Suggestion>>() {
             private Toast toast = null;
+            private BackgroundColorSpan highlightSpan = null;
 
             @Override
             protected void onPreExecute(Bundle args) {
-                if (!silent) {
+                if (silent) {
+                    int textColorHighlight = Helper.resolveColor(getContext(), android.R.attr.textColorHighlight);
+                    highlightSpan = new BackgroundColorSpan(textColorHighlight);
+                    etBody.getText().setSpan(highlightSpan, start, end,
+                            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
+                } else {
                     toast = ToastEx.makeText(getContext(), R.string.title_suggestions_check, Toast.LENGTH_LONG);
                     toast.show();
                     setBusy(true);
@@ -2602,7 +2617,10 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onPostExecute(Bundle args) {
-                if (!silent) {
+                if (silent) {
+                    if (highlightSpan != null)
+                        etBody.getText().removeSpan(highlightSpan);
+                } else {
                     if (toast != null)
                         toast.cancel();
                     setBusy(false);
