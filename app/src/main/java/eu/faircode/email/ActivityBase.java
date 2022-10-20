@@ -792,6 +792,32 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         finish();
     }
 
+    @Override
+    public void onBackPressed() {
+        try {
+            super.onBackPressed();
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.NullPointerException: Attempt to invoke virtual method 'android.os.Handler android.app.FragmentHostCallback.getHandler()' on a null object reference
+                        at android.app.FragmentManagerImpl.ensureExecReady(FragmentManager.java:2008)
+                        at android.app.FragmentManagerImpl.execPendingActions(FragmentManager.java:2061)
+                        at android.app.FragmentManagerImpl.popBackStackImmediate(FragmentManager.java:874)
+                        at android.app.FragmentManagerImpl.popBackStackImmediate(FragmentManager.java:835)
+                        at android.app.Activity.onBackPressed(Activity.java:3963)
+                        at androidx.activity.ComponentActivity.access$001(Unknown)
+                        at androidx.activity.ComponentActivity$1.run(SourceFile:1)
+                        at androidx.activity.OnBackPressedDispatcher.onBackPressed(SourceFile:8)
+                        at androidx.activity.f.run(Unknown:2)
+                        at androidx.activity.g.onBackInvoked(Unknown:2)
+                        at android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper.lambda$onBackInvoked$3$android-window-WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper(WindowOnBackInvokedDispatcher.java:267)
+                        at android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper$$ExternalSyntheticLambda0.run(Unknown:2)
+                        at android.os.Handler.handleCallback(Handler.java:942)
+                        at android.os.Handler.dispatchMessage(Handler.java:99)
+             */
+        }
+    }
+
     public void onBackPressedFragment() {
         performBack();
     }
