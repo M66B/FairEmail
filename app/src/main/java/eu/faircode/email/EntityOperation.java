@@ -23,6 +23,7 @@ import static androidx.room.ForeignKey.CASCADE;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteConstraintException;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -505,6 +506,9 @@ public class EntityOperation {
 
         } catch (JSONException ex) {
             Log.e(ex);
+        } catch (SQLiteConstraintException ex){
+            Log.w(ex);
+            // folder or message gone
         }
     }
 
