@@ -296,7 +296,6 @@ public class FragmentCompose extends FragmentBase {
 
     private long working = -1;
     private State state = State.NONE;
-    private boolean identity_selectable = false;
     private boolean show_images = false;
     private Integer last_plain_only = null;
     private List<EntityAttachment> last_attachments = null;
