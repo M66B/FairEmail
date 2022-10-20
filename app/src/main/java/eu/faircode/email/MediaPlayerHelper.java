@@ -22,7 +22,7 @@ public class MediaPlayerHelper {
     static final int DEFAULT_SOUND_DURATION = 30; // seconds
     static final int DEFAULT_ALARM_DURATION = 30; // seconds
 
-    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "media");
+    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "media");
 
     static void queue(Context context, String uri) {
         try {

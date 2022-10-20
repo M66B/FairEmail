@@ -73,7 +73,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     private Tokenizer tokenizer;
     private Map<String, Integer> encryption = new ConcurrentHashMap<>();
 
-    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "chips");
+    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "chips");
 
     private static int[] icons = new int[]{
             R.drawable.twotone_vpn_key_24_p,

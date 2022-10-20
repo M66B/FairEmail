@@ -338,7 +338,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_SEND = 14;
     private static final int REQUEST_REMOVE_ATTACHMENTS = 15;
 
-    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "compose");
+    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "compose");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

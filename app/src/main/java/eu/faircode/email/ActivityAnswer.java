@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 public class ActivityAnswer extends ActivityBase {
-    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "answer");
+    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "answer");
 
     @Override
     @RequiresApi(api = Build.VERSION_CODES.M)

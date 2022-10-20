@@ -446,7 +446,7 @@ public class FragmentMessages extends FragmentBase
             "time", "unread", "starred", "priority"
     ));
 
-    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "messages");
+    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "messages");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

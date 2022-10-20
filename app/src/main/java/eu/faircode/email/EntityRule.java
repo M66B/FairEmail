@@ -128,7 +128,7 @@ public class EntityRule {
 
     private static final long SEND_DELAY = 5000L; // milliseconds
 
-    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "rule");
+    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "rule");
 
     static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
         return needs(rules, "header");
