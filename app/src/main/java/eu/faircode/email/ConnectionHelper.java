@@ -739,4 +739,32 @@ public class ConnectionHelper {
             }
         }
     }
+
+    static Integer getLinkDownstreamBandwidthKbps(Context context) {
+        // 2G GSM ~14.4 Kbps
+        // G GPRS ~26.8 Kbps
+        // E EDGE ~108.8 Kbps
+        // 3G UMTS ~128 Kbps
+        // H HSPA ~3.6 Mbps
+        // H+ HSPA+ ~14.4 Mbps-23.0 Mbps
+        // 4G LTE ~50 Mbps
+        // 4G LTE-A ~500 Mbps
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+            return null;
+        try {
+            ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
+            if (cm == null)
+                return null;
+            Network active = cm.getActiveNetwork();
+            if (active == null)
+                return null;
+            NetworkCapabilities caps = cm.getNetworkCapabilities(active);
+            if (caps == null)
+                return null;
+            return caps.getLinkDownstreamBandwidthKbps();
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return null;
+        }
+    }
 }

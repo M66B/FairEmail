@@ -38,9 +38,6 @@ import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
-import android.net.ConnectivityManager;
-import android.net.Network;
-import android.net.NetworkCapabilities;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
@@ -477,29 +474,8 @@ class ImageHelper {
             lld.setBounds(0, 0, px, px);
             lld.setLevel(1);
 
-            boolean slow = false;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                try {
-                    // 2G GSM ~14.4 Kbps
-                    // G GPRS ~26.8 Kbps
-                    // E EDGE ~108.8 Kbps
-                    // 3G UMTS ~128 Kbps
-                    // H HSPA ~3.6 Mbps
-                    // H+ HSPA+ ~14.4 Mbps-23.0 Mbps
-                    // 4G LTE ~50 Mbps
-                    // 4G LTE-A ~500 Mbps
-                    ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
-                    Network active = (cm == null ? null : cm.getActiveNetwork());
-                    NetworkCapabilities caps = (active == null ? null : cm.getNetworkCapabilities(active));
-                    if (caps != null) {
-                        int kbps = caps.getLinkDownstreamBandwidthKbps();
-                        slow = (kbps < SLOW_CONNECTION);
-                    }
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-
-            ExecutorService executor = (slow ? executor_1 : executor_n);
+            Integer kbps = ConnectionHelper.getLinkDownstreamBandwidthKbps(context);
+            ExecutorService executor = (kbps != null && kbps < SLOW_CONNECTION ? executor_1 : executor_n);
 
             executor.submit(new Runnable() {
                 @Override
