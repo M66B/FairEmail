@@ -5940,7 +5940,7 @@ public class FragmentCompose extends FragmentBase {
                     dirty = true;
                     EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
                     EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.DRAFTS);
-                    if (empty || trash == null || discard_delete || (drafts != null && drafts.local))
+                    if (empty || trash == null || discard_delete || !save_drafts || (drafts != null && drafts.local))
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
                     else {
                         Map<String, String> c = new HashMap<>();
