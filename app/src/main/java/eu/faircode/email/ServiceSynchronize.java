@@ -2113,7 +2113,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                             else if (EntityOperation.ADD.equals(op.name) ||
                                                                     EntityOperation.BODY.equals(op.name) ||
                                                                     EntityOperation.ATTACHMENT.equals(op.name) ||
-                                                                    EntityOperation.RAW.equals(op.name))
+                                                                    EntityOperation.RAW.equals(op.name) ||
+                                                                    (EntityOperation.FETCH.equals(op.name) && folder.download))
                                                                 timeout += WAKELOCK_CONTENT_MAX; // -> 10 minutes
                                                             else if (EntityOperation.MOVE.equals(op.name) ||
                                                                     EntityOperation.COPY.equals(op.name))
