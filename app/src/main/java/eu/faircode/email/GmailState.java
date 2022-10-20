@@ -67,7 +67,6 @@ public class GmailState {
     void refresh(@NonNull Context context, String id, @NonNull String user, boolean forceRefresh)
             throws AuthenticatorException, OperationCanceledException, IOException {
         long now = new Date().getTime();
-        EntityLog.Type logType = (BuildConfig.DEBUG ? EntityLog.Type.Debug : EntityLog.Type.General);
         Long expiration = getAccessTokenExpirationTime();
         boolean needsRefresh = (expiration != null && expiration < now);
         boolean neededRefresh = needsRefresh;
@@ -86,7 +85,7 @@ public class GmailState {
         crumb.put("expiration", expiration == null ? "n/a" : ((expiration - now) / 1000L) + " s");
         Log.breadcrumb("Token refresh", crumb);
 
-        EntityLog.log(context, EntityLog.Type.Debug, "Token refresh user=" + id + ":" + user +
+        EntityLog.log(context, EntityLog.Type.General, "Token refresh user=" + id + ":" + user +
                 " force=" + forceRefresh +
                 " need=" + needsRefresh +
                 " needed=" + neededRefresh +
@@ -106,7 +105,7 @@ public class GmailState {
                             " exp=" + (expiration == null ? -1 : (expiration - now) / 1000L) + " s");
                 } else
                     try {
-                        EntityLog.log(context, logType, "Invalidating token user=" + id + ":" + user);
+                        EntityLog.log(context, EntityLog.Type.General, "Invalidating token user=" + id + ":" + user);
                         AccountManager am = AccountManager.get(context);
                         am.invalidateAuthToken(TYPE_GOOGLE, token);
                     } catch (Throwable ex) {
@@ -120,7 +119,7 @@ public class GmailState {
             if (account == null)
                 throw new AuthenticatorException("Account not found for " + id + ":" + user);
 
-            EntityLog.log(context, logType, "Getting token user=" + id + ":" + user);
+            EntityLog.log(context, EntityLog.Type.General, "Getting token user=" + id + ":" + user);
             AccountManager am = AccountManager.get(context);
             String newToken = am.blockingGetAuthToken(
                     account,
@@ -136,7 +135,7 @@ public class GmailState {
                 token = newToken;
                 acquired = new Date().getTime();
             } else if (needsRefresh) {
-                EntityLog.log(context, logType, "Token refresh failed user=" + id + ":" + user);
+                EntityLog.log(context, EntityLog.Type.General, "Token refresh failed user=" + id + ":" + user);
                 if (!BuildConfig.PLAY_STORE_RELEASE)
                     Log.e("Token refresh failed id=" + id);
             }

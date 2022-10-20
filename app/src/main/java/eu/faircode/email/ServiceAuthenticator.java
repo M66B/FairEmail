@@ -162,7 +162,7 @@ public class ServiceAuthenticator extends Authenticator {
             if (needsRefresh)
                 authState.setNeedsTokenRefresh(true);
 
-            EntityLog.log(context, EntityLog.Type.Debug, "Token user=" + id + ":" + user +
+            EntityLog.log(context, EntityLog.Type.General, "Token user=" + id + ":" + user +
                     " expiration=" + (expiration == null ? null : new Date(expiration)) +
                     " need=" + needsRefresh + "/" + authState.getNeedsTokenRefresh() +
                     " force=" + forceRefresh);
