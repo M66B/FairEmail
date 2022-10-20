@@ -241,7 +241,6 @@
     <string name="title_setup_password_repeat">Repetir contrasinal</string>
     <string name="title_setup_password_missing">Non hai contrasinal</string>
     <string name="title_setup_password_different">Os contrasinais non coinciden</string>
-    <string name="title_setup_password_invalid">Contrasinal non válido</string>
     <string name="title_setup_import_accounts">Importar contas e identidades</string>
     <string name="title_setup_import_delete">Eliminar primeiro as contas existentes</string>
     <string name="title_setup_import_rules">Importar regras de filtro</string>

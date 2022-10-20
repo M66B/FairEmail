@@ -162,7 +162,6 @@
     <string name="title_setup_password_repeat">Повторете паролата</string>
     <string name="title_setup_password_missing">Липсва парола</string>
     <string name="title_setup_password_different">Паролите не съвпадат</string>
-    <string name="title_setup_password_invalid">Грешна парола</string>
     <string name="title_setup_exported">Настройки са изнесени</string>
     <string name="title_setup_imported">Настройки са внесени</string>
     <string name="title_setup_import_invalid">Невалиден файл за настройките</string>

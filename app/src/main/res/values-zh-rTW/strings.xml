@@ -229,7 +229,6 @@
     <string name="title_setup_password_repeat">重複輸入密碼</string>
     <string name="title_setup_password_missing">密碼缺失</string>
     <string name="title_setup_password_different">密碼不匹配</string>
-    <string name="title_setup_password_invalid">密碼無效</string>
     <string name="title_setup_import_accounts">匯入帳戶和身分</string>
     <string name="title_setup_import_delete">先刪除現有帳戶</string>
     <string name="title_setup_import_rules">匯入篩選規則</string>

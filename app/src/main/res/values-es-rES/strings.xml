@@ -246,7 +246,6 @@
     <string name="title_setup_password_repeat">Confirmar contraseña</string>
     <string name="title_setup_password_missing">Falta contraseña</string>
     <string name="title_setup_password_different">Las contraseñas no coinciden</string>
-    <string name="title_setup_password_invalid">Contraseña inválida</string>
     <string name="title_setup_import_accounts">Importar cuentas e identidades</string>
     <string name="title_setup_import_delete">Borrar cuentas existentes antes</string>
     <string name="title_setup_import_rules">Importar reglas de filtro</string>

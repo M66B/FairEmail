@@ -133,7 +133,6 @@
     <string name="title_setup_password_repeat">Поновите лозинку</string>
     <string name="title_setup_password_missing">Лозинка недостаје</string>
     <string name="title_setup_password_different">Лозинке се не подударају</string>
-    <string name="title_setup_password_invalid">Лозинка је неисправна</string>
     <string name="title_setup_exported">Поставке су извезене</string>
     <string name="title_setup_imported">Поставке увезене</string>
     <string name="title_setup_import_invalid">Неисправан фајл поставки</string>

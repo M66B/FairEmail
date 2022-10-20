@@ -271,7 +271,6 @@
     <string name="title_setup_password_repeat">Zopakovať heslo</string>
     <string name="title_setup_password_missing">Chýba heslo</string>
     <string name="title_setup_password_different">Heslá sa nezhodujú</string>
-    <string name="title_setup_password_invalid">Heslo je nesprávne</string>
     <string name="title_setup_import_accounts">Importovať účty a totožnosti</string>
     <string name="title_setup_import_delete">Vymazať najprv existujúce účty</string>
     <string name="title_setup_import_rules">Importovať pravidlá filtrovania</string>

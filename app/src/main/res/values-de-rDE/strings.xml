@@ -245,7 +245,7 @@
     <string name="title_setup_password_repeat">Passwort erneut eingeben</string>
     <string name="title_setup_password_missing">Passwort fehlt</string>
     <string name="title_setup_password_different">Passwörter stimmen nicht überein</string>
-    <string name="title_setup_password_invalid">Passwort ungültig</string>
+    <string name="title_setup_password_invalid">Falsches Passwort oder beschädigte Einstellungsdatei</string>
     <string name="title_setup_import_accounts">Konten und Identitäten importieren</string>
     <string name="title_setup_import_delete">Zunächst bestehende Konten löschen</string>
     <string name="title_setup_import_rules">Filterregeln importieren</string>
@@ -1217,8 +1217,8 @@
     <string name="title_style_subscript">Tiefgestellt</string>
     <string name="title_style_superscript">Hochgestellt</string>
     <string name="title_style_strikethrough">Durchgestrichen</string>
-    <string name="title_style_protect" comment="title_style_protect&#10;Title of style menu item to password protect selected text">Passwortschutz</string>
-    <string name="title_style_protect_size" comment="title_style_protect_size&#10;Error message indicating that selected text to be password protected is too long">Text zu lang</string>
+    <string name="title_style_protect">Passwortschutz</string>
+    <string name="title_style_protect_size">Text zu lang</string>
     <string name="title_style_clear">Formatierung entfernen</string>
     <string name="title_style_link">Link einfügen</string>
     <string name="title_style_link_address">Adresse</string>

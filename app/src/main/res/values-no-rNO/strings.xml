@@ -185,7 +185,6 @@
     <string name="title_setup_password_repeat">Gjenta passord</string>
     <string name="title_setup_password_missing">Passord mangler</string>
     <string name="title_setup_password_different">Passordene er ikke like</string>
-    <string name="title_setup_password_invalid">Ugyldig passord</string>
     <string name="title_setup_exported">Innstillinger eksportert</string>
     <string name="title_setup_imported">Innstillinger importert</string>
     <string name="title_setup_import_invalid">Ugyldig innstillingsfil</string>

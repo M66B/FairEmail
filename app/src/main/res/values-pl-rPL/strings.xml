@@ -272,7 +272,7 @@
     <string name="title_setup_password_repeat">Powtórz hasło</string>
     <string name="title_setup_password_missing">Brak hasła</string>
     <string name="title_setup_password_different">Hasła nie są identyczne</string>
-    <string name="title_setup_password_invalid">Nieprawidłowe hasło</string>
+    <string name="title_setup_password_invalid">Nieprawidłowe hasło lub uszkodzony plik ustawień</string>
     <string name="title_setup_import_accounts">Importuj konta i tożsamości</string>
     <string name="title_setup_import_delete">Najpierw usuń istniejące konta</string>
     <string name="title_setup_import_rules">Importuj reguły filtrowania</string>
@@ -1245,8 +1245,8 @@
     <string name="title_style_subscript">Indeks dolny</string>
     <string name="title_style_superscript">Indeks górny</string>
     <string name="title_style_strikethrough">Przekreślenie</string>
-    <string name="title_style_protect" comment="title_style_protect&#10;Title of style menu item to password protect selected text">Zabezpiecz hasłem</string>
-    <string name="title_style_protect_size" comment="title_style_protect_size&#10;Error message indicating that selected text to be password protected is too long">Tekst jest zbyt długi</string>
+    <string name="title_style_protect">Zabezpiecz hasłem</string>
+    <string name="title_style_protect_size">Tekst jest zbyt długi</string>
     <string name="title_style_clear">Wyczyść formatowanie</string>
     <string name="title_style_link">Wstaw link</string>
     <string name="title_style_link_address">Adres</string>

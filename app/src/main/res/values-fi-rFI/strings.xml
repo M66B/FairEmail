@@ -246,7 +246,6 @@
     <string name="title_setup_password_repeat">Toista salasana</string>
     <string name="title_setup_password_missing">Salasana puuttuu</string>
     <string name="title_setup_password_different">Salasanat eivät vastaa toisiaan</string>
-    <string name="title_setup_password_invalid">Salasana on virheellinen</string>
     <string name="title_setup_import_accounts">Tuo tilit ja identiteetit</string>
     <string name="title_setup_import_delete">Poista ensin olemassa olevat tilit</string>
     <string name="title_setup_import_rules">Tuo suodatussäännöt</string>

@@ -179,7 +179,6 @@
     <string name="title_setup_password_repeat">Werhelje wachtwurd</string>
     <string name="title_setup_password_missing">Wachtwurd ûntbrekt</string>
     <string name="title_setup_password_different">Wachtwurden komme net oerien</string>
-    <string name="title_setup_password_invalid">Wachtwurd ûnjildich</string>
     <string name="title_setup_exported">Ynstellings eksporteare</string>
     <string name="title_setup_imported">Ynstellings ymporteare</string>
     <string name="title_setup_import_invalid">Unjildich ynstellingsbestân</string>

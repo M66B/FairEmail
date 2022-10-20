@@ -259,7 +259,6 @@
     <string name="title_setup_password_repeat">Ponovite lozinku</string>
     <string name="title_setup_password_missing">Nedostaje lozinka</string>
     <string name="title_setup_password_different">Lozinke se ne podudaraju</string>
-    <string name="title_setup_password_invalid">Nevažeća lozinka</string>
     <string name="title_setup_import_accounts">Uvoz računa i identiteta</string>
     <string name="title_setup_import_delete">Prvo izbriši postojeće račune</string>
     <string name="title_setup_import_rules">Uvoz pravila filtriranja</string>
@@ -1236,8 +1235,8 @@
     <string name="title_style_subscript">Indeks</string>
     <string name="title_style_superscript">Eksponent</string>
     <string name="title_style_strikethrough">Precrtano</string>
-    <string name="title_style_protect" comment="title_style_protect&#10;Title of style menu item to password protect selected text">Zaštićeno lozinkom</string>
-    <string name="title_style_protect_size" comment="title_style_protect_size&#10;Error message indicating that selected text to be password protected is too long">Tekst predug</string>
+    <string name="title_style_protect">Zaštićeno lozinkom</string>
+    <string name="title_style_protect_size">Tekst predug</string>
     <string name="title_style_clear">Očisti formatiranje</string>
     <string name="title_style_link">Ubaci link</string>
     <string name="title_style_link_address">Adresa</string>

@@ -9,6 +9,8 @@
     <string name="app_continue">Vẫn tiếp tục</string>
     <string name="app_exit">\'Quay lại\' lần nữa để thoát</string>
     <string name="app_cake">Không đủ không gian bộ nhớ còn lại</string>
+    <string name="app_cake_remaining">Dung lượng bộ nhớ còn lại trên thiết bị: %1$s</string>
+    <string name="app_cake_required">Dung lượng bộ nhớ tối thiểu phải có: %1$s</string>
     <string name="app_updated">Lần cập nhật cuối: %1$s</string>
     <string name="app_download">Được tải xuống từ: %1$s</string>
     <string name="channel_service">Giám sát</string>
@@ -75,6 +77,12 @@
     <string name="title_blocked_senders">Người gửi bị chặn</string>
     <plurals name="title_ask_block_sender">
         <item quantity="other">Chặn người gửi của %1$s thư?</item>
+    </plurals>
+    <plurals name="title_hours">
+        <item quantity="other">%1$s tiếng</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="other">%1$s ngày</item>
     </plurals>
     <string name="title_junk_filter">Dùng bộ lọc thư rác cục bộ</string>
     <string name="title_junk_filter_hint">Cái này có thể tăng sử dụng pin và đánh dấu thư là thư rác một cách không chính xác</string>
@@ -154,6 +162,7 @@
     <string name="title_setup_gmail_support">Việc uỷ quyền các tài khoản Gmail sẽ chỉ được trong phiên bản trên CH Play và GitHub vì Android kiểm tra chữ ký ứng dụng</string>
     <string name="title_setup_gmail_rationale">Hãy cấp quyền để chọn một tài khoản và đọc tên của bạn</string>
     <string name="title_setup_gmail_permissions">Google sẽ hỏi xin quyền đọc, soạn thư, gửi và vĩnh viễn xoá tất cả email của bạn. FairEmail sẽ không bao giờ xoá các thư của bạn mà không có sự đồng ý cụ thể của bạn.</string>
+    <string name="title_setup_gmail_login">Nếu Chrome được đăng nhập vào một tài khoản, bạn chỉ có thể thêm tài khoản mới qua Android. Bạn có thể tránh việc này bằng cách đăng xuất khỏi Chrome qua cài đặt đồng bộ hoá của Chrome.</string>
     <string name="title_setup_gmail_on_device">Tại sao tôi lại cần chọn tài khoản trên thiết bị?</string>
     <string name="title_setup_gmail_password">Tôi muốn uỷ quyền một tài khoản bằng mật khẩu thay vì tài khoản trên thiết bị</string>
     <string name="title_setup_office_auth">Lỗi \'XÁC THỰC thất bại\' có thể gây ra bởi IMAP/SMTP bị vô hiệu hoá bởi quản trị viên hệ thống</string>
@@ -224,7 +233,7 @@
     <string name="title_setup_password_repeat">Nhập lại mật khẩu</string>
     <string name="title_setup_password_missing">Thiếu mật khẩu</string>
     <string name="title_setup_password_different">Mật khẩu không khớp</string>
-    <string name="title_setup_password_invalid">Mật khẩu không hợp lệ</string>
+    <string name="title_setup_password_invalid">Mật khẩu sai, hoặc tệp cài đặt bị hỏng</string>
     <string name="title_setup_import_accounts">Nhập các tài khoản và danh tính</string>
     <string name="title_setup_import_delete">Xóa các tài khoản hiện có trước tiên</string>
     <string name="title_setup_import_rules">Nhập các quy tắc bộ lọc</string>
@@ -354,6 +363,7 @@
     <string name="title_advanced_signature_forward">Sử dụng chữ ký khi chuyển tiếp</string>
     <string name="title_advanced_discard_delete">Khi bỏ thư nháp vĩnh viễn xoá thư nháp</string>
     <string name="title_advanced_reply_move">Khi trả lời thư, lưu thư trả lời trong thư mục đó</string>
+    <string name="title_advanced_reply_move_inbox">Cũng áp dụng cho thư trong hộp thư đến</string>
     <string name="title_advanced_auto_link">Tự động tạo các liên kết</string>
     <string name="title_advanced_plain_only">Chỉ gửi văn bản thường theo mặc định</string>
     <string name="title_advanced_flow">\'format flowed\' cho văn bản thường</string>
@@ -370,6 +380,7 @@
     <string name="title_advanced_download_eml">Tải xuống các tệp thư thô</string>
     <string name="title_advanced_download_plain">Tải xuống các phần chỉ gồm văn bản thuần theo mặc định (nếu có)</string>
     <string name="title_advanced_validated">Yêu cầu kết nối đã xác minh (đã kiểm tra)</string>
+    <string name="title_advanced_validated_captive">Yêu cầu kết nối đã đăng nhập được vào</string>
     <string name="title_advanced_vpn_only">Kết nối chỉ qua VPN</string>
     <string name="title_advanced_timeout">Thời gian chờ kết nối (giây)</string>
     <string name="title_advanced_prefer_ip4">Ưu tiên IPv4 hơn IPv6</string>

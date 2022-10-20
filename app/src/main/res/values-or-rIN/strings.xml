@@ -121,7 +121,6 @@
     <string name="title_setup_password_repeat">ପାସ୍‍ୱାର୍ଡ଼ ପୁନରାବୃତ୍ତି କରନ୍ତୁ</string>
     <string name="title_setup_password_missing">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
     <string name="title_setup_password_different">ପାସ୍‍ୱାର୍ଡ଼ଗୁଡ଼ିକ ମେଳ ଖାଉନାହିଁ</string>
-    <string name="title_setup_password_invalid">ପାସ୍‍ୱାର୍ଡ଼ ଅବୈଧ ଅଟେ</string>
     <string name="title_setup_import_delete">ପ୍ରଥମେ ବିଦ୍ୟମାନ ଆକାଉଣ୍ଟଗୁଡ଼ିକୁ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_setup_import_settings">ଆମଦାନୀ ବିକଳ୍ପଗୁଡ଼ିକ</string>
     <string name="title_setup_exported">ସେଟିଂସ୍ ରପ୍ତାନି ହୋଇଛି</string>

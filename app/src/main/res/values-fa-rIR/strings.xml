@@ -218,7 +218,6 @@
     <string name="title_setup_password_repeat">تکرار گذرواژه</string>
     <string name="title_setup_password_missing">گذرواژه موجود نیست</string>
     <string name="title_setup_password_different">گذرواژه‌ها یکسان نیستند</string>
-    <string name="title_setup_password_invalid">گذرواژه اشتباه است</string>
     <string name="title_setup_import_accounts">وارد کردن حساب‌ها و هویت‌ها</string>
     <string name="title_setup_import_delete">ابتدا حساب‌های موجود را حذف کن</string>
     <string name="title_setup_import_rules">وارد کردن قوانین غربالگری</string>

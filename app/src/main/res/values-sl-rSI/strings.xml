@@ -272,7 +272,6 @@
     <string name="title_setup_password_repeat">Ponovite geslo.</string>
     <string name="title_setup_password_missing">Manjka geslo.</string>
     <string name="title_setup_password_different">Gesli se ne ujemata.</string>
-    <string name="title_setup_password_invalid">Geslo je neveljavno.</string>
     <string name="title_setup_import_accounts">Uvozi račune in identitete</string>
     <string name="title_setup_import_delete">Najprej izbriši obstoječe račune</string>
     <string name="title_setup_import_rules">Uvozi pravila filtriranja</string>

@@ -246,7 +246,7 @@
     <string name="title_setup_password_repeat">Confirmer le mot de passe</string>
     <string name="title_setup_password_missing">Mot de passe manquant</string>
     <string name="title_setup_password_different">Les mots de passe ne correspondent pas</string>
-    <string name="title_setup_password_invalid">Mot de passe non valide</string>
+    <string name="title_setup_password_invalid">Mot de passe incorrect ou fichier de paramètres endommagé</string>
     <string name="title_setup_import_accounts">Importer les comptes et identités</string>
     <string name="title_setup_import_delete">Supprimer d\'abord les comptes existants</string>
     <string name="title_setup_import_rules">Importer les règles de filtrage</string>
@@ -1224,8 +1224,8 @@
     <string name="title_style_subscript">Indice</string>
     <string name="title_style_superscript">Exposant</string>
     <string name="title_style_strikethrough">Barrer</string>
-    <string name="title_style_protect" comment="title_style_protect&#10;Title of style menu item to password protect selected text">Protéger par mot de passe</string>
-    <string name="title_style_protect_size" comment="title_style_protect_size&#10;Error message indicating that selected text to be password protected is too long">Texte trop long</string>
+    <string name="title_style_protect">Protéger par mot de passe</string>
+    <string name="title_style_protect_size">Texte trop long</string>
     <string name="title_style_clear">Effacer la mise en forme</string>
     <string name="title_style_link">Insérer un lien</string>
     <string name="title_style_link_address">Adresse</string>
