@@ -587,11 +587,11 @@ class ImageHelper {
 
         d.setBounds(0, 0, w, h);
 
-        if (view instanceof TextView) {
-            int tc = ((TextView) view).getCurrentTextColor();
-            int bg = ColorUtils.setAlphaComponent(tc, Math.round(255 * 0.05f));
-            d.setColorFilter(bg, PorterDuff.Mode.DST_OVER);
-        }
+        //if (view instanceof TextView) {
+        //    int tc = ((TextView) view).getCurrentTextColor();
+        //    int bg = ColorUtils.setAlphaComponent(tc, Math.round(255 * 0.05f));
+        //    d.setColorFilter(bg, PorterDuff.Mode.DST_OVER);
+        //}
     }
 
     static String getDataUriType(String source) {
