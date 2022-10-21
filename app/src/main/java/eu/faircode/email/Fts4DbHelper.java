@@ -223,7 +223,10 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
     }
 
     private static String escape(String word) {
-        return "'" + word.replaceAll("'", "''") + "'";
+        return "'" + word
+                .replaceAll("'", "''")
+                .replaceAll("\"", "\"\"") +
+                "'";
     }
 
     static Cursor getIds(SQLiteDatabase db) {
