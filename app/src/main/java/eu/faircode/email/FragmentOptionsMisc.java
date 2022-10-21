@@ -205,6 +205,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swIdleDone;
     private SwitchCompat swLogarithmicBackoff;
     private SwitchCompat swExactAlarms;
+    private SwitchCompat swOpWakelock;
     private SwitchCompat swInfra;
     private SwitchCompat swDupMsgId;
     private EditText etKeywords;
@@ -261,7 +262,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "use_modseq", "uid_command", "perform_expunge", "uid_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", "use_top",
             "keep_alive_poll", "empty_pool", "idle_done", "logarithmic_backoff",
-            "exact_alarms", "infra", "dkim_verify", "dup_msgids", "global_keywords", "test_iab"
+            "exact_alarms", "op_wakelock", "infra", "dkim_verify", "dup_msgids", "global_keywords", "test_iab"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -416,6 +417,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swIdleDone = view.findViewById(R.id.swIdleDone);
         swLogarithmicBackoff = view.findViewById(R.id.swLogarithmicBackoff);
         swExactAlarms = view.findViewById(R.id.swExactAlarms);
+        swOpWakelock = view.findViewById(R.id.swOpWakelock);
         swInfra = view.findViewById(R.id.swInfra);
         swDupMsgId = view.findViewById(R.id.swDupMsgId);
         etKeywords = view.findViewById(R.id.etKeywords);
@@ -1426,6 +1428,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swOpWakelock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("op_wakelock", checked).apply();
+            }
+        });
+
         swInfra.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2126,6 +2135,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swIdleDone.setChecked(prefs.getBoolean("idle_done", true));
         swLogarithmicBackoff.setChecked(prefs.getBoolean("logarithmic_backoff", true));
         swExactAlarms.setChecked(prefs.getBoolean("exact_alarms", true));
+        swOpWakelock.setChecked(prefs.getBoolean("op_wakelock", false));
         swInfra.setChecked(prefs.getBoolean("infra", false));
         swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
         etKeywords.setText(prefs.getString("global_keywords", null));

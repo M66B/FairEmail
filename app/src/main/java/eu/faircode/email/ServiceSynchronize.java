@@ -2083,8 +2083,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 public void run() {
                                                     super.run();
 
-                                                    long start = new Date().getTime();
                                                     long timeout = 0;
+                                                    boolean op_wakelock = prefs.getBoolean("op_wakelock", false);
+
+                                                    long start = new Date().getTime();
                                                     try {
                                                         List<TupleOperationEx> partition;
                                                         synchronized (partitions) {
@@ -2122,7 +2124,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                             else
                                                                 timeout += WAKELOCK_OPERATION_MAX; // -> 10 seconds
 
-                                                        wlOperations.acquire(timeout);
+                                                        if (op_wakelock)
+                                                            wlOperations.acquire(timeout);
+                                                        else
+                                                            wlOperations.acquire();
 
                                                         Log.i(account.name + "/" + folder.name +
                                                                 " executing partition=" + key +
@@ -2255,11 +2260,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                         else
                                                             Log.e(ex);
                                                     } finally {
-                                                        if (!wlOperations.isHeld()) {
-                                                            long elapsed = new Date().getTime() - start;
-                                                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug,
-                                                                    key + " prematurely released" +
-                                                                            " elapsed=" + elapsed + " timeout=" + timeout);
+                                                        long elapsed = new Date().getTime() - start;
+                                                        if (!wlOperations.isHeld() || elapsed > timeout) {
+                                                            String msg = key + " prematurely released" +
+                                                                    " elapsed=" + elapsed +
+                                                                    " timeout=" + timeout +
+                                                                    " enforced=" + op_wakelock +
+                                                                    " held=" + wlOperations.isHeld() +
+                                                                    " host=" + account.host;
+                                                            Log.e(msg);
+                                                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug, msg);
                                                         }
                                                         wlOperations.release();
                                                     }
