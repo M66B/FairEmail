@@ -1440,6 +1440,9 @@ public class Helper {
     }
 
     static void reportNoViewer(Context context, @NonNull Intent intent, @Nullable Throwable ex) {
+        if (context == null)
+            return;
+
         if (ex != null) {
             if (ex instanceof ActivityNotFoundException && BuildConfig.PLAY_STORE_RELEASE)
                 Log.w(ex);
