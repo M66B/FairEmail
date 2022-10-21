@@ -1871,7 +1871,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 @Override
                                 public void messagesAdded(MessageCountEvent e) {
                                     try {
-                                        wlMessage.acquire(WAKELOCK_OPERATION_MAX);
+                                        wlMessage.acquire(WAKELOCK_OPERATION_MAX * e.getMessages().length);
                                         fetch(folder, ifolder, e.getMessages(), false, false, "added");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
@@ -1889,7 +1889,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 @Override
                                 public void messagesRemoved(MessageCountEvent e) {
                                     try {
-                                        wlMessage.acquire(WAKELOCK_OPERATION_MAX);
+                                        wlMessage.acquire(WAKELOCK_OPERATION_MAX * e.getMessages().length);
                                         fetch(folder, ifolder, e.getMessages(), false, true, "removed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
