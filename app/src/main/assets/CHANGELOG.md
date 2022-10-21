@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1987 - 2022-10-20
+
+* Improved settings file encryption, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq36)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1986 - 2022-10-19
 
 * Improved password entry
