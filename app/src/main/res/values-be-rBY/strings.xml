@@ -7,7 +7,7 @@
     <string name="app_unsupported">Памылкі ў версіі Android гэтай канкрэтнай прылады выклікаюць збоі</string>
     <string name="app_data_loss">Усе даныя праграмы будуць страчаныя</string>
     <string name="app_continue">Усё роўна працягнуць</string>
-    <string name="app_exit">Націсніце \'назад\' яшчэ раз, каб выйсці</string>
+    <string name="app_exit">Націсніце \'back\' яшчэ раз, каб выйсці</string>
     <string name="app_cake">Недастаткова месца ў сховішчы</string>
     <string name="app_cake_remaining">Засталося месца ў памяці прылады: %1$s</string>
     <string name="app_cake_required">Мінімальна патрэбны памер сховішча: %1$s</string>
@@ -22,7 +22,7 @@
     <string name="channel_error">Памылкі</string>
     <string name="channel_alert">Абвесткі сервера</string>
     <string name="channel_group_contacts">Кантакты</string>
-    <string name="channel_service_description">Сінхранізацыя і маніторынг акаўнтаў</string>
+    <string name="channel_service_description">Сінхранізацыя і маніторынг уліковых запісаў</string>
     <string name="channel_send_description">Адпраўка паведамленняў</string>
     <string name="channel_notification_description">Абвесткі аб новых паведамленнях</string>
     <string name="channel_progress_description">Абвесткі прагрэсу працяглых дзеянняў</string>
@@ -46,10 +46,10 @@
     <string name="shortcut_compose">Стварыць</string>
     <string name="shortcut_setup">Налады</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Маніторынг %1$d акаўнта</item>
-        <item quantity="few">Маніторынг %1$d акаўнтаў</item>
-        <item quantity="many">Маніторынг %1$d акаўнтаў</item>
-        <item quantity="other">Маніторынг %1$d акаўнтаў</item>
+        <item quantity="one">Маніторынг %1$d уліковага запісу</item>
+        <item quantity="few">Маніторынг %1$d уліковых запісаў</item>
+        <item quantity="many">Маніторынг %1$d уліковых запісаў</item>
+        <item quantity="other">Маніторынг %1$d уліковых запісаў</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d аперацыя чакаецца</item>
@@ -134,7 +134,7 @@
     <string name="title_notification_failed">\'%1$s\' не ўдалося</string>
     <string name="title_notification_alert">Папярэджанне сервера: \'%1$s\'</string>
     <string name="title_notification_sending_left">Засталося %1$d спроб</string>
-    <string name="title_notification_sending_retry">Спроба адпраўкі будзе выканана пры змяненні спосабу падключэння да інтэрнэту або пры праверцы пошты</string>
+    <string name="title_notification_sending_retry">Спроба адпраўкі будзе выканана пры змяненні спосабу злучэння з інтэрнэтам або пры праверцы пошты</string>
     <string name="title_notification_sending_failed">Не ўдалося ажыццявіць адпраўку на %1$s</string>
     <string name="title_notification_redacted">Зменена: біяметрычная аўтэнтыфікацыя або аўтэнтыфікацыя па PIN-кодзе ўключана</string>
     <string name="title_factor_minutes">%1$d хвілін</string>
@@ -161,7 +161,7 @@
     <string name="title_disagree">Я не згодны</string>
     <string name="title_version">Версія %1$s</string>
     <string name="title_privacy_policy">Палітыка канфідэнцыяльнасці</string>
-    <string name="title_list_accounts">Акаўнты</string>
+    <string name="title_list_accounts">Уліковыя запісы</string>
     <string name="title_list_identities">Ідэнтыфікатары</string>
     <string name="title_edit_account">Рэдагаваць уліковы запіс</string>
     <string name="title_edit_identity">Рэдагаваць ідэнтыфікатар</string>
@@ -191,7 +191,7 @@
     <string name="title_setup_account_remark">Атрыманне эл. пошты</string>
     <string name="title_setup_identity_remark">Адпраўка эл. пошты</string>
     <string name="title_setup_account_identity_hint">Вы можаце наладзіць імя, колер і жэсты ў наладах уліковага запісу, а таксама наладзіць подпіс у наладах ідэнтыфікатара</string>
-    <string name="title_setup_accounts">Акаўнты</string>
+    <string name="title_setup_accounts">Уліковыя запісы</string>
     <string name="title_setup_identities">Ідэнтыфікатары</string>
     <string name="title_setup_google_sign_in">Увайсці праз Google</string>
     <string name="title_setup_other">Іншы правайдар</string>
@@ -215,20 +215,46 @@
     <string name="title_setup_no_settings_hint">Паспрабуйце наладзіць уліковы запіс уручную, выкарыстоўваючы налады, прадстаўленыя вашым правайдарам электроннай пошты</string>
     <string name="title_setup_no_auth_hint">Калі ласка, яшчэ раз праверце свой адрас электроннай пошты і пароль, а таксама пераканайцеся, што для вашага ўліковага запісу ўключаны знешні доступ (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">Гэты правайдар патрабуе пароль праграмы замест пароля ўліковага запісу, калі ласка, праверце інструкцыі вашага правайдара</string>
+    <string name="title_setup_no_inbox">Папка для ўваходных паведамленняў не знойдзена</string>
+    <string name="title_setup_advanced_protection">Выкарыстанне старонніх паштовых праграм недазволена, калі вы зарэгістраваны ў праграме пашыранай абароны. Гэта абмежаванне накладзена Google.</string>
+    <string name="title_setup_quick_success">Уліковы запіс быў паспяхова дададзены</string>
     <string name="title_setup_quick_no_sent">Папка для адпраўленых паведамленняў не выбрана. Адпраўленыя паведамленні могуць не захавацца.</string>
     <string name="title_setup_quick_configure">Перайменаванне, рэдагаванне колеру, жэстаў і т. п.</string>
     <string name="title_setup_manage">Кіраваць</string>
     <string name="title_setup_grant">Даць дазволы</string>
     <string name="title_setup_grant_again">Даць неабходныя дазволы</string>
+    <string name="title_setup_exchange_support">Ці падтрымліваецца Microsoft Exchange?</string>
     <string name="title_setup_identity_what">Што такое ідэнтыфікатар?</string>
+    <string name="title_setup_free">Ці з\'яўляецца гэта праграма бясплатнай?</string>
     <string name="title_setup_permissions">Даць дазволы</string>
+    <string name="title_setup_permissions_remark">Доступ да кантактнай інфармацыі (неабавязкова)</string>
+    <string name="title_setup_permissions_explanation">Для пошуку кантактнай інфармацыі і прапановы кантактаў патрабуюцца дазволы на доступ да спісу кантактаў</string>
     <string name="title_setup_permissions_notify">Для паказу апавяшчэнняў пра новыя паведамленні (неабавязкова)</string>
     <string name="title_setup_permissions_notify_explanation">Дазволы на апавяшчэнні патрабуюцца для паказу апавяшчэнняў пра новыя паведамленні ў радку стану</string>
+    <string name="title_setup_permission_why">Якія дазволы патрэбны і навошта?</string>
+    <string name="title_setup_permission_import_contacts">Як я магу імпартаваць кантакты?</string>
+    <string name="title_setup_doze">Адключыць аптымізацыю батарэі</string>
+    <string name="title_setup_doze_remark">Для надзейнай адпраўкі і атрымання электроннай пошты ў фонавым рэжыме</string>
     <string name="title_setup_doze_explanation">Каб забяспечыць надзейную адпраўку і атрыманне паведамленняў у фонавым рэжыме, аптымізацыя батарэі для праграмы павінна быць адключана</string>
+    <string name="title_setup_doze_hint">Нягледзячы на ​​​​тое, што гэта можа здацца супярэчлівым, адключэнне аптымізацыі батарэі для гэтай праграмы прывядзе да меншага спажывання зараду батарэі</string>
+    <string name="title_setup_doze_why">Чаму варта адключыць аптымізацыю батарэі?</string>
+    <string name="title_setup_doze_instructions">У наступным дыялогавым акне Android змяніце \"Не аптымізавана\" на \"Усе праграмы\", выберыце гэту праграму і змяніце значэнне на \"Не аптымізаваць\"</string>
+    <string name="title_setup_doze_battery">Высокае спажыванне зараду батарэі?</string>
+    <string name="title_setup_doze_stopped">Спынілася сінхранізацыя?</string>
+    <string name="title_setup_doze_device">Верагодна, гэта спатрэбіцца для вашай прылады</string>
+    <string name="title_setup_alarm_12">Праграма не працуе</string>
+    <string name="title_setup_inexact">Будзільнікі і напаміны адключаны</string>
+    <string name="title_setup_background">Фонавыя абмежаванні ўключаны</string>
+    <string name="title_setup_data">Эканомія даных уключана</string>
+    <string name="title_setup_advanced_options">Паказаць дадатковыя опцыі</string>
+    <string name="title_setup_inbox">Перайсці да ўваходнай пошты</string>
     <string name="title_setup_go">Пачаць</string>
     <string name="title_setup_to_do">Выканаць</string>
     <string name="title_setup_done">Гатова</string>
+    <string name="title_setup_still">Засталося зрабіць</string>
     <string name="title_setup_error">Памылка</string>
+    <string name="title_setup_pop">Выкарыстоўваць POP3 (не рэкамендуецца)</string>
+    <string name="title_setup_recent">Выкарыстоўваць \'recent\' для некалькіх паштовых кліентаў</string>
     <string name="title_setup_extra">Дадаткова</string>
     <string name="title_setup_close">Закрыць налады</string>
     <string name="title_setup_export">Экспартаваць налады</string>
@@ -269,6 +295,7 @@
     <string name="title_advanced_section_main">Асноўныя</string>
     <string name="title_advanced_section_synchronize">Атрыманне</string>
     <string name="title_advanced_section_send">Адпраўка</string>
+    <string name="title_advanced_section_connection">Злучэнне</string>
     <string name="title_advanced_section_display">Адлюстраванне</string>
     <string name="title_advanced_section_behavior">Паводзіны</string>
     <string name="title_advanced_section_privacy">Прыватнасць</string>
@@ -303,11 +330,18 @@
     <string name="title_advanced_reply_move">Пры адказе на ​​паведамленне захоўваць адказ у той жа папцы</string>
     <string name="title_advanced_reply_move_inbox">Таксама для ўваходных паведамленняў</string>
     <string name="title_advanced_auto_link">Аўтаматычна ствараць спасылкі</string>
+    <string name="title_advanced_metered">Выкарыстоўваць лімітаваныя злучэнні</string>
     <string name="title_advanced_download">Аўтаматычна загружаць паведамленні і ўкладанні пры лімітаваным злучэнні</string>
     <string name="title_advanced_roaming">Загружаць паведамленні і ўкладанні ў роўмінгу</string>
     <string name="title_advanced_download_headers">Загружаць усе загалоўкі паведамленняў</string>
     <string name="title_advanced_download_eml">Загружаць неапрацаваныя файлы паведамленняў</string>
     <string name="title_advanced_download_plain">Загружаць часткі толькі са звычайным тэкстам па змаўчанні (калі такія ёсць)</string>
+    <string name="title_advanced_validated">Патрабаваць засведчанае (праверанае) злучэнне</string>
+    <string name="title_advanced_validated_captive">Патрабаваць злучэнне, засведчанае парталам аўтарызацыі</string>
+    <string name="title_advanced_timeout">Час чакання злучэння (секунды)</string>
+    <string name="title_advanced_ssl_harden">Узмоцненыя SSL-злучэнні</string>
+    <string name="title_advanced_ssl_harden_strict">Патрабаваць пратакол TLS 1.3</string>
+    <string name="title_advanced_open_safe">Адкрываць толькі бяспечныя злучэнні</string>
     <string name="title_advanced_caption_general">Асноўныя</string>
     <string name="title_advanced_caption_checks">Праверкі</string>
     <string name="title_advanced_caption_list">Спіс</string>
@@ -394,6 +428,7 @@
     <string name="title_advanced_classification">Класіфікаваць паведамленні</string>
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Сістэмная</string>
+    <string name="title_advanced_lt">Інтэграцыя з LanguageTool</string>
     <string name="title_advanced_cleanup_attachments">Выдаліць укладанні ў старых паведамленнях</string>
     <string name="title_advanced_cleanup">Ачыстка</string>
     <string name="title_advanced_manual_hint">Калі атрыманне паведамленняў адключана, па-ранейшаму можна атрымліваць паведамленні ўручную, пацягнуўшы спіс паведамленняў уніз</string>
@@ -414,10 +449,14 @@
     <string name="title_advanced_auto_identity_hint">Выбірае апошні ідэнтыфікатар, які выкарыстоўвалася ў якасці атрымальніка для новых паведамленняў</string>
     <string name="title_advanced_send_reminders_hint">Паказваць папярэджанне, калі тэкст або тэма паведамлення пустыя або калі існуе верагоднасць адсутнасці ўкладання</string>
     <string name="title_advanced_reply_move_hint">Сервер электроннай пошты ўсё яшчэ можа дадаваць паведамленні ў папку адпраўленых паведамленняў</string>
-    <string name="title_advanced_metered_warning">Адключэнне гэтай опцыі прывядзе да адключэння прыёму і адпраўкі паведамленняў пры падключэнні да мабільнага інтэрнэту</string>
+    <string name="title_advanced_metered_hint">Лімітаваныя злучэнні — гэта злучэнні з выкарыстаннем мабільных даных або платныя кропкі доступу Wi-Fi</string>
+    <string name="title_advanced_metered_warning">Адключэнне гэтай опцыі прывядзе да адключэння прыёму і адпраўкі паведамленняў пры злучэнні з выкарыстаннем мабільных даных</string>
     <string name="title_advanced_plain_hint">Уключэнне гэтай опцыі абмяжуе выкарыстанне даных, але паведамленні будуць паказвацца без стылізацыі</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Ўключэнне гэтага параметру можа выклікаць праблемы з падключэннем на некаторых прыладах і павялічыць расход батарэі</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Уключэнне гэтага параметра можа выклікаць праблемы са злучэннем на некаторых прыладах і павялічыць расход батарэі</string>
     <string name="title_advanced_validate_hint">Гэта можа прывесці да збою сінхранізацыі паведамленняў, напрыклад, пры выкарыстанні VPN, а таксама ў іншых сітуацыях</string>
+    <string name="title_advanced_timeout_hint">Час чакання чытання/запісу будзе ўдвая перавышаць час чакання злучэння. Больш высокія значэнні прывядуць да большага выкарыстання батарэі.</string>
+    <string name="title_advanced_ssl_harden_hint">Уключэнне гэтай опцыі адключае слабыя SSL-пратаколы і шыфры, што можа прывесці да праблем са злучэннем</string>
+    <string name="title_advanced_open_safe_hint">Каб уключыць гэту опцыю, спатрэбіцца выкарыстанне бяспечнага злучэння для загрузкі выяў і г.д.</string>
     <string name="title_advanced_roaming_hint">Загалоўкі паведамленняў заўсёды будуць атрымлівацца ў роўмінгу. Вы можаце адключыць інтэрнэт у роўмінгу ў наладах прылады.</string>
     <string name="title_advanced_browse_hint">Загружаць больш паведамленняў пры пракручванні спіса ўніз</string>
     <string name="title_advanced_layout_hint">Пераключыцца на больш кампактны макет і змяніць памер тэксту паведамлення можна ў меню верхняй панэлі дзеянняў у акне прагляду паведамлення</string>
@@ -450,11 +489,13 @@
     <string name="title_advanced_sender">Дазволіць рэдагаванне адраса адпраўніка</string>
     <string name="title_advanced_sender_name">Выкарыстоўваць імя, калі адрас адпраўніка быў зменены</string>
     <string name="title_identity_unicode">Дазволіць фармат UTF-8 у загалоўках паведамленняў</string>
+    <string name="title_identity_octetmime">Дазволіць 8BITMIME</string>
     <string name="title_identity_max_size">Максімальны памер паведамлення (МБ)</string>
     <string name="title_optional">Неабавязкова</string>
     <string name="title_account_category">Катэгорыя</string>
     <string name="title_account_name_hint">Выкарыстоўваюцца для адрознення папак</string>
     <string name="title_account_interval_hint">Частата абнаўлення злучэння для апавяшчэнняў або частата праверкі новых паведамленняў</string>
+    <string name="title_account_noop_hint">Гэта опцыя дазволіць больш актыўна абнаўляць злучэнне, але таксама выкліча большае спажыванне энергіі батарэі</string>
     <string name="title_account_partial_fetch_hint">Адключайце гэту опцыю толькі ў выпадку пустых паведамленняў або пашкоджаных укладанняў</string>
     <string name="title_color">Колер</string>
     <string name="title_account_left">Пры правядзенні пальцам улева</string>
@@ -464,6 +505,9 @@
     <string name="title_provider">Правайдар</string>
     <string name="title_custom">Карыстальніцкае</string>
     <string name="title_host">Назва хоста</string>
+    <string name="title_encryption_none">Няма (небяспечна)</string>
+    <string name="title_allow_insecure">Дазволіць небяспечныя злучэнні</string>
+    <string name="title_insecure_remark">Небяспечныя злучэнні могуць быць дазволены толькі ў давераных сетках і ніколі ў агульнадаступных сетках</string>
     <string name="title_user">Імя карыстальніка</string>
     <string name="title_password">Пароль</string>
     <string name="title_realm">Realm</string>
@@ -473,6 +517,9 @@
     <string name="title_leave_on_device">Пакідаць паведамленні на прыладзе</string>
     <string name="title_max_messages">Максімальная колькасць паведамленняў для загрузкі (калі пуста, то для ўсіх)</string>
     <string name="title_keep_poll_interval">Інтэрвал апытання (хвіліны)</string>
+    <string name="title_keep_alive_interval">Інтэрвал падтрымання актыўнасці (хвіліны)</string>
+    <string name="title_received_header">Выкарыстоўваць загаловак \'Received\'</string>
+    <string name="title_date_header">Выкарыстоўваць загаловак \'Date\' (час адпраўкі)</string>
     <string name="title_date_remark">Змяненні будуць ужывацца толькі да новых паведамленняў</string>
     <string name="title_check">Праверыць</string>
     <string name="title_address_duplicate">Дублікат адраса \'%1$s\'</string>
@@ -488,6 +535,7 @@
     <string name="title_pop_folders">Пратакол POP3 не падтрымлівае стварэнне папак</string>
     <string name="title_review">Перагляд</string>
     <string name="title_hint_alias">Доўгае націсканне на ідэнтыфікатар выкліча адлюстраванне такіх опцый, як капіраванне з мэтай стварэння псеўданімаў і т. п.</string>
+    <string name="title_service_protocol">Калі ласка, праверце яшчэ раз пратакол (SSL/TLS або STARTTLS)</string>
     <string name="title_advanced_browse">Праглядзець паведамленні на серверы</string>
     <string name="title_advanced_expand_read">Пры разгортванні адзначаць паведамленні прачытанымі</string>
     <string name="title_synchronize_subfolders">Падпапкі</string>
@@ -610,7 +658,7 @@
     <string name="title_raw_send_thread">Размова</string>
     <string name="title_save_all">Захаваць усё</string>
     <string name="title_save_eml">Захаваць неапрацаваны файл паведамлення</string>
-    <string name="title_eml_remark">Для перасылкі неапрацаваных (арыгінальных) паведамленняў неабходна загрузіць іх з сервера электроннай пошты. Для гэтага патрабуецца падключэнне да інтэрнэту, а паведамленні павінны захоўвацца на серверы электроннай пошты.</string>
+    <string name="title_eml_remark">Для перасылкі неапрацаваных (арыгінальных) паведамленняў неабходна загрузіць іх з сервера электроннай пошты. Для гэтага патрабуецца злучэнне з інтэрнэтам, а паведамленні павінны захоўвацца на серверы электроннай пошты.</string>
     <string name="title_eml_option">Гэта можна прадухіліць, уключыўшы ў наладах злучэння пастаянную загрузку неапрацаваных файлаў паведамленняў</string>
     <string name="title_eml_downloaded">Загружана неапрацаваных паведамленняў: %1$s</string>
     <string name="title_button_search">Шукаць у паведамленнях</string>
@@ -639,6 +687,8 @@
     <string name="title_receipt_text">Гэта апавяшчэнне будзе паказана пры адлюстраванні паведамлення ў адрасата. Яно не гарантуе, што атрымальнік прачытаў змест паведамлення.</string>
     <string name="title_no_stream_help">Гэтую праблему можна вырашыць, выбраўшы файл з дапамогай больш сучаснай праграмы дыспетчара файлаў або даўшы дазвол на чытанне файлаў</string>
     <string name="title_no_permissions">Праграма, якая выкарыстоўвалася для выбару файла, не дала дазвол на яго чытанне</string>
+    <string name="title_no_internet">Адсутнічае адпаведнае злучэнне з інтэрнэтам</string>
+    <string name="title_no_connection">Злучэнне з адным або некалькімі ўліковымі запісамі &#8230;</string>
     <string name="title_no_folder">Папкі не існуе</string>
     <string name="title_no_format">Будзе далучана зыходнае паведамленне</string>
     <string name="title_too_large">Паведамленне занадта вялікае для поўнага перафарматавання</string>
@@ -867,6 +917,8 @@
     <string name="title_legend_flagged">Пазначанае</string>
     <string name="title_legend_original">Прагляд зыходнага паведамлення</string>
     <string name="title_legend_reformatted">Прагляд перафарматаванага паведамлення</string>
+    <string name="title_legend_metered">Злучэнне з\'яўляецца лімітаваным</string>
+    <string name="title_legend_unmetered">Злучэнне з\'яўляецца безлімітным</string>
     <string name="title_legend_roaming">Роўмінг</string>
     <string name="title_legend_expander">Разгарнуць</string>
     <string name="title_legend_avatar">Аватар</string>
@@ -874,6 +926,7 @@
     <string name="title_legend_show_full">Паказаць зыходнае паведамленне</string>
     <string name="title_legend_show_reformatted">Паказаць перафарматаванае паведамленне</string>
     <string name="title_legend_edit">Рэдагаваць</string>
+    <string name="title_legend_connection_state">Стан злучэння</string>
     <string name="title_legend_save">Захаваць</string>
     <string name="title_legend_delete">Выдаліць</string>
     <string name="title_legend_count">Колькасць</string>
@@ -1014,7 +1067,7 @@
         <item>Агульная паштовая скрыня</item>
         <item>Агульныя папкі</item>
         <item>Папкі асноўнага ўліковага запісу</item>
-        <item>Акаўнты</item>
+        <item>Уліковыя запісы</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 КБ</item>

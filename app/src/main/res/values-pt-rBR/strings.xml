@@ -246,6 +246,7 @@
     <string name="title_setup_password_repeat">Repita a senha</string>
     <string name="title_setup_password_missing">Senha não informada</string>
     <string name="title_setup_password_different">As senhas não correspondem</string>
+    <string name="title_setup_password_invalid">Senha incorreta ou arquivo de configurações danificadas</string>
     <string name="title_setup_import_accounts">Importar contas e identidades</string>
     <string name="title_setup_import_delete">Excluir contas existentes primeiro</string>
     <string name="title_setup_import_rules">Importar regras de filtro</string>

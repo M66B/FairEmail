@@ -246,6 +246,7 @@
     <string name="title_setup_password_repeat">Επανάληψη κωδικού πρόσβασης</string>
     <string name="title_setup_password_missing">Λείπει ο κωδικός πρόσβασης</string>
     <string name="title_setup_password_different">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
+    <string name="title_setup_password_invalid">Λάθος κωδικός πρόσβασης, ή κατεστραμμένο αρχείο ρυθμίσεων</string>
     <string name="title_setup_import_accounts">Εισαγωγή λογαριασμών και ταυτοτήτων</string>
     <string name="title_setup_import_delete">Να διαγραφούν πρώτα οι υπάρχοντες λογαριασμοί</string>
     <string name="title_setup_import_rules">Εισαγωγή κανόνων φίλτρων</string>

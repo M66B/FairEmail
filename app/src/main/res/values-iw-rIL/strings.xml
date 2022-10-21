@@ -272,6 +272,7 @@
     <string name="title_setup_password_repeat">חזרה על הסיסמה</string>
     <string name="title_setup_password_missing">סיסמה חסרה</string>
     <string name="title_setup_password_different">הסיסמאות אינן תואמות</string>
+    <string name="title_setup_password_invalid">סיסמה שגויה או שקובץ ההגדרות פגום</string>
     <string name="title_setup_import_accounts">ייבוא חשבונות וזהויות</string>
     <string name="title_setup_import_delete">מחיקת חשבונות קיימים תחילה</string>
     <string name="title_setup_import_rules">ייבוא כללי סינון</string>
