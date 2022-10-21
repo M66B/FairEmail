@@ -536,6 +536,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         float factor = detector.getScaleFactor();
                         float size = tvBody.getTextSize() * factor;
                         float scale = (textSize == 0 ? 1.0f : size / (textSize * message_zoom / 100f));
+                        boolean show_images = properties.getValue("images", message.id);
+
                         if (scale > 10)
                             return true;
 
@@ -550,8 +552,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             int w = 0;
                             int h = 0;
                             if (img instanceof ImageSpanEx) {
-                                w = ((ImageSpanEx) img).getWidth();
-                                h = ((ImageSpanEx) img).getHeight();
+                                if (show_images) {
+                                    w = ((ImageSpanEx) img).getWidth();
+                                    h = ((ImageSpanEx) img).getHeight();
+                                } else {
+                                    w = (zoom + 1) * 24;
+                                    h = w;
+                                }
                             }
                             ImageHelper.fitDrawable(d, w, h, scale, tvBody);
                         }
