@@ -500,6 +500,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 db.endTransaction();
                             }
                         } finally {
+                            if (!wl.isHeld())
+                                Log.e("state#init released");
                             wl.release();
                         }
                     }
@@ -545,6 +547,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } catch (Throwable ex) {
                             Log.e(ex);
                         } finally {
+                            if (!wl.isHeld())
+                                Log.e("state#start released");
                             wl.release();
                         }
                     }
@@ -584,6 +588,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } catch (Throwable ex) {
                             Log.e(ex);
                         } finally {
+                            if (!wl.isHeld())
+                                Log.e("state#stop released");
                             wl.release();
                         }
                     }
@@ -610,6 +616,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } catch (Throwable ex) {
                             Log.e(ex);
                         } finally {
+                            if (!wl.isHeld())
+                                Log.e("state#delete released");
                             wl.release();
                         }
                     }
@@ -663,6 +671,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } catch (Throwable ex) {
                             Log.e(ex);
                         } finally {
+                            if (!wl.isHeld())
+                                Log.e("state#quit released");
                             wl.release();
                         }
                     }
@@ -682,6 +692,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             } catch (Throwable ex) {
                                 Log.e(ex);
                             } finally {
+                                if (!wl.isHeld())
+                                    Log.e("state#backup released");
                                 wl.release();
                             }
                         }
@@ -1571,6 +1583,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Log.w(ex);
                                     }
                             } finally {
+                                if (!wlFolder.isHeld())
+                                    Log.e("folder notice released");
                                 wlFolder.release();
                             }
                     }
@@ -1591,6 +1605,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                 } finally {
+                                    if (!wlAccount.isHeld())
+                                        Log.e("purge released");
                                     wlAccount.release();
                                 }
                             }
@@ -1689,6 +1705,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (db.folder().getFolderByName(account.id, name) == null)
                                     reload(ServiceSynchronize.this, account.id, false, "folder created");
                             } finally {
+                                if (!wlFolder.isHeld())
+                                    Log.e("folder created released");
                                 wlFolder.release();
                             }
                         }
@@ -1707,6 +1725,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (count != 0)
                                     reload(ServiceSynchronize.this, account.id, false, "folder renamed");
                             } finally {
+                                if (!wlFolder.isHeld())
+                                    Log.e("folder renamed released");
                                 wlFolder.release();
                             }
                         }
@@ -1721,6 +1741,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (db.folder().getFolderByName(account.id, name) != null)
                                     reload(ServiceSynchronize.this, account.id, false, "folder deleted");
                             } finally {
+                                if (!wlFolder.isHeld())
+                                    Log.e("folder deleted released");
                                 wlFolder.release();
                             }
                         }
@@ -1737,6 +1759,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (folder != null && folder.selectable)
                                     EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                             } finally {
+                                if (!wlFolder.isHeld())
+                                    Log.e("folder changed released");
                                 wlFolder.release();
                             }
                         }
@@ -1856,6 +1880,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 account.name + "/" + folder.name + " added " + Log.formatThrowable(ex, false));
                                         EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
+                                        if (!wlMessage.isHeld())
+                                            Log.e("message added released");
                                         wlMessage.release();
                                     }
                                 }
@@ -1872,6 +1898,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 account.name + "/" + folder.name + " removed " + Log.formatThrowable(ex, false));
                                         EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
+                                        if (!wlMessage.isHeld())
+                                            Log.e("message removed released");
                                         wlMessage.release();
                                     }
                                 }
@@ -1894,6 +1922,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 account.name + "/" + folder.name + " changed " + Log.formatThrowable(ex, false));
                                         EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
+                                        if (!wlMessage.isHeld())
+                                            Log.e("message changed released");
                                         wlMessage.release();
                                     }
                                 }
@@ -2262,7 +2292,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     } finally {
                                                         long elapsed = new Date().getTime() - start;
                                                         if (!wlOperations.isHeld() || elapsed > timeout) {
-                                                            String msg = key + " prematurely released" +
+                                                            String msg = key + " released" +
                                                                     " elapsed=" + elapsed +
                                                                     " timeout=" + timeout +
                                                                     " enforced=" + op_wakelock +
@@ -2453,6 +2483,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             AlarmManagerCompatEx.setAndAllowWhileIdle(ServiceSynchronize.this, am, AlarmManager.RTC_WAKEUP, trigger, pi);
 
                             try {
+                                if (!wlAccount.isHeld())
+                                    Log.e("keeping alive released");
                                 wlAccount.release();
                                 state.acquire(2 * duration, false);
                                 Log.i("### " + account.name + " keeping alive");
@@ -2705,6 +2737,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             try {
                                 db.account().setAccountBackoff(account.id, trigger);
+                                if (!wlAccount.isHeld())
+                                    Log.e("backoff released");
                                 wlAccount.release();
                                 state.acquire(2 * backoff * 1000L, true);
                                 Log.i("### " + account.name + " backoff done");
@@ -2728,6 +2762,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         } finally {
             EntityLog.log(this, EntityLog.Type.Account, account,
                     account.name + " stopped running=" + state.isRunning());
+            if (!wlAccount.isHeld())
+                Log.e("account released");
             wlAccount.release();
         }
     }
