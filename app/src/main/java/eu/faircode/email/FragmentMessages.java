@@ -6393,13 +6393,17 @@ public class FragmentMessages extends FragmentBase
                     });
                     snackbar.show();
                 } else {
-                    Bundle args = new Bundle();
-                    args.putString("error", Log.formatThrowable(ex, false));
+                    if (viewType == AdapterMessage.ViewType.SEARCH && !server)
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    else {
+                        Bundle args = new Bundle();
+                        args.putString("error", Log.formatThrowable(ex, false));
 
-                    FragmentDialogBoundaryError fragment = new FragmentDialogBoundaryError();
-                    fragment.setArguments(args);
-                    fragment.setTargetFragment(FragmentMessages.this, REQUEST_BOUNDARY_RETRY);
-                    fragment.show(getParentFragmentManager(), "boundary:error");
+                        FragmentDialogBoundaryError fragment = new FragmentDialogBoundaryError();
+                        fragment.setArguments(args);
+                        fragment.setTargetFragment(FragmentMessages.this, REQUEST_BOUNDARY_RETRY);
+                        fragment.show(getParentFragmentManager(), "boundary:error");
+                    }
                 }
         }
     };
@@ -10612,12 +10616,13 @@ public class FragmentMessages extends FragmentBase
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             String error = getArguments().getString("error");
 
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_boundary_error, null);
+            final Context context = getContext();
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_boundary_error, null);
             TextView tvError = dview.findViewById(R.id.tvError);
 
             tvError.setText(error);
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(R.string.title_boundary_retry, new DialogInterface.OnClickListener() {
                         @Override
