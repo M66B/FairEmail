@@ -1450,6 +1450,7 @@
     <string name="title_style_strikethrough">Strikethrough</string>
     <string name="title_style_code" translatable="false">Code</string>
     <string name="title_style_protect">Password protect</string>
+    <string name="title_style_protected">Protected content</string>
     <string name="title_style_protect_size">Text too long</string>
     <string name="title_style_clear">Clear formatting</string>
     <string name="title_style_link">Insert link</string>

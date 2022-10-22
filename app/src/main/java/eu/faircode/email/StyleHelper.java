@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,6 +29,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -39,6 +41,7 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.ArrowKeyMovementMethod;
 import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.BulletSpan;
@@ -54,17 +57,22 @@ import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Pair;
+import android.view.GestureDetector;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.content.ContextCompat;
@@ -84,6 +92,7 @@ import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
+import java.security.spec.KeySpec;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -94,10 +103,16 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.GCMParameterSpec;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 
 public class StyleHelper {
     private static final int MAX_PROTECTED_TEXT = 1500;
+    private static final int DECRYPT_ITERATIONS = 120000;
+    private static final int DECRYPT_KEYLEN = 256;
+    private static final String DECRYPT_DERIVATION = "PBKDF2WithHmacSHA512";
+    private static final int DECRYPT_TAGLEN = 128;
+    private static final String DECRYPT_TRANSFORMATION = "AES/GCM/NoPadding";
     private static final String DECRYPT_URL = "https://fairemail.net/decrypt/";
 
     private static final List<Class> CLEAR_STYLES = Collections.unmodifiableList(Arrays.asList(
@@ -641,15 +656,15 @@ public class StyleHelper {
                                                     random.nextBytes(iv);
 
                                                     // Iterations = 120,000; Keylength = 256 bits = 32 bytes
-                                                    PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 120000, 256);
+                                                    PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), salt, DECRYPT_ITERATIONS, DECRYPT_KEYLEN);
 
-                                                    SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+                                                    SecretKeyFactory skf = SecretKeyFactory.getInstance(DECRYPT_DERIVATION);
                                                     SecretKey key = skf.generateSecret(spec);
 
                                                     // Authentication tag length = 128 bits = 16 bytes
-                                                    GCMParameterSpec parameterSpec = new GCMParameterSpec(128, iv);
+                                                    GCMParameterSpec parameterSpec = new GCMParameterSpec(DECRYPT_TAGLEN, iv);
 
-                                                    final Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+                                                    final Cipher cipher = Cipher.getInstance(DECRYPT_TRANSFORMATION);
                                                     cipher.init(Cipher.ENCRYPT_MODE, key, parameterSpec);
 
                                                     byte[] cipherText = cipher.doFinal(html.getBytes(StandardCharsets.UTF_8));
@@ -1460,6 +1475,204 @@ public class StyleHelper {
         @Override
         public String toString() {
             return name;
+        }
+    }
+
+    public static boolean isProtectedContent(Uri uri) {
+        return uri.toString().startsWith(DECRYPT_URL);
+    }
+
+    public static final class FragmentDialogDecrypt extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            Bundle args = getArguments();
+
+            final Context context = getContext();
+            final View view = LayoutInflater.from(context).inflate(R.layout.dialog_decrypt, null);
+            final TextInputLayout tilPassword = view.findViewById(R.id.tilPassword);
+            final Button btnDecrypt = view.findViewById(R.id.btnDecrypt);
+            final TextView tvContent = view.findViewById(R.id.tvContent);
+            final TextView tvError = view.findViewById(R.id.tvError);
+            final TextView tvErrorDetail = view.findViewById(R.id.tvErrorDetail);
+
+            tilPassword.setVisibility(View.VISIBLE);
+            btnDecrypt.setVisibility(View.VISIBLE);
+            tvContent.setVisibility(View.GONE);
+            tvError.setVisibility(View.GONE);
+            tvErrorDetail.setVisibility(View.GONE);
+
+            String password = args.getString("password");
+            tilPassword.getEditText().setText(password);
+            btnDecrypt.setEnabled(!TextUtils.isEmpty(password));
+
+            tilPassword.getEditText().addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    // Do nothing
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    // Do nothing
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    String password = s.toString();
+                    btnDecrypt.setEnabled(!TextUtils.isEmpty(password));
+                    args.putString("password", password);
+                }
+            });
+
+            btnDecrypt.setEnabled(false);
+
+            tvContent.setMovementMethod(new ArrowKeyMovementMethod() {
+                private GestureDetector gestureDetector = new GestureDetector(context,
+                        new GestureDetector.SimpleOnGestureListener() {
+                            @Override
+                            public boolean onSingleTapUp(MotionEvent event) {
+                                return onClick(event);
+                            }
+
+                            private boolean onClick(MotionEvent event) {
+                                Spannable buffer = (Spannable) tvContent.getText();
+                                int off = Helper.getOffset(tvContent, buffer, event);
+
+                                URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
+                                if (link.length > 0) {
+                                    String url = link[0].getURL();
+                                    Uri uri = Uri.parse(url);
+
+                                    int start = buffer.getSpanStart(link[0]);
+                                    int end = buffer.getSpanEnd(link[0]);
+                                    String title = (start < 0 || end < 0 || end <= start
+                                            ? null : buffer.subSequence(start, end).toString());
+                                    if (url.equals(title))
+                                        title = null;
+
+                                    Bundle args = new Bundle();
+                                    args.putParcelable("uri", uri);
+                                    args.putString("title", title);
+
+                                    FragmentDialogOpenLink fragment = new FragmentDialogOpenLink();
+                                    fragment.setArguments(args);
+                                    fragment.show(getParentFragmentManager(), "open:link");
+
+                                    return true;
+                                }
+
+                                return false;
+                            }
+                        });
+
+                @Override
+                public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
+                    return gestureDetector.onTouchEvent(event);
+                }
+            });
+
+            btnDecrypt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new SimpleTask<Spanned>() {
+                        @Override
+                        protected void onPreExecute(Bundle args) {
+                            tilPassword.setEnabled(false);
+                            btnDecrypt.setEnabled(false);
+                            tvError.setVisibility(View.GONE);
+                            tvErrorDetail.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        protected void onPostExecute(Bundle args) {
+                            tilPassword.setEnabled(true);
+                            btnDecrypt.setEnabled(true);
+                        }
+
+                        @Override
+                        protected Spanned onExecute(Context context, Bundle args) throws Throwable {
+                            Uri uri = args.getParcelable("uri");
+                            String password = args.getString("password");
+
+                            byte[] msg = Base64.decode(uri.getFragment(), Base64.URL_SAFE | Base64.NO_WRAP);
+
+                            int version = msg[0];
+
+                            byte[] salt = new byte[16]; // 128 bits
+                            System.arraycopy(msg, 1, salt, 0, salt.length);
+
+                            byte[] iv = new byte[12]; // 96 bites
+                            System.arraycopy(msg, 1 + salt.length, iv, 0, iv.length);
+
+                            byte[] encrypted = new byte[msg.length - 1 - salt.length - iv.length];
+                            System.arraycopy(msg, 1 + salt.length + iv.length, encrypted, 0, encrypted.length);
+
+                            SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DECRYPT_DERIVATION);
+                            KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, DECRYPT_ITERATIONS, DECRYPT_KEYLEN);
+                            SecretKey secret = keyFactory.generateSecret(keySpec);
+                            Cipher cipher = Cipher.getInstance(DECRYPT_TRANSFORMATION);
+                            IvParameterSpec ivSpec = new IvParameterSpec(iv);
+                            cipher.init(Cipher.DECRYPT_MODE, secret, ivSpec);
+                            byte[] decrypted = cipher.doFinal(encrypted);
+
+                            String html = new String(decrypted, StandardCharsets.UTF_8);
+
+                            return HtmlHelper.fromHtml(html, new HtmlHelper.ImageGetterEx() {
+                                @Override
+                                public Drawable getDrawable(Element element) {
+                                    return ImageHelper.decodeImage(context,
+                                            -1, element, true, 0, 1.0f, tvContent);
+                                }
+                            }, null, context);
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Spanned content) {
+                            tilPassword.setVisibility(View.GONE);
+                            btnDecrypt.setVisibility(View.GONE);
+                            tvContent.setText(content);
+                            tvContent.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            tvError.setText(ex.getMessage());
+                            tvErrorDetail.setText(ex.toString());
+                            tvError.setVisibility(View.VISIBLE);
+                            tvErrorDetail.setVisibility(View.VISIBLE);
+                        }
+                    }.execute(FragmentDialogDecrypt.this, args, "decypt");
+                }
+            });
+
+            tilPassword.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        btnDecrypt.performClick();
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+
+            if (!TextUtils.isEmpty(password))
+                btnDecrypt.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        btnDecrypt.performClick();
+                    }
+                });
+
+            Dialog dialog = new AlertDialog.Builder(context)
+                    .setView(view)
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+
+            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+
+            return dialog;
         }
     }
 
