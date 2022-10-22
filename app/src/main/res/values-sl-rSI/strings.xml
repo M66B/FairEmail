@@ -272,6 +272,7 @@
     <string name="title_setup_password_repeat">Ponovite geslo.</string>
     <string name="title_setup_password_missing">Manjka geslo.</string>
     <string name="title_setup_password_different">Gesli se ne ujemata.</string>
+    <string name="title_setup_password_invalid">Nepravilno geslo ali poškodovana datoteka nastavitev.</string>
     <string name="title_setup_import_accounts">Uvozi račune in identitete</string>
     <string name="title_setup_import_delete">Najprej izbriši obstoječe račune</string>
     <string name="title_setup_import_rules">Uvozi pravila filtriranja</string>
@@ -1244,6 +1245,8 @@
     <string name="title_style_subscript">Podpisano</string>
     <string name="title_style_superscript">Nadpisano</string>
     <string name="title_style_strikethrough">Prečrtaj</string>
+    <string name="title_style_protect">Zaščiti z geslom</string>
+    <string name="title_style_protect_size">Besedilo je predolgo.</string>
     <string name="title_style_clear">Počisti oblikovanje</string>
     <string name="title_style_link">Vstavi povezavo</string>
     <string name="title_style_link_address">Naslov</string>
