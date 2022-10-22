@@ -20,12 +20,12 @@
     <string name="channel_update">Абнаўленні</string>
     <string name="channel_warning">Папярэджанні</string>
     <string name="channel_error">Памылкі</string>
-    <string name="channel_alert">Абвесткі сервера</string>
+    <string name="channel_alert">Папярэджанні сервера</string>
     <string name="channel_group_contacts">Кантакты</string>
     <string name="channel_service_description">Сінхранізацыя і маніторынг уліковых запісаў</string>
     <string name="channel_send_description">Адпраўка паведамленняў</string>
-    <string name="channel_notification_description">Абвесткі аб новых паведамленнях</string>
-    <string name="channel_progress_description">Абвесткі прагрэсу працяглых дзеянняў</string>
+    <string name="channel_notification_description">Апавяшчэнні аб новых паведамленнях</string>
+    <string name="channel_progress_description">Апавяшчэнні аб працяглым выкананні дзеянняў</string>
     <plurals name="page_conversation">
         <item quantity="one">Размова</item>
         <item quantity="few">Размоў</item>
@@ -195,7 +195,7 @@
     <string name="title_setup_identities">Ідэнтыфікатары</string>
     <string name="title_setup_google_sign_in">Увайсці праз Google</string>
     <string name="title_setup_other">Іншы правайдар</string>
-    <string name="title_setup_inbound">Толькі ўваходная электронная пошта (без магчымасці адпраўкі электроннай пошты!)</string>
+    <string name="title_setup_inbound">Толькі ўваходная пошта (без магчымасці адпраўкі электроннай пошты!)</string>
     <string name="title_setup_pop3">Уліковы запіс POP3</string>
     <string name="title_setup_oauth_permission">Правайдар электроннай пошты ўхваліў OAuth толькі для версій з Крамы Play і GitHub</string>
     <string name="title_setup_gmail_support">Аўтарызацыя ўліковых запісаў Google будзе працаваць толькі ў версіях з Крамы Play і GitHub, так як Android правярае лічбавы подпіс праграмы</string>
@@ -205,7 +205,7 @@
     <string name="title_setup_gmail_on_device">Чаму мне неабходна выбраць уліковы запіс на прыладзе?</string>
     <string name="title_setup_gmail_password">Я хачу аўтарызаваць уліковы запіс з дапамогай пароля замест уліковага запісу на прыладзе</string>
     <string name="title_setup_office_auth">Памылка \'Збой АЎТЭНТЫФІКАЦЫІ\' можа быць выклікана тым, што пратаколы IMAP/SMTP адключаны сістэмным адміністратарам</string>
-    <string name="title_setup_oauth_rationale">Аўтарызаваць доступ да вашага ўліковага запісу %1$s</string>
+    <string name="title_setup_oauth_rationale">Аўтарызуйце доступ да вашага ўліковага запісу %1$s</string>
     <string name="title_setup_oauth_update">Паўторна аўтарызаваць існуючы ўліковы запіс (у адваротным выпадку стварыць новы ўліковы запіс)</string>
     <string name="title_setup_oauth_updated">Аўтарызацыя ўліковага запісу была абноўлена</string>
     <string name="title_setup_oauth_authorize">Аўтарызавацца</string>
@@ -229,8 +229,8 @@
     <string name="title_setup_permissions">Даць дазволы</string>
     <string name="title_setup_permissions_remark">Доступ да кантактнай інфармацыі (неабавязкова)</string>
     <string name="title_setup_permissions_explanation">Для пошуку кантактнай інфармацыі і прапановы кантактаў патрабуюцца дазволы на доступ да спісу кантактаў</string>
-    <string name="title_setup_permissions_notify">Для паказу апавяшчэнняў пра новыя паведамленні (неабавязкова)</string>
-    <string name="title_setup_permissions_notify_explanation">Дазволы на апавяшчэнні патрабуюцца для паказу апавяшчэнняў пра новыя паведамленні ў радку стану</string>
+    <string name="title_setup_permissions_notify">Для паказу апавяшчэнняў аб новых паведамленнях (неабавязкова)</string>
+    <string name="title_setup_permissions_notify_explanation">Дазволы на апавяшчэнні патрабуюцца для паказу апавяшчэнняў аб новых паведамленнях у радку стану</string>
     <string name="title_setup_permission_why">Якія дазволы патрэбны і навошта?</string>
     <string name="title_setup_permission_import_contacts">Як я магу імпартаваць кантакты?</string>
     <string name="title_setup_doze">Адключыць аптымізацыю батарэі</string>
@@ -255,7 +255,10 @@
     <string name="title_setup_error">Памылка</string>
     <string name="title_setup_pop">Выкарыстоўваць POP3 (не рэкамендуецца)</string>
     <string name="title_setup_recent">Выкарыстоўваць \'recent\' для некалькіх паштовых кліентаў</string>
+    <string name="title_setup_configuring">Наладжванне ўліковага запісу &#8230;</string>
+    <string name="title_setup_app_password">Магчыма, вам спатрэбіцца скарыстацца паролем праграмы</string>
     <string name="title_setup_extra">Дадаткова</string>
+    <string name="title_setup_delete_account_hint">Уліковыя запісы будуць выдалены толькі з праграмы</string>
     <string name="title_setup_close">Закрыць налады</string>
     <string name="title_setup_export">Экспартаваць налады</string>
     <string name="title_setup_import">Імпартаваць налады</string>
@@ -264,7 +267,17 @@
     
     </string>
     <string name="title_setup_export_do">Файл для экспартавання будзе змяшчаць усе налады і даныя, акрамя паведамленняў і выяў, на якія спасылаюцца подпісы</string>
+    <string name="title_setup_import_do">Імпартаваныя ўліковыя запісы будуць дададзены без перазапісу існуючых</string>
     <string name="title_setup_password">Пароль</string>
+    <string name="title_setup_password_chars">Пароль змяшчае службовыя сімвалы або прабелы</string>
+    <string name="title_setup_password_repeat">Паўтарыце пароль</string>
+    <string name="title_setup_password_missing">Пароль адсутнічае</string>
+    <string name="title_setup_password_different">Паролі не супадаюць</string>
+    <string name="title_setup_password_invalid">Няправільны пароль або пашкоджаны файл налад</string>
+    <string name="title_setup_import_accounts">Імпартаваць уліковыя запісы і ідэнтыфікатары</string>
+    <string name="title_setup_import_delete">Спачатку выдаліце ​​існуючыя ўліковыя запісы</string>
+    <string name="title_setup_import_rules">Імпартаваць правілы фільтраў</string>
+    <string name="title_setup_import_contacts">Імпартаваць лакальныя кантакты</string>
     <string name="title_setup_exported">Налады экспартаваны</string>
     <string name="title_setup_imported">Налады імпартаваны</string>
     <string name="title_setup_import_invalid">Няправільны файл налад</string>
@@ -299,6 +312,7 @@
     <string name="title_advanced_section_display">Адлюстраванне</string>
     <string name="title_advanced_section_behavior">Паводзіны</string>
     <string name="title_advanced_section_privacy">Прыватнасць</string>
+    <string name="title_advanced_section_notifications">Апавяшчэнні</string>
     <string name="title_advanced_receive">Атрымліваць паведамленні для ўсіх уліковых запісаў</string>
     <string name="title_advanced_when">Калі</string>
     <string name="title_advanced_always">Заўсёды атрымліваць паведамленні для гэтых уліковых запісаў</string>
@@ -396,10 +410,18 @@
     <string name="title_advanced_auto_important">Аўтаматычна рабіць важнымі пазначаныя паведамленні</string>
     <string name="title_advanced_reset_importance">Скідваць важнасць паведамленняў пры іх перамяшчэнні</string>
     <string name="title_advanced_swipe_reply">Для адказу правядзіце пальцам управа па разгорнутым паведамленні</string>
+    <string name="title_advanced_notifications">Кіраваць апавяшчэннямі</string>
+    <string name="title_advanced_notifications_newest_first">Спачатку паказваць новыя апавяшчэнні</string>
     <string name="title_advanced_badge">Паказваць колькасць новых паведамленняў побач з ярлыком праграмы</string>
     <string name="title_advanced_unseen_ignored">Колькасць новых паведамленняў адпавядае колькасці апавяшчэнняў</string>
+    <string name="title_advanced_notify_background">Паказваць апавяшчэнні толькі ў фонавым рэжыме</string>
+    <string name="title_advanced_notify_known">Паказваць апавяшчэнні толькі для кантактаў</string>
     <string name="title_advanced_notify_suppress_in_call">Адкладваць апавяшчэнні падчас выкліку</string>
+    <string name="title_advanced_notify_suppress_in_car">Адкласці апавяшчэнні пры падключэнні да Android Auto</string>
+    <string name="title_advanced_notify_summary">Паказаць толькі зводнае апавяшчэнне</string>
     <string name="title_advanced_notify_preview">Адлюстроўваць папярэдні выгляд паведамленняў у апавяшчэннях</string>
+    <string name="title_advanced_notify_preview_only">Паказваць апавяшчэнні толькі з папярэднім праглядам тэксту</string>
+    <string name="title_advanced_notify_actions">Дзеянні з апавяшчэннямі</string>
     <string name="title_advanced_notify_action_trash">Выдаленыя</string>
     <string name="title_advanced_notify_action_delete">Выдаліць</string>
     <string name="title_advanced_notify_action_junk">Спам</string>
@@ -415,8 +437,13 @@
     <string name="title_advanced_notify_clear">Выдаляць апавяшчэнні пра новыя паведамленні пры праглядзе спіса паведамленняў</string>
     <string name="title_advanced_notify_subtext">Паказаць імя ўліковага запісу або назву папкі ў выглядзе падтэксту</string>
     <string name="title_advanced_wearable_preview">Адпраўляць апавяшчэнні з папярэднім выглядам паведамлення толькі на партатыўныя прылады</string>
+    <string name="title_advanced_notify_messaging">Выкарыстоўваць \'фармат апавяшчэнняў\' у стылі Android</string>
+    <string name="title_advanced_biometrics_notify">Паказваць змест апавяшчэнняў пры выкарыстанні біяметрычнай аўтэнтыфікацыі</string>
+    <string name="title_advanced_light">Выкарыстоўваць індыкатар апавяшчэнняў</string>
+    <string name="title_advanced_sound">Выбраць гук апавяшчэння</string>
     <string name="title_advanced_notify_screen_on">Кароткае ўключэнне экрана пры апавяшчэннях пра новыя паведамленні</string>
     <string name="title_advanced_notifications_background">Выкарыстоўваць фонавую службу для сінхранізацыі паведамленняў</string>
+    <string name="title_advanced_notifications_background_hint">Фонавая служба можа быць спынена Android у любы час і не патрабуе апавяшчэння ў радку стану</string>
     <string name="title_advanced_confirm_html">Паказваць адфармаціраваныя паведамленні па змаўчанні</string>
     <string name="title_advanced_ask_html">Пацвярджаць паказ зыходных паведамленняў</string>
     <string name="title_advanced_hide_timezone">Адпраўляць паведамленні без даных пра часавы пояс</string>
@@ -485,6 +512,7 @@
     <string name="title_advanced_swipe_actions_hint">Гэта дазволіць задаць дзеянні пры правядзенні пальцам улева і ўправа для ўсіх уліковых запісаў IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Адчувальнасць правядзення пальцам улева/управа</string>
     <string name="title_identity_name">Ваша імя</string>
+    <string name="title_identity_email">Ваш адрас электроннай пошты</string>
     <string name="title_identity_color_hint">Колеры ідэнтыфікатараў маюць прыярытэт перад колерамі папак і ўліковых запісаў</string>
     <string name="title_advanced_sender">Дазволіць рэдагаванне адраса адпраўніка</string>
     <string name="title_advanced_sender_name">Выкарыстоўваць імя, калі адрас адпраўніка быў зменены</string>
@@ -508,6 +536,7 @@
     <string name="title_encryption_none">Няма (небяспечна)</string>
     <string name="title_allow_insecure">Дазволіць небяспечныя злучэнні</string>
     <string name="title_insecure_remark">Небяспечныя злучэнні могуць быць дазволены толькі ў давераных сетках і ніколі ў агульнадаступных сетках</string>
+    <string name="title_notify_remark">Вы можаце ўключыць гэту опцыю для апавяшчэнняў пэўнага ўліковага запісу</string>
     <string name="title_user">Імя карыстальніка</string>
     <string name="title_password">Пароль</string>
     <string name="title_realm">Realm</string>
@@ -557,7 +586,9 @@
     <string name="title_edit_rules">Рэдагаваць правілы</string>
     <string name="title_execute_rules">Выканаць правілы</string>
     <string name="title_export_messages">Экспартаваць паведамленні</string>
+    <string name="title_create_channel">Стварыць канал апавяшчэнняў</string>
     <string name="title_edit_channel">Рэдагаваць канал апавяшчэнняў</string>
+    <string name="title_delete_channel">Выдаліць канал апавяшчэнняў</string>
     <string name="title_edit_contact">Рэдагаваць кантакт</string>
     <string name="title_contact_email">Электронная пошта</string>
     <string name="title_contact_name">Імя</string>
@@ -850,6 +881,7 @@
     <string name="title_rule_noop">Няма дзеяння</string>
     <string name="title_rule_seen">Пазначыць як прачытанае</string>
     <string name="title_rule_hide">Схаваць</string>
+    <string name="title_rule_ignore">Адключыць апавяшчэнне</string>
     <string name="title_rule_snooze">Адкласці</string>
     <string name="title_rule_flag">Да пазначаных</string>
     <string name="title_rule_importance">Задаць важнасць</string>
@@ -940,6 +972,7 @@
     <string name="title_hint_folder_actions">Доўгае націсканне на папку адкрые меню выбару такіх опцый як, дадаванне папкі ў меню навігацыі для хуткага доступу і т. п.</string>
     <string name="title_hint_folder_sync">Для абмежавання выкарыстання батарэі і сеткі, не ўсе папкі і не ўсе паведамленні будуць сінхранізаваны па змаўчанні</string>
     <string name="title_hint_notifications">Няма дазволаў на апавяшчэнні</string>
+    <string name="title_hint_support">Калі ў вас ёсць пытанне або праблема, калі ласка, па дапамогу звяртайцеся праз меню падтрымкі</string>
     <string name="title_hint_message_actions">Для выдалення правядзіце пальцам улева; Для архівацыі (калі даступна) правядзіце пальцам управа; Жэсты можна наладзіць у наладах уліковага запісу</string>
     <string name="title_hint_message_selection">Для выбару некалькіх паведамленняў націсніце і на паведамленне і ўтрымлівайце, а затым правядзіце пальцам уверх або ўніз і выберыце неабходныя паведамленні</string>
     <string name="title_hint_message_junk">Гэтыя паведамленні знаходзяцца ў папцы са спамам на серверы электроннай пошты. Відавочна, што праграма не можа прадухіліць адпраўку спаму вам.</string>
@@ -947,6 +980,7 @@
     <string name="title_hint_sync_note">З мэтай абмежавання месца ў сховішчы, выкарыстання батарэі і даных, па змаўчанні будуць загружацца не ўсе паведамленні. Вы можаце змяніць гэта доўгім націсканнем на папку ў спісе папак і выбраць пункт \'Сінхранізаваць больш\' у меню.</string>
     <string name="title_hint_battery">Паколькі FairEmail па змаўчанні заўсёды атрымлівае паведамленні, Android будзе паведамляць, што праграма FairEmail заўсёды актыўная. Такім чынам, можа выглядаць так, быццам FairEmail заўсёды спажывае зарад батарэі, хоць насамрэч гэта не так.</string>
     <string name="title_hint_reformat">Па змаўчанні FairEmail перафарматоўвае паведамленні з меркаванняў прыватнасці і бяспекі. Каб праглядзець зыходнае паведамленне, дакраніцеся да значка \'на ўвесь экран\' над тэкстам паведамлення.</string>
+    <string name="title_hint_design">Дызайн праграмы наўмысна не адцягвае ўвагу, але захоўвае высокую функцыянальнасць. Існуе вялікая колькасць варыянтаў афармлення знешняга выгляду, але, калі ласка, зразумейце, што немагчыма зрабіць усіх цалкам задаволенымі адначасова.</string>
     <string name="title_hint_junk">Фільтрацыя непажаданай пошты павінна выконвацца серверам электроннай пошты, і яна не можа быць выканана надзейна на прыладзе з абмежаваным магчымасцямі і сілкаваннем ад батарэі.</string>
     <string name="title_hint_junk_learn">Перамяшчаючы паведамленні ў папку са спамам і з яе, вы дапаможаце паштоваму серверу \"даведваецца\", што такое спам</string>
     <string name="title_hint_eml">Гэта кароткі змест неапрацаванага файла паведамлення. Захавайце неапрацаванае паведамленне з дапамогай значка захавання на панэлі дзеянняў, каб праглядзець увесь змест.</string>
@@ -971,6 +1005,8 @@
     <string name="title_executing">Выкананне</string>
     <string name="title_completed">Завершана</string>
     <string name="title_clipboard_copy">Капіраваць у буфер абмену</string>
+    <string name="title_no_ask_again">Больш не запытваць</string>
+    <string name="title_no_ask_for_again">Больш не запытваць для %1$s</string>
     <string name="title_no_body">Тэкст паведамлення не знойдзены</string>
     <string name="title_via">Праз: %1$s</string>
     <string name="title_1hour">1 гадзіна</string>
