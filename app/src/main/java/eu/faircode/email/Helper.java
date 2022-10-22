@@ -514,17 +514,22 @@ public class Helper {
     }
 
     static Boolean isIgnoringOptimizations(Context context) {
-        if (isArc())
-            return true;
+        try {
+            if (isArc())
+                return true;
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                return null;
+
+            PowerManager pm = Helper.getSystemService(context, PowerManager.class);
+            if (pm == null)
+                return null;
+
+            return pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+        } catch (Throwable ex) {
+            Log.e(ex);
             return null;
-
-        PowerManager pm = Helper.getSystemService(context, PowerManager.class);
-        if (pm == null)
-            return null;
-
-        return pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+        }
     }
 
     static Integer getBatteryLevel(Context context) {
