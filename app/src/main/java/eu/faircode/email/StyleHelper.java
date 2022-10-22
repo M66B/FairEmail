@@ -23,14 +23,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.NoCopySpan;
@@ -39,7 +34,6 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.BulletSpan;
@@ -53,24 +47,16 @@ import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
-import android.util.Base64;
 import android.util.Pair;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
-import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
@@ -78,12 +64,7 @@ import androidx.preference.PreferenceManager;
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
-import com.google.android.material.textfield.TextInputLayout;
 
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -577,7 +558,8 @@ public class StyleHelper {
                         if (end - start > ProtectedContent.MAX_PROTECTED_TEXT) {
                             toolong = true;
                         } else {
-                            String html = getProtectedContent((Spanned) edit.subSequence(start, end));
+                            Spanned text = (Spanned) edit.subSequence(start, end);
+                            String html = ProtectedContent.getContent(context, text);
                             if (html.length() > ProtectedContent.MAX_PROTECTED_TEXT)
                                 toolong = true;
                         }
@@ -586,136 +568,9 @@ public class StyleHelper {
                             return true;
                         }
 
-                        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_password_protect, null);
-                        TextInputLayout tilPassword1 = dview.findViewById(R.id.tilPassword1);
-                        TextInputLayout tilPassword2 = dview.findViewById(R.id.tilPassword2);
-                        Button btnInfo = dview.findViewById(R.id.btnInfo);
-
-                        btnInfo.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Helper.viewFAQ(v.getContext(), 184);
-                            }
-                        });
-
-                        AlertDialog dialog = new AlertDialog.Builder(context)
-                                .setView(dview)
-                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        int start = etBody.getSelectionStart();
-                                        int end = etBody.getSelectionEnd();
-                                        boolean selection = (start >= 0 && start < end);
-                                        if (selection) {
-                                            Bundle args = new Bundle();
-                                            args.putCharSequence("text", edit.subSequence(start, end));
-                                            args.putString("password", tilPassword1.getEditText().getText().toString());
-                                            args.putInt("start", start);
-                                            args.putInt("end", end);
-
-                                            new SimpleTask<Uri>() {
-                                                @Override
-                                                protected Uri onExecute(Context context, Bundle args) throws Throwable {
-                                                    Spanned text = (Spanned) args.getCharSequence("text");
-                                                    String password = args.getString("password");
-
-                                                    String html = getProtectedContent(text);
-                                                    return ProtectedContent.toUri(context, html, password);
-                                                }
-
-                                                @Override
-                                                protected void onExecuted(Bundle args, Uri uri) {
-                                                    if (etBody.getSelectionStart() != start ||
-                                                            etBody.getSelectionEnd() != end)
-                                                        return;
-
-                                                    String title = context.getString(R.string.title_decrypt);
-                                                    edit.delete(start, end);
-                                                    edit.insert(start, title);
-                                                    edit.setSpan(new URLSpan(uri.toString()), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                                    etBody.setSelection(start + title.length());
-                                                }
-
-                                                @Override
-                                                protected void onException(Bundle args, Throwable ex) {
-                                                    Log.e(ex);
-                                                    ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
-                                                }
-                                            }.execute(context, owner, args, "protect");
-                                        }
-                                    }
-                                })
-                                .setNegativeButton(android.R.string.cancel, null)
-                                .create();
-
-                        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                        // WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
-                        dialog.show();
-
-                        Button btnOk = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
-
-                        TextWatcher w = new TextWatcher() {
-                            @Override
-                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                                // Do nothing
-                            }
-
-                            @Override
-                            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                                // Do nothing
-                            }
-
-                            @Override
-                            public void afterTextChanged(Editable s) {
-                                String p1 = tilPassword1.getEditText().getText().toString();
-                                String p2 = tilPassword2.getEditText().getText().toString();
-                                btnOk.setEnabled(!TextUtils.isEmpty(p1) && p1.equals(p2));
-                                tilPassword2.setHint(!TextUtils.isEmpty(p2) && !p2.equals(p1)
-                                        ? R.string.title_setup_password_different
-                                        : R.string.title_setup_password_repeat);
-                            }
-                        };
-
-                        tilPassword1.getEditText().addTextChangedListener(w);
-                        tilPassword2.getEditText().addTextChangedListener(w);
-                        w.afterTextChanged(null);
-
-                        tilPassword2.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                            @Override
-                            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                                    btnOk.performClick();
-                                    return true;
-                                } else
-                                    return false;
-                            }
-                        });
+                        ProtectedContent.showDialogEncrypt(context, owner, etBody);
 
                         return true;
-                    }
-
-                    private String getProtectedContent(Spanned text) {
-                        Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_image_24);
-                        d.setTint(Color.GRAY);
-
-                        Bitmap bm = Bitmap.createBitmap(24, 24, Bitmap.Config.ARGB_8888);
-                        Canvas c = new Canvas(bm);
-                        d.setBounds(0, 0, c.getWidth(), c.getHeight());
-                        d.draw(c);
-
-                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                        bm.compress(Bitmap.CompressFormat.PNG, 100, bos);
-
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("data:image/png;base64,");
-                        sb.append(Base64.encodeToString(bos.toByteArray(), Base64.NO_WRAP));
-
-                        String html = HtmlHelper.toHtml(text, context);
-                        Document doc = JsoupEx.parse(html);
-                        for (Element img : doc.select("img"))
-                            img.attr("src", sb.toString());
-
-                        return doc.body().html();
                     }
 
                     private boolean setCode(MenuItem item) {
