@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1989 - 2022-10-22
+
+* Fixed British English translation
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1988 - 2022-10-22
 
 * Small improvements and minor bug fixes
