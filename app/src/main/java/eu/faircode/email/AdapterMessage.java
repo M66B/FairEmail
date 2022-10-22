@@ -5853,11 +5853,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Log.i("Opening uri=" + uri + " title=" + title);
             uri = Uri.parse(uri.toString().replaceAll("\\s+", ""));
 
-            if (StyleHelper.isProtectedContent(uri)) {
+            if (ProtectedContent.isProtectedContent(uri)) {
                 Bundle args = new Bundle();
                 args.putParcelable("uri", uri);
 
-                FragmentDialogBase dialog = new StyleHelper.FragmentDialogDecrypt();
+                FragmentDialogBase dialog = new ProtectedContent.FragmentDialogDecrypt();
                 dialog.setArguments(args);
                 dialog.show(parentFragment.getParentFragmentManager(), "decrypt");
                 return true;
