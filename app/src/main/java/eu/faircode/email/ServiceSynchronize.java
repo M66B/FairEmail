@@ -2151,6 +2151,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                             partitions.remove(key);
                                                         }
 
+                                                        Log.i(account.name + "/" + folder.name +
+                                                                " executing partition=" + key +
+                                                                " serial=" + serial +
+                                                                " operations=" + partition.size());
+
                                                         Map<String, String> crumb = new HashMap<>();
                                                         crumb.put("account", folder.account == null ? null : Long.toString(folder.account));
                                                         crumb.put("folder", folder.name + "/" + folder.type + ":" + folder.id);
