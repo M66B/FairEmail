@@ -603,9 +603,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                         private boolean onClick(MotionEvent event) {
-                            TextView widget = tvBody;
                             Spannable buffer = (Spannable) tvBody.getText();
-                            int off = Helper.getOffset(widget, buffer, event);
+                            int off = Helper.getOffset(tvBody, buffer, event);
 
                             TupleMessageEx message = getMessage();
                             if (message == null)
