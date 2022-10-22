@@ -4,7 +4,7 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### 1.1987 - 2022-10-22
+### 1.1988 - 2022-10-22
 
 * Small improvements and minor bug fixes
 * Updated translations
