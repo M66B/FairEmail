@@ -84,9 +84,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private static final int CONNECTIVITY_DELAY = 5000; // milliseconds
     private static final int PROGRESS_UPDATE_INTERVAL = 1000; // milliseconds
 
-    // 10 min @ 128 kbit/s = 7.5 MiB
-    private static final long WAKELOCK_MAX = 10 * 60 * 1000L; // milliseconds
-
     static final int PI_SEND = 1;
 
     @Override
@@ -355,8 +352,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     };
 
     private void processOperations(List<EntityOperation> ops) {
+        long start = new Date().getTime();
         try {
-            wlOutbox.acquire(WAKELOCK_MAX * ops.size());
+            wlOutbox.acquire(Helper.WAKELOCK_MAX);
 
             DB db = DB.getInstance(this);
             EntityFolder outbox = db.folder().getOutbox();
@@ -467,7 +465,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 db.folder().setFolderSyncState(outbox.id, null);
             }
         } finally {
-            wlOutbox.release();
+            if (wlOutbox.isHeld())
+                wlOutbox.release();
+            else
+                Log.i("send release elapse=" + (new Date().getTime() - start));
         }
     }
 

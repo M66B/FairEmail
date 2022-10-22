@@ -149,10 +149,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int FAST_FAIL_COUNT = 3;
     private static final int FETCH_YIELD_DURATION = 50; // milliseconds
     private static final long WATCHDOG_INTERVAL = 60 * 60 * 1000L; // milliseconds
-    private static final long WAKELOCK_ACCOUNT_MAX = 3 * 60 * 1000L; // milliseconds
-    private static final long WAKELOCK_CONTENT_MAX = 10 * 60 * 1000L; // milliseconds
-    private static final long WAKELOCK_OPERATION_MAX = 10 * 1000L; // milliseconds
-    private static final int MESSAGES_HOUR_AVG = 10;
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -471,8 +467,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new RunnableEx("state#init") {
                     @Override
                     public void delegate() {
+                        long start = new Date().getTime();
                         try {
-                            wl.acquire(WAKELOCK_ACCOUNT_MAX);
+                            wl.acquire(Helper.WAKELOCK_MAX);
 
                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                                     "### init " + accountNetworkState);
@@ -500,9 +497,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 db.endTransaction();
                             }
                         } finally {
-                            if (!wl.isHeld())
-                                Log.e("state#init released");
-                            wl.release();
+                            if (wl.isHeld())
+                                wl.release();
+                            else
+                                Log.e("state#init released elapse=" + (new Date().getTime() - start));
                         }
                     }
                 });
@@ -528,8 +526,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new RunnableEx("state#start") {
                     @Override
                     public void delegate() {
+                        long start = new Date().getTime();
                         try {
-                            wl.acquire(WAKELOCK_ACCOUNT_MAX);
+                            wl.acquire(Helper.WAKELOCK_MAX);
 
                             Map<String, String> crumb = new HashMap<>();
                             crumb.put("account", accountNetworkState.accountState.id.toString());
@@ -547,9 +546,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } catch (Throwable ex) {
                             Log.e(ex);
                         } finally {
-                            if (!wl.isHeld())
-                                Log.e("state#start released");
-                            wl.release();
+                            if (wl.isHeld())
+                                wl.release();
+                            else
+                                Log.e("state#start released elapse=" + (new Date().getTime() - start));
                         }
                     }
                 });
@@ -567,8 +567,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new RunnableEx("state#stop") {
                     @Override
                     public void delegate() {
+                        long start = new Date().getTime();
                         try {
-                            wl.acquire(WAKELOCK_ACCOUNT_MAX);
+                            wl.acquire(Helper.WAKELOCK_MAX);
 
                             Map<String, String> crumb = new HashMap<>();
                             crumb.put("account", accountNetworkState.accountState.id.toString());
@@ -588,9 +589,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } catch (Throwable ex) {
                             Log.e(ex);
                         } finally {
-                            if (!wl.isHeld())
-                                Log.e("state#stop released");
-                            wl.release();
+                            if (wl.isHeld())
+                                wl.release();
+                            else
+                                Log.e("state#stop released elapse=" + (new Date().getTime() - start));
                         }
                     }
                 });
@@ -603,8 +605,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new RunnableEx("state#delete") {
                     @Override
                     public void delegate() {
+                        long start = new Date().getTime();
                         try {
-                            wl.acquire(WAKELOCK_ACCOUNT_MAX);
+                            wl.acquire(Helper.WAKELOCK_MAX);
 
                             DB db = DB.getInstance(ServiceSynchronize.this);
                             db.account().deleteAccount(accountNetworkState.accountState.id);
@@ -616,9 +619,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } catch (Throwable ex) {
                             Log.e(ex);
                         } finally {
-                            if (!wl.isHeld())
-                                Log.e("state#delete released");
-                            wl.release();
+                            if (wl.isHeld())
+                                wl.release();
+                            else
+                                Log.e("state#delete released elapse=" + (new Date().getTime() - start));
                         }
                     }
                 });
@@ -628,8 +632,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new RunnableEx("state#quit") {
                     @Override
                     public void delegate() {
+                        long start = new Date().getTime();
                         try {
-                            wl.acquire(WAKELOCK_ACCOUNT_MAX);
+                            wl.acquire(Helper.WAKELOCK_MAX);
 
                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                                     "### quit eventId=" + eventId);
@@ -671,9 +676,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } catch (Throwable ex) {
                             Log.e(ex);
                         } finally {
-                            if (!wl.isHeld())
-                                Log.e("state#quit released");
-                            wl.release();
+                            if (wl.isHeld())
+                                wl.release();
+                            else
+                                Log.e("state#quit released elapse=" + (new Date().getTime() - start));
                         }
                     }
                 });
@@ -685,16 +691,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     queue.submit(new RunnableEx("state#backup#exec") {
                         @Override
                         public void delegate() {
+                            long start = new Date().getTime();
                             try {
-                                wl.acquire(WAKELOCK_ACCOUNT_MAX);
+                                wl.acquire(Helper.WAKELOCK_MAX);
 
                                 MessageClassifier.save(ServiceSynchronize.this);
                             } catch (Throwable ex) {
                                 Log.e(ex);
                             } finally {
-                                if (!wl.isHeld())
-                                    Log.e("state#backup released");
-                                wl.release();
+                                if (wl.isHeld())
+                                    wl.release();
+                                else
+                                    Log.e("state#backup released elapse=" + (new Date().getTime() - start));
                             }
                         }
                     });
@@ -1490,8 +1498,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         final PowerManager.WakeLock wlMessage = pm.newWakeLock(
                 PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":account." + account.id + ".message");
 
+        long start = new Date().getTime();
         try {
-            wlAccount.acquire(WAKELOCK_ACCOUNT_MAX);
+            wlAccount.acquire(Helper.WAKELOCK_MAX);
 
             boolean forced = false;
             final DB db = DB.getInstance(this);
@@ -1564,9 +1573,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 }
                                 lastStillHere.setTime(now);
                             }
-                        } else
+                        } else {
+                            long start = new Date().getTime();
                             try {
-                                wlFolder.acquire(WAKELOCK_OPERATION_MAX);
+                                wlFolder.acquire(Helper.WAKELOCK_MAX);
 
                                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, account,
                                         account.name + " alert: " + message);
@@ -1583,10 +1593,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Log.w(ex);
                                     }
                             } finally {
-                                if (!wlFolder.isHeld())
-                                    Log.e("folder notice released");
-                                wlFolder.release();
+                                if (wlFolder.isHeld())
+                                    wlFolder.release();
+                                else
+                                    Log.e("folder notice released elapse=" + (new Date().getTime() - start));
                             }
+                        }
                     }
                 });
 
@@ -1596,8 +1608,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         executor.submit(new RunnableEx("purge#exec") {
                             @Override
                             public void delegate() {
+                                long start = new Date().getTime();
                                 try {
-                                    wlAccount.acquire(WAKELOCK_ACCOUNT_MAX);
+                                    wlAccount.acquire(Helper.WAKELOCK_MAX);
 
                                     // Close cached connections
                                     Log.i(account.name + " Empty connection pool");
@@ -1605,9 +1618,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                 } finally {
-                                    if (!wlAccount.isHeld())
-                                        Log.e("purge released");
-                                    wlAccount.release();
+                                    if (wlAccount.isHeld())
+                                        wlAccount.release();
+                                    else
+                                        Log.e("purge released elapse=" + (new Date().getTime() - start));
                                 }
                             }
                         });
@@ -1697,24 +1711,27 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     iservice.getStore().addFolderListener(new FolderAdapter() {
                         @Override
                         public void folderCreated(FolderEvent e) {
+                            long start = new Date().getTime();
                             try {
-                                wlFolder.acquire(WAKELOCK_OPERATION_MAX);
+                                wlFolder.acquire(Helper.WAKELOCK_MAX);
 
                                 String name = e.getFolder().getFullName();
                                 Log.i("Folder created=" + name);
                                 if (db.folder().getFolderByName(account.id, name) == null)
                                     reload(ServiceSynchronize.this, account.id, false, "folder created");
                             } finally {
-                                if (!wlFolder.isHeld())
-                                    Log.e("folder created released");
-                                wlFolder.release();
+                                if (wlFolder.isHeld())
+                                    wlFolder.release();
+                                else
+                                    Log.e("folder created released elapse=" + (new Date().getTime() - start));
                             }
                         }
 
                         @Override
                         public void folderRenamed(FolderEvent e) {
+                            long start = new Date().getTime();
                             try {
-                                wlFolder.acquire(WAKELOCK_OPERATION_MAX);
+                                wlFolder.acquire(Helper.WAKELOCK_MAX);
 
                                 String old = e.getFolder().getFullName();
                                 String name = e.getNewFolder().getFullName();
@@ -1725,32 +1742,36 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (count != 0)
                                     reload(ServiceSynchronize.this, account.id, false, "folder renamed");
                             } finally {
-                                if (!wlFolder.isHeld())
-                                    Log.e("folder renamed released");
-                                wlFolder.release();
+                                if (wlFolder.isHeld())
+                                    wlFolder.release();
+                                else
+                                    Log.e("folder renamed released elapse=" + (new Date().getTime() - start));
                             }
                         }
 
                         @Override
                         public void folderDeleted(FolderEvent e) {
+                            long start = new Date().getTime();
                             try {
-                                wlFolder.acquire(WAKELOCK_OPERATION_MAX);
+                                wlFolder.acquire(Helper.WAKELOCK_MAX);
 
                                 String name = e.getFolder().getFullName();
                                 Log.i("Folder deleted=" + name);
                                 if (db.folder().getFolderByName(account.id, name) != null)
                                     reload(ServiceSynchronize.this, account.id, false, "folder deleted");
                             } finally {
-                                if (!wlFolder.isHeld())
-                                    Log.e("folder deleted released");
-                                wlFolder.release();
+                                if (wlFolder.isHeld())
+                                    wlFolder.release();
+                                else
+                                    Log.e("folder deleted released elapse=" + (new Date().getTime() - start));
                             }
                         }
 
                         @Override
                         public void folderChanged(FolderEvent e) {
+                            long start = new Date().getTime();
                             try {
-                                wlFolder.acquire(WAKELOCK_OPERATION_MAX);
+                                wlFolder.acquire(Helper.WAKELOCK_MAX);
 
                                 String name = e.getFolder().getFullName();
                                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, account,
@@ -1759,9 +1780,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (folder != null && folder.selectable)
                                     EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                             } finally {
-                                if (!wlFolder.isHeld())
-                                    Log.e("folder changed released");
-                                wlFolder.release();
+                                if (wlFolder.isHeld())
+                                    wlFolder.release();
+                                else
+                                    Log.e("folder changed released elapse=" + (new Date().getTime() - start));
                             }
                         }
                     });
@@ -1870,8 +1892,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             ifolder.addMessageCountListener(new MessageCountAdapter() {
                                 @Override
                                 public void messagesAdded(MessageCountEvent e) {
+                                    long start = new Date().getTime();
                                     try {
-                                        wlMessage.acquire(WAKELOCK_OPERATION_MAX * e.getMessages().length);
+                                        wlMessage.acquire(Helper.WAKELOCK_MAX);
                                         fetch(folder, ifolder, e.getMessages(), false, false, "added");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
@@ -1880,16 +1903,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 account.name + "/" + folder.name + " added " + Log.formatThrowable(ex, false));
                                         EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
-                                        if (!wlMessage.isHeld())
-                                            Log.e("message added released");
-                                        wlMessage.release();
+                                        if (wlMessage.isHeld())
+                                            wlMessage.release();
+                                        else
+                                            Log.e("message added released elapse=" + (new Date().getTime() - start));
                                     }
                                 }
 
                                 @Override
                                 public void messagesRemoved(MessageCountEvent e) {
+                                    long start = new Date().getTime();
                                     try {
-                                        wlMessage.acquire(WAKELOCK_OPERATION_MAX * e.getMessages().length);
+                                        wlMessage.acquire(Helper.WAKELOCK_MAX);
                                         fetch(folder, ifolder, e.getMessages(), false, true, "removed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
@@ -1898,9 +1923,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 account.name + "/" + folder.name + " removed " + Log.formatThrowable(ex, false));
                                         EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
-                                        if (!wlMessage.isHeld())
-                                            Log.e("message removed released");
-                                        wlMessage.release();
+                                        if (wlMessage.isHeld())
+                                            wlMessage.release();
+                                        else
+                                            Log.e("message removed released elapse=" + (new Date().getTime() - start));
                                     }
                                 }
                             });
@@ -1911,8 +1937,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             ifolder.addMessageChangedListener(new MessageChangedListener() {
                                 @Override
                                 public void messageChanged(MessageChangedEvent e) {
+                                    long start = new Date().getTime();
                                     try {
-                                        wlMessage.acquire(WAKELOCK_OPERATION_MAX);
+                                        wlMessage.acquire(Helper.WAKELOCK_MAX);
                                         Message imessage = e.getMessage();
                                         fetch(folder, ifolder, new Message[]{imessage}, true, false, "changed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
@@ -1922,9 +1949,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 account.name + "/" + folder.name + " changed " + Log.formatThrowable(ex, false));
                                         EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
-                                        if (!wlMessage.isHeld())
-                                            Log.e("message changed released");
-                                        wlMessage.release();
+                                        if (wlMessage.isHeld())
+                                            wlMessage.release();
+                                        else
+                                            Log.e("message changed released elapse=" + (new Date().getTime() - start));
                                     }
                                 }
                             });
@@ -2113,57 +2141,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 public void run() {
                                                     super.run();
 
-                                                    long timeout = 0;
-                                                    boolean op_wakelock = prefs.getBoolean("op_wakelock", false);
-
                                                     long start = new Date().getTime();
                                                     try {
+                                                        wlOperations.acquire(Helper.WAKELOCK_MAX);
+
                                                         List<TupleOperationEx> partition;
                                                         synchronized (partitions) {
                                                             partition = partitions.get(key);
                                                             partitions.remove(key);
                                                         }
-
-                                                        // Estimate maximum execution duration
-                                                        if (mapFolders.get(folder) == null) {
-                                                            // Connect, sync folder list -> 3 minutes
-                                                            timeout += WAKELOCK_ACCOUNT_MAX;
-                                                        }
-                                                        for (TupleOperationEx op : partition)
-                                                            if (EntityOperation.SYNC.equals(op.name))
-                                                                if (folder.last_sync == null ||
-                                                                        (folder.initialize != 0 &&
-                                                                                account.protocol == EntityAccount.TYPE_IMAP)) {
-                                                                    // 30 days -> 20 hours
-                                                                    int hours = (folder.initialize == 0 ? 30 : folder.initialize) * 24;
-                                                                    timeout += WAKELOCK_OPERATION_MAX * hours * MESSAGES_HOUR_AVG;
-                                                                } else {
-                                                                    long hours = (start - folder.last_sync) / (3600 * 1000L) + 1;
-                                                                    // 10 messages/hour -> 100 seconds
-                                                                    timeout += WAKELOCK_OPERATION_MAX * hours * MESSAGES_HOUR_AVG;
-                                                                }
-                                                            else if (EntityOperation.ADD.equals(op.name) ||
-                                                                    EntityOperation.BODY.equals(op.name) ||
-                                                                    EntityOperation.ATTACHMENT.equals(op.name) ||
-                                                                    EntityOperation.RAW.equals(op.name) ||
-                                                                    (EntityOperation.FETCH.equals(op.name) && folder.download))
-                                                                timeout += WAKELOCK_CONTENT_MAX; // -> 10 minutes
-                                                            else if (EntityOperation.MOVE.equals(op.name) ||
-                                                                    EntityOperation.COPY.equals(op.name))
-                                                                timeout += WAKELOCK_OPERATION_MAX * 2; // -> 20 seconds
-                                                            else
-                                                                timeout += WAKELOCK_OPERATION_MAX; // -> 10 seconds
-
-                                                        if (op_wakelock)
-                                                            wlOperations.acquire(timeout);
-                                                        else
-                                                            wlOperations.acquire();
-
-                                                        Log.i(account.name + "/" + folder.name +
-                                                                " executing partition=" + key +
-                                                                " serial=" + serial +
-                                                                " operations=" + partition.size() +
-                                                                " wakelock=" + (timeout / 1000) + "s");
 
                                                         Map<String, String> crumb = new HashMap<>();
                                                         crumb.put("account", folder.account == null ? null : Long.toString(folder.account));
@@ -2291,17 +2277,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                             Log.e(ex);
                                                     } finally {
                                                         long elapsed = new Date().getTime() - start;
-                                                        if (!wlOperations.isHeld() || elapsed > timeout) {
-                                                            String msg = key + " released" +
-                                                                    " elapsed=" + elapsed +
-                                                                    " timeout=" + timeout +
-                                                                    " enforced=" + op_wakelock +
-                                                                    " held=" + wlOperations.isHeld() +
-                                                                    " host=" + account.host;
-                                                            Log.e(msg);
-                                                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug, msg);
-                                                        }
-                                                        wlOperations.release();
+                                                        if (wlOperations.isHeld())
+                                                            wlOperations.release();
+                                                        else
+                                                            Log.e(key + " released elapse=" + (new Date().getTime() - start));
                                                     }
                                                 }
                                             });
@@ -2483,16 +2462,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             AlarmManagerCompatEx.setAndAllowWhileIdle(ServiceSynchronize.this, am, AlarmManager.RTC_WAKEUP, trigger, pi);
 
                             try {
-                                if (!wlAccount.isHeld())
-                                    Log.e("keeping alive released");
-                                wlAccount.release();
+                                if (wlAccount.isHeld())
+                                    wlAccount.release();
+                                else
+                                    Log.e("keeping alive released elapse=" + (new Date().getTime() - start));
                                 state.acquire(2 * duration, false);
                                 Log.i("### " + account.name + " keeping alive");
                             } catch (InterruptedException ex) {
                                 EntityLog.log(this, EntityLog.Type.Account, account,
                                         account.name + " waited state=" + state);
                             } finally {
-                                wlAccount.acquire(WAKELOCK_ACCOUNT_MAX);
+                                start = new Date().getTime();
+                                wlAccount.acquire(Helper.WAKELOCK_MAX);
                             }
                         } finally {
                             am.cancel(pi);
@@ -2737,15 +2718,17 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             try {
                                 db.account().setAccountBackoff(account.id, trigger);
-                                if (!wlAccount.isHeld())
-                                    Log.e("backoff released");
-                                wlAccount.release();
+                                if (wlAccount.isHeld())
+                                    wlAccount.release();
+                                else
+                                    Log.e("backoff released elapse=" + (new Date().getTime() - start));
                                 state.acquire(2 * backoff * 1000L, true);
                                 Log.i("### " + account.name + " backoff done");
                             } catch (InterruptedException ex) {
                                 Log.w(account.name + " backoff " + ex.toString());
                             } finally {
-                                wlAccount.acquire(WAKELOCK_ACCOUNT_MAX);
+                                start = new Date().getTime();
+                                wlAccount.acquire(Helper.WAKELOCK_MAX);
                                 db.account().setAccountBackoff(account.id, null);
                             }
                         } finally {
@@ -2762,9 +2745,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         } finally {
             EntityLog.log(this, EntityLog.Type.Account, account,
                     account.name + " stopped running=" + state.isRunning());
-            if (!wlAccount.isHeld())
-                Log.e("account released");
-            wlAccount.release();
+            if (wlAccount.isHeld())
+                wlAccount.release();
+            else
+                Log.e("account released elapse=" + (new Date().getTime() - start));
         }
     }
 

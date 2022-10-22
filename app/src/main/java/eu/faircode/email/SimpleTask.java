@@ -70,7 +70,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private static Context themedContext = null;
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
-    private static final int MAX_WAKELOCK = 30 * 60 * 1000; // milliseconds
     private static final int REPORT_AFTER = 15 * 60 * 1000; // milliseconds
 
     static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
@@ -198,15 +197,15 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             @Override
             public void run() {
                 // Run in background thread
+                long start = new Date().getTime();
                 try {
                     if (keepawake)
                         wl.acquire();
                     else
-                        wl.acquire(MAX_WAKELOCK);
+                        wl.acquire(Helper.WAKELOCK_MAX);
 
                     if (log)
                         Log.i("Executing task=" + name);
-                    long start = new Date().getTime();
                     data = onExecute(tcontext, args);
                     elapsed = new Date().getTime() - start;
                     if (log)
@@ -220,6 +219,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 } finally {
                     if (wl.isHeld())
                         wl.release();
+                    else if (!keepawake)
+                        Log.e(name + " released elapse=" + (new Date().getTime() - start));
                 }
 
                 // Run on UI thread
