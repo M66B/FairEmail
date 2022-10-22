@@ -3019,10 +3019,11 @@ class Core {
                                 known.remove(uidl);
                         }
 
-                        for (TupleUidl uidl : known.values()) {
-                            EntityLog.log(context, account.name + " POP purging uidl=" + uidl.uidl);
-                            db.message().deleteMessage(uidl.id);
-                        }
+                        for (TupleUidl uidl : known.values())
+                            if (!uidl.ui_flagged) {
+                                EntityLog.log(context, account.name + " POP purging uidl=" + uidl.uidl);
+                                db.message().deleteMessage(uidl.id);
+                            }
                     } else {
                         Map<String, TupleUidl> known = new HashMap<>();
                         for (TupleUidl id : ids)
@@ -3037,10 +3038,11 @@ class Core {
                                 known.remove(msgid);
                         }
 
-                        for (TupleUidl uidl : known.values()) {
-                            EntityLog.log(context, account.name + " POP purging msgid=" + uidl.msgid);
-                            db.message().deleteMessage(uidl.id);
-                        }
+                        for (TupleUidl uidl : known.values())
+                            if (!uidl.ui_flagged) {
+                                EntityLog.log(context, account.name + " POP purging msgid=" + uidl.msgid);
+                                db.message().deleteMessage(uidl.id);
+                            }
                     }
                 }
 
