@@ -778,6 +778,16 @@ public class Log {
             */
             return false;
 
+        if ("android.app.RemoteServiceException$CannotDeliverBroadcastException".equals(ex.getClass().getName()))
+            /*
+                android.app.RemoteServiceException$CannotDeliverBroadcastException: can't deliver broadcast
+                    at android.app.ActivityThread.throwRemoteServiceException(ActivityThread.java:2180)
+                    at android.app.ActivityThread.access$3000(ActivityThread.java:324)
+                    at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2435)
+                    at android.os.Handler.dispatchMessage(Handler.java:106)
+             */
+            return false;
+
         if ("android.view.WindowManager$BadTokenException".equals(ex.getClass().getName()))
             /*
                 android.view.WindowManager$BadTokenException: Unable to add window -- token android.os.BinderProxy@e9084db is not valid; is your activity running?
