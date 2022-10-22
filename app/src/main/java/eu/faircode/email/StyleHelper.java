@@ -115,7 +115,7 @@ public class StyleHelper {
     private static final String DECRYPT_TRANSFORMATION = "AES/GCM/NoPadding";
     private static final String DECRYPT_URL = "https://fairemail.net/decrypt/";
 
-    private static final List<Class> CLEAR_STYLES = Collections.unmodifiableList(Arrays.asList(
+    private static final List<Class<?>> CLEAR_STYLES = Collections.unmodifiableList(Arrays.asList(
             StyleSpan.class,
             UnderlineSpan.class,
             RelativeSizeSpan.class,
