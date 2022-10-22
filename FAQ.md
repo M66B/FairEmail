@@ -1888,14 +1888,15 @@ The real battery usage can be seen by navigating to this screen:
 
 Alternatively: tap on the *App settings* button in the main settings screen of the app and tap on *Battery*.
 
-As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby* for one account with a stable network connection.
-If this isn't the case, please turn on *Auto optimize* in the receive settings.
+As a rule of thumb, the battery usage should be below or in any case not be much higher than *Mobile network standby* for one account with a stable network connection.
+If this isn't the case, please turn on *Auto optimize* in the receive settings tab page.
 If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
 
-It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
+It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages' database.
+Since the app needs to wait for responses of the email server, which requires the processor (CPU) to be active, slower email servers will result in more battery usage.
 
-If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is setup similarly.
-For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
+If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is set up similarly.
+For example, comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
 
 Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage.
 Also, some email servers prematurely terminate idle connections, while [the standard](https://tools.ietf.org/html/rfc2177) says that an idle connection should be kept open for 29 minutes.
@@ -1918,41 +1919,42 @@ You could for example initially synchronize messages for a large number of days 
 reduce the number of days to synchronize messages, but leave the number of days to keep messages.
 After decreasing the number of days to keep messages, you might want to run the cleanup in the miscellaneous settings to remove old files.
 
-In the receive settings you can enable to always synchronize starred messages,
+In the receive settings tab page you can enable to always synchronize starred messages,
 which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
 Disabling the folder option *Automatically download message texts and attachments*
 will result in less network traffic and thus less battery usage.
-You could disable this option for example for the sent folder and the archive.
+You could disable this option, for example for the sent folder and the archive.
 
 Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night.
-In the settings you can select a schedule for message synchronization (this is a pro feature).
+In the settings, you can select a schedule for message synchronization (this is a pro feature).
 
 FairEmail will by default synchronize the folder list on each connection.
-Since folders are mostly not created, renamed and deleted very often, you can save some network and battery usage by disabling this in the receive settings.
+Since folders are mostly not created, renamed and deleted very often, you can save some network and battery usage by disabling this in the receive settings tab page.
 
 FairEmail will by default check if old messages were deleted from the server on each connection.
-If you don't mind that old messages that were delete from the server are still visible in FairEmail, you can save some network and battery usage by disabling this in the receive settings.
+If you don't mind that old messages that were deleted from the server are still visible in FairEmail,
+you can save some network and battery usage by disabling this in the receive settings tab page.
 
 Some providers don't follow the IMAP standard and [don't keep connections open](https://datatracker.ietf.org/doc/html/rfc3501#section-5.4) long enough, forcing FairEmail to reconnect often, causing extra battery usage.
-You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc).
-You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes.
+You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc.).
+You can work around this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes.
 Note that battery optimizations need to be disabled in setup step 3 to reliably keep connections alive.
 
 Some providers send every two minutes something like '*Still here*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage.
 You can inspect the *Log* via the main navigation menu to check if your provider is doing this.
 If your provider is using [Dovecot](https://www.dovecot.org/) as IMAP server,
 you could ask your provider to change the [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this.
-If your provider is not able or willing to change/disable this, you should consider to switch to periodically instead of continuous synchronization.
-You can change this in the receive settings.
+If your provider is not able or willing to change/disable this, you should consider switching to periodically instead of continuous synchronization.
+You can change this in the receive settings tab page.
 
-If you got the message *This provider does not support push messages* while configuring an account,
+If you got the message, *This provider does not support push messages* while configuring an account,
 consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
 
 If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen,
 you can save battery usage while viewing messages by switching to the black theme.
 
-If auto optimize in the receive settings is enabled,
+If auto optimize in the receive settings tab page is enabled,
 an account will automatically be switched to periodically checking for new messages when the email server:
 
 * Says '*Still here*' within 3 minutes
