@@ -6215,6 +6215,7 @@ public class FragmentMessages extends FragmentBase
                     boolean more_delete = prefs.getBoolean("more_delete", false);
                     boolean more_move = prefs.getBoolean("more_move", true);
 
+                    boolean inTrash = EntityFolder.TRASH.equals(type);
                     boolean inJunk = EntityFolder.JUNK.equals(type);
 
                     int count = 0;
@@ -6230,6 +6231,12 @@ public class FragmentMessages extends FragmentBase
                     boolean trash = (more_trash && count < MAX_QUICK_ACTIONS && result.canTrash());
                     if (trash)
                         count++;
+
+                    if (!delete && !trash && (inTrash || inJunk) &&
+                            more_trash && count < MAX_QUICK_ACTIONS && result.canDelete()) {
+                        delete = true;
+                        count++;
+                    }
 
                     boolean junk = (more_junk && count < MAX_QUICK_ACTIONS && result.canJunk());
                     if (junk)
