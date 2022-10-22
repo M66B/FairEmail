@@ -55,11 +55,13 @@ import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Pair;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -677,6 +679,17 @@ public class StyleHelper {
                         tilPassword1.getEditText().addTextChangedListener(w);
                         tilPassword2.getEditText().addTextChangedListener(w);
                         w.afterTextChanged(null);
+
+                        tilPassword2.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                            @Override
+                            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                                    btnOk.performClick();
+                                    return true;
+                                } else
+                                    return false;
+                            }
+                        });
 
                         return true;
                     }
