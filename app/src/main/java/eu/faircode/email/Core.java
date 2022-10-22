@@ -1762,8 +1762,32 @@ class Core {
                         Log.e(ex1);
                     }
 
-                if (download)
-                    downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state, stats);
+                if (download) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean fast_fetch = prefs.getBoolean("fast_fetch", false);
+                    if (fast_fetch) {
+                        long maxSize = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
+                        if (maxSize == 0)
+                            maxSize = Long.MAX_VALUE;
+                        boolean download_eml = prefs.getBoolean("download_eml", false);
+
+                        if (!message.content)
+                            if (state.getNetworkState().isUnmetered() || (message.size != null && message.size < maxSize))
+                                EntityOperation.queue(context, message, EntityOperation.BODY);
+
+                        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                        for (EntityAttachment attachment : attachments)
+                            if (!attachment.available)
+                                if (state.getNetworkState().isUnmetered() || (attachment.size != null && attachment.size < maxSize))
+                                    EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
+
+                        if (download_eml &&
+                                (message.raw == null || !message.raw) &&
+                                (state.getNetworkState().isUnmetered() || (message.total != null && message.total < maxSize)))
+                            EntityOperation.queue(context, message, EntityOperation.RAW);
+                    } else
+                        downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state, stats);
+                }
             }
 
             if (!stats.isEmpty())
@@ -4479,10 +4503,11 @@ class Core {
                             File file = message.getFile(context);
                             Helper.writeText(file, body);
                             String text = HtmlHelper.getFullText(body);
+                            message.content = true;
                             message.preview = HtmlHelper.getPreview(text);
                             message.language = HtmlHelper.getLanguage(context, message.subject, text);
                             db.message().setMessageContent(message.id,
-                                    true,
+                                    message.content,
                                     message.language,
                                     parts.isPlainOnly(download_plain),
                                     message.preview,

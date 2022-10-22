@@ -203,6 +203,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swKeepAlivePoll;
     private SwitchCompat swEmptyPool;
     private SwitchCompat swIdleDone;
+    private SwitchCompat swFastFetch;
     private SwitchCompat swLogarithmicBackoff;
     private SwitchCompat swExactAlarms;
     private SwitchCompat swInfra;
@@ -260,7 +261,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "show_recent",
             "use_modseq", "uid_command", "perform_expunge", "uid_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", "use_top",
-            "keep_alive_poll", "empty_pool", "idle_done", "logarithmic_backoff",
+            "keep_alive_poll", "empty_pool", "idle_done", "fast_fetch", "logarithmic_backoff",
             "exact_alarms", "infra", "dkim_verify", "dup_msgids", "global_keywords", "test_iab"
     };
 
@@ -414,6 +415,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swKeepAlivePoll = view.findViewById(R.id.swKeepAlivePoll);
         swEmptyPool = view.findViewById(R.id.swEmptyPool);
         swIdleDone = view.findViewById(R.id.swIdleDone);
+        swFastFetch = view.findViewById(R.id.swFastFetch);
         swLogarithmicBackoff = view.findViewById(R.id.swLogarithmicBackoff);
         swExactAlarms = view.findViewById(R.id.swExactAlarms);
         swInfra = view.findViewById(R.id.swInfra);
@@ -1412,6 +1414,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swFastFetch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("fast_fetch", checked).apply();
+            }
+        });
+
         swLogarithmicBackoff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2124,6 +2133,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swKeepAlivePoll.setChecked(prefs.getBoolean("keep_alive_poll", false));
         swEmptyPool.setChecked(prefs.getBoolean("empty_pool", true));
         swIdleDone.setChecked(prefs.getBoolean("idle_done", true));
+        swFastFetch.setChecked(prefs.getBoolean("fast_fetch", false));
         swLogarithmicBackoff.setChecked(prefs.getBoolean("logarithmic_backoff", true));
         swExactAlarms.setChecked(prefs.getBoolean("exact_alarms", true));
         swInfra.setChecked(prefs.getBoolean("infra", false));
