@@ -205,7 +205,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swIdleDone;
     private SwitchCompat swLogarithmicBackoff;
     private SwitchCompat swExactAlarms;
-    private SwitchCompat swOpWakelock;
     private SwitchCompat swInfra;
     private SwitchCompat swDupMsgId;
     private EditText etKeywords;
