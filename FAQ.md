@@ -5014,6 +5014,7 @@ This will replace the selected content with a link that the recipient can click 
 
 Password protected content is sent as a [URI fragment](https://en.wikipedia.org/wiki/URI_fragment) and decrypted in the browser with JavaScript.
 In other words, protected content is never stored on or seen by third party servers.
+Since version 1.1990 received protected content will be decrypted by the app, with as fallback decryption in the browser for other email clients.
 
 Password protected content is encrypted with [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) / [GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode)
 with a 256 bits key derived with [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) / [SHA](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms)-512 with 120,000 iterations.
