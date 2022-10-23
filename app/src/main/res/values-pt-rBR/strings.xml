@@ -1221,6 +1221,7 @@
     <string name="title_style_superscript">Sobrescrito</string>
     <string name="title_style_strikethrough">Riscar</string>
     <string name="title_style_protect">Proteger com senha</string>
+    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Conteúdo protegido</string>
     <string name="title_style_protect_size">Texto longo demais</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir link</string>

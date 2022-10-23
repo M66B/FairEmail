@@ -1250,6 +1250,7 @@
     <string name="title_style_superscript">כתב עילי</string>
     <string name="title_style_strikethrough">קו חוצה</string>
     <string name="title_style_protect">הגנה בסיסמה</string>
+    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">תוכן מוגן</string>
     <string name="title_style_protect_size">הטקסט ארוך מדי</string>
     <string name="title_style_clear">הסרת עיצוב</string>
     <string name="title_style_link">הוספת קישור</string>

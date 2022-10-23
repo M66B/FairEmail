@@ -424,6 +424,7 @@
     <string name="title_advanced_reset_importance">Скідваць важнасць паведамленняў пры іх перамяшчэнні</string>
     <string name="title_advanced_swipe_reply">Для адказу правядзіце пальцам управа па разгорнутым паведамленні</string>
     <string name="title_advanced_notifications">Кіраваць апавяшчэннямі</string>
+    <string name="title_advanced_notifications_service">Канал маніторынгу</string>
     <string name="title_advanced_notifications_newest_first">Спачатку паказваць новыя апавяшчэнні</string>
     <string name="title_advanced_badge">Паказваць колькасць новых паведамленняў побач з ярлыком праграмы</string>
     <string name="title_advanced_unseen_ignored">Колькасць новых паведамленняў адпавядае колькасці апавяшчэнняў</string>
@@ -515,6 +516,7 @@
     <string name="title_advanced_autoseen_hint">Аўтаматычнае адзначэнне паведамленняў як прачытаных пры разгортванні можна адключыць у дадатковых наладах кожнага з уліковых запісаў</string>
     <string name="title_advanced_autoclose_hint">Аўтаматычна закрываць размовы, калі ўсе паведамленні перамешчаны ў архіў, адпраўлены або выдалены</string>
     <string name="title_advanced_notify_remove_hint">Апавяшчэнні аб новых паведамленнях заўсёды будуць выдаляцца пры іх ссоўванні і адзначэнні паведамленняў прачытанымі</string>
+    <string name="title_advanced_notify_manage_service_hint">Дазваляе адключыць \'маніторынгавае\' апавяшчэнне</string>
     <string name="title_advanced_notify_separate_hint">Як мне наладзіць апавяшчэнні для ўліковых запісаў, папак і адпраўнікоў?</string>
     <string name="title_advanced_notify_preview_only_hint">Гэта опцыя адкладае паказ апавяшчэнняў, пакуль тэкст паведамлення не будзе загружаны</string>
     <string name="title_advanced_wearable_hint">Апавяшчэнні адпраўляюцца на партатыўную прыладу толькі пасля загрузкі тэксту паведамлення</string>
@@ -572,11 +574,14 @@
     <string name="title_no_idle">Гэты правайдар не падтрымлівае апавяшчэнні. Гэта прывядзе да затрымкі атрымання новых паведамленняў і павелічэння выкарыстання батарэі.</string>
     <string name="title_drafts_required">Папка для чарнавікоў патрабуецца для адпраўкі электроннай пошты</string>
     <string name="title_drafts_select">Для адпраўкі электроннай пошты ў наладах уліковага запісу трэба выбраць папку для чарнавікоў</string>
+    <string name="title_delete_account">Выдаліць уліковы запіс</string>
+    <string name="title_account_delete">Выдаліць гэты ўліковы запіс назаўсёды?</string>
     <string name="title_edit_html">Рэдагаваць як HTML</string>
     <string name="title_pop_support">Пратакол POP3 можа толькі загружаць і выдаляць паведамленні з паштовай скрыні. Немагчыма адзначыць паведамленні як прачытаныя, паведаміць пра спам, перамясціць паведамленні і г. д. Па магчымасці выкарыстоўвайце пратакол IMAP.</string>
     <string name="title_pop_sent">У выпадку страты або крадзяжу прылады адпраўленыя паведамленні могуць быць страчаны.</string>
     <string name="title_pop_folders">Пратакол POP3 не падтрымлівае стварэнне папак</string>
     <string name="title_review">Перагляд</string>
+    <string name="title_hint_accounts">Доўгае націсканне на ўліковы запіс прывядзе да адлюстравання такіх параметраў як адключэнне або выдаленне ўліковага запісу і т. п.</string>
     <string name="title_hint_alias">Доўгае націсканне на ідэнтыфікатар выкліча адлюстраванне такіх опцый, як капіраванне з мэтай стварэння псеўданімаў і т. п.</string>
     <string name="title_service_protocol">Калі ласка, праверце яшчэ раз пратакол (SSL/TLS або STARTTLS)</string>
     <string name="title_advanced_browse">Праглядзець паведамленні на серверы</string>
@@ -697,6 +702,7 @@
     <string name="title_edit_notes">Рэдагаваць лакальныя нататкі</string>
     <string name="title_force_light">Прымусовае выкарыстанне светлай тэмы</string>
     <string name="title_share">Падзяліцца</string>
+    <string name="title_pin">Дадаць ярлык</string>
     <string name="title_print">Друк</string>
     <string name="title_print_header">Друкаваць загаловак</string>
     <string name="title_raw_save">Захаваць неапрацаванае паведамленне</string>
@@ -903,6 +909,7 @@
     <string name="title_answer_standard">Па змаўчанні</string>
     <string name="title_answer_favorite">Пазначыць</string>
     <string name="title_answer_snippet">Фрагмент</string>
+    <string name="title_answer_placeholder">Запаўняльнік</string>
     <string name="title_rule_noop">Няма дзеяння</string>
     <string name="title_rule_seen">Пазначыць як прачытанае</string>
     <string name="title_rule_hide">Схаваць</string>

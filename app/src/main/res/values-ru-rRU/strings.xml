@@ -1249,6 +1249,7 @@
     <string name="title_style_superscript">Надстрочный</string>
     <string name="title_style_strikethrough">Зачёркнутый</string>
     <string name="title_style_protect">Защита паролем</string>
+    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Защищённое содержимое</string>
     <string name="title_style_protect_size">Текст слишком длинный</string>
     <string name="title_style_clear">Очистить форматирование</string>
     <string name="title_style_link">Вставить ссылку</string>

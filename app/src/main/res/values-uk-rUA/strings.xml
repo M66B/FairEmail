@@ -1247,6 +1247,7 @@
     <string name="title_style_superscript">Верхній індекс</string>
     <string name="title_style_strikethrough">Закреслений</string>
     <string name="title_style_protect">Захист паролем</string>
+    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Захищений вміст</string>
     <string name="title_style_protect_size">Задовгий текст</string>
     <string name="title_style_clear">Очистити форматування</string>
     <string name="title_style_link">Вставити посилання</string>

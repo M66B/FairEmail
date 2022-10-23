@@ -1225,6 +1225,7 @@
     <string name="title_style_superscript">Hævet</string>
     <string name="title_style_strikethrough">Gennemstreget</string>
     <string name="title_style_protect">Adgangskodebeskyttelse</string>
+    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Beskyttet indhold</string>
     <string name="title_style_protect_size">Tekst for lang</string>
     <string name="title_style_clear">Ryd formatering</string>
     <string name="title_style_link">Indsæt link</string>
