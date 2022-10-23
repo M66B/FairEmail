@@ -48,10 +48,12 @@ import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.util.Pair;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -1999,6 +2001,17 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             tilPassword1.getEditText().addTextChangedListener(w);
             tilPassword2.getEditText().addTextChangedListener(w);
             w.afterTextChanged(null);
+
+            tilPassword2.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        btnOk.performClick();
+                        return true;
+                    } else
+                        return false;
+                }
+            });
         }
     }
 
@@ -2067,6 +2080,24 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
             return dialog;
+        }
+
+        @Override
+        public void onStart() {
+            super.onStart();
+
+            Button btnOk = ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE);
+
+            tilPassword1.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        btnOk.performClick();
+                        return true;
+                    } else
+                        return false;
+                }
+            });
         }
     }
 

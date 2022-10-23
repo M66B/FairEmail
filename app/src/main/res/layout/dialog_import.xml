@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:autofillHints="password"
                 android:hint="@string/title_setup_password"
-                android:imeOptions="actionNext"
+                android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium">
 
