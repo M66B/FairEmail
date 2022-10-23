@@ -2144,15 +2144,22 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 public void run() {
                                                     super.run();
 
+                                                    long timeout = Helper.WAKELOCK_MAX;
                                                     long start = new Date().getTime();
                                                     try {
-                                                        wlOperations.acquire(Helper.WAKELOCK_MAX);
-
                                                         List<TupleOperationEx> partition;
                                                         synchronized (partitions) {
                                                             partition = partitions.get(key);
                                                             partitions.remove(key);
                                                         }
+
+                                                        for (TupleOperationEx op : partition)
+                                                            if (EntityOperation.SYNC.equals(op.name)) {
+                                                                timeout = 24 * 3600 * 1000L;
+                                                                break;
+                                                            }
+
+                                                        wlOperations.acquire(timeout);
 
                                                         Log.i(account.name + "/" + folder.name +
                                                                 " executing partition=" + key +
@@ -2287,7 +2294,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                         if (wlOperations.isHeld())
                                                             wlOperations.release();
                                                         else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
-                                                            Log.e(key + " released elapse=" + (new Date().getTime() - start));
+                                                            Log.e(key + " released elapse=" + (new Date().getTime() - start) + " timeout=" + timeout);
                                                     }
                                                 }
                                             });
