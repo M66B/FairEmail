@@ -1384,6 +1384,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 continue;
                             }
 
+                            if ("external_storage".equals(key))
+                                continue;
+
                             Object value = jsetting.get("value");
                             String type = jsetting.optString("type");
                             Log.i("Setting name=" + key + " value=" + value + " type=" + type);
