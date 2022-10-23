@@ -502,7 +502,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } finally {
                             if (wl.isHeld())
                                 wl.release();
-                            else if (!isOptimizing)
+                            else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                 Log.e("state#init released elapse=" + (new Date().getTime() - start));
                         }
                     }
@@ -551,7 +551,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } finally {
                             if (wl.isHeld())
                                 wl.release();
-                            else if (!isOptimizing)
+                            else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                 Log.e("state#start released elapse=" + (new Date().getTime() - start));
                         }
                     }
@@ -594,7 +594,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } finally {
                             if (wl.isHeld())
                                 wl.release();
-                            else if (!isOptimizing)
+                            else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                 Log.e("state#stop released elapse=" + (new Date().getTime() - start));
                         }
                     }
@@ -624,7 +624,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } finally {
                             if (wl.isHeld())
                                 wl.release();
-                            else if (!isOptimizing)
+                            else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                 Log.e("state#delete released elapse=" + (new Date().getTime() - start));
                         }
                     }
@@ -681,7 +681,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } finally {
                             if (wl.isHeld())
                                 wl.release();
-                            else if (!isOptimizing)
+                            else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                 Log.e("state#quit released elapse=" + (new Date().getTime() - start));
                         }
                     }
@@ -704,7 +704,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             } finally {
                                 if (wl.isHeld())
                                     wl.release();
-                                else if (!isOptimizing)
+                                else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                     Log.e("state#backup released elapse=" + (new Date().getTime() - start));
                             }
                         }
@@ -1598,7 +1598,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             } finally {
                                 if (wlFolder.isHeld())
                                     wlFolder.release();
-                                else if (!isOptimizing)
+                                else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                     Log.e("folder notice released elapse=" + (new Date().getTime() - start));
                             }
                         }
@@ -1623,7 +1623,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 } finally {
                                     if (wlAccount.isHeld())
                                         wlAccount.release();
-                                    else if (!isOptimizing)
+                                    else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                         Log.e("purge released elapse=" + (new Date().getTime() - start));
                                 }
                             }
@@ -1725,7 +1725,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             } finally {
                                 if (wlFolder.isHeld())
                                     wlFolder.release();
-                                else if (!isOptimizing)
+                                else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                     Log.e("folder created released elapse=" + (new Date().getTime() - start));
                             }
                         }
@@ -1747,7 +1747,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             } finally {
                                 if (wlFolder.isHeld())
                                     wlFolder.release();
-                                else if (!isOptimizing)
+                                else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                     Log.e("folder renamed released elapse=" + (new Date().getTime() - start));
                             }
                         }
@@ -1765,7 +1765,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             } finally {
                                 if (wlFolder.isHeld())
                                     wlFolder.release();
-                                else if (!isOptimizing)
+                                else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                     Log.e("folder deleted released elapse=" + (new Date().getTime() - start));
                             }
                         }
@@ -1785,7 +1785,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             } finally {
                                 if (wlFolder.isHeld())
                                     wlFolder.release();
-                                else if (!isOptimizing)
+                                else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                     Log.e("folder changed released elapse=" + (new Date().getTime() - start));
                             }
                         }
@@ -1908,7 +1908,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     } finally {
                                         if (wlMessage.isHeld())
                                             wlMessage.release();
-                                        else if (!isOptimizing)
+                                        else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                             Log.e("message added released elapse=" + (new Date().getTime() - start));
                                     }
                                 }
@@ -1928,7 +1928,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     } finally {
                                         if (wlMessage.isHeld())
                                             wlMessage.release();
-                                        else if (!isOptimizing)
+                                        else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                             Log.e("message removed released elapse=" + (new Date().getTime() - start));
                                     }
                                 }
@@ -1954,7 +1954,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     } finally {
                                         if (wlMessage.isHeld())
                                             wlMessage.release();
-                                        else if (!isOptimizing)
+                                        else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                             Log.e("message changed released elapse=" + (new Date().getTime() - start));
                                     }
                                 }
@@ -2286,7 +2286,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     } finally {
                                                         if (wlOperations.isHeld())
                                                             wlOperations.release();
-                                                        else if (!isOptimizing)
+                                                        else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                                             Log.e(key + " released elapse=" + (new Date().getTime() - start));
                                                     }
                                                 }
@@ -2471,7 +2471,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             try {
                                 if (wlAccount.isHeld())
                                     wlAccount.release();
-                                else if (!isOptimizing)
+                                else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                     Log.e("keeping alive released elapse=" + (new Date().getTime() - start));
                                 state.acquire(2 * duration, false);
                                 Log.i("### " + account.name + " keeping alive");
@@ -2727,7 +2727,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 db.account().setAccountBackoff(account.id, trigger);
                                 if (wlAccount.isHeld())
                                     wlAccount.release();
-                                else if (!isOptimizing)
+                                else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                                     Log.e("backoff released elapse=" + (new Date().getTime() - start));
                                 state.acquire(2 * backoff * 1000L, true);
                                 Log.i("### " + account.name + " backoff done");
@@ -2754,7 +2754,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     account.name + " stopped running=" + state.isRunning());
             if (wlAccount.isHeld())
                 wlAccount.release();
-            else if (!isOptimizing)
+            else if (!isOptimizing && !BuildConfig.PLAY_STORE_RELEASE)
                 Log.e("account released elapse=" + (new Date().getTime() - start));
         }
     }
