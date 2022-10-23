@@ -4,6 +4,12 @@ Changelog
 
 Mei long
 
+Next version
+
+* Added decryption of protected content, see the FAQ
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.1989 - 2022-10-22
 
 * Fixed British English translation

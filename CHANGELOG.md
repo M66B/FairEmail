@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### Next version
+
+* Added decryption of protected content, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq184)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1989 - 2022-10-22
 
 * Fixed British English translation
