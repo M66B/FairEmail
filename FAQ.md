@@ -3032,7 +3032,7 @@ To authorize a Yahoo/AT&T, AOL, or Sky account you need to use an app password i
 For instructions about how to create an app password, please see here:
 
 * [for Yahoo/AT&T](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password) **Important**: app password generation is broken, [frustrating many people](https://aol.uservoice.com/forums/912886-aol-mail/suggestions/45235399-i-wanted-to-generate-a-third-party-app-password-bu)
+* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password) **Important**: app password generation is broken, [frustrating many people](https://aol.uservoice.com/forums/912886-aol-mail/suggestions/45235399-i-wanted-to-generate-a-third-party-app-password-bu) because this means you can use the AOL app and the browser only.
 * [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
