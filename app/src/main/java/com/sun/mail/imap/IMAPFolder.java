@@ -1625,7 +1625,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
     @Override
     public synchronized Flags getPermanentFlags() {
 	if (permanentFlags == null)
-	    return null;
+	    return new Flags();
 	return (Flags)(permanentFlags.clone());
     }
 
