@@ -3437,8 +3437,7 @@ class Core {
 
             db.folder().setFolderSyncState(folder.id, "syncing");
 
-            Flags flags = ifolder.getPermanentFlags();
-            String[] userFlags = (flags == null ? null : flags.getUserFlags());
+            String[] userFlags = ifolder.getPermanentFlags().getUserFlags();
             if (userFlags != null && userFlags.length > 0) {
                 List<String> keywords = new ArrayList<>(Arrays.asList(userFlags));
                 Collections.sort(keywords);
@@ -3540,11 +3539,12 @@ class Core {
                         : new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time));
 
                 SearchTerm searchTerm = dateTerm;
+                Flags flags = ifolder.getPermanentFlags();
                 if (sync_nodate && !account.isOutlook())
                     searchTerm = new OrTerm(searchTerm, new ReceivedDateTerm(ComparisonTerm.LT, new Date(365 * 24 * 3600 * 1000L)));
-                if (sync_unseen && flags != null && flags.contains(Flags.Flag.SEEN))
+                if (sync_unseen && flags.contains(Flags.Flag.SEEN))
                     searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.SEEN), false));
-                if (sync_flagged && flags != null && flags.contains(Flags.Flag.FLAGGED))
+                if (sync_flagged && flags.contains(Flags.Flag.FLAGGED))
                     searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
 
                 search = SystemClock.elapsedRealtime();
