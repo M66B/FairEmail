@@ -1658,8 +1658,11 @@ public class HtmlHelper {
                         tag.startsWith("html:") || tag.startsWith("body:"));
                 if (display_hidden || show) {
                     String[] nstag = tag.split(":");
-                    e.tagName(nstag[nstag.length > 1 ? 1 : 0]);
-                    Log.i("Updated tag=" + tag + " to=" + e.tagName());
+                    String t = nstag[nstag.length > 1 ? 1 : 0];
+                    if (!TextUtils.isEmpty(t)) {
+                        e.tagName(t);
+                        Log.i("Updated tag=" + tag + " to=" + t);
+                    }
 
                     if (!show) {
                         String style = e.attr("style");
