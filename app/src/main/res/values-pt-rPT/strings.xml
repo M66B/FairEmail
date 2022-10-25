@@ -1224,6 +1224,7 @@
     <string name="title_style_superscript">Super-script</string>
     <string name="title_style_strikethrough">Riscado</string>
     <string name="title_style_protect">Proteção por palavra-passe</string>
+    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Conteúdo protegido</string>
     <string name="title_style_protect_size">Texto muito longo</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir hiperligação</string>
