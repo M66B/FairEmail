@@ -68,7 +68,7 @@ import javax.mail.internet.InternetAddress;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 250,
+        version = 251,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2011,11 +2011,11 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `auto_classify_source` INTEGER NOT NULL DEFAULT 0");
-                        db.execSQL("ALTER TABLE `folder` RENAME COLUMN `auto_classify` TO 'auto_classify_target'");
+                        db.execSQL("ALTER TABLE `folder` ADD COLUMN `auto_classify_target` INTEGER NOT NULL DEFAULT 0");
                         db.execSQL("UPDATE `folder`" +
                                 " SET auto_classify_source = 1" +
                                 " WHERE (SELECT pop FROM account WHERE id = folder.account) = " + EntityAccount.TYPE_IMAP +
-                                " AND (auto_classify_target" +
+                                " AND (auto_classify" +
                                 " OR type = '" + EntityFolder.INBOX + "'" +
                                 " OR type = '" + EntityFolder.JUNK + "')");
                     }
@@ -2504,6 +2504,22 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         db.execSQL("UPDATE `account` SET partial_fetch = 0 WHERE host = 'imap.mail.yahoo.com'");
+                    }
+                }).addMigrations(new Migration(250, 251) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        // RENAME COLUMN workaround
+                        boolean auto_classify;
+                        boolean auto_classify_target;
+                        try (Cursor cursor = db.query("SELECT * FROM `folder` LIMIT 0")) {
+                            auto_classify = (cursor.getColumnIndex("auto_classify") >= 0);
+                            auto_classify_target = (cursor.getColumnIndex("auto_classify_target") >= 0);
+                        }
+                        if (!auto_classify)
+                            db.execSQL("ALTER TABLE `folder` ADD COLUMN `auto_classify` INTEGER NOT NULL DEFAULT 0");
+                        if (!auto_classify_target)
+                            db.execSQL("ALTER TABLE `folder` ADD COLUMN `auto_classify_target` INTEGER NOT NULL DEFAULT 0");
+                        db.execSQL("UPDATE `folder` SET auto_classify_target = auto_classify WHERE auto_classify <> 0");
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override

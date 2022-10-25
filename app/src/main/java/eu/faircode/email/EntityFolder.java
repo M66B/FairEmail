@@ -93,6 +93,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     @NonNull
     public Boolean download = true;
     @NonNull
+    public Boolean auto_classify; // Obsolete
+    @NonNull
     public Boolean auto_classify_source = false;
     @NonNull
     public Boolean auto_classify_target = false;
