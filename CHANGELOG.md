@@ -4,6 +4,10 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1992 - 2022-10-27
+
+* Fixed creating folders
+
 ### 1.1991 - 2022-10-26
 
 * Small improvements and minor bug fixes
