@@ -4,7 +4,7 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### Next version
+### 1.1991 - 2022-10-26
 
 * Small improvements and minor bug fixes
 * Updated AndroidX
