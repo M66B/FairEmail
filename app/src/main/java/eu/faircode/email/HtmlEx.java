@@ -165,7 +165,8 @@ public class HtmlEx {
                 }
             } catch (Throwable ex) {
                 Log.e("withinDiv " + start + "..." + end + "/" + text.length() +
-                        " i=" + i + " n1=" + n1 + " n2=" + n2);
+                        " i=" + i + " n1=" + n1 + " n2=" + n2 +
+                        "\n" + android.util.Log.getStackTraceString(ex));
                 throw ex;
             }
         }
@@ -326,7 +327,8 @@ public class HtmlEx {
                 next++;
             } catch (Throwable ex) {
                 Log.e("withinBlockquoteIndividual " + start + "..." + end + "/" + text.length() +
-                        " i=" + i + " next=" + next);
+                        " i=" + i + " next=" + next +
+                        "\n" + android.util.Log.getStackTraceString(ex));
                 throw ex;
             }
         }
@@ -526,7 +528,8 @@ public class HtmlEx {
                 }
             } catch (Throwable ex) {
                 Log.e("withinParagraph " + start + "..." + end + "/" + text.length() +
-                        " i=" + i + " next=" + next);
+                        " i=" + i + " next=" + next +
+                        "\n" + android.util.Log.getStackTraceString(ex));
                 throw ex;
             }
         }
@@ -567,7 +570,8 @@ public class HtmlEx {
                     out.append(c);
                 }
             } catch (Throwable ex) {
-                Log.e("withinStyle " + start + "..." + end + "/" + text.length() + " i=" + i);
+                Log.e("withinStyle " + start + "..." + end + "/" + text.length() + " i=" + i +
+                        "\n" + android.util.Log.getStackTraceString(ex));
                 throw ex;
             }
         }
