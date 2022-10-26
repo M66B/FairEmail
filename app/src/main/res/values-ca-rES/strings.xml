@@ -8,6 +8,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="app_exit">Premeu «Enrere» novament per sortir</string>
     <string name="app_cake">Espai d’emmagatzematge insuficient</string>
     <string name="app_updated">Darrera actualització: %1$s</string>
+    <string name="app_download">Descarregat de: %1$s</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Correu electrònic</string>
     <string name="channel_progress">Progrés</string>
@@ -104,6 +105,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_setup_help">Ajuda</string>
     <string name="title_setup_quick">Configuració ràpida</string>
     <string name="title_setup_issue">FairEmail va néixer per ajudar-nos a protegir la nostra privacitat y representa literalment milers d\'hores de treball. Si teniu qualsevol problema, si us plau, contacteu amb mi primer demanant suport abans de deixar un comentari negatiu. Sóc feliç ajudant!</string>
+    <string name="title_setup_quick_accounts">Afegiu o canvieu comptes</string>
     <string name="title_setup_quick_imap">Servidor IMAP per rebre missatges</string>
     <string name="title_setup_quick_smtp">Servidor SMTP per enviar missatges</string>
     <string name="title_setup_wizard">Assistent</string>
@@ -131,7 +133,11 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_setup_identity_what">Què és una identitat?</string>
     <string name="title_setup_permissions">Concedeix permisos</string>
     <string name="title_setup_permissions_remark">Per accedir informació de contacte (opcional)</string>
+    <string name="title_setup_permissions_notify">Per mostrar notificacions de missatges nous (opcional)</string>
+    <string name="title_setup_permissions_notify_explanation">Es requereixen permisos de notificacions per mostrar notificacions per missatges nous a la barra d\'estat</string>
     <string name="title_setup_doze">Inhabilita les optimitzacions de bateria</string>
+    <string name="title_setup_doze_remark">Per enviar i rebre correus de forma fiable en segon pla</string>
+    <string name="title_setup_doze_hint">Encara que pugui sonar contradictori, desactivar les optimitzacions de bateria per aquesta aplicació resultarà en menys consum de bateria</string>
     <string name="title_setup_doze_battery">Ús de bateria elevat?</string>
     <string name="title_setup_doze_stopped">S\'ha aturat la sincronització?</string>
     <string name="title_setup_data">L\'estalvi de dades està activat</string>
@@ -143,6 +149,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_setup_still">Encara queda per fer</string>
     <string name="title_setup_error">Error</string>
     <string name="title_setup_configuring">Configurant compte &#8230;</string>
+    <string name="title_setup_close">Tancar preferències</string>
     <string name="title_setup_export">Exporta la configuració</string>
     <string name="title_setup_import">Importa una configuració</string>
     <string name="title_setup_import_do">Els comptes importats s’afegiran sense sobreescriure els ja existents</string>
@@ -387,6 +394,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_deleted_unseen">Si es desactiva, els missatges sense llegir es mantenen al dispositiu per sempre</string>
     <string name="title_advanced_sync_kept_hint">Això transferirà dades addicionals i consumeix energia addicional per a la bateria, especialment si es desen el dispositiu de molts missatges</string>
     <string name="title_advanced_sync_folders_hint">Si el desactiveu, reduireu una mica l’ús de les dades i la bateria, però també desactivareu l’actualització de la llista de carpetes</string>
+    <string name="title_advanced_check_authentication_hint">Això comprovarà els resultats de DKIM, SPF i autenticació DMARC tal com la fa el servidor de correu</string>
     <string name="title_advanced_lookup_mx_hint">Això comprovarà si existeixen registres MX al DNS</string>
     <string name="title_advanced_sync_delay_hint">Això alentirà la sincronització de missatges</string>
     <string name="title_advanced_suggest_local_hint">A més dels contactes proporcionats per Android. Les dades de contacte s’emmagatzemaran per als missatges recentment enviats o rebuts només quan estiguin habilitats.</string>
@@ -515,6 +523,12 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_expand_read">Marca els missatges llegits en expandir-se</string>
     <string name="title_synchronize_now">Sincronitza ara</string>
     <string name="title_synchronize_subfolders">Subcarpetes</string>
+    <string name="title_synchronize_more">Obtenir més missatges</string>
+    <string name="title_synchronize_more_hint">Això resultarà en una sola descàrrega de missatges antics, i per això no suposarà en un ús major de bateria per un ús diari</string>
+    <string name="title_synchronize_more_hint2">        Els missatges s\'obtindran tan de pressa com el servidor de correu pugui entregar-los i emmagatzemats tan de pressa com el dispositiu pugui guardar-los i indexar-los.
+        El factor limitant acostuma a ser la velocitat de l\'emmagatzematge intern del dispositiu.
+    </string>
+    <string name="title_synchronize_more_hint3">Si us plau, tingueu en compte que emmagatzemar molts missatges (deu-mil o més) al vostre dispositiu pot causar aturades, ja que l\'emmagatzematge intern no és infinitament ràpid.</string>
     <string name="title_synchronize_enabled">Sincronitza</string>
     <string name="title_delete_local">Esborra els missatges locals</string>
     <string name="title_delete_browsed">Suprimeix els missatges cercats/navegats</string>
@@ -697,6 +711,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Enviat:</string>
     <string name="title_received">Rebut: </string>
+    <string name="title_stored">Emmagatzemat:</string>
     <string name="title_size">Mida:</string>
     <string name="title_language">Idioma:</string>
     <string name="title_subject">Assumpte:</string>
@@ -1030,6 +1045,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_open_link">Obrir l\'enllaç</string>
     <string name="title_image_link">Enllaç a la imatge</string>
     <string name="title_different_link">El títol i la direcció de l\'enllaç són diferents</string>
+    <string name="title_tracking_link">Aquest lloc web podria rastrejar-vos</string>
     <string name="title_link_http">El tràfic no serà xifrat</string>
     <string name="title_link_https">El tràfic serà xifrat</string>
     <string name="title_sanitize_link">Elimineu els paràmetres de seguiment</string>
@@ -1086,9 +1102,10 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_pro_feature">Això es una característica Pro</string>
     <string name="title_pro_list">Llista de característiques Pro</string>
     <string name="title_pro_purchase">Comprar</string>
-    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
-        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
-        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    <string name="title_pro_info">        Desenvolupar FairEmail ha necessitat literalment milers d\'hores i, malgrat això, la majoria de característiques són gratuïtes.
+        FairEmail es pren la teva privacitat seriosament i no mostra anuncis o us rastreja o analitza per aconseguir diners.
+        Per mantenir i suportar FairEmail a llarg termini, algunes característiques avançades i més còmodes no són gratuïtes.
+        FairEmail mostra un petit missatge per recordar-vos-ho i desapareixerà si compreu les característiques Pro.
     </string>
     <string name="title_pro_hint">Comprar característiques Pro et permet utilitzar tota la funcionalitat Pro actual i futura i mantindrà el desenvolupament de l\'aplicació</string>
     <string name="title_pro_pending">Compra pendent</string>

@@ -1,6 +1,6 @@
 # Posada en marxa i ajuda
 
-Configurar FairEmail és força senzill. Haureu d’afegir almenys un compte per rebre correu electrònic i almenys una identitat si voleu enviar-lo. The quick setup will add an account and an identity in one go for most major providers.
+Configurar FairEmail és força senzill. Haureu d’afegir almenys un compte per rebre correu electrònic i almenys una identitat si voleu enviar-lo. La configuració ràpida afegirà un compte i una identitat simultània per a la majoria de proveïdors principals.
 
 ## Requeriments
 
@@ -8,11 +8,11 @@ Configurar FairEmail és força senzill. Haureu d’afegir almenys un compte per
 
 ## Configuració ràpida
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+Tan sols seleccioneu el proveïdor apropiat o *Altre proveïdor* i escriviu el vostre nom, adreça de correu i contrasenya i premeu *Fet*.
 
-This will work for most email providers.
+Funcionarà per a la majoria de proveïdors de correu electrònic.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+Si la configuració ràpida no funciona, haureu de configurar un compte i una identitat de forma manual, vegeu a continuació les instruccions.
 
 ## Configura compte - per rebre correu electrònic
 

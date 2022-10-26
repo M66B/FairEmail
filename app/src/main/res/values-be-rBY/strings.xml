@@ -94,12 +94,12 @@
         <item quantity="other">Пазначыць %1$d паведамленняў як спам?</item>
     </plurals>
     <string name="title_ask_spam_who">Пазначыць паведамленне ад %1$s як спам?</string>
-    <string name="title_junk_hint">Ваш пастаўшчык электроннай пошты адказвае за фільтрацыю спаму. Прыкладанне электроннай пошты не мае ўсіх дадзеных, неабходных для надзейнага выканання гэтага.</string>
+    <string name="title_junk_hint">Ваш правайдар электроннай пошты адказвае за фільтрацыю спаму. Праграма электроннай пошты не мае ўсіх даных, неабходных для надзейнага выканання гэтай фільтрацыі.</string>
     <string name="title_junk_pop_hint">         Паведамленні ад заблакіраваных адпраўнікоў не будуць загружаецца.
          Калі опцыя \"Пакідаць паведамленні на серверы\" не ўключана, гэтыя паведамленні будуць страчаны назаўсёды!
    </string>
     <string name="title_block">Блакіраваць %1$s</string>
-    <string name="title_block_sender">Заблакаваць адпраўніка</string>
+    <string name="title_block_sender">Заблакіраваць адпраўніка</string>
     <string name="title_block_sender_domain">Блакіраваць дамен \'%1$s\'</string>
     <string name="title_block_sender_hint">         Блакіраванне адпраўніка - бясплатная функцыя.
          Блакіроўка дамена адпраўніка выкарыстоўваюцца правілы фільтра, што з\'яўляецца функцыяй з прафесійнай версіі.
@@ -464,26 +464,56 @@
     <string name="title_advanced_avatars">Паказваць фота кантактаў</string>
     <string name="title_advanced_bimi_unverified">Неправераны адпраўнік</string>
     <string name="title_advanced_bimi_verified">Правераны адпраўнік</string>
-    <string name="title_advanced_favicons">Паказаць лагатыпы сайтаў (favicon)</string>
+    <string name="title_advanced_favicons">Паказаць значкі сайтаў</string>
     <string name="title_advanced_favicons_partial">Сканіраваць толькі першыя %1$s вэб-старонкі</string>
-    <string name="title_advanced_generated_icons">Паказаць генерыраваныя лагатыпы</string>
+    <string name="title_advanced_generated_icons">Паказаць генерыраваныя значкі</string>
+    <string name="title_advanced_identicons">Паказваць значкі ідэнтыфікатараў</string>
+    <string name="title_advanced_circular">Паказваць круглыя значкі</string>
+    <string name="title_advanced_color_saturation">Насычанасць: %1$s %%</string>
+    <string name="title_advanced_color_value">Яркасць: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Парогавы колер літары: %1$s %%</string>
+    <string name="title_advanced_name_email">Адлюстраванне імён і адрасоў электроннай пошты</string>
+    <string name="title_advanced_replace_name">Аддаваць перавагу імю кантакту перад імем адпраўніка</string>
+    <string name="title_advanced_only_name">Адлюстроўваць толькі імёны кантактаў</string>
+    <string name="title_advanced_distinguish_contacts">Падкрэсліваць адпраўніка, калі ён вядомы як лакальны кантакт з поля \'каму\'</string>
     <string name="title_advanced_show_recipients">Паказаць атрымальнікаў у загалоўку паведамлення</string>
+    <string name="title_advanced_font_size_sender">Памер тэксту імя адпраўніка</string>
+    <string name="title_advanced_sender_ellipsize">Пры неабходнасці скарачаць імя адпраўніка</string>
+    <string name="title_advanced_subject_top">Паказваць тэму над полем \'адпраўнік\'</string>
+    <string name="title_advanced_subject_italic">Паказваць тэму курсівам</string>
+    <string name="title_advanced_highlight_subject">Падсвечваць тэму</string>
+    <string name="title_advanced_font_size_subject">Памер тэксту тэмы</string>
+    <string name="title_advanced_subject_ellipsize">Пры неабходнасці скарачаць тэму паведамлення</string>
     <string name="title_advanced_compact_mode_remark">Толькі кампактны рэжым</string>
     <string name="title_advanced_highlight_color">Колер падсветкі</string>
     <string name="title_advanced_keywords">Паказаць ключавыя словы ў загалоўку паведамлення</string>
     <string name="title_advanced_labels">Паказаць ярлыкі Gmail у загалоўку паведамлення</string>
     <string name="title_advanced_flags">Паказваць пазначаныя</string>
+    <string name="title_advanced_flags_background">Замест каляровых пазнак паказваць каляровы фон</string>
     <string name="title_advanced_preview">Паказаць папярэдні выгляд паведамлення</string>
     <string name="title_advanced_preview_italic">Паказаць папярэдні выгляд паведамлення курсівам</string>
+    <string name="title_advanced_preview_lines">Колькасць радкоў для папярэдняга прагляду</string>
+    <string name="title_advanced_addresses">Разгортваць звесткі аб адрасе па змаўчанні</string>
+    <string name="title_advanced_unzip">Паказваць змест сціснутых укладанняў</string>
     <string name="title_advanced_attachments_alt">Паказваць укладанні пасля тэксту паведамлення</string>
     <string name="title_advanced_thumbnails">Паказваць мініяцюры выяў пасля тэксту паведамлення</string>
     <string name="title_advanced_message_text_zoom2">Стандартны маштаб тэксту паведамлення: %1$s %%</string>
     <string name="title_advanced_overview_mode">Павялічваць маштаб арыгінальных паведамленняў пад памер экрана</string>
     <string name="title_advanced_override_width">Адключыць фіксаваную шырыню ў зыходных паведамленнях</string>
+    <string name="title_advanced_hyphenation">Выкарыстоўваць аўтаматычны перанос</string>
     <string name="title_advanced_contrast">Ужываць высокі кантраст да тэксту паведамлення</string>
     <string name="title_advanced_monospaced">Выкарыстоўваць шрыфт аднолькавай шырыні для тэксту паведамлення па змаўчанні</string>
+    <string name="title_advanced_monospaced_pre">Выкарыстоўваць шрыфт аднолькавай шырыні для папярэдне адфармаціраванага тэксту</string>
+    <string name="title_advanced_background_color">Выкарыстоўваць колеры фону</string>
+    <string name="title_advanced_text_color">Выкарыстоўваць колеры тэксту</string>
+    <string name="title_advanced_text_size">Выкарыстоўваць памеры тэксту</string>
     <string name="title_advanced_text_font">Выкарыстоўваць шрыфты</string>
+    <string name="title_advanced_text_align">Выкарыстоўваць выраўноўванне тэксту</string>
     <string name="title_advanced_text_titles">Паказваць {HTML titles}</string>
+    <string name="title_advanced_text_separators">Выкарыстоўваць раздзяляльныя лініі</string>
+    <string name="title_advanced_collapse_quotes">Згортваць тэкст цытаты</string>
+    <string name="title_advanced_image_placeholders">Паказваць запаўняльнікі выяў</string>
+    <string name="title_advanced_images_inline">Аўтаматычна паказваць убудаваныя выявы</string>
     <string name="title_advanced_button_extra">Паказваць дадатковыя кнопкі пад паведамленнем</string>
     <string name="title_advanced_seekbar">Паказваць з дапамогай кропкі адносную пазіцыю размовы</string>
     <string name="title_advanced_actionbar">Паказваць панэль дзеянняў для размовы</string>
@@ -491,7 +521,18 @@
     <string name="title_advanced_category_header">Групаваць паводле катэгорыі ўліковага запісу</string>
     <string name="title_advanced_navbar_colorize">Расфарбаваць панэль навігацыі Android</string>
     <string name="title_advanced_list_count">Паказаць колькасць паведамленняў або размоў у верхняй панэлі дзеянняў</string>
+    <string name="title_advanced_bundled_fonts">Выкарыстоўваць убудаваныя шрыфты</string>
+    <string name="title_advanced_parse_classes">Аналізаваць табліцы стыляў</string>
+    <string name="title_advanced_authentication">Паказаць папярэджанні аўтэнтыфікацыі</string>
+    <string name="title_advanced_authentication_hint">Асноўныя праверкі можна наладзіць у наладах атрымання</string>
+    <string name="title_advanced_authentication_indicator">Паказваць індыкатар стану аўтэнтыфікацыі</string>
+    <string name="title_advanced_authentication_some">Частковая аўтэнтыфікацыя</string>
+    <string name="title_advanced_authentication_all">Поўная аўтэнтыфікацыя</string>
+    <string name="title_advanced_restore_on_launch">Аднаўляць стан праграмы пры запуску</string>
     <string name="title_advanced_sync_on_launch">Сінхранізаваць пры запуску</string>
+    <string name="title_advanced_double_back">Двайное націсканне кнопкі \'назад\' для выхаду</string>
+    <string name="title_advanced_conversation_actions">Прапаноўваць дзеянні (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Прапаноўваць тэксты адказаў (Android 10+)</string>
     <string name="title_advanced_language_detection">Вызначыць мову тэксту паведамлення</string>
     <string name="title_advanced_autoscroll">Пры атрыманні новых паведамленняў перамяшчацца ўверх спіса</string>
     <string name="title_advanced_double_tap">Для адзначэння паведамлення прачытаным/непрачытаным выкарыстоўваць двайное націсканне</string>
@@ -512,6 +553,7 @@
     <string name="title_advanced_auto_important">Аўтаматычна рабіць важнымі пазначаныя паведамленні</string>
     <string name="title_advanced_reset_importance">Скідваць важнасць паведамленняў пры іх перамяшчэнні</string>
     <string name="title_advanced_swipe_reply">Для адказу правядзіце пальцам управа па разгорнутым паведамленні</string>
+    <string name="title_advanced_default_snooze">Час адкладання/затрымкі па змаўчанні</string>
     <string name="title_advanced_notifications">Кіраваць апавяшчэннямі</string>
     <string name="title_advanced_notifications_service">Канал маніторынгу</string>
     <string name="title_advanced_notifications_newest_first">Спачатку паказваць новыя апавяшчэнні</string>
@@ -550,6 +592,7 @@
     <string name="title_advanced_confirm_html">Паказваць адфармаціраваныя паведамленні па змаўчанні</string>
     <string name="title_advanced_ask_html">Пацвярджаць паказ зыходных паведамленняў</string>
     <string name="title_advanced_hide_timezone">Адпраўляць паведамленні без даных пра часавы пояс</string>
+    <string name="title_advanced_client_id">Імя і адрас</string>
     <string name="title_advanced_display_hidden">Адлюстроўваць тэкст схаваных паведамленняў</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_sign_default">Падпісваць па змаўчанні</string>
@@ -613,13 +656,21 @@
     <string name="title_advanced_split_hint">Гэта прывядзе да падзелу экрана на часткі</string>
     <string name="title_advanced_split_min_hint">Гэта ўмова прызначана для раскладных прылад</string>
     <string name="title_advanced_threading_hint">Групаваць паведамленні, звязаныя адно з адным</string>
+    <string name="title_advanced_highlight_hint">Для падсветкі будзе выкарыстоўвацца акцэнтны колер тэмы</string>
     <string name="title_advanced_privacy_risk">Існуе рызыка парушэння канфідэнцыяльнасці</string>
+    <string name="title_advanced_name_email_hint">Імёны будуць паказвацца толькі пры іх наяўнасці</string>
     <string name="title_advanced_preview_hint">Даступна толькі калі тэкст паведамлення спампаваны</string>
+    <string name="title_advanced_preview_lines_hint">Максімальная колькасць сімвалаў: %s</string>
+    <string name="title_advanced_preview_issue">Пракручванне можа быць запаволена з-за памылкі ў некаторых версіях Android, калі колькасць радкоў перавышае 1 радок</string>
+    <string name="title_advanced_overview_mode_hint">Гэта опцыя можа прывесці да адлюстравання вельмі дробных шрыфтоў</string>
     <string name="title_advanced_override_width_hint">Гэта опцыя можа зрабіць паведамленні больш вузкімі, але гэта можа дзіўна выглядаць</string>
     <string name="title_advanced_monospaced_pre_hint">Паведамленні, якія змяшчаюць толькі звычайны тэкст, будуць разглядацца як папярэдне адфармаціраваныя</string>
     <string name="title_advanced_placeholders_hint">Гэта адносіцца толькі да змененых паведамленняў</string>
     <string name="title_advanced_inline_hint">Убудаваныя выявы - гэта выявы, уключаныя ў паведамленне</string>
+    <string name="compressed">Не будзе паказвацца змест для сціснутых файлаў (%1$s), якія маюць %2$s файла і больш або якія змяшчаюць файлы памерам %3$s і больш</string>
     <string name="title_advanced_parse_classes_hint">Гэта опцыя дазволіць больш дакладна адлюстроўваць паведамленні, але з верагоднасцю затрымкі</string>
+    <string name="title_advanced_restore_on_launch_hint">Аднаўляць апошні стан праграмы пры перазагрузцы праз ярлык праграмы на працягу %1$d хвілін</string>
+    <string name="title_advanced_language_detection_hint">Падтрымка вызначэння мовы залежыць ад вытворцы прылады</string>
     <string name="title_advanced_autoexpand_hint">Аўтаматычна адкрываць паведамленне, калі ў размове ёсць толькі адно паведамленне або толькі адно непрачытанае паведамленне</string>
     <string name="title_advanced_expandall_hint">Кнопка адказу не будзе паказвацца пры разгортванні некалькіх паведамленняў, таму што незразумела, да якога паведамлення будзе прымяняцца кнопка</string>
     <string name="title_advanced_autoseen_hint">Аўтаматычнае адзначэнне паведамленняў як прачытаных пры разгортванні можна адключыць у дадатковых наладах кожнага з уліковых запісаў</string>
@@ -628,6 +679,7 @@
     <string name="title_advanced_bcc_hint">Адрас не будзе паказвацца, але будзе дададзены пры адпраўцы</string>
     <string name="title_advanced_internal_hint">Пры адпраўцы на іншы дамен з\'явіцца папярэджанне</string>
     <string name="title_advanced_e2e_encryption">Параметры скразнога шыфравання</string>
+    <string name="title_advanced_badge_hint">Даступна толькі для распаўсюджаных сістэмных абалонак</string>
     <string name="title_advanced_notify_remove_hint">Апавяшчэнні аб новых паведамленнях заўсёды будуць выдаляцца пры іх ссоўванні і адзначэнні паведамленняў прачытанымі</string>
     <string name="title_advanced_notify_manage_service_hint">Дазваляе адключыць \'маніторынгавае\' апавяшчэнне</string>
     <string name="title_advanced_notify_separate_hint">Як мне наладзіць апавяшчэнні для ўліковых запісаў, папак і адпраўнікоў?</string>
@@ -1008,7 +1060,7 @@
     <string name="title_sort_on">Сартаваць паводле</string>
     <string name="title_sort_on_time">Часу</string>
     <string name="title_sort_on_unread">Стану (непрачытаныя)</string>
-    <string name="title_sort_on_starred">Пазнак</string>
+    <string name="title_sort_on_starred">Пазначанае</string>
     <string name="title_sort_on_priority">Прыярытэту</string>
     <string name="title_sort_on_sender">Адпраўніка</string>
     <string name="title_sort_on_subject">Тэмы</string>
@@ -1296,6 +1348,7 @@
     <string name="title_widget_flagged">Толькі пазначаныя паведамленні</string>
     <string name="title_widget_font_size">Памер тэксту</string>
     <string name="title_widget_padding">Памер водступу</string>
+    <string name="title_widget_avatars">Паказваць аватары кантактаў</string>
     <string name="title_widget_refresh">Паказваць кнопку абнаўлення паведамленняў</string>
     <string name="title_widget_compose">Паказаць кнопку для стварэння новага паведамлення</string>
     <string name="title_accessibility_collapsed">Згорнута</string>
@@ -1388,6 +1441,12 @@
         <item>10 хвілін</item>
         <item>20 хвілін</item>
     </string-array>
+    <string-array name="ellipsizeNames">
+        <item>У пачатку</item>
+        <item>У сярэдзіне</item>
+        <item>У канцы</item>
+        <item>Паказваць без скарачэння</item>
+    </string-array>
     <string-array name="priorityNames">
         <item>Нізкі</item>
         <item>Звычайны</item>
@@ -1401,7 +1460,7 @@
     </string-array>
     <string-array name="fontSizeNames">
         <item>Па змаўчанні</item>
-        <item>Маленькі</item>
+        <item>Дробны</item>
         <item>Сярэдні</item>
         <item>Вялікі</item>
     </string-array>
@@ -1450,6 +1509,11 @@
         <item>Фэнтэзі</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Толькі імя</item>
+        <item>Толькі адрас</item>
+        <item>Name and email</item>
+    </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
