@@ -43,6 +43,7 @@ import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -603,7 +604,7 @@ public class HtmlEx {
                     at eu.faircode.email.FragmentCompose$54.onExecute(SourceFile:1)
                     at eu.faircode.email.SimpleTask$2.run(SourceFile:5)
              */
-            return (T[]) new Object[0];
+            return (T[]) Array.newInstance(type, 0);
         }
     }
 }
