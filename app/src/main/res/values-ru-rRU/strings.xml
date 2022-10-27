@@ -647,7 +647,7 @@
     <string name="title_advanced_sign_algo">Алгоритм подписи</string>
     <string name="title_advanced_encrypt_algo">Алгоритм шифрования</string>
     <string name="title_advanced_remark_algo">        Имейте в виду, что не все почтовые клиенты поддерживают все алгоритмы.
-        Алгоритмы по умолчанию (SHA256 и AES128) обычно поддерживаются.
+        Алгоритмы по умолчанию (SHA-256 и AES-128) обычно поддерживаются.
     </string>
     <string name="title_advanced_check_certificate">Проверять публичный ключ при отправке</string>
     <string name="title_advanced_manage_certificates">Управление публичными ключами</string>
@@ -1313,8 +1313,8 @@
     <string name="title_vt_upload">Загрузить</string>
     <string name="title_vt_analyzing">VirusTotal анализирует файл, это может занять некоторое время&#8230;</string>
     <string name="title_from_missing">Отсутствует отправитель</string>
-    <string name="title_pgp_reminder">Доступные ключи PGP</string>
-    <string name="title_smime_reminder">Доступные ключи S/MIME</string>
+    <string name="title_pgp_reminder">Доступны ключи PGP</string>
+    <string name="title_smime_reminder">Доступны ключи S/MIME</string>
     <string name="title_to_missing">Отсутствует получатель</string>
     <string name="title_extra_missing">Отсутствует имя пользователя</string>
     <string name="title_noreply_reminder">Отправка на адрес \"no-reply\"</string>
@@ -1345,7 +1345,7 @@
     <string name="title_alternative_html">Показать HTML</string>
     <string name="title_no_openpgp">OpenKeychain не найдено</string>
     <string name="title_user_interaction">Перенос в OpenKeychain</string>
-    <string name="title_padlock">Использовать замок для расшифровки сообщения</string>
+    <string name="title_padlock">Используйте замок для расшифровки сообщения</string>
     <string name="title_signed_data">Проверить подпись, чтобы показать текст сообщения</string>
     <string name="title_not_encrypted">Сообщение не подписано и не зашифровано</string>
     <string name="title_no_sign_key">Ключ подписи не выбран</string>
