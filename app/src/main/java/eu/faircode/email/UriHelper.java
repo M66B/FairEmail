@@ -330,7 +330,7 @@ public class UriHelper {
             Uri result = (s > 0 ? Uri.parse(path.substring(s + 1)) : null);
             changed = (result != null);
             url = (result == null ? uri : result);
-        } else if (uri.getHost() != null && uri.getHost().equals("go.dhlparcel.nl")) {
+        } else if ("go.dhlparcel.nl".equals(uri.getHost())) {
             try {
                 String path = uri.getPath();
                 int s = path.lastIndexOf('/');
