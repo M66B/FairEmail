@@ -659,6 +659,10 @@ public class ApplicationEx extends Application
                 editor.putBoolean("photo_picker", true);
         } else if (version < 1966)
             editor.remove("hide_timezone");
+        else if (version < 1994) {
+            // 2022-10-28 Spamcop blocks Google's addresses
+            editor.putBoolean("blocklist.Spamcop", false);
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");

@@ -71,7 +71,7 @@ public class DnsBlockList {
                     "127.0.1.106", // abused legit botnet C&C
             }),
 
-            new BlockList(true, "Spamcop", "bl.spamcop.net", true, new String[]{
+            new BlockList(false, "Spamcop", "bl.spamcop.net", true, new String[]{
                     // https://www.spamcop.net/fom-serve/cache/291.html
                     "127.0.0.2",
             }),
