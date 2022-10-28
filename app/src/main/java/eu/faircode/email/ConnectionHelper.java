@@ -60,6 +60,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
+import javax.mail.MessagingException;
 import javax.net.SocketFactory;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -422,6 +423,12 @@ public class ConnectionHelper {
     }
 
     static boolean isIoError(Throwable ex) {
+        if (ex instanceof MessagingException &&
+                ex.getMessage() != null &&
+                ex.getMessage().contains("Got bad greeting") &&
+                ex.getMessage().contains("[EOF]"))
+            return true;
+
         while (ex != null) {
             if (isMaxConnections(ex.getMessage()) ||
                     ex instanceof IOException ||
@@ -435,6 +442,7 @@ public class ConnectionHelper {
                 return true;
             ex = ex.getCause();
         }
+
         return false;
     }
 
