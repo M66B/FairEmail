@@ -238,7 +238,9 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 } finally {
                     if (wl.isHeld())
                         wl.release();
-                    else if (!keepawake)
+                    else if (!keepawake &&
+                            !BuildConfig.PLAY_STORE_RELEASE &&
+                            !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(tcontext)))
                         Log.e(name + " released elapse=" + (new Date().getTime() - start));
                 }
 
