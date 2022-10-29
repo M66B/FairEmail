@@ -5043,12 +5043,15 @@ Sending protected content is a pro feature, decrypting protected content is a fr
 **(185) Can I install FairEmail on Windows?**
 
 Yes, you can if you use Windows 11 or later and install the [Windows Subsystem for Android](https://learn.microsoft.com/en-us/windows/android/wsa/).
+
 You'll need to [download the GitHub version](https://github.com/M66B/FairEmail/releases) of the app and sideload it,
-which means you need to enable developer mode, please [see here](https://learn.microsoft.com/en-us/windows/android/wsa/#test-and-debug) about how to.
+which means that you need to enable developer mode, please [see here](https://learn.microsoft.com/en-us/windows/android/wsa/#test-and-debug),
+and that you need to install adb (platform tools), [see here](https://developer.android.com/studio/command-line/adb).
 
 You can install the app via the Windows command line like this:
 
 ```
+cd /path/to/platform-tools
 adb connect 127.0.0.1:58526
 adb install /path/to/FairEmail-xxx.apk
 ```
