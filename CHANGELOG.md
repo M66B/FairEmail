@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### 1.1994 - 2022-10-29
+
+* Fixed settings export for older devices
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1993 - 2022-10-28
 
 * Fixed rare crash
