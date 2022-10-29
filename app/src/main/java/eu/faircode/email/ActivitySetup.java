@@ -841,6 +841,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     if (TextUtils.isEmpty(password))
                         raw.write(jexport.toString(2).getBytes());
                     else {
+                        // https://developer.android.com/reference/javax/crypto/Cipher
+                        // https://developer.android.com/reference/kotlin/javax/crypto/SecretKeyFactory
                         int version = 0;
                         int ivLen = (version == 0 ? 16 : 12);
                         String derivation = (version == 0 ? "PBKDF2WithHmacSHA1" : "PBKDF2WithHmacSHA512");
