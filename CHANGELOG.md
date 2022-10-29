@@ -4,6 +4,12 @@
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
+### Next version
+
+* Selectable widget opacity for Android 12 and later
+* Small improvements and minor bug fixes
+* Updated libraries
+
 ### 1.1994 - 2022-10-29
 
 * Fixed settings export for older devices
