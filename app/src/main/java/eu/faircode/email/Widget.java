@@ -60,8 +60,12 @@ public class Widget extends AppWidgetProvider {
                     String name = prefs.getString("widget." + appWidgetId + ".name", null);
                     long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
                     boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
-                    boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
-                    int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+                    boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi",
+                            Build.VERSION.SDK_INT < Build.VERSION_CODES.S);
+                    int background = prefs.getInt("widget." + appWidgetId + ".background",
+                            Build.VERSION.SDK_INT < Build.VERSION_CODES.S
+                                    ? Color.TRANSPARENT
+                                    : ColorUtils.setAlphaComponent(Color.BLACK, 127));
                     int layout = prefs.getInt("widget." + appWidgetId + ".layout", 0);
                     int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
 
