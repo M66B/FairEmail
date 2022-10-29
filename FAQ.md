@@ -4023,6 +4023,7 @@ The confusing Microsoft specific server error *User is authenticated but not con
 * Required server components are disabled, please see [this article](https://learn.microsoft.com/en-us/exchange/troubleshoot/user-and-shared-mailboxes/pop3-imap-owa-activesync-office-365) about enabling IMAP, MAPI, etc.
 * Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
 * There were too many login attempts in a too short time, for example by using multiple email clients at the same time
+* The wrong account was selected in the Microsoft account selector, for example an account with a different email address or a personal instead of a business account
 * An ad blocker or DNS changer is being used
 * There is a problem with the Exchange server license: it might be expired or for another server edition
 * An alias email address is being used as username instead of the primary email address
@@ -4042,6 +4043,8 @@ When using a shared mailbox, you might want to enable the option *Synchronize sh
 
 Sometimes it helps to use the *Other provider* wizard instead of the *Outlook/Office 365* wizard.
 You might need an app password for this, please see [this FAQ](#user-content-faq14).
+
+Background: this error happens if logging in to an account succeeded (with OAuth), but logging in to the email (IMAP/SMTP) server fails for some reason.
 
 <br />
 
