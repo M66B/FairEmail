@@ -394,6 +394,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(182) How can I select how a link should be opened?](#user-content-faq182)
 * [(183) How do I use Send?](#user-content-faq183)
 * [(184) How do I password protect content?](#user-content-faq184)
+* [(185) Can I install FairEmail on Windows?](#user-content-faq185)
 
 [I have another question.](#user-content-get-support)
 
@@ -5034,6 +5035,25 @@ You can use [PGP](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) or [S/MIME]
 Protected content is only available in non-Play Store versions of the app (since version 1.1985).
 
 Sending protected content is a pro feature, decrypting protected content is a free feature.
+
+<br />
+
+<a name="faq185"></a>
+**(185) Can I install FairEmail on Windows?**
+
+Yes, you can if you use Windows 11 or later and install the [Windows Subsystem for Android](https://learn.microsoft.com/en-us/windows/android/wsa/).
+You'll need to [download the GitHub version](https://github.com/M66B/FairEmail/releases) of the app and sideload it,
+which means you need to enable developer mode, please [see here](https://learn.microsoft.com/en-us/windows/android/wsa/#test-and-debug) about how to.
+
+You can install the app via the Windows command line like this:
+
+```
+adb connect 127.0.0.1:58526
+adb install /path/to/FairEmail-xxx.apk
+```
+
+The app isn't available in the Amazon store because Amazon rebuilds all Android apps, and unfortunately, the app doesn't work correctly after rebuilding anymore.
+Amazon never responded to an issue reported about this.
 
 <br />
 
