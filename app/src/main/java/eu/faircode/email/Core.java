@@ -297,6 +297,15 @@ class Core {
                                     }
                                     break;
 
+                                case EntityOperation.DOWNLOAD:
+                                    if (EntityOperation.DOWNLOAD.equals(next.name)) {
+                                        JSONArray jnext = new JSONArray(next.args);
+                                        // Same uid
+                                        if (jargs.getLong(0) == jnext.getLong(0))
+                                            skip = true;
+                                    }
+                                    break;
+
                                 case EntityOperation.MOVE:
                                     if (group &&
                                             message.uid != null &&
@@ -538,6 +547,10 @@ class Core {
 
                                 case EntityOperation.RULE:
                                     onRule(context, jargs, message);
+                                    break;
+
+                                case EntityOperation.DOWNLOAD:
+                                    onDownload(context, jargs, account, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 default:
@@ -1785,6 +1798,8 @@ class Core {
                 if (download) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean fast_fetch = prefs.getBoolean("fast_fetch", false);
+
+                    boolean async = false;
                     if (fast_fetch) {
                         long maxSize = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
                         if (maxSize == 0)
@@ -1793,19 +1808,23 @@ class Core {
 
                         if (!message.content)
                             if (state.getNetworkState().isUnmetered() || (message.size != null && message.size < maxSize))
-                                EntityOperation.queue(context, message, EntityOperation.BODY);
+                                async = true;
 
                         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                         for (EntityAttachment attachment : attachments)
                             if (!attachment.available)
                                 if (state.getNetworkState().isUnmetered() || (attachment.size != null && attachment.size < maxSize))
-                                    EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
+                                    async = true;
 
                         if (download_eml &&
                                 (message.raw == null || !message.raw) &&
                                 (state.getNetworkState().isUnmetered() || (message.total != null && message.total < maxSize)))
-                            EntityOperation.queue(context, message, EntityOperation.RAW);
-                    } else
+                            async = true;
+                    }
+
+                    if (async && message.uid != null)
+                        EntityOperation.queue(context, message, EntityOperation.DOWNLOAD, message.uid);
+                    else
                         downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state, stats);
                 }
             }
@@ -2931,6 +2950,15 @@ class Core {
             throw new IllegalArgumentException("Message without content id=" + rule.id + ":" + rule.name);
 
         rule.execute(context, message);
+    }
+
+    private static void onDownload(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException, JSONException {
+        long uid = jargs.getLong(0);
+        if (!Objects.equals(uid, message.uid))
+            throw new IllegalArgumentException("Different uid" + uid + "/" + message.uid);
+
+        MimeMessage imessage = (MimeMessage) ifolder.getMessageByUID(uid);
+        downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state, new SyncStats());
     }
 
     private static void onSynchronizeMessages(

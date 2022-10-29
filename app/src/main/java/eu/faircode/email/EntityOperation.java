@@ -103,6 +103,7 @@ public class EntityOperation {
     static final String PURGE = "purge";
     static final String EXPUNGE = "expunge";
     static final String REPORT = "report";
+    static final String DOWNLOAD = "download";
 
     private static final int MAX_FETCH = 100; // operations
     private static final long FORCE_WITHIN = 30 * 1000; // milliseconds

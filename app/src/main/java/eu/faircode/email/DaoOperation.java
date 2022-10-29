@@ -40,6 +40,7 @@ public interface DaoOperation {
             // Other operations: seen, answered, flag, keyword, label, subscribe, send, rule
             " WHEN operation.name = '" + EntityOperation.SYNC + "' AND folder.account IS NOT NULL THEN 1" +
             " WHEN operation.name = '" + EntityOperation.FETCH + "' THEN 2" +
+            " WHEN operation.name = '" + EntityOperation.DOWNLOAD + "' THEN 3" +
             " WHEN operation.name = '" + EntityOperation.EXISTS + "' THEN 3" +
             " WHEN operation.name = '" + EntityOperation.REPORT + "' THEN 3" +
             " WHEN operation.name = '" + EntityOperation.COPY + "' THEN 4" +
