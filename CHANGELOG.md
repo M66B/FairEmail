@@ -2,13 +2,15 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
-### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
+### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
 ### Next version
 
 * Selectable widget opacity for Android 12 and later
 * Small improvements and minor bug fixes
 * Updated libraries
+
+### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
 ### 1.1994 - 2022-10-29
 

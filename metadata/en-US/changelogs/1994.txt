@@ -2,13 +2,15 @@ Changelog
 
 --------------------
 
-Mei long
+Ninjatitan
 
 Next version
 
 * Selectable widget opacity for Android 12 and later
 * Small improvements and minor bug fixes
 * Updated libraries
+
+Mei long
 
 1.1994 - 2022-10-29
 
