@@ -1502,7 +1502,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     onProgress(ssb, null);
                 }
             }
-        }.execute(this, args, "setup:import");
+        }.setHandler(tvLog.getHandler()).execute(this, args, "setup:import");
     }
 
     private void handleK9Import(Uri uri) {

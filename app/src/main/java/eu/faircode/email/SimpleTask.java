@@ -23,6 +23,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PowerManager;
 import android.view.ContextThemeWrapper;
 
@@ -62,6 +63,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private Lifecycle.State state;
     private Future<?> future;
     private ExecutorService localExecutor;
+    private Handler handler = null;
 
     private static PowerManager.WakeLock wl = null;
     private static ExecutorService globalExecutor = null;
@@ -74,11 +76,13 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
 
+    @NonNull
     public SimpleTask<T> setId(String id) {
         this.id = id;
         return this;
     }
 
+    @NonNull
     public SimpleTask<T> setLog(boolean log) {
         this.log = log;
         if (!log)
@@ -86,21 +90,31 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         return this;
     }
 
+    @NonNull
     public SimpleTask<T> setCount(boolean count) {
         this.count = count;
         return this;
     }
 
+    @NonNull
     public SimpleTask<T> setKeepAwake(boolean value) {
         this.keepawake = value;
         return this;
     }
 
+    @NonNull
     public SimpleTask<T> setExecutor(ExecutorService executor) {
         this.localExecutor = executor;
         return this;
     }
 
+    @NonNull
+    public SimpleTask<T> setHandler(Handler handler) {
+        this.handler = handler;
+        return this;
+    }
+
+    @NonNull
     private ExecutorService getExecutor(Context context) {
         if (wl == null) {
             PowerManager pm = Helper.getSystemService(context, PowerManager.class);
@@ -116,6 +130,11 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         }
 
         return globalExecutor;
+    }
+
+    @NonNull
+    private Handler getHandler() {
+        return (handler == null ? ApplicationEx.getMainHandler() : handler);
     }
 
     public void execute(Context context, LifecycleOwner owner, @NonNull Bundle args, @NonNull String name) {
@@ -385,7 +404,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     protected void postProgress(CharSequence status, Bundle data) {
-        ApplicationEx.getMainHandler().post(new Runnable() {
+        getHandler().post(new Runnable() {
             @Override
             public void run() {
                 try {
