@@ -215,7 +215,8 @@ public class StyleHelper {
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_increase).setEnabled(maxLevel == null);
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
 
-                popupMenu.getMenu().findItem(R.id.menu_style_password).setVisible(!BuildConfig.PLAY_STORE_RELEASE);
+                popupMenu.getMenu().findItem(R.id.menu_style_password)
+                        .setVisible(!BuildConfig.PLAY_STORE_RELEASE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
                 popupMenu.getMenu().findItem(R.id.menu_style_code).setEnabled(BuildConfig.DEBUG);
 
                 popupMenu.insertIcons(context);

@@ -1848,15 +1848,15 @@ Short version: AES 256 bit
 
 Long version:
 
-*Before version 1.1987*
+~~*Before version 1.1987*~~
 
 * A 256 bit key is derived with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
 * The used cipher is *AES/CBC/PKCS5Padding*
 
-*Since version 1.1987*
+~~*Since version 1.1987*~~
 
-* A 256 bit key is derived with *PBKDF2WithHmacSHA512* using a 128 bit secure random salt and 120000 iterations
-* The used cipher is *AES/GCM/NoPadding*
+* ~~A 256 bit key is derived with *PBKDF2WithHmacSHA512* using a 128 bit secure random salt and 120000 iterations~~
+* ~~The used cipher is *AES/GCM/NoPadding*~~
 
 <br />
 
@@ -5033,7 +5033,7 @@ You can use [PGP](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) or [S/MIME]
 
 [Cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting) is prevented by using [DOMPurify](https://github.com/cure53/DOMPurify) (Apache License Version 2.0).
 
-Protected content is only available in non-Play Store versions of the app (since version 1.1985).
+Protected content is only available in non-Play Store versions of the app (since version 1.1985) and requires Android 8 Oreo or later.
 
 Sending protected content is a pro feature, decrypting protected content is a free feature.
 
