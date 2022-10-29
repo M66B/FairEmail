@@ -1187,23 +1187,25 @@ class Core {
             if (!message.content)
                 throw new IllegalArgumentException("Message body missing");
 
-            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-            for (EntityAttachment attachment : attachments)
-                if (EntityAttachment.SMIME_SIGNATURE.equals(attachment.encryption))
-                    for (EntityAttachment content : attachments)
-                        if (EntityAttachment.SMIME_CONTENT.equals(content.encryption)) {
-                            boolean afile = attachment.getFile(context).exists();
-                            boolean cfile = content.getFile(context).exists();
-                            if (!attachment.available || !afile || !content.available || !cfile) {
-                                Log.e("S/MIME vanished" +
-                                        " available=" + attachment.available + "/" + content.available +
-                                        " file=" + afile + "/" + cfile);
-                                db.attachment().setAvailable(attachment.id, false);
-                                db.attachment().setAvailable(content.id, false);
-                                db.attachment().setEncryption(attachment.id, null);
-                                db.attachment().setEncryption(content.id, null);
+            if (!BuildConfig.DEBUG) {
+                List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                for (EntityAttachment attachment : attachments)
+                    if (EntityAttachment.SMIME_SIGNATURE.equals(attachment.encryption))
+                        for (EntityAttachment content : attachments)
+                            if (EntityAttachment.SMIME_CONTENT.equals(content.encryption)) {
+                                boolean afile = attachment.getFile(context).exists();
+                                boolean cfile = content.getFile(context).exists();
+                                if (!attachment.available || !afile || !content.available || !cfile) {
+                                    Log.e("S/MIME vanished" +
+                                            " available=" + attachment.available + "/" + content.available +
+                                            " file=" + afile + "/" + cfile);
+                                    db.attachment().setAvailable(attachment.id, false);
+                                    db.attachment().setAvailable(content.id, false);
+                                    db.attachment().setEncryption(attachment.id, null);
+                                    db.attachment().setEncryption(content.id, null);
+                                }
                             }
-                        }
+            }
 
             imessage = MessageHelper.from(context, message, null, isession, false);
 
