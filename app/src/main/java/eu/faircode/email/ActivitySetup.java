@@ -841,19 +841,34 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     if (TextUtils.isEmpty(password))
                         raw.write(jexport.toString(2).getBytes());
                     else {
+                        int version = 0;
+                        int ivLen = (version == 0 ? 16 : 12);
+                        String derivation = (version == 0 ? "PBKDF2WithHmacSHA1" : "PBKDF2WithHmacSHA512");
+                        int iterations = (version == 0 ? 65536 : 120000);
+                        int keyLen = 256;
+                        String transformation = (version == 0 ? "AES/CBC/PKCS5Padding" : "AES/GCM/NoPadding");
+                        Log.i("Export version=" + version +
+                                " ivLen=" + ivLen +
+                                " derivation=" + derivation +
+                                " iterations=" + iterations +
+                                " keyLen=" + keyLen +
+                                " transformation=" + transformation);
+
                         byte[] salt = new byte[16];
                         SecureRandom random = new SecureRandom();
                         random.nextBytes(salt);
 
                         // https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#Cipher
-                        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
-                        KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, 120000, 256);
+                        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(derivation);
+                        KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, iterations, keyLen);
                         SecretKey secret = keyFactory.generateSecret(keySpec);
-                        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+                        Cipher cipher = Cipher.getInstance(transformation);
                         cipher.init(Cipher.ENCRYPT_MODE, secret);
 
-                        raw.write("___FairEmail___".getBytes(StandardCharsets.US_ASCII));
-                        raw.write(1); // version
+                        if (version > 0) {
+                            raw.write("___FairEmail___".getBytes(StandardCharsets.US_ASCII));
+                            raw.write(version); // version
+                        }
                         raw.write(salt);
                         raw.write(cipher.getIV());
 
