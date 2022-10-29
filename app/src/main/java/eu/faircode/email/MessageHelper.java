@@ -2444,9 +2444,10 @@ public class MessageHelper {
         if (semi > 0)
             header = header.substring(0, semi);
 
-        if (header.contains("using TLS") ||
-                header.contains("via HTTP") ||
-                header.contains("version=TLS")) {
+        String h = header.toLowerCase(Locale.ROOT);
+        if (h.contains("using tls") ||
+                h.contains("via http") ||
+                h.contains("version=tls")) {
             Log.i("--- found TLS");
             return true;
         }
