@@ -498,20 +498,31 @@ public class FragmentCompose extends FragmentBase {
             }
         };
 
+        View.OnFocusChangeListener focusListener = new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus)
+                    updateEncryption((EntityIdentity) spIdentity.getSelectedItem());
+            }
+        };
+
         etTo.setMaxLines(Integer.MAX_VALUE);
         etTo.setHorizontallyScrolling(false);
         etTo.setOnTouchListener(onTouchListener);
         etTo.setOnLongClickListener(longClickListener);
+        etTo.setOnFocusChangeListener(focusListener);
 
         etCc.setMaxLines(Integer.MAX_VALUE);
         etCc.setHorizontallyScrolling(false);
         etCc.setOnTouchListener(onTouchListener);
         etCc.setOnLongClickListener(longClickListener);
+        etCc.setOnFocusChangeListener(focusListener);
 
         etBcc.setMaxLines(Integer.MAX_VALUE);
         etBcc.setHorizontallyScrolling(false);
         etBcc.setOnTouchListener(onTouchListener);
         etBcc.setOnLongClickListener(longClickListener);
+        etBcc.setOnFocusChangeListener(focusListener);
 
         etSubject.setMaxLines(Integer.MAX_VALUE);
         etSubject.setHorizontallyScrolling(false);
@@ -1524,6 +1535,95 @@ public class FragmentCompose extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(FragmentCompose.this, args, "compose:contact");
+    }
+
+    private void updateEncryption(EntityIdentity identity) {
+        if (identity == null)
+            return;
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putLong("identity", identity.id);
+        args.putString("to", etTo.getText().toString().trim());
+        args.putString("cc", etCc.getText().toString().trim());
+        args.putString("bcc", etBcc.getText().toString().trim());
+
+        new SimpleTask<Integer>() {
+            @Override
+            protected Integer onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                long iid = args.getLong("identity");
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean sign_default = prefs.getBoolean("sign_default", false);
+                boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
+                boolean encrypt_auto = prefs.getBoolean("encrypt_auto", false);
+
+                DB db = DB.getInstance(context);
+
+                EntityMessage draft = db.message().getMessage(id);
+                if (draft == null)
+                    return null;
+
+                if (draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn))
+                    return null;
+
+                EntityIdentity identity = db.identity().getIdentity(iid);
+                if (identity == null)
+                    return draft.ui_encrypt;
+
+                if (identity.encrypt == 0 && !Helper.isOpenKeychainInstalled(context))
+                    draft.ui_encrypt = null;
+                else if (encrypt_default || identity.encrypt_default)
+                    draft.ui_encrypt = (identity.encrypt == 0
+                            ? EntityMessage.PGP_SIGNENCRYPT
+                            : EntityMessage.SMIME_SIGNENCRYPT);
+                else if (sign_default || identity.sign_default)
+                    draft.ui_encrypt = (identity.encrypt == 0
+                            ? EntityMessage.PGP_SIGNONLY
+                            : EntityMessage.SMIME_SIGNONLY);
+                else
+                    draft.ui_encrypt = null;
+
+                if (encrypt_auto)
+                    try {
+                        InternetAddress[] to = MessageHelper.parseAddresses(context, args.getString("to"));
+                        InternetAddress[] cc = MessageHelper.parseAddresses(context, args.getString("cc"));
+                        InternetAddress[] bcc = MessageHelper.parseAddresses(context, args.getString("bcc"));
+
+                        List<Address> recipients = new ArrayList<>();
+                        if (to != null)
+                            recipients.addAll(Arrays.asList(to));
+                        if (cc != null)
+                            recipients.addAll(Arrays.asList(cc));
+                        if (bcc != null)
+                            recipients.addAll(Arrays.asList(bcc));
+
+                        if (identity.encrypt == 0 && PgpHelper.hasPgpKey(context, recipients, true))
+                            draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                        else if (identity.encrypt == 1 && SmimeHelper.hasSmimeKey(context, recipients, true))
+                            draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+                        else
+                            draft.ui_encrypt = null;
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+
+                db.message().setMessageUiEncrypt(draft.id, draft.ui_encrypt);
+
+                return draft.ui_encrypt;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Integer encrypt) {
+                FragmentCompose.this.encrypt = encrypt;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.setExecutor(executor).execute(FragmentCompose.this, args, "compose:identity");
     }
 
     private void onReferenceEdit() {
@@ -7200,67 +7300,6 @@ public class FragmentCompose extends FragmentBase {
             setBodyPadding();
 
             updateEncryption(null);
-        }
-
-        private void updateEncryption(EntityIdentity identity) {
-            if (identity == null)
-                return;
-
-            Bundle args = new Bundle();
-            args.putLong("id", working);
-            args.putLong("identity", identity.id);
-
-            new SimpleTask<Integer>() {
-                @Override
-                protected Integer onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-                    long iid = args.getLong("identity");
-
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean sign_default = prefs.getBoolean("sign_default", false);
-                    boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
-
-                    DB db = DB.getInstance(context);
-
-                    EntityMessage draft = db.message().getMessage(id);
-                    if (draft == null)
-                        return null;
-
-                    if (draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn))
-                        return null;
-
-                    EntityIdentity identity = db.identity().getIdentity(iid);
-                    if (identity == null)
-                        return draft.ui_encrypt;
-
-                    if (identity.encrypt == 0 && !Helper.isOpenKeychainInstalled(context))
-                        draft.ui_encrypt = null;
-                    else if (encrypt_default || identity.encrypt_default)
-                        draft.ui_encrypt = (identity.encrypt == 0
-                                ? EntityMessage.PGP_SIGNENCRYPT
-                                : EntityMessage.SMIME_SIGNENCRYPT);
-                    else if (sign_default || identity.sign_default)
-                        draft.ui_encrypt = (identity.encrypt == 0
-                                ? EntityMessage.PGP_SIGNONLY
-                                : EntityMessage.SMIME_SIGNONLY);
-                    else
-                        draft.ui_encrypt = null;
-
-                    db.message().setMessageUiEncrypt(draft.id, draft.ui_encrypt);
-
-                    return draft.ui_encrypt;
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, Integer encrypt) {
-                    FragmentCompose.this.encrypt = encrypt;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getParentFragmentManager(), ex);
-                }
-            }.setExecutor(executor).execute(FragmentCompose.this, args, "compose:identity");
         }
     };
 

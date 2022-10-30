@@ -86,6 +86,7 @@ public class FragmentOptionsEncryption extends FragmentBase
     private ImageButton ibInfo;
     private SwitchCompat swSign;
     private SwitchCompat swEncrypt;
+    private SwitchCompat swEncryptAuto;
     private SwitchCompat swAutoDecrypt;
     private SwitchCompat swAutoUndoDecrypt;
 
@@ -115,7 +116,8 @@ public class FragmentOptionsEncryption extends FragmentBase
     static final int REQUEST_IMPORT_CERTIFICATE = 1;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "sign_default", "encrypt_default", "auto_decrypt", "auto_undecrypt",
+            "sign_default", "encrypt_default", "encrypt_auto",
+            "auto_decrypt", "auto_undecrypt",
             "openpgp_provider", "autocrypt", "autocrypt_mutual", "encrypt_subject",
             "sign_algo_smime", "encrypt_algo_smime", "check_certificate"
     };
@@ -135,6 +137,7 @@ public class FragmentOptionsEncryption extends FragmentBase
         ibInfo = view.findViewById(R.id.ibInfo);
         swSign = view.findViewById(R.id.swSign);
         swEncrypt = view.findViewById(R.id.swEncrypt);
+        swEncryptAuto = view.findViewById(R.id.swEncryptAuto);
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
         swAutoUndoDecrypt = view.findViewById(R.id.swAutoUndoDecrypt);
 
@@ -210,6 +213,13 @@ public class FragmentOptionsEncryption extends FragmentBase
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("encrypt_default", checked).apply();
                 swSign.setEnabled(!checked);
+            }
+        });
+
+        swEncryptAuto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("encrypt_auto", checked).apply();
             }
         });
 
@@ -606,6 +616,7 @@ public class FragmentOptionsEncryption extends FragmentBase
         swSign.setChecked(prefs.getBoolean("sign_default", false));
         swEncrypt.setChecked(prefs.getBoolean("encrypt_default", false));
         swSign.setEnabled(!swEncrypt.isChecked());
+        swEncryptAuto.setChecked(prefs.getBoolean("encrypt_auto", false));
         swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
         swAutoUndoDecrypt.setChecked(prefs.getBoolean("auto_undecrypt", false));
 
