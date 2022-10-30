@@ -1822,7 +1822,7 @@ class Core {
                             async = true;
                     }
 
-                    if (async && message.uid != null)
+                    if (async && message.uid != null && !message.ui_hide)
                         EntityOperation.queue(context, message, EntityOperation.DOWNLOAD, message.uid);
                     else
                         downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state, stats);
