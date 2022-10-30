@@ -2,15 +2,15 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
-### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
+### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
-### Next version
+### 1.1995 - 2022-10-30
 
-* Selectable widget opacity for Android 12 and later
+* Added selectable widget opacity for Android 12 and later
+* Added option to auto encrypt when all public keys are available
 * Small improvements and minor bug fixes
 * Updated libraries
-
-### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
+* Updated translations
 
 ### 1.1994 - 2022-10-29
 
