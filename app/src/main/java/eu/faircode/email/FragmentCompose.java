@@ -1576,9 +1576,7 @@ public class FragmentCompose extends FragmentBase {
                 if (identity == null)
                     return draft.ui_encrypt;
 
-                if (identity.encrypt == 0 && !Helper.isOpenKeychainInstalled(context))
-                    draft.ui_encrypt = null;
-                else if (encrypt_default || identity.encrypt_default)
+                if (encrypt_default || identity.encrypt_default)
                     draft.ui_encrypt = (identity.encrypt == 0
                             ? EntityMessage.PGP_SIGNENCRYPT
                             : EntityMessage.SMIME_SIGNENCRYPT);
@@ -4960,17 +4958,16 @@ public class FragmentCompose extends FragmentBase {
                                 !"editasnew".equals(action))
                             data.draft.plain_only = 1;
 
-                        if (selected.encrypt != 0 || Helper.isOpenKeychainInstalled(context))
-                            if (encrypt_default || selected.encrypt_default)
-                                if (selected.encrypt == 0)
-                                    data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
-                                else
-                                    data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
-                            else if (sign_default || selected.sign_default)
-                                if (selected.encrypt == 0)
-                                    data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
-                                else
-                                    data.draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
+                        if (encrypt_default || selected.encrypt_default)
+                            if (selected.encrypt == 0)
+                                data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                            else
+                                data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+                        else if (sign_default || selected.sign_default)
+                            if (selected.encrypt == 0)
+                                data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
+                            else
+                                data.draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
                     }
 
                     if (receipt_default)
