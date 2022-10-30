@@ -186,6 +186,7 @@ public class FragmentOperations extends FragmentBase {
 
                                         if (fetch) {
                                             addAll(ops, db.operation().getOperations(EntityOperation.FETCH));
+                                            addAll(ops, db.operation().getOperations(EntityOperation.DOWNLOAD));
                                             addAll(ops, db.operation().getOperations(EntityOperation.BODY));
                                             addAll(ops, db.operation().getOperations(EntityOperation.ATTACHMENT));
                                             addAll(ops, db.operation().getOperations(EntityOperation.HEADERS));
