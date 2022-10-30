@@ -4856,16 +4856,17 @@ public class FragmentCompose extends FragmentBase {
                                 !"editasnew".equals(action))
                             data.draft.plain_only = 1;
 
-                        if (encrypt_default || selected.encrypt_default)
-                            if (selected.encrypt == 0)
-                                data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
-                            else
-                                data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
-                        else if (sign_default || selected.sign_default)
-                            if (selected.encrypt == 0)
-                                data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
-                            else
-                                data.draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
+                        if (selected.encrypt != 0 || Helper.isOpenKeychainInstalled(context))
+                            if (encrypt_default || selected.encrypt_default)
+                                if (selected.encrypt == 0)
+                                    data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                                else
+                                    data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+                            else if (sign_default || selected.sign_default)
+                                if (selected.encrypt == 0)
+                                    data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
+                                else
+                                    data.draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
                     }
 
                     if (receipt_default)
@@ -7232,24 +7233,18 @@ public class FragmentCompose extends FragmentBase {
                     if (identity == null)
                         return draft.ui_encrypt;
 
-                    if (encrypt_default || identity.encrypt_default)
-                        draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                    if (identity.encrypt == 0 && !Helper.isOpenKeychainInstalled(context))
+                        draft.ui_encrypt = null;
+                    else if (encrypt_default || identity.encrypt_default)
+                        draft.ui_encrypt = (identity.encrypt == 0
+                                ? EntityMessage.PGP_SIGNENCRYPT
+                                : EntityMessage.SMIME_SIGNENCRYPT);
                     else if (sign_default || identity.sign_default)
-                        draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
+                        draft.ui_encrypt = (identity.encrypt == 0
+                                ? EntityMessage.PGP_SIGNONLY
+                                : EntityMessage.SMIME_SIGNONLY);
                     else
                         draft.ui_encrypt = null;
-
-                    if (identity.encrypt == 0) {
-                        if (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt))
-                            draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
-                        else if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt))
-                            draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
-                    } else {
-                        if (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt))
-                            draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
-                        else if (EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt))
-                            draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
-                    }
 
                     db.message().setMessageUiEncrypt(draft.id, draft.ui_encrypt);
 
