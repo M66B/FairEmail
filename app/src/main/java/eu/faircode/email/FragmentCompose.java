@@ -7759,18 +7759,6 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
-            if (Helper.isOpenKeychainInstalled(context)) {
-                tvEncrypt.setPaintFlags(tvEncrypt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-                tvEncrypt.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String pkg = Helper.getOpenKeychainPackage(v.getContext());
-                        PackageManager pm = v.getContext().getPackageManager();
-                        v.getContext().startActivity(pm.getLaunchIntentForPackage(pkg));
-                    }
-                });
-            }
-
             spEncrypt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -7778,6 +7766,23 @@ public class FragmentCompose extends FragmentBase {
                     if (last != position) {
                         spEncrypt.setTag(position);
                         setEncrypt(encryptValues[position]);
+
+                        if ((encryptValues[position] == EntityMessage.PGP_SIGNONLY ||
+                                encryptValues[position] == EntityMessage.PGP_SIGNENCRYPT) &&
+                                Helper.isOpenKeychainInstalled(context)) {
+                            tvEncrypt.setPaintFlags(tvEncrypt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                            tvEncrypt.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    String pkg = Helper.getOpenKeychainPackage(v.getContext());
+                                    PackageManager pm = v.getContext().getPackageManager();
+                                    v.getContext().startActivity(pm.getLaunchIntentForPackage(pkg));
+                                }
+                            });
+                        } else {
+                            tvEncrypt.setPaintFlags(tvEncrypt.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
+                            tvEncrypt.setOnClickListener(null);
+                        }
                     }
                 }
 
