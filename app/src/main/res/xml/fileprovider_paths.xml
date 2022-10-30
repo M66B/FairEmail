@@ -7,7 +7,7 @@
         name="external"
         path="attachments" />
     <external-files-path
-        name="external"
+        name="external-files"
         path="attachments" />
     <files-path
         name="raw"
