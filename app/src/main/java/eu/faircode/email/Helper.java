@@ -606,12 +606,17 @@ public class Helper {
     static boolean isOpenKeychainInstalled(Context context) {
         String provider = getOpenKeychainPackage(context);
 
-        PackageManager pm = context.getPackageManager();
-        Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
-        intent.setPackage(provider);
-        List<ResolveInfo> ris = pm.queryIntentServices(intent, 0);
+        try {
+            PackageManager pm = context.getPackageManager();
+            Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
+            intent.setPackage(provider);
+            List<ResolveInfo> ris = pm.queryIntentServices(intent, 0);
 
-        return (ris != null && ris.size() > 0);
+            return (ris != null && ris.size() > 0);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 
     static boolean isInstalled(Context context, String pkg) {
@@ -620,6 +625,7 @@ public class Helper {
             pm.getPackageInfo(pkg, 0);
             return true;
         } catch (Throwable ex) {
+            Log.i(ex);
             return false;
         }
     }
