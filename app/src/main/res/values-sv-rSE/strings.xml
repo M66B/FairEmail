@@ -1213,7 +1213,7 @@
     <string name="title_style_superscript">Upphöjd text</string>
     <string name="title_style_strikethrough">Genomstruken</string>
     <string name="title_style_protect">Lösenordsskydda</string>
-    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Skyddat innehåll</string>
+    <string name="title_style_protected">Skyddat innehåll</string>
     <string name="title_style_protect_size">Texten är för lång</string>
     <string name="title_style_clear">Rensa formatering</string>
     <string name="title_style_link">Infoga länk</string>

@@ -612,6 +612,7 @@
     <string name="title_advanced_clear_all_remark">Tətbiq verilənləri geri qaytarılmayacaq formada silinəcək!</string>
     <string name="title_advanced_sign_default">İlkin olaraq imzala</string>
     <string name="title_advanced_encrypt_default">İlkin olaraq şifrələ</string>
+    <string name="title_advanced_encrypt_auto" comment="title_advanced_encrypt_auto&#10;Option title">Bütün ictimai açarlar əlçatan olduqda avtomatik şifrələ</string>
     <string name="title_advanced_auto_decrypt">Mesajların şifrələrini avtomatik aç</string>
     <string name="title_advanced_auto_undo_decrypt">Danışığı bağlayanda şifrə açmanı geri al</string>
     <string name="title_advanced_openpgp">OpenPGP təchizatçısı</string>
@@ -1224,7 +1225,7 @@
     <string name="title_style_superscript">Üst indeks</string>
     <string name="title_style_strikethrough">Üstündən xətt</string>
     <string name="title_style_protect">Parol qoruması</string>
-    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Qorunan məzmun</string>
+    <string name="title_style_protected">Qorunan məzmun</string>
     <string name="title_style_protect_size">Mətn çox uzundur</string>
     <string name="title_style_clear">Formatları təmizlə</string>
     <string name="title_style_link">Bağlantı daxil et</string>

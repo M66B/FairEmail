@@ -1233,7 +1233,7 @@
     <string name="title_style_superscript">Exponent</string>
     <string name="title_style_strikethrough">Tăiat</string>
     <string name="title_style_protect">Protejează cu parolă</string>
-    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Conținut protejat</string>
+    <string name="title_style_protected">Conținut protejat</string>
     <string name="title_style_protect_size">Textul este prea lung</string>
     <string name="title_style_clear">Elimină toate formatările</string>
     <string name="title_style_link">Inserare legătură</string>

@@ -610,6 +610,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_clear_all_remark">De app gegevens worden onomkeerbaar verwijderd!</string>
     <string name="title_advanced_sign_default">Standaard ondertekenen</string>
     <string name="title_advanced_encrypt_default">Standaard versleutelen</string>
+    <string name="title_advanced_encrypt_auto" comment="title_advanced_encrypt_auto&#10;Option title">Automatisch versleutelen wanneer alle openbare sleutels beschikbaar zijn</string>
     <string name="title_advanced_auto_decrypt">Berichten automatisch ontsleutelen</string>
     <string name="title_advanced_auto_undo_decrypt">Maak het ontsleutelen ongedaan bij het sluiten van het gesprek</string>
     <string name="title_advanced_openpgp">OpenPGP provider</string>
@@ -1218,7 +1219,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_style_superscript">Superscript</string>
     <string name="title_style_strikethrough">Doorhalen</string>
     <string name="title_style_protect">Beveilig met wachtwoord</string>
-    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Beschermde inhoud</string>
+    <string name="title_style_protected">Beschermde inhoud</string>
     <string name="title_style_protect_size">Te lange tekst</string>
     <string name="title_style_clear">Opmaak wissen</string>
     <string name="title_style_link">Koppeling invoegen</string>

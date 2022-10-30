@@ -1205,7 +1205,7 @@
     <string name="title_style_superscript">上标</string>
     <string name="title_style_strikethrough">删除线</string>
     <string name="title_style_protect">密码保护</string>
-    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">受保护的内容</string>
+    <string name="title_style_protected">受保护的内容</string>
     <string name="title_style_protect_size">文本过长</string>
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>

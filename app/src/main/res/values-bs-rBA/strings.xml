@@ -625,6 +625,7 @@
     <string name="title_advanced_clear_all_remark">Podaci aplikacije izbrisat će se nepovratno!</string>
     <string name="title_advanced_sign_default">Potpiši po zadanom</string>
     <string name="title_advanced_encrypt_default">Šifriraj po zadanom</string>
+    <string name="title_advanced_encrypt_auto" comment="title_advanced_encrypt_auto&#10;Option title">Automatski šifriraj kada svi javni ključevi budu dostupni</string>
     <string name="title_advanced_auto_decrypt">Automatski dešifriraj poruke</string>
     <string name="title_advanced_auto_undo_decrypt">Poništi dešifriranje pri zatvaranju konverzacije</string>
     <string name="title_advanced_openpgp">OpenPGP provajder</string>
@@ -1237,7 +1238,7 @@
     <string name="title_style_superscript">Eksponent</string>
     <string name="title_style_strikethrough">Precrtano</string>
     <string name="title_style_protect">Zaštićeno lozinkom</string>
-    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Zaštićeni sadržaj</string>
+    <string name="title_style_protected">Zaštićeni sadržaj</string>
     <string name="title_style_protect_size">Tekst predug</string>
     <string name="title_style_clear">Očisti formatiranje</string>
     <string name="title_style_link">Ubaci link</string>

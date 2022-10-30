@@ -612,6 +612,7 @@
     <string name="title_advanced_clear_all_remark">Les données de l\'application seront définitivement supprimées !</string>
     <string name="title_advanced_sign_default">Signer par défaut</string>
     <string name="title_advanced_encrypt_default">Chiffrer par défaut</string>
+    <string name="title_advanced_encrypt_auto" comment="title_advanced_encrypt_auto&#10;Option title">Chiffrer automatiquement lorsque toutes les clés publiques sont disponibles</string>
     <string name="title_advanced_auto_decrypt">Déchiffrer automatiquement les messages</string>
     <string name="title_advanced_auto_undo_decrypt">Annuler le déchiffrement lors de la fermeture de la conversation</string>
     <string name="title_advanced_openpgp">Fournisseur OpenPGP</string>
@@ -1225,7 +1226,7 @@
     <string name="title_style_superscript">Exposant</string>
     <string name="title_style_strikethrough">Barrer</string>
     <string name="title_style_protect">Protéger par mot de passe</string>
-    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Contenu protégé</string>
+    <string name="title_style_protected">Contenu protégé</string>
     <string name="title_style_protect_size">Texte trop long</string>
     <string name="title_style_clear">Effacer la mise en forme</string>
     <string name="title_style_link">Insérer un lien</string>

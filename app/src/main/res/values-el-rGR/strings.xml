@@ -1218,7 +1218,7 @@
     <string name="title_style_superscript">Εκθέτης</string>
     <string name="title_style_strikethrough">Διακριτή διαγραφή</string>
     <string name="title_style_protect">Προστασία με κωδικό πρόσβασης</string>
-    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Προστατευόμενο περιεχόμενο</string>
+    <string name="title_style_protected">Προστατευόμενο περιεχόμενο</string>
     <string name="title_style_protect_size">Πολύ μεγάλο κείμενο</string>
     <string name="title_style_clear">Εκκαθάριση μορφοποίησης</string>
     <string name="title_style_link">Εισαγωγή συνδέσμου</string>

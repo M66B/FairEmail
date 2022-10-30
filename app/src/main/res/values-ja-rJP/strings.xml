@@ -1211,7 +1211,7 @@
     <string name="title_style_superscript">上付き文字</string>
     <string name="title_style_strikethrough">取り消し線</string>
     <string name="title_style_protect">パスワード保護</string>
-    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">保護されたコンテンツ</string>
+    <string name="title_style_protected">保護されたコンテンツ</string>
     <string name="title_style_protect_size">テキストが長すぎます</string>
     <string name="title_style_clear">書式をクリア</string>
     <string name="title_style_link">リンクを挿入</string>

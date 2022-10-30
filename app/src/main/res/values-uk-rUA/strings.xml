@@ -638,6 +638,7 @@
     <string name="title_advanced_clear_all_remark">Дані застосунку будуть видалені назавжди!</string>
     <string name="title_advanced_sign_default">Підписати за замовчуванням</string>
     <string name="title_advanced_encrypt_default">Шифрувати за замовчуванням</string>
+    <string name="title_advanced_encrypt_auto" comment="title_advanced_encrypt_auto&#10;Option title">Автоматично шифрувати при наявності всіх публічних ключів</string>
     <string name="title_advanced_auto_decrypt">Автоматично розшифрувати повідомлення</string>
     <string name="title_advanced_auto_undo_decrypt">Скасувати дешифрування при закритті розмови</string>
     <string name="title_advanced_openpgp">OpenPGP додаток</string>
@@ -1247,7 +1248,7 @@
     <string name="title_style_superscript">Верхній індекс</string>
     <string name="title_style_strikethrough">Закреслений</string>
     <string name="title_style_protect">Захист паролем</string>
-    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Захищений вміст</string>
+    <string name="title_style_protected">Захищений вміст</string>
     <string name="title_style_protect_size">Задовгий текст</string>
     <string name="title_style_clear">Очистити форматування</string>
     <string name="title_style_link">Вставити посилання</string>

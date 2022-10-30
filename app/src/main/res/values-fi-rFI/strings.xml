@@ -1220,7 +1220,7 @@
     <string name="title_style_superscript">Yläindeksi</string>
     <string name="title_style_strikethrough">Yliviivattu</string>
     <string name="title_style_protect">Salasanasuojaus</string>
-    <string name="title_style_protected" comment="title_style_protected&#10;Title of dialog to decrypt protect content">Suojattu sisältö</string>
+    <string name="title_style_protected">Suojattu sisältö</string>
     <string name="title_style_protect_size">Liian pitkä teksti</string>
     <string name="title_style_clear">Poista muotoilu</string>
     <string name="title_style_link">Lisää linkki</string>
