@@ -502,7 +502,11 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus)
-                    updateEncryption((EntityIdentity) spIdentity.getSelectedItem());
+                    try {
+                        updateEncryption((EntityIdentity) spIdentity.getSelectedItem());
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
             }
         };
 
