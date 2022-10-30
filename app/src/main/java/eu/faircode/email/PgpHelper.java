@@ -68,11 +68,11 @@ public class PgpHelper {
         }
     }
 
-    static boolean hasPgpKey(Context context, List<Address> recipients) {
-        return hasPgpKey(context, recipients, KEY_TIMEOUT);  // milliseconds
+    static boolean hasPgpKey(Context context, List<Address> recipients, boolean all) {
+        return hasPgpKey(context, recipients, all, KEY_TIMEOUT);  // milliseconds
     }
 
-    private static boolean hasPgpKey(Context context, List<Address> recipients, long timeout) {
+    private static boolean hasPgpKey(Context context, List<Address> recipients, boolean all, long timeout) {
         if (recipients == null || recipients.size() == 0)
             return false;
 
@@ -90,7 +90,7 @@ public class PgpHelper {
             int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
             if (resultCode == OpenPgpApi.RESULT_CODE_SUCCESS) {
                 long[] keyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
-                return (keyIds.length > 0);
+                return (all ? keyIds.length == recipients.size() : keyIds.length > 0);
             }
         } catch (OperationCanceledException ignored) {
             // Do nothing

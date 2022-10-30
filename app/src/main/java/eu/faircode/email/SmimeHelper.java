@@ -27,18 +27,19 @@ import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
 public class SmimeHelper {
-    static boolean hasSmimeKey(Context context, List<Address> recipients) {
+    static boolean hasSmimeKey(Context context, List<Address> recipients, boolean all) {
         if (recipients == null || recipients.size() == 0)
             return false;
 
+        int count = 0;
         DB db = DB.getInstance(context);
         for (Address address : recipients) {
             String email = ((InternetAddress) address).getAddress();
             List<EntityCertificate> certs = db.certificate().getCertificateByEmail(email);
             if (certs != null && certs.size() > 0)
-                return true;
+                count++;
         }
 
-        return false;
+        return (all ? count == recipients.size() : count > 0);
     }
 }

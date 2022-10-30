@@ -344,9 +344,9 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                             public void run() {
                                                 try {
                                                     int has = 0;
-                                                    if (PgpHelper.hasPgpKey(context, recipient))
+                                                    if (PgpHelper.hasPgpKey(context, recipient, true))
                                                         has |= 1;
-                                                    if (SmimeHelper.hasSmimeKey(context, recipient))
+                                                    if (SmimeHelper.hasSmimeKey(context, recipient, true))
                                                         has |= 2;
                                                     encryption.put(email, has);
 
