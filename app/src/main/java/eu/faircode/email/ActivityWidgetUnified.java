@@ -100,12 +100,8 @@ public class ActivityWidgetUnified extends ActivityBase {
         boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         boolean highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
         int highlight_color = prefs.getInt("widget." + appWidgetId + ".highlight_color", Color.TRANSPARENT);
-        boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi",
-                Build.VERSION.SDK_INT < Build.VERSION_CODES.S);
-        int background = prefs.getInt("widget." + appWidgetId + ".background",
-                Build.VERSION.SDK_INT < Build.VERSION_CODES.S
-                        ? Color.TRANSPARENT
-                        : ColorUtils.setAlphaComponent(Color.BLACK, 127));
+        boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
+        int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
         boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
         int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
         int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
@@ -203,6 +199,12 @@ public class ActivityWidgetUnified extends ActivityBase {
                 int color = btnColor.getColor();
                 int editTextColor = Helper.resolveColor(ActivityWidgetUnified.this, android.R.attr.editTextColor);
 
+                if (color == Color.TRANSPARENT) {
+                    color = Color.WHITE;
+                    if (cbSemiTransparent.isChecked() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                        color = ColorUtils.setAlphaComponent(color, 127);
+                }
+
                 ColorPickerDialogBuilder
                         .with(ActivityWidgetUnified.this)
                         .setTitle(R.string.title_widget_background)
@@ -210,7 +212,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                         .setColorEditTextColor(editTextColor)
                         .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                         .density(6)
-                        .initialColor(color == Color.TRANSPARENT ? Color.WHITE : color)
+                        .initialColor(color)
                         .showLightnessSlider(true)
                         .showAlphaSlider(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
                         .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {

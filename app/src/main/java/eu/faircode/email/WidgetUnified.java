@@ -51,12 +51,8 @@ public class WidgetUnified extends AppWidgetProvider {
             long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
             String type = prefs.getString("widget." + appWidgetId + ".type", null);
             boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
-            boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi",
-                    Build.VERSION.SDK_INT < Build.VERSION_CODES.S);
-            int background = prefs.getInt("widget." + appWidgetId + ".background",
-                    Build.VERSION.SDK_INT < Build.VERSION_CODES.S
-                            ? Color.TRANSPARENT
-                            : ColorUtils.setAlphaComponent(Color.BLACK, 127));
+            boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
+            int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
             boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
             int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
             int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
