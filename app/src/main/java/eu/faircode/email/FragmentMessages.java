@@ -4712,9 +4712,6 @@ public class FragmentMessages extends FragmentBase
         adapter.setCompact(compact);
         adapter.setZoom(zoom);
 
-        // Restart spinner
-        swipeRefresh.resetRefreshing();
-
         if (!checkRedmiNote())
             if (!checkDoze())
                 if (!checkReporting())

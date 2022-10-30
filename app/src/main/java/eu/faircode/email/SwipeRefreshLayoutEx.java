@@ -70,15 +70,6 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
         setRefreshing(false); // disable, unless confirmed by folder update
     }
 
-    public void resetRefreshing() {
-        // Restart spinner after screen off, etc
-        if (super.isRefreshing()) {
-            Log.i("Refreshing=" + refreshing + " event=reset");
-            super.setRefreshing(false);
-            super.setRefreshing(true);
-        }
-    }
-
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
