@@ -1506,6 +1506,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean updates = prefs.getBoolean("updates", true);
+        boolean beta = prefs.getBoolean("beta", false);
         boolean weekly = prefs.getBoolean("weekly", Helper.hasPlayStore(this));
         long last_update_check = prefs.getLong("last_update_check", 0);
 
@@ -1518,14 +1519,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         Bundle args = new Bundle();
         args.putBoolean("always", always);
+        args.putBoolean("beta", beta);
 
         new SimpleTask<UpdateInfo>() {
             @Override
             protected UpdateInfo onExecute(Context context, Bundle args) throws Throwable {
+                boolean beta = args.getBoolean("beta");
+
                 StringBuilder response = new StringBuilder();
                 HttpsURLConnection urlConnection = null;
                 try {
-                    URL latest = new URL(BuildConfig.GITHUB_LATEST_API);
+                    URL latest = new URL(beta ? BuildConfig.BITBUCKET_DOWNLOADS_API : BuildConfig.GITHUB_LATEST_API);
                     urlConnection = (HttpsURLConnection) latest.openConnection();
                     urlConnection.setRequestMethod("GET");
                     urlConnection.setReadTimeout(UPDATE_TIMEOUT);
@@ -1551,50 +1555,100 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         JSONObject jmessage = new JSONObject(response.toString());
                         if (jmessage.has("message"))
                             throw new IllegalArgumentException(jmessage.getString("message"));
-                        throw new IOException("HTTP " + status + ": " + response.toString());
+                        throw new IOException("HTTP " + status + ": " + response);
                     }
                     if (status != HttpsURLConnection.HTTP_OK)
-                        throw new IOException("HTTP " + status + ": " + response.toString());
+                        throw new IOException("HTTP " + status + ": " + response);
 
                     JSONObject jroot = new JSONObject(response.toString());
 
-                    if (!jroot.has("tag_name") || jroot.isNull("tag_name"))
-                        throw new IOException("tag_name field missing");
-                    //if (!jroot.has("html_url") || jroot.isNull("html_url"))
-                    //    throw new IOException("html_url field missing");
-                    if (!jroot.has("assets") || jroot.isNull("assets"))
-                        throw new IOException("assets section missing");
+                    if (beta) {
+                        if (!jroot.has("values"))
+                            throw new IOException("values field missing");
 
-                    // Get update info
-                    UpdateInfo info = new UpdateInfo();
-                    info.tag_name = jroot.getString("tag_name");
-                    info.html_url = jroot.getString("html_url");
-                    //if (TextUtils.isEmpty(info.html_url))
-                    info.html_url = BuildConfig.GITHUB_LATEST_URI;
+                        JSONArray jvalues = jroot.getJSONArray("values");
+                        for (int i = 0; i < jvalues.length(); i++) {
+                            JSONObject jitem = jvalues.getJSONObject(i);
+                            if (!jitem.has("links"))
+                                continue;
 
-                    // Check if new release
-                    JSONArray jassets = jroot.getJSONArray("assets");
-                    for (int i = 0; i < jassets.length(); i++) {
-                        JSONObject jasset = jassets.getJSONObject(i);
-                        if (jasset.has("name") && !jasset.isNull("name")) {
-                            String name = jasset.getString("name");
-                            if (name.endsWith(".apk")) {
-                                info.download_url = jasset.optString("browser_download_url");
-                                Log.i("Latest version=" + info.tag_name);
-                                if (BuildConfig.DEBUG)
-                                    return info;
-                                try {
-                                    if (Double.parseDouble(info.tag_name) <=
-                                            Double.parseDouble(BuildConfig.VERSION_NAME))
-                                        return null;
-                                    else
+                            JSONObject jlinks = jitem.getJSONObject("links");
+                            if (!jlinks.has("self"))
+                                continue;
+
+                            JSONObject jself = jlinks.getJSONObject("self");
+                            if (!jself.has("href"))
+                                continue;
+
+                            // .../FairEmail-v1.1995a-play-preview-release.apk
+                            String link = jself.getString("href");
+                            if (!link.endsWith(".apk"))
+                                continue;
+
+                            int slash = link.lastIndexOf('/');
+                            if (slash < 0)
+                                continue;
+
+                            String[] c = link.substring(slash + 1).split("-");
+                            if (c.length < 4 ||
+                                    !"FairEmail".equals(c[0]) ||
+                                    c[1].length() < 8 ||
+                                    !"github".equals(c[2]) ||
+                                    !"update".equals(c[3]))
+                                return null;
+
+                            // v1.1995a
+                            Integer version = Helper.parseInt(c[1].substring(3, c[1].length() - 1));
+                            if (version == null)
+                                return null;
+                            char revision = c[1].charAt(c[1].length() - 1);
+
+                            if (BuildConfig.DEBUG ||
+                                    version > BuildConfig.VERSION_CODE ||
+                                    (version == BuildConfig.VERSION_CODE && revision > BuildConfig.REVISION.charAt(0))) {
+                                UpdateInfo info = new UpdateInfo();
+                                info.tag_name = c[1];
+                                info.html_url = BuildConfig.BITBUCKET_DOWNLOADS_URI;
+                                info.download_url = link;
+                                return info;
+                            } else
+                                return null;
+                        }
+                    } else {
+                        if (!jroot.has("tag_name") || jroot.isNull("tag_name"))
+                            throw new IOException("tag_name field missing");
+                        if (!jroot.has("assets") || jroot.isNull("assets"))
+                            throw new IOException("assets section missing");
+
+                        // Get update info
+                        UpdateInfo info = new UpdateInfo();
+                        info.tag_name = jroot.getString("tag_name");
+                        info.html_url = BuildConfig.GITHUB_LATEST_URI;
+
+                        // Check if new release
+                        JSONArray jassets = jroot.getJSONArray("assets");
+                        for (int i = 0; i < jassets.length(); i++) {
+                            JSONObject jasset = jassets.getJSONObject(i);
+                            if (jasset.has("name") && !jasset.isNull("name")) {
+                                String name = jasset.getString("name");
+                                if (name.endsWith(".apk")) {
+                                    info.download_url = jasset.optString("browser_download_url");
+                                    Log.i("Latest version=" + info.tag_name);
+                                    if (BuildConfig.DEBUG)
                                         return info;
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
-                                    if (BuildConfig.VERSION_NAME.equals(info.tag_name))
-                                        return null;
-                                    else
-                                        return info;
+                                    try {
+                                        if (Double.parseDouble(info.tag_name) <=
+                                                Double.parseDouble(BuildConfig.VERSION_NAME))
+                                            return null;
+                                        else
+                                            return info;
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                        if (BuildConfig.VERSION_NAME.equals(info.tag_name))
+                                            return null;
+                                        else
+                                            return info;
+                                    }
                                 }
                             }
                         }
