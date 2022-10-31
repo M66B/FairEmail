@@ -6761,7 +6761,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected File onExecute(Context context, Bundle args) throws IOException {
                     Long id = args.getLong("id");
 
-                    File file = EntityMessage.getFile(context, id);
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null || !message.content)
+                        return null;
+
+                    File file = message.getFile(context);
                     Document d = JsoupEx.parse(file);
 
                     if (BuildConfig.DEBUG) {
@@ -6772,6 +6777,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (override_width)
                             HtmlHelper.overrideWidth(d);
                     }
+
+                    d.head().prependElement("meta").attr("charset", "utf-8");
+
+                    if (message.language != null)
+                        d.body().attr("lang", message.language);
 
                     List<CSSStyleSheet> sheets =
                             HtmlHelper.parseStyles(d.head().select("style"));
