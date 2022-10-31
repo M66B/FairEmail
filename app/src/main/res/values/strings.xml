@@ -414,6 +414,7 @@
     <string name="title_advanced_use_blocklist">Move messages from domains on a block list to the spam folder</string>
     <string name="title_advanced_use_blocklist_pop3">Skip messages from domains on a block list (POP3 only)</string>
     <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
+    <string name="title_advanced_blocklist_warning">Block lists are not perfect and can block non-spam messages!</string>
 
     <string name="title_advanced_keyboard">Show keyboard by default</string>
     <string name="title_advanced_keyboard_no_fullscreen">Prevent fullscreen keyboard</string>
