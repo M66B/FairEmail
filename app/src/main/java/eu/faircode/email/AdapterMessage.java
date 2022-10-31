@@ -4984,7 +4984,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.beginTransaction();
 
                         EntityMessage message = db.message().getMessage(mid);
-                        if (message == null || message.uid == null)
+                        if (message == null)
+                            return null;
+
+                        EntityAccount account = db.account().getAccount(message.account);
+                        if (account == null)
+                            return null;
+
+                        if (account.protocol == EntityAccount.TYPE_IMAP && message.uid == null)
                             return null;
 
                         for (EntityAttachment attachment : db.attachment().getAttachments(message.id))

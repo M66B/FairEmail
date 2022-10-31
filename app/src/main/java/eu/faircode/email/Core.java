@@ -441,6 +441,10 @@ class Core {
                                     onRaw(context, jargs, folder, message, (POP3Store) istore, (POP3Folder) ifolder);
                                     break;
 
+                                case EntityOperation.ATTACHMENT:
+                                    onAttachment(context, jargs, folder, message, (POP3Folder) ifolder, (POP3Store) istore);
+                                    break;
+
                                 case EntityOperation.SYNC:
                                     Helper.gc();
                                     onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, (POP3Store) istore, state);
@@ -2196,6 +2200,35 @@ class Core {
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
     }
 
+    private static void onAttachment(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore) throws JSONException, MessagingException, IOException {
+        long id = jargs.getLong(0);
+
+        if (!EntityFolder.INBOX.equals(folder.type))
+            throw new IllegalArgumentException("Not INBOX");
+
+        DB db = DB.getInstance(context);
+        EntityAttachment attachment = db.attachment().getAttachment(id);
+        if (attachment == null)
+            throw new IllegalArgumentException("Local attachment not found");
+        if (attachment.subsequence != null)
+            throw new IllegalArgumentException("Download of sub attachment");
+        if (attachment.available)
+            return;
+
+        Map<EntityMessage, Message> map = findMessages(context, folder, Arrays.asList(message), istore, ifolder);
+        if (map.size() == 0)
+            throw new MessageRemovedException("Message not found");
+
+        MessageHelper helper = new MessageHelper((MimeMessage) map.entrySet().iterator().next().getValue(), context);
+        MessageHelper.MessageParts parts = helper.getMessageParts();
+
+        // Download attachment
+        parts.downloadAttachment(context, attachment);
+
+        if (attachment.size != null)
+            EntityLog.log(context, "Operation attachment size=" + attachment.size);
+    }
+
     private static void onExists(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message) {
         // POP3
         EntityContact.received(context, account, folder, message);
@@ -3357,9 +3390,13 @@ class Core {
                                 message.preview,
                                 parts.getWarnings(message.warning));
 
-                        for (EntityAttachment attachment : parts.getAttachments())
-                            if (attachment.subsequence == null)
-                                parts.downloadAttachment(context, attachment);
+                        try {
+                            for (EntityAttachment attachment : parts.getAttachments())
+                                if (attachment.subsequence == null)
+                                    parts.downloadAttachment(context, attachment);
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
 
                         if (download_eml)
                             try {
