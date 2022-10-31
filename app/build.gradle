@@ -4,8 +4,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
 def getVersionCode = { -> return 1995 }
-def getRevision = { -> return "a" }
-def getReleaseName = { -> return "Mei long" }
+def getRevision = { -> return "b" }
+def getReleaseName = { -> return "Ninjatitan" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
 def keystoreProperties = new Properties()

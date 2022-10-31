@@ -2,6 +2,14 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
+
+### BETA 1.1995b - 2022-11-01
+
+* Added option for beta updates
+* Added Jsoup selector conditions, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71)
+* Small improvements and minor bug fixes
+
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
 ### 1.1995 - 2022-10-30
