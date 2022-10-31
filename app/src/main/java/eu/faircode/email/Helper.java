@@ -197,6 +197,8 @@ public class Helper {
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
     static final String BIMI_PRIVACY_URI = "https://datatracker.ietf.org/doc/html/draft-brotman-ietf-bimi-guidance-03#section-7.4";
     static final String LT_PRIVACY_URI = "https://languagetool.org/legal/privacy";
+    static final String GITHUB_PRIVACY_URI = "https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement";
+    static final String BITBUCKET_PRIVACY_URI = "https://www.atlassian.com/legal/privacy-policy";
     static final String ID_COMMAND_URI = "https://datatracker.ietf.org/doc/html/rfc2971#section-3.1";
     static final String AUTH_RESULTS_URI = "https://datatracker.ietf.org/doc/html/rfc7601";
     static final String FAVICON_PRIVACY_URI = "https://en.wikipedia.org/wiki/Favicon";

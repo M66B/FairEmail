@@ -137,9 +137,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private EditText etSend;
     private ImageButton ibSend;
     private SwitchCompat swUpdates;
+    private TextView tvGithubPrivacy;
     private ImageButton ibChannelUpdated;
     private SwitchCompat swCheckWeekly;
     private SwitchCompat swBeta;
+    private TextView tvBitBucketPrivacy;
     private SwitchCompat swChangelog;
     private SwitchCompat swCrashReports;
     private TextView tvUuid;
@@ -350,9 +352,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         etSend = view.findViewById(R.id.etSend);
         ibSend = view.findViewById(R.id.ibSend);
         swUpdates = view.findViewById(R.id.swUpdates);
+        tvGithubPrivacy = view.findViewById(R.id.tvGithubPrivacy);
         ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
         swCheckWeekly = view.findViewById(R.id.swWeekly);
         swBeta = view.findViewById(R.id.swBeta);
+        tvBitBucketPrivacy = view.findViewById(R.id.tvBitBucketPrivacy);
         swChangelog = view.findViewById(R.id.swChangelog);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         tvUuid = view.findViewById(R.id.tvUuid);
@@ -817,6 +821,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        tvGithubPrivacy.getPaint().setUnderlineText(true);
+        tvGithubPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.GITHUB_PRIVACY_URI), true);
+            }
+        });
+
         final Intent channelUpdate = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
                 .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
                 .putExtra(Settings.EXTRA_CHANNEL_ID, "update");
@@ -840,6 +852,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("beta", checked).apply();
+            }
+        });
+
+        tvBitBucketPrivacy.getPaint().setUnderlineText(true);
+        tvBitBucketPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.BITBUCKET_PRIVACY_URI), true);
             }
         });
 
