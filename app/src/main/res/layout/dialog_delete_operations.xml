@@ -14,7 +14,7 @@
             android:id="@+id/tvAddImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/twotone_delete_24"
+            android:drawableStart="@drawable/twotone_delete_forever_24"
             android:drawablePadding="6dp"
             android:text="@string/title_delete_operation_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
