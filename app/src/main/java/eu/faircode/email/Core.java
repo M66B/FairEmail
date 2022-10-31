@@ -5984,6 +5984,12 @@ class Core {
                 // Device
                 if (!notify_messaging) {
                     StringBuilder sbm = new StringBuilder();
+
+                    if (message.keywords != null && BuildConfig.DEBUG)
+                        for (String keyword : message.keywords)
+                            if (keyword.startsWith("!"))
+                                sbm.append(Html.escapeHtml(keyword)).append(": ");
+
                     if (!TextUtils.isEmpty(message.subject))
                         sbm.append("<em>").append(Html.escapeHtml(message.subject)).append("</em>").append("<br>");
 
