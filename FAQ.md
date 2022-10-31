@@ -2571,8 +2571,15 @@ Note that email addresses are formatted like this:
 "Somebody" <somebody@example.org>
 ``
 
-Note that message texts are normalized, which means that all whitespaces (spaces, tabs, line breaks, etc) are replaced by a single space.
+Note that message texts are normalized when not using a regex, which means that all whitespaces (spaces, tabs, line breaks, etc) are replaced by a single space.
 This makes it easier to match texts on multiple lines or when the line break is at different places.
+
+Since version 1.1996 it is possible to use [Jsoup selectors](https://jsoup.org/cookbook/extracting-data/selector-syntax) to match HTML elements,
+by prefixing the selector by *jsoup:* and entering it as text contains condition, like for example:
+
+```
+html > body > div > a[href=https://example.org]
+```
 
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 

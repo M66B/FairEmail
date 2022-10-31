@@ -126,6 +126,7 @@ public class EntityRule {
     static final String EXTRA_SUBJECT = "subject";
     static final String EXTRA_RECEIVED = "received";
 
+    private static final String JSOUP_PREFIX = "jsoup:";
     private static final long SEND_DELAY = 5000L; // milliseconds
 
     private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "rule");
@@ -365,7 +366,9 @@ public class EntityRule {
                 boolean regex = jbody.getBoolean("regex");
                 boolean skip_quotes = jbody.optBoolean("skip_quotes");
 
-                if (!regex)
+                boolean jsoup = value.startsWith(JSOUP_PREFIX);
+
+                if (!regex && !jsoup)
                     value = value.replaceAll("\\s+", " ");
 
                 if (html == null && message.content) {
@@ -386,9 +389,15 @@ public class EntityRule {
                 Document d = JsoupEx.parse(html);
                 if (skip_quotes)
                     d.select("blockquote").remove();
-                String text = d.body().text();
-                if (!matches(context, message, value, text, regex))
-                    return false;
+                if (jsoup) {
+                    String selector = value.substring(JSOUP_PREFIX.length());
+                    if (d.select(selector).size() == 0)
+                        return false;
+                } else {
+                    String text = d.body().text();
+                    if (!matches(context, message, value, text, regex))
+                        return false;
+                }
             }
 
             // Date
