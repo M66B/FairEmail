@@ -3559,12 +3559,6 @@ public class MessageHelper {
                 throw new IllegalArgumentException("Attachment not found");
 
             downloadAttachment(context, index, local);
-
-            if (Helper.isTnef(local.type, local.name))
-                decodeTNEF(context, local);
-
-            if ("msg".equalsIgnoreCase(Helper.getExtension(local.name)))
-                decodeOutlook(context, local);
         }
 
         void downloadAttachment(Context context, int index, EntityAttachment local) throws MessagingException, IOException {
@@ -3945,7 +3939,12 @@ public class MessageHelper {
                                 else
                                     db.attachment().setWarning(local.id, Log.formatThrowable(ex));
                             }
-                }
+
+                } else if (Helper.isTnef(local.type, local.name))
+                    decodeTNEF(context, local);
+
+                else if ("msg".equalsIgnoreCase(Helper.getExtension(local.name)))
+                    decodeOutlook(context, local);
             }
         }
 
