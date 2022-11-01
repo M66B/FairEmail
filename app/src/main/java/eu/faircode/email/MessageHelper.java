@@ -3691,12 +3691,27 @@ public class MessageHelper {
 
                 else if ("text/calendar".equals(local.type))
                     try {
+                        boolean permission = Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR);
+
                         EntityMessage message = db.message().getMessage(local.message);
                         EntityFolder folder = (message == null ? null : db.folder().getFolder(message.folder));
                         EntityAccount account = (folder == null ? null : db.account().getAccount(folder.account));
-                        if (folder != null && EntityFolder.INBOX.equals(folder.type) &&
-                                Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR)) {
+
+                        boolean received = (folder != null &&
+                                (EntityFolder.INBOX.equals(folder.type) ||
+                                        EntityFolder.SYSTEM.equals(folder.type) ||
+                                        EntityFolder.USER.equals(folder.type)));
+
+                        if (!permission || !received || account == null)
+                            EntityLog.log(context, "Event not processed" +
+                                    " permission=" + permission +
+                                    " account=" + (account != null) +
+                                    " folder=" + (folder != null) + ":" + (folder == null ? null : folder.type) +
+                                    " received=" + received);
+                        else {
                             ICalendar icalendar = Biweekly.parse(file).first();
+                            String method = (icalendar.getMethod() == null ? null : icalendar.getMethod().getValue());
+
                             VEvent event = icalendar.getEvents().get(0);
 
                             String summary = (event.getSummary() == null ? null : event.getSummary().getValue());
@@ -3708,10 +3723,15 @@ public class MessageHelper {
 
                             String uid = (event.getUid() == null ? null : event.getUid().getValue());
 
-                            if (start != null && end != null) {
+                            EntityLog.log(context, EntityLog.Type.General, message, "Processing event" +
+                                    " uid=" + uid + " method=" + method);
+
+                            if (icalendar.getMethod() != null &&
+                                    start != null && end != null &&
+                                    !TextUtils.isEmpty(uid)) {
                                 ContentResolver resolver = context.getContentResolver();
 
-                                if (!TextUtils.isEmpty(uid))
+                                if (icalendar.getMethod().isRequest() || icalendar.getMethod().isCancel())
                                     try (Cursor cursor = resolver.query(CalendarContract.Events.CONTENT_URI,
                                             new String[]{CalendarContract.Events._ID},
                                             CalendarContract.Events.UID_2445 + " = ? ",
@@ -3727,40 +3747,44 @@ public class MessageHelper {
                                         }
                                     }
 
-                                try (Cursor cursor = resolver.query(CalendarContract.Calendars.CONTENT_URI,
-                                        new String[]{CalendarContract.Calendars._ID},
-                                        CalendarContract.Calendars.VISIBLE + " = 1 AND " +
-                                                CalendarContract.Calendars.IS_PRIMARY + " = 1 AND " +
-                                                CalendarContract.Calendars.ACCOUNT_NAME + " = ?",
-                                        new String[]{account.user},
-                                        null)) {
-                                    while (cursor.moveToNext()) {
-                                        // https://developer.android.com/guide/topics/providers/calendar-provider#add-event
-                                        // https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns
-                                        ContentValues values = new ContentValues();
-                                        values.put(CalendarContract.Events.CALENDAR_ID, cursor.getLong(0));
-                                        if (!TextUtils.isEmpty(uid))
-                                            values.put(CalendarContract.Events.UID_2445, uid);
-                                        values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
-                                        values.put(CalendarContract.Events.DTSTART, start.getTime());
-                                        values.put(CalendarContract.Events.DTEND, end.getTime());
-                                        if (!TextUtils.isEmpty(summary))
-                                            values.put(CalendarContract.Events.TITLE, summary);
-                                        if (!TextUtils.isEmpty(description))
-                                            values.put(CalendarContract.Events.DESCRIPTION, description);
-                                        if (!TextUtils.isEmpty(location))
-                                            values.put(CalendarContract.Events.EVENT_LOCATION, location);
-                                        values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_TENTATIVE);
+                                if (icalendar.getMethod().isRequest())
+                                    try (Cursor cursor = resolver.query(CalendarContract.Calendars.CONTENT_URI,
+                                            new String[]{CalendarContract.Calendars._ID},
+                                            CalendarContract.Calendars.VISIBLE + " = 1 AND " +
+                                                    CalendarContract.Calendars.IS_PRIMARY + " = 1 AND " +
+                                                    CalendarContract.Calendars.ACCOUNT_NAME + " = ?",
+                                            new String[]{account.user},
+                                            null)) {
+                                        if (cursor.getCount() == 0)
+                                            EntityLog.log(context, EntityLog.Type.General, message,
+                                                    "Account not found username=" + account.user);
+                                        while (cursor.moveToNext()) {
+                                            // https://developer.android.com/guide/topics/providers/calendar-provider#add-event
+                                            // https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns
+                                            ContentValues values = new ContentValues();
+                                            values.put(CalendarContract.Events.CALENDAR_ID, cursor.getLong(0));
+                                            if (!TextUtils.isEmpty(uid))
+                                                values.put(CalendarContract.Events.UID_2445, uid);
+                                            values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
+                                            values.put(CalendarContract.Events.DTSTART, start.getTime());
+                                            values.put(CalendarContract.Events.DTEND, end.getTime());
+                                            if (!TextUtils.isEmpty(summary))
+                                                values.put(CalendarContract.Events.TITLE, summary);
+                                            if (!TextUtils.isEmpty(description))
+                                                values.put(CalendarContract.Events.DESCRIPTION, description);
+                                            if (!TextUtils.isEmpty(location))
+                                                values.put(CalendarContract.Events.EVENT_LOCATION, location);
+                                            values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_TENTATIVE);
 
-                                        Uri uri = resolver.insert(CalendarContract.Events.CONTENT_URI, values);
-                                        long eventId = Long.parseLong(uri.getLastPathSegment());
-                                        EntityLog.log(context, EntityLog.Type.General, message, "Inserted event" +
-                                                " id=" + eventId +
-                                                " start=" + new Date(start.getTime()) +
-                                                " end=" + new Date(end.getTime()) +
-                                                " summary=" + summary);
+                                            Uri uri = resolver.insert(CalendarContract.Events.CONTENT_URI, values);
+                                            long eventId = Long.parseLong(uri.getLastPathSegment());
+                                            EntityLog.log(context, EntityLog.Type.General, message, "Inserted event" +
+                                                    " id=" + eventId +
+                                                    " start=" + new Date(start.getTime()) +
+                                                    " end=" + new Date(end.getTime()) +
+                                                    " summary=" + summary);
+                                        }
                                     }
-                                }
                             }
                         }
                     } catch (Throwable ex) {
