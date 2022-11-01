@@ -959,6 +959,7 @@
     <string name="title_advanced_swipe_sensitivity">Left/right swipe sensitivity</string>
 
     <string name="title_select">Select &#8230;</string>
+    <string name="title_select_calendar">Select calendar &#8230;</string>
     <string name="title_identity_name">Your name</string>
     <string name="title_identity_email">Your email address</string>
     <string name="title_identity_tenant" translatable="false">Tenant ID</string>

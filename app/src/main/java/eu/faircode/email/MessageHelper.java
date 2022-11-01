@@ -3696,10 +3696,11 @@ public class MessageHelper {
                                         EntityFolder.SYSTEM.equals(folder.type) ||
                                         EntityFolder.USER.equals(folder.type)));
 
-                        if (!permission || !received || account == null)
+                        if (!permission || !received || account == null || account.calendar == null)
                             EntityLog.log(context, "Event not processed" +
                                     " permission=" + permission +
                                     " account=" + (account != null) +
+                                    " calendar=" + (account == null ? null : account.calendar) +
                                     " folder=" + (folder != null) + ":" + (folder == null ? null : folder.type) +
                                     " received=" + received);
                         else {
@@ -3718,7 +3719,7 @@ public class MessageHelper {
                             String uid = (event.getUid() == null ? null : event.getUid().getValue());
 
                             EntityLog.log(context, EntityLog.Type.General, message, "Processing event" +
-                                    " uid=" + uid + " method=" + method);
+                                    " uid=" + uid + " method=" + method + " calendar=" + account.calendar);
 
                             if (icalendar.getMethod() != null &&
                                     start != null && end != null &&
@@ -3747,7 +3748,7 @@ public class MessageHelper {
                                             CalendarContract.Calendars.VISIBLE + " = 1 AND " +
                                                     CalendarContract.Calendars.IS_PRIMARY + " = 1 AND " +
                                                     CalendarContract.Calendars.ACCOUNT_NAME + " = ?",
-                                            new String[]{account.user},
+                                            new String[]{account.calendar},
                                             null)) {
                                         if (cursor.getCount() == 0)
                                             EntityLog.log(context, EntityLog.Type.General, message,

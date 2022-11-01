@@ -68,7 +68,7 @@ import javax.mail.internet.InternetAddress;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 251,
+        version = 252,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2530,6 +2530,11 @@ public abstract class DB extends RoomDatabase {
                         if (!auto_classify_target)
                             db.execSQL("ALTER TABLE `folder` ADD COLUMN `auto_classify_target` INTEGER NOT NULL DEFAULT 0");
                         db.execSQL("UPDATE `folder` SET auto_classify_target = auto_classify WHERE auto_classify <> 0");
+                    }
+                }).addMigrations(new Migration(251, 252) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        db.execSQL("ALTER TABLE `account` ADD COLUMN `calendar` TEXT");
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
