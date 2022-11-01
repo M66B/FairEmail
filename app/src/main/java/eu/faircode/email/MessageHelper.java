@@ -21,10 +21,16 @@ package eu.faircode.email;
 
 import static android.system.OsConstants.ENOSPC;
 
+import android.Manifest;
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.CalendarContract;
 import android.system.ErrnoException;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -139,7 +145,9 @@ import javax.mail.internet.ParseException;
 
 import biweekly.Biweekly;
 import biweekly.ICalendar;
+import biweekly.component.VEvent;
 import biweekly.property.Method;
+import biweekly.util.ICalDate;
 
 public class MessageHelper {
     private boolean ensuredEnvelope = false;
@@ -3679,6 +3687,85 @@ public class MessageHelper {
                             db.attachment().setWarning(local.id, ex.getMessage());
                         else
                             db.attachment().setWarning(local.id, Log.formatThrowable(ex));
+                    }
+
+                else if ("text/calendar".equals(local.type))
+                    try {
+                        EntityMessage message = db.message().getMessage(local.message);
+                        EntityFolder folder = (message == null ? null : db.folder().getFolder(message.folder));
+                        EntityAccount account = (folder == null ? null : db.account().getAccount(folder.account));
+                        if (folder != null && EntityFolder.INBOX.equals(folder.type) &&
+                                Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR)) {
+                            ICalendar icalendar = Biweekly.parse(file).first();
+                            VEvent event = icalendar.getEvents().get(0);
+
+                            String summary = (event.getSummary() == null ? null : event.getSummary().getValue());
+                            String description = (event.getDescription() == null ? null : event.getDescription().getValue());
+                            String location = (event.getLocation() == null ? null : event.getLocation().getValue());
+
+                            ICalDate start = (event.getDateStart() == null ? null : event.getDateStart().getValue());
+                            ICalDate end = (event.getDateEnd() == null ? null : event.getDateEnd().getValue());
+
+                            String uid = (event.getUid() == null ? null : event.getUid().getValue());
+
+                            if (start != null && end != null) {
+                                ContentResolver resolver = context.getContentResolver();
+
+                                if (!TextUtils.isEmpty(uid))
+                                    try (Cursor cursor = resolver.query(CalendarContract.Events.CONTENT_URI,
+                                            new String[]{CalendarContract.Events._ID},
+                                            CalendarContract.Events.UID_2445 + " = ? ",
+                                            new String[]{uid},
+                                            null)) {
+                                        while (cursor.moveToNext()) {
+                                            long eventId = cursor.getLong(0);
+
+                                            // https://developer.android.com/guide/topics/providers/calendar-provider#delete-event
+                                            Uri deleteUri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, eventId);
+                                            int rows = resolver.delete(deleteUri, null, null);
+                                            EntityLog.log(context, EntityLog.Type.General, message, "Deleted event id=" + eventId + " rows=" + rows);
+                                        }
+                                    }
+
+                                try (Cursor cursor = resolver.query(CalendarContract.Calendars.CONTENT_URI,
+                                        new String[]{CalendarContract.Calendars._ID},
+                                        CalendarContract.Calendars.VISIBLE + " = 1 AND " +
+                                                CalendarContract.Calendars.IS_PRIMARY + " = 1 AND " +
+                                                CalendarContract.Calendars.ACCOUNT_NAME + " = ?",
+                                        new String[]{account.user},
+                                        null)) {
+                                    while (cursor.moveToNext()) {
+                                        // https://developer.android.com/guide/topics/providers/calendar-provider#add-event
+                                        // https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns
+                                        ContentValues values = new ContentValues();
+                                        values.put(CalendarContract.Events.CALENDAR_ID, cursor.getLong(0));
+                                        if (!TextUtils.isEmpty(uid))
+                                            values.put(CalendarContract.Events.UID_2445, uid);
+                                        values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
+                                        values.put(CalendarContract.Events.DTSTART, start.getTime());
+                                        values.put(CalendarContract.Events.DTEND, end.getTime());
+                                        if (!TextUtils.isEmpty(summary))
+                                            values.put(CalendarContract.Events.TITLE, summary);
+                                        if (!TextUtils.isEmpty(description))
+                                            values.put(CalendarContract.Events.DESCRIPTION, description);
+                                        if (!TextUtils.isEmpty(location))
+                                            values.put(CalendarContract.Events.EVENT_LOCATION, location);
+                                        values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_TENTATIVE);
+
+                                        Uri uri = resolver.insert(CalendarContract.Events.CONTENT_URI, values);
+                                        long eventId = Long.parseLong(uri.getLastPathSegment());
+                                        EntityLog.log(context, EntityLog.Type.General, message, "Inserted event" +
+                                                " id=" + eventId +
+                                                " start=" + new Date(start.getTime()) +
+                                                " end=" + new Date(end.getTime()) +
+                                                " summary=" + summary);
+                                    }
+                                }
+                            }
+                        }
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                        db.attachment().setWarning(local.id, Log.formatThrowable(ex));
                     }
 
                 else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && local.isCompressed()) {

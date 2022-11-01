@@ -428,6 +428,19 @@ public class Helper {
         permissions.add(Manifest.permission.READ_CONTACTS);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
             permissions.add(Manifest.permission.POST_NOTIFICATIONS);
+
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
+            for (int i = 0; i < pi.requestedPermissions.length; i++)
+                if (Manifest.permission.READ_CALENDAR.equals(pi.requestedPermissions[i]))
+                    permissions.add(Manifest.permission.READ_CALENDAR);
+                else if (Manifest.permission.WRITE_CALENDAR.equals(pi.requestedPermissions[i]))
+                    permissions.add(Manifest.permission.WRITE_CALENDAR);
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
         return permissions.toArray(new String[0]);
     }
 
