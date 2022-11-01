@@ -144,9 +144,13 @@ import javax.mail.internet.ParameterList;
 import javax.mail.internet.ParseException;
 
 import biweekly.Biweekly;
+import biweekly.ICalVersion;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
+import biweekly.io.WriteContext;
+import biweekly.io.scribe.property.RecurrenceRuleScribe;
 import biweekly.property.Method;
+import biweekly.property.RecurrenceRule;
 import biweekly.util.ICalDate;
 
 public class MessageHelper {
@@ -3901,14 +3905,27 @@ public class MessageHelper {
                     ICalDate start = (event.getDateStart() == null ? null : event.getDateStart().getValue());
                     ICalDate end = (event.getDateEnd() == null ? null : event.getDateEnd().getValue());
 
+                    String rrule = null;
+                    RecurrenceRule recurrence = event.getRecurrenceRule();
+                    if (recurrence != null) {
+                        RecurrenceRuleScribe scribe = new RecurrenceRuleScribe();
+                        WriteContext wcontext = new WriteContext(ICalVersion.V2_0, icalendar.getTimezoneInfo(), null);
+                        rrule = scribe.writeText(recurrence, wcontext);
+                    }
+
                     String uid = (event.getUid() == null ? null : event.getUid().getValue());
 
                     EntityLog.log(context, EntityLog.Type.General, message, "Processing event" +
-                            " uid=" + uid + " method=" + method + " calendar=" + account.calendar);
+                            " uid=" + uid +
+                            " method=" + method +
+                            " start=" + (start != null) +
+                            " end=" + (end != null) +
+                            " rrule=" + rrule +
+                            " calendar=" + account.calendar);
 
-                    if (icalendar.getMethod() != null &&
-                            start != null && end != null &&
-                            !TextUtils.isEmpty(uid)) {
+                    if (!TextUtils.isEmpty(uid) &&
+                            icalendar.getMethod() != null &&
+                            start != null && end != null) {
                         ContentResolver resolver = context.getContentResolver();
 
                         if (icalendar.getMethod().isRequest() || icalendar.getMethod().isCancel())
@@ -3948,6 +3965,8 @@ public class MessageHelper {
                                     values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
                                     values.put(CalendarContract.Events.DTSTART, start.getTime());
                                     values.put(CalendarContract.Events.DTEND, end.getTime());
+                                    if (rrule != null)
+                                        values.put(CalendarContract.Events.RRULE, rrule);
                                     if (!TextUtils.isEmpty(summary))
                                         values.put(CalendarContract.Events.TITLE, summary);
                                     if (!TextUtils.isEmpty(description))

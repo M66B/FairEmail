@@ -189,8 +189,11 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import biweekly.Biweekly;
+import biweekly.ICalVersion;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
+import biweekly.io.WriteContext;
+import biweekly.io.scribe.property.RecurrenceRuleScribe;
 import biweekly.parameter.ParticipationStatus;
 import biweekly.property.Attendee;
 import biweekly.property.CalendarScale;
@@ -199,6 +202,7 @@ import biweekly.property.LastModified;
 import biweekly.property.Method;
 import biweekly.property.Organizer;
 import biweekly.property.RawProperty;
+import biweekly.property.RecurrenceRule;
 import biweekly.property.Summary;
 import biweekly.property.Transparency;
 import biweekly.util.ICalDate;
@@ -3651,6 +3655,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 if (end != null)
                                     intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, end.getTime());
+
+                                RecurrenceRule recurrence = event.getRecurrenceRule();
+                                if (recurrence != null) {
+                                    RecurrenceRuleScribe scribe = new RecurrenceRuleScribe();
+                                    WriteContext wcontext = new WriteContext(ICalVersion.V2_0, icalendar.getTimezoneInfo(), null);
+                                    String rrule = scribe.writeText(recurrence, wcontext);
+                                    intent.putExtra(CalendarContract.Events.RRULE, rrule);
+                                }
 
                                 // This will result in sending unwanted invites
                                 //if (attendee.size() > 0)
