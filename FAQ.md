@@ -395,6 +395,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(183) How do I use Send?](#user-content-faq183)
 * [(184) How do I password protect content?](#user-content-faq184)
 * [(185) Can I install FairEmail on Windows?](#user-content-faq185)
+* [(186) How can I let the app auto store iCalendar invitations?](#user-content-faq186)
 
 [I have another question.](#user-content-get-support)
 
@@ -5052,6 +5053,8 @@ Sending protected content is a pro feature, decrypting protected content is a fr
 <a name="faq185"></a>
 **(185) Can I install FairEmail on Windows?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq185)
+
 Yes, you can if you use Windows 11 or later and install the [Windows Subsystem for Android](https://learn.microsoft.com/en-us/windows/android/wsa/).
 
 You'll need to [download the GitHub version](https://github.com/M66B/FairEmail/releases) of the app and sideload it,
@@ -5068,6 +5071,21 @@ adb install /path/to/FairEmail-xxx.apk
 
 The app isn't available in the Amazon store because Amazon rebuilds all Android apps, and unfortunately, the app doesn't work correctly after rebuilding anymore.
 Amazon never responded to an issue reported about this.
+
+<br />
+
+<a name="faq186"></a>
+**(186) How can I let the app auto store iCalendar invitations?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq186)
+
+* Install the [GitHub version](https://github.com/M66B/FairEmail/releases) of the app
+* Grant permissions via setup step 2 of the main settings screen
+* Select a calendar in the accounts settings under *Manual setup and account options*
+
+This feature is not available in the Play store version of the app due to the permissions required.
+
+This is a pro feature.
 
 <br />
 
