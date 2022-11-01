@@ -5083,6 +5083,10 @@ Amazon never responded to an issue reported about this.
 * Grant permissions via setup step 2 of the main settings screen
 * Select a calendar in the accounts settings under *Manual setup and account options*
 
+Invitations will be stored automatically as tentative. Updates and cancels will be processed as expected.
+
+This feature is available since version 1.1996.
+
 This feature is not available in the Play store version of the app due to the permissions required.
 
 This is a pro feature.

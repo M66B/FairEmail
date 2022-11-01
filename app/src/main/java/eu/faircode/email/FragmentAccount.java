@@ -1868,7 +1868,7 @@ public class FragmentAccount extends FragmentBase {
                     break;
                 case REQUEST_CALENDAR:
                     if (resultCode == RESULT_OK && data != null) {
-                        if (ActivityBilling.isPro(getContext()) || true) {
+                        if (ActivityBilling.isPro(getContext())) {
                             Bundle args = data.getBundleExtra("args");
                             calendar = args.getString("account");
                         } else
