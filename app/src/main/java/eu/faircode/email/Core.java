@@ -1520,35 +1520,37 @@ class Core {
                 for (Message imessage : map.keySet()) {
                     EntityMessage message = map.get(imessage);
 
-                    File file = new File(message.getFile(context).getAbsoluteFile() + ".copy");
-                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                        imessage.writeTo(os);
-                    }
-
-                    Properties props = MessageHelper.getSessionProperties(account.unicode);
-                    Session isession = Session.getInstance(props, null);
-
                     Message icopy;
-                    try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                        if (duplicate) {
-                            String msgid = EntityMessage.generateMessageId();
-                            msgids.put(message, msgid);
-                            icopy = new MimeMessageEx(isession, is, msgid);
-                            icopy.saveChanges();
+                    File file = new File(message.getFile(context).getAbsoluteFile() + ".copy");
+                    try {
+                        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                            imessage.writeTo(os);
+                        }
 
-                            if (!copy) {
-                                List<EntityMessage> tmps = db.message().getMessagesByMsgId(message.account, message.msgid);
-                                for (EntityMessage tmp : tmps)
-                                    if (target.id.equals(tmp.folder)) {
-                                        db.message().setMessageMsgId(tmp.id, msgid);
-                                        break;
-                                    }
-                            }
-                        } else
-                            icopy = new MimeMessage(isession, is);
+                        Properties props = MessageHelper.getSessionProperties(account.unicode);
+                        Session isession = Session.getInstance(props, null);
+
+                        try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                            if (duplicate) {
+                                String msgid = EntityMessage.generateMessageId();
+                                msgids.put(message, msgid);
+                                icopy = new MimeMessageEx(isession, is, msgid);
+                                icopy.saveChanges();
+
+                                if (!copy) {
+                                    List<EntityMessage> tmps = db.message().getMessagesByMsgId(message.account, message.msgid);
+                                    for (EntityMessage tmp : tmps)
+                                        if (target.id.equals(tmp.folder)) {
+                                            db.message().setMessageMsgId(tmp.id, msgid);
+                                            break;
+                                        }
+                                }
+                            } else
+                                icopy = new MimeMessage(isession, is);
+                        }
+                    } finally {
+                        file.delete();
                     }
-
-                    file.delete();
 
                     for (Flags.Flag flag : imessage.getFlags().getSystemFlags())
                         icopy.setFlag(flag, true);
