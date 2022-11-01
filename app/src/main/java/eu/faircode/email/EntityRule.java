@@ -381,7 +381,7 @@ public class EntityRule {
                 }
 
                 if (html == null)
-                    if (message.encrypt == null || EntityMessage.ENCRYPT_NONE.equals(message.encrypt))
+                    if (false && (message.encrypt == null || EntityMessage.ENCRYPT_NONE.equals(message.encrypt)))
                         throw new IllegalArgumentException(context.getString(R.string.title_rule_no_body));
                     else
                         return false;
