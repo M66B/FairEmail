@@ -405,7 +405,7 @@ public abstract class DB extends RoomDatabase {
         ExecutorService executorQuery = Helper.getBackgroundExecutor(threads, "query");
         ExecutorService executorTransaction = Helper.getBackgroundExecutor(0, "transaction");
 
-        return Room
+        RoomDatabase.Builder<DB> builder = Room
                 .databaseBuilder(context, DB.class, DB_NAME)
                 //.openHelperFactory(new RequerySQLiteOpenHelperFactory())
                 .setQueryExecutor(executorQuery)
@@ -479,6 +479,16 @@ public abstract class DB extends RoomDatabase {
                         createTriggers(db);
                     }
                 });
+
+        if (BuildConfig.DEBUG && false)
+            builder.setQueryCallback(new QueryCallback() {
+                @Override
+                public void onQuery(@NonNull String sqlQuery, @NonNull List<Object> bindArgs) {
+                    Log.i("query=" + sqlQuery);
+                }
+            }, executorQuery);
+
+        return builder;
     }
 
     static Integer getCacheSizeKb(Context context) {
