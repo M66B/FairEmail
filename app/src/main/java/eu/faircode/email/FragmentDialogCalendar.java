@@ -76,7 +76,8 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(R.string.title_select_calendar);
+        builder.setIcon(R.drawable.twotone_event_24);
+        builder.setTitle(R.string.title_calendar);
 
         builder.setSingleChoiceItems(names.toArray(new String[0]), checkedItem, new DialogInterface.OnClickListener() {
             @Override

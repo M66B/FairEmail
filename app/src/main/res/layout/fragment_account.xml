@@ -458,15 +458,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvColorHint" />
 
+        <TextView
+            android:id="@+id/tvCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_calendar"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvColorPro" />
+
         <Button
             android:id="@+id/btnCalendar"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_select_calendar"
+            android:drawableEnd="@drawable/twotone_event_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_select"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvColorPro" />
+            app:layout_constraintTop_toBottomOf="@id/tvCalendar" />
 
         <Button
             android:id="@+id/btnAdvanced"
@@ -1120,8 +1131,14 @@
                 tvUser,etUser,tvPassword,tilPassword,tvCaseSensitive,tvAppPassword,tvPasswordStorage,
                 btnCertificate,tvCertificate,
                 tvRealm,etRealm,
-                tvName,tvNameRemark,etName,etCategory,
+                tvName,tvNameRemark,etName,tvCategory,etCategory,
                 tvColor,btnColor,tvColorHint,tvColorPro" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpCalendar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvCalendar,btnCalendar" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAdvanced"

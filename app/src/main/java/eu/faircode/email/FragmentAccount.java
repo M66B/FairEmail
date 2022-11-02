@@ -164,6 +164,7 @@ public class FragmentAccount extends FragmentBase {
 
     private Group grpServer;
     private Group grpAuthorize;
+    private Group grpCalendar;
     private Group grpAdvanced;
     private Group grpFolders;
     private Group grpError;
@@ -279,6 +280,7 @@ public class FragmentAccount extends FragmentBase {
 
         grpServer = view.findViewById(R.id.grpServer);
         grpAuthorize = view.findViewById(R.id.grpAuthorize);
+        grpCalendar = view.findViewById(R.id.grpCalendar);
         grpAdvanced = view.findViewById(R.id.grpAdvanced);
         grpFolders = view.findViewById(R.id.grpFolders);
         grpError = view.findViewById(R.id.grpError);
@@ -294,6 +296,7 @@ public class FragmentAccount extends FragmentBase {
                                 ? View.VISIBLE : View.GONE);
                 grpServer.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
+                grpCalendar.setVisibility(position > 0 && !BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
 
                 btnAdvanced.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 if (position == 0)
@@ -437,7 +440,6 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
-        btnCalendar.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         btnCalendar.setEnabled(Helper.hasPermission(getContext(), Manifest.permission.WRITE_CALENDAR));
         btnCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -625,6 +627,7 @@ public class FragmentAccount extends FragmentBase {
 
         grpServer.setVisibility(View.GONE);
         grpAuthorize.setVisibility(View.GONE);
+        grpCalendar.setVisibility(View.GONE);
         grpAdvanced.setVisibility(View.GONE);
         grpFolders.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
