@@ -4,7 +4,12 @@ Changelog
 
 Ninjatitan
 
-BETA 1.1995b - 2022-11-01
+Next version
+
+* Added auto storing iCalendar invitations, see the FAQ
+* Small improvements and minor bug fixes
+
+BETA 1.1995b - 2022-10-31
 
 * Added option for beta updates
 * Added Jsoup selector conditions, see the FAQ
