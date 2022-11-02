@@ -210,7 +210,11 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
             EntityAttachment attachment = items.get(pos);
             if (attachment.available)
-                Helper.share(context, attachment.getFile(context), attachment.getMimeType(), attachment.name);
+                try {
+                    Helper.share(context, attachment.getFile(context), attachment.getMimeType(), attachment.name);
+                } catch (Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
             else {
                 if (attachment.progress == null) {
                     Bundle args = new Bundle();

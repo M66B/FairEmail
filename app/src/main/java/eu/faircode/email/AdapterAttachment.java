@@ -349,8 +349,12 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void onShare(EntityAttachment attachment) {
-            String title = (attachment.name == null ? attachment.cid : attachment.name);
-            Helper.share(context, attachment.getFile(context), attachment.getMimeType(), title);
+            try {
+                String title = (attachment.name == null ? attachment.cid : attachment.name);
+                Helper.share(context, attachment.getFile(context), attachment.getMimeType(), title);
+            } catch (Throwable ex) {
+                Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+            }
         }
 
         private void onDownload(EntityAttachment attachment) {

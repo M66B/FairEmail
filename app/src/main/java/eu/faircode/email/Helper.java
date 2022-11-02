@@ -866,12 +866,8 @@ public class Helper {
 
     static void share(Context context, File file, String type, String name) {
         // https://developer.android.com/reference/androidx/core/content/FileProvider
-        try {
-            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-            share(context, uri, type, name);
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
+        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+        share(context, uri, type, name);
     }
 
     static void share(Context context, Uri uri, String type, String name) {
