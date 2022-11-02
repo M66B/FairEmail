@@ -24,6 +24,7 @@ import static com.google.android.material.textfield.TextInputLayout.END_ICON_NON
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
+import android.Manifest;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -85,6 +86,8 @@ public class FragmentPop extends FragmentBase {
     private ViewButtonColor btnColor;
     private TextView tvColorPro;
 
+    private Button btnCalendar;
+
     private CheckBox cbSynchronize;
     private CheckBox cbIgnoreSchedule;
     private CheckBox cbOnDemand;
@@ -108,17 +111,21 @@ public class FragmentPop extends FragmentBase {
     private ContentLoadingProgressBar pbSave;
     private CheckBox cbIdentity;
     private TextView tvError;
+
+    private Group grpCalendar;
     private Group grpError;
 
     private ContentLoadingProgressBar pbWait;
 
     private long id = -1;
     private int auth = AUTH_TYPE_PASSWORD;
+    private String calendar = null;
     private boolean saving = false;
 
     private static final int REQUEST_COLOR = 1;
-    private static final int REQUEST_SAVE = 2;
-    private static final int REQUEST_DELETE = 3;
+    private static final int REQUEST_CALENDAR = 2;
+    private static final int REQUEST_SAVE = 3;
+    private static final int REQUEST_DELETE = 4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -153,6 +160,8 @@ public class FragmentPop extends FragmentBase {
         btnColor = view.findViewById(R.id.btnColor);
         tvColorPro = view.findViewById(R.id.tvColorPro);
 
+        btnCalendar = view.findViewById(R.id.btnCalendar);
+
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbIgnoreSchedule = view.findViewById(R.id.cbIgnoreSchedule);
         cbOnDemand = view.findViewById(R.id.cbOnDemand);
@@ -176,6 +185,8 @@ public class FragmentPop extends FragmentBase {
         cbIdentity = view.findViewById(R.id.cbIdentity);
 
         tvError = view.findViewById(R.id.tvError);
+
+        grpCalendar = view.findViewById(R.id.grpCalendar);
         grpError = view.findViewById(R.id.grpError);
 
         pbWait = view.findViewById(R.id.pbWait);
@@ -245,6 +256,21 @@ public class FragmentPop extends FragmentBase {
         });
 
         Helper.linkPro(tvColorPro);
+
+        grpCalendar.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        btnCalendar.setEnabled(Helper.hasPermission(getContext(), Manifest.permission.WRITE_CALENDAR));
+        btnCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString("account", calendar);
+
+                FragmentDialogCalendar fragment = new FragmentDialogCalendar();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentPop.this, REQUEST_CALENDAR);
+                fragment.show(getParentFragmentManager(), "account:calendar");
+            }
+        });
 
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -320,6 +346,7 @@ public class FragmentPop extends FragmentBase {
         args.putString("name", etName.getText().toString());
         args.putString("category", etCategory.getText().toString());
         args.putInt("color", btnColor.getColor());
+        args.putString("calendar", calendar);
 
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("ignore_schedule", cbIgnoreSchedule.isChecked());
@@ -374,6 +401,8 @@ public class FragmentPop extends FragmentBase {
                 String name = args.getString("name");
                 String category = args.getString("category");
                 Integer color = args.getInt("color");
+
+                String calendar = args.getString("calendar");
 
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean ignore_schedule = args.getBoolean("ignore_schedule");
@@ -455,6 +484,8 @@ public class FragmentPop extends FragmentBase {
                     if (!Objects.equals(account.category, category))
                         return true;
                     if (!Objects.equals(account.color, color))
+                        return true;
+                    if (!Objects.equals(account.calendar, calendar))
                         return true;
                     if (!Objects.equals(account.synchronize, synchronize))
                         return true;
@@ -549,6 +580,8 @@ public class FragmentPop extends FragmentBase {
                     account.name = name;
                     account.category = category;
                     account.color = color;
+
+                    account.calendar = calendar;
 
                     account.synchronize = synchronize;
                     jconditions.put("ignore_schedule", ignore_schedule);
@@ -690,6 +723,7 @@ public class FragmentPop extends FragmentBase {
     public void onSaveInstanceState(Bundle outState) {
         outState.putString("fair:password", tilPassword == null ? null : tilPassword.getEditText().getText().toString());
         outState.putInt("fair:auth", auth);
+        outState.putString("fair:calendar", calendar);
         super.onSaveInstanceState(outState);
     }
 
@@ -781,6 +815,7 @@ public class FragmentPop extends FragmentBase {
                     }
 
                     auth = (account == null ? AUTH_TYPE_PASSWORD : account.auth_type);
+                    calendar = (account == null ? null : account.calendar);
 
                     new SimpleTask<EntityAccount>() {
                         @Override
@@ -802,6 +837,7 @@ public class FragmentPop extends FragmentBase {
                 } else {
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
                     auth = savedInstanceState.getInt("fair:auth");
+                    calendar = savedInstanceState.getString("fair:calendar");
                 }
 
                 Helper.setViewsEnabled(view, true);
@@ -868,6 +904,15 @@ public class FragmentPop extends FragmentBase {
                         if (ActivityBilling.isPro(getContext())) {
                             Bundle args = data.getBundleExtra("args");
                             btnColor.setColor(args.getInt("color"));
+                        } else
+                            startActivity(new Intent(getContext(), ActivityBilling.class));
+                    }
+                    break;
+                case REQUEST_CALENDAR:
+                    if (resultCode == RESULT_OK && data != null) {
+                        if (ActivityBilling.isPro(getContext())) {
+                            Bundle args = data.getBundleExtra("args");
+                            calendar = args.getString("account");
                         } else
                             startActivity(new Intent(getContext(), ActivityBilling.class));
                     }
