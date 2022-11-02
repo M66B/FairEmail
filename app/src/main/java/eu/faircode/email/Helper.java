@@ -2643,204 +2643,209 @@ public class Helper {
     static void authenticate(final FragmentActivity activity, final LifecycleOwner owner,
                              Boolean enabled, final
                              Runnable authenticated, final Runnable cancelled) {
-        Log.i("Authenticate " + activity);
+        // https://android.googlesource.com/platform/frameworks/base/+/refs/heads/android12-release/packages/SystemUI/src/com/android/systemui/biometrics/AuthController.java#195
+        ApplicationEx.getMainHandler().post(new RunnableEx("authenticate") {
+            @Override
+            public void delegate() {
+                Log.i("Authenticate " + activity);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
-        String pin = prefs.getString("pin", null);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+                String pin = prefs.getString("pin", null);
 
-        if (enabled != null || TextUtils.isEmpty(pin)) {
-            Log.i("Authenticate biometric enabled=" + enabled);
-            BiometricPrompt.PromptInfo.Builder info = new BiometricPrompt.PromptInfo.Builder()
-                    .setTitle(activity.getString(enabled == null ? R.string.app_name : R.string.title_setup_biometrics));
+                if (enabled != null || TextUtils.isEmpty(pin)) {
+                    Log.i("Authenticate biometric enabled=" + enabled);
+                    BiometricPrompt.PromptInfo.Builder info = new BiometricPrompt.PromptInfo.Builder()
+                            .setTitle(activity.getString(enabled == null ? R.string.app_name : R.string.title_setup_biometrics));
 
-            KeyguardManager kgm = (KeyguardManager) activity.getSystemService(Context.KEYGUARD_SERVICE);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && kgm != null && kgm.isDeviceSecure())
-                info.setDeviceCredentialAllowed(true);
-            else
-                info.setNegativeButtonText(activity.getString(android.R.string.cancel));
+                    KeyguardManager kgm = (KeyguardManager) activity.getSystemService(Context.KEYGUARD_SERVICE);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && kgm != null && kgm.isDeviceSecure())
+                        info.setDeviceCredentialAllowed(true);
+                    else
+                        info.setNegativeButtonText(activity.getString(android.R.string.cancel));
 
-            info.setConfirmationRequired(false);
+                    info.setConfirmationRequired(false);
 
-            info.setSubtitle(activity.getString(enabled == null ? R.string.title_setup_biometrics_unlock
-                    : enabled
-                    ? R.string.title_setup_biometrics_disable
-                    : R.string.title_setup_biometrics_enable));
+                    info.setSubtitle(activity.getString(enabled == null ? R.string.title_setup_biometrics_unlock
+                            : enabled
+                            ? R.string.title_setup_biometrics_disable
+                            : R.string.title_setup_biometrics_enable));
 
-            final BiometricPrompt prompt = new BiometricPrompt(activity, executor,
-                    new BiometricPrompt.AuthenticationCallback() {
-                        private int fails = 0;
+                    final BiometricPrompt prompt = new BiometricPrompt(activity, executor,
+                            new BiometricPrompt.AuthenticationCallback() {
+                                private int fails = 0;
 
-                        @Override
-                        public void onAuthenticationError(final int errorCode, @NonNull final CharSequence errString) {
-                            if (isCancelled(errorCode) || errorCode == BiometricPrompt.ERROR_UNABLE_TO_PROCESS)
-                                Log.w("Authenticate biometric error " + errorCode + ": " + errString);
-                            else
-                                Log.e("Authenticate biometric error " + errorCode + ": " + errString);
+                                @Override
+                                public void onAuthenticationError(final int errorCode, @NonNull final CharSequence errString) {
+                                    if (isCancelled(errorCode) || errorCode == BiometricPrompt.ERROR_UNABLE_TO_PROCESS)
+                                        Log.w("Authenticate biometric error " + errorCode + ": " + errString);
+                                    else
+                                        Log.e("Authenticate biometric error " + errorCode + ": " + errString);
 
-                            if (isHardwareFailure(errorCode)) {
-                                prefs.edit().remove("biometrics").apply();
-                                ApplicationEx.getMainHandler().post(authenticated);
-                                return;
-                            }
-
-                            if (!isCancelled(errorCode))
-                                ApplicationEx.getMainHandler().post(new RunnableEx("auth:error") {
-                                    @Override
-                                    public void delegate() {
-                                        ToastEx.makeText(activity,
-                                                "Error " + errorCode + ": " + errString,
-                                                Toast.LENGTH_LONG).show();
+                                    if (isHardwareFailure(errorCode)) {
+                                        prefs.edit().remove("biometrics").apply();
+                                        ApplicationEx.getMainHandler().post(authenticated);
+                                        return;
                                     }
-                                });
 
-                            ApplicationEx.getMainHandler().post(cancelled);
-                        }
+                                    if (!isCancelled(errorCode))
+                                        ApplicationEx.getMainHandler().post(new RunnableEx("auth:error") {
+                                            @Override
+                                            public void delegate() {
+                                                ToastEx.makeText(activity,
+                                                        "Error " + errorCode + ": " + errString,
+                                                        Toast.LENGTH_LONG).show();
+                                            }
+                                        });
 
+                                    ApplicationEx.getMainHandler().post(cancelled);
+                                }
+
+                                @Override
+                                public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                                    Log.i("Authenticate biometric succeeded");
+                                    setAuthenticated(activity);
+                                    ApplicationEx.getMainHandler().post(authenticated);
+                                }
+
+                                @Override
+                                public void onAuthenticationFailed() {
+                                    Log.w("Authenticate biometric failed");
+                                    if (++fails >= 3)
+                                        ApplicationEx.getMainHandler().post(cancelled);
+                                }
+
+                                private boolean isCancelled(int errorCode) {
+                                    return (errorCode == BiometricPrompt.ERROR_NEGATIVE_BUTTON ||
+                                            errorCode == BiometricPrompt.ERROR_CANCELED ||
+                                            errorCode == BiometricPrompt.ERROR_USER_CANCELED);
+                                }
+
+                                private boolean isHardwareFailure(int errorCode) {
+                                    return (errorCode == BiometricPrompt.ERROR_HW_UNAVAILABLE ||
+                                            errorCode == BiometricPrompt.ERROR_NO_BIOMETRICS || // No fingerprints enrolled.
+                                            errorCode == BiometricPrompt.ERROR_HW_NOT_PRESENT ||
+                                            errorCode == BiometricPrompt.ERROR_NO_DEVICE_CREDENTIAL);
+                                }
+                            });
+
+                    prompt.authenticate(info.build());
+
+                    final Runnable cancelPrompt = new RunnableEx("auth:cancelprompt") {
                         @Override
-                        public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
-                            Log.i("Authenticate biometric succeeded");
-                            setAuthenticated(activity);
-                            ApplicationEx.getMainHandler().post(authenticated);
+                        public void delegate() {
+                            try {
+                                Log.i("Authenticate cancel prompt");
+                                prompt.cancelAuthentication();
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
                         }
+                    };
 
-                        @Override
-                        public void onAuthenticationFailed() {
-                            Log.w("Authenticate biometric failed");
-                            if (++fails >= 3)
-                                ApplicationEx.getMainHandler().post(cancelled);
-                        }
+                    ApplicationEx.getMainHandler().postDelayed(cancelPrompt, 60 * 1000L);
 
-                        private boolean isCancelled(int errorCode) {
-                            return (errorCode == BiometricPrompt.ERROR_NEGATIVE_BUTTON ||
-                                    errorCode == BiometricPrompt.ERROR_CANCELED ||
-                                    errorCode == BiometricPrompt.ERROR_USER_CANCELED);
-                        }
-
-                        private boolean isHardwareFailure(int errorCode) {
-                            return (errorCode == BiometricPrompt.ERROR_HW_UNAVAILABLE ||
-                                    errorCode == BiometricPrompt.ERROR_NO_BIOMETRICS || // No fingerprints enrolled.
-                                    errorCode == BiometricPrompt.ERROR_HW_NOT_PRESENT ||
-                                    errorCode == BiometricPrompt.ERROR_NO_DEVICE_CREDENTIAL);
+                    owner.getLifecycle().addObserver(new LifecycleObserver() {
+                        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                        public void onDestroy() {
+                            Log.i("Authenticate destroyed");
+                            ApplicationEx.getMainHandler().removeCallbacks(cancelPrompt);
+                            try {
+                                prompt.cancelAuthentication();
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                            owner.getLifecycle().removeObserver(this);
                         }
                     });
 
-            prompt.authenticate(info.build());
+                } else {
+                    Log.i("Authenticate PIN");
+                    final View dview = LayoutInflater.from(activity).inflate(R.layout.dialog_pin_ask, null);
+                    final EditText etPin = dview.findViewById(R.id.etPin);
 
-            final Runnable cancelPrompt = new RunnableEx("auth:cancelprompt") {
-                @Override
-                public void delegate() {
-                    try {
-                        prompt.cancelAuthentication();
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-                }
-            };
+                    etPin.setEnabled(false);
 
-            ApplicationEx.getMainHandler().postDelayed(cancelPrompt, 60 * 1000L);
+                    final AlertDialog dialog = new AlertDialog.Builder(activity)
+                            .setView(dview)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+                                    String pin = prefs.getString("pin", "");
+                                    String entered = etPin.getText().toString();
 
-            owner.getLifecycle().addObserver(new LifecycleObserver() {
-                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-                public void onDestroy() {
-                    Log.i("Authenticate destroyed");
-                    ApplicationEx.getMainHandler().removeCallbacks(cancelPrompt);
-                    try {
-                        prompt.cancelAuthentication();
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-                    owner.getLifecycle().removeObserver(this);
-                }
-            });
+                                    Log.i("Authenticate PIN ok=" + pin.equals(entered));
+                                    if (pin.equals(entered)) {
+                                        prefs.edit()
+                                                .remove("pin_failure_at")
+                                                .remove("pin_failure_count")
+                                                .apply();
+                                        setAuthenticated(activity);
+                                        ApplicationEx.getMainHandler().post(authenticated);
+                                    } else {
+                                        int count = prefs.getInt("pin_failure_count", 0) + 1;
+                                        prefs.edit()
+                                                .putLong("pin_failure_at", new Date().getTime())
+                                                .putInt("pin_failure_count", count)
+                                                .apply();
+                                        ApplicationEx.getMainHandler().post(cancelled);
+                                    }
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Log.i("Authenticate PIN cancelled");
+                                    ApplicationEx.getMainHandler().post(cancelled);
+                                }
+                            })
+                            .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                @Override
+                                public void onDismiss(DialogInterface dialog) {
+                                    Log.i("Authenticate PIN dismissed");
+                                    if (shouldAuthenticate(activity, false)) // Some Android versions call dismiss on OK
+                                        ApplicationEx.getMainHandler().post(cancelled);
+                                }
+                            })
+                            .create();
 
-        } else {
-            Log.i("Authenticate PIN");
-            final View dview = LayoutInflater.from(activity).inflate(R.layout.dialog_pin_ask, null);
-            final EditText etPin = dview.findViewById(R.id.etPin);
-
-            etPin.setEnabled(false);
-
-            final AlertDialog dialog = new AlertDialog.Builder(activity)
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    etPin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
-                            String pin = prefs.getString("pin", "");
-                            String entered = etPin.getText().toString();
+                        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                                dialog.getButton(DialogInterface.BUTTON_POSITIVE).performClick();
+                                return true;
+                            } else
+                                return false;
+                        }
+                    });
 
-                            Log.i("Authenticate PIN ok=" + pin.equals(entered));
-                            if (pin.equals(entered)) {
-                                prefs.edit()
-                                        .remove("pin_failure_at")
-                                        .remove("pin_failure_count")
-                                        .apply();
-                                setAuthenticated(activity);
-                                ApplicationEx.getMainHandler().post(authenticated);
-                            } else {
-                                int count = prefs.getInt("pin_failure_count", 0) + 1;
-                                prefs.edit()
-                                        .putLong("pin_failure_at", new Date().getTime())
-                                        .putInt("pin_failure_count", count)
-                                        .apply();
-                                ApplicationEx.getMainHandler().post(cancelled);
+                    try {
+                        dialog.show();
+                        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+
+                        long pin_failure_at = prefs.getLong("pin_failure_at", 0);
+                        int pin_failure_count = prefs.getInt("pin_failure_count", 0);
+                        long wait = (long) Math.pow(PIN_FAILURE_DELAY, pin_failure_count) * 1000L;
+                        long delay = pin_failure_at + wait - new Date().getTime();
+                        Log.i("PIN wait=" + wait + " delay=" + delay);
+                        dview.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    etPin.setCompoundDrawables(null, null, null, null);
+                                    etPin.setEnabled(true);
+                                    etPin.requestFocus();
+                                    showKeyboard(etPin);
+                                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
                             }
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.i("Authenticate PIN cancelled");
-                            ApplicationEx.getMainHandler().post(cancelled);
-                        }
-                    })
-                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialog) {
-                            Log.i("Authenticate PIN dismissed");
-                            if (shouldAuthenticate(activity, false)) // Some Android versions call dismiss on OK
-                                ApplicationEx.getMainHandler().post(cancelled);
-                        }
-                    })
-                    .create();
+                        }, delay < 0 ? 0 : delay);
 
-            etPin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                @Override
-                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                    if (actionId == EditorInfo.IME_ACTION_DONE) {
-                        dialog.getButton(DialogInterface.BUTTON_POSITIVE).performClick();
-                        return true;
-                    } else
-                        return false;
-                }
-            });
-
-            try {
-                dialog.show();
-                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-
-                long pin_failure_at = prefs.getLong("pin_failure_at", 0);
-                int pin_failure_count = prefs.getInt("pin_failure_count", 0);
-                long wait = (long) Math.pow(PIN_FAILURE_DELAY, pin_failure_count) * 1000L;
-                long delay = pin_failure_at + wait - new Date().getTime();
-                Log.i("PIN wait=" + wait + " delay=" + delay);
-                dview.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            etPin.setCompoundDrawables(null, null, null, null);
-                            etPin.setEnabled(true);
-                            etPin.requestFocus();
-                            showKeyboard(etPin);
-                            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
-                    }
-                }, delay < 0 ? 0 : delay);
-
-            } catch (Throwable ex) {
-                Log.e(ex);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
                 /*
                     java.lang.RuntimeException: Unable to start activity ComponentInfo{eu.faircode.email/eu.faircode.email.ActivityMain}: java.lang.RuntimeException: InputChannel is not initialized.
                       at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:3477)
@@ -2867,8 +2872,10 @@ public class Helper {
                       at eu.faircode.email.ActivityMain.onCreate(SourceFile:24)
                       at android.app.Activity.performCreate(Activity.java:7822)
                  */
+                    }
+                }
             }
-        }
+        });
     }
 
     static void setAuthenticated(Context context) {
