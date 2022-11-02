@@ -5081,9 +5081,9 @@ Amazon never responded to an issue reported about this.
 
 * Install the [GitHub version](https://github.com/M66B/FairEmail/releases) of the app
 * Grant permissions via setup step 2 of the main settings screen
-* Select a calendar in the accounts settings under *Manual setup and account options*
+* Select a calendar in the accounts settings under *Manual setup and account options* (you can use the *Reset* button to disable storing invitations)
 
-Invitations will be stored automatically as tentative. Updates and cancels will be processed as expected.
+Invitations will be stored automatically as *tentative*. Updated and cancelled invitations will be processed.
 
 This feature is available since version 1.1996.
 
