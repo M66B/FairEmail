@@ -1600,7 +1600,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             // v1.1995a
                             Integer version = Helper.parseInt(c[1].substring(3, c[1].length() - 1));
                             if (version == null)
-                                return null;
+                                continue;
                             char revision = c[1].charAt(c[1].length() - 1);
 
                             if (BuildConfig.DEBUG ||
@@ -1611,8 +1611,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 info.html_url = BuildConfig.BITBUCKET_DOWNLOADS_URI;
                                 info.download_url = link;
                                 return info;
-                            } else
-                                return null;
+                            }
                         }
                     } else {
                         if (!jroot.has("tag_name") || jroot.isNull("tag_name"))
