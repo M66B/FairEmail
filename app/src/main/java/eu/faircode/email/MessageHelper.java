@@ -3974,6 +3974,7 @@ public class MessageHelper {
                                     if (!TextUtils.isEmpty(location))
                                         values.put(CalendarContract.Events.EVENT_LOCATION, location);
                                     values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_TENTATIVE);
+                                    values.put(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_TENTATIVE);
 
                                     Uri uri = resolver.insert(CalendarContract.Events.CONTENT_URI, values);
                                     long eventId = Long.parseLong(uri.getLastPathSegment());
