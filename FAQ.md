@@ -5084,7 +5084,7 @@ Amazon never responded to an issue reported about this.
 * Grant permissions via setup step 2 of the main settings screen
 * Select a calendar in the accounts settings under *Manual setup and account options* (you can use the *Reset* button to disable storing invitations)
 
-Invitations will be stored automatically as *tentative*. Updated and cancelled invitations will be processed.
+Invitations will be stored automatically as *tentative* with no alarms and reminders set. Updated and cancelled invitations will be processed as well.
 
 This feature is available since version 1.1996.
 
