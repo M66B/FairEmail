@@ -4,6 +4,12 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
+### Next version
+
+* Update iCalendar invitations on accept/decline
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### BETA 1.1995c - 2022-11-03
 
 * Added auto storing iCalendar invitations, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq186)
