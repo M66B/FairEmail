@@ -1595,7 +1595,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                     c[1].length() < 8 ||
                                     !"github".equals(c[2]) ||
                                     !"update".equals(c[3]))
-                                return null;
+                                continue;
 
                             // v1.1995a
                             Integer version = Helper.parseInt(c[1].substring(3, c[1].length() - 1));
