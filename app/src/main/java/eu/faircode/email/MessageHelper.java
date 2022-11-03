@@ -3941,7 +3941,8 @@ public class MessageHelper {
                                     // https://developer.android.com/guide/topics/providers/calendar-provider#delete-event
                                     Uri deleteUri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, eventId);
                                     int rows = resolver.delete(deleteUri, null, null);
-                                    EntityLog.log(context, EntityLog.Type.General, message, "Deleted event id=" + eventId + " rows=" + rows);
+                                    EntityLog.log(context, EntityLog.Type.General, message,
+                                            "Deleted event id=" + eventId + " rows=" + rows);
                                 }
                             }
 
@@ -3993,7 +3994,6 @@ public class MessageHelper {
                                     if (!TextUtils.isEmpty(location))
                                         values.put(CalendarContract.Events.EVENT_LOCATION, location);
                                     values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_TENTATIVE);
-                                    values.put(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_TENTATIVE);
 
                                     Uri uri = resolver.insert(CalendarContract.Events.CONTENT_URI, values);
                                     long eventId = Long.parseLong(uri.getLastPathSegment());
