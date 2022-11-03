@@ -265,7 +265,7 @@ public class FragmentPop extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
-                args.putString("account", calendar);
+                args.putString("calendar", calendar);
 
                 FragmentDialogCalendar fragment = new FragmentDialogCalendar();
                 fragment.setArguments(args);
@@ -914,7 +914,12 @@ public class FragmentPop extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null) {
                         if (ActivityBilling.isPro(getContext())) {
                             Bundle args = data.getBundleExtra("args");
-                            calendar = args.getString("account");
+                            JSONObject jobject = new JSONObject();
+                            jobject.put("id", args.getLong("id"));
+                            jobject.put("account", args.getString("account"));
+                            jobject.put("type", args.getString("type"));
+                            jobject.put("name", args.getString("name"));
+                            calendar = jobject.toString();
                         } else
                             startActivity(new Intent(getContext(), ActivityBilling.class));
                     }

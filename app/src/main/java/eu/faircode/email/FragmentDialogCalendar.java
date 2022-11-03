@@ -29,12 +29,16 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FragmentDialogCalendar extends FragmentDialogBase {
     @NonNull
@@ -43,14 +47,28 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
 
-        String selectedAccount = getArguments().getString("account");
+        String selectedCalendar = getArguments().getString("calendar");
+        String selectedAccount;
+        String selectedName;
+        try {
+            JSONObject jselected = new JSONObject(selectedCalendar);
+            selectedAccount = jselected.getString("account");
+            selectedName = jselected.getString("name");
+        } catch (Throwable ex) {
+            Log.i(ex);
+            selectedAccount = selectedCalendar;
+            selectedName = null;
+        }
 
         List<Calendar> calendars = new ArrayList<>();
         try (Cursor cursor = resolver.query(CalendarContract.Calendars.CONTENT_URI,
                 new String[]{
                         CalendarContract.Calendars._ID,
                         CalendarContract.Calendars.ACCOUNT_NAME,
-                        CalendarContract.Calendars.ACCOUNT_TYPE
+                        CalendarContract.Calendars.ACCOUNT_TYPE,
+                        CalendarContract.Calendars.IS_PRIMARY,
+                        CalendarContract.Calendars.VISIBLE,
+                        CalendarContract.Calendars.CALENDAR_DISPLAY_NAME
                 },
                 CalendarContract.Calendars.VISIBLE + " = 1 AND " +
                         CalendarContract.Calendars.IS_PRIMARY + " = 1",
@@ -61,8 +79,11 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
                 long id = cursor.getLong(0);
                 String account = cursor.getString(1);
                 String type = cursor.getString(2);
+                boolean primary = (cursor.getInt(3) != 0);
+                boolean visible = (cursor.getInt(4) != 0);
+                String name = cursor.getString(5);
                 if (account != null)
-                    calendars.add(new Calendar(id, account, type));
+                    calendars.add(new Calendar(id, account, type, primary, visible, name));
             }
         }
 
@@ -71,7 +92,8 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
         for (int i = 0; i < calendars.size(); i++) {
             Calendar calendar = calendars.get(i);
             names.add(calendar.getTitle());
-            if (calendar.account.equals(selectedAccount))
+            if (Objects.equals(calendar.account, selectedAccount) &&
+                    (selectedName == null || Objects.equals(calendar.name, selectedName)))
                 checkedItem = i;
         }
 
@@ -86,6 +108,7 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
                 getArguments().putLong("id", calendar.id);
                 getArguments().putString("account", calendar.account);
                 getArguments().putString("type", calendar.type);
+                getArguments().putString("name", calendar.name);
                 sendResult(RESULT_OK);
                 dismiss();
             }
@@ -108,18 +131,29 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
 
 
     private class Calendar {
-        Calendar(long id, String account, String type) {
-            this.id = id;
-            this.account = account;
-            this.type = type;
-        }
-
         private long id;
         private String account;
         private String type;
+        private boolean primary;
+        private boolean visible;
+        private String name;
+
+        Calendar(long id, String account, String type, boolean primary, boolean visible, String name) {
+            this.id = id;
+            this.account = account;
+            this.type = type;
+            this.primary = primary;
+            this.visible = visible;
+            this.name = (Objects.equals(account, name) ? null : name);
+        }
 
         String getTitle() {
-            return (this.account == null ? "-" : this.account);
+            return (this.visible ? "" : "(") +
+                    (TextUtils.isEmpty(this.name) ? "" : this.name + ":") +
+                    (this.account == null ? "-" : this.account) +
+                    (BuildConfig.DEBUG && false ? ":" + (this.type == null ? "-" : this.type) : "") +
+                    (this.visible ? "" : ")") +
+                    " " + (this.primary && BuildConfig.DEBUG && false ? "*" : "");
         }
     }
 }

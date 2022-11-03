@@ -64,6 +64,7 @@ import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveStreamFactory;
 import org.apache.commons.compress.archivers.zip.UnsupportedZipFeatureException;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
+import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -3944,18 +3945,35 @@ public class MessageHelper {
                                 }
                             }
 
-                        if (icalendar.getMethod().isRequest())
+                        if (icalendar.getMethod().isRequest()) {
+                            String selectedAccount;
+                            String selectedName;
+                            try {
+                                JSONObject jselected = new JSONObject(account.calendar);
+                                selectedAccount = jselected.getString("account");
+                                selectedName = jselected.getString("name");
+                            } catch (Throwable ex) {
+                                Log.i(ex);
+                                selectedAccount = account.calendar;
+                                selectedName = null;
+                            }
+
                             try (Cursor cursor = resolver.query(CalendarContract.Calendars.CONTENT_URI,
                                     new String[]{CalendarContract.Calendars._ID},
                                     CalendarContract.Calendars.VISIBLE + " = 1 AND " +
                                             CalendarContract.Calendars.IS_PRIMARY + " = 1 AND " +
-                                            CalendarContract.Calendars.ACCOUNT_NAME + " = ?",
-                                    new String[]{account.calendar},
+                                            CalendarContract.Calendars.ACCOUNT_NAME + " = ?" +
+                                            (selectedName == null
+                                                    ? ""
+                                                    : " AND " + CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " = ?"),
+                                    selectedName == null
+                                            ? new String[]{selectedAccount}
+                                            : new String[]{selectedAccount, selectedName},
                                     null)) {
                                 if (cursor.getCount() == 0)
                                     EntityLog.log(context, EntityLog.Type.General, message,
                                             "Account not found username=" + account.user);
-                                while (cursor.moveToNext()) {
+                                if (cursor.moveToNext()) {
                                     // https://developer.android.com/guide/topics/providers/calendar-provider#add-event
                                     // https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns
                                     ContentValues values = new ContentValues();
@@ -3985,6 +4003,7 @@ public class MessageHelper {
                                             " summary=" + summary);
                                 }
                             }
+                        }
                     }
                 }
             } catch (Throwable ex) {
