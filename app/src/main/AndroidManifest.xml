@@ -423,7 +423,8 @@
             android:name=".ActivityBilling"
             android:exported="false"
             android:icon="@mipmap/ic_launcher"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:taskAffinity="${applicationId}.BILLING" />
 
         <!-- https://developer.android.com/training/permissions/explaining-access -->
         <activity

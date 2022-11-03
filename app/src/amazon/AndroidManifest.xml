@@ -425,7 +425,8 @@
             android:name=".ActivityBilling"
             android:exported="false"
             android:icon="@mipmap/ic_launcher"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:taskAffinity="${applicationId}.BILLING" />
 
         <!-- https://developer.android.com/training/permissions/explaining-access -->
         <activity
@@ -576,6 +577,8 @@
                 android:resource="@xml/fileprovider_paths" />
         </provider>
 
+        <!-- https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration -->
+        <!-- https://issuetracker.google.com/issues/138465476 -->
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
