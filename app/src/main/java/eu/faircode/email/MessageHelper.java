@@ -22,15 +22,10 @@ package eu.faircode.email;
 import static android.system.OsConstants.ENOSPC;
 
 import android.Manifest;
-import android.content.ContentResolver;
-import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
-import android.provider.CalendarContract;
 import android.system.ErrnoException;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -145,14 +140,9 @@ import javax.mail.internet.ParameterList;
 import javax.mail.internet.ParseException;
 
 import biweekly.Biweekly;
-import biweekly.ICalVersion;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
-import biweekly.io.WriteContext;
-import biweekly.io.scribe.property.RecurrenceRuleScribe;
 import biweekly.property.Method;
-import biweekly.property.RecurrenceRule;
-import biweekly.util.ICalDate;
 
 public class MessageHelper {
     private boolean ensuredEnvelope = false;
@@ -3885,126 +3875,43 @@ public class MessageHelper {
                                 EntityFolder.SYSTEM.equals(folder.type) ||
                                 EntityFolder.USER.equals(folder.type)));
 
-                if (!permission || !received || account == null || account.calendar == null)
+                if (!permission || !received || account == null || account.calendar == null) {
                     EntityLog.log(context, "Event not processed" +
                             " permission=" + permission +
                             " account=" + (account != null) +
                             " calendar=" + (account == null ? null : account.calendar) +
                             " folder=" + (folder != null) + ":" + (folder == null ? null : folder.type) +
                             " received=" + received);
-                else {
-                    File file = local.getFile(context);
-                    ICalendar icalendar = Biweekly.parse(file).first();
-                    String method = (icalendar.getMethod() == null ? null : icalendar.getMethod().getValue());
+                    return;
+                }
 
-                    VEvent event = icalendar.getEvents().get(0);
+                File file = local.getFile(context);
+                ICalendar icalendar = Biweekly.parse(file).first();
 
-                    String summary = (event.getSummary() == null ? null : event.getSummary().getValue());
-                    String description = (event.getDescription() == null ? null : event.getDescription().getValue());
-                    String location = (event.getLocation() == null ? null : event.getLocation().getValue());
+                Method method = icalendar.getMethod();
+                if (method == null)
+                    return;
 
-                    ICalDate start = (event.getDateStart() == null ? null : event.getDateStart().getValue());
-                    ICalDate end = (event.getDateEnd() == null ? null : event.getDateEnd().getValue());
+                VEvent event = icalendar.getEvents().get(0);
 
-                    String rrule = null;
-                    RecurrenceRule recurrence = event.getRecurrenceRule();
-                    if (recurrence != null) {
-                        RecurrenceRuleScribe scribe = new RecurrenceRuleScribe();
-                        WriteContext wcontext = new WriteContext(ICalVersion.V2_0, icalendar.getTimezoneInfo(), null);
-                        rrule = scribe.writeText(recurrence, wcontext);
+                if (method.isRequest() || method.isCancel())
+                    CalendarHelper.delete(context, event, message);
+
+                if (method.isRequest()) {
+                    String selectedAccount;
+                    String selectedName;
+                    try {
+                        JSONObject jselected = new JSONObject(account.calendar);
+                        selectedAccount = jselected.getString("account");
+                        selectedName = jselected.getString("name");
+                    } catch (Throwable ex) {
+                        Log.i(ex);
+                        selectedAccount = account.calendar;
+                        selectedName = null;
                     }
 
-                    String uid = (event.getUid() == null ? null : event.getUid().getValue());
-
-                    EntityLog.log(context, EntityLog.Type.General, message, "Processing event" +
-                            " uid=" + uid +
-                            " method=" + method +
-                            " start=" + (start != null) +
-                            " end=" + (end != null) +
-                            " rrule=" + rrule +
-                            " calendar=" + account.calendar);
-
-                    if (!TextUtils.isEmpty(uid) &&
-                            icalendar.getMethod() != null &&
-                            start != null && end != null) {
-                        ContentResolver resolver = context.getContentResolver();
-
-                        if (icalendar.getMethod().isRequest() || icalendar.getMethod().isCancel())
-                            try (Cursor cursor = resolver.query(CalendarContract.Events.CONTENT_URI,
-                                    new String[]{CalendarContract.Events._ID},
-                                    CalendarContract.Events.UID_2445 + " = ? ",
-                                    new String[]{uid},
-                                    null)) {
-                                while (cursor.moveToNext()) {
-                                    long eventId = cursor.getLong(0);
-
-                                    // https://developer.android.com/guide/topics/providers/calendar-provider#delete-event
-                                    Uri deleteUri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, eventId);
-                                    int rows = resolver.delete(deleteUri, null, null);
-                                    EntityLog.log(context, EntityLog.Type.General, message,
-                                            "Deleted event id=" + eventId + " rows=" + rows);
-                                }
-                            }
-
-                        if (icalendar.getMethod().isRequest()) {
-                            String selectedAccount;
-                            String selectedName;
-                            try {
-                                JSONObject jselected = new JSONObject(account.calendar);
-                                selectedAccount = jselected.getString("account");
-                                selectedName = jselected.getString("name");
-                            } catch (Throwable ex) {
-                                Log.i(ex);
-                                selectedAccount = account.calendar;
-                                selectedName = null;
-                            }
-
-                            try (Cursor cursor = resolver.query(CalendarContract.Calendars.CONTENT_URI,
-                                    new String[]{CalendarContract.Calendars._ID},
-                                    CalendarContract.Calendars.VISIBLE + " <> 0 AND " +
-                                            CalendarContract.Calendars.ACCOUNT_NAME + " = ?" +
-                                            (selectedName == null
-                                                    ? ""
-                                                    : " AND " + CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " = ?"),
-                                    selectedName == null
-                                            ? new String[]{selectedAccount}
-                                            : new String[]{selectedAccount, selectedName},
-                                    null)) {
-                                if (cursor.getCount() == 0)
-                                    EntityLog.log(context, EntityLog.Type.General, message,
-                                            "Account not found username=" + account.user);
-
-                                if (cursor.moveToNext()) {
-                                    // https://developer.android.com/guide/topics/providers/calendar-provider#add-event
-                                    // https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns
-                                    ContentValues values = new ContentValues();
-                                    values.put(CalendarContract.Events.CALENDAR_ID, cursor.getLong(0));
-                                    if (!TextUtils.isEmpty(uid))
-                                        values.put(CalendarContract.Events.UID_2445, uid);
-                                    values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
-                                    values.put(CalendarContract.Events.DTSTART, start.getTime());
-                                    values.put(CalendarContract.Events.DTEND, end.getTime());
-                                    if (rrule != null)
-                                        values.put(CalendarContract.Events.RRULE, rrule);
-                                    if (!TextUtils.isEmpty(summary))
-                                        values.put(CalendarContract.Events.TITLE, summary);
-                                    if (!TextUtils.isEmpty(description))
-                                        values.put(CalendarContract.Events.DESCRIPTION, description);
-                                    if (!TextUtils.isEmpty(location))
-                                        values.put(CalendarContract.Events.EVENT_LOCATION, location);
-                                    values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_TENTATIVE);
-
-                                    Uri uri = resolver.insert(CalendarContract.Events.CONTENT_URI, values);
-                                    long eventId = Long.parseLong(uri.getLastPathSegment());
-                                    EntityLog.log(context, EntityLog.Type.General, message, "Inserted event" +
-                                            " id=" + eventId +
-                                            " start=" + new Date(start.getTime()) +
-                                            " end=" + new Date(end.getTime()) +
-                                            " summary=" + summary);
-                                }
-                            }
-                        }
-                    }
+                    CalendarHelper.insert(context, icalendar.getTimezoneInfo(), event,
+                            selectedAccount, selectedName, message);
                 }
             } catch (Throwable ex) {
                 Log.w(ex);

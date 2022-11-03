@@ -25,22 +25,16 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
-import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
-import android.net.Uri;
 import android.os.PowerManager;
 import android.os.SystemClock;
-import android.provider.CalendarContract;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -78,10 +72,7 @@ import javax.mail.internet.MimeMessage;
 import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
-import biweekly.parameter.ParticipationStatus;
-import biweekly.property.Attendee;
 import biweekly.property.Method;
-import biweekly.property.Uid;
 
 public class ServiceSend extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TupleUnsent lastUnsent = null;
@@ -900,40 +891,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         return;
 
                     VEvent event = icalendar.getEvents().get(0);
-                    Uid uid = event.getUid();
-                    List<Attendee> attendees = event.getAttendees();
-                    if (uid == null || attendees == null || attendees.size() == 0)
-                        return;
-
-                    ParticipationStatus status = attendees.get(0).getParticipationStatus();
-                    if (!ParticipationStatus.ACCEPTED.equals(status) &&
-                            !ParticipationStatus.DECLINED.equals(status))
-                        return;
-
-                    ContentResolver resolver = getContentResolver();
-                    try (Cursor cursor = resolver.query(CalendarContract.Events.CONTENT_URI,
-                            new String[]{CalendarContract.Events._ID},
-                            CalendarContract.Events.UID_2445 + " = ? ",
-                            new String[]{uid.getValue()},
-                            null)) {
-                        while (cursor.moveToNext()) {
-                            long eventId = cursor.getLong(0);
-
-                            // https://developer.android.com/guide/topics/providers/calendar-provider#modify-calendar
-                            Uri updateUri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, eventId);
-                            ContentValues values = new ContentValues();
-                            if (ParticipationStatus.ACCEPTED.equals(status))
-                                values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_CONFIRMED);
-                            else
-                                values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_CANCELED);
-                            int rows = resolver.update(updateUri, values, null, null);
-
-                            EntityMessage message = db.message().getMessage(sid);
-                            EntityLog.log(this, EntityLog.Type.General, message,
-                                    "Updated event id=" + eventId + " rows=" + rows);
-                        }
-                    }
-
+                    EntityMessage message = db.message().getMessage(sid);
+                    CalendarHelper.update(this, event, message);
                     break;
                 } catch (Throwable ex) {
                     Log.e(ex);
