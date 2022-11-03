@@ -4,10 +4,11 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
-### Next version
+### BETA 1.1995c - 2022-11-03
 
 * Added auto storing iCalendar invitations, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq186)
 * Small improvements and minor bug fixes
+* Updated translations
 
 ### BETA 1.1995b - 2022-10-31
 
