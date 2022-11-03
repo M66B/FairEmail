@@ -112,6 +112,7 @@ public class FragmentAccount extends FragmentBase {
     private TextView tvColorPro;
 
     private Button btnCalendar;
+    private TextView tvCalendarPro;
 
     private Button btnAdvanced;
     private CheckBox cbSynchronize;
@@ -230,6 +231,7 @@ public class FragmentAccount extends FragmentBase {
         tvColorPro = view.findViewById(R.id.tvColorPro);
 
         btnCalendar = view.findViewById(R.id.btnCalendar);
+        tvCalendarPro = view.findViewById(R.id.tvCalendarPro);
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
@@ -440,6 +442,8 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
+        Helper.linkPro(tvColorPro);
+
         btnCalendar.setEnabled(Helper.hasPermission(getContext(), Manifest.permission.WRITE_CALENDAR));
         btnCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -454,7 +458,7 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
-        Helper.linkPro(tvColorPro);
+        Helper.linkPro(tvCalendarPro);
 
         btnAdvanced.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -87,6 +87,7 @@ public class FragmentPop extends FragmentBase {
     private TextView tvColorPro;
 
     private Button btnCalendar;
+    private TextView tvCalendarPro;
 
     private CheckBox cbSynchronize;
     private CheckBox cbIgnoreSchedule;
@@ -161,6 +162,7 @@ public class FragmentPop extends FragmentBase {
         tvColorPro = view.findViewById(R.id.tvColorPro);
 
         btnCalendar = view.findViewById(R.id.btnCalendar);
+        tvCalendarPro = view.findViewById(R.id.tvCalendarPro);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbIgnoreSchedule = view.findViewById(R.id.cbIgnoreSchedule);
@@ -271,6 +273,8 @@ public class FragmentPop extends FragmentBase {
                 fragment.show(getParentFragmentManager(), "account:calendar");
             }
         });
+
+        Helper.linkPro(tvCalendarPro);
 
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -401,7 +405,6 @@ public class FragmentPop extends FragmentBase {
                 String name = args.getString("name");
                 String category = args.getString("category");
                 Integer color = args.getInt("color");
-
                 String calendar = args.getString("calendar");
 
                 boolean synchronize = args.getBoolean("synchronize");
@@ -580,7 +583,6 @@ public class FragmentPop extends FragmentBase {
                     account.name = name;
                     account.category = category;
                     account.color = color;
-
                     account.calendar = calendar;
 
                     account.synchronize = synchronize;

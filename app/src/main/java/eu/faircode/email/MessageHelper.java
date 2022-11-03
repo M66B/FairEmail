@@ -3626,7 +3626,7 @@ public class MessageHelper {
                 if ("message/rfc822".equals(local.type))
                     decodeRfc822(context, local);
 
-                else if ("text/calendar".equals(local.type))
+                else if ("text/calendar".equals(local.type) && ActivityBilling.isPro(context))
                     decodeICalendar(context, local);
 
                 else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && local.isCompressed()) {

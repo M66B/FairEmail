@@ -1948,8 +1948,10 @@ public class Helper {
             tv.getPaint().setUnderlineText(true);
             tv.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    tv.getContext().startActivity(new Intent(tv.getContext(), ActivityBilling.class));
+                public void onClick(View v) {
+                    v.getContext().startActivity(
+                            new Intent(v.getContext(), ActivityBilling.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                 }
             });
         }
