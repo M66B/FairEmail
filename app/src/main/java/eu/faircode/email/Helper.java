@@ -1951,8 +1951,7 @@ public class Helper {
                 @Override
                 public void onClick(View v) {
                     v.getContext().startActivity(
-                            new Intent(v.getContext(), ActivityBilling.class)
-                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                            new Intent(v.getContext(), ActivityBilling.class));
                 }
             });
         }
