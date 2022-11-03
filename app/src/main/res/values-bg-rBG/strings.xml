@@ -503,6 +503,7 @@
     <string name="title_account_interval_hint">Честота на опресняване на връзката за push съобщения или честота на проверка за нови съобщения</string>
     <string name="title_account_partial_fetch_hint">Деактивирайте това само в случай на празни съобщения или повредени прикачени файлове</string>
     <string name="title_color">Цвят</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Календар</string>
     <string name="title_background">Фон</string>
     <string name="title_transparent">Прозрачност</string>
     <string name="title_account_ondemand">Синхронизирай ръчно</string>

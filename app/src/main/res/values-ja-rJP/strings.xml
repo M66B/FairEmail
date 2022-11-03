@@ -330,6 +330,7 @@
     <string name="title_advanced_use_blocklist">ブロックリストにあるドメインから送信されたメッセージを迷惑メールフォルダーに移動</string>
     <string name="title_advanced_use_blocklist_pop3">ブロックリストにあるドメインから送信されたメッセージをスキップ (POP3 のみ)</string>
     <string name="title_advanced_tune_keep_alive">キープアライブ間隔を自動的に調整</string>
+    <string name="title_advanced_blocklist_warning">ブロックリストは常に完璧に迷惑メールをブロックできるわけではなく、迷惑メール以外をブロックする可能性もあります！</string>
     <string name="title_advanced_keyboard">デフォルトでキーボードを表示</string>
     <string name="title_advanced_keyboard_no_fullscreen">全画面キーボードを無効にする</string>
     <string name="title_advanced_suggest_names">サジェスト表示に名前とメールアドレスを使用</string>
@@ -599,6 +600,7 @@
     <string name="title_advanced_clear_all_remark">削除したアプリのデータは元に戻せません！</string>
     <string name="title_advanced_sign_default">デフォルトで電子署名</string>
     <string name="title_advanced_encrypt_default">デフォルトで暗号化</string>
+    <string name="title_advanced_encrypt_auto">すべての宛先の鍵が有効なときは自動で暗号化</string>
     <string name="title_advanced_auto_decrypt">メッセージを自動的に復号</string>
     <string name="title_advanced_auto_undo_decrypt">会話の終了時に復号を元に戻す</string>
     <string name="title_advanced_openpgp">OpenPGP プロバイダー</string>
@@ -638,6 +640,7 @@
     <string name="title_advanced_watchdog">FairEmail がアクティブか定期的に確認</string>
     <string name="title_advanced_updates">GitHub のアップデートを確認</string>
     <string name="title_advanced_check_weekly">毎日ではなく毎週チェックする</string>
+    <string name="title_advanced_beta">BitBucket でテスト版を確認</string>
     <string name="title_advanced_changelog">更新後に更新履歴を表示</string>
     <string name="title_advanced_experiments">実験的な機能を試す</string>
     <string name="title_advanced_crash_reports">エラーレポートを送信</string>
@@ -783,6 +786,7 @@
     <string name="title_account_noop_hint">より頻繁に接続を更新しますが、バッテリー使用量が増加します</string>
     <string name="title_account_partial_fetch_hint">メッセージが空の場合や添付ファイルが破損している場合にのみ無効にする</string>
     <string name="title_color">色</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">カレンダー</string>
     <string name="title_background">背景</string>
     <string name="title_transparent">透過</string>
     <string name="title_account_ondemand">手動で同期</string>

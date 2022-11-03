@@ -355,6 +355,7 @@
     <string name="title_advanced_use_blocklist">Mutarea mesajelor de la domeniile de pe o listă de blocare în dosarul de spam</string>
     <string name="title_advanced_use_blocklist_pop3">Omiteți mesajele de la domeniile de pe o listă de blocare (numai POP3)</string>
     <string name="title_advanced_tune_keep_alive">Reglaţi automat intervalul de păstrare al conexiunii</string>
+    <string name="title_advanced_blocklist_warning">Listele de blocare nu sunt perfecte și pot bloca mai mult decât spam!</string>
     <string name="title_advanced_keyboard">Afișare implicită a tastaturii</string>
     <string name="title_advanced_keyboard_no_fullscreen">Dezactivare tastatură pe tot ecranul</string>
     <string name="title_advanced_suggest_names">Utilizează nume și adrese de e-mail</string>
@@ -624,6 +625,7 @@
     <string name="title_advanced_clear_all_remark">Datele aplicației vor fi șterse ireversibil!</string>
     <string name="title_advanced_sign_default">Semnare în mod implicit</string>
     <string name="title_advanced_encrypt_default">Criptare în mod implicit</string>
+    <string name="title_advanced_encrypt_auto">Criptează automat când sunt disponibile cheile tuturor destinatarilor</string>
     <string name="title_advanced_auto_decrypt">Decriptează automat mesajele</string>
     <string name="title_advanced_auto_undo_decrypt">Anulează decriptarea la închiderea conversației</string>
     <string name="title_advanced_openpgp">Furnizor OpenPGP</string>
@@ -662,6 +664,7 @@
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificați dacă există actualizări pe Github</string>
     <string name="title_advanced_check_weekly">Verifică săptămânal în loc de zilnic</string>
+    <string name="title_advanced_beta">Verificați pentru versiuni de testare pe BitBucket</string>
     <string name="title_advanced_changelog">Afișați lista de modificări după actualizare</string>
     <string name="title_advanced_experiments">Încercați funcţii experimentale</string>
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
@@ -808,6 +811,7 @@
     <string name="title_account_noop_hint">Acest lucru va reîmprospăta conexiunea mai activ, dar va consuma mai multă energie din baterie</string>
     <string name="title_account_partial_fetch_hint">Dezactivați numai pentru mesaje goale sau atașamente corupte</string>
     <string name="title_color">Culoare</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Calendar</string>
     <string name="title_background">Fundal</string>
     <string name="title_transparent">Transparență</string>
     <string name="title_account_ondemand">Sincronizare manuală</string>

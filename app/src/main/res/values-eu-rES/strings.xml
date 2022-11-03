@@ -641,6 +641,7 @@
     <string name="title_account_interval_hint">Mezu berrien arazketa freskatzeko maiztasuna</string>
     <string name="title_account_partial_fetch_hint">Ezgaitu hau mezu hutsak edo eranskinak hondatuta badaude</string>
     <string name="title_color">Kolorea</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Egutegia</string>
     <string name="title_background">Atzealdea</string>
     <string name="title_transparent">Gardena</string>
     <string name="title_account_ondemand">Sinkronizatu eskuz</string>

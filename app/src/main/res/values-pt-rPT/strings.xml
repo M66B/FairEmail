@@ -652,6 +652,7 @@
     <string name="title_advanced_watchdog">Verificar periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_updates">Verificar atualizações do GitHub</string>
     <string name="title_advanced_check_weekly">Verificar semanalmente em vez de diariamente</string>
+    <string name="title_advanced_beta">Verificar as versões de teste no BitBucket</string>
     <string name="title_advanced_changelog">Mostrar lista de alterações após uma actualização</string>
     <string name="title_advanced_experiments">Ativar funcionalidades experimentais</string>
     <string name="title_advanced_crash_reports">Enviar relatórios de erro</string>
@@ -797,6 +798,7 @@
     <string name="title_account_noop_hint">Isto atualizará a ligação com mais frequência, mas também irá consumir mais bateria</string>
     <string name="title_account_partial_fetch_hint">Desactivar isto apenas em caso de mensagens vazias ou anexos corrompidos</string>
     <string name="title_color">Cor</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Calendário</string>
     <string name="title_background">Fundo</string>
     <string name="title_transparent">Transparente</string>
     <string name="title_account_ondemand">Sincronizar manualmente</string>

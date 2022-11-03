@@ -342,6 +342,7 @@
     <string name="title_advanced_use_blocklist">Μετακίνηση μηνυμάτων από τομείς σε μια λίστα αποκλεισμού, προς τον φάκελο Ανεπιθύμητων</string>
     <string name="title_advanced_use_blocklist_pop3">Παράλειψη μηνυμάτων από τομείς σε λίστα αποκλεισμού (μόνο POP3)</string>
     <string name="title_advanced_tune_keep_alive">Αυτόματη ρύθμιση του χρονικού διαστήματος για διατήρηση ενεργής σύνδεσης</string>
+    <string name="title_advanced_blocklist_warning">Οι λίστες αποκλεισμού δεν είναι τέλειες και ενδέχεται να μπλοκάρουν και άλλα μηνύματα πέρα από τα ανεπιθύμητα!</string>
     <string name="title_advanced_keyboard">Εμφάνιση του πληκτρολογίου από προεπιλογή</string>
     <string name="title_advanced_keyboard_no_fullscreen">Να μην προβάλλεται το πληκτρολόγιο σε πλήρη οθόνη</string>
     <string name="title_advanced_suggest_names">Χρήση ονομάτων και διευθύνσεων ηλεκτρονικού ταχυδρομείου</string>
@@ -611,6 +612,7 @@
     <string name="title_advanced_clear_all_remark">Τα δεδομένα της εφαρμογής θα διαγραφούν αμετάκλητα!</string>
     <string name="title_advanced_sign_default">Υπογραφή από προεπιλογή</string>
     <string name="title_advanced_encrypt_default">Κρυπτογράφηση από προεπιλογή</string>
+    <string name="title_advanced_encrypt_auto">Αυτόματη κρυπτογράφηση όταν τα κλειδιά όλων των παραληπτών είναι διαθέσιμα</string>
     <string name="title_advanced_auto_decrypt">Αυτόματη αποκρυπτογράφηση μηνυμάτων</string>
     <string name="title_advanced_auto_undo_decrypt">Αναίρεση αποκρυπτογράφησης κατά το κλείσιμο μιας συζήτησης</string>
     <string name="title_advanced_openpgp">Πάροχος OpenPGP</string>
@@ -648,6 +650,7 @@
     <string name="title_advanced_watchdog">Περιοδικός έλεγχος για το αν το FairEmail είναι ακόμη ενεργό</string>
     <string name="title_advanced_updates">Έλεγχος για ενημερώσεις στο GitHub</string>
     <string name="title_advanced_check_weekly">Εβδομαδιαίος έλεγχος αντί για καθημερινός</string>
+    <string name="title_advanced_beta">Έλεγχος για δοκιμαστικές εκδόσεις στο BitBucket</string>
     <string name="title_advanced_changelog">Προβολή ιστορικού αλλαγών μετά την ενημέρωση</string>
     <string name="title_advanced_experiments">Δοκιμή πειραματικών χαρακτηριστικών</string>
     <string name="title_advanced_crash_reports">Αποστολή αναφοράς σφαλμάτων</string>
@@ -793,6 +796,7 @@
     <string name="title_account_noop_hint">Αυτό θα ανανεώνει τη σύνδεση πιο ενεργά, αλλά θα χρησιμοποιεί, επίσης, περισσότερη μπαταρία</string>
     <string name="title_account_partial_fetch_hint">Απενεργοποιήστε το μόνο σε περιπτώσεις κενών μηνυμάτων ή χαλασμένων συνημμένων</string>
     <string name="title_color">Χρώμα</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Ημερολόγιο</string>
     <string name="title_background">Φόντο</string>
     <string name="title_transparent">Διαφανές</string>
     <string name="title_account_ondemand">Χειροκίνητος συγχρονισμός</string>

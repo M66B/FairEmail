@@ -555,6 +555,7 @@
     <string name="title_account_name">نام حساب</string>
     <string name="title_account_name_hint">برای افتراق پوشه‌ها استفاده می‌شود</string>
     <string name="title_color">رنگ</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">تقویم</string>
     <string name="title_account_ondemand">همگام‌سازی دستی</string>
     <string name="title_account_notify">اعلانات جداگانه</string>
     <string name="title_account_left">کشیدن به چپ</string>

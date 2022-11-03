@@ -335,6 +335,7 @@
     <string name="title_advanced_use_blocklist">Flytta meddelanden från domäner som finns på skräppostblockeringslistor till skräppost-mappen</string>
     <string name="title_advanced_use_blocklist_pop3">Hoppa över meddelanden från domäner på en blocklista (POP3)</string>
     <string name="title_advanced_tune_keep_alive">Justera automatiskt keep-alive intervallet</string>
+    <string name="title_advanced_blocklist_warning">Blocklistor är inte perfekta och kan blockera mer än bara skräppost!</string>
     <string name="title_advanced_keyboard">Visa tangentbord som standard</string>
     <string name="title_advanced_keyboard_no_fullscreen">Förhindra helskärmstangentbord</string>
     <string name="title_advanced_suggest_names">Visa namn och e-postadresser</string>
@@ -604,6 +605,7 @@
     <string name="title_advanced_clear_all_remark">Appens data kommer att tas bort oåterkalleligt!</string>
     <string name="title_advanced_sign_default">Signera som standard</string>
     <string name="title_advanced_encrypt_default">Kryptera som standard</string>
+    <string name="title_advanced_encrypt_auto">Kryptera automatiskt när alla mottagares nycklar är tillgängliga</string>
     <string name="title_advanced_auto_decrypt">Dekryptera meddelanden automatiskt</string>
     <string name="title_advanced_auto_undo_decrypt">Ångra dekryptering vid stängning av konversation</string>
     <string name="title_advanced_openpgp">OpenPGP-leverantör</string>
@@ -642,6 +644,7 @@
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
     <string name="title_advanced_updates">Sök efter GitHub-uppdateringar</string>
     <string name="title_advanced_check_weekly">Kolla veckovis istället för dagligen</string>
+    <string name="title_advanced_beta">Sök efter testversioner på BitBucket</string>
     <string name="title_advanced_changelog">Visa ändringslogg efter uppdatering</string>
     <string name="title_advanced_experiments">Prova experimentella funktioner</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
@@ -788,6 +791,7 @@
     <string name="title_account_noop_hint">Detta kommer att uppdatera anslutningen mer aktivt, men även använda mer batterikraft</string>
     <string name="title_account_partial_fetch_hint">Inaktivera detta endast vid tomma meddelanden eller korrupta bilagor</string>
     <string name="title_color">Färg</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalender</string>
     <string name="title_background">Bakgrund</string>
     <string name="title_transparent">Transparent</string>
     <string name="title_account_ondemand">Synkronisera manuellt</string>

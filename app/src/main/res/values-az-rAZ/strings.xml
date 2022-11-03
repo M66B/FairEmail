@@ -343,6 +343,7 @@
     <string name="title_advanced_use_blocklist">Əngəllənənlər siyahısındakı domenlərdən gələn mesajları spam qovluğuna köçürt</string>
     <string name="title_advanced_use_blocklist_pop3">Əngəllilər siyahısındakı domenlərdən gələn mesajları ötür (yalnız POP3)</string>
     <string name="title_advanced_tune_keep_alive">Canlı saxlama aralığını avtomatik köklə</string>
+    <string name="title_advanced_blocklist_warning">Əngəlləmə siyahıları mükəmməl deyil və spam-dan daha çoxunu əngəlləyə bilər!</string>
     <string name="title_advanced_keyboard">Klaviaturanı ilkin olaraq göstər</string>
     <string name="title_advanced_keyboard_no_fullscreen">Tam ekran klaviaturanı əngəllə</string>
     <string name="title_advanced_suggest_names">Ad və e-poçt ünvanlarını istifadə et</string>
@@ -612,7 +613,7 @@
     <string name="title_advanced_clear_all_remark">Tətbiq verilənləri geri qaytarılmayacaq formada silinəcək!</string>
     <string name="title_advanced_sign_default">İlkin olaraq imzala</string>
     <string name="title_advanced_encrypt_default">İlkin olaraq şifrələ</string>
-    <string name="title_advanced_encrypt_auto" comment="title_advanced_encrypt_auto&#10;Option title">Bütün ictimai açarlar əlçatan olduqda avtomatik şifrələ</string>
+    <string name="title_advanced_encrypt_auto">Bütün alıcıların açarları əlçatan olduqda avtomatik şifrələ</string>
     <string name="title_advanced_auto_decrypt">Mesajların şifrələrini avtomatik aç</string>
     <string name="title_advanced_auto_undo_decrypt">Danışığı bağlayanda şifrə açmanı geri al</string>
     <string name="title_advanced_openpgp">OpenPGP təchizatçısı</string>
@@ -652,6 +653,7 @@
     <string name="title_advanced_watchdog">Mütəmadi olaraq \"FairEmail\"in aktivliyini yoxla</string>
     <string name="title_advanced_updates">GitHub yeniləmələrini yoxla</string>
     <string name="title_advanced_check_weekly">Gündəlik əvəzinə həftəlik yoxla</string>
+    <string name="title_advanced_beta">BitBucket-də test versiyalarını yoxlayın</string>
     <string name="title_advanced_changelog">Yenilənmədən sonra dəyişiklik jurnalını göstər</string>
     <string name="title_advanced_experiments">Təcrübi xüsusiyyətləri sına</string>
     <string name="title_advanced_crash_reports">Xəta hesabatlarını göndər</string>
@@ -797,6 +799,7 @@
     <string name="title_account_noop_hint">Bu, bağlantını daha aktiv şəkildə təzələyəcək, ancaq daha çox batareya istifadəsinə səbəb olacaq</string>
     <string name="title_account_partial_fetch_hint">Bunu yalnız boş mesajlar və ya zədəli qoşmalar olduğu halda sıradan çıxardın</string>
     <string name="title_color">Rəng</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Təqvim</string>
     <string name="title_background">Arxaplan</string>
     <string name="title_transparent">Şəffaf</string>
     <string name="title_account_ondemand">Əllə eyniləşdir</string>

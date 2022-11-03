@@ -329,6 +329,7 @@
     <string name="title_advanced_use_blocklist">将发送自拦截列表上域名的消息移至垃圾箱</string>
     <string name="title_advanced_use_blocklist_pop3">跳过黑名单域中的邮件（仅限 POP3）</string>
     <string name="title_advanced_tune_keep_alive">自动调谐保活的时间间隔</string>
+    <string name="title_advanced_blocklist_warning">拦截列表并不完美，可能会阻止垃圾邮件以外的东西！</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_keyboard_no_fullscreen">防止全屏键盘</string>
     <string name="title_advanced_suggest_names">使用名称和电子邮件地址</string>
@@ -598,6 +599,7 @@
     <string name="title_advanced_clear_all_remark">应用数据将不可逆转地删除！</string>
     <string name="title_advanced_sign_default">使用默认签名</string>
     <string name="title_advanced_encrypt_default">使用默认加密</string>
+    <string name="title_advanced_encrypt_auto">当所有收件人的公钥可用时自动加密</string>
     <string name="title_advanced_auto_decrypt">自动解密消息</string>
     <string name="title_advanced_auto_undo_decrypt">关闭对话时撤销解密</string>
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
@@ -636,6 +638,7 @@
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
     <string name="title_advanced_updates">检查 GitHub 更新</string>
     <string name="title_advanced_check_weekly">每周而不是每天检查</string>
+    <string name="title_advanced_beta">检查 BitBucket 上的测试版</string>
     <string name="title_advanced_changelog">更新后显示更新日志</string>
     <string name="title_advanced_experiments">尝试实验性功能</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
@@ -782,6 +785,7 @@
     <string name="title_account_noop_hint">这将更加主动地刷新连接，但也会消耗更多电量</string>
     <string name="title_account_partial_fetch_hint">仅在空消息或损坏的附件时禁用此功能</string>
     <string name="title_color">颜色</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">日历</string>
     <string name="title_background">背景</string>
     <string name="title_transparent">透明</string>
     <string name="title_account_ondemand">手动同步</string>

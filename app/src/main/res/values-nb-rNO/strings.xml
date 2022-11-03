@@ -521,6 +521,7 @@
     <string name="title_account_interval_hint">Frekvens for å forfriske forbindelsen for push meldinger eller hyppigheten av å sjekke nye meldinger</string>
     <string name="title_account_partial_fetch_hint">Deaktiver kun dette ved tomme meldinger eller korrupte vedlegg</string>
     <string name="title_color">Farge</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalender</string>
     <string name="title_account_ondemand">Synkroniser manuelt</string>
     <string name="title_account_notify">Separate meldinger</string>
     <string name="title_account_left">Sveip mot venstre</string>

@@ -366,8 +366,9 @@
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
     <string name="title_advanced_check_blocklist">Sprawdź, czy nazwa domeny nadawcy znajduje się na liście spamu</string>
     <string name="title_advanced_use_blocklist">Przenieś wiadomości z listy domen zablokowanych do folderu spam</string>
-    <string name="title_advanced_use_blocklist_pop3">Pomijaj wiadomości z domen znajdujących się na liście blokowania (tylko POP3)</string>
+    <string name="title_advanced_use_blocklist_pop3">Pomijaj wiadomości z listy zablokownaych domen (tylko POP3)</string>
     <string name="title_advanced_tune_keep_alive">Automatycznie dostosuj interwał zachowania aktywności</string>
+    <string name="title_advanced_blocklist_warning">Listy zablokowanego spamu nie są idealne i mogą blokować więcej niż tylko spam!</string>
     <string name="title_advanced_keyboard">Domyślnie pokaż klawiaturę</string>
     <string name="title_advanced_keyboard_no_fullscreen">Blokuj klawiaturę pełnoekranową</string>
     <string name="title_advanced_suggest_names">Użyj nazw i adresów e-mail</string>
@@ -611,7 +612,7 @@
     <string name="title_advanced_notifications_background">Użyj usługi w tle do synchronizacji wiadomości</string>
     <string name="title_advanced_notifications_background_hint">Usługa w tle może być w dowolnym momencie zatrzymana przez Androida, ale nie wymaga powiadomienia na pasku stanu</string>
     <string name="title_advanced_confirm_links">Potwierdź otwieranie linków</string>
-    <string name="title_advanced_check_links_dbl">Sprawdź listy blokowanych domen pod kątem podejrzanych linków</string>
+    <string name="title_advanced_check_links_dbl">Sprawdź listy zablokowanych domen pod kątem podejrzanych linków</string>
     <string name="title_advanced_confirm_images">Domyślnie nie pokazuj obrazów</string>
     <string name="title_advanced_ask_images">Potwierdź wyświetlanie obrazów</string>
     <string name="title_advanced_confirm_html">Domyślnie pokaż ponownie sformatowane wiadomości</string>
@@ -637,6 +638,7 @@
     <string name="title_advanced_clear_all_remark">Dane aplikacji zostaną nieodwracalnie usunięte!</string>
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
     <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
+    <string name="title_advanced_encrypt_auto">Automatycznie zaszyfruj, gdy wszystkie klucze odbiorców są dostępne</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>
     <string name="title_advanced_auto_undo_decrypt">Cofnij odszyfrowanie przy zamykaniu rozmowy</string>
     <string name="title_advanced_openpgp">Dostawca OpenPGP</string>
@@ -675,6 +677,7 @@
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje GitHub</string>
     <string name="title_advanced_check_weekly">Sprawdzaj co tydzień zamiast codziennie</string>
+    <string name="title_advanced_beta">Sprawdź wersję testową na BitBucket</string>
     <string name="title_advanced_changelog">Pokaż listę zmian po aktualizacji</string>
     <string name="title_advanced_experiments">Wypróbuj funkcje eksperymentalne</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
@@ -821,6 +824,7 @@
     <string name="title_account_noop_hint">Dzięki temu połączenie będzie odświeżane bardziej aktywnie, ale również zużyje więcej energii z baterii</string>
     <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
     <string name="title_color">Kolor</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalendarz</string>
     <string name="title_background">Tło</string>
     <string name="title_transparent">Przeźroczysty</string>
     <string name="title_account_ondemand">Synchronizuj ręcznie</string>
@@ -1272,7 +1276,7 @@
     <string name="title_save_drafts">Zapisz szkice na serwerze</string>
     <string name="title_send_dialog">Pokaż opcje wysyłania</string>
     <string name="title_image_dialog">Pokaż opcje obrazu</string>
-    <string name="title_block_toolbar">Zablokuj pasek narzędzi</string>
+    <string name="title_block_toolbar">Pasek narzędzi tekstowych</string>
     <string name="title_media_toolbar">Pasek mediów</string>
     <string name="title_manage_local_contacts">Zarządzaj kontaktami lokalnymi</string>
     <string name="title_insert_contact_group">Wstaw grupę kontaktów</string>

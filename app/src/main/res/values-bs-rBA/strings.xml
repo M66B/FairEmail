@@ -356,6 +356,7 @@
     <string name="title_advanced_use_blocklist">Premjesti poruke od blokiranih domena u spam folder</string>
     <string name="title_advanced_use_blocklist_pop3">Preskoči poruke od domena na spisku blokiranja (samo za POP3)</string>
     <string name="title_advanced_tune_keep_alive">Automatski podesi interval provjere konekcije</string>
+    <string name="title_advanced_blocklist_warning">Liste blokiranja nisu savršene i mogu blokirati osim spama i druge poruke!</string>
     <string name="title_advanced_keyboard">Prikaži tastaturu po zadanom</string>
     <string name="title_advanced_keyboard_no_fullscreen">Spriječi tastaturu preko cijelog ekrana</string>
     <string name="title_advanced_suggest_names">Prikaži imena i e-mail adrese</string>
@@ -625,7 +626,7 @@
     <string name="title_advanced_clear_all_remark">Podaci aplikacije izbrisat će se nepovratno!</string>
     <string name="title_advanced_sign_default">Potpiši po zadanom</string>
     <string name="title_advanced_encrypt_default">Šifriraj po zadanom</string>
-    <string name="title_advanced_encrypt_auto" comment="title_advanced_encrypt_auto&#10;Option title">Automatski šifriraj kada svi javni ključevi budu dostupni</string>
+    <string name="title_advanced_encrypt_auto">Automatski šifriraj kada svi ključevi primalaca budu dostupni</string>
     <string name="title_advanced_auto_decrypt">Automatski dešifriraj poruke</string>
     <string name="title_advanced_auto_undo_decrypt">Poništi dešifriranje pri zatvaranju konverzacije</string>
     <string name="title_advanced_openpgp">OpenPGP provajder</string>
@@ -665,6 +666,7 @@
     <string name="title_advanced_watchdog">Povremeno provjeri da li je FairEmail još aktivan</string>
     <string name="title_advanced_updates">Provjeri ažuriranja na GitHub-u</string>
     <string name="title_advanced_check_weekly">Provjeravaj sedmično umjesto dnevno</string>
+    <string name="title_advanced_beta">Provjeri testne verzije na BitBucket-u</string>
     <string name="title_advanced_changelog">Prikaži zapisnik promjena nakon ažuriranja</string>
     <string name="title_advanced_experiments">Probaj eksperimentalne mogućnosti</string>
     <string name="title_advanced_crash_reports">Pošalji izvještaj o greški</string>
@@ -810,6 +812,7 @@
     <string name="title_account_noop_hint">Ovo će aktivnije osvježavati konekciju, ali i trošiti više baterije</string>
     <string name="title_account_partial_fetch_hint">Isključite ovu opciju u slučaju praznih poruka ili nevaljanih priloga</string>
     <string name="title_color">Boja</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalendar</string>
     <string name="title_background">Pozadina</string>
     <string name="title_transparent">Providno</string>
     <string name="title_account_ondemand">Sinhronizuj ručno</string>

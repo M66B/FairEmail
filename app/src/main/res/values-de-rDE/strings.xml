@@ -341,6 +341,7 @@
     <string name="title_advanced_use_blocklist">Nachrichten, deren Domains in einer Sperrliste enthalten sind, in den Spam-Ordner verschieben</string>
     <string name="title_advanced_use_blocklist_pop3">Nachrichten von Domains auf einer Sperrliste überspringen (nur POP3)</string>
     <string name="title_advanced_tune_keep_alive">Aktivitätsintervall automatisch anpassen</string>
+    <string name="title_advanced_blocklist_warning">Sperrlisten sind nicht perfekt und können mehr als nur Spam blockieren!</string>
     <string name="title_advanced_keyboard">Tastatur standardmäßig anzeigen</string>
     <string name="title_advanced_keyboard_no_fullscreen">Vollbild-Tastatur verhindern</string>
     <string name="title_advanced_suggest_names">Namen und E-Mail-Adressen verwenden</string>
@@ -610,7 +611,7 @@
     <string name="title_advanced_clear_all_remark">Die App-Daten werden unwiderruflich gelöscht!</string>
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
-    <string name="title_advanced_encrypt_auto" comment="title_advanced_encrypt_auto&#10;Option title">Automatisch verschlüsseln, wenn alle öffentlichen Schlüssel verfügbar sind</string>
+    <string name="title_advanced_encrypt_auto">Automatisch verschlüsseln, wenn alle Empfängerschlüssel verfügbar sind</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
     <string name="title_advanced_auto_undo_decrypt">Unterhaltung beim Schließen erneut verschlüsseln</string>
     <string name="title_advanced_openpgp">OpenPGP-Anbieter</string>
@@ -649,6 +650,7 @@
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Auf GitHub nach Aktualisierungen suchen</string>
     <string name="title_advanced_check_weekly">Wöchentlich statt täglich prüfen</string>
+    <string name="title_advanced_beta">Testversionen bei BitBucket suchen</string>
     <string name="title_advanced_changelog">Änderungsprotokoll nach Aktualisierungen anzeigen</string>
     <string name="title_advanced_experiments">Experimentelle Funktionen ausprobieren</string>
     <string name="title_advanced_crash_reports">Fehlerberichte senden</string>
@@ -795,6 +797,7 @@
     <string name="title_account_noop_hint">Dies wird die Verbindung aktiver aktualisieren, aber auch mehr Akkuleistung verbrauchen</string>
     <string name="title_account_partial_fetch_hint">Nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen deaktivieren</string>
     <string name="title_color">Farbe</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalender</string>
     <string name="title_background">Hintergrund</string>
     <string name="title_transparent">Transparent</string>
     <string name="title_account_ondemand">Manuell synchronisieren</string>
@@ -1982,8 +1985,8 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string-array name="contactTypes">
         <item>Empfänger</item>
         <item>Absender</item>
-        <item>Blockiert</item>
-        <item>Nicht blockiert</item>
+        <item>Gesperrt</item>
+        <item>Nicht gesperrt</item>
     </string-array>
     <string-array name="contactGroupTypes">
         <item>Beliebig(e)</item>

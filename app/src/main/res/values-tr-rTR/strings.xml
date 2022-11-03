@@ -341,6 +341,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_use_blocklist">Engellenenler listesindeki alanlardan gelen iletileri spam klasörüne taşıyın</string>
     <string name="title_advanced_use_blocklist_pop3">Engellenenler listesindeki alanlardan gelen mesajları atla (yalnızca POP3)</string>
     <string name="title_advanced_tune_keep_alive">Canlı tutma aralığını otomatik olarak ayarlayın</string>
+    <string name="title_advanced_blocklist_warning">Engelleme listeleri mükemmel değildir ve istenmeyen e-postalardan fazlasını engelleyebilir!</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>
     <string name="title_advanced_keyboard_no_fullscreen">Tam ekran klavyeyi önleyin, gizleyin</string>
     <string name="title_advanced_suggest_names">İsimleri ve e-posta adreslerini kullanın</string>
@@ -610,6 +611,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_clear_all_remark">Uygulama verileri geri alınamaz şekilde silinecek!</string>
     <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
     <string name="title_advanced_encrypt_default">Varsayılan olarak şifrele</string>
+    <string name="title_advanced_encrypt_auto">Tüm alıcıların anahtarları kullanılabilir olduğunda otomatik olarak şifrele</string>
     <string name="title_advanced_auto_decrypt">İletilerin şifrelerini otomatik olarak çöz</string>
     <string name="title_advanced_auto_undo_decrypt">Görüşmeyi kapatırken şifre çözmeyi geri al</string>
     <string name="title_advanced_openpgp">OpenPGP sağlayıcı</string>
@@ -648,6 +650,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">GitHub güncellemelerini kontrol et</string>
     <string name="title_advanced_check_weekly">Günlük yerine haftalık kontrol edin</string>
+    <string name="title_advanced_beta">BitBucket\'te test sürümlerini kontrol et</string>
     <string name="title_advanced_changelog">Güncellemeden sonra yapılan değişiklikler günlüğünü göster</string>
     <string name="title_advanced_experiments">Deneysel özellikleri deneyin</string>
     <string name="title_advanced_crash_reports">Hata raporları gönder</string>
@@ -794,6 +797,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_account_noop_hint">Bu, bağlantıyı daha aktif bir şekilde yenileyecek, ancak aynı zamanda daha fazla pil gücü kullanacaktır</string>
     <string name="title_account_partial_fetch_hint">Bunu yalnızca boş iletiler veya bozuk ekler olması durumunda devre dışı bırakın</string>
     <string name="title_color">Renk</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Takvim</string>
     <string name="title_background">Arka Plan</string>
     <string name="title_transparent">Şeffaf</string>
     <string name="title_account_ondemand">Manuel olarak senkronize et</string>

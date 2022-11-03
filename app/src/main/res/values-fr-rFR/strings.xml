@@ -343,6 +343,7 @@
     <string name="title_advanced_use_blocklist">Déplacer les messages dont le domaine est présent dans une liste de blocage vers le dossier des indésirables</string>
     <string name="title_advanced_use_blocklist_pop3">Ignorer les messages provenant de domaines d\'une liste de blocage (POP3 seulement)</string>
     <string name="title_advanced_tune_keep_alive">Ajuster automatiquement l\'intervalle de connexion</string>
+    <string name="title_advanced_blocklist_warning">Les listes de blocage ne sont pas parfaites et peuvent bloquer davantage de messages que les indésirables !</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
     <string name="title_advanced_keyboard_no_fullscreen">Ne pas afficher le clavier en plein écran</string>
     <string name="title_advanced_suggest_names">Utiliser les noms et les adresses e-mail</string>
@@ -612,7 +613,7 @@
     <string name="title_advanced_clear_all_remark">Les données de l\'application seront définitivement supprimées !</string>
     <string name="title_advanced_sign_default">Signer par défaut</string>
     <string name="title_advanced_encrypt_default">Chiffrer par défaut</string>
-    <string name="title_advanced_encrypt_auto" comment="title_advanced_encrypt_auto&#10;Option title">Chiffrer automatiquement lorsque toutes les clés publiques sont disponibles</string>
+    <string name="title_advanced_encrypt_auto">Chiffrer automatiquement lorsque toutes les clés des destinataires sont disponibles</string>
     <string name="title_advanced_auto_decrypt">Déchiffrer automatiquement les messages</string>
     <string name="title_advanced_auto_undo_decrypt">Annuler le déchiffrement lors de la fermeture de la conversation</string>
     <string name="title_advanced_openpgp">Fournisseur OpenPGP</string>
@@ -652,6 +653,7 @@
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_updates">Rechercher des mises à jour sur GitHub</string>
     <string name="title_advanced_check_weekly">Vérifier une fois par semaine au lieu d\'une fois par jour</string>
+    <string name="title_advanced_beta">Vérifier les versions de test sur BitBucket</string>
     <string name="title_advanced_changelog">Afficher l\'historique des modifications après la mise à jour</string>
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
     <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
@@ -798,6 +800,7 @@
     <string name="title_account_noop_hint">Ceci actualisera la connexion plus activement, mais utilisera aussi plus de batterie</string>
     <string name="title_account_partial_fetch_hint">Désactiver ceci seulement dans le cas de messages vides ou de pièces jointes corrompues</string>
     <string name="title_color">Couleur</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Calendrier</string>
     <string name="title_background">Arrière-plan</string>
     <string name="title_transparent">Transparent</string>
     <string name="title_account_ondemand">Synchroniser manuellement</string>

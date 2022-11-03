@@ -637,6 +637,7 @@
     <string name="title_advanced_clear_all_remark">Podatki programa bodo neobnovljivo izbrisani!</string>
     <string name="title_advanced_sign_default">Privzeto podpiši</string>
     <string name="title_advanced_encrypt_default">Privzeto šifriraj</string>
+    <string name="title_advanced_encrypt_auto">Samodejno šifriraj, kadar so na voljo ključi vseh prejemnikov</string>
     <string name="title_advanced_auto_decrypt">Samodejno odšifriraj sporočila</string>
     <string name="title_advanced_auto_undo_decrypt">Razveljavi šifriranje ob zapiranju programa</string>
     <string name="title_advanced_openpgp">Ponudnik OpenPGP</string>
@@ -820,6 +821,7 @@
     <string name="title_account_noop_hint">To bo dejavneje osveževalo povezavo, vendar tudi porabilo več energije.</string>
     <string name="title_account_partial_fetch_hint">Onemogočite to samo v primeru praznih sporočil ali okvarjenih prilog.</string>
     <string name="title_color">Barva</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Koledar</string>
     <string name="title_background">Ozadje</string>
     <string name="title_transparent">Prosojno</string>
     <string name="title_account_ondemand">Sinhroniziraj ročno</string>

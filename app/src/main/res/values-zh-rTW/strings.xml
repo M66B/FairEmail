@@ -756,6 +756,7 @@
     <string name="title_account_interval_hint">推送訊息用連線的刷新頻率，或新訊息的檢查頻率</string>
     <string name="title_account_partial_fetch_hint">應僅在出現訊息為空或附件損壞的情況時才停用此選項</string>
     <string name="title_color">顏色</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">日曆</string>
     <string name="title_background">背景</string>
     <string name="title_transparent">透明</string>
     <string name="title_account_ondemand">手動同步</string>

@@ -369,6 +369,7 @@
     <string name="title_advanced_use_blocklist">העברת הודעות משמות תחום שברשימת החסימה לתיקיית הספאם</string>
     <string name="title_advanced_use_blocklist_pop3">דילוג על הודעות משמות תחום ברשימת החסימה (POP3 בלבד)</string>
     <string name="title_advanced_tune_keep_alive">כוונון משך ה־keep-alive אוטומטית</string>
+    <string name="title_advanced_blocklist_warning">רשימות החסימה אינן מושלמות והן עלולות לחסום הודעות תמימות!</string>
     <string name="title_advanced_keyboard">הצגת מקלדת כברירת מחדל</string>
     <string name="title_advanced_keyboard_no_fullscreen">מניעת מקלדת במסך מלא</string>
     <string name="title_advanced_suggest_names">שמות משתמשים וכתובות דוא״ל</string>
@@ -638,6 +639,7 @@
     <string name="title_advanced_clear_all_remark">נתוני היישומון יימחקו ללא אפשרות לשחזור!</string>
     <string name="title_advanced_sign_default">חתימה כבררת מחדל</string>
     <string name="title_advanced_encrypt_default">הצפנה כבררת מחדל</string>
+    <string name="title_advanced_encrypt_auto">להצפין אוטומטית כשכל מפתחות הנמענים זמינים</string>
     <string name="title_advanced_auto_decrypt">פענוח הודעות אוטומטית</string>
     <string name="title_advanced_auto_undo_decrypt">להשתמש בפענוח עם סגירת דיון</string>
     <string name="title_advanced_openpgp">ספק OpenPGP</string>
@@ -677,6 +679,7 @@
     <string name="title_advanced_watchdog">לבדוק מדי פעם אם FairEmail עדיין פעיל</string>
     <string name="title_advanced_updates">איתור עדכונים ב־GitHub</string>
     <string name="title_advanced_check_weekly">לבדוק שבועית במקום יומית</string>
+    <string name="title_advanced_beta">איתור גרסאות בדיקה ב־BitBucket</string>
     <string name="title_advanced_changelog">הצגת יומן השינויים לאחר עדכון</string>
     <string name="title_advanced_experiments">התנסות ביכולות נסיוניות</string>
     <string name="title_advanced_crash_reports">שליחת דוחות שגיאה</string>
@@ -822,6 +825,7 @@
     <string name="title_account_noop_hint">הגדרה זו תרענן את החיבור בצורה יותר פעילה אך גם תצרוך יותר סוללה</string>
     <string name="title_account_partial_fetch_hint">יש להשבית את זה רק במקרה של הודעות ריקות או קבצים מצורפים פגומים</string>
     <string name="title_color">צבע</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">לוח שנה</string>
     <string name="title_background">רקע</string>
     <string name="title_transparent">שקוף</string>
     <string name="title_account_ondemand">סנכרון ידני</string>

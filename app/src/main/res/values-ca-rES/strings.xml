@@ -462,6 +462,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_account_interval_hint">Freqüència d’actualització de la connexió de missatges push o freqüència de comprovació de missatges nous</string>
     <string name="title_account_partial_fetch_hint">Desactiveu-ho només en cas de missatges buits o fitxers adjunts corruptes</string>
     <string name="title_color">Color</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Calendari</string>
     <string name="title_account_ondemand">Sincronitza manualment</string>
     <string name="title_account_notify">Notificacions independents</string>
     <string name="title_account_left">Llisca a l\'esquerra</string>

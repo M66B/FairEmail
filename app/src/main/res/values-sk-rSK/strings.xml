@@ -814,6 +814,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_account_interval_hint">Frekvencia obnovenia spojenia pre oznámenia push alebo frekvencia kontroly nových správ</string>
     <string name="title_account_partial_fetch_hint">Vypnite len pre prázdne správy alebo správy s poškodenými prílohami</string>
     <string name="title_color">Farba</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalendár</string>
     <string name="title_background">Pozadie</string>
     <string name="title_transparent">Priehľadná</string>
     <string name="title_account_ondemand">Synchronizovať ručne</string>

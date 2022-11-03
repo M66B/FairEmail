@@ -794,6 +794,7 @@
     <string name="title_account_noop_hint">Tämä päivittää yhteyttä useammin, mutta käyttää enemmän akkua</string>
     <string name="title_account_partial_fetch_hint">Kytke tämä pois ainoastaan, jos ilmenee tyhjiä viestejä tai korruptoituneita liitteitä</string>
     <string name="title_color">Väri</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalenteri</string>
     <string name="title_background">Tausta</string>
     <string name="title_transparent">Läpinäkyvä</string>
     <string name="title_account_ondemand">Synkronoi manuaalisesti</string>

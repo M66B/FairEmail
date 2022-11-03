@@ -341,6 +341,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_use_blocklist">Verplaats berichten van domeinen op een blokkeerlijst naar de spammap</string>
     <string name="title_advanced_use_blocklist_pop3">Sla berichten van domeinen op een bloklijst over (alleen POP3)</string>
     <string name="title_advanced_tune_keep_alive">De keep-alive interval automatisch aanpassen</string>
+    <string name="title_advanced_blocklist_warning">Blokkeer lijsten zijn niet perfect en kunnen meer blokkeren dan alleen spam!</string>
     <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>
     <string name="title_advanced_keyboard_no_fullscreen">Toetsenbord in volledige scherm voorkomen</string>
     <string name="title_advanced_suggest_names">Gebruik namen en e-mailadressen</string>
@@ -610,7 +611,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_clear_all_remark">De app gegevens worden onomkeerbaar verwijderd!</string>
     <string name="title_advanced_sign_default">Standaard ondertekenen</string>
     <string name="title_advanced_encrypt_default">Standaard versleutelen</string>
-    <string name="title_advanced_encrypt_auto" comment="title_advanced_encrypt_auto&#10;Option title">Automatisch versleutelen wanneer alle openbare sleutels beschikbaar zijn</string>
+    <string name="title_advanced_encrypt_auto">Automatisch versleutelen wanneer alle sleutels van de ontvanger beschikbaar zijn</string>
     <string name="title_advanced_auto_decrypt">Berichten automatisch ontsleutelen</string>
     <string name="title_advanced_auto_undo_decrypt">Maak het ontsleutelen ongedaan bij het sluiten van het gesprek</string>
     <string name="title_advanced_openpgp">OpenPGP provider</string>
@@ -649,6 +650,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op GitHub updates</string>
     <string name="title_advanced_check_weekly">Controleer wekelijks in plaats van dagelijks</string>
+    <string name="title_advanced_beta">Controleer op testversies op BitBucket</string>
     <string name="title_advanced_changelog">Wijzigingsgeschiedenis weergeven na update</string>
     <string name="title_advanced_experiments">Probeer experimentele functies</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
@@ -795,6 +797,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_account_noop_hint">Dit zal de verbinding actiever vernieuwen, maar ook meer batterijvermogen gebruiken</string>
     <string name="title_account_partial_fetch_hint">Schakel dit alleen uit in het geval van lege berichten of corrupte bijlagen</string>
     <string name="title_color">Kleur</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Agenda</string>
     <string name="title_background">Achtergrond</string>
     <string name="title_transparent">Doorzichtig</string>
     <string name="title_account_ondemand">Handmatig synchroniseren</string>

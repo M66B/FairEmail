@@ -368,6 +368,7 @@
     <string name="title_advanced_use_blocklist">Перемещать сообщения с доменов из списка блокировки в \"Спам\"</string>
     <string name="title_advanced_use_blocklist_pop3">Пропускать сообщения от доменов из списка блокировки (только для POP3)</string>
     <string name="title_advanced_tune_keep_alive">Автоматически настраивать интервал keep-alive</string>
+    <string name="title_advanced_blocklist_warning">Списки блокировки спама не идеальны и могут блокировать не только спам!</string>
     <string name="title_advanced_keyboard">Показывать клавиатуру по умолчанию</string>
     <string name="title_advanced_keyboard_no_fullscreen">Не показывать клавиатуру в полноэкранном режиме</string>
     <string name="title_advanced_suggest_names">Использовать имена и адреса электронной почты</string>
@@ -405,7 +406,7 @@
     <string name="title_advanced_reply_move_inbox">Также для сообщений во \"Входящих\"</string>
     <string name="title_advanced_auto_link">Автоматическое создание ссылок</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
-    <string name="title_advanced_flow">\"Пластичное\" форматирование обычного текста</string>
+    <string name="title_advanced_flow">\"Пластичное\" форматирование простого текста</string>
     <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
     <string name="title_advanced_remove_signatures">Удалять распознанные подписи</string>
     <string name="title_advanced_receipt">При запросе уведомления</string>
@@ -637,7 +638,7 @@
     <string name="title_advanced_clear_all_remark">Данные приложения будут безвозвратно удалены!</string>
     <string name="title_advanced_sign_default">Подписывать по умолчанию</string>
     <string name="title_advanced_encrypt_default">Шифровать по умолчанию</string>
-    <string name="title_advanced_encrypt_auto" comment="title_advanced_encrypt_auto&#10;Option title">Автоматически шифровать, если доступны все публичные ключи</string>
+    <string name="title_advanced_encrypt_auto">Автоматически шифровать, если доступны ключи всех получателей</string>
     <string name="title_advanced_auto_decrypt">Автоматически расшифровывать сообщения</string>
     <string name="title_advanced_auto_undo_decrypt">Убирать расшифрованное при закрытии диалога</string>
     <string name="title_advanced_openpgp">Провайдер OpenPGP</string>
@@ -677,6 +678,7 @@
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
     <string name="title_advanced_updates">Проверять обновления на GitHub</string>
     <string name="title_advanced_check_weekly">Еженедельная проверка вместо ежедневной</string>
+    <string name="title_advanced_beta">Проверять тестовые версии на BitBucket</string>
     <string name="title_advanced_changelog">Показывать список изменений после обновления</string>
     <string name="title_advanced_experiments">Попробовать экспериментальные функции</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
@@ -823,6 +825,7 @@
     <string name="title_account_noop_hint">Подключение будет обновляться более активно, но также больше расходовать заряд батареи</string>
     <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или повреждённых вложений</string>
     <string name="title_color">Цвет</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Календарь</string>
     <string name="title_background">Фон</string>
     <string name="title_transparent">Прозрачность</string>
     <string name="title_account_ondemand">Синхронизировать вручную</string>

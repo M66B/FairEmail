@@ -556,6 +556,7 @@
     <string name="title_account_interval_hint">Frekwinsje fan fernijing fan de ferbining foar pushberjochten of frekwinsje fan kontrolearjen op nije berjochten</string>
     <string name="title_account_partial_fetch_hint">Skeakelje dit allinich út yn gefal fan lege berjochten as korrupte bylagen</string>
     <string name="title_color">Kleur</string>
+    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalinder</string>
     <string name="title_transparent">Trochsichtich</string>
     <string name="title_account_ondemand">Syngronisearje mei de hân</string>
     <string name="title_account_notify">Skieden notifikaasjes</string>
