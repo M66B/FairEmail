@@ -3960,8 +3960,7 @@ public class MessageHelper {
 
                             try (Cursor cursor = resolver.query(CalendarContract.Calendars.CONTENT_URI,
                                     new String[]{CalendarContract.Calendars._ID},
-                                    CalendarContract.Calendars.VISIBLE + " = 1 AND " +
-                                            CalendarContract.Calendars.IS_PRIMARY + " = 1 AND " +
+                                    CalendarContract.Calendars.VISIBLE + " <> 0 AND " +
                                             CalendarContract.Calendars.ACCOUNT_NAME + " = ?" +
                                             (selectedName == null
                                                     ? ""

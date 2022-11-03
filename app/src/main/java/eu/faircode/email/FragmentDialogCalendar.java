@@ -70,10 +70,11 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
                         CalendarContract.Calendars.VISIBLE,
                         CalendarContract.Calendars.CALENDAR_DISPLAY_NAME
                 },
-                CalendarContract.Calendars.VISIBLE + " = 1 AND " +
-                        CalendarContract.Calendars.IS_PRIMARY + " = 1",
+                CalendarContract.Calendars.VISIBLE + " <> 0",
                 null,
-                CalendarContract.Calendars.ACCOUNT_NAME)) {
+                CalendarContract.Calendars.ACCOUNT_NAME + "," +
+                        CalendarContract.Calendars.CALENDAR_DISPLAY_NAME
+        )) {
 
             int colId = cursor.getColumnIndexOrThrow(CalendarContract.Calendars._ID);
             int colAccount = cursor.getColumnIndexOrThrow(CalendarContract.Calendars.ACCOUNT_NAME);
@@ -155,11 +156,11 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
 
         String getTitle() {
             return (this.visible ? "" : "(") +
-                    (TextUtils.isEmpty(this.name) ? "" : this.name + ":") +
                     (this.account == null ? "-" : this.account) +
                     (BuildConfig.DEBUG && false ? ":" + (this.type == null ? "-" : this.type) : "") +
+                    (TextUtils.isEmpty(this.name) ? "" : ":" + this.name) +
                     (this.visible ? "" : ")") +
-                    " " + (this.primary && BuildConfig.DEBUG && false ? "*" : "");
+                    " " + (this.primary ? "*" : "");
         }
     }
 }
