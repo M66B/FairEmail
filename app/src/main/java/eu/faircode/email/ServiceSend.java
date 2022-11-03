@@ -865,9 +865,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
                 // Message could have been deleted
                 EntityMessage orphan = db.message().getMessage(sid);
-                if (orphan != null) {
+                if (orphan != null)
                     EntityOperation.queue(this, orphan, EntityOperation.EXISTS);
-                }
 
                 db.setTransactionSuccessful();
             } finally {
