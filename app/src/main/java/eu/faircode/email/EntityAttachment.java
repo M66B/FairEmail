@@ -164,7 +164,7 @@ public class EntityAttachment {
         boolean external_storage = prefs.getBoolean("external_storage", false);
 
         File root = (external_storage
-                ? context.getExternalFilesDir(null)
+                ? Helper.getExternalFilesDir(context)
                 : context.getFilesDir());
         return root;
     }

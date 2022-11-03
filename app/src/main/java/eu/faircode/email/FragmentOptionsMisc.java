@@ -1118,7 +1118,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swExternalStorage.setEnabled(getContext().getExternalFilesDir(null) != null);
+        swExternalStorage.setEnabled(Helper.getExternalFilesDir(getContext()) != null);
         swExternalStorage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -1133,11 +1133,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         boolean external_storage = args.getBoolean("external_storage");
 
                         File source = (!external_storage
-                                ? context.getExternalFilesDir(null)
+                                ? Helper.getExternalFilesDir(context)
                                 : context.getFilesDir());
 
                         File target = (external_storage
-                                ? context.getExternalFilesDir(null)
+                                ? Helper.getExternalFilesDir(context)
                                 : context.getFilesDir());
 
                         source = Helper.ensureExists(new File(source, "attachments"));
@@ -1644,7 +1644,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         files.addAll(getFiles(context.getCacheDir(), MIN_FILE_SIZE));
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                             files.addAll(getFiles(context.getDataDir(), MIN_FILE_SIZE));
-                        files.addAll(getFiles(context.getExternalFilesDir(null), MIN_FILE_SIZE));
+                        files.addAll(getFiles(Helper.getExternalFilesDir(context), MIN_FILE_SIZE));
 
                         Collections.sort(files, new Comparator<File>() {
                             @Override
@@ -1678,7 +1678,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 ? null : context.getDataDir());
                         File filesDir = context.getFilesDir();
                         File cacheDir = context.getCacheDir();
-                        File externalDir = context.getExternalFilesDir(null);
+                        File externalDir = Helper.getExternalFilesDir(context);
 
                         if (dataDir != null)
                             ssb.append("Data: ").append(dataDir.getAbsolutePath()).append("\r\n");
@@ -1850,7 +1850,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
 
-        File external = getContext().getExternalFilesDir(null);
+        File external = Helper.getExternalFilesDir(getContext());
         boolean emulated = (external != null && Environment.isExternalStorageEmulated(external));
         tvExternalStorageFolder.setText(
                 (external == null ? null : external.getAbsolutePath()) + (emulated ? " emulated" : ""));
