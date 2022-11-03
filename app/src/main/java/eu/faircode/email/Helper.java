@@ -181,7 +181,8 @@ public class Helper {
     static final int WAKELOCK_MAX = 30 * 60 * 1000; // milliseconds
     static final int BUFFER_SIZE = 8192; // Same as in Files class
     static final long MIN_REQUIRED_SPACE = 100 * 1000L * 1000L;
-    static final int AUTOLOCK_GRACE = 15; // seconds
+    static final long AUTH_AUTOCANCEL_TIMEOUT = 60 * 1000L; // milliseconds
+    static final int AUTH_AUTOLOCK_GRACE = 15; // seconds
     static final long PIN_FAILURE_DELAY = 3; // seconds
 
     static final String PGP_OPENKEYCHAIN_PACKAGE = "org.sufficientlysecure.keychain";
@@ -2625,7 +2626,7 @@ public class Helper {
                 return true;
 
             if (autolock_nav && pausing)
-                last_authentication = now - biometrics_timeout + AUTOLOCK_GRACE * 1000L;
+                last_authentication = now - biometrics_timeout + AUTH_AUTOLOCK_GRACE * 1000L;
             else
                 last_authentication = now;
             prefs.edit().putLong("last_authentication", last_authentication).apply();
@@ -2744,7 +2745,7 @@ public class Helper {
                         }
                     };
 
-                    ApplicationEx.getMainHandler().postDelayed(cancelPrompt, 60 * 1000L);
+                    ApplicationEx.getMainHandler().postDelayed(cancelPrompt, AUTH_AUTOCANCEL_TIMEOUT);
 
                     owner.getLifecycle().addObserver(new LifecycleObserver() {
                         @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)

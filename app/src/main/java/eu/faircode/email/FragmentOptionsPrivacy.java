@@ -325,7 +325,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        tvAutoLockNavHint.setText(getString(R.string.title_advanced_display_autolock_nav_hint, Helper.AUTOLOCK_GRACE));
+        tvAutoLockNavHint.setText(getString(R.string.title_advanced_display_autolock_nav_hint, Helper.AUTH_AUTOLOCK_GRACE));
 
         swClientId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
