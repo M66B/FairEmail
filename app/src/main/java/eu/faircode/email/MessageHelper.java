@@ -3974,12 +3974,11 @@ public class MessageHelper {
                                     EntityLog.log(context, EntityLog.Type.General, message,
                                             "Account not found username=" + account.user);
 
-                                int colId = cursor.getColumnIndexOrThrow(CalendarContract.Calendars._ID);
                                 if (cursor.moveToNext()) {
                                     // https://developer.android.com/guide/topics/providers/calendar-provider#add-event
                                     // https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns
                                     ContentValues values = new ContentValues();
-                                    values.put(CalendarContract.Events.CALENDAR_ID, cursor.getLong(colId));
+                                    values.put(CalendarContract.Events.CALENDAR_ID, cursor.getLong(0));
                                     if (!TextUtils.isEmpty(uid))
                                         values.put(CalendarContract.Events.UID_2445, uid);
                                     values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
