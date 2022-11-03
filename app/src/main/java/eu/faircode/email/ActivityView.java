@@ -1603,9 +1603,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 continue;
                             char revision = c[1].charAt(c[1].length() - 1);
 
-                            if (BuildConfig.DEBUG ||
-                                    version > BuildConfig.VERSION_CODE ||
-                                    (version == BuildConfig.VERSION_CODE && revision > BuildConfig.REVISION.charAt(0))) {
+                            int v = BuildConfig.VERSION_CODE;
+                            char r = BuildConfig.REVISION.charAt(0);
+                            if (BuildConfig.DEBUG || version > v || (version == v && revision > r)) {
                                 UpdateInfo info = new UpdateInfo();
                                 info.tag_name = c[1];
                                 info.html_url = BuildConfig.BITBUCKET_DOWNLOADS_URI;
