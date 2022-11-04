@@ -53,7 +53,7 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
         try {
             JSONObject jselected = new JSONObject(selectedCalendar);
             selectedAccount = jselected.getString("account");
-            selectedName = jselected.getString("name");
+            selectedName = jselected.optString("name", null);
         } catch (Throwable ex) {
             Log.i(ex);
             selectedAccount = selectedCalendar;
