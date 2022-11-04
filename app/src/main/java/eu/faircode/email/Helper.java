@@ -414,7 +414,12 @@ public class Helper {
     // Features
 
     static boolean hasPermission(Context context, String name) {
-        return (ContextCompat.checkSelfPermission(context, name) == PackageManager.PERMISSION_GRANTED);
+        if (Manifest.permission.WRITE_CALENDAR.equals(name))
+            if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR) !=
+                    PackageManager.PERMISSION_GRANTED)
+                return false;
+        return (ContextCompat.checkSelfPermission(context, name) ==
+                PackageManager.PERMISSION_GRANTED);
     }
 
     static boolean hasPermissions(Context context, String[] permissions) {
