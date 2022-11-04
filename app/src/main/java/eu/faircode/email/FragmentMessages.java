@@ -5312,7 +5312,7 @@ public class FragmentMessages extends FragmentBase
             menu.findItem(R.id.menu_filter_unflagged).setVisible(folder);
             menu.findItem(R.id.menu_filter_unknown).setVisible(folder && !drafts && !sent);
             menu.findItem(R.id.menu_filter_snoozed).setVisible(folder && !drafts);
-            menu.findItem(R.id.menu_filter_deleted).setVisible(folder && (!perform_expunge || BuildConfig.DEBUG));
+            menu.findItem(R.id.menu_filter_deleted).setVisible(folder && !perform_expunge);
             menu.findItem(R.id.menu_filter_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
             menu.findItem(R.id.menu_filter_trash).setVisible(viewType == AdapterMessage.ViewType.THREAD);
 

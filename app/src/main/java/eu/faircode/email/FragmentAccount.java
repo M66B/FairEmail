@@ -125,7 +125,6 @@ public class FragmentAccount extends FragmentBase {
     private TextView tvNotifyPro;
     private CheckBox cbBrowse;
     private CheckBox cbAutoSeen;
-    private CheckBox cbLeaveDevice;
     private EditText etInterval;
     private CheckBox cbNoop;
     private CheckBox cbPartialFetch;
@@ -245,7 +244,6 @@ public class FragmentAccount extends FragmentBase {
         tvNotifyPro = view.findViewById(R.id.tvNotifyPro);
         cbBrowse = view.findViewById(R.id.cbBrowse);
         cbAutoSeen = view.findViewById(R.id.cbAutoSeen);
-        cbLeaveDevice = view.findViewById(R.id.cbLeaveDevice);
         etInterval = view.findViewById(R.id.etInterval);
         cbNoop = view.findViewById(R.id.cbNoop);
         cbPartialFetch = view.findViewById(R.id.cbPartialFetch);
@@ -512,9 +510,6 @@ public class FragmentAccount extends FragmentBase {
         Helper.linkPro(tvNotifyPro);
 
         etInterval.setHint(Integer.toString(EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL));
-
-        if (!BuildConfig.DEBUG)
-            Helper.hide(cbLeaveDevice);
 
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -938,7 +933,6 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("notify", cbNotify.isChecked());
         args.putBoolean("browse", cbBrowse.isChecked());
         args.putBoolean("auto_seen", cbAutoSeen.isChecked());
-        args.putBoolean("leave_device", cbLeaveDevice.isChecked());
         args.putString("interval", etInterval.getText().toString());
         args.putBoolean("noop", cbNoop.isChecked());
         args.putBoolean("partial_fetch", cbPartialFetch.isChecked());
@@ -1014,7 +1008,6 @@ public class FragmentAccount extends FragmentBase {
                 boolean notify = args.getBoolean("notify");
                 boolean browse = args.getBoolean("browse");
                 boolean auto_seen = args.getBoolean("auto_seen");
-                boolean leave_device = args.getBoolean("leave_device");
                 String interval = args.getString("interval");
                 boolean noop = args.getBoolean("noop");
                 boolean partial_fetch = args.getBoolean("partial_fetch");
@@ -1121,8 +1114,6 @@ public class FragmentAccount extends FragmentBase {
                     if (!Objects.equals(account.browse, browse))
                         return true;
                     if (!Objects.equals(account.auto_seen, auto_seen))
-                        return true;
-                    if (!Objects.equals(account.leave_on_device, leave_device))
                         return true;
                     if (!Objects.equals(account.poll_interval, poll_interval))
                         return true;
@@ -1271,7 +1262,6 @@ public class FragmentAccount extends FragmentBase {
                     account.notify = notify;
                     account.browse = browse;
                     account.auto_seen = auto_seen;
-                    account.leave_on_device = leave_device;
 
                     if (account.poll_interval != poll_interval) {
                         account.keep_alive_ok = false;
@@ -1646,7 +1636,6 @@ public class FragmentAccount extends FragmentBase {
                     cbPrimary.setChecked(account == null ? false : account.primary);
                     cbBrowse.setChecked(account == null ? true : account.browse);
                     cbAutoSeen.setChecked(account == null ? true : account.auto_seen);
-                    cbLeaveDevice.setChecked(account == null ? true : account.leave_on_device);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
                     cbNoop.setChecked(account == null ? true : account.keep_alive_noop);
                     cbPartialFetch.setChecked(account == null ? true : account.partial_fetch);
