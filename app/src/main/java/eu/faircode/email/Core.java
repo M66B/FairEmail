@@ -1847,8 +1847,14 @@ class Core {
                         }
                 }
 
-                int count = db.message().deleteMessage(folder.id, uid);
-                Log.i(folder.name + " delete local uid=" + uid + " count=" + count);
+                if (BuildConfig.DEBUG && account.leave_on_device) {
+                    EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+                    if (message != null)
+                        db.message().setMessageUiDeleted(message.id, true);
+                } else {
+                    int count = db.message().deleteMessage(folder.id, uid);
+                    Log.i(folder.name + " delete local uid=" + uid + " count=" + count);
+                }
             } else
                 throw ex;
         } finally {
@@ -3890,8 +3896,14 @@ class Core {
                     // Delete local messages not at remote
                     Log.i(folder.name + " delete=" + uids.size());
                     for (Long uid : uids) {
-                        int count = db.message().deleteMessage(folder.id, uid);
-                        Log.i(folder.name + " delete local uid=" + uid + " count=" + count);
+                        if (BuildConfig.DEBUG && account.leave_on_device) {
+                            EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+                            if (message != null)
+                                db.message().setMessageUiDeleted(message.id, true);
+                        } else {
+                            int count = db.message().deleteMessage(folder.id, uid);
+                            Log.i(folder.name + " delete local uid=" + uid + " count=" + count);
+                        }
                     }
 
                     List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
