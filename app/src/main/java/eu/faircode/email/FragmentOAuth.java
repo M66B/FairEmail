@@ -389,15 +389,24 @@ public class FragmentOAuth extends FragmentBase {
                                 Browsers.SBrowser.SIGNATURE_SET,
                                 false,
                                 VersionRange.atMost("5.3"));
-                        final BrowserMatcher SBROWSER_TAB = new VersionedBrowserMatcher(
-                                Browsers.SBrowser.PACKAGE_NAME,
-                                Browsers.SBrowser.SIGNATURE_SET,
-                                true,
-                                VersionRange.atMost("5.3"));
 
                         @Override
                         public boolean matches(@NonNull BrowserDescriptor descriptor) {
-                            boolean accept = !(SBROWSER.matches(descriptor) || SBROWSER_TAB.matches(descriptor));
+                            /*
+                                java.lang.IllegalStateException: Too many bind requests(999+) for service Intent { act=android.support.customtabs.action.CustomTabsService pkg=com.sec.android.app.sbrowser }
+                                        at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:2115)
+                                        at android.app.ContextImpl.bindService(ContextImpl.java:2024)
+                                        at android.content.ContextWrapper.bindService(ContextWrapper.java:870)
+                                        at android.content.ContextWrapper.bindService(ContextWrapper.java:870)
+                                        at androidx.browser.customtabs.CustomTabsClient.bindCustomTabsService(CustomTabsClient:80)
+                                        at net.openid.appauth.browser.CustomTabManager.bind(CustomTabManager:95)
+                                        at net.openid.appauth.AuthorizationService.<init>(AuthorizationService:117)
+                                        at net.openid.appauth.AuthorizationService.<init>(AuthorizationService:95)
+                                        at eu.faircode.email.FragmentOAuth.onAuthorize(FragmentOAuth:412)
+                             */
+                            boolean accept = !(SBROWSER.matches(descriptor) ||
+                                    (descriptor.useCustomTab &&
+                                            Browsers.SBrowser.PACKAGE_NAME.equals(descriptor.packageName)));
                             EntityLog.log(context,
                                     "Browser=" + descriptor.packageName +
                                             ":" + descriptor.version +
