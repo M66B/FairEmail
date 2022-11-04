@@ -747,11 +747,6 @@ class Core {
                                     if (message != null &&
                                             !EntityOperation.SEEN.equals(op.name))
                                         db.message().deleteMessage(message.id);
-
-                                    if (EntityOperation.FETCH.equals(op.name)) {
-                                        long uid = jargs.getLong(0);
-                                        db.message().deleteMessage(folder.id, uid);
-                                    }
                                 }
 
                                 db.setTransactionSuccessful();
@@ -1756,19 +1751,16 @@ class Core {
         boolean invalidate = jargs.optBoolean(1);
         boolean removed = jargs.optBoolean(2);
 
-        if (uid < 0)
-            throw new MessageRemovedException(folder.name + " fetch uid=" + uid);
-
         DB db = DB.getInstance(context);
         EntityAccount account = db.account().getAccount(folder.account);
         if (account == null)
             throw new IllegalArgumentException("account missing");
 
         try {
-            if (removed) {
-                db.message().deleteMessage(folder.id, uid);
+            if (uid < 0)
+                throw new MessageRemovedException(folder.name + " fetch uid=" + uid);
+            if (removed)
                 throw new MessageRemovedException("removed uid=" + uid);
-            }
 
             MimeMessage imessage = (MimeMessage) ifolder.getMessageByUID(uid);
             if (imessage == null)
@@ -1838,23 +1830,27 @@ class Core {
             if (!stats.isEmpty())
                 EntityLog.log(context, EntityLog.Type.Statistics,
                         account.name + "/" + folder.name + " fetch stats " + stats);
-        } catch (MessageRemovedException | MessageRemovedIOException ex) {
-            Log.i(ex);
+        } catch (Throwable ex) {
+            if (MessageHelper.isRemoved(ex)) {
+                Log.i(ex);
 
-            if (account.isGmail() && EntityFolder.USER.equals(folder.type)) {
-                EntityMessage message = db.message().getMessageByUid(folder.id, uid);
-                if (message != null)
-                    try {
-                        JSONArray jlabel = new JSONArray();
-                        jlabel.put(0, folder.name);
-                        jlabel.put(1, false);
-                        onLabel(context, jlabel, folder, message, istore, ifolder, state);
-                    } catch (Throwable ex1) {
-                        Log.e(ex1);
-                    }
-            }
+                if (account.isGmail() && EntityFolder.USER.equals(folder.type)) {
+                    EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+                    if (message != null)
+                        try {
+                            JSONArray jlabel = new JSONArray();
+                            jlabel.put(0, folder.name);
+                            jlabel.put(1, false);
+                            onLabel(context, jlabel, folder, message, istore, ifolder, state);
+                        } catch (Throwable ex1) {
+                            Log.e(ex1);
+                        }
+                }
 
-            db.message().deleteMessage(folder.id, uid);
+                int count = db.message().deleteMessage(folder.id, uid);
+                Log.i(folder.name + " delete local uid=" + uid + " count=" + count);
+            } else
+                throw ex;
         } finally {
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count, new Date().getTime());
