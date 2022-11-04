@@ -1715,10 +1715,10 @@ public class Helper {
     }
 
     static void hide(View view) {
-        view.setPadding(0, 1, 0, 0);
+        view.setPadding(1, 1, 0, 0);
 
         ViewGroup.LayoutParams lparam = view.getLayoutParams();
-        lparam.width = 0;
+        lparam.width = 1;
         lparam.height = 1;
         if (lparam instanceof ConstraintLayout.LayoutParams)
             ((ConstraintLayout.LayoutParams) lparam).setMargins(0, 0, 0, 0);
