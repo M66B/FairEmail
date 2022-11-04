@@ -289,7 +289,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             if (state.ids == null) {
                 SQLiteDatabase sdb = Fts4DbHelper.getInstance(context);
                 state.ids = Fts4DbHelper.match(sdb, account, folder, exclude, criteria, TextUtils.join(" ", word));
-                EntityLog.log(context, "Boundary FTS " +
+                EntityLog.log(context, "Boundary FTS" +
                         " account=" + account +
                         " folder=" + folder +
                         " criteria=" + criteria +
