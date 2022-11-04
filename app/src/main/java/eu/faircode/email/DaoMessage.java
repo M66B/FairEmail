@@ -334,8 +334,7 @@ public interface DaoMessage {
     @Transaction
     @Query("SELECT message.id FROM message" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
-            " WHERE content" +
-            " AND NOT fts" +
+            " WHERE NOT fts" +
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
             " ORDER BY message.received")
     Cursor getMessageFts();

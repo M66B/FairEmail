@@ -81,10 +81,11 @@ public class WorkerFts extends Worker {
                             continue;
                         }
 
-                        File file = message.getFile(context);
-                        String text = HtmlHelper.getFullText(file);
-                        if (text == null)
-                            text = "";
+                        String text = null;
+                        if (message.content) {
+                            File file = message.getFile(context);
+                            text = HtmlHelper.getFullText(file);
+                        }
 
                         try {
                             sdb.beginTransaction();
