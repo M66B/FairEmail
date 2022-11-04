@@ -1771,6 +1771,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSeenBottom.setVisibility(View.GONE);
 
             ibStoreMedia.setVisibility(View.GONE);
+            ibShareImages.setVisibility(View.GONE);
         }
 
         private void clearButtons() {
@@ -3434,16 +3435,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
+            int iavailable = 0;
             List<EntityAttachment> images = new ArrayList<>();
-            if (thumbnails && bind_extras)
+            if (thumbnails && bind_extras) {
                 for (EntityAttachment attachment : attachments)
-                    if (attachment.isAttachment() && attachment.isImage())
+                    if (attachment.isAttachment() && attachment.isImage()) {
                         images.add(attachment);
+                        if (attachment.available)
+                            iavailable++;
+                    }
+            }
             adapterImage.set(images);
             grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
+
             ibStoreMedia.setVisibility(
-                    images.size() > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+                    iavailable > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
                             ? View.VISIBLE : View.GONE);
+            ibShareImages.setVisibility(iavailable > 0 ? View.VISIBLE : View.GONE);
         }
 
         private void bindCalendar(final TupleMessageEx message, EntityAttachment attachment) {
