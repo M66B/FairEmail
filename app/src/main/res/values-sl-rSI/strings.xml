@@ -2,7 +2,7 @@
 <resources>
     <string name="app_search">Iskanje FairEmail</string>
     <string name="app_changelog">Dnevnik sprememb</string>
-    <string name="app_welcome">FairEmail je odprtokodni program za e-pošto, ki se osredotoča na zasebnost in varnost.  Zaradi tega lahko nekatere značilnosti delujejo drugače, kot ste navajeni.</string>
+    <string name="app_welcome">FairEmail je odprtokodni program za e-pošto, ki se osredotoča na zasebnost in varnost.  Zato lahko nekatere značilnosti delujejo drugače, kot ste navajeni.</string>
     <string name="app_limitations">Na primer sporočila so privzeto preoblikovana, da se odstranijo vprašljivi elementi in izboljša berljivost, odpiranje povezav pa je treba zaradi varnosti potrditi.  Po želji lahko oboje onemogočite.</string>
     <string name="app_unsupported">Hrošči v različici Androida te naprave povzročajo sesutja.</string>
     <string name="app_data_loss">Vsi podatki so lahko izgubljeni.</string>
@@ -368,6 +368,7 @@
     <string name="title_advanced_use_blocklist">Premakni sporočila iz domen, ki so na seznamu blokiranih, v mapo z vsiljeno pošto</string>
     <string name="title_advanced_use_blocklist_pop3">Preskoči sporočila iz domen, ki so na seznamu blokiranih (samo POP3)</string>
     <string name="title_advanced_tune_keep_alive">Samodejno uglasi razmik med osvežitvami</string>
+    <string name="title_advanced_blocklist_warning">Seznami za blokiranje ne delujejo brezhibno in lahko blokirajo več kot le neželeno pošto!</string>
     <string name="title_advanced_keyboard">Privzeto prikaži tipkovnico</string>
     <string name="title_advanced_keyboard_no_fullscreen">Prepreči celozaslonsko tipkovnico</string>
     <string name="title_advanced_suggest_names">Uporabi imena in e-poštne naslove</string>
@@ -676,6 +677,7 @@
     <string name="title_advanced_watchdog">Občasno preveri, ali je FairEmail še vedno dejaven</string>
     <string name="title_advanced_updates">Preveri za posodobitve GitHub</string>
     <string name="title_advanced_check_weekly">Preveri tedensko namesto dnevno</string>
+    <string name="title_advanced_beta">Poišči preizkusne različice na BitBucketu</string>
     <string name="title_advanced_changelog">Prikaži dnevnik sprememb po posodobitvi</string>
     <string name="title_advanced_experiments">Preizkusne značilnosti</string>
     <string name="title_advanced_crash_reports">Pošiljaj poročila o napakah</string>

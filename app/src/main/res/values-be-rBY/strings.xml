@@ -707,7 +707,7 @@
     <string name="title_advanced_sync_kept_hint">Гэта прывядзе да перадачы дадатковай колькасці даных і спажывання дадатковай колькасці энергіі батарэі, асабліва калі на прыладзе захоўваецца шмат паведамленняў</string>
     <string name="title_advanced_gmail_thread_hint">Гэта датычыцца толькі новых паведамленняў і можа разбурыць існуючыя групы</string>
     <string name="title_advanced_subject_threading_hint">Толькі паведамленні, атрыманыя за апошнія %1$d гадзін(-ы)</string>
-    <string name="title_advanced_sync_folders_hint">Адключэнне гэтага прывядзе да некаторага зніжэння выкарыстання даных і батарэі, але таксама адключыць абнаўленне спіса папак</string>
+    <string name="title_advanced_sync_folders_hint">Адключэнне гэтай опцыі прывядзе да некаторага зніжэння выкарыстання даных і батарэі, але таксама адключыць абнаўленне спіса папак</string>
     <string name="title_advanced_poll_folders_hint">Перыядычна дадаткова сінхранізаваць спіс папак пасля падключэння да ўліковага запісу</string>
     <string name="title_advanced_check_authentication_hint">Гэта опцыя дазволіць праверыць вынікі аўтэнтыфікацыі DKIM, SPF або DMARC у залежнасці ад сервера электроннай пошты</string>
     <string name="title_advanced_check_tls_hint">Уключае адлюстраванне зялёнага шчыта пры бяспечнай перадачы паведамлення ўсімі серверамі</string>
