@@ -4,23 +4,12 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
-### Next version
-
-* Update iCalendar invitations on accept/decline
-* Small improvements and minor bug fixes
-* Updated translations
-
-### BETA 1.1995c - 2022-11-03
+### 1.1996a - 2022-11-04
 
 * Added auto storing iCalendar invitations, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq186)
-* Small improvements and minor bug fixes
-* Updated translations
-
-### BETA 1.1995b - 2022-10-31
-
-* Added option for beta updates
 * Added Jsoup selector conditions, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71)
 * Small improvements and minor bug fixes
+* Updated translations
 
 ### [Mei long](https://en.wikipedia.org/wiki/Mei_long)
 
