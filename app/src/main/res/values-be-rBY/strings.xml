@@ -377,7 +377,7 @@
     <string name="title_advanced_suggest_local">Прапаноўваць лакальныя кантакты</string>
     <string name="title_advanced_suggest_sent">Прапаноўваць адрасы, знойдзеныя ў адпраўленых паведамленнях</string>
     <string name="title_advanced_suggest_received">Прапаноўваць адрасы, знойдзеныя ў атрыманых паведамленнях</string>
-    <string name="title_advanced_suggest_frequently">Сартаваць прапанаваныя адрасы паводле часты выкарыстання</string>
+    <string name="title_advanced_suggest_frequently">Сартаваць прапанаваныя адрасы паводле частаты выкарыстання</string>
     <string name="title_advanced_alt_re_fwd">Альтэрнатыўны прэфікс для адказу/перанакіравання</string>
     <string name="title_advanced_send_chips">Паказаць карткі адрасоў</string>
     <string name="title_advanced_send_reminders">Паказваць напаміны</string>

@@ -927,7 +927,7 @@
     <string name="title_synchronize_more_hint2">        Sporočila bodo pridobljena, kakor hitro jih lahko e-poštni strežnik dostavi in shranjena, kakor hitro jih lahko naprava shrani in za njih sestavi kazalo.
         Omejitveni dejavnik je običajno hitrost notranjega prostora za shranjevanje.
     </string>
-    <string name="title_synchronize_more_hint3">Upoštevajte, da lahko shranjevanje velikega števila sporočil (dest tisoč ali več) na napravi povzroči zakasnitve, ker notranji prostor za shranjevanje ni neskončno hiter.</string>
+    <string name="title_synchronize_more_hint3">Upoštevajte, da lahko shranjevanje velikega števila sporočil (deset tisoč ali več) na napravi povzroči zakasnitve, ker notranji prostor za shranjevanje ni neskončno hiter.</string>
     <string name="title_synchronize_enabled">Sinhroniziraj</string>
     <string name="title_synchronize_batch_enable">Omogoči sinhronizacijo</string>
     <string name="title_synchronize_batch_disable">Onemogoči sinhronizacijo</string>
