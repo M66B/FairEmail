@@ -7270,8 +7270,10 @@ public class FragmentCompose extends FragmentBase {
             grpExtra.setVisibility(identity != null && identity.sender_extra ? View.VISIBLE : View.GONE);
 
             Spanned signature = null;
-            if (identity != null && !TextUtils.isEmpty(identity.signature))
-                signature = HtmlHelper.fromHtml(identity.signature, new HtmlHelper.ImageGetterEx() {
+            if (identity != null && !TextUtils.isEmpty(identity.signature)) {
+                Document d = JsoupEx.parse(identity.signature);
+                d = HtmlHelper.sanitizeView(getContext(), d, show_images);
+                signature = HtmlHelper.fromDocument(getContext(), d, new HtmlHelper.ImageGetterEx() {
                     @Override
                     public Drawable getDrawable(Element element) {
                         String source = element.attr("src");
@@ -7280,7 +7282,8 @@ public class FragmentCompose extends FragmentBase {
                         return ImageHelper.decodeImage(getContext(),
                                 working, element, true, 0, 1.0f, tvSignature);
                     }
-                }, null, getContext());
+                }, null);
+            }
             tvSignature.setText(signature);
             grpSignature.setVisibility(signature == null ? View.GONE : View.VISIBLE);
 
