@@ -2906,19 +2906,23 @@ class Core {
                 int chunk_size = prefs.getInt("chunk_size", DEFAULT_CHUNK_SIZE);
 
                 Flags flags = new Flags(Flags.Flag.DELETED);
+                List<Message> iremove = new ArrayList<>();
                 for (List<Message> list : Helper.chunkList(idelete, chunk_size))
                     try {
                         ifolder.setFlags(list.toArray(new Message[0]), flags, true);
                     } catch (MessagingException ex) {
                         Log.w(ex);
-                        for (Message imessage : new ArrayList<>(list))
+                        for (Message imessage : list)
                             try {
                                 imessage.setFlag(Flags.Flag.DELETED, true);
                             } catch (MessagingException mex) {
                                 Log.w(mex);
-                                idelete.remove(imessage);
+                                iremove.add(imessage);
                             }
                     }
+
+                for (Message imessage : iremove)
+                    idelete.remove(imessage);
             }
             Log.i(folder.name + " purge deleted");
             expunge(context, ifolder, idelete);
