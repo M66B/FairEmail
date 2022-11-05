@@ -5821,8 +5821,14 @@ public class FragmentMessages extends FragmentBase
 
     private void onMenuConfirmLinks() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean compact = !prefs.getBoolean("confirm_links", true);
-        prefs.edit().putBoolean("confirm_links", compact).apply();
+        boolean confirm_links = !prefs.getBoolean("confirm_links", true);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("confirm_links", confirm_links);
+        if (confirm_links)
+            for (String key : prefs.getAll().keySet())
+                if (key.endsWith(".confirm_link"))
+                    editor.remove(key);
+        editor.apply();
         invalidateOptionsMenu();
     }
 
