@@ -4,6 +4,12 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
+### 1.1999 - 2022-11-05
+
+* Fixed refreshing OAuth tokens in some situations
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1998 - 2022-11-05
 
 * Fixed purging spam/trash in some situations
