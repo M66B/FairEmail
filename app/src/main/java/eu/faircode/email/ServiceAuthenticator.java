@@ -25,12 +25,17 @@ import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
+import net.openid.appauth.AppAuthConfiguration;
 import net.openid.appauth.AuthState;
 import net.openid.appauth.AuthorizationException;
 import net.openid.appauth.AuthorizationService;
 import net.openid.appauth.ClientAuthentication;
 import net.openid.appauth.ClientSecretPost;
 import net.openid.appauth.NoClientAuthentication;
+import net.openid.appauth.browser.BrowserDescriptor;
+import net.openid.appauth.browser.BrowserMatcher;
 
 import org.json.JSONException;
 
@@ -178,7 +183,15 @@ public class ServiceAuthenticator extends Authenticator {
             Semaphore semaphore = new Semaphore(0);
 
             Log.i("OAuth refresh user=" + id + ":" + user);
-            AuthorizationService authService = new AuthorizationService(context);
+            AppAuthConfiguration config = new AppAuthConfiguration.Builder()
+                    .setBrowserMatcher(new BrowserMatcher() {
+                        @Override
+                        public boolean matches(@NonNull BrowserDescriptor descriptor) {
+                            return false;
+                        }
+                    })
+                    .build();
+            AuthorizationService authService = new AuthorizationService(context, config);
             authState.performActionWithFreshTokens(
                     authService,
                     clientAuth,
@@ -193,6 +206,8 @@ public class ServiceAuthenticator extends Authenticator {
 
             if (!semaphore.tryAcquire(MAX_TOKEN_WAIT, TimeUnit.SECONDS))
                 throw new InterruptedException("Timeout getting token id=" + id);
+
+            authService.dispose();
 
             Log.i("OAuth refreshed user=" + id + ":" + user);
 
