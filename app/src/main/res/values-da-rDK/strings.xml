@@ -800,7 +800,7 @@
     <string name="title_account_noop_hint">Dette vil opdatere forbindelsen mere aktivt, men også forbruge mere batteristrøm</string>
     <string name="title_account_partial_fetch_hint">Deaktivér dette kun i tilfælde af tomme beskeder eller ødelagte vedhæftninger</string>
     <string name="title_color">Farve</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalender</string>
+    <string name="title_calendar">Kalender</string>
     <string name="title_background">Baggrund</string>
     <string name="title_transparent">Gennemsigtig</string>
     <string name="title_account_ondemand">Synkronisér manuelt</string>

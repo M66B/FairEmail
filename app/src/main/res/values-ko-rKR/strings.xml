@@ -459,7 +459,7 @@
     <string name="title_account_name">계정명</string>
     <string name="title_account_category">카테고리</string>
     <string name="title_color">색상</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">달력</string>
+    <string name="title_calendar">달력</string>
     <string name="title_transparent">투명도</string>
     <string name="title_account_left">왼쪽으로 밀기</string>
     <string name="title_account_right">우측으로 밀기</string>

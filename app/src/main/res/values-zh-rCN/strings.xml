@@ -785,7 +785,7 @@
     <string name="title_account_noop_hint">这将更加主动地刷新连接，但也会消耗更多电量</string>
     <string name="title_account_partial_fetch_hint">仅在空消息或损坏的附件时禁用此功能</string>
     <string name="title_color">颜色</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">日历</string>
+    <string name="title_calendar">日历</string>
     <string name="title_background">背景</string>
     <string name="title_transparent">透明</string>
     <string name="title_account_ondemand">手动同步</string>

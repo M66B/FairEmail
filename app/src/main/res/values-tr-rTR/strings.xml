@@ -797,7 +797,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_account_noop_hint">Bu, bağlantıyı daha aktif bir şekilde yenileyecek, ancak aynı zamanda daha fazla pil gücü kullanacaktır</string>
     <string name="title_account_partial_fetch_hint">Bunu yalnızca boş iletiler veya bozuk ekler olması durumunda devre dışı bırakın</string>
     <string name="title_color">Renk</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Takvim</string>
+    <string name="title_calendar">Takvim</string>
     <string name="title_background">Arka Plan</string>
     <string name="title_transparent">Şeffaf</string>
     <string name="title_account_ondemand">Manuel olarak senkronize et</string>

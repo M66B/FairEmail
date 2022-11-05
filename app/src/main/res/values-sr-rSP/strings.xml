@@ -336,7 +336,7 @@
     <string name="title_account_interval_hint">Фреквенција освежавања везе за гурање порука или фреквенција проверавања за нове поруке</string>
     <string name="title_account_partial_fetch_hint">Искључите ово само у случају празних порука или оштећених прилога</string>
     <string name="title_color">Боја</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Календар</string>
+    <string name="title_calendar">Календар</string>
     <string name="title_account_ondemand">Синхронизуј ручно</string>
     <string name="title_account_notify">Одвојена обавештења</string>
     <string name="title_account_left">Превуци лево</string>

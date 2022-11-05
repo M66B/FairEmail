@@ -822,7 +822,7 @@
     <string name="title_account_noop_hint">Tímto se připojení bude obnovovat aktivněji, ale sníží se výdrž baterie</string>
     <string name="title_account_partial_fetch_hint">Vypnout pouze v případě prázdných zpráv nebo poškozených příloh</string>
     <string name="title_color">Barva</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalendář</string>
+    <string name="title_calendar">Kalendář</string>
     <string name="title_background">Pozadí</string>
     <string name="title_transparent">Průhledný</string>
     <string name="title_account_ondemand">Synchronizovat ručně</string>

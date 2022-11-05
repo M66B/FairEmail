@@ -766,7 +766,7 @@
     <string name="title_account_interval_hint">Frecuencia de refresco da conexión para as mensaxes \'push\' ou da comprobación de novas mensaxes</string>
     <string name="title_account_partial_fetch_hint">Desactive isto soamente se acha mensaxes baleiras ou anexos corruptos</string>
     <string name="title_color">Cor</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Calendario</string>
+    <string name="title_calendar">Calendario</string>
     <string name="title_background">Fondo</string>
     <string name="title_transparent">Transparente</string>
     <string name="title_account_ondemand">Sincronizar manualmente</string>

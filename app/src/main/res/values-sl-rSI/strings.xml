@@ -823,7 +823,7 @@
     <string name="title_account_noop_hint">To bo dejavneje osveževalo povezavo, vendar tudi porabilo več energije.</string>
     <string name="title_account_partial_fetch_hint">Onemogočite to samo v primeru praznih sporočil ali okvarjenih prilog.</string>
     <string name="title_color">Barva</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Koledar</string>
+    <string name="title_calendar">Koledar</string>
     <string name="title_background">Ozadje</string>
     <string name="title_transparent">Prosojno</string>
     <string name="title_account_ondemand">Sinhroniziraj ročno</string>

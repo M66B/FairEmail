@@ -798,7 +798,7 @@
     <string name="title_account_noop_hint">Esto actualizará la conexión más activamente, pero también usará más batería</string>
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
     <string name="title_color">Color</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Calendario</string>
+    <string name="title_calendar">Calendario</string>
     <string name="title_background">Fondo</string>
     <string name="title_transparent">Transparente</string>
     <string name="title_account_ondemand">Sincronizar manualmente</string>

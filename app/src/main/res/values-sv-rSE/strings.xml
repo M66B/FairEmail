@@ -791,7 +791,7 @@
     <string name="title_account_noop_hint">Detta kommer att uppdatera anslutningen mer aktivt, men även använda mer batterikraft</string>
     <string name="title_account_partial_fetch_hint">Inaktivera detta endast vid tomma meddelanden eller korrupta bilagor</string>
     <string name="title_color">Färg</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalender</string>
+    <string name="title_calendar">Kalender</string>
     <string name="title_background">Bakgrund</string>
     <string name="title_transparent">Transparent</string>
     <string name="title_account_ondemand">Synkronisera manuellt</string>

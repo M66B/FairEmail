@@ -733,7 +733,7 @@
     <string name="title_account_interval_hint">A push üzenetek fogadásának, vagy az új üzenetek ellenőrzésének gyakorisága</string>
     <string name="title_account_partial_fetch_hint">Csak hiányzó üzenet szövegek vagy hibás mellékletek esetén kapcsolja ki ezt az opciót</string>
     <string name="title_color">Szín</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Naptár</string>
+    <string name="title_calendar">Naptár</string>
     <string name="title_background">Háttér</string>
     <string name="title_transparent">Átlátszó</string>
     <string name="title_account_ondemand">Manuális szinkronizálás</string>

@@ -825,7 +825,7 @@
     <string name="title_account_noop_hint">Подключение будет обновляться более активно, но также больше расходовать заряд батареи</string>
     <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или повреждённых вложений</string>
     <string name="title_color">Цвет</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Календарь</string>
+    <string name="title_calendar">Календарь</string>
     <string name="title_background">Фон</string>
     <string name="title_transparent">Прозрачность</string>
     <string name="title_account_ondemand">Синхронизировать вручную</string>

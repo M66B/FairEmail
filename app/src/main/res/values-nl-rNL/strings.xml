@@ -201,6 +201,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_free">Is deze app gratis te gebruiken?</string>
     <string name="title_setup_permissions">Toestemmingen verlenen</string>
     <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
+    <string name="title_setup_permissions_calendar" comment="title_setup_permissions_calendar&#10;Description of calendar read/write permission">Om uitnodigingen opslaan (optioneel)</string>
     <string name="title_setup_permissions_explanation">Contact machtigingen zijn vereist voor het opzoeken van contactinformatie en het voorstellen van contacten</string>
     <string name="title_setup_permissions_notify">Om meldingen voor nieuwe berichten te tonen (optioneel)</string>
     <string name="title_setup_permissions_notify_explanation">Machtigingen voor meldingen zijn vereist om meldingen voor nieuwe berichten in de statusbalk te tonen</string>
@@ -797,7 +798,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_account_noop_hint">Dit zal de verbinding actiever vernieuwen, maar ook meer batterijvermogen gebruiken</string>
     <string name="title_account_partial_fetch_hint">Schakel dit alleen uit in het geval van lege berichten of corrupte bijlagen</string>
     <string name="title_color">Kleur</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Agenda</string>
+    <string name="title_calendar">Agenda</string>
     <string name="title_background">Achtergrond</string>
     <string name="title_transparent">Doorzichtig</string>
     <string name="title_account_ondemand">Handmatig synchroniseren</string>

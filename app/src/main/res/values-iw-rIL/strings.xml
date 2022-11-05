@@ -825,7 +825,7 @@
     <string name="title_account_noop_hint">הגדרה זו תרענן את החיבור בצורה יותר פעילה אך גם תצרוך יותר סוללה</string>
     <string name="title_account_partial_fetch_hint">יש להשבית את זה רק במקרה של הודעות ריקות או קבצים מצורפים פגומים</string>
     <string name="title_color">צבע</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">לוח שנה</string>
+    <string name="title_calendar">לוח שנה</string>
     <string name="title_background">רקע</string>
     <string name="title_transparent">שקוף</string>
     <string name="title_account_ondemand">סנכרון ידני</string>

@@ -202,6 +202,7 @@
     <string name="title_setup_free">L\'utilisation de cette application est-elle gratuite?</string>
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations de contact (facultatif)</string>
+    <string name="title_setup_permissions_calendar" comment="title_setup_permissions_calendar&#10;Description of calendar read/write permission">Pour enregistrer les invitations (facultatif)</string>
     <string name="title_setup_permissions_explanation">L\'autorisation d\'accès aux contacts est requise pour rechercher des informations de contact et pour suggérer des contacts</string>
     <string name="title_setup_permissions_notify">Pour afficher les notifications de nouveaux messages (facultatif)</string>
     <string name="title_setup_permissions_notify_explanation">Les autorisations de notification sont requises pour afficher les notifications pour les nouveaux messages dans la barre d\'état</string>
@@ -800,7 +801,7 @@
     <string name="title_account_noop_hint">Ceci actualisera la connexion plus activement mais utilisera également plus de batterie</string>
     <string name="title_account_partial_fetch_hint">Désactiver ceci seulement en cas de messages vides ou de pièces jointes corrompues</string>
     <string name="title_color">Couleur</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Calendrier</string>
+    <string name="title_calendar">Calendrier</string>
     <string name="title_background">Arrière-plan</string>
     <string name="title_transparent">Transparent</string>
     <string name="title_account_ondemand">Synchroniser manuellement</string>

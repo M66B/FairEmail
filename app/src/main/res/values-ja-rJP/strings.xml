@@ -786,7 +786,7 @@
     <string name="title_account_noop_hint">より頻繁に接続を更新しますが、バッテリー使用量が増加します</string>
     <string name="title_account_partial_fetch_hint">メッセージが空の場合や添付ファイルが破損している場合にのみ無効にする</string>
     <string name="title_color">色</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">カレンダー</string>
+    <string name="title_calendar">カレンダー</string>
     <string name="title_background">背景</string>
     <string name="title_transparent">透過</string>
     <string name="title_account_ondemand">手動で同期</string>

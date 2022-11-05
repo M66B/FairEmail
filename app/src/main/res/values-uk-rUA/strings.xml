@@ -229,6 +229,7 @@
     <string name="title_setup_free">Цей додаток може використовуватися безкоштовно?</string>
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_permissions_remark">Доступ до контактної інформації (необов\'язково)</string>
+    <string name="title_setup_permissions_calendar" comment="title_setup_permissions_calendar&#10;Description of calendar read/write permission">Зберігати запрошення (необов\'язково)</string>
     <string name="title_setup_permissions_explanation">Щоб переглянути контактні дані й запропонувати контакти</string>
     <string name="title_setup_permissions_notify">Для показу нових сповіщень (необов\'язково)</string>
     <string name="title_setup_permissions_notify_explanation">Потрібні дозволи для показу сповіщень для нових повідомлень в рядку стану</string>
@@ -824,7 +825,7 @@
     <string name="title_account_noop_hint">Це буде оновлювати підключення активніше, але також буде використовувати більше заряду акумулятора</string>
     <string name="title_account_partial_fetch_hint">Вимкнути це лише у випадку пустих повідомлень або пошкоджених вкладень</string>
     <string name="title_color">Колір</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Календар</string>
+    <string name="title_calendar">Календар</string>
     <string name="title_background">Тло</string>
     <string name="title_transparent">Прозорість</string>
     <string name="title_account_ondemand">Синхронізувати вручну</string>

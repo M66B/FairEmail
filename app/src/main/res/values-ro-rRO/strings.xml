@@ -811,7 +811,7 @@
     <string name="title_account_noop_hint">Acest lucru va reîmprospăta conexiunea mai activ, dar va consuma mai multă energie din baterie</string>
     <string name="title_account_partial_fetch_hint">Dezactivați numai pentru mesaje goale sau atașamente corupte</string>
     <string name="title_color">Culoare</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Calendar</string>
+    <string name="title_calendar">Calendar</string>
     <string name="title_background">Fundal</string>
     <string name="title_transparent">Transparență</string>
     <string name="title_account_ondemand">Sincronizare manuală</string>

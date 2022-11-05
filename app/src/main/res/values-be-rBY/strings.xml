@@ -826,7 +826,7 @@
     <string name="title_account_noop_hint">Гэта опцыя дазволіць больш актыўна абнаўляць злучэнне, але таксама выкліча большае спажыванне энергіі батарэі</string>
     <string name="title_account_partial_fetch_hint">Адключайце гэту опцыю толькі ў выпадку пустых паведамленняў або пашкоджаных укладанняў</string>
     <string name="title_color">Колер</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Каляндар</string>
+    <string name="title_calendar">Каляндар</string>
     <string name="title_background">Фон</string>
     <string name="title_transparent">Празрысты</string>
     <string name="title_account_ondemand">Сінхранізаваць уручную</string>

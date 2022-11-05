@@ -799,7 +799,7 @@
     <string name="title_account_noop_hint">Bu, bağlantını daha aktiv şəkildə təzələyəcək, ancaq daha çox batareya istifadəsinə səbəb olacaq</string>
     <string name="title_account_partial_fetch_hint">Bunu yalnız boş mesajlar və ya zədəli qoşmalar olduğu halda sıradan çıxardın</string>
     <string name="title_color">Rəng</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Təqvim</string>
+    <string name="title_calendar">Təqvim</string>
     <string name="title_background">Arxaplan</string>
     <string name="title_transparent">Şəffaf</string>
     <string name="title_account_ondemand">Əllə eyniləşdir</string>

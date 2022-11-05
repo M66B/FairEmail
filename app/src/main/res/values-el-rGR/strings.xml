@@ -796,7 +796,7 @@
     <string name="title_account_noop_hint">Αυτό θα ανανεώνει τη σύνδεση πιο ενεργά, αλλά θα χρησιμοποιεί, επίσης, περισσότερη μπαταρία</string>
     <string name="title_account_partial_fetch_hint">Απενεργοποιήστε το μόνο σε περιπτώσεις κενών μηνυμάτων ή χαλασμένων συνημμένων</string>
     <string name="title_color">Χρώμα</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Ημερολόγιο</string>
+    <string name="title_calendar">Ημερολόγιο</string>
     <string name="title_background">Φόντο</string>
     <string name="title_transparent">Διαφανές</string>
     <string name="title_account_ondemand">Χειροκίνητος συγχρονισμός</string>

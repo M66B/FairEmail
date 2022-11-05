@@ -763,7 +763,7 @@
     <string name="title_account_interval_hint">Učestalost osvježavanja veze za push poruke ili učestalost provjere novih poruka</string>
     <string name="title_account_partial_fetch_hint">Onemogućite ovo samo u slučaju praznih poruka ili oštećenih privitaka</string>
     <string name="title_color">Boja</string>
-    <string name="title_calendar" comment="title_calendar&#10;Title for button and dialog to select a calendar">Kalendar</string>
+    <string name="title_calendar">Kalendar</string>
     <string name="title_background">Pozadina</string>
     <string name="title_transparent">Prozirno</string>
     <string name="title_account_ondemand">Ručno sinkroniziranje</string>
