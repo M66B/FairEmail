@@ -4,6 +4,10 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
+### 1.1998 - 2022-11-05
+
+* Fixed purging spam/trash in some situations
+
 ### 1.1997 - 2022-11-05
 
 * Small improvements and minor bug fixes
