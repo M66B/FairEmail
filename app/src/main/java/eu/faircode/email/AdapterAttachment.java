@@ -41,6 +41,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ShareCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -271,12 +272,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
                 // TODO: consider using getUriForFile(..., displayName)
 
-                Intent send = new Intent();
-                send.setAction(Intent.ACTION_SEND);
-                send.putExtra(Intent.EXTRA_STREAM, uri);
-                send.setType(attachment.getMimeType());
-                send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                context.startActivity(Intent.createChooser(send, context.getString(R.string.title_select_app)));
+                new ShareCompat.IntentBuilder(context)
+                        .setType(attachment.getMimeType())
+                        .addStream(uri)
+                        .startChooser();
 
                 return true;
             } catch (Throwable ex) {
