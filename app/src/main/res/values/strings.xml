@@ -250,6 +250,7 @@
     <string name="title_setup_free">Is this app free to use?</string>
     <string name="title_setup_permissions">Grant permissions</string>
     <string name="title_setup_permissions_remark">To access contact information (optional)</string>
+    <string name="title_setup_permissions_calendar">To store invitations (optional)</string>
     <string name="title_setup_permissions_explanation">Contact permissions are required to look up contact info and to suggest contacts</string>
     <string name="title_setup_permissions_notify">To show new messages notifications (optional)</string>
     <string name="title_setup_permissions_notify_explanation">Notification permissions are required to show notifications for new messages in the status bar</string>

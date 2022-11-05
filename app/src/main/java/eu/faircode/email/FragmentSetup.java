@@ -100,6 +100,7 @@ public class FragmentSetup extends FragmentBase {
     private TextView tvFree;
     private TextView tvNoComposable;
 
+    private TextView tvCalendarPermissions;
     private TextView tvNotificationPermissions;
     private TextView tvPermissionsDone;
     private Button btnPermissions;
@@ -182,6 +183,7 @@ public class FragmentSetup extends FragmentBase {
         tvFree = view.findViewById(R.id.tvFree);
         tvNoComposable = view.findViewById(R.id.tvNoComposable);
 
+        tvCalendarPermissions = view.findViewById(R.id.tvCalendarPermissions);
         tvNotificationPermissions = view.findViewById(R.id.tvNotificationPermissions);
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
         btnPermissions = view.findViewById(R.id.btnPermissions);
@@ -748,6 +750,8 @@ public class FragmentSetup extends FragmentBase {
         tvNoInternet.setVisibility(View.GONE);
         btnIdentity.setEnabled(false);
         tvNoComposable.setVisibility(View.GONE);
+
+        tvCalendarPermissions.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
 
         tvNotificationPermissions.setVisibility(
                 Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU

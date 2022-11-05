@@ -102,10 +102,10 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_privacy_policy"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintEnd_toStartOf="@+id/tvSupport"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/analytics" />
@@ -117,10 +117,10 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/menu_faq"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tvPrivacy"
                     app:layout_constraintTop_toBottomOf="@id/analytics" />
@@ -195,11 +195,11 @@
                     android:layout_marginTop="12dp"
                     android:drawableStart="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?attr/colorWarning"
                     android:text="@string/title_no_internet"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?attr/colorWarning"
+                    app:drawableTint="?attr/colorWarning"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/title1" />
@@ -227,7 +227,6 @@
                     android:backgroundTint="?attr/colorInfoBackground"
                     android:drawableEnd="@drawable/twotone_auto_fix_high_24"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?attr/colorInfoForeground"
                     android:paddingHorizontal="24dp"
                     android:paddingVertical="12dp"
                     android:text="@string/title_setup_wizard"
@@ -235,6 +234,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?attr/colorInfoForeground"
                     android:textStyle="bold"
+                    app:drawableTint="?attr/colorInfoForeground"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvNoInternet" />
@@ -258,11 +258,11 @@
                     android:drawableStart="@drawable/twotone_menu_book_24"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_setup_wizard_tutorials"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvQuickRemarkMultiple" />
@@ -274,11 +274,11 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_setup_wizard_new"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvTutorials" />
@@ -303,12 +303,12 @@
                     android:layout_marginEnd="12dp"
                     android:drawableEnd="@drawable/twotone_settings_24"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorTertiary"
                     android:gravity="center"
                     android:paddingStart="36dp"
                     android:text="@string/title_setup_manual"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="bold"
+                    app:drawableTint="?android:attr/textColorTertiary"
                     app:layout_constraintBottom_toBottomOf="@id/ibManual"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -485,10 +485,10 @@
                             android:layout_marginTop="12dp"
                             android:drawableEnd="@drawable/twotone_open_in_new_12"
                             android:drawablePadding="6dp"
-                            app:drawableTint="?android:attr/textColorLink"
                             android:text="@string/title_setup_exchange_support"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
                             android:textColor="?android:attr/textColorLink"
+                            app:drawableTint="?android:attr/textColorLink"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvAccountIdentity" />
@@ -500,10 +500,10 @@
                             android:layout_marginTop="12dp"
                             android:drawableEnd="@drawable/twotone_open_in_new_12"
                             android:drawablePadding="6dp"
-                            app:drawableTint="?android:attr/textColorLink"
                             android:text="@string/title_setup_identity_what"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
                             android:textColor="?android:attr/textColorLink"
+                            app:drawableTint="?android:attr/textColorLink"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvExchangeSupport" />
@@ -541,10 +541,10 @@
                     android:layout_marginTop="18dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_setup_free"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnInbox" />
@@ -606,6 +606,16 @@
                     app:layout_constraintTop_toBottomOf="@id/title2" />
 
                 <TextView
+                    android:id="@+id/tvCalendarPermissions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_setup_permissions_calendar"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvContactPermissions" />
+
+                <TextView
                     android:id="@+id/tvNotificationPermissions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -613,7 +623,7 @@
                     android:text="@string/title_setup_permissions_notify"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvContactPermissions" />
+                    app:layout_constraintTop_toBottomOf="@id/tvCalendarPermissions" />
 
                 <TextView
                     android:id="@+id/tvPermissionsDone"
@@ -646,10 +656,10 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_setup_permission_why"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnPermissions" />
 
@@ -660,10 +670,10 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_setup_permission_import_contacts"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPermissionsWhy" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -754,11 +764,11 @@
                     android:layout_marginTop="6dp"
                     android:drawableStart="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?attr/colorWarning"
                     android:text="@string/title_setup_alarm_12"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?attr/colorWarning"
                     android:textStyle="bold"
+                    app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnDoze" />
 
@@ -779,10 +789,10 @@
                     android:layout_marginTop="6dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_setup_doze_why"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDozeHint" />
 
@@ -793,11 +803,11 @@
                     android:layout_marginTop="12dp"
                     android:drawableStart="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?attr/colorWarning"
                     android:text="@string/title_setup_background"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?attr/colorWarning"
                     android:textStyle="bold"
+                    app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDozeWhy" />
 
@@ -821,11 +831,11 @@
                     android:layout_marginTop="12dp"
                     android:drawableStart="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?attr/colorWarning"
                     android:text="@string/title_setup_data"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?attr/colorWarning"
                     android:textStyle="bold"
+                    app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnBackgroundRestricted" />
 
@@ -849,11 +859,11 @@
                     android:layout_marginTop="12dp"
                     android:drawableStart="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?attr/colorWarning"
                     android:text="@string/title_setup_stamina"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?attr/colorWarning"
                     android:textStyle="bold"
+                    app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnDataSaver" />
 
@@ -864,10 +874,10 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_setup_doze_battery"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvStamina" />
 
@@ -878,10 +888,10 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_setup_doze_stopped"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvBatteryUsage" />
 
