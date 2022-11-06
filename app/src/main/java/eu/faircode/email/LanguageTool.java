@@ -50,6 +50,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class LanguageTool {
     static final String LT_URI = "https://api.languagetool.org/v2/";
+    static final String LT_URI_PLUS = "https://api.languagetoolplus.com/v2/";
     private static final int LT_TIMEOUT = 20; // seconds
 
     static boolean isEnabled(Context context) {
@@ -70,9 +71,10 @@ public class LanguageTool {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean lt_picky = prefs.getBoolean("lt_picky", false);
-        String lt_uri = prefs.getString("lt_uri", LT_URI);
         String lt_user = prefs.getString("lt_user", null);
         String lt_key = prefs.getString("lt_key", null);
+        boolean isPlus = (!TextUtils.isEmpty(lt_user) && !TextUtils.isEmpty(lt_key));
+        String lt_uri = prefs.getString("lt_uri", isPlus ? LT_URI_PLUS : LT_URI);
 
         // https://languagetool.org/http-api/swagger-ui/#!/default/post_check
         Uri.Builder builder = new Uri.Builder()
@@ -103,10 +105,10 @@ public class LanguageTool {
         if (lt_picky)
             builder.appendQueryParameter("level", "picky");
 
-        if (!TextUtils.isEmpty(lt_user))
+        if (isPlus) {
             builder.appendQueryParameter("username", lt_user);
-        if (!TextUtils.isEmpty(lt_key))
             builder.appendQueryParameter("apiKey", lt_key);
+        }
 
         Uri uri = Uri.parse(lt_uri).buildUpon().appendPath("check").build();
         String request = builder.build().toString().substring(1);
