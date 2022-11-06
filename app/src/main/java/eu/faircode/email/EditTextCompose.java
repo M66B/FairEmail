@@ -45,6 +45,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.view.inputmethod.InputConnectionWrapper;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -566,6 +567,41 @@ public class EditTextCompose extends FixedEditText {
         InputConnection ic = super.onCreateInputConnection(editorInfo);
         if (ic == null)
             return null;
+
+        ic = new InputConnectionWrapper(ic, false) {
+            @Override
+            public boolean deleteSurroundingText(int beforeLength, int afterLength) {
+                try {
+                    return super.deleteSurroundingText(beforeLength, afterLength);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                    return true;
+                    /*
+                        java.lang.IndexOutOfBoundsException: replace (107 ... -2147483542) has end before start
+                                at android.text.SpannableStringBuilder.checkRange(SpannableStringBuilder.java:1318)
+                                at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:513)
+                                at androidx.emoji2.text.SpannableBuilder.replace(SourceFile:7)
+                                at android.text.SpannableStringBuilder.delete(SpannableStringBuilder.java:230)
+                                at androidx.emoji2.text.SpannableBuilder.delete(SourceFile:2)
+                                at androidx.emoji2.text.SpannableBuilder.delete(SourceFile:1)
+                                at android.view.inputmethod.BaseInputConnection.deleteSurroundingText(BaseInputConnection.java:276)
+                                at android.view.inputmethod.InputConnectionWrapper.deleteSurroundingText(InputConnectionWrapper.java:133)
+                                at androidx.emoji2.viewsintegration.EmojiInputConnection.deleteSurroundingText(SourceFile:17)
+                                at android.view.inputmethod.InputConnectionWrapper.deleteSurroundingText(InputConnectionWrapper.java:133)
+                     */
+                }
+            }
+
+            @Override
+            public boolean deleteSurroundingTextInCodePoints(int beforeLength, int afterLength) {
+                try {
+                    return super.deleteSurroundingTextInCodePoints(beforeLength, afterLength);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                    return true;
+                }
+            }
+        };
 
         EditorInfoCompat.setContentMimeTypes(editorInfo, new String[]{"image/*"});
 
