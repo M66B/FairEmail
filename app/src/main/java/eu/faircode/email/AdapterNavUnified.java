@@ -95,8 +95,10 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         }
 
         private void bindTo(TupleFolderUnified folder) {
-            if (EntityFolder.INBOX.equals(folder.type) || folder.type == null)
-                ivItem.setImageResource(folder.folders > 1
+            if (folder.type == null)
+                ivItem.setImageResource(R.drawable.twotone_all_inbox_24);
+            else if (EntityFolder.INBOX.equals(folder.type))
+                ivItem.setImageResource(folder.folders > 1 && !folder.unified
                         ? R.drawable.twotone_all_inbox_24
                         : R.drawable.twotone_move_to_inbox_24);
             else if (EntityFolder.OUTBOX.equals(folder.type)) {
@@ -260,6 +262,10 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
                     (!EntityFolder.INBOX.equals(type.type) && type.unified))
                 show = true;
         }
+
+        TupleFolderUnified inbox = map.get(EntityFolder.INBOX);
+        if (inbox != null)
+            inbox.unified = true;
 
         List<TupleFolderUnified> types = new ArrayList<>();
         for (String type : map.keySet())
