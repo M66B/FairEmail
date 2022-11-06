@@ -265,7 +265,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
 
         TupleFolderUnified inbox = map.get(EntityFolder.INBOX);
         if (inbox != null)
-            inbox.unified = true;
+            inbox.unified = show;
 
         List<TupleFolderUnified> types = new ArrayList<>();
         for (String type : map.keySet())
