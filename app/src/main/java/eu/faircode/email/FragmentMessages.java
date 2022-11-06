@@ -6123,7 +6123,8 @@ public class FragmentMessages extends FragmentBase
             }
         }
 
-        if (Objects.equals(lastUnseen, unseen) &&
+        if (refreshing == swipeRefresh.isRefreshing() &&
+                Objects.equals(lastUnseen, unseen) &&
                 Objects.equals(lastRefreshing, refreshing) &&
                 Objects.equals(lastFolderErrors, folderErrors) &&
                 Objects.equals(lastAccountErrors, accountErrors)) {
