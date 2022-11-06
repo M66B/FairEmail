@@ -180,7 +180,7 @@ public interface DaoFolder {
             " ORDER BY name COLLATE NOCASE")
     List<EntityFolder> getChildFolders(long parent);
 
-    @Query("SELECT folder.type" +
+    @Query("SELECT folder.type, folder.unified" +
             ", COUNT(DISTINCT folder.id) AS folders" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +
@@ -190,9 +190,10 @@ public interface DaoFolder {
             " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " WHERE (account.id IS NULL OR account.synchronize)" +
-            " AND folder.type <> '" + EntityFolder.SYSTEM + "'" +
-            " AND folder.type <> '" + EntityFolder.USER + "'" +
-            " GROUP BY folder.type")
+            " AND ((folder.type <> '" + EntityFolder.SYSTEM + "'" +
+            " AND folder.type <> '" + EntityFolder.USER + "')" +
+            " OR folder.unified)" +
+            " GROUP BY folder.type, folder.unified")
     LiveData<List<TupleFolderUnified>> liveUnified();
 
     @Query("SELECT * FROM folder" +
