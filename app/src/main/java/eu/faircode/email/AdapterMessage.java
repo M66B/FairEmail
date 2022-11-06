@@ -3987,10 +3987,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     ShareCompat.IntentBuilder shareIntentBuilder = new ShareCompat.IntentBuilder(context);
                     shareIntentBuilder.setType("image/*");
-                    for (Uri uri: uris) {
-                       shareIntentBuilder.addStream(uri);
-                    }
-                    shareIntentBuilder.startChooser();
+                    for (Uri uri : uris)
+                        shareIntentBuilder.addStream(uri);
+                    shareIntentBuilder
+                            .setChooserTitle(R.string.title_select_app)
+                            .startChooser();
                 }
 
                 @Override

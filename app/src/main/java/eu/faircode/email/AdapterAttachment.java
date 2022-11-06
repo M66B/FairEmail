@@ -275,6 +275,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 new ShareCompat.IntentBuilder(context)
                         .setType(attachment.getMimeType())
                         .addStream(uri)
+                        .setChooserTitle(R.string.title_select_app)
                         .startChooser();
 
                 return true;
