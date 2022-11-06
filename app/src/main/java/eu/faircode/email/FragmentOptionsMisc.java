@@ -135,7 +135,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private ImageButton ibDeepL;
     private SwitchCompat swVirusTotal;
     private TextView tvVirusTotalPrivacy;
-    private EditText etVirusTotal;
+    private TextInputLayout tilVirusTotal;
     private ImageButton ibVirusTotal;
     private SwitchCompat swSend;
     private EditText etSend;
@@ -352,7 +352,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibDeepL = view.findViewById(R.id.ibDeepL);
         swVirusTotal = view.findViewById(R.id.swVirusTotal);
         tvVirusTotalPrivacy = view.findViewById(R.id.tvVirusTotalPrivacy);
-        etVirusTotal = view.findViewById(R.id.etVirusTotal);
+        tilVirusTotal = view.findViewById(R.id.tilVirusTotal);
         ibVirusTotal = view.findViewById(R.id.ibVirusTotal);
         swSend = view.findViewById(R.id.swSend);
         etSend = view.findViewById(R.id.etSend);
@@ -791,7 +791,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        etVirusTotal.addTextChangedListener(new TextWatcher() {
+        tilVirusTotal.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // Do nothing
@@ -2140,7 +2140,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tilLanguageToolKey.getEditText().setText(prefs.getString("lt_key", null));
         swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
         swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
-        etVirusTotal.setText(prefs.getString("vt_apikey", null));
+        tilVirusTotal.getEditText().setText(prefs.getString("vt_apikey", null));
         swSend.setChecked(prefs.getBoolean("send_enabled", false));
         etSend.setText(prefs.getString("send_host", null));
         swUpdates.setChecked(prefs.getBoolean("updates", true));

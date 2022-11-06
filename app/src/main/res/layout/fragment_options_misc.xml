@@ -500,17 +500,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swVirusTotal" />
 
-                <EditText
-                    android:id="@+id/etVirusTotal"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilVirusTotal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
-                    android:hint="API key"
-                    android:inputType="text"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:endIconMode="password_toggle"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvVirusTotalPrivacy" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvVirusTotalPrivacy">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="password"
+                        android:hint="API key"
+                        android:inputType="textPassword"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <ImageButton
                     android:id="@+id/ibVirusTotal"
@@ -520,7 +528,7 @@
                     android:contentDescription="@string/title_info"
                     android:tooltipText="@string/title_info"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etVirusTotal"
+                    app:layout_constraintTop_toBottomOf="@id/tilVirusTotal"
                     app:srcCompat="@drawable/twotone_info_24" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -758,7 +766,7 @@
                     android:id="@+id/grpVirusTotal"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="swVirusTotal,tvVirusTotalPrivacy,ibVirusTotal,etVirusTotal" />
+                    app:constraint_referenced_ids="swVirusTotal,tvVirusTotalPrivacy,ibVirusTotal,tilVirusTotal" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpSend"
