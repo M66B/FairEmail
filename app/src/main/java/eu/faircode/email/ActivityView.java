@@ -2144,8 +2144,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onViewMessages(Intent intent) {
+        boolean unified = intent.getBooleanExtra("unified", false);
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-            getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            if (unified && "unified".equals(startup)) {
+                getSupportFragmentManager().popBackStack("unified", 0);
+                return;
+            } else
+                getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean foldernav = prefs.getBoolean("foldernav", false);
@@ -2167,7 +2172,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragment.setArguments(args);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
+        fragmentTransaction.replace(R.id.content_frame, fragment)
+                .addToBackStack(unified ? "unified" : "messages");
         fragmentTransaction.commit();
     }
 

@@ -159,14 +159,11 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             if (EntityFolder.OUTBOX.equals(folder.type))
                 lbm.sendBroadcast(new Intent(ActivityView.ACTION_VIEW_OUTBOX));
-            if (folder.type == null) {
-                Intent view = new Intent(context, ActivityView.class);
-                view.setAction("unified");
-                context.startActivity(view);
-            } else if (folder.folders > 1)
+            else if (folder.folders > 1 || folder.type == null)
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                .putExtra("type", folder.type));
+                                .putExtra("type", folder.type)
+                                .putExtra("unified", folder.type == null));
             else {
                 Bundle args = new Bundle();
                 args.putString("type", folder.type);

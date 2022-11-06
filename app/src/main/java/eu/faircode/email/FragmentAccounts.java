@@ -399,12 +399,10 @@ public class FragmentAccounts extends FragmentBase {
     }
 
     private void onMenuUnified() {
-        FragmentMessages fragment = new FragmentMessages();
-        fragment.setArguments(new Bundle());
-
-        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
-        fragmentTransaction.commit();
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+        lbm.sendBroadcast(
+                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                        .putExtra("unified", true));
     }
 
     private void onMenuOutbox() {
