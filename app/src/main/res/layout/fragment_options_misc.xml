@@ -379,6 +379,39 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swLanguageToolPicky" />
 
+                <EditText
+                    android:id="@+id/etLanguageToolUser"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:hint="@string/title_advanced_lt_user"
+                    android:inputType="textEmailAddress"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etLanguageTool" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilLanguageToolKey"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    app:endIconMode="password_toggle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etLanguageToolUser">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="password"
+                        android:hint="@string/title_advanced_lt_key"
+                        android:inputType="textPassword"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <TextView
                     android:id="@+id/tvLanguageTool"
                     android:layout_width="wrap_content"
@@ -393,7 +426,7 @@
                     android:textColor="?android:attr/textColorLink"
                     app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etLanguageTool" />
+                    app:layout_constraintTop_toBottomOf="@id/tilLanguageToolKey" />
 
                 <ImageButton
                     android:id="@+id/ibLanguageTool"

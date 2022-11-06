@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.text.Editable;
 import android.text.Spanned;
@@ -67,10 +68,16 @@ public class LanguageTool {
         if (TextUtils.isEmpty(text))
             return new ArrayList<>();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean lt_picky = prefs.getBoolean("lt_picky", false);
+        String lt_uri = prefs.getString("lt_uri", LT_URI);
+        String lt_user = prefs.getString("lt_user", null);
+        String lt_key = prefs.getString("lt_key", null);
+
         // https://languagetool.org/http-api/swagger-ui/#!/default/post_check
-        String request =
-                "text=" + URLEncoder.encode(text.toString(), StandardCharsets.UTF_8.name()) +
-                        "&language=auto";
+        Uri.Builder builder = new Uri.Builder()
+                .appendQueryParameter("text", text.toString())
+                .appendQueryParameter("language", "auto");
 
         // curl -X GET --header 'Accept: application/json' 'https://api.languagetool.org/v2/languages'
         JSONArray jlanguages;
@@ -91,21 +98,22 @@ public class LanguageTool {
         }
 
         if (code != null)
-            request += "&preferredVariants=" + code;
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean lt_picky = prefs.getBoolean("lt_picky", false);
+            builder.appendQueryParameter("preferredVariants", code);
 
         if (lt_picky)
-            request += "&level=picky";
+            builder.appendQueryParameter("level", "picky");
 
-        String uri = prefs.getString("lt_uri", LT_URI);
-        if (!uri.endsWith("/"))
-            uri += '/';
+        if (!TextUtils.isEmpty(lt_user))
+            builder.appendQueryParameter("username", lt_user);
+        if (!TextUtils.isEmpty(lt_key))
+            builder.appendQueryParameter("apiKey", lt_key);
+
+        Uri uri = Uri.parse(lt_uri).buildUpon().appendPath("check").build();
+        String request = builder.build().toString().substring(1);
 
         Log.i("LT locale=" + locale + " uri=" + uri + " request=" + request);
 
-        URL url = new URL(uri + "check");
+        URL url = new URL(uri.toString());
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
@@ -130,6 +138,7 @@ public class LanguageTool {
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
+                Log.w("LT " + error);
                 throw new FileNotFoundException(error);
             }
 

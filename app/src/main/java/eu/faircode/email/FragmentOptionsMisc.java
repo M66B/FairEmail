@@ -81,6 +81,8 @@ import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -125,6 +127,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swLanguageToolAuto;
     private SwitchCompat swLanguageToolPicky;
     private EditText etLanguageTool;
+    private EditText etLanguageToolUser;
+    private TextInputLayout tilLanguageToolKey;
     private ImageButton ibLanguageTool;
     private SwitchCompat swDeepL;
     private TextView tvDeepLPrivacy;
@@ -248,7 +252,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
             "language",
-            "lt_enabled", "lt_auto", "lt_picky", "lt_uri",
+            "lt_enabled", "lt_auto", "lt_picky", "lt_uri", "lt_user", "lt_key",
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host",
@@ -340,6 +344,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swLanguageToolAuto = view.findViewById(R.id.swLanguageToolAuto);
         swLanguageToolPicky = view.findViewById(R.id.swLanguageToolPicky);
         etLanguageTool = view.findViewById(R.id.etLanguageTool);
+        etLanguageToolUser = view.findViewById(R.id.etLanguageToolUser);
+        tilLanguageToolKey = view.findViewById(R.id.tilLanguageToolKey);
         ibLanguageTool = view.findViewById(R.id.ibLanguageTool);
         swDeepL = view.findViewById(R.id.swDeepL);
         tvDeepLPrivacy = view.findViewById(R.id.tvDeepLPrivacy);
@@ -696,6 +702,48 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     prefs.edit().remove("lt_uri").apply();
                 else
                     prefs.edit().putString("lt_uri", apikey).apply();
+            }
+        });
+
+        etLanguageToolUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String apikey = s.toString().trim();
+                if (TextUtils.isEmpty(apikey))
+                    prefs.edit().remove("lt_user").apply();
+                else
+                    prefs.edit().putString("lt_user", apikey).apply();
+            }
+        });
+
+        tilLanguageToolKey.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String apikey = s.toString().trim();
+                if (TextUtils.isEmpty(apikey))
+                    prefs.edit().remove("lt_key").apply();
+                else
+                    prefs.edit().putString("lt_key", apikey).apply();
             }
         });
 
@@ -1932,7 +1980,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if ("last_cleanup".equals(key))
             setLastCleanup(prefs.getLong(key, -1));
 
-        if ("lt_uri".equals(key) || "vt_apikey".equals(key) || "send_host".equals(key))
+        if ("lt_uri".equals(key) ||
+                "lt_user".equals(key) ||
+                "lt_key".equals(key) ||
+                "vt_apikey".equals(key) ||
+                "send_host".equals(key))
             return;
 
         if ("global_keywords".equals(key))
@@ -2084,6 +2136,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swLanguageToolPicky.setChecked(prefs.getBoolean("lt_picky", false));
         swLanguageToolPicky.setEnabled(swLanguageTool.isChecked());
         etLanguageTool.setText(prefs.getString("lt_uri", null));
+        etLanguageToolUser.setText(prefs.getString("lt_user", null));
+        tilLanguageToolKey.getEditText().setText(prefs.getString("lt_key", null));
         swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
         swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
         etVirusTotal.setText(prefs.getString("vt_apikey", null));
