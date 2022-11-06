@@ -289,8 +289,10 @@ public class ActivitySignature extends ActivityBase {
             etText.setText(null);
         else if (etText.isRaw())
             etText.setText(html);
-        else
-            etText.setText(HtmlHelper.fromHtml(html, new HtmlHelper.ImageGetterEx() {
+        else {
+            Document d = JsoupEx.parse(html);
+            d = HtmlHelper.sanitizeView(this, d, true);
+            Spanned signature = HtmlHelper.fromDocument(this, d, new HtmlHelper.ImageGetterEx() {
                 @Override
                 public Drawable getDrawable(Element element) {
                     String source = element.attr("src");
@@ -299,7 +301,9 @@ public class ActivitySignature extends ActivityBase {
                     return ImageHelper.decodeImage(ActivitySignature.this,
                             -1, element, true, 0, 1.0f, etText);
                 }
-            }, null, this));
+            }, null);
+            etText.setText(signature);
+        }
         loaded = true;
     }
 
