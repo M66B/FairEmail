@@ -117,10 +117,10 @@ public class EditTextCompose extends FixedEditText {
                                 order++, context.getString(R.string.title_insert_brackets));
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_quotes,
                                 order++, context.getString(R.string.title_insert_quotes));
-                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_dictionary_add,
-                                order++, context.getString(R.string.title_dictionary_add));
-                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_dictionary_delete,
-                                order++, context.getString(R.string.title_dictionary_delete));
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_lt_add,
+                                order++, context.getString(R.string.title_lt_add));
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_lt_delete,
+                                order++, context.getString(R.string.title_lt_delete));
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
@@ -134,16 +134,15 @@ public class EditTextCompose extends FixedEditText {
                     boolean selection = (start >= 0 && start < end);
                     Context context = getContext();
                     Editable edit = getText();
-                    boolean dictionary = (BuildConfig.DEBUG &&
+                    boolean dictionary = (selection &&
                             context instanceof AppCompatActivity &&
                             LanguageTool.isPremium(context) &&
-                            selection &&
                             edit != null &&
                             edit.subSequence(start, end).toString().indexOf(' ') < 0);
                     menu.findItem(R.string.title_insert_brackets).setVisible(selection);
                     menu.findItem(R.string.title_insert_quotes).setVisible(selection);
-                    menu.findItem(R.string.title_dictionary_add).setVisible(dictionary);
-                    menu.findItem(R.string.title_dictionary_delete).setVisible(dictionary);
+                    menu.findItem(R.string.title_lt_add).setVisible(dictionary);
+                    menu.findItem(R.string.title_lt_delete).setVisible(dictionary);
                     return false;
                 }
 
@@ -155,9 +154,9 @@ public class EditTextCompose extends FixedEditText {
                             return surround("(", ")");
                         else if (id == R.string.title_insert_quotes)
                             return surround("\"", "\"");
-                        else if (id == R.string.title_dictionary_add)
+                        else if (id == R.string.title_lt_add)
                             return modifyDictionary(true);
-                        else if (id == R.string.title_dictionary_delete)
+                        else if (id == R.string.title_lt_delete)
                             return modifyDictionary(false);
                     }
                     return false;
