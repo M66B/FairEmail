@@ -202,6 +202,7 @@
     <string name="title_setup_free">Η εφαρμογή αυτή χρησιμοποιείται δωρεάν;</string>
     <string name="title_setup_permissions">Απαιτούμενα δικαιώματα</string>
     <string name="title_setup_permissions_remark">Για πρόσβαση στις πληροφορίες επαφών (προαιρετικό)</string>
+    <string name="title_setup_permissions_calendar">Για την αποθήκευση προσκλήσεων (προαιρετικό)</string>
     <string name="title_setup_permissions_explanation">Απαιτείται άδεια πρόσβασης στις επαφές για την αναζήτηση πληροφοριών επικοινωνίας και για προτάσεις επαφών</string>
     <string name="title_setup_permissions_notify">Για να προβάλλονται ειδοποιήσεις νέων μηνυμάτων (προαιρετικό)</string>
     <string name="title_setup_permissions_notify_explanation">Απαιτούνται δικαιώματα ειδοποιήσεων για να προβάλλονται ειδοποιήσεις νέων μηνυμάτων στη γραμμή κατάστασης</string>
@@ -644,6 +645,8 @@
     <string name="title_advanced_language_system">Σύστημα</string>
     <string name="title_advanced_lt">Ενσωμάτωση του LanguageTool</string>
     <string name="title_advanced_lt_auto">Έλεγχος της παραγράφου μετά από μία νέα γραμμή</string>
+    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">Όνομα χρήστη (προαιρετικό)</string>
+    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">Κλειδί API (προαιρετικό)</string>
     <string name="title_advanced_deepl">Ενσωμάτωση DeepL</string>
     <string name="title_advanced_virus_total">Ενσωμάτωση του VirusTotal</string>
     <string name="title_advanced_sdcard">Θέλω να χρησιμοποιήσω μια κάρτα SD</string>

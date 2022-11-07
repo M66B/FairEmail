@@ -202,7 +202,7 @@
     <string name="title_setup_free">Quest\'app è gratuita?</string>
     <string name="title_setup_permissions">Concedi autorizzazioni</string>
     <string name="title_setup_permissions_remark">Per accedere alle informazioni di contatto (opzionale)</string>
-    <string name="title_setup_permissions_calendar" comment="title_setup_permissions_calendar&#10;Description of calendar read/write permission">Per memorizzare gli inviti (opzionale)</string>
+    <string name="title_setup_permissions_calendar">Per memorizzare gli inviti (opzionale)</string>
     <string name="title_setup_permissions_explanation">Le autorizzazioni di contatto sono necessarie per cercare informazioni di contatto e suggerire contatti</string>
     <string name="title_setup_permissions_notify">Per mostrare le notifiche dei nuovi messaggi (opzionale)</string>
     <string name="title_setup_permissions_notify_explanation">Le autorizzazioni di notifica sono necessarie per mostrare le notifiche per i nuovi messaggi nella barra di stato</string>
@@ -648,6 +648,8 @@
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integrazione di LanguageTool</string>
     <string name="title_advanced_lt_auto">Controlla il paragrafo dopo una nuova riga</string>
+    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">Nome utente (opzionale)</string>
+    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">Chiave API (opzionale)</string>
     <string name="title_advanced_deepl">Integrazione con DeepL</string>
     <string name="title_advanced_virus_total">Integrazione di VirusTotal</string>
     <string name="title_advanced_sdcard">Desidero usare una scheda sd</string>

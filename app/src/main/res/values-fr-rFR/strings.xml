@@ -202,7 +202,7 @@
     <string name="title_setup_free">L\'utilisation de cette application est-elle gratuite ?</string>
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations des contacts (facultatif)</string>
-    <string name="title_setup_permissions_calendar" comment="title_setup_permissions_calendar&#10;Description of calendar read/write permission">Pour enregistrer les invitations (facultatif)</string>
+    <string name="title_setup_permissions_calendar">Pour enregistrer les invitations (facultatif)</string>
     <string name="title_setup_permissions_explanation">L\'autorisation d\'accès aux contacts est requise pour rechercher des informations de contact et pour suggérer des contacts</string>
     <string name="title_setup_permissions_notify">Pour afficher les notifications de nouveaux messages (facultatif)</string>
     <string name="title_setup_permissions_notify_explanation">Les autorisations de notification sont requises pour afficher les notifications pour les nouveaux messages dans la barre d\'état</string>
@@ -648,6 +648,8 @@
     <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_lt">Intégration de LanguageTool</string>
     <string name="title_advanced_lt_auto">Vérifier le paragraphe après une nouvelle ligne</string>
+    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">Identifiant (facultatif)</string>
+    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">Clé API (facultatif)</string>
     <string name="title_advanced_deepl">Intégration de DeepL</string>
     <string name="title_advanced_virus_total">Intégration de VirusTotal</string>
     <string name="title_advanced_sdcard">Je veux utiliser une carte SD</string>

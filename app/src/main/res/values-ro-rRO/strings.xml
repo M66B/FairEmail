@@ -215,6 +215,7 @@
     <string name="title_setup_free">Este această aplicație gratuită?</string>
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
+    <string name="title_setup_permissions_calendar">Pentru a stoca invitațiile (opțional)</string>
     <string name="title_setup_permissions_explanation">Permisiunile de contact sunt necesare pentru a căuta informații de contact și pentru a sugera contacte</string>
     <string name="title_setup_permissions_notify">Pentru a afișa notificări mesaje noi (opțional)</string>
     <string name="title_setup_permissions_notify_explanation">Permisiunile de notificare sunt necesare pentru a afișa notificări pentru mesaje noi în bara de stare</string>
@@ -658,6 +659,8 @@
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Integrare cu LanguageTool</string>
     <string name="title_advanced_lt_auto">Verifică paragraful după o nouă linie</string>
+    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">Nume utilizator (opţional)</string>
+    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">Cheie API (opțional)</string>
     <string name="title_advanced_deepl">Integrare DeepL</string>
     <string name="title_advanced_virus_total">Integrare VirusTotal</string>
     <string name="title_advanced_sdcard">Vreau să folosesc un sdcard</string>

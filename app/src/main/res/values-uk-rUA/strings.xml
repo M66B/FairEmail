@@ -229,7 +229,7 @@
     <string name="title_setup_free">Цей додаток може використовуватися безкоштовно?</string>
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_permissions_remark">Доступ до контактної інформації (необов\'язково)</string>
-    <string name="title_setup_permissions_calendar" comment="title_setup_permissions_calendar&#10;Description of calendar read/write permission">Зберігати запрошення (необов\'язково)</string>
+    <string name="title_setup_permissions_calendar">Зберігати запрошення (необов\'язково)</string>
     <string name="title_setup_permissions_explanation">Щоб переглянути контактні дані й запропонувати контакти</string>
     <string name="title_setup_permissions_notify">Для показу нових сповіщень (необов\'язково)</string>
     <string name="title_setup_permissions_notify_explanation">Потрібні дозволи для показу сповіщень для нових повідомлень в рядку стану</string>
@@ -673,6 +673,8 @@
     <string name="title_advanced_language_system">Системи</string>
     <string name="title_advanced_lt">Інтеграція з LanguageTool</string>
     <string name="title_advanced_lt_auto">Перевірити абзац після нового рядка</string>
+    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">Ім\'я користувача (необов\'язково)</string>
+    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">API ключ (необов\'язково)</string>
     <string name="title_advanced_deepl">Інтеграція з DeepL</string>
     <string name="title_advanced_virus_total">Інтеграція з VirusTotal</string>
     <string name="title_advanced_sdcard">Я хочу використовувати SD-карту</string>

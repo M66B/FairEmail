@@ -189,6 +189,7 @@
     <string name="title_setup_free">本应用是否免费？</string>
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
+    <string name="title_setup_permissions_calendar">存储邀请 (可选)</string>
     <string name="title_setup_permissions_explanation">需要联系人权限来查找联系人信息和推荐联系人</string>
     <string name="title_setup_permissions_notify">显示新消息通知 (可选)</string>
     <string name="title_setup_permissions_notify_explanation">在状态栏显示新消息通知时需要通知权限</string>
@@ -632,6 +633,8 @@
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_lt">LanguageTool 集成</string>
     <string name="title_advanced_lt_auto">换行后检查段落</string>
+    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">用户名 (选填)</string>
+    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">API 密钥 (选填)</string>
     <string name="title_advanced_deepl">DeepL 集成</string>
     <string name="title_advanced_virus_total">VirusTotal 集成</string>
     <string name="title_advanced_sdcard">我想使用 SD 卡</string>

@@ -228,6 +228,7 @@
     <string name="title_setup_free">Это бесплатное приложение?</string>
     <string name="title_setup_permissions">Предоставить разрешения</string>
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
+    <string name="title_setup_permissions_calendar">Для хранения приглашений (необязательно)</string>
     <string name="title_setup_permissions_explanation">Разрешение на контакты необходимо для поиска и подбора контактов</string>
     <string name="title_setup_permissions_notify">Чтобы показывать новые уведомления (необязательно)</string>
     <string name="title_setup_permissions_notify_explanation">Разрешения уведомлений для отображения новых сообщений в строке состояния</string>
@@ -672,6 +673,8 @@
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_lt">Интеграция с LanguageTool</string>
     <string name="title_advanced_lt_auto">Проверять абзац после новой строки</string>
+    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">Пользователь (необязательно)</string>
+    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">Ключ API (необязательно)</string>
     <string name="title_advanced_deepl">Интеграция с DeepL</string>
     <string name="title_advanced_virus_total">Интеграция с VirusTotal</string>
     <string name="title_advanced_sdcard">Я хочу использовать SD-карту</string>

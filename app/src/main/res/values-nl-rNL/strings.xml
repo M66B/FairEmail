@@ -201,7 +201,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_free">Is deze app gratis te gebruiken?</string>
     <string name="title_setup_permissions">Toestemmingen verlenen</string>
     <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
-    <string name="title_setup_permissions_calendar" comment="title_setup_permissions_calendar&#10;Description of calendar read/write permission">Om uitnodigingen opslaan (optioneel)</string>
+    <string name="title_setup_permissions_calendar">Om uitnodigingen opslaan (optioneel)</string>
     <string name="title_setup_permissions_explanation">Contact machtigingen zijn vereist voor het opzoeken van contactinformatie en het voorstellen van contacten</string>
     <string name="title_setup_permissions_notify">Om meldingen voor nieuwe berichten te tonen (optioneel)</string>
     <string name="title_setup_permissions_notify_explanation">Machtigingen voor meldingen zijn vereist om meldingen voor nieuwe berichten in de statusbalk te tonen</string>
@@ -645,6 +645,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_lt">LanguageTool integratie</string>
     <string name="title_advanced_lt_auto">Controleer alinea na een nieuwe regel</string>
+    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">Gebruikersnaam (optioneel)</string>
+    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">API key (optioneel)</string>
     <string name="title_advanced_deepl">DeepL integratie</string>
     <string name="title_advanced_virus_total">VirusTotal integratie</string>
     <string name="title_advanced_sdcard">Ik wil een SD-kaart gebruiken</string>
