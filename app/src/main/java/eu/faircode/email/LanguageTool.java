@@ -40,8 +40,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -105,10 +103,10 @@ public class LanguageTool {
         if (lt_picky)
             builder.appendQueryParameter("level", "picky");
 
-        if (isPlus) {
-            builder.appendQueryParameter("username", lt_user);
-            builder.appendQueryParameter("apiKey", lt_key);
-        }
+        if (isPlus)
+            builder
+                    .appendQueryParameter("username", lt_user)
+                    .appendQueryParameter("apiKey", lt_key);
 
         Uri uri = Uri.parse(lt_uri).buildUpon().appendPath("check").build();
         String request = builder.build().toString().substring(1);
@@ -129,20 +127,7 @@ public class LanguageTool {
 
         try {
             connection.getOutputStream().write(request.getBytes());
-
-            int status = connection.getResponseCode();
-            if (status != HttpsURLConnection.HTTP_OK) {
-                String error = "Error " + status + ": " + connection.getResponseMessage();
-                try {
-                    InputStream is = connection.getErrorStream();
-                    if (is != null)
-                        error += "\n" + Helper.readStream(is);
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                }
-                Log.w("LT " + error);
-                throw new FileNotFoundException(error);
-            }
+            checkStatus(connection);
 
             String response = Helper.readStream(connection.getInputStream());
             Log.i("LT response=" + response);
@@ -178,6 +163,111 @@ public class LanguageTool {
         }
     }
 
+    static boolean modifyDictionary(Context context, String word, String dictionary, boolean add) throws IOException, JSONException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String lt_user = prefs.getString("lt_user", null);
+        String lt_key = prefs.getString("lt_key", null);
+        String lt_uri = prefs.getString("lt_uri", LT_URI_PLUS);
+
+        if (TextUtils.isEmpty(lt_user) || TextUtils.isEmpty(lt_key))
+            return false;
+
+        // https://languagetool.org/http-api/swagger-ui/#!/default/post_words_add
+        // https://languagetool.org/http-api/swagger-ui/#!/default/post_words_delete
+        Uri.Builder builder = new Uri.Builder()
+                .appendQueryParameter("word", word)
+                .appendQueryParameter("username", lt_user)
+                .appendQueryParameter("apiKey", lt_key);
+
+        if (dictionary != null)
+            builder.appendQueryParameter("dict", dictionary);
+
+        Uri uri = Uri.parse(lt_uri).buildUpon()
+                .appendPath(add ? "words/add" : "words/delete")
+                .build();
+        String request = builder.build().toString().substring(1);
+
+        Log.i("LT uri=" + uri + " request=" + request);
+
+        URL url = new URL(uri.toString());
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod("POST");
+        connection.setDoOutput(true);
+        connection.setReadTimeout(LT_TIMEOUT * 1000);
+        connection.setConnectTimeout(LT_TIMEOUT * 1000);
+        ConnectionHelper.setUserAgent(context, connection);
+        connection.setRequestProperty("Accept", "application/json");
+        connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
+        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+        connection.connect();
+
+        try {
+            connection.getOutputStream().write(request.getBytes());
+            checkStatus(connection);
+
+            String response = Helper.readStream(connection.getInputStream());
+            Log.i("LT response=" + response);
+
+            JSONObject jroot = new JSONObject(response);
+            return jroot.getBoolean(add ? "added" : "deleted");
+        } finally {
+            connection.disconnect();
+        }
+    }
+
+    static List<String> getWords(Context context, String[] dictionary) throws IOException, JSONException {
+        List<String> result = new ArrayList<>();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String lt_user = prefs.getString("lt_user", null);
+        String lt_key = prefs.getString("lt_key", null);
+        String lt_uri = prefs.getString("lt_uri", LT_URI_PLUS);
+
+        if (TextUtils.isEmpty(lt_user) || TextUtils.isEmpty(lt_key))
+            return result;
+
+        // https://languagetool.org/http-api/swagger-ui/#!/default/get_words
+        Uri.Builder builder = Uri.parse(lt_uri).buildUpon()
+                .appendPath("words")
+                .appendQueryParameter("offset", "0")
+                .appendQueryParameter("limit", "500")
+                .appendQueryParameter("username", lt_user)
+                .appendQueryParameter("apiKey", lt_key);
+
+        if (dictionary != null && dictionary.length > 0)
+            builder.appendQueryParameter("dicts", TextUtils.join(",", dictionary));
+
+        Uri uri = builder.build();
+        Log.i("LT uri=" + uri);
+
+        URL url = new URL(uri.toString());
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setDoOutput(false);
+        connection.setReadTimeout(LT_TIMEOUT * 1000);
+        connection.setConnectTimeout(LT_TIMEOUT * 1000);
+        ConnectionHelper.setUserAgent(context, connection);
+        connection.setRequestProperty("Accept", "application/json");
+        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+        connection.connect();
+
+        try {
+            checkStatus(connection);
+
+            String response = Helper.readStream(connection.getInputStream());
+            Log.i("LT response=" + response);
+
+            JSONObject jroot = new JSONObject(response);
+            JSONArray jwords = jroot.getJSONArray("words");
+            for (int i = 0; i < jwords.length(); i++)
+                result.add(jwords.getString(i));
+
+            return result;
+        } finally {
+            connection.disconnect();
+        }
+    }
+
     static void applySuggestions(EditText etBody, int start, int end, List<Suggestion> suggestions) {
         Editable edit = etBody.getText();
         if (edit == null)
@@ -203,6 +293,22 @@ public class LanguageTool {
                 }
                 edit.setSpan(span, s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
+    }
+
+    private static void checkStatus(HttpsURLConnection connection) throws IOException {
+        int status = connection.getResponseCode();
+        if (status != HttpsURLConnection.HTTP_OK) {
+            String error = "Error " + status + ": " + connection.getResponseMessage();
+            try {
+                InputStream is = connection.getErrorStream();
+                if (is != null)
+                    error += "\n" + Helper.readStream(is);
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+            Log.w("LT " + error);
+            throw new FileNotFoundException(error);
+        }
     }
 
     static class Suggestion {
