@@ -6,7 +6,7 @@
 
 ### BETA 1.1999b - 2022-11-07
 
-* Added optional unified inbox nav menu item (when the inboxes and unified folder diverge)
+* Added optional unified inbox nav menu item (when the inboxes and unified folders diverge)
 * Added LanguageTool username/API key fields (to access the premium features)
 * Small improvements and minor bug fixes
 * Updated translations
