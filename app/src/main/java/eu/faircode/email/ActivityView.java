@@ -1665,7 +1665,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean always = args.getBoolean("always");
                 if (info == null) {
                     if (always)
-                        ToastEx.makeText(ActivityView.this, BuildConfig.VERSION_NAME, Toast.LENGTH_LONG).show();
+                        ToastEx.makeText(ActivityView.this, R.string.title_no_update, Toast.LENGTH_LONG).show();
                     return;
                 }
 
