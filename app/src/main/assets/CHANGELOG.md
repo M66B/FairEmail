@@ -4,6 +4,13 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
+### BETA 1.1999b - 2022-11-07
+
+* Added optional unified inbox nav menu item (when the inboxes and unified folder diverge)
+* Added LanguageTool username/API key fields (to access the premium features)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1999 - 2022-11-05
 
 * Fixed refreshing OAuth tokens in some situations
