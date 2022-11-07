@@ -295,6 +295,13 @@ public class LanguageTool {
             }
     }
 
+    static boolean isPremium(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String lt_user = prefs.getString("lt_user", null);
+        String lt_key = prefs.getString("lt_key", null);
+        return (!TextUtils.isEmpty(lt_user) && !TextUtils.isEmpty(lt_key));
+    }
+
     private static void checkStatus(HttpsURLConnection connection) throws IOException {
         int status = connection.getResponseCode();
         if (status != HttpsURLConnection.HTTP_OK) {

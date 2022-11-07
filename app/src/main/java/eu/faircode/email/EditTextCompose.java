@@ -49,6 +49,7 @@ import android.view.inputmethod.InputConnectionWrapper;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.inputmethod.EditorInfoCompat;
 import androidx.core.view.inputmethod.InputConnectionCompat;
 import androidx.core.view.inputmethod.InputContentInfoCompat;
@@ -112,8 +113,14 @@ public class EditTextCompose extends FixedEditText {
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                     try {
                         int order = 1000;
-                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_brackets, order++, context.getString(R.string.title_insert_brackets));
-                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_quotes, order++, context.getString(R.string.title_insert_quotes));
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_brackets,
+                                order++, context.getString(R.string.title_insert_brackets));
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_quotes,
+                                order++, context.getString(R.string.title_insert_quotes));
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_dictionary_add,
+                                order++, context.getString(R.string.title_dictionary_add));
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_dictionary_delete,
+                                order++, context.getString(R.string.title_dictionary_delete));
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
@@ -125,8 +132,18 @@ public class EditTextCompose extends FixedEditText {
                     int start = getSelectionStart();
                     int end = getSelectionEnd();
                     boolean selection = (start >= 0 && start < end);
+                    Context context = getContext();
+                    Editable edit = getText();
+                    boolean dictionary = (BuildConfig.DEBUG &&
+                            context instanceof AppCompatActivity &&
+                            LanguageTool.isPremium(context) &&
+                            selection &&
+                            edit != null &&
+                            edit.subSequence(start, end).toString().indexOf(' ') < 0);
                     menu.findItem(R.string.title_insert_brackets).setVisible(selection);
                     menu.findItem(R.string.title_insert_quotes).setVisible(selection);
+                    menu.findItem(R.string.title_dictionary_add).setVisible(dictionary);
+                    menu.findItem(R.string.title_dictionary_delete).setVisible(dictionary);
                     return false;
                 }
 
@@ -138,6 +155,10 @@ public class EditTextCompose extends FixedEditText {
                             return surround("(", ")");
                         else if (id == R.string.title_insert_quotes)
                             return surround("\"", "\"");
+                        else if (id == R.string.title_dictionary_add)
+                            return modifyDictionary(true);
+                        else if (id == R.string.title_dictionary_delete)
+                            return modifyDictionary(false);
                     }
                     return false;
                 }
@@ -166,6 +187,50 @@ public class EditTextCompose extends FixedEditText {
                         }
                     }
                     return selection;
+                }
+
+                private boolean modifyDictionary(boolean add) {
+                    int start = getSelectionStart();
+                    int end = getSelectionEnd();
+                    if (start < 0 || start >= end)
+                        return false;
+
+                    final Context context = getContext();
+                    if (!(context instanceof AppCompatActivity))
+                        return false;
+                    AppCompatActivity activity = (AppCompatActivity) getContext();
+
+                    Editable edit = getText();
+                    if (edit == null)
+                        return false;
+
+                    String word = edit.subSequence(start, end).toString();
+
+                    Bundle args = new Bundle();
+                    args.putString("word", word);
+                    args.putBoolean("add", add);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                            String word = args.getString("word");
+                            boolean add = args.getBoolean("add");
+                            LanguageTool.modifyDictionary(context, word, null, add);
+                            return null;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Void data) {
+                            setSelection(end);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            ToastEx.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                        }
+                    }.execute(activity, args, "dictionary:modify");
+
+                    return true;
                 }
             });
 
