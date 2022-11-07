@@ -61,8 +61,13 @@ public class ServiceTileUnseen extends TileService {
                         tile.setState(unseen > 0 ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
                         tile.setIcon(Icon.createWithResource(ServiceTileUnseen.this,
                                 unseen > 0 ? R.drawable.twotone_mail_24 : R.drawable.twotone_mail_outline_24));
-                        tile.setLabel(getResources().getQuantityString(
-                                R.plurals.title_tile_unseen, unseen, unseen));
+                        String status = getResources().getQuantityString(
+                                R.plurals.title_tile_unseen, unseen, unseen);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                            tile.setLabel(getString(R.string.app_name));
+                            tile.setSubtitle(status);
+                        } else
+                            tile.setLabel(status);
                         tile.updateTile();
                     } catch (Throwable ex) {
                         Log.w(ex);
