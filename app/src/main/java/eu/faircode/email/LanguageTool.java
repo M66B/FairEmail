@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
+import android.os.LocaleList;
 import android.text.Editable;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -86,19 +87,28 @@ public class LanguageTool {
             jlanguages = new JSONArray(json);
         }
 
-        String code = null;
-        Locale locale = Locale.getDefault();
-        for (int i = 0; i < jlanguages.length(); i++) {
-            JSONObject jlanguage = jlanguages.getJSONObject(i);
-            String c = jlanguage.optString("longCode");
-            if (locale.toLanguageTag().equals(c) && c.contains("-")) {
-                code = c;
-                break;
-            }
+        List<Locale> locales = new ArrayList<>();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+            locales.add(Locale.getDefault());
+        else {
+            LocaleList ll = context.getResources().getConfiguration().getLocales();
+            for (int i = 0; i < ll.size(); i++)
+                locales.add(ll.get(i));
         }
 
-        if (code != null)
-            builder.appendQueryParameter("preferredVariants", code);
+        List<String> code = new ArrayList<>();
+        for (Locale locale : locales)
+            for (int i = 0; i < jlanguages.length(); i++) {
+                JSONObject jlanguage = jlanguages.getJSONObject(i);
+                String c = jlanguage.optString("longCode");
+                if (locale.toLanguageTag().equals(c) && c.contains("-")) {
+                    code.add(c);
+                    break;
+                }
+            }
+
+        if (code.size() > 0)
+            builder.appendQueryParameter("preferredVariants", TextUtils.join(",", code));
 
         if (lt_picky)
             builder.appendQueryParameter("level", "picky");
@@ -111,7 +121,7 @@ public class LanguageTool {
         Uri uri = Uri.parse(lt_uri).buildUpon().appendPath("check").build();
         String request = builder.build().toString().substring(1);
 
-        Log.i("LT locale=" + locale + " uri=" + uri + " request=" + request);
+        Log.i("LT uri=" + uri + " request=" + request);
 
         URL url = new URL(uri.toString());
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
