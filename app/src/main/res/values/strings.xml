@@ -1070,6 +1070,7 @@
     <string name="title_drafts_select">Sending emails requires a drafts folder to be selected in the account settings</string>
     <string name="title_account_auth_update">Update authorization</string>
     <string name="title_account_auth_password">Switch to password authentication</string>
+    <string name="title_change_password">Change password</string>
     <string name="title_delete_account">Delete account</string>
     <string name="title_account_delete">Delete this account permanently?</string>
     <string name="title_identity_delete">Delete this identity permanently?</string>

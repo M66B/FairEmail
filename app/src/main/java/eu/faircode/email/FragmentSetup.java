@@ -125,6 +125,7 @@ public class FragmentSetup extends FragmentBase {
     private Button btnSignature;
     private Button btnReorderAccounts;
     private Button btnReorderFolders;
+    private Button btnPassword;
     private Button btnDelete;
     private Button btnApp;
     private Button btnMore;
@@ -209,6 +210,7 @@ public class FragmentSetup extends FragmentBase {
         btnReorderAccounts = view.findViewById(R.id.btnReorderAccounts);
         btnReorderFolders = view.findViewById(R.id.btnReorderFolders);
         btnDelete = view.findViewById(R.id.btnDelete);
+        btnPassword = view.findViewById(R.id.btnPassword);
         btnApp = view.findViewById(R.id.btnApp);
         btnMore = view.findViewById(R.id.btnMore);
         btnSupport = view.findViewById(R.id.btnSupport);
@@ -689,6 +691,19 @@ public class FragmentSetup extends FragmentBase {
         });
 
 
+        btnPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putBoolean("all", true);
+
+                FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentSetup.this, ActivitySetup.REQUEST_CHANGE_PASSWORD);
+                fragment.show(getParentFragmentManager(), "setup:password");
+            }
+        });
+
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -999,6 +1014,10 @@ public class FragmentSetup extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         onEditIdentity(data.getExtras());
                     break;
+                case ActivitySetup.REQUEST_CHANGE_PASSWORD:
+                    if (resultCode == RESULT_OK && data != null)
+                        onChangePassword(data.getBundleExtra("args"));
+                    break;
                 case ActivitySetup.REQUEST_DELETE_ACCOUNT:
                     if (resultCode == RESULT_OK && data != null)
                         onDeleteAccount(data.getBundleExtra("args"));
@@ -1084,6 +1103,16 @@ public class FragmentSetup extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "set:signature");
+    }
+
+    private void onChangePassword(Bundle args) {
+        long account = args.getLong("account");
+        int protocol = args.getInt("protocol");
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+        lbm.sendBroadcast(
+                new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
+                        .putExtra("id", account)
+                        .putExtra("protocol", protocol));
     }
 
     private void onDeleteAccount(Bundle args) {
