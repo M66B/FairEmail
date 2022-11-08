@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
@@ -109,6 +110,24 @@ public class LanguageTool {
 
         if (code.size() > 0)
             builder.appendQueryParameter("preferredVariants", TextUtils.join(",", code));
+
+        String motherTongue = null;
+        String slocale = Resources.getSystem().getConfiguration().locale.toLanguageTag();
+        for (int i = 0; i < jlanguages.length(); i++) {
+            JSONObject jlanguage = jlanguages.getJSONObject(i);
+            String c = jlanguage.optString("longCode");
+            if (TextUtils.isEmpty(c))
+                continue;
+            if (slocale.equals(c)) {
+                motherTongue = c;
+                break;
+            }
+            if (slocale.split("-")[0].equals(c))
+                motherTongue = c;
+        }
+
+        if (motherTongue != null)
+            builder.appendQueryParameter("motherTongue", motherTongue);
 
         if (lt_picky)
             builder.appendQueryParameter("level", "picky");
