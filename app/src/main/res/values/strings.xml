@@ -1245,6 +1245,7 @@
     <string name="title_create_rule">Create rule &#8230;</string>
     <string name="title_force_light">Force light theme</string>
     <string name="title_share">Share</string>
+    <string name="title_zip" translatable="false">ZIP</string>
     <string name="title_event">Add to calendar</string>
     <string name="title_pin">Add shortcut</string>
     <string name="title_print">Print</string>

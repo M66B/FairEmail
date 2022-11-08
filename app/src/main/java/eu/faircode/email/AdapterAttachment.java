@@ -29,6 +29,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -41,6 +43,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.core.app.ShareCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
@@ -221,7 +224,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 if (aid != null) {
                     if (attachment.id.equals(Long.parseLong(aid)) && attachment.available) {
                         properties.setValue("attachment", null);
-                        onShare(attachment);
+                        onView(attachment);
                     }
                 }
             }
@@ -246,7 +249,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 onScan(attachment);
             else {
                 if (attachment.available)
-                    onShare(attachment);
+                    onView(attachment);
                 else {
                     if (attachment.progress == null)
                         if (attachment.subsequence == null)
@@ -267,6 +270,34 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             if (attachment == null || !attachment.available)
                 return false;
 
+            if (readonly || BuildConfig.PLAY_STORE_RELEASE)
+                return onShare(attachment);
+            else {
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
+
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_share, 1, R.string.title_share);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_zip, 2, R.string.title_zip)
+                        .setEnabled(!"application/zip".equals(attachment.type));
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        int itemId = item.getItemId();
+                        if (itemId == R.string.title_share)
+                            return onShare(attachment);
+                        else if (itemId == R.string.title_zip)
+                            return onZip(attachment);
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
+
+                return true;
+            }
+        }
+
+        private boolean onShare(final EntityAttachment attachment) {
             try {
                 File file = attachment.getFile(context);
                 Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
@@ -288,6 +319,32 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 return false;
             }
+        }
+
+        private boolean onZip(final EntityAttachment attachment) {
+            Bundle args = new Bundle();
+            args.putLong("id", attachment.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityAttachment attachment = db.attachment().getAttachment(id);
+                    if (attachment != null)
+                        attachment.zip(context);
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "attachment:zip");
+
+            return true;
         }
 
         private void onDelete(final EntityAttachment attachment) {
@@ -348,7 +405,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             fragment.show(parentFragment.getParentFragmentManager(), "attachment:scan");
         }
 
-        private void onShare(EntityAttachment attachment) {
+        private void onView(EntityAttachment attachment) {
             try {
                 String title = (attachment.name == null ? attachment.cid : attachment.name);
                 Helper.share(context, attachment.getFile(context), attachment.getMimeType(), title);
