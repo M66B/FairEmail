@@ -424,7 +424,7 @@ public abstract class DB extends RoomDatabase {
                         boolean sqlite_auto_vacuum = prefs.getBoolean("sqlite_auto_vacuum", false);
                         String mode = (sqlite_auto_vacuum ? "FULL" : "INCREMENTAL");
                         Log.i("Set PRAGMA auto_vacuum=" + mode);
-                        try (Cursor cursor = db.query("PRAGMA auto_vacuum=" + mode + ";", null)) {
+                        try (Cursor cursor = db.query("PRAGMA auto_vacuum=" + mode + ";")) {
                             cursor.moveToNext(); // required
                         }
 
@@ -432,12 +432,12 @@ public abstract class DB extends RoomDatabase {
                         boolean sqlite_sync_extra = prefs.getBoolean("sqlite_sync_extra", true);
                         String sync = (sqlite_sync_extra ? "EXTRA" : "NORMAL");
                         Log.i("Set PRAGMA synchronous=" + sync);
-                        try (Cursor cursor = db.query("PRAGMA synchronous=" + sync + ";", null)) {
+                        try (Cursor cursor = db.query("PRAGMA synchronous=" + sync + ";")) {
                             cursor.moveToNext(); // required
                         }
 
                         Log.i("Set PRAGMA journal_size_limit=" + DB_JOURNAL_SIZE_LIMIT);
-                        try (Cursor cursor = db.query("PRAGMA journal_size_limit=" + DB_JOURNAL_SIZE_LIMIT + ";", null)) {
+                        try (Cursor cursor = db.query("PRAGMA journal_size_limit=" + DB_JOURNAL_SIZE_LIMIT + ";")) {
                             cursor.moveToNext(); // required
                         }
 
@@ -446,7 +446,7 @@ public abstract class DB extends RoomDatabase {
                         if (cache_size != null) {
                             cache_size = -cache_size; // kibibytes
                             Log.i("Set PRAGMA cache_size=" + cache_size);
-                            try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";", null)) {
+                            try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";")) {
                                 cursor.moveToNext(); // required
                             }
                         }
@@ -454,7 +454,7 @@ public abstract class DB extends RoomDatabase {
                         // Prevent long running operations from getting an exclusive lock
                         // https://www.sqlite.org/pragma.html#pragma_cache_spill
                         Log.i("Set PRAGMA cache_spill=0");
-                        try (Cursor cursor = db.query("PRAGMA cache_spill=0;", null)) {
+                        try (Cursor cursor = db.query("PRAGMA cache_spill=0;")) {
                             cursor.moveToNext(); // required
                         }
 
