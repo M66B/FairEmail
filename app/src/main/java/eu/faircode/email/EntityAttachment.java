@@ -43,6 +43,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -348,6 +349,8 @@ public class EntityAttachment {
 
         try (InputStream in = new BufferedInputStream(new FileInputStream(file))) {
             try (ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(zip)))) {
+                out.setMethod(ZipOutputStream.DEFLATED);
+                out.setLevel(Deflater.BEST_COMPRESSION);
                 ZipEntry entry = new ZipEntry(name);
                 out.putNextEntry(entry);
                 Helper.copy(in, out);
