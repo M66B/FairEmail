@@ -53,6 +53,8 @@ public class LanguageTool {
     static final String LT_URI_PLUS = "https://api.languagetoolplus.com/v2/";
     private static final int LT_TIMEOUT = 20; // seconds
 
+    private static JSONArray jlanguages = null;
+
     static boolean isEnabled(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getBoolean("lt_enabled", false);
@@ -63,6 +65,37 @@ public class LanguageTool {
         boolean lt_enabled = prefs.getBoolean("lt_enabled", false);
         boolean lt_auto = prefs.getBoolean("lt_auto", true);
         return (lt_enabled && lt_auto);
+    }
+
+    static JSONArray getLanguages(Context context) throws IOException, JSONException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String lt_uri = prefs.getString("lt_uri", LT_URI_PLUS);
+
+        // https://languagetool.org/http-api/swagger-ui/#!/default/get_words
+        Uri uri = Uri.parse(lt_uri).buildUpon().appendPath("languages").build();
+        Log.i("LT uri=" + uri);
+
+        URL url = new URL(uri.toString());
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setDoOutput(false);
+        connection.setReadTimeout(LT_TIMEOUT * 1000);
+        connection.setConnectTimeout(LT_TIMEOUT * 1000);
+        ConnectionHelper.setUserAgent(context, connection);
+        connection.setRequestProperty("Accept", "application/json");
+        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+        connection.connect();
+
+        try {
+            checkStatus(connection);
+
+            String response = Helper.readStream(connection.getInputStream());
+            Log.i("LT response=" + response);
+
+            return new JSONArray(response);
+        } finally {
+            connection.disconnect();
+        }
     }
 
     static List<Suggestion> getSuggestions(Context context, CharSequence text) throws IOException, JSONException {
@@ -82,11 +115,8 @@ public class LanguageTool {
                 .appendQueryParameter("language", "auto");
 
         // curl -X GET --header 'Accept: application/json' 'https://api.languagetool.org/v2/languages'
-        JSONArray jlanguages;
-        try (InputStream is = context.getAssets().open("lt.json")) {
-            String json = Helper.readStream(is);
-            jlanguages = new JSONArray(json);
-        }
+        if (jlanguages == null)
+            jlanguages = getLanguages(context);
 
         List<Locale> locales = new ArrayList<>();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
