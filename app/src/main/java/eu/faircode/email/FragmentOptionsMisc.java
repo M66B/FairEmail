@@ -1170,7 +1170,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExternalStorage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                prefs.edit().putBoolean("external_storage", isChecked).apply();
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("external_storage", isChecked);
+                if (BuildConfig.DEBUG)
+                    editor.putBoolean("external_storage_message", isChecked);
+                editor.apply();
 
                 Bundle args = new Bundle();
                 args.putBoolean("external_storage", isChecked);
@@ -1180,16 +1184,16 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     protected Integer onExecute(Context context, Bundle args) throws IOException {
                         boolean external_storage = args.getBoolean("external_storage");
 
-                        File source = (!external_storage
+                        File sourceRoot = (!external_storage
                                 ? Helper.getExternalFilesDir(context)
                                 : context.getFilesDir());
 
-                        File target = (external_storage
+                        File targetRoot = (external_storage
                                 ? Helper.getExternalFilesDir(context)
                                 : context.getFilesDir());
 
-                        source = Helper.ensureExists(new File(source, "attachments"));
-                        target = Helper.ensureExists(new File(target, "attachments"));
+                        File source = Helper.ensureExists(new File(sourceRoot, "attachments"));
+                        File target = Helper.ensureExists(new File(targetRoot, "attachments"));
 
                         File[] attachments = source.listFiles();
                         if (attachments != null)
@@ -1199,6 +1203,29 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 Helper.copy(attachment, dest);
                                 attachment.delete();
                             }
+
+                        if (BuildConfig.DEBUG) {
+                            source = Helper.ensureExists(new File(sourceRoot, "messages"));
+                            target = Helper.ensureExists(new File(targetRoot, "messages"));
+                            File[] dirs = source.listFiles();
+                            if (dirs != null)
+                                for (File dir : dirs) {
+                                    File[] messages = dir.listFiles();
+                                    if (messages != null)
+                                        for (File message : messages) {
+                                            String path = dir.getPath();
+                                            path = path.substring(path.lastIndexOf(File.separator));
+                                            File t = new File(target, path);
+                                            if (!t.exists() && !t.mkdir())
+                                                throw new IOException("Could not create dir=" + t);
+                                            File dest = new File(t, message.getName());
+                                            Log.i("Move " + message + " to " + dest);
+                                            Helper.copy(message, dest);
+                                            message.delete();
+                                        }
+                                    dir.delete();
+                                }
+                        }
 
                         return (attachments == null ? -1 : attachments.length);
                     }
