@@ -111,9 +111,7 @@ public interface DaoAccount {
             ", folder.type AS folderType, folder.`order` AS folderOrder" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.color AS folderColor" +
             ", folder.synchronize AS folderSync, folder.state AS foldeState, folder.sync_state AS folderSyncState" +
-            ", (SELECT COUNT(operation.id) FROM operation" +
-            "   WHERE operation.folder = folder.id" +
-            "   AND state = 'executing') AS executing" +
+            ", COUNT(operation.id) AS executing" +
             ", (SELECT COUNT(message.id) FROM message" +
             "   WHERE message.folder = folder.id" +
             "   AND NOT ui_hide) AS messages" +
@@ -127,8 +125,10 @@ public interface DaoAccount {
             "    AND NOT ui_hide) AS unseen" +
             " FROM account" +
             " JOIN folder ON folder.account = account.id" +
+            " LEFT JOIN operation ON operation.folder = folder.id AND operation.state = 'executing'" +
             " WHERE account.synchronize" +
-            " AND folder.navigation")
+            " AND folder.navigation" +
+            " GROUP BY folder.id")
     LiveData<List<TupleAccountFolder>> liveAccountFolder();
 
     @Query("SELECT account.*" +
