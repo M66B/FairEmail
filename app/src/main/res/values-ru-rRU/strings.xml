@@ -673,8 +673,8 @@
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_lt">Интеграция с LanguageTool</string>
     <string name="title_advanced_lt_auto">Проверять абзац после новой строки</string>
-    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">Пользователь (необязательно)</string>
-    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">Ключ API (необязательно)</string>
+    <string name="title_advanced_lt_user">Пользователь (необязательно)</string>
+    <string name="title_advanced_lt_key">Ключ API (необязательно)</string>
     <string name="title_advanced_deepl">Интеграция с DeepL</string>
     <string name="title_advanced_virus_total">Интеграция с VirusTotal</string>
     <string name="title_advanced_sdcard">Я хочу использовать SD-карту</string>
@@ -1712,6 +1712,7 @@
     <string name="title_reset_open">Задать или сбросить приложения по умолчанию</string>
     <string name="title_select_app">Выбор приложения</string>
     <string name="title_updated">Доступно обновление до версии %1$s.</string>
+    <string name="title_no_update">Нет доступных обновлений</string>
     <string name="title_issue">У вас есть вопрос или проблема?</string>
     <string name="title_yes">Да</string>
     <string name="title_no">Нет</string>
@@ -1723,6 +1724,8 @@
     <string name="title_select_block">Выбор блока</string>
     <string name="title_insert_brackets">Взять в скобки</string>
     <string name="title_insert_quotes">Цитировать</string>
+    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Добавить слово</string>
+    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Удалить слово</string>
     <string name="title_add">Добавить</string>
     <string name="title_browse">В браузере</string>
     <string name="title_info">Информация</string>

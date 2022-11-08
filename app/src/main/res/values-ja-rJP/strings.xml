@@ -635,8 +635,8 @@
     <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_lt">LanguageTool を統合</string>
     <string name="title_advanced_lt_auto">改行後に段落を確認</string>
-    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">ユーザー名 (オプション)</string>
-    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">API キー (オプション)</string>
+    <string name="title_advanced_lt_user">ユーザー名 (オプション)</string>
+    <string name="title_advanced_lt_key">API キー (オプション)</string>
     <string name="title_advanced_deepl">DeepL を統合</string>
     <string name="title_advanced_virus_total">VirusTotal を統合</string>
     <string name="title_advanced_sdcard">SD カードを使用できますか？</string>
@@ -1674,6 +1674,7 @@
     <string name="title_reset_open">デフォルトのアプリを設定またはクリア</string>
     <string name="title_select_app">アプリを選択</string>
     <string name="title_updated">バージョン %1$s へアップデートできます</string>
+    <string name="title_no_update">利用可能なアップデートはありません</string>
     <string name="title_issue">質問や問題がありますか？</string>
     <string name="title_yes">はい</string>
     <string name="title_no">いいえ</string>
@@ -1685,6 +1686,8 @@
     <string name="title_select_block">ブロックを選択</string>
     <string name="title_insert_brackets">括弧</string>
     <string name="title_insert_quotes">引用</string>
+    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">語句を追加</string>
+    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">語句を削除</string>
     <string name="title_add">追加</string>
     <string name="title_browse">アプリで開く</string>
     <string name="title_info">Info</string>

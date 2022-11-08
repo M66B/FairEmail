@@ -228,6 +228,7 @@
     <string name="title_setup_free">Ці з\'яўляецца гэта праграма бясплатнай?</string>
     <string name="title_setup_permissions">Даць дазволы</string>
     <string name="title_setup_permissions_remark">Доступ да кантактнай інфармацыі (неабавязкова)</string>
+    <string name="title_setup_permissions_calendar">Для захавання запрашэнняў (неабавязкова)</string>
     <string name="title_setup_permissions_explanation">Для пошуку кантактнай інфармацыі і прапановы кантактаў патрабуюцца дазволы на доступ да спісу кантактаў</string>
     <string name="title_setup_permissions_notify">Для паказу апавяшчэнняў аб новых паведамленнях (неабавязкова)</string>
     <string name="title_setup_permissions_notify_explanation">Дазволы на апавяшчэнні патрабуюцца для паказу апавяшчэнняў аб новых паведамленнях у радку стану</string>
@@ -674,6 +675,8 @@
     <string name="title_advanced_language_system">Сістэмная</string>
     <string name="title_advanced_lt">Інтэграцыя з LanguageTool</string>
     <string name="title_advanced_lt_auto">Правяраць абзац пасля новага радка</string>
+    <string name="title_advanced_lt_user">Імя карыстальніка (неабавязкова)</string>
+    <string name="title_advanced_lt_key">Ключ API (неабавязкова)</string>
     <string name="title_advanced_deepl">Інтэграцыя з DeepL</string>
     <string name="title_advanced_virus_total">Інтэграцыя з VirusTotal</string>
     <string name="title_advanced_sdcard">Я хачу выкарыстоўваць карту памяці</string>

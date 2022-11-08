@@ -646,8 +646,8 @@
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integração com LanguageTool</string>
     <string name="title_advanced_lt_auto">Verificar parágrafo depois de uma nova linha</string>
-    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">Nome de usuário (opcional)</string>
-    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">Chave da API (opcional)</string>
+    <string name="title_advanced_lt_user">Nome de usuário (opcional)</string>
+    <string name="title_advanced_lt_key">Chave da API (opcional)</string>
     <string name="title_advanced_deepl">Integração DeepL</string>
     <string name="title_advanced_virus_total">Integração com VirusTotal</string>
     <string name="title_advanced_sdcard">Eu quero usar um sdcard</string>
@@ -1684,6 +1684,7 @@
     <string name="title_reset_open">Definir ou limpar apps padrão</string>
     <string name="title_select_app">Selecionar app</string>
     <string name="title_updated">Atualização para a versão %1$s disponível</string>
+    <string name="title_no_update">Nenhuma atualização disponível</string>
     <string name="title_issue">Você está com alguma dúvida ou algum problema?</string>
     <string name="title_yes">Sim</string>
     <string name="title_no">Não</string>
@@ -1695,6 +1696,8 @@
     <string name="title_select_block">Selecionar bloco</string>
     <string name="title_insert_brackets">Colchete</string>
     <string name="title_insert_quotes">Citar</string>
+    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Adicionar palavra</string>
+    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Remover palavra</string>
     <string name="title_add">Adicionar</string>
     <string name="title_browse">Abrir com</string>
     <string name="title_info">Informações</string>

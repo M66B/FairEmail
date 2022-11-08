@@ -633,8 +633,8 @@
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_lt">LanguageTool 集成</string>
     <string name="title_advanced_lt_auto">换行后检查段落</string>
-    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">用户名 (选填)</string>
-    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">API 密钥 (选填)</string>
+    <string name="title_advanced_lt_user">用户名 (选填)</string>
+    <string name="title_advanced_lt_key">API 密钥 (选填)</string>
     <string name="title_advanced_deepl">DeepL 集成</string>
     <string name="title_advanced_virus_total">VirusTotal 集成</string>
     <string name="title_advanced_sdcard">我想使用 SD 卡</string>
@@ -1668,6 +1668,7 @@
     <string name="title_reset_open">设置或清除默认应用</string>
     <string name="title_select_app">选择应用</string>
     <string name="title_updated">可更新到版本 %1$s</string>
+    <string name="title_no_update">没有可用更新</string>
     <string name="title_issue">您要提问或有疑问吗？</string>
     <string name="title_yes">是</string>
     <string name="title_no">否</string>
@@ -1679,6 +1680,8 @@
     <string name="title_select_block">选择文本块</string>
     <string name="title_insert_brackets">用括号括起来</string>
     <string name="title_insert_quotes">引用</string>
+    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">添加单词</string>
+    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">删除单词</string>
     <string name="title_add">添加</string>
     <string name="title_browse">打开方式</string>
     <string name="title_info">信息</string>

@@ -648,8 +648,8 @@
     <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_lt">Intégration de LanguageTool</string>
     <string name="title_advanced_lt_auto">Vérifier le paragraphe après une nouvelle ligne</string>
-    <string name="title_advanced_lt_user" comment="title_advanced_lt_user&#10;Title for username field for LanguageTool premium features">Identifiant (facultatif)</string>
-    <string name="title_advanced_lt_key" comment="title_advanced_lt_key&#10;Title for API key field for LanguageTool premium features">Clé API (facultatif)</string>
+    <string name="title_advanced_lt_user">Identifiant (facultatif)</string>
+    <string name="title_advanced_lt_key">Clé API (facultatif)</string>
     <string name="title_advanced_deepl">Intégration de DeepL</string>
     <string name="title_advanced_virus_total">Intégration de VirusTotal</string>
     <string name="title_advanced_sdcard">Je veux utiliser une carte SD</string>
@@ -1688,6 +1688,7 @@
     <string name="title_reset_open">Définir ou effacer les applications par défaut</string>
     <string name="title_select_app">Sélectionner une application</string>
     <string name="title_updated">Mise à jour vers la version %1$s disponible</string>
+    <string name="title_no_update">Aucune mise à jour disponible</string>
     <string name="title_issue">Avez-vous une question ou un problème ?</string>
     <string name="title_yes">Oui</string>
     <string name="title_no">Non</string>
@@ -1699,6 +1700,8 @@
     <string name="title_select_block">Sélectionner le bloc</string>
     <string name="title_insert_brackets">Mettre entre parenthèses</string>
     <string name="title_insert_quotes">Mettre entre guillemets</string>
+    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Ajouter un mot</string>
+    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Supprimer un mot</string>
     <string name="title_add">Ajouter</string>
     <string name="title_browse">Ouvrir avec</string>
     <string name="title_info">Info</string>
