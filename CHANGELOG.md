@@ -4,6 +4,14 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
+### BETA 1.1999c - 2022-11-08
+
+* Added adding/deleting words to/from LanguageTool dictionary (copy/paste menu; requires LanguageTool premium)
+* Added zipping attachments in the message composer (long press attached file)
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### BETA 1.1999b - 2022-11-07
 
 * Added optional unified inbox nav menu item (when the inboxes and unified folders diverge)
