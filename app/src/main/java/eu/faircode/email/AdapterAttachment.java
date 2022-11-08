@@ -277,7 +277,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_share, 1, R.string.title_share);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_zip, 2, R.string.title_zip)
-                        .setEnabled(!"application/zip".equals(attachment.type));
+                        .setEnabled(!attachment.isInline() && !attachment.isCompressed());
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
