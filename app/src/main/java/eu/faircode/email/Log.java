@@ -2609,6 +2609,8 @@ public class Log {
             }
 
             db.attachment().setDownloaded(attachment.id, size);
+            if (!BuildConfig.DEBUG)
+                attachment.zip(context);
         } catch (Throwable ex) {
             Log.e(ex);
         }
@@ -2717,6 +2719,8 @@ public class Log {
                 }
 
                 db.attachment().setDownloaded(attachment.id, size);
+                if (!BuildConfig.DEBUG)
+                    attachment.zip(context);
             } finally {
                 if (proc != null)
                     proc.destroy();
