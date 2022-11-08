@@ -32,12 +32,19 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import javax.mail.Part;
 
@@ -333,6 +340,23 @@ public class EntityAttachment {
         }
 
         return type;
+    }
+
+    void zip(Context context) throws IOException {
+        File file = getFile(context);
+        File zip = new File(file.getAbsolutePath() + ".zip");
+
+        try (InputStream in = new BufferedInputStream(new FileInputStream(file))) {
+            try (ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(zip)))) {
+                ZipEntry entry = new ZipEntry(name);
+                out.putNextEntry(entry);
+                Helper.copy(in, out);
+            }
+        }
+
+        DB db = DB.getInstance(context);
+        db.attachment().setName(id, name + ".zip", "application/zip", zip.length());
+        file.delete();
     }
 
     public static boolean equals(List<EntityAttachment> a1, List<EntityAttachment> a2) {
