@@ -31,6 +31,8 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import eu.faircode.email.EntityLog;
+
 /**
  * A LiveData implementation that closely works with {@link InvalidationTracker} to implement
  * database drive {@link androidx.lifecycle.LiveData} queries that are strongly hold as long
@@ -114,8 +116,8 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
         @Override
         public void run() {
             if (running.get() == 0 && queued.get() > 0) {
-                eu.faircode.email.Log.i(mComputeFunction +
-                        " running=" + running + " queued=" + queued);
+                eu.faircode.email.Log.persist(EntityLog.Type.Debug,
+                        mComputeFunction + " running=" + running + " queued=" + queued);
                 return;
             }
             boolean isActive = hasActiveObservers();

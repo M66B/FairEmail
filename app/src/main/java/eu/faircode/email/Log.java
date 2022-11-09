@@ -360,6 +360,13 @@ public class Log {
             EntityLog.log(ctx, message);
     }
 
+    public static void persist(EntityLog.Type type, String message) {
+        if (ctx == null)
+            Log.e(message);
+        else
+            EntityLog.log(ctx, type, message);
+    }
+
     static void setCrashReporting(boolean enabled) {
         try {
             if (enabled)
