@@ -306,7 +306,7 @@ public class FragmentSetup extends FragmentBase {
                 // OAuth
                 for (EmailProvider provider : providers)
                     if (provider.oauth != null &&
-                            (provider.oauth.enabled || BuildConfig.DEBUG) &&
+                            provider.oauth.enabled &&
                             !TextUtils.isEmpty(provider.oauth.clientId)) {
                         String title = getString(R.string.title_setup_oauth, provider.description);
                         item = menu
