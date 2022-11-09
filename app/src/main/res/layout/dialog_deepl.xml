@@ -37,21 +37,28 @@
             app:srcCompat="@drawable/twotone_info_24"
             app:tint="?attr/colorAccent" />
 
-        <eu.faircode.email.EditTextPlain
-            android:id="@+id/etKey"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilKey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:hint="@string/title_translate_key"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:layout_marginTop="12dp"
+            app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDeepL">
+            app:layout_constraintTop_toBottomOf="@+id/tvDeepL">
 
-            <requestFocus />
-        </eu.faircode.email.EditTextPlain>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="password"
+                android:hint="@string/title_translate_key"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                <requestFocus />
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
             android:id="@+id/cbPro"
@@ -60,7 +67,7 @@
             android:layout_marginTop="12dp"
             android:text="DeepL API Pro"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etKey" />
+            app:layout_constraintTop_toBottomOf="@id/tilKey" />
 
         <CheckBox
             android:id="@+id/cbFormal"
@@ -128,10 +135,10 @@
             android:layout_marginTop="24dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_privacy_policy"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvUsage" />
     </androidx.constraintlayout.widget.ConstraintLayout>

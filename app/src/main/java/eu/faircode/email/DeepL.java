@@ -33,7 +33,6 @@ import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -41,6 +40,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.preference.PreferenceManager;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -354,7 +355,7 @@ public class DeepL {
 
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
             final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
-            final EditText etKey = view.findViewById(R.id.etKey);
+            final TextInputLayout tilKey = view.findViewById(R.id.tilKey);
             final CheckBox cbPro = view.findViewById(R.id.cbPro);
             final CheckBox cbFormal = view.findViewById(R.id.cbFormal);
             final TextView tvFormal = view.findViewById(R.id.tvFormal);
@@ -385,7 +386,7 @@ public class DeepL {
                 }
             });
 
-            etKey.setText(key);
+            tilKey.getEditText().setText(key);
             cbPro.setChecked(pro);
             cbFormal.setChecked(formal);
 
@@ -455,7 +456,7 @@ public class DeepL {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            String key = etKey.getText().toString().trim();
+                            String key = tilKey.getEditText().getText().toString().trim();
                             SharedPreferences.Editor editor = prefs.edit();
                             if (TextUtils.isEmpty(key))
                                 editor.remove("deepl_key");
