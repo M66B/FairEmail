@@ -211,6 +211,7 @@
         appPassword="true"
         description="Yahoo/AT&amp;T"
         domain="yahoo\\..*"
+        enabled="false"
         id="yahoo"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88"
         order="7"
@@ -232,6 +233,38 @@
             authorizationEndpoint="https://api.login.yahoo.com/oauth2/request_auth"
             clientId="dj0yJmk9SWtNZm1vUFc2THJDJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWRi"
             clientSecret="261a91fbbdb2852c4e80fdd3d1db4a8ebfa4c42b"
+            enabled="true"
+            privacy="https://www.verizonmedia.com/policies/us/en/verizonmedia/privacy/index.html"
+            redirectUri="https://oauth.faircode.eu/"
+            scopes="mail-w"
+            tokenEndpoint="https://api.login.yahoo.com/oauth2/get_token" />
+        <!-- https://developer.yahoo.com/oauth2/guide/ -->
+    </provider>
+    <provider
+        name="Yahoo"
+        appPassword="true"
+        description="Yahoo/AT&amp;T"
+        domain="yahoo\\..*"
+        id="yahoo2"
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88"
+        order="7"
+        partial="false">
+        <imap
+            host="imap.mail.yahoo.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.mail.yahoo.com"
+            port="465"
+            starttls="false" />
+        <pop
+            host="pop.mail.yahoo.com"
+            port="995"
+            starttls="false" />
+        <oauth
+            askAccount="true"
+            authorizationEndpoint="https://api.login.yahoo.com/oauth2/request_auth"
+            clientId="dj0yJmk9RnRORGNuNTlnaXlUJmQ9WVdrOVVrMXViV2RDU1dZbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTBm"
             enabled="true"
             privacy="https://www.verizonmedia.com/policies/us/en/verizonmedia/privacy/index.html"
             redirectUri="https://oauth.faircode.eu/"
