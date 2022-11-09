@@ -697,8 +697,6 @@ To use a password you can use the quick setup wizard and select *Other provider*
 This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
 You might see the error *OAUTH2 asked for more*, which basically says the connection is temporarily blocked, until you confirm it is you.
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
-
 Note that an app specific password is required when two factor authentication is enabled.
 After enabling two factor authentication there will be this error message:
 
