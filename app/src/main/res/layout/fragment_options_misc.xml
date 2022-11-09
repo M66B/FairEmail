@@ -469,11 +469,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:contentDescription="@string/title_info"
-                    android:tooltipText="@string/title_info"
+                    android:contentDescription="@string/title_translate_configure"
+                    android:tooltipText="@string/title_translate_configure"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDeepLPrivacy"
-                    app:srcCompat="@drawable/twotone_info_24" />
+                    app:srcCompat="@drawable/twotone_settings_24" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swVirusTotal"

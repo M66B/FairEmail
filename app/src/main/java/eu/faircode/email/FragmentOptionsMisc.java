@@ -772,7 +772,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibDeepL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 167, true);
+                DeepL.FragmentDialogDeepL fragment = new DeepL.FragmentDialogDeepL();
+                fragment.show(getParentFragmentManager(), "deepl:configure");
             }
         });
 
