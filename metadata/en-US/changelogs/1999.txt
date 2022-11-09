@@ -4,6 +4,14 @@ Changelog
 
 Ninjatitan
 
+Next version
+
+* Added OAuth for AOL (quick setup wizard)
+* Added change password button (settings/extras)
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 BETA 1.1999c - 2022-11-08
 
 * Added adding/deleting words to/from LanguageTool dictionary (copy/paste menu; requires LanguageTool premium)
