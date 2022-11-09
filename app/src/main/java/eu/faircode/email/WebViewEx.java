@@ -124,7 +124,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         // https://developer.android.com/reference/android/webkit/WebSettings#setAlgorithmicDarkeningAllowed(boolean)
         // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
         boolean canDarken = WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING);
-        if (canDarken && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+        if (canDarken)
             WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, dark && !force_light);
         setBackgroundColor(canDarken && dark && !force_light ? Color.TRANSPARENT : Color.WHITE);
 

@@ -162,7 +162,7 @@ public class ActivityAMP extends ActivityBase {
         WebSettings settings = wvAmp.getSettings();
         boolean dark = (Helper.isDarkTheme(this) && !force_light);
         boolean canDarken = WebViewEx.isFeatureSupported(this, WebViewFeature.ALGORITHMIC_DARKENING);
-        if (canDarken && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+        if (canDarken)
             WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, dark);
     }
 

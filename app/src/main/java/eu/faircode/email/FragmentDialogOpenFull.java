@@ -85,7 +85,7 @@ public class FragmentDialogOpenFull extends FragmentDialogBase {
 
         boolean dark = (Helper.isDarkTheme(context) && !force_light);
         boolean canDarken = WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING);
-        if (canDarken && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+        if (canDarken)
             WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, dark);
 
         settings.setLoadsImagesAutomatically(true);

@@ -6508,7 +6508,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibForceLight.setImageLevel(force_light ? 1 : 0);
                 bindBody(message, false);
             } else {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && false) {
                     View view = LayoutInflater.from(context).inflate(R.layout.dialog_dark, null);
                     final Button btnIssue = view.findViewById(R.id.btnIssue);
 

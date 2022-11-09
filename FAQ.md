@@ -2937,9 +2937,9 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 
 The original message view will use a dark background when using a dark theme for Android version 10 and later.
 
-For Android before version 10 Google removed this feature from the [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview),
-even though it worked fine in most cases.
-Please see [this issue](https://issuetracker.google.com/issues/237785596) (requires a Google account login) requesting to restore this feature again for more information.
+~~For Android before version 10 Google removed this feature from the [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview),~~
+~~even though it worked fine in most cases.~~
+~~Please see [this issue](https://issuetracker.google.com/issues/237785596) (requires a Google account login) requesting to restore this feature again for more information.~~
 
 <br />
 
