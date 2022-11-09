@@ -460,9 +460,6 @@ public class FragmentOAuth extends FragmentBase {
                     authRequestBuilder.setLoginHint(address);
             }
 
-            if (provider.oauth.pcke)
-                authRequestBuilder.setCodeVerifier(CodeVerifierUtil.generateRandomCodeVerifier());
-
             if (!TextUtils.isEmpty(provider.oauth.prompt))
                 authRequestBuilder.setPrompt(provider.oauth.prompt);
 
