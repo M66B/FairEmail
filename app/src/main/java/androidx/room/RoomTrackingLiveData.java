@@ -29,6 +29,7 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * A LiveData implementation that closely works with {@link InvalidationTracker} to implement
@@ -59,11 +60,8 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
     @SuppressWarnings("WeakerAccess")
     final InvalidationTracker.Observer mObserver;
 
-    @SuppressWarnings("WeakerAccess")
-    final AtomicBoolean mInvalid = new AtomicBoolean(true);
-
-    @SuppressWarnings("WeakerAccess")
-    final AtomicBoolean mComputing = new AtomicBoolean(false);
+    final AtomicInteger queued = new AtomicInteger(0);
+    final AtomicInteger running = new AtomicInteger(0);
 
     @SuppressWarnings("WeakerAccess")
     final AtomicBoolean mRegisteredObserver = new AtomicBoolean(false);
@@ -76,49 +74,37 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
             if (mRegisteredObserver.compareAndSet(false, true)) {
                 mDatabase.getInvalidationTracker().addWeakObserver(mObserver);
             }
-            boolean computed;
-            do {
-                computed = false;
-                // compute can happen only in 1 thread but no reason to lock others.
-                if (mComputing.compareAndSet(false, true)) {
-                    // as long as it is invalid, keep computing.
-                    try {
-                        T value = null;
-                        while (mInvalid.compareAndSet(true, false)) {
-                            int retry = 0;
-                            while (!computed) {
-                                try {
-                                    value = mComputeFunction.call();
-                                    computed = true;
-                                } catch (Throwable e) {
-                                    if (++retry > 5) {
-                                        eu.faircode.email.Log.e(e);
-                                        break;
-                                    }
-                                    eu.faircode.email.Log.w(e);
-                                    try {
-                                        Thread.sleep(2000L);
-                                    } catch (InterruptedException ignored) {
-                                    }
-                                }
+            try {
+                running.incrementAndGet();
+
+                T value = null;
+                boolean computed = false;
+                synchronized (mComputeFunction) {
+                    int retry = 0;
+                    while (!computed) {
+                        try {
+                            value = mComputeFunction.call();
+                            computed = true;
+                        } catch (Throwable e) {
+                            if (++retry > 5) {
+                                eu.faircode.email.Log.e(e);
+                                break;
+                            }
+                            eu.faircode.email.Log.w(e);
+                            try {
+                                Thread.sleep(2000L);
+                            } catch (InterruptedException ignored) {
                             }
                         }
-                        if (computed) {
-                            postValue(value);
-                        }
-                    } finally {
-                        // release compute lock
-                        mComputing.set(false);
                     }
                 }
-                // check invalid after releasing compute lock to avoid the following scenario.
-                // Thread A runs compute()
-                // Thread A checks invalid, it is false
-                // Main thread sets invalid to true
-                // Thread B runs, fails to acquire compute lock and skips
-                // Thread A releases compute lock
-                // We've left invalid in set state. The check below recovers.
-            } while (computed && mInvalid.get());
+                if (computed) {
+                    postValue(value);
+                }
+            } finally {
+                queued.decrementAndGet();
+                running.decrementAndGet();
+            }
         }
     };
 
@@ -127,14 +113,19 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
         @MainThread
         @Override
         public void run() {
+            if (running.get() == 0 && queued.get() > 0) {
+                eu.faircode.email.Log.i(mComputeFunction +
+                        " running=" + running + " queued=" + queued);
+                return;
+            }
             boolean isActive = hasActiveObservers();
-            if (mInvalid.compareAndSet(false, true)) {
-                if (isActive) {
-                    getQueryExecutor().execute(mRefreshRunnable);
-                }
+            if (isActive) {
+                queued.incrementAndGet();
+                getQueryExecutor().execute(mRefreshRunnable);
             }
         }
     };
+
     @SuppressLint("RestrictedApi")
     RoomTrackingLiveData(
             RoomDatabase database,
