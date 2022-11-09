@@ -60,6 +60,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 
 import javax.mail.Address;
@@ -160,12 +161,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     private void queue_load(final State state) {
-        if (state.queued > 1) {
-            Log.i("Boundary queued =" + state.queued);
+        if (state.queued.get() > 1) {
+            Log.i("Boundary queued =" + state.queued.get());
             return;
         }
-        state.queued++;
-        Log.i("Boundary queued +" + state.queued);
+        state.queued.incrementAndGet();
+        Log.i("Boundary queued +" + state.queued.get());
 
         executor.submit(new Runnable() {
             @Override
@@ -174,7 +175,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 int free = Log.getFreeMemMb();
                 Map<String, String> crumb = new HashMap<>();
-                crumb.put("queued", Integer.toString(state.queued));
+                crumb.put("queued", Integer.toString(state.queued.get()));
                 Log.breadcrumb("Boundary run", crumb);
 
                 Log.i("Boundary run free=" + free);
@@ -223,11 +224,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         }
                     });
                 } finally {
-                    state.queued--;
-                    Log.i("Boundary queued -" + state.queued);
+                    state.queued.decrementAndGet();
+                    Log.i("Boundary queued -" + state.queued.get());
                     Helper.gc();
 
-                    crumb.put("queued", Integer.toString(state.queued));
+                    crumb.put("queued", Integer.toString(state.queued.get()));
                     Log.breadcrumb("Boundary done", crumb);
 
                     final int f = found;
@@ -897,7 +898,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     static class State {
-        int queued = 0;
+        final AtomicInteger queued = new AtomicInteger(0);
         boolean destroyed = false;
         boolean error = false;
         int index = 0;
@@ -911,7 +912,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         void reset() {
             Log.i("Boundary reset");
-            queued = 0;
+            queued.set(0);
             destroyed = false;
             error = false;
             index = 0;
