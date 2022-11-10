@@ -4,6 +4,11 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
+### 1.2002 - 2022-11-10
+
+* Fixed Outlook / Office 365 authentication
+* Updated translations
+
 ### 1.2001 - 2022-11-10
 
 * Fixed Outlook / Office 365 OAuth in some cases
