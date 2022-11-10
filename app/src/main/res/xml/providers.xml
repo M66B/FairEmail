@@ -1857,4 +1857,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Gelsen-net"
+        domain="gelsennet\\.de"
+        link="https://help.gelsennet.de/faq.php">
+        <imap
+            host="mx.gelsennet.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mx.gelsennet.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
