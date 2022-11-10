@@ -4949,6 +4949,9 @@ Since version 1.1974 there is an option to check paragraphs after a new line.
 
 The suboption *Use formal form* can be enabled to let LanguageTool suggest more formal text (business, legal, etc).
 
+Since version 1.2000 you can configure a username and an API key to access the premium features.
+You can long press text to select a word, and add it to or remove it from the personal dictionary via the *copy/paste* pop-up menu.
+
 <br />
 
 <a name="faq181"></a>
