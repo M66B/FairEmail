@@ -862,6 +862,7 @@
     <string name="title_drafts_select">メールを送信するには、アカウント設定で下書きフォルダーを選択する必要があります</string>
     <string name="title_account_auth_update">認証をアップデート</string>
     <string name="title_account_auth_password">パスワード認証に変更する</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">パスワードを変更</string>
     <string name="title_delete_account">アカウントを削除</string>
     <string name="title_account_delete">このアカウントを完全に削除しますか？</string>
     <string name="title_identity_delete">この ID を完全に削除しますか？</string>
