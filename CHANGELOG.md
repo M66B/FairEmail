@@ -4,27 +4,15 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
-### Next version
+### 1.2000 - 2022-11-10
 
 * Added OAuth for AOL (quick setup wizard)
-* Added change password button (settings/extras)
-* Small improvements and minor bug fixes
-* Updated AndroidX
-* Updated translations
-
-### BETA 1.1999c - 2022-11-08
-
-* Added adding/deleting words to/from LanguageTool dictionary (copy/paste menu; requires LanguageTool premium)
+* Added change password button (main settings/extras section)
+* Added support for LanguageTool premium features, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq180)
+* Added optional unified inbox navigation menu item (when the inboxes and unified folders diverge)
 * Added zipping attachments in the message composer (long press attached file)
 * Small improvements and minor bug fixes
 * Updated AndroidX
-* Updated translations
-
-### BETA 1.1999b - 2022-11-07
-
-* Added optional unified inbox nav menu item (when the inboxes and unified folders diverge)
-* Added LanguageTool username/API key fields (to access the premium features)
-* Small improvements and minor bug fixes
 * Updated translations
 
 ### 1.1999 - 2022-11-05
