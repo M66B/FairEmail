@@ -360,7 +360,7 @@ public class EntityAnswer implements Serializable {
 
         if (compose && BuildConfig.DEBUG) {
             SubMenu profiles = main.addSubMenu(Menu.NONE, order, order++, "Profiles");
-            for (EmailProvider p : EmailProvider.loadProfiles(context)) {
+            for (EmailProvider p : EmailProvider.getProviders(context)) {
                 SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                 int start;
                 ssb.append("IMAP (account, receive)");

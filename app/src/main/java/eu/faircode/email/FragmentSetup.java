@@ -282,7 +282,7 @@ public class FragmentSetup extends FragmentBase {
 
                 Resources res = context.getResources();
                 String pkg = context.getPackageName();
-                List<EmailProvider> providers = EmailProvider.loadProfiles(context);
+                List<EmailProvider> providers = EmailProvider.getProviders(context);
 
                 boolean web = BuildConfig.DEBUG;
                 for (EmailProvider provider : providers)

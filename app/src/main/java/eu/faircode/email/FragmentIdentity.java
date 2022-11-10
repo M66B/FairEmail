@@ -1280,7 +1280,7 @@ public class FragmentIdentity extends FragmentBase {
                 cbEncryptDefault.setEnabled(!encrypt_default);
 
                 // Get providers
-                List<EmailProvider> providers = EmailProvider.loadProfiles(getContext());
+                List<EmailProvider> providers = EmailProvider.getProviders(getContext());
                 providers.add(0, new EmailProvider(getString(R.string.title_custom)));
 
                 ArrayAdapter<EmailProvider> aaProfile =
