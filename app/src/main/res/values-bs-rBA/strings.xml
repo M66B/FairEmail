@@ -1712,8 +1712,8 @@
     <string name="title_select_block">Selekcija bloka teksta</string>
     <string name="title_insert_brackets">Zagrada</string>
     <string name="title_insert_quotes">Citat</string>
-    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Dodaj riječ</string>
-    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Ukloni riječ</string>
+    <string name="title_lt_add">Dodaj riječ</string>
+    <string name="title_lt_delete">Ukloni riječ</string>
     <string name="title_add">Dodaj</string>
     <string name="title_browse">Otvori pomoću</string>
     <string name="title_info">Informacije</string>

@@ -900,6 +900,7 @@
     <string name="title_drafts_select">Для надсилання електронної пошти необхідно вибрати теку для чернеток в налаштуваннях облікового запису</string>
     <string name="title_account_auth_update">Оновити авторизацію</string>
     <string name="title_account_auth_password">Перемкнути на автентифікацію за паролем</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Змінити пароль</string>
     <string name="title_delete_account">Видалити обліковий запис</string>
     <string name="title_account_delete">Видалити цей обліковий запис безповоротно?</string>
     <string name="title_identity_delete">Видалити ці особисті дані безповоротно?</string>
@@ -1722,8 +1723,8 @@
     <string name="title_select_block">Виберіть блок</string>
     <string name="title_insert_brackets">Дужки</string>
     <string name="title_insert_quotes">Цитата</string>
-    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Додати слово</string>
-    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Видалити слово</string>
+    <string name="title_lt_add">Додати слово</string>
+    <string name="title_lt_delete">Видалити слово</string>
     <string name="title_add">Додати</string>
     <string name="title_browse">Відкрити за допомогою</string>
     <string name="title_info">Інформація</string>

@@ -861,6 +861,7 @@
     <string name="title_drafts_select">需在账户设置中选定草稿文件夹才能发送邮件</string>
     <string name="title_account_auth_update">重新授权</string>
     <string name="title_account_auth_password">改用密码认证</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">更改密码</string>
     <string name="title_delete_account">删除帐户</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
@@ -1680,8 +1681,8 @@
     <string name="title_select_block">选择文本块</string>
     <string name="title_insert_brackets">用括号括起来</string>
     <string name="title_insert_quotes">引用</string>
-    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">添加单词</string>
-    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">删除单词</string>
+    <string name="title_lt_add">添加单词</string>
+    <string name="title_lt_delete">删除单词</string>
     <string name="title_add">添加</string>
     <string name="title_browse">打开方式</string>
     <string name="title_info">信息</string>

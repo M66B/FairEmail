@@ -201,6 +201,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_free">Bu uygulama ücretsiz mi?</string>
     <string name="title_setup_permissions">Verilen izinler</string>
     <string name="title_setup_permissions_remark">İletişim bilgilerine erişim için (isteğe bağlı)</string>
+    <string name="title_setup_permissions_calendar">Davetiyeleri saklamak (isteğe bağlı)</string>
     <string name="title_setup_permissions_explanation">Kişi bilgilerini aramak ve kişi önermek için kişi izinleri gerekir</string>
     <string name="title_setup_permissions_notify">Yeni mesaj bildirimlerini göstermek için (isteğe bağlı)</string>
     <string name="title_setup_permissions_notify_explanation">Durum çubuğunda yeni mesajlarda bildirimleri göstermek için bildirim izinleri gerekir</string>
@@ -644,6 +645,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Dil Aracı entegrasyonu</string>
     <string name="title_advanced_lt_auto">Yeni bir satırdan sonra paragrafı kontrol et</string>
+    <string name="title_advanced_lt_user">Kullanıcı adı (isteğe bağlı)</string>
+    <string name="title_advanced_lt_key">API anahtarı (isteğe bağlı)</string>
     <string name="title_advanced_deepl">DeepL entegrasyonu</string>
     <string name="title_advanced_virus_total">VirüsTotal entegrasyonu</string>
     <string name="title_advanced_sdcard">SD kart kullanmak istiyorum</string>
@@ -870,6 +873,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_drafts_select">İleti göndermek için hesap ayarlarından taslaklar klasörü seçilmelidir</string>
     <string name="title_account_auth_update">Yetkilendirmeyi güncelle</string>
     <string name="title_account_auth_password">Parola kimlik doğrulamasına geç</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Parolayı değiştir</string>
     <string name="title_delete_account">Hesabı sil</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
@@ -1678,6 +1682,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_reset_open">Varsayılan uygulamaları ayarlayın veya temizleyin</string>
     <string name="title_select_app">Uygulama seçin</string>
     <string name="title_updated">%1$s sürümüne güncelleme mevcut</string>
+    <string name="title_no_update">Kullanılabilir güncelleme yok</string>
     <string name="title_issue">Bir sorunuz ya da probleminiz mi var?</string>
     <string name="title_yes">Evet</string>
     <string name="title_no">Hayır</string>
@@ -1689,6 +1694,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_select_block">Blok seç</string>
     <string name="title_insert_brackets">Parantez içine al</string>
     <string name="title_insert_quotes">Alıntıla</string>
+    <string name="title_lt_add">Kelime ekle</string>
+    <string name="title_lt_delete">Kelime sil</string>
     <string name="title_add">Ekle</string>
     <string name="title_browse">Birlikte aç</string>
     <string name="title_info">Bilgi</string>

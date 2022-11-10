@@ -873,6 +873,7 @@
     <string name="title_drafts_select">Das Senden von E-Mails erfordert die Auswahl eines Entwürfe-Ordners in den Kontoeinstellungen</string>
     <string name="title_account_auth_update">OAuth-Autorisierung aktualisieren</string>
     <string name="title_account_auth_password">Stattdessen Passwort-Authentifizierung verwenden</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Passwort ändern</string>
     <string name="title_delete_account">Konto löschen</string>
     <string name="title_account_delete">Möchten Sie dieses Konto dauerhaft löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität dauerhaft löschen?</string>
@@ -1694,8 +1695,8 @@
     <string name="title_select_block">Block auswählen</string>
     <string name="title_insert_brackets">Einklammern</string>
     <string name="title_insert_quotes">Zitieren</string>
-    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Wort hinzufügen</string>
-    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Wort entfernen</string>
+    <string name="title_lt_add">Wort hinzufügen</string>
+    <string name="title_lt_delete">Wort entfernen</string>
     <string name="title_add">Hinzufügen</string>
     <string name="title_browse">Öffnen mit</string>
     <string name="title_info">Info</string>

@@ -875,6 +875,7 @@
     <string name="title_drafts_select">E-poçtları göndərmək, hesab tənzimləmələrdə bir qaralamalar qovluğunun seçilməsini tələb edir</string>
     <string name="title_account_auth_update">Səlahiyyətləndirməni yenilə</string>
     <string name="title_account_auth_password">Parol təsdiqləməsinə keç</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Parolu dəyişdir</string>
     <string name="title_delete_account">Hesabı sil</string>
     <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
@@ -1687,6 +1688,7 @@
     <string name="title_reset_open">İlkin tətbiqləri tənzimlə və təmizlə</string>
     <string name="title_select_app">Tətbiq seç</string>
     <string name="title_updated">%1$s versiyasına yenilənə bilər</string>
+    <string name="title_no_update">Güncəlləmə yoxdur</string>
     <string name="title_issue">Sualınız və ya probleminiz var?</string>
     <string name="title_yes">Bəli</string>
     <string name="title_no">Xeyr</string>
@@ -1698,6 +1700,8 @@
     <string name="title_select_block">Bloku seç</string>
     <string name="title_insert_brackets">Mötərizə</string>
     <string name="title_insert_quotes">Sitat</string>
+    <string name="title_lt_add">Söz əlavə et</string>
+    <string name="title_lt_delete">Sözü sil</string>
     <string name="title_add">Əlavə et</string>
     <string name="title_browse">Aç</string>
     <string name="title_info">Məlumat</string>

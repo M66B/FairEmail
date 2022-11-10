@@ -1721,8 +1721,8 @@
     <string name="title_select_block">Izberi blok besedila</string>
     <string name="title_insert_brackets">Oklepaji</string>
     <string name="title_insert_quotes">Navedek</string>
-    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Dodaj besedo</string>
-    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Odstrani besedo</string>
+    <string name="title_lt_add">Dodaj besedo</string>
+    <string name="title_lt_delete">Odstrani besedo</string>
     <string name="title_add">Dodaj</string>
     <string name="title_browse">Odpri s/z</string>
     <string name="title_info">Infor.</string>

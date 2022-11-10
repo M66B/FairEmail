@@ -202,7 +202,7 @@
     <string name="title_setup_free">Quest\'app è gratuita?</string>
     <string name="title_setup_permissions">Concedi autorizzazioni</string>
     <string name="title_setup_permissions_remark">Per accedere alle informazioni di contatto (opzionale)</string>
-    <string name="title_setup_permissions_calendar">Per memorizzare gli inviti (opzionale)</string>
+    <string name="title_setup_permissions_calendar">Per memorizzare gli inviti (facoltativo)</string>
     <string name="title_setup_permissions_explanation">Le autorizzazioni di contatto sono necessarie per cercare informazioni di contatto e suggerire contatti</string>
     <string name="title_setup_permissions_notify">Per mostrare le notifiche dei nuovi messaggi (opzionale)</string>
     <string name="title_setup_permissions_notify_explanation">Le autorizzazioni di notifica sono necessarie per mostrare le notifiche per i nuovi messaggi nella barra di stato</string>
@@ -247,7 +247,7 @@
     <string name="title_setup_password_repeat">Ripeti password</string>
     <string name="title_setup_password_missing">Password mancante</string>
     <string name="title_setup_password_different">Le password non corrispondono</string>
-    <string name="title_setup_password_invalid">Password errata o file d\'impostazioni danneggiate</string>
+    <string name="title_setup_password_invalid">Password errata o file d\'impostazioni danneggiato</string>
     <string name="title_setup_import_accounts">Importa profili e identità</string>
     <string name="title_setup_import_delete">Elimina prima i profili esistenti</string>
     <string name="title_setup_import_rules">Importa regole del filtro</string>
@@ -344,7 +344,7 @@
     <string name="title_advanced_use_blocklist">Sposta i messaggi dai domini su un elenco di blocchi nella cartella di spam</string>
     <string name="title_advanced_use_blocklist_pop3">Salta i messaggi dai domini su un elenco di blocco (solo POP3)</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo mantieni-in-vita</string>
-    <string name="title_advanced_blocklist_warning">Le liste di blocco non sono perfette e potrebbero bloccare altro oltre allo spam!</string>
+    <string name="title_advanced_blocklist_warning">Le liste di blocco non sono perfette e potrebbero bloccare altro, oltre al solo spam!</string>
     <string name="title_advanced_keyboard">Mostra la tastiera di default</string>
     <string name="title_advanced_keyboard_no_fullscreen">Impedisci la tastiera a schermo intero</string>
     <string name="title_advanced_suggest_names">Usa nomi e indirizzi email</string>
@@ -614,7 +614,7 @@
     <string name="title_advanced_clear_all_remark">I dati dell\'app saranno eliminati irreversibilmente!</string>
     <string name="title_advanced_sign_default">Firma di default</string>
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
-    <string name="title_advanced_encrypt_auto">Cifra automaticamente quando le chiavi di tutti i destinatari sono disponibili</string>
+    <string name="title_advanced_encrypt_auto">Crittografa automaticamente quando le chiavi di tutti i destinatari sono disponibili</string>
     <string name="title_advanced_auto_decrypt">Decrittografa automaticamente i messaggi</string>
     <string name="title_advanced_auto_undo_decrypt">Annulla la decrittografia alla chiusura della conversazione</string>
     <string name="title_advanced_openpgp">Provider di OpenPGP</string>
@@ -648,15 +648,15 @@
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integrazione di LanguageTool</string>
     <string name="title_advanced_lt_auto">Controlla il paragrafo dopo una nuova riga</string>
-    <string name="title_advanced_lt_user">Nome utente (opzionale)</string>
-    <string name="title_advanced_lt_key">Chiave API (opzionale)</string>
+    <string name="title_advanced_lt_user">Nome utente (facoltativo)</string>
+    <string name="title_advanced_lt_key">Chiave API (facoltativa)</string>
     <string name="title_advanced_deepl">Integrazione con DeepL</string>
     <string name="title_advanced_virus_total">Integrazione di VirusTotal</string>
     <string name="title_advanced_sdcard">Desidero usare una scheda sd</string>
     <string name="title_advanced_watchdog">Verifica periodicamente se FairEmail è ancora attivo</string>
     <string name="title_advanced_updates">Controlla gli aggiornamenti di GitHub</string>
     <string name="title_advanced_check_weekly">Controlla settimanalmente invece che giornalmente</string>
-    <string name="title_advanced_beta">Controlla le versioni di test su BitBucket</string>
+    <string name="title_advanced_beta">Verifica la presenza delle versioni di prova su BitBucket</string>
     <string name="title_advanced_changelog">Mostra il changelog dopo l\'aggiornamento</string>
     <string name="title_advanced_experiments">Prova le funzionalità sperimentali</string>
     <string name="title_advanced_crash_reports">Invia rapporti d\'errore</string>
@@ -876,6 +876,7 @@
     <string name="title_drafts_select">L\'invio delle email richiede la selezione di una cartella di bozze nelle impostazioni del profilo</string>
     <string name="title_account_auth_update">Aggiorna l\'autorizzazione</string>
     <string name="title_account_auth_password">Passa all\'autenticazione con password</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Modifica la password</string>
     <string name="title_delete_account">Elimina il profilo</string>
     <string name="title_account_delete">Eliminare permanentemente questo profilo?</string>
     <string name="title_identity_delete">Eliminare permanentemente quest\'identità?</string>
@@ -1125,7 +1126,7 @@
     <string name="title_no_folder">La cartella non esiste</string>
     <string name="title_no_format">Il messaggio originale ricevuto sarà incluso</string>
     <string name="title_no_search">La ricerca sul server non è disponibile per questo profilo</string>
-    <string name="title_complex_search">Seleziona una cartella per fare una ricerca complessa</string>
+    <string name="title_complex_search">Seleziona una cartella per la ricerca complessa</string>
     <string name="title_too_large">Messaggio troppo grande da riformattare completamente</string>
     <string name="title_truncated">Messaggio troppo grande da mostrare completamente</string>
     <string name="title_insufficient_memory">Messaggio troppo grande per la memoria disponibile (%1$d)</string>
@@ -1231,7 +1232,7 @@
     <string name="title_style_subscript">Pedice</string>
     <string name="title_style_superscript">Apice</string>
     <string name="title_style_strikethrough">Barrato</string>
-    <string name="title_style_protect">Proteggere con password</string>
+    <string name="title_style_protect">Protezione con password</string>
     <string name="title_style_protected">Contenuto protetto</string>
     <string name="title_style_protect_size">Testo troppo lungo</string>
     <string name="title_style_clear">Cancella formattazione</string>
@@ -1698,10 +1699,10 @@
     <string name="title_redo">Ripeti</string>
     <string name="title_insert_line">Inserisci riga</string>
     <string name="title_select_block">Seleziona blocco di testo</string>
-    <string name="title_insert_brackets">Tra parentesi</string>
+    <string name="title_insert_brackets">Metti tra parentesi</string>
     <string name="title_insert_quotes">Cita</string>
-    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Aggiungi parola</string>
-    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Rimuovi parola</string>
+    <string name="title_lt_add">Aggiungi parola</string>
+    <string name="title_lt_delete">Rimuovi parola</string>
     <string name="title_add">Aggiungi</string>
     <string name="title_browse">Apri con</string>
     <string name="title_info">Info</string>

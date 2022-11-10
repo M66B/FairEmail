@@ -876,6 +876,7 @@
     <string name="title_drafts_select">O envio de mensagens de correio electrónico requer uma pasta de rascunhos a ser seleccionada nas configurações da conta</string>
     <string name="title_account_auth_update">Atualizar autorização</string>
     <string name="title_account_auth_password">Mudar para autenticação de palavra-passe</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Alterar palavra-passe</string>
     <string name="title_delete_account">Eliminar conta</string>
     <string name="title_account_delete">Eliminar esta conta permanentemente?</string>
     <string name="title_identity_delete">Eliminar esta identidade permanentemente?</string>
@@ -1699,8 +1700,8 @@
     <string name="title_select_block">Selecionar bloco</string>
     <string name="title_insert_brackets">Parêntesis</string>
     <string name="title_insert_quotes">Citar</string>
-    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Adicionar palavra</string>
-    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Remover palavra</string>
+    <string name="title_lt_add">Adicionar palavra</string>
+    <string name="title_lt_delete">Remover palavra</string>
     <string name="title_add">Adicionar</string>
     <string name="title_browse">Abrir com</string>
     <string name="title_info">Informação</string>

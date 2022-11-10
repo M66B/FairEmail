@@ -700,7 +700,7 @@
     <string name="title_advanced_poll_hint">Периодическая проверка новых сообщений будет сравнивать сообщения на сервере с локальными. Это \"тяжёлая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений много. Постоянное получение избегает этого, непрерывно отслеживая только изменения.</string>
     <string name="title_advanced_optimize_hint">Может изменять частоту синхронизации для экономии заряда батареи в зависимости от возможностей и поведения почтовых серверов</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
-    <string name="title_advanced_schedule_ignore">Расписание может быть отключено в расширенных настройках учётной записи</string>
+    <string name="title_advanced_schedule_ignore">Расписание может быть отключено в дополнительных настройках учётной записи</string>
     <string name="title_advanced_quick_sync_hint">Уменьшается использование трафика, но новые сообщения могут быть пропущены, если сервер электронной почты не придерживается стандартов</string>
     <string name="title_advanced_no_date_hint">Некоторые провайдеры хранят сообщения с неизвестными, недействительными или будущими датами как сообщения без даты</string>
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают эту функцию правильно, что может привести к синхронизации всех или ни одного сообщения</string>
@@ -901,6 +901,7 @@
     <string name="title_drafts_select">Для отправки электронной почты нужно выбрать папку черновиков в настройках учётной записи</string>
     <string name="title_account_auth_update">Обновить авторизацию</string>
     <string name="title_account_auth_password">Переключиться на аутентификацию с паролем</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Изменить пароль</string>
     <string name="title_delete_account">Удалить учётную запись</string>
     <string name="title_account_delete">Удалить эту учётную запись навсегда?</string>
     <string name="title_identity_delete">Удалить этот идентификатор навсегда?</string>
@@ -1724,8 +1725,8 @@
     <string name="title_select_block">Выбор блока</string>
     <string name="title_insert_brackets">Взять в скобки</string>
     <string name="title_insert_quotes">Цитировать</string>
-    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Добавить слово</string>
-    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Удалить слово</string>
+    <string name="title_lt_add">Добавить слово</string>
+    <string name="title_lt_delete">Удалить слово</string>
     <string name="title_add">Добавить</string>
     <string name="title_browse">В браузере</string>
     <string name="title_info">Информация</string>

@@ -887,6 +887,7 @@
     <string name="title_drafts_select">Trimiterea de e-mailuri necesită un dosar ciorne selectat în setările contului</string>
     <string name="title_account_auth_update">Actualizarea autorizației</string>
     <string name="title_account_auth_password">Treceți la autentificarea prin parolă</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Schimbați parola</string>
     <string name="title_delete_account">Ștergere cont</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
@@ -1708,6 +1709,8 @@
     <string name="title_select_block">Selectează bloc</string>
     <string name="title_insert_brackets">Inserează paranteze</string>
     <string name="title_insert_quotes">Citează</string>
+    <string name="title_lt_add">Adăugați un cuvânt</string>
+    <string name="title_lt_delete">Eliminați cuvântul</string>
     <string name="title_add">Adaugă</string>
     <string name="title_browse">Deschide cu</string>
     <string name="title_info">Informații</string>

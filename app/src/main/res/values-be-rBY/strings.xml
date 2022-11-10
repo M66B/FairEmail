@@ -902,6 +902,7 @@
     <string name="title_drafts_select">Для адпраўкі электроннай пошты ў наладах уліковага запісу трэба выбраць папку для чарнавікоў</string>
     <string name="title_account_auth_update">Абнавіць аўтарызацыю</string>
     <string name="title_account_auth_password">Пераключыцца на аўтэнтыфікацыю праз пароль</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Змяніць пароль</string>
     <string name="title_delete_account">Выдаліць уліковы запіс</string>
     <string name="title_account_delete">Выдаліць гэты ўліковы запіс назаўсёды?</string>
     <string name="title_identity_delete">Выдаліць гэты ідэнтыфікатар назаўсёды?</string>
@@ -1715,6 +1716,7 @@
     <string name="title_reset_open">Задаць або ачысціць праграмы па змаўчанні</string>
     <string name="title_select_app">Выберыце праграму</string>
     <string name="title_updated">Даступна абнаўленне да версіі %1$s</string>
+    <string name="title_no_update">Няма даступных абнаўленняў</string>
     <string name="title_issue">У вас ёсць пытанне або праблема?</string>
     <string name="title_yes">Так</string>
     <string name="title_no">Не</string>
@@ -1726,6 +1728,8 @@
     <string name="title_select_block">Выбраць блок</string>
     <string name="title_insert_brackets">У дужкі</string>
     <string name="title_insert_quotes">Цытата</string>
+    <string name="title_lt_add">Дадаць слова</string>
+    <string name="title_lt_delete">Выдаліць слова</string>
     <string name="title_add">Дадаць</string>
     <string name="title_browse">Адкрыць з дапамогай</string>
     <string name="title_info">Інфармацыя</string>

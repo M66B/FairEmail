@@ -202,6 +202,7 @@
     <string name="title_setup_free">¿Esta aplicación es gratuita?</string>
     <string name="title_setup_permissions">Conceder permisos</string>
     <string name="title_setup_permissions_remark">Para acceder a información de contactos (opcional)</string>
+    <string name="title_setup_permissions_calendar">Para almacenar invitaciones (opcional)</string>
     <string name="title_setup_permissions_explanation">El permiso de contactos es necesario para buscar información de contactos y sugerirlos</string>
     <string name="title_setup_permissions_notify">Para mostrar notificaciones de mensajes nuevos (opcional)</string>
     <string name="title_setup_permissions_notify_explanation">Se requieren permisos de notificación para mostrar notificaciones de nuevos mensajes en la barra de estado</string>
@@ -645,6 +646,8 @@
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integración con LanguageTool</string>
     <string name="title_advanced_lt_auto">Comprobar párrafo después de una nueva línea</string>
+    <string name="title_advanced_lt_user">Nombre de usuario (opcional)</string>
+    <string name="title_advanced_lt_key">Clave API (opcional)</string>
     <string name="title_advanced_deepl">Integración con DeepL</string>
     <string name="title_advanced_virus_total">Integración con VirusTotal</string>
     <string name="title_advanced_sdcard">Quiero usar una tarjeta SD</string>
@@ -871,6 +874,7 @@
     <string name="title_drafts_select">El envío de correos electrónicos requiere que se seleccione una carpeta de borradores en la configuración de la cuenta</string>
     <string name="title_account_auth_update">Actualizar autorización</string>
     <string name="title_account_auth_password">Cambiar a autenticación con contraseña</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Cambiar contraseña</string>
     <string name="title_delete_account">Suprimir la cuenta</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
@@ -1679,6 +1683,7 @@
     <string name="title_reset_open">Establecer o limpiar aplicaciones por defecto</string>
     <string name="title_select_app">Seleccionar app</string>
     <string name="title_updated">Actualización a la versión %1$s disponible</string>
+    <string name="title_no_update">No hay actualizaciones</string>
     <string name="title_issue">¿Tiene una pregunta o problema?</string>
     <string name="title_yes">Sí</string>
     <string name="title_no">No</string>
@@ -1690,6 +1695,8 @@
     <string name="title_select_block">Seleccionar bloque</string>
     <string name="title_insert_brackets">Corchete</string>
     <string name="title_insert_quotes">Comillas</string>
+    <string name="title_lt_add">Añadir palabra</string>
+    <string name="title_lt_delete">Quitar palabra</string>
     <string name="title_add">Agregar</string>
     <string name="title_browse">Abrir con</string>
     <string name="title_info">Información</string>

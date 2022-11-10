@@ -872,6 +872,7 @@
     <string name="title_drafts_select">Για την αποστολή μηνυμάτων απαιτείται να επιλεγεί ένας φάκελος για πρόχειρα από τις ρυθμίσεις λογαριασμού</string>
     <string name="title_account_auth_update">Ενημέρωση εξουσιοδότησης</string>
     <string name="title_account_auth_password">Αλλαγή σε ταυτοποίηση μέσω κωδικού πρόσβασης</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Αλλαγή κωδικού πρόσβασης</string>
     <string name="title_delete_account">Διαγραφή λογαριασμού</string>
     <string name="title_account_delete">Να διαγραφεί οριστικά αυτός ο λογαριασμός;</string>
     <string name="title_identity_delete">Να διαγραφεί οριστικά αυτή η ταυτότητα;</string>
@@ -1693,8 +1694,8 @@
     <string name="title_select_block">Επιλογή τμήματος</string>
     <string name="title_insert_brackets">Σε αγκύλες</string>
     <string name="title_insert_quotes">Παράθεση</string>
-    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Προσθήκη λέξης</string>
-    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Αφαίρεση λέξης</string>
+    <string name="title_lt_add">Προσθήκη λέξης</string>
+    <string name="title_lt_delete">Αφαίρεση λέξης</string>
     <string name="title_add">Προσθήκη</string>
     <string name="title_browse">Άνοιγμα με</string>
     <string name="title_info">Πληροφορίες</string>

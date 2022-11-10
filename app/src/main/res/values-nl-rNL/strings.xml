@@ -873,6 +873,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_drafts_select">Het verzenden van e-mails vereist een conceptmap die geselecteerd kan worden in de accountinstellingen</string>
     <string name="title_account_auth_update">Autorisatie bijwerken</string>
     <string name="title_account_auth_password">Overschakelen naar wachtwoordverificatie</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Wachtwoord wijzigen</string>
     <string name="title_delete_account">Verwijder account</string>
     <string name="title_account_delete">Verwijder dit account definitief?</string>
     <string name="title_identity_delete">Verwijder deze identiteit definitief?</string>
@@ -1690,8 +1691,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_select_block">Selecteer blok</string>
     <string name="title_insert_brackets">Haakjes</string>
     <string name="title_insert_quotes">Citeer</string>
-    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Woord toevoegen</string>
-    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Woord verwijderen</string>
+    <string name="title_lt_add">Woord toevoegen</string>
+    <string name="title_lt_delete">Woord verwijderen</string>
     <string name="title_add">Toevoegen</string>
     <string name="title_browse">Open met</string>
     <string name="title_info">Info</string>

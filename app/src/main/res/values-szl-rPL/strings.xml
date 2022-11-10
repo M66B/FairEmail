@@ -900,6 +900,7 @@
     <string name="title_drafts_select">Wysyłanie wiadomości e-mail wymaga wybrania folderu szkiców w ustawieniach konta</string>
     <string name="title_account_auth_update">Zaktualizuj autoryzację</string>
     <string name="title_account_auth_password">Przełącz na uwierzytelnianie hasłem</string>
+    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Zmień hasło</string>
     <string name="title_delete_account">Usuń konto</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
@@ -1722,8 +1723,8 @@
     <string name="title_select_block">Zaznacz fragment</string>
     <string name="title_insert_brackets">Ujmij w nawias</string>
     <string name="title_insert_quotes">Cytuj</string>
-    <string name="title_lt_add" comment="title_lt_add&#10;This needs to be short!&#10;Add word (to dictionary)">Dodaj wyraz</string>
-    <string name="title_lt_delete" comment="title_lt_delete&#10;This needs to be short!&#10;Remove word (from dictionary)">Usuń wyraz</string>
+    <string name="title_lt_add">Dodaj wyraz</string>
+    <string name="title_lt_delete">Usuń wyraz</string>
     <string name="title_add">Dodaj</string>
     <string name="title_browse">Otwórz za pomocą</string>
     <string name="title_info">Info</string>
