@@ -319,9 +319,8 @@ public class FragmentAccount extends FragmentBase {
                 etUser.setTag(null);
                 etUser.setText(null);
                 tilPassword.getEditText().setText(null);
-                tvAppPassword.setVisibility(
-                        "office365".equals(provider.id) || "outlook".equals(provider.id)
-                                ? View.VISIBLE : View.GONE);
+                tvAppPassword.setVisibility(EntityAccount.isOutlook(provider.id)
+                        ? View.VISIBLE : View.GONE);
                 certificate = null;
                 tvCertificate.setText(R.string.title_optional);
                 etRealm.setText(null);
@@ -1606,8 +1605,7 @@ public class FragmentAccount extends FragmentBase {
 
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
-                    tvAppPassword.setVisibility(account != null &&
-                            ("office365".equals(account.provider) || "outlook".equals(account.provider))
+                    tvAppPassword.setVisibility(account != null && EntityAccount.isOutlook(account.provider)
                             ? View.VISIBLE : View.GONE);
                     certificate = (account == null ? null : account.certificate_alias);
                     tvCertificate.setText(certificate == null ? getString(R.string.title_optional) : certificate);

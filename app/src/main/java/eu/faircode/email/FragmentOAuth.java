@@ -1006,7 +1006,7 @@ public class FragmentOAuth extends FragmentBase {
 
         grpError.setVisibility(View.VISIBLE);
 
-        if ("office365".equals(id) || "outlook".equals(id)) {
+        if (EntityAccount.isOutlook(id)) {
             if (ex instanceof AuthenticationFailedException)
                 tvOfficeAuthHint.setVisibility(View.VISIBLE);
         }
