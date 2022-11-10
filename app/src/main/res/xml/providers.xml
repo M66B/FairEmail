@@ -134,7 +134,7 @@
             enabled="true"
             privacy="https://privacy.microsoft.com/privacystatement"
             prompt="login"
-            redirectUri="msauth.eu.faircode.email://auth"
+            redirectUri="https://oauth.faircode.eu/"
             scopes="profile,openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send"
             tokenEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token"
             tokenScopes="true" />
