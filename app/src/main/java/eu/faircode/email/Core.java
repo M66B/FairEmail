@@ -2663,6 +2663,28 @@ class Core {
                                 folder.setProperties();
                                 folder.setSpecials(account);
                                 db.folder().updateFolder(folder);
+
+                                if (EntityFolder.TRASH.equals(folder.type) &&
+                                        account.swipe_left != null && account.swipe_left > 0) {
+                                    EntityFolder swipe = db.folder().getFolder(account.swipe_left);
+                                    if (swipe == null) {
+                                        Log.e("Updated " + account.host + " swipe left");
+                                        account.swipe_left = folder.id;
+                                        db.account().setAccountSwipes(account.id,
+                                                account.swipe_left, account.swipe_right);
+                                    }
+                                }
+
+                                if (EntityFolder.ARCHIVE.equals(folder.type) &&
+                                        account.swipe_right != null && account.swipe_right > 0) {
+                                    EntityFolder swipe = db.folder().getFolder(account.swipe_right);
+                                    if (swipe == null) {
+                                        Log.e("Updated " + account.host + " swipe right");
+                                        account.swipe_right = folder.id;
+                                        db.account().setAccountSwipes(account.id,
+                                                account.swipe_left, account.swipe_right);
+                                    }
+                                }
                             }
                         }
                     }
