@@ -4,6 +4,12 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
+### 1.2001 - 2022-11-10
+
+* Fixed Outlook / Office 365 OAuth in some cases
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2000 - 2022-11-10
 
 * Added OAuth for AOL (quick setup wizard)
