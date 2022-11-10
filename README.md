@@ -27,7 +27,7 @@ FairEmail might be for you if you value your privacy.
 
 <br>
 
-**FairEmail has been restored to the Play Store with help from Google's privacy and policy department. Please [see here](https://faircode.eu/faq.html) for what happened.**
+**FairEmail has been restored to the Play Store with help from Google's privacy and policy department. Please [see here](https://email.faircode.eu/status/) for what happened.**
 
 <br>
 
