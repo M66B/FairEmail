@@ -104,13 +104,15 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        Uri _uri = getArguments().getParcelable("uri");
-        String _title = getArguments().getString("title");
+        Bundle a = getArguments();
+        Uri _uri = a.getParcelable("uri");
+        String _title = a.getString("title");
         if (_title != null)
             _title = _title.replace("\uFFFC", ""); // Object replacement character
         if (TextUtils.isEmpty(_title))
             _title = null;
         final String title = _title;
+        final boolean always_confirm = a.getBoolean("always_confirm", false);
 
         final Context context = getContext();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -580,7 +582,10 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again, uri.getHost()));
         cbNotAgain.setVisibility(
-                UriHelper.isSecure(uri) && !TextUtils.isEmpty(uri.getHost())
+                !always_confirm &&
+                        !sanitize_links &&
+                        UriHelper.isSecure(uri) &&
+                        !TextUtils.isEmpty(uri.getHost())
                         ? View.VISIBLE : View.GONE);
 
         setMore(false);

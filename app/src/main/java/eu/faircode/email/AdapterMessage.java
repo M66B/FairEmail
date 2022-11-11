@@ -5937,13 +5937,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 String scheme = guri.getScheme();
                 String host = guri.getHost();
 
+                boolean sanitize_links = prefs.getBoolean("sanitize_links", false);
                 boolean confirm_link =
                         !"https".equalsIgnoreCase(scheme) || TextUtils.isEmpty(host) ||
                                 prefs.getBoolean(host + ".confirm_link", true);
-                if (always_confirm || (confirm_links && confirm_link)) {
+                if (always_confirm || sanitize_links || (confirm_links && confirm_link)) {
                     Bundle args = new Bundle();
                     args.putParcelable("uri", uri);
                     args.putString("title", title);
+                    args.putBoolean("always_confirm", always_confirm);
 
                     FragmentDialogOpenLink fragment = new FragmentDialogOpenLink();
                     fragment.setArguments(args);

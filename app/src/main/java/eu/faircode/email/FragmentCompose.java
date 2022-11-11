@@ -993,6 +993,7 @@ public class FragmentCompose extends FragmentBase {
                         Bundle args = new Bundle();
                         args.putParcelable("uri", uri);
                         args.putString("title", title);
+                        args.putBoolean("always_confirm", true);
 
                         FragmentDialogOpenLink fragment = new FragmentDialogOpenLink();
                         fragment.setArguments(args);
