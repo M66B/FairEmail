@@ -99,8 +99,28 @@ public class LanguageTool {
     }
 
     static List<Suggestion> getSuggestions(Context context, CharSequence text) throws IOException, JSONException {
-        if (TextUtils.isEmpty(text))
+        if (isPremium(context)) {
+            // Check per paragraph, so the language is detected by paragraph
+            List<Suggestion> result = new ArrayList<>();
+            int start = 0;
+            int end = start;
+            int len = text.length();
+            while (end < len) {
+                while (end < len && text.charAt(end) != '\n')
+                    end++;
+                result.addAll(getSuggestions(context, text, start, end));
+                start = end + 1;
+                end = start;
+            }
+            return result;
+        } else
+            return getSuggestions(context, text, 0, text.length());
+    }
+
+    private static List<Suggestion> getSuggestions(Context context, CharSequence text, int start, int end) throws IOException, JSONException {
+        if (start < 0 || end > text.length() || start == end)
             return new ArrayList<>();
+        String t = text.subSequence(start, end).toString();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean lt_picky = prefs.getBoolean("lt_picky", false);
@@ -111,7 +131,7 @@ public class LanguageTool {
 
         // https://languagetool.org/http-api/swagger-ui/#!/default/post_check
         Uri.Builder builder = new Uri.Builder()
-                .appendQueryParameter("text", text.toString())
+                .appendQueryParameter("text", t)
                 .appendQueryParameter("language", "auto");
 
         // curl -X GET --header 'Accept: application/json' 'https://api.languagetool.org/v2/languages'
