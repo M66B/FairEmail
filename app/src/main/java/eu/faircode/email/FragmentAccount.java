@@ -30,6 +30,7 @@ import android.Manifest;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.net.Uri;
@@ -64,6 +65,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -1418,6 +1420,15 @@ public class FragmentAccount extends FragmentBase {
                 }
 
                 args.putBoolean("saved", true);
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("unset." + account.id + "." + EntityFolder.DRAFTS, drafts == null);
+                editor.putBoolean("unset." + account.id + "." + EntityFolder.SENT, sent == null);
+                editor.putBoolean("unset." + account.id + "." + EntityFolder.ARCHIVE, archive == null);
+                editor.putBoolean("unset." + account.id + "." + EntityFolder.TRASH, trash == null);
+                editor.putBoolean("unset." + account.id + "." + EntityFolder.JUNK, junk == null);
+                editor.apply();
 
                 return false;
             }

@@ -2650,15 +2650,14 @@ class Core {
                             }
 
                     // Reselect system folders once
-                    String key = "updated." + account.id + "." + type;
-                    boolean reselected = prefs.getBoolean(key, false);
-                    if (!reselected) {
-                        prefs.edit().putBoolean(key, true).apply();
+                    String key = "unset." + account.id + "." + type;
+                    boolean unset = prefs.getBoolean(key, false);
+                    if (!unset) {
                         EntityFolder folder = db.folder().getFolderByType(account.id, type);
                         if (folder == null) {
                             folder = db.folder().getFolderByName(account.id, fullName);
                             if (folder != null && !folder.local) {
-                                Log.e("Updated " + account.host + " " + type + "=" + fullName);
+                                Log.e("Reselected " + account.host + " " + type + "=" + fullName);
                                 folder.type = type;
                                 folder.setProperties();
                                 folder.setSpecials(account);
@@ -2668,7 +2667,7 @@ class Core {
                                         account.swipe_left != null && account.swipe_left > 0) {
                                     EntityFolder swipe = db.folder().getFolder(account.swipe_left);
                                     if (swipe == null) {
-                                        Log.e("Updated " + account.host + " swipe left");
+                                        Log.e("Reselected " + account.host + " swipe left");
                                         account.swipe_left = folder.id;
                                         db.account().setAccountSwipes(account.id,
                                                 account.swipe_left, account.swipe_right);
@@ -2679,7 +2678,7 @@ class Core {
                                         account.swipe_right != null && account.swipe_right > 0) {
                                     EntityFolder swipe = db.folder().getFolder(account.swipe_right);
                                     if (swipe == null) {
-                                        Log.e("Updated " + account.host + " swipe right");
+                                        Log.e("Reselected " + account.host + " swipe right");
                                         account.swipe_right = folder.id;
                                         db.account().setAccountSwipes(account.id,
                                                 account.swipe_left, account.swipe_right);
@@ -2743,7 +2742,6 @@ class Core {
                             parent = db.folder().getFolderByName(account.id, fullName.substring(0, sep));
 
                         if (!EntityFolder.USER.equals(type) && !EntityFolder.SYSTEM.equals(type)) {
-                            prefs.edit().remove("updated." + account.id + "." + type).apply();
                             EntityFolder has = db.folder().getFolderByType(account.id, type);
                             if (has != null)
                                 type = EntityFolder.USER;
@@ -2874,7 +2872,6 @@ class Core {
                 EntityLog.log(context, name + " delete");
                 db.folder().deleteFolder(account.id, name);
                 EntityLog.log(context, name + " deleted");
-                prefs.edit().remove("updated." + account.id + "." + folder.type).apply();
             } else
                 Log.w(name + " keep type=" + folder.type);
         }
