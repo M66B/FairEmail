@@ -71,7 +71,6 @@
             android:id="@+id/etTenant"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:autofillHints="emailAddress"
             android:hint="@string/title_identity_tenant"
             android:imeOptions="actionNext"
             android:inputType="textNoSuggestions"
