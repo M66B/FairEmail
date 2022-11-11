@@ -391,8 +391,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
         ibExpanderNav.setImageLevel(nav_expanded ? 0 : 1);
-        ibExpanderNav.setContentDescription(getString(nav_expanded
-                ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
 
         // Navigation pinning
         ibPin.setOnClickListener(new View.OnClickListener() {
@@ -564,8 +562,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         boolean nav_account = prefs.getBoolean("nav_account", true);
         boolean nav_folder = prefs.getBoolean("nav_folder", true);
         ibExpanderAccount.setImageLevel(nav_account || nav_folder ? 0 /* less */ : 1 /* more */);
-        ibExpanderAccount.setContentDescription(getString(nav_account || nav_folder
-                ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
         rvAccount.setVisibility(nav_account || nav_folder ? View.VISIBLE : View.GONE);
 
         ibExpanderAccount.setOnClickListener(new View.OnClickListener() {
@@ -596,8 +592,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     ibExpanderAccount.setImageLevel(2 /* unfold less */);
                 else
                     ibExpanderAccount.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
-                ibExpanderAccount.setContentDescription(getString(expanded
-                        ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
                 rvAccount.setVisibility(expanded ? View.VISIBLE : View.GONE);
             }
         });
@@ -609,8 +603,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         boolean unified_system = prefs.getBoolean("unified_system", true);
         ibExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
-        ibExpanderUnified.setContentDescription(getString(unified_system
-                ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
         rvUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
 
         ibExpanderUnified.setOnClickListener(new View.OnClickListener() {
@@ -619,8 +611,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean unified_system = !prefs.getBoolean("unified_system", true);
                 prefs.edit().putBoolean("unified_system", unified_system).apply();
                 ibExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
-                ibExpanderUnified.setContentDescription(getString(unified_system
-                        ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
                 rvUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
             }
         });
@@ -632,8 +622,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         boolean nav_search = prefs.getBoolean("nav_search", true);
         ibExpanderSearch.setImageLevel(nav_search ? 0 /* less */ : 1 /* more */);
-        ibExpanderSearch.setContentDescription(getString(nav_search
-                ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
         ibExpanderSearch.setVisibility(View.GONE);
         rvSearch.setVisibility(View.GONE);
         vSeparatorSearch.setVisibility(View.GONE);
@@ -644,8 +632,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean nav_search = !prefs.getBoolean("nav_search", true);
                 prefs.edit().putBoolean("nav_search", nav_search).apply();
                 ibExpanderSearch.setImageLevel(nav_search ? 0 /* less */ : 1 /* more */);
-                ibExpanderSearch.setContentDescription(getString(nav_search
-                        ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
                 rvSearch.setVisibility(nav_search ? View.VISIBLE : View.GONE);
             }
         });
@@ -657,8 +643,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         boolean nav_menu = prefs.getBoolean("nav_menu", true);
         ibExpanderMenu.setImageLevel(nav_menu ? 0 /* less */ : 1 /* more */);
-        ibExpanderMenu.setContentDescription(getString(nav_menu
-                ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
         rvMenu.setVisibility(nav_menu ? View.VISIBLE : View.GONE);
 
         ibExpanderMenu.setOnClickListener(new View.OnClickListener() {
@@ -667,8 +651,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean nav_menu = !prefs.getBoolean("nav_menu", true);
                 prefs.edit().putBoolean("nav_menu", nav_menu).apply();
                 ibExpanderMenu.setImageLevel(nav_menu ? 0 /* less */ : 1 /* more */);
-                ibExpanderMenu.setContentDescription(getString(nav_menu
-                        ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
                 rvMenu.setVisibility(nav_menu ? View.VISIBLE : View.GONE);
             }
         });
@@ -693,8 +675,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         boolean minimal = prefs.getBoolean("minimal", false);
         ibExpanderExtra.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
-        ibExpanderExtra.setContentDescription(getString(minimal
-                ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
         rvMenuExtra.setVisibility(minimal ? View.GONE : View.VISIBLE);
 
         ibExpanderExtra.setOnClickListener(new View.OnClickListener() {
@@ -703,8 +683,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean minimal = !prefs.getBoolean("minimal", false);
                 prefs.edit().putBoolean("minimal", minimal).apply();
                 ibExpanderExtra.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
-                ibExpanderExtra.setContentDescription(getString(minimal
-                        ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
                 rvMenuExtra.setVisibility(minimal ? View.GONE : View.VISIBLE);
                 if (!minimal)
                     getMainHandler().post(new Runnable() {
@@ -1009,8 +987,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     ibExpanderAccount.setImageLevel(2 /* unfold less */);
                 else
                     ibExpanderAccount.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
-                ibExpanderExtra.setContentDescription(getString(expanded
-                        ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
             }
         });
 
@@ -1211,8 +1187,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         grpOptions.setVisibility(nav_expanded ? View.VISIBLE : View.GONE);
         ibExpanderNav.setImageLevel(nav_expanded ? 0 : 1);
-        ibExpanderNav.setContentDescription(getString(nav_expanded
-                ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand));
 
         adapterNavAccount.setExpanded(nav_expanded);
         adapterNavUnified.setExpanded(nav_expanded);
