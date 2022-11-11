@@ -4,6 +4,12 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
+### Next version
+
+* Added option to remove tracking parameters by default (privacy settings tab page)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2002 - 2022-11-10
 
 * Fixed Outlook / Office 365 authentication
