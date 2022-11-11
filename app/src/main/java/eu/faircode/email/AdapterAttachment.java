@@ -270,7 +270,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             if (attachment == null || !attachment.available)
                 return false;
 
-            if (readonly || BuildConfig.PLAY_STORE_RELEASE)
+            if (readonly)
                 return onShare(attachment);
             else {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
