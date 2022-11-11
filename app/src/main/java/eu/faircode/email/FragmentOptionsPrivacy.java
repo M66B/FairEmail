@@ -66,6 +66,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private View view;
     private ImageButton ibHelp;
     private SwitchCompat swConfirmLinks;
+    private SwitchCompat swSanitizeLinks;
     private SwitchCompat swCheckLinksDbl;
     private SwitchCompat swConfirmImages;
     private SwitchCompat swAskImages;
@@ -107,7 +108,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private final static int BIP39_WORDS = 6;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "confirm_links", "check_links_dbl",
+            "confirm_links", "sanitize_links", "check_links_dbl",
             "confirm_images", "ask_images", "html_always_images", "confirm_html", "ask_html",
             "disable_tracking",
             "pin", "biometrics", "biometrics_timeout", "autolock", "autolock_nav",
@@ -130,6 +131,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         ibHelp = view.findViewById(R.id.ibHelp);
         swConfirmLinks = view.findViewById(R.id.swConfirmLinks);
+        swSanitizeLinks = view.findViewById(R.id.swSanitizeLinks);
         swCheckLinksDbl = view.findViewById(R.id.swCheckLinksDbl);
         swConfirmImages = view.findViewById(R.id.swConfirmImages);
         swAskImages = view.findViewById(R.id.swAskImages);
@@ -191,7 +193,15 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                         if (key.endsWith(".confirm_link"))
                             editor.remove(key);
                 editor.apply();
+                swSanitizeLinks.setEnabled(checked);
                 swCheckLinksDbl.setEnabled(checked);
+            }
+        });
+
+        swSanitizeLinks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sanitize_links", checked).apply();
             }
         });
 
@@ -554,6 +564,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swConfirmLinks.setChecked(prefs.getBoolean("confirm_links", true));
+        swSanitizeLinks.setChecked(prefs.getBoolean("sanitize_links", false));
+        swSanitizeLinks.setEnabled(swConfirmLinks.isChecked());
         swCheckLinksDbl.setChecked(prefs.getBoolean("check_links_dbl", BuildConfig.PLAY_STORE_RELEASE));
         swCheckLinksDbl.setEnabled(swConfirmLinks.isChecked());
         swConfirmImages.setChecked(prefs.getBoolean("confirm_images", true));

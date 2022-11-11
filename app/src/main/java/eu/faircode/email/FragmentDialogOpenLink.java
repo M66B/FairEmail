@@ -114,6 +114,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         final Context context = getContext();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean sanitize_links = prefs.getBoolean("sanitize_links", false);
         boolean check_links_dbl = prefs.getBoolean("check_links_dbl", BuildConfig.PLAY_STORE_RELEASE);
         boolean disconnect_links = prefs.getBoolean("disconnect_links", true);
 
@@ -574,6 +575,8 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 categories == null ? View.GONE : View.VISIBLE);
         tvDisconnectCategories.setVisibility(
                 categories == null || !BuildConfig.DEBUG ? View.GONE : View.VISIBLE);
+
+        cbSanitize.setChecked(sanitize_links);
 
         cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again, uri.getHost()));
         cbNotAgain.setVisibility(
