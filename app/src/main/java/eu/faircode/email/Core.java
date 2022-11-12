@@ -1210,7 +1210,8 @@ class Core {
                                 if (!attachment.available || !afile || !content.available || !cfile) {
                                     Log.e("S/MIME vanished" +
                                             " available=" + attachment.available + "/" + content.available +
-                                            " file=" + afile + "/" + cfile);
+                                            " file=" + afile + "/" + cfile +
+                                            " error=" + attachment.error + "/" + content.error);
                                     db.attachment().setAvailable(attachment.id, false);
                                     db.attachment().setAvailable(content.id, false);
                                     db.attachment().setEncryption(attachment.id, null);
