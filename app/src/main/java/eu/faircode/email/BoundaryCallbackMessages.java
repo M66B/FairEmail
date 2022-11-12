@@ -509,20 +509,38 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             return search(true, browsable.keywords, protocol, state);
                                         } catch (Throwable ex) {
                                             EntityLog.log(context, ex.toString());
-                                            if (ex instanceof ProtocolException &&
-                                                    ex.getMessage() != null &&
-                                                    ex.getMessage().contains("full text search not supported")) {
-                                                String msg = context.getString(R.string.title_service_auth,
-                                                        account.host + ": " + getMessage(ex));
-                                                ApplicationEx.getMainHandler().post(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        if (intf != null)
-                                                            intf.onWarning(msg);
+                                            if (ex instanceof ProtocolException && ex.getMessage() != null)
+                                                try {
+                                                    boolean retry = false;
+                                                    String remark = null;
+                                                    if (ex.getMessage().contains("full text search not supported")) {
+                                                        retry = true;
+                                                        criteria.in_message = false;
+                                                    } else if (ex.getMessage().contains("invalid search criteria")) {
+                                                        // invalid SEARCH command syntax, invalid search criteria syntax
+                                                        retry = true;
+                                                        criteria.in_keywords = false;
+                                                        remark = "Keyword search not supported?";
                                                     }
-                                                });
-                                                criteria.in_message = false;
-                                            }
+
+                                                    if (retry) {
+                                                        String msg = context.getString(R.string.title_service_auth,
+                                                                account.host + ": " +
+                                                                        (remark == null ? "" : remark + " - ") +
+                                                                        getMessage(ex));
+                                                        ApplicationEx.getMainHandler().post(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                if (intf != null)
+                                                                    intf.onWarning(msg);
+                                                            }
+                                                        });
+
+                                                        return search(true, browsable.keywords, protocol, state);
+                                                    }
+                                                } catch (Throwable exex) {
+                                                    Log.w(exex);
+                                                }
                                         }
 
                                         return search(false, browsable.keywords, protocol, state);
