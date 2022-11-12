@@ -3678,7 +3678,7 @@ public class FragmentMessages extends FragmentBase
 
                 if (ids.length < MAX_SEND_RAW)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_raw_send, order++, R.string.title_raw_send)
-                            .setIcon(R.drawable.twotone_attachment_24);
+                            .setIcon(R.drawable.twotone_attach_email_24);
 
                 if (result.canInbox()) // not is inbox
                     popupMenu.getMenu().add(Menu.FIRST, R.string.title_folder_inbox, order++, R.string.title_folder_inbox)

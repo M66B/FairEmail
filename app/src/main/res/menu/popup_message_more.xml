@@ -135,7 +135,7 @@
 
         <item
             android:id="@+id/menu_raw_send"
-            android:icon="@drawable/twotone_attachment_24"
+            android:icon="@drawable/twotone_attach_email_24"
             android:title="@string/title_raw_send">
             <menu>
                 <item
