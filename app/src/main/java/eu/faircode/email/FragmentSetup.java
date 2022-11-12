@@ -284,24 +284,18 @@ public class FragmentSetup extends FragmentBase {
                 String pkg = context.getPackageName();
                 List<EmailProvider> providers = EmailProvider.getProviders(context);
 
-                boolean web = BuildConfig.DEBUG;
-                for (EmailProvider provider : providers)
-                    if ("gmail".equals(provider.id) &&
-                            provider.oauth != null &&
-                            provider.oauth.enabled) {
-                        web = true;
-                        break;
-                    }
-
                 int order = 1;
 
                 // Gmail / account manager
-                String gmail = getString(web ? R.string.title_setup_android : R.string.title_setup_oauth,
-                        getString(R.string.title_setup_gmail));
-                MenuItem item = menu.add(Menu.FIRST, R.string.title_setup_gmail, order++, gmail);
-                int resid = res.getIdentifier("provider_gmail", "drawable", pkg);
-                if (resid != 0)
-                    item.setIcon(resid);
+                {
+                    String gmail = getString(R.string.title_setup_android, getString(R.string.title_setup_gmail));
+                    SpannableString ss = new SpannableString(gmail);
+                    ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
+                    MenuItem item = menu.add(Menu.FIRST, R.string.title_setup_gmail, order++, ss);
+                    int resid = res.getIdentifier("provider_gmail", "drawable", pkg);
+                    if (resid != 0)
+                        item.setIcon(resid);
+                }
 
                 // OAuth
                 for (EmailProvider provider : providers)
@@ -309,7 +303,7 @@ public class FragmentSetup extends FragmentBase {
                             provider.oauth.enabled &&
                             !TextUtils.isEmpty(provider.oauth.clientId)) {
                         String title = getString(R.string.title_setup_oauth, provider.description);
-                        item = menu
+                        MenuItem item = menu
                                 .add(Menu.FIRST, -1, order++, title)
                                 .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
                                         .putExtra("id", provider.id)
@@ -319,7 +313,7 @@ public class FragmentSetup extends FragmentBase {
                                         .putExtra("askTenant", provider.oauth.askTenant())
                                         .putExtra("pop", provider.pop != null));
                         // https://developers.google.com/identity/branding-guidelines
-                        resid = res.getIdentifier("provider_" + provider.id, "drawable", pkg);
+                        int resid = res.getIdentifier("provider_" + provider.id, "drawable", pkg);
                         if (resid != 0)
                             item.setIcon(resid);
                     }
