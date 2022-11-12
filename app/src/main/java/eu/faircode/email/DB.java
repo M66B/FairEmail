@@ -2570,6 +2570,8 @@ public abstract class DB extends RoomDatabase {
                                 if (cursor.getString(5) == null)
                                     editor.putBoolean("unset." + id + ".Sent", true);
                             }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         }
                         editor.apply();
                     }
