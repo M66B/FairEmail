@@ -4,7 +4,7 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
-### Next version
+### 1.2003 - 2022-11-12
 
 * Added option to remove tracking parameters by default (privacy settings tab page)
 * Small improvements and minor bug fixes
