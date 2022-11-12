@@ -4,6 +4,13 @@ Changelog
 
 Ninjatitan
 
+Next version
+
+* Added send reminder for no/suitable internet
+* Small improvements and minor bug fixes
+* Updated libraries
+* Updated translations
+
 1.2003 - 2022-11-12
 
 * Added option to remove tracking parameters by default (privacy settings tab page)
