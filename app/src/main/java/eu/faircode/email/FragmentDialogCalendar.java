@@ -75,7 +75,6 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
                 CalendarContract.Calendars.ACCOUNT_NAME + "," +
                         CalendarContract.Calendars.CALENDAR_DISPLAY_NAME
         )) {
-
             int colId = cursor.getColumnIndexOrThrow(CalendarContract.Calendars._ID);
             int colAccount = cursor.getColumnIndexOrThrow(CalendarContract.Calendars.ACCOUNT_NAME);
             int colType = cursor.getColumnIndexOrThrow(CalendarContract.Calendars.ACCOUNT_TYPE);
@@ -92,6 +91,8 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
                 if (account != null)
                     calendars.add(new Calendar(id, account, type, primary, visible, name));
             }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
 
         int checkedItem = -1;
