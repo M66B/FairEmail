@@ -290,7 +290,7 @@ public class FragmentSetup extends FragmentBase {
                 {
                     String gmail = getString(R.string.title_setup_android, getString(R.string.title_setup_gmail));
                     SpannableString ss = new SpannableString(gmail);
-                    ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
+                    ss.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ss.length(), 0);
                     MenuItem item = menu.add(Menu.FIRST, R.string.title_setup_gmail, order++, ss);
                     int resid = res.getIdentifier("provider_gmail", "drawable", pkg);
                     if (resid != 0)
@@ -326,7 +326,7 @@ public class FragmentSetup extends FragmentBase {
                         .setVisible(false);
 
                 SpannableString ss = new SpannableString(getString(R.string.title_setup_pop3));
-                ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
+                ss.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ss.length(), 0);
                 menu.add(Menu.NONE, R.string.title_setup_pop3, order++, ss);
 
                 menu.add(Menu.NONE, R.string.menu_faq, order++, R.string.menu_faq)
