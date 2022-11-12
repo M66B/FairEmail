@@ -3852,6 +3852,10 @@ so you cannot use FairEmail or any other email client to access Tutanota.
 
 **Cyberfear** does not support IMAP, so you'll need to manually configure a POP3 account.
 
+**Skiff** uses a proprietary email protocol
+and [does not support IMAP](https://www.skiff.com/blog/tutanota-alternatives-comparison)
+so you cannot use FairEmail or any other email client to access Skiff.
+
 <br />
 
 <a name="faq130"></a>
