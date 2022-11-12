@@ -586,6 +586,8 @@
     <string name="title_advanced_notifications_background">Hintergrunddienst verwenden, um Nachrichten zu synchronisieren</string>
     <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android angehalten werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>
     <string name="title_advanced_confirm_links">Hyperlinks beim Öffnen bestätigen</string>
+    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Tracking-Parameter standardmäßig entfernen</string>
+    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Nur beim Bestätigen von Links</string>
     <string name="title_advanced_check_links_dbl">Domain-Sperrlisten auf verdächtige Links prüfen</string>
     <string name="title_advanced_confirm_images">Standardmäßig keine Bilder anzeigen</string>
     <string name="title_advanced_ask_images">Anzeigen von Bildern bestätigen</string>
@@ -873,7 +875,7 @@
     <string name="title_drafts_select">Das Senden von E-Mails erfordert die Auswahl eines Entwürfe-Ordners in den Kontoeinstellungen</string>
     <string name="title_account_auth_update">OAuth-Autorisierung aktualisieren</string>
     <string name="title_account_auth_password">Stattdessen Passwort-Authentifizierung verwenden</string>
-    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Passwort ändern</string>
+    <string name="title_change_password">Passwort ändern</string>
     <string name="title_delete_account">Konto löschen</string>
     <string name="title_account_delete">Möchten Sie dieses Konto dauerhaft löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität dauerhaft löschen?</string>
@@ -1797,20 +1799,25 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_widget_background">Hintergrundfarbe</string>
     <string name="title_widget_day_night">Dem dunklen Systemdesign folgen</string>
     <string name="title_compat_dark">Google hat den dunklen Modus für Android-Versionen vor der Version 10 entfernt</string>
-    <string name="title_accessibility_collapsed">Eingeklappt</string>
-    <string name="title_accessibility_expanded">Erweitert</string>
-    <string name="title_accessibility_seen">Gelesen</string>
-    <string name="title_accessibility_unseen">Ungelesen</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d Nachricht</item>
-        <item quantity="other">%1$d Nachrichten</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Wichtig</string>
     <string name="title_keyword_label2">Arbeit</string>
     <string name="title_keyword_label3">Persönlich</string>
     <string name="title_keyword_label4">Offene Punkte</string>
     <string name="title_keyword_label5">Später</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d Nachricht</item>
+        <item quantity="other">%1$d Nachrichten</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Konten</string>
+    <string name="title_accessibility_folders">Ordner</string>
+    <string name="title_accessibility_searches">Suchanfragen</string>
+    <string name="title_accessibility_menus">Menüs</string>
+    <string name="title_accessibility_extras">Extras</string>
+    <string name="title_accessibility_collapsed">Eingeklappt</string>
+    <string name="title_accessibility_expanded">Erweitert</string>
+    <string name="title_accessibility_seen">Gelesen</string>
+    <string name="title_accessibility_unseen">Ungelesen</string>
     <string name="title_accessibility_flagged">Markiert</string>
     <string name="title_accessibility_unflagged">Nicht markiert</string>
     <string name="title_accessibility_collapse">Zusammenklappen</string>

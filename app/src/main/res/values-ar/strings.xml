@@ -471,9 +471,11 @@
     <string name="title_widget_font_size">حجم النص</string>
     <string name="title_widget_semi_transparent">خلفية شبه شفافة</string>
     <string name="title_widget_background">لون الخلفية</string>
-    <string name="title_accessibility_unseen">غير مقروءة</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label4">للانجاز</string>
+    <string name="title_accessibility_accounts">الحسابات</string>
+    <string name="title_accessibility_folders">الملفات</string>
+    <string name="title_accessibility_unseen">غير مقروءة</string>
     <string name="title_accessibility_flagged">مميّزة بنجمة</string>
     <string name="title_accessibility_edit">تعديل</string>
     <string name="title_accessibility_attachment">المرفق</string>

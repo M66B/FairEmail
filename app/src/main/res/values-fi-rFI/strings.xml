@@ -1792,20 +1792,22 @@
     <string name="title_widget_background">Taustaväri</string>
     <string name="title_widget_day_night">Noudata järjestelmän tummaa teemaa</string>
     <string name="title_compat_dark">Google poisti tumman tilan versiota 10 vanhemmista Android-versioista</string>
-    <string name="title_accessibility_collapsed">Tiivistetty</string>
-    <string name="title_accessibility_expanded">Laajennettu</string>
-    <string name="title_accessibility_seen">Luettu</string>
-    <string name="title_accessibility_unseen">Lukematon</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d viesti</item>
-        <item quantity="other">%1$d viestiä</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Tärkeä</string>
     <string name="title_keyword_label2">Työ</string>
     <string name="title_keyword_label3">Henkilökohtainen</string>
     <string name="title_keyword_label4">Tehtävänä</string>
     <string name="title_keyword_label5">Myöhemmin</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d viesti</item>
+        <item quantity="other">%1$d viestiä</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Tilit</string>
+    <string name="title_accessibility_folders">Kansiot</string>
+    <string name="title_accessibility_collapsed">Tiivistetty</string>
+    <string name="title_accessibility_expanded">Laajennettu</string>
+    <string name="title_accessibility_seen">Luettu</string>
+    <string name="title_accessibility_unseen">Lukematon</string>
     <string name="title_accessibility_flagged">Tähdellinen</string>
     <string name="title_accessibility_unflagged">Tähdetön</string>
     <string name="title_accessibility_collapse">Tiivistä</string>

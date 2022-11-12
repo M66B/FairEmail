@@ -580,6 +580,8 @@
     <string name="title_advanced_notifications_background">Använd en bakgrundstjänst för att synkronisera meddelanden</string>
     <string name="title_advanced_notifications_background_hint">En bakgrundstjänst kan stoppas av Android när som helst, men kräver inte ett meddelande i statusfältet</string>
     <string name="title_advanced_confirm_links">Bekräfta att länkar öppnas</string>
+    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Ta bort spårningsparametrar som standard</string>
+    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Endast när du bekräftar länkar</string>
     <string name="title_advanced_check_links_dbl">Kontrollera domänblockeringslistor för misstänkta länkar</string>
     <string name="title_advanced_confirm_images">Visa inga bilder som standard</string>
     <string name="title_advanced_ask_images">Bekräfta visning av bilder</string>
@@ -1789,20 +1791,25 @@
     <string name="title_widget_background">Bakgrundsfärg</string>
     <string name="title_widget_day_night">Följ mörkt systemtema</string>
     <string name="title_compat_dark">Google tog bort mörkt läge för Android före version 10</string>
-    <string name="title_accessibility_collapsed">Ihopfälld</string>
-    <string name="title_accessibility_expanded">Expanderad</string>
-    <string name="title_accessibility_seen">Läst</string>
-    <string name="title_accessibility_unseen">Oläst</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d meddelande</item>
-        <item quantity="other">%1$d meddelanden</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Viktigt</string>
     <string name="title_keyword_label2">Arbete</string>
     <string name="title_keyword_label3">Personligt</string>
     <string name="title_keyword_label4">Att göra</string>
     <string name="title_keyword_label5">Senare</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d meddelande</item>
+        <item quantity="other">%1$d meddelanden</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Konton</string>
+    <string name="title_accessibility_folders">Mappar</string>
+    <string name="title_accessibility_searches">Sökningar</string>
+    <string name="title_accessibility_menus">Menyer</string>
+    <string name="title_accessibility_extras">Tillägg</string>
+    <string name="title_accessibility_collapsed">Ihopfälld</string>
+    <string name="title_accessibility_expanded">Expanderad</string>
+    <string name="title_accessibility_seen">Läst</string>
+    <string name="title_accessibility_unseen">Oläst</string>
     <string name="title_accessibility_flagged">Stjärnmärkta</string>
     <string name="title_accessibility_unflagged">Ostjärnmärkt</string>
     <string name="title_accessibility_collapse">Fäll ihop</string>

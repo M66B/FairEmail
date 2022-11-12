@@ -587,6 +587,8 @@
     <string name="title_advanced_notifications_background">Χρήση υπηρεσίας στο παρασκήνιο για το συγχρονισμό των μηνυμάτων</string>
     <string name="title_advanced_notifications_background_hint">Μια υπηρεσία που εκτελείται στο παρασκήνιο αλλά δεν απαιτεί κάποια ειδοποίηση στη γραμμή κατάστασης, μπορεί να τερματιστεί από το Android οποιαδήποτε στιγμή</string>
     <string name="title_advanced_confirm_links">Επιβεβαίωση ανοίγματος συνδέσμων</string>
+    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Αφαίρεση παραμέτρων ιχνηλάτησης από προεπιλογή</string>
+    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Μόνο κατά την επιβεβαίωση συνδέσμων</string>
     <string name="title_advanced_check_links_dbl">Έλεγχος λιστών αποκλεισμένων τομέων για τους ύποπτους συνδέσμους</string>
     <string name="title_advanced_confirm_images">Να μην προβάλλεται καμία εικόνα από προεπιλογή</string>
     <string name="title_advanced_ask_images">Επιβεβαίωση προβολής των εικόνων</string>
@@ -872,7 +874,7 @@
     <string name="title_drafts_select">Για την αποστολή μηνυμάτων απαιτείται να επιλεγεί ένας φάκελος για πρόχειρα από τις ρυθμίσεις λογαριασμού</string>
     <string name="title_account_auth_update">Ενημέρωση εξουσιοδότησης</string>
     <string name="title_account_auth_password">Αλλαγή σε ταυτοποίηση μέσω κωδικού πρόσβασης</string>
-    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Αλλαγή κωδικού πρόσβασης</string>
+    <string name="title_change_password">Αλλαγή κωδικού πρόσβασης</string>
     <string name="title_delete_account">Διαγραφή λογαριασμού</string>
     <string name="title_account_delete">Να διαγραφεί οριστικά αυτός ο λογαριασμός;</string>
     <string name="title_identity_delete">Να διαγραφεί οριστικά αυτή η ταυτότητα;</string>
@@ -1796,20 +1798,25 @@
     <string name="title_widget_background">Χρώμα φόντου</string>
     <string name="title_widget_day_night">Σύμφωνα με το σκούρο θέμα συστήματος</string>
     <string name="title_compat_dark">Η Google έχει αφαιρέσει το σκούρο θέμα σε εκδόσεις Android προγενέστερες από την έκδοση 10</string>
-    <string name="title_accessibility_collapsed">Συνεπτυγμένο</string>
-    <string name="title_accessibility_expanded">Ανεπτυγμένο</string>
-    <string name="title_accessibility_seen">Αναγνωσμένο</string>
-    <string name="title_accessibility_unseen">Μη αναγνωσμένο</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d μήνυμα</item>
-        <item quantity="other">%1$d μηνύματα</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Σημαντικό</string>
     <string name="title_keyword_label2">Δουλειά</string>
     <string name="title_keyword_label3">Προσωπικά</string>
     <string name="title_keyword_label4">Εργασίες</string>
     <string name="title_keyword_label5">Αργότερα</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d μήνυμα</item>
+        <item quantity="other">%1$d μηνύματα</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Λογαριασμοί</string>
+    <string name="title_accessibility_folders">Φάκελοι</string>
+    <string name="title_accessibility_searches">Αναζητήσεις</string>
+    <string name="title_accessibility_menus">Μενού</string>
+    <string name="title_accessibility_extras">Επιπλέον επιλογές</string>
+    <string name="title_accessibility_collapsed">Συνεπτυγμένο</string>
+    <string name="title_accessibility_expanded">Ανεπτυγμένο</string>
+    <string name="title_accessibility_seen">Αναγνωσμένο</string>
+    <string name="title_accessibility_unseen">Μη αναγνωσμένο</string>
     <string name="title_accessibility_flagged">Με αστέρι</string>
     <string name="title_accessibility_unflagged">Χωρίς αστέρι</string>
     <string name="title_accessibility_collapse">Σύμπτυξη</string>

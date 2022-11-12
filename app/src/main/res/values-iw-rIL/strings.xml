@@ -1824,22 +1824,24 @@
     <string name="title_widget_background">צבע הרקע</string>
     <string name="title_widget_day_night">התחקות אחר ערכת העיצוב הכהה של המערכת</string>
     <string name="title_compat_dark">Google הסירה מצב כהה לגרסאות Android שקדמו ל־10</string>
-    <string name="title_accessibility_collapsed">מצומצם</string>
-    <string name="title_accessibility_expanded">מורחב</string>
-    <string name="title_accessibility_seen">נקראה</string>
-    <string name="title_accessibility_unseen">לא נקראו</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">הודעה</item>
-        <item quantity="two">%1$d הודעות</item>
-        <item quantity="many">%1$d הודעות</item>
-        <item quantity="other">%1$d הודעות</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">חשוב</string>
     <string name="title_keyword_label2">עבודה</string>
     <string name="title_keyword_label3">אישי</string>
     <string name="title_keyword_label4">לביצוע</string>
     <string name="title_keyword_label5">אחר כך</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">הודעה</item>
+        <item quantity="two">%1$d הודעות</item>
+        <item quantity="many">%1$d הודעות</item>
+        <item quantity="other">%1$d הודעות</item>
+    </plurals>
+    <string name="title_accessibility_accounts">חשבונות</string>
+    <string name="title_accessibility_folders">תיקיות</string>
+    <string name="title_accessibility_collapsed">מצומצם</string>
+    <string name="title_accessibility_expanded">מורחב</string>
+    <string name="title_accessibility_seen">נקראה</string>
+    <string name="title_accessibility_unseen">לא נקראו</string>
     <string name="title_accessibility_flagged">בכוכב</string>
     <string name="title_accessibility_unflagged">ללא כוכב</string>
     <string name="title_accessibility_collapse">צמצום</string>

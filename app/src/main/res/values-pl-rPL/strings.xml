@@ -900,7 +900,7 @@
     <string name="title_drafts_select">Wysyłanie wiadomości e-mail wymaga wybrania folderu szkiców w ustawieniach konta</string>
     <string name="title_account_auth_update">Zaktualizuj autoryzację</string>
     <string name="title_account_auth_password">Przełącz na uwierzytelnianie hasłem</string>
-    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Zmień hasło</string>
+    <string name="title_change_password">Zmień hasło</string>
     <string name="title_delete_account">Usuń konto</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
@@ -1824,22 +1824,24 @@
     <string name="title_widget_background">Kolor tła</string>
     <string name="title_widget_day_night">Podążaj za ciemnym motywem systemowym</string>
     <string name="title_compat_dark">Google usunęło tryb ciemny dla Androida przed wersją 10</string>
-    <string name="title_accessibility_collapsed">Zwinięta</string>
-    <string name="title_accessibility_expanded">Rozwinięta</string>
-    <string name="title_accessibility_seen">Przeczytana</string>
-    <string name="title_accessibility_unseen">Nieprzeczytana</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d wiadomość</item>
-        <item quantity="few">%1$d wiadomości</item>
-        <item quantity="many">%1$d wiadomości</item>
-        <item quantity="other">%1$d wiadomości</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Ważne</string>
     <string name="title_keyword_label2">Praca</string>
     <string name="title_keyword_label3">Osobiste</string>
     <string name="title_keyword_label4">Do zrobienia</string>
     <string name="title_keyword_label5">Później</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d wiadomość</item>
+        <item quantity="few">%1$d wiadomości</item>
+        <item quantity="many">%1$d wiadomości</item>
+        <item quantity="other">%1$d wiadomości</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Konta</string>
+    <string name="title_accessibility_folders">Foldery</string>
+    <string name="title_accessibility_collapsed">Zwinięta</string>
+    <string name="title_accessibility_expanded">Rozwinięta</string>
+    <string name="title_accessibility_seen">Przeczytana</string>
+    <string name="title_accessibility_unseen">Nieprzeczytana</string>
     <string name="title_accessibility_flagged">Oznaczona</string>
     <string name="title_accessibility_unflagged">Nie oznaczona</string>
     <string name="title_accessibility_collapse">Zwiń</string>

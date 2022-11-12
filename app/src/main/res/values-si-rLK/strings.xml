@@ -61,6 +61,8 @@
     <string name="title_pro_purchase">මිලදී ගන්න</string>
     <string name="title_widget_account_all">සියල්ල</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_accounts">ගිණුම්</string>
+    <string name="title_accessibility_folders">බහාලුම්</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>

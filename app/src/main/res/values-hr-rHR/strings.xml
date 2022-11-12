@@ -1722,21 +1722,23 @@
     <string name="title_widget_compose">Prikaži dugme za sastavljanje nove poruke</string>
     <string name="title_widget_background">Boja pozadine</string>
     <string name="title_widget_day_night">Prati tamnu temu sustava</string>
-    <string name="title_accessibility_collapsed">Sažeto</string>
-    <string name="title_accessibility_expanded">Prošireno</string>
-    <string name="title_accessibility_seen">Pročitano</string>
-    <string name="title_accessibility_unseen">Nepročitane</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d poruka</item>
-        <item quantity="few">%1$d poruke</item>
-        <item quantity="other">%1$d poruka</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Važno</string>
     <string name="title_keyword_label2">Posao</string>
     <string name="title_keyword_label3">Osobno</string>
     <string name="title_keyword_label4">Za napraviti</string>
     <string name="title_keyword_label5">Kasnije</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d poruka</item>
+        <item quantity="few">%1$d poruke</item>
+        <item quantity="other">%1$d poruka</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Računi</string>
+    <string name="title_accessibility_folders">Mape</string>
+    <string name="title_accessibility_collapsed">Sažeto</string>
+    <string name="title_accessibility_expanded">Prošireno</string>
+    <string name="title_accessibility_seen">Pročitano</string>
+    <string name="title_accessibility_unseen">Nepročitane</string>
     <string name="title_accessibility_flagged">Sa zvjezdicom</string>
     <string name="title_accessibility_unflagged">Bez zvjezdice</string>
     <string name="title_accessibility_collapse">Sažmi</string>

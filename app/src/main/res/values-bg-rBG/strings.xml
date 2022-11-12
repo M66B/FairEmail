@@ -1268,20 +1268,22 @@
     <string name="title_widget_padding">Размер на отстъпа</string>
     <string name="title_widget_semi_transparent">Полупрозрачен фон</string>
     <string name="title_widget_background">Цвят на фона</string>
-    <string name="title_accessibility_collapsed">Свиване</string>
-    <string name="title_accessibility_expanded">Разширен</string>
-    <string name="title_accessibility_seen">Прочетено</string>
-    <string name="title_accessibility_unseen">Непрочетено</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d съобщение</item>
-        <item quantity="other">%1$d съобщения</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важно</string>
     <string name="title_keyword_label2">Служебен</string>
     <string name="title_keyword_label3">Личен</string>
     <string name="title_keyword_label4">Да се направи</string>
     <string name="title_keyword_label5">По-късно</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d съобщение</item>
+        <item quantity="other">%1$d съобщения</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Акаунти</string>
+    <string name="title_accessibility_folders">Папки</string>
+    <string name="title_accessibility_collapsed">Свиване</string>
+    <string name="title_accessibility_expanded">Разширен</string>
+    <string name="title_accessibility_seen">Прочетено</string>
+    <string name="title_accessibility_unseen">Непрочетено</string>
     <string name="title_accessibility_flagged">Със звезда</string>
     <string name="title_accessibility_unflagged">Без звезда</string>
     <string name="title_accessibility_collapse">Свий</string>

@@ -101,8 +101,9 @@
     <string name="title_legend_r">Përgjigju</string>
     <string name="title_enable">Aktivizo</string>
     <string name="title_disable">Çaktivizo</string>
-    <string name="title_accessibility_seen">Lexo</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_accounts">Llogaritë</string>
+    <string name="title_accessibility_seen">Lexo</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>

@@ -589,6 +589,8 @@
     <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de estado</string>
     <string name="title_advanced_confirm_links">Pedir confirmação ao abrir hiperligações</string>
+    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Remover parâmetros de rastreamento por padrão</string>
+    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Somente quando confirmar links</string>
     <string name="title_advanced_check_links_dbl">Verificar listas de bloqueio de domínios para hiperligações suspeitas</string>
     <string name="title_advanced_confirm_images">Não mostrar imagens por padrão</string>
     <string name="title_advanced_ask_images">Confirmar a exibição de imagens</string>
@@ -876,7 +878,7 @@
     <string name="title_drafts_select">O envio de mensagens de correio electrónico requer uma pasta de rascunhos a ser seleccionada nas configurações da conta</string>
     <string name="title_account_auth_update">Atualizar autorização</string>
     <string name="title_account_auth_password">Mudar para autenticação de palavra-passe</string>
-    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Alterar palavra-passe</string>
+    <string name="title_change_password">Alterar palavra-passe</string>
     <string name="title_delete_account">Eliminar conta</string>
     <string name="title_account_delete">Eliminar esta conta permanentemente?</string>
     <string name="title_identity_delete">Eliminar esta identidade permanentemente?</string>
@@ -1803,20 +1805,25 @@
     <string name="title_widget_background">Cor do fundo</string>
     <string name="title_widget_day_night">Adoptar o tema escuro do sistema</string>
     <string name="title_compat_dark">A Google removeu o modo escuro para versões do Android antes da versão 10</string>
-    <string name="title_accessibility_collapsed">Ocultado</string>
-    <string name="title_accessibility_expanded">Expandido</string>
-    <string name="title_accessibility_seen">Lida</string>
-    <string name="title_accessibility_unseen">Não lida</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d mensagem</item>
-        <item quantity="other">%1$d mensagens</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Importante</string>
     <string name="title_keyword_label2">Trabalho</string>
     <string name="title_keyword_label3">Pessoal</string>
     <string name="title_keyword_label4">Pendente</string>
     <string name="title_keyword_label5">Mais tarde</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d mensagem</item>
+        <item quantity="other">%1$d mensagens</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Contas</string>
+    <string name="title_accessibility_folders">Pastas</string>
+    <string name="title_accessibility_searches">Pesquisas</string>
+    <string name="title_accessibility_menus">Menus</string>
+    <string name="title_accessibility_extras">Extras</string>
+    <string name="title_accessibility_collapsed">Ocultado</string>
+    <string name="title_accessibility_expanded">Expandido</string>
+    <string name="title_accessibility_seen">Lida</string>
+    <string name="title_accessibility_unseen">Não lida</string>
     <string name="title_accessibility_flagged">Com estrela</string>
     <string name="title_accessibility_unflagged">Sem estrela</string>
     <string name="title_accessibility_collapse">Ocultar</string>

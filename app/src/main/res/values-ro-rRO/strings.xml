@@ -600,6 +600,8 @@
     <string name="title_advanced_notifications_background">Folosește serviciul de fundal pentru a sincroniza mesajele</string>
     <string name="title_advanced_notifications_background_hint">Un serviciu de fundal poate fi oprit de Android în orice moment, dar nu necesită o notificare în bara de stare</string>
     <string name="title_advanced_confirm_links">Confirma deschiderea legăturilor</string>
+    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Elimină implicit parametrii de urmărire</string>
+    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Doar la confirmarea legăturilor</string>
     <string name="title_advanced_check_links_dbl">Verificați listele de blocare a domeniilor pentru link-uri suspecte</string>
     <string name="title_advanced_confirm_images">Nu afișați nicio imagine în mod implicit</string>
     <string name="title_advanced_ask_images">Confirmă afișarea imaginilor</string>
@@ -887,7 +889,7 @@
     <string name="title_drafts_select">Trimiterea de e-mailuri necesită un dosar ciorne selectat în setările contului</string>
     <string name="title_account_auth_update">Actualizarea autorizației</string>
     <string name="title_account_auth_password">Treceți la autentificarea prin parolă</string>
-    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Schimbați parola</string>
+    <string name="title_change_password">Schimbați parola</string>
     <string name="title_delete_account">Ștergere cont</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
@@ -1811,21 +1813,26 @@
     <string name="title_widget_background">Culoare fundal</string>
     <string name="title_widget_day_night">Urmați tema sistemului întunecat</string>
     <string name="title_compat_dark">Google a eliminat modul întunecat pentru versiunile de Android anterioare versiunii 10</string>
-    <string name="title_accessibility_collapsed">Restrâns</string>
-    <string name="title_accessibility_expanded">Extins</string>
-    <string name="title_accessibility_seen">Citit</string>
-    <string name="title_accessibility_unseen">Necitit</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d mesaj</item>
-        <item quantity="few">%1$d mesaje</item>
-        <item quantity="other">%1$d de mesaje</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Important</string>
     <string name="title_keyword_label2">Serviciu</string>
     <string name="title_keyword_label3">Personal</string>
     <string name="title_keyword_label4">De făcut</string>
     <string name="title_keyword_label5">Mai târziu</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d mesaj</item>
+        <item quantity="few">%1$d mesaje</item>
+        <item quantity="other">%1$d de mesaje</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Conturi</string>
+    <string name="title_accessibility_folders">Dosare</string>
+    <string name="title_accessibility_searches">Căutări</string>
+    <string name="title_accessibility_menus">Meniuri</string>
+    <string name="title_accessibility_extras">Extra</string>
+    <string name="title_accessibility_collapsed">Restrâns</string>
+    <string name="title_accessibility_expanded">Extins</string>
+    <string name="title_accessibility_seen">Citit</string>
+    <string name="title_accessibility_unseen">Necitit</string>
     <string name="title_accessibility_flagged">Marcat</string>
     <string name="title_accessibility_unflagged">Nemarcat</string>
     <string name="title_accessibility_collapse">Restrânge</string>

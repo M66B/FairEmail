@@ -87,6 +87,7 @@
     <string name="title_legend_thread">Դիալոգ</string>
     <string name="title_legend_c">Գրել</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_folders">Թղթապանակներ</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

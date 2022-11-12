@@ -978,19 +978,21 @@
     <string name="title_widget_background">배경 색</string>
     <string name="title_widget_day_night">시스템의 어두운 테마 설정 사용</string>
     <string name="title_compat_dark">Google은 Android 10 이전 버전에서 다크 모드를 제거했습니다</string>
-    <string name="title_accessibility_collapsed">접음</string>
-    <string name="title_accessibility_expanded">펼침</string>
-    <string name="title_accessibility_seen">읽음</string>
-    <string name="title_accessibility_unseen">읽지 않음</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="other">메시지 %1$d건</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">중요</string>
     <string name="title_keyword_label2">업무</string>
     <string name="title_keyword_label3">개인</string>
     <string name="title_keyword_label4">할 일</string>
     <string name="title_keyword_label5">나중에</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="other">메시지 %1$d건</item>
+    </plurals>
+    <string name="title_accessibility_accounts">계정</string>
+    <string name="title_accessibility_folders">폴더</string>
+    <string name="title_accessibility_collapsed">접음</string>
+    <string name="title_accessibility_expanded">펼침</string>
+    <string name="title_accessibility_seen">읽음</string>
+    <string name="title_accessibility_unseen">읽지 않음</string>
     <string name="title_accessibility_flagged">즐겨찾기에 추가함</string>
     <string name="title_accessibility_unflagged">즐겨찾기 해제함</string>
     <string name="title_accessibility_collapse">접음</string>

@@ -615,6 +615,8 @@
     <string name="title_advanced_notifications_background">Выкарыстоўваць фонавую службу для сінхранізацыі паведамленняў</string>
     <string name="title_advanced_notifications_background_hint">Фонавая служба можа быць спынена Android у любы час і не патрабуе апавяшчэння ў радку стану</string>
     <string name="title_advanced_confirm_links">Пацвярджаць адкрыццё спасылак</string>
+    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Выдаліць параметры адсочвання па змаўчанні</string>
+    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Толькі пры пацвярджэнні спасылак</string>
     <string name="title_advanced_check_links_dbl">Правяраць спісы блакіроўкі даменаў на наяўнасць падазроных спасылак</string>
     <string name="title_advanced_confirm_images">Па змаўчанні не паказваць выявы</string>
     <string name="title_advanced_ask_images">Пацвярджаць адлюстраванне выяў</string>
@@ -902,7 +904,7 @@
     <string name="title_drafts_select">Для адпраўкі электроннай пошты ў наладах уліковага запісу трэба выбраць папку для чарнавікоў</string>
     <string name="title_account_auth_update">Абнавіць аўтарызацыю</string>
     <string name="title_account_auth_password">Пераключыцца на аўтэнтыфікацыю праз пароль</string>
-    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Змяніць пароль</string>
+    <string name="title_change_password">Змяніць пароль</string>
     <string name="title_delete_account">Выдаліць уліковы запіс</string>
     <string name="title_account_delete">Выдаліць гэты ўліковы запіс назаўсёды?</string>
     <string name="title_identity_delete">Выдаліць гэты ідэнтыфікатар назаўсёды?</string>
@@ -1831,22 +1833,27 @@
     <string name="title_widget_background">Колер фону</string>
     <string name="title_widget_day_night">Выкарыстоўваць цёмную сістэмную тэму</string>
     <string name="title_compat_dark">Google выдаліў цёмны рэжым для версій Android да версіі 10</string>
-    <string name="title_accessibility_collapsed">Згорнута</string>
-    <string name="title_accessibility_expanded">Разгорнута</string>
-    <string name="title_accessibility_seen">Прачытана</string>
-    <string name="title_accessibility_unseen">Непрачытанае</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d паведамленне</item>
-        <item quantity="few">%1$d паведамленні</item>
-        <item quantity="many">%1$d паведамленняў</item>
-        <item quantity="other">%1$d паведамленняў</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важнае</string>
     <string name="title_keyword_label2">Праца</string>
     <string name="title_keyword_label3">Персанальны</string>
     <string name="title_keyword_label4">Выканаць</string>
     <string name="title_keyword_label5">Пазней</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d паведамленне</item>
+        <item quantity="few">%1$d паведамленні</item>
+        <item quantity="many">%1$d паведамленняў</item>
+        <item quantity="other">%1$d паведамленняў</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Уліковыя запісы</string>
+    <string name="title_accessibility_folders">Папкі</string>
+    <string name="title_accessibility_searches">Пошукі</string>
+    <string name="title_accessibility_menus">Меню</string>
+    <string name="title_accessibility_extras">Дадаткова</string>
+    <string name="title_accessibility_collapsed">Згорнута</string>
+    <string name="title_accessibility_expanded">Разгорнута</string>
+    <string name="title_accessibility_seen">Прачытана</string>
+    <string name="title_accessibility_unseen">Непрачытанае</string>
     <string name="title_accessibility_flagged">Пазначаныя</string>
     <string name="title_accessibility_unflagged">Не пазначаныя</string>
     <string name="title_accessibility_collapse">Згарнуць</string>

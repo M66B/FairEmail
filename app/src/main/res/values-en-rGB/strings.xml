@@ -124,8 +124,10 @@
         FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <string name="title_log_clear">Clear</string>
-    <string name="title_accessibility_seen">Read</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_accounts">Accounts</string>
+    <string name="title_accessibility_folders">Folders</string>
+    <string name="title_accessibility_seen">Read</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>

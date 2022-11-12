@@ -1702,19 +1702,21 @@
     <string name="title_widget_refresh">顯示重整訊息按鈕</string>
     <string name="title_widget_compose">顯示撰寫新訊息按鈕</string>
     <string name="title_widget_background">背景顏色</string>
-    <string name="title_accessibility_collapsed">已摺疊</string>
-    <string name="title_accessibility_expanded">已展開</string>
-    <string name="title_accessibility_seen">已讀取</string>
-    <string name="title_accessibility_unseen">未讀取</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="other">%1$d 則訊息</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">重要</string>
     <string name="title_keyword_label2">公司</string>
     <string name="title_keyword_label3">個人</string>
     <string name="title_keyword_label4">待辦</string>
     <string name="title_keyword_label5">過後</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="other">%1$d 則訊息</item>
+    </plurals>
+    <string name="title_accessibility_accounts">帳戶</string>
+    <string name="title_accessibility_folders">資料夾</string>
+    <string name="title_accessibility_collapsed">已摺疊</string>
+    <string name="title_accessibility_expanded">已展開</string>
+    <string name="title_accessibility_seen">已讀取</string>
+    <string name="title_accessibility_unseen">未讀取</string>
     <string name="title_accessibility_flagged">已加星號</string>
     <string name="title_accessibility_unflagged">未加星號</string>
     <string name="title_accessibility_collapse">摺疊</string>

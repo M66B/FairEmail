@@ -613,6 +613,8 @@
     <string name="title_advanced_notifications_background">Использовать фоновую службу для синхронизации сообщений</string>
     <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
     <string name="title_advanced_confirm_links">Подтверждать открытие ссылок</string>
+    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Удалять отслеживания элементы по умолчанию</string>
+    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Только при подтверждении ссылок</string>
     <string name="title_advanced_check_links_dbl">Проверять списки блокировки доменов на подозрительные ссылки</string>
     <string name="title_advanced_confirm_images">Не показывать изображения по умолчанию</string>
     <string name="title_advanced_ask_images">Подтверждать отображение изображений</string>
@@ -901,7 +903,7 @@
     <string name="title_drafts_select">Для отправки электронной почты нужно выбрать папку черновиков в настройках учётной записи</string>
     <string name="title_account_auth_update">Обновить авторизацию</string>
     <string name="title_account_auth_password">Переключиться на аутентификацию с паролем</string>
-    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Изменить пароль</string>
+    <string name="title_change_password">Изменить пароль</string>
     <string name="title_delete_account">Удалить учётную запись</string>
     <string name="title_account_delete">Удалить эту учётную запись навсегда?</string>
     <string name="title_identity_delete">Удалить этот идентификатор навсегда?</string>
@@ -1828,22 +1830,27 @@
     <string name="title_widget_background">Цвет фона</string>
     <string name="title_widget_day_night">Использовать системную тёмную тему</string>
     <string name="title_compat_dark">Google удалил тёмный режим для версий Android младше 10 версии</string>
-    <string name="title_accessibility_collapsed">Свёрнуто</string>
-    <string name="title_accessibility_expanded">Развёрнуто</string>
-    <string name="title_accessibility_seen">Прочитано</string>
-    <string name="title_accessibility_unseen">Непрочитано</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d сообщение</item>
-        <item quantity="few">%1$d сообщения</item>
-        <item quantity="many">%1$d сообщений</item>
-        <item quantity="other">%1$d сообщений</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важное</string>
     <string name="title_keyword_label2">Работа</string>
     <string name="title_keyword_label3">Личное</string>
     <string name="title_keyword_label4">Выполнить</string>
     <string name="title_keyword_label5">Позже</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d сообщение</item>
+        <item quantity="few">%1$d сообщения</item>
+        <item quantity="many">%1$d сообщений</item>
+        <item quantity="other">%1$d сообщений</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Учётные записи</string>
+    <string name="title_accessibility_folders">Папки</string>
+    <string name="title_accessibility_searches">Поиски</string>
+    <string name="title_accessibility_menus">Меню</string>
+    <string name="title_accessibility_extras">Дополнительно</string>
+    <string name="title_accessibility_collapsed">Свёрнуто</string>
+    <string name="title_accessibility_expanded">Развёрнуто</string>
+    <string name="title_accessibility_seen">Прочитано</string>
+    <string name="title_accessibility_unseen">Непрочитано</string>
     <string name="title_accessibility_flagged">Избранное</string>
     <string name="title_accessibility_unflagged">Не избранное</string>
     <string name="title_accessibility_collapse">Свернуть</string>

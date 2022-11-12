@@ -574,6 +574,8 @@
     <string name="title_advanced_notifications_background">使用后台服务来同步消息</string>
     <string name="title_advanced_notifications_background_hint">后台服务不会显示状态栏通知，但随时可能会被 Android 终止</string>
     <string name="title_advanced_confirm_links">确认打开链接</string>
+    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">默认删除跟踪参数</string>
+    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">仅当确认链接时</string>
     <string name="title_advanced_check_links_dbl">使用域名拦截列表检查可疑链接</string>
     <string name="title_advanced_confirm_images">默认不显示图片</string>
     <string name="title_advanced_ask_images">确认显示图片</string>
@@ -861,7 +863,7 @@
     <string name="title_drafts_select">需在账户设置中选定草稿文件夹才能发送邮件</string>
     <string name="title_account_auth_update">重新授权</string>
     <string name="title_account_auth_password">改用密码认证</string>
-    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">更改密码</string>
+    <string name="title_change_password">更改密码</string>
     <string name="title_delete_account">删除帐户</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
@@ -1782,19 +1784,24 @@
     <string name="title_widget_background">背景颜色</string>
     <string name="title_widget_day_night">跟随系统主题</string>
     <string name="title_compat_dark">谷歌移除了安卓 10 之前的暗黑模式</string>
-    <string name="title_accessibility_collapsed">折叠</string>
-    <string name="title_accessibility_expanded">展开</string>
-    <string name="title_accessibility_seen">阅读</string>
-    <string name="title_accessibility_unseen">未读</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="other">%1$d 条消息</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">重要</string>
     <string name="title_keyword_label2">工作</string>
     <string name="title_keyword_label3">个人</string>
     <string name="title_keyword_label4">待办事项</string>
     <string name="title_keyword_label5">稍后再说</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="other">%1$d 条消息</item>
+    </plurals>
+    <string name="title_accessibility_accounts">帐号</string>
+    <string name="title_accessibility_folders">文件夹</string>
+    <string name="title_accessibility_searches">搜索</string>
+    <string name="title_accessibility_menus">菜单</string>
+    <string name="title_accessibility_extras">附加</string>
+    <string name="title_accessibility_collapsed">折叠</string>
+    <string name="title_accessibility_expanded">展开</string>
+    <string name="title_accessibility_seen">阅读</string>
+    <string name="title_accessibility_unseen">未读</string>
     <string name="title_accessibility_flagged">标星</string>
     <string name="title_accessibility_unflagged">取消标星</string>
     <string name="title_accessibility_collapse">折叠</string>

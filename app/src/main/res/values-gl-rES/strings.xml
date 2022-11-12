@@ -1703,20 +1703,22 @@
     <string name="title_widget_background">Cor de fondo</string>
     <string name="title_widget_day_night">Usar o estilo escuro do sistema</string>
     <string name="title_compat_dark">Google eliminou o estilo escuro para as versións de Android anteriores á 10</string>
-    <string name="title_accessibility_collapsed">Contraído</string>
-    <string name="title_accessibility_expanded">Expandido</string>
-    <string name="title_accessibility_seen">Lido</string>
-    <string name="title_accessibility_unseen">Sen ler</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d mensaxe</item>
-        <item quantity="other">%1$d mensaxes</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Importante</string>
     <string name="title_keyword_label2">Traballo</string>
     <string name="title_keyword_label3">Persoal</string>
     <string name="title_keyword_label4">Por facer</string>
     <string name="title_keyword_label5">Despois</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d mensaxe</item>
+        <item quantity="other">%1$d mensaxes</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Contas</string>
+    <string name="title_accessibility_folders">Cartafoles</string>
+    <string name="title_accessibility_collapsed">Contraído</string>
+    <string name="title_accessibility_expanded">Expandido</string>
+    <string name="title_accessibility_seen">Lido</string>
+    <string name="title_accessibility_unseen">Sen ler</string>
     <string name="title_accessibility_flagged">Destacadas</string>
     <string name="title_accessibility_unflagged">Sen destacar</string>
     <string name="title_accessibility_collapse">Contraer</string>

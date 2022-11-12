@@ -1255,20 +1255,22 @@
     <string name="title_widget_background">رنگ پس‌زمینه</string>
     <string name="title_widget_day_night">بر اساس تم تاریک سیستم</string>
     <string name="title_compat_dark">گوگل قابلیت حالت تاریک را در نسخه‌های اندروید کمتر از ۱۰ حذف کرد</string>
-    <string name="title_accessibility_collapsed">جمع شده</string>
-    <string name="title_accessibility_expanded">گسترش یافته</string>
-    <string name="title_accessibility_seen">خوانده شده</string>
-    <string name="title_accessibility_unseen">خوانده نشده</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d پیام</item>
-        <item quantity="other">%1$d پیام</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">مهم</string>
     <string name="title_keyword_label2">محل کار</string>
     <string name="title_keyword_label3">شخصی</string>
     <string name="title_keyword_label4">برای انجام</string>
     <string name="title_keyword_label5">بعدا</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d پیام</item>
+        <item quantity="other">%1$d پیام</item>
+    </plurals>
+    <string name="title_accessibility_accounts">حساب‌ها</string>
+    <string name="title_accessibility_folders">پوشه‌ها</string>
+    <string name="title_accessibility_collapsed">جمع شده</string>
+    <string name="title_accessibility_expanded">گسترش یافته</string>
+    <string name="title_accessibility_seen">خوانده شده</string>
+    <string name="title_accessibility_unseen">خوانده نشده</string>
     <string name="title_accessibility_flagged">ستاره دار</string>
     <string name="title_accessibility_unflagged">بدون ستاره شده</string>
     <string name="title_accessibility_collapse">جمع شدن</string>

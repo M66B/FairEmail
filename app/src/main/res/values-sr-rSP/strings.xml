@@ -923,16 +923,18 @@
     <string name="title_widget_flagged">Само озвездане поруке</string>
     <string name="title_widget_font_size">Величина текста</string>
     <string name="title_widget_padding">Величина размака</string>
-    <string name="title_accessibility_collapsed">Смањи</string>
-    <string name="title_accessibility_expanded">Прошири</string>
-    <string name="title_accessibility_seen">Прочитано</string>
-    <string name="title_accessibility_unseen">Не прочитано</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важно</string>
     <string name="title_keyword_label2">Посао</string>
     <string name="title_keyword_label3">Лично</string>
     <string name="title_keyword_label4">За урадити</string>
     <string name="title_keyword_label5">Касније</string>
+    <string name="title_accessibility_accounts">Налоге</string>
+    <string name="title_accessibility_folders">Фасцикле</string>
+    <string name="title_accessibility_collapsed">Смањи</string>
+    <string name="title_accessibility_expanded">Прошири</string>
+    <string name="title_accessibility_seen">Прочитано</string>
+    <string name="title_accessibility_unseen">Не прочитано</string>
     <string name="title_accessibility_flagged">Омиљено</string>
     <string name="title_accessibility_unflagged">Без ознаке</string>
     <string name="title_accessibility_collapse">Умањи</string>

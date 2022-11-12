@@ -155,6 +155,8 @@
     <string name="title_log_clear">அகற்று</string>
     <string name="title_debug_info_remark">தயவுசெய்து சிக்கலை விளக்க மற்றும் பிரச்சினையின் நேரம் என்பதை குறிப்பிடவும்:</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_accounts">கணக்குகள்</string>
+    <string name="title_accessibility_folders">கோப்புறைகள்</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>

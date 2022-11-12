@@ -627,12 +627,14 @@
     <string name="title_widget_avatars">ସମ୍ପର୍କ ଅବତାରସବୁ ଦେଖାଅ</string>
     <string name="title_widget_background">ପୃଷ୍ଠପଟ ରଙ୍ଗ</string>
     <string name="title_widget_day_night">ସିଷ୍ଟମର ଗାଢ଼ ଥିମକୁ ଅନୁସରଣ କରିବା</string>
+    <!-- Thunderbird -->
+    <string name="title_keyword_label2">କର୍ମସ୍ଥଳ</string>
+    <string name="title_accessibility_accounts">ଆକାଉଣ୍ଟଗୁଡ଼ିକ</string>
+    <string name="title_accessibility_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="title_accessibility_collapsed">ସଙ୍କୁଚିତ ହୋଇଅଛି</string>
     <string name="title_accessibility_expanded">ପ୍ରସାରିତ ହୋଇଅଛି</string>
     <string name="title_accessibility_seen">ପଠିତ</string>
     <string name="title_accessibility_unseen">ଅପଠିତ</string>
-    <!-- Thunderbird -->
-    <string name="title_keyword_label2">କର୍ମସ୍ଥଳ</string>
     <string name="title_accessibility_flagged">ତାରାଙ୍କିତ</string>
     <string name="title_accessibility_collapse">ସଙ୍କୋଚନ</string>
     <string name="title_accessibility_expand">ପ୍ରସାରଣ</string>

@@ -1136,20 +1136,22 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_widget_font_size">Mida del text</string>
     <string name="title_widget_padding">Separació del text</string>
     <string name="title_widget_background">Color de fons</string>
-    <string name="title_accessibility_collapsed">Replegat</string>
-    <string name="title_accessibility_expanded">Extés</string>
-    <string name="title_accessibility_seen">Llegit</string>
-    <string name="title_accessibility_unseen">Sense llegir</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d missatge</item>
-        <item quantity="other">%1$d missatges</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Important</string>
     <string name="title_keyword_label2">Feina</string>
     <string name="title_keyword_label3">Personal</string>
     <string name="title_keyword_label4">Per fer</string>
     <string name="title_keyword_label5">Més tard</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d missatge</item>
+        <item quantity="other">%1$d missatges</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Comptes</string>
+    <string name="title_accessibility_folders">Carpetes</string>
+    <string name="title_accessibility_collapsed">Replegat</string>
+    <string name="title_accessibility_expanded">Extés</string>
+    <string name="title_accessibility_seen">Llegit</string>
+    <string name="title_accessibility_unseen">Sense llegir</string>
     <string name="title_accessibility_flagged">Destacats</string>
     <string name="title_accessibility_unflagged">Sense destacar</string>
     <string name="title_accessibility_collapse">Replegar</string>

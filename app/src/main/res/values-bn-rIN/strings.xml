@@ -131,6 +131,8 @@
     <string name="title_log_clear">মুছে ফেলুন</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label4">করণীয়</string>
+    <string name="title_accessibility_accounts">অ্যাকাউন্ট</string>
+    <string name="title_accessibility_folders">ফোল্ডার</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>

@@ -80,6 +80,7 @@
         FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_folders">Dopsies</string>
     <string-array name="pollIntervalNames">
         <item>Always</item>
         <item>Elke 5 minute</item>

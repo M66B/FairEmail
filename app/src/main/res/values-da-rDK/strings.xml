@@ -588,6 +588,8 @@
     <string name="title_advanced_notifications_background">Benyt baggrundstjeneste til beskedsynkronisering</string>
     <string name="title_advanced_notifications_background_hint">En baggrundstjeneste kan til enhver tid stoppes af Android, men behøver ingen statusbjælkenotifikation</string>
     <string name="title_advanced_confirm_links">Bekræft åbning af links</string>
+    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Fjern som standard sporingsparametre</string>
+    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Kun ved linkbekræftelse</string>
     <string name="title_advanced_check_links_dbl">Tjek domæneblokeringslister for mistænkelige links</string>
     <string name="title_advanced_confirm_images">Som standard Ingen billedvisning</string>
     <string name="title_advanced_ask_images">Bekræft visning af billeder</string>
@@ -876,7 +878,7 @@
     <string name="title_drafts_select">Afsendelse af e-mails kræver valg af en kladdemappe under kontoindstillingerne</string>
     <string name="title_account_auth_update">Opdatér godkendelse</string>
     <string name="title_account_auth_password">Skift til adgangskodegodkendelse</string>
-    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">Skift adgangskode</string>
+    <string name="title_change_password">Skift adgangskode</string>
     <string name="title_delete_account">Slet konto</string>
     <string name="title_account_delete">Slet denne konto permanent?</string>
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
@@ -1803,20 +1805,25 @@
     <string name="title_widget_background">Baggrundsfarve</string>
     <string name="title_widget_day_night">Følg mørkt systemtema</string>
     <string name="title_compat_dark">Google understøtter nu kun mørk tilstand fra og med Android 10</string>
-    <string name="title_accessibility_collapsed">Sammenfoldet</string>
-    <string name="title_accessibility_expanded">Udfoldet</string>
-    <string name="title_accessibility_seen">Læst</string>
-    <string name="title_accessibility_unseen">Ulæst</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d besked</item>
-        <item quantity="other">%1$d beskeder</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Vigtigt</string>
     <string name="title_keyword_label2">Arbejde</string>
     <string name="title_keyword_label3">Personlig</string>
     <string name="title_keyword_label4">Resterer</string>
     <string name="title_keyword_label5">Senere</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d besked</item>
+        <item quantity="other">%1$d beskeder</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Konti</string>
+    <string name="title_accessibility_folders">Mapper</string>
+    <string name="title_accessibility_searches">Søgninger</string>
+    <string name="title_accessibility_menus">Menuer</string>
+    <string name="title_accessibility_extras">Ekstra</string>
+    <string name="title_accessibility_collapsed">Sammenfoldet</string>
+    <string name="title_accessibility_expanded">Udfoldet</string>
+    <string name="title_accessibility_seen">Læst</string>
+    <string name="title_accessibility_unseen">Ulæst</string>
     <string name="title_accessibility_flagged">Stjernemarkeret</string>
     <string name="title_accessibility_unflagged">Ikke-stjernemarkeret</string>
     <string name="title_accessibility_collapse">Sammenfold</string>

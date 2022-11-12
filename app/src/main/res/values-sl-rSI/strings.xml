@@ -1824,22 +1824,24 @@
     <string name="title_widget_background">Barva ozadja</string>
     <string name="title_widget_day_night">Sledi temni temi sistema</string>
     <string name="title_compat_dark">Google je odstranil temni način za Androidove različice pred razl. 10.</string>
-    <string name="title_accessibility_collapsed">Strnjeno</string>
-    <string name="title_accessibility_expanded">Razširjeno</string>
-    <string name="title_accessibility_seen">Prebrano</string>
-    <string name="title_accessibility_unseen">Neprebrano</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d sporočilo</item>
-        <item quantity="two">%1$d sporočili</item>
-        <item quantity="few">%1$d sporočila</item>
-        <item quantity="other">%1$d sporočil</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Pomembno</string>
     <string name="title_keyword_label2">Služba</string>
     <string name="title_keyword_label3">Osebno</string>
     <string name="title_keyword_label4">Za narediti</string>
     <string name="title_keyword_label5">Kasneje</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d sporočilo</item>
+        <item quantity="two">%1$d sporočili</item>
+        <item quantity="few">%1$d sporočila</item>
+        <item quantity="other">%1$d sporočil</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Računi</string>
+    <string name="title_accessibility_folders">Mape</string>
+    <string name="title_accessibility_collapsed">Strnjeno</string>
+    <string name="title_accessibility_expanded">Razširjeno</string>
+    <string name="title_accessibility_seen">Prebrano</string>
+    <string name="title_accessibility_unseen">Neprebrano</string>
     <string name="title_accessibility_flagged">Z zvezdico</string>
     <string name="title_accessibility_unflagged">Brez zvezdice</string>
     <string name="title_accessibility_collapse">Strni</string>

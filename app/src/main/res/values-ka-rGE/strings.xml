@@ -51,6 +51,7 @@
     <string name="title_legend_section_messages">შეტყობინებები</string>
     <string name="title_legend_thread">Საუბარი</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_folders">საქაღალდეები</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

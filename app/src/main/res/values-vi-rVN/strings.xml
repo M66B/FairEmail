@@ -1740,19 +1740,21 @@
     <string name="title_widget_background">Màu nền</string>
     <string name="title_widget_day_night">Theo giao diện tối hệ thống</string>
     <string name="title_compat_dark">Google đã xoá chế độ tối cho tất cả phiên bản Android trước phiên bản 10</string>
-    <string name="title_accessibility_collapsed">Thu gọn</string>
-    <string name="title_accessibility_expanded">Mở rộng</string>
-    <string name="title_accessibility_seen">Đã đọc</string>
-    <string name="title_accessibility_unseen">Chưa đọc</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="other">%1$d thư</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Quan trọng</string>
     <string name="title_keyword_label2">Công việc</string>
     <string name="title_keyword_label3">Cá nhân</string>
     <string name="title_keyword_label4">Cần làm</string>
     <string name="title_keyword_label5">Để sau</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="other">%1$d thư</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Tài khoản</string>
+    <string name="title_accessibility_folders">Thư mục</string>
+    <string name="title_accessibility_collapsed">Thu gọn</string>
+    <string name="title_accessibility_expanded">Mở rộng</string>
+    <string name="title_accessibility_seen">Đã đọc</string>
+    <string name="title_accessibility_unseen">Chưa đọc</string>
     <string name="title_accessibility_flagged">Được gắn sao</string>
     <string name="title_accessibility_unflagged">Chưa gắn sao</string>
     <string name="title_accessibility_collapse">Thu gọn</string>

@@ -138,6 +138,7 @@
     <string name="title_debug_info_remark">कृपया समस्या का वर्णन करें और समस्या के समय से संकेत मिलता है:</string>
     <string name="title_widget_account_all">सभी</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_folders">फ़ोल्डर्स</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

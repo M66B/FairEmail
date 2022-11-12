@@ -1816,22 +1816,24 @@
     <string name="title_widget_background">Barva pozadí</string>
     <string name="title_widget_day_night">Sledovat tmavý motiv systému</string>
     <string name="title_compat_dark">Google odstranil tmavý režim pro verze Androidu nižší než 10</string>
-    <string name="title_accessibility_collapsed">Sbaleno</string>
-    <string name="title_accessibility_expanded">Rozbaleno</string>
-    <string name="title_accessibility_seen">Přečteno</string>
-    <string name="title_accessibility_unseen">Nepřečteno</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d zpráva</item>
-        <item quantity="few">%1$d zprávy</item>
-        <item quantity="many">%1$d zpráv</item>
-        <item quantity="other">%1$d zpráv</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Důležité</string>
     <string name="title_keyword_label2">Pracovní</string>
     <string name="title_keyword_label3">Osobní</string>
     <string name="title_keyword_label4">K vyřízení</string>
     <string name="title_keyword_label5">Později</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d zpráva</item>
+        <item quantity="few">%1$d zprávy</item>
+        <item quantity="many">%1$d zpráv</item>
+        <item quantity="other">%1$d zpráv</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Účty</string>
+    <string name="title_accessibility_folders">Složky</string>
+    <string name="title_accessibility_collapsed">Sbaleno</string>
+    <string name="title_accessibility_expanded">Rozbaleno</string>
+    <string name="title_accessibility_seen">Přečteno</string>
+    <string name="title_accessibility_unseen">Nepřečteno</string>
     <string name="title_accessibility_flagged">S hvězdičkou</string>
     <string name="title_accessibility_unflagged">Bez hvězdičky</string>
     <string name="title_accessibility_collapse">Sbalit</string>

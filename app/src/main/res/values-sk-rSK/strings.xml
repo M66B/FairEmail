@@ -1786,22 +1786,24 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_widget_background">Farba pozadia</string>
     <string name="title_widget_day_night">Prispôsobiť sa tmavému vzhľadu systému</string>
     <string name="title_compat_dark">Google odstránili tmavý režim pre systémy staršie než Android 10</string>
-    <string name="title_accessibility_collapsed">Zbalené</string>
-    <string name="title_accessibility_expanded">Rozbalené</string>
-    <string name="title_accessibility_seen">Prečítané</string>
-    <string name="title_accessibility_unseen">Neprečítané</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d správa</item>
-        <item quantity="few">%1$d správy</item>
-        <item quantity="many">%1$d správ</item>
-        <item quantity="other">%1$d správ</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Dôležité</string>
     <string name="title_keyword_label2">Práca</string>
     <string name="title_keyword_label3">Osobný</string>
     <string name="title_keyword_label4">Názov a adresa odkazu sú rôzne</string>
     <string name="title_keyword_label5">Neskôr</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d správa</item>
+        <item quantity="few">%1$d správy</item>
+        <item quantity="many">%1$d správ</item>
+        <item quantity="other">%1$d správ</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Účty</string>
+    <string name="title_accessibility_folders">Priečinky</string>
+    <string name="title_accessibility_collapsed">Zbalené</string>
+    <string name="title_accessibility_expanded">Rozbalené</string>
+    <string name="title_accessibility_seen">Prečítané</string>
+    <string name="title_accessibility_unseen">Neprečítané</string>
     <string name="title_accessibility_flagged">S hviezdičkou</string>
     <string name="title_accessibility_unflagged">Bez hviezdičky</string>
     <string name="title_accessibility_collapse">Zbaliť</string>

@@ -862,7 +862,7 @@
     <string name="title_drafts_select">メールを送信するには、アカウント設定で下書きフォルダーを選択する必要があります</string>
     <string name="title_account_auth_update">認証をアップデート</string>
     <string name="title_account_auth_password">パスワード認証に変更する</string>
-    <string name="title_change_password" comment="title_change_password&#10;Title for button to change an account password">パスワードを変更</string>
+    <string name="title_change_password">パスワードを変更</string>
     <string name="title_delete_account">アカウントを削除</string>
     <string name="title_account_delete">このアカウントを完全に削除しますか？</string>
     <string name="title_identity_delete">この ID を完全に削除しますか？</string>
@@ -1790,19 +1790,21 @@
     <string name="title_widget_background">背景色</string>
     <string name="title_widget_day_night">システムのダークテーマに従う</string>
     <string name="title_compat_dark">Android 10 以前では Google によりダークモードが取り除かれました</string>
-    <string name="title_accessibility_collapsed">折りたたみました</string>
-    <string name="title_accessibility_expanded">展開しました</string>
-    <string name="title_accessibility_seen">既読</string>
-    <string name="title_accessibility_unseen">未読</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="other">%1$d 件のメッセージ</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">重要</string>
     <string name="title_keyword_label2">仕事</string>
     <string name="title_keyword_label3">プライベート</string>
     <string name="title_keyword_label4">ToDo</string>
     <string name="title_keyword_label5">後で</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="other">%1$d 件のメッセージ</item>
+    </plurals>
+    <string name="title_accessibility_accounts">アカウント</string>
+    <string name="title_accessibility_folders">フォルダー</string>
+    <string name="title_accessibility_collapsed">折りたたみました</string>
+    <string name="title_accessibility_expanded">展開しました</string>
+    <string name="title_accessibility_seen">既読</string>
+    <string name="title_accessibility_unseen">未読</string>
     <string name="title_accessibility_flagged">スター付き</string>
     <string name="title_accessibility_unflagged">スターなし</string>
     <string name="title_accessibility_collapse">折りたたむ</string>

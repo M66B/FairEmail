@@ -1367,20 +1367,22 @@
     <string name="title_widget_padding">Paddinggrutte</string>
     <string name="title_widget_semi_transparent">Semy transparante eftergrûn</string>
     <string name="title_widget_background">Eftergrûnkleur</string>
-    <string name="title_accessibility_collapsed">Ynsakje</string>
-    <string name="title_accessibility_expanded">Utwreidzje</string>
-    <string name="title_accessibility_seen">Lêze</string>
-    <string name="title_accessibility_unseen">Net lêzen</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d berjocht</item>
-        <item quantity="other">%1$d berjochten</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Belangryk</string>
     <string name="title_keyword_label2">Wurk</string>
     <string name="title_keyword_label3">Persoanlik</string>
     <string name="title_keyword_label4">Dwaan</string>
     <string name="title_keyword_label5">Letter</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d berjocht</item>
+        <item quantity="other">%1$d berjochten</item>
+    </plurals>
+    <string name="title_accessibility_accounts">Akkounts</string>
+    <string name="title_accessibility_folders">Mappen</string>
+    <string name="title_accessibility_collapsed">Ynsakje</string>
+    <string name="title_accessibility_expanded">Utwreidzje</string>
+    <string name="title_accessibility_seen">Lêze</string>
+    <string name="title_accessibility_unseen">Net lêzen</string>
     <string name="title_accessibility_flagged">Stjer</string>
     <string name="title_accessibility_unflagged">Unstjerre</string>
     <string name="title_accessibility_collapse">Ynsakje</string>
