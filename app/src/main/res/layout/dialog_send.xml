@@ -237,6 +237,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindAttachment" />
 
+        <TextView
+            android:id="@+id/tvRemindInternet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/twotone_warning_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_no_internet"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRemindExtension" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSendReminders"
             android:layout_width="0dp"
@@ -246,7 +260,7 @@
             android:text="@string/title_advanced_send_reminders"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindExtension"
+            app:layout_constraintTop_toBottomOf="@id/tvRemindInternet"
             app:switchPadding="12dp" />
 
         <TextView

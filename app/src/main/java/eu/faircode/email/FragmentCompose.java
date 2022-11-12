@@ -6578,6 +6578,8 @@ public class FragmentCompose extends FragmentBase {
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                 }
+
+                            args.putBoolean("remind_internet", !ConnectionHelper.getNetworkState(context).isConnected());
                         } else {
                             int mid;
                             if (action == R.id.action_undo)
@@ -6773,6 +6775,7 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
                 String remind_extension = args.getString("remind_extension");
+                boolean remind_internet = args.getBoolean("remind_internet", false);
                 boolean styled = args.getBoolean("styled", false);
 
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
@@ -6786,7 +6789,8 @@ public class FragmentCompose extends FragmentBase {
                         (styled && draft.isPlainOnly()) ||
                         (send_reminders &&
                                 (remind_extra || remind_subject || remind_text ||
-                                        remind_attachment || remind_extension != null))) {
+                                        remind_attachment || remind_extension != null ||
+                                        remind_internet))) {
                     setBusy(false);
 
                     Helper.hideKeyboard(view);
@@ -7608,6 +7612,7 @@ public class FragmentCompose extends FragmentBase {
             final boolean remind_text = args.getBoolean("remind_text", false);
             final boolean remind_attachment = args.getBoolean("remind_attachment", false);
             final String remind_extension = args.getString("remind_extension");
+            final boolean remind_internet = args.getBoolean("remind_internet", false);
             final boolean styled = args.getBoolean("styled", false);
             final long size = args.getLong("size", -1);
             final long max_size = args.getLong("max_size", -1);
@@ -7640,6 +7645,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
             final TextView tvRemindExtension = dview.findViewById(R.id.tvRemindExtension);
+            final TextView tvRemindInternet = dview.findViewById(R.id.tvRemindInternet);
             final SwitchCompat swSendReminders = dview.findViewById(R.id.swSendReminders);
             final TextView tvSendRemindersHint = dview.findViewById(R.id.tvSendRemindersHint);
             final TextView tvTo = dview.findViewById(R.id.tvTo);
@@ -7698,6 +7704,8 @@ public class FragmentCompose extends FragmentBase {
             tvRemindExtension.setText(getString(R.string.title_attachment_warning, remind_extension));
             tvRemindExtension.setVisibility(send_reminders && remind_extension != null ? View.VISIBLE : View.GONE);
 
+            tvRemindInternet.setVisibility(send_reminders && remind_internet ? View.VISIBLE : View.GONE);
+
             tvTo.setText(null);
             tvVia.setText(null);
             tvPlainHint.setVisibility(View.GONE);
@@ -7717,7 +7725,7 @@ public class FragmentCompose extends FragmentBase {
             Helper.setViewsEnabled(dview, false);
 
             boolean reminder = (remind_extra || remind_subject || remind_text ||
-                    remind_attachment || remind_extension != null);
+                    remind_attachment || remind_extension != null || remind_internet);
             swSendReminders.setChecked(send_reminders);
             swSendReminders.setVisibility(send_reminders && reminder ? View.VISIBLE : View.GONE);
             tvSendRemindersHint.setVisibility(View.GONE);
@@ -7730,6 +7738,7 @@ public class FragmentCompose extends FragmentBase {
                     tvRemindText.setVisibility(checked && remind_text ? View.VISIBLE : View.GONE);
                     tvRemindAttachment.setVisibility(checked && remind_attachment ? View.VISIBLE : View.GONE);
                     tvRemindExtension.setVisibility(checked && remind_extension != null ? View.VISIBLE : View.GONE);
+                    tvRemindInternet.setVisibility(checked && remind_internet ? View.VISIBLE : View.GONE);
                     tvSendRemindersHint.setVisibility(checked ? View.GONE : View.VISIBLE);
                 }
             });
