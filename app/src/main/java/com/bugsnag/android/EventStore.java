@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.RejectedExecutionException;
@@ -132,6 +133,26 @@ class EventStore extends FileStore {
         return launchCrashes.isEmpty() ? null : launchCrashes.get(launchCrashes.size() - 1);
     }
 
+    @Nullable
+    Future<String> writeAndDeliver(@NonNull final JsonStream.Streamable streamable) {
+        final String filename = write(streamable);
+
+        if (filename != null) {
+            try {
+                return bgTaskSevice.submitTask(TaskType.ERROR_REQUEST, new Callable<String>() {
+                    public String call() {
+                        flushEventFile(new File(filename));
+                        return filename;
+                    }
+                });
+            } catch (RejectedExecutionException exception) {
+                logger.w("Failed to flush all on-disk errors, retaining unsent errors for later.");
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Flush any on-disk errors to Bugsnag
      */
@@ -163,7 +184,7 @@ class EventStore extends FileStore {
         }
     }
 
-    private void flushEventFile(File eventFile) {
+    void flushEventFile(File eventFile) {
         try {
             EventFilenameInfo eventInfo = EventFilenameInfo.fromFile(eventFile, config);
             String apiKey = eventInfo.getApiKey();

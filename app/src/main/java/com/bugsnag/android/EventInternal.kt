@@ -1,6 +1,10 @@
 package com.bugsnag.android
 
 import com.bugsnag.android.internal.ImmutableConfig
+import com.bugsnag.android.internal.InternalMetrics
+import com.bugsnag.android.internal.InternalMetricsNoop
+import com.bugsnag.android.internal.JsonHelper
+import com.bugsnag.android.internal.TrimMetrics
 import java.io.IOException
 
 internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, MetadataAware, UserAware {
@@ -14,6 +18,7 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
         featureFlags: FeatureFlags = FeatureFlags()
     ) : this(
         config.apiKey,
+        config.logger,
         mutableListOf(),
         config.discardClasses.toSet(),
         when (originalError) {
@@ -32,6 +37,7 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
 
     internal constructor(
         apiKey: String,
+        logger: Logger,
         breadcrumbs: MutableList<Breadcrumb> = mutableListOf(),
         discardClasses: Set<String> = setOf(),
         errors: MutableList<Error> = mutableListOf(),
@@ -44,6 +50,7 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
         user: User = User(),
         redactionKeys: Set<String>? = null
     ) {
+        this.logger = logger
         this.apiKey = apiKey
         this.breadcrumbs = breadcrumbs
         this.discardClasses = discardClasses
@@ -64,6 +71,7 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
     val originalError: Throwable?
     internal var severityReason: SeverityReason
 
+    val logger: Logger
     val metadata: Metadata
     val featureFlags: FeatureFlags
     private val discardClasses: Set<String>
@@ -103,6 +111,7 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
             jsonStreamer.redactedKeys = value.toSet()
             metadata.redactedKeys = value.toSet()
         }
+    var internalMetrics: InternalMetrics = InternalMetricsNoop()
 
     /**
      * @return user information associated with this Event
@@ -162,6 +171,15 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
         writer.name("device").value(device)
         writer.name("breadcrumbs").value(breadcrumbs)
         writer.name("groupingHash").value(groupingHash)
+        val usage = internalMetrics.toJsonableMap()
+        if (usage.isNotEmpty()) {
+            writer.name("usage")
+            writer.beginObject()
+            usage.forEach { entry ->
+                writer.name(entry.key).value(entry.value)
+            }
+            writer.endObject()
+        }
 
         writer.name("threads")
         writer.beginArray()
@@ -228,6 +246,41 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
     }
 
     fun getSeverityReasonType(): String = severityReason.severityReasonType
+
+    fun trimMetadataStringsTo(maxLength: Int): TrimMetrics {
+        var stringCount = 0
+        var charCount = 0
+
+        var stringAndCharCounts = metadata.trimMetadataStringsTo(maxLength)
+        stringCount += stringAndCharCounts.itemsTrimmed
+        charCount += stringAndCharCounts.dataTrimmed
+        for (breadcrumb in breadcrumbs) {
+            stringAndCharCounts = breadcrumb.impl.trimMetadataStringsTo(maxLength)
+            stringCount += stringAndCharCounts.itemsTrimmed
+            charCount += stringAndCharCounts.dataTrimmed
+        }
+        return TrimMetrics(stringCount, charCount)
+    }
+
+    fun trimBreadcrumbsBy(byteCount: Int): TrimMetrics {
+        var removedBreadcrumbCount = 0
+        var removedByteCount = 0
+        while (removedByteCount < byteCount && breadcrumbs.isNotEmpty()) {
+            val breadcrumb = breadcrumbs.removeAt(0)
+            removedByteCount += JsonHelper.serialize(breadcrumb).size
+            removedBreadcrumbCount++
+        }
+        when (removedBreadcrumbCount) {
+            1 -> breadcrumbs.add(Breadcrumb("Removed to reduce payload size", logger))
+            else -> breadcrumbs.add(
+                Breadcrumb(
+                    "Removed, along with ${removedBreadcrumbCount - 1} older breadcrumbs, to reduce payload size",
+                    logger
+                )
+            )
+        }
+        return TrimMetrics(removedBreadcrumbCount, removedByteCount)
+    }
 
     override fun setUser(id: String?, email: String?, name: String?) {
         userImpl = User(id, email, name)

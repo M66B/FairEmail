@@ -1,13 +1,18 @@
 package com.bugsnag.android;
 
 import com.bugsnag.android.internal.ImmutableConfig;
+import com.bugsnag.android.internal.JsonHelper;
 
 import android.annotation.SuppressLint;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -39,6 +44,26 @@ public class NativeInterface {
     }
 
     /**
+     * Create an empty Event for a "handled exception" report. The returned Event will have
+     * no Error objects, metadata, breadcrumbs, or feature flags. It's indented that the caller
+     * will populate the Error and then pass the Event object to
+     * {@link Client#populateAndNotifyAndroidEvent(Event, OnErrorCallback)}.
+     */
+    private static Event createEmptyEvent() {
+        Client client = getClient();
+
+        return new Event(
+                new EventInternal(
+                        (Throwable) null,
+                        client.getConfig(),
+                        SeverityReason.newInstance(SeverityReason.REASON_HANDLED_EXCEPTION),
+                        client.getMetadataState().getMetadata().copy()
+                ),
+                client.getLogger()
+        );
+    }
+
+    /**
      * Caches a client instance for responding to future events
      */
     public static void setClient(@NonNull Client client) {
@@ -54,10 +79,16 @@ public class NativeInterface {
      * Retrieves the directory used to store native crash reports
      */
     @NonNull
-    public static String getNativeReportPath() {
-        ImmutableConfig config = getClient().getConfig();
-        File persistenceDirectory = config.getPersistenceDirectory().getValue();
-        return new File(persistenceDirectory, "bugsnag-native").getAbsolutePath();
+    public static File getNativeReportPath() {
+        return getNativeReportPath(getPersistenceDirectory());
+    }
+
+    private static @NonNull File getNativeReportPath(@NonNull File persistenceDirectory) {
+        return new File(persistenceDirectory, "bugsnag-native");
+    }
+
+    private static @NonNull File getPersistenceDirectory() {
+        return getClient().getConfig().getPersistenceDirectory().getValue();
     }
 
     /**
@@ -65,7 +96,7 @@ public class NativeInterface {
      */
     @NonNull
     @SuppressWarnings("unused")
-    public static Map<String,String> getUser() {
+    public static Map<String, String> getUser() {
         HashMap<String, String> userData = new HashMap<>();
         User user = getClient().getUser();
         userData.put("id", user.getId());
@@ -79,8 +110,8 @@ public class NativeInterface {
      */
     @NonNull
     @SuppressWarnings("unused")
-    public static Map<String,Object> getApp() {
-        HashMap<String,Object> data = new HashMap<>();
+    public static Map<String, Object> getApp() {
+        HashMap<String, Object> data = new HashMap<>();
         AppDataCollector source = getClient().getAppDataCollector();
         AppWithState app = source.generateAppWithState();
         data.put("version", app.getVersion());
@@ -103,7 +134,7 @@ public class NativeInterface {
      */
     @NonNull
     @SuppressWarnings("unused")
-    public static Map<String,Object> getDevice() {
+    public static Map<String, Object> getDevice() {
         DeviceDataCollector source = getClient().getDeviceDataCollector();
         HashMap<String, Object> deviceData = new HashMap<>(source.getDeviceMetadata());
 
@@ -152,9 +183,9 @@ public class NativeInterface {
     /**
      * Sets the user
      *
-     * @param id id
+     * @param id    id
      * @param email email
-     * @param name name
+     * @param name  name
      */
     @SuppressWarnings("unused")
     public static void setUser(@Nullable final String id,
@@ -167,9 +198,9 @@ public class NativeInterface {
     /**
      * Sets the user
      *
-     * @param idBytes id
+     * @param idBytes    id
      * @param emailBytes email
-     * @param nameBytes name
+     * @param nameBytes  name
      */
     @SuppressWarnings("unused")
     public static void setUser(@Nullable final byte[] idBytes,
@@ -301,24 +332,67 @@ public class NativeInterface {
     }
 
     /**
+     * Ask if an error class is on the configurable discard list.
+     * This is used by the native layer to decide whether to pass an event to
+     * deliverReport() or not.
+     *
+     * @param name The error class to ask about.
+     */
+    @SuppressWarnings("unused")
+    public static boolean isDiscardErrorClass(@NonNull String name) {
+        return getClient().getConfig().getDiscardClasses().contains(name);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static void deepMerge(Map<String, Object> src, Map<String, Object> dst) {
+        for (Map.Entry<String, Object> entry: src.entrySet()) {
+            String key = entry.getKey();
+            Object srcValue = entry.getValue();
+            Object dstValue = dst.get(key);
+            if (srcValue instanceof Map && (dstValue instanceof Map)) {
+                deepMerge((Map<String, Object>)srcValue, (Map<String, Object>)dstValue);
+            } else if (srcValue instanceof Collection && dstValue instanceof Collection) {
+                // Just append everything because we don't know enough about the context or
+                // provenance of the data to make an intelligent decision about this.
+                ((Collection<Object>)dstValue).addAll((Collection<Object>)srcValue);
+            } else {
+                dst.put(key, srcValue);
+            }
+        }
+    }
+
+    /**
      * Deliver a report, serialized as an event JSON payload.
      *
      * @param releaseStageBytes The release stage in which the event was
      *                          captured. Used to determine whether the report
      *                          should be discarded, based on configured release
      *                          stages
-     * @param payloadBytes The raw JSON payload of the event
-     * @param apiKey The apiKey for the event
-     * @param isLaunching whether the crash occurred when the app was launching
+     * @param payloadBytes      The raw JSON payload of the event
+     * @param apiKey            The apiKey for the event
+     * @param isLaunching       whether the crash occurred when the app was launching
      */
     @SuppressWarnings("unused")
     public static void deliverReport(@Nullable byte[] releaseStageBytes,
                                      @NonNull byte[] payloadBytes,
+                                     @Nullable byte[] staticDataBytes,
                                      @NonNull String apiKey,
                                      boolean isLaunching) {
-        if (payloadBytes == null) {
-            return;
+        // If there's saved static data, merge it directly into the payload map.
+        if (staticDataBytes != null) {
+            @SuppressWarnings("unchecked")
+            Map<String, Object> payloadMap = (Map<String, Object>) JsonHelper.INSTANCE.deserialize(
+                    new ByteArrayInputStream(payloadBytes));
+            @SuppressWarnings("unchecked")
+            Map<String, Object> staticDataMap =
+                    (Map<String, Object>) JsonHelper.INSTANCE.deserialize(
+                    new ByteArrayInputStream(staticDataBytes));
+            deepMerge(staticDataMap, payloadMap);
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            JsonHelper.INSTANCE.serialize(payloadMap, os);
+            payloadBytes = os.toByteArray();
         }
+
         String payload = new String(payloadBytes, UTF8Charset);
         String releaseStage = releaseStageBytes == null
                 ? null
@@ -341,10 +415,10 @@ public class NativeInterface {
     /**
      * Notifies using the Android SDK
      *
-     * @param nameBytes the error name
+     * @param nameBytes    the error name
      * @param messageBytes the error message
-     * @param severity the error severity
-     * @param stacktrace a stacktrace
+     * @param severity     the error severity
+     * @param stacktrace   a stacktrace
      */
     public static void notify(@NonNull final byte[] nameBytes,
                               @NonNull final byte[] messageBytes,
@@ -361,9 +435,9 @@ public class NativeInterface {
     /**
      * Notifies using the Android SDK
      *
-     * @param name the error name
-     * @param message the error message
-     * @param severity the error severity
+     * @param name       the error name
+     * @param message    the error message
+     * @param severity   the error severity
      * @param stacktrace a stacktrace
      */
     public static void notify(@NonNull final String name,
@@ -398,10 +472,64 @@ public class NativeInterface {
     }
 
     /**
+     * Notifies using the Android SDK
+     *
+     * @param nameBytes    the error name
+     * @param messageBytes the error message
+     * @param severity     the error severity
+     * @param stacktrace   a stacktrace
+     */
+    public static void notify(@NonNull final byte[] nameBytes,
+                              @NonNull final byte[] messageBytes,
+                              @NonNull final Severity severity,
+                              @NonNull final NativeStackframe[] stacktrace) {
+
+        if (nameBytes == null || messageBytes == null || stacktrace == null) {
+            return;
+        }
+        String name = new String(nameBytes, UTF8Charset);
+        String message = new String(messageBytes, UTF8Charset);
+        notify(name, message, severity, stacktrace);
+    }
+
+    /**
+     * Notifies using the Android SDK
+     *
+     * @param name       the error name
+     * @param message    the error message
+     * @param severity   the error severity
+     * @param stacktrace a stacktrace
+     */
+    public static void notify(@NonNull final String name,
+                              @NonNull final String message,
+                              @NonNull final Severity severity,
+                              @NonNull final NativeStackframe[] stacktrace) {
+        Client client = getClient();
+
+        if (client.getConfig().shouldDiscardError(name)) {
+            return;
+        }
+
+        Event event = createEmptyEvent();
+        event.updateSeverityInternal(severity);
+
+        List<Stackframe> stackframes = new ArrayList<>(stacktrace.length);
+        for (NativeStackframe nativeStackframe : stacktrace) {
+            stackframes.add(new Stackframe(nativeStackframe));
+        }
+        event.getErrors().add(new Error(
+                new ErrorInternal(name, message, new Stacktrace(stackframes), ErrorType.C),
+                client.getLogger()
+        ));
+
+        getClient().populateAndNotifyAndroidEvent(event, null);
+    }
+
+    /**
      * Create an {@code Event} object
      *
-     * @param exc the Throwable object that caused the event
-     * @param client the Client object that the event is associated with
+     * @param exc            the Throwable object that caused the event
+     * @param client         the Client object that the event is associated with
      * @param severityReason the severity of the Event
      * @return a new {@code Event} object
      */
@@ -471,5 +599,4 @@ public class NativeInterface {
     public static LastRunInfo getLastRunInfo() {
         return getClient().getLastRunInfo();
     }
-
 }

@@ -1,5 +1,6 @@
 package com.bugsnag.android
 
+import com.bugsnag.android.internal.JsonHelper
 import java.io.IOException
 
 /**
@@ -59,9 +60,9 @@ class NativeStackframe internal constructor(
         writer.name("method").value(method)
         writer.name("file").value(file)
         writer.name("lineNumber").value(lineNumber)
-        writer.name("frameAddress").value(frameAddress)
-        writer.name("symbolAddress").value(symbolAddress)
-        writer.name("loadAddress").value(loadAddress)
+        frameAddress?.let { writer.name("frameAddress").value(JsonHelper.ulongToHex(frameAddress)) }
+        symbolAddress?.let { writer.name("symbolAddress").value(JsonHelper.ulongToHex(symbolAddress)) }
+        loadAddress?.let { writer.name("loadAddress").value(JsonHelper.ulongToHex(loadAddress)) }
         writer.name("codeIdentifier").value(codeIdentifier)
         writer.name("isPC").value(isPC)
 

@@ -33,4 +33,20 @@ class ErrorTypes(
     internal constructor(detectErrors: Boolean) : this(detectErrors, detectErrors, detectErrors, detectErrors)
 
     internal fun copy() = ErrorTypes(anrs, ndkCrashes, unhandledExceptions, unhandledRejections)
+
+    override fun equals(other: Any?): Boolean {
+        return other is ErrorTypes &&
+            anrs == other.anrs &&
+            ndkCrashes == other.ndkCrashes &&
+            unhandledExceptions == other.unhandledExceptions &&
+            unhandledRejections == other.unhandledRejections
+    }
+
+    override fun hashCode(): Int {
+        var result = anrs.hashCode()
+        result = 31 * result + ndkCrashes.hashCode()
+        result = 31 * result + unhandledExceptions.hashCode()
+        result = 31 * result + unhandledRejections.hashCode()
+        return result
+    }
 }

@@ -4,6 +4,7 @@ import static com.bugsnag.android.DeliveryHeadersKt.HEADER_INTERNAL_ERROR;
 import static com.bugsnag.android.SeverityReason.REASON_UNHANDLED_EXCEPTION;
 
 import com.bugsnag.android.internal.ImmutableConfig;
+import com.bugsnag.android.internal.JsonHelper;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -121,7 +122,11 @@ class InternalReportDelegate implements EventStore.Delegate {
                             headers.put(HEADER_INTERNAL_ERROR, "bugsnag-android");
                             headers.remove(DeliveryHeadersKt.HEADER_API_KEY);
                             DefaultDelivery defaultDelivery = (DefaultDelivery) delivery;
-                            defaultDelivery.deliver(params.getEndpoint(), payload, headers);
+                            defaultDelivery.deliver(
+                                    params.getEndpoint(),
+                                    JsonHelper.INSTANCE.serialize(payload),
+                                    headers
+                            );
                         }
 
                     } catch (Exception exception) {

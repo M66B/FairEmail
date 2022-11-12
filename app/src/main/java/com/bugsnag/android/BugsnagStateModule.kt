@@ -1,6 +1,6 @@
 package com.bugsnag.android
 
-import com.bugsnag.android.internal.dag.ConfigModule
+import com.bugsnag.android.internal.ImmutableConfig
 import com.bugsnag.android.internal.dag.DependencyModule
 
 /**
@@ -8,15 +8,13 @@ import com.bugsnag.android.internal.dag.DependencyModule
  * class is responsible for creating classes which track the current breadcrumb/metadata state.
  */
 internal class BugsnagStateModule(
-    configModule: ConfigModule,
+    cfg: ImmutableConfig,
     configuration: Configuration
 ) : DependencyModule() {
 
-    private val cfg = configModule.config
-
     val clientObservable = ClientObservable()
 
-    val callbackState = configuration.impl.callbackState.copy()
+    val callbackState = configuration.impl.callbackState
 
     val contextState = ContextState().apply {
         if (configuration.context != null) {

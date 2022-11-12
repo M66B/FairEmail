@@ -7,13 +7,14 @@ import com.bugsnag.android.internal.ImmutableConfig;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.concurrent.Future;
 import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.TimeUnit;
 
 class DeliveryDelegate extends BaseObservable {
+
+    @VisibleForTesting
+    static long DELIVERY_TIMEOUT = 3000L;
 
     final Logger logger;
     private final EventStore eventStore;
@@ -55,7 +56,13 @@ class DeliveryDelegate extends BaseObservable {
             String severityReasonType = event.getImpl().getSeverityReasonType();
             boolean promiseRejection = REASON_PROMISE_REJECTION.equals(severityReasonType);
             boolean anr = event.getImpl().isAnr(event);
-            cacheEvent(event, anr || promiseRejection);
+            if (anr || promiseRejection) {
+                cacheEvent(event, true);
+            } else if (immutableConfig.getAttemptDeliveryOnCrash()) {
+                cacheAndSendSynchronously(event);
+            } else {
+                cacheEvent(event, false);
+            }
         } else if (callbackState.runOnSendTasks(event, logger)) {
             // Build the eventPayload
             String apiKey = event.getApiKey();
@@ -105,6 +112,24 @@ class DeliveryDelegate extends BaseObservable {
                 break;
         }
         return deliveryStatus;
+    }
+
+    private void cacheAndSendSynchronously(@NonNull Event event) {
+        long cutoffTime = System.currentTimeMillis() + DELIVERY_TIMEOUT;
+        Future<String> task = eventStore.writeAndDeliver(event);
+
+        long timeout = cutoffTime - System.currentTimeMillis();
+        if (task != null && timeout > 0) {
+            try {
+                task.get(timeout, TimeUnit.MILLISECONDS);
+            } catch (Exception ex) {
+                logger.w("failed to immediately deliver event", ex);
+            }
+
+            if (!task.isDone()) {
+                task.cancel(true);
+            }
+        }
     }
 
     private void cacheEvent(@NonNull Event event, boolean attemptSend) {

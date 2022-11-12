@@ -1,5 +1,7 @@
 package com.bugsnag.android
 
+import com.bugsnag.android.internal.StringUtils
+import com.bugsnag.android.internal.TrimMetrics
 import java.io.IOException
 import java.util.Date
 
@@ -21,6 +23,11 @@ internal class BreadcrumbInternal internal constructor(
         mutableMapOf(),
         Date()
     )
+
+    internal fun trimMetadataStringsTo(maxStringLength: Int): TrimMetrics {
+        val metadata = this.metadata ?: return TrimMetrics(0, 0)
+        return StringUtils.trimStringValuesTo(maxStringLength, metadata)
+    }
 
     @Throws(IOException::class)
     override fun toStream(writer: JsonStream) {

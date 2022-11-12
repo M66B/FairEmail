@@ -52,6 +52,7 @@ data class ImmutableConfig(
     val maxReportedThreads: Int,
     val persistenceDirectory: Lazy<File>,
     val sendLaunchCrashesSynchronously: Boolean,
+    val attemptDeliveryOnCrash: Boolean,
 
     // results cached here to avoid unnecessary lookups in Client.
     val packageInfo: PackageInfo?,
@@ -167,6 +168,7 @@ internal fun convertToImmutableConfig(
         telemetry = config.telemetry.toSet(),
         persistenceDirectory = persistenceDir,
         sendLaunchCrashesSynchronously = config.sendLaunchCrashesSynchronously,
+        attemptDeliveryOnCrash = config.isAttemptDeliveryOnCrash,
         packageInfo = packageInfo,
         appInfo = appInfo,
         redactedKeys = config.redactedKeys.toSet()
@@ -220,7 +222,12 @@ internal fun sanitiseConfiguration(
 
     @Suppress("SENSELESS_COMPARISON")
     if (configuration.delivery == null) {
-        configuration.delivery = DefaultDelivery(connectivity, configuration.logger!!)
+        configuration.delivery = DefaultDelivery(
+            connectivity,
+            configuration.apiKey,
+            configuration.maxStringValueLength,
+            configuration.logger!!
+        )
     }
     return convertToImmutableConfig(
         configuration,

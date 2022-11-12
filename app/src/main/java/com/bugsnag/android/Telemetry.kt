@@ -8,7 +8,12 @@ enum class Telemetry {
     /**
      * Errors within the Bugsnag SDK.
      */
-    INTERNAL_ERRORS;
+    INTERNAL_ERRORS,
+
+    /**
+     * Differences from the default configuration.
+     */
+    USAGE;
 
     internal companion object {
         fun fromString(str: String) = values().find { it.name == str } ?: INTERNAL_ERRORS

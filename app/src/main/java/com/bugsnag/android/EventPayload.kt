@@ -12,17 +12,21 @@ import java.io.IOException
  */
 class EventPayload @JvmOverloads internal constructor(
     var apiKey: String?,
-    val event: Event? = null,
+    event: Event? = null,
     internal val eventFile: File? = null,
     notifier: Notifier,
     private val config: ImmutableConfig
 ) : JsonStream.Streamable {
+
+    var event = event
+        internal set(value) { field = value }
 
     internal val notifier = Notifier(notifier.name, notifier.version, notifier.url).apply {
         dependencies = notifier.dependencies.toMutableList()
     }
 
     internal fun getErrorTypes(): Set<ErrorType> {
+        val event = this.event
         return when {
             event != null -> event.impl.getErrorTypesFromStackframes()
             eventFile != null -> EventFilenameInfo.fromFile(eventFile, config).errorTypes

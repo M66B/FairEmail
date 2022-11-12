@@ -42,6 +42,7 @@ internal class ManifestConfigLoader {
         private const val LAUNCH_DURATION_MILLIS = "$BUGSNAG_NS.LAUNCH_DURATION_MILLIS"
         private const val SEND_LAUNCH_CRASHES_SYNCHRONOUSLY = "$BUGSNAG_NS.SEND_LAUNCH_CRASHES_SYNCHRONOUSLY"
         private const val APP_TYPE = "$BUGSNAG_NS.APP_TYPE"
+        private const val ATTEMPT_DELIVERY_ON_CRASH = "$BUGSNAG_NS.ATTEMPT_DELIVERY_ON_CRASH"
     }
 
     fun load(ctx: Context, userSuppliedApiKey: String?): Configuration {
@@ -90,6 +91,10 @@ internal class ManifestConfigLoader {
                 sendLaunchCrashesSynchronously = data.getBoolean(
                     SEND_LAUNCH_CRASHES_SYNCHRONOUSLY,
                     sendLaunchCrashesSynchronously
+                )
+                isAttemptDeliveryOnCrash = data.getBoolean(
+                    ATTEMPT_DELIVERY_ON_CRASH,
+                    isAttemptDeliveryOnCrash
                 )
             }
         }
