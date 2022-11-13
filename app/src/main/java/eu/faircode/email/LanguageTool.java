@@ -231,7 +231,7 @@ public class LanguageTool {
                 Suggestion suggestion = new Suggestion();
                 suggestion.title = jmatch.getString("shortMessage");
                 suggestion.description = jmatch.getString("message");
-                suggestion.offset = jmatch.getInt("offset");
+                suggestion.offset = jmatch.getInt("offset") + start;
                 suggestion.length = jmatch.getInt("length");
 
                 JSONArray jreplacements = jmatch.getJSONArray("replacements");
@@ -380,7 +380,7 @@ public class LanguageTool {
                     Log.w("LT " + s + "..." + e + " length=" + edit.length());
                     continue;
                 }
-                edit.setSpan(span, s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                edit.setSpan(span, s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
             }
     }
 
