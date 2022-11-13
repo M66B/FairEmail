@@ -272,13 +272,15 @@ public class ProtectedContent {
 
                             String html = ProtectedContent.fromUri(context, uri, password);
 
-                            return HtmlHelper.fromHtml(html, new HtmlHelper.ImageGetterEx() {
+                            Document d = JsoupEx.parse(html);
+                            d = HtmlHelper.sanitizeView(context, d, true);
+                            return HtmlHelper.fromDocument(context, d, new HtmlHelper.ImageGetterEx() {
                                 @Override
                                 public Drawable getDrawable(Element element) {
                                     return ImageHelper.decodeImage(context,
                                             -1, element, true, 0, 1.0f, tvContent);
                                 }
-                            }, null, context);
+                            }, null);
                         }
 
                         @Override
