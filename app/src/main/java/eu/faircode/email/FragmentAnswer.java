@@ -203,6 +203,12 @@ public class FragmentAnswer extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", copy < 0 ? id : copy);
 
+        Bundle a = getArguments();
+        if (a != null) {
+            args.putString("subject", a.getString("subject"));
+            args.putString("html", a.getString("html"));
+        }
+
         new SimpleTask<EntityAnswer>() {
             @Override
             protected void onPreExecute(Bundle args) {
@@ -217,7 +223,28 @@ public class FragmentAnswer extends FragmentBase {
             @Override
             protected EntityAnswer onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
-                return DB.getInstance(context).answer().getAnswer(id);
+
+                DB db = DB.getInstance(context);
+                EntityAnswer answer = db.answer().getAnswer(id);
+
+                String html = (answer == null ? args.getString("html") : answer.text);
+                if (html != null) {
+                    Document d = JsoupEx.parse(html);
+                    d = HtmlHelper.sanitizeView(context, d, true);
+                    Spanned spanned = HtmlHelper.fromDocument(context, d, new HtmlHelper.ImageGetterEx() {
+                        @Override
+                        public Drawable getDrawable(Element element) {
+                            String source = element.attr("src");
+                            if (source.startsWith("cid:"))
+                                element.attr("src", "cid:");
+                            return ImageHelper.decodeImage(context,
+                                    -1, element, true, 0, 1.0f, etText);
+                        }
+                    }, null);
+                    args.putCharSequence("spanned", spanned);
+                }
+
+                return answer;
             }
 
             @Override
@@ -230,11 +257,7 @@ public class FragmentAnswer extends FragmentBase {
                 }
 
                 if (savedInstanceState == null) {
-                    Bundle a = getArguments();
-                    if (a == null)
-                        a = new Bundle();
-
-                    etName.setText(answer == null ? a.getString("subject") : answer.name);
+                    etName.setText(answer == null ? args.getString("subject") : answer.name);
                     etGroup.setText(answer == null ? null : answer.group);
                     cbStandard.setChecked(answer == null ? false : answer.standard);
                     cbReceipt.setChecked(answer == null ? false : answer.receipt);
@@ -243,21 +266,7 @@ public class FragmentAnswer extends FragmentBase {
                     cbHide.setChecked(answer == null ? false : answer.hide);
                     cbExternal.setChecked(answer == null ? false : answer.external);
                     btnColor.setColor(answer == null ? null : answer.color);
-
-                    String html = (answer == null ? a.getString("html") : answer.text);
-                    if (html == null)
-                        etText.setText(null);
-                    else
-                        etText.setText(HtmlHelper.fromHtml(html, new HtmlHelper.ImageGetterEx() {
-                            @Override
-                            public Drawable getDrawable(Element element) {
-                                String source = element.attr("src");
-                                if (source.startsWith("cid:"))
-                                    element.attr("src", "cid:");
-                                return ImageHelper.decodeImage(context,
-                                        -1, element, true, 0, 1.0f, etText);
-                            }
-                        }, null, context));
+                    etText.setText((Spanned) args.getCharSequence("spanned"));
                 }
 
                 if (answer == null)
