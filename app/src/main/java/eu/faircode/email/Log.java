@@ -2134,7 +2134,7 @@ public class Log {
             sb.append(String.format("WebView %d/%s %s\r\n",
                     pkg == null ? -1 : pkg.versionCode,
                     pkg == null ? null : pkg.versionName,
-                    pkg == null || pkg.versionCode / 100000 < 5005 ? "!!!" : ""));
+                    pkg == null || pkg.versionCode / 100000 < 5304 ? "!!!" : ""));
         } catch (Throwable ex) {
             sb.append(ex).append("\r\n");
         }
