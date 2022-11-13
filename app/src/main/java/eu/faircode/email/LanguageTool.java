@@ -30,6 +30,7 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.SuggestionSpan;
+import android.util.Pair;
 import android.widget.EditText;
 
 import androidx.preference.PreferenceManager;
@@ -51,7 +52,9 @@ import javax.net.ssl.HttpsURLConnection;
 public class LanguageTool {
     static final String LT_URI = "https://api.languagetool.org/v2/";
     static final String LT_URI_PLUS = "https://api.languagetoolplus.com/v2/";
+
     private static final int LT_TIMEOUT = 20; // seconds
+    private static final int LT_MAX_RANGES = 10; // paragraphs
 
     private static JSONArray jlanguages = null;
 
@@ -101,20 +104,27 @@ public class LanguageTool {
     static List<Suggestion> getSuggestions(Context context, CharSequence text) throws IOException, JSONException {
         if (isPremium(context)) {
             // Check per paragraph, so the language is detected by paragraph
-            List<Suggestion> result = new ArrayList<>();
+            List<Pair<Integer, Integer>> ranges = new ArrayList<>();
             int start = 0;
             int end = start;
             int len = text.length();
             while (end < len) {
                 while (end < len && text.charAt(end) != '\n')
                     end++;
-                result.addAll(getSuggestions(context, text, start, end));
+                ranges.add(new Pair<>(start, end));
                 start = end + 1;
                 end = start;
             }
-            return result;
-        } else
-            return getSuggestions(context, text, 0, text.length());
+
+            if (ranges.size() <= LT_MAX_RANGES) {
+                List<Suggestion> result = new ArrayList<>();
+                for (Pair<Integer, Integer> range : ranges)
+                    result.addAll(getSuggestions(context, text, range.first, range.second));
+                return result;
+            }
+        }
+
+        return getSuggestions(context, text, 0, text.length());
     }
 
     private static List<Suggestion> getSuggestions(Context context, CharSequence text, int start, int end) throws IOException, JSONException {
