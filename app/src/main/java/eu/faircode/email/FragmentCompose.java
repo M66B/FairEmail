@@ -3379,13 +3379,15 @@ public class FragmentCompose extends FragmentBase {
                     Helper.writeText(file, doc.html());
                 }
 
-                return HtmlHelper.fromHtml(html, new HtmlHelper.ImageGetterEx() {
+                Document d = JsoupEx.parse(html);
+                d = HtmlHelper.sanitizeView(context, d, true);
+                return HtmlHelper.fromDocument(context, d, new HtmlHelper.ImageGetterEx() {
                     @Override
                     public Drawable getDrawable(Element element) {
                         return ImageHelper.decodeImage(context,
                                 id, element, true, zoom, 1.0f, etBody);
                     }
-                }, null, getContext());
+                }, null);
             }
 
             @Override
