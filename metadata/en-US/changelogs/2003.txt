@@ -4,7 +4,7 @@ Changelog
 
 Ninjatitan
 
-BETA 1.2003b - 2022-11-13
+BETA 1.2003c - 2022-11-13
 
 * Added send reminder for no/suitable internet
 * Small improvements and minor bug fixes
