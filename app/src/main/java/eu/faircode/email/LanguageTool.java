@@ -419,7 +419,7 @@ public class LanguageTool {
                     Log.w("LT " + s + "..." + e + " length=" + edit.length());
                     continue;
                 }
-                edit.setSpan(span, s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
+                edit.setSpan(span, s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
     }
 
