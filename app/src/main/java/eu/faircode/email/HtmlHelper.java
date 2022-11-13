@@ -3809,12 +3809,8 @@ public class HtmlHelper {
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {
-        return fromHtml(html, null, null, context);
-    }
-
-    static Spanned fromHtml(@NonNull String html, @Nullable ImageGetterEx imageGetter, @Nullable Html.TagHandler tagHandler, Context context) {
         Document document = JsoupEx.parse(html);
-        return fromDocument(context, document, imageGetter, tagHandler);
+        return fromDocument(context, document, null, null);
     }
 
     static String toHtml(Spanned spanned, Context context) {
