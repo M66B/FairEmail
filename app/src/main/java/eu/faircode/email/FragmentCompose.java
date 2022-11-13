@@ -2412,16 +2412,41 @@ public class FragmentCompose extends FragmentBase {
 
                         Bundle args = new Bundle();
                         args.putLong("id", id);
+                        args.putString("to", etTo.getText().toString());
 
                         new SimpleTask<EntityAnswer>() {
                             @Override
                             protected EntityAnswer onExecute(Context context, Bundle args) throws Throwable {
                                 long id = args.getLong("id");
+                                String to = args.getString("to");
 
                                 DB db = DB.getInstance(context);
                                 EntityAnswer answer = db.answer().getAnswer(id);
-                                if (answer != null)
+                                if (answer != null) {
+                                    InternetAddress[] tos = null;
+                                    try {
+                                        tos = MessageHelper.parseAddresses(context, to);
+                                    } catch (AddressException ignored) {
+                                    }
+
+                                    String html = EntityAnswer.replacePlaceholders(context, answer.text, tos);
+
+                                    Document d = JsoupEx.parse(html);
+                                    d = HtmlHelper.sanitizeView(context, d, true);
+                                    Spanned spanned = HtmlHelper.fromDocument(context, d, new HtmlHelper.ImageGetterEx() {
+                                        @Override
+                                        public Drawable getDrawable(Element element) {
+                                            String source = element.attr("src");
+                                            if (source.startsWith("cid:"))
+                                                element.attr("src", "cid:");
+                                            return ImageHelper.decodeImage(context,
+                                                    working, element, true, zoom, 1.0f, etBody);
+                                        }
+                                    }, null);
+                                    args.putCharSequence("spanned", spanned);
+
                                     db.answer().applyAnswer(answer.id, new Date().getTime());
+                                }
 
                                 return answer;
                             }
@@ -2434,24 +2459,7 @@ public class FragmentCompose extends FragmentBase {
                                 if (etSubject.getText().length() == 0)
                                     etSubject.setText(answer.name);
 
-                                InternetAddress[] to = null;
-                                try {
-                                    to = MessageHelper.parseAddresses(getContext(), etTo.getText().toString());
-                                } catch (AddressException ignored) {
-                                }
-
-                                String html = EntityAnswer.replacePlaceholders(context, answer.text, to);
-
-                                Spanned spanned = HtmlHelper.fromHtml(html, new HtmlHelper.ImageGetterEx() {
-                                    @Override
-                                    public Drawable getDrawable(Element element) {
-                                        String source = element.attr("src");
-                                        if (source.startsWith("cid:"))
-                                            element.attr("src", "cid:");
-                                        return ImageHelper.decodeImage(getContext(),
-                                                working, element, true, zoom, 1.0f, etBody);
-                                    }
-                                }, null, getContext());
+                                Spanned spanned = (Spanned) args.getCharSequence("spanned");
 
                                 int start = etBody.getSelectionStart();
                                 int end = etBody.getSelectionEnd();
