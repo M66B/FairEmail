@@ -33,6 +33,7 @@ import android.text.style.SuggestionSpan;
 import android.util.Pair;
 import android.widget.EditText;
 
+import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
 
 import org.json.JSONArray;
@@ -46,6 +47,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -102,29 +105,65 @@ public class LanguageTool {
     }
 
     static List<Suggestion> getSuggestions(Context context, CharSequence text) throws IOException, JSONException {
-        if (isPremium(context)) {
-            // Check per paragraph, so the language is detected by paragraph
-            List<Pair<Integer, Integer>> ranges = new ArrayList<>();
-            int start = 0;
-            int end = start;
-            int len = text.length();
-            while (end < len) {
-                while (end < len && text.charAt(end) != '\n')
-                    end++;
-                ranges.add(new Pair<>(start, end));
-                start = end + 1;
-                end = start;
-            }
+        if (isPremium(context))
+            try {
+                List<Pair<Integer, Integer>> ranges = new ArrayList<>();
 
-            if (ranges.size() <= LT_MAX_RANGES) {
-                List<Suggestion> result = new ArrayList<>();
+                Pattern pattern = Pattern.compile("(" + Helper.EMAIL_ADDRESS + ")" +
+                        "|(" + PatternsCompat.AUTOLINK_WEB_URL.pattern() + ")");
+                Matcher matcher = pattern.matcher(text);
+                int index = 0;
+                boolean links = false;
+                while (matcher.find()) {
+                    links = true;
+                    int start = matcher.start();
+                    int end = matcher.end();
+                    ranges.addAll(getRanges(index, start, text));
+                    Log.i("LT skipping " + start + "..." + end +
+                            " '" + text.subSequence(start, end).toString().replace('\n', '|') + "'");
+                    index = end;
+                }
+                ranges.addAll(getRanges(index, text.length(), text));
+
                 for (Pair<Integer, Integer> range : ranges)
-                    result.addAll(getSuggestions(context, text, range.first, range.second));
-                return result;
+                    Log.i("LT range " + range.first + "..." + range.second +
+                            " '" + text.subSequence(range.first, range.second).toString().replace('\n', '|') + "'");
+                if (ranges.size() <= LT_MAX_RANGES || links) {
+                    List<Suggestion> result = new ArrayList<>();
+                    for (Pair<Integer, Integer> range : ranges)
+                        result.addAll(getSuggestions(context, text, range.first, range.second));
+                    return result;
+                }
+            } catch (Throwable ex) {
+                if (BuildConfig.DEBUG)
+                    throw ex;
+                Log.e(ex);
             }
-        }
 
         return getSuggestions(context, text, 0, text.length());
+    }
+
+    private static List<Pair<Integer, Integer>> getRanges(int from, int to, CharSequence text) {
+        Log.i("LT ranges " + from + "..." + to +
+                " '" + text.subSequence(from, to).toString().replace('\n', '|') + "'");
+
+        List<Pair<Integer, Integer>> ranges = new ArrayList<>();
+
+        int start = from;
+        int end = start;
+        while (end < to) {
+            while (end < to && text.charAt(end) != '\n')
+                end++;
+            if (end > start) {
+                String fragment = text.subSequence(start, end).toString();
+                if (!TextUtils.isEmpty(fragment.trim()))
+                    ranges.add(new Pair<>(start, end));
+            }
+            start = end + 1;
+            end = start;
+        }
+
+        return ranges;
     }
 
     private static List<Suggestion> getSuggestions(Context context, CharSequence text, int start, int end) throws IOException, JSONException {
