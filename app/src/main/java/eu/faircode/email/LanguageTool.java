@@ -107,10 +107,12 @@ public class LanguageTool {
     static List<Suggestion> getSuggestions(Context context, CharSequence text) throws IOException, JSONException {
         if (isPremium(context))
             try {
-                List<Pair<Integer, Integer>> ranges = new ArrayList<>();
+                List<Pair<Integer, Integer>> paragraphs = new ArrayList<>();
 
+                // Skip links and email addresses
                 Pattern pattern = Pattern.compile("(" + Helper.EMAIL_ADDRESS + ")" +
                         "|(" + PatternsCompat.AUTOLINK_WEB_URL.pattern() + ")");
+
                 Matcher matcher = pattern.matcher(text);
                 int index = 0;
                 boolean links = false;
@@ -118,19 +120,20 @@ public class LanguageTool {
                     links = true;
                     int start = matcher.start();
                     int end = matcher.end();
-                    ranges.addAll(getRanges(index, start, text));
+                    paragraphs.addAll(getParagraphs(index, start, text));
                     Log.i("LT skipping " + start + "..." + end +
                             " '" + text.subSequence(start, end).toString().replace('\n', '|') + "'");
                     index = end;
                 }
-                ranges.addAll(getRanges(index, text.length(), text));
+                paragraphs.addAll(getParagraphs(index, text.length(), text));
 
-                for (Pair<Integer, Integer> range : ranges)
-                    Log.i("LT range " + range.first + "..." + range.second +
-                            " '" + text.subSequence(range.first, range.second).toString().replace('\n', '|') + "'");
-                if (ranges.size() <= LT_MAX_RANGES || links) {
+                // Get suggestions for paragraphs
+                for (Pair<Integer, Integer> paragraph : paragraphs)
+                    Log.i("LT paragraph " + paragraph.first + "..." + paragraph.second +
+                            " '" + text.subSequence(paragraph.first, paragraph.second).toString().replace('\n', '|') + "'");
+                if (links || paragraphs.size() <= LT_MAX_RANGES) {
                     List<Suggestion> result = new ArrayList<>();
-                    for (Pair<Integer, Integer> range : ranges)
+                    for (Pair<Integer, Integer> range : paragraphs)
                         result.addAll(getSuggestions(context, text, range.first, range.second));
                     return result;
                 }
@@ -143,11 +146,11 @@ public class LanguageTool {
         return getSuggestions(context, text, 0, text.length());
     }
 
-    private static List<Pair<Integer, Integer>> getRanges(int from, int to, CharSequence text) {
-        Log.i("LT ranges " + from + "..." + to +
+    private static List<Pair<Integer, Integer>> getParagraphs(int from, int to, CharSequence text) {
+        Log.i("LT paragraphs " + from + "..." + to +
                 " '" + text.subSequence(from, to).toString().replace('\n', '|') + "'");
 
-        List<Pair<Integer, Integer>> ranges = new ArrayList<>();
+        List<Pair<Integer, Integer>> paragraphs = new ArrayList<>();
 
         int start = from;
         int end = start;
@@ -157,13 +160,13 @@ public class LanguageTool {
             if (end > start) {
                 String fragment = text.subSequence(start, end).toString();
                 if (!TextUtils.isEmpty(fragment.trim()))
-                    ranges.add(new Pair<>(start, end));
+                    paragraphs.add(new Pair<>(start, end));
             }
             start = end + 1;
             end = start;
         }
 
-        return ranges;
+        return paragraphs;
     }
 
     private static List<Suggestion> getSuggestions(Context context, CharSequence text, int start, int end) throws IOException, JSONException {
