@@ -4813,7 +4813,9 @@ public class MessageHelper {
         for (InternetAddress address : addresses) {
             String email = address.getAddress();
             if (email != null)
-                address.setAddress(email.replace(" ", ""));
+                address.setAddress(email
+                        .replace(" ", "")
+                        .replace("\u00a0", ""));
         }
 
         return addresses;
