@@ -4,7 +4,7 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
-### BETA 1.2003c - 2022-11-13
+### BETA 1.2003d - 2022-11-14
 
 * Added send reminder for no/suitable internet
 * Small improvements and minor bug fixes
