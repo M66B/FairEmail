@@ -28,7 +28,7 @@
     <color name="lightColorItemSelected">#ccc</color>
     <color name="lightColorSeparator">#ccc</color>
     <color name="lightColorThumb">#ccc</color>
-    <color name="lightColorWarning">#ffff0000</color>
+    <color name="lightColorWarning">#ffff4f00</color>
 
     <color name="lightColorDrawerScrim">#99000000</color>
     <color name="lightColorDrawerText">#111</color>
