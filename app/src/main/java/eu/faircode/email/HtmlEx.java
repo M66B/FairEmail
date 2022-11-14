@@ -95,6 +95,7 @@ public class HtmlEx {
             return;
         }
 
+        Log.breadcrumb("withinHtml", "length", Integer.toString(text.length()));
         withinDiv(out, text, 0, text.length(), option);
     }
 
