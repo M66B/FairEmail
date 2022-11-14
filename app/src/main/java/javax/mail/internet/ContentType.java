@@ -89,8 +89,18 @@ public class ContentType {
 
 	// Finally parameters ..
 	String rem = h.getRemainder();
-	if (rem != null)
-	    list = new ParameterList(rem);
+	if (rem != null) {
+		int b = rem.indexOf("boundary=");
+		if (b >= 0 && b + 9 < rem.length() && rem.charAt(b + 9) != '"') {
+			int semi = rem.indexOf(';', b + 9);
+			if (semi < 0)
+				rem = rem.substring(0, b + 9) + '"' + rem.substring(b + 9) + '"';
+			else
+				rem = rem.substring(0, b + 9) + '"' + rem.substring(b + 9, semi) + '"' + rem.substring(semi);
+			eu.faircode.email.Log.w("Fixed boundary: " + rem);
+		}
+		list = new ParameterList(rem);
+	}
     }
 
     /**
