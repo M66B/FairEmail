@@ -243,10 +243,10 @@ public class HtmlEx {
                                                    int end) {
         List<Boolean> levels = new ArrayList<>();
 
-        int next;
+        int next = -1;
         for (int i = start; i <= end; i = next) {
-            next = TextUtils.indexOf(text, '\n', i, end);
             try {
+                next = TextUtils.indexOf(text, '\n', i, end);
                 if (next < 0) {
                     next = end;
                 }
