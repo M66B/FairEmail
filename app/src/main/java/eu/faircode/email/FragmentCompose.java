@@ -6650,9 +6650,13 @@ public class FragmentCompose extends FragmentBase {
                             EntityOperation.queue(context, draft, EntityOperation.SEND);
 
                         final String feedback;
-                        if (draft.ui_snoozed == null)
-                            feedback = context.getString(R.string.title_queued);
-                        else {
+                        if (draft.ui_snoozed == null) {
+                            boolean suitable = ConnectionHelper.getNetworkState(context).isSuitable();
+                            if (suitable)
+                                feedback = context.getString(R.string.title_queued);
+                            else
+                                feedback = context.getString(R.string.title_notification_waiting);
+                        } else {
                             DateFormat DTF = Helper.getDateTimeInstance(context);
                             feedback = context.getString(R.string.title_queued_at, DTF.format(draft.ui_snoozed));
                         }
