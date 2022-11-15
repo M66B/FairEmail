@@ -432,7 +432,7 @@ public class EmailService implements AutoCloseable {
             }
 
             boolean strict = ssl_harden_strict;
-            if (provider != null)
+            if (strict && provider != null)
                 try {
                     EmailProvider p = EmailProvider.getProvider(context, provider);
                     if ("1.2".equals(p.maxtls)) {
