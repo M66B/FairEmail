@@ -115,9 +115,7 @@ public class LanguageTool {
 
                 Matcher matcher = pattern.matcher(text);
                 int index = 0;
-                boolean links = false;
                 while (matcher.find()) {
-                    links = true;
                     int start = matcher.start();
                     int end = matcher.end();
                     paragraphs.addAll(getParagraphs(index, start, text));
@@ -131,7 +129,7 @@ public class LanguageTool {
                 for (Pair<Integer, Integer> paragraph : paragraphs)
                     Log.i("LT paragraph " + paragraph.first + "..." + paragraph.second +
                             " '" + text.subSequence(paragraph.first, paragraph.second).toString().replace('\n', '|') + "'");
-                if (links || paragraphs.size() <= LT_MAX_RANGES) {
+                if (paragraphs.size() <= LT_MAX_RANGES) {
                     List<Suggestion> result = new ArrayList<>();
                     for (Pair<Integer, Integer> range : paragraphs)
                         result.addAll(getSuggestions(context, text, range.first, range.second));
