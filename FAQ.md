@@ -5074,6 +5074,9 @@ adb connect 127.0.0.1:58526
 adb install /path/to/FairEmail-xxx.apk
 ```
 
+It is also possible to install the Play Store, but this is more complicated.
+See for example [here](https://www.makeuseof.com/windows-11-install-google-play-store/) for a guide.
+
 The app isn't available in the Amazon store because Amazon rebuilds all Android apps, and unfortunately, the app doesn't work correctly after rebuilding anymore.
 Amazon never responded to an issue reported about this.
 
