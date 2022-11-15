@@ -4,6 +4,11 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
+### Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2004 - 2022-11-15
 
 * Added send reminder for no/suitable internet
