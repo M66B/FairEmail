@@ -1320,8 +1320,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_resync">Znova synchronizovať</string>
     <string name="title_charset">Kódovanie</string>
     <string name="title_charset_auto">Automatické</string>
-    <string name="title_alternative_text">Zobraziť obyčajný text</string>
-    <string name="title_alternative_html">Zobraziť HTML</string>
     <string name="title_no_openpgp">OpenKeychain nenájdený</string>
     <string name="title_user_interaction">Prenos do OpenKeychain</string>
     <string name="title_signed_data">Overiť podpis pre zobrazenie textu správy</string>

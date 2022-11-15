@@ -588,6 +588,8 @@
     <string name="title_advanced_notifications_background">Mesajları eyniləşdirmək üçün arxaplan xidməti istifadə et</string>
     <string name="title_advanced_notifications_background_hint">Bir arxaplan xidməti istənilən vaxt Android tərəfindən dayandırıla bilər, ancaq vəziyyət sətri bildirişini tələb etmir</string>
     <string name="title_advanced_confirm_links">Bağlantıların açılmasını təsdiqlə</string>
+    <string name="title_advanced_sanitize_links">İzləmə parametrlərini ilkin olaraq çıxart</string>
+    <string name="title_advanced_sanitize_links_hint">Yalnız keçidləri təsdiqləyərkən</string>
     <string name="title_advanced_check_links_dbl">Şübhəli bağlantılar üçün domen əngəlləmə siyahılarını yoxlayın</string>
     <string name="title_advanced_confirm_images">İlkin olaraq təsvirləri göstərmə</string>
     <string name="title_advanced_ask_images">Təsvirlərin göstərilməsini təsdiqlə</string>
@@ -1324,8 +1326,6 @@
     <string name="title_resync">Yenidən eyniləşdirmə</string>
     <string name="title_charset">Kodlaşdırma</string>
     <string name="title_charset_auto">Avtomatik</string>
-    <string name="title_alternative_text">Düz mətni göstər</string>
-    <string name="title_alternative_html">HTML göstər</string>
     <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
     <string name="title_user_interaction">\"OpenKeychain\"ə köçürülür</string>
     <string name="title_padlock">Mesajın şifrəsini açmaq üçün asma kilid istifadə et</string>
@@ -1815,6 +1815,9 @@
     </plurals>
     <string name="title_accessibility_accounts">Hesablar</string>
     <string name="title_accessibility_folders">Qovluqlar</string>
+    <string name="title_accessibility_searches">Axtarışlar</string>
+    <string name="title_accessibility_menus">Menyular</string>
+    <string name="title_accessibility_extras">Ekstralar</string>
     <string name="title_accessibility_collapsed">Yığcamlaşdırılan</string>
     <string name="title_accessibility_expanded">Genişləndirilən</string>
     <string name="title_accessibility_seen">Oxunan</string>

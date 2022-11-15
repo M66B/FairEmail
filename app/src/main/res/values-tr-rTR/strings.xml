@@ -586,6 +586,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_notifications_background">İletileri senkronize etmek için arka plan servisi kullan</string>
     <string name="title_advanced_notifications_background_hint">Bir arka plan servisi Android tarafından herhangi bir zamanda durdurulabilir, ama çalışmak için sabit bir bildirime ihtiyaç duymaz</string>
     <string name="title_advanced_confirm_links">Bağlantıları açmayı onayla</string>
+    <string name="title_advanced_sanitize_links">Varsayılan olarak izleme parametrelerini kaldırın</string>
+    <string name="title_advanced_sanitize_links_hint">Sadece bağlantıları doğrularken</string>
     <string name="title_advanced_check_links_dbl">Şüpheli bağlantılar için alan engelleme listelerini kontrol edin</string>
     <string name="title_advanced_confirm_images">Varsayılan olarak resim gösterme</string>
     <string name="title_advanced_ask_images">Görüntüleri göstermeyi onayla</string>
@@ -1319,8 +1321,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_resync">Yeniden eşzamanla</string>
     <string name="title_charset">Metin kodlaması</string>
     <string name="title_charset_auto">Otomatik</string>
-    <string name="title_alternative_text">Düz metni göster</string>
-    <string name="title_alternative_html">HTML Göster</string>
+    <string name="title_alternative_text">Düzen metni yükle</string>
+    <string name="title_alternative_html">HTML\'i yükle</string>
     <string name="title_no_openpgp">OpenKeychain bulunamadı</string>
     <string name="title_user_interaction">OpenKeychain\'e gönderiliyor</string>
     <string name="title_padlock">Mesajın şifresini çözmek için asma kilidi kullan</string>
@@ -1808,6 +1810,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     </plurals>
     <string name="title_accessibility_accounts">Hesaplar</string>
     <string name="title_accessibility_folders">Klasörler</string>
+    <string name="title_accessibility_searches">Aramalar</string>
+    <string name="title_accessibility_menus">Menüler</string>
+    <string name="title_accessibility_extras">Ekstralar</string>
     <string name="title_accessibility_collapsed">Daraltılan</string>
     <string name="title_accessibility_expanded">Genişletilen</string>
     <string name="title_accessibility_seen">Okunan</string>

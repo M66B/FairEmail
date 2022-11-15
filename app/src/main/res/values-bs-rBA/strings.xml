@@ -601,6 +601,8 @@
     <string name="title_advanced_notifications_background">Koristi pozadinski servis za sinhronizaciju poruka</string>
     <string name="title_advanced_notifications_background_hint">Android može zaustaviti pozadinski servis bilo kada, ali on ne zahtijeva obavještenje na statusnoj traci</string>
     <string name="title_advanced_confirm_links">Potvrdi linkove na otvaranju</string>
+    <string name="title_advanced_sanitize_links">Ukloni parametre \'praćenja\' po default-u</string>
+    <string name="title_advanced_sanitize_links_hint">Samo pri potvrđivanju linkova</string>
     <string name="title_advanced_check_links_dbl">Provjeri spisak blokiranja domena za sumnjive linkove</string>
     <string name="title_advanced_confirm_images">Ne prikazuj slike po zadanom</string>
     <string name="title_advanced_ask_images">Potvrdi prikazivanje slika</string>
@@ -888,6 +890,7 @@
     <string name="title_drafts_select">Slanje e-pošte zahtijeva da se izabere folder za nacrte u postavkama računa</string>
     <string name="title_account_auth_update">Osvježi autorizaciju</string>
     <string name="title_account_auth_password">Prebaci na provjeru lozinkom</string>
+    <string name="title_change_password">Promijeni lozinku</string>
     <string name="title_delete_account">Izbriši račun</string>
     <string name="title_account_delete">Izbrisati ovaj račun trajno?</string>
     <string name="title_identity_delete">Izbrisati ovaj identitet trajno?</string>
@@ -1086,6 +1089,7 @@
     <string name="title_quick_actions_low">Niska važnost</string>
     <string name="title_quick_actions_high">Visoka važnost</string>
     <string name="title_quick_actions_snooze">Odgodi</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Deselekcija označenog nakon izvršene radnje</string>
     <string name="title_trash">Otpad</string>
     <string name="title_copy">Kopiraj &#8230;</string>
     <string name="title_copy_to">Kopiraj u &#8230;</string>
@@ -1336,8 +1340,8 @@
     <string name="title_resync">Ponovo sinhronizuj</string>
     <string name="title_charset">Kodiranje</string>
     <string name="title_charset_auto">Automatski</string>
-    <string name="title_alternative_text">Prikaži obični tekst</string>
-    <string name="title_alternative_html">Prikaži HTML</string>
+    <string name="title_alternative_text">Učitaj obični tekst</string>
+    <string name="title_alternative_html">Učitaj HTML</string>
     <string name="title_no_openpgp">OpenKeychan nije pronađen</string>
     <string name="title_user_interaction">Prebacivanje na OpenKeychain</string>
     <string name="title_padlock">Koristi lokot za dešifriranje poruke</string>
@@ -1828,6 +1832,9 @@
     </plurals>
     <string name="title_accessibility_accounts">Računi</string>
     <string name="title_accessibility_folders">Folderi</string>
+    <string name="title_accessibility_searches">Pretrage</string>
+    <string name="title_accessibility_menus">Meniji</string>
+    <string name="title_accessibility_extras">Dodatne opcije</string>
     <string name="title_accessibility_collapsed">Suženo</string>
     <string name="title_accessibility_expanded">Prošireno</string>
     <string name="title_accessibility_seen">Pročitano</string>

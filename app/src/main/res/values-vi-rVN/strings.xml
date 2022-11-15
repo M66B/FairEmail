@@ -1273,8 +1273,6 @@
     <string name="title_resync">Đồng bộ lại</string>
     <string name="title_charset">Bảng mã</string>
     <string name="title_charset_auto">Tự động</string>
-    <string name="title_alternative_text">Hiện văn bản thuần</string>
-    <string name="title_alternative_html">Hiện HTML</string>
     <string name="title_no_openpgp">Không tìm thấy OpenKeychain</string>
     <string name="title_user_interaction">Đang chuyển sang OpenKeychain</string>
     <string name="title_padlock">Sử dụng khoá để giải mã thư</string>

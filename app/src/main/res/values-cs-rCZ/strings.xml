@@ -228,6 +228,7 @@
     <string name="title_setup_free">Je tato aplikace zdarma?</string>
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
+    <string name="title_setup_permissions_calendar">Pro ukládání pozvánek (volitelné)</string>
     <string name="title_setup_permissions_explanation">Oprávnění pro přístup ke kontaktům je vyžadováno pro zobrazování kontaktních informací a navrhování kontaktů</string>
     <string name="title_setup_permissions_notify">Zobrazení upozornění na nové zprávy (volitelně)</string>
     <string name="title_setup_permissions_notify_explanation">Pro zobrazení upozornění na nové zprávy ve stavovém řádku jsou vyžadována oprávnění</string>
@@ -368,6 +369,7 @@
     <string name="title_advanced_use_blocklist">Přesunout zprávy z domén na seznamu blokovaných do složky nevyžádané pošty</string>
     <string name="title_advanced_use_blocklist_pop3">Přeskočit zprávy z domén v seznamu blokovaných (pouze POP3)</string>
     <string name="title_advanced_tune_keep_alive">Automaticky vyladit interval udržení naživu</string>
+    <string name="title_advanced_blocklist_warning">Seznamy blokovaných nejsou dokonalé a mohou blokovat více než jen spam!</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
     <string name="title_advanced_keyboard_no_fullscreen">Zabránit zobrazení klávesnice na celou obrazovku</string>
     <string name="title_advanced_suggest_names">Použít jména a e-mailové adresy</string>
@@ -611,6 +613,8 @@
     <string name="title_advanced_notifications_background">Pro synchronizaci zpráv použít službu na pozadí</string>
     <string name="title_advanced_notifications_background_hint">Služba na pozadí může být systémem Android kdykoli zastavena, ale nevyžaduje oznámení ve stavové liště</string>
     <string name="title_advanced_confirm_links">Potvrzovat otevírání odkazů</string>
+    <string name="title_advanced_sanitize_links">Ve výchozím nastavení odstranit sledovací parametry</string>
+    <string name="title_advanced_sanitize_links_hint">Pouze při potvrzování odkazů</string>
     <string name="title_advanced_check_links_dbl">Kontrolovat seznamy blokovaných domén na podezřelé odkazy</string>
     <string name="title_advanced_confirm_images">Ve výchozím nastavení nezobrazovat žádné obrázky</string>
     <string name="title_advanced_ask_images">Potvrzovat zobrazení obrázků</string>
@@ -670,12 +674,15 @@
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_lt">Integrace LanguageTool</string>
     <string name="title_advanced_lt_auto">Zkontrolujte odstavec po novém řádku</string>
+    <string name="title_advanced_lt_user">Uživatelské jméno (volitelné)</string>
+    <string name="title_advanced_lt_key">API klíč (volitelné)</string>
     <string name="title_advanced_deepl">DeepL integrace</string>
     <string name="title_advanced_virus_total">Integrace VirusTotal</string>
     <string name="title_advanced_sdcard">Chci použít Sd kartu</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace na GitHubu</string>
     <string name="title_advanced_check_weekly">Kontrolovat týdně, místo denně</string>
+    <string name="title_advanced_beta">Kontrola testovacích verzí na BitBucket</string>
     <string name="title_advanced_changelog">Zobrazit seznam změn po aktualizaci</string>
     <string name="title_advanced_experiments">Vyzkoušet experimentální funkce</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
@@ -895,6 +902,7 @@
     <string name="title_drafts_select">Odesílání e-mailů vyžaduje nastavenou složku pro koncepty v nastavení účtu</string>
     <string name="title_account_auth_update">Aktualizace autorizace</string>
     <string name="title_account_auth_password">Přepnout na ověření heslem</string>
+    <string name="title_change_password">Změnit heslo</string>
     <string name="title_delete_account">Odebrat účet</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
@@ -1092,6 +1100,7 @@
     <string name="title_quick_actions_low">Nízká důležitost</string>
     <string name="title_quick_actions_high">Vysoká důležitost</string>
     <string name="title_quick_actions_snooze">Odložit</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Vymazat výběr po akci</string>
     <string name="title_trash">Koš</string>
     <string name="title_copy">Kopírovat &#8230;</string>
     <string name="title_copy_to">Kopírovat do &#8230;</string>
@@ -1340,8 +1349,8 @@
     <string name="title_resync">Znovu synchronizovat</string>
     <string name="title_charset">Kódování</string>
     <string name="title_charset_auto">Automaticky</string>
-    <string name="title_alternative_text">Zobrazit pouze prostý text</string>
-    <string name="title_alternative_html">Zobrazit HTML</string>
+    <string name="title_alternative_text">Načíst prostý text</string>
+    <string name="title_alternative_html">Načíst HTML</string>
     <string name="title_no_openpgp">OpenKeychain nenalezena</string>
     <string name="title_user_interaction">Přenášení do OpenKeychain</string>
     <string name="title_padlock">K dešifrování zprávy použijte zámek</string>
@@ -1716,6 +1725,8 @@
     <string name="title_select_block">Vybrat blok</string>
     <string name="title_insert_brackets">Závorky</string>
     <string name="title_insert_quotes">Citace</string>
+    <string name="title_lt_add">Přidat slovo</string>
+    <string name="title_lt_delete">Odstranit slovo</string>
     <string name="title_add">Přidat</string>
     <string name="title_browse">Otevřít s</string>
     <string name="title_info">Info</string>
@@ -1830,6 +1841,9 @@
     </plurals>
     <string name="title_accessibility_accounts">Účty</string>
     <string name="title_accessibility_folders">Složky</string>
+    <string name="title_accessibility_searches">Vyhledávání</string>
+    <string name="title_accessibility_menus">Menu</string>
+    <string name="title_accessibility_extras">Další</string>
     <string name="title_accessibility_collapsed">Sbaleno</string>
     <string name="title_accessibility_expanded">Rozbaleno</string>
     <string name="title_accessibility_seen">Přečteno</string>

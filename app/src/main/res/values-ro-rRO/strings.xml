@@ -600,8 +600,8 @@
     <string name="title_advanced_notifications_background">Folosește serviciul de fundal pentru a sincroniza mesajele</string>
     <string name="title_advanced_notifications_background_hint">Un serviciu de fundal poate fi oprit de Android în orice moment, dar nu necesită o notificare în bara de stare</string>
     <string name="title_advanced_confirm_links">Confirma deschiderea legăturilor</string>
-    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Elimină implicit parametrii de urmărire</string>
-    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Doar la confirmarea legăturilor</string>
+    <string name="title_advanced_sanitize_links">Elimină implicit parametrii de urmărire</string>
+    <string name="title_advanced_sanitize_links_hint">Doar la confirmarea legăturilor</string>
     <string name="title_advanced_check_links_dbl">Verificați listele de blocare a domeniilor pentru link-uri suspecte</string>
     <string name="title_advanced_confirm_images">Nu afișați nicio imagine în mod implicit</string>
     <string name="title_advanced_ask_images">Confirmă afișarea imaginilor</string>
@@ -1335,8 +1335,8 @@
     <string name="title_resync">Resincronizare</string>
     <string name="title_charset">Codificare</string>
     <string name="title_charset_auto">Automat</string>
-    <string name="title_alternative_text">Afișare text simplu</string>
-    <string name="title_alternative_html">Afișați HTML</string>
+    <string name="title_alternative_text">Încărcați text simplu</string>
+    <string name="title_alternative_html">Încărcați HTML</string>
     <string name="title_no_openpgp">OpenKeychain nu a fost găsit</string>
     <string name="title_user_interaction">Transfer la OpenKeychain</string>
     <string name="title_padlock">Folosiți lacătul pentru a decripta mesajul</string>

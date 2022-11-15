@@ -586,8 +586,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_notifications_background">Gebruik achtergrondservice om berichten te synchroniseren</string>
     <string name="title_advanced_notifications_background_hint">Een achtergrondservice kan op elk gewenst moment worden gestopt door Android, maar vereist geen melding in de statusbalk</string>
     <string name="title_advanced_confirm_links">Bevestig het openen van koppelingen</string>
-    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Verwijder standaard tracking parameters</string>
-    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Alleen bij het bevestigen van links</string>
+    <string name="title_advanced_sanitize_links">Verwijder standaard tracking parameters</string>
+    <string name="title_advanced_sanitize_links_hint">Alleen bij het bevestigen van links</string>
     <string name="title_advanced_check_links_dbl">Controleer domeinblokkeringslijsten op verdachte links</string>
     <string name="title_advanced_confirm_images">Toon standaard geen afbeeldingen</string>
     <string name="title_advanced_ask_images">Bevestig het tonen van afbeeldingen</string>
@@ -1072,6 +1072,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_quick_actions_low">Laag belang</string>
     <string name="title_quick_actions_high">Hoog belang</string>
     <string name="title_quick_actions_snooze">Sluimeren</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Selectie wissen na actie</string>
     <string name="title_trash">Prullenbak</string>
     <string name="title_copy">Kopieer &#8230;</string>
     <string name="title_copy_to">Kopieer naar &#8230;</string>
@@ -1320,8 +1321,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_resync">Resync</string>
     <string name="title_charset">Codering</string>
     <string name="title_charset_auto">Automatisch</string>
-    <string name="title_alternative_text">Toon platte tekst</string>
-    <string name="title_alternative_html">Toon HTML</string>
+    <string name="title_alternative_text">Laad platte tekst</string>
+    <string name="title_alternative_html">Laad HTML</string>
     <string name="title_no_openpgp">OpenKeychain niet gevonden</string>
     <string name="title_user_interaction">Overdragen naar OpenKeychain</string>
     <string name="title_padlock">Gebruik het hangslot om het bericht te ontsleutelen</string>

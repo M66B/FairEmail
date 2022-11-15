@@ -613,6 +613,8 @@
     <string name="title_advanced_notifications_background">Za sinhronizacjo sporočil uporabi storitev v ozadju</string>
     <string name="title_advanced_notifications_background_hint">Storitev v ozadju lahko Android kadarkoli ustavi, vendar ne zahteva obvestila v vrstici stanja.</string>
     <string name="title_advanced_confirm_links">Potrdi odpiranje povezav</string>
+    <string name="title_advanced_sanitize_links">Privzeto odstrani sledilne parametre</string>
+    <string name="title_advanced_sanitize_links_hint">Samo ob potrditvi povezav</string>
     <string name="title_advanced_check_links_dbl">Za sumljive povezave preveri sezname za blokiranje domen</string>
     <string name="title_advanced_confirm_images">Privzeto ne prikazuj slik</string>
     <string name="title_advanced_ask_images">Potrdi prikaz slik</string>
@@ -899,6 +901,7 @@
     <string name="title_drafts_select">Pošiljanje e-pošte zahteva izbiro mape za osnutke v nastavitvah računa.</string>
     <string name="title_account_auth_update">Posodobi overitev</string>
     <string name="title_account_auth_password">Preklopi na overitev z geslom</string>
+    <string name="title_change_password">Spremeni geslo</string>
     <string name="title_delete_account">Izbriši račun</string>
     <string name="title_account_delete">Trajno izbriši ta račun?</string>
     <string name="title_identity_delete">Trajno izbriši to identiteto?</string>
@@ -1345,8 +1348,6 @@
     <string name="title_resync">Pon. sinhr.</string>
     <string name="title_charset">Kodiranje</string>
     <string name="title_charset_auto">Samodejno</string>
-    <string name="title_alternative_text">Prikaži golo besedilo</string>
-    <string name="title_alternative_html">Prikaži HTML</string>
     <string name="title_no_openpgp">OpenKeychain ni bil najden.</string>
     <string name="title_user_interaction">Prenašanje v OpenKeychain</string>
     <string name="title_padlock">Uporabi ključavnico za odšifriranje besedila</string>
@@ -1838,6 +1839,9 @@
     </plurals>
     <string name="title_accessibility_accounts">Računi</string>
     <string name="title_accessibility_folders">Mape</string>
+    <string name="title_accessibility_searches">Iskanja</string>
+    <string name="title_accessibility_menus">Meniji</string>
+    <string name="title_accessibility_extras">Dodatno</string>
     <string name="title_accessibility_collapsed">Strnjeno</string>
     <string name="title_accessibility_expanded">Razširjeno</string>
     <string name="title_accessibility_seen">Prebrano</string>

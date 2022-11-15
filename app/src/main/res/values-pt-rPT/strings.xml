@@ -589,8 +589,8 @@
     <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de estado</string>
     <string name="title_advanced_confirm_links">Pedir confirmação ao abrir hiperligações</string>
-    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Remover parâmetros de rastreamento por padrão</string>
-    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Somente quando confirmar links</string>
+    <string name="title_advanced_sanitize_links">Remover parâmetros de rastreamento por padrão</string>
+    <string name="title_advanced_sanitize_links_hint">Somente quando confirmar links</string>
     <string name="title_advanced_check_links_dbl">Verificar listas de bloqueio de domínios para hiperligações suspeitas</string>
     <string name="title_advanced_confirm_images">Não mostrar imagens por padrão</string>
     <string name="title_advanced_ask_images">Confirmar a exibição de imagens</string>
@@ -1326,8 +1326,8 @@
     <string name="title_resync">Ressincronizar</string>
     <string name="title_charset">Codificação</string>
     <string name="title_charset_auto">Automático</string>
-    <string name="title_alternative_text">Mostrar texto simples</string>
-    <string name="title_alternative_html">Mostrar HTML</string>
+    <string name="title_alternative_text">Carregar texto simples</string>
+    <string name="title_alternative_html">Carregar HTML</string>
     <string name="title_no_openpgp">OpenKeychain não encontrado</string>
     <string name="title_user_interaction">A transferir para o OpenKeychain</string>
     <string name="title_padlock">Use o cadeado para descriptografar a mensagem</string>

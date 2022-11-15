@@ -1260,8 +1260,6 @@
     <string name="title_resync">Resinkronizacija</string>
     <string name="title_charset">Kodiranje</string>
     <string name="title_charset_auto">Automatski</string>
-    <string name="title_alternative_text">Prikaži obični tekst</string>
-    <string name="title_alternative_html">Prikaži HTML</string>
     <string name="title_no_openpgp">OpenKeychain nije pronađen</string>
     <string name="title_user_interaction">Prijenos na OpenKeychain</string>
     <string name="title_signed_data">Provjerite potpis da biste prikazali tekst poruke</string>

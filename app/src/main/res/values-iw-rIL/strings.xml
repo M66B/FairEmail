@@ -228,6 +228,7 @@
     <string name="title_setup_free">היישומון הזה חופשי לשימוש?</string>
     <string name="title_setup_permissions">הענקת הרשאות</string>
     <string name="title_setup_permissions_remark">כדי לגשת לנתונים של איש הקשר (רשות)</string>
+    <string name="title_setup_permissions_calendar">לאחסון הזמנות (רשות)</string>
     <string name="title_setup_permissions_explanation">נדרשות הרשאות לאנשי הקשר כדי לחפש פרטי אנשי קשר ולהציע אנשי קשר</string>
     <string name="title_setup_permissions_notify">להציג התראות על הודעות (רשות)</string>
     <string name="title_setup_permissions_notify_explanation">נדרשות הרשאות להתראות כדי להציג התראות להודעות חדשות בשורת המצב</string>
@@ -613,6 +614,8 @@
     <string name="title_advanced_notifications_background">להשתמש בשירות רקע לסנכרון הודעות</string>
     <string name="title_advanced_notifications_background_hint">שירות רקע יכול להיעצר על ידי Android בכל רגע נתון, אך אינו דורש התראה בשורת המצב</string>
     <string name="title_advanced_confirm_links">אישור פתיחת קישור</string>
+    <string name="title_advanced_sanitize_links">הסרת משתני מעקב כברירת מחדל</string>
+    <string name="title_advanced_sanitize_links_hint">רק בעת אישור קישורים</string>
     <string name="title_advanced_check_links_dbl">לבדוק קישורים חשודים מול רשימת שמות תחום חסומים</string>
     <string name="title_advanced_confirm_images">לא להציג תמונות כברירת מחדל</string>
     <string name="title_advanced_ask_images">אישור הצגת תמונות</string>
@@ -673,6 +676,8 @@
     <string name="title_advanced_language_system">מערכת</string>
     <string name="title_advanced_lt">שילוב מול LanguageTool</string>
     <string name="title_advanced_lt_auto">בדיקת פסקה אחרי שורה חדשה</string>
+    <string name="title_advanced_lt_user">שם משתמש (רשות)</string>
+    <string name="title_advanced_lt_key">מפתח API (רשות)</string>
     <string name="title_advanced_deepl">שילוב של DeepL</string>
     <string name="title_advanced_virus_total">שילוב של VirusTotal</string>
     <string name="title_advanced_sdcard">ארצה להשתמש בכרטיס SD</string>
@@ -898,6 +903,7 @@
     <string name="title_drafts_select">שליחת הודעות דוא״ל דורש בחירת תיקיית טיוטות בהגדרות החשבון</string>
     <string name="title_account_auth_update">עדכון אימות</string>
     <string name="title_account_auth_password">מעבר לאימות עם סיסמה</string>
+    <string name="title_change_password">החלפת סיסמה</string>
     <string name="title_delete_account">מחיקת חשבון</string>
     <string name="title_account_delete">למחוק את החשבון הזה לצמיתות?</string>
     <string name="title_identity_delete">למחוק את הזהות הזאת לצמיתות?</string>
@@ -1346,8 +1352,6 @@
     <string name="title_resync">סנכרון מחדש</string>
     <string name="title_charset">הצפנה</string>
     <string name="title_charset_auto">אוטומטי</string>
-    <string name="title_alternative_text">הצגת טקסט פשוט</string>
-    <string name="title_alternative_html">הצגת HTML</string>
     <string name="title_no_openpgp">OpenKeychain לא נמצא</string>
     <string name="title_user_interaction">מועבר ל־OpenKeychain</string>
     <string name="title_padlock">המנעול משמש לפענוח ההודעה</string>
@@ -1710,6 +1714,7 @@
     <string name="title_reset_open">הגדרת או מחיקת יישומוני בררת מחדל</string>
     <string name="title_select_app">בחירת יישומון</string>
     <string name="title_updated">עדכון לגרסה %1$s הזמינה</string>
+    <string name="title_no_update">אין עדכון זמין</string>
     <string name="title_issue">שאלה או טענה?</string>
     <string name="title_yes">כן</string>
     <string name="title_no">לא</string>
@@ -1838,6 +1843,9 @@
     </plurals>
     <string name="title_accessibility_accounts">חשבונות</string>
     <string name="title_accessibility_folders">תיקיות</string>
+    <string name="title_accessibility_searches">חיפושים</string>
+    <string name="title_accessibility_menus">תפריטים</string>
+    <string name="title_accessibility_extras">תוספות</string>
     <string name="title_accessibility_collapsed">מצומצם</string>
     <string name="title_accessibility_expanded">מורחב</string>
     <string name="title_accessibility_seen">נקראה</string>

@@ -613,8 +613,8 @@
     <string name="title_advanced_notifications_background">Использовать фоновую службу для синхронизации сообщений</string>
     <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
     <string name="title_advanced_confirm_links">Подтверждать открытие ссылок</string>
-    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Удалять отслеживания элементы по умолчанию</string>
-    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Только при подтверждении ссылок</string>
+    <string name="title_advanced_sanitize_links">Удалять отслеживающие элементы по умолчанию</string>
+    <string name="title_advanced_sanitize_links_hint">Только при подтверждении ссылок</string>
     <string name="title_advanced_check_links_dbl">Проверять списки блокировки доменов на подозрительные ссылки</string>
     <string name="title_advanced_confirm_images">Не показывать изображения по умолчанию</string>
     <string name="title_advanced_ask_images">Подтверждать отображение изображений</string>
@@ -1102,6 +1102,7 @@
     <string name="title_quick_actions_low">Низкая важность</string>
     <string name="title_quick_actions_high">Высокая важность</string>
     <string name="title_quick_actions_snooze">Отложить</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Очистить выбор после действия</string>
     <string name="title_trash">Корзина</string>
     <string name="title_copy">Копировать&#8230;</string>
     <string name="title_copy_to">Копировать в&#8230;</string>
@@ -1351,8 +1352,8 @@
     <string name="title_resync">Синхронизировать заново</string>
     <string name="title_charset">Кодировка</string>
     <string name="title_charset_auto">Автовыбор</string>
-    <string name="title_alternative_text">Показать простой текст</string>
-    <string name="title_alternative_html">Показать HTML</string>
+    <string name="title_alternative_text">Загрузить простой текст</string>
+    <string name="title_alternative_html">Загрузить HTML</string>
     <string name="title_no_openpgp">OpenKeychain не найдено</string>
     <string name="title_user_interaction">Перенос в OpenKeychain</string>
     <string name="title_padlock">Используйте замок для расшифровки сообщения</string>

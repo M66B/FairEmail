@@ -1317,8 +1317,6 @@
     <string name="title_resync">Synkronoi uudelleen</string>
     <string name="title_charset">Merkistökoodaus</string>
     <string name="title_charset_auto">Automaattinen</string>
-    <string name="title_alternative_text">Näytä muotoilematon teksti</string>
-    <string name="title_alternative_html">Näytä HTML</string>
     <string name="title_no_openpgp">OpenKeychain ei löytynyt</string>
     <string name="title_user_interaction">Siirretään OpenKeychain-sovellukseen</string>
     <string name="title_padlock">Pura viestin salaus lukolla</string>

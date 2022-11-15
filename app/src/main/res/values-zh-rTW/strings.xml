@@ -1254,8 +1254,6 @@
     <string name="title_resync">重新同步</string>
     <string name="title_charset">字元編碼</string>
     <string name="title_charset_auto">自動</string>
-    <string name="title_alternative_text">顯示純文字</string>
-    <string name="title_alternative_html">顯示 HTML</string>
     <string name="title_no_openpgp">未發現 OpenKeychain</string>
     <string name="title_user_interaction">正在轉移至 OpenKeychain</string>
     <string name="title_signed_data">驗證簽名以顯示訊息文字</string>

@@ -472,8 +472,6 @@
     <string name="title_extra_missing">ଉପଭୋକ୍ତା ନାମ ନିଖୋଜ</string>
     <string name="title_noreply_reminder">ଏକ \'ଉତ୍ତର-ଦିଅନି\' ଠିକଣାକୁ ପଠାଉଛି</string>
     <string name="title_resync">ପୁନଃସିଙ୍କ୍ କରନ୍ତୁ</string>
-    <string name="title_alternative_text">ସାଧା ପାଠ୍ୟ ଦେଖାଇବା</string>
-    <string name="title_alternative_html">HTML ଦେଖାଇବା</string>
     <string name="title_signature_sender">ପ୍ରେରକଙ୍କ ଠିକଣା</string>
     <string name="title_signature_subject">ବିଷୟ</string>
     <string name="title_search">ସନ୍ଧାନ କରନ୍ତୁ</string>

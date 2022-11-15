@@ -588,8 +588,8 @@
     <string name="title_advanced_notifications_background">Benyt baggrundstjeneste til beskedsynkronisering</string>
     <string name="title_advanced_notifications_background_hint">En baggrundstjeneste kan til enhver tid stoppes af Android, men behøver ingen statusbjælkenotifikation</string>
     <string name="title_advanced_confirm_links">Bekræft åbning af links</string>
-    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Fjern som standard sporingsparametre</string>
-    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Kun ved linkbekræftelse</string>
+    <string name="title_advanced_sanitize_links">Fjern som standard sporingsparametre</string>
+    <string name="title_advanced_sanitize_links_hint">Kun ved linkbekræftelse</string>
     <string name="title_advanced_check_links_dbl">Tjek domæneblokeringslister for mistænkelige links</string>
     <string name="title_advanced_confirm_images">Som standard Ingen billedvisning</string>
     <string name="title_advanced_ask_images">Bekræft visning af billeder</string>
@@ -1327,8 +1327,8 @@
     <string name="title_resync">Synkronisér igen</string>
     <string name="title_charset">Indkodning</string>
     <string name="title_charset_auto">Automatisk</string>
-    <string name="title_alternative_text">Vis simpel tekst</string>
-    <string name="title_alternative_html">Vis HTML</string>
+    <string name="title_alternative_text">Indlæs simpel tekst</string>
+    <string name="title_alternative_html">Indlæs HTML</string>
     <string name="title_no_openpgp">OpenKeychain ikke fundet</string>
     <string name="title_user_interaction">Overfører til OpenKeychain</string>
     <string name="title_padlock">Brug hængelåsen til at dekryptere beskeden</string>

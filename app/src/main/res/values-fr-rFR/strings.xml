@@ -588,8 +588,8 @@
     <string name="title_advanced_notifications_background">Utiliser le service d\'arrière-plan pour synchroniser les messages</string>
     <string name="title_advanced_notifications_background_hint">Un service en arrière-plan peut être arrêté par Android à tout moment mais ne nécessite pas de notification dans la barre d\'état</string>
     <string name="title_advanced_confirm_links">Confirmer l\'ouverture des liens</string>
-    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Supprimer les paramètres de suivi par défaut</string>
-    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Seulement lors de la confirmation des liens</string>
+    <string name="title_advanced_sanitize_links">Supprimer les paramètres de suivi par défaut</string>
+    <string name="title_advanced_sanitize_links_hint">Seulement lors de la confirmation des liens</string>
     <string name="title_advanced_check_links_dbl">Rechercher les liens suspects dans des listes de blocage de domaines</string>
     <string name="title_advanced_confirm_images">N\'afficher aucune image par défaut</string>
     <string name="title_advanced_ask_images">Confirmer l\'affichage des images</string>
@@ -1077,6 +1077,7 @@
     <string name="title_quick_actions_low">Peu important</string>
     <string name="title_quick_actions_high">Très important</string>
     <string name="title_quick_actions_snooze">Reporter</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Effacer la sélection après l\'action</string>
     <string name="title_trash">Supprimer</string>
     <string name="title_copy">Copier&#8230;</string>
     <string name="title_copy_to">Copier vers&#8230;</string>
@@ -1327,8 +1328,8 @@
     <string name="title_resync">Resynchroniser</string>
     <string name="title_charset">Encodage</string>
     <string name="title_charset_auto">Automatique</string>
-    <string name="title_alternative_text">Afficher le texte brut</string>
-    <string name="title_alternative_html">Afficher en HTML</string>
+    <string name="title_alternative_text">Charger le texte brut</string>
+    <string name="title_alternative_html">Charger le HTML</string>
     <string name="title_no_openpgp">OpenKeychain introuvable</string>
     <string name="title_user_interaction">Transfert vers OpenKeychain</string>
     <string name="title_padlock">Utiliser le cadenas pour déchiffrer le message</string>

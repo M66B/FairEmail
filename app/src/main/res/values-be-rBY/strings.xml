@@ -615,8 +615,8 @@
     <string name="title_advanced_notifications_background">Выкарыстоўваць фонавую службу для сінхранізацыі паведамленняў</string>
     <string name="title_advanced_notifications_background_hint">Фонавая служба можа быць спынена Android у любы час і не патрабуе апавяшчэння ў радку стану</string>
     <string name="title_advanced_confirm_links">Пацвярджаць адкрыццё спасылак</string>
-    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Выдаліць параметры адсочвання па змаўчанні</string>
-    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Толькі пры пацвярджэнні спасылак</string>
+    <string name="title_advanced_sanitize_links">Выдаліць параметры адсочвання па змаўчанні</string>
+    <string name="title_advanced_sanitize_links_hint">Толькі пры пацвярджэнні спасылак</string>
     <string name="title_advanced_check_links_dbl">Правяраць спісы блакіроўкі даменаў на наяўнасць падазроных спасылак</string>
     <string name="title_advanced_confirm_images">Па змаўчанні не паказваць выявы</string>
     <string name="title_advanced_ask_images">Пацвярджаць адлюстраванне выяў</string>
@@ -1104,6 +1104,7 @@
     <string name="title_quick_actions_low">Нізкая важнасць</string>
     <string name="title_quick_actions_high">Высокая важнасць</string>
     <string name="title_quick_actions_snooze">Адкласці</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Ачысціць выбар пасля выканання дзеяння</string>
     <string name="title_trash">Выдаленыя</string>
     <string name="title_copy">Капіраваць &#8230;</string>
     <string name="title_copy_to">Капіраваць у &#8230;</string>
@@ -1354,8 +1355,8 @@
     <string name="title_resync">Сінхранізаваць паўторна</string>
     <string name="title_charset">Кадзіраванне</string>
     <string name="title_charset_auto">Аўтаматычна</string>
-    <string name="title_alternative_text">Паказаць звычайны тэкст</string>
-    <string name="title_alternative_html">Паказаць HTML</string>
+    <string name="title_alternative_text">Загрузіць звычайны тэкст</string>
+    <string name="title_alternative_html">Загрузіць HTML</string>
     <string name="title_no_openpgp">OpenKeychain не знойдзена</string>
     <string name="title_user_interaction">Перанос на OpenKeychain</string>
     <string name="title_padlock">Выкарыстоўваць замок для расшыфроўкі паведамлення</string>

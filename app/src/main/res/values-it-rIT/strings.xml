@@ -588,8 +588,8 @@
     <string name="title_advanced_notifications_background">Usa il servizio in background per sincronizzare i messaggi</string>
     <string name="title_advanced_notifications_background_hint">Un servizio in background è interrompibile in qualsiasi momento da Android, ma non richiede una notifica della barra di stato</string>
     <string name="title_advanced_confirm_links">Conferma l\'apertura dei link</string>
-    <string name="title_advanced_sanitize_links" comment="title_advanced_sanitize_links&#10;Title for privacy option">Rimuovi i parametri di monitoraggio di default</string>
-    <string name="title_advanced_sanitize_links_hint" comment="title_advanced_sanitize_links_hint&#10;Remark for option to remove tracking parameters by default">Solo quando si confermano i link</string>
+    <string name="title_advanced_sanitize_links">Rimuovi i parametri di monitoraggio di default</string>
+    <string name="title_advanced_sanitize_links_hint">Solo quando si confermano i link</string>
     <string name="title_advanced_check_links_dbl">Controlla le liste di blocco del dominio per i link sospetti</string>
     <string name="title_advanced_confirm_images">Non mostrare alcun immagine di default</string>
     <string name="title_advanced_ask_images">Conferma la visualizzazione delle immagini</string>
@@ -1077,6 +1077,7 @@
     <string name="title_quick_actions_low">Importanza bassa</string>
     <string name="title_quick_actions_high">Importanza elevata</string>
     <string name="title_quick_actions_snooze">Posticipa</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Annulla la selezione dopo un\'azione</string>
     <string name="title_trash">Cestino</string>
     <string name="title_copy">Copia &#8230;</string>
     <string name="title_copy_to">Copia in &#8230;</string>
@@ -1327,8 +1328,8 @@
     <string name="title_resync">Risincronizza</string>
     <string name="title_charset">Codifica</string>
     <string name="title_charset_auto">Automatico</string>
-    <string name="title_alternative_text">Mostra il testo semplice</string>
-    <string name="title_alternative_html">Mostra HTML</string>
+    <string name="title_alternative_text">Carica testo semplice</string>
+    <string name="title_alternative_html">Carica HTML</string>
     <string name="title_no_openpgp">OpenKeychain non trovato</string>
     <string name="title_user_interaction">Trasferimento a OpenKeychain</string>
     <string name="title_padlock">Usa il lucchetto per decifrare il messaggio</string>

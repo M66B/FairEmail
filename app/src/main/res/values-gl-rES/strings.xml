@@ -9,6 +9,8 @@
     <string name="app_continue">Continuar de calquera xeito</string>
     <string name="app_exit">\"Dalle a \'saír\' outra vez pra saír\"</string>
     <string name="app_cake">Non hai espazo abondo</string>
+    <string name="app_cake_remaining">Espazo libre dispoñible no dispositivo: %1$s</string>
+    <string name="app_cake_required">Espazo mínimo de almacenamento requirido: %1$s</string>
     <string name="app_updated">Última actualización: %1$s</string>
     <string name="app_download">Descargado desde: %1$s</string>
     <string name="channel_service">Supervisión</string>
@@ -108,7 +110,7 @@
     <string name="title_notification_sending_retry">O envío intentarase de novo cando mude a conexión de internet ou cando se tire cara abaixo da caixa de saída</string>
     <string name="title_notification_sending_failed">O envío a %1$s fallou</string>
     <string name="title_factor_minutes">%1$d minutos</string>
-    <string name="menu_answers">Patróns</string>
+    <string name="menu_answers">Padróns</string>
     <string name="menu_rules">Regras</string>
     <string name="menu_operations">Operacións</string>
     <string name="menu_contacts">Contactos locais</string>
@@ -197,6 +199,7 @@
     <string name="title_setup_free">É esta unha aplicación de balde?</string>
     <string name="title_setup_permissions">Conceder permisos</string>
     <string name="title_setup_permissions_remark">Para acceder á información de contacto (opcional)</string>
+    <string name="title_setup_permissions_calendar">Para almacenar invitacións (opcional)</string>
     <string name="title_setup_permissions_explanation">É necesario conceder os permisos de contactos para ler a información de contacto e suxerir contactos</string>
     <string name="title_setup_permissions_notify">Mostrar notificacións de novas mensaxes (opcional)</string>
     <string name="title_setup_permissions_notify_explanation">Requírense permisos de notificación para poder mostrar as notificacións de novas mensaxes na barra de estado</string>
@@ -241,11 +244,12 @@
     <string name="title_setup_password_repeat">Repetir contrasinal</string>
     <string name="title_setup_password_missing">Non hai contrasinal</string>
     <string name="title_setup_password_different">Os contrasinais non coinciden</string>
+    <string name="title_setup_password_invalid">Contrasinal incorrecto o ficheiro de configuración danado</string>
     <string name="title_setup_import_accounts">Importar contas e identidades</string>
     <string name="title_setup_import_delete">Eliminar primeiro as contas existentes</string>
     <string name="title_setup_import_rules">Importar regras de filtro</string>
     <string name="title_setup_import_contacts">Importar contactos locais</string>
-    <string name="title_setup_import_answers">Importar patróns de resposta</string>
+    <string name="title_setup_import_answers">Importar padróns de resposta</string>
     <string name="title_setup_import_settings">Opcións de importación</string>
     <string name="title_setup_exported">Exportáronse as configuracións</string>
     <string name="title_setup_imported">Importáronse as configuracións</string>
@@ -335,6 +339,7 @@
     <string name="title_advanced_use_blocklist">Move as mensaxes de dominios na lista de bloqueo ao cartafol de spam</string>
     <string name="title_advanced_use_blocklist_pop3">Saltar mensaxes de dominios que estean nunha lista de bloqueo (só para POP3)</string>
     <string name="title_advanced_tune_keep_alive">Axustar automaticamente o intervalo de comprobación de conexión</string>
+    <string name="title_advanced_blocklist_warning">As listas de bloqueo non son perfectas e poderían bloquear máis cousas que o spam!</string>
     <string name="title_advanced_keyboard">Mostrar teclado por defecto</string>
     <string name="title_advanced_keyboard_no_fullscreen">Evitar o teclado a pantalla completa</string>
     <string name="title_advanced_suggest_names">Usar nomes e enderezos de correo</string>
@@ -369,6 +374,7 @@
     <string name="title_advanced_signature_forward">Usar sinatura nos reenvíos</string>
     <string name="title_advanced_discard_delete">Borrar permanentemente os borradores descartados</string>
     <string name="title_advanced_reply_move">Cando se responda a unha mensaxe, gardar a resposta no mesmo cartafol</string>
+    <string name="title_advanced_reply_move_inbox">Tamén para as mensaxes na caixa de entrada</string>
     <string name="title_advanced_auto_link">Crear ligazóns automaticamente</string>
     <string name="title_advanced_plain_only">Enviar só en formato texto por defecto</string>
     <string name="title_advanced_flow">\'format flowed\' para formato texto</string>
@@ -423,6 +429,7 @@
     <string name="title_advanced_cards_shadow_highlight">Usar color de resaltado na vez do color de acentuado</string>
     <string name="title_advanced_tabular_dividers">Empregar liñas de división cando se use o estilo de táboa</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
+    <string name="title_advanced_date_week">Agrupar por semana no canto de por día</string>
     <string name="title_advanced_date_fixed">Amosar a cabeceira de data fixa na parte superior</string>
     <string name="title_advanced_date_bold">Mostrar a data en fonte grosa</string>
     <string name="title_advanced_threading">Conversacións en fíos</string>
@@ -574,6 +581,8 @@
     <string name="title_advanced_notifications_background">Usar o servizo de fondo para sincronizar as mensaxes</string>
     <string name="title_advanced_notifications_background_hint">Un servizo de fondo pode ser detido por Android en calquera momento, pero non require unha notificación na barra de estado</string>
     <string name="title_advanced_confirm_links">Confirmar a apertura de ligazóns</string>
+    <string name="title_advanced_sanitize_links">Eliminar parámetros de rastrexo por omisión</string>
+    <string name="title_advanced_sanitize_links_hint">So ao comprobaren ligazóns</string>
     <string name="title_advanced_check_links_dbl">Usa as listas de bloqueo de dominios cas ligazóns sospeitosas</string>
     <string name="title_advanced_confirm_images">Non mostrar imaxes por defecto</string>
     <string name="title_advanced_ask_images">Confirmar a mostra de imaxes</string>
@@ -600,6 +609,7 @@
     <string name="title_advanced_clear_all_remark">Os datos da aplicación borraranse irremisiblemente!</string>
     <string name="title_advanced_sign_default">Asinar por defecto</string>
     <string name="title_advanced_encrypt_default">Cifrar por defecto</string>
+    <string name="title_advanced_encrypt_auto">Cifrar automaticamente cando todas as chaves dos destinatarios estean dispoñibles</string>
     <string name="title_advanced_auto_decrypt">Descifrar mensaxes automaticamente</string>
     <string name="title_advanced_auto_undo_decrypt">Desfacer o descifrado ao pechar a conversa</string>
     <string name="title_advanced_openpgp">Provedor OpenPGP</string>
@@ -620,7 +630,7 @@
     </string>
     <string name="title_advanced_power_menu">Engadir accións ao menú de enerxía de Android</string>
     <string name="title_advanced_external_search">Permitir que outras aplicacións poidan buscar nas mensaxes</string>
-    <string name="title_advanced_sort_answers">Ordenar os patróns por frecuencia de uso</string>
+    <string name="title_advanced_sort_answers">Ordenar os padróns por frecuencia de uso</string>
     <string name="title_advanced_shortcuts">Amosar os contactos frecuentes no menú de compartir de Android</string>
     <string name="title_advanced_fts">Crear o índice de busca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensaxes no índice (%3$s)</string>
@@ -630,12 +640,16 @@
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integración con LanguageTool</string>
+    <string name="title_advanced_lt_auto">Comprobar parágrafo despois dun salto de carro</string>
+    <string name="title_advanced_lt_user">Nome de usuario (opcional)</string>
+    <string name="title_advanced_lt_key">Chave API (opcional)</string>
     <string name="title_advanced_deepl">Integración con DeepL</string>
     <string name="title_advanced_virus_total">Integración con VirusTotal</string>
     <string name="title_advanced_sdcard">Quero usar unha tarxeta SD</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se FairEmail aínda está activo</string>
     <string name="title_advanced_updates">Comprobar actualizacións de GitHub</string>
     <string name="title_advanced_check_weekly">Comprobacións semanais na vez de diarias</string>
+    <string name="title_advanced_beta">Comprobar versións de proba en BitBucket</string>
     <string name="title_advanced_changelog">Mostrar lista de cambios tras as actualizacións</string>
     <string name="title_advanced_experiments">Probar características experimentais</string>
     <string name="title_advanced_crash_reports">Enviar informes de erros</string>
@@ -643,6 +657,8 @@
     <string name="title_advanced_cleanup">Limpeza</string>
     <string name="title_advanced_app">Axustes da aplicación</string>
     <string name="title_advanced_more">Máis opcións</string>
+    <string name="title_advanced_main_log">Rexistro principal</string>
+    <string name="title_advanced_main_log_mem">Rexistrar o uso da memoria</string>
     <string name="title_advanced_protocol">Rexistros de protocolo</string>
     <string name="title_advanced_log_info">Rexistro de problemas</string>
     <string name="title_advanced_debug">Modo de depuración</string>
@@ -1007,9 +1023,11 @@
     <string name="title_download_all">Descargar todo</string>
     <string name="title_save_all">Gardar todo</string>
     <string name="title_save_eml">Gardar ficheiro de mensaxe en cru (raw)</string>
+    <string name="title_save_file">Gardar ficheiro</string>
     <string name="title_eml_remark">Para reenviar mensaxes, a mensaxe orixinal ten que ser baixada do servidor de correo. Isto require unha conexión a internet e que as mensaxes aínda estean almacenadas alí.</string>
     <string name="title_eml_option">Isto pódese evitar activando que sempre se baixen os arquivos das mensaxes orixinais nos axustes das preferencias de conexión</string>
     <string name="title_eml_downloaded">Mensaxes orixinais baixadas: %1$s</string>
+    <string name="title_auto_confirm">Confirmar automaticamente despois duns segundos</string>
     <string name="title_buttons">Botóns de selección</string>
     <string name="title_buttons_hint">As accións dispoñibles na realidade dependen do tipo de conta e da configuración</string>
     <string name="title_button_search">Buscar en mensaxes</string>
@@ -1044,13 +1062,13 @@
     <string name="title_reply_list">Responder á lista</string>
     <string name="title_reply_receipt">Enviar confirmación de lectura</string>
     <string name="title_reply_hard_bounce">Enviar unha notificación de rexeitamento</string>
-    <string name="title_reply_template">Responder cun patrón</string>
+    <string name="title_reply_template">Responder cun padrón</string>
     <string name="title_move_undo">Movendo a %1$s (%2$d)</string>
     <string name="title_authentication_failed">Erro na autenticación %1$s</string>
     <string name="title_on_blocklist">Na lista de bloqueo de spam</string>
     <string name="title_receipt_subject">Acuse de recibo: %1$s</string>
     <string name="title_receipt_text">Este acuse de recibo só indica que a mensaxe foi mostrada. Non hai garantías de que o destinatario lise o contido da mensaxe.</string>
-    <string name="title_no_answers">Non hai patróns de resposta definidos</string>
+    <string name="title_no_answers">Non hai padróns de resposta definidos</string>
     <string name="title_no_viewer_caption">Non hai aplicación para ver</string>
     <string name="title_no_viewer_name">Nome do contido</string>
     <string name="title_no_viewer_type">Tipo de contido</string>
@@ -1080,7 +1098,7 @@
     <string name="title_ask_save">Gardar os cambios?</string>
     <string name="title_ask_delete">Borrar mensaxe definitivamente?</string>
     <string name="title_ask_delete_accept">Entendo que borrar permanentemente mensaxes é irreversible</string>
-    <string name="title_ask_delete_answer">Borrar patrón de resposta definitivamente?</string>
+    <string name="title_ask_delete_answer">Borrar padrón de resposta definitivamente?</string>
     <string name="title_ask_delete_rule">Borrar regra definitivamente?</string>
     <string name="title_ask_discard">Desbotar borrador?</string>
     <string name="title_ask_show_html">Mostrar a mensaxe orixinal pode filtrar información privada sensible</string>
@@ -1163,6 +1181,11 @@
     <string name="title_style_strikethrough">Riscado</string>
     <string name="title_style_clear">Eliminar formatado</string>
     <string name="title_style_link">Inserir ligazón</string>
+    <string name="title_style_link_title">Título</string>
+    <string name="title_style_link_metadata">Descargar título</string>
+    <string name="title_style_link_metadata_remark">Isto descarga o título da dirección introducida</string>
+    <string name="title_style_link_send_dlimit">Límite de descarga (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Límite de tempo (%1$s)</string>
     <string name="title_add_image">Engadir imaxe</string>
     <string name="title_add_image_inline">Inserir</string>
     <string name="title_add_image_attach">Anexar</string>
@@ -1179,19 +1202,24 @@
     <string name="title_save_drafts">Gardar os borradores no servidor</string>
     <string name="title_send_dialog">Mostrar opcións de envío</string>
     <string name="title_image_dialog">Mostrar opcións de imaxe</string>
+    <string name="title_block_toolbar">Ferramentas de bloque de texto</string>
     <string name="title_media_toolbar">Barra de audiovisuais</string>
     <string name="title_manage_local_contacts">Xestionar os contactos locais</string>
     <string name="title_insert_contact_group">Inserir grupo de contacto</string>
-    <string name="title_insert_template">Inserir patrón</string>
-    <string name="title_create_template">Crear modelo</string>
+    <string name="title_insert_template">Inserir padrón</string>
+    <string name="title_create_template">Crear padrón</string>
     <string name="title_translate">Traducir</string>
     <string name="title_translate_configure">Configurar &#8230;</string>
     <string name="title_translate_key">Inserir chave de contrasinal</string>
     <string name="title_translating">Traducindo &#8230;</string>
     <string name="title_translate_formal">Usar un rexistro formal</string>
     <string name="title_translate_small">Usar unha fonte pequena para o texto orixinal</string>
+    <string name="title_translate_html">Preservar formato</string>
+    <string name="title_translate_html_hint">Isto consume máis caracteres</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Toque o texto para traducir</string>
+    <string name="title_suggestions_check">Comprobando &#8230;</string>
+    <string name="title_suggestions_none">Sen suxestións</string>
     <string name="title_edit_plain_text">Editar como texto simple</string>
     <string name="title_edit_formatted_text">Editar como texto reformatado</string>
     <string name="title_select_certificate">Seleccionar chave pública</string>
@@ -1206,6 +1234,9 @@
     <string name="title_send_dsn">Rexistro de estado</string>
     <string name="title_send_receipt">Confirmación de lectura</string>
     <string name="title_send_receipt_remark">A maioría de provedores e de clientes de correo ignoran as confirmacións de envío</string>
+    <string name="title_vt_unknown">Este ficheiro aínda non se coñece no VirusTotal</string>
+    <string name="title_vt_summary">%1$s escáneres de virus consideran este ficheiro coma malicioso</string>
+    <string name="title_vt_report">Informe completo</string>
     <string name="title_vt_upload">Subir</string>
     <string name="title_vt_analyzing">VirusTotal está a analizar o ficheiro, isto podería levar un tempo &#8230;</string>
     <string name="title_from_missing">Non hai remitente</string>
@@ -1219,6 +1250,7 @@
     <string name="title_text_reminder">A mensaxe está baleira</string>
     <string name="title_attachment_keywords">attached,attachment,attachments,included,anexo,anexado,adxunto,adjunto</string>
     <string name="title_attachment_reminder">Tiña intención de engadir un anexo?</string>
+    <string name="title_attachment_warning">Potencialmente perigoso: %1$s</string>
     <string name="title_plain_reminder">Perderase todo o formatado</string>
     <string name="title_dsn_reminder">Os rexeitamentos firmes danan a reputación de correo do remitente orixinal!</string>
     <string name="title_size_reminder">A mesaxe (%1$s) é máis grande que o límite do servidor (%2$s)</string>
@@ -1236,8 +1268,6 @@
     <string name="title_resync">Volver sincronizar</string>
     <string name="title_charset">Codificación</string>
     <string name="title_charset_auto">Automático</string>
-    <string name="title_alternative_text">Mostrar texto simple</string>
-    <string name="title_alternative_html">Mostrar HTML</string>
     <string name="title_no_openpgp">Non se atopou OpenKeychain</string>
     <string name="title_user_interaction">Transferindo a OpenKeychain</string>
     <string name="title_padlock">Use o cadeado para descifrar a mensaxe</string>
@@ -1330,6 +1360,7 @@
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño do texto</string>
     <string name="title_padding">Tamaño de sangría</string>
+    <string name="title_large_buttons">Botóns máis grandes</string>
     <string name="title_select_language">Seleccione idioma</string>
     <string name="title_select_all">Seleccionar todo</string>
     <string name="title_select_found">Seleccionar atopados</string>
@@ -1348,21 +1379,23 @@
         Por iso non debe borrar o ficheiro da imaxe!
     </string>
     <string name="title_answer_define_name">Nome</string>
-    <string name="title_answer_caption">Modificar patrón</string>
-    <string name="title_answer_reply">Patrón de resposta</string>
-    <string name="title_answer_name">Nome do patrón</string>
-    <string name="title_answer_group">Grupo de patróns (opcional)</string>
+    <string name="title_answer_define_value">Valor</string>
+    <string name="title_answer_caption">Modificar padrón</string>
+    <string name="title_answer_reply">Padrón de resposta</string>
+    <string name="title_answer_name">Nome do padrón</string>
+    <string name="title_answer_group">Grupo de padróns (opcional)</string>
     <string name="title_answer_standard">Predefinido</string>
     <string name="title_answer_favorite">Favorito</string>
     <string name="title_answer_snippet">Fragmento</string>
     <string name="title_answer_receipt">Usar como confirmación de lectura</string>
     <string name="title_answer_hide">Agachar nos menús</string>
-    <string name="title_answer_text">Texto do patrón</string>
+    <string name="title_answer_text">Texto do padrón</string>
     <string name="title_answer_placeholder">Referencia</string>
     <string name="title_answer_placeholder_name">Nome completo do remitente</string>
     <string name="title_answer_placeholder_email">Enderezo de correo electrónico do remitente</string>
     <string name="title_answer_placeholder_firstname">Nome do remitente</string>
     <string name="title_answer_placeholder_lastname">Apelidos do remitente</string>
+    <string name="title_answer_placeholder_date">Data actual</string>
     <string name="title_rule_noop">Sen acción</string>
     <string name="title_rule_seen">Marcar como lida</string>
     <string name="title_rule_unseen">Marcar como non lida</string>
@@ -1405,10 +1438,11 @@
     <string name="title_rule_hours">Horas</string>
     <string name="title_rule_schedule_end">Desde a fin da condición de tempo</string>
     <string name="title_rule_folder">Cartafol</string>
+    <string name="title_rule_folder_create">Crear cartafol</string>
     <string name="title_rule_thread">Todas as mensaxes da mesma conversa e cartafol</string>
     <string name="title_rule_identity">Identidade</string>
-    <string name="title_rule_template">Patrón de resposta</string>
-    <string name="title_rule_answer_subject">Usar o nome do patrón como asunto</string>
+    <string name="title_rule_template">Padrón de resposta</string>
+    <string name="title_rule_answer_subject">Usar o nome do padrón como asunto</string>
     <string name="title_rule_original_text">Incluír o texto orixinal da mensaxe</string>
     <string name="title_rule_forward_to">Reenviar a</string>
     <string name="title_rule_resend">Reenviar</string>
@@ -1595,6 +1629,7 @@
     <string name="title_reset_open">Definir ou borrar aplicacións predeterminadas</string>
     <string name="title_select_app">Seleccionar aplicación</string>
     <string name="title_updated">Dispoñible unha actualización á versión %1$s</string>
+    <string name="title_no_update">Sen actualizacións dispoñibles</string>
     <string name="title_issue">Ten algunha pregunta ou problema?</string>
     <string name="title_yes">Si</string>
     <string name="title_no">Non</string>
@@ -1603,6 +1638,10 @@
     <string name="title_undo">Desfacer</string>
     <string name="title_redo">Refacer</string>
     <string name="title_insert_line">Inserir liña</string>
+    <string name="title_select_block">Seleccionar bloque</string>
+    <string name="title_insert_quotes">Cita</string>
+    <string name="title_lt_add">Engadir palabra</string>
+    <string name="title_lt_delete">Eliminar palabra</string>
     <string name="title_add">Engadir</string>
     <string name="title_browse">Abrir con</string>
     <string name="title_info">Información</string>
@@ -1715,6 +1754,9 @@
     </plurals>
     <string name="title_accessibility_accounts">Contas</string>
     <string name="title_accessibility_folders">Cartafoles</string>
+    <string name="title_accessibility_searches">Procuras</string>
+    <string name="title_accessibility_menus">Menús</string>
+    <string name="title_accessibility_extras">Extras</string>
     <string name="title_accessibility_collapsed">Contraído</string>
     <string name="title_accessibility_expanded">Expandido</string>
     <string name="title_accessibility_seen">Lido</string>

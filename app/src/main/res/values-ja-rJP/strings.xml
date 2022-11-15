@@ -575,6 +575,8 @@
     <string name="title_advanced_notifications_background">メッセージの同期にバックグラウンドサービスを使用</string>
     <string name="title_advanced_notifications_background_hint">バックグラウンドサービスは Android によって停止される可能性がありますが、ステータスバーに通知が表示されなくなります</string>
     <string name="title_advanced_confirm_links">リンクを開く前に確認</string>
+    <string name="title_advanced_sanitize_links">デフォルトでトラッキングパラメーターを削除</string>
+    <string name="title_advanced_sanitize_links_hint">リンクを確認する場合のみ</string>
     <string name="title_advanced_check_links_dbl">不審なリンクがないかドメインブロックリストを確認</string>
     <string name="title_advanced_confirm_images">デフォルトで画像を表示しない</string>
     <string name="title_advanced_ask_images">画像を表示する前に確認</string>
@@ -593,8 +595,8 @@
     <string name="title_advanced_generic_user_agent">一般的なブラウザーのユーザーエージェントを使用</string>
     <string name="title_advanced_load_emoji">Google Play 開発者サービスから更新された絵文字を読み込む</string>
     <string name="title_advanced_disconnect_auto_update">リストを自動で毎週更新</string>
-    <string name="title_advanced_disconnect_links">リストを使用して追跡リンクについて警告</string>
-    <string name="title_advanced_disconnect_images">リストを使用して追跡画像を識別</string>
+    <string name="title_advanced_disconnect_links">リストを使用してトラッキングリンクについて警告</string>
+    <string name="title_advanced_disconnect_images">リストを使用してトラッキング画像を識別</string>
     <string name="title_advanced_mnemonic">リモートでデータを削除</string>
     <string name="title_advanced_mnemonic_hint">件名に以下の単語を含むメールを受信すると、自動的にアプリのデータを削除します</string>
     <string name="title_advanced_clear_all">アプリのデータを削除</string>
@@ -1311,8 +1313,8 @@
     <string name="title_resync">再同期</string>
     <string name="title_charset">エンコード</string>
     <string name="title_charset_auto">自動</string>
-    <string name="title_alternative_text">プレーンテキストを表示</string>
-    <string name="title_alternative_html">HTML を表示</string>
+    <string name="title_alternative_text">プレーンテキストを読み込む</string>
+    <string name="title_alternative_html">HTML を読み込む</string>
     <string name="title_no_openpgp">OpenKeychain が見つかりません</string>
     <string name="title_user_interaction">OpenKeychain へ転送しています</string>
     <string name="title_padlock">鍵をタップしてメッセージを復号</string>
@@ -1662,11 +1664,11 @@
     <string name="title_open_link">リンクを開く</string>
     <string name="title_image_link">画像リンク</string>
     <string name="title_different_link">タイトルとリンクアドレスが異なります</string>
-    <string name="title_tracking_link">このウェブサイトはあなたを追跡するかもしれません</string>
+    <string name="title_tracking_link">このウェブサイトはあなたをトラッキングするかもしれません</string>
     <string name="title_suspicious_link">不審なリンクです</string>
-    <string name="title_link_http">トラフィックは暗号化されません</string>
-    <string name="title_link_https">トラフィックは暗号化されます</string>
-    <string name="title_sanitize_link">追跡パラメーターを削除する</string>
+    <string name="title_link_http">トラフィックが暗号化されません</string>
+    <string name="title_link_https">トラフィック暗号化</string>
+    <string name="title_sanitize_link">トラッキングパラメーターを削除</string>
     <string name="title_insecure_link">このリンクは安全ではありません</string>
     <string name="title_check_owner">所有者を確認する</string>
     <string name="title_remark_owner">情報は <a href="https://ipinfo.io/">ipinfo.io</a> から取得されます</string>
@@ -1737,7 +1739,7 @@
     <string name="title_pro_one_time">%1$s (支払いは一回限り)</string>
     <string name="title_pro_no_play">Play ストアが見つかりませんでした</string>
     <string name="title_pro_info">FairEmail の開発には文字通り数千時間かかりましたが、それにもかかわらず、ほとんどの機能は無料で使用できます。
-         FairEmail はあなたのプライバシーを真剣に考え、広告を表示せず、お金を稼ぐために追跡や分析を使用しません。
+         FairEmail はあなたのプライバシーを真剣に考え、広告を表示せず、お金を稼ぐためにトラッキングやアナリティクスを使用しません。
          FairEmail を長期的に維持およびサポートするために、いくつかの便利で高度な機能を無料で使用することはできません。
          FairEmail は、これについて小さなリマインダーを表示します。これは、プロ版を購入すると削除されます。
     </string>
@@ -1801,6 +1803,9 @@
     </plurals>
     <string name="title_accessibility_accounts">アカウント</string>
     <string name="title_accessibility_folders">フォルダー</string>
+    <string name="title_accessibility_searches">検索</string>
+    <string name="title_accessibility_menus">メニュー</string>
+    <string name="title_accessibility_extras">その他</string>
     <string name="title_accessibility_collapsed">折りたたみました</string>
     <string name="title_accessibility_expanded">展開しました</string>
     <string name="title_accessibility_seen">既読</string>

@@ -1231,8 +1231,6 @@
     <string name="title_resync">Újraszinkronizálás</string>
     <string name="title_charset">Kódolás</string>
     <string name="title_charset_auto">Automatikus</string>
-    <string name="title_alternative_text">Sima szöveg megjelenítése</string>
-    <string name="title_alternative_html">HTML megjelenítése</string>
     <string name="title_no_openpgp">OpenKeychain nem található</string>
     <string name="title_user_interaction">Átvitel az OpenKeychain-re</string>
     <string name="title_signed_data">Hitelesítse az aláírást az üzenetszöveg megjelenítéséhez</string>
