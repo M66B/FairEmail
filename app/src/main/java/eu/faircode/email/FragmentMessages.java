@@ -2501,6 +2501,9 @@ public class FragmentMessages extends FragmentBase
                         if (targetFolder == null)
                             return result;
 
+                        if (sourceFolder.id.equals(targetFolder.id))
+                            return result;
+
                         result.add(new MessageTarget(context, message, account, sourceFolder, account, targetFolder));
 
                         db.setTransactionSuccessful();
@@ -3233,7 +3236,9 @@ public class FragmentMessages extends FragmentBase
                                 EntityFolder.TRASH.equals(targetFolder.type) ? null : message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
-                            if (sourceFolder == null || sourceFolder.read_only)
+                            if (sourceFolder == null ||
+                                    sourceFolder.read_only ||
+                                    sourceFolder.id.equals(targetFolder.id))
                                 continue;
                             if (EntityFolder.TRASH.equals(targetFolder.type)) {
                                 if (EntityFolder.ARCHIVE.equals(sourceFolder.type) && thread && filter_archive)
@@ -4233,7 +4238,9 @@ public class FragmentMessages extends FragmentBase
                                 EntityFolder.TRASH.equals(targetFolder.type) ? null : message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
-                            if (sourceFolder == null || sourceFolder.read_only)
+                            if (sourceFolder == null ||
+                                    sourceFolder.read_only ||
+                                    sourceFolder.id.equals(targetFolder.id))
                                 continue;
                             if (EntityFolder.TRASH.equals(targetFolder.type)) {
                                 if (EntityFolder.ARCHIVE.equals(sourceFolder.type) && filter_archive)
@@ -4322,7 +4329,9 @@ public class FragmentMessages extends FragmentBase
                                 message.account, message.thread, threading ? null : id, message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
-                            if (sourceFolder == null || sourceFolder.read_only)
+                            if (sourceFolder == null ||
+                                    sourceFolder.read_only ||
+                                    sourceFolder.id.equals(targetFolder.id))
                                 continue;
 
                             result.add(new MessageTarget(context, threaded, sourceAccount, sourceFolder, targetAccount, targetFolder).setCopy(copy));
@@ -9671,7 +9680,9 @@ public class FragmentMessages extends FragmentBase
                             EntityOperation.queue(context, message, EntityOperation.COPY, tid);
                         else {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
-                            if (sourceFolder == null || sourceFolder.read_only)
+                            if (sourceFolder == null ||
+                                    sourceFolder.read_only ||
+                                    sourceFolder.id.equals(targetFolder.id))
                                 continue;
                             result.add(new MessageTarget(context, threaded, sourceAccount, sourceFolder, targetAccount, targetFolder));
                         }
