@@ -1584,15 +1584,15 @@ public class FragmentMessages extends FragmentBase
         fabSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (folder > 0) {
+                if (folder > 0 && !server) {
                     search(getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
                             account, folder, true, criteria);
                     return;
                 }
 
                 Bundle args = new Bundle();
-                args.putLong("account", account);
-                args.putLong("folder", folder);
+                args.putLong("account", server ? -1L : account);
+                args.putLong("folder", server ? -1L : folder);
 
                 new SimpleTask<List<EntityAccount>>() {
                     @Override
@@ -1610,7 +1610,7 @@ public class FragmentMessages extends FragmentBase
                                 result.add(account);
                         }
 
-                        if (folder > 0) {
+                        if (fid > 0) {
                             EntityFolder folder = db.folder().getFolder(fid);
                             if (folder != null)
                                 args.putString("folderName", folder.getDisplayName(context));
@@ -1626,7 +1626,7 @@ public class FragmentMessages extends FragmentBase
                     protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
                         if (accounts.size() == 1) {
                             EntityAccount account = accounts.get(0);
-                            if (account.isGmail())
+                            if (account.isGmail() && !server)
                                 searchArchive(account.id);
                             else
                                 searchAccount(account.id);
@@ -1656,7 +1656,7 @@ public class FragmentMessages extends FragmentBase
 
                                     long account = intent.getLongExtra("account", -1);
                                     boolean gmail = intent.getBooleanExtra("gmail", false);
-                                    if (gmail)
+                                    if (gmail && !server)
                                         searchArchive(account);
                                     else
                                         searchAccount(account);
@@ -1776,24 +1776,29 @@ public class FragmentMessages extends FragmentBase
         else
             fabCompose.hide();
 
-        if (viewType == AdapterMessage.ViewType.SEARCH && criteria != null && !server) {
-            if (criteria.with_hidden ||
-                    criteria.with_encrypted ||
-                    criteria.with_attachments ||
-                    criteria.with_notes ||
-                    criteria.with_types != null) {
-                fabSearch.hide();
-                if (animator != null && animator.isStarted())
-                    animator.end();
-            } else {
-                fabSearch.show();
-                if (animator != null && !animator.isStarted())
-                    animator.start();
-            }
-        } else {
+        if (viewType != AdapterMessage.ViewType.SEARCH ||
+                criteria == null ||
+                criteria.with_hidden ||
+                criteria.with_encrypted ||
+                criteria.with_attachments ||
+                criteria.with_notes ||
+                criteria.with_types != null) {
             fabSearch.hide();
             if (animator != null && animator.isStarted())
                 animator.end();
+        } else {
+            fabSearch.setBackgroundTintList(ColorStateList.valueOf(
+                    Helper.resolveColor(getContext(), server
+                            ? R.attr.colorSeparator
+                            : R.attr.colorFabBackground)));
+            fabSearch.show();
+            if (server) {
+                if (animator != null && animator.isStarted())
+                    animator.end();
+            } else {
+                if (animator != null && !animator.isStarted())
+                    animator.start();
+            }
         }
 
         fabMore.hide();
