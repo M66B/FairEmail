@@ -349,11 +349,11 @@
                 <data android:scheme="content" />
                 <data android:mimeType="*/*" />
                 <data android:host="*" />
-                <data android:pathPattern=".*\\.eml" />
-                <data android:pathPattern=".*\\..*\\.eml" />
-                <data android:pathPattern=".*\\..*\\..*\\.eml" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\.eml" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.eml" />
+                <data android:pathPattern="/.*\\.eml" />
+                <data android:pathPattern="/.*\\..*\\.eml" />
+                <data android:pathPattern="/.*\\..*\\..*\\.eml" />
+                <data android:pathPattern="/.*\\..*\\..*\\..*\\.eml" />
+                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.eml" />
             </intent-filter>
         </activity>
 
