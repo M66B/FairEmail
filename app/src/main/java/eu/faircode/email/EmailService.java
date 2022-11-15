@@ -432,14 +432,15 @@ public class EmailService implements AutoCloseable {
             }
 
             boolean strict = ssl_harden_strict;
-            if (strict && provider != null)
-                try {
-                    EmailProvider p = EmailProvider.getProvider(context, provider);
-                    if ("1.2".equals(p.maxtls)) {
+            if (strict)
+                if ("pop3".equals(protocol) || "pop3s".equals(protocol))
+                    strict = false;
+                else {
+                    EmailProvider p = EmailProvider.getProviderByHost(context, host);
+                    if (p != null && "1.2".equals(p.maxtls)) {
                         strict = false;
                         Log.i(p.name + " maxtls=" + p.maxtls);
                     }
-                } catch (FileNotFoundException ignored) {
                 }
 
             factory = new SSLSocketFactoryService(host, insecure, ssl_harden, strict, cert_strict, key, chain, fingerprint);

@@ -333,6 +333,17 @@ public class EmailProvider implements Parcelable {
         throw new FileNotFoundException("provider id=" + id);
     }
 
+    static EmailProvider getProviderByHost(Context context, @NonNull String host) {
+        for (EmailProvider provider : loadProfiles(context)) {
+            if (provider.imap != null && host.equals(provider.imap.host))
+                return provider;
+            if (provider.smtp != null && host.equals(provider.smtp.host))
+                return provider;
+        }
+
+        return null;
+    }
+
     static List<EmailProvider> getProviders(Context context) {
         List<EmailProvider> result = new ArrayList<>();
         for (EmailProvider provider : loadProfiles(context))
