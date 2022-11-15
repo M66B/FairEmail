@@ -2290,7 +2290,8 @@ public class FragmentMessages extends FragmentBase
         @Override
         public void setExpanded(TupleMessageEx message, boolean value, boolean scroll) {
             // Prevent flicker
-            if (value && message.accountAutoSeen) {
+            if (value && message.accountAutoSeen &&
+                    (message.uid != null || message.accountProtocol == EntityAccount.TYPE_POP)) {
                 message.unseen = 0;
                 message.ui_seen = true;
                 message.visible_unseen = 0;
