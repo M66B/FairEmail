@@ -1878,4 +1878,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Cox"
+        domain="cox\\.net"
+        link="https://www.cox.com/residential/support/imap-server-settings.html">
+        <imap
+            host="imap.cox.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.cox.net"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
