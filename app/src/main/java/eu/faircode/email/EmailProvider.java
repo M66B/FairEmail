@@ -337,6 +337,8 @@ public class EmailProvider implements Parcelable {
         for (EmailProvider provider : loadProfiles(context)) {
             if (provider.imap != null && host.equals(provider.imap.host))
                 return provider;
+            if (provider.pop != null && host.equals(provider.pop.host))
+                return provider;
             if (provider.smtp != null && host.equals(provider.smtp.host))
                 return provider;
         }
