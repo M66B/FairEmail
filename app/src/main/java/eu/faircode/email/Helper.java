@@ -260,6 +260,11 @@ public class Helper {
             }
         };
 
+        if (threads == 0) {
+            int processors = Runtime.getRuntime().availableProcessors();
+            threads = processors * 4;
+        }
+
         if (threads == 0)
             return new ThreadPoolExecutorEx(
                     name,
