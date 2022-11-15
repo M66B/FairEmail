@@ -352,7 +352,8 @@
         appPassword="true"
         documentation="SMTP est désactivé par défaut, veuillez &lt;a href=&quot;http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr&quot;&gt;voir ici&lt;/a&gt; pour un guide détaillé."
         domain="free\\.fr,libertysurf\\.fr"
-        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq157">
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq157"
+        maxtls="1.2">
         <imap
             host="imap.free.fr"
             port="993"
@@ -690,7 +691,8 @@
     <provider
         name="Zoho"
         domain="zoho\\.com"
-        link="https://www.zoho.com/mail/help/imap-access.html">
+        link="https://www.zoho.com/mail/help/imap-access.html"
+        maxtls="1.2">
         <imap
             host="imap.zoho.com"
             port="993"
@@ -703,7 +705,8 @@
     <provider
         name="Zoho EU"
         domain="zohomail\\.eu"
-        link="https://www.zoho.eu/mail/help/imap-access.html">
+        link="https://www.zoho.eu/mail/help/imap-access.html"
+        maxtls="1.2">
         <imap
             host="imap.zoho.eu"
             port="993"
@@ -715,7 +718,8 @@
     </provider>
     <provider
         name="Zoho AU"
-        domain="zohomail\\.com\\.au">
+        domain="zohomail\\.com\\.au"
+        maxtls="1.2">
         <imap
             host="imap.zoho.com.au"
             port="993"
@@ -729,7 +733,8 @@
         name="Mail.ru"
         domain="mail\\.ru,inbox\\.ru,list\\.ru,bk\\.ru"
         id="mailru"
-        link="https://help.mail.ru/mail-help/mailer/popsmtp">
+        link="https://help.mail.ru/mail-help/mailer/popsmtp"
+        maxtls="1.2">
         <imap
             host="imap.mail.ru"
             port="993"
@@ -1643,7 +1648,8 @@
         name="wp.pl"
         appPassword="true"
         domain="wp\\.pl"
-        link="https://pomoc.wp.pl/jak-skonfigurowac-program-pocztowy">
+        link="https://pomoc.wp.pl/jak-skonfigurowac-program-pocztowy"
+        maxtls="1.2">
         <imap
             host="imap.wp.pl"
             port="993"
