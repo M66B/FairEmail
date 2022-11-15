@@ -4,9 +4,11 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
-### BETA 1.2003d - 2022-11-14
+### 1.2004 - 2022-11-15
 
 * Added send reminder for no/suitable internet
+* Added option to retain selection after quick action
+* LanguageTool premium: check per paragraph
 * Small improvements and minor bug fixes
 * Updated libraries
 * Updated translations
