@@ -44,6 +44,7 @@
         name="Outlook"
         domain="outlook\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
+        maxtls="1.2"
         noop="true"
         order="2"
         partial="false"
@@ -61,6 +62,7 @@
         name="Live"
         domain="live\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
+        maxtls="1.2"
         noop="true"
         order="3"
         partial="false"
@@ -78,6 +80,7 @@
         name="Hotmail"
         domain="hotmail\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
+        maxtls="1.2"
         noop="true"
         order="4"
         partial="false"
@@ -94,6 +97,7 @@
     <provider
         name="MSN"
         domain="\\.msn\\..*"
+        maxtls="1.2"
         partial="false">
         <imap
             host="imap-mail.outlook.com"
@@ -110,6 +114,7 @@
         enabled="false"
         id="office365"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
+        maxtls="1.2"
         noop="true"
         order="5"
         partial="false"
@@ -148,6 +153,7 @@
         description="Outlook/Office 365"
         id="office365pcke"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
+        maxtls="1.2"
         noop="true"
         order="5"
         partial="false"
@@ -186,6 +192,7 @@
         enabled="false"
         id="outlook"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
+        maxtls="1.2"
         noop="true"
         order="5"
         partial="false"
@@ -793,7 +800,8 @@
     <provider
         name="Runbox"
         domain="runbox\\..*"
-        link="https://help.runbox.com/email-program-settings/">
+        link="https://help.runbox.com/email-program-settings/"
+        maxtls="1.2">
         <imap
             host="mail.runbox.com"
             port="993"

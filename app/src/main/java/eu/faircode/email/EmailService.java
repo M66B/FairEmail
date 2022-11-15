@@ -47,6 +47,7 @@ import com.sun.mail.util.SocketConnectException;
 import com.sun.mail.util.TraceOutputStream;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -430,7 +431,18 @@ public class EmailService implements AutoCloseable {
                 }
             }
 
-            factory = new SSLSocketFactoryService(host, insecure, ssl_harden, ssl_harden_strict, cert_strict, key, chain, fingerprint);
+            boolean strict = ssl_harden_strict;
+            if (provider != null)
+                try {
+                    EmailProvider p = EmailProvider.getProvider(context, provider);
+                    if ("1.2".equals(p.maxtls)) {
+                        strict = false;
+                        Log.i(p.name + " maxtls=" + p.maxtls);
+                    }
+                } catch (FileNotFoundException ignored) {
+                }
+
+            factory = new SSLSocketFactoryService(host, insecure, ssl_harden, strict, cert_strict, key, chain, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
             properties.put("mail." + protocol + ".socketFactory.fallback", "false");
             properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");

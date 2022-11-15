@@ -88,6 +88,7 @@ public class EmailProvider implements Parcelable {
     public boolean partial;
     public boolean useip;
     public boolean appPassword;
+    public String maxtls;
     public String link;
     public Server imap = new Server();
     public Server smtp = new Server();
@@ -241,6 +242,7 @@ public class EmailProvider implements Parcelable {
                         provider.partial = getAttributeBooleanValue(xml, "partial", true);
                         provider.useip = getAttributeBooleanValue(xml, "useip", true);
                         provider.appPassword = getAttributeBooleanValue(xml, "appPassword", false);
+                        provider.maxtls = xml.getAttributeValue(null, "maxtls");
                         provider.link = xml.getAttributeValue(null, "link");
 
                         String documentation = xml.getAttributeValue(null, "documentation");
