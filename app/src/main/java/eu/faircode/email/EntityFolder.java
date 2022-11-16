@@ -139,9 +139,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
     @NonNull
     public Boolean read_only = false;
     @NonNull
-    public Boolean selectable = true; // Cannot contain messages
+    public Boolean selectable = true; // Can contain messages
     @NonNull
-    public Boolean inferiors = true; // Cannot have child folders
+    public Boolean inferiors = true; // Can have child folders
     public String error;
     public Long last_sync;
     public Long last_sync_foreground;
