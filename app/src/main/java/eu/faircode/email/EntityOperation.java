@@ -232,13 +232,14 @@ public class EntityOperation {
                         Objects.equals(source.account, target.account) &&
                         (jargs.opt(3) == null || !jargs.optBoolean(3))) {
                     jargs.remove(3);
-                    EntityLog.log(context, "Auto block sender=" + MessageHelper.formatAddresses(message.from));
-
+                    // Prevent blocking self
                     List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
-                    if (!message.fromSelf(identities))
+                    if (!message.fromSelf(identities)) {
+                        EntityLog.log(context, "Auto block sender=" + MessageHelper.formatAddresses(message.from));
                         EntityContact.update(context,
                                 message.account, message.identity, message.from,
                                 EntityContact.TYPE_JUNK, message.received);
+                    }
                 }
 
                 if (EntityFolder.DRAFTS.equals(source.type) &&
