@@ -1047,6 +1047,8 @@ If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mo
 Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219)
 if you want to request an S/MIME Actalis certificate.
 
+S/MIME certificates can for example be purchased via [Xolphin](https://www.xolphin.com/).
+
 How to extract a public key from a S/MIME certificate:
 
 ```
@@ -5075,7 +5077,6 @@ adb install /path/to/FairEmail-xxx.apk
 ```
 
 It is also possible to install the Play Store, but this is more complicated.
-See for example [here](https://www.makeuseof.com/windows-11-install-google-play-store/) for a guide.
 
 The app isn't available in the Amazon store because Amazon rebuilds all Android apps, and unfortunately, the app doesn't work correctly after rebuilding anymore.
 Amazon never responded to an issue reported about this.
