@@ -1102,6 +1102,7 @@
     <string name="title_quick_actions_low">חשיבות נמוכה</string>
     <string name="title_quick_actions_high">חשיבות גבוהה</string>
     <string name="title_quick_actions_snooze">השהיה</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">פינוי הבחירה לאחר פעולה</string>
     <string name="title_trash">אשפה</string>
     <string name="title_copy">העתקה&#8230;</string>
     <string name="title_copy_to">העתקה אל&#8230;</string>
@@ -1352,6 +1353,8 @@
     <string name="title_resync">סנכרון מחדש</string>
     <string name="title_charset">הצפנה</string>
     <string name="title_charset_auto">אוטומטי</string>
+    <string name="title_alternative_text">טעינת טקסט פשוט</string>
+    <string name="title_alternative_html">טעינת HTML</string>
     <string name="title_no_openpgp">OpenKeychain לא נמצא</string>
     <string name="title_user_interaction">מועבר ל־OpenKeychain</string>
     <string name="title_padlock">המנעול משמש לפענוח ההודעה</string>

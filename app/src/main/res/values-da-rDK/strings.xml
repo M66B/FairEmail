@@ -1077,6 +1077,7 @@
     <string name="title_quick_actions_low">Lav vigtighed</string>
     <string name="title_quick_actions_high">Høj vigtighed</string>
     <string name="title_quick_actions_snooze">Udsæt</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Ryd valg efter handling</string>
     <string name="title_trash">Papirkurv</string>
     <string name="title_copy">Kopiér &#8230;</string>
     <string name="title_copy_to">Kopiér til &#8230;</string>

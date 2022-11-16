@@ -1100,6 +1100,7 @@
     <string name="title_quick_actions_low">Niskie znaczenie</string>
     <string name="title_quick_actions_high">Wysokie znaczenie</string>
     <string name="title_quick_actions_snooze">Odłóż</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Wyczyść zaznaczenie po akcji</string>
     <string name="title_trash">Kosz</string>
     <string name="title_copy">Kopiuj &#8230;</string>
     <string name="title_copy_to">Kopiuj do &#8230;</string>
@@ -1348,6 +1349,8 @@
     <string name="title_resync">Resynchronizuj</string>
     <string name="title_charset">Kodowanie znaków</string>
     <string name="title_charset_auto">Automatyczne</string>
+    <string name="title_alternative_text">Wczytaj zwykły tekst</string>
+    <string name="title_alternative_html">Wczytaj HTML</string>
     <string name="title_no_openpgp">Nie znaleziono OpenKeychain</string>
     <string name="title_user_interaction">Przenoszenie do OpenKeychain</string>
     <string name="title_padlock">Użyj kłódki, aby odszyfrować wiadomość</string>

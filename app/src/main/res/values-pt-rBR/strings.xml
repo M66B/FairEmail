@@ -1074,6 +1074,7 @@
     <string name="title_quick_actions_low">Importância baixa</string>
     <string name="title_quick_actions_high">Importância alta</string>
     <string name="title_quick_actions_snooze">Soneca</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Limpar seleção após ação</string>
     <string name="title_trash">Lixeira</string>
     <string name="title_copy">Copiar &#8230;</string>
     <string name="title_copy_to">Copiar para &#8230;</string>
@@ -1323,6 +1324,8 @@
     <string name="title_resync">Resincronizar</string>
     <string name="title_charset">Codificação</string>
     <string name="title_charset_auto">Automático</string>
+    <string name="title_alternative_text">Carregar texto plano</string>
+    <string name="title_alternative_html">Carregar HTML</string>
     <string name="title_no_openpgp">OpenKeychain não encontrado</string>
     <string name="title_user_interaction">Transferindo para o OpenKeychain</string>
     <string name="title_padlock">Usar o cadeado para descriptografar a mensagem</string>
