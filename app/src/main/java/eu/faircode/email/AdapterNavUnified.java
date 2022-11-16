@@ -227,20 +227,22 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         TupleFolderUnified unified = new TupleFolderUnified();
         for (TupleFolderUnified type : new ArrayList<>(folders)) {
             TupleFolderUnified f = map.get(type.type);
-            if (f == null)
-                map.put(type.type, type);
-            else {
-                f.folders += type.folders;
-                f.messages += type.messages;
-                f.unseen += type.unseen;
+            if (!EntityFolder.SYSTEM.equals(type.type) &&
+                    !EntityFolder.USER.equals(type.type))
+                if (f == null)
+                    map.put(type.type, type);
+                else {
+                    f.folders += type.folders;
+                    f.messages += type.messages;
+                    f.unseen += type.unseen;
 
-                if (Objects.equals(f.color, type.color) ||
-                        (f.color == null && f.folders == type.folders)) {
-                    f.color = type.color;
-                    f.colorCount += type.colorCount;
-                } else
-                    f.colorCount++;
-            }
+                    if (Objects.equals(f.color, type.color) ||
+                            (f.color == null && f.folders == type.folders)) {
+                        f.color = type.color;
+                        f.colorCount += type.colorCount;
+                    } else
+                        f.colorCount++;
+                }
 
             if (type.unified) {
                 unified.folders += type.folders;
