@@ -4,8 +4,9 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
-### Next version
+### 1.2006 - 2022-11-16
 
+* Added searching on the server in another account/folder
 * Small improvements and minor bug fixes
 * Updated translations
 
