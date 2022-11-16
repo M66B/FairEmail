@@ -164,6 +164,8 @@ public class EntityAnswer implements Serializable {
             if (username != null) {
                 int dot = username.indexOf('.');
                 if (dot < 0)
+                    dot = username.indexOf('_');
+                if (dot < 0)
                     first = username;
                 else
                     first = username.substring(0, dot);
