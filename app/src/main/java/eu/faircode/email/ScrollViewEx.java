@@ -2,6 +2,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.widget.ScrollView;
 
 /*
@@ -106,6 +107,26 @@ public class ScrollViewEx extends ScrollView {
                     at android.os.Looper.loop(Looper.java:262)
                     at android.app.ActivityThread.main(ActivityThread.java:8304)
              */
+        }
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        try {
+            return super.dispatchTouchEvent(ev);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return false;
+        }
+    }
+
+    @Override
+    public boolean dispatchGenericMotionEvent(MotionEvent event) {
+        try {
+            return super.dispatchGenericMotionEvent(event);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return false;
         }
     }
 }
