@@ -4,7 +4,7 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
-### Next version
+### 1.2007 - 2022-11-17
 
 * Small improvements and minor bug fixes
 * Updated translations
