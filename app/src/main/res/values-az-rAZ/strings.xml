@@ -1076,6 +1076,7 @@
     <string name="title_quick_actions_low">Aşağı vaciblik</string>
     <string name="title_quick_actions_high">Yüksək vaciblik</string>
     <string name="title_quick_actions_snooze">Ertələ</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Əməliyyatdan sonra seçimi təmizlə</string>
     <string name="title_trash">Tullantı</string>
     <string name="title_copy">Kopyala &#8230;</string>
     <string name="title_copy_to">Kopyala &#8230;</string>
@@ -1326,6 +1327,8 @@
     <string name="title_resync">Yenidən eyniləşdirmə</string>
     <string name="title_charset">Kodlaşdırma</string>
     <string name="title_charset_auto">Avtomatik</string>
+    <string name="title_alternative_text">Düz mətni yüklə</string>
+    <string name="title_alternative_html">HTML-i yüklə</string>
     <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
     <string name="title_user_interaction">\"OpenKeychain\"ə köçürülür</string>
     <string name="title_padlock">Mesajın şifrəsini açmaq üçün asma kilid istifadə et</string>

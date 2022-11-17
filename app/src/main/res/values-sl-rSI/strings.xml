@@ -1099,6 +1099,7 @@
     <string name="title_quick_actions_low">Nizka pomembnost</string>
     <string name="title_quick_actions_high">Visoka pomembnost</string>
     <string name="title_quick_actions_snooze">Dremež</string>
+    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Počisti izbiro po dejanju</string>
     <string name="title_trash">Smeti</string>
     <string name="title_copy">Kopiraj &#8230;</string>
     <string name="title_copy_to">Kopiraj v &#8230;</string>
@@ -1348,6 +1349,8 @@
     <string name="title_resync">Pon. sinhr.</string>
     <string name="title_charset">Kodiranje</string>
     <string name="title_charset_auto">Samodejno</string>
+    <string name="title_alternative_text">Naloži golo besedilo</string>
+    <string name="title_alternative_html">Naloži HTML</string>
     <string name="title_no_openpgp">OpenKeychain ni bil najden.</string>
     <string name="title_user_interaction">Prenašanje v OpenKeychain</string>
     <string name="title_padlock">Uporabi ključavnico za odšifriranje besedila</string>
