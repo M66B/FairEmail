@@ -2588,6 +2588,27 @@ public class HtmlHelper {
                 if (node instanceof Element) {
                     Element e = (Element) node;
 
+                    String style = e.attr("style");
+                    if (!TextUtils.isEmpty(style)) {
+                        String[] params = style.split(";");
+                        for (String param : params) {
+                            int colon = param.indexOf(':');
+                            if (colon <= 0)
+                                continue;
+                            String key = param.substring(0, colon).trim();
+                            if ("color".equalsIgnoreCase(key) ||
+                                    "background-color".equalsIgnoreCase(key) ||
+                                    "font-family".equalsIgnoreCase(key) ||
+                                    "font-size".equalsIgnoreCase(key) ||
+                                    "text-align".equalsIgnoreCase(key) ||
+                                    "text-decoration".equalsIgnoreCase(key) /* line-through */) {
+                                Log.i("Style element=" + node + " style=" + style);
+                                result.value = true;
+                                return FilterResult.STOP;
+                            }
+                        }
+                    }
+
                     if (STRUCTURE.contains(e.tagName()))
                         return FilterResult.CONTINUE;
 
