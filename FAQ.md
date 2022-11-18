@@ -3858,6 +3858,9 @@ so you cannot use FairEmail or any other email client to access Tutanota.
 and [does not support IMAP](https://www.skiff.com/blog/tutanota-alternatives-comparison)
 so you cannot use FairEmail or any other email client to access Skiff.
 
+**Tildamail** uses a proprietary email protocol and does not support IMAP,
+so you cannot use FairEmail or any other email client to access Tildamail.
+
 <br />
 
 <a name="faq130"></a>

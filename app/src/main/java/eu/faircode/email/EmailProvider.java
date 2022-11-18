@@ -117,7 +117,10 @@ public class EmailProvider implements Parcelable {
             "tutamail.com", // tutanota
             "tuta.io", // tutanota
             "keemail.me", // tutanota
-            "ctemplar.com"
+            "ctemplar.com",
+            "cyberfear.com",
+            "skiff.com",
+            "tildamail.com"
     ));
 
     private EmailProvider() {
