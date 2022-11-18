@@ -420,26 +420,6 @@ public class HtmlEx {
                         out.append(((URLSpan) style[j]).getURL());
                         out.append("\">");
                     }
-                    if (style[j] instanceof ImageSpan) {
-                        out.append("<img src=\"");
-                        out.append(((ImageSpan) style[j]).getSource());
-                        out.append("\"");
-
-                        if (style[j] instanceof ImageSpanEx) {
-                            ImageSpanEx img = (ImageSpanEx) style[j];
-                            int w = img.getWidth();
-                            if (w > 0)
-                                out.append(" width=\"").append(w).append("\"");
-                            int h = img.getHeight();
-                            if (h > 0)
-                                out.append(" height=\"").append(h).append("\"");
-                        }
-
-                        out.append(">");
-
-                        // Don't output the dummy character underlying the image.
-                        i = next;
-                    }
                     if (style[j] instanceof AbsoluteSizeSpan) {
                         AbsoluteSizeSpan s = ((AbsoluteSizeSpan) style[j]);
                         float sizeDip = s.getSize();
@@ -472,6 +452,29 @@ public class HtmlEx {
                         //        0xFFFFFF & color));
                         out.append(String.format("<span style=\"background-color:%s;\">",
                                 eu.faircode.email.HtmlHelper.encodeWebColor(color)));
+                    }
+                }
+
+                for (int j = 0; j < style.length; j++) {
+                    if (style[j] instanceof ImageSpan) {
+                        out.append("<img src=\"");
+                        out.append(((ImageSpan) style[j]).getSource());
+                        out.append("\"");
+
+                        if (style[j] instanceof ImageSpanEx) {
+                            ImageSpanEx img = (ImageSpanEx) style[j];
+                            int w = img.getWidth();
+                            if (w > 0)
+                                out.append(" width=\"").append(w).append("\"");
+                            int h = img.getHeight();
+                            if (h > 0)
+                                out.append(" height=\"").append(h).append("\"");
+                        }
+
+                        out.append(">");
+
+                        // Don't output the dummy character underlying the image.
+                        i = next;
                     }
                 }
 
