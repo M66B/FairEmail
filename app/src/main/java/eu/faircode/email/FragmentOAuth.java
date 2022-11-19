@@ -292,6 +292,7 @@ public class FragmentOAuth extends FragmentBase {
         try {
             switch (requestCode) {
                 case ActivitySetup.REQUEST_OAUTH:
+                    Helper.setAuthenticated(getContext());
                     if (resultCode == RESULT_OK && data != null)
                         onHandleOAuth(data);
                     else
