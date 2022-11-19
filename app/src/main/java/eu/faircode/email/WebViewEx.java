@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
@@ -247,8 +246,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // Unable to create layer for WebViewEx, size 1088x16384 max size 16383 color type 4 has context 1)
-        int h = Resources.getSystem().getDisplayMetrics().heightPixels;
-        int limitHeight = MeasureSpec.makeMeasureSpec(h, MeasureSpec.AT_MOST);
+        int limitHeight = MeasureSpec.makeMeasureSpec(16000, MeasureSpec.AT_MOST);
         if (legacy) {
             if (height > getMinimumHeight())
                 super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
