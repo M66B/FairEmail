@@ -590,10 +590,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else
                         return false;
                 } else {
-                    //view.getParent().requestDisallowInterceptTouchEvent(false);
-                    //return (view.getId() == R.id.wvBody && ev.getAction() == MotionEvent.ACTION_MOVE);
-                    boolean intercept = (view.getId() == R.id.wvBody && ((WebViewEx) wvBody).isZoomedY());
-                    view.getParent().requestDisallowInterceptTouchEvent(intercept);
+                    if (view.getId() == R.id.tvBody)
+                        view.getParent().requestDisallowInterceptTouchEvent(false);
                     return false;
                 }
             }
@@ -2777,21 +2775,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 @Override
                                 public void onScrollChange(int scrollX, int scrollY) {
                                     properties.setPosition(message.id, new Pair<Integer, Integer>(scrollX, scrollY));
-                                }
-
-                                @Override
-                                public void onOverScrolled(int scrollX, int scrollY, int dx, int dy, boolean clampedX, boolean clampedY) {
-                                    if (clampedY && ((WebViewEx) wvBody).isZoomedY()) {
-                                        boolean flinged = false;
-                                        try {
-                                            if (!webview_legacy && rv != null)
-                                                flinged = rv.fling(dx * 10, dy * 10);
-                                        } catch (Throwable ex) {
-                                            Log.e(ex);
-                                        }
-                                        if (!flinged)
-                                            properties.scrollBy(dx, dy);
-                                    }
                                 }
 
                                 @Override
