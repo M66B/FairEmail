@@ -48,7 +48,6 @@ import java.util.Objects;
 public class WebViewEx extends WebView implements DownloadListener, View.OnLongClickListener {
     private int height;
     private int maxHeight;
-    private boolean legacy;
     private IWebView intf;
     private Runnable onPageLoaded;
     private String hash;
@@ -115,7 +114,6 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         boolean browser_zoom = (prefs.getBoolean("browser_zoom", false) && BuildConfig.DEBUG);
         int message_zoom = prefs.getInt("message_zoom", 100);
         boolean monospaced = prefs.getBoolean("monospaced", false);
-        legacy = (prefs.getBoolean("webview_legacy", false) && BuildConfig.DEBUG);
 
         WebSettings settings = getSettings();
 
@@ -247,19 +245,10 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // Unable to create layer for WebViewEx, size 1088x16384 max size 16383 color type 4 has context 1)
         int limitHeight = MeasureSpec.makeMeasureSpec(16000, MeasureSpec.AT_MOST);
-        if (legacy) {
-            if (height > getMinimumHeight())
-                super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
-            else
-                super.onMeasure(widthMeasureSpec, limitHeight);
-        } else {
-            super.onMeasure(widthMeasureSpec, limitHeight);
-        }
+        super.onMeasure(widthMeasureSpec, limitHeight);
 
         int mh = getMeasuredHeight();
         Log.i("Measured height=" + mh + " last=" + height + "/" + maxHeight + " ch=" + getContentHeight());
-        if (mh == 0 && legacy)
-            setMeasuredDimension(getMeasuredWidth(), height);
     }
 
     @Override

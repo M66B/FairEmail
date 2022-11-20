@@ -316,7 +316,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int level;
     private boolean canDarken;
     private boolean fake_dark;
-    private boolean webview_legacy;
     private boolean show_recent;
 
     private boolean gotoTop = false;
@@ -7360,7 +7359,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.canDarken = WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING);
         this.fake_dark = prefs.getBoolean("fake_dark", false);
-        this.webview_legacy = prefs.getBoolean("webview_legacy", false);
         this.show_recent = prefs.getBoolean("show_recent", false);
 
         DiffUtil.ItemCallback<TupleMessageEx> callback = new DiffUtil.ItemCallback<TupleMessageEx>() {
