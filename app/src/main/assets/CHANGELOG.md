@@ -4,6 +4,12 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
+### 1.2007b - 2022-11-20
+
+* Improved original message view scrolling
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2007 - 2022-11-17
 
 * Small improvements and minor bug fixes
