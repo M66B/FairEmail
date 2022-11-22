@@ -2,6 +2,12 @@ Changelog
 
 --------------------
 
+Ostromia
+
+Next version
+
+* Small improvements and minor bug fixes
+
 Ninjatitan
 
 1.2007c - 2022-11-22

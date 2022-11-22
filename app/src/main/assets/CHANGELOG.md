@@ -2,6 +2,12 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### [Ostromia](https://en.wikipedia.org/wiki/Ostromia)
+
+### Next version
+
+* Small improvements and minor bug fixes
+
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
 ### 1.2007c - 2022-11-22

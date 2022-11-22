@@ -5,7 +5,7 @@ apply plugin: 'de.undercouch.download'
 
 def getVersionCode = { -> return 2007 }
 def getRevision = { -> return "c" }
-def getReleaseName = { -> return "Ninjatitan" }
+def getReleaseName = { -> return "Ostromia" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
 def keystoreProperties = new Properties()
