@@ -28,6 +28,8 @@ android {
         versionName "1." + getVersionCode()
         archivesBaseName = "FairEmail-v$versionName" + getRevision()
 
+        manifestPlaceholders = [namespace: applicationId.replace('.debug', '')]
+
         buildConfigField "String", "REVISION", "\"" + getRevision() + "\""
         buildConfigField "String", "RELEASE_NAME", "\"" + getReleaseName() + "\""
 
