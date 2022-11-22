@@ -4501,6 +4501,14 @@ public class MessageHelper {
                     !Part.ATTACHMENT.equalsIgnoreCase(disposition) && TextUtils.isEmpty(filename)) {
                 parts.text.add(new PartHolder(part, contentType));
             } else {
+                // Workaround for NIL message content type
+                if ("application/octet-stream".equals(ct) && part instanceof MimeMessage) {
+                    ContentType plain = new ContentType("text/plain");
+                    plain.setParameterList(contentType.getParameterList());
+                    Log.w("Converting from " + contentType + " to " + plain);
+                    parts.text.add(new PartHolder(part, plain));
+                }
+
                 if (Report.isDeliveryStatus(ct) ||
                         Report.isDispositionNotification(ct) ||
                         Report.isFeedbackReport(ct))
