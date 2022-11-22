@@ -1448,9 +1448,15 @@ public class FragmentCompose extends FragmentBase {
         etTo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Cursor cursor = (Cursor) adapterView.getAdapter().getItem(position);
-                int colEmail = cursor.getColumnIndex("email");
-                selectIdentityForEmail(colEmail < 0 ? null : cursor.getString(colEmail));
+                try {
+                    Cursor cursor = (Cursor) adapterView.getAdapter().getItem(position);
+                    if (cursor != null && cursor.getCount() > 0) {
+                        int colEmail = cursor.getColumnIndex("email");
+                        selectIdentityForEmail(colEmail < 0 ? null : cursor.getString(colEmail));
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
             }
         });
 
@@ -7482,22 +7488,27 @@ public class FragmentCompose extends FragmentBase {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            int target = spTarget.getSelectedItemPosition();
-                            Cursor cursor = (Cursor) spGroup.getSelectedItem();
-                            if (target != INVALID_POSITION && cursor != null) {
-                                long group = cursor.getLong(0);
-                                String name = cursor.getString(1);
+                            try {
+                                int target = spTarget.getSelectedItemPosition();
+                                Cursor cursor = (Cursor) spGroup.getSelectedItem();
+                                if (target != INVALID_POSITION &&
+                                        cursor != null && cursor.getCount() > 0) {
+                                    long group = cursor.getLong(0);
+                                    String name = cursor.getString(1);
 
-                                Bundle args = getArguments();
-                                args.putLong("id", working);
-                                args.putInt("target", target);
-                                args.putLong("group", group);
-                                args.putString("name", name);
-                                args.putInt("type", spType.getSelectedItemPosition());
+                                    Bundle args = getArguments();
+                                    args.putLong("id", working);
+                                    args.putInt("target", target);
+                                    args.putLong("group", group);
+                                    args.putString("name", name);
+                                    args.putInt("type", spType.getSelectedItemPosition());
 
-                                sendResult(RESULT_OK);
-                            } else
-                                sendResult(RESULT_CANCELED);
+                                    sendResult(RESULT_OK);
+                                } else
+                                    sendResult(RESULT_CANCELED);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
