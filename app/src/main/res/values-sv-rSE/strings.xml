@@ -869,6 +869,7 @@
     <string name="title_drafts_select">Att skicka e-post kräver att en utkastmapp väljs i kontoinställningarna</string>
     <string name="title_account_auth_update">Uppdatera auktorisering</string>
     <string name="title_account_auth_password">Byt till lösenordsautentisering</string>
+    <string name="title_change_password">Ändra lösenord</string>
     <string name="title_delete_account">Radera konto</string>
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
