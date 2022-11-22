@@ -584,7 +584,7 @@
         </service>
 
         <provider
-            android:name="eu.faircode.email.FileProviderEx"
+            android:name=".FileProviderEx"
             android:authorities="${applicationId}"
             android:exported="false"
             android:grantUriPermissions="true">
