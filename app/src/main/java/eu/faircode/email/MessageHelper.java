@@ -1277,6 +1277,19 @@ public class MessageHelper {
         return (header == null ? null : MimeUtility.unfold(header));
     }
 
+    @NonNull
+    String getPOP3MessageID() throws MessagingException {
+        String msgid = getMessageID();
+        if (TextUtils.isEmpty(msgid)) {
+            Long time = getSent();
+            if (time == null)
+                msgid = getHash();
+            else
+                msgid = Long.toString(time);
+        }
+        return msgid;
+    }
+
     List<Header> getAllHeaders() throws MessagingException {
         ensureHeaders();
         return Collections.list(imessage.getAllHeaders());

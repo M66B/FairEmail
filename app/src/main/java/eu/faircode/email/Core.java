@@ -3136,9 +3136,8 @@ class Core {
                         for (int i = imessages.length - max; i < imessages.length; i++) {
                             Message imessage = imessages[i];
                             MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
-                            String msgid = helper.getMessageID(); // expensive!
-                            if (!TextUtils.isEmpty(msgid))
-                                known.remove(msgid);
+                            String msgid = helper.getPOP3MessageID(); // expensive!
+                            known.remove(msgid);
                         }
 
                         for (TupleUidl uidl : known.values())
@@ -3175,15 +3174,7 @@ class Core {
                             }
                         } else {
                             uidl = null;
-                            msgid = helper.getMessageID();
-
-                            if (TextUtils.isEmpty(msgid)) {
-                                Long time = helper.getSent();
-                                if (time == null)
-                                    msgid = helper.getHash();
-                                else
-                                    msgid = Long.toString(time);
-                            }
+                            msgid = helper.getPOP3MessageID();
                         }
 
                         if (TextUtils.isEmpty(msgid)) {
