@@ -4,7 +4,7 @@
 
 ### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
-### 1.2007b - 2022-11-20
+### 1.2007c - 2022-11-22
 
 * Improved original message view scrolling
 * Small improvements and minor bug fixes
