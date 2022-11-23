@@ -4,17 +4,13 @@
 
 ### [Ostromia](https://en.wikipedia.org/wiki/Ostromia)
 
-### Next version
-
-* Small improvements and minor bug fixes
-
-### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
-
-### 1.2007c - 2022-11-22
+### 1.2008 - 2022-11-23
 
 * Improved original message view scrolling
 * Small improvements and minor bug fixes
 * Updated translations
+
+### [Ninjatitan](https://en.wikipedia.org/wiki/Ninjatitan)
 
 ### 1.2007 - 2022-11-17
 
