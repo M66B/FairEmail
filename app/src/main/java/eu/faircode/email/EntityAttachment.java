@@ -281,6 +281,19 @@ public class EntityAttachment {
         if ("odp".equals(extension))
             return "application/vnd.oasis.opendocument.presentation";
 
+        // Audio
+
+        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Configuring_servers_for_Ogg_media
+
+        if ("oga".equals(extension))
+            return "audio/ogg";
+
+        if ("ogv".equals(extension))
+            return "video/ogg";
+
+        if ("ogg".equals(extension))
+            return "application/ogg";
+
         // Images
 
         if ("avif".equals(extension))
