@@ -1250,6 +1250,8 @@
     <string name="title_zip" translatable="false">ZIP</string>
     <string name="title_event">Add to calendar</string>
     <string name="title_pin">Add shortcut</string>
+    <string name="title_pin_label">Shortcut title</string>
+
     <string name="title_print">Print</string>
     <string name="title_print_header">Print header</string>
     <string name="title_print_images">Print images</string>

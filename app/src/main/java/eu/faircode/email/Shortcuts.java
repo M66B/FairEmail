@@ -278,7 +278,7 @@ class Shortcuts {
     }
 
     @NonNull
-    static ShortcutInfoCompat.Builder getShortcut(Context context, EntityMessage message, ContactInfo[] contactInfo) {
+    static ShortcutInfoCompat.Builder getShortcut(Context context, EntityMessage message, String label, ContactInfo[] contactInfo) {
         Intent thread = new Intent(context, ActivityView.class);
         thread.setAction("thread:" + message.id);
         thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -300,14 +300,6 @@ class Shortcuts {
                     d.getIntrinsicHeight(),
                     Bitmap.Config.ARGB_8888);
         }
-
-        String label;
-        if (!TextUtils.isEmpty(message.notes))
-            label = message.notes;
-        else if (!TextUtils.isEmpty(message.subject))
-            label = message.subject;
-        else
-            label = context.getString(R.string.app_name);
 
         IconCompat icon = IconCompat.createWithBitmap(bm);
         String id = "message:" + message.id;
@@ -350,7 +342,7 @@ class Shortcuts {
         return ShortcutManagerCompat.isRequestPinShortcutSupported(context.getApplicationContext());
     }
 
-    static void requestPinShortcut(Context context, ShortcutInfoCompat info){
+    static void requestPinShortcut(Context context, ShortcutInfoCompat info) {
         ShortcutManagerCompat.requestPinShortcut(context.getApplicationContext(), info, null);
     }
 }

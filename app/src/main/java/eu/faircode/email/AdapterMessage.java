@@ -6660,6 +6660,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuPin(TupleMessageEx message) {
+            View view = LayoutInflater.from(context).inflate(R.layout.dialog_shortcut_label, null);
+            EditText etLabel = view.findViewById(R.id.etLabel);
+
+            etLabel.setText(message.subject);
+
+            new AlertDialog.Builder(context)
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String label = etLabel.getText().toString().trim();
+                            if (!TextUtils.isEmpty(label))
+                                _onMenuPin(message, label);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        }
+
+        private void _onMenuPin(TupleMessageEx message, String label) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putLong("account", message.account);
@@ -6680,7 +6700,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onExecuted(Bundle args, ContactInfo[] contactInfo) {
                     ShortcutInfoCompat.Builder builder =
-                            Shortcuts.getShortcut(context, message, contactInfo);
+                            Shortcuts.getShortcut(context, message, label, contactInfo);
                     Shortcuts.requestPinShortcut(context, builder.build());
                 }
 
