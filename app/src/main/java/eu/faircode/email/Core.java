@@ -3065,7 +3065,7 @@ class Core {
                     imessages.length == folder.last_sync_count) {
                 // Check if last message known as new messages indicator
                 MessageHelper helper = new MessageHelper((MimeMessage) imessages[imessages.length - 1], context);
-                String msgid = helper.getMessageID();
+                String msgid = helper.getPOP3MessageID();
                 if (msgid != null) {
                     int count = db.message().countMessageByMsgId(folder.id, msgid, true);
                     if (count == 1) {
