@@ -588,9 +588,6 @@ public class EntityRule {
             case TYPE_DELETE:
                 return;
             case TYPE_SOUND:
-                String uri = jargs.optString("uri");
-                if (TextUtils.isEmpty(uri))
-                    throw new IllegalArgumentException(context.getString(R.string.title_rule_select_sound));
                 return;
             case TYPE_LOCAL_ONLY:
                 return;
@@ -1113,21 +1110,21 @@ public class EntityRule {
     }
 
     private boolean onActionSound(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
-        Log.i("Speaking name=" + name);
-
         if (message.ui_seen)
             return false;
 
-        Uri uri = Uri.parse(jargs.getString("uri"));
+        Uri uri = (jargs.has("uri") ? Uri.parse(jargs.getString("uri")) : null);
         boolean alarm = jargs.getBoolean("alarm");
         int duration = jargs.optInt("duration", MediaPlayerHelper.DEFAULT_ALARM_DURATION);
+        Log.i("Sound uri=" + uri + " alarm=" + alarm + " duration=" + duration);
 
         DB db = DB.getInstance(context);
 
         message.ui_silent = true;
         db.message().setMessageUiSilent(message.id, message.ui_silent);
 
-        MediaPlayerHelper.queue(context, uri, alarm, duration);
+        if (uri != null)
+            MediaPlayerHelper.queue(context, uri, alarm, duration);
 
         return true;
     }
