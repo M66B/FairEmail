@@ -333,10 +333,11 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_RECORD_AUDIO = 9;
     private static final int REQUEST_OPENPGP = 10;
     private static final int REQUEST_CONTACT_GROUP = 11;
-    private static final int REQUEST_LINK = 12;
-    private static final int REQUEST_DISCARD = 13;
-    private static final int REQUEST_SEND = 14;
-    private static final int REQUEST_REMOVE_ATTACHMENTS = 15;
+    private static final int REQUEST_SELECT_IDENTITY = 12;
+    private static final int REQUEST_LINK = 13;
+    private static final int REQUEST_DISCARD = 14;
+    private static final int REQUEST_SEND = 15;
+    private static final int REQUEST_REMOVE_ATTACHMENTS = 16;
 
     private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "compose");
 
@@ -2155,6 +2156,9 @@ public class FragmentCompose extends FragmentBase {
         } else if (itemId == R.id.menu_answer_create) {
             onMenuAnswerCreate();
             return true;
+        } else if (itemId == R.id.menu_select_identity) {
+            onMenuIdentitySelect();
+            return true;
         } else if (itemId == R.id.title_search_in_text) {
             startSearch();
             return true;
@@ -2523,6 +2527,13 @@ public class FragmentCompose extends FragmentBase {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("compose:answer");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuIdentitySelect() {
+        FragmentDialogSelectIdentity fragment = new FragmentDialogSelectIdentity();
+        fragment.setArguments(new Bundle());
+        fragment.setTargetFragment(this, REQUEST_SELECT_IDENTITY);
+        fragment.show(getParentFragmentManager(), "select:identity");
     }
 
     private void onTranslate(View anchor) {
@@ -3046,6 +3057,10 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_CONTACT_GROUP:
                     if (resultCode == RESULT_OK && data != null)
                         onContactGroupSelected(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_SELECT_IDENTITY:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSelectIdentity(data.getBundleExtra("args"));
                     break;
                 case REQUEST_LINK:
                     if (resultCode == RESULT_OK && data != null)
@@ -4402,6 +4417,45 @@ public class FragmentCompose extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.setExecutor(executor).execute(this, args, "compose:picked");
+    }
+
+    private void onSelectIdentity(Bundle args) {
+        new SimpleTask<EntityIdentity>() {
+            @Override
+            protected EntityIdentity onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                EntityIdentity identity;
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    identity = db.identity().getIdentity(id);
+                    if (identity != null) {
+                        db.account().resetPrimary();
+                        db.account().setAccountPrimary(identity.account, true);
+                        db.identity().resetPrimary(identity.account);
+                        db.identity().setIdentityPrimary(identity.id, true);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return identity;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityIdentity identity) {
+                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "select:identity");
     }
 
     private void onLinkSelected(Bundle args) {

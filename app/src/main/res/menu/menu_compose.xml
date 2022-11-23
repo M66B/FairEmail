@@ -107,6 +107,14 @@
         </item>
 
         <item
+            android:id="@+id/menu_select_identity"
+            android:icon="@drawable/twotone_person_24"
+            android:title="@string/title_select_default_identity"
+            app:showAsAction="never">
+            <menu />
+        </item>
+
+        <item
             android:id="@+id/title_search_in_text"
             android:icon="@drawable/twotone_manage_search_24"
             android:title="@string/title_button_search_text"
