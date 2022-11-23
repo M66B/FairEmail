@@ -374,6 +374,8 @@ public class WorkerCleanup extends Worker {
 
             DB.createEmergencyBackup(context);
 
+            Shortcuts.cleanup(context);
+
             if (manual) {
                 // https://www.sqlite.org/lang_vacuum.html
                 long size = context.getDatabasePath(db.getOpenHelper().getDatabaseName()).length();

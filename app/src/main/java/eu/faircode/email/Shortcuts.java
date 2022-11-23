@@ -345,4 +345,24 @@ class Shortcuts {
     static void requestPinShortcut(Context context, ShortcutInfoCompat info) {
         ShortcutManagerCompat.requestPinShortcut(context.getApplicationContext(), info, null);
     }
+
+    static void cleanup(Context context) {
+        if (!BuildConfig.DEBUG)
+            return;
+
+        DB db = DB.getInstance(context);
+        List<ShortcutInfoCompat> pinned =
+                ShortcutManagerCompat.getShortcuts(context, ShortcutManagerCompat.FLAG_MATCH_PINNED);
+        for (ShortcutInfoCompat shortcut : pinned) {
+            String[] id = shortcut.getId().split(":");
+            if (id.length == 2 && "message".equals(id[0])) {
+                Intent intent = shortcut.getIntent();
+                long account = intent.getLongExtra("account", -1L);
+                String thread = intent.getStringExtra("thread");
+                List<EntityMessage> messages = db.message().getMessagesByThread(account, thread, null, null);
+                if (messages != null && messages.size() == 0)
+                    ; // Delete the shortcut, if only this was possible ...
+            }
+        }
+    }
 }
