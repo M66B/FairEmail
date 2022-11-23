@@ -417,7 +417,6 @@ public class LanguageTool {
                         : SuggestionSpan.FLAG_GRAMMAR_ERROR);
                 SuggestionSpan span = new SuggestionSpanEx(etBody.getContext(),
                         suggestion.replacements.toArray(new String[0]), flags);
-                Log.i("MMM " + suggestion.title + ": " + flags);
                 int s = start + suggestion.offset;
                 int e = s + suggestion.length;
                 if (s < 0 || s > edit.length() || e < 0 || e > edit.length()) {
