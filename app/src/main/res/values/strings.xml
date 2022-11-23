@@ -1496,7 +1496,7 @@
     <string name="title_insert_contact_group">Insert contact group</string>
     <string name="title_insert_template">Insert template</string>
     <string name="title_create_template">Create template</string>
-    <string name="title_select_default_identity">Select default identity</string>
+    <string name="title_select_default_identity">Select default address</string>
     <string name="title_translate">Translate</string>
     <string name="title_translate_configure">Configure &#8230;</string>
     <string name="title_translate_key">Enter key</string>

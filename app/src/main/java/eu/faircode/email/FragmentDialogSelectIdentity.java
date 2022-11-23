@@ -51,7 +51,7 @@ public class FragmentDialogSelectIdentity extends FragmentDialogBase {
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
-                TupleIdentityEx identity = (TupleIdentityEx) getItem(position);
+                TupleIdentityEx identity = getItem(position);
 
                 View vwColor = view.findViewById(R.id.vwColor);
                 TextView tv = view.findViewById(android.R.id.text1);
