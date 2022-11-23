@@ -290,8 +290,7 @@ public class ActivitySignature extends ActivityBase {
         else if (etText.isRaw())
             etText.setText(html);
         else {
-            Document d = JsoupEx.parse(html);
-            d = HtmlHelper.sanitizeView(this, d, true);
+            Document d = HtmlHelper.sanitizeCompose(this, html, true);
             Spanned signature = HtmlHelper.fromDocument(this, d, new HtmlHelper.ImageGetterEx() {
                 @Override
                 public Drawable getDrawable(Element element) {

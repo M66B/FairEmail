@@ -415,8 +415,12 @@ public class HtmlHelper {
     }
 
     static Document sanitizeCompose(Context context, String html, boolean show_images) {
+        return sanitizeCompose(context, JsoupEx.parse(html), show_images);
+    }
+
+    static Document sanitizeCompose(Context context, Document parsed, boolean show_images) {
         try {
-            return sanitize(context, JsoupEx.parse(html), false, show_images);
+            return sanitize(context, parsed, false, show_images);
         } catch (Throwable ex) {
             // OutOfMemoryError
             Log.e(ex);

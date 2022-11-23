@@ -2437,8 +2437,7 @@ public class FragmentCompose extends FragmentBase {
 
                                     String html = EntityAnswer.replacePlaceholders(context, answer.text, tos);
 
-                                    Document d = JsoupEx.parse(html);
-                                    d = HtmlHelper.sanitizeView(context, d, true);
+                                    Document d = HtmlHelper.sanitizeCompose(context, html, true);
                                     Spanned spanned = HtmlHelper.fromDocument(context, d, new HtmlHelper.ImageGetterEx() {
                                         @Override
                                         public Drawable getDrawable(Element element) {
@@ -3393,8 +3392,7 @@ public class FragmentCompose extends FragmentBase {
                     Helper.writeText(file, doc.html());
                 }
 
-                Document d = JsoupEx.parse(html);
-                d = HtmlHelper.sanitizeView(context, d, true);
+                Document d = HtmlHelper.sanitizeCompose(context, html, true);
                 return HtmlHelper.fromDocument(context, d, new HtmlHelper.ImageGetterEx() {
                     @Override
                     public Drawable getDrawable(Element element) {
@@ -7302,8 +7300,7 @@ public class FragmentCompose extends FragmentBase {
 
             Spanned signature = null;
             if (identity != null && !TextUtils.isEmpty(identity.signature)) {
-                Document d = JsoupEx.parse(identity.signature);
-                d = HtmlHelper.sanitizeView(getContext(), d, show_images);
+                Document d = HtmlHelper.sanitizeCompose(getContext(), identity.signature, show_images);
                 signature = HtmlHelper.fromDocument(getContext(), d, new HtmlHelper.ImageGetterEx() {
                     @Override
                     public Drawable getDrawable(Element element) {

@@ -229,8 +229,7 @@ public class FragmentAnswer extends FragmentBase {
 
                 String html = (answer == null ? args.getString("html") : answer.text);
                 if (html != null) {
-                    Document d = JsoupEx.parse(html);
-                    d = HtmlHelper.sanitizeView(context, d, true);
+                    Document d = HtmlHelper.sanitizeCompose(context, html, true);
                     Spanned spanned = HtmlHelper.fromDocument(context, d, new HtmlHelper.ImageGetterEx() {
                         @Override
                         public Drawable getDrawable(Element element) {
