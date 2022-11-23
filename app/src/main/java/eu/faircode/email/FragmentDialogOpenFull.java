@@ -23,7 +23,6 @@ import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
