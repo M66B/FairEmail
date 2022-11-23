@@ -1077,6 +1077,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvAutomation" />
 
+                <TextView
+                    android:id="@+id/tvLocalOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_local_only_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDelete" />
+
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpReady"
                     android:layout_width="0dp"
@@ -1160,6 +1171,12 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="tvDelete" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpLocalOnly"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="tvLocalOnly" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </eu.faircode.email.ScrollViewEx>
 

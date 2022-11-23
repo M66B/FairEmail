@@ -7629,6 +7629,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     log("ui_ignored changed", next.id);
                 }
                 // ui_silent
+                // ui_local_only
                 if (!prev.ui_browsed.equals(next.ui_browsed)) {
                     same = false;
                     log("ui_browsed changed", next.id);

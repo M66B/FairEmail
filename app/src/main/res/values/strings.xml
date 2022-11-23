@@ -1712,6 +1712,7 @@
     <string name="title_rule_unseen">Mark unread</string>
     <string name="title_rule_hide">Hide</string>
     <string name="title_rule_ignore">Suppress notification</string>
+    <string name="title_rule_local_only" translatable="false">Local notification only</string>
     <string name="title_rule_snooze">Snooze</string>
     <string name="title_rule_flag">Add star</string>
     <string name="title_rule_importance">Set importance</string>
@@ -1771,6 +1772,7 @@
     <string name="title_rule_keyword_missing">Keyword missing</string>
     <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
     <string name="title_rule_delete_hint">Permanent deletion is irreversible, so make sure the rule conditions are correct!</string>
+    <string name="title_rule_local_only_hint" translatable="false">Try to avoid bridging notifications to other devices, such as smartwatches. Not all devices support this.</string>
 
     <string name="title_rule_execute">Execute now</string>
     <string name="title_rule_applied">Affected messages: %1$d</string>

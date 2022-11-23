@@ -792,6 +792,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_silent = :ui_silent WHERE id = :id AND NOT (ui_silent IS :ui_silent)")
     int setMessageUiSilent(long id, boolean ui_silent);
 
+    @Query("UPDATE message SET ui_local_only = :ui_local_only WHERE id = :id AND NOT (ui_local_only IS :ui_local_only)")
+    int setMessageUiLocalOnly(long id, boolean ui_local_only);
+
     @Query("UPDATE message SET ui_busy = :busy WHERE id = :id AND NOT (ui_busy IS :busy)")
     int setMessageUiBusy(long id, Long busy);
 

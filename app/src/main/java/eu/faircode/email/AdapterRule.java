@@ -528,6 +528,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     return R.string.title_rule_delete;
                 case EntityRule.TYPE_SOUND:
                     return R.string.title_rule_sound;
+                case EntityRule.TYPE_LOCAL_ONLY:
+                    return R.string.title_rule_local_only;
                 default:
                     throw new IllegalArgumentException("Unknown action type=" + type);
             }

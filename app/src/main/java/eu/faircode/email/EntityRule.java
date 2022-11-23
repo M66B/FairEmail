@@ -119,6 +119,7 @@ public class EntityRule {
     static final int TYPE_TTS = 14;
     static final int TYPE_DELETE = 15;
     static final int TYPE_SOUND = 16;
+    static final int TYPE_LOCAL_ONLY = 17;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -510,6 +511,8 @@ public class EntityRule {
                 return onActionDelete(context, message, jaction);
             case TYPE_SOUND:
                 return onActionSound(context, message, jaction);
+            case TYPE_LOCAL_ONLY:
+                return onActionLocalOnly(context, message, jaction);
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type + " name=" + name);
         }
@@ -588,6 +591,8 @@ public class EntityRule {
                 String uri = jargs.optString("uri");
                 if (TextUtils.isEmpty(uri))
                     throw new IllegalArgumentException(context.getString(R.string.title_rule_select_sound));
+                return;
+            case TYPE_LOCAL_ONLY:
                 return;
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type);
@@ -1123,6 +1128,18 @@ public class EntityRule {
         db.message().setMessageUiSilent(message.id, message.ui_silent);
 
         MediaPlayerHelper.queue(context, uri, alarm, duration);
+
+        return true;
+    }
+
+    private boolean onActionLocalOnly(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+        if (message.ui_seen)
+            return false;
+
+        DB db = DB.getInstance(context);
+
+        message.ui_local_only = true;
+        db.message().setMessageUiLocalOnly(message.id, message.ui_local_only);
 
         return true;
     }

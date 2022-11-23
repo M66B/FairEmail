@@ -236,6 +236,8 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Boolean ui_silent = false;
     @NonNull
+    public Boolean ui_local_only = false;
+    @NonNull
     public Boolean ui_browsed = false;
     public Long ui_busy;
     public Long ui_snoozed;
@@ -776,6 +778,7 @@ public class EntityMessage implements Serializable {
                     this.ui_found.equals(other.ui_found) &&
                     this.ui_ignored.equals(other.ui_ignored) &&
                     this.ui_silent.equals(other.ui_silent) &&
+                    this.ui_local_only.equals(other.ui_local_only) &&
                     this.ui_browsed.equals(other.ui_browsed) &&
                     Objects.equals(this.ui_busy, other.ui_busy) &&
                     Objects.equals(this.ui_snoozed, other.ui_snoozed) &&

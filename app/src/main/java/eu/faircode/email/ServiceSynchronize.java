@@ -1213,6 +1213,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             " ui_hide=" + message.ui_hide +
                                             " notifying=" + message.notifying +
                                             " silent=" + message.ui_silent +
+                                            " local=" + message.ui_local_only +
                                             " received=" + new Date(message.received) +
                                             " sent=" + (message.sent == null ? null : new Date(message.sent)) +
                                             " created=" + (account.created == null ? null : new Date(account.created)) +
@@ -1228,6 +1229,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 message.id = null;
                                 message.fts = false;
                                 message.ui_silent = false;
+                                message.ui_local_only = false;
                                 message.notifying = 0;
                                 message.stored = new Date().getTime();
                                 message.id = db.message().insertMessage(message);

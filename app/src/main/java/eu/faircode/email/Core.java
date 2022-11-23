@@ -5688,6 +5688,10 @@ class Core {
                 mbuilder.setSilent(true);
                 Log.i("Notify silent=" + message.id);
             }
+            if (message.ui_local_only) {
+                mbuilder.setLocalOnly(true);
+                Log.i("Notify local=" + message.id);
+            }
 
             if (notify_messaging) {
                 // https://developer.android.com/training/cars/messaging
