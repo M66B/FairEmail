@@ -4,6 +4,11 @@
 
 ### [Ostromia](https://en.wikipedia.org/wiki/Ostromia)
 
+### Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2008 - 2022-11-23
 
 * Improved original message view scrolling
