@@ -45,7 +45,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 public class PopupMenuLifecycle extends PopupMenu {
 
     public PopupMenuLifecycle(@NonNull Context context, LifecycleOwner owner, @NonNull View anchor) {
-        super(context, anchor, Gravity.NO_GRAVITY, R.attr.popupMenuStyle, R.style.popupMenuStyle);
+        super(new ContextThemeWrapper(context, R.style.popupMenuStyle), anchor, Gravity.NO_GRAVITY);
         Log.i("Instantiate " + this);
 
         owner.getLifecycle().addObserver(new LifecycleObserver() {
@@ -59,7 +59,8 @@ public class PopupMenuLifecycle extends PopupMenu {
     }
 
     public void insertIcons(Context context) {
-        insertIcons(new ContextThemeWrapper(context, R.style.popupMenuStyle), getMenu(), false);
+        Context wrapped = new ContextThemeWrapper(context, R.style.popupMenuStyle);
+        insertIcons(wrapped, getMenu(), false);
     }
 
     @Override
@@ -73,7 +74,8 @@ public class PopupMenuLifecycle extends PopupMenu {
     }
 
     public void showWithIcons(Context context, View anchor) {
-        MenuPopupHelper menuHelper = new MenuPopupHelper(context, (MenuBuilder) getMenu(), anchor);
+        Context wrapped = new ContextThemeWrapper(context, R.style.popupMenuStyle);
+        MenuPopupHelper menuHelper = new MenuPopupHelper(wrapped, (MenuBuilder) getMenu(), anchor);
         menuHelper.setForceShowIcon(true);
         menuHelper.setGravity(Gravity.END);
         menuHelper.show();
