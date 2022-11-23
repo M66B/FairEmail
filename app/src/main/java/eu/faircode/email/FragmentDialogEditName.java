@@ -22,6 +22,7 @@ package eu.faircode.email;
 import static android.app.Activity.RESULT_OK;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,7 +38,8 @@ public class FragmentDialogEditName extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_edit_name, null);
+        final Context context = getContext();
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_edit_name, null);
         final EditText etName = view.findViewById(R.id.etName);
         final CheckBox cbPrimary = view.findViewById(R.id.cbPrimary);
 
@@ -46,7 +48,7 @@ public class FragmentDialogEditName extends FragmentDialogBase {
         cbPrimary.setChecked(args.getBoolean("primary"));
         cbPrimary.setVisibility(args.containsKey("primary") ? View.VISIBLE : View.GONE);
 
-        return new AlertDialog.Builder(getContext())
+        return new AlertDialog.Builder(context)
                 .setView(view)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
