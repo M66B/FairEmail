@@ -669,7 +669,8 @@ public class EntityOperation {
     void cleanup(Context context, boolean fetch) {
         DB db = DB.getInstance(context);
 
-        EntityLog.log(context, "Cleanup op=" + id + "/" + name + " folder=" + folder + " message=" + message);
+        EntityLog.log(context, "Cleanup op=" + id + "/" + name +
+                " folder=" + folder + " message=" + message + " fetch=" + fetch);
 
         if (message != null) {
             if (MOVE.equals(name) || DELETE.equals(name))
@@ -728,7 +729,7 @@ public class EntityOperation {
         if (SYNC.equals(name))
             db.folder().setFolderSyncState(folder, null);
 
-        if (fetch && message != null) {
+        if (fetch && message != null && !SEEN.equals(name)) {
             EntityMessage m = db.message().getMessage(message);
             if (m == null || m.uid == null)
                 return;
