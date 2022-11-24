@@ -993,6 +993,19 @@ There is a shortcut (button) for this in the encryption settings for Android ver
 Android will ask you to set a PIN, pattern, or password if you didn't before.
 If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
+**Important**: If Android doesn't accept the password of a certificate, it probably means it doesn't support the certificate's encryption method.
+The solution is to convert the certificate like this:
+
+```
+openssl pkcs12 -nodes <your.p12 >certbag.pem
+openssl pkcs12 -export -legacy -in certbag.pem >legacy.p12
+```
+
+Note that .p12 and .pfx are interchangeable.
+You can find more information about this issue [here](https://stackoverflow.com/questions/71872900/installing-pcks12-certificate-in-android-wrong-password-bug)
+
+<br>
+
 Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing.
 Android only imports the first key, so to import all the keys, the certificate must first be split.
 This is not very trivial and you are advised to ask the certificate supplier for support.
