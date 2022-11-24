@@ -340,8 +340,7 @@ public class FragmentAnswers extends FragmentBase {
                         if (TextUtils.isEmpty(name))
                             return;
                         EntityAnswer.setCustomPlaceholder(context, name, value);
-                        if (TextUtils.isEmpty(value))
-                            invalidateOptionsMenu();
+                        invalidateOptionsMenu();
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
