@@ -3058,7 +3058,19 @@ class Core {
             // Get capabilities
             Map<String, String> caps = istore.capabilities();
             boolean hasUidl = caps.containsKey("UIDL");
-            EntityLog.log(context, account.name + " POP capabilities= " + caps.keySet());
+            EntityLog.log(context, account.name +
+                    " POP capabilities= " + caps.keySet() +
+                    " uidl=" + account.capability_uidl);
+
+            if (hasUidl) {
+                if (Boolean.FALSE.equals(account.capability_uidl)) {
+                    hasUidl = false;
+                    Log.w(account.host + " did not had UIDL before");
+                }
+            } else {
+                account.capability_uidl = false;
+                db.account().setAccountUidl(account.id, account.capability_uidl);
+            }
 
             // Get messages
             Message[] imessages = ifolder.getMessages();

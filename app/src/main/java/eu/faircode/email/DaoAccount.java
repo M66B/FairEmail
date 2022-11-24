@@ -297,6 +297,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET tbd = 1 WHERE id = :id AND NOT (tbd IS 1)")
     int setAccountTbd(long id);
 
+    @Query("UPDATE account SET capability_uidl = :uidl WHERE id = :id AND NOT (capability_uidl IS :uidl)")
+    int setAccountUidl(long id, Boolean uidl);
+
     @Query("DELETE FROM account WHERE id = :id")
     int deleteAccount(long id);
 }
