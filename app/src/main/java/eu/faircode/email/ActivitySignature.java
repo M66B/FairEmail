@@ -321,6 +321,7 @@ public class ActivitySignature extends ActivityBase {
             }, null);
             etText.setText(signature);
         }
+        saved = html;
         loaded = true;
     }
 
