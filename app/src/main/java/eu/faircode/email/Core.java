@@ -437,11 +437,11 @@ class Core {
                                     break;
 
                                 case EntityOperation.RAW:
-                                    onRaw(context, jargs, account, folder, message, (POP3Store) istore, (POP3Folder) ifolder);
+                                    onRaw(context, jargs, folder, message, (POP3Store) istore, (POP3Folder) ifolder);
                                     break;
 
                                 case EntityOperation.ATTACHMENT:
-                                    onAttachment(context, jargs, account, folder, message, (POP3Folder) ifolder, (POP3Store) istore);
+                                    onAttachment(context, jargs, folder, message, (POP3Folder) ifolder, (POP3Store) istore);
                                     break;
 
                                 case EntityOperation.SYNC:
@@ -904,9 +904,9 @@ class Core {
             return ifolder.search(new MessageIDTerm(msgid));
     }
 
-    private static Map<EntityMessage, Message> findMessages(Context context, EntityAccount account, EntityFolder folder, List<EntityMessage> messages, POP3Store istore, POP3Folder ifolder) throws MessagingException, IOException {
+    private static Map<EntityMessage, Message> findMessages(Context context, EntityFolder folder, List<EntityMessage> messages, POP3Store istore, POP3Folder ifolder) throws MessagingException, IOException {
         Map<String, String> caps = istore.capabilities();
-        boolean hasUidl = caps.containsKey("UIDL") && !"pop.unity-mail.de".equalsIgnoreCase(account.host);
+        boolean hasUidl = caps.containsKey("UIDL");
 
         Message[] imessages = ifolder.getMessages();
 
@@ -1982,7 +1982,7 @@ class Core {
 
         // Delete from server
         if (EntityFolder.INBOX.equals(folder.type) && !account.leave_deleted) {
-            Map<EntityMessage, Message> map = findMessages(context, account, folder, messages, istore, ifolder);
+            Map<EntityMessage, Message> map = findMessages(context, folder, messages, istore, ifolder);
             for (EntityMessage message : messages) {
                 Message imessage = map.get(message);
                 if (imessage != null) {
@@ -2110,13 +2110,13 @@ class Core {
         }
     }
 
-    private static void onRaw(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Store istore, POP3Folder ifolder) throws MessagingException, IOException, JSONException {
+    private static void onRaw(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Store istore, POP3Folder ifolder) throws MessagingException, IOException, JSONException {
         // Download raw message
         if (!EntityFolder.INBOX.equals(folder.type))
             throw new IllegalArgumentException("Unexpected folder=" + folder.type);
 
         if (message.raw == null || !message.raw) {
-            Map<EntityMessage, Message> map = findMessages(context, account, folder, Arrays.asList(message), istore, ifolder);
+            Map<EntityMessage, Message> map = findMessages(context, folder, Arrays.asList(message), istore, ifolder);
             if (map.get(message) == null)
                 throw new IllegalArgumentException("Message not found msgid=" + message.msgid);
 
@@ -2206,7 +2206,7 @@ class Core {
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
     }
 
-    private static void onAttachment(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore) throws JSONException, MessagingException, IOException {
+    private static void onAttachment(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore) throws JSONException, MessagingException, IOException {
         long id = jargs.getLong(0);
 
         if (!EntityFolder.INBOX.equals(folder.type))
@@ -2221,7 +2221,7 @@ class Core {
         if (attachment.available)
             return;
 
-        Map<EntityMessage, Message> map = findMessages(context, account, folder, Arrays.asList(message), istore, ifolder);
+        Map<EntityMessage, Message> map = findMessages(context, folder, Arrays.asList(message), istore, ifolder);
         if (map.size() == 0)
             throw new MessageRemovedException("Message not found");
 
@@ -3057,7 +3057,7 @@ class Core {
 
             // Get capabilities
             Map<String, String> caps = istore.capabilities();
-            boolean hasUidl = caps.containsKey("UIDL") && !"pop.unity-mail.de".equalsIgnoreCase(account.host);
+            boolean hasUidl = caps.containsKey("UIDL");
             EntityLog.log(context, account.name + " POP capabilities= " + caps.keySet());
 
             // Get messages
