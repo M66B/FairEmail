@@ -226,6 +226,12 @@ public class ActivitySignature extends ActivityBase {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        etText.setTypeface(etText.isRaw() ? Typeface.MONOSPACE : Typeface.DEFAULT);
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("fair:dirty", dirty);
         outState.putString("fair:saved", saved);
