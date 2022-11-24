@@ -458,6 +458,14 @@ class Core {
                                     Log.w(folder.name + " ignored=" + op.name);
                             }
                         } else {
+                            if (retry > 0 && "poczta.o2.pl".equalsIgnoreCase(account.host)) {
+                                // UID FETCH doesn't work for o2.pl
+                                Message[] imessages = ifolder.getMessages();
+                                FetchProfile ifetch = new FetchProfile();
+                                ifetch.add(UIDFolder.FetchProfileItem.UID);
+                                ifolder.fetch(imessages, ifetch);
+                            }
+
                             List<EntityMessage> messages = new ArrayList<>();
                             messages.add(message);
                             if (similar.size() == 0)
