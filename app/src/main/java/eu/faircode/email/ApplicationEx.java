@@ -764,11 +764,15 @@ public class ApplicationEx extends Application
         @Override
         public void onActivityPostResumed(@NonNull Activity activity) {
             log(activity, "onActivityPostResumed");
+            if (activity instanceof ActivityView)
+                ServiceSynchronize.state(activity, true);
         }
 
         @Override
         public void onActivityPrePaused(@NonNull Activity activity) {
             log(activity, "onActivityPrePaused");
+            if (activity instanceof ActivityView)
+                ServiceSynchronize.state(activity, false);
         }
 
         @Override

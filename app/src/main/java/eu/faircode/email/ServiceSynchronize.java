@@ -3427,14 +3427,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private static void start(Context context, Intent intent) {
-        if (isBackgroundService(context))
-            context.startService(intent);
-        else
-            try {
+        try {
+            if (isBackgroundService(context))
+                context.startService(intent);
+            else
                 ContextCompat.startForegroundService(context, intent);
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     private static boolean isBackgroundService(Context context) {
