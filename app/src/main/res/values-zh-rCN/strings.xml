@@ -1027,6 +1027,7 @@
     <string name="title_share">分享</string>
     <string name="title_event">添加到日历</string>
     <string name="title_pin">添加快捷方式</string>
+    <string name="title_pin_label">快捷方式标题</string>
     <string name="title_print">打印</string>
     <string name="title_print_header">打印邮件头</string>
     <string name="title_print_images">打印图片</string>
@@ -1059,7 +1060,7 @@
     <string name="title_quick_actions_low">低重要性</string>
     <string name="title_quick_actions_high">高重要性</string>
     <string name="title_quick_actions_snooze">打盹</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">操作后清除选择</string>
+    <string name="title_quick_actions_clear">操作后清除选择</string>
     <string name="title_trash">回收站</string>
     <string name="title_copy">复制 &#8230;</string>
     <string name="title_copy_to">复制到 &#8230;</string>
@@ -1248,6 +1249,7 @@
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
     <string name="title_create_template">创建模板</string>
+    <string name="title_select_default_identity">选择默认地址</string>
     <string name="title_translate">翻译</string>
     <string name="title_translate_configure">配置 &#8230;</string>
     <string name="title_translate_key">输入密钥</string>

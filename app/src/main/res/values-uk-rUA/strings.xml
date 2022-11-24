@@ -1101,7 +1101,7 @@
     <string name="title_quick_actions_low">Низький пріоритет</string>
     <string name="title_quick_actions_high">Високий пріоритет</string>
     <string name="title_quick_actions_snooze">Відкласти</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Очистити вибір після дії</string>
+    <string name="title_quick_actions_clear">Очистити вибір після дії</string>
     <string name="title_trash">Кошик</string>
     <string name="title_copy">Копіювати &#8230;</string>
     <string name="title_copy_to">Копіювати до &#8230;</string>
@@ -1290,6 +1290,7 @@
     <string name="title_insert_contact_group">Вставити групу контактів</string>
     <string name="title_insert_template">Вставити шаблон</string>
     <string name="title_create_template">Створити шаблон</string>
+    <string name="title_select_default_identity">Виберіть адресу за замовчуванням</string>
     <string name="title_translate">Переклад</string>
     <string name="title_translate_configure">Налаштувати &#8230;</string>
     <string name="title_translate_key">Введіть ключ</string>

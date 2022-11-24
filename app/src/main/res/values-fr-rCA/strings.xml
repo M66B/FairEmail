@@ -1045,6 +1045,7 @@
     <string name="title_share">Partager</string>
     <string name="title_event">Ajouter au calendrier</string>
     <string name="title_pin">Ajouter un raccourci</string>
+    <string name="title_pin_label">Nom du raccourci</string>
     <string name="title_print">Imprimer</string>
     <string name="title_print_header">Imprimer l\'en-tête</string>
     <string name="title_print_images">Imprimer les images</string>
@@ -1077,7 +1078,7 @@
     <string name="title_quick_actions_low">Peu important</string>
     <string name="title_quick_actions_high">Très important</string>
     <string name="title_quick_actions_snooze">Reporter</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Désélectionner les messages après une action</string>
+    <string name="title_quick_actions_clear">Effacer la sélection après l\'action</string>
     <string name="title_trash">Supprimer</string>
     <string name="title_copy">Copier&#8230;</string>
     <string name="title_copy_to">Copier vers&#8230;</string>
@@ -1268,6 +1269,7 @@
     <string name="title_insert_contact_group">Insérer un groupe de contacts</string>
     <string name="title_insert_template">Insérer un modèle</string>
     <string name="title_create_template">Créer un modèle</string>
+    <string name="title_select_default_identity">Sélectionner l\'adresse par défaut</string>
     <string name="title_translate">Traduire</string>
     <string name="title_translate_configure">Configurer&#8230;</string>
     <string name="title_translate_key">Saisir la clé</string>

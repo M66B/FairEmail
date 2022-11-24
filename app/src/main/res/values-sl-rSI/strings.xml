@@ -1099,7 +1099,7 @@
     <string name="title_quick_actions_low">Nizka pomembnost</string>
     <string name="title_quick_actions_high">Visoka pomembnost</string>
     <string name="title_quick_actions_snooze">Dremež</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Počisti izbiro po dejanju</string>
+    <string name="title_quick_actions_clear">Počisti izbiro po dejanju</string>
     <string name="title_trash">Smeti</string>
     <string name="title_copy">Kopiraj &#8230;</string>
     <string name="title_copy_to">Kopiraj v &#8230;</string>
@@ -1289,6 +1289,7 @@
     <string name="title_insert_contact_group">Vstavi skupno stikov</string>
     <string name="title_insert_template">Vstavi predlogo</string>
     <string name="title_create_template">Ustvari predlogo</string>
+    <string name="title_select_default_identity">Shrani privzeti naslov</string>
     <string name="title_translate">Prevedi</string>
     <string name="title_translate_configure">Nastavi &#8230;</string>
     <string name="title_translate_key">Vnesite ključ</string>

@@ -1045,6 +1045,7 @@
     <string name="title_share">Del</string>
     <string name="title_event">Føj til kalender</string>
     <string name="title_pin">Tilføj genvej</string>
+    <string name="title_pin_label">Genvejsnavn</string>
     <string name="title_print">Udskriv</string>
     <string name="title_print_header">Udskriv header</string>
     <string name="title_print_images">Udskriv billeder</string>
@@ -1077,7 +1078,7 @@
     <string name="title_quick_actions_low">Lav vigtighed</string>
     <string name="title_quick_actions_high">Høj vigtighed</string>
     <string name="title_quick_actions_snooze">Udsæt</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Ryd valg efter handling</string>
+    <string name="title_quick_actions_clear">Ryd valg efter handling</string>
     <string name="title_trash">Papirkurv</string>
     <string name="title_copy">Kopiér &#8230;</string>
     <string name="title_copy_to">Kopiér til &#8230;</string>
@@ -1268,6 +1269,7 @@
     <string name="title_insert_contact_group">Indsæt kontaktgruppe</string>
     <string name="title_insert_template">Indsæt skabelon</string>
     <string name="title_create_template">Opret skabelon</string>
+    <string name="title_select_default_identity">Vælg standardadresse</string>
     <string name="title_translate">Oversæt</string>
     <string name="title_translate_configure">Opsæt&#8230;</string>
     <string name="title_translate_key">Angiv nøgle</string>

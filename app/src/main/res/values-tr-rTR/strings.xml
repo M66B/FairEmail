@@ -1040,6 +1040,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_share">Paylaş</string>
     <string name="title_event">Takvime ekle</string>
     <string name="title_pin">Kısayol ekle</string>
+    <string name="title_pin_label">Kısayol başlığı</string>
     <string name="title_print">Yazdır</string>
     <string name="title_print_header">Başlığı yazdır</string>
     <string name="title_print_images">Resimleri yazdır</string>
@@ -1072,6 +1073,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_quick_actions_low">Düşük önem</string>
     <string name="title_quick_actions_high">Yüksek önem</string>
     <string name="title_quick_actions_snooze">Ertele</string>
+    <string name="title_quick_actions_clear">Eylemden sonra seçimi temizle</string>
     <string name="title_trash">Çöp Kutusu</string>
     <string name="title_copy">Kopyala &#8230;</string>
     <string name="title_copy_to">&#8230;\'ya kopyala</string>
@@ -1261,6 +1263,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_insert_contact_group">Kişi grubuna ekle</string>
     <string name="title_insert_template">Kalıp ekle</string>
     <string name="title_create_template">Şablon oluştur</string>
+    <string name="title_select_default_identity">Varsayılan adresi seçin</string>
     <string name="title_translate">Tercüme et</string>
     <string name="title_translate_configure">Yapılandır&#8230;</string>
     <string name="title_translate_key">Anahtarı gir</string>

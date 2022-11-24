@@ -40,6 +40,14 @@
         ଗୋଟେ ପ୍ରେରକ ଡୋମେନ୍ ଅବରୋଧ କରିବାରେ ଫିଲ୍ଟର୍ ନିୟମ ବ୍ୟବହାର ହୁଏ, ଯାହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଅଟେ।
     </string>
     <string name="title_blocked_senders">ବ୍ଲକ୍ ହୋଇଥିବା ପ୍ରେରକଗଣ</string>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s ଘଣ୍ଟା</item>
+        <item quantity="other">%1$s ଘଣ୍ଟା</item>
+    </plurals>
+    <plurals name="title_days">
+        <item quantity="one">%1$s ଦିନ</item>
+        <item quantity="other">%1$s ଦିନ</item>
+    </plurals>
     <string name="title_junk_clear">ଖାଲି କରନ୍ତୁ</string>
     <string name="title_notification_idle">ନିଷ୍କ୍ରିୟ</string>
     <string name="title_notification_failed">\'%1$s\' ବିଫଳ ହେଲା</string>
@@ -77,6 +85,7 @@
     <string name="title_setup_quick_imap">ବାର୍ତ୍ତା ପ୍ରାପ୍ତ କରିବା ପାଇଁ IMAP ସର୍ଭର୍</string>
     <string name="title_setup_quick_smtp">ବାର୍ତ୍ତା ପଠାଇବା ପାଇଁ SMTP ସର୍ଭର୍</string>
     <string name="title_setup_wizard">ଓ୍ୱିଜାର୍ଡ</string>
+    <string name="title_setup_wizard_tutorials">ଅନୁଶିକ୍ଷଣ</string>
     <string name="title_setup_wizard_new">ମୋର ଏକ ନୂତନ ଇମେଲ୍ ଠିକଣା ଦରକାର</string>
     <string name="title_setup_manual">ହସ୍ତକୃତ ସେଟଅପ୍ ଏବଂ ଆକାଉଣ୍ଟ୍ ବିକଳ୍ପ ସମୂହ</string>
     <string name="title_setup_classic">ସର୍ବତ୍କୃଷ୍ଟ ବିନ୍ୟାସ</string>
@@ -105,6 +114,7 @@
     <string name="title_setup_data">ଡାଟା ସେଭର୍ ସକ୍ଷମ ହୋଇଅଛି</string>
     <string name="title_setup_advanced_options">ବିକଶିତ ବିକଳ୍ପଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_setup_inbox">ଇନବକ୍ସ କୁ ଯାଆନ୍ତୁ</string>
+    <string name="title_setup_go">ଯିବା</string>
     <string name="title_setup_done">ହୋଇଗଲା</string>
     <string name="title_setup_error">ତ୍ରୁଟି</string>
     <string name="title_setup_pop">POP3 ବ୍ୟବହାର କରିବା (ସୁପାରିଶ କରୁନାହୁଁ)</string>
@@ -290,9 +300,11 @@
     <string name="title_advanced_notify_no_grouping">ଏହି ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣ ବିଜ୍ଞପ୍ତି ଗୋଷ୍ଠୀକରଣକୁ ସମର୍ଥନ କରେନାହିଁ</string>
     <string name="title_advanced_english_hint">ଏହା ଆପ୍ କୁ ପୁନଃଆରମ୍ଭ କରିବ</string>
     <string name="title_advanced_edit_name">ନାମ ସମ୍ପାଦନା</string>
+    <string name="title_advanced_swipe_sensitivity">ବାମ/ଡାହାଣ ସ୍ୱାଇପ୍ ସମ୍ବେଦନଶୀଳତା</string>
     <string name="title_identity_name">ଆପଣଙ୍କର ନାମ</string>
     <string name="title_identity_email">ଆପଣଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
     <string name="title_identity_tenant_hint">ଅଧିକାଂଶ ସ୍ଥିତିରେ ଏହି କ୍ଷେତ୍ର ଖାଲି ରହିବା ଉଚିତ୍</string>
+    <string name="title_advanced_sender">ପ୍ରେରକଙ୍କ ଠିକଣା ସମ୍ପାଦନ କରିବା ଅନୁମତି ଦେବା</string>
     <string name="title_identity_unicode_remark">ଅଧିକାଂଶ ସର୍ଭର୍ ଏହାକୁ ସମର୍ଥନ କରନ୍ତି ନାହିଁ</string>
     <string name="title_identity_max_size">ସର୍ବାଧିକ ବାର୍ତ୍ତା ଆକାର (MB)</string>
     <string name="title_identity_receipt">ଡିଫଲ୍ଟ ଭାବେ ବିତରଣ/ପଠନ ରସିଦ ଅନୁରୋଧ କରନ୍ତୁ</string>
@@ -304,6 +316,7 @@
     <string name="title_account_category">ବର୍ଗ</string>
     <string name="title_account_name_hint">ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ଭିନ୍ନ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହୁଏ</string>
     <string name="title_color">ରଙ୍ଗ</string>
+    <string name="title_calendar">କ୍ୟାଲେଣ୍ଡର</string>
     <string name="title_background">ପୃଷ୍ଠପଟ</string>
     <string name="title_transparent">ପାରଦର୍ଶୀ</string>
     <string name="title_account_ondemand">ହସ୍ତକୃତ ଭାବେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରନ୍ତୁ</string>
@@ -337,6 +350,7 @@
     <string name="title_no_inbox">ଇନବକ୍ସ ମିଳିଲା ନାହିଁ</string>
     <string name="title_account_auth_update">ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରିବା</string>
     <string name="title_account_auth_password">ପାସ୍‍ୱାର୍ଡ଼ ପ୍ରାମାଣିକିକରଣକୁ ସୁଇଚ୍ କରନ୍ତୁ</string>
+    <string name="title_change_password">ପାସ୍‍ୱାର୍ଡ଼ ବଦଳାନ୍ତୁ</string>
     <string name="title_delete_account">ଆକାଉଣ୍ଟ୍ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_edit_html">HTML ଭାବରେ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_storage_quota">ସର୍ଭର୍ ଷ୍ଟୋରେଜ୍ ବ୍ୟବହାର: %1$s/%2$s</string>

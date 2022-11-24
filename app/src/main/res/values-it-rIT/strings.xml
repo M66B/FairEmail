@@ -1045,6 +1045,7 @@
     <string name="title_share">Condividi</string>
     <string name="title_event">Aggiungi al calendario</string>
     <string name="title_pin">Aggiungi scorciatoia</string>
+    <string name="title_pin_label">Titolo della scorciatoia</string>
     <string name="title_print">Stampa</string>
     <string name="title_print_header">Stampa l\'intestazione</string>
     <string name="title_print_images">Stampa le immagini</string>
@@ -1077,7 +1078,7 @@
     <string name="title_quick_actions_low">Importanza bassa</string>
     <string name="title_quick_actions_high">Importanza elevata</string>
     <string name="title_quick_actions_snooze">Posticipa</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Annulla la selezione dopo un\'azione</string>
+    <string name="title_quick_actions_clear">Annulla la selezione dopo un\'azione</string>
     <string name="title_trash">Cestino</string>
     <string name="title_copy">Copia &#8230;</string>
     <string name="title_copy_to">Copia in &#8230;</string>
@@ -1268,6 +1269,7 @@
     <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>
     <string name="title_insert_template">Inserisci modello</string>
     <string name="title_create_template">Crea modello</string>
+    <string name="title_select_default_identity">Seleziona l\'indirizzo predefinito</string>
     <string name="title_translate">Traduci</string>
     <string name="title_translate_configure">Configura &#8230;</string>
     <string name="title_translate_key">Inserisci tasto</string>

@@ -1074,7 +1074,7 @@
     <string name="title_quick_actions_low">Baja importancia</string>
     <string name="title_quick_actions_high">Alta importancia</string>
     <string name="title_quick_actions_snooze">Posponer</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Borrar selección después de la acción</string>
+    <string name="title_quick_actions_clear">Borrar selección después de la acción</string>
     <string name="title_trash">Papelera</string>
     <string name="title_copy">Copiar &#8230;</string>
     <string name="title_copy_to">Copiar a &#8230;</string>

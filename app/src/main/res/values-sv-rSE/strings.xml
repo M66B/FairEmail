@@ -1067,7 +1067,7 @@
     <string name="title_quick_actions_low">Ej viktigt</string>
     <string name="title_quick_actions_high">Viktigt</string>
     <string name="title_quick_actions_snooze">Pausa</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Nollställ urval efter åtgärd</string>
+    <string name="title_quick_actions_clear">Nollställ urval efter åtgärd</string>
     <string name="title_trash">Papperskorg</string>
     <string name="title_copy">Kopiera &#8230;</string>
     <string name="title_copy_to">Kopiera till &#8230;</string>

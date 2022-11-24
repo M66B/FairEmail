@@ -1057,6 +1057,7 @@
     <string name="title_share">Podijeli</string>
     <string name="title_event">Dodaj u kalendar</string>
     <string name="title_pin">Dodaj prečac</string>
+    <string name="title_pin_label">Naslov prečaca</string>
     <string name="title_print">Štampaj</string>
     <string name="title_print_header">Štampaj zaglavlje</string>
     <string name="title_print_images">Štampaj slike</string>
@@ -1089,7 +1090,7 @@
     <string name="title_quick_actions_low">Niska važnost</string>
     <string name="title_quick_actions_high">Visoka važnost</string>
     <string name="title_quick_actions_snooze">Odgodi</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Deselekcija označenog nakon izvršene radnje</string>
+    <string name="title_quick_actions_clear">Deselekcija označenog nakon izvršene radnje</string>
     <string name="title_trash">Otpad</string>
     <string name="title_copy">Kopiraj &#8230;</string>
     <string name="title_copy_to">Kopiraj u &#8230;</string>
@@ -1280,6 +1281,7 @@
     <string name="title_insert_contact_group">Ubaci grupu kontakata</string>
     <string name="title_insert_template">Ubaci prijedložak</string>
     <string name="title_create_template">Napravi prijedložak</string>
+    <string name="title_select_default_identity">Izaberite zadanu adresu</string>
     <string name="title_translate">Prevedi</string>
     <string name="title_translate_configure">Podesi &#8230;</string>
     <string name="title_translate_key">Unesite ključ</string>

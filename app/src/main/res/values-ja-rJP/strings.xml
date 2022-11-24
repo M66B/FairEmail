@@ -1063,7 +1063,7 @@
     <string name="title_quick_actions_low">重要度が低い</string>
     <string name="title_quick_actions_high">重要度が高い</string>
     <string name="title_quick_actions_snooze">スヌーズする</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">操作後に選択を解除</string>
+    <string name="title_quick_actions_clear">操作後に選択を解除</string>
     <string name="title_trash">ゴミ箱</string>
     <string name="title_copy">コピー&#8230;</string>
     <string name="title_copy_to">&#8230;にコピー</string>
@@ -1254,6 +1254,7 @@
     <string name="title_insert_contact_group">連絡先グループを挿入</string>
     <string name="title_insert_template">テンプレートを挿入</string>
     <string name="title_create_template">テンプレートを作成</string>
+    <string name="title_select_default_identity">デフォルトのアドレスを選択</string>
     <string name="title_translate">翻訳</string>
     <string name="title_translate_configure">設定&#8230;</string>
     <string name="title_translate_key">キーを入力</string>

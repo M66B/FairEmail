@@ -1070,6 +1070,7 @@
     <string name="title_share">Поделиться</string>
     <string name="title_event">Добавить в календарь</string>
     <string name="title_pin">Добавить ярлык</string>
+    <string name="title_pin_label">Имя ярлыка</string>
     <string name="title_print">Печать</string>
     <string name="title_print_header">Печать заголовка</string>
     <string name="title_print_images">Печать изображений</string>
@@ -1097,12 +1098,12 @@
     <string name="title_button_search">Поиск в сообщениях</string>
     <string name="title_button_search_text">Поиск в тексте сообщения</string>
     <string name="title_configure_buttons">Настройка кнопок&#8230;</string>
-    <string name="title_quick_actions">Выберите действия</string>
+    <string name="title_quick_actions">Выбрать действия</string>
     <string name="title_quick_actions_hint">Будет показано до %1$d действий</string>
     <string name="title_quick_actions_low">Низкая важность</string>
     <string name="title_quick_actions_high">Высокая важность</string>
     <string name="title_quick_actions_snooze">Отложить</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Очистить выбор после действия</string>
+    <string name="title_quick_actions_clear">Очистить выбор после действия</string>
     <string name="title_trash">Корзина</string>
     <string name="title_copy">Копировать&#8230;</string>
     <string name="title_copy_to">Копировать в&#8230;</string>
@@ -1154,7 +1155,7 @@
     <string name="title_no_folder">Папка не существует</string>
     <string name="title_no_format">Исходное сообщение будет включено</string>
     <string name="title_no_search">Поиск на сервере недоступен для этой учётной записи</string>
-    <string name="title_complex_search">Выберите папку для сложного поиска</string>
+    <string name="title_complex_search">Выбрать папку для сложного поиска</string>
     <string name="title_too_large">Сообщение слишком большое для полного переформатирования</string>
     <string name="title_truncated">Сообщение слишком велико для полного отображения</string>
     <string name="title_insufficient_memory">Сообщение слишком большое для доступной памяти (%1$d)</string>
@@ -1292,6 +1293,7 @@
     <string name="title_insert_contact_group">Добавить группу контактов</string>
     <string name="title_insert_template">Вставить шаблон</string>
     <string name="title_create_template">Создать шаблон</string>
+    <string name="title_select_default_identity">Выбрать адрес по умолчанию</string>
     <string name="title_translate">Перевод</string>
     <string name="title_translate_configure">Настроить&#8230;</string>
     <string name="title_translate_key">Введите ключ</string>
@@ -1306,7 +1308,7 @@
     <string name="title_suggestions_none">Нет предложений</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>
-    <string name="title_select_certificate">Выбор публичного ключа</string>
+    <string name="title_select_certificate">Выбрать публичный ключ</string>
     <string name="title_certificate_missing">Нет публичного ключа для %1$s</string>
     <string name="title_certificate_invalid">Публичный ключ %1$s недействителен</string>
     <string name="title_no_key">Нет приватного ключа</string>
@@ -1714,7 +1716,7 @@
     <string name="title_ip_owner">IP-адрес владельца</string>
     <string name="title_default_apps">Приложения по умолчанию</string>
     <string name="title_reset_open">Задать или сбросить приложения по умолчанию</string>
-    <string name="title_select_app">Выбор приложения</string>
+    <string name="title_select_app">Выбрать приложения</string>
     <string name="title_updated">Доступно обновление до версии %1$s.</string>
     <string name="title_no_update">Нет доступных обновлений</string>
     <string name="title_issue">У вас есть вопрос или проблема?</string>
@@ -1725,7 +1727,7 @@
     <string name="title_undo">Отменить</string>
     <string name="title_redo">Восстановить</string>
     <string name="title_insert_line">Вставить строку</string>
-    <string name="title_select_block">Выбор блока</string>
+    <string name="title_select_block">Выбрать блок</string>
     <string name="title_insert_brackets">Взять в скобки</string>
     <string name="title_insert_quotes">Цитировать</string>
     <string name="title_lt_add">Добавить слово</string>

@@ -1040,6 +1040,7 @@
     <string name="title_share">Teilen</string>
     <string name="title_event">Zum Kalender hinzufügen</string>
     <string name="title_pin">Verknüpfung hinzufügen</string>
+    <string name="title_pin_label">Verknüpfungsname</string>
     <string name="title_print">Drucken</string>
     <string name="title_print_header">Kopfzeilen mit drucken</string>
     <string name="title_print_images">Bilder drucken</string>
@@ -1072,7 +1073,7 @@
     <string name="title_quick_actions_low">Geringe Wichtigkeit</string>
     <string name="title_quick_actions_high">Hohe Wichtigkeit</string>
     <string name="title_quick_actions_snooze">Später lesen</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Auswahl nach Aktion löschen</string>
+    <string name="title_quick_actions_clear">Auswahl nach Aktion löschen</string>
     <string name="title_trash">Löschen</string>
     <string name="title_copy">Kopieren &#8230;</string>
     <string name="title_copy_to">Kopieren nach &#8230;</string>
@@ -1261,6 +1262,7 @@
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
     <string name="title_create_template">Vorlage erstellen</string>
+    <string name="title_select_default_identity">Standardadresse auswählen</string>
     <string name="title_translate">Übersetzen</string>
     <string name="title_translate_configure">Konfigurieren &#8230;</string>
     <string name="title_translate_key">Schlüssel einfügen</string>

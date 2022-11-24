@@ -1068,6 +1068,7 @@
     <string name="title_share">Sdílet</string>
     <string name="title_event">Přidat do kalendáře</string>
     <string name="title_pin">Přidat zkratku</string>
+    <string name="title_pin_label">Název zkratky</string>
     <string name="title_print">Tisk</string>
     <string name="title_print_header">Vytisknout hlavičku</string>
     <string name="title_print_images">Tisknout obrázky</string>
@@ -1100,7 +1101,7 @@
     <string name="title_quick_actions_low">Nízká důležitost</string>
     <string name="title_quick_actions_high">Vysoká důležitost</string>
     <string name="title_quick_actions_snooze">Odložit</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Vymazat výběr po akci</string>
+    <string name="title_quick_actions_clear">Vymazat výběr po akci</string>
     <string name="title_trash">Koš</string>
     <string name="title_copy">Kopírovat &#8230;</string>
     <string name="title_copy_to">Kopírovat do &#8230;</string>
@@ -1289,6 +1290,7 @@
     <string name="title_insert_contact_group">Vložit skupinu kontaktů</string>
     <string name="title_insert_template">Vložit šablonu</string>
     <string name="title_create_template">Vytvořit šablonu</string>
+    <string name="title_select_default_identity">Vybrat výchozí adresu</string>
     <string name="title_translate">Přeložit</string>
     <string name="title_translate_configure">Nastavit &#8230;</string>
     <string name="title_translate_key">Zadejte klíč</string>

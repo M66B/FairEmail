@@ -1072,6 +1072,7 @@
     <string name="title_share">Падзяліцца</string>
     <string name="title_event">Дадаць у каляндар</string>
     <string name="title_pin">Дадаць ярлык</string>
+    <string name="title_pin_label">Назва ярлыка</string>
     <string name="title_print">Друк</string>
     <string name="title_print_header">Друкаваць загаловак</string>
     <string name="title_print_images">Друкаваць выявы</string>
@@ -1104,7 +1105,7 @@
     <string name="title_quick_actions_low">Нізкая важнасць</string>
     <string name="title_quick_actions_high">Высокая важнасць</string>
     <string name="title_quick_actions_snooze">Адкласці</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Ачысціць выбар пасля выканання дзеяння</string>
+    <string name="title_quick_actions_clear">Ачысціць выбар пасля выканання дзеяння</string>
     <string name="title_trash">Выдаленыя</string>
     <string name="title_copy">Капіраваць &#8230;</string>
     <string name="title_copy_to">Капіраваць у &#8230;</string>
@@ -1295,6 +1296,7 @@
     <string name="title_insert_contact_group">Уставіць групу кантактаў</string>
     <string name="title_insert_template">Уставіць шаблон</string>
     <string name="title_create_template">Стварыць шаблон</string>
+    <string name="title_select_default_identity">Выбраць адрас па змаўчанні</string>
     <string name="title_translate">Пераклад</string>
     <string name="title_translate_configure">Наладзіць &#8230;</string>
     <string name="title_translate_key">Увядзіце ключ</string>

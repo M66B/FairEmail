@@ -1040,6 +1040,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_share">Delen</string>
     <string name="title_event">Toevoegen aan agenda</string>
     <string name="title_pin">Snelkoppeling toevoegen</string>
+    <string name="title_pin_label">Snelkoppeling titel</string>
     <string name="title_print">Afdrukken</string>
     <string name="title_print_header">Kop afdrukken</string>
     <string name="title_print_images">Afbeeldingen afdrukken</string>
@@ -1072,7 +1073,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_quick_actions_low">Laag belang</string>
     <string name="title_quick_actions_high">Hoog belang</string>
     <string name="title_quick_actions_snooze">Sluimeren</string>
-    <string name="title_quick_actions_clear" comment="title_quick_actions_clear&#10;Title for quick actions option to clear the selection of selected messages after performing the action (mark as read, etc.)">Selectie wissen na actie</string>
+    <string name="title_quick_actions_clear">Selectie wissen na actie</string>
     <string name="title_trash">Prullenbak</string>
     <string name="title_copy">Kopieer &#8230;</string>
     <string name="title_copy_to">Kopieer naar &#8230;</string>
@@ -1261,6 +1262,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_insert_contact_group">Contactgroep toevoegen</string>
     <string name="title_insert_template">Sjabloon invoegen</string>
     <string name="title_create_template">Maak sjabloon</string>
+    <string name="title_select_default_identity">Selecteer standaardadres</string>
     <string name="title_translate">Vertalen</string>
     <string name="title_translate_configure">Configureer &#8230;</string>
     <string name="title_translate_key">Sleutel invoeren</string>
