@@ -70,6 +70,7 @@ public class ActivitySignature extends ActivityBase {
 
     private boolean loaded = false;
     private boolean dirty = false;
+    private String saved = null;
 
     private static final int REQUEST_IMAGE = 1;
     private static final int REQUEST_FILE = 2;
@@ -111,8 +112,10 @@ public class ActivitySignature extends ActivityBase {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (loaded)
+                if (loaded) {
                     dirty = true;
+                    saved = null;
+                }
             }
 
             @Override
@@ -207,8 +210,10 @@ public class ActivitySignature extends ActivityBase {
         if (savedInstanceState == null) {
             load(getIntent().getStringExtra("html"));
             dirty = false;
-        } else
+        } else {
             dirty = savedInstanceState.getBoolean("fair:dirty");
+            saved = savedInstanceState.getString("fair:saved");
+        }
     }
 
     @Override
@@ -223,6 +228,7 @@ public class ActivitySignature extends ActivityBase {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("fair:dirty", dirty);
+        outState.putString("fair:saved", saved);
         super.onSaveInstanceState(outState);
     }
 
@@ -328,6 +334,7 @@ public class ActivitySignature extends ActivityBase {
         String html = (dirty
                 ? getHtml()
                 : getIntent().getStringExtra("html"));
+
         tvHtmlRemark.setVisibility(raw ? View.VISIBLE : View.GONE);
         etText.setRaw(raw);
         etText.setTypeface(raw ? Typeface.MONOSPACE : Typeface.DEFAULT);
@@ -340,9 +347,12 @@ public class ActivitySignature extends ActivityBase {
     private String getHtml() {
         etText.clearComposingText();
 
-        if (etText.isRaw())
-            return etText.getText().toString();
-        else {
+        if (etText.isRaw()) {
+            saved = etText.getText().toString();
+            return saved;
+        } else {
+            if (saved != null)
+                return saved;
             String html = HtmlHelper.toHtml(etText.getText(), this);
             Document d = JsoupEx.parse(html);
             return d.body().html();
