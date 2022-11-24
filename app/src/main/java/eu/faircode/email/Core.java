@@ -927,7 +927,7 @@ class Core {
                 MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
 
                 String uidl = (hasUidl ? ifolder.getUID(imessage) : null);
-                String msgid = (TextUtils.isEmpty(uidl) ? helper.getMessageID() : null);
+                String msgid = (TextUtils.isEmpty(uidl) ? helper.getPOP3MessageID() : null);
 
                 if ((uidl != null && uidl.equals(message.uidl)) ||
                         (msgid != null && msgid.equals(message.msgid))) {
