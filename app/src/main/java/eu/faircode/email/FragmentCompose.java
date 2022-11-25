@@ -7354,7 +7354,7 @@ public class FragmentCompose extends FragmentBase {
 
             Spanned signature = null;
             if (identity != null && !TextUtils.isEmpty(identity.signature)) {
-                Document d = HtmlHelper.sanitizeCompose(getContext(), identity.signature, show_images);
+                Document d = HtmlHelper.sanitizeCompose(getContext(), identity.signature, true);
                 signature = HtmlHelper.fromDocument(getContext(), d, new HtmlHelper.ImageGetterEx() {
                     @Override
                     public Drawable getDrawable(Element element) {
