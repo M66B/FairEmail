@@ -2177,7 +2177,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swMainLogMem.setChecked(prefs.getBoolean("main_log_memory", false));
         swMainLogMem.setEnabled(swMainLog.isChecked());
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
-        swLogInfo.setChecked(Log.isDebugLogLevel());
+        swLogInfo.setChecked(prefs.getInt("log_level", android.util.Log.WARN) <= android.util.Log.INFO);
         swDebug.setChecked(prefs.getBoolean("debug", false));
         swCanary.setChecked(prefs.getBoolean("leak_canary", false));
         swTest1.setChecked(prefs.getBoolean("test1", false));
