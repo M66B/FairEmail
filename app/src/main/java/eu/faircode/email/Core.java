@@ -67,6 +67,7 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.FLAGS;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.imap.protocol.Status;
 import com.sun.mail.imap.protocol.UID;
 import com.sun.mail.imap.protocol.UIDSet;
 import com.sun.mail.pop3.POP3Folder;
@@ -3641,6 +3642,19 @@ class Core {
                 // Get list of local uids
                 final List<Long> uids = db.message().getUids(folder.id, sync_kept || force ? null : sync_time);
                 Log.i(folder.name + " local count=" + uids.size());
+
+                if (Log.isDebugLogLevel())
+                    try {
+                        Status status = (Status) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                            @Override
+                            public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                                return protocol.status(ifolder.getFullName(), null);
+                            }
+                        });
+                        Log.i(folder.name + " status total=" + status.total);
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
 
                 // Reduce list of local uids
                 SearchTerm dateTerm = account.use_date
