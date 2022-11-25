@@ -1068,6 +1068,7 @@
     <string name="title_share">Udostępnij</string>
     <string name="title_event">Dodaj do kalendarza</string>
     <string name="title_pin">Dodaj skrót</string>
+    <string name="title_pin_label">Tytuł skrótu</string>
     <string name="title_print">Drukuj</string>
     <string name="title_print_header">Wydrukuj nagłówek</string>
     <string name="title_print_images">Drukuj obrazy</string>
@@ -1289,6 +1290,7 @@
     <string name="title_insert_contact_group">Wstaw grupę kontaktów</string>
     <string name="title_insert_template">Wstaw szablon</string>
     <string name="title_create_template">Utwórz szablon</string>
+    <string name="title_select_default_identity">Wybierz domyślny adres</string>
     <string name="title_translate">Przetłumacz</string>
     <string name="title_translate_configure">Konfiguruj &#8230;</string>
     <string name="title_translate_key">Wprowadź klucz</string>

@@ -1044,6 +1044,7 @@
     <string name="title_share">Paylaş</string>
     <string name="title_event">Təqvimə əlavə et</string>
     <string name="title_pin">Qısayol əlavə et</string>
+    <string name="title_pin_label">Qısayol başlığı</string>
     <string name="title_print">Çap et</string>
     <string name="title_print_header">Başlığı çap et</string>
     <string name="title_print_images">Təsvirləri çap et</string>
@@ -1267,6 +1268,7 @@
     <string name="title_insert_contact_group">Əlaqə qrupuna daxil et</string>
     <string name="title_insert_template">Şablon əlavə et</string>
     <string name="title_create_template">Şablon yarat</string>
+    <string name="title_select_default_identity">İlkin ünvanı seçin</string>
     <string name="title_translate">Tərcümə et</string>
     <string name="title_translate_configure">Konfiqurasiya &#8230;</string>
     <string name="title_translate_key">Açarı daxil et</string>
