@@ -4,7 +4,7 @@
 
 ### [Ostromia](https://en.wikipedia.org/wiki/Ostromia)
 
-### 1.2008b - 2022-11-25
+### 1.2009 - 2022-11-25
 
 * Small improvements and minor bug fixes
 * Updated translations
