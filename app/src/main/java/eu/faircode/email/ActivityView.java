@@ -1504,7 +1504,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean updates = prefs.getBoolean("updates", true);
-        boolean beta = prefs.getBoolean("beta", false);
+        boolean beta = prefs.getBoolean("beta", false) && false;
         boolean weekly = prefs.getBoolean("weekly", Helper.hasPlayStore(this));
         long last_update_check = prefs.getLong("last_update_check", 0);
 
