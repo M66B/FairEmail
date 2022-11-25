@@ -3496,7 +3496,7 @@ class Core {
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
             IMAPStore istore, final IMAPFolder ifolder, State state)
-            throws JSONException, ProtocolException, MessagingException, IOException {
+            throws JSONException, MessagingException, IOException {
         final DB db = DB.getInstance(context);
         try {
             SyncStats stats = new SyncStats();
@@ -3524,6 +3524,7 @@ class Core {
             boolean delete_unseen = prefs.getBoolean("delete_unseen", false);
             boolean use_modseq = prefs.getBoolean("use_modseq", true);
             boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+            boolean log = prefs.getBoolean("protocol", false);
 
             if (account.isYahoo() || account.isAol())
                 sync_nodate = false;
@@ -3643,7 +3644,7 @@ class Core {
                 final List<Long> uids = db.message().getUids(folder.id, sync_kept || force ? null : sync_time);
                 Log.i(folder.name + " local count=" + uids.size());
 
-                if (Log.isDebugLogLevel())
+                if (BuildConfig.DEBUG || log)
                     try {
                         Status status = (Status) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                             @Override
@@ -3651,7 +3652,8 @@ class Core {
                                 return protocol.status(ifolder.getFullName(), null);
                             }
                         });
-                        Log.i(folder.name + " status total=" + status.total);
+                        EntityLog.log(context, EntityLog.Type.Protocol, folder.name + " status" +
+                                " total=" + status.total + " unseen=" + status.unseen);
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
