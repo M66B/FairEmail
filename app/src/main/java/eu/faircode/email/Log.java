@@ -214,13 +214,15 @@ public class Log {
         boolean debug = prefs.getBoolean("debug", false);
         if (debug)
             level = android.util.Log.DEBUG;
-        else
-            level = prefs.getInt("log_level", getDefaultLogLevel());
+        else {
+            int def = (BuildConfig.DEBUG ? android.util.Log.INFO : android.util.Log.WARN);
+            level = prefs.getInt("log_level", def);
+        }
         android.util.Log.d(TAG, "Log level=" + level);
     }
 
-    public static int getDefaultLogLevel() {
-        return (BuildConfig.DEBUG ? android.util.Log.INFO : android.util.Log.WARN);
+    public static boolean isDebugLogLevel() {
+        return (level <= android.util.Log.INFO);
     }
 
     public static int d(String msg) {
@@ -1924,7 +1926,6 @@ public class Log {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean main_log = prefs.getBoolean("main_log", true);
         boolean protocol = prefs.getBoolean("protocol", false);
-        int level = prefs.getInt("log_level", Log.getDefaultLogLevel());
         long last_cleanup = prefs.getLong("last_cleanup", 0);
 
         PackageManager pm = context.getPackageManager();
@@ -1979,8 +1980,8 @@ public class Log {
             sb.append(String.format("SoC: %s/%s\r\n", Build.SOC_MANUFACTURER, Build.SOC_MODEL));
         sb.append(String.format("OS version: %s\r\n", osVersion));
         sb.append(String.format("uid: %d\r\n", android.os.Process.myUid()));
-        sb.append(String.format("Log main: %b protocol: %b level: %d=%b\r\n",
-                main_log, protocol, level, level <= android.util.Log.INFO));
+        sb.append(String.format("Log main: %b protocol: %b debug: %b build: %b\r\n",
+                main_log, protocol, Log.isDebugLogLevel(), BuildConfig.DEBUG));
         sb.append("\r\n");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
