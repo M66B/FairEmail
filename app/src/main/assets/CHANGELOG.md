@@ -4,6 +4,11 @@
 
 ### [Ostromia](https://en.wikipedia.org/wiki/Ostromia)
 
+### 1.2010 - 2022-11-25
+
+* Fixed inserting links into signatures
+* Small improvements and minor bug fixes
+
 ### 1.2009 - 2022-11-25
 
 * Small improvements and minor bug fixes
