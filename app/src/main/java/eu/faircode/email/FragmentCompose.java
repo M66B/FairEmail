@@ -7354,14 +7354,15 @@ public class FragmentCompose extends FragmentBase {
 
             Spanned signature = null;
             if (identity != null && !TextUtils.isEmpty(identity.signature)) {
-                Document d = HtmlHelper.sanitizeCompose(getContext(), identity.signature, true);
-                signature = HtmlHelper.fromDocument(getContext(), d, new HtmlHelper.ImageGetterEx() {
+                final Context context = getContext();
+                Document d = HtmlHelper.sanitizeCompose(context, identity.signature, true);
+                signature = HtmlHelper.fromDocument(context, d, new HtmlHelper.ImageGetterEx() {
                     @Override
                     public Drawable getDrawable(Element element) {
                         String source = element.attr("src");
                         if (source.startsWith("cid:"))
                             element.attr("src", "cid:");
-                        return ImageHelper.decodeImage(getContext(),
+                        return ImageHelper.decodeImage(context,
                                 working, element, true, 0, 1.0f, tvSignature);
                     }
                 }, null);
