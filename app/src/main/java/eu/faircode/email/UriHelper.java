@@ -365,8 +365,13 @@ public class UriHelper {
             // go.dhlparcel.nl and others
             try {
                 String path = uri.getPath();
+                String b = null;
                 int s = path.lastIndexOf('/');
-                String b = (s > 0 ? new String(Base64.decode(path.substring(s + 1), Base64.URL_SAFE)) : null);
+                if (s > 0)
+                    try {
+                        b = new String(Base64.decode(path.substring(s + 1), Base64.URL_SAFE));
+                    } catch (IllegalArgumentException ignored) {
+                    }
                 Uri result = (b == null ? null : Uri.parse(b));
                 changed = (result != null && result.getScheme() != null);
                 url = (result == null ? uri : result);
