@@ -1990,7 +1990,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             bindAddresses(message);
             bindHeaders(message, false);
-            bindAttachments(message, properties.getAttachments(message.id), false);
+            if (!attachments_alt)
+                bindAttachments(message, properties.getAttachments(message.id), false);
 
             // Actions
             vSeparator.setVisibility(View.VISIBLE);
