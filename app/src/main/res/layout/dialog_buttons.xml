@@ -175,6 +175,19 @@
             app:layout_constraintTop_toBottomOf="@id/cbImportance" />
 
         <CheckBox
+            android:id="@+id/cbFullScreen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_open_in_full_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_full_screen"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbTranslate" />
+
+        <CheckBox
             android:id="@+id/cbForceLight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -185,7 +198,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbTranslate" />
+            app:layout_constraintTop_toBottomOf="@id/cbFullScreen" />
 
         <CheckBox
             android:id="@+id/cbSearch"

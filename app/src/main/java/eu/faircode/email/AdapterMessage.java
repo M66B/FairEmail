@@ -461,6 +461,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibSearchText;
         private ImageButton ibSearch;
         private ImageButton ibTranslate;
+        private ImageButton ibFullScreen;
         private ImageButton ibForceLight;
         private ImageButton ibImportance;
         private ImageButton ibHide;
@@ -885,6 +886,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearchText = vsBody.findViewById(R.id.ibSearchText);
             ibSearch = vsBody.findViewById(R.id.ibSearch);
             ibTranslate = vsBody.findViewById(R.id.ibTranslate);
+            ibFullScreen = vsBody.findViewById(R.id.ibFullScreen);
             ibForceLight = vsBody.findViewById(R.id.ibForceLight);
             ibImportance = vsBody.findViewById(R.id.ibImportance);
             ibHide = vsBody.findViewById(R.id.ibHide);
@@ -1053,6 +1055,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSearch.setOnClickListener(this);
                 ibTranslate.setOnClickListener(this);
                 ibTranslate.setOnLongClickListener(this);
+                ibFullScreen.setOnClickListener(this);
                 ibForceLight.setOnClickListener(this);
                 ibImportance.setOnClickListener(this);
                 ibImportance.setOnLongClickListener(this);
@@ -1168,6 +1171,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSearch.setOnClickListener(null);
                 ibTranslate.setOnClickListener(null);
                 ibTranslate.setOnLongClickListener(null);
+                ibFullScreen.setOnClickListener(null);
                 ibForceLight.setOnClickListener(null);
                 ibImportance.setOnClickListener(null);
                 ibImportance.setOnLongClickListener(null);
@@ -1731,6 +1735,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearchText.setVisibility(View.GONE);
             ibSearch.setVisibility(View.GONE);
             ibTranslate.setVisibility(View.GONE);
+            ibFullScreen.setVisibility(View.GONE);
             ibForceLight.setVisibility(View.GONE);
             ibImportance.setVisibility(View.GONE);
             ibHide.setVisibility(View.GONE);
@@ -2016,6 +2021,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearchText.setVisibility(View.GONE);
             ibSearch.setVisibility(View.GONE);
             ibTranslate.setVisibility(View.GONE);
+            ibFullScreen.setVisibility(View.GONE);
             ibForceLight.setVisibility(View.GONE);
             ibImportance.setVisibility(View.GONE);
             ibHide.setVisibility(View.GONE);
@@ -2221,6 +2227,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_hide = prefs.getBoolean("button_hide", false);
                     boolean button_importance = prefs.getBoolean("button_importance", false);
                     boolean button_translate = prefs.getBoolean("button_translate", true);
+                    boolean button_full_screen = prefs.getBoolean("button_full_screen", false);
                     boolean button_force_light = prefs.getBoolean("button_force_light", true);
                     boolean button_search = prefs.getBoolean("button_search", false);
                     boolean button_search_text = prefs.getBoolean("button_search_text", false);
@@ -2258,6 +2265,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibSearchText.setVisibility(tools && !outbox && button_search_text && message.content && !full ? View.VISIBLE : View.GONE);
                     ibSearch.setVisibility(tools && !outbox && button_search && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
                     ibTranslate.setVisibility(tools && !outbox && button_translate && DeepL.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
+                    ibFullScreen.setVisibility(tools && full && button_full_screen && message.content ? View.VISIBLE : View.GONE);
                     ibForceLight.setVisibility(tools && full && dark && button_force_light && message.content ? View.VISIBLE : View.GONE);
                     ibForceLight.setImageLevel(!(canDarken || fake_dark) || force_light ? 1 : 0);
                     ibImportance.setVisibility(tools && button_importance && !outbox && seen ? View.VISIBLE : View.GONE);
@@ -4135,7 +4143,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         DeepL.FragmentDialogDeepL fragment = new DeepL.FragmentDialogDeepL();
                         fragment.show(parentFragment.getParentFragmentManager(), "deepl:configure");
                     }
-                } else if (id == R.id.ibForceLight) {
+                } else if (id == R.id.ibFullScreen)
+                    onActionOpenFull(message);
+                else if (id == R.id.ibForceLight) {
                     onActionForceLight(message);
                 } else if (id == R.id.ibNotes) {
                     onMenuNotes(message);
@@ -8735,6 +8745,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final CheckBox cbSearch = dview.findViewById(R.id.cbSearch);
             final CheckBox cbSearchText = dview.findViewById(R.id.cbSearchText);
             final CheckBox cbTranslate = dview.findViewById(R.id.cbTranslate);
+            final CheckBox cbFullScreen = dview.findViewById(R.id.cbFullScreen);
             final CheckBox cbForceLight = dview.findViewById(R.id.cbForceLight);
             final CheckBox cbEvent = dview.findViewById(R.id.cbEvent);
             final CheckBox cbShare = dview.findViewById(R.id.cbShare);
@@ -8761,6 +8772,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbSearch.setChecked(prefs.getBoolean("button_search", false));
             cbSearchText.setChecked(prefs.getBoolean("button_search_text", false));
             cbTranslate.setChecked(prefs.getBoolean("button_translate", true));
+            cbFullScreen.setChecked(prefs.getBoolean("button_full_screen", false));
             cbForceLight.setChecked(prefs.getBoolean("button_force_light", true));
             cbEvent.setChecked(prefs.getBoolean("button_event", false));
             cbShare.setChecked(prefs.getBoolean("button_share", false));
@@ -8790,6 +8802,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             editor.putBoolean("button_search", cbSearch.isChecked());
                             editor.putBoolean("button_search_text", cbSearchText.isChecked());
                             editor.putBoolean("button_translate", cbTranslate.isChecked());
+                            editor.putBoolean("button_full_screen", cbFullScreen.isChecked());
                             editor.putBoolean("button_force_light", cbForceLight.isChecked());
                             editor.putBoolean("button_event", cbEvent.isChecked());
                             editor.putBoolean("button_share", cbShare.isChecked());
