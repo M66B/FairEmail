@@ -1990,8 +1990,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             bindAddresses(message);
             bindHeaders(message, false);
-            if (!attachments_alt)
-                bindAttachments(message, properties.getAttachments(message.id), false);
+
+            List<EntityAttachment> attachments = (attachments_alt
+                    ? new ArrayList<>() : properties.getAttachments(message.id));
+            bindAttachments(message, attachments, false);
 
             // Actions
             vSeparator.setVisibility(View.VISIBLE);
@@ -3346,8 +3348,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 attachments = new ArrayList<>();
             properties.setAttachments(message.id, attachments);
 
-            grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
-
             boolean show_inline = properties.getValue("inline", message.id);
             Log.i("Show inline=" + show_inline);
 
@@ -3387,20 +3387,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     calendar = attachment;
             }
 
-            rvAttachment.post(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        adapterAttachment.set(show);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-                }
-            });
-
-            if (calendar != null && bind_extras)
-                bindCalendar(message, calendar);
-
             cbInline.setOnCheckedChangeListener(null);
             cbInline.setChecked(show_inline);
             cbInline.setVisibility(has_inline ? View.VISIBLE : View.GONE);
@@ -3417,6 +3403,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bindAttachments(message, properties.getAttachments(message.id), true);
                 }
             });
+
+            rvAttachment.post(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        adapterAttachment.set(show);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+
+            grpAttachments.setVisibility(show.size() > 0 ? View.VISIBLE : View.GONE);
+
+            if (calendar != null && bind_extras)
+                bindCalendar(message, calendar);
 
             int iavailable = 0;
             List<EntityAttachment> images = new ArrayList<>();
