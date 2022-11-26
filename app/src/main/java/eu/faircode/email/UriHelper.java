@@ -330,18 +330,6 @@ public class UriHelper {
             Uri result = (s > 0 ? Uri.parse(path.substring(s + 1)) : null);
             changed = (result != null);
             url = (result == null ? uri : result);
-        } else if ("go.dhlparcel.nl".equals(uri.getHost())) {
-            try {
-                String path = uri.getPath();
-                int s = path.lastIndexOf('/');
-                String b = (s > 0 ? new String(Base64.decode(path.substring(s + 1), Base64.URL_SAFE)) : null);
-                Uri result = (b == null ? null : Uri.parse(b));
-                changed = (result != null);
-                url = (result == null ? uri : result);
-            } catch (Throwable ex) {
-                Log.i(ex);
-                url = uri;
-            }
         } else if (uri.getQueryParameterNames().size() == 1) {
             // Sophos Email Appliance
             Uri result = null;
@@ -372,8 +360,21 @@ public class UriHelper {
                 Log.i(ex);
                 url = uri;
             }
-        } else
-            url = uri;
+        } else {
+            // Try base64 last path segment
+            // go.dhlparcel.nl and others
+            try {
+                String path = uri.getPath();
+                int s = path.lastIndexOf('/');
+                String b = (s > 0 ? new String(Base64.decode(path.substring(s + 1), Base64.URL_SAFE)) : null);
+                Uri result = (b == null ? null : Uri.parse(b));
+                changed = (result != null && result.getScheme() != null);
+                url = (result == null ? uri : result);
+            } catch (Throwable ex) {
+                Log.i(ex);
+                url = uri;
+            }
+        }
 
         if (url.isOpaque() || !isHyperLink(url))
             return uri;
