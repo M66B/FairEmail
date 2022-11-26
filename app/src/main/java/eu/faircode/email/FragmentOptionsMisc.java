@@ -239,6 +239,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpVirusTotal;
     private Group grpSend;
     private Group grpUpdates;
+    private Group grpBitbucket;
     private Group grpTest;
     private CardView cardDebug;
 
@@ -455,6 +456,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         grpVirusTotal = view.findViewById(R.id.grpVirusTotal);
         grpSend = view.findViewById(R.id.grpSend);
         grpUpdates = view.findViewById(R.id.grpUpdates);
+        grpBitbucket = view.findViewById(R.id.grpBitbucket);
         grpTest = view.findViewById(R.id.grpTest);
         cardDebug = view.findViewById(R.id.cardDebug);
 
@@ -1912,6 +1914,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         grpUpdates.setVisibility(!BuildConfig.DEBUG &&
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
                 ? View.GONE : View.VISIBLE);
+        grpBitbucket.setVisibility(View.GONE);
         grpTest.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
