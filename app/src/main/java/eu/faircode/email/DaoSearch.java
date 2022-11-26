@@ -33,6 +33,9 @@ public interface DaoSearch {
             " ORDER BY `order`, name COLLATE NOCASE")
     LiveData<List<EntitySearch>> liveSearch();
 
+    @Query("SELECT * FROM search")
+    List<EntitySearch> getSearches();
+
     @Insert
     long insertSearch(EntitySearch search);
 

@@ -138,6 +138,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     private boolean import_rules;
     private boolean import_contacts;
     private boolean import_answers;
+    private boolean import_searches;
     private boolean import_settings;
 
     static final int REQUEST_SOUND_INBOUND = 1;
@@ -364,6 +365,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             import_rules = savedInstanceState.getBoolean("fair:import_rules");
             import_contacts = savedInstanceState.getBoolean("fair:import_contacts");
             import_answers = savedInstanceState.getBoolean("fair:import_answers");
+            import_searches = savedInstanceState.getBoolean("fair:import_searches");
             import_settings = savedInstanceState.getBoolean("fair:import_settings");
         }
 
@@ -386,6 +388,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         outState.putBoolean("fair:import_rules", import_rules);
         outState.putBoolean("fair:import_contacts", import_contacts);
         outState.putBoolean("fair:import_answers", import_answers);
+        outState.putBoolean("fair:import_searches", import_searches);
         outState.putBoolean("fair:import_settings", import_settings);
         super.onSaveInstanceState(outState);
     }
@@ -777,6 +780,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 for (EntityAnswer answer : db.answer().getAnswers(true))
                     janswers.put(answer.toJSON());
 
+                // Searches
+                JSONArray jsearches = new JSONArray();
+                for (EntitySearch search : db.search().getSearches())
+                    jsearches.put(search.toJSON());
+
                 // Certificates
                 JSONArray jcertificates = new JSONArray();
                 for (EntityCertificate certificate : db.certificate().getCertificates())
@@ -815,6 +823,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 JSONObject jexport = new JSONObject();
                 jexport.put("accounts", jaccounts);
                 jexport.put("answers", janswers);
+                jexport.put("searches", jsearches);
                 jexport.put("certificates", jcertificates);
                 jexport.put("settings", jsettings);
 
@@ -970,6 +979,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         args.putBoolean("import_rules", this.import_rules);
         args.putBoolean("import_contacts", this.import_contacts);
         args.putBoolean("import_answers", this.import_answers);
+        args.putBoolean("import_searches", this.import_searches);
         args.putBoolean("import_settings", this.import_settings);
 
         new SimpleTask<Void>() {
@@ -995,6 +1005,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 boolean import_rules = args.getBoolean("import_rules");
                 boolean import_contacts = args.getBoolean("import_contacts");
                 boolean import_answers = args.getBoolean("import_answers");
+                boolean import_searches = args.getBoolean("import_searches");
                 boolean import_settings = args.getBoolean("import_settings");
                 EntityLog.log(context, "Importing " + uri +
                         " accounts=" + import_accounts +
@@ -1002,6 +1013,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         " rules=" + import_rules +
                         " contacts=" + import_contacts +
                         " answers=" + import_answers +
+                        " searches=" + import_searches +
                         " settings=" + import_settings);
 
                 NoStreamException.check(uri, context);
@@ -1096,6 +1108,18 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             xAnswer.put(id, answer.id);
 
                             Log.i("Imported answer=" + answer.name + " id=" + answer.id + " (" + id + ")");
+                        }
+                    }
+
+                    if (import_searches && jimport.has("searches")) {
+                        postProgress(context.getString(R.string.title_setup_import_searches), null);
+
+                        JSONArray jsearches = jimport.getJSONArray("searches");
+                        for (int s = 0; s < jsearches.length(); s++) {
+                            JSONObject jsearch = (JSONObject) jsearches.get(s);
+                            EntitySearch search = EntitySearch.fromJSON(jsearch);
+                            search.id = null;
+                            db.search().insertSearch(search);
                         }
                     }
 
@@ -2056,6 +2080,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             CheckBox cbRules = dview.findViewById(R.id.cbRules);
             CheckBox cbContacts = dview.findViewById(R.id.cbContacts);
             CheckBox cbAnswers = dview.findViewById(R.id.cbAnswers);
+            CheckBox cbSearches = dview.findViewById(R.id.cbSearches);
             CheckBox cbSettings = dview.findViewById(R.id.cbSettings);
 
             cbAccounts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -2089,6 +2114,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 activity.import_rules = cbRules.isChecked();
                                 activity.import_contacts = cbContacts.isChecked();
                                 activity.import_answers = cbAnswers.isChecked();
+                                activity.import_searches = cbSearches.isChecked();
                                 activity.import_settings = cbSettings.isChecked();
                                 getActivity().startActivityForResult(
                                         Helper.getChooser(context, getIntentImport()), REQUEST_IMPORT);

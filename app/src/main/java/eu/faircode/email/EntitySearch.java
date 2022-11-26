@@ -23,6 +23,9 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Objects;
 
 @Entity(
@@ -43,6 +46,29 @@ public class EntitySearch {
     public Integer color;
     @NonNull
     public String data;
+
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("id", id);
+        json.put("name", name);
+        json.put("order", order);
+        json.put("color", color);
+        json.put("data", data);
+        return json;
+    }
+
+    public static EntitySearch fromJSON(JSONObject json) throws JSONException {
+        EntitySearch search = new EntitySearch();
+        // id
+        search.name = json.getString("name");
+        if (json.has("order"))
+            search.order = json.getInt("order");
+        if (json.has("color"))
+            search.order = json.getInt("color");
+        search.data = json.getString("data");
+
+        return search;
+    }
 
     @Override
     public boolean equals(Object obj) {
