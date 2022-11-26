@@ -142,13 +142,13 @@ public class AdapterNavSearch extends RecyclerView.Adapter<AdapterNavSearch.View
         });
     }
 
-    public void set(@NonNull List<EntitySearch> search, boolean expanded) {
-        Log.i("Set nav search=" + search.size() + " expanded=" + expanded);
+    public void set(@NonNull List<EntitySearch> searches, boolean expanded) {
+        Log.i("Set nav search=" + searches.size() + " expanded=" + expanded);
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, search), false);
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, searches), false);
 
         this.expanded = expanded;
-        this.items = search;
+        this.items = searches;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override

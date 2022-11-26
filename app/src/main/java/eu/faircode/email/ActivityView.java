@@ -999,17 +999,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        db.search().liveSearch().observe(owner, new Observer<List<EntitySearch>>() {
+        db.search().liveSearches().observe(owner, new Observer<List<EntitySearch>>() {
             @Override
-            public void onChanged(List<EntitySearch> search) {
-                if (search == null)
-                    search = new ArrayList<>();
-                adapterNavSearch.set(search, nav_expanded);
+            public void onChanged(List<EntitySearch> searches) {
+                if (searches == null)
+                    searches = new ArrayList<>();
+                adapterNavSearch.set(searches, nav_expanded);
 
                 boolean nav_search = prefs.getBoolean("nav_search", true);
-                ibExpanderSearch.setVisibility(search.size() > 0 ? View.VISIBLE : View.GONE);
-                rvSearch.setVisibility(search.size() > 0 && nav_search ? View.VISIBLE : View.GONE);
-                vSeparatorSearch.setVisibility(search.size() > 0 ? View.VISIBLE : View.GONE);
+                ibExpanderSearch.setVisibility(searches.size() > 0 ? View.VISIBLE : View.GONE);
+                rvSearch.setVisibility(searches.size() > 0 && nav_search ? View.VISIBLE : View.GONE);
+                vSeparatorSearch.setVisibility(searches.size() > 0 ? View.VISIBLE : View.GONE);
             }
         });
 
