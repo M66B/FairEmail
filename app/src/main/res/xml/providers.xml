@@ -1426,8 +1426,7 @@
         <smtp
             host="mail.twc.com"
             port="587"
-            starttls="false" />
-        <!-- Unusual, but no STARTTLS at port 587 -->
+            starttls="true" />
     </provider>
     <provider
         name="Tin.it"
