@@ -168,7 +168,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     static final String ACTION_VIEW_FOLDERS = BuildConfig.APPLICATION_ID + ".VIEW_FOLDERS";
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
-    static final String ACTION_SEARCH_ADDRESS = BuildConfig.APPLICATION_ID + ".SEARCH_ADDRESS";
+    static final String ACTION_SEARCH_SENDER = BuildConfig.APPLICATION_ID + ".SEARCH_SENDER";
     static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_VIEW_OUTBOX = BuildConfig.APPLICATION_ID + ".VIEW_OUTBOX";
@@ -1072,7 +1072,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_VIEW_FOLDERS);
         iff.addAction(ACTION_VIEW_MESSAGES);
-        iff.addAction(ACTION_SEARCH_ADDRESS);
+        iff.addAction(ACTION_SEARCH_SENDER);
         iff.addAction(ACTION_VIEW_THREAD);
         iff.addAction(ACTION_EDIT_FOLDER);
         iff.addAction(ACTION_VIEW_OUTBOX);
@@ -2116,8 +2116,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onViewFolders(intent);
                 else if (ACTION_VIEW_MESSAGES.equals(action))
                     onViewMessages(intent);
-                else if (ACTION_SEARCH_ADDRESS.equals(action))
-                    onSearchAddress(intent);
+                else if (ACTION_SEARCH_SENDER.equals(action))
+                    onSearchSender(intent);
                 else if (ACTION_VIEW_THREAD.equals(action))
                     onViewThread(intent);
                 else if (ACTION_EDIT_FOLDER.equals(action))
@@ -2175,7 +2175,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    private void onSearchAddress(Intent intent) {
+    private void onSearchSender(Intent intent) {
         long account = intent.getLongExtra("account", -1);
         long folder = intent.getLongExtra("folder", -1);
         String query = intent.getStringExtra("query");
@@ -2186,6 +2186,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
         criteria.query = query;
         criteria.fts = fts;
+        criteria.in_senders = true;
+        criteria.in_recipients = false;
+        criteria.in_subject = false;
+        criteria.in_keywords = false;
+        criteria.in_message = false;
+        criteria.in_notes = false;
 
         FragmentMessages.search(
                 this, this, getSupportFragmentManager(),

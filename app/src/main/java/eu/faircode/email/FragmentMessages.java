@@ -10161,7 +10161,7 @@ public class FragmentMessages extends FragmentBase
                 String query = ((InternetAddress) addresses[0]).getAddress();
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_SEARCH_ADDRESS)
+                        new Intent(ActivityView.ACTION_SEARCH_SENDER)
                                 .putExtra("account", -1L)
                                 .putExtra("folder", -1L)
                                 .putExtra("query", query));
