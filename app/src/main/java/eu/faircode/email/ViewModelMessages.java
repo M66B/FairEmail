@@ -242,10 +242,10 @@ public class ViewModelMessages extends ViewModel {
             }
         });
 
-        if (viewType == AdapterMessage.ViewType.UNIFIED) {
+        if (viewType == AdapterMessage.ViewType.UNIFIED)
             models.remove(AdapterMessage.ViewType.FOLDER);
-            models.remove(AdapterMessage.ViewType.SEARCH);
-        } else if (viewType == AdapterMessage.ViewType.FOLDER)
+
+        if (viewType != AdapterMessage.ViewType.SEARCH)
             models.remove(AdapterMessage.ViewType.SEARCH);
 
         if (viewType != AdapterMessage.ViewType.THREAD) {
