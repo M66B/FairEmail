@@ -272,10 +272,11 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_SEARCH_SENDER)
+                        new Intent(ActivityView.ACTION_SEARCH_ADDRESS)
                                 .putExtra("account", -1L)
                                 .putExtra("folder", -1L)
-                                .putExtra("query", MailTo.parse(uri).getTo()));
+                                .putExtra("query", MailTo.parse(uri).getTo())
+                                .putExtra("sender_only", false));
             }
         });
 

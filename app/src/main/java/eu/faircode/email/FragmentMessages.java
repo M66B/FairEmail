@@ -3815,7 +3815,7 @@ public class FragmentMessages extends FragmentBase
                             long[] ids = getSelection();
                             if (ids.length != 1)
                                 return false;
-                            searchSender(getContext(), getViewLifecycleOwner(), getParentFragmentManager(), ids[0]);
+                            searchContact(getContext(), getViewLifecycleOwner(), getParentFragmentManager(), ids[0], true);
                             return true;
                         }
                         return false;
@@ -10106,7 +10106,7 @@ public class FragmentMessages extends FragmentBase
         fragmentTransaction.commit();
     }
 
-    static void searchSender(Context context, LifecycleOwner owner, FragmentManager fm, long message) {
+    static void searchContact(Context context, LifecycleOwner owner, FragmentManager fm, long message, boolean sender_only) {
         Bundle args = new Bundle();
         args.putLong("id", message);
 
@@ -10161,10 +10161,11 @@ public class FragmentMessages extends FragmentBase
                 String query = ((InternetAddress) addresses[0]).getAddress();
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_SEARCH_SENDER)
+                        new Intent(ActivityView.ACTION_SEARCH_ADDRESS)
                                 .putExtra("account", -1L)
                                 .putExtra("folder", -1L)
-                                .putExtra("query", query));
+                                .putExtra("query", query)
+                                .putExtra("sender_only", sender_only));
             }
 
             @Override

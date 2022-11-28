@@ -4071,7 +4071,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else if (id == R.id.ibReceipt)
                 onReceipt(message);
             else if (id == R.id.ibSearchContact)
-                onSearchContact(message);
+                onSearchContact(message, false);
             else if (id == R.id.ibNotifyContact)
                 onNotifyContact(message);
             else if (id == R.id.ibPinContact)
@@ -4135,7 +4135,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } else if (id == R.id.ibSearchText) {
                     onSearchText(message);
                 } else if (id == R.id.ibSearch) {
-                    onSearchContact(message);
+                    onSearchContact(message, false);
                 } else if (id == R.id.ibTranslate) {
                     if (DeepL.canTranslate(context))
                         onActionTranslate(message);
@@ -4789,8 +4789,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onSearchContact(TupleMessageEx message) {
-            FragmentMessages.searchSender(context, owner, parentFragment.getParentFragmentManager(), message.id);
+        private void onSearchContact(TupleMessageEx message, boolean sender_only) {
+            FragmentMessages.searchContact(context, owner, parentFragment.getParentFragmentManager(), message.id, sender_only);
         }
 
         @TargetApi(Build.VERSION_CODES.O)
