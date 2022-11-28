@@ -82,11 +82,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_search_sender"
-        android:tooltipText="@string/title_search_sender"
+        android:contentDescription="@string/title_button_search_similar"
+        android:tooltipText="@string/title_button_search_similar"
         app:layout_constraintEnd_toStartOf="@+id/ibNotifyContact"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/twotone_search_24" />
+        app:srcCompat="@drawable/twotone_person_search_24" />
 
     <ImageButton
         android:id="@+id/ibNotifyContact"
