@@ -231,7 +231,7 @@ public class ViewModelMessages extends ViewModel {
                     model.list.removeObservers(owner);
                 }
 
-                if (viewType == AdapterMessage.ViewType.THREAD) {
+                if (viewType == AdapterMessage.ViewType.THREAD || viewType == AdapterMessage.ViewType.SEARCH) {
                     Log.i("Remove model=" + viewType);
                     models.remove(viewType);
                 }
