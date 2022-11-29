@@ -729,7 +729,9 @@ public class EntityOperation {
         if (SYNC.equals(name))
             db.folder().setFolderSyncState(folder, null);
 
-        if (fetch && message != null && !SEEN.equals(name)) {
+        if (fetch && message != null &&
+                !SEEN.equals(name) &&
+                !FLAG.equals(name)) {
             EntityMessage m = db.message().getMessage(message);
             if (m == null || m.uid == null)
                 return;

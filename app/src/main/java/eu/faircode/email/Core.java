@@ -745,7 +745,8 @@ class Core {
                                 // Cleanup messages
                                 if (MessageHelper.isRemoved(ex)) {
                                     if (message != null &&
-                                            !EntityOperation.SEEN.equals(op.name))
+                                            !EntityOperation.SEEN.equals(op.name) &&
+                                            !EntityOperation.FLAG.equals(op.name))
                                         db.message().deleteMessage(message.id);
                                 }
 
