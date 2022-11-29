@@ -305,6 +305,7 @@ public class FragmentMessages extends FragmentBase
     private ImageButton ibBatchSnooze;
     private ImageButton ibBatchHide;
     private ImageButton ibBatchFlag;
+    private ImageButton ibBatchFlagColor;
     private ImageButton ibLowImportance;
     private ImageButton ibHighImportance;
     private ImageButton ibInbox;
@@ -596,6 +597,7 @@ public class FragmentMessages extends FragmentBase
         ibBatchSnooze = view.findViewById(R.id.ibBatchSnooze);
         ibBatchHide = view.findViewById(R.id.ibBatchHide);
         ibBatchFlag = view.findViewById(R.id.ibBatchFlag);
+        ibBatchFlagColor = view.findViewById(R.id.ibBatchFlagColor);
         ibLowImportance = view.findViewById(R.id.ibLowImportance);
         ibHighImportance = view.findViewById(R.id.ibHighImportance);
         ibInbox = view.findViewById(R.id.ibInbox);
@@ -1473,6 +1475,14 @@ public class FragmentMessages extends FragmentBase
             public void onClick(View v) {
                 boolean more_clear = prefs.getBoolean("more_clear", true);
                 onActionFlagSelection(true, Color.TRANSPARENT, null, more_clear);
+            }
+        });
+
+        ibBatchFlagColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean more_clear = prefs.getBoolean("more_clear", true);
+                onActionFlagColorSelection(more_clear);
             }
         });
 
@@ -3772,7 +3782,7 @@ public class FragmentMessages extends FragmentBase
                             onActionFlagSelection(false, Color.TRANSPARENT, null, false);
                             return true;
                         } else if (itemId == R.string.title_flag_color) {
-                            onActionFlagColorSelection();
+                            onActionFlagColorSelection(false);
                             return true;
                         } else if (itemId == R.string.title_importance_low) {
                             onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW, false);
@@ -4041,11 +4051,12 @@ public class FragmentMessages extends FragmentBase
         }.execute(this, args, "messages:flag");
     }
 
-    private void onActionFlagColorSelection() {
+    private void onActionFlagColorSelection(boolean clear) {
         Bundle args = new Bundle();
         args.putInt("color", Color.TRANSPARENT);
         args.putString("title", getString(R.string.title_flag_color));
         args.putBoolean("reset", true);
+        args.putBoolean("clear", clear);
 
         FragmentDialogColor fragment = new FragmentDialogColor();
         fragment.setArguments(args);
@@ -6230,6 +6241,7 @@ public class FragmentMessages extends FragmentBase
                     boolean more_snooze = prefs.getBoolean("more_snooze", false);
                     boolean more_hide = prefs.getBoolean("more_hide", false);
                     boolean more_flag = prefs.getBoolean("more_flag", false);
+                    boolean more_flag_color = prefs.getBoolean("more_flag_color", false);
                     boolean more_importance_high = prefs.getBoolean("more_importance_high", false);
                     boolean more_importance_low = prefs.getBoolean("more_importance_low", false);
                     boolean more_inbox = prefs.getBoolean("more_inbox", true);
@@ -6288,6 +6300,10 @@ public class FragmentMessages extends FragmentBase
                     if (flag)
                         count++;
 
+                    boolean flag_color = (more_flag_color && count < MAX_QUICK_ACTIONS && (result.unflagged || result.flagged));
+                    if (flag_color)
+                        count++;
+
                     boolean hide = (more_hide && count < MAX_QUICK_ACTIONS && result.visible);
                     if (hide)
                         count++;
@@ -6311,6 +6327,7 @@ public class FragmentMessages extends FragmentBase
                     ibBatchSnooze.setVisibility(snooze ? View.VISIBLE : View.GONE);
                     ibBatchHide.setVisibility(hide ? View.VISIBLE : View.GONE);
                     ibBatchFlag.setVisibility(flag ? View.VISIBLE : View.GONE);
+                    ibBatchFlagColor.setVisibility(flag_color ? View.VISIBLE : View.GONE);
                     ibLowImportance.setVisibility(importance_low ? View.VISIBLE : View.GONE);
                     ibHighImportance.setVisibility(importance_high ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(inbox ? View.VISIBLE : View.GONE);
@@ -7968,7 +7985,7 @@ public class FragmentMessages extends FragmentBase
                         }
 
                         Bundle args = data.getBundleExtra("args");
-                        onActionFlagSelection(true, args.getInt("color"), null, false);
+                        onActionFlagSelection(true, args.getInt("color"), null, args.getBoolean("clear"));
                     }
                     break;
                 case REQUEST_MESSAGE_SNOOZE:
@@ -10881,6 +10898,7 @@ public class FragmentMessages extends FragmentBase
             final CheckBox cbSnooze = dview.findViewById(R.id.cbSnooze);
             final CheckBox cbHide = dview.findViewById(R.id.cbHide);
             final CheckBox cbFlag = dview.findViewById(R.id.cbFlag);
+            final CheckBox cbFlagColor = dview.findViewById(R.id.cbFlagColor);
             final CheckBox cbImportanceLow = dview.findViewById(R.id.cbImportanceLow);
             final CheckBox cbImportanceHigh = dview.findViewById(R.id.cbImportanceHigh);
             final CheckBox cbInbox = dview.findViewById(R.id.cbInbox);
@@ -10897,6 +10915,7 @@ public class FragmentMessages extends FragmentBase
             cbSnooze.setChecked(prefs.getBoolean("more_snooze", false));
             cbHide.setChecked(prefs.getBoolean("more_hide", false));
             cbFlag.setChecked(prefs.getBoolean("more_flag", false));
+            cbFlagColor.setChecked(prefs.getBoolean("more_flag_color", false));
             cbImportanceLow.setChecked(prefs.getBoolean("more_importance_low", false));
             cbImportanceHigh.setChecked(prefs.getBoolean("more_importance_high", false));
             cbInbox.setChecked(prefs.getBoolean("more_inbox", true));
@@ -10918,6 +10937,7 @@ public class FragmentMessages extends FragmentBase
                             editor.putBoolean("more_snooze", cbSnooze.isChecked());
                             editor.putBoolean("more_hide", cbHide.isChecked());
                             editor.putBoolean("more_flag", cbFlag.isChecked());
+                            editor.putBoolean("more_flag_color", cbFlagColor.isChecked());
                             editor.putBoolean("more_importance_low", cbImportanceLow.isChecked());
                             editor.putBoolean("more_importance_high", cbImportanceHigh.isChecked());
                             editor.putBoolean("more_inbox", cbInbox.isChecked());

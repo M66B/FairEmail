@@ -624,6 +624,21 @@
                 app:srcCompat="@drawable/twotone_star_24" />
 
             <ImageButton
+                android:id="@+id/ibBatchFlagColor"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_flag_color"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/action_foreground"
+                android:tooltipText="@string/title_flag_color"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/ibBatchFlag"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_auto_awesome_24" />
+
+            <ImageButton
                 android:id="@+id/ibLowImportance"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -634,7 +649,7 @@
                 android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_importance_low"
                 android:visibility="gone"
-                app:layout_constraintEnd_toStartOf="@id/ibBatchFlag"
+                app:layout_constraintEnd_toStartOf="@id/ibBatchFlagColor"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/baseline_arrow_downward_24" />
 
