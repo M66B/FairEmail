@@ -4,6 +4,13 @@
 
 ### [Ostromia](https://en.wikipedia.org/wiki/Ostromia)
 
+### Next version
+
+* Added optional button to show original message full screen
+* Added optional colored star quick action button
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2010 - 2022-11-25
 
 * Fixed inserting links into signatures
