@@ -279,6 +279,7 @@
     <string name="title_setup_import_rules">Import pravidel filtrů</string>
     <string name="title_setup_import_contacts">Import místních kontaktů</string>
     <string name="title_setup_import_answers">Import šablon pro odpovědi</string>
+    <string name="title_setup_import_searches">Žádná uložená hledání</string>
     <string name="title_setup_import_settings">Možnosti importu</string>
     <string name="title_setup_exported">Nastavení exportována</string>
     <string name="title_setup_imported">Nastavení importována</string>
@@ -1064,6 +1065,7 @@
     <string name="title_editasnew">Upravit jako novou</string>
     <string name="title_edit_notes">Upravit místní poznámky</string>
     <string name="title_create_rule">Vytvořit pravidlo &#8230;</string>
+    <string name="title_full_screen">Celá obrazovka</string>
     <string name="title_force_light">Vynutit světlý motiv</string>
     <string name="title_share">Sdílet</string>
     <string name="title_event">Přidat do kalendáře</string>

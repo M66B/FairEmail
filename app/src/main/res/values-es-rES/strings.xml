@@ -253,6 +253,7 @@
     <string name="title_setup_import_rules">Importar reglas de filtro</string>
     <string name="title_setup_import_contacts">Importar contactos locales</string>
     <string name="title_setup_import_answers">Importar plantillas de respuesta</string>
+    <string name="title_setup_import_searches">Importar búsquedas guardadas</string>
     <string name="title_setup_import_settings">Importar opciones</string>
     <string name="title_setup_exported">Ajustes exportados</string>
     <string name="title_setup_imported">Ajustes importados</string>
@@ -1038,6 +1039,7 @@
     <string name="title_editasnew">Editar como nuevo</string>
     <string name="title_edit_notes">Editar notas locales</string>
     <string name="title_create_rule">Crear regla &#8230;</string>
+    <string name="title_full_screen">Pantalla completa</string>
     <string name="title_force_light">Forzar tema claro</string>
     <string name="title_share">Compartir</string>
     <string name="title_event">Añadir al calendario</string>
