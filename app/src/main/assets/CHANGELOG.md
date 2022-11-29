@@ -4,7 +4,7 @@
 
 ### [Ostromia](https://en.wikipedia.org/wiki/Ostromia)
 
-### Next version
+### 1.2011 - 2022-11-29
 
 * Added optional button to show original message full screen
 * Added optional colored star quick action button
