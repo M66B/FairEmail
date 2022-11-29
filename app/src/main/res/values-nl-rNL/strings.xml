@@ -252,6 +252,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_import_rules">Importeer filterregels</string>
     <string name="title_setup_import_contacts">Importeer lokale contacten</string>
     <string name="title_setup_import_answers">Importeer antwoordsjablonen</string>
+    <string name="title_setup_import_searches">Importeer opgeslagen zoekopdrachten</string>
     <string name="title_setup_import_settings">Importeer opties</string>
     <string name="title_setup_exported">Instellingen geëxporteerd</string>
     <string name="title_setup_imported">Instellingen geïmporteerd</string>
@@ -1036,6 +1037,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_editasnew">Bewerken als nieuw</string>
     <string name="title_edit_notes">Lokale notities bewerken</string>
     <string name="title_create_rule">Maak regel &#8230;</string>
+    <string name="title_full_screen">Volledig scherm</string>
     <string name="title_force_light">Forceer licht thema</string>
     <string name="title_share">Delen</string>
     <string name="title_event">Toevoegen aan agenda</string>
@@ -1065,7 +1067,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_auto_confirm">Automatisch bevestigen na enkele seconden</string>
     <string name="title_buttons">Selecteer knoppen</string>
     <string name="title_buttons_hint">De daadwerkelijk beschikbare acties hangen af van het accounttype en de configuratie</string>
-    <string name="title_button_search">Zoeken in berichten</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Zoek soortgelijke berichten</string>
     <string name="title_button_search_text">Zoeken in berichttekst</string>
     <string name="title_configure_buttons">Configureer knoppen &#8230;</string>
     <string name="title_quick_actions">Selecteer acties</string>

@@ -266,6 +266,7 @@
     <string name="title_setup_import_rules">Uvoz pravila filtriranja</string>
     <string name="title_setup_import_contacts">Uvezi lokalne kontakte</string>
     <string name="title_setup_import_answers">Uvezi prijedloške za odgovore</string>
+    <string name="title_setup_import_searches">Uvezi sačuvane pretrage</string>
     <string name="title_setup_import_settings">Opcije uvoza</string>
     <string name="title_setup_exported">Postavke izvezene</string>
     <string name="title_setup_imported">Postavke uvezene</string>
@@ -1053,6 +1054,7 @@
     <string name="title_editasnew">Uredi kao novu</string>
     <string name="title_edit_notes">Uredi lokalne bilješke</string>
     <string name="title_create_rule">Kreiraj pravilo &#8230;</string>
+    <string name="title_full_screen">Cijeli ekran</string>
     <string name="title_force_light">Forsiraj svijetlu temu</string>
     <string name="title_share">Podijeli</string>
     <string name="title_event">Dodaj u kalendar</string>
@@ -1082,7 +1084,7 @@
     <string name="title_auto_confirm">Automatski potvrdi nakon par sekundi</string>
     <string name="title_buttons">Izaberi dugmad</string>
     <string name="title_buttons_hint">Aktualne radnje su dostupne u zavisnosti od vrste i podešavanja računa</string>
-    <string name="title_button_search">Pretraži u porukama</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Traži slične poruke</string>
     <string name="title_button_search_text">Pretraži u tekstu poruka</string>
     <string name="title_configure_buttons">Podesi dugmad &#8230;</string>
     <string name="title_quick_actions">Izaberite radnje</string>

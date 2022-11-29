@@ -1059,7 +1059,7 @@
     <string name="title_auto_confirm">Bekräfta automatiskt efter några sekunder</string>
     <string name="title_buttons">Välj knappar</string>
     <string name="title_buttons_hint">De faktiska åtgärder som är tillgängliga beror på kontotyp och konfiguration</string>
-    <string name="title_button_search">Sök i meddelanden</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Sök liknande meddelanden</string>
     <string name="title_button_search_text">Sök i meddelandetext</string>
     <string name="title_configure_buttons">Konfigurera knappar &#8230;</string>
     <string name="title_quick_actions">Välj åtgärd</string>

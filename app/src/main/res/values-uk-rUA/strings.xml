@@ -280,6 +280,7 @@
     <string name="title_setup_import_rules">Імпортувати правила фільтрів</string>
     <string name="title_setup_import_contacts">Імпортувати локальні контакти</string>
     <string name="title_setup_import_answers">Імпортувати шаблони відповідей</string>
+    <string name="title_setup_import_searches">Імпорт збережених пошуків</string>
     <string name="title_setup_import_settings">Імпортувати налаштування</string>
     <string name="title_setup_exported">Налаштування експортовано</string>
     <string name="title_setup_imported">Налаштування імпортовано</string>
@@ -1065,10 +1066,12 @@
     <string name="title_editasnew">Редагувати як нове</string>
     <string name="title_edit_notes">Редагувати локальні нотатки</string>
     <string name="title_create_rule">Створити правило &#8230;</string>
+    <string name="title_full_screen">На весь екран</string>
     <string name="title_force_light">Примусова світла тема</string>
     <string name="title_share">Поділитись</string>
     <string name="title_event">Додати у календар</string>
     <string name="title_pin">Додати ярлик</string>
+    <string name="title_pin_label">Назва посилання</string>
     <string name="title_print">Друк</string>
     <string name="title_print_header">Друкувати заголовок</string>
     <string name="title_print_images">Друкувати зображення</string>
@@ -1093,7 +1096,7 @@
     <string name="title_auto_confirm">Автоматично підтверджувати через декілька секунд</string>
     <string name="title_buttons">Виберіть кнопки</string>
     <string name="title_buttons_hint">Доступні поточні дії залежать від типу облікового запису і конфігурації</string>
-    <string name="title_button_search">Пошук у повідомленнях</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Пошук схожих повідомлень</string>
     <string name="title_button_search_text">Пошук у тексті повідомлення</string>
     <string name="title_configure_buttons">Налаштувати кнопки &#8230;</string>
     <string name="title_quick_actions">Вибрати дії</string>

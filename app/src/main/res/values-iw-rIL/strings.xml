@@ -279,6 +279,7 @@
     <string name="title_setup_import_rules">ייבוא כללי סינון</string>
     <string name="title_setup_import_contacts">ייבוא אנשי קשר מקומיים</string>
     <string name="title_setup_import_answers">ייבוא תבניות תגובות</string>
+    <string name="title_setup_import_searches">ייבוא חיפושים שמורים</string>
     <string name="title_setup_import_settings">ייבוא אפשרויות</string>
     <string name="title_setup_exported">ההגדרות עברו ייצוא</string>
     <string name="title_setup_imported">ההגדרות עברו ייבוא</string>
@@ -1066,10 +1067,12 @@
     <string name="title_editasnew">עריכה כחדש</string>
     <string name="title_edit_notes">עריכת הערות מקומיות</string>
     <string name="title_create_rule">יצירת כלל &#8230;</string>
+    <string name="title_full_screen">מסך מלא</string>
     <string name="title_force_light">אילוץ ערכת נושא בהירה</string>
     <string name="title_share">שיתוף</string>
     <string name="title_event">הוספה ללוח השנה</string>
     <string name="title_pin">הוספת קיצור דרך</string>
+    <string name="title_pin_label">כותרת קיצור הדרך</string>
     <string name="title_print">הדפסה</string>
     <string name="title_print_header">הדפסת כותרת</string>
     <string name="title_print_images">הדפסת הודעות</string>
@@ -1094,7 +1097,7 @@
     <string name="title_auto_confirm">לאשר אוטומטית לאחר מספר שניות</string>
     <string name="title_buttons">בחירת כפתורים</string>
     <string name="title_buttons_hint">הפעולות שזמינות בפועל תלויות בסוג החשבון וההגדרות</string>
-    <string name="title_button_search">חיפוש בהודעות</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">חיפוש הודעות דומות</string>
     <string name="title_button_search_text">חיפוש בטקסט ההודעות</string>
     <string name="title_configure_buttons">הגדרת כפתורים&#8230;</string>
     <string name="title_quick_actions">בחירת פעולות</string>

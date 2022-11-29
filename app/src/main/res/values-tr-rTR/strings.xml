@@ -252,6 +252,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_import_rules">Filtre kurallarını içe aktar</string>
     <string name="title_setup_import_contacts">Yerel kişileri içe aktar</string>
     <string name="title_setup_import_answers">Yanıt şablonlarını içe aktar</string>
+    <string name="title_setup_import_searches">Kayıtlı aramaları içe aktar</string>
     <string name="title_setup_import_settings">İçe aktarma seçenekleri</string>
     <string name="title_setup_exported">Ayarlar dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
@@ -1036,6 +1037,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_editasnew">Yeni olarak düzenle</string>
     <string name="title_edit_notes">Yerel notları düzenle</string>
     <string name="title_create_rule">Kural oluştur &#8230;</string>
+    <string name="title_full_screen">Tam ekran</string>
     <string name="title_force_light">Aydınlık temasını zorla</string>
     <string name="title_share">Paylaş</string>
     <string name="title_event">Takvime ekle</string>
@@ -1065,7 +1067,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_auto_confirm">Birkaç saniye sonra otomatik olarak onayla</string>
     <string name="title_buttons">Seçim düğmeleri</string>
     <string name="title_buttons_hint">Gerçek eylemler, hesap türüne ve yapılandırmaya bağlıdır</string>
-    <string name="title_button_search">Mesajlarda ara</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Benzer iletileri ara</string>
     <string name="title_button_search_text">Mesajda ara</string>
     <string name="title_configure_buttons">Düğme &#8230; yapılandır</string>
     <string name="title_quick_actions">Eylem seç</string>

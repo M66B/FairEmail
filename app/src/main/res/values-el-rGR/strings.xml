@@ -253,6 +253,7 @@
     <string name="title_setup_import_rules">Εισαγωγή κανόνων φίλτρων</string>
     <string name="title_setup_import_contacts">Εισαγωγή τοπικών επαφών</string>
     <string name="title_setup_import_answers">Εισαγωγή προτύπων απάντησης</string>
+    <string name="title_setup_import_searches">Εισαγωγή αποθηκευμένων αναζητήσεων</string>
     <string name="title_setup_import_settings">Εισαγωγή επιλογών</string>
     <string name="title_setup_exported">Επιτυχής εξαγωγή ρυθμίσεων</string>
     <string name="title_setup_imported">Επιτυχής εισαγωγή ρυθμίσεων</string>
@@ -1036,6 +1037,7 @@
     <string name="title_editasnew">Επεξεργασία ως νέου</string>
     <string name="title_edit_notes">Επεξεργασία τοπικών σημειώσεων</string>
     <string name="title_create_rule">Δημιουργία κανόνα &#8230;</string>
+    <string name="title_full_screen">Πλήρης οθόνη</string>
     <string name="title_force_light">Υποχρεωτικό φωτεινό θέμα</string>
     <string name="title_share">Κοινοποίηση</string>
     <string name="title_event">Προσθήκη στο ημερολόγιο</string>
@@ -1065,7 +1067,7 @@
     <string name="title_auto_confirm">Αυτόματη επιβεβαίωση μετά από μερικά δευτερόλεπτα</string>
     <string name="title_buttons">Επιλέξτε κουμπιά</string>
     <string name="title_buttons_hint">Οι όντως διαθέσιμες ενέργειες εξαρτώνται από τον τύπο και τη ρύθμιση του λογαριασμού</string>
-    <string name="title_button_search">Αναζήτηση στα μηνύματα</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Αναζήτηση για παρόμοια μηνύματα</string>
     <string name="title_button_search_text">Αναζήτηση στο κείμενο του μηνύματος</string>
     <string name="title_configure_buttons">Ρύθμιση κουμπιών &#8230;</string>
     <string name="title_quick_actions">Επιλέξτε ενέργειες</string>

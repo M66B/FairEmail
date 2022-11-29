@@ -1019,7 +1019,7 @@
     <string name="title_auto_confirm">Automatski potvrdi nakon par sekundi</string>
     <string name="title_buttons">Odaberi dugmad</string>
     <string name="title_buttons_hint">Dostupne stvarne radnje ovise o vrsti računa i konfiguraciji</string>
-    <string name="title_button_search">Pretraži u porukama</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Pretraži slične poruke</string>
     <string name="title_button_search_text">Pretraži u tekstu poruke</string>
     <string name="title_configure_buttons">Konfiguriraj dugmad &#8230;</string>
     <string name="title_quick_actions">Odaberi radnje</string>

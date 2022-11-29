@@ -252,6 +252,7 @@
     <string name="title_setup_import_rules">Filterregeln importieren</string>
     <string name="title_setup_import_contacts">Lokale Kontakte importieren</string>
     <string name="title_setup_import_answers">Antwortvorlagen importieren</string>
+    <string name="title_setup_import_searches">Gespeicherte Suchanfragen importieren</string>
     <string name="title_setup_import_settings">Importoptionen</string>
     <string name="title_setup_exported">Einstellungen exportiert</string>
     <string name="title_setup_imported">Einstellungen importiert</string>
@@ -1036,6 +1037,7 @@
     <string name="title_editasnew">Als neu bearbeiten</string>
     <string name="title_edit_notes">Lokale Notizen bearbeiten</string>
     <string name="title_create_rule">Regel erstellen &#8230;</string>
+    <string name="title_full_screen">Vollbild</string>
     <string name="title_force_light">Helles Farbschema erzwingen</string>
     <string name="title_share">Teilen</string>
     <string name="title_event">Zum Kalender hinzufügen</string>
@@ -1065,7 +1067,7 @@
     <string name="title_auto_confirm">Nach ein paar Sekunden automatisch bestätigen</string>
     <string name="title_buttons">Schaltflächen auswählen</string>
     <string name="title_buttons_hint">Die aktuell möglichen Aktionen hängen vom Kontotyp und der Konfiguration ab</string>
-    <string name="title_button_search">In Nachrichten suchen</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Ähnliche Nachrichten suchen</string>
     <string name="title_button_search_text">Im Nachrichtentext suchen</string>
     <string name="title_configure_buttons">Schaltflächen konfigurieren &#8230;</string>
     <string name="title_quick_actions">Aktionen auswählen</string>

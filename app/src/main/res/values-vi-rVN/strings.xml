@@ -1032,7 +1032,7 @@
     <string name="title_auto_confirm">Tự động xác nhận sau vài giây</string>
     <string name="title_buttons">Chọn các nút</string>
     <string name="title_buttons_hint">Các hành động thực sự có sẵn còn tuỳ vào loại tài khoản và thiết lập tài khoản</string>
-    <string name="title_button_search">Tìm kiếm trong các thư</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Tìm kiếm các thư tương tự</string>
     <string name="title_button_search_text">Tìm kiếm trong văn bản thư</string>
     <string name="title_configure_buttons">Thiết lập các nút &#8230;</string>
     <string name="title_quick_actions">Chọn hành động</string>

@@ -1008,7 +1008,7 @@
     <string name="title_auto_confirm">%1秒後自動拒絕</string>
     <string name="title_buttons">選擇欲新增的按鈕</string>
     <string name="title_buttons_hint">實際可用動作取決於帳戶類型和配置</string>
-    <string name="title_button_search">在訊息中搜尋</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">搜尋相似訊息</string>
     <string name="title_button_search_text">在訊息本文中搜尋</string>
     <string name="title_configure_buttons">配置按鈕 &#8230;</string>
     <string name="title_quick_actions">選擇操作</string>

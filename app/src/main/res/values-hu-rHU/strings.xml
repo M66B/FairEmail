@@ -986,7 +986,7 @@
     <string name="title_auto_confirm">Automatikus megerősítés pár másodperc után</string>
     <string name="title_buttons">Gombok kiválasztása</string>
     <string name="title_buttons_hint">Az elérhető műveletek függnek a fiók típusától és konfigurációjától</string>
-    <string name="title_button_search">Keresés üzenetekben</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Hasonló üzenetek keresése</string>
     <string name="title_button_search_text">Keresés üzenet szövegében</string>
     <string name="title_configure_buttons">Gombok konfigurálása &#8230;</string>
     <string name="title_quick_actions">Művelet kiválasztása</string>

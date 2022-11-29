@@ -1093,7 +1093,7 @@
     <string name="title_auto_confirm">Automaticky potvrdit po několika sekundách</string>
     <string name="title_buttons">Vyberte tlačítka</string>
     <string name="title_buttons_hint">Skutečně dostupné akce závisí na typu účtu a konfiguraci</string>
-    <string name="title_button_search">Hledat ve zprávách</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Hledat podobné zprávy</string>
     <string name="title_button_search_text">Hledat v textu zprávy</string>
     <string name="title_configure_buttons">Nastavit tlačítka &#8230;</string>
     <string name="title_quick_actions">Vybrat akce</string>

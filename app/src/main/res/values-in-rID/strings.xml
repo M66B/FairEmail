@@ -948,7 +948,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_eml_downloaded">Pesan mentah terunduh: %1$s</string>
     <string name="title_buttons">Klik tombol</string>
     <string name="title_buttons_hint">Tindakan benar yang tersedia bergantung pada jenis dan konfigurasi akun</string>
-    <string name="title_button_search">Cari di dalam pesan</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Cari pesan serupa</string>
     <string name="title_button_search_text">Cari dalam teks pesan</string>
     <string name="title_configure_buttons">Pengaturan tombol</string>
     <string name="title_quick_actions_snooze">Tunda</string>

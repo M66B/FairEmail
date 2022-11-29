@@ -11,13 +11,13 @@
     <string name="app_cake">Anbar sahəsi yetərsizdir</string>
     <string name="app_cake_remaining">Cihazda qalan anbar sahəsi: %1$s</string>
     <string name="app_cake_required">Tələb olunan minimum anbar sahəsi: %1$s</string>
-    <string name="app_updated">Son yeniləmə: %1$s</string>
+    <string name="app_updated">Son güncəlləmə: %1$s</string>
     <string name="app_download">%1$s üzərindən endirildi</string>
     <string name="channel_service">Müşahidə</string>
     <string name="channel_send">Göndər</string>
     <string name="channel_notification">E-poçt</string>
     <string name="channel_progress">İrəliləyiş</string>
-    <string name="channel_update">Yeniləmələr</string>
+    <string name="channel_update">Güncəlləmələr</string>
     <string name="channel_warning">Xəbərdarlıqlar</string>
     <string name="channel_error">Xətalar</string>
     <string name="channel_alert">Server xəbərdarlıqları</string>
@@ -181,7 +181,7 @@
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem administratorunun IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza müraciət üçün səlahiyyət verin</string>
     <string name="title_setup_oauth_update">Mövcud bir hesaba yenidən səlahiyyət verin (əks halda yeni bir hesab yaradın)</string>
-    <string name="title_setup_oauth_updated">Hesab səlahiyyətləndirmə yeniləndi</string>
+    <string name="title_setup_oauth_updated">Hesab səlahiyyətləndirmə güncəlləndi</string>
     <string name="title_setup_oauth_authorize">Səlahiyyət ver</string>
     <string name="title_setup_select_account">Hesab seç</string>
     <string name="title_setup_instructions">Quraşdırma təlimatları</string>
@@ -253,6 +253,7 @@
     <string name="title_setup_import_rules">Filtr qaydalarını idxal et</string>
     <string name="title_setup_import_contacts">Yerli əlaqələri idxal et</string>
     <string name="title_setup_import_answers">Cavab şablonlarını idxal et</string>
+    <string name="title_setup_import_searches">Saxlanılmış axtarışları daxilə köçür</string>
     <string name="title_setup_import_settings">İdxal seçimləri</string>
     <string name="title_setup_exported">Tənzimləmələr ixrac edildi</string>
     <string name="title_setup_imported">Tənzimləmələr idxal edildi</string>
@@ -606,8 +607,8 @@
     <string name="title_advanced_autolock">Ekranı kilidləmə bağlıdır</string>
     <string name="title_advanced_autolock_nav">Tətbiqdən çıxarkən kilidlə</string>
     <string name="title_advanced_generic_user_agent">Ümumi səyyah istifadəçi agentini istifadə et</string>
-    <string name="title_advanced_load_emoji">Google Play Xidmətlərindən yenilənmiş İfadəni yükləyin</string>
-    <string name="title_advanced_disconnect_auto_update">Siyahıları həftəlik olaraq avto-yenilə</string>
+    <string name="title_advanced_load_emoji">Google Play Xidmətlərindən güncəllənmiş ifadəni yükləyin</string>
+    <string name="title_advanced_disconnect_auto_update">Siyahıları həftəlik olaraq avto-güncəllə</string>
     <string name="title_advanced_disconnect_links">İzləmə linkləri haqqında xəbərdarlıq etmək üçün siyahıları istifadə et</string>
     <string name="title_advanced_disconnect_images">İzləmə təsvirlərini tanımaq üçün siyahıları istifadə et</string>
     <string name="title_advanced_mnemonic">Verilənləri uzaqdan sil</string>
@@ -656,10 +657,10 @@
     <string name="title_advanced_virus_total">VirusTotal inteqrasiyası</string>
     <string name="title_advanced_sdcard">SD kart istifadə etmək istəyirəm</string>
     <string name="title_advanced_watchdog">Mütəmadi olaraq \"FairEmail\"in aktivliyini yoxla</string>
-    <string name="title_advanced_updates">GitHub yeniləmələrini yoxla</string>
+    <string name="title_advanced_updates">GitHub güncəlləmələrini yoxla</string>
     <string name="title_advanced_check_weekly">Gündəlik əvəzinə həftəlik yoxla</string>
     <string name="title_advanced_beta">BitBucket-də test versiyalarını yoxlayın</string>
-    <string name="title_advanced_changelog">Yenilənmədən sonra dəyişiklik jurnalını göstər</string>
+    <string name="title_advanced_changelog">Güncəllədikdən sonra dəyişiklik jurnalını göstər</string>
     <string name="title_advanced_experiments">Təcrübi xüsusiyyətləri sına</string>
     <string name="title_advanced_crash_reports">Xəta hesabatlarını göndər</string>
     <string name="title_advanced_cleanup_attachments">Köhnə mesajların qoşmalarını sil</string>
@@ -875,7 +876,7 @@
     <string name="title_identity_required">E-poçtları göndərmək üçün bir kimlik tələb olunur</string>
     <string name="title_drafts_required">E-poçtları göndərmək üçün bir qaralama qovluğu tələb olunur</string>
     <string name="title_drafts_select">E-poçtları göndərmək, hesab tənzimləmələrdə bir qaralamalar qovluğunun seçilməsini tələb edir</string>
-    <string name="title_account_auth_update">Səlahiyyətləndirməni yenilə</string>
+    <string name="title_account_auth_update">Səlahiyyətləndirməni güncəllə</string>
     <string name="title_account_auth_password">Parol təsdiqləməsinə keç</string>
     <string name="title_change_password">Parolu dəyişdir</string>
     <string name="title_delete_account">Hesabı sil</string>
@@ -1040,6 +1041,7 @@
     <string name="title_editasnew">Yeni kimi düzəliş et</string>
     <string name="title_edit_notes">Yerli qeydlərə düzəliş et</string>
     <string name="title_create_rule">Qayda yarat &#8230;</string>
+    <string name="title_full_screen">Tam ekran</string>
     <string name="title_force_light">Məcburi açıq tema</string>
     <string name="title_share">Paylaş</string>
     <string name="title_event">Təqvimə əlavə et</string>
@@ -1069,7 +1071,7 @@
     <string name="title_auto_confirm">Bir neçə saniyə sonra avtomatik təsdiqlənsin</string>
     <string name="title_buttons">Düymələri seçin</string>
     <string name="title_buttons_hint">Aktual əməliyyatlar, hesab növündən və konfiqurasiyadan asılıdır</string>
-    <string name="title_button_search">Mesajlarda axtar</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Oxşar mesajları axtar</string>
     <string name="title_button_search_text">Mesaj mətnində axtar</string>
     <string name="title_configure_buttons">Düymələri konfiqurasiya et &#8230;</string>
     <string name="title_quick_actions">Əməliyyat seçin</string>
@@ -1692,7 +1694,7 @@
     <string name="title_default_apps">İlkin tətbiqlər</string>
     <string name="title_reset_open">İlkin tətbiqləri tənzimlə və təmizlə</string>
     <string name="title_select_app">Tətbiq seç</string>
-    <string name="title_updated">%1$s versiyasına yenilənə bilər</string>
+    <string name="title_updated">%1$s versiyasına güncəllənə bilər</string>
     <string name="title_no_update">Güncəlləmə yoxdur</string>
     <string name="title_issue">Sualınız və ya probleminiz var?</string>
     <string name="title_yes">Bəli</string>

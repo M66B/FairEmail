@@ -280,6 +280,7 @@
     <string name="title_setup_import_rules">Імпартаваць правілы фільтраў</string>
     <string name="title_setup_import_contacts">Імпартаваць лакальныя кантакты</string>
     <string name="title_setup_import_answers">Імпартаваць шаблоны адказаў</string>
+    <string name="title_setup_import_searches">Імпартаваць захаваныя пошукавыя запыты</string>
     <string name="title_setup_import_settings">Параметры імпартавання</string>
     <string name="title_setup_exported">Налады экспартаваны</string>
     <string name="title_setup_imported">Налады імпартаваны</string>
@@ -1068,6 +1069,7 @@
     <string name="title_editasnew">Рэдагаваць як новы</string>
     <string name="title_edit_notes">Рэдагаваць лакальныя нататкі</string>
     <string name="title_create_rule">Стварыць правіла &#8230;</string>
+    <string name="title_full_screen">На ўвесь экран</string>
     <string name="title_force_light">Прымусовае выкарыстанне светлай тэмы</string>
     <string name="title_share">Падзяліцца</string>
     <string name="title_event">Дадаць у каляндар</string>
@@ -1097,7 +1099,7 @@
     <string name="title_auto_confirm">Аўтаматычна пацвярджаць праз некалькі секунд</string>
     <string name="title_buttons">Выбраць кнопкі</string>
     <string name="title_buttons_hint">Фактычныя даступныя дзеянні залежаць ад тыпу і канфігурацыі ўліковага запісу</string>
-    <string name="title_button_search">Шукаць у паведамленнях</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Пошук падобных паведамленняў</string>
     <string name="title_button_search_text">Шукаць у тэксце паведамлення</string>
     <string name="title_configure_buttons">Наладзіць кнопкі &#8230;</string>
     <string name="title_quick_actions">Выберыце дзеянні</string>

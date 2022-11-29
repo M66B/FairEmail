@@ -240,6 +240,7 @@
     <string name="title_setup_import_rules">フィルタールールをインポート</string>
     <string name="title_setup_import_contacts">ローカルの連絡先をインポート</string>
     <string name="title_setup_import_answers">返信テンプレートをインポート</string>
+    <string name="title_setup_import_searches">保存した検索条件をインポート</string>
     <string name="title_setup_import_settings">設定をインポート</string>
     <string name="title_setup_exported">設定をエクスポートしました</string>
     <string name="title_setup_imported">設定をインポートしました</string>
@@ -1027,10 +1028,12 @@
     <string name="title_editasnew">新規として編集</string>
     <string name="title_edit_notes">ローカルメモを編集</string>
     <string name="title_create_rule">ルールを作成&#8230;</string>
+    <string name="title_full_screen">全画面表示</string>
     <string name="title_force_light">ライトテーマを強制</string>
     <string name="title_share">共有</string>
     <string name="title_event">カレンダーに追加</string>
     <string name="title_pin">ショートカットを追加</string>
+    <string name="title_pin_label">ショートカットのタイトル</string>
     <string name="title_print">印刷</string>
     <string name="title_print_header">見出しを印刷</string>
     <string name="title_print_images">画像を印刷</string>
@@ -1055,7 +1058,7 @@
     <string name="title_auto_confirm">数秒後に自動で確認</string>
     <string name="title_buttons">ボタンを選択</string>
     <string name="title_buttons_hint">実際に利用可能なアクションは、アカウントの種類と構成によって異なります</string>
-    <string name="title_button_search">メッセージを検索</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">類似するメッセージを検索</string>
     <string name="title_button_search_text">本文を検索</string>
     <string name="title_configure_buttons">ボタンを設定&#8230;</string>
     <string name="title_quick_actions">アクションを選択</string>
@@ -1382,8 +1385,8 @@
     <string name="title_search_server">サーバーを検索</string>
     <string name="title_search_in">検索場所</string>
     <string name="title_search_sender">差出人を検索</string>
-    <string name="title_search_delete">保存した検索を削除しますか？</string>
-    <string name="title_save_search">検索を保存</string>
+    <string name="title_search_delete">保存した検索条件を削除しますか？</string>
+    <string name="title_save_search">検索条件を保存</string>
     <string name="title_save_search_name">名前</string>
     <string name="title_save_search_order">順番</string>
     <string name="title_save_search_color">カラー</string>

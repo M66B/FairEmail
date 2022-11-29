@@ -266,6 +266,7 @@
     <string name="title_setup_import_rules">Importarea regulilor de filtrare</string>
     <string name="title_setup_import_contacts">Importați contacte locale</string>
     <string name="title_setup_import_answers">Importați șabloane de răspuns</string>
+    <string name="title_setup_import_searches">Importă căutările salvate</string>
     <string name="title_setup_import_settings">Opțiuni de import</string>
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
@@ -1051,10 +1052,12 @@
     <string name="title_editasnew">Editare ca nou</string>
     <string name="title_edit_notes">Editează notele locale</string>
     <string name="title_create_rule">Creare regulă &#8230;</string>
+    <string name="title_full_screen">Ecran complet</string>
     <string name="title_force_light">Tema forțată a luminii</string>
     <string name="title_share">Partajează</string>
     <string name="title_event">Adaugă în calendar</string>
     <string name="title_pin">Adaugă scurtătură</string>
+    <string name="title_pin_label">Titlu scurt</string>
     <string name="title_print">Tipărire</string>
     <string name="title_print_header">Tipărire antet</string>
     <string name="title_print_images">Imprimare imagini</string>
@@ -1079,7 +1082,7 @@
     <string name="title_auto_confirm">Confirmare automată după câteva secunde</string>
     <string name="title_buttons">Selectare butoane</string>
     <string name="title_buttons_hint">Acțiunile reale disponibile depind de tipul contului și de configurație</string>
-    <string name="title_button_search">Căutați în mesaje</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Căutare mesaje similare</string>
     <string name="title_button_search_text">Căutați în textul mesajului</string>
     <string name="title_configure_buttons">Configurare butoane &#8230;</string>
     <string name="title_quick_actions">Selectați acțiuni</string>

@@ -279,6 +279,7 @@
     <string name="title_setup_import_rules">Importuj reguły filtrowania</string>
     <string name="title_setup_import_contacts">Importuj kontakty lokalne</string>
     <string name="title_setup_import_answers">Importuj szablony odpowiedzi</string>
+    <string name="title_setup_import_searches">Zaimportuj zapisane wyszukiwania</string>
     <string name="title_setup_import_settings">Opcje importowania</string>
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
@@ -1064,6 +1065,7 @@
     <string name="title_editasnew">Edytuj jako nową</string>
     <string name="title_edit_notes">Edytuj lokalne notatki</string>
     <string name="title_create_rule">Utwórz regułę &#8230;</string>
+    <string name="title_full_screen">Pełny ekran</string>
     <string name="title_force_light">Wymuś jasny motyw</string>
     <string name="title_share">Udostępnij</string>
     <string name="title_event">Dodaj do kalendarza</string>
@@ -1093,7 +1095,7 @@
     <string name="title_auto_confirm">Potwierdź automatycznie po kilku sekundach</string>
     <string name="title_buttons">Wybierz przyciski</string>
     <string name="title_buttons_hint">Dostępne działania zależą od typu konta i konfiguracji</string>
-    <string name="title_button_search">Szukaj w wiadomościach</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Szukaj podobnych wiadomości</string>
     <string name="title_button_search_text">Szukaj w tekście wiadomości</string>
     <string name="title_configure_buttons">Konfiguruj przyciski &#8230;</string>
     <string name="title_quick_actions">Wybierz działania</string>

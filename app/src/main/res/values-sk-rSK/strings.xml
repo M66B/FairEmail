@@ -1074,7 +1074,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_auto_confirm">Automaticky potvrdiť po niekoľkých sekundách</string>
     <string name="title_buttons">Vybrať tlačidlá</string>
     <string name="title_buttons_hint">Skutočne dostupné akcie závisia od typu a nastavenia účtu</string>
-    <string name="title_button_search">Hľadať v správach</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Hľadať podobné správy</string>
     <string name="title_button_search_text">Hľadať v texte správy</string>
     <string name="title_configure_buttons">Nastaviť tlačidlá &#8230;</string>
     <string name="title_quick_actions">Vybrať akcie</string>

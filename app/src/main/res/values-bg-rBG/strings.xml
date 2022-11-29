@@ -688,7 +688,7 @@
     <string name="title_download_all">Изтегляне на всичко</string>
     <string name="title_save_all">Запис на всичко</string>
     <string name="title_save_eml">Запиши необработено съобщение</string>
-    <string name="title_button_search">Търсене в съобщения</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Търсене на подобни съобщения</string>
     <string name="title_quick_actions_snooze">Отложи</string>
     <string name="title_trash">Кошче</string>
     <string name="title_copy">Копие &#8230;</string>

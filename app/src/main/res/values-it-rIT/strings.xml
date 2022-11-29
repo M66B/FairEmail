@@ -253,6 +253,7 @@
     <string name="title_setup_import_rules">Importa regole del filtro</string>
     <string name="title_setup_import_contacts">Importa i contatti locali</string>
     <string name="title_setup_import_answers">Importa modelli di risposta</string>
+    <string name="title_setup_import_searches">Importa ricerche salvate</string>
     <string name="title_setup_import_settings">Importa le opzioni</string>
     <string name="title_setup_exported">Impostazioni esportate</string>
     <string name="title_setup_imported">Impostazioni importate</string>
@@ -1041,6 +1042,7 @@
     <string name="title_editasnew">Modifica come nuovo</string>
     <string name="title_edit_notes">Modifica le note locali</string>
     <string name="title_create_rule">Crea regola &#8230;</string>
+    <string name="title_full_screen">Schermo intero</string>
     <string name="title_force_light">Forza tema chiaro</string>
     <string name="title_share">Condividi</string>
     <string name="title_event">Aggiungi al calendario</string>
@@ -1070,7 +1072,7 @@
     <string name="title_auto_confirm">Conferma automaticamente dopo alcuni secondi</string>
     <string name="title_buttons">Seleziona i pulsanti</string>
     <string name="title_buttons_hint">Le azioni effettive disponibili dipendono dal tipo di profilo e dalla configurazione</string>
-    <string name="title_button_search">Cerca nei messaggi</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Cerca messaggi simili</string>
     <string name="title_button_search_text">Cerca nel testo del messaggio</string>
     <string name="title_configure_buttons">Configura pulsanti &#8230;</string>
     <string name="title_quick_actions">Seleziona azioni</string>

@@ -1030,7 +1030,7 @@
     <string name="title_auto_confirm">Confirmar automaticamente despois duns segundos</string>
     <string name="title_buttons">Botóns de selección</string>
     <string name="title_buttons_hint">As accións dispoñibles na realidade dependen do tipo de conta e da configuración</string>
-    <string name="title_button_search">Buscar en mensaxes</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Atopar mensaxes similares</string>
     <string name="title_button_search_text">Buscar no texto da mensaxe</string>
     <string name="title_configure_buttons">Configurar botóns &#8230;</string>
     <string name="title_quick_actions_snooze">Adiar</string>

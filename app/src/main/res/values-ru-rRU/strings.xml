@@ -279,6 +279,7 @@
     <string name="title_setup_import_rules">Импорт правил фильтров</string>
     <string name="title_setup_import_contacts">Импорт локальных контактов</string>
     <string name="title_setup_import_answers">Импорт шаблонов ответов</string>
+    <string name="title_setup_import_searches">Импорт сохранённых поисков</string>
     <string name="title_setup_import_settings">Импорт настроек</string>
     <string name="title_setup_exported">Настройки экспортированы</string>
     <string name="title_setup_imported">Настройки импортированы</string>
@@ -1066,6 +1067,7 @@
     <string name="title_editasnew">Редактировать как новое</string>
     <string name="title_edit_notes">Редактировать локальные заметки</string>
     <string name="title_create_rule">Создать правило&#8230;</string>
+    <string name="title_full_screen">Полный экран</string>
     <string name="title_force_light">Принудительно использовать светлую тему</string>
     <string name="title_share">Поделиться</string>
     <string name="title_event">Добавить в календарь</string>
@@ -1095,7 +1097,7 @@
     <string name="title_auto_confirm">Автоматическое подтверждение через несколько секунд</string>
     <string name="title_buttons">Выбрать кнопки</string>
     <string name="title_buttons_hint">Доступные действия зависят от типа учётной записи и конфигурации</string>
-    <string name="title_button_search">Поиск в сообщениях</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Поиск похожих сообщений</string>
     <string name="title_button_search_text">Поиск в тексте сообщения</string>
     <string name="title_configure_buttons">Настройка кнопок&#8230;</string>
     <string name="title_quick_actions">Выбрать действия</string>

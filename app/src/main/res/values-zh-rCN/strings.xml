@@ -240,6 +240,7 @@
     <string name="title_setup_import_rules">导入过滤规则</string>
     <string name="title_setup_import_contacts">导入本地联系人</string>
     <string name="title_setup_import_answers">导入回复模板</string>
+    <string name="title_setup_import_searches">导入保存的搜索</string>
     <string name="title_setup_import_settings">导入选项</string>
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
@@ -1023,6 +1024,7 @@
     <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_edit_notes">编辑本地笔记</string>
     <string name="title_create_rule">创建规则 &#8230;</string>
+    <string name="title_full_screen">全屏</string>
     <string name="title_force_light">强制使用浅色主题</string>
     <string name="title_share">分享</string>
     <string name="title_event">添加到日历</string>
@@ -1052,7 +1054,7 @@
     <string name="title_auto_confirm">几秒后自动确认</string>
     <string name="title_buttons">选择按钮</string>
     <string name="title_buttons_hint">实际操作可行性取决于账户类型和配置</string>
-    <string name="title_button_search">搜索消息</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">搜索类似消息</string>
     <string name="title_button_search_text">搜索消息文本</string>
     <string name="title_configure_buttons">配置按钮 &#8230;</string>
     <string name="title_quick_actions">选择操作</string>

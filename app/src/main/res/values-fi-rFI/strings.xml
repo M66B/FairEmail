@@ -1060,7 +1060,7 @@
     <string name="title_auto_confirm">Vahvista automaattisesti muutaman sekunnin kuluttua</string>
     <string name="title_buttons">Valitse painikkeita</string>
     <string name="title_buttons_hint">Käytettävissä olevat toiminnot riippuvat tilin tyypistä ja asetuksista</string>
-    <string name="title_button_search">Hae viesteistä</string>
+    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Hae samankaltaisista viesteistä</string>
     <string name="title_button_search_text">Etsi viestin tekstistä</string>
     <string name="title_configure_buttons">Määritä painikkeet &#8230;</string>
     <string name="title_quick_actions">Valitse toiminnot</string>
