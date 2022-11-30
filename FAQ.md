@@ -396,6 +396,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(185) Can I install FairEmail on Windows?](#user-content-faq185)
 * [(186) How can I let the app auto store iCalendar invitations?](#user-content-faq186)
 * [(187) Are colored stars synchronized across devices?](#user-content-faq187)
+* [(188) Why is Google backup disabled?](#user-content-faq188)
 
 [I have another question.](#user-content-get-support)
 
@@ -5126,6 +5127,16 @@ This is a pro feature.
 
 Colored stars can't be stored on email servers because email protocols do not support this.
 In other words, the color of stars is stored on your device only, and won't be synchronized across devices.
+
+<br />
+
+<a name="faq188"></a>
+**(188) Why is Google backup disabled?**
+
+Google backup is disabled to prevent privacy-sensitive information, like account credentials and email addresses,
+from [automatically being sent to Google](https://developer.android.com/guide/topics/data/autobackup).
+
+Unfortunately, it is not possible to enable cloud backup for other backup software without enabling Google backup.
 
 <br />
 
