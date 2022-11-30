@@ -6151,6 +6151,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putInt("color", message.color == null ? Color.TRANSPARENT : message.color);
             args.putString("title", context.getString(R.string.title_flag_color));
             args.putBoolean("reset", true);
+            args.putInt("faq", 187);
 
             FragmentDialogColor fragment = new FragmentDialogColor();
             fragment.setArguments(args);

@@ -29,6 +29,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.OnColorChangedListener;
@@ -53,6 +54,7 @@ public class FragmentDialogColor extends FragmentDialogBase {
                 : savedInstanceState.getInt("fair:color"));
         String title = args.getString("title");
         boolean reset = args.getBoolean("reset", false);
+        int faq = args.getInt("faq");
 
         Context context = getContext();
         int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
@@ -91,6 +93,17 @@ public class FragmentDialogColor extends FragmentDialogBase {
                 }
             });
 
-        return builder.build();
+        AlertDialog dialog = builder.build();
+
+        if (faq > 0)
+            dialog.setButton(DialogInterface.BUTTON_NEUTRAL, getString(R.string.title_info),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Helper.viewFAQ(context, faq);
+                        }
+                    });
+
+        return dialog;
     }
 }

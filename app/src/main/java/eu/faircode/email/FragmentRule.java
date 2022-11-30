@@ -619,6 +619,7 @@ public class FragmentRule extends FragmentBase {
                 args.putInt("color", btnColor.getColor());
                 args.putString("title", getString(R.string.title_flag_color));
                 args.putBoolean("reset", true);
+                args.putInt("faq", 187);
 
                 FragmentDialogColor fragment = new FragmentDialogColor();
                 fragment.setArguments(args);
