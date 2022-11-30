@@ -395,6 +395,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(184) How do I password protect content?](#user-content-faq184)
 * [(185) Can I install FairEmail on Windows?](#user-content-faq185)
 * [(186) How can I let the app auto store iCalendar invitations?](#user-content-faq186)
+* [(187) Are colored stars synchronized across devices?](#user-content-faq187)
 
 [I have another question.](#user-content-get-support)
 
@@ -5117,6 +5118,14 @@ This feature is available since version 1.1996.
 This feature is not available in the Play store version of the app due to the permissions required.
 
 This is a pro feature.
+
+<br />
+
+<a name="faq187"></a>
+**(187) Are colored stars synchronized across devices?**
+
+Colored stars can't be stored on email servers because email protocols do not support this.
+In other words, the color of stars is stored on your device only, and won't be synchronized across devices.
 
 <br />
 
