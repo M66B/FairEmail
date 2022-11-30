@@ -1207,7 +1207,7 @@ public class Helper {
 
             return intent;
         } else {
-            if (Helper.hasValidFingerprint(context))
+            if (Helper.hasValidFingerprint(context) || true)
                 return new Intent(Intent.ACTION_VIEW, getSupportUri(context, reference));
             else
                 return new Intent(Intent.ACTION_VIEW, Uri.parse(XDA_URI));
