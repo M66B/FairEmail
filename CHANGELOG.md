@@ -4,6 +4,10 @@
 
 ### [Ostromia](https://en.wikipedia.org/wiki/Ostromia)
 
+### 1.2012 - 2022-12-01
+
+* Small improvements and minor bug fixes
+
 ### 1.2011 - 2022-11-29
 
 * Added optional button to show original message full screen
