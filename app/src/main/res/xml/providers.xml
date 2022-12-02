@@ -1298,6 +1298,7 @@
     </provider>
     <provider
         name="Interia"
+        documentation="Please check if IMAP is enabled on the website of the email provider. Sprawdź, czy protokół IMAP jest włączony na stronie internetowej dostawcy poczty e-mail."
         domain="interia\\.pl,interia\\.eu,poczta\\.fm,vip\\.interia\\.pl,intmail\\.pl,interia\\.com,interiowy\\.pl,adresik\\.net,pacz\\.to,pisz\\.to,ogarnij\\.se,.*\\.hub\\.pl"
         link="https://pomoc.poczta.interia.pl/news-parametry-do-konfiguracji-programow-pocztowych,nId,2136275">
         <imap
