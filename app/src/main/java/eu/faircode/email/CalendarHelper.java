@@ -108,6 +108,7 @@ public class CalendarHelper {
                         " uid=" + uid +
                         " start=" + new Date(start.getTime()) +
                         " end=" + new Date(end.getTime()) +
+                        " rrule=" + rrule +
                         " summary=" + summary);
 
                 for (Attendee a : event.getAttendees())
@@ -117,6 +118,7 @@ public class CalendarHelper {
                         String role = (a.getRole() == null ? null : a.getRole().getValue());
                         String level = (a.getParticipationLevel() == null ? null
                                 : a.getParticipationLevel().getValue(icalendar.getVersion()));
+                        String status = (a.getParticipationStatus() == null ? null : a.getParticipationStatus().getValue());
 
                         ContentValues avalues = new ContentValues();
 
@@ -136,14 +138,26 @@ public class CalendarHelper {
                         else if ("REQUEST".equals(level) || "OPT-PARTICIPANT".equals(level))
                             avalues.put(CalendarContract.Attendees.ATTENDEE_TYPE, CalendarContract.Attendees.TYPE_OPTIONAL);
 
+                        if ("ACCEPTED".equals(status) || "CONFIRMED".equals(status))
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_ACCEPTED);
+                        else if ("DECLINED".equals(status))
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_DECLINED);
+                        else if ("TENTATIVE".equals(status))
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_TENTATIVE);
+                        else if ("NEEDS-ACTION".equals(status))
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_NONE);
+
                         avalues.put(CalendarContract.Attendees.EVENT_ID, eventId);
 
                         Uri auri = resolver.insert(CalendarContract.Attendees.CONTENT_URI, avalues);
                         long attendeeId = Long.parseLong(auri.getLastPathSegment());
                         EntityLog.log(context, EntityLog.Type.General, message, "Inserted attendee" +
                                 " id=" + eventId + ":" + attendeeId +
+                                " email=" + email +
                                 " name=" + name +
-                                " email=" + email);
+                                " role=" + role +
+                                " level=" + level +
+                                " status=" + status);
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
