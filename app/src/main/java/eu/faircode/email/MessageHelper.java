@@ -3919,6 +3919,7 @@ public class MessageHelper {
 
                 VEvent event = icalendar.getEvents().get(0);
 
+                // https://www.rfc-editor.org/rfc/rfc5546#section-3.2
                 if (method.isRequest() || method.isCancel())
                     CalendarHelper.delete(context, event, message);
 
