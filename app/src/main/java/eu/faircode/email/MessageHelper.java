@@ -3928,7 +3928,7 @@ public class MessageHelper {
                     try {
                         JSONObject jselected = new JSONObject(account.calendar);
                         selectedAccount = jselected.getString("account");
-                        selectedName = jselected.getString("name");
+                        selectedName = jselected.optString("name", null);
                     } catch (Throwable ex) {
                         Log.i(ex);
                         selectedAccount = account.calendar;
