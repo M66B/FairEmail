@@ -33,8 +33,8 @@ import java.util.List;
 import java.util.TimeZone;
 
 import biweekly.ICalVersion;
+import biweekly.ICalendar;
 import biweekly.component.VEvent;
-import biweekly.io.TimezoneInfo;
 import biweekly.io.WriteContext;
 import biweekly.io.scribe.property.RecurrenceRuleScribe;
 import biweekly.parameter.ParticipationStatus;
@@ -43,7 +43,7 @@ import biweekly.property.RecurrenceRule;
 import biweekly.util.ICalDate;
 
 public class CalendarHelper {
-    static void insert(Context context, TimezoneInfo tz, VEvent event,
+    static void insert(Context context, ICalendar icalendar, VEvent event,
                        String selectedAccount, String selectedName, EntityMessage message) {
         String summary = (event.getSummary() == null ? null : event.getSummary().getValue());
         String description = (event.getDescription() == null ? null : event.getDescription().getValue());
@@ -56,7 +56,7 @@ public class CalendarHelper {
         RecurrenceRule recurrence = event.getRecurrenceRule();
         if (recurrence != null) {
             RecurrenceRuleScribe scribe = new RecurrenceRuleScribe();
-            WriteContext wcontext = new WriteContext(ICalVersion.V2_0, tz, null);
+            WriteContext wcontext = new WriteContext(ICalVersion.V2_0, icalendar.getTimezoneInfo(), null);
             rrule = scribe.writeText(recurrence, wcontext);
         }
 
@@ -109,6 +109,44 @@ public class CalendarHelper {
                         " start=" + new Date(start.getTime()) +
                         " end=" + new Date(end.getTime()) +
                         " summary=" + summary);
+
+                for (Attendee a : event.getAttendees())
+                    try {
+                        String email = a.getEmail();
+                        String name = a.getCommonName();
+                        String role = (a.getRole() == null ? null : a.getRole().getValue());
+                        String level = (a.getParticipationLevel() == null ? null
+                                : a.getParticipationLevel().getValue(icalendar.getVersion()));
+
+                        ContentValues avalues = new ContentValues();
+
+                        if (!TextUtils.isEmpty(email))
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_EMAIL, email);
+
+                        if (!TextUtils.isEmpty(name))
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_NAME, name);
+
+                        if ("ORGANIZER".equals(role))
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_RELATIONSHIP, CalendarContract.Attendees.RELATIONSHIP_ORGANIZER);
+                        else if ("ATTENDEE".equals(role))
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_RELATIONSHIP, CalendarContract.Attendees.RELATIONSHIP_ATTENDEE);
+
+                        if ("REQUIRE".equals(level) || "REQ-PARTICIPANT".equals(level))
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_TYPE, CalendarContract.Attendees.TYPE_REQUIRED);
+                        else if ("REQUEST".equals(level) || "OPT-PARTICIPANT".equals(level))
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_TYPE, CalendarContract.Attendees.TYPE_OPTIONAL);
+
+                        avalues.put(CalendarContract.Attendees.EVENT_ID, eventId);
+
+                        Uri auri = resolver.insert(CalendarContract.Attendees.CONTENT_URI, avalues);
+                        long attendeeId = Long.parseLong(auri.getLastPathSegment());
+                        EntityLog.log(context, EntityLog.Type.General, message, "Inserted attendee" +
+                                " id=" + eventId + ":" + attendeeId +
+                                " name=" + name +
+                                " email=" + email);
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
             }
         }
     }

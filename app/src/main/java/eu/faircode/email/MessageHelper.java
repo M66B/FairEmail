@@ -3935,7 +3935,7 @@ public class MessageHelper {
                         selectedName = null;
                     }
 
-                    CalendarHelper.insert(context, icalendar.getTimezoneInfo(), event,
+                    CalendarHelper.insert(context, icalendar, event,
                             selectedAccount, selectedName, message);
                 }
             } catch (Throwable ex) {
