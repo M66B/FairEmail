@@ -557,11 +557,11 @@
                 android:contentDescription="@string/title_seen"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_seen"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_drafts_24" />
+                app:srcCompat="@drawable/twotone_drafts_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibBatchUnseen"
@@ -571,12 +571,12 @@
                 android:contentDescription="@string/title_unseen"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_unseen"
                 android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@id/ibBatchSeen"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_mail_24" />
+                app:srcCompat="@drawable/twotone_mail_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibBatchSnooze"
@@ -586,12 +586,12 @@
                 android:contentDescription="@string/title_snooze_now"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_snooze_now"
                 android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/ibBatchUnseen"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_timelapse_24" />
+                app:srcCompat="@drawable/twotone_timelapse_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibBatchHide"
@@ -601,12 +601,12 @@
                 android:contentDescription="@string/title_hide"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_hide"
                 android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/ibBatchSnooze"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_visibility_off_24" />
+                app:srcCompat="@drawable/twotone_visibility_off_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibBatchFlag"
@@ -616,12 +616,12 @@
                 android:contentDescription="@string/title_flag"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_flag"
                 android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/ibBatchHide"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_star_24" />
+                app:srcCompat="@drawable/twotone_star_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibBatchFlagColor"
@@ -631,12 +631,12 @@
                 android:contentDescription="@string/title_flag_color"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_flag_color"
                 android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/ibBatchFlag"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_auto_awesome_24" />
+                app:srcCompat="@drawable/twotone_auto_awesome_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibLowImportance"
@@ -646,12 +646,12 @@
                 android:contentDescription="@string/title_importance_low"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_importance_low"
                 android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@id/ibBatchFlagColor"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_arrow_downward_24" />
+                app:srcCompat="@drawable/baseline_arrow_downward_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibHighImportance"
@@ -661,12 +661,12 @@
                 android:contentDescription="@string/title_importance_high"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_importance_high"
                 android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/ibLowImportance"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_arrow_upward_24" />
+                app:srcCompat="@drawable/baseline_arrow_upward_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibInbox"
@@ -676,11 +676,11 @@
                 android:contentDescription="@string/title_folder_inbox"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_folder_inbox"
                 app:layout_constraintEnd_toStartOf="@id/ibHighImportance"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_inbox_24" />
+                app:srcCompat="@drawable/twotone_inbox_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibArchive"
@@ -690,11 +690,11 @@
                 android:contentDescription="@string/title_archive"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_archive"
                 app:layout_constraintEnd_toStartOf="@id/ibInbox"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_archive_24" />
+                app:srcCompat="@drawable/twotone_archive_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibJunk"
@@ -704,11 +704,11 @@
                 android:contentDescription="@string/title_folder_junk"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_folder_junk"
                 app:layout_constraintEnd_toStartOf="@id/ibArchive"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_report_24" />
+                app:srcCompat="@drawable/twotone_report_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibTrash"
@@ -718,11 +718,11 @@
                 android:contentDescription="@string/title_trash"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_trash"
                 app:layout_constraintEnd_toStartOf="@id/ibJunk"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_delete_24" />
+                app:srcCompat="@drawable/twotone_delete_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibDelete"
@@ -732,11 +732,11 @@
                 android:contentDescription="@string/title_delete_permanently"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_delete_permanently"
                 app:layout_constraintEnd_toStartOf="@id/ibTrash"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_delete_forever_24" />
+                app:srcCompat="@drawable/twotone_delete_forever_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibMove"
@@ -746,11 +746,11 @@
                 android:contentDescription="@string/title_move_to"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_move_to"
                 app:layout_constraintEnd_toStartOf="@id/ibDelete"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_drive_file_move_24" />
+                app:srcCompat="@drawable/twotone_drive_file_move_24"
+                app:tint="@color/action_foreground" />
 
             <ImageButton
                 android:id="@+id/ibMoreSettings"
@@ -760,11 +760,11 @@
                 android:contentDescription="@string/title_setup"
                 android:padding="3dp"
                 android:paddingVertical="6dp"
-                android:tint="@color/action_foreground"
                 android:tooltipText="@string/title_setup"
                 app:layout_constraintEnd_toStartOf="@id/ibMove"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_settings_24" />
+                app:srcCompat="@drawable/twotone_settings_24"
+                app:tint="@color/action_foreground" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
