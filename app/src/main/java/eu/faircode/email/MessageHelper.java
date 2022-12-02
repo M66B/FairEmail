@@ -3923,7 +3923,7 @@ public class MessageHelper {
                 if (method.isRequest() || method.isCancel())
                     CalendarHelper.delete(context, event, message);
 
-                if (method.isRequest() || method.isReply()) {
+                if (method.isRequest()) {
                     String selectedAccount;
                     String selectedName;
                     try {
@@ -3936,11 +3936,8 @@ public class MessageHelper {
                         selectedName = null;
                     }
 
-                    if (method.isRequest())
-                        CalendarHelper.insert(context, icalendar, event,
-                                selectedAccount, selectedName, message);
-                    else
-                        CalendarHelper.update(context, event, message);
+                    CalendarHelper.insert(context, icalendar, event,
+                            selectedAccount, selectedName, message);
                 }
             } catch (Throwable ex) {
                 Log.w(ex);
