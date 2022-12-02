@@ -84,8 +84,10 @@ public class CalendarHelper {
             if (cursor.moveToNext()) {
                 // https://developer.android.com/guide/topics/providers/calendar-provider#add-event
                 // https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns
+                long calId = cursor.getLong(0);
+
                 ContentValues values = new ContentValues();
-                values.put(CalendarContract.Events.CALENDAR_ID, cursor.getLong(0));
+                values.put(CalendarContract.Events.CALENDAR_ID, calId);
                 if (!TextUtils.isEmpty(uid))
                     values.put(CalendarContract.Events.UID_2445, uid);
                 values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
@@ -104,12 +106,14 @@ public class CalendarHelper {
                 Uri uri = resolver.insert(CalendarContract.Events.CONTENT_URI, values);
                 long eventId = Long.parseLong(uri.getLastPathSegment());
                 EntityLog.log(context, EntityLog.Type.General, message, "Inserted event" +
-                        " id=" + eventId +
+                        " id=" + calId + ":" + eventId +
                         " uid=" + uid +
+                        " tz=" + TimeZone.getDefault().getID() +
                         " start=" + new Date(start.getTime()) +
                         " end=" + new Date(end.getTime()) +
                         " rrule=" + rrule +
-                        " summary=" + summary);
+                        " summary=" + summary +
+                        " location=" + location);
 
                 for (Attendee a : event.getAttendees())
                     try {
