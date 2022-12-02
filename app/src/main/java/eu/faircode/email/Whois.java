@@ -45,9 +45,9 @@ public class Whois {
         Socket socket = new Socket();
         socket.connect(new InetSocketAddress(host, port), WHOIS_TIMEOUT);
         try {
-            byte[] request = (domain + "\r\n").getBytes(StandardCharsets.ISO_8859_1);
+            byte[] request = (domain + "\r\n").getBytes(StandardCharsets.UTF_8);
             socket.getOutputStream().write(request);
-            String response = Helper.readStream(socket.getInputStream(), StandardCharsets.ISO_8859_1);
+            String response = Helper.readStream(socket.getInputStream(), StandardCharsets.UTF_8);
             return host + ":" + port + "\n\n" + response;
         } finally {
             socket.close();
