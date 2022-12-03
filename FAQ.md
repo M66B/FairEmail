@@ -4339,6 +4339,7 @@ Note that in case of IMAP all messages on your device are also on the email serv
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq152)
 
 You can insert the email addresses of all contacts in a contact group via the three dots menu of the message composer.
+You can also long press the person-add icon at the end of the to/cc/bcc/field.
 
 You can define contact groups with the Android contacts app, please see [here](https://support.google.com/contacts/answer/30970) for instructions.
 
