@@ -484,7 +484,7 @@ public class FragmentOptions extends FragmentBase {
 
         @Override
         public int getCount() {
-            return 10;
+            return TAB_PAGES.length;
         }
 
         @NonNull
