@@ -1626,6 +1626,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         return selected.get(position).id;
     }
 
+    int getPositionForKey(long key) {
+        for (int pos = 0; pos < selected.size(); pos++)
+            if (selected.get(pos).id.equals(key))
+                return pos;
+        return RecyclerView.NO_POSITION;
+    }
+
     public TupleFolderEx getItemAtPosition(int pos) {
         if (pos >= 0 && pos < selected.size())
             return selected.get(pos);

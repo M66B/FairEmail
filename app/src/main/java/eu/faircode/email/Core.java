@@ -2761,19 +2761,8 @@ class Core {
                         folder.setProperties();
                         folder.setSpecials(account);
 
-                        if (selectable && parent != null && EntityFolder.USER.equals(parent.type)) {
-                            folder.synchronize = parent.synchronize;
-                            folder.poll = parent.poll;
-                            folder.poll_factor = parent.poll_factor;
-                            folder.download = parent.download;
-                            folder.auto_classify_source = parent.auto_classify_source;
-                            folder.auto_classify_target = parent.auto_classify_target;
-                            folder.sync_days = parent.sync_days;
-                            folder.keep_days = parent.keep_days;
-                            folder.unified = parent.unified;
-                            folder.navigation = parent.navigation;
-                            folder.notify = parent.notify;
-                        }
+                        if (selectable)
+                            folder.inheritFrom(parent);
 
                         folder.id = db.folder().insertFolder(folder);
                         Log.i(folder.name + " added type=" + folder.type + " sync=" + folder.synchronize);

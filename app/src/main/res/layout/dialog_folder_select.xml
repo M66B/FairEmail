@@ -110,6 +110,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
+        android:clipToPadding="false"
+        android:paddingBottom="48dp"
         android:scrollbarStyle="outsideOverlay"
         android:scrollbars="none"
         app:fastScrollEnabled="false"
@@ -122,6 +124,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnFavorite1" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:contentDescription="@string/title_add"
+        app:backgroundTint="?attr/colorFabBackground"
+        app:elevation="0dp"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/twotone_add_24"
+        app:tint="?attr/colorFabForeground" />
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"

@@ -959,6 +959,10 @@
     <string name="title_advanced_never_favorite">Never favorite</string>
     <string name="title_advanced_edit_name">Edit name</string>
 
+    <string name="title_create_folder">Create folder</string>
+    <string name="title_create_folder_name">Folder name</string>
+    <string name="title_create_folder_parent">Parent folder</string>
+
     <string name="title_advanced_swipe_actions">Set swipe actions</string>
     <string name="title_advanced_swipe_actions_hint">This will set the swipe left and right action for all IMAP accounts</string>
     <string name="title_advanced_swipe_sensitivity">Left/right swipe sensitivity</string>

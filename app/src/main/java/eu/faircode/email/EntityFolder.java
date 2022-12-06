@@ -314,6 +314,25 @@ public class EntityFolder extends EntityOrder implements Serializable {
         }
     }
 
+    void inheritFrom(EntityFolder parent) {
+        if (parent == null)
+            return;
+        if (!EntityFolder.USER.equals(parent.type))
+            return;
+
+        this.synchronize = parent.synchronize;
+        this.poll = parent.poll;
+        this.poll_factor = parent.poll_factor;
+        this.download = parent.download;
+        this.auto_classify_source = parent.auto_classify_source;
+        this.auto_classify_target = parent.auto_classify_target;
+        this.sync_days = parent.sync_days;
+        this.keep_days = parent.keep_days;
+        this.unified = parent.unified;
+        this.navigation = parent.navigation;
+        this.notify = parent.notify;
+    }
+
     static boolean shouldPoll(String type) {
         int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
         return (sync < 0 || EntityFolder.SYSTEM_FOLDER_POLL.get(sync));

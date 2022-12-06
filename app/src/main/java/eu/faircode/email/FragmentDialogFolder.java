@@ -19,22 +19,30 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,18 +53,27 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 
 public class FragmentDialogFolder extends FragmentDialogBase {
     private int result = 0;
+    private AdapterFolder adapter;
+    private LinearLayoutManager llm;
 
     private static final int MAX_SELECTED_FOLDERS = 5;
+    private static final int REQUEST_FOLDER_NAME = 1;
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "folder");
@@ -94,6 +111,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         final Button btnFavorite3 = dview.findViewById(R.id.btnFavorite3);
         final ImageButton ibResetFavorites = dview.findViewById(R.id.ibResetFavorites);
         final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
+        final FloatingActionButton fabAdd = dview.findViewById(R.id.fabAdd);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
         final Group grpReady = dview.findViewById(R.id.grpReady);
 
@@ -130,10 +148,10 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         etSearch.setAdapter(frequent);
 
         rvFolder.setHasFixedSize(false);
-        final LinearLayoutManager llm = new LinearLayoutManager(context);
+        llm = new LinearLayoutManager(context);
         rvFolder.setLayoutManager(llm);
 
-        final AdapterFolder adapter = new AdapterFolder(context, getViewLifecycleOwner(),
+        adapter = new AdapterFolder(context, getViewLifecycleOwner(),
                 account, false, false, false, false, false, new AdapterFolder.IFolderSelectedListener() {
             @Override
             public void onFolderSelected(@NonNull TupleFolderEx folder) {
@@ -272,6 +290,20 @@ public class FragmentDialogFolder extends FragmentDialogBase {
             }
         });
 
+        fabAdd.hide();
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putLong("account", account);
+
+                FragmentDialogEditName fragment = new FragmentDialogEditName();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentDialogFolder.this, REQUEST_FOLDER_NAME);
+                fragment.show(getParentFragmentManager(), "folder:name");
+            }
+        });
+
         Bundle args = new Bundle();
         args.putLong("account", account);
         args.putLongArray("disabled", disabled);
@@ -297,6 +329,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 DB db = DB.getInstance(context);
 
                 Data data = new Data();
+                data.account = db.account().getAccount(account);
                 data.folders = db.folder().getFoldersEx(account);
                 data.favorites = db.folder().getFavoriteFolders(account, 3, disabled);
 
@@ -324,6 +357,11 @@ public class FragmentDialogFolder extends FragmentDialogBase {
 
                     adapter.setDisabled(Helper.fromLongArray(disabled));
                     adapter.set(data.folders);
+
+                    if (data.account.protocol == EntityAccount.TYPE_IMAP)
+                        fabAdd.show();
+                    else
+                        fabAdd.hide();
 
                     grpReady.setVisibility(View.VISIBLE);
                 }
@@ -361,7 +399,190 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         });
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_FOLDER_NAME:
+                    if (resultCode == RESULT_OK && data != null)
+                        onFolderName(data.getBundleExtra("args"));
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void onFolderName(Bundle args) {
+        new SimpleTask<List<TupleFolderEx>>() {
+            @Override
+            protected List<TupleFolderEx> onExecute(Context context, Bundle args) throws Throwable {
+                long aid = args.getLong("account");
+                String name = args.getString("name");
+                String pid = args.getString("parent");
+
+                DB db = DB.getInstance(context);
+
+                try {
+                    db.beginTransaction();
+
+                    EntityAccount account = db.account().getAccount(aid);
+                    if (account == null)
+                        return null;
+
+                    EntityFolder parent = (TextUtils.isEmpty(pid) ? null : db.folder().getFolderByName(account.id, pid));
+
+                    if (parent != null)
+                        name = parent.name + parent.separator + name;
+
+                    EntityFolder folder = new EntityFolder();
+                    folder.tbc = true;
+                    folder.account = account.id;
+                    folder.name = name;
+                    folder.type = EntityFolder.USER;
+                    folder.parent = (parent == null ? null : parent.id);
+                    folder.setProperties();
+                    folder.inheritFrom(parent);
+                    folder.id = db.folder().insertFolder(folder);
+
+                    args.putLong("folder", folder.id);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                ServiceSynchronize.reload(context, aid, true, "create folder");
+
+                return db.folder().getFoldersEx(aid);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<TupleFolderEx> folders) {
+                if (folders == null)
+                    return;
+
+                adapter.set(folders);
+
+                long fid = args.getLong("folder");
+                int pos = adapter.getPositionForKey(fid);
+                if (pos == RecyclerView.NO_POSITION)
+                    return;
+
+                llm.scrollToPositionWithOffset(pos, 0);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "folder:add");
+    }
+
+    public static class FragmentDialogEditName extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final Context context = getContext();
+            View view = LayoutInflater.from(context).inflate(R.layout.dialog_folder_add, null);
+            final EditText etName = view.findViewById(R.id.etName);
+            final Spinner spParent = view.findViewById(R.id.spParent);
+
+            etName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId != EditorInfo.IME_ACTION_DONE)
+                        return false;
+                    AlertDialog dialog = (AlertDialog) getDialog();
+                    if (dialog == null)
+                        return false;
+                    Button btnOk = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                    if (btnOk == null)
+                        return false;
+                    btnOk.performClick();
+                    return true;
+                }
+            });
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.spinner_item1, android.R.id.text1);
+            adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+            spParent.setAdapter(adapter);
+
+            etName.setText(null);
+
+            view.post(new Runnable() {
+                @Override
+                public void run() {
+                    etName.requestFocus();
+                    Helper.showKeyboard(etName);
+                }
+            });
+
+            new SimpleTask<List<String>>() {
+                @Override
+                protected List<String> onExecute(Context context, Bundle args) throws Throwable {
+                    long account = args.getLong("account");
+
+                    DB db = DB.getInstance(context);
+                    List<EntityFolder> folders = db.folder().getFolders(account, false, false);
+                    if (folders == null)
+                        return null;
+
+                    Collator collator = Collator.getInstance(Locale.getDefault());
+                    collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+                    Collections.sort(folders, new Comparator<EntityFolder>() {
+                        @Override
+                        public int compare(EntityFolder f1, EntityFolder f2) {
+                            return collator.compare(f1.name, f2.name);
+                        }
+                    });
+
+                    List<String> result = new ArrayList<>();
+                    result.add("");
+                    for (EntityFolder folder : folders)
+                        result.add(folder.name);
+
+                    return result;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<String> parents) {
+                    adapter.clear();
+                    adapter.addAll(parents);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(this, getArguments(), "folder:parents");
+
+            return new AlertDialog.Builder(context)
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String parent = (String) spParent.getSelectedItem();
+                            String name = etName.getText().toString().trim();
+                            if (TextUtils.isEmpty(name))
+                                sendResult(RESULT_CANCELED);
+                            else {
+                                getArguments().putString("parent", parent);
+                                getArguments().putString("name", name);
+                                sendResult(RESULT_OK);
+                            }
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+        }
+    }
+
     private static class Data {
+        private EntityAccount account;
         private List<TupleFolderEx> folders;
         private List<EntityFolder> favorites;
     }
