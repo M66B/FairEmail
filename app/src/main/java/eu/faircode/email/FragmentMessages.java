@@ -6987,7 +6987,7 @@ public class FragmentMessages extends FragmentBase
                     if (account.protocol != EntityAccount.TYPE_IMAP) {
                         if (account.auto_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
-                    } else {
+                    } else if (message.uid != null) {
                         if (account.auto_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
 
