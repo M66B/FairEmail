@@ -25,10 +25,14 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,6 +51,22 @@ public class FragmentDialogEditName extends FragmentDialogBase {
         etName.setText(args.getString("name"));
         cbPrimary.setChecked(args.getBoolean("primary"));
         cbPrimary.setVisibility(args.containsKey("primary") ? View.VISIBLE : View.GONE);
+
+        etName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId != EditorInfo.IME_ACTION_DONE)
+                    return false;
+                AlertDialog dialog = (AlertDialog) getDialog();
+                if (dialog == null)
+                    return false;
+                Button btnOk = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                if (btnOk == null)
+                    return false;
+                btnOk.performClick();
+                return true;
+            }
+        });
 
         return new AlertDialog.Builder(context)
                 .setView(view)
