@@ -1055,13 +1055,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onStart() {
         super.onStart();
-        infoTracker.addWindowLayoutInfoListener(this, Runnable::run, layoutStateChangeCallback);
+        if (BuildConfig.DEBUG)
+            infoTracker.addWindowLayoutInfoListener(this, Runnable::run, layoutStateChangeCallback);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        infoTracker.removeWindowLayoutInfoListener(layoutStateChangeCallback);
+        if (BuildConfig.DEBUG)
+            infoTracker.removeWindowLayoutInfoListener(layoutStateChangeCallback);
     }
 
     @Override
