@@ -1637,6 +1637,7 @@ public class HtmlHelper {
         //   xmlns="http://www.w3.org/TR/REC-html40">
 
         // <o:p>&nbsp;</o:p></span>
+        // <w:Sdt DocPart="0C3EDB8F875B40C899499DE56A431990" ...
 
         // Default XHTML namespace: http://www.w3.org/1999/xhtml
         // https://developer.mozilla.org/en-US/docs/Related/IMSC/Namespaces
@@ -1659,7 +1660,7 @@ public class HtmlHelper {
             String tag = e.tagName();
             if (tag.contains(":")) {
                 boolean show = (ns == null || tag.startsWith(ns) ||
-                        tag.startsWith("html:") || tag.startsWith("body:"));
+                        tag.startsWith("html:") || tag.startsWith("body:") || tag.startsWith("w:"));
                 if (display_hidden || show) {
                     String[] nstag = tag.split(":");
                     String t = nstag[nstag.length > 1 ? 1 : 0];
@@ -1674,9 +1675,9 @@ public class HtmlHelper {
                     }
                 } else {
                     e.remove();
-                    Log.i("Removed tag=" + tag);
+                    Log.i("Removed tag=" + tag + " ns=" + ns + " content=" + e.text());
                 }
-            } else if (!"html".equals(tag) && !"body".equals(tag)) {
+            } else if (!"html".equals(tag) && !"body".equals(tag) && !"w".equals(tag)) {
                 String xmlns = e.attr("xmlns").toLowerCase(Locale.ROOT);
                 if (!TextUtils.isEmpty(xmlns) && !xmlns.contains(W3NS)) {
                     if (display_hidden) {
@@ -1684,7 +1685,7 @@ public class HtmlHelper {
                         e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
                     } else {
                         e.remove();
-                        Log.i("Removed tag=" + tag + " xmlns=" + xmlns);
+                        Log.i("Removed tag=" + tag + " ns=" + ns + " xmlns=" + xmlns + " content=" + e.text());
                     }
                 }
             }
