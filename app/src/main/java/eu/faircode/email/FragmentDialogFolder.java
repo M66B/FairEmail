@@ -541,7 +541,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                     });
 
                     List<String> result = new ArrayList<>();
-                    result.add("");
+                    result.add("-");
                     for (EntityFolder folder : folders)
                         result.add(folder.name);
 
@@ -565,7 +565,9 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            String parent = (String) spParent.getSelectedItem();
+                            String parent = (spParent.getSelectedItemPosition() == 0
+                                    ? null
+                                    : (String) spParent.getSelectedItem());
                             String name = etName.getText().toString().trim();
                             if (TextUtils.isEmpty(name))
                                 sendResult(RESULT_CANCELED);
