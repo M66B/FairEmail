@@ -160,7 +160,7 @@ public class FragmentAnswer extends FragmentBase {
         style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                return onActionStyle(item.getItemId());
+                return onActionStyle(-1, item.getItemId());
             }
         });
 
@@ -553,7 +553,7 @@ public class FragmentAnswer extends FragmentBase {
         int end = args.getInt("end");
         String title = args.getString("title");
         etText.setSelection(start, end);
-        StyleHelper.apply(R.id.menu_link, getViewLifecycleOwner(), null, etText, link, title);
+        StyleHelper.apply(-1, R.id.menu_link, getViewLifecycleOwner(), null, etText, link, title);
     }
 
     private void onDelete() {
@@ -590,10 +590,10 @@ public class FragmentAnswer extends FragmentBase {
         }.execute(this, args, "answer:delete");
     }
 
-    private boolean onActionStyle(int action) {
-        Log.i("Style action=" + action);
+    private boolean onActionStyle(int groupId, int itemId) {
+        Log.i("Style action=" + itemId);
 
-        if (action == R.id.menu_link) {
+        if (itemId == R.id.menu_link) {
             FragmentDialogInsertLink fragment = new FragmentDialogInsertLink();
             fragment.setArguments(FragmentDialogInsertLink.getArguments(etText));
             fragment.setTargetFragment(this, REQUEST_LINK);
@@ -601,6 +601,6 @@ public class FragmentAnswer extends FragmentBase {
 
             return true;
         } else
-            return StyleHelper.apply(action, getViewLifecycleOwner(), view.findViewById(action), etText);
+            return StyleHelper.apply(groupId, itemId, getViewLifecycleOwner(), view.findViewById(itemId), etText);
     }
 }

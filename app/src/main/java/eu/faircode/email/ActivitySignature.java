@@ -385,10 +385,10 @@ public class ActivitySignature extends ActivityBase {
         startActivityForResult(intent, REQUEST_IMAGE);
     }
 
-    private boolean onActionStyle(int action) {
-        Log.i("Style action=" + action);
+    private boolean onActionStyle(int itemId) {
+        Log.i("Style action=" + itemId);
 
-        if (action == R.id.menu_link) {
+        if (itemId == R.id.menu_link) {
             FragmentDialogInsertLink fragment = new FragmentDialogInsertLink();
             fragment.setArguments(FragmentDialogInsertLink.getArguments(etText));
             fragment.setTargetActivity(this, REQUEST_LINK);
@@ -396,7 +396,7 @@ public class ActivitySignature extends ActivityBase {
 
             return true;
         } else
-            return StyleHelper.apply(action, ActivitySignature.this, findViewById(action), etText);
+            return StyleHelper.apply(-1, itemId, ActivitySignature.this, findViewById(itemId), etText);
     }
 
     private void onImageSelected(Uri uri) {
@@ -478,6 +478,6 @@ public class ActivitySignature extends ActivityBase {
         int end = args.getInt("end");
         String title = args.getString("title");
         etText.setSelection(start, end);
-        StyleHelper.apply(R.id.menu_link, this, null, etText, link, title);
+        StyleHelper.apply(-1, R.id.menu_link, this, null, etText, link, title);
     }
 }
