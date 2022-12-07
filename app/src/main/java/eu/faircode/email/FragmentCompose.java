@@ -105,6 +105,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
@@ -267,8 +268,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibReferenceImages;
     private View vwAnchor;
     private TextViewAutoCompleteAction etSearch;
-    private BottomNavigationView style_bar;
-    private BottomNavigationView block_bar;
+    private HorizontalScrollView style_bar;
     private BottomNavigationView media_bar;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -287,7 +287,6 @@ public class FragmentCompose extends FragmentBase {
     private String display_font;
     private boolean dsn = true;
     private Integer encrypt = null;
-    private boolean block = false;
     private boolean media = true;
     private boolean compact = false;
     private int zoom = 0;
@@ -347,11 +346,9 @@ public class FragmentCompose extends FragmentBase {
 
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean experiments = prefs.getBoolean("experiments", false);
 
         compose_font = prefs.getString("compose_font", "");
         display_font = prefs.getString("display_font", "");
-        block = experiments && prefs.getBoolean("compose_block", false);
         media = prefs.getBoolean("compose_media", true);
         compact = prefs.getBoolean("compose_compact", false);
         zoom = prefs.getInt("compose_zoom", compact ? 0 : 1);
@@ -401,7 +398,6 @@ public class FragmentCompose extends FragmentBase {
         vwAnchor = view.findViewById(R.id.vwAnchor);
         etSearch = view.findViewById(R.id.etSearch);
         style_bar = view.findViewById(R.id.style_bar);
-        block_bar = view.findViewById(R.id.block_bar);
         media_bar = view.findViewById(R.id.media_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
@@ -630,10 +626,8 @@ public class FragmentCompose extends FragmentBase {
                                 return;
                             if (styling != selection) {
                                 styling = selection;
-                                media_bar.getMenu().clear();
-                                media_bar.inflateMenu(styling
-                                        ? R.menu.action_compose_style_alt
-                                        : R.menu.action_compose_media);
+                                media_bar.setVisibility(styling ? View.GONE : View.VISIBLE);
+                                style_bar.setVisibility(styling ? View.VISIBLE : View.GONE);
                                 invalidateOptionsMenu();
                             }
                         }
@@ -1051,81 +1045,7 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int action = item.getItemId();
-                return onActionStyle(action, style_bar.findViewById(action));
-            }
-        });
-
-        block_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int action = item.getItemId();
-                if (action == R.id.menu_blockquote) {
-                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
-                    if (block == null)
-                        return false;
-                    StyleHelper.setBlockQuote(etBody, block.first, block.second, false);
-                    return true;
-                } else {
-                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), block_bar.findViewById(action));
-
-                    if (action == R.id.menu_alignment)
-                        popupMenu.inflate(R.menu.popup_style_alignment);
-                    else if (action == R.id.menu_list)
-                        popupMenu.inflate(R.menu.popup_style_list);
-                    else if (action == R.id.menu_indentation)
-                        popupMenu.inflate(R.menu.popup_style_indentation);
-
-                    Menu menu = popupMenu.getMenu();
-                    Editable edit = etBody.getText();
-
-                    Pair<Integer, Integer> b = StyleHelper.getParagraph(etBody, true);
-                    BulletSpan[] bullets = (b == null ? null : edit.getSpans(b.first, b.second, BulletSpan.class));
-                    IndentSpan[] indents = (b == null ? null : edit.getSpans(b.first, b.second, IndentSpan.class));
-                    if (b == null ||
-                            (action == R.id.menu_list && indents.length > 0) ||
-                            (action == R.id.menu_indentation && bullets.length > 0)) {
-                        for (int i = 0; i < menu.size(); i++)
-                            menu.getItem(i).setEnabled(false);
-                    } else {
-                        if (action == R.id.menu_list) {
-                            Pair<Integer, Integer> p = StyleHelper.getParagraph(etBody, false);
-                            Integer maxLevel = (p == null ? null : StyleHelper.getMaxListLevel(edit, p.first, p.second));
-                            menu.findItem(R.id.menu_style_list_increase).setEnabled(maxLevel != null);
-                            menu.findItem(R.id.menu_style_list_decrease).setEnabled(maxLevel != null && maxLevel > 0);
-                        } else if (action == R.id.menu_indentation)
-                            popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
-                    }
-
-                    popupMenu.insertIcons(getContext());
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem item) {
-                            int itemId = item.getItemId();
-                            boolean level = (itemId == R.id.menu_style_list_decrease || itemId == R.id.menu_style_list_increase);
-                            Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, !level);
-                            if (block == null)
-                                return false;
-                            if (action == R.id.menu_alignment)
-                                StyleHelper.setAlignment(item.getItemId(), etBody, block.first, block.second, false);
-                            else if (action == R.id.menu_list) {
-                                if (level)
-                                    StyleHelper.setListLevel(itemId, etBody, block.first, block.second, false);
-                                else
-                                    StyleHelper.setList(itemId, etBody, block.first, block.second, false);
-                            } else if (action == R.id.menu_indentation)
-                                StyleHelper.setIndentation(item.getItemId(), etBody, block.first, block.second, false);
-                            return true;
-                        }
-                    });
-                    popupMenu.show();
-                    return true;
-                }
-            }
-        });
+        StyleHelper.wire(getViewLifecycleOwner(), view, etBody);
 
         media_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -1146,8 +1066,8 @@ public class FragmentCompose extends FragmentBase {
                 } else if (action == R.id.menu_link) {
                     onActionLink();
                     return true;
-                }
-                return onActionStyle(action, media_bar.findViewById(action));
+                } else
+                    return false;
             }
         });
 
@@ -1211,7 +1131,6 @@ public class FragmentCompose extends FragmentBase {
         tvReference.setVisibility(View.GONE);
         etSearch.setVisibility(View.GONE);
         style_bar.setVisibility(View.GONE);
-        block_bar.setVisibility(View.GONE);
         media_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -2062,7 +1981,6 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_send_chips).setChecked(send_chips);
         menu.findItem(R.id.menu_send_dialog).setChecked(send_dialog);
         menu.findItem(R.id.menu_image_dialog).setChecked(image_dialog);
-        menu.findItem(R.id.menu_block).setChecked(block).setVisible(experiments);
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
@@ -2134,9 +2052,6 @@ public class FragmentCompose extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_image_dialog) {
             onMenuImageDialog();
-            return true;
-        } else if (itemId == R.id.menu_block) {
-            onMenuBlockBar();
             return true;
         } else if (itemId == R.id.menu_media) {
             onMenuMediaBar();
@@ -2292,14 +2207,6 @@ public class FragmentCompose extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
         prefs.edit().putBoolean("image_dialog", !image_dialog).apply();
-    }
-
-    private void onMenuBlockBar() {
-        block = !block;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putBoolean("compose_block", block).apply();
-        block_bar.setVisibility(block ? View.VISIBLE : View.GONE);
-        invalidateOptionsMenu();
     }
 
     private void onMenuMediaBar() {
@@ -2787,11 +2694,6 @@ public class FragmentCompose extends FragmentBase {
                 }
             }
         }.execute(this, args, "compose:lt");
-    }
-
-    private boolean onActionStyle(int action, View anchor) {
-        Log.i("Style action=" + action);
-        return StyleHelper.apply(-1, action, getViewLifecycleOwner(), anchor, etBody);
     }
 
     private void onActionRecordAudio() {
@@ -7003,7 +6905,6 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onPostExecute(Bundle args) {
                 pbWait.setVisibility(View.GONE);
-                block_bar.setVisibility(block ? View.VISIBLE : View.GONE);
                 media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
                 bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
                 bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
