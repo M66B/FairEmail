@@ -662,6 +662,12 @@ public class ApplicationEx extends Application
         else if (version < 1994) {
             // 2022-10-28 Spamcop blocks Google's addresses
             editor.putBoolean("blocklist.Spamcop", false);
+        } else if (version < 2013) {
+            if (prefs.contains("compose_block")) {
+                if (prefs.getBoolean("experiments", false))
+                    editor.putBoolean("compose_style", prefs.getBoolean("compose_block", false));
+                editor.remove("compose_block");
+            }
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

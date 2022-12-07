@@ -52,6 +52,14 @@
             app:showAsAction="never" />
 
         <item
+            android:id="@+id/menu_style"
+            android:checkable="true"
+            android:checked="true"
+            android:icon="@drawable/twotone_text_format_24"
+            android:title="@string/title_style_toolbar"
+            app:showAsAction="never" />
+
+        <item
             android:id="@+id/menu_media"
             android:checkable="true"
             android:checked="true"

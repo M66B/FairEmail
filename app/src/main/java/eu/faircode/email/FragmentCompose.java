@@ -287,6 +287,7 @@ public class FragmentCompose extends FragmentBase {
     private String display_font;
     private boolean dsn = true;
     private Integer encrypt = null;
+    private boolean style = false;
     private boolean media = true;
     private boolean compact = false;
     private int zoom = 0;
@@ -349,6 +350,7 @@ public class FragmentCompose extends FragmentBase {
 
         compose_font = prefs.getString("compose_font", "");
         display_font = prefs.getString("display_font", "");
+        style = prefs.getBoolean("compose_style", false);
         media = prefs.getBoolean("compose_media", true);
         compact = prefs.getBoolean("compose_compact", false);
         zoom = prefs.getInt("compose_zoom", compact ? 0 : 1);
@@ -626,8 +628,8 @@ public class FragmentCompose extends FragmentBase {
                                 return;
                             if (styling != selection) {
                                 styling = selection;
-                                media_bar.setVisibility(styling ? View.GONE : View.VISIBLE);
-                                style_bar.setVisibility(styling ? View.VISIBLE : View.GONE);
+                                style_bar.setVisibility(style || styling ? View.VISIBLE : View.GONE);
+                                media_bar.setVisibility(!style && styling ? View.GONE : View.VISIBLE);
                                 invalidateOptionsMenu();
                             }
                         }
@@ -1921,6 +1923,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_translate).setVisible(DeepL.isAvailable(context));
         menu.findItem(R.id.menu_zoom).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_style).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_media).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_compact).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setEnabled(state == State.LOADED);
@@ -1971,7 +1974,6 @@ public class FragmentCompose extends FragmentBase {
         ibZoom.setEnabled(state == State.LOADED);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean experiments = prefs.getBoolean("experiments", false);
         boolean save_drafts = prefs.getBoolean("save_drafts", true);
         boolean send_chips = prefs.getBoolean("send_chips", true);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
@@ -1981,6 +1983,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_send_chips).setChecked(send_chips);
         menu.findItem(R.id.menu_send_dialog).setChecked(send_dialog);
         menu.findItem(R.id.menu_image_dialog).setChecked(image_dialog);
+        menu.findItem(R.id.menu_style).setChecked(style);
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
@@ -2052,6 +2055,9 @@ public class FragmentCompose extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_image_dialog) {
             onMenuImageDialog();
+            return true;
+        } else if (itemId == R.id.menu_style) {
+            onMenuStyleBar();
             return true;
         } else if (itemId == R.id.menu_media) {
             onMenuMediaBar();
@@ -2209,15 +2215,22 @@ public class FragmentCompose extends FragmentBase {
         prefs.edit().putBoolean("image_dialog", !image_dialog).apply();
     }
 
+    private void onMenuStyleBar() {
+        style = !style;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("compose_style", style).apply();
+        style_bar.setVisibility(style ? View.VISIBLE : View.GONE);
+        media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
+        invalidateOptionsMenu();
+    }
+
     private void onMenuMediaBar() {
         media = !media;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("compose_media", media).apply();
         etBody.setSelection(etBody.getSelectionStart());
-        media_bar.getMenu().clear();
-        media_bar.inflateMenu(R.menu.action_compose_media);
+        style_bar.setVisibility(style ? View.VISIBLE : View.GONE);
         media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
-        style_bar.setVisibility(View.GONE);
         invalidateOptionsMenu();
     }
 
@@ -6905,6 +6918,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onPostExecute(Bundle args) {
                 pbWait.setVisibility(View.GONE);
+                style_bar.setVisibility(style ? View.VISIBLE : View.GONE);
                 media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
                 bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
                 bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);

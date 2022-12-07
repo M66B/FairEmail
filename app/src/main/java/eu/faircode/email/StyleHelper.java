@@ -150,6 +150,18 @@ public class StyleHelper {
                 _end = tmp;
             }
 
+            if (_start == _end &&
+                    itemId != R.id.menu_style_align && groupId != R.id.group_style_align &&
+                    itemId != R.id.menu_style_list && groupId != R.id.group_style_list &&
+                    itemId != R.id.menu_style_indentation && groupId != R.id.group_style_indentation &&
+                    itemId != R.id.menu_style_blockquote && groupId != R.id.group_style_blockquote) {
+                Pair<Integer, Integer> word = getWord(etBody);
+                if (word == null)
+                    return false;
+                _start = word.first;
+                _end = word.second;
+            }
+
             final Editable edit = etBody.getText();
             final int start = _start;
             final int end = _end;
@@ -350,13 +362,18 @@ public class StyleHelper {
 
             } else if (groupId == R.id.group_style_font_standard ||
                     groupId == R.id.group_style_font_custom) {
-                Log.breadcrumb("style", "action", "font");
                 return setFont(etBody, start, end, (String) args[0]);
 
             } else if (itemId == R.id.menu_style_align) {
                 Context context = anchor.getContext();
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
                 popupMenu.inflate(R.menu.popup_style_alignment);
+
+                if (start == end) {
+                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
+                    if (block == null)
+                        return false;
+                }
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -370,15 +387,31 @@ public class StyleHelper {
                 popupMenu.show();
 
             } else if (groupId == R.id.group_style_align) {
-                return setAlignment(itemId, etBody, start, end, true);
+                if (start == end) {
+                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
+                    if (block == null)
+                        return false;
+                    return setAlignment(itemId, etBody, block.first, block.second, false);
+                } else
+                    return setAlignment(itemId, etBody, start, end, true);
 
             } else if (itemId == R.id.menu_style_list) {
                 Context context = anchor.getContext();
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
                 popupMenu.inflate(R.menu.popup_style_list);
 
-                Integer maxLevel = getMaxListLevel(edit, start, end);
-                IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
+                int s = start;
+                int e = end;
+                if (s == e) {
+                    Pair<Integer, Integer> p = StyleHelper.getParagraph(etBody, false);
+                    if (p == null)
+                        return false;
+                    s = p.first;
+                    e = p.second;
+                }
+
+                Integer maxLevel = getMaxListLevel(edit, s, e);
+                IndentSpan[] indents = edit.getSpans(s, e, IndentSpan.class);
 
                 popupMenu.getMenu().findItem(R.id.menu_style_list_bullets).setEnabled(indents.length == 0);
                 popupMenu.getMenu().findItem(R.id.menu_style_list_numbered).setEnabled(indents.length == 0);
@@ -397,19 +430,40 @@ public class StyleHelper {
                 popupMenu.show();
 
             } else if (groupId == R.id.group_style_list) {
-                if (itemId == R.id.menu_style_list_increase ||
-                        itemId == R.id.menu_style_list_decrease)
-                    return setListLevel(itemId, etBody, start, end, true);
-                else
-                    return setList(itemId, etBody, start, end, true);
+                boolean level = (itemId == R.id.menu_style_list_decrease || itemId == R.id.menu_style_list_increase);
+                if (start == end) {
+                    Pair<Integer, Integer> p = StyleHelper.getParagraph(etBody, false);
+                    if (p == null)
+                        return false;
+                    if (level)
+                        StyleHelper.setListLevel(itemId, etBody, p.first, p.second, false);
+                    else
+                        StyleHelper.setList(itemId, etBody, p.first, p.second, false);
+                    return true;
+                } else {
+                    if (level)
+                        return setListLevel(itemId, etBody, start, end, true);
+                    else
+                        return setList(itemId, etBody, start, end, true);
+                }
 
             } else if (itemId == R.id.menu_style_indentation) {
                 Context context = anchor.getContext();
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
                 popupMenu.inflate(R.menu.popup_style_indentation);
 
-                Integer maxLevel = getMaxListLevel(edit, start, end);
-                IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
+                int s = start;
+                int e = end;
+                if (s == e) {
+                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
+                    if (block == null)
+                        return false;
+                    s = block.first;
+                    e = block.second;
+                }
+
+                Integer maxLevel = getMaxListLevel(edit, s, e);
+                IndentSpan[] indents = edit.getSpans(s, e, IndentSpan.class);
 
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_increase).setEnabled(maxLevel == null);
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
@@ -426,10 +480,23 @@ public class StyleHelper {
                 popupMenu.show();
 
             } else if (groupId == R.id.group_style_indentation) {
-                return setIndentation(itemId, etBody, start, end, true);
+                if (start == end) {
+                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
+                    if (block == null)
+                        return false;
+                    StyleHelper.setIndentation(itemId, etBody, block.first, block.second, false);
+                } else
+                    return setIndentation(itemId, etBody, start, end, true);
 
             } else if (itemId == R.id.menu_style_blockquote || groupId == R.id.group_style_blockquote) {
-                return setBlockQuote(etBody, start, end, true);
+                if (start == end) {
+                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
+                    if (block == null)
+                        return false;
+                    StyleHelper.setBlockQuote(etBody, block.first, block.second, false);
+                    return true;
+                } else
+                    return setBlockQuote(etBody, start, end, true);
 
             } else if (itemId == R.id.menu_style_mark || groupId == R.id.group_style_mark) {
                 return setMark(etBody, start, end, itemId == R.id.menu_style_mark);
@@ -1133,6 +1200,34 @@ public class StyleHelper {
 
         if (end == edit.length())
             edit.append("\n"); // workaround Android bug
+
+        return new Pair<>(start, end);
+    }
+
+    static private Pair<Integer, Integer> getWord(TextView tvBody) {
+        int start = tvBody.getSelectionStart();
+        int end = tvBody.getSelectionEnd();
+        Spannable edit = (Spannable) tvBody.getText();
+
+        if (start < 0 || end < 0)
+            return null;
+
+        if (start > end) {
+            int tmp = start;
+            start = end;
+            end = tmp;
+        }
+
+        // Expand selection at start
+        while (start > 0 && edit.charAt(start - 1) != ' ' && edit.charAt(start - 1) != '\n')
+            start--;
+
+        // Expand selection at end
+        while (end < edit.length() && edit.charAt(end) != ' ' && edit.charAt(end) != '\n')
+            end++;
+
+        if (start == end)
+            return null;
 
         return new Pair<>(start, end);
     }
