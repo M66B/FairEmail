@@ -78,7 +78,7 @@ public class StyleHelper {
             RelativeSizeSpan.class,
             BackgroundColorSpan.class,
             ForegroundColorSpan.class,
-            AlignmentSpan.class,
+            AlignmentSpan.class, AlignmentSpan.Standard.class,
             BulletSpanEx.class, NumberSpan.class,
             QuoteSpan.class, IndentSpan.class,
             SubscriptSpanEx.class, SuperscriptSpanEx.class,
