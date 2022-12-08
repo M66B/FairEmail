@@ -151,6 +151,7 @@ public class StyleHelper {
             }
 
             if (_start == _end &&
+                    itemId != R.id.menu_clear &&
                     itemId != R.id.menu_style_align && groupId != R.id.group_style_align &&
                     itemId != R.id.menu_style_list && groupId != R.id.group_style_list &&
                     itemId != R.id.menu_style_indentation && groupId != R.id.group_style_indentation &&
@@ -853,7 +854,7 @@ public class StyleHelper {
         renumber(edit, false, context);
 
         etBody.setText(edit);
-        etBody.setSelection(select ? s : e, e);
+        etBody.setSelection(select ? s : e - 1, e - 1);
 
         return true;
     }
