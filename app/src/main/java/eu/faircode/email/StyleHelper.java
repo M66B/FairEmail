@@ -1254,7 +1254,7 @@ public class StyleHelper {
 
         for (Object span : edit.getSpans(start, e, Object.class)) {
             boolean has = false;
-            for (Class cls : CLEAR_STYLES)
+            for (Class<?> cls : CLEAR_STYLES)
                 if (cls.isAssignableFrom(span.getClass())) {
                     has = true;
                     break;
@@ -1275,7 +1275,7 @@ public class StyleHelper {
         }
 
         etBody.setText(edit);
-        etBody.setSelection(select ? start : e - 1, e - 1);
+        etBody.setSelection(select ? start : end, end);
 
         return true;
     }
