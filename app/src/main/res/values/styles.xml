@@ -619,6 +619,13 @@
         <item name="android:fadeScrollbars">false</item>
     </style>
 
+    <style name="horizontalScrollViewStyle">
+        <item name="android:scrollbarSize">1dp</item>
+        <item name="android:scrollbarThumbHorizontal">@drawable/scroll_thumb_horizontal</item>
+        <!--item name="android:scrollbarTrackHorizontal">@drawable/scroll_track_popup</item-->
+        <item name="android:fadeScrollbars">false</item>
+    </style>
+
     <style name="fullScreenDialog" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">false</item>
