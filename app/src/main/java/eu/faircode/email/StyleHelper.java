@@ -110,6 +110,13 @@ public class StyleHelper {
             R.id.menu_style_clear
     };
 
+    private static final int group_style_size = 1;
+    private static final int group_style_font_standard = 2;
+    private static final int group_style_font_custom = 3;
+    private static final int group_style_align = 4;
+    private static final int group_style_list = 5;
+    private static final int group_style_indentation = 6;
+
     static void wire(LifecycleOwner owner, View view, EditText etBody) {
         View.OnClickListener styleListener = new View.OnClickListener() {
             @Override
@@ -136,516 +143,238 @@ public class StyleHelper {
         Log.i("Style action=" + groupId + ":" + itemId);
 
         try {
-            int _start = etBody.getSelectionStart();
-            int _end = etBody.getSelectionEnd();
+            int start = etBody.getSelectionStart();
+            int end = etBody.getSelectionEnd();
 
-            if (_start < 0)
-                _start = 0;
-            if (_end < 0)
-                _end = 0;
+            if (start < 0)
+                start = 0;
+            if (end < 0)
+                end = 0;
 
-            if (_start > _end) {
-                int tmp = _start;
-                _start = _end;
-                _end = tmp;
+            if (start > end) {
+                int tmp = start;
+                start = end;
+                end = tmp;
             }
 
-            if (_start == _end &&
+            if (start == end &&
                     itemId != R.id.menu_clear &&
-                    itemId != R.id.menu_style_align && groupId != R.id.group_style_align &&
-                    itemId != R.id.menu_style_list && groupId != R.id.group_style_list &&
-                    itemId != R.id.menu_style_indentation && groupId != R.id.group_style_indentation &&
-                    itemId != R.id.menu_style_blockquote && groupId != R.id.group_style_blockquote) {
+                    itemId != R.id.menu_style_align && groupId != group_style_align &&
+                    itemId != R.id.menu_style_list && groupId != group_style_list &&
+                    itemId != R.id.menu_style_indentation && groupId != group_style_indentation &&
+                    itemId != R.id.menu_style_blockquote) {
                 Pair<Integer, Integer> word = getWord(etBody);
                 if (word == null)
                     return false;
-                _start = word.first;
-                _end = word.second;
+                start = word.first;
+                end = word.second;
             }
 
-            final Editable edit = etBody.getText();
-            final int start = _start;
-            final int end = _end;
-
-            if (itemId == R.id.menu_bold || itemId == R.id.menu_italic) {
-                String name = (itemId == R.id.menu_bold ? "bold" : "italic");
-                Log.breadcrumb("style", "action", name);
-
-                boolean has = false;
-                int style = (itemId == R.id.menu_bold ? Typeface.BOLD : Typeface.ITALIC);
-                StyleSpan[] spans = edit.getSpans(start, end, StyleSpan.class);
-                for (StyleSpan span : spans)
-                    if (span.getStyle() == style) {
-                        int s = edit.getSpanStart(span);
-                        int e = edit.getSpanEnd(span);
-                        int f = edit.getSpanFlags(span);
-                        edit.removeSpan(span);
-                        if (splitSpan(edit, start, end, s, e, f, true,
-                                new StyleSpan(style), new StyleSpan(style)))
-                            has = true;
-                    }
-
-                if (!has)
-                    edit.setSpan(new StyleSpan(style), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                etBody.setText(edit);
-                etBody.setSelection(start, end);
-
-                return true;
-            } else if (itemId == R.id.menu_underline) {
-                Log.breadcrumb("style", "action", "underline");
-
-                boolean has = false;
-                UnderlineSpan[] spans = edit.getSpans(start, end, UnderlineSpan.class);
-                for (UnderlineSpan span : spans) {
-                    int s = edit.getSpanStart(span);
-                    int e = edit.getSpanEnd(span);
-                    int f = edit.getSpanFlags(span);
-                    edit.removeSpan(span);
-                    if (splitSpan(edit, start, end, s, e, f, true,
-                            new UnderlineSpan(), new UnderlineSpan()))
-                        has = true;
-                }
-
-                if (!has)
-                    edit.setSpan(new UnderlineSpan(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                etBody.setText(edit);
-                etBody.setSelection(start, end);
-
-                return true;
-            } else if (itemId == R.id.menu_style_size) {
-                Context context = anchor.getContext();
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
-
-                int[] ids = new int[]{
-                        R.id.menu_style_size_xsmall,
-                        R.id.menu_style_size_small,
-                        R.id.menu_style_size_medium,
-                        R.id.menu_style_size_large,
-                        R.id.menu_style_size_xlarge
-                };
-
-                int[] titles = new int[]{
-                        R.string.title_style_size_xsmall,
-                        R.string.title_style_size_small,
-                        R.string.title_style_size_medium,
-                        R.string.title_style_size_large,
-                        R.string.title_style_size_xlarge};
-
-                float[] sizes = new float[]{
-                        HtmlHelper.FONT_XSMALL,
-                        HtmlHelper.FONT_SMALL,
-                        1.0f,
-                        HtmlHelper.FONT_LARGE,
-                        HtmlHelper.FONT_XLARGE};
-
-                for (int i = 0; i < ids.length; i++) {
-                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(context.getString(titles[i]));
-                    ssb.setSpan(new RelativeSizeSpan(sizes[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    popupMenu.getMenu().add(R.id.group_style_size, ids[i], i, ssb);
-                }
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        return StyleHelper.apply(R.id.group_style_size, item.getItemId(), owner, anchor, etBody);
-                    }
-                });
-
-                popupMenu.show();
-            } else if (groupId == R.id.group_style_size) {
-                Float size;
-                if (itemId == R.id.menu_style_size_xsmall)
-                    size = HtmlHelper.FONT_XSMALL;
-                else if (itemId == R.id.menu_style_size_small)
-                    size = HtmlHelper.FONT_SMALL;
-                else if (itemId == R.id.menu_style_size_large)
-                    size = HtmlHelper.FONT_LARGE;
-                else if (itemId == R.id.menu_style_size_xlarge)
-                    size = HtmlHelper.FONT_XLARGE;
-                else
-                    size = null;
-
-                return setSize(etBody, start, end, size);
-            } else if (itemId == R.id.menu_style_background) {
-                Helper.hideKeyboard(etBody);
-
-                Context context = etBody.getContext();
-                int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
-
-                ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
-                        .with(context)
-                        .setTitle(R.string.title_background)
-                        .showColorEdit(true)
-                        .setColorEditTextColor(editTextColor)
-                        .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                        .density(6)
-                        //.lightnessSliderOnly()
-                        .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                                setBackground(etBody, start, end, selectedColor);
-                            }
-                        })
-                        .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                setBackground(etBody, start, end, null);
-                            }
-                        });
-
-                BackgroundColorSpan[] spans = edit.getSpans(start, end, BackgroundColorSpan.class);
-                if (spans != null && spans.length == 1)
-                    builder.initialColor(spans[0].getBackgroundColor());
-
-                builder.build().show();
-
-                return true;
-
-            } else if (itemId == R.id.menu_style_color) {
-                Helper.hideKeyboard(etBody);
-
-                Context context = etBody.getContext();
-                int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
-
-                ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
-                        .with(context)
-                        .setTitle(R.string.title_color)
-                        .showColorEdit(true)
-                        .setColorEditTextColor(editTextColor)
-                        .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                        .density(6)
-                        //.lightnessSliderOnly()
-                        .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                                setColor(etBody, start, end, selectedColor);
-                            }
-                        })
-                        .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                setColor(etBody, start, end, null);
-                            }
-                        });
-
-                ForegroundColorSpan[] spans = edit.getSpans(start, end, ForegroundColorSpan.class);
-                if (spans != null && spans.length == 1)
-                    builder.initialColor(spans[0].getForegroundColor());
-
-                builder.build().show();
-
-                return true;
-            } else if (itemId == R.id.menu_style_font) {
-                Context context = anchor.getContext();
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
-
-                List<FontDescriptor> fonts = getFonts(context, false);
-                for (int i = 0; i < fonts.size(); i++) {
-                    FontDescriptor font = fonts.get(i);
-                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(font.toString());
-                    ssb.setSpan(getTypefaceSpan(font.type, context), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    popupMenu.getMenu().add(font.custom ? R.id.group_style_font_custom : R.id.group_style_font_standard, i, 0, ssb)
-                            .setIntent(new Intent().putExtra("face", font.type));
-                }
-                popupMenu.getMenu().add(R.id.group_style_font_standard, fonts.size(), 0, R.string.title_style_font_default)
-                        .setIntent(new Intent());
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        return setFont(etBody, start, end, item.getIntent().getStringExtra("face"));
-                    }
-                });
-
-                popupMenu.show();
-
-            } else if (groupId == R.id.group_style_font_standard ||
-                    groupId == R.id.group_style_font_custom) {
-                return setFont(etBody, start, end, (String) args[0]);
-
-            } else if (itemId == R.id.menu_style_align) {
-                Context context = anchor.getContext();
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
-                popupMenu.inflate(R.menu.popup_style_alignment);
-
-                if (start == end) {
-                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
-                    if (block == null)
-                        return false;
-                }
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        return StyleHelper.apply(R.id.group_style_align, item.getItemId(), owner, anchor, etBody);
-                    }
-                });
-
-                popupMenu.insertIcons(context);
-
-                popupMenu.show();
-
-            } else if (groupId == R.id.group_style_align) {
-                if (start == end) {
-                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
-                    if (block == null)
-                        return false;
-                    return setAlignment(itemId, etBody, block.first, block.second, false);
-                } else
-                    return setAlignment(itemId, etBody, start, end, true);
-
-            } else if (itemId == R.id.menu_style_list) {
-                Context context = anchor.getContext();
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
-                popupMenu.inflate(R.menu.popup_style_list);
-
-                int s = start;
-                int e = end;
-                if (s == e) {
-                    Pair<Integer, Integer> p = StyleHelper.getParagraph(etBody, false);
-                    if (p == null)
-                        return false;
-                    s = p.first;
-                    e = p.second;
-                }
-
-                Integer maxLevel = getMaxListLevel(edit, s, e);
-                IndentSpan[] indents = edit.getSpans(s, e, IndentSpan.class);
-
-                popupMenu.getMenu().findItem(R.id.menu_style_list_bullets).setEnabled(indents.length == 0);
-                popupMenu.getMenu().findItem(R.id.menu_style_list_numbered).setEnabled(indents.length == 0);
-                popupMenu.getMenu().findItem(R.id.menu_style_list_increase).setEnabled(indents.length == 0 && maxLevel != null);
-                popupMenu.getMenu().findItem(R.id.menu_style_list_decrease).setEnabled(indents.length == 0 && maxLevel != null && maxLevel > 0);
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        return StyleHelper.apply(R.id.group_style_list, item.getItemId(), owner, anchor, etBody);
-                    }
-                });
-
-                popupMenu.insertIcons(context);
-
-                popupMenu.show();
-
-            } else if (groupId == R.id.group_style_list) {
-                boolean level = (itemId == R.id.menu_style_list_decrease || itemId == R.id.menu_style_list_increase);
-                if (start == end) {
-                    Pair<Integer, Integer> p = StyleHelper.getParagraph(etBody, false);
-                    if (p == null)
-                        return false;
-                    if (level)
-                        StyleHelper.setListLevel(itemId, etBody, p.first, p.second, false);
-                    else
-                        StyleHelper.setList(itemId, etBody, p.first, p.second, false);
+            if (groupId < 0) {
+                if (itemId == R.id.menu_bold || itemId == R.id.menu_italic)
+                    return setBoldItalic(itemId, etBody, start, end, false);
+                else if (itemId == R.id.menu_underline)
+                    return setUnderline(etBody, start, end, false);
+                else if (itemId == R.id.menu_style_size)
+                    return selectSize(owner, anchor, etBody);
+                else if (itemId == R.id.menu_style_background)
+                    return selectBackground(etBody, start, end);
+                else if (itemId == R.id.menu_style_color)
+                    return selectColor(etBody, start, end);
+                else if (itemId == R.id.menu_style_font)
+                    return selectFont(owner, anchor, etBody, start, end);
+                else if (itemId == R.id.menu_style_align)
+                    return selectAlignment(owner, anchor, etBody, start, end);
+                else if (itemId == R.id.menu_style_list)
+                    return selectList(owner, anchor, etBody, start, end);
+                else if (itemId == R.id.menu_style_indentation)
+                    return selectIndentation(owner, anchor, etBody, start, end);
+                else if (itemId == R.id.menu_style_blockquote) {
+                    if (start == end) {
+                        Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
+                        if (block == null)
+                            return false;
+                        return StyleHelper.setBlockQuote(etBody, block.first, block.second, false);
+                    } else
+                        return setBlockQuote(etBody, start, end, true);
+                } else if (itemId == R.id.menu_style_mark)
+                    return setMark(etBody, start, end, false);
+                else if (itemId == R.id.menu_style_subscript)
+                    return setSubscript(etBody, start, end, false);
+                else if (itemId == R.id.menu_style_superscript)
+                    return setSuperscript(etBody, start, end, false);
+                else if (itemId == R.id.menu_style_strikethrough)
+                    return setStrikeThrough(etBody, start, end, false);
+                else if (itemId == R.id.menu_style_password)
+                    return setPassword(owner, etBody, start, end);
+                else if (itemId == R.id.menu_style_code) {
+                    Log.breadcrumb("style", "action", "code");
+                    setSize(etBody, start, end, HtmlHelper.FONT_SMALL);
+                    setFont(etBody, start, end, "monospace");
                     return true;
-                } else {
-                    if (level)
-                        return setListLevel(itemId, etBody, start, end, true);
-                    else
-                        return setList(itemId, etBody, start, end, true);
-                }
-
-            } else if (itemId == R.id.menu_style_indentation) {
-                Context context = anchor.getContext();
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
-                popupMenu.inflate(R.menu.popup_style_indentation);
-
-                int s = start;
-                int e = end;
-                if (s == e) {
-                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
-                    if (block == null)
-                        return false;
-                    s = block.first;
-                    e = block.second;
-                }
-
-                Integer maxLevel = getMaxListLevel(edit, s, e);
-                IndentSpan[] indents = edit.getSpans(s, e, IndentSpan.class);
-
-                popupMenu.getMenu().findItem(R.id.menu_style_indentation_increase).setEnabled(maxLevel == null);
-                popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        return StyleHelper.apply(R.id.group_style_indentation, item.getItemId(), owner, anchor, etBody);
-                    }
-                });
-
-                popupMenu.insertIcons(context);
-
-                popupMenu.show();
-
-            } else if (groupId == R.id.group_style_indentation) {
-                if (start == end) {
-                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
-                    if (block == null)
-                        return false;
-                    StyleHelper.setIndentation(itemId, etBody, block.first, block.second, false);
-                } else
-                    return setIndentation(itemId, etBody, start, end, true);
-
-            } else if (itemId == R.id.menu_style_blockquote || groupId == R.id.group_style_blockquote) {
-                if (start == end) {
-                    Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
-                    if (block == null)
-                        return false;
-                    StyleHelper.setBlockQuote(etBody, block.first, block.second, false);
-                    return true;
-                } else
-                    return setBlockQuote(etBody, start, end, true);
-
-            } else if (itemId == R.id.menu_style_mark || groupId == R.id.group_style_mark) {
-                return setMark(etBody, start, end, itemId == R.id.menu_style_mark);
-
-            } else if (itemId == R.id.menu_style_subscript || groupId == R.id.group_style_subscript) {
-                return setSubscript(etBody, start, end, itemId == R.id.menu_style_subscript);
-
-            } else if (itemId == R.id.menu_style_superscript || groupId == R.id.group_style_superscript) {
-                return setSuperscript(etBody, start, end, itemId == R.id.menu_style_superscript);
-
-            } else if (itemId == R.id.menu_style_strikethrough || groupId == R.id.group_style_strikethrough) {
-                return setStrikeThrough(etBody, start, end, itemId == R.id.menu_style_strikethrough);
-
-            } else if (itemId == R.id.menu_style_password || groupId == R.id.group_style_password) {
-                return setPassword(owner, etBody, start, end);
-
-            } else if (itemId == R.id.menu_style_code || groupId == R.id.group_style_code) {
-                Log.breadcrumb("style", "action", "code");
-                setSize(etBody, start, end, HtmlHelper.FONT_SMALL);
-                setFont(etBody, start, end, "monospace");
-                return true;
-
-            } else if (itemId == R.id.menu_style_clear || groupId == R.id.group_style_clear) {
-                return clear(etBody, start, end);
-
-            } else if (itemId == R.id.menu_style) {
-                final Context context = anchor.getContext();
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
-                popupMenu.inflate(R.menu.popup_style);
-
-                {
-                    SubMenu smenu = popupMenu.getMenu().findItem(R.id.menu_style_size).getSubMenu();
-                    smenu.clear();
-                    int[] ids = new int[]{
-                            R.id.menu_style_size_xsmall,
-                            R.id.menu_style_size_small,
-                            R.id.menu_style_size_medium,
-                            R.id.menu_style_size_large,
-                            R.id.menu_style_size_xlarge
-                    };
-                    int[] titles = new int[]{
-                            R.string.title_style_size_xsmall,
-                            R.string.title_style_size_small,
-                            R.string.title_style_size_medium,
-                            R.string.title_style_size_large,
-                            R.string.title_style_size_xlarge};
-                    float[] sizes = new float[]{
-                            HtmlHelper.FONT_XSMALL,
-                            HtmlHelper.FONT_SMALL,
-                            1.0f,
-                            HtmlHelper.FONT_LARGE,
-                            HtmlHelper.FONT_XLARGE};
-                    for (int i = 0; i < ids.length; i++) {
-                        SpannableStringBuilder ssb = new SpannableStringBuilderEx(context.getString(titles[i]));
-                        ssb.setSpan(new RelativeSizeSpan(sizes[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                        smenu.add(R.id.group_style_size, ids[i], i, ssb);
-                    }
-                }
-
-                List<FontDescriptor> fonts = getFonts(context, false);
-                SubMenu smenu = popupMenu.getMenu().findItem(R.id.menu_style_font).getSubMenu();
-                for (int i = 0; i < fonts.size(); i++) {
-                    FontDescriptor font = fonts.get(i);
-                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(font.toString());
-                    ssb.setSpan(getTypefaceSpan(font.type, context), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    smenu.add(font.custom ? R.id.group_style_font_custom : R.id.group_style_font_standard, i, 0, ssb)
-                            .setIntent(new Intent().putExtra("face", font.type));
-                }
-                smenu.add(R.id.group_style_font_standard, fonts.size(), 0, R.string.title_style_font_default)
-                        .setIntent(new Intent());
-
-                Integer maxLevel = getMaxListLevel(edit, start, end);
-                IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
-
-                popupMenu.getMenu().findItem(R.id.menu_style_list_bullets).setEnabled(indents.length == 0);
-                popupMenu.getMenu().findItem(R.id.menu_style_list_numbered).setEnabled(indents.length == 0);
-                popupMenu.getMenu().findItem(R.id.menu_style_list_increase).setEnabled(indents.length == 0 && maxLevel != null);
-                popupMenu.getMenu().findItem(R.id.menu_style_list_decrease).setEnabled(indents.length == 0 && maxLevel != null && maxLevel > 0);
-
-                popupMenu.getMenu().findItem(R.id.menu_style_indentation_increase).setEnabled(maxLevel == null);
-                popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
-
-                popupMenu.getMenu().findItem(R.id.menu_style_password)
-                        .setVisible(!BuildConfig.PLAY_STORE_RELEASE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
-                popupMenu.getMenu().findItem(R.id.menu_style_code).setEnabled(BuildConfig.DEBUG);
-
-                popupMenu.insertIcons(context);
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        if (item.getGroupId() == R.id.group_style_font_standard ||
-                                item.getGroupId() == R.id.group_style_font_custom)
-                            return apply(item.getGroupId(), item.getItemId(), owner, anchor, etBody,
-                                    item.getIntent().getStringExtra("face"));
+                } else if (itemId == R.id.menu_link)
+                    return setLink(etBody, start, end, args);
+                else if (itemId == R.id.menu_style_clear)
+                    return clear(etBody, start, end);
+                else if (itemId == R.id.menu_clear)
+                    return clearAll(etBody, start, end);
+            } else {
+                switch (groupId) {
+                    case group_style_size: {
+                        Float size;
+                        if (itemId == 1)
+                            size = HtmlHelper.FONT_XSMALL;
+                        else if (itemId == 2)
+                            size = HtmlHelper.FONT_SMALL;
+                        else if (itemId == 4)
+                            size = HtmlHelper.FONT_LARGE;
+                        else if (itemId == 5)
+                            size = HtmlHelper.FONT_XLARGE;
                         else
-                            return apply(item.getGroupId(), item.getItemId(), owner, anchor, etBody);
+                            size = null;
+
+                        return setSize(etBody, start, end, size);
                     }
-                });
 
-                popupMenu.show();
+                    case group_style_font_standard:
+                    case group_style_font_custom:
+                        return setFont(etBody, start, end, (String) args[0]);
 
-                return true;
-            } else if (itemId == R.id.menu_link) {
-                Log.breadcrumb("style", "action", "link");
+                    case group_style_align: {
+                        if (start == end) {
+                            Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
+                            if (block == null)
+                                return false;
+                            return setAlignment(itemId, etBody, block.first, block.second, false);
+                        } else
+                            return setAlignment(itemId, etBody, start, end, true);
+                    }
 
-                String url = (String) args[0];
-                String title = (String) args[1];
+                    case group_style_list: {
+                        boolean level = (itemId == R.id.menu_style_list_decrease || itemId == R.id.menu_style_list_increase);
+                        if (start == end) {
+                            Pair<Integer, Integer> p = StyleHelper.getParagraph(etBody, false);
+                            if (p == null)
+                                return false;
+                            if (level)
+                                return StyleHelper.setListLevel(itemId, etBody, p.first, p.second, false);
+                            else
+                                return StyleHelper.setList(itemId, etBody, p.first, p.second, false);
+                        } else {
+                            if (level)
+                                return setListLevel(itemId, etBody, start, end, true);
+                            else
+                                return setList(itemId, etBody, start, end, true);
+                        }
+                    }
 
-                URLSpan[] spans = edit.getSpans(start, end, URLSpan.class);
-                for (URLSpan span : spans)
-                    edit.removeSpan(span);
-
-                if (!TextUtils.isEmpty(url)) {
-                    if (TextUtils.isEmpty(title))
-                        title = url;
-
-                    if (start == end)
-                        edit.insert(start, title);
-                    else if (!title.equals(edit.subSequence(start, end).toString()))
-                        edit.replace(start, end, title);
-
-                    edit.setSpan(new URLSpan(url), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    case group_style_indentation: {
+                        if (start == end) {
+                            Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
+                            if (block == null)
+                                return false;
+                            return StyleHelper.setIndentation(itemId, etBody, block.first, block.second, false);
+                        } else
+                            return setIndentation(itemId, etBody, start, end, true);
+                    }
                 }
-
-                etBody.setText(edit);
-                etBody.setSelection(start + title.length());
-
-                return true;
-            } else if (itemId == R.id.menu_clear) {
-                Log.breadcrumb("style", "action", "clear/all");
-
-                for (Object span : edit.getSpans(0, etBody.length(), Object.class)) {
-                    if (!CLEAR_STYLES.contains(span.getClass()))
-                        continue;
-                    edit.removeSpan(span);
-                }
-
-                etBody.setText(edit);
-                etBody.setSelection(start, end);
-
-                return true;
             }
-            return false;
         } catch (Throwable ex) {
             Log.e(ex);
-            return false;
         }
+
+        return false;
+    }
+
+    static boolean setBoldItalic(int itemId, EditText etBody, int start, int end, boolean select) {
+        String name = (itemId == R.id.menu_bold ? "bold" : "italic");
+        Log.breadcrumb("style", "action", name);
+
+        boolean has = false;
+        Editable edit = etBody.getText();
+        int style = (itemId == R.id.menu_bold ? Typeface.BOLD : Typeface.ITALIC);
+        StyleSpan[] spans = edit.getSpans(start, end, StyleSpan.class);
+        for (StyleSpan span : spans)
+            if (span.getStyle() == style) {
+                int s = edit.getSpanStart(span);
+                int e = edit.getSpanEnd(span);
+                int f = edit.getSpanFlags(span);
+                edit.removeSpan(span);
+                if (splitSpan(edit, start, end, s, e, f, true,
+                        new StyleSpan(style), new StyleSpan(style)))
+                    has = true;
+            }
+
+        if (!has)
+            edit.setSpan(new StyleSpan(style), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        etBody.setText(edit);
+        etBody.setSelection(select ? start : end, end);
+
+        return true;
+    }
+
+    static boolean setUnderline(EditText etBody, int start, int end, boolean select) {
+        Log.breadcrumb("style", "action", "underline");
+
+        boolean has = false;
+        Editable edit = etBody.getText();
+        UnderlineSpan[] spans = edit.getSpans(start, end, UnderlineSpan.class);
+        for (UnderlineSpan span : spans) {
+            int s = edit.getSpanStart(span);
+            int e = edit.getSpanEnd(span);
+            int f = edit.getSpanFlags(span);
+            edit.removeSpan(span);
+            if (splitSpan(edit, start, end, s, e, f, true,
+                    new UnderlineSpan(), new UnderlineSpan()))
+                has = true;
+        }
+
+        if (!has)
+            edit.setSpan(new UnderlineSpan(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        etBody.setText(edit);
+        etBody.setSelection(select ? start : end, end);
+
+        return true;
+    }
+
+    static boolean selectSize(LifecycleOwner owner, View anchor, EditText etBody) {
+        Log.breadcrumb("style", "action", "selectSize");
+
+        Context context = anchor.getContext();
+        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
+
+        int[] titles = new int[]{
+                R.string.title_style_size_xsmall,
+                R.string.title_style_size_small,
+                R.string.title_style_size_medium,
+                R.string.title_style_size_large,
+                R.string.title_style_size_xlarge};
+
+        float[] sizes = new float[]{
+                HtmlHelper.FONT_XSMALL,
+                HtmlHelper.FONT_SMALL,
+                1.0f,
+                HtmlHelper.FONT_LARGE,
+                HtmlHelper.FONT_XLARGE};
+
+        for (int i = 0; i < titles.length; i++) {
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(context.getString(titles[i]));
+            ssb.setSpan(new RelativeSizeSpan(sizes[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            popupMenu.getMenu().add(group_style_size, i + 1, i, ssb);
+        }
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return StyleHelper.apply(group_style_size, item.getItemId(), owner, anchor, etBody);
+            }
+        });
+
+        popupMenu.show();
+
+        return true;
     }
 
     static boolean setSize(EditText etBody, int start, int end, Float size) {
@@ -672,6 +401,44 @@ public class StyleHelper {
         return true;
     }
 
+    static boolean selectBackground(EditText etBody, int start, int end) {
+        Log.breadcrumb("style", "action", "selectBackground");
+
+        Helper.hideKeyboard(etBody);
+
+        Context context = etBody.getContext();
+        int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
+
+        ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
+                .with(context)
+                .setTitle(R.string.title_background)
+                .showColorEdit(true)
+                .setColorEditTextColor(editTextColor)
+                .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                .density(6)
+                //.lightnessSliderOnly()
+                .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                        setBackground(etBody, start, end, selectedColor);
+                    }
+                })
+                .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        setBackground(etBody, start, end, null);
+                    }
+                });
+
+        BackgroundColorSpan[] spans = etBody.getText().getSpans(start, end, BackgroundColorSpan.class);
+        if (spans != null && spans.length == 1)
+            builder.initialColor(spans[0].getBackgroundColor());
+
+        builder.build().show();
+
+        return true;
+    }
+
     static void setBackground(EditText etBody, int start, int end, Integer color) {
         Log.breadcrumb("style", "action", "background");
 
@@ -692,6 +459,44 @@ public class StyleHelper {
 
         etBody.setText(edit);
         etBody.setSelection(start, end);
+    }
+
+    static boolean selectColor(EditText etBody, int start, int end) {
+        Log.breadcrumb("style", "action", "selectColor");
+
+        Helper.hideKeyboard(etBody);
+
+        Context context = etBody.getContext();
+        int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
+
+        ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
+                .with(context)
+                .setTitle(R.string.title_color)
+                .showColorEdit(true)
+                .setColorEditTextColor(editTextColor)
+                .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                .density(6)
+                //.lightnessSliderOnly()
+                .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                        setColor(etBody, start, end, selectedColor);
+                    }
+                })
+                .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        setColor(etBody, start, end, null);
+                    }
+                });
+
+        ForegroundColorSpan[] spans = etBody.getText().getSpans(start, end, ForegroundColorSpan.class);
+        if (spans != null && spans.length == 1)
+            builder.initialColor(spans[0].getForegroundColor());
+
+        builder.build().show();
+
+        return true;
     }
 
     static void setColor(EditText etBody, int start, int end, Integer color) {
@@ -716,6 +521,35 @@ public class StyleHelper {
         etBody.setSelection(start, end);
     }
 
+    static boolean selectFont(LifecycleOwner owner, View anchor, EditText etBody, int start, int end) {
+        Log.breadcrumb("style", "action", "selectFont");
+
+        Context context = anchor.getContext();
+        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
+
+        List<FontDescriptor> fonts = getFonts(context, false);
+        for (int i = 0; i < fonts.size(); i++) {
+            FontDescriptor font = fonts.get(i);
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(font.toString());
+            ssb.setSpan(getTypefaceSpan(font.type, context), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            popupMenu.getMenu().add(font.custom ? group_style_font_custom : group_style_font_standard, i, 0, ssb)
+                    .setIntent(new Intent().putExtra("face", font.type));
+        }
+        popupMenu.getMenu().add(group_style_font_standard, fonts.size(), 0, R.string.title_style_font_default)
+                .setIntent(new Intent());
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return setFont(etBody, start, end, item.getIntent().getStringExtra("face"));
+            }
+        });
+
+        popupMenu.show();
+
+        return true;
+    }
+
     static boolean setFont(EditText etBody, int start, int end, String face) {
         Log.breadcrumb("style", "action", "font");
 
@@ -738,6 +572,33 @@ public class StyleHelper {
 
         etBody.setText(edit);
         etBody.setSelection(start, end);
+
+        return true;
+    }
+
+    static boolean selectAlignment(LifecycleOwner owner, View anchor, EditText etBody, int start, int end) {
+        Log.breadcrumb("style", "action", "selectAlignment");
+
+        Context context = anchor.getContext();
+        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
+        popupMenu.inflate(R.menu.popup_style_alignment);
+
+        if (start == end) {
+            Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
+            if (block == null)
+                return false;
+        }
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return StyleHelper.apply(group_style_align, item.getItemId(), owner, anchor, etBody);
+            }
+        });
+
+        popupMenu.insertIcons(context);
+
+        popupMenu.show();
 
         return true;
     }
@@ -777,14 +638,54 @@ public class StyleHelper {
         return true;
     }
 
+    static boolean selectList(LifecycleOwner owner, View anchor, EditText etBody, int start, int end) {
+        Log.breadcrumb("style", "action", "selectList");
+
+        Context context = anchor.getContext();
+        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
+        popupMenu.inflate(R.menu.popup_style_list);
+
+        int s = start;
+        int e = end;
+        if (s == e) {
+            Pair<Integer, Integer> p = StyleHelper.getParagraph(etBody, false);
+            if (p == null)
+                return false;
+            s = p.first;
+            e = p.second;
+        }
+
+        Editable edit = etBody.getText();
+        Integer maxLevel = getMaxListLevel(edit, s, e);
+        IndentSpan[] indents = edit.getSpans(s, e, IndentSpan.class);
+
+        popupMenu.getMenu().findItem(R.id.menu_style_list_bullets).setEnabled(indents.length == 0);
+        popupMenu.getMenu().findItem(R.id.menu_style_list_numbered).setEnabled(indents.length == 0);
+        popupMenu.getMenu().findItem(R.id.menu_style_list_increase).setEnabled(indents.length == 0 && maxLevel != null);
+        popupMenu.getMenu().findItem(R.id.menu_style_list_decrease).setEnabled(indents.length == 0 && maxLevel != null && maxLevel > 0);
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return StyleHelper.apply(group_style_list, item.getItemId(), owner, anchor, etBody);
+            }
+        });
+
+        popupMenu.insertIcons(context);
+
+        popupMenu.show();
+
+        return true;
+    }
+
     static boolean setListLevel(int itemId, EditText etBody, int start, int end, boolean select) {
         Log.breadcrumb("style", "action", "level");
 
         Context context = etBody.getContext();
-        Editable edit = etBody.getText();
         int add = (itemId == R.id.menu_style_list_increase ? 1 : -1);
 
         boolean renum = false;
+        Editable edit = etBody.getText();
         BulletSpan[] spans = edit.getSpans(start, end, BulletSpan.class);
         for (BulletSpan span : spans)
             if (span instanceof BulletSpanEx) {
@@ -855,6 +756,44 @@ public class StyleHelper {
 
         etBody.setText(edit);
         etBody.setSelection(select ? s : e - 1, e - 1);
+
+        return true;
+    }
+
+    static boolean selectIndentation(LifecycleOwner owner, View anchor, EditText etBody, int start, int end) {
+        Log.breadcrumb("style", "action", "selectIndentation");
+
+        Context context = anchor.getContext();
+        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
+        popupMenu.inflate(R.menu.popup_style_indentation);
+
+        int s = start;
+        int e = end;
+        if (s == e) {
+            Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
+            if (block == null)
+                return false;
+            s = block.first;
+            e = block.second;
+        }
+
+        Editable edit = etBody.getText();
+        Integer maxLevel = getMaxListLevel(edit, s, e);
+        IndentSpan[] indents = edit.getSpans(s, e, IndentSpan.class);
+
+        popupMenu.getMenu().findItem(R.id.menu_style_indentation_increase).setEnabled(maxLevel == null);
+        popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return StyleHelper.apply(group_style_indentation, item.getItemId(), owner, anchor, etBody);
+            }
+        });
+
+        popupMenu.insertIcons(context);
+
+        popupMenu.show();
 
         return true;
     }
@@ -1067,6 +1006,36 @@ public class StyleHelper {
         return true;
     }
 
+    static boolean setLink(EditText etBody, int start, int end, Object... args) {
+        Log.breadcrumb("style", "action", "link");
+
+        String url = (String) args[0];
+        String title = (String) args[1];
+
+        Editable edit = etBody.getText();
+        URLSpan[] spans = edit.getSpans(start, end, URLSpan.class);
+        for (URLSpan span : spans)
+            edit.removeSpan(span);
+
+        if (!TextUtils.isEmpty(url)) {
+            if (TextUtils.isEmpty(title))
+                title = url;
+
+            if (start == end)
+                edit.insert(start, title);
+            else if (!title.equals(edit.subSequence(start, end).toString()))
+                edit.replace(start, end, title);
+
+            edit.setSpan(new URLSpan(url), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+
+        etBody.setText(edit);
+        etBody.setSelection(start + title.length());
+
+        return true;
+
+    }
+
     static boolean clear(EditText etBody, int start, int end) {
         Log.breadcrumb("style", "action", "clear");
 
@@ -1103,6 +1072,23 @@ public class StyleHelper {
         etBody.setSelection(start, e);
 
         return true;
+    }
+
+    static boolean clearAll(EditText etBody, int start, int end) {
+        Log.breadcrumb("style", "action", "clear/all");
+
+        Editable edit = etBody.getText();
+        for (Object span : edit.getSpans(0, etBody.length(), Object.class)) {
+            if (!CLEAR_STYLES.contains(span.getClass()))
+                continue;
+            edit.removeSpan(span);
+        }
+
+        etBody.setText(edit);
+        etBody.setSelection(start, end);
+
+        return true;
+
     }
 
     static boolean splitSpan(Editable edit, int start, int end, int s, int e, int f, boolean extend, Object span1, Object span2) {
