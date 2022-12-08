@@ -104,6 +104,8 @@ public class ActivitySignature extends ActivityBase {
             }
         });
 
+        etText.addTextChangedListener(StyleHelper.getTextWatcher(etText));
+
         etText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -124,6 +126,8 @@ public class ActivitySignature extends ActivityBase {
             }
         });
 
+        StyleHelper.wire(this, view, etText);
+
         ibFull.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,8 +142,6 @@ public class ActivitySignature extends ActivityBase {
                 dialog.show(getSupportFragmentManager(), "signature");
             }
         });
-
-        StyleHelper.wire(this, view, etText);
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

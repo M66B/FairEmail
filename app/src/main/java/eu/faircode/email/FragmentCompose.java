@@ -639,7 +639,8 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        // https://developer.android.com/reference/android/text/TextWatcher
+        etBody.addTextChangedListener(StyleHelper.getTextWatcher(etBody));
+
         etBody.addTextChangedListener(new TextWatcher() {
             private boolean save = false;
             private Integer added = null;
@@ -649,25 +650,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             public void beforeTextChanged(CharSequence text, int start, int count, int after) {
-                if (count == 1 && after == 0 && (start == 0 || text.charAt(start) == '\n')) {
-                    Log.i("Removed=" + start);
-                    removed = start;
-                }
-
-                if (BuildConfig.DEBUG && count - after == 1 && start + after > 0) {
-                    int replaced = start + after;
-                    Spanned spanned = ((Spanned) text);
-                    StyleHelper.InsertedSpan[] spans =
-                            spanned.getSpans(replaced, replaced, StyleHelper.InsertedSpan.class);
-                    for (StyleHelper.InsertedSpan span : spans) {
-                        int end = spanned.getSpanEnd(span);
-                        Log.i("Replaced=" + replaced);
-                        if (end - 1 == replaced) {
-                            inserted = end - 1;
-                            break;
-                        }
-                    }
-                }
+                // Do nothing
             }
 
             @Override
@@ -681,6 +664,7 @@ public class FragmentCompose extends FragmentBase {
                 if (count - before == 1 && index > 0) {
                     char c = text.charAt(index);
                     char b = text.charAt(index - 1);
+
                     save = (auto_save_paragraph && c == '\n' && b != '\n') ||
                             (auto_save_dot && Helper.isDot(c) && !Helper.isDot(b));
                     if (save)
@@ -698,119 +682,8 @@ public class FragmentCompose extends FragmentBase {
                 if (etBody == null)
                     return;
 
-                LogPrinter lp = null;
-                if (BuildConfig.DEBUG &&
-                        (added != null || removed != null))
-                    lp = new LogPrinter(android.util.Log.INFO, "FairEmail");
-
-                if (lp != null)
-                    TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "---before>");
-
                 if (added != null)
                     try {
-                        // break block quotes
-                        boolean broken = false;
-                        QuoteSpan[] spans = text.getSpans(added + 1, added + 1, QuoteSpan.class);
-                        for (QuoteSpan span : spans) {
-                            int s = text.getSpanStart(span);
-                            int e = text.getSpanEnd(span);
-                            int f = text.getSpanFlags(span);
-                            Log.i(span + " " + s + "..." + e + " added=" + added);
-
-                            if (s > 0 && added - s > 0 && e - (added + 1) > 0 &&
-                                    text.charAt(s - 1) == '\n' && text.charAt(added - 1) == '\n' &&
-                                    text.charAt(added) == '\n' && text.charAt(e - 1) == '\n') {
-                                broken = true;
-
-                                QuoteSpan q1 = StyleHelper.clone(span, QuoteSpan.class, etBody.getContext());
-                                text.setSpan(q1, s, added, f);
-                                Log.i(span + " " + s + "..." + added);
-
-                                QuoteSpan q2 = StyleHelper.clone(span, QuoteSpan.class, etBody.getContext());
-                                text.setSpan(q2, added + 1, e, f);
-                                Log.i(span + " " + (added + 1) + "..." + e);
-
-                                text.removeSpan(span);
-                            }
-                        }
-
-                        if (broken) {
-                            CharacterStyle[] sspan = text.getSpans(added + 1, added + 1, CharacterStyle.class);
-                            for (CharacterStyle span : sspan) {
-                                int s = text.getSpanStart(span);
-                                int e = text.getSpanEnd(span);
-                                int f = text.getSpanFlags(span);
-                                Log.i(span + " " + s + "..." + e + " start=" + added);
-
-                                if (s <= added && added + 1 <= e) {
-                                    CharacterStyle s1 = CharacterStyle.wrap(span);
-                                    text.setSpan(s1, s, added, f);
-                                    Log.i(span + " " + s + "..." + added);
-
-                                    CharacterStyle s2 = CharacterStyle.wrap(span);
-                                    text.setSpan(s2, added + 1, e, f);
-                                    Log.i(span + " " + (added + 1) + "..." + e);
-
-                                    text.removeSpan(span);
-                                }
-                            }
-
-                            etBody.setSelection(added);
-                        }
-
-                        // Escape indent at end
-                        IndentSpan[] indents = text.getSpans(added + 1, added + 1, IndentSpan.class);
-                        for (IndentSpan indent : indents) {
-                            int s = text.getSpanStart(indent);
-                            int e = text.getSpanEnd(indent);
-                            int f = text.getSpanFlags(indent);
-                            if (e - 1 > s && added + 1 == e) {
-                                text.removeSpan(indent);
-                                text.setSpan(new IndentSpan(indent.getLeadingMargin(true)), s, e - 1, f);
-                            }
-                        }
-
-                        boolean renum = false;
-                        BulletSpan[] bullets = text.getSpans(added + 1, added + 1, BulletSpan.class);
-
-                        int len = 0;
-                        BulletSpan shortest = null;
-                        for (BulletSpan span : bullets) {
-                            int s = text.getSpanStart(span);
-                            int e = text.getSpanEnd(span);
-                            if (shortest == null || e - s < len) {
-                                shortest = span;
-                                len = e - s;
-                            }
-                        }
-
-                        if (shortest != null) {
-                            int s = text.getSpanStart(shortest);
-                            int e = text.getSpanEnd(shortest);
-                            int f = text.getSpanFlags(shortest) | Spanned.SPAN_PARAGRAPH;
-                            Log.i(shortest + " " + s + "..." + e + " added=" + added);
-
-                            if (s > 0 &&
-                                    added + 1 > s && e > added + 1 &&
-                                    text.charAt(s - 1) == '\n' && text.charAt(e - 1) == '\n') {
-                                if (e - s > 2) {
-                                    BulletSpan b1 = StyleHelper.clone(shortest, shortest.getClass(), etBody.getContext());
-                                    text.setSpan(b1, s, added + 1, f);
-                                    Log.i(shortest + " " + s + "..." + (added + 1));
-
-                                    BulletSpan b2 = StyleHelper.clone(b1, shortest.getClass(), etBody.getContext());
-                                    text.setSpan(b2, added + 1, e, f);
-                                    Log.i(shortest + " " + (added + 1) + "..." + e);
-                                }
-
-                                renum = true;
-                                text.removeSpan(shortest);
-                            }
-                        }
-
-                        if (renum)
-                            StyleHelper.renumber(text, false, etBody.getContext());
-
                         if (lt_auto) {
                             int start = added;
                             while (start > 0 && text.charAt(start - 1) != '\n')
@@ -822,38 +695,6 @@ public class FragmentCompose extends FragmentBase {
                         Log.e(ex);
                     } finally {
                         added = null;
-                    }
-
-                if (removed != null)
-                    try {
-                        ParagraphStyle[] ps = text.getSpans(removed, removed + 1, ParagraphStyle.class);
-                        if (ps != null)
-                            for (ParagraphStyle p : ps) {
-                                int start = text.getSpanStart(p);
-                                int end = text.getSpanEnd(p);
-                                if (start >= removed && end <= removed + 1)
-                                    text.removeSpan(p);
-                            }
-
-                        StyleHelper.renumber(text, true, etBody.getContext());
-                    } finally {
-                        removed = null;
-                    }
-
-                if (inserted != null)
-                    try {
-                        StyleHelper.InsertedSpan[] spans =
-                                text.getSpans(inserted, inserted, StyleHelper.InsertedSpan.class);
-                        for (StyleHelper.InsertedSpan span : spans) {
-                            int start = text.getSpanStart(span);
-                            int end = text.getSpanEnd(span);
-                            if (end == inserted) {
-                                text.delete(start, end);
-                                text.removeSpan(span);
-                            }
-                        }
-                    } finally {
-                        inserted = null;
                     }
 
                 if (save)
@@ -873,10 +714,6 @@ public class FragmentCompose extends FragmentBase {
                     } finally {
                         lt = null;
                     }
-
-
-                if (lp != null)
-                    TextUtils.dumpSpans(text, lp, "---after>");
             }
         });
 

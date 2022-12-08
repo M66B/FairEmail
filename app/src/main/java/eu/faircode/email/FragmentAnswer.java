@@ -158,6 +158,8 @@ public class FragmentAnswer extends FragmentBase {
             }
         });
 
+        etText.addTextChangedListener(StyleHelper.getTextWatcher(etText));
+
         StyleHelper.wire(getViewLifecycleOwner(), view, etText);
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
