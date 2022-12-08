@@ -159,18 +159,14 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </eu.faircode.email.ScrollViewEx>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
+        <include
             android:id="@+id/style_bar"
+            layout="@layout/include_style_bar"
             android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:background="?attr/colorActionBackground"
-            app:itemIconTint="@color/action_foreground"
-            app:itemTextColor="@color/action_foreground"
-            app:labelVisibilityMode="unlabeled"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/action_answer_style" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"

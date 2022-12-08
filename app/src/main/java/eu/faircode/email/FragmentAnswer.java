@@ -44,6 +44,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.HorizontalScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -70,7 +71,7 @@ public class FragmentAnswer extends FragmentBase {
     private CheckBox cbExternal;
     private ViewButtonColor btnColor;
     private EditTextCompose etText;
-    private BottomNavigationView style_bar;
+    private HorizontalScrollView style_bar;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -157,12 +158,7 @@ public class FragmentAnswer extends FragmentBase {
             }
         });
 
-        style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                return onActionStyle(-1, item.getItemId());
-            }
-        });
+        StyleHelper.wire(getViewLifecycleOwner(), view, etText);
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -170,6 +166,9 @@ public class FragmentAnswer extends FragmentBase {
                 int itemId = menuItem.getItemId();
                 if (itemId == R.id.action_insert_image) {
                     onInsertImage();
+                    return true;
+                } else if (itemId == R.id.action_insert_link) {
+                    onInsertLink();
                     return true;
                 } else if (itemId == R.id.action_delete) {
                     onActionDelete();
@@ -371,6 +370,13 @@ public class FragmentAnswer extends FragmentBase {
         intent.setType("image/*");
         Helper.openAdvanced(intent);
         startActivityForResult(intent, REQUEST_IMAGE);
+    }
+
+    private void onInsertLink() {
+        FragmentDialogInsertLink fragment = new FragmentDialogInsertLink();
+        fragment.setArguments(FragmentDialogInsertLink.getArguments(etText));
+        fragment.setTargetFragment(this, REQUEST_LINK);
+        fragment.show(getParentFragmentManager(), "answer:link");
     }
 
     private void onActionDelete() {
@@ -588,19 +594,5 @@ public class FragmentAnswer extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "answer:delete");
-    }
-
-    private boolean onActionStyle(int groupId, int itemId) {
-        Log.i("Style action=" + itemId);
-
-        if (itemId == R.id.menu_link) {
-            FragmentDialogInsertLink fragment = new FragmentDialogInsertLink();
-            fragment.setArguments(FragmentDialogInsertLink.getArguments(etText));
-            fragment.setTargetFragment(this, REQUEST_LINK);
-            fragment.show(getParentFragmentManager(), "answer:link");
-
-            return true;
-        } else
-            return StyleHelper.apply(groupId, itemId, getViewLifecycleOwner(), view.findViewById(itemId), etText);
     }
 }
