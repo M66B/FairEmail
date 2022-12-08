@@ -215,9 +215,9 @@ public class StyleHelper {
                 } else if (itemId == R.id.menu_link)
                     return setLink(etBody, start, end, args);
                 else if (itemId == R.id.menu_style_clear)
-                    return clear(etBody, start, end);
+                    return clear(etBody, start, end, false);
                 else if (itemId == R.id.menu_clear)
-                    return clearAll(etBody, start, end);
+                    return clearAll(etBody, start, end, false);
             } else {
                 switch (groupId) {
                     case group_style_size: {
@@ -1036,7 +1036,7 @@ public class StyleHelper {
 
     }
 
-    static boolean clear(EditText etBody, int start, int end) {
+    static boolean clear(EditText etBody, int start, int end, boolean select) {
         Log.breadcrumb("style", "action", "clear");
 
         int e = end;
@@ -1069,12 +1069,12 @@ public class StyleHelper {
         }
 
         etBody.setText(edit);
-        etBody.setSelection(start, e);
+        etBody.setSelection(select ? start : e - 1, e - 1);
 
         return true;
     }
 
-    static boolean clearAll(EditText etBody, int start, int end) {
+    static boolean clearAll(EditText etBody, int start, int end, boolean select) {
         Log.breadcrumb("style", "action", "clear/all");
 
         Editable edit = etBody.getText();
@@ -1085,7 +1085,7 @@ public class StyleHelper {
         }
 
         etBody.setText(edit);
-        etBody.setSelection(start, end);
+        etBody.setSelection(select ? start : end, end);
 
         return true;
 
