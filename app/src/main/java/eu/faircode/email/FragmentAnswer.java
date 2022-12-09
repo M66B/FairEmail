@@ -45,6 +45,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -180,6 +181,17 @@ public class FragmentAnswer extends FragmentBase {
                     return true;
                 }
                 return false;
+            }
+        });
+
+        bottom_navigation.findViewById(R.id.action_save).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (LanguageTool.isEnabled(context)) {
+                    onLanguageTool();
+                    return true;
+                } else
+                    return false;
             }
         });
 
@@ -596,5 +608,56 @@ public class FragmentAnswer extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "answer:delete");
+    }
+
+    private void onLanguageTool() {
+        etText.clearComposingText();
+
+        Bundle args = new Bundle();
+        args.putCharSequence("text", etText.getText());
+
+        new SimpleTask<List<LanguageTool.Suggestion>>() {
+            private Toast toast = null;
+
+            @Override
+            protected void onPreExecute(Bundle args) {
+                toast = ToastEx.makeText(getContext(), R.string.title_suggestions_check, Toast.LENGTH_LONG);
+                toast.show();
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                if (toast != null)
+                    toast.cancel();
+            }
+
+            @Override
+            protected List<LanguageTool.Suggestion> onExecute(Context context, Bundle args) throws Throwable {
+                CharSequence text = args.getCharSequence("text").toString();
+                return LanguageTool.getSuggestions(context, text);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<LanguageTool.Suggestion> suggestions) {
+                LanguageTool.applySuggestions(etText, 0, etText.length(), suggestions);
+
+                if (suggestions == null || suggestions.size() == 0)
+                    ToastEx.makeText(getContext(), R.string.title_suggestions_none, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onDestroyed(Bundle args) {
+                if (toast != null) {
+                    toast.cancel();
+                    toast = null;
+                }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Throwable exex = new Throwable("LanguageTool", ex);
+                Log.unexpectedError(getParentFragmentManager(), exex, false);
+            }
+        }.execute(this, args, "answer:lt");
     }
 }
