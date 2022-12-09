@@ -6,7 +6,7 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### Next version
+### 1.2013 - 2022-12-09
 
 * Added scrolling/fixed style toolbar
 * Added folder create button to folder selection dialog
