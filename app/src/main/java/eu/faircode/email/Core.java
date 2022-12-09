@@ -2969,17 +2969,28 @@ class Core {
 
     private static void onPurgeFolder(Context context, EntityFolder folder) {
         // POP3
-        DB db = DB.getInstance(context);
-        try {
-            db.beginTransaction();
+        int count = 0;
+        int purged = 0;
+        do {
+            if (count > 0) {
+                try {
+                    Thread.sleep(YIELD_DURATION);
+                } catch (InterruptedException ignored) {
+                }
+            }
 
-            int purged = db.message().deleteHiddenMessages(folder.id);
-            Log.i(folder.name + " purge count=" + purged);
+            DB db = DB.getInstance(context);
+            try {
+                db.beginTransaction();
+                count = db.message().deleteHiddenMessages(folder.id, 100);
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
 
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-        }
+            purged += count;
+            Log.i(folder.name + " purge count=" + count + "/" + purged);
+        } while (count > 0);
     }
 
     private static void onRule(Context context, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException {

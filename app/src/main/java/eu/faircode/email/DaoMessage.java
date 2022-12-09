@@ -947,10 +947,12 @@ public interface DaoMessage {
             " AND NOT uid IS NULL")
     int deleteBrowsedMessages(long folder, long before);
 
-    @Query("DELETE FROM message" +
+    @Query("DELETE FROM message WHERE id IN (" +
+            " SELECT id FROM message" +
             " WHERE folder = :folder" +
-            " AND ui_hide")
-    int deleteHiddenMessages(long folder);
+            " AND ui_hide" +
+            " LIMIT :limit)")
+    int deleteHiddenMessages(long folder, int limit);
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
