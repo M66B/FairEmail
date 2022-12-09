@@ -120,7 +120,8 @@ public class EmailProvider implements Parcelable {
             "ctemplar.com",
             "cyberfear.com",
             "skiff.com",
-            "tildamail.com"
+            "tildamail.com",
+            "criptext.com"
     ));
 
     private EmailProvider() {

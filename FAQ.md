@@ -3877,6 +3877,10 @@ so you cannot use FairEmail or any other email client to access Skiff.
 **Tildamail** uses a proprietary email protocol and does not support IMAP,
 so you cannot use FairEmail or any other email client to access Tildamail.
 
+**Criptext** uses a proprietary email protocol
+and [does not directly support IMAP](https://www.reddit.com/r/privacy/comments/chs82k/comment/ewrxxcn/),
+so you cannot use FairEmail or any other Android email client to access Criptext.
+
 <br />
 
 <a name="faq130"></a>
