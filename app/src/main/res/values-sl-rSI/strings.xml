@@ -798,6 +798,7 @@
     <string name="title_advanced_cleanup_hint">To bo izbrisalo vse začasne datoteke.</string>
     <string name="title_advanced_never_favorite">Nikoli ne dodaj med priljub.</string>
     <string name="title_advanced_edit_name">Uredi ime</string>
+    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Ime mape</string>
     <string name="title_advanced_swipe_actions">Nastavi dejanja vlečenja</string>
     <string name="title_advanced_swipe_actions_hint">To bo nastavilo dejanje vlečenja v levo in desno za vse račune IMAP.</string>
     <string name="title_advanced_swipe_sensitivity">Občutljivost levega/desnega potega</string>
@@ -1094,7 +1095,7 @@
     <string name="title_auto_confirm">Samodejno potrdi po nekaj sekundah</string>
     <string name="title_buttons">Izberite gumbe</string>
     <string name="title_buttons_hint">Dejanska razpoložljivost gumbov je odvisna od vrste računa in nastavitev.</string>
-    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Išči podobna sporočila</string>
+    <string name="title_button_search_similar">Išči podobna sporočila</string>
     <string name="title_button_search_text">Išči v besedilu sporočil</string>
     <string name="title_configure_buttons">Nastavi gumbe &#8230;</string>
     <string name="title_quick_actions">Izberite dejanja</string>
@@ -1286,7 +1287,6 @@
     <string name="title_save_drafts">Shrani osnutke na strežnik</string>
     <string name="title_send_dialog">Prikaži možnosti pošiljanja</string>
     <string name="title_image_dialog">Prikaži možnosti za slike</string>
-    <string name="title_block_toolbar">Or. vrstica za blok bes.</string>
     <string name="title_media_toolbar">Orodna vrstica predst.</string>
     <string name="title_manage_local_contacts">Upravljaj s krajevnimi stiki</string>
     <string name="title_insert_contact_group">Vstavi skupno stikov</string>

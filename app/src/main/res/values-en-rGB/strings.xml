@@ -7,6 +7,7 @@
     <string name="title_list_accounts">Accounts</string>
     <string name="title_list_identities">Identities</string>
     <string name="title_setup_quick">Quick setup</string>
+    <string name="title_setup_analytics">FairEmail does not display ads and does not track or analyze your behaviour. Bugsnag is used for error reporting and is disabled by default.</string>
     <string name="title_setup_oauth_authorize">Authorise</string>
     <string name="title_setup_doze">Disable battery optimisations</string>
     <string name="title_setup_doze_explanation">Battery optimisations should be disabled for the app to ensure reliable sending and receiving of messages in the background</string>
@@ -17,10 +18,12 @@
     </string>
     <string name="title_advanced_section_synchronize">Receive</string>
     <string name="title_advanced_section_send">Send</string>
+    <string name="title_advanced_section_behavior">Behaviour</string>
     <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_optimize">Automatically optimise</string>
     <string name="title_advanced_advanced">Advanced</string>
     <string name="title_advanced_sync_folders">Synchronise folder list</string>
+    <string name="title_advanced_sync_folders_poll">Actively synchronise folder list</string>
     <string name="title_advanced_sync_shared_folders">Synchronise shared folder lists</string>
     <string name="title_advanced_check_reply_domain">Check reply address on synchronising messages</string>
     <string name="title_advanced_check_mx">Check sender email addresses on synchronising messages</string>
@@ -34,9 +37,12 @@
     <string name="title_advanced_navbar_colorize">Colourise the Android navigation bar</string>
     <string name="title_advanced_sync_on_launch">Synchronise on start</string>
     <string name="title_advanced_notify_action_trash">Delete</string>
+    <string name="title_advanced_notifications_background">Use background service to synchronise messages</string>
     <string name="title_advanced_tracking">Attempt to recognise and disable tracking images</string>
     <string name="title_advanced_disconnect_images">Use lists to recognise tracking images</string>
+    <string name="title_advanced_optimize_hint">This might change the sync frequency to save battery usage depending on the capabilities and behaviour of the email servers</string>
     <string name="title_advanced_unseen_hint">Some providers don\'t support this properly, which may cause synchronising none or all messages</string>
+    <string name="title_advanced_poll_folders_hint">Periodically synchronise the folder list in addition to after connecting to an account</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronising messages</string>
     <string name="title_advanced_validate_hint">This can result in not synchronising messages, for example when using a VPN, but also in other situations</string>
     <string name="title_advanced_highlight_hint">The accent colour of the theme will be used for highlighting</string>
@@ -47,6 +53,7 @@
     <string name="title_account_ondemand">Synchronise manually</string>
     <string name="title_account_gmail">For reliable synchronisation of a Gmail account, the Gmail quick setup wizard should be used whenever possible</string>
     <string name="title_encryption">Encryption</string>
+    <string name="title_ignore_schedule">Synchronise outside the schedule too</string>
     <string name="title_no_inbox">Inbox not found</string>
     <string name="title_no_sync">Synchronisation errors since %1$s</string>
     <string name="title_synchronize_now">Synchronise now</string>
@@ -115,6 +122,7 @@
     <string name="title_legend_r">Reply</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronised by default</string>
     <string name="title_hint_message_actions">Swipe left to delete; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
+    <string name="title_hint_sync_note">By default, not all messages will be downloaded to limit storage space and battery and data usage. You can change this by long pressing a folder in the folder list and selecting \'Synchronise more\'.</string>
     <string name="title_enable">Enable</string>
     <string name="title_disable">Disable</string>
     <string name="title_snooze_now">Snooze</string>

@@ -237,6 +237,7 @@
     <string name="title_advanced_cleanup">تنظيف</string>
     <string name="title_advanced_debug">وضع التصحيح</string>
     <string name="title_advanced_browse_hint">جلب المزيد من الرسائل عند التمرير إلى أسفل</string>
+    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">إسم المجلد</string>
     <string name="title_identity_name">إسمك</string>
     <string name="title_identity_email">البريد الإلكتروني</string>
     <string name="title_advanced_sender">السماح بتغيير عنوان المُرسِل</string>

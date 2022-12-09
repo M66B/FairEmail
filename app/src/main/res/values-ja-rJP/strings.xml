@@ -761,6 +761,7 @@
     <string name="title_advanced_cleanup_hint">すべての一時ファイルが削除されます</string>
     <string name="title_advanced_never_favorite">お気に入りに追加しない</string>
     <string name="title_advanced_edit_name">名前を編集</string>
+    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">フォルダー名</string>
     <string name="title_advanced_swipe_actions">スワイプ操作を設定</string>
     <string name="title_advanced_swipe_actions_hint">すべての IMAP アカウントの左右のスワイプ操作を設定します</string>
     <string name="title_advanced_swipe_sensitivity">左/右スワイプ感度</string>
@@ -1058,7 +1059,7 @@
     <string name="title_auto_confirm">数秒後に自動で確認</string>
     <string name="title_buttons">ボタンを選択</string>
     <string name="title_buttons_hint">実際に利用可能なアクションは、アカウントの種類と構成によって異なります</string>
-    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">類似するメッセージを検索</string>
+    <string name="title_button_search_similar">類似するメッセージを検索</string>
     <string name="title_button_search_text">本文を検索</string>
     <string name="title_configure_buttons">ボタンを設定&#8230;</string>
     <string name="title_quick_actions">アクションを選択</string>
@@ -1251,7 +1252,6 @@
     <string name="title_save_drafts">下書きをサーバーに保存</string>
     <string name="title_send_dialog">送信オプションを表示</string>
     <string name="title_image_dialog">画像オプションを表示</string>
-    <string name="title_block_toolbar">ブロックツールバー</string>
     <string name="title_media_toolbar">メディアツールバー</string>
     <string name="title_manage_local_contacts">ローカルの連絡先を管理</string>
     <string name="title_insert_contact_group">連絡先グループを挿入</string>

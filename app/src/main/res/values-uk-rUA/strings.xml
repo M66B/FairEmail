@@ -799,6 +799,9 @@
     <string name="title_advanced_cleanup_hint">Це призведе до видалення всіх тимчасових файлів</string>
     <string name="title_advanced_never_favorite">Ніколи не додавати до улюбленого</string>
     <string name="title_advanced_edit_name">Змінити ім\'я</string>
+    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Створити теку</string>
+    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Ім\'я теки</string>
+    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Батьківська тека</string>
     <string name="title_advanced_swipe_actions">Установити дії на свайп</string>
     <string name="title_advanced_swipe_actions_hint">Це дозволить встановити свайп вліво та вправо для всіх облікових записів IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Чутливість для свайпу вліво або вправо</string>
@@ -1096,7 +1099,7 @@
     <string name="title_auto_confirm">Автоматично підтверджувати через декілька секунд</string>
     <string name="title_buttons">Виберіть кнопки</string>
     <string name="title_buttons_hint">Доступні поточні дії залежать від типу облікового запису і конфігурації</string>
-    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Пошук схожих повідомлень</string>
+    <string name="title_button_search_similar">Пошук схожих повідомлень</string>
     <string name="title_button_search_text">Пошук у тексті повідомлення</string>
     <string name="title_configure_buttons">Налаштувати кнопки &#8230;</string>
     <string name="title_quick_actions">Вибрати дії</string>
@@ -1287,7 +1290,7 @@
     <string name="title_save_drafts">Зберегти чернетки на сервері</string>
     <string name="title_send_dialog">Показати параметри надсилання</string>
     <string name="title_image_dialog">Показати параметри зображення</string>
-    <string name="title_block_toolbar">Блок панелі інструментів</string>
+    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Панель інструментів стилю</string>
     <string name="title_media_toolbar">Панель інструментів мультимедіа</string>
     <string name="title_manage_local_contacts">Керування локальними контактами</string>
     <string name="title_insert_contact_group">Вставити групу контактів</string>

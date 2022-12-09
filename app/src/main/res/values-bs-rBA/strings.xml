@@ -787,6 +787,9 @@
     <string name="title_advanced_cleanup_hint">Ovo će izbrisati sve privremene datoteke</string>
     <string name="title_advanced_never_favorite">Nikada omiljeni</string>
     <string name="title_advanced_edit_name">Uredi ime</string>
+    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Kreiraj folder</string>
+    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Naziv foldera</string>
+    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Matičani folder</string>
     <string name="title_advanced_swipe_actions">Podesi radnje prevlačenja</string>
     <string name="title_advanced_swipe_actions_hint">Ovo će postaviti radnje prevlačenja lijevo i desno za sve IMAP račune</string>
     <string name="title_advanced_swipe_sensitivity">Osjetljivost prevlačenja lijevo/desno</string>
@@ -1084,7 +1087,7 @@
     <string name="title_auto_confirm">Automatski potvrdi nakon par sekundi</string>
     <string name="title_buttons">Izaberi dugmad</string>
     <string name="title_buttons_hint">Aktualne radnje su dostupne u zavisnosti od vrste i podešavanja računa</string>
-    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Traži slične poruke</string>
+    <string name="title_button_search_similar">Traži slične poruke</string>
     <string name="title_button_search_text">Pretraži u tekstu poruka</string>
     <string name="title_configure_buttons">Podesi dugmad &#8230;</string>
     <string name="title_quick_actions">Izaberite radnje</string>
@@ -1277,7 +1280,7 @@
     <string name="title_save_drafts">Sačuvaj nacrte na serveru</string>
     <string name="title_send_dialog">Prikaži opcije za slanje</string>
     <string name="title_image_dialog">Prikaži opcije za slike</string>
-    <string name="title_block_toolbar">Alatna traka za tekst</string>
+    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Alatna traka stilova</string>
     <string name="title_media_toolbar">Medijska alatna traka</string>
     <string name="title_manage_local_contacts">Upravljaj lokalnim kontaktima</string>
     <string name="title_insert_contact_group">Ubaci grupu kontakata</string>

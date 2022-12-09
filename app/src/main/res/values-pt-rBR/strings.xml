@@ -773,6 +773,9 @@
     <string name="title_advanced_cleanup_hint">Isto irá excluir todos os arquivos temporários</string>
     <string name="title_advanced_never_favorite">Nunca favoritar</string>
     <string name="title_advanced_edit_name">Editar Nome</string>
+    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Criar pasta</string>
+    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Nome da pasta</string>
+    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Pasta superior</string>
     <string name="title_advanced_swipe_actions">Definir ações de deslize</string>
     <string name="title_advanced_swipe_actions_hint">Isto irá definir a ação de deslize para a esquerda e direita para todas as contas IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Sensibilidade do deslize esquerdo/direita</string>
@@ -1069,7 +1072,7 @@
     <string name="title_auto_confirm">Confirmar automaticamente após alguns segundos</string>
     <string name="title_buttons">Selecionar botões</string>
     <string name="title_buttons_hint">As ações disponíveis dependem do tipo de conta e configuração</string>
-    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Pesquisar mensagens semelhantes</string>
+    <string name="title_button_search_similar">Pesquisar mensagens semelhantes</string>
     <string name="title_button_search_text">Pesquisar no texto da mensagem</string>
     <string name="title_configure_buttons">Configurar botões &#8230;</string>
     <string name="title_quick_actions">Selecionar ações</string>
@@ -1261,7 +1264,7 @@
     <string name="title_save_drafts">Salvar rascunhos no servidor</string>
     <string name="title_send_dialog">Mostrar opções de envio</string>
     <string name="title_image_dialog">Mostrar opções de imagem</string>
-    <string name="title_block_toolbar">Bloquear barra de ferramentas</string>
+    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Barra de estilo</string>
     <string name="title_media_toolbar">Barra de mídia</string>
     <string name="title_manage_local_contacts">Gerenciar contatos locais</string>
     <string name="title_insert_contact_group">Inserir grupo de contato</string>

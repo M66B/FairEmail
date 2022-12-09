@@ -773,6 +773,7 @@
     <string name="title_advanced_cleanup_hint">Esto eliminará todos los archivos temporales</string>
     <string name="title_advanced_never_favorite">Nunca favorito</string>
     <string name="title_advanced_edit_name">Editar nombre</string>
+    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Nombre de carpeta</string>
     <string name="title_advanced_swipe_actions">Establecer acciones de deslizamiento</string>
     <string name="title_advanced_swipe_actions_hint">Esto establecerá las acciones al deslizar a izquierda o derecha para todas las cuentas IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Sensibilidad del deslizado a izquierda/derecha</string>
@@ -1069,7 +1070,7 @@
     <string name="title_auto_confirm">Confirmar automáticamente después de unos segundos</string>
     <string name="title_buttons">Seleccionar botones</string>
     <string name="title_buttons_hint">Las acciones disponibles dependen del tipo de cuenta y configuración</string>
-    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Buscar mensajes similares</string>
+    <string name="title_button_search_similar">Buscar mensajes similares</string>
     <string name="title_button_search_text">Buscar en el texto del mensaje</string>
     <string name="title_configure_buttons">Configurar botones &#8230;</string>
     <string name="title_quick_actions">Seleccionar acciones</string>
@@ -1260,7 +1261,7 @@
     <string name="title_save_drafts">Guardar borradores en el servidor</string>
     <string name="title_send_dialog">Mostrar opciones de envío</string>
     <string name="title_image_dialog">Mostrar opciones de imagen</string>
-    <string name="title_block_toolbar">Barra de herramientas de bloque</string>
+    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Barra de herramientas de estilo</string>
     <string name="title_media_toolbar">Barra de herramientas multimedia</string>
     <string name="title_manage_local_contacts">Administrar contactos locales</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>

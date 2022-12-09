@@ -735,6 +735,7 @@
     <string name="title_advanced_cleanup_hint">Ovo će izbrisati sve privremene datoteke</string>
     <string name="title_advanced_never_favorite">Nikada favorit</string>
     <string name="title_advanced_edit_name">Uredi ime</string>
+    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Naziv mape</string>
     <string name="title_advanced_swipe_actions">Postavi radnje povlačenja</string>
     <string name="title_advanced_swipe_actions_hint">Ovo će postaviti radnju povlačenja lijevo i desno za sve IMAP račune</string>
     <string name="title_advanced_swipe_sensitivity">Osjetljivost povlačenja lijevo/desno</string>
@@ -1019,7 +1020,7 @@
     <string name="title_auto_confirm">Automatski potvrdi nakon par sekundi</string>
     <string name="title_buttons">Odaberi dugmad</string>
     <string name="title_buttons_hint">Dostupne stvarne radnje ovise o vrsti računa i konfiguraciji</string>
-    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Pretraži slične poruke</string>
+    <string name="title_button_search_similar">Pretraži slične poruke</string>
     <string name="title_button_search_text">Pretraži u tekstu poruke</string>
     <string name="title_configure_buttons">Konfiguriraj dugmad &#8230;</string>
     <string name="title_quick_actions">Odaberi radnje</string>

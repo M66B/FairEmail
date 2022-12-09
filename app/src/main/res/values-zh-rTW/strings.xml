@@ -728,6 +728,7 @@
     <string name="title_advanced_cleanup_hint">這將刪除所有臨時檔案</string>
     <string name="title_advanced_never_favorite">永不加入最愛</string>
     <string name="title_advanced_edit_name">編輯名字</string>
+    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">資料夾名稱</string>
     <string name="title_advanced_swipe_actions">設定滑動動作</string>
     <string name="title_advanced_swipe_actions_hint">這將針對所有 IMAP 帳戶設定左右滑動動作</string>
     <string name="title_advanced_swipe_sensitivity">左/右滑動靈敏度</string>
@@ -1008,7 +1009,7 @@
     <string name="title_auto_confirm">%1秒後自動拒絕</string>
     <string name="title_buttons">選擇欲新增的按鈕</string>
     <string name="title_buttons_hint">實際可用動作取決於帳戶類型和配置</string>
-    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">搜尋相似訊息</string>
+    <string name="title_button_search_similar">搜尋相似訊息</string>
     <string name="title_button_search_text">在訊息本文中搜尋</string>
     <string name="title_configure_buttons">配置按鈕 &#8230;</string>
     <string name="title_quick_actions">選擇操作</string>

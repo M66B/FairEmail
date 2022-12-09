@@ -767,6 +767,7 @@
     <string name="title_advanced_cleanup_hint">Tämä poistaa kaikki väliaikaiset tiedostot</string>
     <string name="title_advanced_never_favorite">Ei koskaan suosikiksi</string>
     <string name="title_advanced_edit_name">Muokkaa nimeä</string>
+    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Kansion nimi</string>
     <string name="title_advanced_swipe_actions">Aseta pyyhkäisytoiminnot</string>
     <string name="title_advanced_swipe_actions_hint">Tämä asettaa vasemmalle ja oikealle pyyhkäisyn toiminnot kaikille IMAP-tileille</string>
     <string name="title_advanced_swipe_sensitivity">Vasemmalle/oikealle pyyhkäisyn herkkyys</string>
@@ -1060,7 +1061,7 @@
     <string name="title_auto_confirm">Vahvista automaattisesti muutaman sekunnin kuluttua</string>
     <string name="title_buttons">Valitse painikkeita</string>
     <string name="title_buttons_hint">Käytettävissä olevat toiminnot riippuvat tilin tyypistä ja asetuksista</string>
-    <string name="title_button_search_similar" comment="title_button_search_similar&#10;Title for option to search for similar emails">Hae samankaltaisista viesteistä</string>
+    <string name="title_button_search_similar">Hae samankaltaisista viesteistä</string>
     <string name="title_button_search_text">Etsi viestin tekstistä</string>
     <string name="title_configure_buttons">Määritä painikkeet &#8230;</string>
     <string name="title_quick_actions">Valitse toiminnot</string>
@@ -1251,7 +1252,7 @@
     <string name="title_save_drafts">Tallenna luonnokset palvelimelle</string>
     <string name="title_send_dialog">Näytä lähetysasetukset</string>
     <string name="title_image_dialog">Näytä kuva-asetukset</string>
-    <string name="title_block_toolbar">Lohkotyökalupalkki</string>
+    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Tyylityökalurivi</string>
     <string name="title_media_toolbar">Mediatyökalupalkki</string>
     <string name="title_manage_local_contacts">Hallinnoi paikallisia yhteystietoja</string>
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>
