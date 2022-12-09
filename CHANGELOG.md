@@ -4,6 +4,15 @@
 
 ### [Ostromia](https://en.wikipedia.org/wiki/Ostromia)
 
+For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
+
+### Next version
+
+* Added scrolling/fixed style toolbar
+* Added folder create button to folder selection dialog
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2012 - 2022-12-01
 
 * Small improvements and minor bug fixes

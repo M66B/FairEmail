@@ -4,6 +4,15 @@ Changelog
 
 Ostromia
 
+For support you can use the contact form.
+
+Next version
+
+* Added scrolling/fixed style toolbar
+* Added folder create button to folder selection dialog
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2012 - 2022-12-01
 
 * Small improvements and minor bug fixes
