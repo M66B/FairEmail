@@ -402,7 +402,7 @@ public class StyleHelper {
                             return false;
                         return StyleHelper.setBlockQuote(etBody, block.first, block.second, false);
                     } else
-                        return setBlockQuote(etBody, start, end, true);
+                        return setBlockQuote(etBody, start, end, false);
                 } else if (itemId == R.id.menu_style_mark)
                     return setMark(etBody, start, end, false);
                 else if (itemId == R.id.menu_style_subscript)
@@ -415,8 +415,8 @@ public class StyleHelper {
                     return setPassword(owner, etBody, start, end);
                 else if (itemId == R.id.menu_style_code) {
                     Log.breadcrumb("style", "action", "code");
-                    setSize(etBody, start, end, HtmlHelper.FONT_SMALL);
-                    setFont(etBody, start, end, "monospace");
+                    setSize(etBody, start, end, HtmlHelper.FONT_SMALL, false);
+                    setFont(etBody, start, end, "monospace", false);
                     return true;
                 } else if (itemId == R.id.menu_link)
                     return setLink(etBody, start, end, args);
@@ -439,12 +439,12 @@ public class StyleHelper {
                         else
                             size = null;
 
-                        return setSize(etBody, start, end, size);
+                        return setSize(etBody, start, end, size, false);
                     }
 
                     case group_style_font_standard:
                     case group_style_font_custom:
-                        return setFont(etBody, start, end, (String) args[0]);
+                        return setFont(etBody, start, end, (String) args[0], false);
 
                     case group_style_align: {
                         if (start == end) {
@@ -453,7 +453,7 @@ public class StyleHelper {
                                 return false;
                             return setAlignment(itemId, etBody, block.first, block.second, false);
                         } else
-                            return setAlignment(itemId, etBody, start, end, true);
+                            return setAlignment(itemId, etBody, start, end, false);
                     }
 
                     case group_style_list: {
@@ -468,9 +468,9 @@ public class StyleHelper {
                                 return StyleHelper.setList(itemId, etBody, p.first, p.second, false);
                         } else {
                             if (level)
-                                return setListLevel(itemId, etBody, start, end, true);
+                                return setListLevel(itemId, etBody, start, end, false);
                             else
-                                return setList(itemId, etBody, start, end, true);
+                                return setList(itemId, etBody, start, end, false);
                         }
                     }
 
@@ -481,7 +481,7 @@ public class StyleHelper {
                                 return false;
                             return StyleHelper.setIndentation(itemId, etBody, block.first, block.second, false);
                         } else
-                            return setIndentation(itemId, etBody, start, end, true);
+                            return setIndentation(itemId, etBody, start, end, false);
                     }
                 }
             }
@@ -530,6 +530,8 @@ public class StyleHelper {
             int s = edit.getSpanStart(span);
             int e = edit.getSpanEnd(span);
             int f = edit.getSpanFlags(span);
+            if ((f & Spanned.SPAN_COMPOSING) != 0)
+                continue;
             edit.removeSpan(span);
             if (splitSpan(edit, start, end, s, e, f, true,
                     new UnderlineSpan(), new UnderlineSpan()))
@@ -583,7 +585,7 @@ public class StyleHelper {
         return true;
     }
 
-    static boolean setSize(EditText etBody, int start, int end, Float size) {
+    static boolean setSize(EditText etBody, int start, int end, Float size, boolean select) {
         Log.breadcrumb("style", "action", "size");
 
         Editable edit = etBody.getText();
@@ -602,7 +604,7 @@ public class StyleHelper {
             edit.setSpan(new RelativeSizeSpan(size), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         etBody.setText(edit);
-        etBody.setSelection(start, end);
+        etBody.setSelection(select ? start : end, end);
 
         return true;
     }
@@ -626,13 +628,13 @@ public class StyleHelper {
                 .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                        setBackground(etBody, start, end, selectedColor);
+                        setBackground(etBody, start, end, selectedColor, false);
                     }
                 })
                 .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        setBackground(etBody, start, end, null);
+                        setBackground(etBody, start, end, null, false);
                     }
                 });
 
@@ -645,7 +647,7 @@ public class StyleHelper {
         return true;
     }
 
-    static void setBackground(EditText etBody, int start, int end, Integer color) {
+    static void setBackground(EditText etBody, int start, int end, Integer color, boolean select) {
         Log.breadcrumb("style", "action", "background");
 
         Editable edit = etBody.getText();
@@ -664,7 +666,7 @@ public class StyleHelper {
             edit.setSpan(new BackgroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         etBody.setText(edit);
-        etBody.setSelection(start, end);
+        etBody.setSelection(select ? start : end, end);
     }
 
     static boolean selectColor(EditText etBody, int start, int end) {
@@ -686,13 +688,13 @@ public class StyleHelper {
                 .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                        setColor(etBody, start, end, selectedColor);
+                        setColor(etBody, start, end, selectedColor, false);
                     }
                 })
                 .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        setColor(etBody, start, end, null);
+                        setColor(etBody, start, end, null, false);
                     }
                 });
 
@@ -705,7 +707,7 @@ public class StyleHelper {
         return true;
     }
 
-    static void setColor(EditText etBody, int start, int end, Integer color) {
+    static void setColor(EditText etBody, int start, int end, Integer color, boolean select) {
         Log.breadcrumb("style", "action", "color");
 
         Editable edit = etBody.getText();
@@ -724,7 +726,7 @@ public class StyleHelper {
             edit.setSpan(new ForegroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         etBody.setText(edit);
-        etBody.setSelection(start, end);
+        etBody.setSelection(select ? start : end, end);
     }
 
     static boolean selectFont(LifecycleOwner owner, View anchor, EditText etBody, int start, int end) {
@@ -747,7 +749,7 @@ public class StyleHelper {
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                return setFont(etBody, start, end, item.getIntent().getStringExtra("face"));
+                return setFont(etBody, start, end, item.getIntent().getStringExtra("face"), false);
             }
         });
 
@@ -756,7 +758,7 @@ public class StyleHelper {
         return true;
     }
 
-    static boolean setFont(EditText etBody, int start, int end, String face) {
+    static boolean setFont(EditText etBody, int start, int end, String face, boolean select) {
         Log.breadcrumb("style", "action", "font");
 
         Context context = etBody.getContext();
@@ -777,7 +779,7 @@ public class StyleHelper {
             edit.setSpan(getTypefaceSpan(face, context), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         etBody.setText(edit);
-        etBody.setSelection(start, end);
+        etBody.setSelection(select ? start : end, end);
 
         return true;
     }
@@ -1063,19 +1065,18 @@ public class StyleHelper {
         for (QuoteSpan quote : quotes)
             edit.removeSpan(quote);
 
-        if (quotes.length == 1)
-            return true;
+        if (quotes.length == 0) {
+            IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
+            for (IndentSpan indent : indents)
+                edit.removeSpan(indent);
 
-        IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
-        for (IndentSpan indent : indents)
-            edit.removeSpan(indent);
-
-        QuoteSpan q;
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-            q = new QuoteSpan(colorBlockquote);
-        else
-            q = new QuoteSpan(colorBlockquote, quoteStripe, quoteGap);
-        edit.setSpan(q, paragraph.first, paragraph.second, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            QuoteSpan q;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                q = new QuoteSpan(colorBlockquote);
+            else
+                q = new QuoteSpan(colorBlockquote, quoteStripe, quoteGap);
+            edit.setSpan(q, paragraph.first, paragraph.second, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        }
 
         etBody.setText(edit);
         etBody.setSelection(select ? paragraph.first : paragraph.second, paragraph.second);
