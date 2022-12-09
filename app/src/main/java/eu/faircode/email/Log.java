@@ -797,6 +797,16 @@ public class Log {
              */
             return false;
 
+        if ("android.app.RemoteServiceException$CannotPostForegroundServiceNotificationException".equals(ex.getClass().getName()))
+            /*
+                android.app.RemoteServiceException$CannotPostForegroundServiceNotificationException: Bad notification for startForeground
+                    at android.app.ActivityThread.throwRemoteServiceException(ActivityThread.java:2219)
+                    at android.app.ActivityThread.-$$Nest$mthrowRemoteServiceException(Unknown Source:0)
+                    at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2505)
+                    at android.os.Handler.dispatchMessage(Handler.java:106)
+             */
+            return false;
+
         if ("android.view.WindowManager$BadTokenException".equals(ex.getClass().getName()))
             /*
                 android.view.WindowManager$BadTokenException: Unable to add window -- token android.os.BinderProxy@e9084db is not valid; is your activity running?
