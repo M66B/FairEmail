@@ -561,7 +561,7 @@ public class FragmentAnswer extends FragmentBase {
         int end = args.getInt("end");
         String title = args.getString("title");
         etText.setSelection(start, end);
-        StyleHelper.apply(-1, R.id.menu_link, getViewLifecycleOwner(), null, etText, link, title);
+        StyleHelper.apply(R.id.menu_link, getViewLifecycleOwner(), null, etText, link, title);
     }
 
     private void onDelete() {

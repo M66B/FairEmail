@@ -123,7 +123,7 @@ public class StyleHelper {
         View.OnClickListener styleListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StyleHelper.apply(-1, v.getId(), owner, v, etBody);
+                StyleHelper.apply(v.getId(), owner, v, etBody);
             }
         };
 
@@ -343,6 +343,10 @@ public class StyleHelper {
                     TextUtils.dumpSpans(text, lp, "---after>");
             }
         };
+    }
+
+    static boolean apply(int itemId, LifecycleOwner owner, View anchor, EditText etBody, Object... args) {
+        return apply(-1, itemId, owner, anchor, etBody, args);
     }
 
     static boolean apply(int groupId, int itemId, LifecycleOwner owner, View anchor, EditText etBody, Object... args) {

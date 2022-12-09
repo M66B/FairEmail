@@ -1921,7 +1921,7 @@ public class FragmentCompose extends FragmentBase {
             startSearch();
             return true;
         } else if (itemId == R.id.menu_clear) {
-            StyleHelper.apply(-1, R.id.menu_clear, getViewLifecycleOwner(), null, etBody);
+            StyleHelper.apply(R.id.menu_clear, getViewLifecycleOwner(), null, etBody);
             return true;
         } else if (itemId == R.id.menu_legend) {
             onMenuLegend();
@@ -4216,7 +4216,7 @@ public class FragmentCompose extends FragmentBase {
         int end = args.getInt("end");
         String title = args.getString("title");
         etBody.setSelection(start, end);
-        StyleHelper.apply(-1, R.id.menu_link, getViewLifecycleOwner(), null, etBody, link, title);
+        StyleHelper.apply(R.id.menu_link, getViewLifecycleOwner(), null, etBody, link, title);
     }
 
     private void onActionDiscardConfirmed() {
@@ -7155,17 +7155,17 @@ public class FragmentCompose extends FragmentBase {
                         return true;
                     case KeyEvent.KEYCODE_B:
                         if (etBody.hasSelection())
-                            return StyleHelper.apply(-1, R.id.menu_bold, getViewLifecycleOwner(), null, etBody);
+                            return StyleHelper.apply(R.id.menu_bold, getViewLifecycleOwner(), null, etBody);
                         else
                             return false;
                     case KeyEvent.KEYCODE_I:
                         if (etBody.hasSelection())
-                            return StyleHelper.apply(-1, R.id.menu_italic, getViewLifecycleOwner(), null, etBody);
+                            return StyleHelper.apply(R.id.menu_italic, getViewLifecycleOwner(), null, etBody);
                         else
                             return false;
                     case KeyEvent.KEYCODE_U:
                         if (etBody.hasSelection())
-                            return StyleHelper.apply(-1, R.id.menu_underline, getViewLifecycleOwner(), null, etBody);
+                            return StyleHelper.apply(R.id.menu_underline, getViewLifecycleOwner(), null, etBody);
                         else
                             return false;
                 }

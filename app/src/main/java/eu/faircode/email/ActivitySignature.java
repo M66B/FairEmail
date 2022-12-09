@@ -472,6 +472,6 @@ public class ActivitySignature extends ActivityBase {
         int end = args.getInt("end");
         String title = args.getString("title");
         etText.setSelection(start, end);
-        StyleHelper.apply(-1, R.id.menu_link, this, null, etText, link, title);
+        StyleHelper.apply(R.id.menu_link, this, null, etText, link, title);
     }
 }
