@@ -2158,7 +2158,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                         }
 
                                                         for (TupleOperationEx op : partition)
-                                                            if (EntityOperation.SYNC.equals(op.name)) {
+                                                            if (EntityOperation.SYNC.equals(op.name) ||
+                                                                    EntityOperation.PURGE.equals(op.name)) {
                                                                 timeout = 24 * 3600 * 1000L;
                                                                 break;
                                                             }
