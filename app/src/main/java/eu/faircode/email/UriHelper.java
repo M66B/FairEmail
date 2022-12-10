@@ -268,14 +268,16 @@ public class UriHelper {
         if (uri.getHost() != null &&
                 uri.getHost().endsWith("safelinks.protection.outlook.com") &&
                 !TextUtils.isEmpty(uri.getQueryParameter("url"))) {
-            changed = true;
-            url = Uri.parse(uri.getQueryParameter("url"));
+            Uri result = Uri.parse(uri.getQueryParameter("url"));
+            changed = (result != null && isHyperLink(result));
+            url = (changed ? result : uri);
         } else if ("https".equals(uri.getScheme()) &&
                 "smex-ctp.trendmicro.com".equals(uri.getHost()) &&
                 "/wis/clicktime/v1/query".equals(uri.getPath()) &&
                 !TextUtils.isEmpty(uri.getQueryParameter("url"))) {
-            changed = true;
-            url = Uri.parse(uri.getQueryParameter("url"));
+            Uri result = Uri.parse(uri.getQueryParameter("url"));
+            changed = (result != null && isHyperLink(result));
+            url = (changed ? result : uri);
         } else if ("https".equals(uri.getScheme()) &&
                 "www.google.com".equals(uri.getHost()) &&
                 uri.getPath() != null &&
@@ -298,87 +300,93 @@ public class UriHelper {
                 p = u.indexOf("/");
             }
 
-            changed = (result != null);
-            url = (result == null ? uri : result);
+            changed = (result != null && isHyperLink(result));
+            url = (changed ? result : uri);
         } else if ("https".equals(uri.getScheme()) &&
                 uri.getHost() != null &&
                 uri.getHost().startsWith("www.google.") &&
                 uri.getQueryParameter("url") != null) {
             // Google non-com redirects
             Uri result = Uri.parse(uri.getQueryParameter("url"));
-            changed = (result != null);
-            url = (result == null ? uri : result);
+            changed = (result != null && isHyperLink(result));
+            url = (changed ? result : uri);
         } else if (uri.getPath() != null &&
                 uri.getPath().startsWith("/track/click") &&
                 uri.getQueryParameter("p") != null) {
+            Uri result = null;
             try {
                 // Mandrill
                 String p = new String(Base64.decode(uri.getQueryParameter("p"), Base64.URL_SAFE));
                 JSONObject json = new JSONObject(p);
                 json = new JSONObject(json.getString("p"));
-                Uri result = Uri.parse(json.getString("url"));
-                changed = (result != null);
-                url = (result == null ? uri : result);
+                result = Uri.parse(json.getString("url"));
             } catch (Throwable ex) {
                 Log.i(ex);
-                url = uri;
             }
+            changed = (result != null && isHyperLink(result));
+            url = (changed ? result : uri);
         } else if (uri.getHost() != null && uri.getHost().endsWith(".awstrack.me")) {
             // https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html
             String path = uri.getPath();
             int s = path.indexOf('/', 1);
             Uri result = (s > 0 ? Uri.parse(path.substring(s + 1)) : null);
-            changed = (result != null);
-            url = (result == null ? uri : result);
-        } else if (uri.getQueryParameterNames().size() == 1) {
-            // Sophos Email Appliance
-            Uri result = null;
-
-            String key = uri.getQueryParameterNames().iterator().next();
-            if (TextUtils.isEmpty(uri.getQueryParameter(key)))
-                try {
-                    String data = new String(Base64.decode(key, Base64.URL_SAFE));
-                    int v = data.indexOf("ver=");
-                    int u = data.indexOf("&&url=");
-                    if (v == 0 && u > 0)
-                        result = Uri.parse(URLDecoder.decode(data.substring(u + 6), StandardCharsets.UTF_8.name()));
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                }
-
-            changed = (result != null);
-            url = (result == null ? uri : result);
+            changed = (result != null && isHyperLink(result));
+            url = (changed ? result : uri);
         } else if (uri.getQueryParameter("redirectUrl") != null) {
             // https://.../link-tracker?redirectUrl=<base64>&sig=...&iat=...&a=...&account=...&email=...&s=...&i=...
+            Uri result = null;
             try {
                 byte[] bytes = Base64.decode(uri.getQueryParameter("redirectUrl"), Base64.URL_SAFE);
                 String u = URLDecoder.decode(new String(bytes), StandardCharsets.UTF_8.name());
-                Uri result = Uri.parse(u);
-                changed = (result != null);
-                url = (result == null ? uri : result);
+                result = Uri.parse(u);
             } catch (Throwable ex) {
                 Log.i(ex);
-                url = uri;
             }
-        } else {
-            // Try base64 last path segment
-            // go.dhlparcel.nl and others
+            changed = (result != null && isHyperLink(result));
+            url = (changed ? result : uri);
+        } else
+            url = uri;
+
+        if (!changed) {
+            // Sophos Email Appliance
+            // http://<host>/?<base64>
+            Uri result = null;
             try {
-                String path = uri.getPath();
-                String b = null;
-                int s = path.lastIndexOf('/');
-                if (s > 0)
-                    try {
-                        b = new String(Base64.decode(path.substring(s + 1), Base64.URL_SAFE));
-                    } catch (IllegalArgumentException ignored) {
+                if (uri.getQueryParameterNames().size() == 1) {
+                    String key = uri.getQueryParameterNames().iterator().next();
+                    if (TextUtils.isEmpty(uri.getQueryParameter(key))) {
+                        String data = new String(Base64.decode(key, Base64.URL_SAFE));
+                        int v = data.indexOf("ver=");
+                        int u = data.indexOf("&&url=");
+                        if (v == 0 && u > 0)
+                            result = Uri.parse(URLDecoder.decode(data.substring(u + 6), StandardCharsets.UTF_8.name()));
                     }
-                Uri result = (b == null ? null : Uri.parse(b));
-                changed = (result != null && result.getScheme() != null);
-                url = (result == null ? uri : result);
+                }
             } catch (Throwable ex) {
                 Log.i(ex);
-                url = uri;
             }
+            changed = (result != null && isHyperLink(result));
+            url = (changed ? result : uri);
+        }
+
+        if (!changed) {
+            // go.dhlparcel.nl and others
+            // Try base64 last path segment
+            Uri result = null;
+            String path = uri.getPath();
+            try {
+                if (path != null) {
+                    int s = path.lastIndexOf('/');
+                    if (s > 0) {
+                        String b = new String(Base64.decode(path.substring(s + 1), Base64.URL_SAFE));
+                        result = Uri.parse(b);
+                    }
+                }
+            } catch (Throwable ex) {
+                Log.i(ex);
+            }
+            changed = (result != null && isHyperLink(result));
+            url = (changed ? result : uri);
         }
 
         if (url.isOpaque() || !isHyperLink(url))
@@ -412,12 +420,9 @@ public class UriHelper {
                 for (String value : url.getQueryParameters(key)) {
                     Log.i("Query " + key + "=" + value);
                     Uri suri = Uri.parse(value);
-                    if ("http".equals(suri.getScheme()) || "https".equals(suri.getScheme())) {
+                    if (suri != null && isHyperLink(suri)) {
                         Uri s = sanitize(suri);
-                        if (s != null) {
-                            changed = true;
-                            value = s.toString();
-                        }
+                        return (s == null ? suri : s);
                     }
                     builder.appendQueryParameter(key, value);
                 }
