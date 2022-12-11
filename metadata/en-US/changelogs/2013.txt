@@ -18,11 +18,18 @@ For support you can use the contact form.
 
 * Small improvements and minor bug fixes
 
+Next version
+
+* Added display option to swap trash/archive in bottom action bar
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2011 - 2022-11-29
 
 * Added optional button to show original message full screen
 * Added optional colored star quick action button
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated translations
 
 1.2010 - 2022-11-25
