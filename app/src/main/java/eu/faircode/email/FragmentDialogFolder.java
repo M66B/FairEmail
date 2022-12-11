@@ -246,13 +246,13 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 adapter.search(query, result, new AdapterFolder.ISearchResult() {
                     @Override
                     public void onFound(int pos, boolean hasNext) {
-                        ibNext.setEnabled(hasNext);
+                        ibNext.setVisibility(hasNext ? View.VISIBLE : View.INVISIBLE);
                         llm.scrollToPositionWithOffset(pos, 0);
                     }
 
                     @Override
                     public void onNotFound() {
-                        ibNext.setEnabled(false);
+                        ibNext.setVisibility(View.INVISIBLE);
                     }
                 });
             }
@@ -269,7 +269,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
             }
         });
 
-        ibNext.setEnabled(false);
+        ibNext.setVisibility(View.INVISIBLE);
         ibNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -278,13 +278,13 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 adapter.search(query, result, new AdapterFolder.ISearchResult() {
                     @Override
                     public void onFound(int pos, boolean hasNext) {
-                        ibNext.setEnabled(hasNext);
+                        ibNext.setVisibility(hasNext ? View.VISIBLE : View.INVISIBLE);
                         llm.scrollToPositionWithOffset(pos, 0);
                     }
 
                     @Override
                     public void onNotFound() {
-                        ibNext.setEnabled(false);
+                        ibNext.setVisibility(View.INVISIBLE);
                     }
                 });
             }
