@@ -464,6 +464,8 @@ public class InvalidationTracker {
                     final int tableId = cursor.getInt(0);
                     invalidatedTableIds.add(tableId);
                 }
+            } catch (Throwable ex) {
+                eu.faircode.email.Log.w(ex);
             } finally {
                 cursor.close();
             }
