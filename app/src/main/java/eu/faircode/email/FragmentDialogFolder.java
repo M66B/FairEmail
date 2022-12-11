@@ -437,15 +437,18 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                     if (parent != null)
                         name = parent.name + parent.separator + name;
 
-                    EntityFolder folder = new EntityFolder();
-                    folder.tbc = true;
-                    folder.account = account.id;
-                    folder.name = name;
-                    folder.type = EntityFolder.USER;
-                    folder.parent = (parent == null ? null : parent.id);
-                    folder.setProperties();
-                    folder.inheritFrom(parent);
-                    folder.id = db.folder().insertFolder(folder);
+                    EntityFolder folder = db.folder().getFolderByName(account.id, name);
+                    if (folder == null) {
+                        folder = new EntityFolder();
+                        folder.tbc = true;
+                        folder.account = account.id;
+                        folder.name = name;
+                        folder.type = EntityFolder.USER;
+                        folder.parent = (parent == null ? null : parent.id);
+                        folder.setProperties();
+                        folder.inheritFrom(parent);
+                        folder.id = db.folder().insertFolder(folder);
+                    }
 
                     args.putLong("folder", folder.id);
 
