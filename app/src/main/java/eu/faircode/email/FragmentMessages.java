@@ -350,6 +350,8 @@ public class FragmentMessages extends FragmentBase
     private boolean swipenav;
     private boolean seekbar;
     private boolean actionbar;
+    private int actionbar_delete_id;
+    private int actionbar_archive_id;
     private boolean actionbar_color;
     private boolean autoexpand;
     private boolean autoclose;
@@ -491,6 +493,9 @@ public class FragmentMessages extends FragmentBase
                 args.getBoolean("force_threading"));
         seekbar = prefs.getBoolean("seekbar", false);
         actionbar = prefs.getBoolean("actionbar", true);
+        boolean actionbar_swap = prefs.getBoolean("actionbar_swap", false);
+        actionbar_delete_id = (actionbar_swap ? R.id.action_archive : R.id.action_delete);
+        actionbar_archive_id = (actionbar_swap ? R.id.action_delete : R.id.action_archive);
         actionbar_color = prefs.getBoolean("actionbar_color", false);
         autoexpand = prefs.getBoolean("autoexpand", true);
         autoclose = prefs.getBoolean("autoclose", true);
@@ -1274,7 +1279,7 @@ public class FragmentMessages extends FragmentBase
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 ActionData data = (ActionData) bottom_navigation.getTag();
                 int itemId = menuItem.getItemId();
-                if (itemId == R.id.action_delete) {
+                if (itemId == actionbar_delete_id) {
                     if (data.delete)
                         onActionDelete();
                     else
@@ -1283,7 +1288,7 @@ public class FragmentMessages extends FragmentBase
                 } else if (itemId == R.id.action_snooze) {
                     onActionSnooze();
                     return true;
-                } else if (itemId == R.id.action_archive) {
+                } else if (itemId == actionbar_archive_id) {
                     onActionMove(EntityFolder.ARCHIVE);
                     return true;
                 } else if (itemId == R.id.action_prev) {
@@ -6884,20 +6889,26 @@ public class FragmentMessages extends FragmentBase
 
                     bottom_navigation.setTag(data);
 
-                    bottom_navigation.getMenu().findItem(R.id.action_delete).setIcon(
-                            data.forever ? R.drawable.twotone_delete_forever_24 : R.drawable.twotone_delete_24);
-                    bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data.trashable);
-                    bottom_navigation.getMenu().findItem(R.id.action_snooze).setVisible(data.snoozable);
-                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data.archivable);
+                    bottom_navigation.getMenu().findItem(actionbar_delete_id)
+                            .setIcon(data.forever ? R.drawable.twotone_delete_forever_24 : R.drawable.twotone_delete_24)
+                            .setTitle(data.forever ? R.string.title_delete_permanently : R.string.title_trash)
+                            .setVisible(data.trashable);
+                    bottom_navigation.getMenu().findItem(R.id.action_snooze)
+                            .setVisible(data.snoozable);
+                    bottom_navigation.getMenu().findItem(actionbar_archive_id)
+                            .setIcon(R.drawable.twotone_archive_24)
+                            .setTitle(R.string.title_archive)
+                            .setVisible(data.archivable);
                     bottom_navigation.setVisibility(View.VISIBLE);
 
-                    bottom_navigation.findViewById(R.id.action_delete).setOnLongClickListener(new View.OnLongClickListener() {
-                        @Override
-                        public boolean onLongClick(View v) {
-                            onActionDelete();
-                            return true;
-                        }
-                    });
+                    bottom_navigation.findViewById(actionbar_delete_id)
+                            .setOnLongClickListener(new View.OnLongClickListener() {
+                                @Override
+                                public boolean onLongClick(View v) {
+                                    onActionDelete();
+                                    return true;
+                                }
+                            });
                 }
 
                 @Override
@@ -7687,10 +7698,10 @@ public class FragmentMessages extends FragmentBase
                     !bottom_navigation.isEnabled() ||
                     bottom_navigation.getVisibility() != View.VISIBLE)
                 return false;
-            MenuItem archive = bottom_navigation.getMenu().findItem(R.id.action_archive);
+            MenuItem archive = bottom_navigation.getMenu().findItem(actionbar_archive_id);
             if (archive == null || !archive.isVisible() || !archive.isEnabled())
                 return false;
-            bottom_navigation.getMenu().performIdentifierAction(R.id.action_archive, 0);
+            bottom_navigation.getMenu().performIdentifierAction(actionbar_archive_id, 0);
             return true;
         }
 
@@ -7699,10 +7710,10 @@ public class FragmentMessages extends FragmentBase
                     !bottom_navigation.isEnabled() ||
                     bottom_navigation.getVisibility() != View.VISIBLE)
                 return false;
-            MenuItem delete = bottom_navigation.getMenu().findItem(R.id.action_delete);
+            MenuItem delete = bottom_navigation.getMenu().findItem(actionbar_delete_id);
             if (delete == null || !delete.isVisible() || !delete.isEnabled())
                 return false;
-            bottom_navigation.getMenu().performIdentifierAction(R.id.action_delete, 0);
+            bottom_navigation.getMenu().performIdentifierAction(actionbar_delete_id, 0);
             return true;
         }
 

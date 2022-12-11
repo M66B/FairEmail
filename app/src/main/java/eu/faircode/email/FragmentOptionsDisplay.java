@@ -98,6 +98,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swIndentation;
     private SwitchCompat swSeekbar;
     private SwitchCompat swActionbar;
+    private SwitchCompat swActionbarSwap;
     private SwitchCompat swActionbarColor;
 
     private SwitchCompat swHighlightUnread;
@@ -195,7 +196,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_highlight", "dividers",
             "portrait2", "portrait2c", "landscape", "close_pane", "column_width",
             "nav_options", "nav_categories", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
-            "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
+            "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_swap", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
             "avatars", "bimi", "gravatars", "libravatars", "favicons", "favicons_partial", "generated_icons", "identicons",
             "circular", "saturation", "brightness", "threshold",
@@ -259,6 +260,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swIndentation = view.findViewById(R.id.swIndentation);
         swSeekbar = view.findViewById(R.id.swSeekbar);
         swActionbar = view.findViewById(R.id.swActionbar);
+        swActionbarSwap = view.findViewById(R.id.swActionbarSwap);
         swActionbarColor = view.findViewById(R.id.swActionbarColor);
 
         swHighlightUnread = view.findViewById(R.id.swHighlightUnread);
@@ -647,7 +649,15 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("actionbar", checked).apply();
+                swActionbarSwap.setEnabled(checked);
                 swActionbarColor.setEnabled(checked);
+            }
+        });
+
+        swActionbarSwap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("actionbar_swap", checked).apply();
             }
         });
 
@@ -1400,6 +1410,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swIndentation.setEnabled(swCards.isChecked() && swThreading.isChecked());
         swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
+        swActionbarSwap.setChecked(prefs.getBoolean("actionbar_swap", false));
+        swActionbarSwap.setEnabled(swActionbar.isChecked());
         swActionbarColor.setChecked(prefs.getBoolean("actionbar_color", false));
         swActionbarColor.setEnabled(swActionbar.isChecked());
 
