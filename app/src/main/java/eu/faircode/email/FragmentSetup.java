@@ -50,6 +50,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -72,7 +74,7 @@ import androidx.preference.PreferenceManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentSetup extends FragmentBase {
+public class FragmentSetup extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private ViewGroup view;
 
     private TextView tvWelcome;
@@ -115,6 +117,7 @@ public class FragmentSetup extends FragmentBase {
     private Button btnBackgroundRestricted;
     private Button btnDataSaver;
     private TextView tvStamina;
+    private CheckBox cbAlways;
 
     private TextView tvBatteryUsage;
     private TextView tvSyncStopped;
@@ -147,6 +150,8 @@ public class FragmentSetup extends FragmentBase {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_setup);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         if (savedInstanceState != null)
             manual = savedInstanceState.getBoolean("fair:manual");
@@ -199,6 +204,7 @@ public class FragmentSetup extends FragmentBase {
         btnBackgroundRestricted = view.findViewById(R.id.btnBackgroundRestricted);
         btnDataSaver = view.findViewById(R.id.btnDataSaver);
         tvStamina = view.findViewById(R.id.tvStamina);
+        cbAlways = view.findViewById(R.id.cbAlways);
 
         tvBatteryUsage = view.findViewById(R.id.tvBatteryUsage);
         tvSyncStopped = view.findViewById(R.id.tvSyncStopped);
@@ -255,7 +261,6 @@ public class FragmentSetup extends FragmentBase {
         ibWelcome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
                 boolean setup_welcome = !prefs.getBoolean("setup_welcome", true);
                 prefs.edit().putBoolean("setup_welcome", setup_welcome).apply();
                 updateWelcome();
@@ -587,6 +592,14 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
+        cbAlways.setChecked(ServiceSynchronize.getPollInterval(getContext()) == 0);
+        cbAlways.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+                prefs.edit().putInt("poll_interval", isChecked ? 0 : EntityAccount.DEFAULT_POLL_INTERVAL).apply();
+            }
+        });
+
         tvBatteryUsage.setPaintFlags(tvBatteryUsage.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvBatteryUsage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -608,7 +621,6 @@ public class FragmentSetup extends FragmentBase {
         ibExtra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(v.getContext());
                 boolean setup_extra = !prefs.getBoolean("setup_extra", false);
                 prefs.edit().putBoolean("setup_extra", setup_extra).apply();
                 updateExtra();
@@ -779,7 +791,21 @@ public class FragmentSetup extends FragmentBase {
         grpDataSaver.setVisibility(View.GONE);
         tvStamina.setVisibility(View.GONE);
 
+        PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if ("poll_interval".equals(key))
+            cbAlways.setChecked(ServiceSynchronize.getPollInterval(getContext()) == 0);
     }
 
     @Override
