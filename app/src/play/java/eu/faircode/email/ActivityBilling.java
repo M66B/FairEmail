@@ -115,6 +115,20 @@ public class ActivityBilling extends ActivityBase implements
                         .setListener(this)
                         .build();
                 billingClient.startConnection(this);
+                getLifecycle().addObserver(new LifecycleObserver() {
+                    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                    public void onDestroyed() {
+                        getLifecycle().removeObserver(this);
+                        if (billingClient != null)
+                            try {
+                                Log.i("IAB end");
+                                billingClient.endConnection();
+                                billingClient = null;
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                    }
+                });
             } catch (Throwable ex) {
                 Log.e(ex);
                 /*
@@ -178,14 +192,6 @@ public class ActivityBilling extends ActivityBase implements
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
             lbm.unregisterReceiver(receiver);
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (billingClient != null)
-            billingClient.endConnection();
-
-        super.onDestroy();
     }
 
     @NonNull
