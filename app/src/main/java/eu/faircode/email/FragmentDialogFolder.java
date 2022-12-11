@@ -294,6 +294,8 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                etSearch.setText(null);
+
                 Bundle args = new Bundle();
                 args.putLong("account", account);
 
