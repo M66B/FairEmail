@@ -107,14 +107,44 @@ public class ActivityBilling extends ActivityBase implements
             getSupportFragmentManager().addOnBackStackChangedListener(this);
         }
 
-        if (Helper.isPlayStoreInstall() || isTesting(this)) {
-            Log.i("IAB start");
-            billingClient = BillingClient.newBuilder(getApplicationContext())
-                    .enablePendingPurchases()
-                    .setListener(this)
-                    .build();
-            billingClient.startConnection(this);
-        }
+        if (Helper.isPlayStoreInstall() || isTesting(this))
+            try {
+                Log.i("IAB start");
+                billingClient = BillingClient.newBuilder(getApplicationContext())
+                        .enablePendingPurchases()
+                        .setListener(this)
+                        .build();
+                billingClient.startConnection(this);
+            } catch (Throwable ex) {
+                Log.e(ex);
+                /*
+                    Exception java.lang.RuntimeException:
+                      at android.app.ActivityThread.performLaunchActivity (ActivityThread.java:4171)
+                      at android.app.ActivityThread.handleLaunchActivity (ActivityThread.java:4317)
+                      at android.app.servertransaction.LaunchActivityItem.execute (LaunchActivityItem.java:101)
+                      at android.app.servertransaction.TransactionExecutor.executeCallbacks (TransactionExecutor.java:135)
+                      at android.app.servertransaction.TransactionExecutor.execute (TransactionExecutor.java:95)
+                      at android.app.ActivityThread$H.handleMessage (ActivityThread.java:2576)
+                      at android.os.Handler.dispatchMessage (Handler.java:106)
+                      at android.os.Looper.loopOnce (Looper.java:226)
+                      at android.os.Looper.loop (Looper.java:313)
+                      at android.app.ActivityThread.main (ActivityThread.java:8772)
+                      at java.lang.reflect.Method.invoke (Method.java)
+                      at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run (RuntimeInit.java:571)
+                      at com.android.internal.os.ZygoteInit.main (ZygoteInit.java:1067)
+                    Caused by java.lang.IllegalStateException: Too many bind requests(999+) for service Intent { act=com.android.vending.billing.InAppBillingService.BIND pkg=com.android.vending cmp=com.android.vending/com.google.android.finsky.billing.iab.InAppBillingService (has extras) }
+                      at android.app.ContextImpl.bindServiceCommon (ContextImpl.java:2115)
+                      at android.app.ContextImpl.bindService (ContextImpl.java:2024)
+                      at android.content.ContextWrapper.bindService (ContextWrapper.java:870)
+                      at com.android.billingclient.api.BillingClientImpl.startConnection (com.android.billingclient:billing@@4.1.0:52)
+                      at eu.faircode.email.ActivityBilling.onCreate (ActivityBilling.java:116)
+                      at eu.faircode.email.ActivityView.onCreate (ActivityView.java:192)
+                      at android.app.Activity.performCreate (Activity.java:8565)
+                      at android.app.Activity.performCreate (Activity.java:8544)
+                      at android.app.Instrumentation.callActivityOnCreate (Instrumentation.java:1384)
+                      at android.app.ActivityThread.performLaunchActivity (ActivityThread.java:4152)
+                 */
+            }
     }
 
     @Override
