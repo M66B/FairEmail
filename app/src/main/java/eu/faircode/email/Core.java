@@ -2383,7 +2383,9 @@ class Core {
                     // Prefix folder with namespace
                     try {
                         Folder[] ns = istore.getPersonalNamespaces();
-                        if (ns != null && ns.length == 1) {
+                        Folder[] sh = istore.getSharedNamespaces();
+                        if (ns != null && ns.length == 1 &&
+                                !(sync_shared_folders && sh != null && sh.length > 0)) {
                             String n = ns[0].getFullName();
                             // Typically "" or "INBOX"
                             if (!TextUtils.isEmpty(n)) {
