@@ -383,8 +383,11 @@ public class MessageHelper {
             if (message.cc != null && message.cc.length > 0)
                 imessage.setRecipients(Message.RecipientType.CC, convertAddress(message.cc, identity));
 
-            if (message.bcc != null && message.bcc.length > 0)
+            if (message.bcc != null && message.bcc.length > 0) {
+                if (false && (message.to == null || message.to.length == 0))
+                    imessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse("Undisclosed-Recipients:"));
                 imessage.setRecipients(Message.RecipientType.BCC, convertAddress(message.bcc, identity));
+            }
         } else {
             // https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6
             ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
