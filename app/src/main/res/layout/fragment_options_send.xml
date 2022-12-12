@@ -387,6 +387,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <eu.faircode.email.ViewButtonColor
+                    android:id="@+id/btnComposeColor"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:paddingHorizontal="6dp"
+                    android:text="@string/title_advanced_compose_color"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCaptionMessage" />
+
                 <TextView
                     android:id="@+id/tvComposeFont"
                     android:layout_width="0dp"
@@ -398,7 +409,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCaptionMessage" />
+                    app:layout_constraintTop_toBottomOf="@id/btnComposeColor" />
 
                 <Spinner
                     android:id="@+id/spComposeFont"

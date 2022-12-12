@@ -24,6 +24,7 @@ import static android.system.OsConstants.ENOSPC;
 import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.system.ErrnoException;
@@ -929,6 +930,7 @@ public class MessageHelper {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean format_flowed = prefs.getBoolean("format_flowed", false);
+        int compose_color = prefs.getInt("compose_color", Color.TRANSPARENT);
         String compose_font = prefs.getString("compose_font", "");
         boolean auto_link = prefs.getBoolean("auto_link", false);
 
@@ -959,6 +961,9 @@ public class MessageHelper {
                     HtmlHelper.guessSchemes(document);
                     HtmlHelper.autoLink(document, true);
                 }
+
+                if (compose_color != Color.TRANSPARENT)
+                    document.head().append("<style>* {color: " + HtmlHelper.encodeWebColor(compose_color) + ";}</style>");
 
                 if (!TextUtils.isEmpty(compose_font)) {
                     List<Node> childs = new ArrayList<>();

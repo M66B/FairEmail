@@ -20,6 +20,7 @@ For support you can use the contact form.
 
 Next version
 
+* Added send option for default text color
 * Added display option to swap trash/archive in bottom action bar
 * Small improvements and minor bug fixes
 * Updated translations

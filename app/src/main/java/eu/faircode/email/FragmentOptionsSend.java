@@ -21,8 +21,11 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -49,6 +52,10 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import com.flask.colorpicker.ColorPickerView;
+import com.flask.colorpicker.builder.ColorPickerClickListener;
+import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -74,6 +81,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Spinner spAnswerAction;
     private Button btnSound;
 
+    private ViewButtonColor btnComposeColor;
     private Spinner spComposeFont;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swPrefixCount;
@@ -114,7 +122,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "send_delayed",
             "answer_action",
             "sound_sent",
-            "compose_font",
+            "compose_color", "compose_font",
             "prefix_once", "prefix_count", "alt_re", "alt_fwd",
             "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_new", "signature_reply", "signature_reply_once", "signature_forward",
@@ -153,6 +161,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spAnswerAction = view.findViewById(R.id.spAnswerAction);
         btnSound = view.findViewById(R.id.btnSound);
 
+        btnComposeColor = view.findViewById(R.id.btnComposeColor);
         spComposeFont = view.findViewById(R.id.spComposeFont);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swPrefixCount = view.findViewById(R.id.swPrefixCount);
@@ -353,6 +362,41 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, true);
                 intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, sound == null ? null : Uri.parse(sound));
                 startActivityForResult(Helper.getChooser(getContext(), intent), ActivitySetup.REQUEST_SOUND_OUTBOUND);
+            }
+        });
+
+        btnComposeColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = getContext();
+                int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
+                int compose_color = prefs.getInt("compose_color", Color.TRANSPARENT);
+
+                ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
+                        .with(context)
+                        .setTitle(R.string.title_advanced_compose_color)
+                        .initialColor(compose_color == Color.TRANSPARENT ? Color.GRAY : compose_color)
+                        .showColorEdit(true)
+                        .setColorEditTextColor(editTextColor)
+                        .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                        .density(6)
+                        .lightnessSliderOnly()
+                        .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                                prefs.edit().putInt("compose_color", selectedColor).apply();
+                                btnComposeColor.setColor(selectedColor);
+                            }
+                        })
+                        .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                prefs.edit().remove("compose_color").apply();
+                                btnComposeColor.setColor(Color.TRANSPARENT);
+                            }
+                        });
+
+                builder.build().show();
             }
         });
 
@@ -677,6 +721,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 spAnswerAction.setSelection(pos);
                 break;
             }
+
+        btnComposeColor.setColor(prefs.getInt("compose_color", Color.TRANSPARENT));
 
         String compose_font = prefs.getString("compose_font", "");
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());

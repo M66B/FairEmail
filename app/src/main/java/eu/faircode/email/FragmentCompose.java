@@ -283,6 +283,7 @@ public class FragmentCompose extends FragmentBase {
     private ContentResolver resolver;
     private AdapterAttachment adapter;
 
+    private int compose_color;
     private String compose_font;
     private String display_font;
     private boolean dsn = true;
@@ -348,6 +349,7 @@ public class FragmentCompose extends FragmentBase {
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        compose_color = prefs.getInt("compose_color", Color.TRANSPARENT);
         compose_font = prefs.getString("compose_font", "");
         display_font = prefs.getString("display_font", "");
         style = prefs.getBoolean("compose_style", false);
@@ -717,6 +719,8 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        if (compose_color != Color.TRANSPARENT)
+            tvSignature.setTextColor(compose_color);
         tvSignature.setTypeface(StyleHelper.getTypeface(compose_font, getContext()));
 
         cbSignature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -802,6 +806,8 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        if (compose_color != Color.TRANSPARENT)
+            etBody.setTextColor(compose_color);
         etBody.setTypeface(StyleHelper.getTypeface(compose_font, getContext()));
         tvReference.setTypeface(StyleHelper.getTypeface(display_font, getContext()));
 
