@@ -830,7 +830,8 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 		 * FETCH the components of nested messages
 		 */
 		dh = new DataHandler(
-			    new IMAPNestedMessage(this, 
+			    new IMAPNestedMessage(this,
+				bs.encoding,
 				bs.bodies[0], 
 				bs.envelope,
 				sectionId == null ? "1" : sectionId + ".1"),
