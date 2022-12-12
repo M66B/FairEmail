@@ -209,7 +209,7 @@ public class DeepL {
             }
         }
 
-        URL url = new URL(getBaseUri(context) + "translate?auth_key=" + key);
+        URL url = new URL(getBaseUri(key) + "translate?auth_key=" + key);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
@@ -272,7 +272,7 @@ public class DeepL {
         String key = prefs.getString("deepl_key", null);
 
         // https://www.deepl.com/docs-api/other-functions/monitoring-usage/
-        URL url = new URL(getBaseUri(context) + "usage?auth_key=" + key);
+        URL url = new URL(getBaseUri(key) + "usage?auth_key=" + key);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setReadTimeout(DEEPL_TIMEOUT * 1000);
         connection.setConnectTimeout(DEEPL_TIMEOUT * 1000);
@@ -304,10 +304,8 @@ public class DeepL {
         }
     }
 
-    private static String getBaseUri(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String domain = (prefs.getBoolean("deepl_pro", false)
-                ? "api.deepl.com" : "api-free.deepl.com");
+    private static String getBaseUri(String key) {
+        String domain = (key.endsWith(":fx") ? "api-free.deepl.com" : "api.deepl.com");
         return "https://" + domain + "/v2/";
     }
 
@@ -347,7 +345,6 @@ public class DeepL {
             final Context context = getContext();
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String key = prefs.getString("deepl_key", null);
-            boolean pro = prefs.getBoolean("deepl_pro", false);
             boolean formal = prefs.getBoolean("deepl_formal", true);
             boolean small = prefs.getBoolean("deepl_small", false);
             boolean html = prefs.getBoolean("deepl_html", false);
@@ -356,7 +353,6 @@ public class DeepL {
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
             final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
             final TextInputLayout tilKey = view.findViewById(R.id.tilKey);
-            final CheckBox cbPro = view.findViewById(R.id.cbPro);
             final CheckBox cbFormal = view.findViewById(R.id.cbFormal);
             final TextView tvFormal = view.findViewById(R.id.tvFormal);
             final CheckBox cbSmall = view.findViewById(R.id.cbSmall);
@@ -387,7 +383,6 @@ public class DeepL {
             });
 
             tilKey.getEditText().setText(key);
-            cbPro.setChecked(pro);
             cbFormal.setChecked(formal);
 
             try {
@@ -462,7 +457,6 @@ public class DeepL {
                                 editor.remove("deepl_key");
                             else
                                 editor.putString("deepl_key", key);
-                            editor.putBoolean("deepl_pro", cbPro.isChecked());
                             editor.putBoolean("deepl_formal", cbFormal.isChecked());
                             editor.putBoolean("deepl_small", cbSmall.isChecked());
                             editor.putBoolean("deepl_html", cbHtml.isChecked());
