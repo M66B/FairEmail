@@ -2471,8 +2471,7 @@ public class FragmentCompose extends FragmentBase {
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         etBody.setSelection(paragraph.second);
-                        Throwable exex = new Throwable("DeepL", ex);
-                        Log.unexpectedError(getParentFragmentManager(), exex, false);
+                        Log.unexpectedError(getParentFragmentManager(), ex, false);
                     }
                 }.setExecutor(executor).execute(FragmentCompose.this, args, "compose:translate");
             }

@@ -50,7 +50,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -235,7 +234,7 @@ public class DeepL {
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
-                throw new FileNotFoundException(error);
+                throw new IOException(error);
             }
 
             String response = Helper.readStream(connection.getInputStream());
@@ -243,7 +242,7 @@ public class DeepL {
             JSONObject jroot = new JSONObject(response);
             JSONArray jtranslations = jroot.getJSONArray("translations");
             if (jtranslations.length() == 0)
-                throw new FileNotFoundException();
+                throw new IOException();
             JSONObject jtranslation = (JSONObject) jtranslations.get(0);
 
             Translation result = new Translation();
@@ -292,7 +291,7 @@ public class DeepL {
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
-                throw new FileNotFoundException(error);
+                throw new IOException(error);
             }
 
             String response = Helper.readStream(connection.getInputStream());

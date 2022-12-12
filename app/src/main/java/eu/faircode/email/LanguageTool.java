@@ -40,7 +40,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -446,7 +445,7 @@ public class LanguageTool {
                 Log.w(ex);
             }
             Log.w("LT " + error);
-            throw new FileNotFoundException(error);
+            throw new IOException(error);
         }
     }
 
