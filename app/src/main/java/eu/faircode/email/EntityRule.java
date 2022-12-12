@@ -825,17 +825,19 @@ public class EntityRule {
         Address[] from = new InternetAddress[]{new InternetAddress(identity.email, identity.name, StandardCharsets.UTF_8.name())};
 
         // Prevent loop
-        List<EntityMessage> messages = db.message().getMessagesByThread(
-                message.account, message.thread, null, null);
-        for (EntityMessage threaded : messages)
-            if (!threaded.id.equals(message.id) &&
-                    MessageHelper.equal(threaded.from, from)) {
-                EntityLog.log(context, EntityLog.Type.Rules, message,
-                        "Answer loop" +
-                                " name=" + answer.name +
-                                " from=" + MessageHelper.formatAddresses(from));
-                return;
-            }
+        if (isReply) {
+            List<EntityMessage> messages = db.message().getMessagesByThread(
+                    message.account, message.thread, null, null);
+            for (EntityMessage threaded : messages)
+                if (!threaded.id.equals(message.id) &&
+                        MessageHelper.equal(threaded.from, from)) {
+                    EntityLog.log(context, EntityLog.Type.Rules, message,
+                            "Answer loop" +
+                                    " name=" + answer.name +
+                                    " from=" + MessageHelper.formatAddresses(from));
+                    return;
+                }
+        }
 
         EntityMessage reply = new EntityMessage();
         reply.account = message.account;
