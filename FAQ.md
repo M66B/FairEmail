@@ -4394,6 +4394,8 @@ It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Tra
 
 You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
 
+FairEmail has limited support for this file type.
+
 You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
 
 <br />
