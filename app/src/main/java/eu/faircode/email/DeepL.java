@@ -209,13 +209,14 @@ public class DeepL {
             }
         }
 
-        URL url = new URL(getBaseUri(key) + "translate?auth_key=" + key);
+        URL url = new URL(getBaseUri(key) + "translate");
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
         connection.setReadTimeout(DEEPL_TIMEOUT * 1000);
         connection.setConnectTimeout(DEEPL_TIMEOUT * 1000);
         ConnectionHelper.setUserAgent(context, connection);
+        connection.setRequestProperty("Authorization", "DeepL-Auth-Key " + key);
         connection.setRequestProperty("Accept", "*/*");
         connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -272,11 +273,12 @@ public class DeepL {
         String key = prefs.getString("deepl_key", null);
 
         // https://www.deepl.com/docs-api/other-functions/monitoring-usage/
-        URL url = new URL(getBaseUri(key) + "usage?auth_key=" + key);
+        URL url = new URL(getBaseUri(key) + "usage");
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setReadTimeout(DEEPL_TIMEOUT * 1000);
         connection.setConnectTimeout(DEEPL_TIMEOUT * 1000);
         ConnectionHelper.setUserAgent(context, connection);
+        connection.setRequestProperty("Authorization", "DeepL-Auth-Key " + key);
         connection.connect();
 
         try {
