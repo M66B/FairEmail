@@ -264,6 +264,7 @@ public class FragmentCompose extends FragmentBase {
     private View vwAnchor;
     private TextViewAutoCompleteAction etSearch;
     private HorizontalScrollView style_bar;
+    private ImageButton ibLink;
     private BottomNavigationView media_bar;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -395,6 +396,7 @@ public class FragmentCompose extends FragmentBase {
         vwAnchor = view.findViewById(R.id.vwAnchor);
         etSearch = view.findViewById(R.id.etSearch);
         style_bar = view.findViewById(R.id.style_bar);
+        ibLink = view.findViewById(R.id.menu_link);
         media_bar = view.findViewById(R.id.media_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
@@ -884,6 +886,14 @@ public class FragmentCompose extends FragmentBase {
         });
 
         StyleHelper.wire(getViewLifecycleOwner(), view, etBody);
+
+        ibLink.setVisibility(View.VISIBLE);
+        ibLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionLink();
+            }
+        });
 
         media_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

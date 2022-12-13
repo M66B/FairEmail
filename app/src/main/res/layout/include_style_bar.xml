@@ -60,6 +60,21 @@
             app:tint="@color/action_foreground" />
 
         <ImageButton
+            android:id="@+id/menu_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_style_link"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_style_link"
+            app:layout_constraintStart_toEndOf="@id/menu_underline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/twotone_insert_link_45_24"
+            app:tint="@color/action_foreground" />
+
+        <ImageButton
             android:id="@+id/menu_style_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,7 +84,7 @@
             android:paddingVertical="6dp"
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_style_size"
-            app:layout_constraintStart_toEndOf="@id/menu_underline"
+            app:layout_constraintStart_toEndOf="@id/menu_link"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_format_size_24"
             app:tint="@color/action_foreground" />

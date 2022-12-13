@@ -139,6 +139,8 @@ public class StyleHelper {
             else if (id == R.id.menu_style_code)
                 v.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         }
+
+        view.findViewById(R.id.menu_link).setVisibility(View.GONE);
     }
 
     static TextWatcher getTextWatcher(EditText etBody) {
