@@ -1970,6 +1970,21 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             state.activity();
                                         }
                                     } catch (Throwable ex) {
+                                        /*
+                                            javax.mail.FolderClosedException: * BYE Jakarta Mail Exception: java.net.SocketTimeoutException: Read timed out
+                                                at com.sun.mail.imap.IMAPFolder.handleIdle(SourceFile:252)
+                                                at com.sun.mail.imap.IMAPFolder.idle(SourceFile:7)
+                                                at eu.faircode.email.ServiceSynchronize$21.delegate(SourceFile:78)
+                                                at eu.faircode.email.RunnableEx.run(SourceFile:1)
+                                                at java.lang.Thread.run(Thread.java:1012)
+                                            ... javax.mail.StoreClosedException: NOOP INBOX
+                                            javax.mail.StoreClosedException: NOOP INBOX
+                                                at eu.faircode.email.ServiceSynchronize.monitorAccount(SourceFile:151)
+                                                at eu.faircode.email.ServiceSynchronize.access$1200(Unknown Source:0)
+                                                at eu.faircode.email.ServiceSynchronize$4$2.delegate(SourceFile:15)
+                                                at eu.faircode.email.RunnableEx.run(SourceFile:1)
+                                                at java.lang.Thread.run(Thread.java:1012)
+                                         */
                                         Log.e(folder.name, ex);
                                         EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
                                                 account.name + "/" + folder.name + " idle " + Log.formatThrowable(ex, false));

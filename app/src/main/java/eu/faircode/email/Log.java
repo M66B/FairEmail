@@ -1741,6 +1741,9 @@ public class Log {
                 ex.getCause() instanceof SocketTimeoutException)
             ex = new Throwable("No response received from email server", ex);
 
+        if (ex.getMessage() != null && ex.getMessage().contains("Read timed out"))
+            ex = new Throwable("No response received from email server", ex);
+
         if (ex instanceof MessagingException &&
                 ex.getCause() instanceof UnknownHostException)
             ex = new Throwable("Email server address lookup failed", ex);
