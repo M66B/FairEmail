@@ -619,7 +619,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     Uri uri = Uri.parse(image[0].getSource());
                                     if (UriHelper.isHyperLink(uri)) {
                                         ripple(event);
-                                        if (onOpenLink(uri, null, false))
+                                        if (onOpenLink(uri, null, EntityFolder.JUNK.equals(message.folderType)))
                                             return true;
                                     }
                                 }
@@ -638,7 +638,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     title = null;
 
                                 ripple(event);
-                                if (onOpenLink(uri, title, false))
+                                if (onOpenLink(uri, title, EntityFolder.JUNK.equals(message.folderType)))
                                     return true;
                             }
 
@@ -649,7 +649,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     return true;
 
                                 ripple(event);
-                                onOpenImage(message.id, image[0].getSource());
+                                onOpenImage(message.id, image[0].getSource(), EntityFolder.JUNK.equals(message.folderType));
                                 return true;
                             }
 
@@ -2792,7 +2792,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         return false;
 
                                     Uri uri = Uri.parse(url);
-                                    return ViewHolder.this.onOpenLink(uri, null, false);
+                                    return ViewHolder.this.onOpenLink(uri, null, EntityFolder.JUNK.equals(message.folderType));
                                 }
                             });
                     webView.setImages(show_images, inline);
@@ -5414,7 +5414,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onActionUnsubscribe(TupleMessageEx message) {
             Uri uri = Uri.parse(message.unsubscribe);
-            onOpenLink(uri, context.getString(R.string.title_legend_show_unsubscribe), true);
+            onOpenLink(uri,
+                    context.getString(R.string.title_legend_show_unsubscribe),
+                    EntityFolder.JUNK.equals(message.folderType));
         }
 
         private void onActionDecrypt(TupleMessageEx message, boolean auto) {
@@ -5873,7 +5875,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private boolean onOpenLink(Uri uri, String title, boolean always_confirm) {
-            Log.i("Opening uri=" + uri + " title=" + title);
+            Log.i("Opening uri=" + uri + " title=" + title + " always confirm=" + always_confirm);
             uri = Uri.parse(uri.toString().replaceAll("\\s+", ""));
 
             if (ProtectedContent.isProtectedContent(uri)) {
@@ -5958,7 +5960,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     "/activate/".equals(uri.getPath()));
         }
 
-        private void onOpenImage(long id, @NonNull String source) {
+        private void onOpenImage(long id, @NonNull String source, boolean always_confirm) {
             Log.i("Viewing image source=" + source);
 
             Uri uri = Uri.parse(source);
@@ -5993,10 +5995,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }.execute(context, owner, args, "view:cid");
 
-            else if ("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme))
-                onOpenLink(uri, null, false);
+            else if ("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme)) {
+                onOpenLink(uri, null, always_confirm);
 
-            else if ("data".equals(scheme))
+            } else if ("data".equals(scheme))
                 new SimpleTask<File>() {
                     @Override
                     protected File onExecute(Context context, Bundle args) throws IOException {
