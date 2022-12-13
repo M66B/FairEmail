@@ -3714,6 +3714,10 @@ public class MessageHelper {
                         }
 
                         db.attachment().setDownloaded(epart.attachment.id, efile.length());
+
+                        if (Helper.isTnef(epart.attachment.type, epart.attachment.name))
+                            subsequence = decodeTNEF(context, epart.attachment, subsequence);
+
                     } catch (Throwable ex) {
                         db.attachment().setError(epart.attachment.id, Log.formatThrowable(ex));
                         db.attachment().setAvailable(epart.attachment.id, true); // unrecoverable
