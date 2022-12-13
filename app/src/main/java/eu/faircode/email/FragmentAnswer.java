@@ -184,17 +184,6 @@ public class FragmentAnswer extends FragmentBase {
             }
         });
 
-        bottom_navigation.findViewById(R.id.action_save).setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (LanguageTool.isEnabled(context)) {
-                    onLanguageTool();
-                    return true;
-                } else
-                    return false;
-            }
-        });
-
         // Initialize
         FragmentDialogTheme.setBackground(context, view, true);
 
@@ -316,6 +305,18 @@ public class FragmentAnswer extends FragmentBase {
     public void onPrepareOptionsMenu(@NonNull Menu menu) {
         menu.findItem(R.id.menu_placeholder_firstname).setVisible(BuildConfig.DEBUG);
         menu.findItem(R.id.menu_placeholder_lastname).setVisible(BuildConfig.DEBUG);
+
+        bottom_navigation.findViewById(R.id.action_save).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (LanguageTool.isEnabled(v.getContext())) {
+                    onLanguageTool();
+                    return true;
+                } else
+                    return false;
+            }
+        });
+
         super.onPrepareOptionsMenu(menu);
     }
 
