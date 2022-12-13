@@ -40,7 +40,6 @@ import android.content.pm.PermissionInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.database.CursorWindowAllocationException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteFullException;
 import android.graphics.Point;
@@ -1056,8 +1055,7 @@ public class Log {
                 ex.getMessage().contains("finalize"))
             return false;
 
-        if (ex instanceof CursorWindowAllocationException ||
-                "android.database.CursorWindowAllocationException".equals(ex.getClass().getName()))
+        if ("android.database.CursorWindowAllocationException".equals(ex.getClass().getName()))
             /*
                 android.database.CursorWindowAllocationException: Could not allocate CursorWindow '/data/user/0/eu.faircode.email/no_backup/androidx.work.workdb' of size 2097152 due to error -12.
                   at android.database.CursorWindow.nativeCreate(Native Method)
@@ -1075,7 +1073,8 @@ public class Log {
             return false;
 
         if (ex instanceof RuntimeException &&
-                ex.getCause() instanceof CursorWindowAllocationException)
+                ex.getCause() != null &&
+                "android.database.CursorWindowAllocationException".equals(ex.getCause().getClass().getName()))
             /*
                 java.lang.RuntimeException: Exception while computing database live data.
                   at androidx.room.RoomTrackingLiveData$1.run(SourceFile:10)
