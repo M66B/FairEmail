@@ -611,7 +611,7 @@ public class FragmentCompose extends FragmentBase {
         });
 
         etBody.setSelectionListener(new EditTextCompose.ISelection() {
-            private boolean styling = false;
+            private boolean hasSelection = false;
 
             @Override
             public void onSelected(final boolean selection) {
@@ -621,16 +621,18 @@ public class FragmentCompose extends FragmentBase {
                         public void run() {
                             if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                                 return;
-                            if (styling != selection) {
-                                styling = selection;
-                                style_bar.setVisibility(style || styling ? View.VISIBLE : View.GONE);
-                                media_bar.setVisibility(!style && styling ? View.GONE : View.VISIBLE);
+                            if (hasSelection != selection) {
+                                hasSelection = selection;
+                                style_bar.setVisibility(style || hasSelection ? View.VISIBLE : View.GONE);
+                                media_bar.setVisibility(style || !etBody.hasSelection() ? View.VISIBLE : View.GONE);
                                 invalidateOptionsMenu();
                             }
                         }
                     }, 20);
-                } else
+                } else {
                     style_bar.setVisibility(selection ? View.VISIBLE : View.GONE);
+                    media_bar.setVisibility(View.GONE);
+                }
             }
         });
 
@@ -2055,8 +2057,8 @@ public class FragmentCompose extends FragmentBase {
         style = !style;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("compose_style", style).apply();
-        style_bar.setVisibility(style ? View.VISIBLE : View.GONE);
-        media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
+        style_bar.setVisibility(style || etBody.hasSelection() ? View.VISIBLE : View.GONE);
+        media_bar.setVisibility(media && (style || !etBody.hasSelection()) ? View.VISIBLE : View.GONE);
         invalidateOptionsMenu();
     }
 
@@ -2064,9 +2066,8 @@ public class FragmentCompose extends FragmentBase {
         media = !media;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("compose_media", media).apply();
-        etBody.setSelection(etBody.getSelectionStart());
-        style_bar.setVisibility(style ? View.VISIBLE : View.GONE);
-        media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
+        style_bar.setVisibility(style || etBody.hasSelection() ? View.VISIBLE : View.GONE);
+        media_bar.setVisibility(media && (style || !etBody.hasSelection()) ? View.VISIBLE : View.GONE);
         invalidateOptionsMenu();
     }
 
@@ -6753,8 +6754,8 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onPostExecute(Bundle args) {
                 pbWait.setVisibility(View.GONE);
-                style_bar.setVisibility(style ? View.VISIBLE : View.GONE);
-                media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
+                style_bar.setVisibility(style || etBody.hasSelection() ? View.VISIBLE : View.GONE);
+                media_bar.setVisibility(media && (style || !etBody.hasSelection()) ? View.VISIBLE : View.GONE);
                 bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
                 bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
                 bottom_navigation.setVisibility(View.VISIBLE);
