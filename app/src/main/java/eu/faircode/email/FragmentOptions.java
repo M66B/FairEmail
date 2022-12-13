@@ -61,16 +61,12 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 
 public class FragmentOptions extends FragmentBase {
     private ViewPager pager;
     private PagerAdapter adapter;
     private String searching = null;
     private SuggestData data = null;
-
-    private final ExecutorService executor =
-            Helper.getBackgroundExecutor(1, "suggest");
 
     private static final int[] TAB_PAGES = {
             R.layout.fragment_setup,
@@ -386,8 +382,7 @@ public class FragmentOptions extends FragmentBase {
 
                         return data;
                     }
-                }.setExecutor(executor)
-                        .execute(FragmentOptions.this, args, "option:suggest");
+                }.serial().execute(FragmentOptions.this, args, "option:suggest");
             }
 
             private void _suggest(String query) {

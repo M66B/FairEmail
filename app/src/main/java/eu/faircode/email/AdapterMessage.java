@@ -334,9 +334,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private DateFormat TF;
     private DateFormat DTF;
 
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(2, "differ");
-
     private static final int MAX_RECIPIENTS_COMPACT = 3;
     private static final int MAX_RECIPIENTS_NORMAL = 7;
 
@@ -7806,7 +7803,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         };
 
         AsyncDifferConfig<TupleMessageEx> config = new AsyncDifferConfig.Builder<>(callback)
-                .setBackgroundThreadExecutor(executor)
+                .setBackgroundThreadExecutor(Helper.getParallelExecutor())
                 .build();
         this.differ = new AsyncPagedListDiffer<>(new AdapterListUpdateCallback(this), config);
         this.differ.addPagedListListener(new AsyncPagedListDiffer.PagedListListener<TupleMessageEx>() {

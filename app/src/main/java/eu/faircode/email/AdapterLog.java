@@ -41,7 +41,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 
 public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private Fragment parentFragment;
@@ -57,9 +56,6 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private List<EntityLog> selected = new ArrayList<>();
 
     private DateFormat TF;
-
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(1, "contacts");
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTime;
@@ -174,7 +170,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
             }
-        }.setExecutor(executor).execute(context, owner, new Bundle(), "logs:filter");
+        }.serial().execute(context, owner, new Bundle(), "logs:filter");
     }
 
     public void setTypes(@NonNull List<EntityLog.Type> types) {

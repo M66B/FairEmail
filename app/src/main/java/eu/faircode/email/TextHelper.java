@@ -47,7 +47,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -66,9 +65,6 @@ public class TextHelper {
     private static final String TRANSLITERATOR = "Any-Latin; Latin-ASCII";
     private static final int MAX_CONVERSATION_SAMPLE_SIZE = 8192;
     private static final long MAX_CONVERSATION_DURATION = 3000; // milliseconds
-
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(0, "text");
 
     static {
         System.loadLibrary("fairemail");
@@ -192,7 +188,7 @@ public class TextHelper {
                         .setHints(hints)
                         .build();
 
-        Future<ConversationActions> future = executor.submit(new Callable<ConversationActions>() {
+        Future<ConversationActions> future = Helper.getParallelExecutor().submit(new Callable<ConversationActions>() {
             @Override
             @RequiresApi(api = Build.VERSION_CODES.Q)
             public ConversationActions call() throws Exception {

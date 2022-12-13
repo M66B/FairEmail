@@ -59,7 +59,6 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 
 public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHolder> {
     private Fragment parentFragment;
@@ -79,9 +78,6 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     private List<TupleContactEx> selected = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
-
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(1, "contacts");
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
@@ -470,7 +466,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
             }
-        }.setExecutor(executor).execute(context, owner, new Bundle(), "contacts:filter");
+        }.serial().execute(context, owner, new Bundle(), "contacts:filter");
     }
 
     public void search(String query) {

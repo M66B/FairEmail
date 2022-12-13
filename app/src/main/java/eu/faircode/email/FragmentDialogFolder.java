@@ -65,7 +65,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.ExecutorService;
 
 public class FragmentDialogFolder extends FragmentDialogBase {
     private int result = 0;
@@ -74,9 +73,6 @@ public class FragmentDialogFolder extends FragmentDialogBase {
 
     private static final int MAX_SELECTED_FOLDERS = 5;
     private static final int REQUEST_FOLDER_NAME = 1;
-
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(1, "folder");
 
     @NonNull
     @Override
@@ -219,7 +215,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
 
                 final DB db = DB.getInstance(context);
 
-                executor.submit(new Runnable() {
+                Helper.getParallelExecutor().submit(new Runnable() {
                     @Override
                     public void run() {
                         try {
@@ -387,7 +383,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
     private static void increaseSelectedCount(Long id, Context context) {
         final DB db = DB.getInstance(context);
 
-        executor.submit(new Runnable() {
+        Helper.getParallelExecutor().submit(new Runnable() {
             @Override
             public void run() {
                 try {

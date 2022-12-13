@@ -59,7 +59,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -77,9 +76,6 @@ public class EditTextCompose extends FixedEditText {
     private int colorBlockquote;
     private int quoteGap;
     private int quoteStripe;
-
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(1, "paste");
 
     public EditTextCompose(Context context) {
         super(context);
@@ -371,7 +367,7 @@ public class EditTextCompose extends FixedEditText {
                         if (snippet.id.equals(id)) {
                             String html = snippet.getHtml(context, to);
 
-                            executor.submit(new Runnable() {
+                            Helper.getParallelExecutor().submit(new Runnable() {
                                 @Override
                                 public void run() {
                                     try {
@@ -418,7 +414,7 @@ public class EditTextCompose extends FixedEditText {
             });
 
             DB db = DB.getInstance(context);
-            executor.submit(new Runnable() {
+            Helper.getParallelExecutor().submit(new Runnable() {
                 @Override
                 public void run() {
                     try {
@@ -527,7 +523,7 @@ public class EditTextCompose extends FixedEditText {
                 } else
                     html = h;
 
-                executor.submit(new Runnable() {
+                Helper.getParallelExecutor().submit(new Runnable() {
                     @Override
                     public void run() {
                         try {

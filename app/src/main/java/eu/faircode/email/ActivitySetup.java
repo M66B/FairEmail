@@ -1401,9 +1401,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                                 continue;
 
-                            if ("query_threads".equals(key))
-                                continue;
-
                             // Prevent restart
                             if ("secure".equals(key) ||
                                     "load_emoji".equals(key) ||

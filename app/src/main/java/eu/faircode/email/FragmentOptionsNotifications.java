@@ -59,7 +59,6 @@ import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 import java.util.function.Consumer;
 
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -124,9 +123,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private Group grpProperties;
     private Group grpBackground;
     private Group grpTiles;
-
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(1, "notifications");
 
     private final static String[] RESET_OPTIONS = new String[]{
             "notify_newest_first", "notify_summary",
@@ -817,7 +813,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                 ComponentName.createRelative(context, cls.getName()),
                 context.getString(title),
                 Icon.createWithResource(context, icon),
-                executor,
+                Helper.getParallelExecutor(),
                 new Consumer<Integer>() {
                     @Override
                     public void accept(Integer result) {

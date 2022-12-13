@@ -78,14 +78,10 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.style.BackgroundColorSpan;
-import android.text.style.BulletSpan;
-import android.text.style.CharacterStyle;
 import android.text.style.ImageSpan;
-import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.URLSpan;
-import android.util.LogPrinter;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -206,7 +202,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.UUID;
-import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
 
 import javax.activation.DataHandler;
@@ -339,8 +334,6 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_DISCARD = 14;
     private static final int REQUEST_SEND = 15;
     private static final int REQUEST_REMOVE_ATTACHMENTS = 16;
-
-    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "compose");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1399,7 +1392,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.setExecutor(executor).execute(FragmentCompose.this, args, "compose:identity");
+        }.serial().execute(FragmentCompose.this, args, "compose:identity");
     }
 
     private void onReferenceEdit() {
@@ -1490,7 +1483,7 @@ public class FragmentCompose extends FragmentBase {
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
-                }.setExecutor(executor).execute(FragmentCompose.this, args, "compose:convert");
+                }.serial().execute(FragmentCompose.this, args, "compose:convert");
             }
 
             private void copyRef() {
@@ -2007,7 +2000,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.setExecutor(executor).execute(this, args, "compose:encrypt");
+        }.serial().execute(this, args, "compose:encrypt");
     }
 
     private void onMenuZoom() {
@@ -2262,7 +2255,7 @@ public class FragmentCompose extends FragmentBase {
                             protected void onException(Bundle args, Throwable ex) {
                                 Log.unexpectedError(getParentFragmentManager(), ex);
                             }
-                        }.setExecutor(executor).execute(FragmentCompose.this, args, "compose:answer");
+                        }.serial().execute(FragmentCompose.this, args, "compose:answer");
 
                         return true;
                     }
@@ -2275,7 +2268,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.setExecutor(executor).execute(getContext(), getViewLifecycleOwner(), new Bundle(), "compose:answer");
+        }.serial().execute(getContext(), getViewLifecycleOwner(), new Bundle(), "compose:answer");
     }
 
     private void onMenuAnswerCreate() {
@@ -2473,7 +2466,7 @@ public class FragmentCompose extends FragmentBase {
                         etBody.setSelection(paragraph.second);
                         Log.unexpectedError(getParentFragmentManager(), ex, false);
                     }
-                }.setExecutor(executor).execute(FragmentCompose.this, args, "compose:translate");
+                }.serial().execute(FragmentCompose.this, args, "compose:translate");
             }
         });
 
@@ -2713,7 +2706,7 @@ public class FragmentCompose extends FragmentBase {
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                 }
-            }.setExecutor(executor).execute(this, args, "compose:alias");
+            }.serial().execute(this, args, "compose:alias");
         } else {
             try {
                 List<Address> recipients = new ArrayList<>();
@@ -2989,7 +2982,7 @@ public class FragmentCompose extends FragmentBase {
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.setExecutor(executor).execute(this, args, "compose:picked");
+        }.serial().execute(this, args, "compose:picked");
     }
 
     @Override
@@ -3190,7 +3183,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 handleException(ex);
             }
-        }.setExecutor(executor).execute(this, args, "compose:attachment:add");
+        }.serial().execute(this, args, "compose:attachment:add");
     }
 
     void onSharedAttachments(ArrayList<Uri> uris) {
@@ -3639,7 +3632,7 @@ public class FragmentCompose extends FragmentBase {
                 } else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.setExecutor(executor).execute(this, args, "compose:pgp");
+        }.serial().execute(this, args, "compose:pgp");
     }
 
     private void onSmime(Bundle args, final int action, final Bundle extras) {
@@ -4029,7 +4022,7 @@ public class FragmentCompose extends FragmentBase {
                     Log.unexpectedError(getParentFragmentManager(), ex, !expected);
                 }
             }
-        }.setExecutor(executor).execute(this, args, "compose:s/mime");
+        }.serial().execute(this, args, "compose:s/mime");
     }
 
     private void onContactGroupSelected(Bundle args) {
@@ -4173,7 +4166,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.setExecutor(executor).execute(this, args, "compose:picked");
+        }.serial().execute(this, args, "compose:picked");
     }
 
     private void onSelectIdentity(Bundle args) {
@@ -5773,7 +5766,7 @@ public class FragmentCompose extends FragmentBase {
             } else
                 handleException(ex);
         }
-    }.setExecutor(executor);
+    }.serial();
 
     private void handleException(Throwable ex) {
         // External app sending absolute file
@@ -6684,7 +6677,7 @@ public class FragmentCompose extends FragmentBase {
             if (ani != null && ani.isConnected())
                 DnsHelper.checkMx(context, addresses);
         }
-    }.setExecutor(executor);
+    }.serial();
 
     private String getActionName(int id) {
         if (id == R.id.action_delete) {
@@ -6934,7 +6927,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.setExecutor(executor).execute(this, args, "compose:show");
+        }.serial().execute(this, args, "compose:show");
     }
 
     private void setFocus(Integer v, int start, int end, boolean restore) {
@@ -7616,7 +7609,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
-                    }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:plain_only");
+                    }.serial().execute(FragmentDialogSend.this, args, "compose:plain_only");
                 }
             });
 
@@ -7645,7 +7638,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
-                    }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:receipt");
+                    }.serial().execute(FragmentDialogSend.this, args, "compose:receipt");
                 }
             });
 
@@ -7724,7 +7717,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
-                    }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:encrypt");
+                    }.serial().execute(FragmentDialogSend.this, args, "compose:encrypt");
                 }
             });
 
@@ -7772,7 +7765,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
-                    }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:priority");
+                    }.serial().execute(FragmentDialogSend.this, args, "compose:priority");
                 }
             });
 
@@ -7813,7 +7806,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
-                    }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:sensitivity");
+                    }.serial().execute(FragmentDialogSend.this, args, "compose:sensitivity");
                 }
             });
 
@@ -7985,7 +7978,7 @@ public class FragmentCompose extends FragmentBase {
                 protected void onException(Bundle args, Throwable ex) {
                     // Ignored
                 }
-            }.setExecutor(executor).execute(FragmentDialogSend.this, aargs, "send:archive");
+            }.serial().execute(FragmentDialogSend.this, aargs, "send:archive");
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setView(dview)
@@ -8042,7 +8035,7 @@ public class FragmentCompose extends FragmentBase {
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
-                }.setExecutor(executor).execute(this, args, "compose:snooze");
+                }.serial().execute(this, args, "compose:snooze");
             }
         }
     }

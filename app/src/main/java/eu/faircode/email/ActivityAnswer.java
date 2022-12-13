@@ -37,10 +37,8 @@ import androidx.constraintlayout.widget.Group;
 
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 
 public class ActivityAnswer extends ActivityBase {
-    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "answer");
 
     @Override
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -71,7 +69,7 @@ public class ActivityAnswer extends ActivityBase {
                 final Context context = adapterView.getContext();
                 EntityAnswer answer = (EntityAnswer) adapterView.getAdapter().getItem(pos);
 
-                executor.submit(new Runnable() {
+                Helper.getParallelExecutor().submit(new Runnable() {
                     @Override
                     public void run() {
                         try {

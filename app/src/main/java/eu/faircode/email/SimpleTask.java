@@ -66,7 +66,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private Handler handler = null;
 
     private static PowerManager.WakeLock wl = null;
-    private static ExecutorService globalExecutor = null;
     private static int themeId = -1;
     @SuppressLint("StaticFieldLeak")
     private static Context themedContext = null;
@@ -108,6 +107,10 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         return this;
     }
 
+    public SimpleTask<T> serial() {
+        return setExecutor(Helper.getSerialTaskExecutor());
+    }
+
     @NonNull
     public SimpleTask<T> setHandler(Handler handler) {
         this.handler = handler;
@@ -124,12 +127,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         if (localExecutor != null)
             return localExecutor;
 
-        if (globalExecutor == null) {
-            int processors = Runtime.getRuntime().availableProcessors();
-            globalExecutor = Helper.getBackgroundExecutor(processors, "task");
-        }
-
-        return globalExecutor;
+        return Helper.getParallelExecutor();
     }
 
     @NonNull

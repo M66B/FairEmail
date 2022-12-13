@@ -40,13 +40,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
 
 import javax.net.ssl.HttpsURLConnection;
 
 public class DisconnectBlacklist {
     private static final Map<String, List<String>> map = new HashMap<>();
-    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "disconnect");
 
     private final static int FETCH_TIMEOUT = 20 * 1000; // milliseconds
     private final static String LIST = "https://raw.githubusercontent.com/disconnectme/disconnect-tracking-protection/master/services.json";
@@ -54,7 +52,7 @@ public class DisconnectBlacklist {
     static void init(Context context) {
         final File file = getFile(context);
 
-        executor.submit(new Runnable() {
+        Helper.getSerialExecutor().submit(new Runnable() {
             @Override
             public void run() {
                 try {

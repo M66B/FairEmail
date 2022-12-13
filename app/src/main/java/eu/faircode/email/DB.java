@@ -41,7 +41,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.ExecutorService;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -363,7 +362,7 @@ public abstract class DB extends RoomDatabase {
 
             sInstance = migrate(sContext, getBuilder(sContext)).build();
 
-            sInstance.getQueryExecutor().execute(new Runnable() {
+            Helper.getSerialExecutor().execute(new Runnable() {
                 @Override
                 public void run() {
                     checkEmergencyBackup(sContext);
@@ -399,17 +398,14 @@ public abstract class DB extends RoomDatabase {
 
     private static RoomDatabase.Builder<DB> getBuilder(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int threads = prefs.getInt("query_threads", DEFAULT_QUERY_THREADS);
         boolean wal = prefs.getBoolean("wal", true);
-        Log.i("DB query threads=" + threads + " wal=" + wal);
-        ExecutorService executorQuery = Helper.getBackgroundExecutor(threads, "query");
-        ExecutorService executorTransaction = Helper.getBackgroundExecutor(0, "transaction");
+        Log.i("DB wal=" + wal);
 
         RoomDatabase.Builder<DB> builder = Room
                 .databaseBuilder(context, DB.class, DB_NAME)
                 //.openHelperFactory(new RequerySQLiteOpenHelperFactory())
-                .setQueryExecutor(executorQuery)
-                .setTransactionExecutor(executorTransaction)
+                //.setQueryExecutor()
+                .setTransactionExecutor(Helper.getParallelExecutor())
                 .setJournalMode(wal ? JournalMode.WRITE_AHEAD_LOGGING : JournalMode.TRUNCATE) // using the latest sqlite
                 .addCallback(new Callback() {
                     @Override
@@ -486,7 +482,7 @@ public abstract class DB extends RoomDatabase {
                 public void onQuery(@NonNull String sqlQuery, @NonNull List<Object> bindArgs) {
                     Log.i("query=" + sqlQuery);
                 }
-            }, executorQuery);
+            }, Helper.getParallelExecutor());
 
         return builder;
     }
@@ -2611,7 +2607,7 @@ public abstract class DB extends RoomDatabase {
     public static void checkpoint(Context context) {
         // https://www.sqlite.org/pragma.html#pragma_wal_checkpoint
         DB db = getInstance(context);
-        db.getQueryExecutor().execute(new Runnable() {
+        Helper.getParallelExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -2641,7 +2637,7 @@ public abstract class DB extends RoomDatabase {
 
     public static void shrinkMemory(Context context) {
         DB db = getInstance(context);
-        db.getQueryExecutor().execute(new Runnable() {
+        Helper.getParallelExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 try {

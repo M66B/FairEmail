@@ -14,15 +14,12 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 
 import java.io.IOException;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class MediaPlayerHelper {
     static final int DEFAULT_SOUND_DURATION = 30; // seconds
     static final int DEFAULT_ALARM_DURATION = 30; // seconds
-
-    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "media");
 
     static void queue(Context context, String uri) {
         try {
@@ -35,7 +32,7 @@ public class MediaPlayerHelper {
     static void queue(Context context, Uri uri, boolean alarm, int duration) {
         Log.i("Queuing sound=" + uri);
 
-        executor.submit(new Runnable() {
+        Helper.getSerialExecutor().submit(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -114,7 +111,7 @@ public class MediaPlayerHelper {
                     try {
                         if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                             if (!registered) {
-                                am.addOnModeChangedListener(executor, listener);
+                                am.addOnModeChangedListener(Helper.getParallelExecutor(), listener);
                                 registered = true;
                             }
                         } else {

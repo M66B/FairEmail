@@ -67,7 +67,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
 import javax.net.SocketFactory;
@@ -103,8 +102,6 @@ public class EmailProvider implements Parcelable {
     enum UserType {LOCAL, EMAIL, VALUE}
 
     private static List<EmailProvider> imported;
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(0, "provider");
 
     private static final int SCAN_TIMEOUT = 15 * 1000; // milliseconds
     private static final int ISPDB_TIMEOUT = 15 * 1000; // milliseconds
@@ -132,7 +129,7 @@ public class EmailProvider implements Parcelable {
     }
 
     static void init(Context context) {
-        executor.submit(new Runnable() {
+        Helper.getSerialExecutor().submit(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -1102,7 +1099,7 @@ public class EmailProvider implements Parcelable {
 
         private Future<Boolean> getReachable(Context context) {
             Log.i("Scanning " + this);
-            return executor.submit(new Callable<Boolean>() {
+            return Helper.getParallelExecutor().submit(new Callable<Boolean>() {
                 // Returns:
                 //   false: closed
                 //   true: listening

@@ -59,7 +59,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
 
 import javax.mail.Address;
 import javax.mail.internet.AddressException;
@@ -72,8 +71,6 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     private ContextThemeWrapper ctx;
     private Tokenizer tokenizer;
     private Map<String, Integer> encryption = new ConcurrentHashMap<>();
-
-    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "chips");
 
     private static int[] icons = new int[]{
             R.drawable.twotone_vpn_key_24_p,
@@ -339,7 +336,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                     Integer has = encryption.get(email);
                                     if (has == null) {
                                         final List<Address> recipient = Arrays.asList(new Address[]{parsed[0]});
-                                        executor.submit(new Runnable() {
+                                        Helper.getParallelExecutor().submit(new Runnable() {
                                             @Override
                                             public void run() {
                                                 try {

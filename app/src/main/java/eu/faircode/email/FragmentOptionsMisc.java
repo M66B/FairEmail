@@ -176,9 +176,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swWorkManager;
     private SwitchCompat swExternalStorage;
     private TextView tvExternalStorageFolder;
-    private TextView tvRoomQueryThreads;
-    private SeekBar sbRoomQueryThreads;
-    private ImageButton ibRoom;
     private SwitchCompat swIntegrity;
     private SwitchCompat swWal;
     private SwitchCompat swCheckpoints;
@@ -261,7 +258,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
             "test1", "test2", "test3", "test4", "test5",
             "work_manager", // "external_storage",
-            "query_threads",
             "sqlite_integrity_check", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_auto_vacuum", "sqlite_sync_extra", "sqlite_cache",
             "chunk_size", "thread_range", "undo_manager",
             "browser_zoom", "fake_dark",
@@ -393,9 +389,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swWorkManager = view.findViewById(R.id.swWorkManager);
         swExternalStorage = view.findViewById(R.id.swExternalStorage);
         tvExternalStorageFolder = view.findViewById(R.id.tvExternalStorageFolder);
-        tvRoomQueryThreads = view.findViewById(R.id.tvRoomQueryThreads);
-        sbRoomQueryThreads = view.findViewById(R.id.sbRoomQueryThreads);
-        ibRoom = view.findViewById(R.id.ibRoom);
         swIntegrity = view.findViewById(R.id.swIntegrity);
         swWal = view.findViewById(R.id.swWal);
         swCheckpoints = view.findViewById(R.id.swCheckpoints);
@@ -1242,31 +1235,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }.execute(FragmentOptionsMisc.this, args, "external");
-            }
-        });
-
-        sbRoomQueryThreads.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                prefs.edit().putInt("query_threads", progress).apply();
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // Do nothing
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                // Do nothing
-            }
-        });
-
-        ibRoom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                prefs.edit().remove("debug").commit();
-                ApplicationEx.restart(v.getContext(), "query_threads");
             }
         });
 
@@ -2192,10 +2160,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAutostart.setChecked(Helper.isComponentEnabled(getContext(), ReceiverAutoStart.class));
         swWorkManager.setChecked(prefs.getBoolean("work_manager", true));
         swExternalStorage.setChecked(prefs.getBoolean("external_storage", false));
-
-        int query_threads = prefs.getInt("query_threads", DB.DEFAULT_QUERY_THREADS);
-        tvRoomQueryThreads.setText(getString(R.string.title_advanced_room_query_threads, NF.format(query_threads)));
-        sbRoomQueryThreads.setProgress(query_threads);
 
         swIntegrity.setChecked(prefs.getBoolean("sqlite_integrity_check", true));
         swWal.setChecked(prefs.getBoolean("wal", true));

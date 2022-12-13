@@ -57,7 +57,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.UUID;
-import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
 
 import javax.mail.Address;
@@ -129,8 +128,6 @@ public class EntityRule {
 
     private static final String JSOUP_PREFIX = "jsoup:";
     private static final long SEND_DELAY = 5000L; // milliseconds
-
-    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "rule");
 
     static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
         return needs(rules, "header");
@@ -760,7 +757,7 @@ public class EntityRule {
             return true;
         }
 
-        executor.submit(new Runnable() {
+        Helper.getSerialExecutor().submit(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -982,7 +979,7 @@ public class EntityRule {
             return true;
         }
 
-        executor.submit(new Runnable() {
+        Helper.getSerialExecutor().submit(new Runnable() {
             @Override
             public void run() {
                 try {

@@ -32,7 +32,6 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 import java.util.Objects;
-import java.util.concurrent.ExecutorService;
 
 @Entity(
         tableName = EntityLog.TABLE_NAME,
@@ -66,9 +65,6 @@ public class EntityLog {
     public String data;
 
     public enum Type {General, Statistics, Scheduling, Network, Account, Protocol, Classification, Notification, Rules, Debug}
-
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(1, "log");
 
     static void log(final Context context, String data) {
         log(context, Type.General, data);
@@ -139,7 +135,7 @@ public class EntityLog {
         final DB db = DB.getInstance(context);
         final Context acontext = context.getApplicationContext();
 
-        executor.submit(new Runnable() {
+        Helper.getSerialExecutor().submit(new Runnable() {
             @Override
             public void run() {
                 // Check available storage space
@@ -181,7 +177,7 @@ public class EntityLog {
 
     static void clear(final Context context) {
         final Context acontext = context.getApplicationContext();
-        executor.submit(new Runnable() {
+        Helper.getParallelExecutor().submit(new Runnable() {
             @Override
             public void run() {
                 cleanup(acontext, new Date().getTime());

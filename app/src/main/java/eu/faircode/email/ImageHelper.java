@@ -81,11 +81,6 @@ import java.util.WeakHashMap;
 import java.util.concurrent.ExecutorService;
 
 class ImageHelper {
-    private static final ExecutorService executor_1 =
-            Helper.getBackgroundExecutor(1, "image_1");
-    private static final ExecutorService executor_n =
-            Helper.getBackgroundExecutor(0, "image_n");
-
     static final int DOWNLOAD_TIMEOUT = 15; // seconds
     private static final int MAX_PROBE = 128 * 1024; // bytes
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
@@ -475,7 +470,9 @@ class ImageHelper {
             lld.setLevel(1);
 
             Integer kbps = ConnectionHelper.getLinkDownstreamBandwidthKbps(context);
-            ExecutorService executor = (kbps != null && kbps < SLOW_CONNECTION ? executor_1 : executor_n);
+            ExecutorService executor = (kbps != null && kbps < SLOW_CONNECTION
+                    ? Helper.getSerialExecutor()
+                    : Helper.getParallelExecutor());
 
             executor.submit(new Runnable() {
                 @Override

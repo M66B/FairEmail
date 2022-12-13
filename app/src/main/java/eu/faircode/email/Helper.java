@@ -178,6 +178,7 @@ public class Helper {
 
     static final float LOW_LIGHT = 0.6f;
 
+    static final int OPERATION_WORKERS = 3;
     static final int WAKELOCK_MAX = 30 * 60 * 1000; // milliseconds
     static final int BUFFER_SIZE = 8192; // Same as in Files class
     static final long MIN_REQUIRED_SPACE = 100 * 1000L * 1000L;
@@ -245,9 +246,40 @@ public class Helper {
             "wsc", "wsf", "wsh"
     ));
 
-    private static final ExecutorService executor = getBackgroundExecutor(1, "helper");
+    static ExecutorService sSerialExecutor = null;
+    static ExecutorService sParallelExecutor = null;
+    static ExecutorService sSerialTaskExecutor = null;
 
-    static ExecutorService getBackgroundExecutor(int threads, final String name) {
+    static int sOperationIndex = 0;
+    static ExecutorService[] sOperationExecutor = new ExecutorService[OPERATION_WORKERS];
+
+    static ExecutorService getSerialExecutor() {
+        if (sSerialExecutor == null)
+            sSerialExecutor = getBackgroundExecutor(1, "serial");
+        return sSerialExecutor;
+    }
+
+    static ExecutorService getParallelExecutor() {
+        if (sParallelExecutor == null)
+            sParallelExecutor = getBackgroundExecutor(0, "parallel");
+        return sParallelExecutor;
+    }
+
+    static ExecutorService getSerialTaskExecutor() {
+        if (sSerialTaskExecutor == null)
+            sSerialTaskExecutor = getBackgroundExecutor(1, "task");
+        return sSerialTaskExecutor;
+    }
+
+    static ExecutorService getOperationExecutor() {
+        if (sOperationExecutor[sOperationIndex] == null)
+            sOperationExecutor[sOperationIndex] = getBackgroundExecutor(1, "operation");
+        ExecutorService result = sOperationExecutor[sOperationIndex];
+        sOperationIndex = (sOperationIndex + 1) % sOperationExecutor.length;
+        return result;
+    }
+
+    private static ExecutorService getBackgroundExecutor(int threads, final String name) {
         ThreadFactory factory = new ThreadFactory() {
             private final AtomicInteger threadId = new AtomicInteger();
 
@@ -264,7 +296,7 @@ public class Helper {
             // java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
             // 1040 KB native stack size / 32 KB thread stack size ~ 32 threads
             int processors = Runtime.getRuntime().availableProcessors(); // Modern devices: 8
-            threads = processors * (BuildConfig.DEBUG ? 8 : 4);
+            threads = processors * 2;
         }
 
         if (threads == 0)
@@ -396,8 +428,13 @@ public class Helper {
     }
 
     static class PriorityRunnable implements Runnable {
+        private long group;
         private int priority;
         private long order;
+
+        long getGroup() {
+            return this.group;
+        }
 
         int getPriority() {
             return this.priority;
@@ -407,7 +444,8 @@ public class Helper {
             return this.order;
         }
 
-        PriorityRunnable(int priority, long order) {
+        PriorityRunnable(long group, int priority, long order) {
+            this.group = group;
             this.priority = priority;
             this.order = order;
         }
@@ -2696,7 +2734,7 @@ public class Helper {
                             ? R.string.title_setup_biometrics_disable
                             : R.string.title_setup_biometrics_enable));
 
-                    final BiometricPrompt prompt = new BiometricPrompt(activity, executor,
+                    final BiometricPrompt prompt = new BiometricPrompt(activity, Helper.getParallelExecutor(),
                             new BiometricPrompt.AuthenticationCallback() {
                                 private int fails = 0;
 

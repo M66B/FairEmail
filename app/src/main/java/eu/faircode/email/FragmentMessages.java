@@ -243,7 +243,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.function.Consumer;
 
@@ -448,8 +447,6 @@ public class FragmentMessages extends FragmentBase
     static final List<String> SORT_DATE_HEADER = Collections.unmodifiableList(Arrays.asList(
             "time", "unread", "starred", "priority"
     ));
-
-    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "messages");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -691,9 +688,7 @@ public class FragmentMessages extends FragmentBase
 
         rvMessage.setHasFixedSize(false);
 
-        int threads = prefs.getInt("query_threads", DB.DEFAULT_QUERY_THREADS);
-        if (threads >= 4)
-            rvMessage.setItemViewCacheSize(ITEM_CACHE_SIZE);
+        rvMessage.setItemViewCacheSize(ITEM_CACHE_SIZE);
         //rvMessage.getRecycledViewPool().setMaxRecycledViews(0, 10); // Default 5
 
         final LinearLayoutManager llm = new LinearLayoutManager(getContext()) {
@@ -6351,7 +6346,7 @@ public class FragmentMessages extends FragmentBase
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                 }
-            }.setExecutor(executor).setId("messages:" + FragmentMessages.this.hashCode()).execute(this, args, "quickactions");
+            }.serial().setId("messages:" + FragmentMessages.this.hashCode()).execute(this, args, "quickactions");
         } else {
             fabMore.hide();
             tvSelectedCount.setVisibility(View.GONE);
@@ -8519,7 +8514,7 @@ public class FragmentMessages extends FragmentBase
                 } else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.setExecutor(executor).execute(this, args, "decrypt:pgp");
+        }.serial().execute(this, args, "decrypt:pgp");
     }
 
     private void onSmime(Bundle args) {
@@ -9176,7 +9171,7 @@ public class FragmentMessages extends FragmentBase
                     }
                 return trace;
             }
-        }.setExecutor(executor).execute(this, args, "decrypt:s/mime");
+        }.serial().execute(this, args, "decrypt:s/mime");
     }
 
     private static void checkPep(EntityMessage message, List<EntityAttachment> remotes, Context context) {
@@ -9759,8 +9754,6 @@ public class FragmentMessages extends FragmentBase
         args.putBoolean("print_html_images", print_html_images);
 
         new SimpleTask<String[]>() {
-            private final ExecutorService executor = Helper.getBackgroundExecutor(0, "print");
-
             @Override
             protected String[] onExecute(Context context, Bundle args) throws IOException {
                 long id = args.getLong("id");
@@ -9818,7 +9811,7 @@ public class FragmentMessages extends FragmentBase
                             continue;
                         }
 
-                        futures.add(executor.submit(new Callable<Void>() {
+                        futures.add(Helper.getParallelExecutor().submit(new Callable<Void>() {
                             @Override
                             public Void call() throws Exception {
                                 try (OutputStream os = new FileOutputStream(out)) {
@@ -10111,7 +10104,7 @@ public class FragmentMessages extends FragmentBase
             return;
 
         DB db = DB.getInstance(context);
-        db.getQueryExecutor().execute(new Runnable() {
+        Helper.getParallelExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 try {

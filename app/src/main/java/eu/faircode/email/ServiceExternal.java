@@ -36,7 +36,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 
 public class ServiceExternal extends Service {
     private static final String ACTION_POLL = BuildConfig.APPLICATION_ID + ".POLL";
@@ -50,10 +49,6 @@ public class ServiceExternal extends Service {
     // adb shell am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes {0, 15, 30, 60, 120, 240, 480, 1440}
     // adb shell am start-foreground-service -a eu.faircode.email.DISCONNECT
-
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(1, "external");
-
 
     @Override
     public void onCreate() {
@@ -86,7 +81,7 @@ public class ServiceExternal extends Service {
             EntityLog.log(this, action);
 
             final Context context = getApplicationContext();
-            executor.submit(new Runnable() {
+            Helper.getSerialExecutor().submit(new Runnable() {
                 @Override
                 public void run() {
                     try {
