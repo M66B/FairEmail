@@ -641,8 +641,6 @@ public class FragmentCompose extends FragmentBase {
         etBody.addTextChangedListener(new TextWatcher() {
             private boolean save = false;
             private Integer added = null;
-            private Integer removed = null;
-            private Integer inserted = null;
             private Pair<Integer, Integer> lt = null;
 
             @Override
