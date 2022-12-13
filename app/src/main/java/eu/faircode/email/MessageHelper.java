@@ -3640,19 +3640,19 @@ public class MessageHelper {
                 }
 
                 if ("message/rfc822".equals(local.type))
-                    decodeRfc822(context, local);
+                    decodeRfc822(context, local, 1);
 
                 else if ("text/calendar".equals(local.type) && ActivityBilling.isPro(context))
                     decodeICalendar(context, local);
 
                 else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && local.isCompressed()) {
-                    decodeCompressed(context, local);
+                    decodeCompressed(context, local, 1);
 
                 } else if (Helper.isTnef(local.type, local.name))
-                    decodeTNEF(context, local);
+                    decodeTNEF(context, local, 1);
 
                 else if ("msg".equalsIgnoreCase(Helper.getExtension(local.name)))
-                    decodeOutlook(context, local);
+                    decodeOutlook(context, local, 1);
             }
         }
 
@@ -3685,7 +3685,7 @@ public class MessageHelper {
             db.attachment().setDownloaded(local.id, file.length());
         }
 
-        private void decodeRfc822(Context context, EntityAttachment local) {
+        private int decodeRfc822(Context context, EntityAttachment local, int subsequence) {
             DB db = DB.getInstance(context);
             try (FileInputStream fis = new FileInputStream(local.getFile(context))) {
                 Properties props = MessageHelper.getSessionProperties(true);
@@ -3694,7 +3694,6 @@ public class MessageHelper {
                 MessageHelper helper = new MessageHelper(imessage, context);
                 MessageParts parts = helper.getMessageParts();
 
-                int subsequence = 1;
                 for (AttachmentPart epart : parts.getAttachmentParts())
                     try {
                         Log.i("Embedded attachment seq=" + local.sequence + ":" + subsequence);
@@ -3726,14 +3725,16 @@ public class MessageHelper {
                 else
                     db.attachment().setWarning(local.id, Log.formatThrowable(ex));
             }
+
+            return subsequence;
         }
 
-        private void decodeCompressed(Context context, EntityAttachment local) {
+        private int decodeCompressed(Context context, EntityAttachment local, int subsequence) {
             // https://commons.apache.org/proper/commons-compress/examples.html
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean unzip = prefs.getBoolean("unzip", !BuildConfig.PLAY_STORE_RELEASE);
             if (!unzip)
-                return;
+                return subsequence;
 
             DB db = DB.getInstance(context);
 
@@ -3753,7 +3754,7 @@ public class MessageHelper {
                         EntityAttachment attachment = new EntityAttachment();
                         attachment.message = local.message;
                         attachment.sequence = local.sequence;
-                        attachment.subsequence = 1;
+                        attachment.subsequence = subsequence++;
                         attachment.name = name;
                         attachment.type = Helper.guessMimeType(name);
                         if (total >= 0)
@@ -3815,7 +3816,6 @@ public class MessageHelper {
                         ais = new ArchiveStreamFactory().createArchiveInputStream(
                                 new BufferedInputStream(local.isTarGzip() ? new GzipCompressorInputStream(fis) : fis));
 
-                        int subsequence = 1;
                         while ((entry = ais.getNextEntry()) != null) {
                             if (!ais.canReadEntryData(entry)) {
                                 Log.w("Zip invalid=" + entry);
@@ -3884,6 +3884,8 @@ public class MessageHelper {
                     else
                         db.attachment().setWarning(local.id, Log.formatThrowable(ex));
                 }
+
+            return subsequence;
         }
 
         private void decodeICalendar(Context context, EntityAttachment local) {
@@ -3945,10 +3947,9 @@ public class MessageHelper {
             }
         }
 
-        private void decodeTNEF(Context context, EntityAttachment local) {
+        private int decodeTNEF(Context context, EntityAttachment local, int subsequence) {
             try {
                 DB db = DB.getInstance(context);
-                int subsequence = 0;
 
                 // https://poi.apache.org/components/hmef/index.html
                 File file = local.getFile(context);
@@ -3959,7 +3960,7 @@ public class MessageHelper {
                     EntityAttachment attachment = new EntityAttachment();
                     attachment.message = local.message;
                     attachment.sequence = local.sequence;
-                    attachment.subsequence = ++subsequence;
+                    attachment.subsequence = subsequence++;
                     attachment.name = "subject.txt";
                     attachment.type = "text/plain";
                     attachment.disposition = Part.ATTACHMENT;
@@ -3984,7 +3985,7 @@ public class MessageHelper {
                         EntityAttachment attachment = new EntityAttachment();
                         attachment.message = local.message;
                         attachment.sequence = local.sequence;
-                        attachment.subsequence = ++subsequence;
+                        attachment.subsequence = subsequence++;
                         if (attr.getProperty().equals(org.apache.poi.hsmf.datatypes.MAPIProperty.BODY_HTML)) {
                             attachment.name = "body.html";
                             attachment.type = "text/html";
@@ -4008,7 +4009,7 @@ public class MessageHelper {
                     EntityAttachment attachment = new EntityAttachment();
                     attachment.message = local.message;
                     attachment.sequence = local.sequence;
-                    attachment.subsequence = ++subsequence;
+                    attachment.subsequence = subsequence++;
                     attachment.name = "body.rtf";
                     attachment.type = "application/rtf";
                     attachment.disposition = Part.ATTACHMENT;
@@ -4036,7 +4037,7 @@ public class MessageHelper {
                     EntityAttachment attachment = new EntityAttachment();
                     attachment.message = local.message;
                     attachment.sequence = local.sequence;
-                    attachment.subsequence = ++subsequence;
+                    attachment.subsequence = subsequence++;
                     attachment.name = filename;
                     attachment.type = Helper.guessMimeType(attachment.name);
                     attachment.disposition = Part.ATTACHMENT;
@@ -4067,7 +4068,7 @@ public class MessageHelper {
                     EntityAttachment attachment = new EntityAttachment();
                     attachment.message = local.message;
                     attachment.sequence = local.sequence;
-                    attachment.subsequence = ++subsequence;
+                    attachment.subsequence = subsequence++;
                     attachment.name = "attributes.txt";
                     attachment.type = "text/plain";
                     attachment.disposition = Part.ATTACHMENT;
@@ -4084,12 +4085,13 @@ public class MessageHelper {
             } catch (Throwable ex) {
                 Log.w(ex);
             }
+
+            return subsequence;
         }
 
-        private void decodeOutlook(Context context, EntityAttachment local) {
+        private int decodeOutlook(Context context, EntityAttachment local, int subsequence) {
             try {
                 DB db = DB.getInstance(context);
-                int subsequence = 0;
 
                 // https://poi.apache.org/components/hmef/index.html
                 File file = local.getFile(context);
@@ -4100,7 +4102,7 @@ public class MessageHelper {
                     EntityAttachment attachment = new EntityAttachment();
                     attachment.message = local.message;
                     attachment.sequence = local.sequence;
-                    attachment.subsequence = ++subsequence;
+                    attachment.subsequence = subsequence++;
                     attachment.name = "headers.txt";
                     attachment.type = "text/rfc822-headers";
                     attachment.disposition = Part.ATTACHMENT;
@@ -4115,7 +4117,7 @@ public class MessageHelper {
                     EntityAttachment attachment = new EntityAttachment();
                     attachment.message = local.message;
                     attachment.sequence = local.sequence;
-                    attachment.subsequence = ++subsequence;
+                    attachment.subsequence = subsequence++;
                     attachment.name = "body.html";
                     attachment.type = "text/html";
                     attachment.disposition = Part.ATTACHMENT;
@@ -4132,7 +4134,7 @@ public class MessageHelper {
                         EntityAttachment attachment = new EntityAttachment();
                         attachment.message = local.message;
                         attachment.sequence = local.sequence;
-                        attachment.subsequence = ++subsequence;
+                        attachment.subsequence = subsequence++;
                         attachment.name = "body.txt";
                         attachment.type = "text/plain";
                         attachment.disposition = Part.ATTACHMENT;
@@ -4149,7 +4151,7 @@ public class MessageHelper {
                     EntityAttachment attachment = new EntityAttachment();
                     attachment.message = local.message;
                     attachment.sequence = local.sequence;
-                    attachment.subsequence = ++subsequence;
+                    attachment.subsequence = subsequence++;
                     attachment.name = "body.rtf";
                     attachment.type = "application/rtf";
                     attachment.disposition = Part.ATTACHMENT;
@@ -4168,7 +4170,7 @@ public class MessageHelper {
                         EntityAttachment attachment = new EntityAttachment();
                         attachment.message = local.message;
                         attachment.sequence = local.sequence;
-                        attachment.subsequence = ++subsequence;
+                        attachment.subsequence = subsequence++;
                         attachment.name = ofa.getFilename();
                         attachment.type = ofa.getMimeTag();
                         attachment.disposition = Part.ATTACHMENT;
@@ -4188,6 +4190,8 @@ public class MessageHelper {
             } catch (Throwable ex) {
                 Log.w(ex);
             }
+
+            return subsequence;
         }
 
         String getWarnings(String existing) {
