@@ -119,7 +119,7 @@ public class EntityOperation {
             if (SEEN.equals(name)) {
                 boolean seen = jargs.getBoolean(0);
                 boolean ignore = jargs.optBoolean(1, true);
-                for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid))
+                for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid, message.hash))
                     if (similar.ui_seen != seen || similar.ui_ignored != ignore) {
                         db.message().setMessageUiSeen(similar.id, seen);
                         db.message().setMessageUiIgnored(similar.id, ignore);
@@ -130,7 +130,7 @@ public class EntityOperation {
             } else if (FLAG.equals(name)) {
                 boolean flagged = jargs.getBoolean(0);
                 Integer color = (jargs.length() > 1 && !jargs.isNull(1) ? jargs.getInt(1) : null);
-                for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid))
+                for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid, message.hash))
                     if (similar.ui_flagged != flagged || !Objects.equals(similar.color, color)) {
                         db.message().setMessageUiFlagged(similar.id, flagged, flagged ? color : null);
                         queue(context, similar.account, similar.folder, similar.id, name, jargs);
@@ -147,7 +147,7 @@ public class EntityOperation {
                 return;
 
             } else if (ANSWERED.equals(name)) {
-                for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid)) {
+                for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid, message.hash)) {
                     db.message().setMessageUiAnswered(similar.id, jargs.getBoolean(0));
                     queue(context, similar.account, similar.folder, similar.id, name, jargs);
                 }
@@ -262,7 +262,7 @@ public class EntityOperation {
                                 " auto read=" + autoread + " flag=" + autounflag + " importance=" + reset_importance);
 
                 if (autoread || autounflag || reset_importance)
-                    for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid)) {
+                    for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid, message.hash)) {
                         if (autoread)
                             queue(context, similar, SEEN, true);
                         if (autounflag)

@@ -451,8 +451,9 @@ public interface DaoMessage {
             " LEFT JOIN message AS base ON base.id = :id" +
             " WHERE message.account = :account" +
             " AND (message.id = :id" +
-            " OR (message.msgid = :msgid AND message.folder <> base.folder))")
-    List<EntityMessage> getMessagesBySimilarity(long account, long id, String msgid);
+            " OR (message.msgid = :msgid AND message.folder <> base.folder)" +
+            " OR (NOT :hash IS NULL AND message.hash IS :hash))")
+    List<EntityMessage> getMessagesBySimilarity(long account, long id, String msgid, String hash);
 
     @Query("SELECT COUNT(*) FROM message" +
             " WHERE folder = :folder" +

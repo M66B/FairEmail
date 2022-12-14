@@ -4825,7 +4825,7 @@ class Core {
         }
 
         if (syncSimilar && account.isGmail())
-            for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid)) {
+            for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid, message.hash)) {
                 if (similar.recent != message.recent) {
                     Log.i(folder.name + " Synchronize similar id=" + similar.id + " recent=" + message.recent);
                     db.message().setMessageRecent(similar.id, message.recent);
