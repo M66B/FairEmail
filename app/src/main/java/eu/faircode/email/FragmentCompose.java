@@ -632,7 +632,7 @@ public class FragmentCompose extends FragmentBase {
                         }
                     }, 20);
                 } else {
-                    style_bar.setVisibility(selection ? View.VISIBLE : View.GONE);
+                    style_bar.setVisibility(style || selection ? View.VISIBLE : View.GONE);
                     media_bar.setVisibility(View.GONE);
                 }
             }
