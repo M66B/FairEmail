@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,6 +30,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 abstract class ServiceBase extends LifecycleService {
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(ApplicationEx.getLocalizedContext(base));
+    }
+
     @Override
     public void onCreate() {
         Map<String, String> crumb = new HashMap<>();
