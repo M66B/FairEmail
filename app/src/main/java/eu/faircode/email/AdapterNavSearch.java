@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -107,20 +108,46 @@ public class AdapterNavSearch extends RecyclerView.Adapter<AdapterNavSearch.View
             if (search == null)
                 return;
 
-            try {
-                JSONObject json = new JSONObject(search.data);
-                BoundaryCallbackMessages.SearchCriteria criteria =
-                        BoundaryCallbackMessages.SearchCriteria.fromJSON(json);
-                criteria.id = search.id;
-                criteria.name = search.name;
-                criteria.order = search.order;
-                criteria.color = search.color;
-                FragmentMessages.search(
-                        context, owner, manager,
-                        -1L, -1L, false, criteria);
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
+            Bundle args = new Bundle();
+            args.putString("account_uuid", search.account_uuid);
+            args.putString("folder_name", search.folder_name);
+
+            new SimpleTask<Long[]>() {
+                @Override
+                protected Long[] onExecute(Context context, Bundle args) throws Throwable {
+                    String account_uuid = args.getString("account_uuid");
+                    String folder_name = args.getString("folder_name");
+
+                    DB db = DB.getInstance(context);
+                    EntityAccount account = db.account().getAccountByUUID(account_uuid);
+                    EntityFolder folder = db.folder().getFolderByName(account == null ? -1L : account.id, folder_name);
+
+                    return new Long[]{account == null ? -1L : account.id, folder == null ? -1L : folder.id};
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Long[] data) {
+                    try {
+                        JSONObject json = new JSONObject(search.data);
+                        BoundaryCallbackMessages.SearchCriteria criteria =
+                                BoundaryCallbackMessages.SearchCriteria.fromJSON(json);
+                        criteria.id = search.id;
+                        criteria.name = search.name;
+                        criteria.order = search.order;
+                        criteria.color = search.color;
+                        FragmentMessages.search(
+                                context, owner, manager,
+                                data[0], data[1], false, criteria);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(manager, ex);
+                }
+            }.execute(context, owner, args, "search");
         }
     }
 

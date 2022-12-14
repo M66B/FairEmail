@@ -5575,6 +5575,8 @@ public class FragmentMessages extends FragmentBase
 
     private void onMenuSaveSearch() {
         Bundle args = new Bundle();
+        args.putLong("account", account);
+        args.putLong("folder", folder);
         args.putSerializable("criteria", criteria);
 
         FragmentDialogSaveSearch fragment = new FragmentDialogSaveSearch();
@@ -5988,6 +5990,9 @@ public class FragmentMessages extends FragmentBase
 
                 DB db = DB.getInstance(context);
 
+                EntityAccount account = db.account().getAccount(args.getLong("account"));
+                EntityFolder folder = db.folder().getFolder(args.getLong("folder"));
+
                 EntitySearch search = null;
                 if (criteria.id != null)
                     search = db.search().getSearch(criteria.id);
@@ -5996,6 +6001,8 @@ public class FragmentMessages extends FragmentBase
 
                 int order = args.getInt("order");
 
+                search.account_uuid = (account == null ? null : account.uuid);
+                search.folder_name = (folder == null ? null : folder.name);
                 search.name = args.getString("name");
                 search.order = (order < 0 ? null : order);
                 search.color = args.getInt("color", Color.TRANSPARENT);

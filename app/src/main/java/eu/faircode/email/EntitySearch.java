@@ -40,6 +40,8 @@ public class EntitySearch {
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
+    public String account_uuid;
+    public String folder_name;
     @NonNull
     public String name;
     public Integer order;
@@ -50,6 +52,8 @@ public class EntitySearch {
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);
+        json.put("account", account_uuid);
+        json.put("folder", folder_name);
         json.put("name", name);
         json.put("order", order);
         json.put("color", color);
@@ -60,6 +64,10 @@ public class EntitySearch {
     public static EntitySearch fromJSON(JSONObject json) throws JSONException {
         EntitySearch search = new EntitySearch();
         // id
+        if (json.has("account"))
+            search.account_uuid = json.getString("account");
+        if (json.has("folder"))
+            search.folder_name = json.getString("folder");
         search.name = json.getString("name");
         if (json.has("order"))
             search.order = json.getInt("order");
