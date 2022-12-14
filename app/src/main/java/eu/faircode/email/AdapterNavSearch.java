@@ -130,7 +130,7 @@ public class AdapterNavSearch extends RecyclerView.Adapter<AdapterNavSearch.View
                     try {
                         JSONObject json = new JSONObject(search.data);
                         BoundaryCallbackMessages.SearchCriteria criteria =
-                                BoundaryCallbackMessages.SearchCriteria.fromJSON(json);
+                                BoundaryCallbackMessages.SearchCriteria.fromJsonData(json);
                         criteria.id = search.id;
                         criteria.name = search.name;
                         criteria.order = search.order;

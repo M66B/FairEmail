@@ -67,7 +67,7 @@ import javax.mail.internet.InternetAddress;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 257,
+        version = 258,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -408,6 +408,11 @@ public abstract class DB extends RoomDatabase {
                 .setTransactionExecutor(Helper.getParallelExecutor())
                 .setJournalMode(wal ? JournalMode.WRITE_AHEAD_LOGGING : JournalMode.TRUNCATE) // using the latest sqlite
                 .addCallback(new Callback() {
+                    @Override
+                    public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                        defaultSearches(db, context);
+                    }
+
                     @Override
                     public void onOpen(@NonNull SupportSQLiteDatabase db) {
                         Map<String, String> crumb = new HashMap<>();
@@ -2598,6 +2603,18 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `search` ADD COLUMN `account_uuid` TEXT");
                         db.execSQL("ALTER TABLE `search` ADD COLUMN `folder_name` TEXT");
                     }
+                }).addMigrations(new Migration(257, 258) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        defaultSearches(db, context);
+                    }
+                }).addMigrations(new Migration(258, 257) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        defaultSearches(db, context);
+                    }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
@@ -2609,6 +2626,33 @@ public abstract class DB extends RoomDatabase {
                                 " OR host = 'imap.nexgo.de'");
                     }
                 });
+    }
+
+    public static void defaultSearches(SupportSQLiteDatabase db, Context context) {
+        try {
+            BoundaryCallbackMessages.SearchCriteria criteria;
+
+            criteria = new BoundaryCallbackMessages.SearchCriteria();
+            criteria.with_flagged = true;
+
+            db.execSQL("INSERT INTO `search` (`name`, `order`, `data`) VALUES (?, ?, ?)",
+                    new Object[]{
+                            context.getString(R.string.title_search_with_flagged),
+                            0,
+                            criteria.toJsonData().toString()
+                    });
+
+            criteria = new BoundaryCallbackMessages.SearchCriteria();
+            criteria.with_unseen = true;
+            db.execSQL("INSERT INTO `search` (`name`, `order`, `data`) VALUES (?, ?, ?)",
+                    new Object[]{
+                            context.getString(R.string.title_search_with_unseen),
+                            0,
+                            criteria.toJsonData().toString()
+                    });
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     public static void checkpoint(Context context) {

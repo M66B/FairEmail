@@ -6006,7 +6006,7 @@ public class FragmentMessages extends FragmentBase
                 search.name = args.getString("name");
                 search.order = (order < 0 ? null : order);
                 search.color = args.getInt("color", Color.TRANSPARENT);
-                search.data = criteria.toJson().toString();
+                search.data = criteria.toJsonData().toString();
 
                 if (search.color == Color.TRANSPARENT)
                     search.color = null;

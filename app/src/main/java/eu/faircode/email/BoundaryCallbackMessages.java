@@ -1249,7 +1249,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 return false;
         }
 
-        JSONObject toJson() throws JSONException {
+        JSONObject toJsonData() throws JSONException {
             JSONObject json = new JSONObject();
             json.put("query", query);
             json.put("fts", fts);
@@ -1296,7 +1296,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             return json;
         }
 
-        public static SearchCriteria fromJSON(JSONObject json) throws JSONException {
+        public static SearchCriteria fromJsonData(JSONObject json) throws JSONException {
             SearchCriteria criteria = new SearchCriteria();
             criteria.query = json.optString("query");
             criteria.fts = json.optBoolean("fts");
