@@ -70,6 +70,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class DeepL {
     // https://www.deepl.com/docs-api/
+    // https://github.com/DeepLcom/deepl-java
     private static JSONArray jlanguages = null;
 
     private static final int DEEPL_TIMEOUT = 20; // seconds
