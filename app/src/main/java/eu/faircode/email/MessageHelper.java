@@ -239,7 +239,9 @@ public class MessageHelper {
             "$HasAttachment", // Dovecot
             "$HasNoAttachment", // Dovecot
             "$IsTrusted", // Fastmail
-            "$X-ME-Annot-2" // Fastmail
+            "$X-ME-Annot-2", // Fastmail
+            "$purchases", // mailbox.org
+            "$social " // mailbox.org
     ));
 
     // https://tools.ietf.org/html/rfc4021
