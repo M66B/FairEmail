@@ -69,7 +69,7 @@ Please see [here](#user-content-faq22) for common error messages and solutions.
 Related questions:
 
 * [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [Why is ActiveSync &trade; not supported?](#user-content-faq133)
 
 <a name="howto">
 
@@ -341,7 +341,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(130) What does message error ... mean?](#user-content-faq130)
 * [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
 * [(132) Why are new message notifications silent?](#user-content-faq132)
-* [(133) Why is ActiveSync not supported?](#user-content-faq133)
+* [(133) Why is ActiveSync &trade; not supported?](#user-content-faq133)
 * [(134) Can you add leave messages on the server?](#user-content-faq134)
 * [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
 * [(136) How can I delete an account/identity/folder?](#user-content-faq136)
@@ -787,9 +787,9 @@ Note that this will result in extra internet traffic.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq8)
 
-Firstly, Exchange *protocol* is not the same as Exchange *server* or Exchange *account*.
+Firstly, Exchange *protocol* (EWS) is not the same as Exchange *server* or Exchange *account*.
 
-The Microsoft Exchange Web Services (EWS) protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055).
+The Microsoft Exchange Web Services &trade; (EWS) protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055).
 Microsoft stopped updating the EWS libraries [in 2016](https://github.com/OfficeDev/ews-java-api).
 So, it makes little sense to add this protocol anymore.
 
@@ -797,7 +797,7 @@ You can use a Microsoft Exchange account if it is accessible via IMAP, which is 
 See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
 Note that the desciption of FairEmail starts with the remark
-that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
+that non-standard protocols, like Microsoft Exchange Web Services &trade; and Microsoft ActiveSync &trade; are not supported.
 
 Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040)
 for the Microsoft documentation about configuring an email client.
@@ -806,7 +806,7 @@ There is also a section about common connection errors and solutions.
 Some older Exchange server versions have a bug causing empty message and corrupt attachments.
 Please see [this FAQ](#user-content-faq110) for a workaround.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Please see [this FAQ](#user-content-faq133) about ActiveSync &trade; support.
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 
@@ -3939,15 +3939,16 @@ Android might rate limit the notification sound, which can cause some new messag
 <br />
 
 <a name="faq133"></a>
-**(133) Why is ActiveSync not supported?**
+**(133) Why is ActiveSync &trade; not supported?**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq133)
 
-The Microsoft Exchange ActiveSync protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and can therefore not be supported.
-For this reason you won't find many, if any, other email clients supporting ActiveSync.
+The Microsoft Exchange ActiveSync &trade; protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and Microsoft doesn't give out licenses anymore.
+Therefore, it isn't possible to support ActiveSync &trade; anymore.
+For this same reason, you won't find many, if any, other email clients supporting ActiveSync &trade;.
 
 Note that the desciption of FairEmail starts with the remark
-that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
+that non-standard protocols, like Microsoft Exchange Web Services &trade; and Microsoft ActiveSync &trade; are not supported.
 
 <br />
 
