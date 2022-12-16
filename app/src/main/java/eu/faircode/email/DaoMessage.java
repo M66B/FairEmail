@@ -101,7 +101,7 @@ public interface DaoMessage {
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
             " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0)" +
-            " ORDER BY -IFNULL(message.importance, 1)" +
+            " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(message.importance, 1) END" +
             ", CASE WHEN :group_category THEN account.category ELSE '' END COLLATE NOCASE" +
             ", CASE" +
             "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
@@ -176,7 +176,7 @@ public interface DaoMessage {
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
             " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0 OR " + is_outbox + ")" +
-            " ORDER BY -IFNULL(message.importance, 1)" +
+            " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(message.importance, 1) END" +
             ", CASE" +
             "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
             "   WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
