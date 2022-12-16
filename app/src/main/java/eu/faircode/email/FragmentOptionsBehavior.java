@@ -98,6 +98,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoUnflag;
     private SwitchCompat swAutoImportant;
     private SwitchCompat swResetImportance;
+    private SwitchCompat swResetSnooze;
     private SwitchCompat swSwipeReply;
 
     final static int MAX_SWIPE_SENSITIVITY = 10;
@@ -111,7 +112,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "autoexpand", "expand_first", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose", "autoclose_unseen", "collapse_marked",
             "undo_timeout",
-            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance",
+            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "reset_snooze",
             "swipe_reply"
     };
 
@@ -165,6 +166,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swAutoImportant = view.findViewById(R.id.swAutoImportant);
         swResetImportance = view.findViewById(R.id.swResetImportance);
+        swResetSnooze = view.findViewById(R.id.swResetSnooze);
         swSwipeReply = view.findViewById(R.id.swSwipeReply);
 
         setOptions();
@@ -496,6 +498,14 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swResetSnooze.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("reset_snooze", checked).apply();
+            }
+        });
+
+
         swSwipeReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -614,6 +624,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
         swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
         swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
+        swResetSnooze.setChecked(prefs.getBoolean("reset_snooze", false));
         swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
     }
 

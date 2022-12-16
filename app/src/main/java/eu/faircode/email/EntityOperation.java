@@ -210,6 +210,7 @@ public class EntityOperation {
                 boolean autoread = prefs.getBoolean("autoread", false);
                 boolean autounflag = prefs.getBoolean("autounflag", false);
                 boolean reset_importance = prefs.getBoolean("reset_importance", false);
+                boolean reset_snooze = prefs.getBoolean("reset_snooze", false);
 
                 if (jargs.opt(1) != null) {
                     // rules, classify
@@ -313,7 +314,8 @@ public class EntityOperation {
                 }
 
                 if (message.ui_snoozed != null &&
-                        (EntityFolder.ARCHIVE.equals(target.type) ||
+                        (reset_snooze ||
+                                EntityFolder.ARCHIVE.equals(target.type) ||
                                 EntityFolder.TRASH.equals(target.type) ||
                                 EntityFolder.JUNK.equals(target.type))) {
                     message.ui_snoozed = null;

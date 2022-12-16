@@ -640,6 +640,7 @@
     <string name="title_advanced_autounstar">Automatically remove stars from messages on moving messages</string>
     <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_reset_importance">Reset importance on moving messages</string>
+    <string name="title_advanced_cancel_snooze">Cancel snooze on moving messages</string>
     <string name="title_advanced_swipe_reply">Swipe expanded messages to the right to reply</string>
     <string name="title_advanced_default_snooze">Default snooze/delay time</string>
 
