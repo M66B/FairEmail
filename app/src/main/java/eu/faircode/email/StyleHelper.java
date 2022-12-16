@@ -370,6 +370,7 @@ public class StyleHelper {
             }
 
             if (start == end &&
+                    itemId != R.id.menu_link &&
                     itemId != R.id.menu_clear &&
                     itemId != R.id.menu_style_align && groupId != group_style_align &&
                     itemId != R.id.menu_style_list && groupId != group_style_list &&
