@@ -2592,8 +2592,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 ((Helper.PriorityRunnable) task).getGroup() == group)
                             ((ThreadPoolExecutor) executor).remove(task);
 
-                    ((ThreadPoolExecutor) executor).getQueue().clear();
-
                     // Close store
                     try {
                         db.account().setAccountState(account.id, "closing");
