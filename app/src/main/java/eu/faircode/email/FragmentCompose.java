@@ -1277,6 +1277,9 @@ public class FragmentCompose extends FragmentBase {
                 if (!auto_identity)
                     return null;
 
+                EntityLog.log(context, "Select identity email=" + email +
+                        " sent=" + suggest_sent + " received=" + suggest_received);
+
                 List<Integer> types = new ArrayList<>();
                 if (suggest_sent)
                     types.add(EntityContact.TYPE_TO);
@@ -1288,6 +1291,8 @@ public class FragmentCompose extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 List<Long> identities = db.contact().getIdentities(email, types);
+                EntityLog.log(context, "Selected identity email=" + email +
+                        " identities=" + (identities == null ? null : identities.size()));
                 if (identities != null && identities.size() == 1)
                     return identities.get(0);
 
