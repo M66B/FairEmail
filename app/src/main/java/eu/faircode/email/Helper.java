@@ -296,7 +296,7 @@ public class Helper {
             // java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
             // 1040 KB native stack size / 32 KB thread stack size ~ 32 threads
             int processors = Runtime.getRuntime().availableProcessors(); // Modern devices: 8
-            threads = processors * 2;
+            threads = Math.max(8, processors * 2);
         }
 
         if (threads == 0)
