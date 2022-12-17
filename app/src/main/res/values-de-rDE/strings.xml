@@ -81,7 +81,9 @@
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
     <string name="title_block_sender_domain">Domain „%1$s” sperren</string>
-    <string name="title_block_sender_hint">        Das Sperren eines Absenders ist eine kostenlose Funktion.        Das Sperren der Domain eines Absenders verwendet Filterregeln, welche nur in der Pro-Version verfügbar sind.
+    <string name="title_block_sender_hint">        Das Sperren eines Absenders ist eine kostenlose Funktion.
+        Das Sperren der Domain eines Absenders verwendet Filterregeln, 
+        welche nur in der Pro-Version verfügbar sind.
     </string>
     <string name="title_blocked_senders">Gesperrte Absender</string>
     <plurals name="title_ask_block_sender">
@@ -201,7 +203,7 @@
     <string name="title_setup_free">Kann diese App kostenlos genutzt werden?</string>
     <string name="title_setup_permissions">Berechtigungen erteilen</string>
     <string name="title_setup_permissions_remark">Um auf Kontaktinformationen zuzugreifen (optional)</string>
-    <string name="title_setup_permissions_calendar">Einladungen speichern (optional)</string>
+    <string name="title_setup_permissions_calendar">Zum Speichern von Einladungen (optional)</string>
     <string name="title_setup_permissions_explanation">Der Zugriff auf Kontakte ist erforderlich, um Kontaktinformationen nachzuschlagen und Kontakte vorzuschlagen</string>
     <string name="title_setup_permissions_notify">So können Sie sich über neue Nachrichten benachrichtigen lassen (optional)</string>
     <string name="title_setup_permissions_notify_explanation">Benachrichtigungsberechtigungen sind erforderlich, um Benachrichtigungen für neue Nachrichten in der Statusleiste anzuzeigen</string>
@@ -220,6 +222,8 @@
     <string name="title_setup_inexact">Benachrichtigungen und Erinnerungen sind deaktiviert</string>
     <string name="title_setup_background">Hintergrundbeschränkungen sind aktiviert</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
+    <string name="title_setup_always">Sofortige Benachrichtigungen über neue Nachrichten</string>
+    <string name="title_setup_always_remark">Wenn aktiviert, können instabile Verbindungen, alte Netzwerkhardware usw. zu einem höheren Akkuverbrauch führen</string>
     <string name="title_setup_advanced_options">Erweiterte Optionen anzeigen</string>
     <string name="title_setup_inbox">Zum Posteingang</string>
     <string name="title_setup_go">Los</string>
@@ -356,10 +360,11 @@
     <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
     <string name="title_advanced_attach_new">Freigegebene Dateien zu einem neuen Entwurf hinzufügen</string>
-    <string name="title_advanced_answer_action">Lange drücken auf die Antwort-Schaltfläche wird:</string>
+    <string name="title_advanced_answer_action">Langes Drücken auf die Antwort-Schaltfläche wird:</string>
     <string name="title_advanced_send_pending">Nicht aufdringliches Symbol für verzögertes Senden anzeigen</string>
     <string name="title_advanced_auto_save_paragraph">Entwurf nach jedem Absatz automatisch speichern</string>
     <string name="title_advanced_auto_save_dot">Entwurf nach jedem Satz automatisch speichern</string>
+    <string name="title_advanced_compose_color">Standard-Textfarbe</string>
     <string name="title_advanced_compose_font">Standardschriftart</string>
     <string name="title_advanced_auto_identity">Identitäten für neue Nachrichten automatisch auswählen</string>
     <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
@@ -502,6 +507,7 @@
     <string name="title_advanced_button_extra">Zusätzliche Schaltflächen am unteren Rand einer Nachricht anzeigen</string>
     <string name="title_advanced_seekbar">Relative Unterhaltungsposition mit einem Punkt kennzeichnen</string>
     <string name="title_advanced_actionbar">Aktionsleiste in Unterhaltung anzeigen</string>
+    <string name="title_advanced_actionbar_swap">Schaltflächen „Papierkorb” und „Archiv” tauschen</string>
     <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
     <string name="title_advanced_category_header">Nach Kontenkategorie gruppieren</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
@@ -547,6 +553,7 @@
     <string name="title_advanced_autounstar">Markierungen automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
     <string name="title_advanced_auto_important">Markierte Nachrichten automatisch wichtig machen</string>
     <string name="title_advanced_reset_importance">Wichtigkeit beim Verschieben von Nachrichten zurücksetzen</string>
+    <string name="title_advanced_cancel_snooze">Funktion „Zurückstellen” für verschobene Nachrichten deaktivieren</string>
     <string name="title_advanced_swipe_reply">Erweiterte Nachricht nach rechts wischen, um zu antworten</string>
     <string name="title_advanced_default_snooze">Standardzeit für Zurückstellen/Verzögern</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
@@ -772,9 +779,9 @@
     <string name="title_advanced_cleanup_hint">Dies löscht alle temporären Dateien</string>
     <string name="title_advanced_never_favorite">Niemals favorisiert</string>
     <string name="title_advanced_edit_name">Namen bearbeiten</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Ordner erstellen</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Ordnername</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Übergeordneter Ordner</string>
+    <string name="title_create_folder">Ordner erstellen</string>
+    <string name="title_create_folder_name">Ordnername</string>
+    <string name="title_create_folder_parent">Übergeordneter Ordner</string>
     <string name="title_advanced_swipe_actions">Wischgesten festlegen</string>
     <string name="title_advanced_swipe_actions_hint">Das wird die Aktion fürs Links- und Rechtswischen aller IMAP-Konten festlegen</string>
     <string name="title_advanced_swipe_sensitivity">Empfindlichkeit für das Links-/Rechts-Wischen</string>
@@ -902,6 +909,7 @@
     <string name="title_service_token">Die Android-Kontoverwaltung könnte durch ein VPN, eine Firewall, einen Werbeblocker usw. gesperrt sein, so dass diese keinen Zugriffstoken abrufen kann.</string>
     <string name="title_service_port">Bitte überprüfen Sie die Portnummer</string>
     <string name="title_service_protocol">Bitte überprüfen Sie das Protokoll (SSL/TLS oder STARTTLS)</string>
+    <string name="title_service_error10">Dieses Konto muss erneut authentifiziert werden, was über den Schnelleinrichtungsassistenten erfolgen kann</string>
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_expand_read">Nachrichten beim Erweitern als gelesen markieren</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
@@ -1261,7 +1269,7 @@
     <string name="title_save_drafts">Entwürfe auf dem Server speichern</string>
     <string name="title_send_dialog">Sendeoptionen anzeigen</string>
     <string name="title_image_dialog">Grafikoptionen anzeigen</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Symbolleistenstil</string>
+    <string name="title_style_toolbar">Symbolleistenstil</string>
     <string name="title_media_toolbar">Mediensymbolleiste</string>
     <string name="title_manage_local_contacts">Lokale Kontakte verwalten</string>
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>

@@ -248,6 +248,8 @@
     <string name="title_setup_inexact">Будильник &amp; нагадування вимкнені</string>
     <string name="title_setup_background">Фонові обмеження увімкнено</string>
     <string name="title_setup_data">Задіяно економію передачі даних</string>
+    <string name="title_setup_always">Сповіщення про нові повідомлення</string>
+    <string name="title_setup_always_remark">Якщо увімкнуто, нестабільне підключення, старе обладнання мережі та ін. може призвести до збільшення споживання заряду акумулятора</string>
     <string name="title_setup_advanced_options">Показати додаткові налаштування</string>
     <string name="title_setup_inbox">Йти до теки \"Вхідні\"</string>
     <string name="title_setup_go">Розпочати</string>
@@ -388,6 +390,7 @@
     <string name="title_advanced_send_pending">Показати ненав\'язливий значок при затримці відправлення</string>
     <string name="title_advanced_auto_save_paragraph">Автоматично зберігати чернетку після кожного абзацу</string>
     <string name="title_advanced_auto_save_dot">Автоматично зберігати чернетку після кожного речення</string>
+    <string name="title_advanced_compose_color">Колір тексту за замовчуванням</string>
     <string name="title_advanced_compose_font">Типовий шрифт</string>
     <string name="title_advanced_auto_identity">Автоматично вибирати ідентифікації для нових повідомлень</string>
     <string name="title_advanced_prefix_once">Одноразова тема префікса при відповіді або перенаправленні</string>
@@ -530,6 +533,7 @@
     <string name="title_advanced_button_extra">Показувати додаткові кнопки внизу повідомлення</string>
     <string name="title_advanced_seekbar">Відмітити крапкою відносне положення бесіди</string>
     <string name="title_advanced_actionbar">Показати панель дій для бесіди</string>
+    <string name="title_advanced_actionbar_swap">Поміняти місцями кнопку Кошик та Архів</string>
     <string name="title_advanced_actionbar_color">Використовувати колір аккаунта як тло у панелі дій для розмови</string>
     <string name="title_advanced_category_header">Групувати за категорією облікового запису</string>
     <string name="title_advanced_navbar_colorize">Розфарбувати панель навігації Android</string>
@@ -575,6 +579,7 @@
     <string name="title_advanced_autounstar">Автоматично прибирати повідомлення з обраних при їх переміщенні</string>
     <string name="title_advanced_auto_important">Автоматично робити важливими повідомлення відмічені як обрані</string>
     <string name="title_advanced_reset_importance">Скинути важливість повідомлення при його переміщені</string>
+    <string name="title_advanced_cancel_snooze">Відмінити паузу при переміщенні повідомлень</string>
     <string name="title_advanced_swipe_reply">Проведіть по розкритому повідомленню праворуч для відповіді</string>
     <string name="title_advanced_default_snooze">Час повторного нагадування за замовчуванням</string>
     <string name="title_advanced_notifications">Керування сповіщеннями</string>
@@ -799,9 +804,9 @@
     <string name="title_advanced_cleanup_hint">Це призведе до видалення всіх тимчасових файлів</string>
     <string name="title_advanced_never_favorite">Ніколи не додавати до улюбленого</string>
     <string name="title_advanced_edit_name">Змінити ім\'я</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Створити теку</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Ім\'я теки</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Батьківська тека</string>
+    <string name="title_create_folder">Створити теку</string>
+    <string name="title_create_folder_name">Ім\'я теки</string>
+    <string name="title_create_folder_parent">Батьківська тека</string>
     <string name="title_advanced_swipe_actions">Установити дії на свайп</string>
     <string name="title_advanced_swipe_actions_hint">Це дозволить встановити свайп вліво та вправо для всіх облікових записів IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Чутливість для свайпу вліво або вправо</string>
@@ -929,6 +934,7 @@
     <string name="title_service_token">Менеджер облікових записів Android може бути заблокований VPN, брандмауером, блокувальником реклами і т. д., не даючи йому отримати ключ доступу</string>
     <string name="title_service_port">Будь ласка, перевірте номер порту</string>
     <string name="title_service_protocol">Будь ласка, перевірте протокол (SSL/TLS або STARTTLS)</string>
+    <string name="title_service_error10">Цей обліковий запис знову має бути підтверджений, що можна зробити за допомогою майстра швидкого налаштування</string>
     <string name="title_advanced_browse">Переглянути повідомлення на сервері</string>
     <string name="title_advanced_expand_read">Позначати повідомлення як прочитані при розширенні</string>
     <string name="title_synchronize_now">Синхронізувати зараз</string>
@@ -1290,7 +1296,7 @@
     <string name="title_save_drafts">Зберегти чернетки на сервері</string>
     <string name="title_send_dialog">Показати параметри надсилання</string>
     <string name="title_image_dialog">Показати параметри зображення</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Панель інструментів стилю</string>
+    <string name="title_style_toolbar">Панель інструментів стилю</string>
     <string name="title_media_toolbar">Панель інструментів мультимедіа</string>
     <string name="title_manage_local_contacts">Керування локальними контактами</string>
     <string name="title_insert_contact_group">Вставити групу контактів</string>

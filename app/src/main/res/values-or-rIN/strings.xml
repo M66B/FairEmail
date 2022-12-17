@@ -300,7 +300,7 @@
     <string name="title_advanced_notify_no_grouping">ଏହି ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣ ବିଜ୍ଞପ୍ତି ଗୋଷ୍ଠୀକରଣକୁ ସମର୍ଥନ କରେନାହିଁ</string>
     <string name="title_advanced_english_hint">ଏହା ଆପ୍ କୁ ପୁନଃଆରମ୍ଭ କରିବ</string>
     <string name="title_advanced_edit_name">ନାମ ସମ୍ପାଦନା</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">ଫୋଲ୍ଡର୍ ନାମ</string>
+    <string name="title_create_folder_name">ଫୋଲ୍ଡର୍ ନାମ</string>
     <string name="title_advanced_swipe_sensitivity">ବାମ/ଡାହାଣ ସ୍ୱାଇପ୍ ସମ୍ବେଦନଶୀଳତା</string>
     <string name="title_identity_name">ଆପଣଙ୍କର ନାମ</string>
     <string name="title_identity_email">ଆପଣଙ୍କ ଇମେଲ୍ ଠିକଣା</string>

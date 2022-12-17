@@ -617,7 +617,7 @@
     <string name="title_advanced_cleanup_hint">Honek behin behineko fitxategi guztiak ezabatuko ditu</string>
     <string name="title_advanced_never_favorite">Inoiz ez gogokoa</string>
     <string name="title_advanced_edit_name">Editatu izena</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Karpetaren izena</string>
+    <string name="title_create_folder_name">Karpetaren izena</string>
     <string name="title_advanced_swipe_actions">Ezarri irristatze ekintzak</string>
     <string name="title_advanced_swipe_actions_hint">Honek ezarriko du ezkerreko eta eskuineko irristatze-ekintzak IMAP kontu guztientzako</string>
     <string name="title_select">Hautatu &#8230;</string>

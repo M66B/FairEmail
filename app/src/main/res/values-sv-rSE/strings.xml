@@ -353,6 +353,7 @@
     <string name="title_advanced_send_pending">Visa icke-påträngande försenad leveransikon</string>
     <string name="title_advanced_auto_save_paragraph">Spara utkast automatiskt efter varje stycke</string>
     <string name="title_advanced_auto_save_dot">Spara utkast automatiskt efter varje mening</string>
+    <string name="title_advanced_compose_color">Standardfärg för text</string>
     <string name="title_advanced_compose_font">Standardtypsnitt</string>
     <string name="title_advanced_auto_identity">Välj identiteter automatiskt för nya meddelanden</string>
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
@@ -495,6 +496,7 @@
     <string name="title_advanced_button_extra">Visa extra knappar längst ner i meddelanden</string>
     <string name="title_advanced_seekbar">Visa relativ konversationsposition med en punkt</string>
     <string name="title_advanced_actionbar">Visa konversationsåtgärdsfältet</string>
+    <string name="title_advanced_actionbar_swap">Växla knapparna för papperskorgen och arkivering</string>
     <string name="title_advanced_actionbar_color">Använd kontofärg som bakgrundsfärg för konversationsfältet</string>
     <string name="title_advanced_category_header">Gruppera efter kontokategori</string>
     <string name="title_advanced_navbar_colorize">Färglägg navigeringsfältet för Android</string>
@@ -765,7 +767,7 @@
     <string name="title_advanced_cleanup_hint">Detta tar bort alla temporära filer</string>
     <string name="title_advanced_never_favorite">Aldrig favorit</string>
     <string name="title_advanced_edit_name">Redigera namn</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Mappnamn</string>
+    <string name="title_create_folder_name">Mappnamn</string>
     <string name="title_advanced_swipe_actions">Ställ in svepåtgärder</string>
     <string name="title_advanced_swipe_actions_hint">Detta kommer att ställa in svep åt vänster och höger för alla IMAP-konton</string>
     <string name="title_advanced_swipe_sensitivity">Känslighet för vänster/höger svep</string>

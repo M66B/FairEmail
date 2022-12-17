@@ -743,7 +743,7 @@
     <string name="title_advanced_cleanup_hint">Cái này sẽ xóa tất cả tệp tạm</string>
     <string name="title_advanced_never_favorite">Không bao giờ yêu thích</string>
     <string name="title_advanced_edit_name">Chỉnh sửa tên</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Tên thư mục</string>
+    <string name="title_create_folder_name">Tên thư mục</string>
     <string name="title_advanced_swipe_actions">Đặt các hành động vuốt</string>
     <string name="title_advanced_swipe_actions_hint">Cái này sẽ đặt hành động vuốt trái và phải cho tất cả tài khoản IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Độ nhạy vuốt trái/phải</string>

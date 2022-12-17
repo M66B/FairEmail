@@ -208,6 +208,8 @@
     <string name="title_setup_inexact">闹钟 &amp; 提醒已禁用</string>
     <string name="title_setup_background">已启用后台限制</string>
     <string name="title_setup_data">省流量模式已启用</string>
+    <string name="title_setup_always">即时新消息通知</string>
+    <string name="title_setup_always_remark">如启用，不稳定的连接，旧的网络硬件等可能导致更高的电量使用</string>
     <string name="title_setup_advanced_options">显示高级选项</string>
     <string name="title_setup_inbox">转到收件箱</string>
     <string name="title_setup_go">前往</string>
@@ -348,6 +350,7 @@
     <string name="title_advanced_send_pending">显示不显眼的“延迟发送”图标（页面左下角）</string>
     <string name="title_advanced_auto_save_paragraph">在每一段后自动保存草稿</string>
     <string name="title_advanced_auto_save_dot">每句后自动保存草稿</string>
+    <string name="title_advanced_compose_color">默认文本颜色</string>
     <string name="title_advanced_compose_font">默认字体</string>
     <string name="title_advanced_auto_identity">自动选择新邮件的身份</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
@@ -490,6 +493,7 @@
     <string name="title_advanced_button_extra">在消息底部显示额外按钮</string>
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
     <string name="title_advanced_actionbar">显示对话操作栏</string>
+    <string name="title_advanced_actionbar_swap">交换回收站和归档按钮</string>
     <string name="title_advanced_actionbar_color">使用账户颜色作为对话操作栏的背景色</string>
     <string name="title_advanced_category_header">按账户类别分组</string>
     <string name="title_advanced_navbar_colorize">导航栏着色</string>
@@ -535,6 +539,7 @@
     <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
     <string name="title_advanced_auto_important">自动标注星标消息为重要</string>
     <string name="title_advanced_reset_importance">在移动消息时重置其重要性</string>
+    <string name="title_advanced_cancel_snooze">移动消息时取消延后</string>
     <string name="title_advanced_swipe_reply">右滑展开的邮件进行回复</string>
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
     <string name="title_advanced_notifications">管理通知</string>
@@ -760,9 +765,9 @@
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_advanced_never_favorite">永不收藏</string>
     <string name="title_advanced_edit_name">编辑名称</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">新建文件夹</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">文件夹名</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">父文件夹</string>
+    <string name="title_create_folder">新建文件夹</string>
+    <string name="title_create_folder_name">文件夹名</string>
+    <string name="title_create_folder_parent">父文件夹</string>
     <string name="title_advanced_swipe_actions">设置滑动操作</string>
     <string name="title_advanced_swipe_actions_hint">这将为所有 IMAP 账户设置左右滑动操作</string>
     <string name="title_advanced_swipe_sensitivity">左/右滑动灵敏度</string>
@@ -890,6 +895,7 @@
     <string name="title_service_token">VPN、防火墙、广告拦截器等可阻止Android 帐户管理器获取访问令牌。</string>
     <string name="title_service_port">请再次检查端口号</string>
     <string name="title_service_protocol">请仔细检查协议 (SSL/TLS 或 STARTTLS)</string>
+    <string name="title_service_error10">此账户需要再次验证，可以通过快速设置向导完成。</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
     <string name="title_synchronize_now">立即同步</string>
@@ -1248,7 +1254,7 @@
     <string name="title_save_drafts">将草稿保存在服务器上</string>
     <string name="title_send_dialog">显示发送选项</string>
     <string name="title_image_dialog">显示图像选项</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">样式工具栏</string>
+    <string name="title_style_toolbar">样式工具栏</string>
     <string name="title_media_toolbar">媒体工具栏</string>
     <string name="title_manage_local_contacts">管理本地联系人</string>
     <string name="title_insert_contact_group">插入联系人组</string>
@@ -1755,7 +1761,7 @@
     <string name="title_pro_valid">全部专业版功能已激活</string>
     <string name="title_pro_invalid">无效的响应</string>
     <string name="title_pro_support">FairEmail 需要您的支持，请点击购买专业版功能以维持项目发展并关闭此横幅</string>
-    <string name="title_boundary_error">从电子邮件服务器下载消息时出错</string>
+    <string name="title_boundary_error">从电子邮件服务器下载邮件时出错</string>
     <string name="title_boundary_retry">重试</string>
     <string name="title_unexpected_error">未知错误</string>
     <string name="title_log">日志</string>

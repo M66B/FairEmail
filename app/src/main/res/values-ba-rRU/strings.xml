@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_search">FairEmail аша эҙләргә</string>
+    <string name="app_changelog">Үҙгәртеү исемлеге</string>
+    <string name="app_data_loss">Бөтә мәғлүмәттәр юғалырға мөмкин</string>
+    <string name="app_continue">Барыбер дауам итегеҙ</string>
+    <string name="app_exit">Сығыр өсөн ҡабатлап \"Артҡа\" баҫығыҙ</string>
+    <string name="app_cake">Яңы мәғлүмәтте һаҡлау өсөн урын етмәй</string>
+    <string name="app_cake_remaining">Ҡоролмала %1$s ҡалған урын ҡалды</string>
+    <string name="app_cake_required">Минимум кәрәкле урын: %1$s</string>
+    <string name="app_updated">Һуңғы яңыртыу: %1$s</string>
+    <string name="app_download">%1$s - дән йөктәлгән</string>
+    <string name="channel_service">Күҙәтеү</string>
+    <string name="channel_send">Ебәрергә</string>
+    <string name="channel_notification">Эмейл</string>
+    <string name="channel_progress">Прогресс</string>
+    <string name="channel_update">Яңыртыуҙар</string>
+    <string name="channel_warning">Иҫкәртеү</string>
+    <string name="channel_error">Яҙалар</string>
+    <string name="channel_alert">Серверҙың белдереүҙәре</string>
+    <string name="channel_group_contacts">Контакттар</string>
+    <string name="channel_service_description">Синхронизация һәм иҫәп яҙмаларҙы күҙәтеү</string>
+    <string name="channel_send_description">Хәбәрҙәр ебәреү</string>
+    <string name="channel_notification_description">Яңы хәбәрҙәр тураһында белдереүҙәр</string>
+    <plurals name="page_conversation">
+        <item quantity="other">Һөйләшеү</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="other">Хәбәрҙәр</item>
+    </plurals>
+    <string name="page_folders">Бөкләнмәләр</string>
+    <string name="page_compose">Яҙырға</string>
+    <string name="tile_synchronize">Синхронизация</string>
+    <string name="tile_unseen">Яңы хәбәрҙәр</string>
+    <string name="shortcut_refresh">Яңыртыу</string>
+    <string name="shortcut_compose">Яҙырға</string>
+    <string name="shortcut_setup">Көйләүҙәр</string>
+    <string name="menu_setup">Көйләүҙәр</string>
+    <string name="title_setup">Көйләүҙәр</string>
+    <string name="title_advanced_section_send">Ебәрергә</string>
+    <string name="title_synchronize_enabled">Синхронизация</string>
+    <string name="title_contact_email">Эмейл</string>
+    <string name="title_compose">Яҙырға</string>
+    <string name="title_send">Ебәрергә</string>
+    <string name="title_legend_section_synchronize">Синхронизация</string>
+    <string name="title_legend_section_folders">Бөкләнмәләр</string>
+    <string name="title_legend_section_messages">Хәбәрҙәр</string>
+    <string name="title_legend_section_compose">Яҙырға</string>
+    <string name="title_legend_c">Яҙырға</string>
+    <!-- Thunderbird -->
+    <string name="title_accessibility_folders">Бөкләнмәләр</string>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <!-- https://www.bouncycastle.org/specifications.html -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+</resources>

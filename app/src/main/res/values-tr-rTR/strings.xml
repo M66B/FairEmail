@@ -220,6 +220,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_inexact">Alarmlar &amp; hatırlatıcılar devre dışı bırakıldı</string>
     <string name="title_setup_background">Arka plan kısıtlamaları etkinleştirildi</string>
     <string name="title_setup_data">Veri koruyucu etkin</string>
+    <string name="title_setup_always">Anlık yeni mesaj bildirimleri</string>
+    <string name="title_setup_always_remark">Etkinleştirilirse, dengesiz bağlantılar, eski ağ donanımı vb. daha yüksek pil kullanımına neden olabilir</string>
     <string name="title_setup_advanced_options">Gelişmiş seçenekleri göster</string>
     <string name="title_setup_inbox">Gelen kutusuna git</string>
     <string name="title_setup_go">Git</string>
@@ -360,6 +362,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_send_pending">Rahatsız edici olmayan gecikmeli gönderme simgesini göster</string>
     <string name="title_advanced_auto_save_paragraph">Her paragraftan sonra bir taslağı otomatik olarak kaydet</string>
     <string name="title_advanced_auto_save_dot">Her cümleden sonra bir taslağı otomatik olarak kaydet</string>
+    <string name="title_advanced_compose_color">Varsayılan metin rengi</string>
     <string name="title_advanced_compose_font">Varsayılan yazı tipi</string>
     <string name="title_advanced_auto_identity">Yeni mesajlar için kimlikleri otomatik olarak seç</string>
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
@@ -502,6 +505,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_button_extra">Mesajın altında fazladan düğmeler göster</string>
     <string name="title_advanced_seekbar">Göreli konuşma konumunu nokta ile göster</string>
     <string name="title_advanced_actionbar">Sohbet eylem çubuğunu göster</string>
+    <string name="title_advanced_actionbar_swap">Çöp ve arşiv düğmesini değiştir</string>
     <string name="title_advanced_actionbar_color">Hesap rengini konuşma eylem çubuğu için arka plan rengi olarak kullan</string>
     <string name="title_advanced_category_header">Hesap kategorisine göre grupla</string>
     <string name="title_advanced_navbar_colorize">Android gezinme çubuğunu renklendirin</string>
@@ -772,7 +776,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_cleanup_hint">Bu bütün geçici dosyaları silecek</string>
     <string name="title_advanced_never_favorite">Asla sık kullanılan değil</string>
     <string name="title_advanced_edit_name">Adı düzenle</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Klasör adı</string>
+    <string name="title_create_folder">Klasör oluştur</string>
+    <string name="title_create_folder_name">Klasör adı</string>
+    <string name="title_create_folder_parent">Üst klasör</string>
     <string name="title_advanced_swipe_actions">Kaydırma eylemlerini ayarlayın</string>
     <string name="title_advanced_swipe_actions_hint">Bu, tüm IMAP hesapları için sola ve sağa kaydırma işlemini ayarlayacaktır.</string>
     <string name="title_advanced_swipe_sensitivity">Sol/sağ kaydırma hassasiyeti</string>
@@ -1260,7 +1266,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_save_drafts">Taslakları sunucuya kaydet</string>
     <string name="title_send_dialog">Gönderme seçeneklerini göster</string>
     <string name="title_image_dialog">Görsel seçeneklerini göster</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Stil araç çubuğu</string>
+    <string name="title_style_toolbar">Stil araç çubuğu</string>
     <string name="title_media_toolbar">Medya araç çubuğu</string>
     <string name="title_manage_local_contacts">Yerel kişileri yönet</string>
     <string name="title_insert_contact_group">Kişi grubuna ekle</string>

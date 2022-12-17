@@ -767,7 +767,7 @@
     <string name="title_advanced_cleanup_hint">Tämä poistaa kaikki väliaikaiset tiedostot</string>
     <string name="title_advanced_never_favorite">Ei koskaan suosikiksi</string>
     <string name="title_advanced_edit_name">Muokkaa nimeä</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Kansion nimi</string>
+    <string name="title_create_folder_name">Kansion nimi</string>
     <string name="title_advanced_swipe_actions">Aseta pyyhkäisytoiminnot</string>
     <string name="title_advanced_swipe_actions_hint">Tämä asettaa vasemmalle ja oikealle pyyhkäisyn toiminnot kaikille IMAP-tileille</string>
     <string name="title_advanced_swipe_sensitivity">Vasemmalle/oikealle pyyhkäisyn herkkyys</string>
@@ -1252,7 +1252,7 @@
     <string name="title_save_drafts">Tallenna luonnokset palvelimelle</string>
     <string name="title_send_dialog">Näytä lähetysasetukset</string>
     <string name="title_image_dialog">Näytä kuva-asetukset</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Tyylityökalurivi</string>
+    <string name="title_style_toolbar">Tyylityökalurivi</string>
     <string name="title_media_toolbar">Mediatyökalupalkki</string>
     <string name="title_manage_local_contacts">Hallinnoi paikallisia yhteystietoja</string>
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>

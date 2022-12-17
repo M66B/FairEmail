@@ -784,7 +784,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_cleanup_hint">Odstráni všetky dočasné súbory</string>
     <string name="title_advanced_never_favorite">Nikdy nepovažovať za obľúbený</string>
     <string name="title_advanced_edit_name">Zmeniť meno</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Názov priečinka</string>
+    <string name="title_create_folder_name">Názov priečinka</string>
     <string name="title_advanced_swipe_actions">Nastaviť akcie pri potiahnutí</string>
     <string name="title_advanced_swipe_actions_hint">Nastaví akcie pri potiahnutí do strán pre všetky IMAP účty</string>
     <string name="title_advanced_swipe_sensitivity">Citlivosť potiahnutia do strán</string>

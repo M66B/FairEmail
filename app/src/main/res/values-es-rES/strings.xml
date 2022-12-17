@@ -221,6 +221,8 @@
     <string name="title_setup_inexact">Alarmas &amp; recordatorios están deshabilitados</string>
     <string name="title_setup_background">Restricciones en segundo plano habilitadas</string>
     <string name="title_setup_data">El ahorro de datos está activado</string>
+    <string name="title_setup_always">Notificaciones instantáneas de nuevos mensajes</string>
+    <string name="title_setup_always_remark">Si está habilitado, usar conexiones inestables o hardware de red antiguo, etc. puede resultar en un mayor uso de la batería</string>
     <string name="title_setup_advanced_options">Mostrar opciones avanzadas</string>
     <string name="title_setup_inbox">Ir a la bandeja de entrada</string>
     <string name="title_setup_go">Comenzar</string>
@@ -361,6 +363,7 @@
     <string name="title_advanced_send_pending">Mostrar icono de envío diferido no obtrusivo</string>
     <string name="title_advanced_auto_save_paragraph">Guardar automáticamente un borrador después de cada párrafo</string>
     <string name="title_advanced_auto_save_dot">Guardar automáticamente un borrador después de cada oración</string>
+    <string name="title_advanced_compose_color">Color de texto por defecto</string>
     <string name="title_advanced_compose_font">Fuente por defecto</string>
     <string name="title_advanced_auto_identity">Seleccionar automáticamente identidades para nuevos mensajes</string>
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
@@ -503,6 +506,7 @@
     <string name="title_advanced_button_extra">Mostrar botones extra en la parte inferior de un mensaje</string>
     <string name="title_advanced_seekbar">Mostrar posición relativa de conversación con un punto</string>
     <string name="title_advanced_actionbar">Mostrar barra de acción de conversación</string>
+    <string name="title_advanced_actionbar_swap">Intercambiar los botones de papelera y archivo</string>
     <string name="title_advanced_actionbar_color">Usar el color de la cuenta como color de fondo para la barra de acción de conversación</string>
     <string name="title_advanced_category_header">Agrupar por categoría de cuenta</string>
     <string name="title_advanced_navbar_colorize">Colorear la barra de navegación de Android</string>
@@ -773,7 +777,9 @@
     <string name="title_advanced_cleanup_hint">Esto eliminará todos los archivos temporales</string>
     <string name="title_advanced_never_favorite">Nunca favorito</string>
     <string name="title_advanced_edit_name">Editar nombre</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Nombre de carpeta</string>
+    <string name="title_create_folder">Crear carpeta</string>
+    <string name="title_create_folder_name">Nombre de carpeta</string>
+    <string name="title_create_folder_parent">Carpeta superior</string>
     <string name="title_advanced_swipe_actions">Establecer acciones de deslizamiento</string>
     <string name="title_advanced_swipe_actions_hint">Esto establecerá las acciones al deslizar a izquierda o derecha para todas las cuentas IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Sensibilidad del deslizado a izquierda/derecha</string>
@@ -1261,7 +1267,7 @@
     <string name="title_save_drafts">Guardar borradores en el servidor</string>
     <string name="title_send_dialog">Mostrar opciones de envío</string>
     <string name="title_image_dialog">Mostrar opciones de imagen</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Barra de herramientas de estilo</string>
+    <string name="title_style_toolbar">Barra de herramientas de estilo</string>
     <string name="title_media_toolbar">Barra de herramientas multimedia</string>
     <string name="title_manage_local_contacts">Administrar contactos locales</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>

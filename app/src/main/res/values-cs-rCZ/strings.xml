@@ -247,6 +247,8 @@
     <string name="title_setup_inexact">Budíky &amp; připomenutí jsou zakázány</string>
     <string name="title_setup_background">Omezení na pozadí jsou povolena</string>
     <string name="title_setup_data">Spořič dat je zapnutý</string>
+    <string name="title_setup_always">Okamžitá upozornění na nové zprávy</string>
+    <string name="title_setup_always_remark">Pokud je povoleno, nestabilní připojení, starý síťový hardware atd. může mít za následek vyšší spotřebu baterie</string>
     <string name="title_setup_advanced_options">Zobrazit rozšířené možnosti</string>
     <string name="title_setup_inbox">Přejít na Doručené</string>
     <string name="title_setup_go">Přejít</string>
@@ -387,6 +389,7 @@
     <string name="title_advanced_send_pending">Zobrazit neobtěžující ikonu zpožděného odeslání</string>
     <string name="title_advanced_auto_save_paragraph">Automaticky uložit koncept po každém odstavci</string>
     <string name="title_advanced_auto_save_dot">Automaticky uložit koncept po každé větě</string>
+    <string name="title_advanced_compose_color">Výchozí barva textu</string>
     <string name="title_advanced_compose_font">Výchozí písmo</string>
     <string name="title_advanced_auto_identity">Automaticky vybrat identitu pro nové zprávy</string>
     <string name="title_advanced_prefix_once">Při odpovídání nebo přeposílání přidat do předmětu pouze jednu předponu</string>
@@ -529,6 +532,7 @@
     <string name="title_advanced_button_extra">Zobrazit další tlačítka v dolní části zprávy</string>
     <string name="title_advanced_seekbar">Zobrazit relativní pozici v konverzaci puntíkem</string>
     <string name="title_advanced_actionbar">Zobrazit panel akcí konverzací</string>
+    <string name="title_advanced_actionbar_swap">Prohodit tlačítka Koš a Archiv</string>
     <string name="title_advanced_actionbar_color">Použít barvu účtu jako barvu pozadí pro panel akcí konverzace</string>
     <string name="title_advanced_category_header">Seskupit podle kategorie účtu</string>
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
@@ -574,6 +578,7 @@
     <string name="title_advanced_autounstar">Při přesunu odebrat zprávám hvězdičku automaticky</string>
     <string name="title_advanced_auto_important">Automaticky činit zprávy s hvězdičkou důležitými</string>
     <string name="title_advanced_reset_importance">Obnovit důležitost při přesunu zpráv</string>
+    <string name="title_advanced_cancel_snooze">Zrušit odložení při přesunu zpráv</string>
     <string name="title_advanced_swipe_reply">Přejeďte rozbalené zprávy doprava pro odpověď</string>
     <string name="title_advanced_default_snooze">Výchozí doba odložení/zpoždění</string>
     <string name="title_advanced_notifications">Spravovat oznámení</string>
@@ -799,9 +804,9 @@
     <string name="title_advanced_cleanup_hint">Smaže dočasné soubory</string>
     <string name="title_advanced_never_favorite">Nikdy oblíbený</string>
     <string name="title_advanced_edit_name">Upravit jméno</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Vytvořit složku</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Název složky</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Nadřazená složka</string>
+    <string name="title_create_folder">Vytvořit složku</string>
+    <string name="title_create_folder_name">Název složky</string>
+    <string name="title_create_folder_parent">Nadřazená složka</string>
     <string name="title_advanced_swipe_actions">Nastavit akce tažení prstem</string>
     <string name="title_advanced_swipe_actions_hint">Nastaví akce tažení doleva a doprava pro všechny IMAP účty</string>
     <string name="title_advanced_swipe_sensitivity">Citlivost přejetím vlevo/vpravo</string>
@@ -929,6 +934,7 @@
     <string name="title_service_token">Správce účtu Android by mohl být zablokován pomocí VPN, firewallu, blokátoru reklam atd., které by zabránili získání přístupového tokenu</string>
     <string name="title_service_port">Překontrolujte prosím číslo portu</string>
     <string name="title_service_protocol">Překontrolujte prosím protokol (SSL/TLS nebo STARTTLS)</string>
+    <string name="title_service_error10">Tento účet musí být znovu ověřen, což lze provést pomocí průvodce rychlým nastavením</string>
     <string name="title_advanced_browse">Procházet zprávy na serveru</string>
     <string name="title_advanced_expand_read">Označit zprávy jako přečtené při rozbalení</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
@@ -1289,7 +1295,7 @@
     <string name="title_save_drafts">Ukládat koncepty na serveru</string>
     <string name="title_send_dialog">Zobrazit možnosti odeslání</string>
     <string name="title_image_dialog">Zobrazit možnosti obrázku</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Panel formátování</string>
+    <string name="title_style_toolbar">Panel formátování</string>
     <string name="title_media_toolbar">Panel médií</string>
     <string name="title_manage_local_contacts">Správa místních kontaktů</string>
     <string name="title_insert_contact_group">Vložit skupinu kontaktů</string>

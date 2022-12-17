@@ -728,7 +728,7 @@
     <string name="title_advanced_cleanup_hint">這將刪除所有臨時檔案</string>
     <string name="title_advanced_never_favorite">永不加入最愛</string>
     <string name="title_advanced_edit_name">編輯名字</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">資料夾名稱</string>
+    <string name="title_create_folder_name">資料夾名稱</string>
     <string name="title_advanced_swipe_actions">設定滑動動作</string>
     <string name="title_advanced_swipe_actions_hint">這將針對所有 IMAP 帳戶設定左右滑動動作</string>
     <string name="title_advanced_swipe_sensitivity">左/右滑動靈敏度</string>

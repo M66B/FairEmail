@@ -221,6 +221,8 @@
     <string name="title_setup_inexact">Sveglie e promemoria sono disabilitati</string>
     <string name="title_setup_background">Restrizioni di background abilitate</string>
     <string name="title_setup_data">Risparmio dati abilitato</string>
+    <string name="title_setup_always">Notifiche istantanee di nuovi messaggi</string>
+    <string name="title_setup_always_remark">Se abilitata, le connessioni instabili, gli hardware di rete obsoleti, etc. potrebbero comportare un maggiore utilizzo della batteria</string>
     <string name="title_setup_advanced_options">Mostra le opzioni avanzate</string>
     <string name="title_setup_inbox">Vai alla posta in arrivo</string>
     <string name="title_setup_go">Avvia</string>
@@ -253,7 +255,7 @@
     <string name="title_setup_import_rules">Importa regole del filtro</string>
     <string name="title_setup_import_contacts">Importa i contatti locali</string>
     <string name="title_setup_import_answers">Importa modelli di risposta</string>
-    <string name="title_setup_import_searches">Importa ricerche salvate</string>
+    <string name="title_setup_import_searches">Importa le ricerche salvate</string>
     <string name="title_setup_import_settings">Importa le opzioni</string>
     <string name="title_setup_exported">Impostazioni esportate</string>
     <string name="title_setup_imported">Impostazioni importate</string>
@@ -362,6 +364,7 @@
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
     <string name="title_advanced_auto_save_paragraph">Salva automaticamente una bozza dopo ogni paragrafo</string>
     <string name="title_advanced_auto_save_dot">Salva automaticamente una bozza dopo ogni frase</string>
+    <string name="title_advanced_compose_color">Colore predefinito del testo</string>
     <string name="title_advanced_compose_font">Font predefinito</string>
     <string name="title_advanced_auto_identity">Seleziona automaticamente le identità per i nuovi messaggi</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta alla risposta o l\'inoltro</string>
@@ -504,6 +507,7 @@
     <string name="title_advanced_button_extra">Mostra i pulsanti extra in fondo a un messaggio</string>
     <string name="title_advanced_seekbar">Mostra la posizione relativa della conversazione con un puntino</string>
     <string name="title_advanced_actionbar">Mostra barra d\'azione della conversazione</string>
+    <string name="title_advanced_actionbar_swap">Scambia i pulsanti cestino e archivio</string>
     <string name="title_advanced_actionbar_color">Usa il colore del profilo come colore di sfondo per la barra d\'azione della conversazione</string>
     <string name="title_advanced_category_header">Raggruppa per categoria del profilo</string>
     <string name="title_advanced_navbar_colorize">Colora la barra di navigazione di Android</string>
@@ -549,6 +553,7 @@
     <string name="title_advanced_autounstar">Rimuovi automaticamente le stelle dai messaggi al loro spostamento</string>
     <string name="title_advanced_auto_important">Rendi automaticamente importanti i messaggi stellati</string>
     <string name="title_advanced_reset_importance">Ripristina l\'importanza allo spostamento dei messaggi</string>
+    <string name="title_advanced_cancel_snooze">Annulla il posticipo dei messaggi allo spostamento</string>
     <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
@@ -775,9 +780,9 @@
     <string name="title_advanced_cleanup_hint">Questo eliminerà tutti i file temporanei</string>
     <string name="title_advanced_never_favorite">Mai preferito</string>
     <string name="title_advanced_edit_name">Modifica il nome</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Crea una cartella</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Nome della cartella</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Cartella superiore</string>
+    <string name="title_create_folder">Crea una cartella</string>
+    <string name="title_create_folder_name">Nome della cartella</string>
+    <string name="title_create_folder_parent">Cartella superiore</string>
     <string name="title_advanced_swipe_actions">Imposta azioni di scorrimento</string>
     <string name="title_advanced_swipe_actions_hint">Questo imposterà l\'azione di scorrimento a sinistra/destra per tutti i profili IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Sensibilità di scorrimento a sinistra/destra</string>
@@ -905,6 +910,7 @@
     <string name="title_service_token">Il gestore dei profili di Android potrebbe esser bloccato da una VPN, firewall, adblocker, etc. impedendogli di ottenere un token d\'accesso</string>
     <string name="title_service_port">Sei pregato di ricontrollare il numero della porta</string>
     <string name="title_service_protocol">Sei pregato di ricontrollare il protocollo (SSL/TLS o STARTTLS)</string>
+    <string name="title_service_error10">Questo profilo deve essere nuovamente autenticato, che può essere fatto tramite la procedura guidata di configurazione rapida</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_expand_read">Contrassegna i messaggi come letti all\'espansione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
@@ -1268,7 +1274,7 @@
     <string name="title_save_drafts">Salva bozze sul server</string>
     <string name="title_send_dialog">Mostra opzioni di invio</string>
     <string name="title_image_dialog">Mostra opzioni dell\'immagine</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Stile Barra strumenti</string>
+    <string name="title_style_toolbar">Stile barra strumenti</string>
     <string name="title_media_toolbar">Barra multimediale</string>
     <string name="title_manage_local_contacts">Gestisci i contatti locali</string>
     <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>

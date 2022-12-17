@@ -755,7 +755,7 @@
     <string name="title_advanced_cleanup_hint">Isto eliminará todos os ficheiros temporais</string>
     <string name="title_advanced_never_favorite">Nunca favorito</string>
     <string name="title_advanced_edit_name">Editar nome</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Nome do cartafol</string>
+    <string name="title_create_folder_name">Nome do cartafol</string>
     <string name="title_advanced_swipe_actions">Axustar accións ao esvarar</string>
     <string name="title_advanced_swipe_actions_hint">Isto axustará o esvarar á esquerda e á dereita para todas as contas IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Sensibilidade ao esvarar á esquerda/dereita</string>

@@ -223,6 +223,7 @@
     <string name="title_setup_inexact">Alarmes &amp; lembretes são desativados</string>
     <string name="title_setup_background">Restrições de segundo plano estão activas</string>
     <string name="title_setup_data">A poupança de dados está ligada</string>
+    <string name="title_setup_always">Notificações de novas mensagens instantâneas</string>
     <string name="title_setup_advanced_options">Mostrar opções avançadas</string>
     <string name="title_setup_inbox">Ir para a caixa de entrada</string>
     <string name="title_setup_go">Começar</string>
@@ -363,6 +364,7 @@
     <string name="title_advanced_send_pending">Mostrar ícone não-intrusivo de envio atrasado</string>
     <string name="title_advanced_auto_save_paragraph">Guardar automaticamente o rascunho a cada novo parágrafo</string>
     <string name="title_advanced_auto_save_dot">Guardar automaticamente o rascunho a cada nova frase</string>
+    <string name="title_advanced_compose_color">Cor de texto predefinida</string>
     <string name="title_advanced_compose_font">Letra predefinida</string>
     <string name="title_advanced_auto_identity">Selecionar automaticamente identidades para novas mensagens</string>
     <string name="title_advanced_prefix_once">Prefixo do assunto único ao responder ou encaminhar</string>
@@ -505,6 +507,7 @@
     <string name="title_advanced_button_extra">Mostrar botões extras na parte inferior de uma mensagem</string>
     <string name="title_advanced_seekbar">Mostrar a posição relativa da conversa com um ponto</string>
     <string name="title_advanced_actionbar">Mostrar barra de acção de conversa</string>
+    <string name="title_advanced_actionbar_swap">Trocar botão de lixo e arquivo</string>
     <string name="title_advanced_actionbar_color">Utilizar cor da conta como cor de fundo para a barra de acção da conversa</string>
     <string name="title_advanced_category_header">Agrupar por categoria de conta</string>
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
@@ -775,9 +778,9 @@
     <string name="title_advanced_cleanup_hint">Isto irá eliminar todos os ficheiros temporários</string>
     <string name="title_advanced_never_favorite">Nunca colocar como favorito</string>
     <string name="title_advanced_edit_name">Editar nome</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Criar pasta</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Nome da pasta</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Pasta principal</string>
+    <string name="title_create_folder">Criar pasta</string>
+    <string name="title_create_folder_name">Nome da pasta</string>
+    <string name="title_create_folder_parent">Pasta principal</string>
     <string name="title_advanced_swipe_actions">Definir acções de deslizar</string>
     <string name="title_advanced_swipe_actions_hint">Isto definirá a acção de deslizar para a esquerda e para a direita para todas as contas IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Sensibilidade do deslize esquerdo/direita</string>
@@ -905,6 +908,7 @@
     <string name="title_service_token">O gestor de conta Android pode ser bloqueado, por exemplo, por uma VPN, firewall ou bloqueador de anúncios, impedindo-o de obter o token de acesso</string>
     <string name="title_service_port">Por favor, verifique o número da porta</string>
     <string name="title_service_protocol">Por favor, verifique o protocolo (SSL/TLS ou STARTTLS)</string>
+    <string name="title_service_error10">Esta conta precisa de ser autenticada novamente, o que pode ser feito através do assistente de configuração rápida</string>
     <string name="title_advanced_browse">Procurar mensagens no servidor</string>
     <string name="title_advanced_expand_read">Marcar mensagens como lidas ao expandir</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
@@ -1267,7 +1271,7 @@
     <string name="title_save_drafts">Guardar rascunhos no servidor</string>
     <string name="title_send_dialog">Mostrar opções de envio</string>
     <string name="title_image_dialog">Mostrar opções de imagem</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Estilo da barra de ferramentas</string>
+    <string name="title_style_toolbar">Estilo da barra de ferramentas</string>
     <string name="title_media_toolbar">Barra de ferramentas de conteúdos multimédia</string>
     <string name="title_manage_local_contacts">Gerir contactos locais</string>
     <string name="title_insert_contact_group">Inserir grupo de contactos</string>

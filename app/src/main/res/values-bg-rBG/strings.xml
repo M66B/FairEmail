@@ -482,7 +482,7 @@
     <string name="title_advanced_cleanup_hint">Това ще изтрие всички временни файлове</string>
     <string name="title_advanced_never_favorite">Никога в любими</string>
     <string name="title_advanced_edit_name">Редактиране на името</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Име на папка</string>
+    <string name="title_create_folder_name">Име на папка</string>
     <string name="title_advanced_swipe_actions">Действия при плъзгане с пръст</string>
     <string name="title_advanced_swipe_actions_hint">Това ще настрои плъзгане с пръст наляво и надясно за всички IMAP профили</string>
     <string name="title_select">Избери &#8230;</string>

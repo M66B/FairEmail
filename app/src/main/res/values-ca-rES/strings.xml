@@ -442,7 +442,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_cleanup_hint">S\'eliminaran tots els fitxers temporals</string>
     <string name="title_advanced_never_favorite">Mai preferit</string>
     <string name="title_advanced_edit_name">Edita el nom</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Nom de carpeta</string>
+    <string name="title_create_folder_name">Nom de carpeta</string>
     <string name="title_advanced_swipe_actions">Estableix accions de lliscament</string>
     <string name="title_advanced_swipe_actions_hint">D’aquesta manera, establireu l’acció lliscant cap a l’esquerra i la dreta per a tots els comptes IMAP</string>
     <string name="title_select">Selecciona &#8230;</string>

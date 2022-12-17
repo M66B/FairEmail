@@ -540,7 +540,7 @@
     <string name="title_advanced_cleanup_hint">این تمام پرونده‌های موقت را حذف خواهد کرد</string>
     <string name="title_advanced_never_favorite">هرگز مورد علاقه نشود</string>
     <string name="title_advanced_edit_name">ویرایش نام</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">نام پوشه</string>
+    <string name="title_create_folder_name">نام پوشه</string>
     <string name="title_advanced_swipe_actions">تنظیم کنش‌های کشیدن</string>
     <string name="title_select">انتخاب &#8230;</string>
     <string name="title_identity_name">نام شما</string>

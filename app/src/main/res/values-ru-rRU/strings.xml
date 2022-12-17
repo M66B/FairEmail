@@ -247,6 +247,8 @@
     <string name="title_setup_inexact">Будильники и напоминания отключены</string>
     <string name="title_setup_background">Фоновые ограничения включены</string>
     <string name="title_setup_data">Сохранение данных включено</string>
+    <string name="title_setup_always">Мгновенные уведомления о новых сообщениях</string>
+    <string name="title_setup_always_remark">Если включено, нестабильные соединения, устаревшее сетевое оборудование и т.п. могут привести к увеличенному расходу заряда батареи</string>
     <string name="title_setup_advanced_options">Дополнительно</string>
     <string name="title_setup_inbox">Перейти во \"Входящие\"</string>
     <string name="title_setup_go">Далее</string>
@@ -387,6 +389,7 @@
     <string name="title_advanced_send_pending">Показывать ненавязчивый значок задержки отправки</string>
     <string name="title_advanced_auto_save_paragraph">Автоматически сохранять черновик после каждого абзаца</string>
     <string name="title_advanced_auto_save_dot">Автоматически сохранять черновик после каждого предложения</string>
+    <string name="title_advanced_compose_color">Цвет текста по умолчанию</string>
     <string name="title_advanced_compose_font">Шрифт по умолчанию</string>
     <string name="title_advanced_auto_identity">Автоматически выбирать идентификаторы для новых сообщений</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
@@ -529,6 +532,7 @@
     <string name="title_advanced_button_extra">Показывать дополнительные кнопки внизу сообщения</string>
     <string name="title_advanced_seekbar">Показывать относительное положение диалога точкой</string>
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
+    <string name="title_advanced_actionbar_swap">Поменять местами кнопки \"Корзина\" и \"Архив\"</string>
     <string name="title_advanced_actionbar_color">Использовать цвет учётной записи в качестве фонового для панели действий в диалоге</string>
     <string name="title_advanced_category_header">Группировать по категориям учётных записей</string>
     <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
@@ -574,6 +578,7 @@
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_auto_important">Автоматически помечать избранные сообщения важными</string>
     <string name="title_advanced_reset_importance">Сбрасывать важность при перемещении сообщений</string>
+    <string name="title_advanced_cancel_snooze">Отменять откладывание при перемещении сообщений</string>
     <string name="title_advanced_swipe_reply">Жест вправо на раскрытом сообщении для ответа</string>
     <string name="title_advanced_default_snooze">Время повтора/задержки по умолчанию</string>
     <string name="title_advanced_notifications">Настроить уведомления</string>
@@ -800,9 +805,9 @@
     <string name="title_advanced_cleanup_hint">Это действие удалит все временные файлы</string>
     <string name="title_advanced_never_favorite">Никогда не помечать избранным</string>
     <string name="title_advanced_edit_name">Переименовать</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Создать папку</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Название папки</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Родительская папка</string>
+    <string name="title_create_folder">Создать папку</string>
+    <string name="title_create_folder_name">Название папки</string>
+    <string name="title_create_folder_parent">Родительская папка</string>
     <string name="title_advanced_swipe_actions">Настройка жестов</string>
     <string name="title_advanced_swipe_actions_hint">Данная настройка определяет действия жестов вправо и влево для всех учётных записей IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Чувствительность жеста влево/вправо</string>
@@ -930,6 +935,7 @@
     <string name="title_service_token">Менеджер аккаунтов Android может быть заблокирован VPN, брандмауэром, блокировщиком рекламы и т.п., не позволяя ему получить токен доступа</string>
     <string name="title_service_port">Пожалуйста, дважды проверьте номер порта</string>
     <string name="title_service_protocol">Пожалуйста, дважды проверьте протокол (SSL/TLS или STARTTLS)</string>
+    <string name="title_service_error10">Эта учётная запись должна быть повторно аутентифицирована, что можно сделать с помощью мастер быстрой настройки</string>
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развёртывании</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
@@ -1292,7 +1298,7 @@
     <string name="title_save_drafts">Сохранять черновики на сервере</string>
     <string name="title_send_dialog">Параметры отправки</string>
     <string name="title_image_dialog">Параметры изображения</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Панель стилей</string>
+    <string name="title_style_toolbar">Панель стилей</string>
     <string name="title_media_toolbar">Панель медиа</string>
     <string name="title_manage_local_contacts">Управление локальными контактами</string>
     <string name="title_insert_contact_group">Добавить группу контактов</string>

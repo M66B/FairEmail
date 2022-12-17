@@ -541,7 +541,7 @@ As \"Berjochten op de server stean litte l\" net ynskeakele is, gean dizze berjo
     <string name="title_advanced_cleanup_hint">Dit sil alle tydlike bestannen wiskje</string>
     <string name="title_advanced_never_favorite">Nea favoryt</string>
     <string name="title_advanced_edit_name">Namme bewurkje</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Map namme</string>
+    <string name="title_create_folder_name">Map namme</string>
     <string name="title_advanced_swipe_actions">Swipe-aksjes ynstelle</string>
     <string name="title_advanced_swipe_actions_hint">Dit sil de swipe lofts en rjochts aksje ynstelle foar alle IMAP-akkounts</string>
     <string name="title_select">Selektearje &#8230;</string>

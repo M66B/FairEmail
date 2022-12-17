@@ -221,6 +221,8 @@
     <string name="title_setup_inexact">Alarmes &amp; rappels désactivés</string>
     <string name="title_setup_background">Les restrictions d\'arrière-plan sont activées</string>
     <string name="title_setup_data">L\'économiseur de données est activé</string>
+    <string name="title_setup_always">Notifications instantanées de nouveaux messages</string>
+    <string name="title_setup_always_remark">Si activé, des connexions instables, un vieux matériel réseau, etc. peuvent entraîner une augmentation de l\'utilisation de la batterie</string>
     <string name="title_setup_advanced_options">Afficher les options avancées</string>
     <string name="title_setup_inbox">Aller à la boîte de réception</string>
     <string name="title_setup_go">Démarrer</string>
@@ -362,6 +364,7 @@
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
     <string name="title_advanced_auto_save_paragraph">Enregistrer automatiquement un brouillon après chaque paragraphe</string>
     <string name="title_advanced_auto_save_dot">Enregistrer automatiquement un brouillon après chaque phrase</string>
+    <string name="title_advanced_compose_color">Couleur du texte par défaut</string>
     <string name="title_advanced_compose_font">Police de caractères par défaut</string>
     <string name="title_advanced_auto_identity">Sélectionner automatiquement les identités pour les nouveaux messages</string>
     <string name="title_advanced_prefix_once">Ne préfixer l\'objet qu\'une seule fois lors de la réponse ou du transfert</string>
@@ -504,6 +507,7 @@
     <string name="title_advanced_button_extra">Afficher des boutons supplémentaires en bas du message</string>
     <string name="title_advanced_seekbar">Indiquer la position relative de la conversation avec un point</string>
     <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
+    <string name="title_advanced_actionbar_swap">Inverser les boutons de la corbeille et des archives</string>
     <string name="title_advanced_actionbar_color">Utiliser la couleur du compte comme couleur d\'arrière-plan de la barre d’action de conversation</string>
     <string name="title_advanced_category_header">Regrouper par catégorie de compte</string>
     <string name="title_advanced_navbar_colorize">Coloriser la barre de navigation d’Android</string>
@@ -549,6 +553,7 @@
     <string name="title_advanced_autounstar">Retirer automatiquement l\'étoile de suivi des messages lors de leur déplacement</string>
     <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_reset_importance">Réinitialiser l\'importance lors du déplacement des messages</string>
+    <string name="title_advanced_cancel_snooze">Annuler le report des messages lors de leur déplacement</string>
     <string name="title_advanced_swipe_reply">Balayer vers la droite les messages dépliés pour répondre</string>
     <string name="title_advanced_default_snooze">Durée de report par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
@@ -775,9 +780,9 @@
     <string name="title_advanced_cleanup_hint">Ceci supprimera tous les fichiers temporaires</string>
     <string name="title_advanced_never_favorite">Ne jamais mettre en favori</string>
     <string name="title_advanced_edit_name">Modifier le nom</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Créer un dossier</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Nom du dossier</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Dossier parent</string>
+    <string name="title_create_folder">Créer un dossier</string>
+    <string name="title_create_folder_name">Nom du dossier</string>
+    <string name="title_create_folder_parent">Dossier parent</string>
     <string name="title_advanced_swipe_actions">Définir les actions de balayage</string>
     <string name="title_advanced_swipe_actions_hint">Ceci définira les actions de balayage vers la gauche et la droite pour tous les comptes IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Sensibilité de balayage vers la gauche/droite</string>
@@ -905,6 +910,7 @@
     <string name="title_service_token">Le gestionnaire de compte d\'Android pourrait être bloqué par un VPN, un pare-feu, un bloqueur de publicité, etc., l\'empêchant d\'obtenir un jeton d\'accès</string>
     <string name="title_service_port">Veuillez vérifier le numéro de port</string>
     <string name="title_service_protocol">Veuillez vérifier le protocole (SSL/TLS ou STARTTLS)</string>
+    <string name="title_service_error10">Ce compte doit être de nouveau authentifié, ce qui peut être fait via l\'assistant d\'installation rapide</string>
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
     <string name="title_advanced_expand_read">Marquer les messages comme lus lors de leur ouverture</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
@@ -1268,7 +1274,7 @@
     <string name="title_save_drafts">Enregistrer les brouillons sur le serveur</string>
     <string name="title_send_dialog">Afficher les options d\'envoi</string>
     <string name="title_image_dialog">Afficher les options d’image</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Barre d\'outils de style</string>
+    <string name="title_style_toolbar">Barre d\'outils de style</string>
     <string name="title_media_toolbar">Barre d\'outils média</string>
     <string name="title_manage_local_contacts">Gérer les contacts locaux</string>
     <string name="title_insert_contact_group">Insérer un groupe de contacts</string>

@@ -786,9 +786,9 @@
     <string name="title_advanced_cleanup_hint">Se vor șterge toate fișierele temporare</string>
     <string name="title_advanced_never_favorite">Niciodată favorit</string>
     <string name="title_advanced_edit_name">Editare nume</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Creează dosar</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Nume dosar</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Dosar părinte</string>
+    <string name="title_create_folder">Creează dosar</string>
+    <string name="title_create_folder_name">Nume dosar</string>
+    <string name="title_create_folder_parent">Dosar părinte</string>
     <string name="title_advanced_swipe_actions">Setare acțiuni glisare</string>
     <string name="title_advanced_swipe_actions_hint">Acesta va seta acțiunea glisare la stânga și la dreapta pentru toate conturile IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Sensibilitatea de glisare stânga/dreapta</string>
@@ -1276,7 +1276,7 @@
     <string name="title_save_drafts">Salvează ciorne pe server</string>
     <string name="title_send_dialog">Afișare opțiuni de trimitere</string>
     <string name="title_image_dialog">Afișare opțiuni imagine</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Bara de stil</string>
+    <string name="title_style_toolbar">Bara de stil</string>
     <string name="title_media_toolbar">Bară atașare</string>
     <string name="title_manage_local_contacts">Gestionați contactele locale</string>
     <string name="title_insert_contact_group">Introduceți grup de contacte</string>

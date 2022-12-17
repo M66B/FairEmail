@@ -16,26 +16,26 @@
 
 ## إعداد الحساب - لتتلقى البريد الإلكتروني
 
-لإضافة حساب، انقر على *الإعداد اليدوي والمزيد من الخيارات*، انقر على *الحسابات* وانقر على زر "زائد" في الأسفل وحدد IMAP (أو POP3). حدد موفر من القائمة، أدخل اسم المستخدم، الذي هو في الغالب عنوان بريدك الإلكتروني وأدخل كلمة المرور الخاصة بك. انقر فوق *تحقق* للسماح لـ FairEmail بالاتصال بخادم البريد الإلكتروني وجلب قائمة مجلدات النظام. After reviewing the system folder selection you can add the account by tapping *Save*.
+لإضافة حساب، انقر على *الإعداد اليدوي والمزيد من الخيارات*، انقر على *الحسابات* وانقر على زر "زائد" في الأسفل وحدد IMAP (أو POP3). حدد موفر من القائمة، أدخل اسم المستخدم، الذي هو في الغالب عنوان بريدك الإلكتروني وأدخل كلمة المرور الخاصة بك. انقر فوق *تحقق* للسماح لـ FairEmail بالاتصال بخادم البريد الإلكتروني وجلب قائمة مجلدات النظام. بعد مراجعة اختيار مجلد النظام يمكنك إضافة الحساب بالنقر على *حفظ*.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+إذا لم يكن مزودك مدرجا في قائمة المزودين، فهناك الآلاف من المزودين، اختر *مخصص*. أدخل اسم الدومين، على سبيل المثال *gmail.com* وانقر على *الحصول على الإعدادات*. إذا كان مزودك يدعم [الاكتشاف التلقائي](https://tools.ietf.org/html/rfc6186)، سيقوم FairEmail بملء اسم المضيف ورقم المنفذ، تحقق من تعليمات الإعداد الخاصة بالمزود الخاص بك للحصول على اسم المضيف الصحيح لـ IMAP ورقم المنفذ وبروتوكول التشفير (SSL/TLS أو STARTTLS). لمزيد من المعلومات حول هذا، يرجى النقر [هنا](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## إعداد الهوية - لإرسال البريد الإلكتروني
 
-Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+بالمثل، لإضافة هوية، انقر على *الإعداد اليدوي والمزيد من الخيارات*، انقر على *هويات* وانقر على زر "إضافة" في الأسفل. أدخل الاسم الذي تريد أن يظهر في عنوان رسائل البريد الإلكتروني التي ترسلها واختيار حساب مرتبط. انقر على *حفظ* لإضافة الهوية.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
+إذا كان الحساب قد تم تكوينه يدوياً، فمن المحتمل أن تحتاج إلى تكوين الهوية يدوياً أيضاً. أدخل اسم الدومين، على سبيل المثال *gmail.com* وانقر على *الحصول على الإعدادات*. إذا كان مزودك يدعم [الاكتشاف التلقائي](https://tools.ietf.org/html/rfc6186)، سيقوم FairEmail بملء اسم المضيف ورقم المنفذ، تحقق من تعليمات الإعداد الخاصة بالمزود الخاص بك للحصول على اسم المضيف الصحيح لـ SMTP ورقم المنفذ وبروتوكول التشفير (SSL/TLS أو STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+انظر إلى [هذه الأسئلة الشائعة](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) حول استخدام الأسماء المستعارة.
 
-## منح الأذونات - للوصول إلى معلومات الاتصال
+## منح الأذونات - للوصول إلى وجهات الاتصال
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+إذا كنت ترغب في البحث عن عناوين البريد الإلكتروني لوجهات الاتصال وعرض صورهم، الخ، ستحتاج إلى منح الإذن لقراءة وجهات الاتصال إلى FairEmail. فقط انقر على *امنح* واختر *السماح*.
 
 ## إعداد تحسينات البطارية - لتلقي رسائل البريد الإلكتروني باستمرار
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
+في إصدارات الأندرويد الأخيرة، سيقوم أندرويد بوضع التطبيقات في وضع السكون عندما تكون الشاشة مغلقة لبعض الوقت لتقليل استخدام البطارية. إذا كنت ترغب في تلقي رسائل البريد الإلكتروني الجديدة دون تأخير، يجب عليك تعطيل تحسينات البطارية لتطبيق FairEmail. انقر فوق *إدارة* واتبع التعليمات.
 
-## أسئلة أو مشاكل؟
+## أسئلة أو مشاكل
 
 إذا كان لديك سؤال أو مشكلة، يرجى [الاطلاع هنا](https://github.com/M66B/FairEmail/blob/master/FAQ.md) للحصول على المساعدة.

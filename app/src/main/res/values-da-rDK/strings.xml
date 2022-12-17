@@ -221,6 +221,8 @@
     <string name="title_setup_inexact">Alarmer og påmindelser er deaktiveret</string>
     <string name="title_setup_background">Baggrundsbegrænsninger er aktive</string>
     <string name="title_setup_data">Datasparer er aktiveret</string>
+    <string name="title_setup_always">Ny besked-notifikationer i realtid</string>
+    <string name="title_setup_always_remark">Hvis aktiveret, vil ustabile forbindelser, gammelt netværkshardware mv. kunne betyde højere strømforbrug</string>
     <string name="title_setup_advanced_options">Vis avancerede indstillinger</string>
     <string name="title_setup_inbox">Gå til Indbakke</string>
     <string name="title_setup_go">Start</string>
@@ -362,6 +364,7 @@
     <string name="title_advanced_send_pending">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
     <string name="title_advanced_auto_save_paragraph">Gem automatisk udkast efter hvert afsnit</string>
     <string name="title_advanced_auto_save_dot">Gem automatisk udkast efter hver sætning</string>
+    <string name="title_advanced_compose_color">Standardtekstfarve</string>
     <string name="title_advanced_compose_font">Standardskrifttype</string>
     <string name="title_advanced_auto_identity">Vælg automatisk identiteter for nye beskeder</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
@@ -504,6 +507,7 @@
     <string name="title_advanced_button_extra">Vis ekstra knapper nederst i en besked</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
+    <string name="title_advanced_actionbar_swap">Ombyt papirkurv- og arkiv-knap</string>
     <string name="title_advanced_actionbar_color">Benyt kontofarve som baggrundsfarve til samtalens handlingsbjælke</string>
     <string name="title_advanced_category_header">Gruppering efter kontokategori</string>
     <string name="title_advanced_navbar_colorize">Farvelæg Android-navigeringsbjælken</string>
@@ -549,6 +553,7 @@
     <string name="title_advanced_autounstar">Fjern automatisk stjerner fra beskeder, når de flyttes</string>
     <string name="title_advanced_auto_important">Gør automatisk stjernemarkerede beskeder vigtige</string>
     <string name="title_advanced_reset_importance">Nulstil vigtighed, når beskeder flyttes</string>
+    <string name="title_advanced_cancel_snooze">Afbryd udsættelse ved flytning af beskeder</string>
     <string name="title_advanced_swipe_reply">Stryg udvidede beskeder til højre for at besvare</string>
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
@@ -775,9 +780,9 @@
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
     <string name="title_advanced_never_favorite">Gør aldrig til favorit</string>
     <string name="title_advanced_edit_name">Redigér navn</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Opret mappe</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Mappenavn</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Overordnet mappe</string>
+    <string name="title_create_folder">Opret mappe</string>
+    <string name="title_create_folder_name">Mappenavn</string>
+    <string name="title_create_folder_parent">Overordnet mappe</string>
     <string name="title_advanced_swipe_actions">Indstil strygehandlinger</string>
     <string name="title_advanced_swipe_actions_hint">Dette opsætter handlinger for venstre- og højrestrygning for alle IMAP-konti</string>
     <string name="title_advanced_swipe_sensitivity">Venstre/højre strygefølsomhed</string>
@@ -905,6 +910,7 @@
     <string name="title_service_token">Androids kontohåndtering kan blive forhindret i at få en adgangstoken grundet blokering af et VPN, firewall, adblocker mv.</string>
     <string name="title_service_port">Dobbelttjek portnummeret</string>
     <string name="title_service_protocol">Dobbelttjek protokollen (SSL/TLS eller STARTTLS)</string>
+    <string name="title_service_error10">Denne konto skal godkendes igen, hvilket kan gøres via guiden til hurtig opsætning</string>
     <string name="title_advanced_browse">Gennemse beskeder på serveren</string>
     <string name="title_advanced_expand_read">Markér beskeder Læst ved udvidelse</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
@@ -1268,7 +1274,7 @@
     <string name="title_save_drafts">Gem udkast på serveren</string>
     <string name="title_send_dialog">Vis Send-muligheder</string>
     <string name="title_image_dialog">Vis Billed-muligheder</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Tilpas værktøjslinje</string>
+    <string name="title_style_toolbar">Tilpas værktøjslinje</string>
     <string name="title_media_toolbar">Medieværktøjsbjælke</string>
     <string name="title_manage_local_contacts">Håndtér lokale kontakter</string>
     <string name="title_insert_contact_group">Indsæt kontaktgruppe</string>

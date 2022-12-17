@@ -221,6 +221,8 @@
     <string name="title_setup_inexact">Ειδοποιήσεις &amp; υπενθυμίσεις απενεργοποιημένες</string>
     <string name="title_setup_background">Οι περιορισμοί παρασκηνίου είναι ενεργοποιημένοι</string>
     <string name="title_setup_data">Η εξοικονόμηση δεδομένων είναι ενεργή</string>
+    <string name="title_setup_always">Άμεσες ειδοποιήσεις νέων μηνυμάτων</string>
+    <string name="title_setup_always_remark">Αν ενεργοποιηθεί, τυχόν ασταθείς συνδέσεις, παλιό υλικό δικτύου κλπ., μπορεί να προξενήσουν μεγαλύτερη χρήση μπαταρίας</string>
     <string name="title_setup_advanced_options">Εμφάνιση προηγμένων επιλογών</string>
     <string name="title_setup_inbox">Μετάβαση στα εισερχόμενα</string>
     <string name="title_setup_go">Ας ξεκινήσουμε</string>
@@ -361,6 +363,7 @@
     <string name="title_advanced_send_pending">Προβολή διακριτικού εικονιδίου για απεσταλμένα με χρονοκαθυστέρηση</string>
     <string name="title_advanced_auto_save_paragraph">Αυτόματη αποθήκευση ενός προχείρου μετά από κάθε παράγραφο</string>
     <string name="title_advanced_auto_save_dot">Αυτόματη αποθήκευση ενός προχείρου μετά από κάθε πρόταση</string>
+    <string name="title_advanced_compose_color">Προεπιλεγμένο χρώμα κειμένου</string>
     <string name="title_advanced_compose_font">Προεπιλεγμένη γραμματοσειρά</string>
     <string name="title_advanced_auto_identity">Αυτόματη επιλογή ταυτοτήτων για νέα μηνύματα</string>
     <string name="title_advanced_prefix_once">Μόνο ένα πρόθεμα κατά την απάντηση ή προώθηση μηνύματος</string>
@@ -503,6 +506,7 @@
     <string name="title_advanced_button_extra">Εμφάνιση επιπλέον κουμπιών στο κάτω μέρος ενός μηνύματος</string>
     <string name="title_advanced_seekbar">Επισήμανση της σχετικής θέσης στη συζήτηση με μία τελεία</string>
     <string name="title_advanced_actionbar">Προβολή της γραμμής ενεργειών της συζήτησης</string>
+    <string name="title_advanced_actionbar_swap">Εναλλαγή των κουμπιών απορριμμάτων και αρχειοθέτησης</string>
     <string name="title_advanced_actionbar_color">Χρήση του χρώματος του λογαριασμού ως χρωματικό υπόβαθρο για τη γραμμή ενεργειών της συζήτησης</string>
     <string name="title_advanced_category_header">Ομαδοποίηση ανά κατηγορία λογαριασμού</string>
     <string name="title_advanced_navbar_colorize">Να χρωματίζεται η γραμμή πλοήγησης του Android</string>
@@ -548,6 +552,7 @@
     <string name="title_advanced_autounstar">Αυτόματη αφαίρεση των αστεριών από τα μηνύματα κατά τη μετακίνησή τους</string>
     <string name="title_advanced_auto_important">Να επισημαίνονται αυτόματα ως σημαντικά τα μηνύματα με αστέρια</string>
     <string name="title_advanced_reset_importance">Επαναφορά του βαθμού σημαντικότητας κατά τη μετακίνηση των μηνυμάτων</string>
+    <string name="title_advanced_cancel_snooze">Ακύρωση αναβολής κατά τη μετακίνηση μηνυμάτων</string>
     <string name="title_advanced_swipe_reply">Σύρετε προς τα δεξιά τα αναπτυγμένα μηνύματα για να απαντήσετε</string>
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής/καθυστέρησης</string>
     <string name="title_advanced_notifications">Διαχείριση ειδοποιήσεων</string>
@@ -771,9 +776,9 @@
     <string name="title_advanced_cleanup_hint">Θα διαγράψει όλα τα προσωρινά αρχεία</string>
     <string name="title_advanced_never_favorite">Ποτέ ως αγαπημένο</string>
     <string name="title_advanced_edit_name">Επεξεργασία ονόματος</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Δημιουργία φακέλου</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Όνομα φακέλου</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Γονικός φάκελος</string>
+    <string name="title_create_folder">Δημιουργία φακέλου</string>
+    <string name="title_create_folder_name">Όνομα φακέλου</string>
+    <string name="title_create_folder_parent">Γονικός φάκελος</string>
     <string name="title_advanced_swipe_actions">Ορίστε τις ενέργειες σάρωσης</string>
     <string name="title_advanced_swipe_actions_hint">Θα ορίσει τις ενέργειες σάρωσης αριστερά και δεξιά για όλους τους λογαριασμούς IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Ευαισθησία σάρωσης προς αριστερά/δεξιά</string>
@@ -901,6 +906,7 @@
     <string name="title_service_token">Ο διαχειριστής λογαριασμών Android ενδέχεται να έχει αποκλειστεί από ένα VPN, τείχος προστασίας, πρόγραμμα αποκλεισμού διαφημίσεων, κλπ, που τον εμποδίζει να αποκτήσει ένα διακριτικό πρόσβασης</string>
     <string name="title_service_port">Παρακαλώ, ελέγξτε εκ νέου τον αριθμό θύρας</string>
     <string name="title_service_protocol">Παρακαλώ, ελέγξτε εκ νέου το πρωτόκολλο (SSL/TLS ή STARTTLS)</string>
+    <string name="title_service_error10">Ο λογαριασμός αυτός πρέπει να ταυτοποιηθεί εκ νέου, το οποίο μπορεί να γίνει μέσω του οδηγού γρήγορης ρύθμισης</string>
     <string name="title_advanced_browse">Περιήγηση μηνυμάτων στο διακομιστή</string>
     <string name="title_advanced_expand_read">Σήμανση των μηνυμάτων ως αναγνωσμένων κατά την ανάπτυξή τους</string>
     <string name="title_synchronize_now">Συγχρονισμός τώρα</string>
@@ -1261,7 +1267,7 @@
     <string name="title_save_drafts">Να αποθηκεύονται τα πρόχειρα στον εξυπηρετητή</string>
     <string name="title_send_dialog">Προβολή επιλογών αποστολής</string>
     <string name="title_image_dialog">Προβολή επιλογών εικόνας</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Γραμμή εργαλείων στιλ</string>
+    <string name="title_style_toolbar">Γραμμή εργαλείων στιλ</string>
     <string name="title_media_toolbar">Γραμμή εργαλείων πολυμέσων</string>
     <string name="title_manage_local_contacts">Διαχείριση τοπικών επαφών</string>
     <string name="title_insert_contact_group">Εισαγωγή ομάδας επαφών</string>

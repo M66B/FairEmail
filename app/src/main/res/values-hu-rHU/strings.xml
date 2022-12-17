@@ -703,7 +703,7 @@
     <string name="title_advanced_cleanup_hint">Ez törli az összes ideiglenes fájlt</string>
     <string name="title_advanced_never_favorite">Kedvencként megjelölés tiltása</string>
     <string name="title_advanced_edit_name">Név szerkesztése</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Mappanév</string>
+    <string name="title_create_folder_name">Mappanév</string>
     <string name="title_advanced_swipe_actions">Csúsztatási műveletek beállítása</string>
     <string name="title_advanced_swipe_actions_hint">Ez be fogja állítani a csúsztatási műveleteket minden IMAP fiókhoz</string>
     <string name="title_advanced_swipe_sensitivity">Balra/jobbra húzás érzékenység</string>

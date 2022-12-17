@@ -247,6 +247,8 @@
     <string name="title_setup_inexact">Будзільнікі і напаміны адключаны</string>
     <string name="title_setup_background">Фонавыя абмежаванні ўключаны</string>
     <string name="title_setup_data">Эканомія даных уключана</string>
+    <string name="title_setup_always">Імгненныя апавяшчэнні аб новых паведамленнях</string>
+    <string name="title_setup_always_remark">Пры ўключэнні гэтай опцыі спажыванне зараду батарэі можа павялічыцца з-за нестабільнага злучэння, выкарыстання старога сеткавага абсталявання і г.д.</string>
     <string name="title_setup_advanced_options">Паказаць дадатковыя опцыі</string>
     <string name="title_setup_inbox">Перайсці да ўваходнай пошты</string>
     <string name="title_setup_go">Пачаць</string>
@@ -389,6 +391,7 @@
     <string name="title_advanced_send_pending">Паказваць непрыкметны значок затрымкі адпраўкі</string>
     <string name="title_advanced_auto_save_paragraph">Аўтаматычна захоўваць чарнавік пасля заканчэння кожнага абзаца</string>
     <string name="title_advanced_auto_save_dot">Аўтаматычна захоўваць чарнавік пасля заканчэння кожнага сказа</string>
+    <string name="title_advanced_compose_color">Колер тэксту па змаўчанні</string>
     <string name="title_advanced_compose_font">Шрыфт па змаўчанні</string>
     <string name="title_advanced_auto_identity">Аўтаматычна выбіраць ідэнтыфікатары для новых паведамленняў</string>
     <string name="title_advanced_prefix_once">Пры адказе або перасылцы ўстаўляць прэфікс тэмы толькі адзін раз</string>
@@ -531,6 +534,7 @@
     <string name="title_advanced_button_extra">Паказваць дадатковыя кнопкі пад паведамленнем</string>
     <string name="title_advanced_seekbar">Паказваць з дапамогай кропкі адносную пазіцыю размовы</string>
     <string name="title_advanced_actionbar">Паказваць панэль дзеянняў для размовы</string>
+    <string name="title_advanced_actionbar_swap">Памяняць месцамі кнопкі выдалення і архівацыі</string>
     <string name="title_advanced_actionbar_color">Выкарыстоўваць колер уліковага запісу ў якасці фонавага колеру для панэлі дзеянняў размовы</string>
     <string name="title_advanced_category_header">Групаваць паводле катэгорыі ўліковага запісу</string>
     <string name="title_advanced_navbar_colorize">Расфарбаваць панэль навігацыі Android</string>
@@ -576,6 +580,7 @@
     <string name="title_advanced_autounstar">Аўтаматычна выдаляць пазнакі пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_auto_important">Аўтаматычна рабіць важнымі пазначаныя паведамленні</string>
     <string name="title_advanced_reset_importance">Скідваць важнасць паведамленняў пры іх перамяшчэнні</string>
+    <string name="title_advanced_cancel_snooze">Адмяняць адкладанне пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_swipe_reply">Для адказу правядзіце пальцам управа па разгорнутым паведамленні</string>
     <string name="title_advanced_default_snooze">Час адкладання/затрымкі па змаўчанні</string>
     <string name="title_advanced_notifications">Кіраваць апавяшчэннямі</string>
@@ -801,9 +806,9 @@
     <string name="title_advanced_cleanup_hint">Гэта прывядзе да выдалення ўсіх часовых файлаў</string>
     <string name="title_advanced_never_favorite">Ніколі не пазначаць</string>
     <string name="title_advanced_edit_name">Перайменаваць</string>
-    <string name="title_create_folder" comment="title_create_folder&#10;Title of dialog to create a folder">Стварыць папку</string>
-    <string name="title_create_folder_name" comment="title_create_folder_name&#10;Title for input field for a folder name">Назва папкі</string>
-    <string name="title_create_folder_parent" comment="title_create_folder_parent&#10;Title for parent folder selection (spinner)">Бацькоўская папка</string>
+    <string name="title_create_folder">Стварыць папку</string>
+    <string name="title_create_folder_name">Назва папкі</string>
+    <string name="title_create_folder_parent">Бацькоўская папка</string>
     <string name="title_advanced_swipe_actions">Задаць жэсты</string>
     <string name="title_advanced_swipe_actions_hint">Гэта дазволіць задаць дзеянні пры правядзенні пальцам улева і ўправа для ўсіх уліковых запісаў IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Адчувальнасць правядзення пальцам улева/управа</string>
@@ -931,6 +936,7 @@
     <string name="title_service_token">Менеджэр уліковых запісаў Android можа быць заблакіраваны VPN, брандмаўэрам, сродкам блакіроўкі рэкламы і г. д., што не дазваляе яму атрымаць ключ доступу</string>
     <string name="title_service_port">Калі ласка, рраверце нумар порта яшчэ раз</string>
     <string name="title_service_protocol">Калі ласка, праверце яшчэ раз пратакол (SSL/TLS або STARTTLS)</string>
+    <string name="title_service_error10">Неабходна паўторна прайсці аўтэнтыфікацыю для гэтага ўліковага запісу. Гэта можна зрабіць з дапамогай майстра хуткага наладжвання</string>
     <string name="title_advanced_browse">Праглядзець паведамленні на серверы</string>
     <string name="title_advanced_expand_read">Пры разгортванні адзначаць паведамленні прачытанымі</string>
     <string name="title_synchronize_now">Сінхранізаваць зараз</string>
@@ -1295,7 +1301,7 @@
     <string name="title_save_drafts">Захоўваць чарнавікі на серверы</string>
     <string name="title_send_dialog">Паказваць параметры адпраўкі</string>
     <string name="title_image_dialog">Паказваць параметры выяў</string>
-    <string name="title_style_toolbar" comment="title_style_toolbar&#10;Title of menu item for a fixed style toolbar">Стыль панэлі інструментаў</string>
+    <string name="title_style_toolbar">Стыль панэлі інструментаў</string>
     <string name="title_media_toolbar">Панэль інструментаў мультымедыя</string>
     <string name="title_manage_local_contacts">Кіраванне лакальнымі кантактамі</string>
     <string name="title_insert_contact_group">Уставіць групу кантактаў</string>
