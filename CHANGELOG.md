@@ -6,6 +6,14 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### 1.2014 - 2022-12-17
+
+* Added saved search for specific account/folder
+* Added option for default text color for message composer
+* Added option to swap trash/archive button in bottom action bar
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2013 - 2022-12-09
 
 * Added scrolling/fixed style toolbar
