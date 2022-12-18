@@ -668,6 +668,9 @@ public class ApplicationEx extends Application
                     editor.putBoolean("compose_style", prefs.getBoolean("compose_block", false));
                 editor.remove("compose_block");
             }
+        } else if (version < 2016) {
+            if (!prefs.contains("reset_snooze"))
+                editor.putBoolean("reset_snooze", false);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

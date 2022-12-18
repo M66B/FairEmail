@@ -210,7 +210,7 @@ public class EntityOperation {
                 boolean autoread = prefs.getBoolean("autoread", false);
                 boolean autounflag = prefs.getBoolean("autounflag", false);
                 boolean reset_importance = prefs.getBoolean("reset_importance", false);
-                boolean reset_snooze = prefs.getBoolean("reset_snooze", false);
+                boolean reset_snooze = prefs.getBoolean("reset_snooze", true);
 
                 if (jargs.opt(1) != null) {
                     // rules, classify
