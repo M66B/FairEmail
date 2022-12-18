@@ -6,6 +6,11 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### 1.2015 - 2022-12-18
+
+* Fixed default compose font / text color
+* Updated translations
+
 ### 1.2014 - 2022-12-17
 
 * Added saved search for specific account/folder
