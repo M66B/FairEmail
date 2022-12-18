@@ -251,7 +251,7 @@ public class Helper {
     static ExecutorService sSerialTaskExecutor = null;
 
     static int sOperationIndex = 0;
-    static ExecutorService[] sOperationExecutor = new ExecutorService[OPERATION_WORKERS];
+    static final ExecutorService[] sOperationExecutor = new ExecutorService[OPERATION_WORKERS];
 
     static ExecutorService getSerialExecutor() {
         if (sSerialExecutor == null)
@@ -272,11 +272,13 @@ public class Helper {
     }
 
     static ExecutorService getOperationExecutor() {
-        if (sOperationExecutor[sOperationIndex] == null)
-            sOperationExecutor[sOperationIndex] = getBackgroundExecutor(1, "operation");
-        ExecutorService result = sOperationExecutor[sOperationIndex];
-        sOperationIndex = (sOperationIndex + 1) % sOperationExecutor.length;
-        return result;
+        synchronized (sOperationExecutor) {
+            if (sOperationExecutor[sOperationIndex] == null)
+                sOperationExecutor[sOperationIndex] = getBackgroundExecutor(1, "operation");
+            ExecutorService result = sOperationExecutor[sOperationIndex];
+            sOperationIndex = (sOperationIndex + 1) % sOperationExecutor.length;
+            return result;
+        }
     }
 
     private static ExecutorService getBackgroundExecutor(int threads, final String name) {
