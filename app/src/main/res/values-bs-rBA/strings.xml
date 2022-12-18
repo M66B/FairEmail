@@ -566,6 +566,7 @@
     <string name="title_advanced_autounstar">Automatski ukloni zvjezdicu s poruka pri premještanju istih</string>
     <string name="title_advanced_auto_important">Automatski označi poruke sa zvjezdicom kao važne</string>
     <string name="title_advanced_reset_importance">Resetuj važnost pri premještanju poruka</string>
+    <string name="title_advanced_cancel_snooze">Otkaži odgađanje pri premještanju poruka</string>
     <string name="title_advanced_swipe_reply">Prstom prevucite proširene poruke na desno za odgovor</string>
     <string name="title_advanced_default_snooze">Zadano vrijeme odlaganja/odgađanja</string>
     <string name="title_advanced_notifications">Upravljaj obavještenjima</string>
@@ -921,6 +922,7 @@
     <string name="title_service_token">Upravljač Android računima može biti blokiran od strane VPN-a, vatrozida, blokatora reklama itd., sprječavajući ga da dobije pristupni token</string>
     <string name="title_service_port">Molimo, ponovo provjerite broj porta</string>
     <string name="title_service_protocol">Molimo, ponovo provjerite protokol (SSL/TLS ili STARTTLS)</string>
+    <string name="title_service_error10">Ovaj račun treba ponovnu provjeru autentičnosti, što se može učiniti pomoću čarobnjaka brzih postavki</string>
     <string name="title_advanced_browse">Pretražuj poruke na serveru</string>
     <string name="title_advanced_expand_read">Pri proširivanju, označi poruke kao pročitane</string>
     <string name="title_synchronize_now">Sinhronizuj sada</string>

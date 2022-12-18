@@ -579,6 +579,7 @@
     <string name="title_advanced_autounstar">להסיר כוכבים מהודעות אוטומטית בעת העברת הודעות</string>
     <string name="title_advanced_auto_important">להפוך הודעות שסומנו בכוכב לחשובות אוטומטית</string>
     <string name="title_advanced_reset_importance">איפוס החשיבות בעת העברת הודעות</string>
+    <string name="title_advanced_cancel_snooze">ביטול נודניק בעת העברת הודעות</string>
     <string name="title_advanced_swipe_reply">החלקת הודעות מורחבות לימין פותחת מענה</string>
     <string name="title_advanced_default_snooze">זמן בררת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_notifications">ניהול התראות</string>
@@ -934,6 +935,7 @@
     <string name="title_service_token">לא ניתן לחסום את מנהל החשבונות של Android עם VPN, חומת אש, חוסם פרסומות וכו׳, מה שימנע ממנו לקבל אסימון גישה</string>
     <string name="title_service_port">נא לבדוק היטב את מספר הפתחה</string>
     <string name="title_service_protocol">נא לבדוק את הפרוטוקול היטב (SSL/TLS או STARTTLS)</string>
+    <string name="title_service_error10">יש לאמת את החשבון הזה שוב, ניתן לעשות זאת דרך אשף ההגדרות המהירות</string>
     <string name="title_advanced_browse">עיון בהודעות שבשרת</string>
     <string name="title_advanced_expand_read">סימון הודעות כנקראו בעת הרחבתן</string>
     <string name="title_synchronize_now">לסנכרן עכשיו</string>
