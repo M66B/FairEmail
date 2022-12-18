@@ -1849,9 +1849,11 @@
             starttls="false" />
     </provider>
     <provider
-        name="SBCGlobal"
+        name="AT&amp;T"
+        appPassword="true"
+        documentation="Instead of a password you should use &lt;a href=&quot;https://www.att.com/support/article/email-support/KM1240308&quot;&gt;a secure mail key&lt;/a&gt;"
         domain="ameritech\\.net,att\\.net,bellsouth\\.net,flash\\.net,nvbell\\.net,pacbell\\.net,prodigy\\.net,sbcglobal\\.net,snet\\.net,swbell\\.net,wans\\.net"
-        link="https://www.sbcglobal-help.com/access-sbcglobal-net-email-settings/">
+        link="https://www.att.com/support/article/email-support/KM1010523/">
         <imap
             host="imap.mail.att.net"
             port="993"
