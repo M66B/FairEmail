@@ -1280,17 +1280,12 @@ public class FragmentCompose extends FragmentBase {
                 EntityLog.log(context, "Select identity email=" + email +
                         " sent=" + suggest_sent + " received=" + suggest_received);
 
-                List<Integer> types = new ArrayList<>();
-                if (suggest_sent)
-                    types.add(EntityContact.TYPE_TO);
-                if (suggest_received)
-                    types.add(EntityContact.TYPE_FROM);
-
-                if (types.size() == 0)
-                    return null;
-
                 DB db = DB.getInstance(context);
-                List<Long> identities = db.contact().getIdentities(email, types);
+                List<Long> identities = null;
+                if (suggest_sent)
+                    identities = db.contact().getIdentities(email, EntityContact.TYPE_TO);
+                if (suggest_received && (identities == null || identities.size() == 0))
+                    identities = db.contact().getIdentities(email, EntityContact.TYPE_FROM);
                 EntityLog.log(context, "Selected identity email=" + email +
                         " identities=" + (identities == null ? null : identities.size()));
                 if (identities != null && identities.size() == 1)
@@ -4735,12 +4730,11 @@ public class FragmentCompose extends FragmentBase {
                             Address[] tos = MessageHelper.parseAddresses(context, to);
                             if (tos != null && tos.length > 0) {
                                 String email = ((InternetAddress) tos[0]).getAddress();
-                                List<Integer> types = new ArrayList<>();
+                                List<Long> identities = null;
                                 if (suggest_sent)
-                                    types.add(EntityContact.TYPE_TO);
-                                if (suggest_received)
-                                    types.add(EntityContact.TYPE_FROM);
-                                List<Long> identities = db.contact().getIdentities(email, types);
+                                    identities = db.contact().getIdentities(email, EntityContact.TYPE_TO);
+                                if (suggest_received && (identities == null || identities.size() == 0))
+                                    identities = db.contact().getIdentities(email, EntityContact.TYPE_FROM);
                                 if (identities != null && identities.size() == 1) {
                                     EntityIdentity identity = db.identity().getIdentity(identities.get(0));
                                     if (identity != null)
