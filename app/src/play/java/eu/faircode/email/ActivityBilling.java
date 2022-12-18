@@ -367,6 +367,8 @@ public class ActivityBilling extends ActivityBase implements
             @Override
             public void delegate() {
                 try {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
                     boolean ready = billingClient.isReady();
                     Log.i("IAB ready=" + ready);
                     if (!ready)
