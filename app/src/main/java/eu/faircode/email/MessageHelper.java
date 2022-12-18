@@ -964,10 +964,7 @@ public class MessageHelper {
                     HtmlHelper.autoLink(document, true);
                 }
 
-                if (compose_color != Color.TRANSPARENT)
-                    document.head().append("<style>* {color: " + HtmlHelper.encodeWebColor(compose_color) + ";}</style>");
-
-                if (!TextUtils.isEmpty(compose_font)) {
+                if (!TextUtils.isEmpty(compose_font) || compose_color != Color.TRANSPARENT) {
                     List<Node> childs = new ArrayList<>();
                     for (Node child : document.body().childNodes())
                         if (TextUtils.isEmpty(child.attr("fairemail"))) {
@@ -976,8 +973,14 @@ public class MessageHelper {
                         } else
                             break;
 
-                    Element div = document.createElement("div").attr("style",
-                            "font-family:" + StyleHelper.getFamily(compose_font));
+                    StringBuilder style = new StringBuilder();
+                    if (!TextUtils.isEmpty(compose_font))
+                        style.append("font-family: ").append(StyleHelper.getFamily(compose_font)).append(';');
+                    if (compose_color != Color.TRANSPARENT)
+                        style.append("color: ").append(HtmlHelper.encodeWebColor(compose_color)).append(';');
+
+                    Element div = document.createElement("div").attr("style", style.toString());
+
                     for (Node child : childs)
                         div.appendChild(child);
                     document.body().prependChild(div);
