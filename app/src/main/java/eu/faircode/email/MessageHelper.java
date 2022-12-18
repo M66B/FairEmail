@@ -964,16 +964,24 @@ public class MessageHelper {
                     HtmlHelper.autoLink(document, true);
                 }
 
-                StringBuilder style = new StringBuilder();
-
                 if (compose_color != Color.TRANSPARENT)
-                    style.append("* {color: ").append(HtmlHelper.encodeWebColor(compose_color)).append(";}").append('\n');
+                    document.head().append("<style>* {color: " + HtmlHelper.encodeWebColor(compose_color) + ";}</style>");
 
-                if (!TextUtils.isEmpty(compose_font))
-                    style.append("* {font-family: ").append(StyleHelper.getFamily(compose_font)).append(";}").append('\n');
+                if (!TextUtils.isEmpty(compose_font)) {
+                    List<Node> childs = new ArrayList<>();
+                    for (Node child : document.body().childNodes())
+                        if (TextUtils.isEmpty(child.attr("fairemail"))) {
+                            childs.add(child);
+                            child.remove();
+                        } else
+                            break;
 
-                if (style.length() > 0)
-                    document.head().append("<style>" + style + "</style>");
+                    Element div = document.createElement("div").attr("style",
+                            "font-family:" + StyleHelper.getFamily(compose_font));
+                    for (Node child : childs)
+                        div.appendChild(child);
+                    document.body().prependChild(div);
+                }
 
                 document.select("div[fairemail=signature]").removeAttr("fairemail");
                 document.select("div[fairemail=reference]").removeAttr("fairemail");
