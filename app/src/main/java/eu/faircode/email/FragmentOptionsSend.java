@@ -69,8 +69,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSuggestSent;
     private SwitchCompat swSuggestReceived;
     private SwitchCompat swSuggestFrequently;
-    private Button btnLocalContacts;
     private SwitchCompat swAutoIdentity;
+    private Button btnLocalContacts;
     private SwitchCompat swSendChips;
     private SwitchCompat swSendReminders;
     private SwitchCompat swSendPending;
@@ -149,8 +149,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestSent = view.findViewById(R.id.swSuggestSent);
         swSuggestReceived = view.findViewById(R.id.swSuggestReceived);
         swSuggestFrequently = view.findViewById(R.id.swSuggestFrequently);
-        btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         swAutoIdentity = view.findViewById(R.id.swAutoIdentity);
+        btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         swSendChips = view.findViewById(R.id.swSendChips);
         swSendReminders = view.findViewById(R.id.swSendReminders);
         swSendPending = view.findViewById(R.id.swSendPending);
@@ -249,6 +249,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("suggest_sent", checked).apply();
                 swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
+                swAutoIdentity.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
             }
         });
 
@@ -257,6 +258,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("suggest_received", checked).apply();
                 swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
+                swAutoIdentity.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
             }
         });
 
@@ -267,19 +269,19 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
-        btnLocalContacts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS));
-            }
-        });
-
         swAutoIdentity.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("auto_identity", checked).apply();
                 swPrefixCount.setEnabled(checked);
+            }
+        });
+
+        btnLocalContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS));
             }
         });
 
@@ -698,6 +700,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
         swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
         swAutoIdentity.setChecked(prefs.getBoolean("auto_identity", false));
+        swAutoIdentity.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
         swSendChips.setChecked(prefs.getBoolean("send_chips", true));
         swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
         swSendPending.setChecked(prefs.getBoolean("send_pending", true));
