@@ -3192,6 +3192,8 @@ To prevent ongoing operations from storing attachments at the old location
 you should disable receiving messages in the receive settings and wait until all operations have been completed before changing this option.
 Please be aware that removing the storage space will inevitably result in problems, which is one of the reasons why this option is hidden.
 
+Moving messages to an sdcard is not an option because this would significantly reduce the response times of the app.
+
 When needed you can save (raw) messages via the three-dots menu just above the message text
 and save attachments by tapping on the floppy icon.
 
