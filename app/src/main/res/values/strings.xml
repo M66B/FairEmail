@@ -918,7 +918,6 @@
     <string name="title_advanced_parse_classes_hint">This will more accurately display messages, but possibly with a delay</string>
 
     <string name="title_advanced_restore_on_launch_hint">Restore last app state when restarted via the launcher icon within %1$d minutes</string>
-    <string name="title_advanced_language_detection_hint">Language detection support depends on the device manufacturer</string>
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
     <string name="title_advanced_expandall_hint">The answer button will not be shown when multiple messages are expanded because it is unclear which message the button applies to</string>
     <string name="title_advanced_autoseen_hint">Automatically marking messages as read on expanding can be disabled in the advanced account settings of each account</string>

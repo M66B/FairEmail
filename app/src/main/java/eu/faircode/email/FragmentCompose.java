@@ -6845,7 +6845,12 @@ public class FragmentCompose extends FragmentBase {
                     if (spannedRef.length() > 0 && spannedRef.charAt(0) == '\n')
                         spannedRef = (Spanned) spannedRef.subSequence(1, spannedRef.length());
 
-                    Locale ref_lang = TextHelper.detectLanguage(context, spannedRef.toString());
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean language_detection = prefs.getBoolean("language_detection", false);
+
+                    Locale ref_lang = (language_detection
+                            ? TextHelper.detectLanguage(context, spannedRef.toString())
+                            : null);
                     args.putSerializable("ref_lang", ref_lang);
                 }
 

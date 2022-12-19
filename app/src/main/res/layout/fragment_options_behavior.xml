@@ -158,17 +158,6 @@
                     app:switchPadding="12dp" />
 
                 <TextView
-                    android:id="@+id/tvLanguageDetectionHint"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_language_detection_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swLanguageDetection" />
-
-                <TextView
                     android:id="@+id/tvDelayHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -179,7 +168,7 @@
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLanguageDetectionHint" />
+                    app:layout_constraintTop_toBottomOf="@id/swLanguageDetection" />
 
                 <TextView
                     android:id="@+id/tvDefaultSnooze"
