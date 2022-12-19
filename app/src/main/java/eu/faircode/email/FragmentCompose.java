@@ -625,6 +625,7 @@ public class FragmentCompose extends FragmentBase {
                                 return;
                             if (hasSelection != selection) {
                                 hasSelection = selection;
+                                ibLink.setVisibility(style /* && media */ ? View.GONE : View.VISIBLE);
                                 style_bar.setVisibility(style || hasSelection ? View.VISIBLE : View.GONE);
                                 media_bar.setVisibility(style || !etBody.hasSelection() ? View.VISIBLE : View.GONE);
                                 invalidateOptionsMenu();
@@ -632,6 +633,7 @@ public class FragmentCompose extends FragmentBase {
                         }
                     }, 20);
                 } else {
+                    ibLink.setVisibility(View.VISIBLE); // no media
                     style_bar.setVisibility(style || selection ? View.VISIBLE : View.GONE);
                     media_bar.setVisibility(View.GONE);
                 }
@@ -2065,6 +2067,7 @@ public class FragmentCompose extends FragmentBase {
         style = !style;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("compose_style", style).apply();
+        ibLink.setVisibility(style && media ? View.GONE : View.VISIBLE);
         style_bar.setVisibility(style || etBody.hasSelection() ? View.VISIBLE : View.GONE);
         media_bar.setVisibility(media && (style || !etBody.hasSelection()) ? View.VISIBLE : View.GONE);
         invalidateOptionsMenu();
@@ -2074,6 +2077,7 @@ public class FragmentCompose extends FragmentBase {
         media = !media;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("compose_media", media).apply();
+        ibLink.setVisibility(style && media ? View.GONE : View.VISIBLE);
         style_bar.setVisibility(style || etBody.hasSelection() ? View.VISIBLE : View.GONE);
         media_bar.setVisibility(media && (style || !etBody.hasSelection()) ? View.VISIBLE : View.GONE);
         invalidateOptionsMenu();
@@ -6761,6 +6765,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onPostExecute(Bundle args) {
                 pbWait.setVisibility(View.GONE);
+                ibLink.setVisibility(style && media ? View.GONE : View.VISIBLE);
                 style_bar.setVisibility(style || etBody.hasSelection() ? View.VISIBLE : View.GONE);
                 media_bar.setVisibility(media && (style || !etBody.hasSelection()) ? View.VISIBLE : View.GONE);
                 bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
