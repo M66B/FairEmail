@@ -65,7 +65,7 @@ public class FragmentDialogColor extends FragmentDialogBase {
                 .showColorEdit(true)
                 .setColorEditTextColor(editTextColor)
                 .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                .density(9)
+                .density(6)
                 .lightnessSliderOnly()
                 .setOnColorChangedListener(new OnColorChangedListener() {
                     @Override
