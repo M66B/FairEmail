@@ -2963,73 +2963,68 @@ public class HtmlHelper {
     static void highlightSearched(Context context, Document document, String query) {
         try {
             int color = Helper.resolveColor(context, R.attr.colorHighlight);
-            query = Fts4DbHelper.preprocessText(query);
 
-            // TODO breakText
-            // TODO: fix highlighting pre processed text
+            StringBuilder sb = new StringBuilder();
+            for (String word : query.trim().split("\\s+")) {
+                if (word.startsWith("+") || word.startsWith("-"))
+                    continue;
+                for (String w : Fts4DbHelper.breakText(word).split("\\s+")) {
+                    if (sb.length() > 0)
+                        sb.append("\\s*");
+                    sb.append(Pattern.quote(w));
+                }
+            }
+            sb.insert(0, ".*?\\b(");
+            sb.append(")\\b.*?");
 
-            List<String> word = new ArrayList<>();
-            List<String> plus = new ArrayList<>();
-            for (String w : query.trim().split("\\s+"))
-                if (w.length() > 1 && (w.startsWith("+") || w.startsWith("-"))) {
-                    if (w.startsWith("+"))
-                        plus.add(Pattern.quote(w.substring(1)));
-                } else
-                    word.add(Pattern.quote(w));
+            Pattern p = Pattern.compile(sb.toString(), Pattern.DOTALL);
 
-            int flags = Pattern.DOTALL | Pattern.CASE_INSENSITIVE;
-            List<Pattern> pat = new ArrayList<>();
-            pat.add(Pattern.compile(".*?\\b(" + TextUtils.join("\\s+", word) + ")\\b.*?", flags));
-            for (String w : plus)
-                pat.add(Pattern.compile(".*?\\b(" + w + ")\\b.*?", flags));
+            NodeTraversor.traverse(new NodeVisitor() {
+                @Override
+                public void head(Node node, int depth) {
+                    if (node instanceof TextNode)
+                        try {
+                            TextNode tnode = (TextNode) node;
+                            String text = Fts4DbHelper.preprocessText(tnode.getWholeText());
 
-            for (Pattern p : pat)
-                NodeTraversor.traverse(new NodeVisitor() {
-                    @Override
-                    public void head(Node node, int depth) {
-                        if (node instanceof TextNode)
-                            try {
-                                TextNode tnode = (TextNode) node;
-                                String text = Fts4DbHelper.preprocessText(tnode.getWholeText());
+                            Matcher result = p.matcher(text);
 
-                                Matcher result = p.matcher(text);
+                            int prev = 0;
+                            Element holder = document.createElement("span");
+                            while (result.find()) {
+                                int start = result.start(1);
+                                int end = result.end(1);
 
-                                int prev = 0;
-                                Element holder = document.createElement("span");
-                                while (result.find()) {
-                                    int start = result.start(1);
-                                    int end = result.end(1);
+                                holder.appendText(text.substring(prev, start));
 
-                                    holder.appendText(text.substring(prev, start));
+                                Element span = document.createElement("span");
+                                span.attr("style", mergeStyles(
+                                        span.attr("style"),
+                                        "font-size:larger; background-color:" + encodeWebColor(color)
+                                ));
+                                span.text(text.substring(start, end));
+                                holder.appendChild(span);
 
-                                    Element span = document.createElement("span");
-                                    span.attr("style", mergeStyles(
-                                            span.attr("style"),
-                                            "font-size:larger; background-color:" + encodeWebColor(color)
-                                    ));
-                                    span.text(text.substring(start, end));
-                                    holder.appendChild(span);
-
-                                    prev = end;
-                                }
-
-                                if (prev == 0) // No matches
-                                    return;
-
-                                if (prev < text.length())
-                                    holder.appendText(text.substring(prev));
-
-                                tnode.before(holder);
-                                tnode.text("");
-                            } catch (Throwable ex) {
-                                Log.e(ex);
+                                prev = end;
                             }
-                    }
 
-                    @Override
-                    public void tail(Node node, int depth) {
-                    }
-                }, document);
+                            if (prev == 0) // No matches
+                                return;
+
+                            if (prev < text.length())
+                                holder.appendText(text.substring(prev));
+
+                            tnode.before(holder);
+                            tnode.text("");
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                }
+
+                @Override
+                public void tail(Node node, int depth) {
+                }
+            }, document);
         } catch (Throwable ex) {
             Log.e(ex);
         }
