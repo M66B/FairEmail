@@ -518,6 +518,7 @@
     <string name="title_advanced_cards_beige">Use beige background when using card style (light themes only)</string>
     <string name="title_advanced_tabular_background">Use card color as background color when using tabular style</string>
     <string name="title_advanced_cards_shadow">Use shadow for unread messages when using card style</string>
+    <string name="title_advanced_cards_shadow_border">Show border</string>
     <string name="title_advanced_cards_shadow_highlight">Use highlight color instead of accent color</string>
     <string name="title_advanced_tabular_dividers">Use divider lines when using tabular style</string>
     <string name="title_advanced_date_header">Group by date</string>
