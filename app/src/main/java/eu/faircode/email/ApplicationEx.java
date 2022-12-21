@@ -639,7 +639,7 @@ public class ApplicationEx extends Application
         } else if (version < 1931)
             editor.remove("button_force_light").remove("fake_dark");
         else if (version < 1933) {
-            editor.putBoolean("lt_enabled", true);
+            editor.putBoolean("lt_enabled", false);
             if (prefs.contains("disable_top")) {
                 editor.putBoolean("use_top", !prefs.getBoolean("disable_top", false));
                 editor.remove("disable_top");
