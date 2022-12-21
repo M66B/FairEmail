@@ -697,7 +697,6 @@
     <string name="title_advanced_inline_hint">Inline slike su slike uključene u poruku</string>
     <string name="compressed">Sadržaj komprimiranih datoteka (%1$s) s više od %2$s datoteka ili s datotekama većim od %3$s neće biti prikazan</string>
     <string name="title_advanced_parse_classes_hint">Ovo će točnije prikazati poruke, ali moguće s kašnjenjem</string>
-    <string name="title_advanced_language_detection_hint">Podrška za otkrivanje jezika ovisi o proizvođaču uređaja</string>
     <string name="title_advanced_autoexpand_hint">Automatski otvori poruku ako postoji samo jedna poruka ili samo jedna nepročitana poruka u razgovoru</string>
     <string name="title_advanced_expandall_hint">Dugme za odgovor neće se prikazati kada se više poruka proširi jer nije jasno na koju se poruku dugme odnosi</string>
     <string name="title_advanced_autoseen_hint">Automatsko označavanje poruka kao pročitanih prilikom proširenja može se onemogućiti u naprednim postavkama računa</string>

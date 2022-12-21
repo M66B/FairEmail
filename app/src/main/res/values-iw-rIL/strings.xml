@@ -463,6 +463,7 @@
     <string name="title_advanced_cards_beige">להשתמש ברקע בז׳ בעת שימוש בסגנון כרטיסים (ערכות עיצוב בהירות בלבד)</string>
     <string name="title_advanced_tabular_background">להשתמש בצבע הכרטיס כצבע הרקע בעת שימוש בסגנון כרטיסיות</string>
     <string name="title_advanced_cards_shadow">להשתמש בהצללה להודעות שלא נקראו בעת שימוש בסגנון כרטיסים</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">הצגת גבולות</string>
     <string name="title_advanced_cards_shadow_highlight">להשתמש בצבע ההדגשה במקום בצבע המשני</string>
     <string name="title_advanced_tabular_dividers">להשתמש בקווי הפרדה בסגנון הטבלאי</string>
     <string name="title_advanced_date_header">קיבוץ לפי תאריך</string>
@@ -766,7 +767,6 @@
     <string name="compressed">תוכן קבצים דחוסים (%1$s) עם למעלה מ־%2$s קבצים או עם קבצים שגודלם עולה על %3$s לא יוצגו</string>
     <string name="title_advanced_parse_classes_hint">זה יציג הודעות בצורה יותר מדויקת אך כנראה עם עיכוב מסוים</string>
     <string name="title_advanced_restore_on_launch_hint">שחזור המצב האחרון של היישומון כאשר הוא מופעל מחדש דרך הסמל במשגר תוך %1$d דקות</string>
-    <string name="title_advanced_language_detection_hint">תמיכה בזיהוי שפות תלויה ביצרן המכשיר</string>
     <string name="title_advanced_autoexpand_hint">לפתוח הודעות אוטומטית כשיש רק הודעה אחת או רק הודעה אחת שלא נקראה בדיון</string>
     <string name="title_advanced_expandall_hint">כפתור המענה לא יופיע כאשר מספר הודעות מורחבות כיוון שלא ברור לאיזו הודעה הכפתור מתייחס</string>
     <string name="title_advanced_autoseen_hint">אפשר להשבית את סימון ההודעות כנקראו אוטומטית בעת ההרחבה בהגדרות החשבון המתקדמות של כל חשבון בנפרד</string>

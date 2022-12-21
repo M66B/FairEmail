@@ -763,7 +763,6 @@
     <string name="compressed">Vsebina stisnjenih datotek (%1$s) z več kot %2$s-imi datotekami ali z datotekami, večjimi kot %3$s ne bo prikazana.</string>
     <string name="title_advanced_parse_classes_hint">To bo natančneje prikazalo sporočila, vendar morda z zakasnitvijo.</string>
     <string name="title_advanced_restore_on_launch_hint">Obnovi zadnje stanje programa, ko je ponovno zagnan z ikono zaganjalnika v %1$d-h minutah.</string>
-    <string name="title_advanced_language_detection_hint">Podpora za zaznavanje jezika je odvisna od izdelovalca naprave.</string>
     <string name="title_advanced_autoexpand_hint">Samodejno odpri sporočilo, ko je v pogovoru samo eno sporočilo ali eno neprebrano sporočilo.</string>
     <string name="title_advanced_expandall_hint">Gumb za odgovor ne bo prikazan, kadar je razširjenih več sporočil, ker potem ni jasno, za katero sporočilo to velja.</string>
     <string name="title_advanced_autoseen_hint">Samodejno označevanje sporočil kot prebranih ob razširitvi lahko onemogočite v naprednih nastavitvah za posamezni račun.</string>

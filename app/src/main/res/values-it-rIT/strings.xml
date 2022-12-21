@@ -437,6 +437,7 @@
     <string name="title_advanced_cards_beige">Usa lo sfondo beige usando lo stile della carta (solo per temi chiari)</string>
     <string name="title_advanced_tabular_background">Usa il colore della carta come colore di sfondo usando lo stile tabulare</string>
     <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi non letti usando lo stile della carta</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Mostra bordo</string>
     <string name="title_advanced_cards_shadow_highlight">Usa il colore d\'evidenziazione invece del colore secondario</string>
     <string name="title_advanced_tabular_dividers">Usa le linee divisorie usando lo stile tabulare</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
@@ -741,7 +742,6 @@
     <string name="compressed">I contenuti dei file compressi (%1$s) con oltre %2$s file o con file più grandi di %3$s non saranno mostrati</string>
     <string name="title_advanced_parse_classes_hint">Questo visualizzerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
     <string name="title_advanced_restore_on_launch_hint">Quando riavviato tramite l\'icona del launcher, ripristina l\'ultimo stato dell\'app entro %1$d minuti</string>
-    <string name="title_advanced_language_detection_hint">Il supporto per il rilevamento della lingua dipende dal produttore del dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando ce n\'è solo uno o c\'è solo un messaggio non letto in una conversazione</string>
     <string name="title_advanced_expandall_hint">Il pulsante di risposta non sarà mostrato quando sono espansi più messaggi perché non è chiaro a quale messaggio si applichi il tasto</string>
     <string name="title_advanced_autoseen_hint">Contrassegnare i messaggi automaticamente appena letti all\'espansione è disabilitabile nelle impostazioni avanzate di ogni profilo</string>

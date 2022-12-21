@@ -217,6 +217,8 @@
     <string name="title_setup_inexact">Larm &amp; påminnelser är inaktiverade</string>
     <string name="title_setup_background">Balgrundsrestriktioner är aktiverat</string>
     <string name="title_setup_data">Datasparning är aktiverat</string>
+    <string name="title_setup_always">Omedelbara aviseringar för nya meddelanden</string>
+    <string name="title_setup_always_remark">Om aktiverad så kan instabila anslutningar, gammal nätverkshårdvara, etc resultera i högre batterianvändning</string>
     <string name="title_setup_advanced_options">Visa avancerade inställningar</string>
     <string name="title_setup_inbox">Gå till inkorg</string>
     <string name="title_setup_go">Kör</string>
@@ -247,6 +249,7 @@
     <string name="title_setup_import_rules">Importera filterregler</string>
     <string name="title_setup_import_contacts">Importera lokala kontakter</string>
     <string name="title_setup_import_answers">Importera svarsmallar</string>
+    <string name="title_setup_import_searches">Importera sparade sökningar</string>
     <string name="title_setup_import_settings">Importalternativ</string>
     <string name="title_setup_exported">Inställningar exporterade</string>
     <string name="title_setup_imported">Inställningar importerade</string>
@@ -542,6 +545,7 @@
     <string name="title_advanced_autounstar">Ta automatiskt bort stjärnmarkeringar från meddelanden när meddelanden flyttas</string>
     <string name="title_advanced_auto_important">Gör automatiskt stjärnmärkta meddelanden viktiga</string>
     <string name="title_advanced_reset_importance">Återställ betydelsen när du flyttar meddelanden</string>
+    <string name="title_advanced_cancel_snooze">Avbryt snooze när meddelanden flyttas</string>
     <string name="title_advanced_swipe_reply">Svep expanderade meddelanden till höger för att svara</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
@@ -728,7 +732,6 @@
     <string name="compressed">Innehållet i komprimerade filer (%1$s) med mer än %2$s filer eller med filer större än %3$s kommer inte att visas</string>
     <string name="title_advanced_parse_classes_hint">Detta kommer att visa meddelanden mer korrekt, men möjligen med en fördröjning</string>
     <string name="title_advanced_restore_on_launch_hint">Återställ senaste app-status när den startas om via ikonen för launcher inom %1$d minuter</string>
-    <string name="title_advanced_language_detection_hint">Stöd för språkdetektering beror på enhetstillverkaren</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_expandall_hint">Svarsknappen kommer inte att visas när flera meddelanden visas i utökat läge eftersom det är oklart vilket meddelande knappen gäller</string>
     <string name="title_advanced_autoseen_hint">Automatiskt markering av meddelanden som lästa när du expanderar dem kan inaktiveras i avancerade kontoinställningar för varje konto</string>
@@ -767,7 +770,9 @@
     <string name="title_advanced_cleanup_hint">Detta tar bort alla temporära filer</string>
     <string name="title_advanced_never_favorite">Aldrig favorit</string>
     <string name="title_advanced_edit_name">Redigera namn</string>
+    <string name="title_create_folder">Skapa mapp</string>
     <string name="title_create_folder_name">Mappnamn</string>
+    <string name="title_create_folder_parent">Överordnad mapp</string>
     <string name="title_advanced_swipe_actions">Ställ in svepåtgärder</string>
     <string name="title_advanced_swipe_actions_hint">Detta kommer att ställa in svep åt vänster och höger för alla IMAP-konton</string>
     <string name="title_advanced_swipe_sensitivity">Känslighet för vänster/höger svep</string>
@@ -895,6 +900,7 @@
     <string name="title_service_token">Androids kontohanterare kan blockeras av VPN, brandvägg, annonsblockerare, etc, vilket hindrar systemet från att få en åtkomstkod</string>
     <string name="title_service_port">Vänligen dubbelkolla portnumret</string>
     <string name="title_service_protocol">Vänligen dubbelkolla protokollet (SSL/TLS eller STARTTLS)</string>
+    <string name="title_service_error10">Detta konto måste autentiseras igen, vilket kan göras via guiden för snabbkonfigurering</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_expand_read">Markera meddelanden som lästa vid expanderande</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
@@ -1034,10 +1040,12 @@
     <string name="title_editasnew">Redigera som ny</string>
     <string name="title_edit_notes">Redigera lokala anteckningar</string>
     <string name="title_create_rule">Skapa regel &#8230;</string>
+    <string name="title_full_screen">Helskärm</string>
     <string name="title_force_light">Tvinga ljust tema</string>
     <string name="title_share">Dela</string>
     <string name="title_event">Lägg till i kalender</string>
     <string name="title_pin">Lägg till genväg</string>
+    <string name="title_pin_label">Rubrik för genväg</string>
     <string name="title_print">Skriv ut</string>
     <string name="title_print_header">Visa header</string>
     <string name="title_print_images">Skriv ut bilder</string>
@@ -1253,11 +1261,13 @@
     <string name="title_save_drafts">Spara utkast på servern</string>
     <string name="title_send_dialog">Visa alternativ för skicka</string>
     <string name="title_image_dialog">Visa bildalternativ</string>
+    <string name="title_style_toolbar">Stilmall verktygsfält</string>
     <string name="title_media_toolbar">Verktygsfält för media</string>
     <string name="title_manage_local_contacts">Hantera lokala kontakter</string>
     <string name="title_insert_contact_group">Infoga kontaktgrupp</string>
     <string name="title_insert_template">Infoga mall</string>
     <string name="title_create_template">Skapa mall</string>
+    <string name="title_select_default_identity">Välj standardadress</string>
     <string name="title_translate">Översätt</string>
     <string name="title_translate_configure">Konfigurera &#8230;</string>
     <string name="title_translate_key">Ange nyckel</string>

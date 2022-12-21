@@ -437,6 +437,7 @@
     <string name="title_advanced_cards_beige">Afficher un arrière-plan beige lors de l\'utilisation du style carte (thèmes clairs seulement)</string>
     <string name="title_advanced_tabular_background">Utiliser la couleur de la carte comme couleur d\'arrière-plan lors de l\'utilisation du style tableau</string>
     <string name="title_advanced_cards_shadow">Utiliser une ombre autour des messages non lus pour le style carte</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Afficher la bordure</string>
     <string name="title_advanced_cards_shadow_highlight">Utiliser la couleur de surbrillance au lieu de la couleur d\'accentuation</string>
     <string name="title_advanced_tabular_dividers">Afficher des lignes de séparation lors de l\'utilisation du style tableau</string>
     <string name="title_advanced_date_header">Regrouper par date</string>
@@ -741,7 +742,6 @@
     <string name="compressed">Le contenu des fichiers compressés (%1$s) avec plus de %2$s fichiers ou avec des fichiers de taille supérieure à %3$s ne sera pas affiché</string>
     <string name="title_advanced_parse_classes_hint">L’affichage des messages sera plus fidèle mais pourra être retardé</string>
     <string name="title_advanced_restore_on_launch_hint">Au redémarrage via l\'icône du lanceur, restaurer le dernier état de l\'application dans les %1$d minutes</string>
-    <string name="title_advanced_language_detection_hint">La prise en charge de la détection de la langue dépend du fabricant de l\'appareil</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message s’il n’y a qu’un seul message ou un seul message non lu dans une conversation</string>
     <string name="title_advanced_expandall_hint">Le bouton de réponse n\'est pas affiché lorsque plusieurs messages sont dépliés car on ne peut pas savoir à quel message le bouton s\'applique</string>
     <string name="title_advanced_autoseen_hint">Le marquage automatique des messages comme lus lors de leur ouverture peut être désactivé dans les paramètres avancés de chaque compte</string>

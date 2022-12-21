@@ -234,6 +234,8 @@
     <string name="title_setup_inexact">Alarme &amp; memento-urile sunt dezactivate</string>
     <string name="title_setup_background">Restricțiile de fundal sunt activate</string>
     <string name="title_setup_data">Economizorul de date este activat</string>
+    <string name="title_setup_always">Notificări instantanee de mesaje noi</string>
+    <string name="title_setup_always_remark">Dacă este activată, conexiunile instabile, hardware-ul vechi de rețea etc. pot duce la o utilizare mai mare a bateriei</string>
     <string name="title_setup_advanced_options">Arată opțiuni avansate</string>
     <string name="title_setup_inbox">Mergeți la mesaje primite</string>
     <string name="title_setup_go">Start</string>
@@ -374,6 +376,7 @@
     <string name="title_advanced_send_pending">Arată pictograma neobstructivă de trimitere întârziată</string>
     <string name="title_advanced_auto_save_paragraph">Salvați automat un draft după fiecare paragraf</string>
     <string name="title_advanced_auto_save_dot">Salvați automat un proiect după fiecare propoziție</string>
+    <string name="title_advanced_compose_color">Culoare implicită text</string>
     <string name="title_advanced_compose_font">Font prestabilit</string>
     <string name="title_advanced_auto_identity">Selectarea automată a identităților pentru mesajele noi</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
@@ -446,6 +449,7 @@
     <string name="title_advanced_cards_beige">Utilizați un fundal bej atunci când folosiți stilul de card (numai pentru teme luminoase)</string>
     <string name="title_advanced_tabular_background">Utilizați culoarea cardului ca și culoare de fundal atunci când folosiți stilul tabular</string>
     <string name="title_advanced_cards_shadow">Utilizează umbra pentru mesajele necitite când se folosește stilul card</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Arată chenarul</string>
     <string name="title_advanced_cards_shadow_highlight">Utilizați culoarea de evidențiere în loc de culoarea de accent</string>
     <string name="title_advanced_tabular_dividers">Utilizați linii despărțitoare atunci când utilizați stilul tabelar</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
@@ -516,6 +520,7 @@
     <string name="title_advanced_button_extra">Arată butoane suplimentare în partea de jos a mesajului</string>
     <string name="title_advanced_seekbar">Arată poziția relativă în conversație cu un punct</string>
     <string name="title_advanced_actionbar">Arată bara de acțiuni pentru conversație</string>
+    <string name="title_advanced_actionbar_swap">Schimbă coșul de gunoi și butonul de arhivă</string>
     <string name="title_advanced_actionbar_color">Folosește culoarea contului pentru culoarea de fundal a barei de acțiuni a conversației</string>
     <string name="title_advanced_category_header">Gruparea pe categorii de conturi</string>
     <string name="title_advanced_navbar_colorize">Colorează bara de navigație Android</string>
@@ -561,6 +566,7 @@
     <string name="title_advanced_autounstar">Elimină automat steaua mesajelor mutate</string>
     <string name="title_advanced_auto_important">Marcheză automat mesajele cu stea ca importante</string>
     <string name="title_advanced_reset_importance">Resetează importanța la mutarea mesajelor</string>
+    <string name="title_advanced_cancel_snooze">Anulează amânarea la mutarea mesajelor</string>
     <string name="title_advanced_swipe_reply">Glisați mesajele extinse spre dreapta pentru a răspunde</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare/prelungire</string>
     <string name="title_advanced_notifications">Gestionarea notificărilor</string>
@@ -747,7 +753,6 @@
     <string name="compressed">Conținutul fișierelor comprimate (%1$s) cu mai mult de %2$s fișiere sau cu fișiere mai mari de %3$s nu va fi afișat</string>
     <string name="title_advanced_parse_classes_hint">Acest lucru va afișa cu mai multă precizie mesajele, dar posibil cu o întârziere</string>
     <string name="title_advanced_restore_on_launch_hint">Restaurează ultima stare a aplicației la repornirea prin pictograma lansator în %1$d minute</string>
-    <string name="title_advanced_language_detection_hint">Detectarea limbii depinde de producătorul dispozitivului</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_expandall_hint">Butonul de răspuns nu va fi afișat atunci când sunt extinse mai multe mesaje, deoarece nu este clar la ce mesaj se aplică butonul</string>
     <string name="title_advanced_autoseen_hint">Marcarea automată a mesajelor ca fiind citite la extindere poate fi dezactivată în setările avansate ale fiecărui cont</string>
@@ -916,6 +921,7 @@
     <string name="title_service_token">Managerul de cont Android ar putea fi blocat de un VPN, un firewall, un blocant de reclame etc., ceea ce îl împiedică să obțină un token de acces</string>
     <string name="title_service_port">Vă rugăm să verificaţi din nou numărul de port</string>
     <string name="title_service_protocol">Vă rugăm să verificaţi protocolul (SSL/TLS sau STARTTLS)</string>
+    <string name="title_service_error10">Acest cont trebuie să fie autentificat din nou, ceea ce poate fi făcut prin intermediul asistentului de configurare rapidă</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_expand_read">Marchează mesajele ca citite la extindere</string>
     <string name="title_synchronize_now">Sincronizează acum</string>

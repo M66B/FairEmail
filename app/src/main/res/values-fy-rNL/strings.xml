@@ -508,7 +508,6 @@ As \"Berjochten op de server stean litte l\" net ynskeakele is, gean dizze berjo
     <string name="title_advanced_placeholders_hint">Dit jildt allinich foar herfoarme berjochten</string>
     <string name="title_advanced_inline_hint">Ynline ôfbyldings binne ôfbyldings opnommen yn it berjocht</string>
     <string name="title_advanced_parse_classes_hint">Dit sil berjochten krekter werjaan, mar mooglik mei in fertraging</string>
-    <string name="title_advanced_language_detection_hint">Stipe foar taaldeteksje is ôfhinklik fan de fabrikant fan it apparaat</string>
     <string name="title_advanced_autoexpand_hint">Berjocht automatysk iepenje as d\'r mar ien berjocht is as mar ien net-lêzen berjocht yn in petear</string>
     <string name="title_advanced_autoseen_hint">Berjochten automatysk as lêzen markearje by útwreidzjen kinne útskeakele wurde yn \'e avansearre akkountynstellings fan elk akkount</string>
     <string name="title_advanced_autoclose_hint">Slút petearen automatysk as alle berjochten binne argiveare, ferstjoerd of yn \'e jiskefet</string>

@@ -471,7 +471,6 @@
     <string name="title_advanced_placeholders_hint">Dette gjelder kun reformaterte meldinger</string>
     <string name="title_advanced_inline_hint">Innebygde bilder er bilder som er inkludert i meldingen</string>
     <string name="title_advanced_parse_classes_hint">Dette vil mer nøyaktig vise meldinger, men muligens med en forsinkelse</string>
-    <string name="title_advanced_language_detection_hint">Støtte for oppdagelse av språk avhenger av produsenten av enheten</string>
     <string name="title_advanced_autoexpand_hint">Åpne automatisk melding når det bare er én melding eller bare en ulest melding i en samtale</string>
     <string name="title_advanced_autoclose_hint">Lukk samtaler automatisk når alle meldinger arkiveres, sendes eller kastet</string>
     <string name="title_advanced_sender_hint">De fleste leverandører tillater ikke endret avsender adresser</string>

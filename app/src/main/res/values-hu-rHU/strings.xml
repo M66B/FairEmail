@@ -666,7 +666,6 @@
     <string name="title_advanced_placeholders_hint">Ez csak az újraformázott szövegre érvényes</string>
     <string name="title_advanced_inline_hint">Beágyazott képek az üzenet szövegébe beszúrt képek</string>
     <string name="title_advanced_parse_classes_hint">Ez pontosabban fogja megjeleníteni az üzeneteket, de egy kis késéssel</string>
-    <string name="title_advanced_language_detection_hint">A nyelvi felismerés a készülék gyártójától függ</string>
     <string name="title_advanced_autoexpand_hint">Üzenetek automatikus megnyitása, ha összesen egy, vagy csak egy olvasatlan üzetetet tartalmaz a beszélgetés</string>
     <string name="title_advanced_expandall_hint">Több üzenet kibontásánál nem fog megjelenni a válasz gomb, mert nem egyértelmű, hogy melyik üzenetre vonatkozik a válasz</string>
     <string name="title_advanced_autoseen_hint">Üzenetek kibontásánál olvasottnak tekintést ki lehet kapcsolni minden fiók saját haladó beállításainál</string>

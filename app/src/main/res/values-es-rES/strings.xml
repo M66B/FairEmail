@@ -436,6 +436,7 @@
     <string name="title_advanced_cards_beige">Usar fondo beige al utilizar el estilo de la tarjeta (solo temas claros)</string>
     <string name="title_advanced_tabular_background">Usar el color de la tarjeta como color de fondo al utilizar el estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensajes no leídos al usar estilo de tarjeta</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Mostrar borde</string>
     <string name="title_advanced_cards_shadow_highlight">Usar color de resaltado en lugar de color de acento</string>
     <string name="title_advanced_tabular_dividers">Usar líneas divisorias al usar estilo tabular</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>
@@ -552,6 +553,7 @@
     <string name="title_advanced_autounstar">Eliminar automáticamente la estrella de los mensajes al ser movidos</string>
     <string name="title_advanced_auto_important">Hacer que los mensajes destacados sean importantes automáticamente</string>
     <string name="title_advanced_reset_importance">Restablecer importancia al mover mensajes</string>
+    <string name="title_advanced_cancel_snooze">Cancelar posponer al mover mensajes</string>
     <string name="title_advanced_swipe_reply">Deslice los mensajes expandidos a la derecha para responder</string>
     <string name="title_advanced_default_snooze">Tiempo de posponer/retraso por defecto</string>
     <string name="title_advanced_notifications">Administrar notificaciones</string>
@@ -738,7 +740,6 @@
     <string name="compressed">El cotenido de archivos comprimidos (%1$s) con más de %2$s archivos o archivos de más de %3$s no se mostrarán</string>
     <string name="title_advanced_parse_classes_hint">Esto mostrará los mensajes con mayor precisión, pero posiblemente con un retraso</string>
     <string name="title_advanced_restore_on_launch_hint">Restaurar el último estado de la aplicación cuando se reinicie mediante el icono del lanzador dentro de los %1$d minutos</string>
-    <string name="title_advanced_language_detection_hint">El soporte de detección de idiomas depende del fabricante del dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_expandall_hint">El botón de respuesta no se mostrará cuando se expandan varios mensajes porque no está claro a qué mensaje aplica el botón</string>
     <string name="title_advanced_autoseen_hint">Marcar automáticamente los mensajes como leídos al expandir puede desactivarse en la configuración avanzada de cada cuenta</string>
@@ -907,6 +908,7 @@
     <string name="title_service_token">El administrador de cuentas de Android podría estar bloqueado por una VPN, cortafuegos, bloqueador de anuncios, etc., impidiendo que obtenga un token de acceso</string>
     <string name="title_service_port">Por favor, compruebe el número de puerto</string>
     <string name="title_service_protocol">Por favor, compruebe el protocolo (SSL/TLS o STARTTLS)</string>
+    <string name="title_service_error10">Esta cuenta necesita ser autenticada de nuevo, lo que puede hacerse a través del asistente de configuración rápida</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_expand_read">Marcar mensajes leídos al expandir</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>

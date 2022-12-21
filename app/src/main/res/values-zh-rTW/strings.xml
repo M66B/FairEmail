@@ -691,7 +691,6 @@
     <string name="title_advanced_placeholders_hint">僅適用於經過重排的訊息</string>
     <string name="title_advanced_inline_hint">行內圖片是包含於訊息中的圖片</string>
     <string name="title_advanced_parse_classes_hint">訊息顯示更精準，但可能會延後</string>
-    <string name="title_advanced_language_detection_hint">語言偵測支援與否由裝置製造商決定</string>
     <string name="title_advanced_autoexpand_hint">當會話中只有一則訊息或僅一則未讀時自動開啟訊息</string>
     <string name="title_advanced_expandall_hint">當展開多封訊息時，不會顯示回覆按鈕，因為這樣會無法確定回覆的是哪個訊息</string>
     <string name="title_advanced_autoseen_hint">展開時自動標記訊息為已讀功能可於各帳戶進階帳戶設定中停用</string>

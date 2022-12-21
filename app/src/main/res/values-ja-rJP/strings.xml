@@ -424,6 +424,7 @@
     <string name="title_advanced_cards_beige">カード形式のとき、背景色にベージュを使用 (ライトテーマのみ)</string>
     <string name="title_advanced_tabular_background">表形式のとき、背景色にカードの色を使用</string>
     <string name="title_advanced_cards_shadow">カード形式のとき、未読メッセージにシャドウを使用</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">境界を表示</string>
     <string name="title_advanced_cards_shadow_highlight">アクセントカラーの代わりにハイライトカラーを使用</string>
     <string name="title_advanced_tabular_dividers">表形式のとき、区切り線を表示</string>
     <string name="title_advanced_date_header">日付でグループ化</string>
@@ -727,7 +728,6 @@
     <string name="compressed">%2$s 件以上のファイルまたは %3$s 以上を含むときは、圧縮ファイル (%1$s) の内容は表示されません</string>
     <string name="title_advanced_parse_classes_hint">メッセージをより正確に表示しますが、遅延が発生する場合があります</string>
     <string name="title_advanced_restore_on_launch_hint">%1$d 分以内にランチャーアイコンからアプリを再起動したとき、最後の状態を復元します</string>
-    <string name="title_advanced_language_detection_hint">言語検出のサポートはデバイスメーカーに依存します</string>
     <string name="title_advanced_autoexpand_hint">会話内のメッセージが 1 つだけ、または未読メッセージが 1 つだけの場合に自動的にメッセージを開きます</string>
     <string name="title_advanced_expandall_hint">複数のメッセージが展開されている場合、ボタンがどのメッセージに適用されるかが明確でないため、返信ボタンは表示されません</string>
     <string name="title_advanced_autoseen_hint">展開したメッセージを自動で既読にする機能は、アカウント設定の詳細設定から無効にできます</string>

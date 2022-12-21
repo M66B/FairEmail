@@ -423,6 +423,7 @@
     <string name="title_advanced_cards_beige">使用卡牌风格时使用米色背景(仅适用于浅色主题)</string>
     <string name="title_advanced_tabular_background">使用表格样式时，使用卡片颜色作为背景色</string>
     <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">显示边框</string>
     <string name="title_advanced_cards_shadow_highlight">使用高亮色而不是强调色</string>
     <string name="title_advanced_tabular_dividers">使用表格样式时使用分隔线</string>
     <string name="title_advanced_date_header">按日期分组</string>
@@ -726,7 +727,6 @@
     <string name="compressed">所含文件超过 %2$s 个或大于 %3$s 的压缩文件 (%1$s) 的内容将不会显示</string>
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
     <string name="title_advanced_restore_on_launch_hint">在 %1$d 分钟内通过图标重新启动 FairEmail 时恢复上次应用状态</string>
-    <string name="title_advanced_language_detection_hint">是否支持语言检测取决于设备制造商</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_expandall_hint">展开多封邮件时不会显示回复按钮，因为这样会无法确定回复哪封邮件</string>
     <string name="title_advanced_autoseen_hint">在每个账户的高级账户设置中可以禁用展开消息时自动将其标记为已读</string>

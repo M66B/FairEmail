@@ -437,6 +437,7 @@
     <string name="title_advanced_cards_beige">Beigefarbenen Hintergrund verwenden, wenn Kartenstil genutzt wird (nur bei hellen Farbschemen)</string>
     <string name="title_advanced_tabular_background">Kartenfarbe als Hintergrundfarbe verwenden, wenn Tabellenstil genutzt wird</string>
     <string name="title_advanced_cards_shadow">Schatten für ungelesene Nachrichten verwenden, wenn Kartenstil verwendet wird</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Rahmen anzeigen</string>
     <string name="title_advanced_cards_shadow_highlight">Hervorhebungsfarbe statt Akzentfarbe verwenden</string>
     <string name="title_advanced_tabular_dividers">Trennlinien bei Verwendung der Tabellenform verwenden</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
@@ -740,7 +741,6 @@
     <string name="compressed">Der Inhalt von komprimierten Dateien (%1$s) mit mehr als %2$s Dateien oder mit Dateien größer als %3$s wird nicht angezeigt</string>
     <string name="title_advanced_parse_classes_hint">Dies wird die Nachrichten genauer anzeigen, aber möglicherweise mit einer Verzögerung</string>
     <string name="title_advanced_restore_on_launch_hint">Letzten App-Status wiederherstellen, wenn innerhalb von %1$d Minuten über das Startsymbol neu gestartet wird</string>
-    <string name="title_advanced_language_detection_hint">Die Unterstützung der Sprachenerkennung hängt vom Gerätehersteller ab</string>
     <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einer Unterhaltung enthalten ist</string>
     <string name="title_advanced_expandall_hint">Die Schaltfläche „Antworten” wird nicht angezeigt, wenn mehrere Nachrichten ausgeklappt sind, da unklar ist, für welche Nachricht die Schaltfläche gilt.</string>
     <string name="title_advanced_autoseen_hint">Das automatische „Als gelesen kennzeichnen” von Nachrichten beim Erweitern kann in den erweiterten Kontoeinstellungen des jeweiligen Kontos deaktiviert werden</string>

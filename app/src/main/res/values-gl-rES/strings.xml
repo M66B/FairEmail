@@ -718,7 +718,6 @@
     <string name="title_advanced_inline_hint">As imaxes en liña son as que están incluídas na mensaxe</string>
     <string name="compressed">Non se mostrarań os contenidos de ficheiros comprimidos (%1$s) con máis de %2$s ficheiros ou con ficheiros máis grandes que %3$s</string>
     <string name="title_advanced_parse_classes_hint">Esto fará máis precisa a mostra das mensaxes, pero posiblemente cun atraso</string>
-    <string name="title_advanced_language_detection_hint">A detección da linguaxe depende do fabricante do dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente unha mensaxe cando é a única ou é a única mensaxe non lida nunha conversa</string>
     <string name="title_advanced_expandall_hint">O botón de resposta non se mostra cando estean expandidas varias mensaxes porque non se sabería a que mensaxe se aplicaría</string>
     <string name="title_advanced_autoseen_hint">A marca automática de mensaxes como lidas ao seren expandidas pódese desactivar na configuración avanzada das contas</string>

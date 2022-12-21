@@ -463,6 +463,7 @@
     <string name="title_advanced_cards_beige">Використовувати бежевий фон під час використання стилю карт (тільки для світлої теми)</string>
     <string name="title_advanced_tabular_background">Використовувати колір картки як тло під час використання табличного стилю</string>
     <string name="title_advanced_cards_shadow">Використовувати тінь для непрочитаних повідомлень під час використання стилю картки</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Показати рамку</string>
     <string name="title_advanced_cards_shadow_highlight">Використовувати колір підсвітки замість кольору акценту</string>
     <string name="title_advanced_tabular_dividers">Роздільні лінії під час використання табличного стилю</string>
     <string name="title_advanced_date_header">Групувати за датою</string>
@@ -765,7 +766,6 @@
     <string name="compressed">Вміст стиснутих файлів (%1$s) із кількістю файлів більшою за %2$s, або з файлами більшими за %3$s, небуде показаний</string>
     <string name="title_advanced_parse_classes_hint">Можливо, це буде більш точно відображати повідомлення, але, можливо, з затримкою</string>
     <string name="title_advanced_restore_on_launch_hint">Відновлювати останній стан програми після перезапуску через іконку лаунчера протягом %1$d хвилин</string>
-    <string name="title_advanced_language_detection_hint">Підтримка виявлення мови залежить від виробника пристрою</string>
     <string name="title_advanced_autoexpand_hint">Автоматично відкривати повідомлення, коли є тільки одне повідомлення або тільки одне непрочитане повідомлення в розмові</string>
     <string name="title_advanced_expandall_hint">Кнопка відповіді не відображатиметься, коли буде розгорнуто кілька повідомлень, тому що не зрозуміло, до котрого з них вона має бути застосовна</string>
     <string name="title_advanced_autoseen_hint">Автоматичне маркування повідомлень прочитаними при розкриванні, може бути відключено в розширених налаштуваннях кожного з облікових записів</string>

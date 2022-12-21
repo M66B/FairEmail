@@ -435,6 +435,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_cards_beige">Gebruik een beige achtergrond bij het gebruik van de kaartstijl (alleen lichte thema\'s)</string>
     <string name="title_advanced_tabular_background">Gebruik kaart kleur als achtergrondkleur bij gebruik van tabulaire stijl</string>
     <string name="title_advanced_cards_shadow">Gebruik schaduw voor ongelezen berichten bij gebruik van kaartstijl</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Toon rand</string>
     <string name="title_advanced_cards_shadow_highlight">Gebruik markeerkleur in plaats van accentkleur</string>
     <string name="title_advanced_tabular_dividers">Gebruik scheidingslijnen bij gebruik van tabulaire style</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
@@ -738,7 +739,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="compressed">De inhoud van gecomprimeerde bestanden (%1$s) met meer dan %2$s bestanden of met bestanden groter dan %3$s zal niet getoond worden</string>
     <string name="title_advanced_parse_classes_hint">Dit zal nauwkeuriger berichten weergeven, maar mogelijk met een vertraging</string>
     <string name="title_advanced_restore_on_launch_hint">Herstel laatste app-status bij herstart via het launcher-pictogram binnen %1$d minuten</string>
-    <string name="title_advanced_language_detection_hint">Ondersteuning van taaldetectie is afhankelijk van de fabrikant van het apparaat</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_expandall_hint">De antwoordknop zal niet worden weergegeven wanneer meerdere berichten worden opengeklapt omdat het dan onduidelijk is op welk bericht de knop van toepassing is</string>
     <string name="title_advanced_autoseen_hint">Automatisch berichten markeren als gelezen bij uitvouwen kan worden uitgeschakeld in de geavanceerde accountinstellingen van elk account</string>

@@ -462,6 +462,7 @@
     <string name="title_advanced_cards_beige">Использовать бежевый фон для карточного стиля (только для светлых тем)</string>
     <string name="title_advanced_tabular_background">Использовать цвет карточки в качестве цвета фона при использовании табличного стиля</string>
     <string name="title_advanced_cards_shadow">Использовать тень для непрочитанных сообщений для карточного стиля</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Показывать рамку</string>
     <string name="title_advanced_cards_shadow_highlight">Использовать цвет подсветки вместо цвета акцента</string>
     <string name="title_advanced_tabular_dividers">Разделительные линии при использовании стиля с табуляцией</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
@@ -766,7 +767,6 @@
     <string name="compressed">Содержимое сжатых файлов (%1$s) с более чем %2$s файлами или файлами размером более %3$s не будет показано</string>
     <string name="title_advanced_parse_classes_hint">Позволит более точно отображать сообщения, но, возможно, с задержкой</string>
     <string name="title_advanced_restore_on_launch_hint">Восстановить последнее состояние приложения при перезапуске через значок на рабочем в течение %1$d мин.</string>
-    <string name="title_advanced_language_detection_hint">Поддержка определения языка зависит от производителя устройства</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_expandall_hint">Кнопка ответа не будет отображаться, если развёрнуто несколько сообщений, поскольку будет неясно, к какому сообщению она относится</string>
     <string name="title_advanced_autoseen_hint">Автоматическая пометка сообщений прочитанными при развёртывании может быть отключена в настройках для каждой учётной записи</string>

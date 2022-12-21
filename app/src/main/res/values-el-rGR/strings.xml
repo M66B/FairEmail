@@ -436,6 +436,7 @@
     <string name="title_advanced_cards_beige">Μπεζ φόντο κατά τη χρήση του στιλ κάρτας (ανοιχτόχρωμα θέματα μόνο)</string>
     <string name="title_advanced_tabular_background">Να χρησιμοποιείται το χρώμα της κάρτας ως χρώμα φόντου κατά τη χρήση του στιλ πίνακα</string>
     <string name="title_advanced_cards_shadow">Σκίαση μη αναγνωσμένων μηνυμάτων κατά τη χρήση στιλ κάρτας</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Προβολή περιγράμματος</string>
     <string name="title_advanced_cards_shadow_highlight">Χρήση του χρώματος επισήμανσης αντί του χρώματος έμφασης</string>
     <string name="title_advanced_tabular_dividers">Χρήση διαχωριστικών γραμμών κατά τη χρήση στιλ πίνακα</string>
     <string name="title_advanced_date_header">Ομαδοποίηση κατά ημερομηνία</string>
@@ -737,7 +738,6 @@
     <string name="compressed">Τα περιεχόμενα των συμπιεσμένων αρχείων (%1$s) με περισσότερα από %2$s αρχεία ή με αρχεία μεγαλύτερα από %3$s δεν θα προβάλλονται</string>
     <string name="title_advanced_parse_classes_hint">Η προβολή των εικόνων θα είναι πιο ακριβής αλλά με ενδεχόμενη καθυστέρηση</string>
     <string name="title_advanced_restore_on_launch_hint">Επαναφέρεται η τελευταία κατάσταση της εφαρμογής, εφόσον γίνεται επανεκκίνηση εντός %1$d λεπτών μέσω του εικονιδίου εκκίνησης</string>
-    <string name="title_advanced_language_detection_hint">Η υποστήριξη αναγνώρισης γλώσσας εξαρτάται από τον κατασκευαστή της συσκευής</string>
     <string name="title_advanced_autoexpand_hint">Αυτόματο άνοιγμα του μηνύματος όταν υπάρχει μόνον ένα μήνυμα ή μόνον ένα μη αναγνωσμένο μήνυμα σε μία συζήτηση</string>
     <string name="title_advanced_expandall_hint">Το κουμπί απάντησης δεν θα εμφανίζεται όταν έχουν αναπτυχθεί πολλαπλά μηνύματα, καθώς τότε δεν είναι σαφές σε ποιο μήνυμα ακριβώς αφορά το κουμπί</string>
     <string name="title_advanced_autoseen_hint">Η αυτόματη σήμανση των μηνυμάτων ως αναγνωσμένων κατά την ανάπτυξή τους, μπορεί να απενεργοποιηθεί στις προχωρημένες ρυθμίσεις καθενός λογαριασμού</string>

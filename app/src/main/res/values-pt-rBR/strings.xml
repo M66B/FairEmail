@@ -436,6 +436,7 @@
     <string name="title_advanced_cards_beige">Usar o fundo quando usar o estilo do cartão (apenas temas claros)</string>
     <string name="title_advanced_tabular_background">Usar a cor do cartão como cor de fundo quando usar um estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Mostrar borda</string>
     <string name="title_advanced_cards_shadow_highlight">Use a cor de destaque em vez da cor do realce</string>
     <string name="title_advanced_tabular_dividers">Use linhas divisórias ao usar o estilo tabular</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
@@ -739,7 +740,6 @@
     <string name="compressed">O conteúdo de arquivos compactados (%1$s) com mais de %2$s arquivos ou com arquivos maiores que %3$s não serão ser exibidos</string>
     <string name="title_advanced_parse_classes_hint">Isto irá exibir mensagens com mais precisão, mas possivelmente com um atraso</string>
     <string name="title_advanced_restore_on_launch_hint">Restaurar o último estado do app quando reiniciar via ícone do lançador dentro de %1$d minutos</string>
-    <string name="title_advanced_language_detection_hint">O suporte à detecção do idioma depende do fabricante do dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
     <string name="title_advanced_expandall_hint">O botão de resposta não será mostrado quando várias mensagens forem expandidas porque não está claro a qual mensagem o botão se aplica</string>
     <string name="title_advanced_autoseen_hint">A marcação automática de mensagens como lidas ao expandir pode ser desativada nas configurações individuais de cada conta</string>

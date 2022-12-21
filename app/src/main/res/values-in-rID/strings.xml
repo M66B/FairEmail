@@ -679,7 +679,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_placeholders_hint">Ini berlaku untuk pesan yang diformat ulang</string>
     <string name="title_advanced_inline_hint">Gambar inline akan menyisipkan gambar dalam pesan</string>
     <string name="title_advanced_parse_classes_hint">Ini akan lebih akurat menampilkan pesan, tapi mungkin dengan penundaan</string>
-    <string name="title_advanced_language_detection_hint">Dukungan deteksi bahasa tergantung pada perangkat</string>
     <string name="title_advanced_autoexpand_hint">Secara otomatis membuka pesan ketika hanya ada satu pesan atau hanya satu pesan yang belum dibaca dalam percakapan</string>
     <string name="title_advanced_expandall_hint">Tombol balas tidak ditampilkan saat beberapa pesan dilebarkan karena tombol pesan menjadi tidak jelas pesan mana yang dituju</string>
     <string name="title_advanced_autoseen_hint">Secara otomatis menandai pesan sebagai telah dibaca ketika memperluasnya, bisa dinonaktifkan pada pengaturan akun setiap individu</string>

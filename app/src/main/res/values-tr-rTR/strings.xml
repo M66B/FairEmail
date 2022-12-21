@@ -435,6 +435,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_cards_beige">Kart stilini kullanırken bej arka plan kullan (yalnızca açık renkli temalar)</string>
     <string name="title_advanced_tabular_background">Tablo stilini kullanırken kart rengini arka plan rengi olarak kullan</string>
     <string name="title_advanced_cards_shadow">Kart stilini kullanırken okunmamış mesajlar için gölge kullanın</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Çerçeveyi göster</string>
     <string name="title_advanced_cards_shadow_highlight">Vurgu rengi yerine vurgu rengi kullanın</string>
     <string name="title_advanced_tabular_dividers">Tablo stilini kullanırken ayırıcı çizgiler kullan</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
@@ -551,6 +552,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_autounstar">Mesajları taşırken otomatik olarak yıldızı kaldır</string>
     <string name="title_advanced_auto_important">Yıldızlanan mesajları otomatik olarak önemli hale getir</string>
     <string name="title_advanced_reset_importance">Mesajları taşırken önem derecesini sıfırla</string>
+    <string name="title_advanced_cancel_snooze">Hareketli mesajlarda ertelemeyi iptal et</string>
     <string name="title_advanced_swipe_reply">Genişletilmiş mesajları yanıtlamak için sağa kaydırın</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
@@ -737,7 +739,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="compressed">%2$s\'den fazla dosya içeren veya %3$s\'den büyük dosyalar içeren sıkıştırılmış dosyaların (%1$s) içerikleri gösterilmeyecek</string>
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha doğru bir şekilde gösterecektir, ancak muhtemelen bir gecikme ile</string>
     <string name="title_advanced_restore_on_launch_hint">%1$d dakika içinde başlatıcı simgesi aracılığıyla yeniden başlatıldığında son uygulama durumunu geri yükle</string>
-    <string name="title_advanced_language_detection_hint">Dil algılama desteği, cihaz üreticisine bağlıdır</string>
     <string name="title_advanced_autoexpand_hint">Bir sohbette yalnızca bir ileti veya yalnızca bir okunmamış ileti olduğunda iletiyi otomatik olarak aç</string>
     <string name="title_advanced_expandall_hint">Düğmenin hangi mesaja uygulanacağı belirsiz olduğundan, birden fazla mesaj genişletildiğinde cevap düğmesi gösterilmeyecektir</string>
     <string name="title_advanced_autoseen_hint">Genişletme sırasında okunan mesajları otomatik olarak işaretleme, bireysel hesap ayarlarında devre dışı bırakılabilir</string>
@@ -906,6 +907,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_service_token">Android hesap yöneticisi bir VPN, güvenlik duvarı, reklam engelleyici vb. tarafından engellenebilir ve erişim jetonu almasını engelleyebilir</string>
     <string name="title_service_port">Lütfen port numarasını tekrardan kontrol edin</string>
     <string name="title_service_protocol">Lütfen protokolü iki kez kontrol edin (SSL / TLS veya STARTTLS)</string>
+    <string name="title_service_error10">Bu hesabın kimliğinin yeniden doğrulanması gerekiyor, bu işlem hızlı kurulum sihirbazı aracılığıyla yapılabilir</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_expand_read">Genişletirken mesajları okundu olarak işaretle</string>
     <string name="title_synchronize_now">Şimdi eşzamanla</string>
