@@ -1209,6 +1209,8 @@ Using the search index is a pro feature.
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook/Office 365*.
 
+**Important**: a personal and a business account can have the same email address, but have different mailboxes (folders). So, please make sure you select the right option.
+
 Microsoft said "*We have turned off SMTP AUTH for millions of tenants not using it*", which can result in this error message:
 
 ```
