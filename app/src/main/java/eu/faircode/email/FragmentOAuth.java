@@ -643,6 +643,10 @@ public class FragmentOAuth extends FragmentBase {
                 List<String> usernames = new ArrayList<>();
                 usernames.add(sharedname == null ? username : sharedname);
 
+                EntityLog.log(context, "OAuth id=" + id + " user=" + username + " shared=" + sharedname);
+                EntityLog.log(context, "OAuth token=" + token);
+                EntityLog.log(context, "OAuth jwt=" + jwt);
+
                 if (token != null && sharedname == null && !"gmail".equals(id)) {
                     // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens
                     String[] segments = token.split("\\.");
@@ -796,13 +800,13 @@ public class FragmentOAuth extends FragmentBase {
                 if (pop && recent && "gmail".equals(id))
                     username = "recent:" + username;
 
-                Log.i("OAuth username=" + username + " shared=" + sharedname);
+                EntityLog.log(context, "OAuth username=" + username + " shared=" + sharedname);
                 for (Pair<String, String> identity : identities)
-                    Log.i("OAuth identity=" + identity.first + "/" + identity.second);
+                    EntityLog.log(context, "OAuth identity=" + identity.first + "/" + identity.second);
 
                 List<EntityFolder> folders;
 
-                Log.i("OAuth checking IMAP/POP3 provider=" + provider.id);
+                EntityLog.log(context, "OAuth checking IMAP/POP3 provider=" + provider.id);
                 try (EmailService aservice = new EmailService(
                         context, aprotocol, null, aencryption, false, false,
                         EmailService.PURPOSE_CHECK, true)) {
@@ -820,7 +824,7 @@ public class FragmentOAuth extends FragmentBase {
 
                 Long max_size = null;
                 if (!inbound_only) {
-                    Log.i("OAuth checking SMTP provider=" + provider.id);
+                    EntityLog.log(context, "OAuth checking SMTP provider=" + provider.id);
 
                     try (EmailService iservice = new EmailService(
                             context, iprotocol, null, iencryption, false, false,
@@ -834,7 +838,7 @@ public class FragmentOAuth extends FragmentBase {
                     }
                 }
 
-                Log.i("OAuth passed provider=" + provider.id);
+                EntityLog.log(context, "OAuth passed provider=" + provider.id);
 
                 EntityAccount update = null;
                 int protocol = (pop ? EntityAccount.TYPE_POP : EntityAccount.TYPE_IMAP);
@@ -951,6 +955,8 @@ public class FragmentOAuth extends FragmentBase {
                 } finally {
                     db.endTransaction();
                 }
+
+                EntityLog.log(context, "OAuth done");
 
                 ServiceSynchronize.eval(context, "OAuth");
                 args.putBoolean("updated", update != null);
