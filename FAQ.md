@@ -26,8 +26,7 @@ Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for t
 * [How to ...?](#user-content-howto)
 * [Known problems](#user-content-known-problems)
 * [Planned features](#user-content-planned-features)
-* [Frequently requested features](#user-content-frequently-requested-features)
-* [Frequently Asked Questions](#user-content-frequently-asked-questions)
+* [Frequently Asked Questions](#user-content-frequently-asked-questions) (FAQ)
 * [Get support](#user-content-get-support)
 
 <h2><a name="authorizing-accounts"></a>Authorizing accounts</h2>
@@ -197,15 +196,6 @@ The cause might be [changes in Android 7 Nougat](https://ericsink.com/entries/sq
 * &#x2714; Many more ...
 
 Anything on this list is in random order and *might* be added in the near future.
-
-<h2><a name="frequently-requested-features"></a>Frequently requested features</h2>
-
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-frequently-requested-features)
-
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too.
-The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc).
-All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
-Fonts, sizes, colors, etc should be material design whenever possible.
 
 <h2><a name="frequently-asked-questions"></a>Frequently Asked Questions</h2>
 
@@ -5171,7 +5161,6 @@ There is no support on building and developing things by yourself.
 
 A change will be considered only if more than a few people ask for it.
 Changes in the past resulted too often in lots of complaints of other people.
-You can ask for support for changes [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
 
 Requested features should:
 
@@ -5180,6 +5169,10 @@ Requested features should:
 * fit within the philosophy of FairEmail (privacy-oriented, security-minded)
 * comply with common standards (IMAP, SMTP, etc.)
 * comply with the [Core app quality guidelines](https://developer.android.com/docs/quality-guidelines/core-app-quality)
+
+The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc).
+All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
+Fonts, sizes, colors, etc should be material design whenever possible.
 
 A feature will be considered useful to most people if more than 0.1% of the users request a feature, which in practice means about 500 people.
 
