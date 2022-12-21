@@ -2501,10 +2501,12 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onPreExecute(Bundle args) {
                 if (silent) {
-                    int textColorHighlight = Helper.resolveColor(getContext(), android.R.attr.textColorHighlight);
-                    highlightSpan = new BackgroundColorSpan(textColorHighlight);
-                    etBody.getText().setSpan(highlightSpan, start, end,
-                            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
+                    if (!BuildConfig.PLAY_STORE_RELEASE) {
+                        int textColorHighlight = Helper.resolveColor(getContext(), android.R.attr.textColorHighlight);
+                        highlightSpan = new BackgroundColorSpan(textColorHighlight);
+                        etBody.getText().setSpan(highlightSpan, start, end,
+                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
+                    }
                 } else {
                     toast = ToastEx.makeText(getContext(), R.string.title_suggestions_check, Toast.LENGTH_LONG);
                     toast.show();
