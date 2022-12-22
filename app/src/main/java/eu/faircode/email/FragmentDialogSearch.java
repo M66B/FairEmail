@@ -169,6 +169,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
                 DB db = DB.getInstance(context);
                 return db.message().getSuggestions(
+                        cbSubject.isChecked(),
+                        cbSenders.isChecked(),
                         account < 0 ? null : account,
                         folder < 0 ? null : folder,
                         "%" + typed + "%",

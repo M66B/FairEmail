@@ -666,7 +666,8 @@ public interface DaoMessage {
     int getSnoozedCount();
 
     @Query("SELECT id AS _id, subject AS suggestion FROM message" +
-            " WHERE (:account IS NULL OR message.account = :account)" +
+            " WHERE :subject" +
+            " AND (:account IS NULL OR message.account = :account)" +
             " AND (:folder IS NULL OR message.folder = :folder)" +
             " AND subject LIKE :query" +
             " AND NOT message.ui_hide" +
@@ -675,7 +676,8 @@ public interface DaoMessage {
             " UNION" +
 
             " SELECT id AS _id, sender AS suggestion FROM message" +
-            " WHERE (:account IS NULL OR message.account = :account)" +
+            " WHERE :senders" +
+            " AND (:account IS NULL OR message.account = :account)" +
             " AND (:folder IS NULL OR message.folder = :folder)" +
             " AND sender LIKE :query" +
             " AND NOT message.ui_hide" +
@@ -683,7 +685,7 @@ public interface DaoMessage {
 
             " ORDER BY sender, subject" +
             " LIMIT :limit")
-    Cursor getSuggestions(Long account, Long folder, String query, int limit);
+    Cursor getSuggestions(boolean subject, boolean senders, Long account, Long folder, String query, int limit);
 
     @Query("SELECT language FROM message" +
             " WHERE (:account IS NULL OR message.account = :account)" +
