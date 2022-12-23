@@ -425,7 +425,7 @@ public class DeepL {
                             next.set(Calendar.MILLISECOND, 0);
                             next.set(Calendar.SECOND, 0);
                             next.set(Calendar.MINUTE, 0);
-                            next.set(Calendar.HOUR, 0);
+                            next.set(Calendar.HOUR_OF_DAY, 0);
                             long today = next.getTimeInMillis();
                             if (next.get(Calendar.DATE) > subscription)
                                 next.add(Calendar.MONTH, 1);

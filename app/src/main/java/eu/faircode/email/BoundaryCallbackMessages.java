@@ -1285,7 +1285,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             now.set(Calendar.MILLISECOND, 0);
             now.set(Calendar.SECOND, 0);
             now.set(Calendar.MINUTE, 0);
-            now.set(Calendar.HOUR, 0);
+            now.set(Calendar.HOUR_OF_DAY, 0);
 
             if (after != null)
                 json.put("after", after - now.getTimeInMillis());
@@ -1332,7 +1332,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             now.set(Calendar.MILLISECOND, 0);
             now.set(Calendar.SECOND, 0);
             now.set(Calendar.MINUTE, 0);
-            now.set(Calendar.HOUR, 0);
+            now.set(Calendar.HOUR_OF_DAY, 0);
 
             if (json.has("after"))
                 criteria.after = json.getLong("after") + now.getTimeInMillis();
