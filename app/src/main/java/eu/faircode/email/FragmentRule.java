@@ -1313,6 +1313,7 @@ public class FragmentRule extends FragmentBase {
 
             Bundle args = new Bundle();
             args.putLong("folder", folder);
+            args.putBoolean("daily", cbDaily.isChecked());
             args.putString("condition", jcondition.toString());
             args.putString("action", jaction.toString());
 
@@ -1669,6 +1670,7 @@ public class FragmentRule extends FragmentBase {
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             long folder = getArguments().getLong("folder");
+            boolean daily = getArguments().getBoolean("daily");
             String condition = getArguments().getString("condition");
             String action = getArguments().getString("action");
 
@@ -1691,6 +1693,7 @@ public class FragmentRule extends FragmentBase {
 
             final Bundle args = new Bundle();
             args.putLong("folder", folder);
+            args.putBoolean("daily", daily);
             args.putString("condition", condition);
             args.putString("action", action);
 
@@ -1716,6 +1719,7 @@ public class FragmentRule extends FragmentBase {
                         protected Integer onExecute(Context context, Bundle args) throws Throwable {
                             EntityRule rule = new EntityRule();
                             rule.folder = args.getLong("folder");
+                            rule.daily = args.getBoolean("daily");
                             rule.condition = args.getString("condition");
                             rule.action = args.getString("action");
 
@@ -1779,6 +1783,7 @@ public class FragmentRule extends FragmentBase {
                 protected List<EntityMessage> onExecute(Context context, Bundle args) throws Throwable {
                     EntityRule rule = new EntityRule();
                     rule.folder = args.getLong("folder");
+                    rule.daily = args.getBoolean("daily");
                     rule.condition = args.getString("condition");
                     rule.action = args.getString("action");
                     rule.validate(context);
