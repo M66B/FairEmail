@@ -8,7 +8,7 @@ Za nastavitev računov in identitet je zahtevana internetna povezava.
 
 ## Hitra nastavitev
 
-Izberite ustreznega ponudnika ali *Drugega ponudnika* in vnesite svoje ime, e-poštni naslov in geslo, in se dotaknite *Preveri*.
+Izberite ustreznega ponudnika ali *Drugega ponudnika*, vnesite svoje ime, e-poštni naslov in geslo in se dotaknite *Preveri*.
 
 To bo delovalo za večino e-poštnh ponudnikov.
 

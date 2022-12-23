@@ -911,7 +911,7 @@
     <string name="title_drafts_required">Для отправки электронной почты требуется папка черновиков</string>
     <string name="title_drafts_select">Для отправки электронной почты нужно выбрать папку черновиков в настройках учётной записи</string>
     <string name="title_account_auth_update">Обновить авторизацию</string>
-    <string name="title_account_auth_password">Переключиться на аутентификацию с паролем</string>
+    <string name="title_account_auth_password">Перейти на аутентификацию с паролем</string>
     <string name="title_change_password">Изменить пароль</string>
     <string name="title_delete_account">Удалить учётную запись</string>
     <string name="title_account_delete">Удалить эту учётную запись навсегда?</string>

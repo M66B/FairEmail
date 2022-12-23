@@ -462,6 +462,7 @@
     <string name="title_advanced_cards_beige">Uporabi sivo-rjavo ozadje ob uporabi kartičnega sloga (samo svetle teme)</string>
     <string name="title_advanced_tabular_background">Uporabi barvo kartic kot ozadje ob uporabi sloga z zavihki</string>
     <string name="title_advanced_cards_shadow">Uporabi senčenje za neprebrana sporočila ob uporabi kartičnega sloga</string>
+    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Prikaži rob</string>
     <string name="title_advanced_cards_shadow_highlight">Uporabi barvo poudarkov namesto barve odtenka</string>
     <string name="title_advanced_tabular_dividers">Uporabi ločilne črte ob uporabi sloga z zavihki</string>
     <string name="title_advanced_date_header">Združi po datumu</string>
@@ -578,6 +579,7 @@
     <string name="title_advanced_autounstar">Ob premikanju sporočil samodejno odstrani zvezdice</string>
     <string name="title_advanced_auto_important">Samodejno naredi sporočila, označena z zvezdico, pomembna</string>
     <string name="title_advanced_reset_importance">Ponastavi pomembnost ob premikanju sporočil</string>
+    <string name="title_advanced_cancel_snooze">Prekliči dremež ob premikanju sporočil</string>
     <string name="title_advanced_swipe_reply">Potegni razširjena sporočila desno za odgovor</string>
     <string name="title_advanced_default_snooze">Privzeti čas dremeža/zakasnitve</string>
     <string name="title_advanced_notifications">Upravljaj z obvestili</string>
@@ -931,6 +933,7 @@
     <string name="title_service_token">Upravitelja računov Android lahko blokira VPN, požarni zid, blokator oglasov itd., tako da ne more pridobiti žetona za dostop.</string>
     <string name="title_service_port">Preverite število vrat.</string>
     <string name="title_service_protocol">Prosim, še enkrat preverite protokol (SSL/TLS ali STARTTLS)</string>
+    <string name="title_service_error10">Ta račun je treba ponovno overiti, kar lahko storite preko čarovnika za hitro nastavitev.</string>
     <string name="title_advanced_browse">Brskaj za sporočila na strežniku</string>
     <string name="title_advanced_expand_read">Označi sporočila kot prebrana ob razširitvi</string>
     <string name="title_synchronize_now">Sinhroniziraj zdaj</string>
