@@ -88,6 +88,7 @@ public class FragmentRule extends FragmentBase {
     private EditText etName;
     private EditText etOrder;
     private CheckBox cbEnabled;
+    private CheckBox cbDaily;
     private CheckBox cbStop;
 
     private EditText etSender;
@@ -244,6 +245,7 @@ public class FragmentRule extends FragmentBase {
         etName = view.findViewById(R.id.etName);
         etOrder = view.findViewById(R.id.etOrder);
         cbEnabled = view.findViewById(R.id.cbEnabled);
+        cbDaily = view.findViewById(R.id.cbDaily);
         cbStop = view.findViewById(R.id.cbStop);
 
         etSender = view.findViewById(R.id.etSender);
@@ -1098,6 +1100,7 @@ public class FragmentRule extends FragmentBase {
                         etName.setText(rule == null ? args.getString("subject") : rule.name);
                         etOrder.setText(rule == null ? null : Integer.toString(rule.order));
                         cbEnabled.setChecked(rule == null || rule.enabled);
+                        cbDaily.setChecked(rule != null && rule.daily);
                         cbStop.setChecked(rule != null && rule.stop);
 
                         etSender.setText(jsender == null ? args.getString("sender") : jsender.getString("value"));
@@ -1320,6 +1323,7 @@ public class FragmentRule extends FragmentBase {
             args.putString("name", etName.getText().toString());
             args.putString("order", etOrder.getText().toString());
             args.putBoolean("enabled", cbEnabled.isChecked());
+            args.putBoolean("daily", cbDaily.isChecked());
             args.putBoolean("stop", cbStop.isChecked());
             args.putString("condition", getCondition().toString());
             args.putString("action", getAction().toString());
@@ -1342,6 +1346,7 @@ public class FragmentRule extends FragmentBase {
                     String name = args.getString("name");
                     String order = args.getString("order");
                     boolean enabled = args.getBoolean("enabled");
+                    boolean daily = args.getBoolean("daily");
                     boolean stop = args.getBoolean("stop");
                     String condition = args.getString("condition");
                     String action = args.getString("action");
@@ -1378,6 +1383,7 @@ public class FragmentRule extends FragmentBase {
                         rule.name = name;
                         rule.order = Integer.parseInt(order);
                         rule.enabled = enabled;
+                        rule.daily = daily;
                         rule.stop = stop;
                         rule.condition = condition;
                         rule.action = action;
@@ -1389,6 +1395,7 @@ public class FragmentRule extends FragmentBase {
                         rule.name = name;
                         rule.order = Integer.parseInt(order);
                         rule.enabled = enabled;
+                        rule.daily = daily;
                         rule.stop = stop;
                         rule.condition = condition;
                         rule.action = action;

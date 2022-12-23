@@ -93,6 +93,8 @@ public class EntityRule {
     @NonNull
     public boolean enabled;
     @NonNull
+    public boolean daily;
+    @NonNull
     public boolean stop;
     @NonNull
     public String condition;
@@ -1258,6 +1260,7 @@ public class EntityRule {
                     this.name.equals(other.name) &&
                     this.order == other.order &&
                     this.enabled == other.enabled &&
+                    this.daily == other.daily &&
                     this.stop == other.stop &&
                     this.condition.equals(other.condition) &&
                     this.action.equals(other.action) &&
@@ -1309,6 +1312,7 @@ public class EntityRule {
         json.put("name", name);
         json.put("order", order);
         json.put("enabled", enabled);
+        json.put("daily", daily);
         json.put("stop", stop);
         json.put("condition", condition);
         json.put("action", action);
@@ -1325,6 +1329,7 @@ public class EntityRule {
         rule.name = json.getString("name");
         rule.order = json.getInt("order");
         rule.enabled = json.getBoolean("enabled");
+        rule.daily = json.optBoolean("daily");
         rule.stop = json.getBoolean("stop");
         rule.condition = json.getString("condition");
         rule.action = json.getString("action");

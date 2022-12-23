@@ -206,6 +206,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("enabled", checked).apply();
+                WorkerDailyRules.init(compoundButton.getContext());
             }
         });
 

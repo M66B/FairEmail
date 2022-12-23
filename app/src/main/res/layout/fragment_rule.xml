@@ -102,13 +102,22 @@
                     app:layout_constraintTop_toBottomOf="@id/etOrder" />
 
                 <CheckBox
+                    android:id="@+id/cbDaily"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_daily"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbEnabled" />
+
+                <CheckBox
                     android:id="@+id/cbStop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="@string/title_rule_stop"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbEnabled" />
+                    app:layout_constraintTop_toBottomOf="@id/cbDaily" />
 
                 <!-- condition -->
 

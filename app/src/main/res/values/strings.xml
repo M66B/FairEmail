@@ -1744,6 +1744,7 @@
     <string name="title_rule_name">Name</string>
     <string name="title_rule_order">Order</string>
     <string name="title_rule_enabled">Enabled</string>
+    <string name="title_rule_daily">Run daily (only)</string>
     <string name="title_rule_stop">Stop processing rules after executing this rule</string>
     <string name="title_rule_sender">Sender contains</string>
     <string name="title_rule_sender_known">Sender is a contact</string>

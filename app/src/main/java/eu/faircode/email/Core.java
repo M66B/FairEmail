@@ -5004,7 +5004,8 @@ class Core {
         try {
             boolean executed = false;
             for (EntityRule rule : rules)
-                if (rule.matches(context, message, headers, html)) {
+                if (!rule.daily &&
+                        rule.matches(context, message, headers, html)) {
                     rule.execute(context, message);
                     executed = true;
                     if (rule.stop)

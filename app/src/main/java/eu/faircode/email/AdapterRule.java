@@ -76,6 +76,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
+        private ImageView ivDaily;
         private TextView tvName;
         private TextView tvOrder;
         private ImageView ivStop;
@@ -90,6 +91,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             super(itemView);
 
             view = itemView.findViewById(R.id.clItem);
+            ivDaily = itemView.findViewById(R.id.ivDaily);
             tvName = itemView.findViewById(R.id.tvName);
             tvOrder = itemView.findViewById(R.id.tvOrder);
             ivStop = itemView.findViewById(R.id.ivStop);
@@ -111,6 +113,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
         private void bindTo(TupleRuleEx rule) {
             view.setActivated(!rule.enabled);
+            ivDaily.setVisibility(rule.daily ? View.VISIBLE : View.GONE);
             tvName.setText(rule.name);
             tvOrder.setText(Integer.toString(rule.order));
             ivStop.setVisibility(rule.stop ? View.VISIBLE : View.INVISIBLE);
