@@ -6,6 +6,12 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### 1.2017 - 2022-12-23
+
+* Added option to disable unread shadow border
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2016 - 2022-12-18
 
 * Fixed crash introduced in previous version
