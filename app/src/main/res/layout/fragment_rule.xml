@@ -110,6 +110,31 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbEnabled" />
 
+                <TextView
+                    android:id="@+id/tvAge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_age"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cbDaily" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etAge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:importantForAutofill="no"
+                    android:inputType="text|number"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAge" />
+
                 <CheckBox
                     android:id="@+id/cbStop"
                     android:layout_width="wrap_content"
@@ -117,7 +142,7 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/title_rule_stop"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbDaily" />
+                    app:layout_constraintTop_toBottomOf="@id/etAge" />
 
                 <!-- condition -->
 
@@ -1102,7 +1127,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="
-                    tvTitle,tvFolder,tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,
+                    tvTitle,tvFolder,tvName,etName,tvOrder,etOrder,cbEnabled,cbDaily,cbStop,
                     tvCondition,
                     vSeparatorSender,tvSender,cbSender,etSender,ibSender,cbKnownSender,tvAndSender,
                     vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ibRecipient,tvAndRecipient,
@@ -1114,6 +1139,12 @@
                     vSeparatorSchedule,tvSchedule,spScheduleDayStart,spScheduleDayEnd,tvScheduleHourStart,tvScheduleHourEnd,
                     vSeparatorAction,tvAction,spAction,tvActionRemark,
                     vSeparatorParameters" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpAge"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="tvAge,etAge" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpSnooze"

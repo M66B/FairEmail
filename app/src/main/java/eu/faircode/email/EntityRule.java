@@ -158,6 +158,21 @@ public class EntityRule {
         try {
             JSONObject jcondition = new JSONObject(condition);
 
+            // general
+            if (this.daily) {
+                JSONObject jgeneral = jcondition.optJSONObject("general");
+                if (jgeneral != null) {
+                    int age = jgeneral.optInt("age");
+                    if (age > 0) {
+                        Calendar cal = Calendar.getInstance();
+                        cal.setTimeInMillis(message.received);
+                        cal.add(Calendar.DAY_OF_MONTH, age);
+                        if (cal.getTimeInMillis() > new Date().getTime())
+                            return false;
+                    }
+                }
+            }
+
             // Sender
             JSONObject jsender = jcondition.optJSONObject("sender");
             if (jsender != null) {
