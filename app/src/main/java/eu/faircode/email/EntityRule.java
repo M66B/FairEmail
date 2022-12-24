@@ -470,10 +470,10 @@ public class EntityRule {
 
         if (matched)
             EntityLog.log(context, EntityLog.Type.Rules, message,
-                    "Rule=" + name + ":" + order + " matched " +
+                    "Rule=" + name + "@" + order + " matched " +
                             " needle=" + needle + " haystack=" + haystack + " regex=" + regex);
         else
-            Log.i("Rule=" + name + ":" + order + " matched=" + matched +
+            Log.i("Rule=" + name + "@" + order + " matched=" + matched +
                     " needle=" + needle + " haystack=" + haystack + " regex=" + regex);
         return matched;
     }
@@ -490,7 +490,8 @@ public class EntityRule {
     private boolean _execute(Context context, EntityMessage message) throws JSONException, IllegalArgumentException {
         JSONObject jaction = new JSONObject(action);
         int type = jaction.getInt("type");
-        EntityLog.log(context, EntityLog.Type.Rules, message, "Executing rule=" + type + ":" + name);
+        EntityLog.log(context, EntityLog.Type.Rules, message,
+                "Executing rule=" + type + ":" + this.name + "@" + this.order);
 
         switch (type) {
             case TYPE_NOOP:

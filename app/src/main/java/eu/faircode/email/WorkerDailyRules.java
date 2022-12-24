@@ -34,9 +34,12 @@ import androidx.work.WorkerParameters;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class WorkerDailyRules extends Worker {
+    private static final Semaphore semaphore = new Semaphore(1);
+
     public WorkerDailyRules(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
         Log.i("Instance " + getName());
@@ -47,11 +50,21 @@ public class WorkerDailyRules extends Worker {
     public Result doWork() {
         Thread.currentThread().setPriority(THREAD_PRIORITY_BACKGROUND);
 
-        final Context context = getApplicationContext();
         try {
+            daily(getApplicationContext());
+            return Result.success();
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return Result.failure();
+        }
+    }
+
+    static void daily(Context context) {
+        DB db = DB.getInstance(context);
+        try {
+            semaphore.acquire();
             EntityLog.log(context, EntityLog.Type.Rules, "Running daily rules");
 
-            DB db = DB.getInstance(context);
             List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
             for (EntityAccount account : accounts) {
                 List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
@@ -65,7 +78,7 @@ public class WorkerDailyRules extends Worker {
                     for (long mid : mids)
                         try {
                             EntityMessage message = db.message().getMessage(mid);
-                            if (message == null)
+                            if (message == null || message.ui_hide)
                                 continue;
                             count++;
 
@@ -102,12 +115,11 @@ public class WorkerDailyRules extends Worker {
                             "Executed " + count + " daily rules for " + account.name + "/" + folder.name);
                 }
             }
-
-            EntityLog.log(context, EntityLog.Type.Rules, "Completed daily rules");
-            return Result.success();
         } catch (Throwable ex) {
             Log.e(ex);
-            return Result.failure();
+        } finally {
+            semaphore.release();
+            EntityLog.log(context, EntityLog.Type.Rules, "Completed daily rules");
         }
     }
 
@@ -124,9 +136,6 @@ public class WorkerDailyRules extends Worker {
                 cal.set(Calendar.HOUR_OF_DAY, 1);
                 cal.add(Calendar.DAY_OF_MONTH, 1);
                 delay = cal.getTimeInMillis() - delay;
-
-                if (BuildConfig.DEBUG)
-                    delay = 0;
 
                 Log.i("Queuing " + getName() + " delay=" + (delay / (60 * 1000L)) + "m");
                 PeriodicWorkRequest.Builder builder =

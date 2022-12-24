@@ -172,6 +172,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swTest5;
 
     private Button btnRepair;
+    private Button btnDaily;
     private SwitchCompat swAutostart;
     private SwitchCompat swWorkManager;
     private SwitchCompat swExternalStorage;
@@ -385,6 +386,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swTest5 = view.findViewById(R.id.swTest5);
 
         btnRepair = view.findViewById(R.id.btnRepair);
+        btnDaily = view.findViewById(R.id.btnDaily);
         swAutostart = view.findViewById(R.id.swAutostart);
         swWorkManager = view.findViewById(R.id.swWorkManager);
         swExternalStorage = view.findViewById(R.id.swExternalStorage);
@@ -1144,6 +1146,24 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         .show();
             }
 
+        });
+
+        btnDaily.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                        WorkerDailyRules.daily(context);
+                        return null;
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentOptionsMisc.this, new Bundle(), "daily");
+            }
         });
 
         swAutostart.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

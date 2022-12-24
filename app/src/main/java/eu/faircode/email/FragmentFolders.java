@@ -1180,7 +1180,7 @@ public class FragmentFolders extends FragmentBase {
                         db.beginTransaction();
 
                         EntityMessage message = db.message().getMessage(mid);
-                        if (message == null)
+                        if (message == null || message.ui_hide)
                             continue;
 
                         EntityLog.log(context, "Executing rules message=" + message.id);
