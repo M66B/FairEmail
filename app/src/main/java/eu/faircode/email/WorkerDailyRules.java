@@ -100,7 +100,7 @@ public class WorkerDailyRules extends Worker {
                         }
 
                     EntityLog.log(context, EntityLog.Type.Rules, folder,
-                            "Executed " + count + " rules for " + account.name + "/" + folder.name);
+                            "Executed " + count + " daily rules for " + account.name + "/" + folder.name);
                 }
             }
 
@@ -126,9 +126,12 @@ public class WorkerDailyRules extends Worker {
                 cal.add(Calendar.DAY_OF_MONTH, 1);
                 delay = cal.getTimeInMillis() - delay;
 
+                if (BuildConfig.DEBUG)
+                    delay = 0;
+
                 Log.i("Queuing " + getName() + " delay=" + (delay / (60 * 1000L)) + "m");
                 PeriodicWorkRequest.Builder builder =
-                        new PeriodicWorkRequest.Builder(WorkerAutoUpdate.class, 1, TimeUnit.DAYS)
+                        new PeriodicWorkRequest.Builder(WorkerDailyRules.class, 1, TimeUnit.DAYS)
                                 .setInitialDelay(delay, TimeUnit.MILLISECONDS);
                 WorkManager.getInstance(context)
                         .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, builder.build());
@@ -145,6 +148,6 @@ public class WorkerDailyRules extends Worker {
     }
 
     private static String getName() {
-        return WorkerAutoUpdate.class.getSimpleName();
+        return WorkerDailyRules.class.getSimpleName();
     }
 }
