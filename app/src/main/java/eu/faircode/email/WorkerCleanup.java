@@ -53,7 +53,7 @@ public class WorkerCleanup extends Worker {
     private static final long KEEP_CONTACTS_DURATION = 365 * 24 * 3600 * 1000L; // milliseconds
     private static final int KEEP_CONTACTS_COUNT = 10000;
 
-    private static Semaphore semaphore = new Semaphore(1);
+    private static final Semaphore semaphore = new Semaphore(1);
 
     public WorkerCleanup(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
@@ -63,11 +63,12 @@ public class WorkerCleanup extends Worker {
     @NonNull
     @Override
     public Result doWork() {
+        Thread.currentThread().setPriority(THREAD_PRIORITY_BACKGROUND);
+
         EntityLog.log(getApplicationContext(),
                 "Running " + getName() +
                         " process=" + android.os.Process.myPid());
 
-        Thread.currentThread().setPriority(THREAD_PRIORITY_BACKGROUND);
         cleanup(getApplicationContext(), false);
 
         return Result.success();
