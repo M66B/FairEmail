@@ -37,8 +37,9 @@ public interface DaoRule {
     @Query("SELECT * FROM rule" +
             " WHERE folder = :folder" +
             " AND enabled" +
+            " AND (:daily IS NULL OR daily = :daily)" +
             " ORDER BY `order`, name COLLATE NOCASE")
-    List<EntityRule> getEnabledRules(long folder);
+    List<EntityRule> getEnabledRules(long folder, Boolean daily);
 
     @Query("SELECT rule.*, folder.account, folder.name AS folderName, account.name AS accountName FROM rule" +
             " JOIN folder ON folder.id = rule.folder" +

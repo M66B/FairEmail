@@ -1774,7 +1774,7 @@ class Core {
 
             SyncStats stats = new SyncStats();
             boolean download = db.folder().getFolderDownload(folder.id);
-            List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
+            List<EntityRule> rules = db.rule().getEnabledRules(folder.id, false);
 
             FetchProfile fp = new FetchProfile();
             fp.add(UIDFolder.FetchProfileItem.UID); // To check if message exists
@@ -2996,18 +2996,28 @@ class Core {
     }
 
     private static void onRule(Context context, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException {
-        // Download message body
+        // Deferred rule (download headers, body, etc)
         DB db = DB.getInstance(context);
 
         long id = jargs.getLong(0);
-        EntityRule rule = db.rule().getRule(id);
-        if (rule == null)
-            throw new IllegalArgumentException("Rule not found id=" + id);
+        if (id < 0) {
+            List<EntityRule> rules = db.rule().getEnabledRules(message.folder, true);
+            for (EntityRule rule : rules)
+                if (rule.matches(context, message, null, null)) {
+                    rule.execute(context, message);
+                    if (rule.stop)
+                        break;
+                }
+        } else {
+            EntityRule rule = db.rule().getRule(id);
+            if (rule == null)
+                throw new IllegalArgumentException("Rule not found id=" + id);
 
-        if (!message.content)
-            throw new IllegalArgumentException("Message without content id=" + rule.id + ":" + rule.name);
+            if (!message.content)
+                throw new IllegalArgumentException("Message without content id=" + rule.id + ":" + rule.name);
 
-        rule.execute(context, message);
+            rule.execute(context, message);
+        }
     }
 
     private static void onDownload(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException, JSONException {
@@ -3046,7 +3056,7 @@ class Core {
             return;
         }
 
-        List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
+        List<EntityRule> rules = db.rule().getEnabledRules(folder.id, false);
 
         try {
             db.folder().setFolderSyncState(folder.id, "syncing");
@@ -3939,7 +3949,7 @@ class Core {
                         Log.i(folder.name + " delete local uid=" + uid + " count=" + count);
                     }
 
-                    List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
+                    List<EntityRule> rules = db.rule().getEnabledRules(folder.id, false);
 
                     fp.add(FetchProfile.Item.ENVELOPE);
                     //fp.add(FetchProfile.Item.FLAGS);
@@ -5004,8 +5014,7 @@ class Core {
         try {
             boolean executed = false;
             for (EntityRule rule : rules)
-                if (!rule.daily &&
-                        rule.matches(context, message, headers, html)) {
+                if (rule.matches(context, message, headers, html)) {
                     rule.execute(context, message);
                     executed = true;
                     if (rule.stop)

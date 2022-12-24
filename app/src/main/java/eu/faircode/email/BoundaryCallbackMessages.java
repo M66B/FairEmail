@@ -604,7 +604,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 throw ex;
             }
 
-        List<EntityRule> rules = db.rule().getEnabledRules(browsable.id);
+        List<EntityRule> rules = db.rule().getEnabledRules(browsable.id, false);
 
         int found = 0;
         while (state.index >= 0 && found < pageSize && !state.destroyed) {

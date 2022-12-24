@@ -56,15 +56,9 @@ public class WorkerDailyRules extends Worker {
             for (EntityAccount account : accounts) {
                 List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
                 for (EntityFolder folder : folders) {
-                    List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
-
-                    int daily = 0;
-                    for (EntityRule rule : rules)
-                        if (rule.daily)
-                            daily++;
-                    if (daily == 0)
+                    List<EntityRule> rules = db.rule().getEnabledRules(folder.id, true);
+                    if (rules.size() == 0)
                         continue;
-
 
                     int count = 0;
                     List<Long> mids = db.message().getMessageIdsByFolder(folder.id);
@@ -75,22 +69,27 @@ public class WorkerDailyRules extends Worker {
                                 continue;
                             count++;
 
+                            boolean defer = false;
                             boolean needsHeaders = EntityRule.needsHeaders(message, rules);
                             boolean needsBody = EntityRule.needsBody(message, rules);
 
                             if (needsHeaders && message.headers == null) {
+                                defer = true;
                                 EntityOperation.queue(context, message, EntityOperation.HEADERS);
-                                continue;
                             }
 
                             if (needsBody && !message.content) {
+                                defer = true;
                                 EntityOperation.queue(context, message, EntityOperation.BODY);
+                            }
+
+                            if (defer) {
+                                EntityOperation.queue(context, message, EntityOperation.RULE, -1L);
                                 continue;
                             }
 
                             for (EntityRule rule : rules)
-                                if (rule.daily &&
-                                        rule.matches(context, message, null, null)) {
+                                if (rule.matches(context, message, null, null)) {
                                     rule.execute(context, message);
                                     if (rule.stop)
                                         break;
