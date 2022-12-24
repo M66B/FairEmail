@@ -68,33 +68,36 @@ public class WorkerDailyRules extends Worker {
 
                     int count = 0;
                     List<Long> mids = db.message().getMessageIdsByFolder(folder.id);
-                    for (long mid : mids) {
-                        EntityMessage message = db.message().getMessage(mid);
-                        if (message == null)
-                            continue;
-                        count++;
+                    for (long mid : mids)
+                        try {
+                            EntityMessage message = db.message().getMessage(mid);
+                            if (message == null)
+                                continue;
+                            count++;
 
-                        boolean needsHeaders = EntityRule.needsHeaders(message, rules);
-                        boolean needsBody = EntityRule.needsBody(message, rules);
+                            boolean needsHeaders = EntityRule.needsHeaders(message, rules);
+                            boolean needsBody = EntityRule.needsBody(message, rules);
 
-                        if (needsHeaders && message.headers == null) {
-                            EntityOperation.queue(context, message, EntityOperation.HEADERS);
-                            continue;
-                        }
-
-                        if (needsBody && !message.content) {
-                            EntityOperation.queue(context, message, EntityOperation.BODY);
-                            continue;
-                        }
-
-                        for (EntityRule rule : rules)
-                            if (rule.daily &&
-                                    rule.matches(context, message, null, null)) {
-                                rule.execute(context, message);
-                                if (rule.stop)
-                                    break;
+                            if (needsHeaders && message.headers == null) {
+                                EntityOperation.queue(context, message, EntityOperation.HEADERS);
+                                continue;
                             }
-                    }
+
+                            if (needsBody && !message.content) {
+                                EntityOperation.queue(context, message, EntityOperation.BODY);
+                                continue;
+                            }
+
+                            for (EntityRule rule : rules)
+                                if (rule.daily &&
+                                        rule.matches(context, message, null, null)) {
+                                    rule.execute(context, message);
+                                    if (rule.stop)
+                                        break;
+                                }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
 
                     EntityLog.log(context, EntityLog.Type.Rules, folder,
                             "Executed " + count + " rules for " + account.name + "/" + folder.name);
