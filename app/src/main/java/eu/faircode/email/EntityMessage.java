@@ -44,6 +44,7 @@ import org.jsoup.nodes.Element;
 import java.io.File;
 import java.io.Serializable;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -495,7 +496,9 @@ public class EntityMessage implements Serializable {
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String l = (language_detection ? language : null);
 
-        DateFormat DTF = Helper.getDateTimeInstance(context);
+        DateFormat DTF = (hide_timezone
+                ? new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US)
+                : Helper.getDateTimeInstance(context));
         DTF.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
         String date = (received instanceof Number ? DTF.format(received) : "-");
 
