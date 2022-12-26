@@ -1902,4 +1902,18 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="minuskel.de"
+        domain="minuskel\\.de"
+        link="https://support.minuskel.de/mail-einstellungen.html"
+        mx="mail\\.ipn\\.de">
+        <imap
+            host="home.minuskel.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.minuskel.de"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
