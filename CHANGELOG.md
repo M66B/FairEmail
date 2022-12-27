@@ -6,6 +6,13 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### Next version
+
+* Added option to run rules daily
+* Added inserting lines to style toolbar
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2017 - 2022-12-23
 
 * Added option to disable unread shadow border
