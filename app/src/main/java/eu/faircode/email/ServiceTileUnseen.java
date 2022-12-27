@@ -25,7 +25,6 @@ import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.IBinder;
 import android.service.quicksettings.Tile;
-import android.service.quicksettings.TileService;
 
 import androidx.lifecycle.Observer;
 
@@ -33,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @TargetApi(Build.VERSION_CODES.N)
-public class ServiceTileUnseen extends TileService {
+public class ServiceTileUnseen extends ServiceTileBase {
     private TwoStateOwner owner = new TwoStateOwner("ServiceTileUnseen");
 
     @Override
@@ -91,7 +90,6 @@ public class ServiceTileUnseen extends TileService {
     public void onDestroy() {
         owner.destroy();
         super.onDestroy();
-        CoalMine.watch(this, this.getClass().getName() + "#onDestroy");
     }
 
     public void onStartListening() {

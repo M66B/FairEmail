@@ -19,12 +19,22 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import android.annotation.TargetApi;
+import android.content.Context;
 import android.os.Build;
+import android.service.quicksettings.TileService;
 
-@TargetApi(Build.VERSION_CODES.N)
-public class ServiceTileClear extends ServiceTileBase {
-    public void onClick() {
-        startActivityAndCollapse(ActivityClear.getIntent(this));
+import androidx.annotation.RequiresApi;
+
+@RequiresApi(api = Build.VERSION_CODES.N)
+public class ServiceTileBase extends TileService {
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(ApplicationEx.getLocalizedContext(base));
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        CoalMine.watch(this, this.getClass().getName() + "#onDestroy");
     }
 }

@@ -24,12 +24,11 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.service.quicksettings.Tile;
-import android.service.quicksettings.TileService;
 
 import androidx.preference.PreferenceManager;
 
 @TargetApi(Build.VERSION_CODES.N)
-public class ServiceTileSynchronize extends TileService implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class ServiceTileSynchronize extends ServiceTileBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     public void onStartListening() {
         Log.i("Start tile synchronize");
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -86,11 +85,5 @@ public class ServiceTileSynchronize extends TileService implements SharedPrefere
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean enabled = !prefs.getBoolean("enabled", true);
         prefs.edit().putBoolean("enabled", enabled).apply();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        CoalMine.watch(this, this.getClass().getName() + "#onDestroy");
     }
 }
