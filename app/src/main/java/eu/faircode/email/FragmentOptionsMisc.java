@@ -1696,11 +1696,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     @Override
                     protected List<File> onExecute(Context context, Bundle args) {
                         List<File> files = new ArrayList<>();
-                        files.addAll(getFiles(context.getFilesDir(), MIN_FILE_SIZE));
-                        files.addAll(getFiles(context.getCacheDir(), MIN_FILE_SIZE));
+                        files.addAll(Helper.listFiles(context.getFilesDir(), MIN_FILE_SIZE));
+                        files.addAll(Helper.listFiles(context.getCacheDir(), MIN_FILE_SIZE));
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-                            files.addAll(getFiles(context.getDataDir(), MIN_FILE_SIZE));
-                        files.addAll(getFiles(Helper.getExternalFilesDir(context), MIN_FILE_SIZE));
+                            files.addAll(Helper.listFiles(context.getDataDir(), MIN_FILE_SIZE));
+                        files.addAll(Helper.listFiles(Helper.getExternalFilesDir(context), MIN_FILE_SIZE));
 
                         Collections.sort(files, new Comparator<File>() {
                             @Override
@@ -1708,20 +1708,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 return -Long.compare(f1.length(), f2.length());
                             }
                         });
-                        return files;
-                    }
 
-                    private List<File> getFiles(File dir, long minSize) {
-                        List<File> files = new ArrayList<>();
-                        if (dir != null) {
-                            File[] listed = dir.listFiles();
-                            if (listed != null)
-                                for (File file : listed)
-                                    if (file.isDirectory())
-                                        files.addAll(getFiles(file, minSize));
-                                    else if (file.length() > minSize)
-                                        files.add(file);
-                        }
                         return files;
                     }
 

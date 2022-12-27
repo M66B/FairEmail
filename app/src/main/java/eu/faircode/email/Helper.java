@@ -2487,15 +2487,21 @@ public class Helper {
     }
 
     static List<File> listFiles(File dir) {
-        List<File> result = new ArrayList<>();
-        File[] files = dir.listFiles();
-        if (files != null)
-            for (File file : files)
-                if (file.isDirectory())
-                    result.addAll(listFiles(file));
-                else
-                    result.add(file);
-        return result;
+        return listFiles(dir, null);
+    }
+
+    static List<File> listFiles(File dir, Long minSize) {
+        List<File> files = new ArrayList<>();
+        if (dir != null) {
+            File[] listed = dir.listFiles();
+            if (listed != null)
+                for (File file : listed)
+                    if (file.isDirectory())
+                        files.addAll(listFiles(file, minSize));
+                    else if (minSize == null || file.length() > minSize)
+                        files.add(file);
+        }
+        return files;
     }
 
     static long getAvailableStorageSpace() {
