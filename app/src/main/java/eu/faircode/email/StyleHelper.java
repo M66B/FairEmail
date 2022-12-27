@@ -51,7 +51,6 @@ import android.text.style.UnderlineSpan;
 import android.util.LogPrinter;
 import android.util.Pair;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -107,6 +106,7 @@ public class StyleHelper {
             R.id.menu_style_subscript,
             R.id.menu_style_superscript,
             R.id.menu_style_strikethrough,
+            R.id.menu_style_insert_line,
             R.id.menu_style_password,
             R.id.menu_style_code,
             R.id.menu_style_clear
@@ -375,7 +375,8 @@ public class StyleHelper {
                     itemId != R.id.menu_style_align && groupId != group_style_align &&
                     itemId != R.id.menu_style_list && groupId != group_style_list &&
                     itemId != R.id.menu_style_indentation && groupId != group_style_indentation &&
-                    itemId != R.id.menu_style_blockquote) {
+                    itemId != R.id.menu_style_blockquote &&
+                    itemId != R.id.menu_style_insert_line) {
                 Pair<Integer, Integer> word = getWord(etBody);
                 if (word == null)
                     return false;
@@ -418,6 +419,8 @@ public class StyleHelper {
                     return setSuperscript(etBody, start, end, false);
                 else if (itemId == R.id.menu_style_strikethrough)
                     return setStrikeThrough(etBody, start, end, false);
+                else if (itemId == R.id.menu_style_insert_line)
+                    return setLine(etBody, end);
                 else if (itemId == R.id.menu_style_password)
                     return setPassword(owner, etBody, start, end);
                 else if (itemId == R.id.menu_style_code) {
@@ -1187,6 +1190,31 @@ public class StyleHelper {
 
         etBody.setText(edit);
         etBody.setSelection(select ? start : end, end);
+
+        return true;
+    }
+
+    static boolean setLine(EditText etBody, int end) {
+        Log.breadcrumb("style", "action", "line");
+
+        Context context = etBody.getContext();
+        Editable edit = etBody.getText();
+
+        if (end == 0 || edit.charAt(end - 1) != '\n')
+            edit.insert(end++, "\n");
+        if (end == edit.length() || edit.charAt(end) != '\n')
+            edit.insert(end, "\n");
+
+        edit.insert(end, "\uFFFC"); // Object replacement character
+
+        int colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
+        float stroke = context.getResources().getDisplayMetrics().density;
+        edit.setSpan(
+                new LineSpan(colorSeparator, stroke, 0f),
+                end, end + 1,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        etBody.setSelection(end + 2);
 
         return true;
     }

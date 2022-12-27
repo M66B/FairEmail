@@ -317,37 +317,7 @@ public class EditTextCompose extends FixedEditText {
                 }
 
                 private boolean insertLine() {
-                    try {
-                        int start = getSelectionStart();
-                        if (start < 0)
-                            return false;
-
-                        Editable edit = getText();
-                        if (edit == null)
-                            return false;
-
-                        if (start == 0 || edit.charAt(start - 1) != '\n')
-                            edit.insert(start++, "\n");
-                        if (start == edit.length() || edit.charAt(start) != '\n')
-                            edit.insert(start, "\n");
-
-                        edit.insert(start, "\uFFFC"); // Object replacement character
-
-                        int colorSeparator = Helper.resolveColor(getContext(), R.attr.colorSeparator);
-                        float stroke = context.getResources().getDisplayMetrics().density;
-                        edit.setSpan(
-                                new LineSpan(colorSeparator, stroke, 0f),
-                                start, start + 1,
-                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        setSelection(start + 2);
-
-                        return true;
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                        ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
-                        return false;
-                    }
+                    return StyleHelper.apply(R.id.menu_style_insert_line, null, null, EditTextCompose.this);
                 }
 
                 private boolean insertSnippet(long id) {
