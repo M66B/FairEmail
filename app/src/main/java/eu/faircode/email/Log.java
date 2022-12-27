@@ -137,6 +137,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -172,6 +173,7 @@ public class Log {
     private static int level = android.util.Log.INFO;
     private static final long MAX_LOG_SIZE = 8 * 1024 * 1024L;
     private static final int MAX_CRASH_REPORTS = (BuildConfig.TEST_RELEASE ? 50 : 5);
+    private static final long MIN_FILE_SIZE = 1024 * 1024L;
     private static final String TAG = "fairemail";
 
     // https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html
@@ -2919,6 +2921,31 @@ public class Log {
                     }
                     size += write(os, "\r\n");
                 }
+
+                List<File> files = new ArrayList<>();
+                try {
+                    files.addAll(Helper.listFiles(context.getFilesDir(), MIN_FILE_SIZE));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+                try {
+                    files.addAll(Helper.listFiles(context.getCacheDir(), MIN_FILE_SIZE));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+
+                Collections.sort(files, new Comparator<File>() {
+                    @Override
+                    public int compare(File f1, File f2) {
+                        return -Long.compare(f1.length(), f2.length());
+                    }
+                });
+
+                for (int i = 0; i < Math.min(100, files.size()); i++)
+                    size += write(os, String.format("%d %s %s\r\n", i + 1,
+                            Helper.humanReadableByteCount(files.get(i).length()),
+                            files.get(i).getAbsoluteFile()));
+                size += write(os, "\r\n");
 
                 size += write(os, String.format("Configuration: %s\r\n\r\n",
                         context.getResources().getConfiguration()));
