@@ -2557,6 +2557,8 @@ You'll need to give a rule a name and you'll need to define the order in which a
 
 You can disable a rule and you can stop processing other rules after a rule has been executed, which can be used to create a *not* condition.
 
+Since version 1.2018 there is a rule option to run rules daily on messages older than defined.
+
 The following rule conditions are available:
 
 * Sender contains or sender is contact
@@ -2663,10 +2665,10 @@ $<keyword>$
 To match *set* message flags via a header condition (since version 1.1777):
 
 ```
-$$seen$
-$$answered$
-$$flagged$
-$$deleted$
+$$seen$ (read)
+$$answered$ (replied to)
+$$flagged$ (starred, favorite)
+$$deleted$ (marked as deleted)
 ```
 
 To match *passed* message checks via a header condition (since version 1.1787):
@@ -2688,7 +2690,7 @@ $$signed$ (since version 1.1981)
 $$encrypted$ (since version 1.1981)
 ```
 
-Note that *regex* should be disable and that there should be no white space.
+Note that *regex* should be disabled and that there should be no white space.
 
 Please be aware that a difference in the *from* and *reply-to* domain, and no or multi *from* addresses isn't a good indication of spam.
 
