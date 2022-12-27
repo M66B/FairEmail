@@ -200,7 +200,7 @@ public class ViewModelMessages extends ViewModel {
                     break;
             }
 
-            builder.setFetchExecutor(Helper.getParallelExecutor());
+            builder.setFetchExecutor(db.getQueryExecutor());
 
             model = new Model(args, builder.build(), boundary);
             models.put(viewType, model);

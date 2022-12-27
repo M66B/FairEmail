@@ -405,7 +405,7 @@ public abstract class DB extends RoomDatabase {
                 .databaseBuilder(context, DB.class, DB_NAME)
                 //.openHelperFactory(new RequerySQLiteOpenHelperFactory())
                 //.setQueryExecutor()
-                .setTransactionExecutor(Helper.getParallelExecutor())
+                .setTransactionExecutor(Helper.getBackgroundExecutor(4, "db"))
                 .setJournalMode(wal ? JournalMode.WRITE_AHEAD_LOGGING : JournalMode.TRUNCATE) // using the latest sqlite
                 .addCallback(new Callback() {
                     @Override
@@ -2665,7 +2665,7 @@ public abstract class DB extends RoomDatabase {
     public static void checkpoint(Context context) {
         // https://www.sqlite.org/pragma.html#pragma_wal_checkpoint
         DB db = getInstance(context);
-        Helper.getParallelExecutor().execute(new Runnable() {
+        db.getQueryExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -2695,7 +2695,7 @@ public abstract class DB extends RoomDatabase {
 
     public static void shrinkMemory(Context context) {
         DB db = getInstance(context);
-        Helper.getParallelExecutor().execute(new Runnable() {
+        db.getQueryExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 try {

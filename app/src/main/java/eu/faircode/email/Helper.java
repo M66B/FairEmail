@@ -280,7 +280,7 @@ public class Helper {
         }
     }
 
-    private static ExecutorService getBackgroundExecutor(int threads, final String name) {
+    static ExecutorService getBackgroundExecutor(int threads, final String name) {
         ThreadFactory factory = new ThreadFactory() {
             private final AtomicInteger threadId = new AtomicInteger();
 
