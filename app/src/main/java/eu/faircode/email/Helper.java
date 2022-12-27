@@ -161,7 +161,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.RunnableFuture;
-import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -298,17 +297,14 @@ public class Helper {
             // java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
             // 1040 KB native stack size / 32 KB thread stack size ~ 32 threads
             int processors = Runtime.getRuntime().availableProcessors(); // Modern devices: 8
-            threads = Math.max(8, processors * 2);
-        }
-
-        if (threads == 0)
             return new ThreadPoolExecutorEx(
                     name,
-                    0, Integer.MAX_VALUE,
-                    60L, TimeUnit.SECONDS,
-                    new SynchronousQueue<Runnable>(),
+                    processors + 1,
+                    Math.max(8, processors * 2) + 1,
+                    3L, TimeUnit.SECONDS,
+                    new LinkedBlockingQueue<Runnable>(),
                     factory);
-        else if (threads == 1)
+        } else if (threads == 1)
             return new ThreadPoolExecutorEx(
                     name,
                     threads, threads,
