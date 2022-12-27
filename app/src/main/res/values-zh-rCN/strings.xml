@@ -423,7 +423,7 @@
     <string name="title_advanced_cards_beige">使用卡牌风格时使用米色背景(仅适用于浅色主题)</string>
     <string name="title_advanced_tabular_background">使用表格样式时，使用卡片颜色作为背景色</string>
     <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">显示边框</string>
+    <string name="title_advanced_cards_shadow_border">显示边框</string>
     <string name="title_advanced_cards_shadow_highlight">使用高亮色而不是强调色</string>
     <string name="title_advanced_tabular_dividers">使用表格样式时使用分隔线</string>
     <string name="title_advanced_date_header">按日期分组</string>
@@ -1472,6 +1472,8 @@
     <string name="title_rule_name">名称</string>
     <string name="title_rule_order">顺序</string>
     <string name="title_rule_enabled">启用</string>
+    <string name="title_rule_daily">每天运行 (而非每次接收邮件时)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">超过(天) 的信息</string>
     <string name="title_rule_stop">执行此规则后停止处理规则</string>
     <string name="title_rule_sender">发件人包含</string>
     <string name="title_rule_sender_known">发件人是联系人</string>

@@ -437,7 +437,7 @@
     <string name="title_advanced_cards_beige">Beigefarbenen Hintergrund verwenden, wenn Kartenstil genutzt wird (nur bei hellen Farbschemen)</string>
     <string name="title_advanced_tabular_background">Kartenfarbe als Hintergrundfarbe verwenden, wenn Tabellenstil genutzt wird</string>
     <string name="title_advanced_cards_shadow">Schatten für ungelesene Nachrichten verwenden, wenn Kartenstil verwendet wird</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Rahmen anzeigen</string>
+    <string name="title_advanced_cards_shadow_border">Rahmen anzeigen</string>
     <string name="title_advanced_cards_shadow_highlight">Hervorhebungsfarbe statt Akzentfarbe verwenden</string>
     <string name="title_advanced_tabular_dividers">Trennlinien bei Verwendung der Tabellenform verwenden</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
@@ -1488,6 +1488,8 @@
     <string name="title_rule_name">Name</string>
     <string name="title_rule_order">Reihenfolge</string>
     <string name="title_rule_enabled">Aktiviert</string>
+    <string name="title_rule_daily">Nur 1x täglich ausführen</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Nachrichten älter als (Tage)</string>
     <string name="title_rule_stop">Regeln nach der Ausführung dieser Regel beenden</string>
     <string name="title_rule_sender">Absender enthält</string>
     <string name="title_rule_sender_known">Absender ist in den Kontakten</string>

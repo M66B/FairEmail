@@ -463,7 +463,7 @@
     <string name="title_advanced_cards_beige">להשתמש ברקע בז׳ בעת שימוש בסגנון כרטיסים (ערכות עיצוב בהירות בלבד)</string>
     <string name="title_advanced_tabular_background">להשתמש בצבע הכרטיס כצבע הרקע בעת שימוש בסגנון כרטיסיות</string>
     <string name="title_advanced_cards_shadow">להשתמש בהצללה להודעות שלא נקראו בעת שימוש בסגנון כרטיסים</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">הצגת גבולות</string>
+    <string name="title_advanced_cards_shadow_border">הצגת גבולות</string>
     <string name="title_advanced_cards_shadow_highlight">להשתמש בצבע ההדגשה במקום בצבע המשני</string>
     <string name="title_advanced_tabular_dividers">להשתמש בקווי הפרדה בסגנון הטבלאי</string>
     <string name="title_advanced_date_header">קיבוץ לפי תאריך</string>
@@ -1517,6 +1517,8 @@
     <string name="title_rule_name">שם</string>
     <string name="title_rule_order">סדר</string>
     <string name="title_rule_enabled">פעיל</string>
+    <string name="title_rule_daily">להריץ יומית (בלבד)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">הודעות מלפני (ימים)</string>
     <string name="title_rule_stop">להפסיק לעבד כללים אחרי הפעלת הכלל הזה</string>
     <string name="title_rule_sender">המוען מכיל</string>
     <string name="title_rule_sender_known">המוען באנשי הקשר</string>

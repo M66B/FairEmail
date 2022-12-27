@@ -462,7 +462,7 @@
     <string name="title_advanced_cards_beige">Uporabi sivo-rjavo ozadje ob uporabi kartičnega sloga (samo svetle teme)</string>
     <string name="title_advanced_tabular_background">Uporabi barvo kartic kot ozadje ob uporabi sloga z zavihki</string>
     <string name="title_advanced_cards_shadow">Uporabi senčenje za neprebrana sporočila ob uporabi kartičnega sloga</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Prikaži rob</string>
+    <string name="title_advanced_cards_shadow_border">Prikaži rob</string>
     <string name="title_advanced_cards_shadow_highlight">Uporabi barvo poudarkov namesto barve odtenka</string>
     <string name="title_advanced_tabular_dividers">Uporabi ločilne črte ob uporabi sloga z zavihki</string>
     <string name="title_advanced_date_header">Združi po datumu</string>
@@ -1513,6 +1513,8 @@
     <string name="title_rule_name">Ime</string>
     <string name="title_rule_order">Vrstni red</string>
     <string name="title_rule_enabled">Omogočeno</string>
+    <string name="title_rule_daily">Zaženi (samo) dnevno</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Sporočila, starejša od (dni)</string>
     <string name="title_rule_stop">Ustavi izvajanje pravil po izvedbi tega pravila</string>
     <string name="title_rule_sender">Pošiljatelj vsebuje</string>
     <string name="title_rule_sender_known">Pošiljatelj je med stiki</string>

@@ -464,7 +464,7 @@
     <string name="title_advanced_cards_beige">Выкарыстоўваць бэжавы фон пры выкарыстанні картачнага стылю (толькі светлыя тэмы)</string>
     <string name="title_advanced_tabular_background">Выкарыстоўваць колер карткі ў якасці фону пры выкарыстанні таблічнага стылю</string>
     <string name="title_advanced_cards_shadow">Пры выкарыстанні картачнага стылю выкарыстоўваць цень для непрачытаных паведамленняў</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Паказваць рамку</string>
+    <string name="title_advanced_cards_shadow_border">Паказваць рамку</string>
     <string name="title_advanced_cards_shadow_highlight">Выкарыстоўваць колер падсветкі замест колеру акцэнту</string>
     <string name="title_advanced_tabular_dividers">Выкарыстоўваць раздзяляльныя лініі пры выкарыстанні таблічнага стылю</string>
     <string name="title_advanced_date_header">Групаваць паводле даты</string>
@@ -1519,6 +1519,8 @@
     <string name="title_rule_name">Імя</string>
     <string name="title_rule_order">Парадак</string>
     <string name="title_rule_enabled">Уключана</string>
+    <string name="title_rule_daily">Выконваць штодня (аднаразова)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Паведамленні, старэйшыя за (дні)</string>
     <string name="title_rule_stop">Спыніць апрацоўку правілаў пасля выканання гэтага правіла</string>
     <string name="title_rule_sender">Адпраўнік змяшчае</string>
     <string name="title_rule_sender_known">Адпраўшчык з\'яўляецца кантактам</string>

@@ -438,6 +438,7 @@
     <string name="title_advanced_cards_beige">Usar o fundo bege quando usar o estilo de cartão (apenas temas claros)</string>
     <string name="title_advanced_tabular_background">Usar a cor do cartão como cor de fundo quando o estilo tabular seja utilizado</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>
+    <string name="title_advanced_cards_shadow_border">Mostrar contorno</string>
     <string name="title_advanced_cards_shadow_highlight">Usar a cor destacada em vez da cor de ênfase</string>
     <string name="title_advanced_tabular_dividers">Usar linhas do divisor quando o estilo tabular seja utilizado</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
@@ -1491,6 +1492,8 @@
     <string name="title_rule_name">Nome</string>
     <string name="title_rule_order">Ordenar</string>
     <string name="title_rule_enabled">Activada</string>
+    <string name="title_rule_daily">Executar diariamente (somente)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Mensagens com mais de (dias)</string>
     <string name="title_rule_stop">Parar o processamento de regras após a execução desta regra</string>
     <string name="title_rule_sender">Remetente contém</string>
     <string name="title_rule_sender_known">Remetente é um contacto</string>

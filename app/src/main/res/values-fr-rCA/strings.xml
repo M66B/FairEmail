@@ -437,7 +437,7 @@
     <string name="title_advanced_cards_beige">Afficher un arrière-plan beige lors de l\'utilisation du style carte (thèmes clairs seulement)</string>
     <string name="title_advanced_tabular_background">Utiliser la couleur de la carte comme couleur d\'arrière-plan lors de l\'utilisation du style tableau</string>
     <string name="title_advanced_cards_shadow">Utiliser une ombre autour des messages non lus pour le style carte</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Afficher la bordure</string>
+    <string name="title_advanced_cards_shadow_border">Afficher la bordure</string>
     <string name="title_advanced_cards_shadow_highlight">Utiliser la couleur de surbrillance au lieu de la couleur d\'accentuation</string>
     <string name="title_advanced_tabular_dividers">Afficher des lignes de séparation lors de l\'utilisation du style tableau</string>
     <string name="title_advanced_date_header">Regrouper par date</string>
@@ -1492,6 +1492,8 @@
     <string name="title_rule_name">Nom</string>
     <string name="title_rule_order">Ordre</string>
     <string name="title_rule_enabled">Activée</string>
+    <string name="title_rule_daily">Exécuter tous les jours (seulement)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Messages antérieurs à (jours)</string>
     <string name="title_rule_stop">Arrêter le traitement des règles après avoir exécuté celle-ci</string>
     <string name="title_rule_sender">L’expéditeur contient</string>
     <string name="title_rule_sender_known">L’expéditeur est un contact</string>

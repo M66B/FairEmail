@@ -462,7 +462,7 @@
     <string name="title_advanced_cards_beige">Użyj beżowego tła podczas używania stylu karty (tylko jasne motywy)</string>
     <string name="title_advanced_tabular_background">Użyj koloru karty jako koloru tła podczas korzystania ze stylu tabelarycznego</string>
     <string name="title_advanced_cards_shadow">Użyj cienia do nieprzeczytanych wiadomości, jeśli używasz stylu karty</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Pokaż obramowanie</string>
+    <string name="title_advanced_cards_shadow_border">Pokaż obramowanie</string>
     <string name="title_advanced_cards_shadow_highlight">Użyj koloru podświetlenia zamiast koloru akcentu</string>
     <string name="title_advanced_tabular_dividers">Używaj linii oddzielających podczas używania stylu tabelarycznego</string>
     <string name="title_advanced_date_header">Grupuj według daty</string>
@@ -1514,6 +1514,8 @@
     <string name="title_rule_name">Nazwa</string>
     <string name="title_rule_order">Kolejność</string>
     <string name="title_rule_enabled">Włączone</string>
+    <string name="title_rule_daily">Uruchom codziennie (tylko)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Wiadomości starsze niż (dni)</string>
     <string name="title_rule_stop">Zatrzymaj przetwarzanie reguł po uruchomieniu tej reguły</string>
     <string name="title_rule_sender">Nadawca zawiera</string>
     <string name="title_rule_sender_known">Nadawca jest kontaktem</string>

@@ -435,7 +435,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_cards_beige">Gebruik een beige achtergrond bij het gebruik van de kaartstijl (alleen lichte thema\'s)</string>
     <string name="title_advanced_tabular_background">Gebruik kaart kleur als achtergrondkleur bij gebruik van tabulaire stijl</string>
     <string name="title_advanced_cards_shadow">Gebruik schaduw voor ongelezen berichten bij gebruik van kaartstijl</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Toon rand</string>
+    <string name="title_advanced_cards_shadow_border">Toon rand</string>
     <string name="title_advanced_cards_shadow_highlight">Gebruik markeerkleur in plaats van accentkleur</string>
     <string name="title_advanced_tabular_dividers">Gebruik scheidingslijnen bij gebruik van tabulaire style</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
@@ -1482,6 +1482,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_name">Naam</string>
     <string name="title_rule_order">Volgorde</string>
     <string name="title_rule_enabled">Ingeschakeld</string>
+    <string name="title_rule_daily">Dagelijks uitvoeren (alleen)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Berichten ouder dan (dagen)</string>
     <string name="title_rule_stop">Stop verwerking van regels na het uitvoeren van deze regel</string>
     <string name="title_rule_sender">Afzender bevat</string>
     <string name="title_rule_sender_known">Afzender is een contact</string>

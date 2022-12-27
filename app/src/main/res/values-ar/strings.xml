@@ -196,24 +196,52 @@
     <string name="title_setup_error">خطأ</string>
     <string name="title_setup_pop">استخدام POP3 (غير مستحسن)</string>
     <string name="title_setup_recent">استخدم \"الحديث\" لبرامج البريد الإلكتروني المتعددة</string>
+    <string name="title_setup_configuring">تكوين الحساب &#8230;</string>
+    <string name="title_setup_app_password">قد تحتاج إلى استخدام كلمة مرور التطبيق</string>
+    <string name="title_setup_extra">خيارات إضافية</string>
+    <string name="title_setup_delete_account_hint">سيؤدي هذا فقط إلى إزالة الحسابات من التطبيق</string>
     <string name="title_setup_close">اغلق الإعدادات</string>
     <string name="title_setup_export">تصدير الإعدادات</string>
     <string name="title_setup_import">استيراد الإعدادات</string>
+    <string name="title_setup_export_remark">        ملف الإعدادات مشفر بكلمة مرور لأنه يحتوي على جميع الإعدادات ومعلومات الحساب.
+        كلمة المرور مطلوبة لاستيراد الإعدادات مرة أخرى، لذا يرجى عدم نسيانها!
+    </string>
+    <string name="title_setup_export_do">سيحتوي ملف التصدير على جميع الإعدادات والبيانات، ولكن لا توجد رسائل ولا صور مشار إليها في التوقيعات</string>
+    <string name="title_setup_import_do">سيتم إضافة الحسابات المستوردة دون الكتابة فوق أي حسابات موجودة</string>
     <string name="title_setup_password">الكلمة السرية</string>
+    <string name="title_setup_password_chars">تحتوي كلمة المرور على أحرف تحكم أو مسافات بيضاء</string>
     <string name="title_setup_password_repeat">أعد كتابة الكلمة السرية</string>
     <string name="title_setup_password_missing">كلمة المرور مفقودة</string>
     <string name="title_setup_password_different">كلمات المرور غير متطابقة</string>
+    <string name="title_setup_password_invalid">كلمة مرور غير صحيحة، أو ملف إعدادات تالف</string>
+    <string name="title_setup_import_accounts">استيراد الحسابات والهويات</string>
+    <string name="title_setup_import_delete">حذف الحسابات الحالية أولاً</string>
+    <string name="title_setup_import_rules">استيراد قواعد التصفية</string>
+    <string name="title_setup_import_contacts">استيراد جهات الاتصال المحلية</string>
+    <string name="title_setup_import_answers">استيراد قوالب الردود</string>
+    <string name="title_setup_import_searches">استيراد عمليات البحث المحفوظة</string>
+    <string name="title_setup_import_settings">خيارات الاستيراد</string>
     <string name="title_setup_exported">تم تصدير الإعدادات</string>
     <string name="title_setup_imported">تم استيراد الإعدادات</string>
+    <string name="title_setup_import_invalid">ملف إعدادات غير صالح</string>
+    <string name="title_importing_account">حساب %1$s</string>
+    <string name="title_importing_identity">هوية %1$s</string>
+    <string name="title_importing_exists">تخطى: موجود بالفعل</string>
+    <string name="title_importing_wizard">تشغيل المعالج للمصادقة مرة أخرى</string>
     <string name="title_setup_reorder_accounts">ترتيب الحسابات</string>
     <string name="title_setup_reorder_folders">ترتيب المجلدات</string>
     <string name="title_reset_order">اعادة الترتيب</string>
     <string name="title_setup_authentication">المصادقة</string>
+    <string name="title_setup_biometrics">المصادقة البيومترية</string>
     <string name="title_setup_biometrics_enable">تمكين</string>
     <string name="title_setup_biometrics_disable">تعطيل</string>
     <string name="title_setup_biometrics_unlock">فُتح القفل</string>
     <string name="title_setup_theme">اختر السمة</string>
     <string name="title_setup_theme_blue_orange">أزرق/برتقالي</string>
+    <string name="title_setup_theme_yellow_purple">أصفر/بنفسجي</string>
+    <string name="title_setup_theme_red_green">أحمر/أخضر</string>
+    <string name="title_setup_theme_grey">رمادي</string>
+    <string name="title_setup_theme_black">أسود</string>
     <string name="title_setup_theme_white">أبيض</string>
     <string name="title_setup_theme_black_or_white">أسود أو أبيض</string>
     <string name="title_setup_theme_black_and_white">أسود وأبيض</string>
@@ -243,14 +271,21 @@
     <string name="title_advanced_hint_message">        أنت تنتقل إلى الخيارات الأكثر تقدماً.
         جميع الخيارات تستخدم القيم القياسية الشائعة، التي لا تحتاج إلى تغييرها إلا إذا كان لديك تفضيلات مختلفة.
     </string>
+    <string name="title_advanced_hint_remark">        يتم تصنيف الخيارات حسب علامة التبويب، مقسمة إلى أقسام، منظمة حسب المظهر أو الاستخدام، وقابلة للبحث.
+    </string>
+    <string name="title_advanced_hint_setup">يمكنك تكوين حساب بواسطة النقر على زر المعالج على شاشة التكوين الرئيسية.</string>
+    <string name="title_advanced_section_main">الرئيسية</string>
     <string name="title_advanced_section_synchronize">إستلام</string>
     <string name="title_advanced_section_send">إرسال</string>
     <string name="title_advanced_section_connection">اتصال</string>
     <string name="title_advanced_section_display">إظهار</string>
     <string name="title_advanced_section_behavior">السلوك</string>
     <string name="title_advanced_section_privacy">الخصوصية</string>
+    <string name="title_advanced_section_encryption">التشفير</string>
     <string name="title_advanced_section_notifications">الاشعارات</string>
     <string name="title_advanced_section_misc">خيارات متنوعة</string>
+    <string name="title_advanced_default">جميع الخيارات تستخدم قيم قياسية شائعة، التي لا تحتاج إلى تغييرها لاستخدام التطبيق</string>
+    <string name="title_advanced_receive">تلقي الرسائل لجميع الحسابات</string>
     <string name="title_advanced_when">متى</string>
     <string name="title_advanced_schedule">برمجة</string>
     <string name="title_advanced_advanced">الإعدادات المتقدمة</string>
@@ -260,6 +295,7 @@
     <string name="title_advanced_caption_general">الإعدادات العامة</string>
     <string name="title_advanced_caption_list">قائمة</string>
     <string name="title_advanced_caption_conversation">المحادثة</string>
+    <string name="title_advanced_cards_shadow_border">إظهار الحدود</string>
     <string name="title_advanced_date_header">تجميع بحسب التاريخ</string>
     <string name="title_advanced_date_bold">إظهار التاريخ بخط سميك</string>
     <string name="title_advanced_threading">مؤشر ترابط المحادثة</string>
@@ -326,7 +362,7 @@
     <string name="title_identity_delete">حذف هذه الهوية نهائيا؟</string>
     <string name="title_edit_html">تعديل كـ HTML</string>
     <string name="title_last_connected">آخر ربط: %1$s</string>
-    <string name="title_service_error10">يجب مصادقة هذا الحساب مرة أخرى، والذي يمكن القيام به عبر معالج الإعداد السريع</string>
+    <string name="title_service_error10">يجب مصادقة هذا الحساب مرة أخرى، الذي يمكن القيام به عبر معالج الإعداد السريع</string>
     <string name="title_advanced_browse">تصفح الرسائل على الخادم</string>
     <string name="title_synchronize_now">زامن الآن</string>
     <string name="title_synchronize_enabled">مزامنة</string>
@@ -473,6 +509,8 @@
     <string name="title_rule_name">الإسم</string>
     <string name="title_rule_order">الترتيب</string>
     <string name="title_rule_enabled">تم تفعيله</string>
+    <string name="title_rule_daily">تشغيل يومي (فقط)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">الرسائل الأقدم من (بالأيام)</string>
     <string name="title_rule_sender">المُرسِل يحتوي على</string>
     <string name="title_rule_subject">عنوان الرسالة يحتوي على</string>
     <string name="title_rule_header">الرأسية تحتوي على</string>

@@ -462,7 +462,7 @@
     <string name="title_advanced_cards_beige">Použít béžové pozadí při zobrazení stylem karet (pouze světlé motivy)</string>
     <string name="title_advanced_tabular_background">Použít barvu karty jako pozadí při zobrazení stylem tabulky</string>
     <string name="title_advanced_cards_shadow">Použít stín pro nepřečtené zprávy, při zobrazení stylem karet</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Zobrazit ohraničení</string>
+    <string name="title_advanced_cards_shadow_border">Zobrazit ohraničení</string>
     <string name="title_advanced_cards_shadow_highlight">Použít barvu zvýraznění namísto kontrastní barvy</string>
     <string name="title_advanced_tabular_dividers">Použít dělicí čáry při použití stylu tabulky</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
@@ -1513,6 +1513,8 @@
     <string name="title_rule_name">Název</string>
     <string name="title_rule_order">Pořadí</string>
     <string name="title_rule_enabled">Zapnuto</string>
+    <string name="title_rule_daily">Spouštět denně (pouze)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Zprávy starší než (dnů)</string>
     <string name="title_rule_stop">Zastavit zpracování pravidel po provedení tohoto pravidla</string>
     <string name="title_rule_sender">Odesílatel obsahuje</string>
     <string name="title_rule_sender_known">Odesílatel je kontakt</string>

@@ -437,7 +437,7 @@
     <string name="title_advanced_cards_beige">Brug beige baggrund ifm. kortstil (kun lyse temaer)</string>
     <string name="title_advanced_tabular_background">Brug kortfarve som baggrundsfarve ifm. tabelform</string>
     <string name="title_advanced_cards_shadow">Brug skyggeeffekt til ulæste beskeder, når kortstil benyttes</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Vis kant</string>
+    <string name="title_advanced_cards_shadow_border">Vis kant</string>
     <string name="title_advanced_cards_shadow_highlight">Brug fremhævningsfarve i stedet for accentfarve</string>
     <string name="title_advanced_tabular_dividers">Brug skillelinjer ifm. tabelform</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
@@ -1492,6 +1492,8 @@
     <string name="title_rule_name">Navn</string>
     <string name="title_rule_order">Rækkefølge</string>
     <string name="title_rule_enabled">Aktiveret</string>
+    <string name="title_rule_daily">Kør kun dagligt</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Beskeder ældre end (dage)</string>
     <string name="title_rule_stop">Stop afvikling af regler efter eksekvering af denne regel</string>
     <string name="title_rule_sender">Afsender indeholder</string>
     <string name="title_rule_sender_known">Afsender er en kontakt</string>

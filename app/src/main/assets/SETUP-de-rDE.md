@@ -32,7 +32,7 @@ Zur Verwendung von Alias-Adressen bitte [diese F&A](https://github.com/M66B/Fair
 
 Wenn Sie E-Mail-Adressen nachsehen, Kontaktfotos anzeigen lassen möchten usw., müssen Sie FairEmail die Erlaubnis zum Lesen von Kontaktinformationen erteilen. Einfach auf *Berechtigungen erteilen* tippen und *Zulassen* auswählen.
 
-## Akku-Optimierungen einrichten, um E-Mails fortlaufend zu erhalten
+## Akkuoptimierungen einrichten, um E-Mails fortlaufend zu erhalten
 
 Bei den aktuellen Android-Versionen schaltet Android Apps in den Standby-Modus, wenn der Bildschirm für einige Zeit ausgeschaltet ist, um den Akkuverbrauch zu reduzieren. Wenn Sie neue E-Mails ohne Verzögerung erhalten möchten, sollten Sie die Akkuoptimierung für FairEmail deaktivieren. Bitte auf *Verwalten* tippen und den Anweisungen folgen.
 

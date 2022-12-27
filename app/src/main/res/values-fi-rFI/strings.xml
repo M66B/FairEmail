@@ -436,7 +436,7 @@
     <string name="title_advanced_cards_beige">Käytä beigeä taustaa korttityylissä (vain vaaleat teemat)</string>
     <string name="title_advanced_tabular_background">Käytä kortin väriä taulukkotyylin taustavärinä</string>
     <string name="title_advanced_cards_shadow">Käytä varjoa lukemattomiin viesteihin korttityylissä</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Näytä reunat</string>
+    <string name="title_advanced_cards_shadow_border">Näytä reunat</string>
     <string name="title_advanced_cards_shadow_highlight">Käytä valittua korostusväriä teeman korostusvärin sijaan</string>
     <string name="title_advanced_tabular_dividers">Käytä jakoviivoja taulukkotyylissä</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>

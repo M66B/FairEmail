@@ -436,7 +436,7 @@
     <string name="title_advanced_cards_beige">Μπεζ φόντο κατά τη χρήση του στιλ κάρτας (ανοιχτόχρωμα θέματα μόνο)</string>
     <string name="title_advanced_tabular_background">Να χρησιμοποιείται το χρώμα της κάρτας ως χρώμα φόντου κατά τη χρήση του στιλ πίνακα</string>
     <string name="title_advanced_cards_shadow">Σκίαση μη αναγνωσμένων μηνυμάτων κατά τη χρήση στιλ κάρτας</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Προβολή περιγράμματος</string>
+    <string name="title_advanced_cards_shadow_border">Προβολή περιγράμματος</string>
     <string name="title_advanced_cards_shadow_highlight">Χρήση του χρώματος επισήμανσης αντί του χρώματος έμφασης</string>
     <string name="title_advanced_tabular_dividers">Χρήση διαχωριστικών γραμμών κατά τη χρήση στιλ πίνακα</string>
     <string name="title_advanced_date_header">Ομαδοποίηση κατά ημερομηνία</string>
@@ -1485,6 +1485,8 @@
     <string name="title_rule_name">Όνομα</string>
     <string name="title_rule_order">Σειρά</string>
     <string name="title_rule_enabled">Ενεργοποιημένος</string>
+    <string name="title_rule_daily">Εκτέλεση μόνο μία φορά κάθε ημέρα</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Μηνύματα παλαιότερα από (ημέρες)</string>
     <string name="title_rule_stop">Διακοπή επεξεργασίας κανόνων μετά την εκτέλεση αυτού του κανόνα</string>
     <string name="title_rule_sender">Ο αποστολέας περιέχει</string>
     <string name="title_rule_sender_known">Ο αποστολέας είναι μια επαφή</string>

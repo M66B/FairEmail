@@ -437,7 +437,7 @@
     <string name="title_advanced_cards_beige">Usa lo sfondo beige usando lo stile della carta (solo per temi chiari)</string>
     <string name="title_advanced_tabular_background">Usa il colore della carta come colore di sfondo usando lo stile tabulare</string>
     <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi non letti usando lo stile della carta</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">Mostra bordo</string>
+    <string name="title_advanced_cards_shadow_border">Mostra bordo</string>
     <string name="title_advanced_cards_shadow_highlight">Usa il colore d\'evidenziazione invece del colore secondario</string>
     <string name="title_advanced_tabular_dividers">Usa le linee divisorie usando lo stile tabulare</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
@@ -554,7 +554,7 @@
     <string name="title_advanced_autounstar">Rimuovi automaticamente le stelle dai messaggi al loro spostamento</string>
     <string name="title_advanced_auto_important">Rendi automaticamente importanti i messaggi stellati</string>
     <string name="title_advanced_reset_importance">Ripristina l\'importanza allo spostamento dei messaggi</string>
-    <string name="title_advanced_cancel_snooze">Annulla il posticipo dei messaggi allo spostamento</string>
+    <string name="title_advanced_cancel_snooze">Annulla posticipazione allo spostamento dei messaggi</string>
     <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
@@ -910,7 +910,7 @@
     <string name="title_service_token">Il gestore dei profili di Android potrebbe esser bloccato da una VPN, firewall, adblocker, etc. impedendogli di ottenere un token d\'accesso</string>
     <string name="title_service_port">Sei pregato di ricontrollare il numero della porta</string>
     <string name="title_service_protocol">Sei pregato di ricontrollare il protocollo (SSL/TLS o STARTTLS)</string>
-    <string name="title_service_error10">Questo profilo deve essere nuovamente autenticato, che può essere fatto tramite la procedura guidata di configurazione rapida</string>
+    <string name="title_service_error10">Questo profilo necessita di essere nuovamente autenticato, tramite la procedura guidata di configurazione rapida</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_expand_read">Contrassegna i messaggi come letti all\'espansione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
@@ -1492,6 +1492,8 @@
     <string name="title_rule_name">Nome</string>
     <string name="title_rule_order">Ordine</string>
     <string name="title_rule_enabled">Abilitato</string>
+    <string name="title_rule_daily">Esegui giornalmente (solo)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Messaggi precedenti a (giorni)</string>
     <string name="title_rule_stop">Ferma l\'elaborazione delle regole dopo l\'esecuzione di questa regola</string>
     <string name="title_rule_sender">Il mittente contiene</string>
     <string name="title_rule_sender_known">Il mittente è un contatto</string>

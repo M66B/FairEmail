@@ -424,7 +424,7 @@
     <string name="title_advanced_cards_beige">カード形式のとき、背景色にベージュを使用 (ライトテーマのみ)</string>
     <string name="title_advanced_tabular_background">表形式のとき、背景色にカードの色を使用</string>
     <string name="title_advanced_cards_shadow">カード形式のとき、未読メッセージにシャドウを使用</string>
-    <string name="title_advanced_cards_shadow_border" comment="title_advanced_cards_shadow_border&#10;Title for option to disable the border for unread messages">境界を表示</string>
+    <string name="title_advanced_cards_shadow_border">境界を表示</string>
     <string name="title_advanced_cards_shadow_highlight">アクセントカラーの代わりにハイライトカラーを使用</string>
     <string name="title_advanced_tabular_dividers">表形式のとき、区切り線を表示</string>
     <string name="title_advanced_date_header">日付でグループ化</string>
@@ -1478,6 +1478,8 @@
     <string name="title_rule_name">名前</string>
     <string name="title_rule_order">順番</string>
     <string name="title_rule_enabled">有効</string>
+    <string name="title_rule_daily">常に実行 (のみ)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">…日以上経過したメッセージ</string>
     <string name="title_rule_stop">ルールの実行後に処理を停止</string>
     <string name="title_rule_sender">差出人に以下の語句を含む</string>
     <string name="title_rule_sender_known">連絡先から送信</string>
