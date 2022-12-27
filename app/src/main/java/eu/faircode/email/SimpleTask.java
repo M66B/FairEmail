@@ -70,6 +70,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     @SuppressLint("StaticFieldLeak")
     private static Context themedContext = null;
     private static final List<SimpleTask> tasks = new ArrayList<>();
+    private static final ExecutorService globalExecutor = Helper.getBackgroundExecutor(0, "tasks");
 
     private static final int REPORT_AFTER = 15 * 60 * 1000; // milliseconds
 
@@ -124,10 +125,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":task");
         }
 
-        if (localExecutor != null)
-            return localExecutor;
-
-        return Helper.getParallelExecutor();
+        return (localExecutor == null ? globalExecutor : localExecutor);
     }
 
     @NonNull
