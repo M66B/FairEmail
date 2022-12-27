@@ -76,7 +76,9 @@ import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 public class FragmentRule extends FragmentBase {
@@ -108,6 +110,7 @@ public class FragmentRule extends FragmentBase {
     private EditText etMimeType;
 
     private EditText etHeader;
+    private ImageButton ibHeader;
     private CheckBox cbHeader;
 
     private EditText etBody;
@@ -211,6 +214,27 @@ public class FragmentRule extends FragmentBase {
     private final static int REQUEST_DATE_BEFORE = 12;
     private final static int REQUEST_FOLDER = 13;
 
+    private static final List<String> HEADER_CONDITIONS = Collections.unmodifiableList(Arrays.asList(
+            "$$seen$",
+            "$$answered$",
+            "$$flagged$",
+            "$$deleted$",
+            "$$tls$",
+            "$$dkim$",
+            "$$spf$",
+            "$$dmarc$",
+            "$$mx$",
+            "$$blocklist$",
+            "$$replydomain$",
+            "$$nofrom$",
+            "$$multifrom$",
+            "$$automatic$",
+            "$$lowpriority$",
+            "$$highpriority$",
+            "$$signed$",
+            "$$encrypted$"
+    ));
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -267,6 +291,7 @@ public class FragmentRule extends FragmentBase {
         etMimeType = view.findViewById(R.id.etMimeType);
 
         etHeader = view.findViewById(R.id.etHeader);
+        ibHeader = view.findViewById(R.id.ibHeader);
         cbHeader = view.findViewById(R.id.cbHeader);
 
         etBody = view.findViewById(R.id.etBody);
@@ -379,6 +404,26 @@ public class FragmentRule extends FragmentBase {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 etMimeType.setEnabled(isChecked);
+            }
+        });
+
+        ibHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(v.getContext(), getViewLifecycleOwner(), v);
+
+                for (int i = 0; i < HEADER_CONDITIONS.size(); i++)
+                    popupMenu.getMenu().add(Menu.NONE, i + 1, i + 1, HEADER_CONDITIONS.get(i));
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        etHeader.setText(item.getTitle());
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
             }
         });
 

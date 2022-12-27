@@ -419,7 +419,18 @@
                     app:layout_constraintBottom_toBottomOf="@+id/cbHeader"
                     app:layout_constraintEnd_toStartOf="@+id/cbHeader"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/cbHeader" />
+                    app:layout_constraintTop_toTopOf="@+id/ibHeader" />
+
+                <ImageButton
+                    android:id="@+id/ibHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    app:layout_constraintBottom_toBottomOf="@+id/cbHeader"
+                    app:layout_constraintEnd_toStartOf="@+id/cbHeader"
+                    app:layout_constraintTop_toTopOf="@+id/cbHeader"
+                    app:srcCompat="@drawable/twotone_filter_alt_24" />
 
                 <CheckBox
                     android:id="@+id/cbHeader"
