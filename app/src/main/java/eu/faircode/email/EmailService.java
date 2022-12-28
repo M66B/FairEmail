@@ -494,10 +494,20 @@ public class EmailService implements AutoCloseable {
                         Log.e(ex1);
                     else
                         Log.e(new Throwable(ex1.getMessage() + " error=" + cause.getMessage(), ex1));
+
                     String msg = ex.getMessage();
                     if (auth == AUTH_TYPE_GMAIL &&
                             msg != null && msg.endsWith("Invalid credentials (Failure)"))
-                        msg += "; " + context.getString(R.string.title_service_token);
+                        msg += "\n" + context.getString(R.string.title_service_token);
+
+                    Throwable c = ex1;
+                    while (c != null) {
+                        String m = c.getMessage();
+                        if (!TextUtils.isEmpty(m))
+                            msg += "\n" + m;
+                        c = c.getCause();
+                    }
+
                     throw new AuthenticationFailedException(
                             context.getString(R.string.title_service_auth, msg),
                             ex.getNextException());
