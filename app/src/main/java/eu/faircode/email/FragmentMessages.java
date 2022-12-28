@@ -9820,7 +9820,7 @@ public class FragmentMessages extends FragmentBase
                             continue;
                         }
 
-                        futures.add(Helper.getParallelExecutor().submit(new Callable<Void>() {
+                        futures.add(Helper.getDownloadTaskExecutor().submit(new Callable<Void>() {
                             @Override
                             public Void call() throws Exception {
                                 try (OutputStream os = new FileOutputStream(out)) {

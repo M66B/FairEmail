@@ -245,12 +245,13 @@ public class Helper {
             "wsc", "wsf", "wsh"
     ));
 
-    static ExecutorService sSerialExecutor = null;
-    static ExecutorService sParallelExecutor = null;
-    static ExecutorService sSerialTaskExecutor = null;
+    private static ExecutorService sSerialExecutor = null;
+    private static ExecutorService sParallelExecutor = null;
+    private static ExecutorService sSerialTaskExecutor = null;
+    private static ExecutorService sDownloadExecutor = null;
 
-    static int sOperationIndex = 0;
-    static final ExecutorService[] sOperationExecutor = new ExecutorService[OPERATION_WORKERS];
+    private static int sOperationIndex = 0;
+    private static final ExecutorService[] sOperationExecutor = new ExecutorService[OPERATION_WORKERS];
 
     static ExecutorService getSerialExecutor() {
         if (sSerialExecutor == null)
@@ -268,6 +269,12 @@ public class Helper {
         if (sSerialTaskExecutor == null)
             sSerialTaskExecutor = getBackgroundExecutor(1, "task");
         return sSerialTaskExecutor;
+    }
+
+    static ExecutorService getDownloadTaskExecutor() {
+        if (sDownloadExecutor == null)
+            sDownloadExecutor = getBackgroundExecutor(0, "download");
+        return sDownloadExecutor;
     }
 
     static ExecutorService getOperationExecutor() {

@@ -1099,7 +1099,7 @@ public class EmailProvider implements Parcelable {
 
         private Future<Boolean> getReachable(Context context) {
             Log.i("Scanning " + this);
-            return Helper.getParallelExecutor().submit(new Callable<Boolean>() {
+            return Helper.getDownloadTaskExecutor().submit(new Callable<Boolean>() {
                 // Returns:
                 //   false: closed
                 //   true: listening
