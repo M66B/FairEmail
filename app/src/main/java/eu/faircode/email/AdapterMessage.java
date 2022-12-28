@@ -7811,7 +7811,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         };
 
         AsyncDifferConfig<TupleMessageEx> config = new AsyncDifferConfig.Builder<>(callback)
-                .setBackgroundThreadExecutor(Helper.getBackgroundExecutor(2, "differ"))
+                .setBackgroundThreadExecutor(Helper.getBackgroundExecutor(0, 2, 3, "differ"))
                 .build();
         this.differ = new AsyncPagedListDiffer<>(new AdapterListUpdateCallback(this), config);
         this.differ.addPagedListListener(new AsyncPagedListDiffer.PagedListListener<TupleMessageEx>() {
