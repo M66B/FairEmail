@@ -2,12 +2,13 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
-### [Ostromia](https://en.wikipedia.org/wiki/Ostromia)
+### [Pelecanimimus](https://en.wikipedia.org/wiki/Pelecanimimus)
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### Next version
+### 1.2018 - 2022-12-28
 
+* Fixed occasional freezes
 * Added option to run rules daily
 * Added inserting lines to style toolbar
 * Small improvements and minor bug fixes
