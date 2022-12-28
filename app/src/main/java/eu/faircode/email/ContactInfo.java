@@ -357,6 +357,7 @@ public class ContactInfo {
                             }
                         });
                     if (files != null && files.length == 1) {
+                        files[0].setLastModified(new Date().getTime());
                         if (files[0].length() == 0)
                             Log.i("Avatar blacklisted cache" + files[0].getName());
                         else {
