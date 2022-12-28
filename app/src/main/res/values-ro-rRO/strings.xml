@@ -1500,6 +1500,8 @@
     <string name="title_rule_name">Nume</string>
     <string name="title_rule_order">Ordine</string>
     <string name="title_rule_enabled">Activată</string>
+    <string name="title_rule_daily">Rulează zilnic (doar)</string>
+    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Mesaje mai vechi decât (zile)</string>
     <string name="title_rule_stop">Oprește procesarea regulilor după ce se execută acesta</string>
     <string name="title_rule_sender">Expeditorul conține</string>
     <string name="title_rule_sender_known">Expeditorul este un contact</string>
