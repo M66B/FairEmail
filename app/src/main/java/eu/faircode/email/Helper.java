@@ -297,10 +297,23 @@ public class Helper {
 
             @Override
             public Thread newThread(@NonNull Runnable runnable) {
-                Thread thread = new Thread(runnable);
-                thread.setName("FairEmail_bg_" + name + "_" + threadId.getAndIncrement());
-                thread.setPriority(THREAD_PRIORITY_BACKGROUND);
-                return thread;
+                int delay = 1;
+                while (true)
+                    try {
+                        Thread thread = new Thread(runnable);
+                        thread.setName("FairEmail_bg_" + name + "_" + threadId.getAndIncrement());
+                        thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+                        return thread;
+                    } catch (OutOfMemoryError ex) {
+                        Log.w(ex);
+                        try {
+                            Thread.sleep(delay * 1000L);
+                        } catch (InterruptedException ignored) {
+                        }
+                        delay *= 2;
+                        if (delay > 7)
+                            throw ex;
+                    }
             }
         };
 
