@@ -405,7 +405,7 @@ public abstract class DB extends RoomDatabase {
                 .databaseBuilder(context, DB.class, DB_NAME)
                 //.openHelperFactory(new RequerySQLiteOpenHelperFactory())
                 //.setQueryExecutor()
-                .setTransactionExecutor(Helper.getBackgroundExecutor(4, "db"))
+                .setTransactionExecutor(Helper.getBackgroundExecutor(1, 4, 3, "db"))
                 .setJournalMode(wal ? JournalMode.WRITE_AHEAD_LOGGING : JournalMode.TRUNCATE) // using the latest sqlite
                 .addCallback(new Callback() {
                     @Override
