@@ -73,6 +73,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
 
 import javax.mail.AuthenticationFailedException;
@@ -126,6 +127,9 @@ public class EmailService implements AutoCloseable {
 
     final static int DEFAULT_CONNECT_TIMEOUT = 20; // seconds
     final static boolean SEPARATE_STORE_CONNECTION = false;
+
+    private static final ExecutorService executor =
+            Helper.getBackgroundExecutor(0, 4, 3, "mail");
 
     private final static int SEARCH_TIMEOUT = 90 * 1000; // milliseconds
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
@@ -204,7 +208,7 @@ public class EmailService implements AutoCloseable {
                 " use_top=" + use_top);
 
         properties.put("mail.event.scope", "folder");
-        properties.put("mail.event.executor", Helper.getParallelExecutor());
+        properties.put("mail.event.executor", executor);
 
         if (!auth_plain)
             properties.put("mail." + protocol + ".auth.plain.disable", "true");
