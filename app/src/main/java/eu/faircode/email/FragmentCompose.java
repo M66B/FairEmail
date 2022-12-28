@@ -2477,7 +2477,7 @@ public class FragmentCompose extends FragmentBase {
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         etBody.setSelection(paragraph.second);
-                        Log.unexpectedError(getParentFragmentManager(), ex, false);
+                        Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
                     }
                 }.serial().execute(FragmentCompose.this, args, "compose:translate");
             }
