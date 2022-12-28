@@ -6,6 +6,11 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### 1.2019 - 2022-12-28
+
+* Fixed push messages in some circumstances
+* Small improvements and minor bug fixes
+
 ### 1.2018 - 2022-12-28
 
 * Fixed occasional freezes
