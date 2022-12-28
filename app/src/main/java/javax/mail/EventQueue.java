@@ -89,6 +89,7 @@ class EventQueue implements Runnable {
 		executor.execute(this);
 	    } else {
 		Thread qThread = new Thread(this, "Jakarta-Mail-EventQueue");
+		qThread.setPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);
 		qThread.setDaemon(true);  // not a user thread
 		qThread.start();
 	    }

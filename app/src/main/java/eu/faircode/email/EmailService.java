@@ -128,9 +128,6 @@ public class EmailService implements AutoCloseable {
     final static int DEFAULT_CONNECT_TIMEOUT = 20; // seconds
     final static boolean SEPARATE_STORE_CONNECTION = false;
 
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(0, 4, 3, "mail");
-
     private final static int SEARCH_TIMEOUT = 90 * 1000; // milliseconds
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
     private final static int POOL_SIZE = 1; // connections
@@ -207,8 +204,8 @@ public class EmailService implements AutoCloseable {
                 " apop=" + auth_apop +
                 " use_top=" + use_top);
 
-        properties.put("mail.event.scope", "folder");
-        properties.put("mail.event.executor", executor);
+        //properties.put("mail.event.scope", "folder");
+        //properties.put("mail.event.executor", executor);
 
         if (!auth_plain)
             properties.put("mail." + protocol + ".auth.plain.disable", "true");
