@@ -273,7 +273,7 @@ public class Helper {
 
     static ExecutorService getDownloadTaskExecutor() {
         if (sDownloadExecutor == null)
-            sDownloadExecutor = getBackgroundExecutor(0, "download");
+            sDownloadExecutor = getBackgroundExecutor(0, 0, 3, "download");
         return sDownloadExecutor;
     }
 
@@ -288,7 +288,7 @@ public class Helper {
     }
 
     static ExecutorService getBackgroundExecutor(int threads, final String name) {
-        return getBackgroundExecutor(threads, threads, 0, name);
+        return getBackgroundExecutor(threads == 0 ? -1 : threads, threads, 3, name);
     }
 
     static ExecutorService getBackgroundExecutor(int min, int max, int keepalive, final String name) {
@@ -310,9 +310,9 @@ public class Helper {
             int processors = Runtime.getRuntime().availableProcessors(); // Modern devices: 8
             return new ThreadPoolExecutorEx(
                     name,
-                    processors + 1,
+                    min < 0 ? Math.max(2, processors / 2 + 1) : min,
                     Math.max(8, processors * 2) + 1,
-                    3L, TimeUnit.SECONDS,
+                    keepalive, TimeUnit.SECONDS,
                     new LinkedBlockingQueue<Runnable>(),
                     factory);
         } else if (max == 1)
