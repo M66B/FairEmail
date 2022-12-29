@@ -30,7 +30,8 @@ public class TupleAccountState extends EntityAccount {
     public boolean equals(Object obj) {
         if (obj instanceof TupleAccountState) {
             TupleAccountState other = (TupleAccountState) obj;
-            return (this.host.equals(other.host) &&
+            return (Objects.equals(this.provider, other.provider) &&
+                    this.host.equals(other.host) &&
                     this.encryption.equals(other.encryption) &&
                     this.insecure.equals(other.insecure) &&
                     this.port.equals(other.port) &&
@@ -44,6 +45,7 @@ public class TupleAccountState extends EntityAccount {
                     this.leave_on_server == other.leave_on_server &&
                     this.leave_on_device == other.leave_on_device &&
                     Objects.equals(this.max_messages, other.max_messages) &&
+                    this.keep_alive_noop.equals(other.keep_alive_noop) &&
                     this.poll_interval.equals(other.poll_interval) &&
                     this.partial_fetch.equals(other.partial_fetch) &&
                     this.ignore_size.equals(other.ignore_size) &&
