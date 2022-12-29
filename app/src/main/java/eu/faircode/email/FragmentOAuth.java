@@ -342,6 +342,8 @@ public class FragmentOAuth extends FragmentBase {
             pbOAuth.setVisibility(View.VISIBLE);
             hideError();
 
+            Log.breadcrumb("onAuthorize", "id", id);
+
             final Context context = getContext();
             PackageManager pm = context.getPackageManager();
             EmailProvider provider = EmailProvider.getProvider(context, id);
@@ -493,6 +495,8 @@ public class FragmentOAuth extends FragmentBase {
             cbRecent.setEnabled(true);
             cbUpdate.setEnabled(true);
 
+            Log.breadcrumb("onHandleOAuth", "id", id);
+
             AuthorizationResponse auth = AuthorizationResponse.fromIntent(data);
             if (auth == null) {
                 AuthorizationException ex = AuthorizationException.fromIntent(data);
@@ -570,6 +574,8 @@ public class FragmentOAuth extends FragmentBase {
     }
 
     private void onOAuthorized(String accessToken, String idToken, AuthState state) {
+        Log.breadcrumb("onOAuthorized", "id", id);
+
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
 
