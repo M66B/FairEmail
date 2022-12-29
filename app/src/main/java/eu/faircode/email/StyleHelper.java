@@ -303,6 +303,13 @@ public class StyleHelper {
 
                         if (renum)
                             StyleHelper.renumber(text, false, etBody.getContext());
+
+                        if (BuildConfig.DEBUG) {
+                            StyleHelper.InsertedSpan[] inserts =
+                                    text.getSpans(0, text.length(), StyleHelper.InsertedSpan.class);
+                            for (StyleHelper.InsertedSpan span : inserts)
+                                text.removeSpan(span);
+                        }
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
