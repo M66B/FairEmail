@@ -227,7 +227,12 @@ public class EmailProvider implements Parcelable {
                         provider.description = xml.getAttributeValue(null, "description");
                         if (provider.description == null)
                             provider.description = provider.name;
-                        provider.enabled = getAttributeBooleanValue(xml, "enabled", true);
+
+                        String enabled = xml.getAttributeValue(null, "enabled");
+                        if ("debug".equals(enabled))
+                            provider.enabled = BuildConfig.DEBUG;
+                        else
+                            provider.enabled = getAttributeBooleanValue(xml, "enabled", true);
 
                         String domain = xml.getAttributeValue(null, "domain");
                         if (domain != null)

@@ -187,8 +187,8 @@
     </provider>
     <provider
         name="Outlook"
-        description="Outlook"
-        enabled="false"
+        description="Outlook/Office 365 (alt)"
+        enabled="debug"
         id="outlook"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
@@ -204,11 +204,10 @@
             host="smtp.office365.com"
             port="587"
             starttls="true" />
-        <!--pop
+        <pop
             host="outlook.office365.com"
             port="995"
-            starttls="false" /-->
-        <!-- https://outlook.office.com/POP.AccessAsUser.All -->
+            starttls="false" />
         <oauth
             askAccount="true"
             authorizationEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize"
@@ -217,7 +216,7 @@
             privacy="https://privacy.microsoft.com/privacystatement"
             prompt="login"
             redirectUri="msauth.eu.faircode.email://auth"
-            scopes="openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send"
+            scopes="profile,openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send,https://outlook.office.com/POP.AccessAsUser.All"
             tokenEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token"
             tokenScopes="true" />
     </provider>
