@@ -4140,12 +4140,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } else if (id == R.id.ibSearch) {
                     onSearchContact(message, false);
                 } else if (id == R.id.ibTranslate) {
-                    if (DeepL.canTranslate(context))
-                        onActionTranslate(message);
-                    else {
-                        DeepL.FragmentDialogDeepL fragment = new DeepL.FragmentDialogDeepL();
-                        fragment.show(parentFragment.getParentFragmentManager(), "deepl:configure");
-                    }
+                    onActionTranslate(message);
                 } else if (id == R.id.ibFullScreen)
                     onActionOpenFull(message);
                 else if (id == R.id.ibForceLight) {
@@ -6496,12 +6491,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionTranslate(TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
+            if (DeepL.canTranslate(context)) {
+                Bundle args = new Bundle();
+                args.putLong("id", message.id);
 
-            FragmentDialogTranslate fragment = new FragmentDialogTranslate();
-            fragment.setArguments(args);
-            fragment.show(parentFragment.getParentFragmentManager(), "message:translate");
+                FragmentDialogTranslate fragment = new FragmentDialogTranslate();
+                fragment.setArguments(args);
+                fragment.show(parentFragment.getParentFragmentManager(), "message:translate");
+            } else {
+                DeepL.FragmentDialogDeepL fragment = new DeepL.FragmentDialogDeepL();
+                fragment.show(parentFragment.getParentFragmentManager(), "deepl:configure");
+            }
         }
 
         private void onActionForceLight(TupleMessageEx message) {
