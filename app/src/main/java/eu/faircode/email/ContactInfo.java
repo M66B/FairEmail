@@ -270,7 +270,7 @@ public class ContactInfo {
         boolean avatars = prefs.getBoolean("avatars", true);
         boolean prefer_contact = prefs.getBoolean("prefer_contact", false);
         boolean distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
-        boolean bimi = prefs.getBoolean("bimi", false);
+        boolean bimi = (prefs.getBoolean("bimi", false) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean gravatars = (prefs.getBoolean("gravatars", false) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean libravatars = (prefs.getBoolean("libravatars", false) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean favicons = prefs.getBoolean("favicons", false);

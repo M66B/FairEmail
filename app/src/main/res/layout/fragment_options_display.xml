@@ -1567,6 +1567,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="
+                    swBimi,tvBimiHint,tvBimiVerified,ibBimi,
                     swGravatars,tvGravatarsHint,tvGravatarPrivacy,
                     swLibravatars,tvLibravatarsHint,tvLibravatarPrivacy" />
             </androidx.constraintlayout.widget.ConstraintLayout>

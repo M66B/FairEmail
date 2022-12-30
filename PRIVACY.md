@@ -75,7 +75,7 @@ This table provides a complete overview of all shared data and the conditions un
 | Libravatar         | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Libravatars are enabled, upon receiving a message (*)                    |
 | GitHub             | None, but see the remarks below                                    | Upon downloading Disconnect's Tracker Protection lists                      |
 |                    |                                                                    | Upon checking for updates (*)                                               |
-| BIMI               | Domain name of email addresses                                     | If BIMI is enabled, upon receiving a message                                |
+| BIMI               | Domain name of email addresses                                     | If BIMI is enabled, upon receiving a message (*)                            |
 | Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message (*)                       |
 | Link title         | Link address                                                       | Upon pressing a download button in the insert link dialog                   |
 | Bugsnag            | Information about warnings and errors                              | If error reporting is enabled, upon detecting an abnormal situation         |
