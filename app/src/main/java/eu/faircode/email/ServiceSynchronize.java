@@ -373,7 +373,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 }
                                 if (current.canRun(ServiceSynchronize.this)) {
                                     event = true;
-                                    start(current, current.accountState.isEnabled(current.enabled) || sync, force);
+                                    boolean dosync = (sync ||
+                                            current.accountState.isEnabled(current.enabled) ||
+                                            !prev.accountState.equals(current.accountState)); // Token refreshed
+                                    start(current, dosync, force);
                                 }
                             } else if (current.canRun(ServiceSynchronize.this) &&
                                     state != null && !state.isAlive()) {
