@@ -32,19 +32,19 @@ public class VirusTotal {
     static final String URI_PRIVACY = "";
 
     static String getUrl(File file) {
-        throw new NotImplementedException("VirusTotal");
+        throw new IllegalArgumentException("VirusTotal");
     }
 
     static Bundle lookup(Context context, File file, String apiKey) {
-        throw new NotImplementedException("VirusTotal");
+        throw new IllegalArgumentException("VirusTotal");
     }
 
     static String upload(Context context, File file, String apiKey) {
-        throw new NotImplementedException("VirusTotal");
+        throw new IllegalArgumentException("VirusTotal");
     }
 
     static void waitForAnalysis(Context context, String id, String apiKey) {
-        throw new NotImplementedException("VirusTotal");
+        throw new IllegalArgumentException("VirusTotal");
     }
 
     public static class ScanResult implements Parcelable {

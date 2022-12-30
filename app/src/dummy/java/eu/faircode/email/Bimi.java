@@ -29,6 +29,6 @@ public class Bimi {
     static Pair<Bitmap, Boolean> get(
             Context context, String _domain, String selector, int scaleToPixels)
             throws IOException {
-        throw new NotImplementedException("BIMI");
+        throw new IllegalArgumentException("BIMI");
     }
 }

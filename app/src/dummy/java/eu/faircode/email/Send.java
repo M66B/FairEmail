@@ -29,7 +29,7 @@ public class Send {
     static final String DEFAULT_SERVER = "";
 
     public static String upload(InputStream is, DocumentFile dfile, int dLimit, int timeLimit, String host, IProgress intf) {
-        throw new NotImplementedException("Send");
+        throw new IllegalArgumentException("Send");
     }
 
     public interface IProgress {

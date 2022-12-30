@@ -21,8 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 
-import org.apache.poi.ss.formula.eval.NotImplementedException;
-
 import java.util.concurrent.Callable;
 
 public class Avatar {
@@ -33,7 +31,7 @@ public class Avatar {
         return new Callable<ContactInfo.Favicon>() {
             @Override
             public ContactInfo.Favicon call() throws Exception {
-                throw new NotImplementedException("Gravatar");
+                throw new IllegalArgumentException("Gravatar");
             }
         };
     }
@@ -42,7 +40,7 @@ public class Avatar {
         return new Callable<ContactInfo.Favicon>() {
             @Override
             public ContactInfo.Favicon call() throws Exception {
-                throw new NotImplementedException("Libravatar");
+                throw new IllegalArgumentException("Libravatar");
             }
         };
     }
