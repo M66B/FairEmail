@@ -109,7 +109,6 @@ import java.io.InputStream;
 import java.io.StringReader;
 import java.net.URI;
 import java.text.DateFormat;
-import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.ArrayList;
