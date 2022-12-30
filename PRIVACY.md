@@ -61,8 +61,8 @@ This table provides a complete overview of all shared data and the conditions un
 
 | Service/function   | Data sent                                                          | When the data will be sent                                                  |
 | ------------------ | ------------------------------------------------------------------ | --------------------------------------------------------------------------- |
-| Mozilla autoconfig | Email address of email accounts                                    | Upon configuring an email account                                           |
-| Email server       | Login credentials, messages sent                                   | Upon configuring and using an account or identity and upon sending messages |
+| Mozilla autoconfig | Domain name of email address of email accounts                     | Upon configuring an email account with the quick setup wizard               |
+| Email server       | Login credentials (email address/password), messages sent          | Upon configuring and using an account or identity and upon sending messages |
 | ipinfo.io          | IP (network) address of domain names of links or email addresses   | Upon pressing a button in the link confirmation dialog                      |
 | Spamhaus           | IP (network) address of domain names of links or email addresses   | If spam blocklists are enabled, upon receiving a message                    |
 | Spamcop            | IP (network) address of domain names of links or email addresses   | If spam blocklists are enabled, upon receiving a message                    |
@@ -76,7 +76,7 @@ This table provides a complete overview of all shared data and the conditions un
 | GitHub             | None, but see the remarks below                                    | Upon downloading Disconnect's Tracker Protection lists                      |
 |                    |                                                                    | Upon checking for updates (*)                                               |
 | BIMI               | Domain name of email addresses                                     | If BIMI is enabled, upon receiving a message                                |
-| Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message                           |
+| Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message (*)                       |
 | Link title         | Link address                                                       | Upon pressing a download button in the insert link dialog                   |
 | Bugsnag            | Information about warnings and errors                              | If error reporting is enabled, upon detecting an abnormal situation         |
 
