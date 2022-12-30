@@ -690,6 +690,7 @@
     </provider>
     <provider
         name="Zoho"
+        documentation="You might need to use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
         domain="zoho\\.com"
         link="https://www.zoho.com/mail/help/imap-access.html"
         maxtls="1.2">
@@ -704,6 +705,7 @@
     </provider>
     <provider
         name="Zoho EU"
+        documentation="You might need to use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
         domain="zohomail\\.eu"
         link="https://www.zoho.eu/mail/help/imap-access.html"
         maxtls="1.2">
@@ -718,6 +720,7 @@
     </provider>
     <provider
         name="Zoho AU"
+        documentation="You might need to use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
         domain="zohomail\\.com\\.au"
         maxtls="1.2">
         <imap
