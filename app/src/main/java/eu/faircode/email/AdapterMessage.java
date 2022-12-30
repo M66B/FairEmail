@@ -335,6 +335,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private DateFormat TF;
     private DateFormat DTF;
 
+    private static final ExecutorService executor =
+            Helper.getBackgroundExecutor(0, 0, 3, "avatar");
+
     private static final int MAX_RECIPIENTS_COMPACT = 3;
     private static final int MAX_RECIPIENTS_NORMAL = 7;
 
@@ -1605,7 +1608,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                     }
-                }.setLog(false);
+                }.setExecutor(executor).setLog(false);
                 taskContactInfo.execute(context, owner, aargs, "message:avatar");
             } else
                 bindContactInfo(message, info, addresses);
