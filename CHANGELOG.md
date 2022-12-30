@@ -6,6 +6,11 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### 1.2022 - 2022-12-30
+
+* Reverted Bugfix to comply with Play Store policies
+* Small improvements and minor bug fixes
+
 ### 1.2021 - 2022-12-30
 
 * Disabled BIMI for the Play Store version
