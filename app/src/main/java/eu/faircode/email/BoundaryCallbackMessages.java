@@ -1225,6 +1225,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             if (obj instanceof SearchCriteria) {
                 SearchCriteria other = (SearchCriteria) obj;
                 return (Objects.equals(this.query, other.query) &&
+                        this.fts == other.fts &&
                         this.in_senders == other.in_senders &&
                         this.in_recipients == other.in_recipients &&
                         this.in_subject == other.in_subject &&
