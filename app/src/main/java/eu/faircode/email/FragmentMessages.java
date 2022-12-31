@@ -6420,13 +6420,14 @@ public class FragmentMessages extends FragmentBase
         @Override
         public void onLoading() {
             loading = true;
-            initialized = true;
             updateListState("Loading", SimpleTask.getCount(), adapter == null ? 0 : adapter.getItemCount());
         }
 
         @Override
         public void onLoaded(int found) {
             loading = false;
+            if (viewType == AdapterMessage.ViewType.SEARCH)
+                initialized = true;
             updateListState("Loaded found=" + found, SimpleTask.getCount(), adapter == null ? 0 : adapter.getItemCount() + found);
         }
 
@@ -6536,7 +6537,7 @@ public class FragmentMessages extends FragmentBase
                 (filter_unknown && !EntityFolder.isOutgoing(type)) ||
                 (language_detection && !TextUtils.isEmpty(filter_language) && !outbox));
 
-        boolean none = (items == 0 && !loading && initialized);
+        boolean none = (items == 0 && initialized);
         boolean filtered = (filter_active && viewType != AdapterMessage.ViewType.SEARCH);
 
         pbWait.setVisibility(loading || tasks > 0 ? View.VISIBLE : View.GONE);
