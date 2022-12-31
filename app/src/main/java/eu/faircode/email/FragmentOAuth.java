@@ -125,6 +125,7 @@ public class FragmentOAuth extends FragmentBase {
     private TextView tvConfiguring;
     private TextView tvGmailHint;
     private TextView tvGmailLoginHint;
+    private TextView tvGmailLoginMax;
 
     private TextView tvError;
     private TextView tvOfficeAuthHint;
@@ -180,6 +181,7 @@ public class FragmentOAuth extends FragmentBase {
         tvConfiguring = view.findViewById(R.id.tvConfiguring);
         tvGmailHint = view.findViewById(R.id.tvGmailHint);
         tvGmailLoginHint = view.findViewById(R.id.tvGmailLoginHint);
+        tvGmailLoginMax = view.findViewById(R.id.tvGmailLoginMax);
 
         tvError = view.findViewById(R.id.tvError);
         tvOfficeAuthHint = view.findViewById(R.id.tvOfficeAuthHint);
@@ -271,6 +273,7 @@ public class FragmentOAuth extends FragmentBase {
         tvConfiguring.setVisibility(View.GONE);
         tvGmailHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
         tvGmailLoginHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
+        tvGmailLoginMax.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
         hideError();
 
         etName.setText(personal);
