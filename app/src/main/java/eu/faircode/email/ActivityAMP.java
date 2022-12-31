@@ -32,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.Group;
@@ -104,6 +105,27 @@ public class ActivityAMP extends ActivityBase {
         settings.setBlockNetworkLoads(false);
         settings.setBlockNetworkImage(false);
         settings.setJavaScriptEnabled(true);
+
+        wvAmp.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                boolean confirm_links = prefs.getBoolean("confirm_links", true);
+                if (confirm_links) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("uri", Uri.parse(url));
+                    args.putString("title", null);
+                    args.putBoolean("always_confirm", true);
+
+                    FragmentDialogOpenLink fragment = new FragmentDialogOpenLink();
+                    fragment.setArguments(args);
+                    fragment.show(getSupportFragmentManager(), "open:link");
+
+                    return true;
+                }
+
+                return false;
+            }
+        });
 
         // Initialize
         grpReady.setVisibility(View.GONE);
