@@ -598,31 +598,24 @@ public class EmailProvider implements Parcelable {
     @NonNull
     private static EmailProvider fromISPDB(Context context, String domain, String email) throws Throwable {
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration
-        Throwable failure;
+        if (!BuildConfig.PLAY_STORE_RELEASE) {
+            try {
+                URL url = new URL("https://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=" + email);
+                return getISPDB(context, domain, url);
+            } catch (Throwable ex) {
+                Log.i(ex);
+            }
 
-        try {
-            URL url = new URL("https://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=" + email);
-            return getISPDB(context, domain, url);
-        } catch (Throwable ex) {
-            Log.i(ex);
-            failure = ex;
+            try {
+                URL url = new URL("https://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email);
+                return getISPDB(context, domain, url);
+            } catch (Throwable ex) {
+                Log.i(ex);
+            }
         }
 
-        try {
-            URL url = new URL("https://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email);
-            return getISPDB(context, domain, url);
-        } catch (Throwable ex) {
-            Log.i(ex);
-        }
-
-        try {
-            URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
-            return getISPDB(context, domain, url);
-        } catch (Throwable ex) {
-            Log.i(ex);
-        }
-
-        throw failure;
+        URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
+        return getISPDB(context, domain, url);
     }
 
     @NonNull
