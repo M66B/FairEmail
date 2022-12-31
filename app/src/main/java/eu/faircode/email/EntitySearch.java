@@ -82,7 +82,8 @@ public class EntitySearch {
     public boolean equals(Object obj) {
         if (obj instanceof EntitySearch) {
             EntitySearch other = (EntitySearch) obj;
-            return (this.id.equals(other.id) &&
+            return (Objects.equals(this.account_uuid, other.account_uuid) &&
+                    Objects.equals(this.folder_name, other.folder_name) &&
                     this.name.equals(other.name) &&
                     Objects.equals(this.order, other.order) &&
                     Objects.equals(this.color, other.color) &&

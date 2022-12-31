@@ -1118,8 +1118,18 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         for (int s = 0; s < jsearches.length(); s++) {
                             JSONObject jsearch = (JSONObject) jsearches.get(s);
                             EntitySearch search = EntitySearch.fromJSON(jsearch);
-                            search.id = null;
-                            db.search().insertSearch(search);
+
+                            boolean found = false;
+                            for (EntitySearch other : db.search().getSearches())
+                                if (other.equals(search)) {
+                                    found = true;
+                                    break;
+                                }
+
+                            if (!found) {
+                                search.id = null;
+                                db.search().insertSearch(search);
+                            }
                         }
                     }
 
