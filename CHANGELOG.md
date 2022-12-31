@@ -6,6 +6,10 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### 1.2024 - 2022-12-31
+
+* Small improvements and minor bug fixes
+
 ### 1.2023 - 2022-12-30
 
 * Restored the bugfix and declared that the app is sending email addresses to third-parties in the Play Store data safety form when it is not :-(
