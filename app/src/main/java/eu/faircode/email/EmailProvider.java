@@ -598,21 +598,13 @@ public class EmailProvider implements Parcelable {
     @NonNull
     private static EmailProvider fromISPDB(Context context, String domain, String email) throws Throwable {
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration
-        if (!BuildConfig.PLAY_STORE_RELEASE) {
+        for (String link : Misc.getISPDBUrls(domain, email))
             try {
-                URL url = new URL("https://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=" + email);
+                URL url = new URL(link);
                 return getISPDB(context, domain, url);
             } catch (Throwable ex) {
                 Log.i(ex);
             }
-
-            try {
-                URL url = new URL("https://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email);
-                return getISPDB(context, domain, url);
-            } catch (Throwable ex) {
-                Log.i(ex);
-            }
-        }
 
         URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
         return getISPDB(context, domain, url);
