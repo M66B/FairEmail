@@ -1172,7 +1172,17 @@ public class FragmentFolders extends FragmentBase {
                 List<Long> ids = db.message().getMessageIdsByFolder(fid);
                 if (ids == null)
                     return 0;
+
                 EntityLog.log(context, "Executing rules messages=" + ids.size());
+
+                // Check header conditions
+                for (long mid : ids) {
+                    EntityMessage message = db.message().getMessage(mid);
+                    if (message == null || message.ui_hide)
+                        continue;
+                    for (EntityRule rule : rules)
+                        rule.matches(context, message, null, null);
+                }
 
                 int applied = 0;
                 for (long mid : ids)
