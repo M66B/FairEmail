@@ -59,6 +59,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 
@@ -98,6 +99,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private IBoundaryCallbackMessages intf;
 
     private State state;
+
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
     private static final int SEARCH_LIMIT_DEVICE = 1000;
 
@@ -149,7 +152,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     void retry() {
-        Helper.getSerialExecutor().submit(new Runnable() {
+        executor.submit(new Runnable() {
             @Override
             public void run() {
                 close(state, true);
@@ -166,7 +169,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         state.queued.incrementAndGet();
         Log.i("Boundary queued +" + state.queued.get());
 
-        Helper.getSerialExecutor().submit(new Runnable() {
+        executor.submit(new Runnable() {
             @Override
             public void run() {
                 Helper.gc();
@@ -893,7 +896,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         this.intf = null;
         Log.i("Boundary destroy");
 
-        Helper.getSerialExecutor().submit(new Runnable() {
+        executor.submit(new Runnable() {
             @Override
             public void run() {
                 close(state, true);
