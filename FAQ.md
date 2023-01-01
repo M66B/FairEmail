@@ -4060,6 +4060,7 @@ The confusing Microsoft specific server error *User is authenticated but not con
 * There were too many login attempts in a too short time, for example by using multiple email clients at the same time
 * The wrong account was selected in the Microsoft account selector, for example an account with a different email address or a personal instead of a business account
 * An ad blocker or DNS changer is being used
+* Devices in another time zone are connected to the same account
 * There is a problem with the Exchange server license: it might be expired or for another server edition
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
