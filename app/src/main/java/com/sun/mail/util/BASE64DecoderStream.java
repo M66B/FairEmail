@@ -335,6 +335,7 @@ public class BASE64DecoderStream extends FilterInputStream {
      */
     private int getByte() throws IOException {
 	int c;
+	int bad = 0;
 	do {
 	    if (input_pos >= input_len) {
 		try {
@@ -353,6 +354,8 @@ public class BASE64DecoderStream extends FilterInputStream {
 		return -2;
 	    // no, convert it
 	    c = pem_convert_array[c];
+	    if (c == -1 && ++bad > 10 && eu.faircode.email.BuildConfig.DEBUG)
+		    return -1;
 	    // loop until we get a legitimate byte
 	} while (c == -1);
 	return c;
