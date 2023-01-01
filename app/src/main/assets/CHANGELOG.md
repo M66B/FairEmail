@@ -6,6 +6,11 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### 1.2025 - 2023-01-01
+
+* Happy New Year / Frohes neues Jahr / Bonne Année
+* Small improvements and minor bug fixes
+
 ### 1.2024 - 2022-12-31
 
 * Small improvements and minor bug fixes
