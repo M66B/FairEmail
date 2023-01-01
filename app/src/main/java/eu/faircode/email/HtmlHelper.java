@@ -763,7 +763,7 @@ public class HtmlHelper {
                                     // Special case:
                                     //   external draft: very dark/light font
                                     double lum = ColorUtils.calculateLuminance(color);
-                                    if (dark ? lum < 1 - MIN_LUMINANCE_COMPOSE : lum > MIN_LUMINANCE_COMPOSE)
+                                    if (lum < 1 - MIN_LUMINANCE_COMPOSE || lum > MIN_LUMINANCE_COMPOSE)
                                         color = null;
                                 }
 
