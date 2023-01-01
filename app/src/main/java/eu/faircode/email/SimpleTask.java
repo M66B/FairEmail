@@ -408,7 +408,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             @Override
             public void run() {
                 try {
-                    onProgress(status, data);
+                    if (!destroyed)
+                        onProgress(status, data);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
