@@ -103,8 +103,8 @@ public class EmailProvider implements Parcelable {
 
     private static List<EmailProvider> imported;
 
-    private static final int SCAN_TIMEOUT = 15 * 1000; // milliseconds
-    private static final int ISPDB_TIMEOUT = 15 * 1000; // milliseconds
+    private static final int SCAN_TIMEOUT = 10 * 1000; // milliseconds
+    private static final int ISPDB_TIMEOUT = 10 * 1000; // milliseconds
 
     private static final List<String> PROPRIETARY = Collections.unmodifiableList(Arrays.asList(
             "protonmail.ch",
