@@ -360,10 +360,6 @@ public class EmailProvider implements Parcelable {
         return result;
     }
 
-    interface IDiscovery {
-        void onStatus(String status);
-    }
-
     @NonNull
     static List<EmailProvider> fromDomain(Context context, String domain, Discover discover) throws IOException {
         return fromEmail(context, domain, discover,
@@ -398,6 +394,7 @@ public class EmailProvider implements Parcelable {
                     }
 
         try {
+            intf.onStatus("NS " + domain);
             DnsHelper.DnsRecord[] ns = DnsHelper.lookup(context, domain, "ns");
             for (DnsHelper.DnsRecord record : ns)
                 for (EmailProvider provider : providers)
@@ -444,6 +441,7 @@ public class EmailProvider implements Parcelable {
         try {
             List<DnsHelper.DnsRecord> records = new ArrayList<>();
             try {
+                intf.onStatus("MX " + domain);
                 DnsHelper.DnsRecord[] mx = DnsHelper.lookup(context, domain, "mx");
                 if (mx.length > 0)
                     records.add(mx[0]);
@@ -627,7 +625,7 @@ public class EmailProvider implements Parcelable {
         HttpURLConnection request = null;
         try {
             Log.i("Fetching " + url);
-            intf.onStatus(url.toString());
+            intf.onStatus("ISPDB " + url);
 
             request = (HttpURLConnection) url.openConnection();
             request.setRequestMethod("GET");
@@ -823,9 +821,8 @@ public class EmailProvider implements Parcelable {
         if (discover == Discover.ALL || discover == Discover.IMAP) {
             try {
                 // Identifies an IMAP server where TLS is initiated directly upon connection to the IMAP server.
-                String name = "_imaps._tcp." + domain;
-                intf.onStatus(name);
-                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, name, "srv");
+                intf.onStatus("SRV imaps " + domain);
+                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_imaps._tcp." + domain, "srv");
                 if (records.length == 0)
                     throw new UnknownHostException(domain);
                 // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
@@ -836,6 +833,7 @@ public class EmailProvider implements Parcelable {
                 EntityLog.log(context, "_imaps._tcp." + domain + "=" + provider.imap);
             } catch (UnknownHostException ignored) {
                 // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
+                intf.onStatus("SRV imap " + domain);
                 DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_imap._tcp." + domain, "srv");
                 if (records.length == 0)
                     throw new UnknownHostException(domain);
@@ -850,9 +848,8 @@ public class EmailProvider implements Parcelable {
         if (discover == Discover.ALL || discover == Discover.SMTP)
             try {
                 // Note that this covers connections both with and without Transport Layer Security (TLS)
-                String name = "_submission._tcp." + domain;
-                intf.onStatus(name);
-                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, name, "srv");
+                intf.onStatus("SRV smtp " + domain);
+                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_submission._tcp." + domain, "srv");
                 if (records.length == 0)
                     throw new UnknownHostException(domain);
                 provider.smtp.score = 50;
@@ -862,6 +859,7 @@ public class EmailProvider implements Parcelable {
                 EntityLog.log(context, "_submission._tcp." + domain + "=" + provider.smtp);
             } catch (UnknownHostException ignored) {
                 // https://tools.ietf.org/html/rfc8314
+                intf.onStatus("SRV smtps " + domain);
                 DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_submissions._tcp." + domain, "srv");
                 if (records.length == 0)
                     throw new UnknownHostException(domain);
@@ -900,7 +898,7 @@ public class EmailProvider implements Parcelable {
 
             Server untrusted = null;
             for (Server server : imaps) {
-                intf.onStatus(server.toString());
+                intf.onStatus("HOST " + server);
                 Boolean result = server.isReachable.get();
                 if (result == null) {
                     if (untrusted == null)
@@ -934,7 +932,7 @@ public class EmailProvider implements Parcelable {
 
             Server untrusted = null;
             for (Server server : smtps) {
-                intf.onStatus(server.toString());
+                intf.onStatus("HOST " + server);
                 Boolean result = server.isReachable.get();
                 if (result == null) {
                     if (untrusted == null)
@@ -1329,6 +1327,10 @@ public class EmailProvider implements Parcelable {
         public String toString() {
             return host + ":" + port + (starttls ? " starttls" : " ssl/tls") + " " + score;
         }
+    }
+
+    interface IDiscovery {
+        void onStatus(String status);
     }
 
     public static class OAuth {
