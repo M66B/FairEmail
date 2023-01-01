@@ -261,7 +261,7 @@ public class MessageHelper {
 
         // https://docs.oracle.com/javaee/6/api/javax/mail/internet/MimeMultipart.html
         System.setProperty("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // default true, javax.mail.internet.ParseException: In parameter list
-        System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true"); // default false
+        System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "false"); // default false
         System.setProperty("mail.mime.multipart.ignoremissingendboundary", "true"); // default true
         System.setProperty("mail.mime.multipart.allowempty", "true"); // default false
         System.setProperty("mail.mime.contentdisposition.strict", "false"); // default true
