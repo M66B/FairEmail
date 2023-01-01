@@ -716,6 +716,7 @@
     <string name="title_advanced_disconnect_auto_update">Automatically update lists weekly</string>
     <string name="title_advanced_disconnect_links">Use lists to warn about tracking links</string>
     <string name="title_advanced_disconnect_images">Use lists to recognize tracking images</string>
+    <string name="title_advanced_clear_all_hint">This will delete all app data from your device, including configured email accounts, messages, settings, and any collected data.</string>
     <string name="title_advanced_mnemonic">Delete data remotely</string>
     <string name="title_advanced_mnemonic_hint">Any email received with the below words in the subject line will automatically and immediately delete the app data</string>
     <string name="title_advanced_clear_all">Delete the app data</string>
