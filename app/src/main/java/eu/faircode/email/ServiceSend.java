@@ -58,6 +58,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.concurrent.ExecutorService;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
@@ -82,6 +83,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private TwoStateOwner owner;
     private PowerManager.WakeLock wlOutbox;
     private List<Long> handling = new ArrayList<>();
+
+    private static final ExecutorService executor =
+            Helper.getBackgroundExecutor(0, 1, 3, "send");
 
     private static final int RETRY_MAX = 3;
     private static final int CONNECTIVITY_DELAY = 5000; // milliseconds
@@ -146,7 +150,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                             "Send process=" + TextUtils.join(",", process) +
                                     " handling=" + TextUtils.join(",", handling));
 
-                    Helper.getSerialExecutor().submit(new Runnable() {
+                    executor.submit(new Runnable() {
                         @Override
                         public void run() {
                             processOperations(process);
