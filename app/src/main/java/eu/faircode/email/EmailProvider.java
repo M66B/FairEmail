@@ -360,13 +360,23 @@ public class EmailProvider implements Parcelable {
         return result;
     }
 
-    @NonNull
-    static List<EmailProvider> fromDomain(Context context, String domain, Discover discover) throws IOException {
-        return fromEmail(context, domain, discover);
+    interface IDiscovery {
+        void onStatus(String status);
     }
 
     @NonNull
-    static List<EmailProvider> fromEmail(Context context, String email, Discover discover) throws IOException {
+    static List<EmailProvider> fromDomain(Context context, String domain, Discover discover) throws IOException {
+        return fromEmail(context, domain, discover,
+                new IDiscovery() {
+                    @Override
+                    public void onStatus(String status) {
+                        // Do nothing
+                    }
+                });
+    }
+
+    @NonNull
+    static List<EmailProvider> fromEmail(Context context, String email, Discover discover, IDiscovery intf) throws IOException {
         int at = email.indexOf('@');
         String domain = (at < 0 ? email : email.substring(at + 1));
         if (at < 0)
@@ -400,7 +410,7 @@ public class EmailProvider implements Parcelable {
         }
 
         List<EmailProvider> candidates =
-                new ArrayList<>(_fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover));
+                new ArrayList<>(_fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover, intf));
 
         if (false) // Unsafe: the password could be sent to an unrelated email server
             try {
@@ -421,7 +431,7 @@ public class EmailProvider implements Parcelable {
                             InetAddress ialt = InetAddress.getByName(altName);
                             if (!ialt.equals(iaddr)) {
                                 EntityLog.log(context, "Using website common name=" + altName);
-                                candidates.addAll(_fromDomain(context, altName.toLowerCase(Locale.ROOT), email, discover));
+                                candidates.addAll(_fromDomain(context, altName.toLowerCase(Locale.ROOT), email, discover, intf));
                             }
                         } catch (Throwable ex) {
                             Log.w(ex);
@@ -465,7 +475,7 @@ public class EmailProvider implements Parcelable {
                     }
 
                     while (candidates.size() == 0 && target.indexOf('.') > 0) {
-                        candidates.addAll(_fromDomain(context, target, email, discover));
+                        candidates.addAll(_fromDomain(context, target, email, discover, intf));
                         int dot = target.indexOf('.');
                         target = target.substring(dot + 1);
                         if (UriHelper.isTld(context, target))
@@ -565,13 +575,13 @@ public class EmailProvider implements Parcelable {
     }
 
     @NonNull
-    private static List<EmailProvider> _fromDomain(Context context, String domain, String email, Discover discover) {
+    private static List<EmailProvider> _fromDomain(Context context, String domain, String email, Discover discover, IDiscovery intf) {
         List<EmailProvider> result = new ArrayList<>();
 
         try {
             // Assume the provider knows best
             Log.i("Provider from DNS domain=" + domain);
-            result.add(fromDNS(context, domain, discover));
+            result.add(fromDNS(context, domain, discover, intf));
         } catch (Throwable ex) {
             Log.w(ex);
         }
@@ -579,7 +589,7 @@ public class EmailProvider implements Parcelable {
         try {
             // Check ISPDB
             Log.i("Provider from ISPDB domain=" + domain);
-            result.add(fromISPDB(context, domain, email));
+            result.add(fromISPDB(context, domain, email, intf));
         } catch (Throwable ex) {
             Log.w(ex);
         }
@@ -587,7 +597,7 @@ public class EmailProvider implements Parcelable {
         try {
             // Scan ports
             Log.i("Provider from scan domain=" + domain);
-            result.add(fromScan(context, domain, discover));
+            result.add(fromScan(context, domain, discover, intf));
         } catch (Throwable ex) {
             Log.w(ex);
         }
@@ -596,27 +606,28 @@ public class EmailProvider implements Parcelable {
     }
 
     @NonNull
-    private static EmailProvider fromISPDB(Context context, String domain, String email) throws Throwable {
+    private static EmailProvider fromISPDB(Context context, String domain, String email, IDiscovery intf) throws Throwable {
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration
         for (String link : Misc.getISPDBUrls(domain, email))
             try {
                 URL url = new URL(link);
-                return getISPDB(context, domain, url);
+                return getISPDB(context, domain, url, intf);
             } catch (Throwable ex) {
                 Log.i(ex);
             }
 
         URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
-        return getISPDB(context, domain, url);
+        return getISPDB(context, domain, url, intf);
     }
 
     @NonNull
-    private static EmailProvider getISPDB(Context context, String domain, URL url) throws IOException, XmlPullParserException {
+    private static EmailProvider getISPDB(Context context, String domain, URL url, IDiscovery intf) throws IOException, XmlPullParserException {
         EmailProvider provider = new EmailProvider(domain);
 
         HttpURLConnection request = null;
         try {
             Log.i("Fetching " + url);
+            intf.onStatus(url.toString());
 
             request = (HttpURLConnection) url.openConnection();
             request.setRequestMethod("GET");
@@ -805,14 +816,16 @@ public class EmailProvider implements Parcelable {
     }
 
     @NonNull
-    private static EmailProvider fromDNS(Context context, String domain, Discover discover) throws UnknownHostException {
+    private static EmailProvider fromDNS(Context context, String domain, Discover discover, IDiscovery intf) throws UnknownHostException {
         // https://tools.ietf.org/html/rfc6186
         EmailProvider provider = new EmailProvider(domain);
 
         if (discover == Discover.ALL || discover == Discover.IMAP) {
             try {
                 // Identifies an IMAP server where TLS is initiated directly upon connection to the IMAP server.
-                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_imaps._tcp." + domain, "srv");
+                String name = "_imaps._tcp." + domain;
+                intf.onStatus(name);
+                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, name, "srv");
                 if (records.length == 0)
                     throw new UnknownHostException(domain);
                 // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
@@ -837,7 +850,9 @@ public class EmailProvider implements Parcelable {
         if (discover == Discover.ALL || discover == Discover.SMTP)
             try {
                 // Note that this covers connections both with and without Transport Layer Security (TLS)
-                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_submission._tcp." + domain, "srv");
+                String name = "_submission._tcp." + domain;
+                intf.onStatus(name);
+                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, name, "srv");
                 if (records.length == 0)
                     throw new UnknownHostException(domain);
                 provider.smtp.score = 50;
@@ -863,7 +878,7 @@ public class EmailProvider implements Parcelable {
     }
 
     @NonNull
-    private static EmailProvider fromScan(Context context, String domain, Discover discover)
+    private static EmailProvider fromScan(Context context, String domain, Discover discover, IDiscovery intf)
             throws ExecutionException, InterruptedException, UnknownHostException {
         // https://tools.ietf.org/html/rfc8314
         Server imap = null;
@@ -885,6 +900,7 @@ public class EmailProvider implements Parcelable {
 
             Server untrusted = null;
             for (Server server : imaps) {
+                intf.onStatus(server.toString());
                 Boolean result = server.isReachable.get();
                 if (result == null) {
                     if (untrusted == null)
@@ -918,6 +934,7 @@ public class EmailProvider implements Parcelable {
 
             Server untrusted = null;
             for (Server server : smtps) {
+                intf.onStatus(server.toString());
                 Boolean result = server.isReachable.get();
                 if (result == null) {
                     if (untrusted == null)

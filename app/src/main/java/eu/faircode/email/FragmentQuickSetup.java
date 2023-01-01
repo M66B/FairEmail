@@ -76,6 +76,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
     private TextView tvPatience;
+    private TextView tvProgress;
 
     private TextView tvError;
     private TextView tvErrorHint;
@@ -141,6 +142,7 @@ public class FragmentQuickSetup extends FragmentBase {
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
         tvPatience = view.findViewById(R.id.tvPatience);
+        tvProgress = view.findViewById(R.id.tvProgress);
 
         tvError = view.findViewById(R.id.tvError);
         tvErrorHint = view.findViewById(R.id.tvErrorHint);
@@ -248,6 +250,7 @@ public class FragmentQuickSetup extends FragmentBase {
         tvSmtpFingerprint.setText(null);
         pbCheck.setVisibility(View.GONE);
         tvPatience.setVisibility(View.GONE);
+        tvProgress.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
@@ -302,6 +305,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 Helper.setViewsEnabled(view, true);
                 pbCheck.setVisibility(View.GONE);
                 tvPatience.setVisibility(View.GONE);
+                tvProgress.setVisibility(View.GONE);
                 pbSave.setVisibility(View.GONE);
             }
 
@@ -333,13 +337,20 @@ public class FragmentQuickSetup extends FragmentBase {
                 Throwable fail = null;
                 List<EmailProvider> providers;
                 if (best == null)
-                    providers = EmailProvider.fromEmail(context, email, EmailProvider.Discover.ALL);
+                    providers = EmailProvider.fromEmail(context, email, EmailProvider.Discover.ALL,
+                            new EmailProvider.IDiscovery() {
+                                @Override
+                                public void onStatus(String status) {
+                                    postProgress(status);
+                                }
+                            });
                 else
                     providers = Arrays.asList(best);
                 for (EmailProvider provider : providers)
                     try {
                         EntityLog.log(context, "Checking" +
                                 " imap=" + provider.imap + " smtp=" + provider.smtp);
+                        postProgress(provider.imap + "/" + provider.smtp);
 
                         if (fail == null)
                             args.putParcelable("provider", provider);
@@ -619,6 +630,12 @@ public class FragmentQuickSetup extends FragmentBase {
                     throw fail;
 
                 return null;
+            }
+
+            @Override
+            protected void onProgress(CharSequence status, Bundle data) {
+                tvProgress.setText(status);
+                tvProgress.setVisibility(View.VISIBLE);
             }
 
             @Override
