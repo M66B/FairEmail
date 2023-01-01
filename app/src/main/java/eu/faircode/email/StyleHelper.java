@@ -26,6 +26,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.NoCopySpan;
@@ -107,6 +108,7 @@ public class StyleHelper {
             R.id.menu_style_superscript,
             R.id.menu_style_strikethrough,
             R.id.menu_style_insert_line,
+            R.id.menu_style_spell_check,
             R.id.menu_style_password,
             R.id.menu_style_code,
             R.id.menu_style_clear
@@ -132,7 +134,11 @@ public class StyleHelper {
 
             v.setOnClickListener(styleListener);
 
-            if (id == R.id.menu_style_password)
+            if (id == R.id.menu_style_spell_check)
+                v.setVisibility(
+                        BuildConfig.DEBUG && LanguageTool.isEnabled(v.getContext())
+                                ? View.VISIBLE : View.GONE);
+            else if (id == R.id.menu_style_password)
                 v.setVisibility(
                         !BuildConfig.PLAY_STORE_RELEASE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
                                 ? View.VISIBLE : View.GONE);
@@ -377,6 +383,15 @@ public class StyleHelper {
             }
 
             if (start == end &&
+                    itemId == R.id.menu_style_spell_check) {
+                Pair<Integer, Integer> paragraph = getParagraph(etBody);
+                if (paragraph == null)
+                    return false;
+                start = paragraph.first;
+                end = paragraph.second;
+            }
+
+            if (start == end &&
                     itemId != R.id.menu_link &&
                     itemId != R.id.menu_clear &&
                     itemId != R.id.menu_style_align && groupId != group_style_align &&
@@ -428,6 +443,8 @@ public class StyleHelper {
                     return setStrikeThrough(etBody, start, end, false);
                 else if (itemId == R.id.menu_style_insert_line)
                     return setLine(etBody, end);
+                else if (itemId == R.id.menu_style_spell_check)
+                    return spellCheck(owner, etBody, start, end);
                 else if (itemId == R.id.menu_style_password)
                     return setPassword(owner, etBody, start, end);
                 else if (itemId == R.id.menu_style_code) {
@@ -1222,6 +1239,53 @@ public class StyleHelper {
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         etBody.setSelection(end + 2);
+
+        return true;
+    }
+
+    static boolean spellCheck(LifecycleOwner owner, EditText etBody, int start, int end) {
+        Log.breadcrumb("style", "action", "spell");
+
+        etBody.setSelection(end);
+
+        final Context context = etBody.getContext();
+
+        Bundle args = new Bundle();
+        args.putCharSequence("text", etBody.getText().subSequence(start, end));
+
+        new SimpleTask<List<LanguageTool.Suggestion>>() {
+            private BackgroundColorSpan highlightSpan = null;
+
+            @Override
+            protected void onPreExecute(Bundle args) {
+                int textColorHighlight = Helper.resolveColor(context, android.R.attr.textColorHighlight);
+                highlightSpan = new BackgroundColorSpan(textColorHighlight);
+                etBody.getText().setSpan(highlightSpan, start, end,
+                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                if (highlightSpan != null)
+                    etBody.getText().removeSpan(highlightSpan);
+            }
+
+            @Override
+            protected List<LanguageTool.Suggestion> onExecute(Context context, Bundle args) throws Throwable {
+                CharSequence text = args.getCharSequence("text");
+                return LanguageTool.getSuggestions(context, text);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<LanguageTool.Suggestion> suggestions) {
+                LanguageTool.applySuggestions(etBody, start, end, suggestions);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
+            }
+        }.execute(context, owner, args, "spell");
 
         return true;
     }

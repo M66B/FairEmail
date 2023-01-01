@@ -270,6 +270,21 @@
             app:tint="@color/action_foreground" />
 
         <ImageButton
+            android:id="@+id/menu_style_spell_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_advanced_lt"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_advanced_lt"
+            app:layout_constraintStart_toEndOf="@id/menu_style_insert_line"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/twotone_spellcheck_24"
+            app:tint="@color/action_foreground" />
+
+        <ImageButton
             android:id="@+id/menu_style_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -279,7 +294,7 @@
             android:paddingVertical="6dp"
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_style_protect"
-            app:layout_constraintStart_toEndOf="@id/menu_style_insert_line"
+            app:layout_constraintStart_toEndOf="@id/menu_style_spell_check"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_lock_24"
             app:tint="@color/action_foreground" />
