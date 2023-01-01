@@ -1955,7 +1955,8 @@ public class Log {
                 Helper.hasPlayStore(context) ? "s" : "",
                 BuildConfig.DEBUG ? "d" : "",
                 ActivityBilling.isPro(context) ? "+" : "-"));
-        sb.append(String.format("Package: %s\r\n", BuildConfig.APPLICATION_ID));
+        sb.append(String.format("Package: %s uid: %d\r\n",
+                BuildConfig.APPLICATION_ID, android.os.Process.myUid()));
         sb.append(String.format("Android: %s (SDK device=%d target=%d)\r\n",
                 Build.VERSION.RELEASE, Build.VERSION.SDK_INT, Helper.getTargetSdk(context)));
 
@@ -1971,6 +1972,18 @@ public class Log {
         sb.append(String.format("Last cleanup: %s\r\n", new Date(last_cleanup)));
         sb.append(String.format("Now: %s\r\n", new Date()));
         sb.append(String.format("Zone: %s\r\n", TimeZone.getDefault().getID()));
+
+        String language = prefs.getString("language", null);
+        sb.append(String.format("Locale: def=%s lang=%s\r\n",
+                Locale.getDefault(), language));
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+            sb.append(String.format("System: %s\r\n",
+                    Resources.getSystem().getConfiguration().locale));
+        else {
+            LocaleList ll = Resources.getSystem().getConfiguration().getLocales();
+            for (int i = 0; i < ll.size(); i++)
+                sb.append(String.format("System: %s\r\n", ll.get(i)));
+        }
 
         sb.append("\r\n");
 
@@ -1994,9 +2007,6 @@ public class Log {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
             sb.append(String.format("SoC: %s/%s\r\n", Build.SOC_MANUFACTURER, Build.SOC_MODEL));
         sb.append(String.format("OS version: %s\r\n", osVersion));
-        sb.append(String.format("uid: %d\r\n", android.os.Process.myUid()));
-        sb.append(String.format("Log main: %b protocol: %b debug: %b build: %b\r\n",
-                main_log, protocol, Log.isDebugLogLevel(), BuildConfig.DEBUG));
         sb.append("\r\n");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -2023,21 +2033,12 @@ public class Log {
             }
         }
 
+        sb.append(String.format("Log main: %b protocol: %b debug: %b build: %b\r\n",
+                main_log, protocol, Log.isDebugLogLevel(), BuildConfig.DEBUG));
+
         int[] contacts = ContactInfo.getStats();
         sb.append(String.format("Contact lookup: %d cached: %d\r\n",
                 contacts[0], contacts[1]));
-
-        String language = prefs.getString("language", null);
-        sb.append(String.format("Locale: def=%s lang=%s\r\n",
-                Locale.getDefault(), language));
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
-            sb.append(String.format("System: %s\r\n",
-                    Resources.getSystem().getConfiguration().locale));
-        else {
-            LocaleList ll = Resources.getSystem().getConfiguration().getLocales();
-            for (int i = 0; i < ll.size(); i++)
-                sb.append(String.format("System: %s\r\n", ll.get(i)));
-        }
 
         String charset = MimeUtility.getDefaultJavaCharset();
         sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
