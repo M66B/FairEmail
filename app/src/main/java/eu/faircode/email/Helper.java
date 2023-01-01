@@ -248,6 +248,7 @@ public class Helper {
     private static ExecutorService sSerialExecutor = null;
     private static ExecutorService sParallelExecutor = null;
     private static ExecutorService sSerialTaskExecutor = null;
+    private static ExecutorService sMediaExecutor = null;
     private static ExecutorService sDownloadExecutor = null;
 
     private static int sOperationIndex = 0;
@@ -269,6 +270,12 @@ public class Helper {
         if (sSerialTaskExecutor == null)
             sSerialTaskExecutor = getBackgroundExecutor(1, "task");
         return sSerialTaskExecutor;
+    }
+
+    static ExecutorService getMediaTaskExecutor() {
+        if (sMediaExecutor == null)
+            sMediaExecutor = getBackgroundExecutor(0, 1, 3, "media");
+        return sMediaExecutor;
     }
 
     static ExecutorService getDownloadTaskExecutor() {

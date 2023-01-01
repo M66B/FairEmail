@@ -32,7 +32,7 @@ public class MediaPlayerHelper {
     static void queue(Context context, Uri uri, boolean alarm, int duration) {
         Log.i("Queuing sound=" + uri);
 
-        Helper.getSerialExecutor().submit(new Runnable() {
+        Helper.getMediaTaskExecutor().submit(new Runnable() {
             @Override
             public void run() {
                 try {

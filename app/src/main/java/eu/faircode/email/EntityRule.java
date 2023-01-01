@@ -997,7 +997,7 @@ public class EntityRule {
             return true;
         }
 
-        Helper.getSerialExecutor().submit(new Runnable() {
+        Helper.getMediaTaskExecutor().submit(new Runnable() {
             @Override
             public void run() {
                 try {
