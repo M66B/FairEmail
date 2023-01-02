@@ -1482,6 +1482,8 @@
     <string name="title_rule_name">Namn</string>
     <string name="title_rule_order">Ordning</string>
     <string name="title_rule_enabled">Aktiverad</string>
+    <string name="title_rule_daily">Kör dagligen (endast)</string>
+    <string name="title_rule_age">Meddelanden äldre än (dagar)</string>
     <string name="title_rule_stop">Stoppa bearbetningsregler efter att ha utfört denna regel</string>
     <string name="title_rule_sender">Avsändaren innehåller</string>
     <string name="title_rule_sender_known">Avsändaren är en kontakt</string>

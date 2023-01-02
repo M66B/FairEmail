@@ -163,6 +163,7 @@
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス許可を付与してください</string>
     <string name="title_setup_gmail_permissions">Google はすべてのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmail が明示的な同意なしにメッセージを削除することはありません</string>
     <string name="title_setup_gmail_login">Chrome でアカウントにサインインしている場合、新しいアカウントは Android の設定から追加する必要があります。Chrome の同期設定からログアウトすると回避できます。</string>
+    <string name="title_setup_gmail_max">「最大ログイン アカウント数に達しています」というエラーメッセージが表示される場合、ブラウザーのすべての Google アカウントからログアウトする必要があります。</string>
     <string name="title_setup_gmail_on_device">なぜデバイス上のアカウントを選択するのですか？</string>
     <string name="title_setup_gmail_password">デバイス上のアカウントの代わりにパスワードで別のアカウントを認証したい</string>
     <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によって IMAP/SMTP が無効にされていることが原因である可能性があります</string>
@@ -604,6 +605,7 @@
     <string name="title_advanced_disconnect_auto_update">リストを自動で毎週更新</string>
     <string name="title_advanced_disconnect_links">リストを使用してトラッキングリンクについて警告</string>
     <string name="title_advanced_disconnect_images">リストを使用してトラッキング画像を識別</string>
+    <string name="title_advanced_clear_all_hint">これにより、設定されたメールアカウント、メッセージ、設定、収集されたデータを含む、デバイスからすべてのアプリデータが削除されます。</string>
     <string name="title_advanced_mnemonic">リモートでデータを削除</string>
     <string name="title_advanced_mnemonic_hint">件名に以下の単語を含むメールを受信すると、自動的にアプリのデータを削除します</string>
     <string name="title_advanced_clear_all">アプリのデータを削除</string>

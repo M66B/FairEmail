@@ -644,6 +644,7 @@
     <string name="title_advanced_disconnect_auto_update">לעדכן את הרשימות אוטומטית כל שבוע</string>
     <string name="title_advanced_disconnect_links">להשתמש ברשימות כדי להזהיר על קישורי מעקב</string>
     <string name="title_advanced_disconnect_images">להשתמש ברשימות כדי לזהות תמונות מעקב</string>
+    <string name="title_advanced_clear_all_hint">פעולה זו תמחק את כל נתוני היישומון מהמכשיר שלך, כולל את כתובות הדוא״ל המוגדרות, ההודעות, ההגדרות וכל מיני נתונים אחרים שנאספו.</string>
     <string name="title_advanced_mnemonic">מחיקת הנתונים בצד המרוחק</string>
     <string name="title_advanced_mnemonic_hint">כל הודעה שהתקבלה עם המילים שלהלן כחלק מהנושא ימחקו את נתוני היישומון אוטומטית ומיידית</string>
     <string name="title_advanced_clear_all">מחיקת נתוני היישומון</string>
