@@ -282,12 +282,16 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             @Override
             public void onClick(View v) {
                 final Context context = getContext();
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
+
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), btnQuick);
                 Menu menu = popupMenu.getMenu();
 
                 Resources res = context.getResources();
                 String pkg = context.getPackageName();
-                List<EmailProvider> providers = EmailProvider.getProviders(context);
+                List<EmailProvider> providers = EmailProvider.getProviders(context, debug);
 
                 int order = 1;
 

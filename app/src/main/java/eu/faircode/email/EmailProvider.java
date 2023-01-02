@@ -77,6 +77,7 @@ public class EmailProvider implements Parcelable {
     public String id;
     public String name;
     public String description;
+    public boolean debug;
     public boolean enabled;
     public List<String> domain;
     public List<String> mx;
@@ -228,11 +229,8 @@ public class EmailProvider implements Parcelable {
                         if (provider.description == null)
                             provider.description = provider.name;
 
-                        String enabled = xml.getAttributeValue(null, "enabled");
-                        if ("debug".equals(enabled))
-                            provider.enabled = BuildConfig.DEBUG;
-                        else
-                            provider.enabled = getAttributeBooleanValue(xml, "enabled", true);
+                        provider.debug = getAttributeBooleanValue(xml, "debug", false);
+                        provider.enabled = getAttributeBooleanValue(xml, "enabled", true);
 
                         String domain = xml.getAttributeValue(null, "domain");
                         if (domain != null)
@@ -352,10 +350,15 @@ public class EmailProvider implements Parcelable {
         return null;
     }
 
+    // For user interface
     static List<EmailProvider> getProviders(Context context) {
+        return getProviders(context, false);
+    }
+
+    static List<EmailProvider> getProviders(Context context, boolean debug) {
         List<EmailProvider> result = new ArrayList<>();
         for (EmailProvider provider : loadProfiles(context))
-            if (provider.enabled)
+            if (provider.enabled || (provider.debug && debug))
                 result.add(provider);
         return result;
     }
