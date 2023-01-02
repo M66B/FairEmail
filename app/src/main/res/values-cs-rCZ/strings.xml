@@ -202,6 +202,8 @@
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
     <string name="title_setup_gmail_login">Pokud je Chrome přihlášený k účtu, nový účet může být přidán pouze přes Android. Tomu lze předejít odhlášením z Chrome přes nastavení synchronizace Chrome.</string>
+    <string name="title_setup_gmail_max">V případě chybové zprávy \"Jste přihlášeni k maximálnímu počtu účtů\", se musíte odhlásit 
+v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_gmail_on_device">Proč potřebuji vybrat účet na zařízení?</string>
     <string name="title_setup_gmail_password">Chci autorizovat účet s pomocí hesla namísto účtu v zařízení</string>
     <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
@@ -1514,7 +1516,7 @@
     <string name="title_rule_order">Pořadí</string>
     <string name="title_rule_enabled">Zapnuto</string>
     <string name="title_rule_daily">Spouštět denně (pouze)</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Zprávy starší než (dnů)</string>
+    <string name="title_rule_age">Zprávy starší než (dnů)</string>
     <string name="title_rule_stop">Zastavit zpracování pravidel po provedení tohoto pravidla</string>
     <string name="title_rule_sender">Odesílatel obsahuje</string>
     <string name="title_rule_sender_known">Odesílatel je kontakt</string>

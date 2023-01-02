@@ -202,6 +202,7 @@
     <string name="title_setup_gmail_rationale">נא להרשות לבחור חשבון ולקרוא את שמך</string>
     <string name="title_setup_gmail_permissions">Google יבקש לקרוא, לכתוב, לשלוח, ולמחוק את כל ההודעות שלך לצמיתות. Fairmail לעולם לא ימחק ללא הסכמתך המפורשת.</string>
     <string name="title_setup_gmail_login">אם נכנסת לחשבון ב־Chrome אפשר להוסיף חשבון חדש רק דרך Android. אפשר להימנע מזה על ידי יציאה מהחשבון ב־Chrome דרך הגדרות הסנכרון של Chrome.</string>
+    <string name="title_setup_gmail_max">אם מופיעה הודעת השגיאה „נכנסת לכמות המרבית של חשבונות”, יש להוציא את הדפדפן מכל חשבונות Google.</string>
     <string name="title_setup_gmail_on_device">מדוע עלי לבחור בחשבון שכבר מחובר במכשיר?</string>
     <string name="title_setup_gmail_password">ארצה לאמת חשבון עם סיסמה במקום חשבון פנימי במכשיר</string>
     <string name="title_setup_office_auth">השגיאה ‚AUTHENTICATE נכשל’ עלולה להיגרם עקב IMAP/SMTP שהושבתו על ידי הנהלת המערכת</string>
@@ -1518,7 +1519,7 @@
     <string name="title_rule_order">סדר</string>
     <string name="title_rule_enabled">פעיל</string>
     <string name="title_rule_daily">להריץ יומית (בלבד)</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">הודעות מלפני (ימים)</string>
+    <string name="title_rule_age">הודעות מלפני (ימים)</string>
     <string name="title_rule_stop">להפסיק לעבד כללים אחרי הפעלת הכלל הזה</string>
     <string name="title_rule_sender">המוען מכיל</string>
     <string name="title_rule_sender_known">המוען באנשי הקשר</string>

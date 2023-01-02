@@ -176,6 +176,7 @@
     <string name="title_setup_gmail_rationale">Παρακαλώ, παραχωρήστε τις απαιτούμενες άδειες για την επιλογή ενός λογαριασμού και την ανάγνωση του ονόματός σας</string>
     <string name="title_setup_gmail_permissions">Η Google θα ζητήσει άδειες που αφορούν στην ανάγνωση, σύνταξη, αποστολή και οριστική διαγραφή όλων των μηνυμάτων σας. Το FairEmail δεν θα διαγράψει ποτέ τα μηνύματά σας χωρίς τη ρητή συγκατάθεσή σας.</string>
     <string name="title_setup_gmail_login">Εάν το Chrome είναι συνδεδεμένο με έναν λογαριασμό, μπορεί να προστεθεί ένας καινούργιος λογαριασμός μόνον μέσα από το Android. Αυτό μπορεί να αποφευχθεί, εάν αποσυνδεθείτε από το Chrome μέσω των ρυθμίσεων συγχρονισμού στο Chrome.</string>
+    <string name="title_setup_gmail_max">Σε περίπτωση μηνύματος σφάλματος \"Είστε συνδεδεμένοι στον μέγιστο αριθμό λογαριασμών\", πρέπει να αποσυνδεθείτε από όλους τους λογαριασμούς Google στον περιηγητή.</string>
     <string name="title_setup_gmail_on_device">Γιατί πρέπει να επιλέξω έναν λογαριασμό περασμένο στη συσκευή;</string>
     <string name="title_setup_gmail_password">Θέλω να εξουσιοδοτήσω έναν λογαριασμό με έναν κωδικό πρόσβασης αντί για έναν λογαριασμό στη συσκευή</string>
     <string name="title_setup_office_auth">Το σφάλμα \'ΠΙΣΤΟΠΟΙΗΣΗ απέτυχε\' μπορεί να προκληθεί επειδή το IMAP/SMTP έχει απενεργοποιηθεί από το διαχειριστή του συστήματος</string>
@@ -616,6 +617,7 @@
     <string name="title_advanced_disconnect_auto_update">Αυτόματη εβδομαδιαία ενημέρωση των λιστών</string>
     <string name="title_advanced_disconnect_links">Χρήση προειδοποιητικών λιστών για συνδέσμους ιχνηλάτησης</string>
     <string name="title_advanced_disconnect_images">Χρήση λιστών για ταυτοποίηση των εικόνων ιχνηλάτησης</string>
+    <string name="title_advanced_clear_all_hint">Αυτό θα διαγράψει όλα τα δεδομένα της εφαρμογής από τη συσκευή σας, συμπεριλαμβανομένων των ρυθμισμένων λογαριασμών ηλεκτρονικού ταχυδρομείου, των μηνυμάτων, των ρυθμίσεων και όλων των συλλεγμένων δεδομένων.</string>
     <string name="title_advanced_mnemonic">Διαγραφή δεδομένων εξ αποστάσεως</string>
     <string name="title_advanced_mnemonic_hint">Οποιοδήποτε μήνυμα έχει ληφθεί και έχει τις παρακάτω λέξεις στη γραμμή θέματος, θα διαγράψει αυτόματα και αμέσως τα δεδομένα της εφαρμογής</string>
     <string name="title_advanced_clear_all">Διαγραφή των δεδομένων της εφαρμογής</string>
@@ -1486,7 +1488,7 @@
     <string name="title_rule_order">Σειρά</string>
     <string name="title_rule_enabled">Ενεργοποιημένος</string>
     <string name="title_rule_daily">Εκτέλεση μόνο μία φορά κάθε ημέρα</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Μηνύματα παλαιότερα από (ημέρες)</string>
+    <string name="title_rule_age">Μηνύματα παλαιότερα από (ημέρες)</string>
     <string name="title_rule_stop">Διακοπή επεξεργασίας κανόνων μετά την εκτέλεση αυτού του κανόνα</string>
     <string name="title_rule_sender">Ο αποστολέας περιέχει</string>
     <string name="title_rule_sender_known">Ο αποστολέας είναι μια επαφή</string>

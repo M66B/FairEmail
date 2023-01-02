@@ -1493,7 +1493,7 @@
     <string name="title_rule_order">Rækkefølge</string>
     <string name="title_rule_enabled">Aktiveret</string>
     <string name="title_rule_daily">Kør kun dagligt</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Beskeder ældre end (dage)</string>
+    <string name="title_rule_age">Beskeder ældre end (dage)</string>
     <string name="title_rule_stop">Stop afvikling af regler efter eksekvering af denne regel</string>
     <string name="title_rule_sender">Afsender indeholder</string>
     <string name="title_rule_sender_known">Afsender er en kontakt</string>

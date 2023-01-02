@@ -172,6 +172,7 @@
     <string name="title_setup_gmail_rationale">Vänligen bevilja behörigheter för att välja ett konto och läsa ditt namn</string>
     <string name="title_setup_gmail_permissions">Google kommer att be om behörighet att läsa, komponera, skicka och permanent ta bort all din e-post. FairEmail kommer aldrig att ta bort dina meddelanden utan ditt uttryckliga medgivande.</string>
     <string name="title_setup_gmail_login">Om Chrome är inloggad på ett konto kan ett nytt konto endast läggas till via Android. Detta kan undvikas genom att logga ut från Chrome via Chromes synkroniseringsinställningar.</string>
+    <string name="title_setup_gmail_max">Vid felmeddelandet \"Du är inloggad på det maximala antalet konton\", så måste du logga ut webbläsaren från alla Google-konton.</string>
     <string name="title_setup_gmail_on_device">Varför måste jag välja ett lokalt konto på enheten?</string>
     <string name="title_setup_gmail_password">Jag vill auktorisera ett konto med ett lösenord istället för ett konto på enheten</string>
     <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP inaktiveras av systemadministratören</string>
@@ -609,6 +610,7 @@
     <string name="title_advanced_disconnect_auto_update">Uppdatera listor automatiskt varje vecka</string>
     <string name="title_advanced_disconnect_links">Använd listor för att varna för spårningslänkar</string>
     <string name="title_advanced_disconnect_images">Använd listor för att känna igen spårningsbilder</string>
+    <string name="title_advanced_clear_all_hint">Detta kommer att ta bort all appdata från din enhet, inklusive konfigurerade e-postkonton, meddelanden, inställningar och all insamlad data.</string>
     <string name="title_advanced_mnemonic">Radera fjärrdata</string>
     <string name="title_advanced_mnemonic_hint">Alla e-postmeddelanden som mottagits med nedanstående ord i ämnesraden kommer automatiskt och omedelbart ta bort appdata</string>
     <string name="title_advanced_clear_all">Ta bort appdata</string>

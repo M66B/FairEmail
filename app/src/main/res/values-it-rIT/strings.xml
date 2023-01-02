@@ -1493,7 +1493,7 @@
     <string name="title_rule_order">Ordine</string>
     <string name="title_rule_enabled">Abilitato</string>
     <string name="title_rule_daily">Esegui giornalmente (solo)</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Messaggi precedenti a (giorni)</string>
+    <string name="title_rule_age">Messaggi precedenti a (giorni)</string>
     <string name="title_rule_stop">Ferma l\'elaborazione delle regole dopo l\'esecuzione di questa regola</string>
     <string name="title_rule_sender">Il mittente contiene</string>
     <string name="title_rule_sender_known">Il mittente è un contatto</string>

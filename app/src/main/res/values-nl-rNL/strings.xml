@@ -175,6 +175,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_gmail_rationale">Geef a.u.b. toestemming om een account te selecteren en uw naam te lezen</string>
     <string name="title_setup_gmail_permissions">Google zal machtigingen vragen om al uw e-mail te lezen, op te stellen, te verzenden en definitief te verwijderen. FairEmail zal uw berichten nooit verwijderen zonder uw expliciete toestemming.</string>
     <string name="title_setup_gmail_login">Als Chrome is aangemeld bij een account, kan een nieuwe account alleen via Android worden toegevoegd. Dit kan worden voorkomen door uit te loggen uit Chrome via de Chrome synchronisatie-instellingen.</string>
+    <string name="title_setup_gmail_max">In het geval van de foutmelding \"U bent aangemeld bij het maximale aantal accounts\", moet de browser worden uitgelogd van alle Google-accounts.</string>
     <string name="title_setup_gmail_on_device">Waarom moet ik een account op het apparaat selecteren?</string>
     <string name="title_setup_gmail_password">Ik wil een account autoriseren met een wachtwoord in plaats van een account op het apparaat</string>
     <string name="title_setup_office_auth">De fout \'AUTHENTICATE failed\' kan worden veroorzaakt doordat IMAP/SMTP door de systeemadministrator is uitgeschakeld</string>
@@ -615,6 +616,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_disconnect_auto_update">Werk lijsten wekelijks automatisch bij</string>
     <string name="title_advanced_disconnect_links">Gebruik lijsten om te waarschuwen voor tracking links</string>
     <string name="title_advanced_disconnect_images">Gebruik lijsten om tracking afbeeldingen te herkennen</string>
+    <string name="title_advanced_clear_all_hint">Hiermee worden alle app-gegevens van uw apparaat verwijderd, inclusief geconfigureerde e-mailaccounts, berichten, instellingen en alle verzamelde gegevens.</string>
     <string name="title_advanced_mnemonic">Gegevens op afstand verwijderen</string>
     <string name="title_advanced_mnemonic_hint">Elke e-mail ontvangen met de onderstaande woorden in de onderwerpregel zal automatisch en onmiddellijk de app gegevens verwijderen</string>
     <string name="title_advanced_clear_all">Verwijder de app gegevens</string>
@@ -1483,7 +1485,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_order">Volgorde</string>
     <string name="title_rule_enabled">Ingeschakeld</string>
     <string name="title_rule_daily">Dagelijks uitvoeren (alleen)</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Berichten ouder dan (dagen)</string>
+    <string name="title_rule_age">Berichten ouder dan (dagen)</string>
     <string name="title_rule_stop">Stop verwerking van regels na het uitvoeren van deze regel</string>
     <string name="title_rule_sender">Afzender bevat</string>
     <string name="title_rule_sender_known">Afzender is een contact</string>

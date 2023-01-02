@@ -177,6 +177,7 @@
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
     <string name="title_setup_gmail_login">Wenn Chrome bei einem Konto angemeldet ist, kann ein neues Konto nur über Android hinzugefügt werden. Dies kann umgangen werden, indem Sie sich über die Chrome-Synchronisierungseinstellungen bei Chrome abmelden.</string>
+    <string name="title_setup_gmail_max">Im Falle der Fehlermeldung \"Du bist bei der maximalen Anzahl an Konten angemeldet\", müssen Sie den Browser von allen Google-Konten abmelden.</string>
     <string name="title_setup_gmail_on_device">Warum muss ich ein Konto auf dem Gerät auswählen?</string>
     <string name="title_setup_gmail_password">Ich möchte ein Gmail-Konto mit einem eigenen App-Passwort anstatt über das geräteinterne Google-Konto autorisieren</string>
     <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
@@ -617,6 +618,7 @@
     <string name="title_advanced_disconnect_auto_update">Listen wöchentlich automatisch aktualisieren</string>
     <string name="title_advanced_disconnect_links">Listen verwenden, um vor Nachverfolgungslinks zu warnen</string>
     <string name="title_advanced_disconnect_images">Listen zur Erkennung von Nachverfolgungsbildern verwenden</string>
+    <string name="title_advanced_clear_all_hint">Dadurch werden alle App-Daten von Ihrem Gerät gelöscht, einschließlich konfigurierter E-Mail-Konten, Nachrichten, Einstellungen und aller gesammelten Daten.</string>
     <string name="title_advanced_mnemonic">Daten aus der Ferne löschen</string>
     <string name="title_advanced_mnemonic_hint">Jede E-Mail mit den folgenden Wörtern in der Betreffzeile wird automatisch und sofort die App-Daten auf diesem Gerät löschen</string>
     <string name="title_advanced_clear_all">App-Daten löschen</string>
@@ -1489,7 +1491,7 @@
     <string name="title_rule_order">Reihenfolge</string>
     <string name="title_rule_enabled">Aktiviert</string>
     <string name="title_rule_daily">Nur 1x täglich ausführen</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Nachrichten älter als (Tage)</string>
+    <string name="title_rule_age">Nachrichten älter als (Tage)</string>
     <string name="title_rule_stop">Regeln nach der Ausführung dieser Regel beenden</string>
     <string name="title_rule_sender">Absender enthält</string>
     <string name="title_rule_sender_known">Absender ist in den Kontakten</string>

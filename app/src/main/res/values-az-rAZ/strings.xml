@@ -1492,7 +1492,7 @@
     <string name="title_rule_order">Sifariş</string>
     <string name="title_rule_enabled">Fəallaşdırıldı</string>
     <string name="title_rule_daily">Gündəlik işlət (yalnız)</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Bundan daha köhnə mesajlar (gün)</string>
+    <string name="title_rule_age">Bundan daha köhnə mesajlar (gün)</string>
     <string name="title_rule_stop">Bu qaydanı icra edəndən sonra qaydaların emalını dayandır</string>
     <string name="title_rule_sender">Göndərən ehtiva edir</string>
     <string name="title_rule_sender_known">Göndərən telefon kitabçanızda olan biridir</string>

@@ -202,6 +202,7 @@
     <string name="title_setup_gmail_rationale">Калі ласка, дайце дазвол на выбар уліковага запісу і чытанне вашага імя</string>
     <string name="title_setup_gmail_permissions">Google запытае дазвол на чытанне, напісанне, адпраўку і незваротнае выдаленне ўсёй вашай электроннай пошты. FairEmail ніколі не выдаліць вашыя паведамленні без вашай відавочнай згоды.</string>
     <string name="title_setup_gmail_login">Калі ў Chrome выкананы ўваход ва ўліковы запіс, новы ўліковы запіс можна дадаць толькі праз Android. Гэтага можна пазбегнуць, выйшаўшы з уліковага запісу ў Chrome праз налады сінхранізацыі.</string>
+    <string name="title_setup_gmail_max">У выпадку з\'яўлення паведамлення пра памылку \"Вы ўвайшлі ў максімальную колькасць уліковых запісаў\", вам неабходна выйсці з усіх уліковых запісаў Google у браўзеры.</string>
     <string name="title_setup_gmail_on_device">Чаму мне неабходна выбраць уліковы запіс на прыладзе?</string>
     <string name="title_setup_gmail_password">Я хачу аўтарызаваць уліковы запіс з дапамогай пароля замест уліковага запісу на прыладзе</string>
     <string name="title_setup_office_auth">Памылка \'Збой АЎТЭНТЫФІКАЦЫІ\' можа быць выклікана тым, што пратаколы IMAP/SMTP адключаны сістэмным адміністратарам</string>
@@ -1520,7 +1521,7 @@
     <string name="title_rule_order">Парадак</string>
     <string name="title_rule_enabled">Уключана</string>
     <string name="title_rule_daily">Выконваць штодня (аднаразова)</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Паведамленні, старэйшыя за (дні)</string>
+    <string name="title_rule_age">Паведамленні, старэйшыя за (дні)</string>
     <string name="title_rule_stop">Спыніць апрацоўку правілаў пасля выканання гэтага правіла</string>
     <string name="title_rule_sender">Адпраўнік змяшчае</string>
     <string name="title_rule_sender_known">Адпраўшчык з\'яўляецца кантактам</string>

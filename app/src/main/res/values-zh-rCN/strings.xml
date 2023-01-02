@@ -163,6 +163,7 @@
     <string name="title_setup_gmail_rationale">请授予权限来选择一个账户并读取您的姓名</string>
     <string name="title_setup_gmail_permissions">Google 会请求读取、撰写、发送和永久删除您的所有电子邮件的权限。相比之下，未经您的明确同意，FairEmail 永远不会删除您的邮件。</string>
     <string name="title_setup_gmail_login">如果 Chrome 登录到 Google 账户，那么只能通过 Android 添加一个新账户。 通过 Chrome 同步设置退出 Chrome 账户登录可以避免这种情况。</string>
+    <string name="title_setup_gmail_max">如果碰到错误消息“您登录的账户数已达上限”， 您需要从浏览器退出登录所有 Google 账户。</string>
     <string name="title_setup_gmail_on_device">为什么我需要选择设备上账户？</string>
     <string name="title_setup_gmail_password">我想使用密码而不是设备上的帐户进行授权</string>
     <string name="title_setup_office_auth">“认证失败”的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
@@ -603,6 +604,7 @@
     <string name="title_advanced_disconnect_auto_update">每周自动更新列表</string>
     <string name="title_advanced_disconnect_links">使用该列表来警告跟踪链接</string>
     <string name="title_advanced_disconnect_images">使用该列表来识别追踪用途的图像</string>
+    <string name="title_advanced_clear_all_hint">这将从您的设备中删除所有应用数据，包括已配置的电子邮件帐户、消息、设置和任何收集的数据。</string>
     <string name="title_advanced_mnemonic">远程删除数据</string>
     <string name="title_advanced_mnemonic_hint">如果收到任何标题行含有以下文字的电子邮件，应用程序数据将立即被自动删除</string>
     <string name="title_advanced_clear_all">删除应用数据</string>
@@ -1473,7 +1475,7 @@
     <string name="title_rule_order">顺序</string>
     <string name="title_rule_enabled">启用</string>
     <string name="title_rule_daily">每天运行 (而非每次接收邮件时)</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">超过(天) 的信息</string>
+    <string name="title_rule_age">超过(天) 的信息</string>
     <string name="title_rule_stop">执行此规则后停止处理规则</string>
     <string name="title_rule_sender">发件人包含</string>
     <string name="title_rule_sender_known">发件人是联系人</string>

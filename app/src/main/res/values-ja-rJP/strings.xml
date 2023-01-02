@@ -1479,7 +1479,7 @@
     <string name="title_rule_order">順番</string>
     <string name="title_rule_enabled">有効</string>
     <string name="title_rule_daily">常に実行 (のみ)</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">…日以上経過したメッセージ</string>
+    <string name="title_rule_age">…日以上経過したメッセージ</string>
     <string name="title_rule_stop">ルールの実行後に処理を停止</string>
     <string name="title_rule_sender">差出人に以下の語句を含む</string>
     <string name="title_rule_sender_known">連絡先から送信</string>

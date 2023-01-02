@@ -176,6 +176,7 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permissão para ler, compor, enviar e excluir permanentemente todo seu e-mail. O FairEmail nunca apagará suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_login">Se o Chrome estiver conectado a uma conta, uma nova conta só poderá ser adicionada através do Android. Isso pode ser evitado saindo do Chrome através das configurações de sincronização do Chrome.</string>
+    <string name="title_setup_gmail_max">No caso da mensagem de erro \"Você está conectado ao número máximo de contas\", você precisa sair no navegador de todas as contas do Google.</string>
     <string name="title_setup_gmail_on_device">Por que eu preciso selecionar uma conta no dispositivo?</string>
     <string name="title_setup_gmail_password">Eu quero autorizar uma conta com uma senha ao invés de uma conta no dispositivo</string>
     <string name="title_setup_office_auth">O erro \'Falha de Autenticação\' pode ser causadado por desativação do IMAP/SMTP pelo administrador do sistema</string>
@@ -616,6 +617,7 @@
     <string name="title_advanced_disconnect_auto_update">Atualizar automaticamente e semanalmente as listas</string>
     <string name="title_advanced_disconnect_links">Use listas para avisar sobre links de rastreamento</string>
     <string name="title_advanced_disconnect_images">Usar listas para reconhecer imagens de rastreamento</string>
+    <string name="title_advanced_clear_all_hint">Isso excluirá todos os dados do aplicativo do seu dispositivo, incluindo contas de e-mail configuradas, mensagens, configurações e quaisquer dados coletados.</string>
     <string name="title_advanced_mnemonic">Excluir dados remotamente</string>
     <string name="title_advanced_mnemonic_hint">Qualquer email recebido com as palavras abaixo no campo assunto, irá automaticamente e imediatamente excluída dos dados do aplicativo</string>
     <string name="title_advanced_clear_all">Excluir dados do aplicativo</string>
@@ -1489,7 +1491,7 @@
     <string name="title_rule_order">Ordenar</string>
     <string name="title_rule_enabled">Ativado</string>
     <string name="title_rule_daily">Executar diariamente (somente)</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Mensagens mais antigos (dias)</string>
+    <string name="title_rule_age">Mensagens mais antigos (dias)</string>
     <string name="title_rule_stop">Parar o processamento de regras após a execução desta regra</string>
     <string name="title_rule_sender">Remetente contém</string>
     <string name="title_rule_sender_known">Remetente é um contato</string>

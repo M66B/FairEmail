@@ -76,7 +76,7 @@
     <string name="title_ask_spam_who">Definir a mensagem de %1$s como indesejada?</string>
     <string name="title_junk_hint">O seu fornecedor de correio electrónico é responsável por filtrar o ‘spam’. Uma aplicação de correio eletrónico não possui toda a informação necessária para o fazer de forma confiável.</string>
     <string name="title_junk_pop_hint">        Mensagens de remetentes bloqueados não serão transferidas.
-        Se \"Deixar mensagens no servidor\" não estiver activado, essas mensagens serão perdidas permanentemente!
+        Se \"Deixar as mensagens no servidor\" não estiver activado, essas mensagens serão perdidas permanentemente!
     </string>
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear Remetente</string>
@@ -176,6 +176,7 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permissões para selecionar uma conta e ler o seu nome</string>
     <string name="title_setup_gmail_permissions">O Google pedirá permissões para ler, compor, enviar e eliminar permanentemente todos os seus e-mails. O FairEmail nunca apagará as suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_login">Se o Chrome estiver ligado a uma conta, só pode adicionar uma nova através do Android. Evite esta situação, saindo do Chrome através das configurações de sincronização do mesmo.</string>
+    <string name="title_setup_gmail_max">Caso receba a mensagem de erro \"Já atingiu o número máximo de contas permitido\", terá de terminar a sessão de todas as contas Google no navegador.</string>
     <string name="title_setup_gmail_on_device">Por que é que preciso selecionar uma conta no dispositivo?</string>
     <string name="title_setup_gmail_password">Quero autorizar uma conta com a palavra-passe ao invés da conta em utilização no dispositivo</string>
     <string name="title_setup_office_auth">O erro \'AUTHENTICATE failed\' pode ser causado pelo protocolo IMAP/SMTP ter sido desactivado pelo administrador do sistema</string>
@@ -321,7 +322,7 @@
     <string name="title_advanced_section_encryption">Encriptação</string>
     <string name="title_advanced_section_notifications">Notificações</string>
     <string name="title_advanced_section_misc">Diversos</string>
-    <string name="title_advanced_default">Todas as opções têm os valores padrão, que não precisam ser alterados para utilizar a aplicação</string>
+    <string name="title_advanced_default">Os valores padrão de todas as opções são os mais usuais, que não precisam ser alterados para utilizar a aplicação</string>
     <string name="title_advanced_receive">Receber mensagens de todas as contas</string>
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_optimize">Optimizar automaticamente</string>
@@ -387,7 +388,7 @@
     <string name="title_advanced_reply_move_inbox">Também para as mensagens na caixa de entrada</string>
     <string name="title_advanced_auto_link">Criar ligações automaticamente</string>
     <string name="title_advanced_plain_only">Enviar texto simples por omissão</string>
-    <string name="title_advanced_flow">\'formato modificado\' para texto simples</string>
+    <string name="title_advanced_flow">Utilizar \'format flowed\' para texto simples</string>
     <string name="title_advanced_usenet_signature">Seguir a convenção de assinatura Usenet</string>
     <string name="title_advanced_remove_signatures">Remover assinaturas reconhecidas</string>
     <string name="title_advanced_receipt">Quando solicitado recibo</string>
@@ -405,7 +406,7 @@
     <string name="title_advanced_vpn_only">Apenas conectar-se através de uma VPN</string>
     <string name="title_advanced_timeout">Tempo limite de ligação (em segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 sobre IPv6</string>
-    <string name="title_advanced_ssl_harden">Fortificar conexões SSL</string>
+    <string name="title_advanced_ssl_harden">Reforçar ligações SSL</string>
     <string name="title_advanced_ssl_harden_strict">Requer TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificação rigorosa de certificado</string>
     <string name="title_advanced_open_safe">Abrir apenas ligações seguras</string>
@@ -618,6 +619,7 @@
     <string name="title_advanced_disconnect_auto_update">Actualizar automaticamente as listas semanalmente</string>
     <string name="title_advanced_disconnect_links">Utilizar listas para avisar sobre hiperligações que monitorizam</string>
     <string name="title_advanced_disconnect_images">Utilizar listas para reconhecer imagens de monitorização</string>
+    <string name="title_advanced_clear_all_hint">Isto irá apagar todos os dados da aplicação no seu dispositivo, incluindo contas de e-mail configuradas, mensagens, configurações e todos os dados recolhidos.</string>
     <string name="title_advanced_mnemonic">Eliminar dados remotamente</string>
     <string name="title_advanced_mnemonic_hint">A recepção de qualquer correio electrónico com as palavras abaixo indicadas no assunto irá, de forma automática e imediata, eliminar todos os dados da aplicação</string>
     <string name="title_advanced_clear_all">Eliminar os dados da aplicação</string>
@@ -681,7 +683,7 @@
     <string name="title_advanced_debug">Modo de depuração</string>
     <string name="title_advanced_manual_hint">Se a recepção de mensagens estiver desactivada, continua a ser possível receber mensagens manualmente, deslizando a lista de mensagens para baixo</string>
     <string name="title_advanced_poll_battery">Isto pode causar uma utilização elevada de bateria!</string>
-    <string name="title_advanced_poll_hint">A verificação periódica por novas mensagens irá comparar, de todas as vezes, as mensagens locais e no servidor, o que é uma operação \'pesada\' e pode resultar numa utilização de bateria adicional, especialmente se existirem muitas mensagens. A opção \'receber sempre\' irá prevenir isso, ao estar sempre a acompanhar as alterações.</string>
+    <string name="title_advanced_poll_hint">A verificação periódica por novas mensagens irá comparar, de todas as vezes, as mensagens locais e no servidor, o que é uma operação \'pesada\' e pode resultar numa utilização adicional de bateria, especialmente se existirem muitas mensagens. Optar por receber \'sempre\' irá prevenir isso, verificando continuamente as alterações.</string>
     <string name="title_advanced_optimize_hint">Isto pode alterar a frequência de sincronização para poupar a utilização de bateria dependendo das capacidades e comportamento dos servidores de correio electrónico</string>
     <string name="title_advanced_schedule_hint">Toque num horário para o definir</string>
     <string name="title_advanced_schedule_ignore">Os agendamentos podem ser desactivados nas configurações avançadas da conta</string>
@@ -701,7 +703,7 @@
     <string name="title_advanced_lookup_mx_hint">Faz a verificação se existem registos DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
     <string name="title_advanced_folder_nav_hint">Isto fará com que, ao pressionar \'voltar\' a partir da lista de mensagens, retorne sempre à lista de pastas da respectiva conta</string>
-    <string name="title_advanced_suggest_names_hint">Com a opção desactiva, ao seleccionar um contacto apenas os endereços de e-mail serão utilizados</string>
+    <string name="title_advanced_suggest_names_hint">Se desactivada, ao seleccionar um contacto apenas será utilizado o endereço de e-mail</string>
     <string name="title_advanced_suggest_local_hint">Em complemento aos contactos fornecidos pelo Android. Apenas só será guardada informação de contactos nas mensagens recém-enviadas ou recebidas caso esta função esteja activa.</string>
     <string name="title_advanced_auto_identity_hint">Isto selecionará a última identidade usada ao selecionar um destinatário para novas mensagens</string>
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo estar ausente</string>
@@ -1493,7 +1495,7 @@
     <string name="title_rule_order">Ordenar</string>
     <string name="title_rule_enabled">Activada</string>
     <string name="title_rule_daily">Executar diariamente (somente)</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Mensagens com mais de (dias)</string>
+    <string name="title_rule_age">Mensagens com mais de (dias)</string>
     <string name="title_rule_stop">Parar o processamento de regras após a execução desta regra</string>
     <string name="title_rule_sender">Remetente contém</string>
     <string name="title_rule_sender_known">Remetente é um contacto</string>

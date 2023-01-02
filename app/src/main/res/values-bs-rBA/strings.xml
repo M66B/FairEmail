@@ -189,6 +189,7 @@
     <string name="title_setup_gmail_rationale">Molimo da potvrdite dopuštenja za izbor računa i čitanje vašeg imena</string>
     <string name="title_setup_gmail_permissions">Google će pitati za dopuštenja za čitanje, pisanje, slanje i trajno brisanje svih vaših poruka. FairEmail nikada neće brisati vaše poruke bez vaše saglasnosti.</string>
     <string name="title_setup_gmail_login">Ako je u Chrome-u prijavljen račun, novi račun (nalog) može se dodati samo u postavkama Androida. Da biste izbjegli ovu situaciju, odjavite se iz Chrome-a preko postavki za sinhronizaciju.</string>
+    <string name="title_setup_gmail_max">U slučaju poruke o greški \"Prijavljeni ste s maksimalnim brojem računa\", trebate se odjaviti sa svih Google računa u pregledniku.</string>
     <string name="title_setup_gmail_on_device">Zašto trebam izabrati račun na lokalnom uređaju?</string>
     <string name="title_setup_gmail_password">Želim autorizovati račun sa lozinkom umjesto lokalnog računa na uređaju</string>
     <string name="title_setup_office_auth">Greška \'PROVJERA nije uspjela\' može biti uzrokovana postavkama IMAP/SMTP-a koje je isključio sistemski administrator</string>
@@ -1505,7 +1506,7 @@
     <string name="title_rule_order">Redoslijed</string>
     <string name="title_rule_enabled">Uključeno</string>
     <string name="title_rule_daily">Pokreni dnevno</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Poruke starije od (dana)</string>
+    <string name="title_rule_age">Poruke starije od (dana)</string>
     <string name="title_rule_stop">Zaustavi obradu pravila nakon izvršavanja ovog pravila</string>
     <string name="title_rule_sender">Pošiljalac sadrži</string>
     <string name="title_rule_sender_known">Pošiljalac je u kontaktima</string>

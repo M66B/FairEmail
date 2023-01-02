@@ -1487,7 +1487,7 @@
     <string name="title_rule_order">Orden</string>
     <string name="title_rule_enabled">Activada</string>
     <string name="title_rule_daily">Ejecutar diariamente (solamente)</string>
-    <string name="title_rule_age" comment="title_rule_age&#10;Title for age condition for daily execution of rules">Mensajes de más de (días)</string>
+    <string name="title_rule_age">Mensajes de más de (días)</string>
     <string name="title_rule_stop">Detener procesamiento de reglas después de ejecutar esta regla</string>
     <string name="title_rule_sender">Remitente contiene</string>
     <string name="title_rule_sender_known">El remitente es un contacto</string>
