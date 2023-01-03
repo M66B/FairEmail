@@ -30,6 +30,7 @@ public class TupleOperationEx extends EntityOperation {
     public int priority;
     public String accountName;
     public String folderName;
+    public String folderType;
     public boolean synchronize;
 
     @Override
@@ -40,26 +41,33 @@ public class TupleOperationEx extends EntityOperation {
                     this.priority == other.priority &&
                     Objects.equals(this.accountName, other.accountName) &&
                     Objects.equals(this.folderName, other.folderName) &&
+                    Objects.equals(this.folderType, other.folderType) &&
                     this.synchronize == other.synchronize);
         } else
             return false;
     }
 
-    PartitionKey getPartitionKey(boolean offline, String folderType) {
+    int getPriority(boolean offline) {
+        int priority = this.priority;
+
+        if (offline)
+            priority += 20; // connect folder is expensive
+
+        if (!EntityFolder.INBOX.equals(folderType)) // prioritize inbox
+            priority += 10;
+
+        return priority;
+    }
+
+    PartitionKey getPartitionKey(boolean offline) {
         PartitionKey key = new PartitionKey();
 
         key.folder = this.folder;
         key.order = this.id;
+        key.priority = this.getPriority(offline);
 
-        if (offline) {
-            // open/close folder is expensive
-            key.priority = this.priority + 20;
+        if (offline)
             return key;
-        }
-
-        key.priority = this.priority;
-        if (!EntityFolder.INBOX.equals(folderType))
-            key.priority += 10;
 
         if (ADD.equals(name) ||
                 DELETE.equals(name))

@@ -2114,7 +2114,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         List<TupleOperationEx.PartitionKey> keys = new ArrayList<>();
                                         synchronized (partitions) {
                                             for (TupleOperationEx op : added.get(folder.id)) {
-                                                TupleOperationEx.PartitionKey key = op.getPartitionKey(offline, folder.type);
+                                                TupleOperationEx.PartitionKey key = op.getPartitionKey(offline);
 
                                                 if (!partitions.containsKey(key)) {
                                                     partitions.put(key, new ArrayList<>());

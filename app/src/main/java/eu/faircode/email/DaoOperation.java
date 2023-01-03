@@ -54,7 +54,8 @@ public interface DaoOperation {
     @Transaction
     @Query("SELECT operation.*" +
             ", " + priority + " AS priority" +
-            ", account.name AS accountName, folder.name AS folderName" +
+            ", account.name AS accountName" +
+            ", folder.name AS folderName, folder.type AS folderType" +
             ", (account.synchronize IS NULL OR account.synchronize) AS synchronize" +
             " FROM operation" +
             " JOIN folder ON folder.id = operation.folder" +
@@ -65,7 +66,8 @@ public interface DaoOperation {
     @Transaction
     @Query("SELECT operation.*" +
             ", " + priority + " AS priority" +
-            ", account.name AS accountName, folder.name AS folderName" +
+            ", account.name AS accountName" +
+            ", folder.name AS folderName, folder.type AS folderType" +
             ", account.synchronize" +
             " FROM operation" +
             " JOIN folder ON folder.id = operation.folder" +

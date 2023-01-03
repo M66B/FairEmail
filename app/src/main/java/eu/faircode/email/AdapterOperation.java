@@ -97,7 +97,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             StringBuilder sb = new StringBuilder();
             sb
                     .append(operation.name).append(':')
-                    .append(operation.priority).append("/")
+                    .append(operation.getPriority(false)).append("/")
                     .append(operation.tries);
             try {
                 JSONArray jarray = new JSONArray(operation.args);
