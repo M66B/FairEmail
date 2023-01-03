@@ -31,7 +31,7 @@
         <item
             android:id="@+id/menu_send_chips"
             android:checkable="true"
-            android:icon="@drawable/twotone_alternate_email_24"
+            android:icon="@drawable/twotone_crop_3_2_24"
             android:title="@string/title_advanced_send_chips"
             app:showAsAction="never" />
 
