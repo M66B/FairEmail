@@ -45,7 +45,7 @@ public class TupleOperationEx extends EntityOperation {
             return false;
     }
 
-    PartitionKey getPartitionKey(boolean offline) {
+    PartitionKey getPartitionKey(boolean offline, String folderType) {
         PartitionKey key = new PartitionKey();
 
         key.folder = this.folder;
@@ -53,11 +53,13 @@ public class TupleOperationEx extends EntityOperation {
 
         if (offline) {
             // open/close folder is expensive
-            key.priority = this.priority + 10;
+            key.priority = this.priority + 20;
             return key;
         }
 
         key.priority = this.priority;
+        if (!EntityFolder.INBOX.equals(folderType))
+            key.priority += 10;
 
         if (ADD.equals(name) ||
                 DELETE.equals(name))
