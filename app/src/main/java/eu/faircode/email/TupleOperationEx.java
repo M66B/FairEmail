@@ -54,7 +54,7 @@ public class TupleOperationEx extends EntityOperation {
             priority += 20; // connect folder is expensive
 
         if (!EntityFolder.INBOX.equals(folderType)) // prioritize inbox
-            priority += 10;
+            priority += 100;
 
         return priority;
     }
