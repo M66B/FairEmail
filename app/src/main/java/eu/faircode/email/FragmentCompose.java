@@ -265,6 +265,7 @@ public class FragmentCompose extends FragmentBase {
     private TextViewAutoCompleteAction etSearch;
     private HorizontalScrollView style_bar;
     private ImageButton ibLink;
+    private ImageButton ibAnswer;
     private BottomNavigationView media_bar;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -397,6 +398,7 @@ public class FragmentCompose extends FragmentBase {
         etSearch = view.findViewById(R.id.etSearch);
         style_bar = view.findViewById(R.id.style_bar);
         ibLink = view.findViewById(R.id.menu_link);
+        ibAnswer = view.findViewById(R.id.menu_style_insert_answer);
         media_bar = view.findViewById(R.id.media_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
@@ -894,6 +896,14 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onClick(View v) {
                 onActionLink();
+            }
+        });
+
+        ibAnswer.setVisibility(View.VISIBLE);
+        ibAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMenuAnswerInsert(v);
             }
         });
 
@@ -1920,7 +1930,7 @@ public class FragmentCompose extends FragmentBase {
             onMenuManageLocalContacts();
             return true;
         } else if (itemId == R.id.menu_answer_insert) {
-            onMenuAnswerInsert();
+            onMenuAnswerInsert(vwAnchorMenu);
             return true;
         } else if (itemId == R.id.menu_answer_create) {
             onMenuAnswerCreate();
@@ -2148,7 +2158,7 @@ public class FragmentCompose extends FragmentBase {
         fragment.show(getParentFragmentManager(), "compose:groups");
     }
 
-    private void onMenuAnswerInsert() {
+    private void onMenuAnswerInsert(View anchor) {
         new SimpleTask<List<EntityAnswer>>() {
             @Override
             protected List<EntityAnswer> onExecute(Context context, Bundle args) {
@@ -2165,7 +2175,7 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 }
 
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), vwAnchorMenu);
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), anchor);
                 EntityAnswer.fillMenu(popupMenu.getMenu(), true, answers, context);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {

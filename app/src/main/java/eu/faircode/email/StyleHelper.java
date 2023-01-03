@@ -108,6 +108,7 @@ public class StyleHelper {
             R.id.menu_style_superscript,
             R.id.menu_style_strikethrough,
             R.id.menu_style_insert_line,
+            R.id.menu_style_insert_answer,
             R.id.menu_style_spell_check,
             R.id.menu_style_password,
             R.id.menu_style_code,
@@ -134,7 +135,9 @@ public class StyleHelper {
 
             v.setOnClickListener(styleListener);
 
-            if (id == R.id.menu_style_spell_check)
+            if (id == R.id.menu_style_insert_answer)
+                v.setVisibility(View.GONE);
+            else if (id == R.id.menu_style_spell_check)
                 v.setVisibility(
                         BuildConfig.DEBUG && LanguageTool.isEnabled(v.getContext())
                                 ? View.VISIBLE : View.GONE);
@@ -398,7 +401,8 @@ public class StyleHelper {
                     itemId != R.id.menu_style_list && groupId != group_style_list &&
                     itemId != R.id.menu_style_indentation && groupId != group_style_indentation &&
                     itemId != R.id.menu_style_blockquote &&
-                    itemId != R.id.menu_style_insert_line) {
+                    itemId != R.id.menu_style_insert_line &&
+                    itemId != R.id.menu_style_insert_answer) {
                 Pair<Integer, Integer> word = getWord(etBody);
                 if (word == null)
                     return false;
