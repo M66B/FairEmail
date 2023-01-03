@@ -47,6 +47,7 @@ public class TupleAccountState extends EntityAccount {
                     Objects.equals(this.max_messages, other.max_messages) &&
                     this.keep_alive_noop.equals(other.keep_alive_noop) &&
                     this.poll_interval.equals(other.poll_interval) &&
+                    this.poll_exempted.equals(other.poll_exempted) &&
                     this.partial_fetch.equals(other.partial_fetch) &&
                     this.ignore_size.equals(other.ignore_size) &&
                     this.use_date.equals(other.use_date) &&
