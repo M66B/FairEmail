@@ -823,19 +823,25 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         if (criteria.in_headers) {
-            if (contains(message.headers, criteria.query, partial, false))
+            if (message.headers != null && message.headers.contains(criteria.query))
                 return true;
         }
 
-        if (criteria.in_message)
+        if (criteria.in_html || criteria.in_message)
             try {
                 File file = EntityMessage.getFile(context, message.id);
                 if (file.exists()) {
                     String html = Helper.readText(file);
-                    if (contains(html, criteria.query, partial, true)) {
-                        String text = HtmlHelper.getFullText(html);
-                        if (contains(text, criteria.query, partial, false))
+                    if (criteria.in_html) {
+                        if (html.contains(criteria.query))
                             return true;
+                    }
+                    if (criteria.in_message) {
+                        if (contains(html, criteria.query, partial, true)) {
+                            String text = HtmlHelper.getFullText(html);
+                            if (contains(text, criteria.query, partial, false))
+                                return true;
+                        }
                     }
                 }
             } catch (IOException ex) {
