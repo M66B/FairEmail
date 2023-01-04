@@ -174,7 +174,7 @@ public class Log {
     private static final long MAX_LOG_SIZE = 8 * 1024 * 1024L;
     private static final int MAX_CRASH_REPORTS = (BuildConfig.TEST_RELEASE ? 50 : 5);
     private static final long MIN_FILE_SIZE = 1024 * 1024L;
-    private static final long MIN_ZIP_SIZE = 1024 * 1024L;
+    private static final long MIN_ZIP_SIZE = 2 * 1024 * 1024L;
     private static final String TAG = "fairemail";
 
     // https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html
