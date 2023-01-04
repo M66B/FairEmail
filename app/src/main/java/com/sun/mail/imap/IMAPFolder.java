@@ -4076,10 +4076,14 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 	    // numbers that it has not yet notified the client
 	    // about via EXISTS; ignore those messages here.
 	    // GoDaddy IMAP does this too.
+	    // Mailfence
 	    if (logger.isLoggable(Level.FINE))
 		logger.fine("ignoring message number " +
 		    seqnum + " outside range " + messageCache.size());
-	    return null;
+	    int count = seqnum - messageCache.size();
+	    eu.faircode.email.Log.w("Adding sequence=" + seqnum + " count=" + count);
+	    messageCache.addMessages(count, seqnum - count + 1);
+	    //return null;
 	}
 	return messageCache.getMessageBySeqnum(seqnum);
     }
