@@ -631,6 +631,7 @@
     <string name="title_advanced_disconnect_auto_update">Automatsko ažuriranje spiskova sedmično</string>
     <string name="title_advanced_disconnect_links">Koristi spiskove za upozorenja o linkovima koji mogu pratiti</string>
     <string name="title_advanced_disconnect_images">Koristi spiskove za prepoznavanje slika koje mogu pratiti</string>
+    <string name="title_advanced_clear_all_hint">Ovo će izbrisati sve podatke aplikacije s vašeg uređaja, uključujući podešene email račune, poruke, postavke i bilo koje prikupljene podatke.</string>
     <string name="title_advanced_mnemonic">Izbriši udaljene podatke</string>
     <string name="title_advanced_mnemonic_hint">Bilo koja e-pošta koja sadrži neku od dolje navedenih riječi u naslovu automatski i odmah će izbrisati podatke aplikacije</string>
     <string name="title_advanced_clear_all">Izbriši podatke aplikacije</string>

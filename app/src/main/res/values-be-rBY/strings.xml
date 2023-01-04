@@ -645,6 +645,7 @@
     <string name="title_advanced_disconnect_auto_update">Штотыднёва аўтаматычна абнаўляць спісы</string>
     <string name="title_advanced_disconnect_links">Выкарыстоўваць спісы для папярэджання аб спасылках з сачэннем</string>
     <string name="title_advanced_disconnect_images">Выкарыстоўваць спісы для распазнавання выяў з сачэннем</string>
+    <string name="title_advanced_clear_all_hint">Гэта прывядзе да выдалення ўсіх даных праграмы з вашай прылады, уключаючы наладжаныя ўліковыя запісы электроннай пошты, паведамленні, налады і любыя сабраныя даныя.</string>
     <string name="title_advanced_mnemonic">Выдаліць даныя дыстанцыйна</string>
     <string name="title_advanced_mnemonic_hint">Любое атрыманае паведамленне з прыведзенымі ніжэй словамі ў тэме аўтаматычна і неадкладна выдаліць даныя праграмы</string>
     <string name="title_advanced_clear_all">Выдаліць даныя праграмы</string>

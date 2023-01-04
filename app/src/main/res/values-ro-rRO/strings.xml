@@ -630,6 +630,7 @@
     <string name="title_advanced_disconnect_auto_update">Actualizați automat listele săptămânal</string>
     <string name="title_advanced_disconnect_links">Folosește liste pentru a avertiza despre adrese de urmărire</string>
     <string name="title_advanced_disconnect_images">Folosește listele pentru a recunoaște imaginile de urmărire</string>
+    <string name="title_advanced_clear_all_hint">Această acțiune va șterge toate datele aplicației de pe dispozitiv, inclusiv conturile de e-mail configurate, mesajele, setările și orice date colectate.</string>
     <string name="title_advanced_mnemonic">Ștergeți datele de la distanță</string>
     <string name="title_advanced_mnemonic_hint">Orice e-mail primit cu cuvintele de mai jos în linia de subiect va șterge automat și imediat datele aplicației</string>
     <string name="title_advanced_clear_all">Ștergeți datele aplicației</string>

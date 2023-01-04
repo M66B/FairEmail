@@ -176,6 +176,7 @@
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
     <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
     <string name="title_setup_gmail_login">Uusi tili voidaan lisätä vain Androidin kautta, jos Chrome on kirjautunut tilille. Tämä voidaan välttää kirjautumalla ulos Chromesta sen synkronointiasetuksissa.</string>
+    <string name="title_setup_gmail_max">Sinun täytyy kirjautua ulos kaikilta Google-tileiltäsi selaimessa, jos saat virheen \"Olet kirjautunut sisään suurimpaan mahdolliseen määrään tilejä\".</string>
     <string name="title_setup_gmail_on_device">Miksi minun täytyy valita laitteessa oleva tili?</string>
     <string name="title_setup_gmail_password">Haluan valtuuttaa tilin salasanalla enkä käyttää valtuutukseen laitteeseen asetettua tiliä</string>
     <string name="title_setup_office_auth">Virhe \'AUTHENTICATE failed\' voi aiheutua siitä, että järjestelmän ylläpitäjän on poistanut IMAP/SMTP-protokollat käytöstä</string>
@@ -616,6 +617,7 @@
     <string name="title_advanced_disconnect_auto_update">Päivitä listat viikoittain</string>
     <string name="title_advanced_disconnect_links">Varoita seurantalinkeistä käyttämällä listoja</string>
     <string name="title_advanced_disconnect_images">Tunnista seurantakuvat käyttämällä listoja</string>
+    <string name="title_advanced_clear_all_hint">Tämä poistaa kaikki sovelluksen tiedot laitteestasi, mukaan lukien asetetut sähköpostitilit, viestit, asetukset ja kaikki kerätyt tiedot.</string>
     <string name="title_advanced_mnemonic">Poista tiedot etänä</string>
     <string name="title_advanced_mnemonic_hint">Vastaanotettu sähköpostiviesti, jossa on alla olevat sanat otsikkorivillä, poistaa välittömästi sovelluksen tiedot</string>
     <string name="title_advanced_clear_all">Poista sovelluksen tiedot</string>
@@ -1487,6 +1489,8 @@
     <string name="title_rule_name">Nimi</string>
     <string name="title_rule_order">Järjestys</string>
     <string name="title_rule_enabled">Käytössä</string>
+    <string name="title_rule_daily">Suorita päivittäin (ainoastaan)</string>
+    <string name="title_rule_age">Viestit, jotka ovat vanhempia kuin (päivää)</string>
     <string name="title_rule_stop">Lopeta sääntöjen käsittely tämän säännön suorittamisen jälkeen</string>
     <string name="title_rule_sender">Lähettäjä sisältää</string>
     <string name="title_rule_sender_known">Lähettäjä on yhteystiedoissa</string>

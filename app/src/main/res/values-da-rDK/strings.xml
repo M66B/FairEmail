@@ -176,6 +176,7 @@
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
     <string name="title_setup_gmail_permissions">Google vil beder om tilladelse til at læse, komponere, sende samt permanent slette alle din e-mails. FairEmail sletter aldrig dine beskeder uden dit samtykke.</string>
     <string name="title_setup_gmail_login">Er Chrome logget ind på en konto, kan en ny konto kun tilføjes via Android. Dette kan undgås ved at logge ud af Chrome via dens synkindstillinger.</string>
+    <string name="title_setup_gmail_max">I tilfælde af fejlmeddelelsen \"Du er logget ind på det maksimale antal konti\", skal der logges ud på alle Google-konti i browseren.</string>
     <string name="title_setup_gmail_on_device">Hvorfor skal der vælges en enhedsbaseret konto?</string>
     <string name="title_setup_gmail_password">Jeg ønsker at godkende en konto med en adgangskode i stedet for en enhedskonto</string>
     <string name="title_setup_office_auth">Fejlen \'GODKENDELSE mislykkedes\' kan skyldes, at IMAP/SMTP er deaktiveret af systemadministratoren</string>
@@ -617,6 +618,7 @@
     <string name="title_advanced_disconnect_auto_update">Opdatér automatisk lister ugentligt</string>
     <string name="title_advanced_disconnect_links">Benyt lister til at advare om sporingslinks</string>
     <string name="title_advanced_disconnect_images">Benyt lister til at genkende sporingsbilleder</string>
+    <string name="title_advanced_clear_all_hint">Dette sletter alle app-data fra enheden, herunder opsatte e-mailkonti, beskeder, indstillinger og alle indsamlede data.</string>
     <string name="title_advanced_mnemonic">Fjernsletning af data</string>
     <string name="title_advanced_mnemonic_hint">Modtagelse af en e-mail indeholdende nedenstående ord i emnefeltet vil øjeblikkeligt udløse sletning alle app-data på denne enhed</string>
     <string name="title_advanced_clear_all">Slet app-data</string>

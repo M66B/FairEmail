@@ -176,6 +176,7 @@
     <string name="title_setup_gmail_rationale">Zəhmət olmasa bir hesab seçmək və adınızı oxumaq üçün icazə verin</string>
     <string name="title_setup_gmail_permissions">Google, bütün e-poçtları oxumaq, yaratmaq, göndərmək və birdəfəlik silmək üçün icazə istəyəcək. FairEmail, açıq-aşkar razılığınız olmadan heç vaxt mesajlarınızı silməyəcək.</string>
     <string name="title_setup_gmail_login">Chrome bir hesaba daxil olubsa, yalnız Android üzərindən yeni bir hesab əlavə edilə bilər. Chrome sinxronlaşdırma tənzimləmələri vasitəsilə Chrome-dan çıxış edilərək bunun qarşısı alına bilər.</string>
+    <string name="title_setup_gmail_max">\"Maksimum sayda hesaba daxil olmusunuz\" xəta mesajını aldıqda, brauzerin bütün Google hesablarından çıxış etməlisiniz.</string>
     <string name="title_setup_gmail_on_device">Niyə bir cihaz hesabı seçməliyəm?</string>
     <string name="title_setup_gmail_password">Cihazdakı bir hesabın əvəzinə parollu bir hesaba səlahiyyət vermək istəyirəm</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem administratorunun IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
@@ -617,6 +618,7 @@
     <string name="title_advanced_disconnect_auto_update">Siyahıları həftəlik olaraq avto-güncəllə</string>
     <string name="title_advanced_disconnect_links">İzləmə linkləri haqqında xəbərdarlıq etmək üçün siyahıları istifadə et</string>
     <string name="title_advanced_disconnect_images">İzləmə təsvirlərini tanımaq üçün siyahıları istifadə et</string>
+    <string name="title_advanced_clear_all_hint">Bu, konfiqurasiya edilmiş e-poçt hesabları, mesajlar, tənzimləmələr və digər yığlmış məlumatlar daxil olmaqla cihazınızdakı bütün tətbiq məlumatlarını siləcək.</string>
     <string name="title_advanced_mnemonic">Verilənləri uzaqdan sil</string>
     <string name="title_advanced_mnemonic_hint">Mövzu sətrində aşağıdakı sözləri ehtiva edən istənilən alınmış e-poçt, tətbiq verilənlərini avtomatik olaraq dərhal siləcək</string>
     <string name="title_advanced_clear_all">Tətbiq verilənlərini sil</string>
