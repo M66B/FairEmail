@@ -287,7 +287,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 word.add(plus.get(0));
         }
 
-        if (criteria.fts && word.size() > 0) {
+        if (criteria.fts && word.size() > 0 && !criteria.in_headers && !criteria.in_html) {
             if (state.ids == null) {
                 SQLiteDatabase sdb = Fts4DbHelper.getInstance(context);
                 state.ids = Fts4DbHelper.match(sdb, account, folder, exclude, criteria, TextUtils.join(" ", word));
