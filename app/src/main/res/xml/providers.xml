@@ -1829,6 +1829,32 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Plusnet/force9"
+        domain=".*\\.force9\\.co\\.uk"
+        link="https://www.plus.net/help/email-guides/how-to-set-up-plusnet-email/">
+        <imap
+            host="imap.force9.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="relay.force9.net"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
+        name="Plusnet/free"
+        domain=".*\\.free-online\\.net"
+        link="https://www.plus.net/help/email-guides/how-to-set-up-plusnet-email/">
+        <imap
+            host="imap.free-online.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="relay.free-online.net"
+            port="465"
+            starttls="false" />
+    </provider>
     <provider name="Netbeat">
         <imap
             host="mail.netbeat.de"
