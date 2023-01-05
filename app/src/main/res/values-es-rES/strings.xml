@@ -176,6 +176,7 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
     <string name="title_setup_gmail_permissions">Google solicitará permisos para leer, redactar, enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su consentimiento explícito.</string>
     <string name="title_setup_gmail_login">Si Chrome ha iniciado sesión en una cuenta, sólo se puede añadir una nueva cuenta a través de Android. Esto se puede evitar desconectando Chrome a través de los ajustes de sincronización de Chrome.</string>
+    <string name="title_setup_gmail_max">En el caso del mensaje de error \"Has iniciado sesión con el número máximo de cuentas\", tú necesitas cerrar sesión en el navegador de todas las cuentas de Google.</string>
     <string name="title_setup_gmail_on_device">¿Por qué necesito seleccionar una cuenta del dispositivo?</string>
     <string name="title_setup_gmail_password">Quiero autorizar una cuenta con una contraseña en lugar de una cuenta en el dispositivo</string>
     <string name="title_setup_office_auth">El error \'AUTHENTICATE failed\' puede ser causado por IMAP/SMTP desactivado por el administrador de sistemas</string>
@@ -616,6 +617,7 @@
     <string name="title_advanced_disconnect_auto_update">Actualizar las listas automáticamente en forma semanal</string>
     <string name="title_advanced_disconnect_links">Usar listas para advertir sobre enlaces de seguimiento</string>
     <string name="title_advanced_disconnect_images">Usar listas para reconocer imágenes de rastreo</string>
+    <string name="title_advanced_clear_all_hint">Esto eliminará todos los datos de la aplicación de tu dispositivo, incluyendo cuentas de correo electrónico configuradas, mensajes, ajustes y cualquier dato recopilado.</string>
     <string name="title_advanced_mnemonic">Eliminar datos de forma remota</string>
     <string name="title_advanced_mnemonic_hint">Cualquier correo electrónico recibido con las siguientes palabras en la línea de asunto borrará automática e inmediatamente los datos de la aplicación</string>
     <string name="title_advanced_clear_all">Borrar los datos de la aplicación</string>

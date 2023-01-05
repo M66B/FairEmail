@@ -5,10 +5,16 @@
     <string name="app_welcome">FairEmail és una aplicació de correu electrònic de codi obert centrada en la privadesa i la seguretat. Per aquesta raó, algunes funcions poden funcionar de manera diferent a la que estàs acostumat.</string>
     <string name="app_limitations">Per exemple, els missatges es reformen per defecte per treure elements insegurs i per maximitzar la lectura, i obrir els enllaços necessita ser aprovat per seguretat.
 Ambdues opcions es poden desactivar si es desitja.</string>
+    <string name="app_unsupported">Els errors en la versió Android d\'aquest dispositiu causen bloquejos</string>
+    <string name="app_data_loss">És possible que es perdin dades</string>
+    <string name="app_continue">Continua igualment</string>
     <string name="app_exit">Premeu «Enrere» novament per sortir</string>
     <string name="app_cake">Espai d’emmagatzematge insuficient</string>
+    <string name="app_cake_remaining">Emmagatzematge restant al dispositiu: %1$s</string>
+    <string name="app_cake_required">Emmagatzematge mínim necessari: %1$s</string>
     <string name="app_updated">Darrera actualització: %1$s</string>
     <string name="app_download">Descarregat de: %1$s</string>
+    <string name="channel_service">Seguiment</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Correu electrònic</string>
     <string name="channel_progress">Progrés</string>
@@ -67,6 +73,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_junk_hint">El seu proveïdor de correu electrònic és el responsable de filtrar el correu brossa. Una aplicació de correu electrònic no té totes les dades necessàries per fer això de manera confiable.</string>
     <string name="title_block">Bloqueja %1$s</string>
     <string name="title_block_sender">Bloqueja remitent</string>
+    <string name="title_block_sender_domain">Bloca el domini \'%1$s\'</string>
     <string name="title_junk_filter">Utilitza el filtre local d\'SPAM</string>
     <string name="title_junk_clear">Elimina</string>
     <string name="title_notification_sending">Enviant missatge</string>
