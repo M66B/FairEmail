@@ -335,7 +335,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private DateFormat TF;
     private DateFormat DTF;
 
-    private static final ExecutorService executor =
+    private static final ExecutorService executorDiffer =
+            Helper.getBackgroundExecutor(0, 0, 3, "differ");
+    private static final ExecutorService executorAvatar =
             Helper.getBackgroundExecutor(0, 0, 3, "avatar");
 
     private static final int MAX_RECIPIENTS_COMPACT = 3;
@@ -1608,7 +1610,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                     }
-                }.setExecutor(executor).setLog(false);
+                }.setExecutor(executorAvatar).setLog(false);
                 taskContactInfo.execute(context, owner, aargs, "message:avatar");
             } else
                 bindContactInfo(message, info, addresses);
@@ -7814,7 +7816,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         };
 
         AsyncDifferConfig<TupleMessageEx> config = new AsyncDifferConfig.Builder<>(callback)
-                .setBackgroundThreadExecutor(Helper.getBackgroundExecutor(0, 2, 3, "differ"))
+                .setBackgroundThreadExecutor(executorDiffer)
                 .build();
         this.differ = new AsyncPagedListDiffer<>(new AdapterListUpdateCallback(this), config);
         this.differ.addPagedListListener(new AsyncPagedListDiffer.PagedListListener<TupleMessageEx>() {
