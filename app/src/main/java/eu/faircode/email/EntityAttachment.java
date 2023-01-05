@@ -23,9 +23,11 @@ import static androidx.room.ForeignKey.CASCADE;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -151,6 +153,14 @@ public class EntityAttachment {
         if ("application/x-pkcs7-signature".equals(type))
             return true;
         return (encryption != null);
+    }
+
+    Uri getUri(Context context) {
+        File file = getFile(context);
+        if (TextUtils.isEmpty(name))
+            return FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+        else
+            return FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file, name);
     }
 
     File getFile(Context context) {

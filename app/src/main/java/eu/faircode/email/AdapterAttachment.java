@@ -299,13 +299,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         private boolean onShare(final EntityAttachment attachment) {
             try {
-                File file = attachment.getFile(context);
-                Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-                // TODO: consider using getUriForFile(..., displayName)
-
                 new ShareCompat.IntentBuilder(context)
                         .setType(attachment.getMimeType())
-                        .addStream(uri)
+                        .addStream(attachment.getUri(context))
                         .setChooserTitle(R.string.title_select_app)
                         .startChooser();
 

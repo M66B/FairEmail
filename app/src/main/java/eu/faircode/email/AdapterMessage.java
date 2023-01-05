@@ -3971,11 +3971,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ArrayList<Uri> result = new ArrayList<>();
                     for (EntityAttachment attachment : attachments)
                         if (attachment.available &&
-                                attachment.isAttachment() && attachment.isImage()) {
-                            File file = attachment.getFile(context);
-                            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-                            result.add(uri);
-                        }
+                                attachment.isAttachment() && attachment.isImage())
+                            result.add(attachment.getUri(context));
 
                     return result;
                 }
@@ -5320,10 +5317,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (attachment == null)
                         return;
 
-                    File file = attachment.getFile(context);
-                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
                     context.startActivity(new Intent(context, ActivityAMP.class)
-                            .setData(uri)
+                            .setData(attachment.getUri(context))
                             .putExtra("id", attachment.message));
                 }
 
