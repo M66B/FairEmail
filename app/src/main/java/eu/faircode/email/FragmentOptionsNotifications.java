@@ -813,7 +813,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                 ComponentName.createRelative(context, cls.getName()),
                 context.getString(title),
                 Icon.createWithResource(context, icon),
-                Helper.getParallelExecutor(),
+                Helper.getUIExecutor(),
                 new Consumer<Integer>() {
                     @Override
                     public void accept(Integer result) {

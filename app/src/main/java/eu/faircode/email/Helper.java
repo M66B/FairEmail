@@ -247,6 +247,7 @@ public class Helper {
 
     private static ExecutorService sSerialExecutor = null;
     private static ExecutorService sParallelExecutor = null;
+    private static ExecutorService sUIExecutor = null;
     private static ExecutorService sMediaExecutor = null;
     private static ExecutorService sDownloadExecutor = null;
 
@@ -263,6 +264,12 @@ public class Helper {
         if (sParallelExecutor == null)
             sParallelExecutor = getBackgroundExecutor(0, "parallel");
         return sParallelExecutor;
+    }
+
+    static ExecutorService getUIExecutor() {
+        if (sUIExecutor == null)
+            sUIExecutor = getBackgroundExecutor(0, 0, 3, "UI");
+        return sUIExecutor;
     }
 
     static ExecutorService getMediaTaskExecutor() {
@@ -2762,7 +2769,7 @@ public class Helper {
                             ? R.string.title_setup_biometrics_disable
                             : R.string.title_setup_biometrics_enable));
 
-                    final BiometricPrompt prompt = new BiometricPrompt(activity, Helper.getParallelExecutor(),
+                    final BiometricPrompt prompt = new BiometricPrompt(activity, Helper.getUIExecutor(),
                             new BiometricPrompt.AuthenticationCallback() {
                                 private int fails = 0;
 

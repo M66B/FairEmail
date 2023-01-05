@@ -337,7 +337,7 @@ public class EditTextCompose extends FixedEditText {
                         if (snippet.id.equals(id)) {
                             String html = snippet.getHtml(context, to);
 
-                            Helper.getParallelExecutor().submit(new Runnable() {
+                            Helper.getUIExecutor().submit(new Runnable() {
                                 @Override
                                 public void run() {
                                     try {
@@ -384,7 +384,7 @@ public class EditTextCompose extends FixedEditText {
             });
 
             DB db = DB.getInstance(context);
-            Helper.getParallelExecutor().submit(new Runnable() {
+            Helper.getUIExecutor().submit(new Runnable() {
                 @Override
                 public void run() {
                     try {
@@ -493,7 +493,7 @@ public class EditTextCompose extends FixedEditText {
                 } else
                     html = h;
 
-                Helper.getParallelExecutor().submit(new Runnable() {
+                Helper.getUIExecutor().submit(new Runnable() {
                     @Override
                     public void run() {
                         try {

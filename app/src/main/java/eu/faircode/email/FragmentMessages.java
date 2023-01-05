@@ -10114,7 +10114,7 @@ public class FragmentMessages extends FragmentBase
             return;
 
         DB db = DB.getInstance(context);
-        Helper.getParallelExecutor().execute(new Runnable() {
+        Helper.getUIExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 try {

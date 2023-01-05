@@ -336,7 +336,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                     Integer has = encryption.get(email);
                                     if (has == null) {
                                         final List<Address> recipient = Arrays.asList(new Address[]{parsed[0]});
-                                        Helper.getParallelExecutor().submit(new Runnable() {
+                                        Helper.getUIExecutor().submit(new Runnable() {
                                             @Override
                                             public void run() {
                                                 try {
