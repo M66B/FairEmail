@@ -41,6 +41,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ExecutorService;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -124,6 +125,9 @@ public abstract class DB extends RoomDatabase {
     static final int DEFAULT_CACHE_SIZE = 10; // percentage of memory class
     private static final int DB_JOURNAL_SIZE_LIMIT = 1048576; // requery/sqlite-android default
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
+
+    private static ExecutorService executor =
+            Helper.getBackgroundExecutor(1, 0, 3, "db");
 
     private static final String[] DB_TABLES = new String[]{
             "identity", "account", "folder", "message", "attachment", "operation", "contact", "certificate", "answer", "rule", "search", "log"};
@@ -405,7 +409,7 @@ public abstract class DB extends RoomDatabase {
                 .databaseBuilder(context, DB.class, DB_NAME)
                 //.openHelperFactory(new RequerySQLiteOpenHelperFactory())
                 //.setQueryExecutor()
-                .setTransactionExecutor(Helper.getBackgroundExecutor(1, 4, 3, "db"))
+                .setTransactionExecutor(executor)
                 .setJournalMode(wal ? JournalMode.WRITE_AHEAD_LOGGING : JournalMode.TRUNCATE) // using the latest sqlite
                 .addCallback(new Callback() {
                     @Override
