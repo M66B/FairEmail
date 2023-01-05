@@ -600,7 +600,10 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         cbAlways.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton v, boolean isChecked) {
-                prefs.edit().putInt("poll_interval", isChecked ? 0 : EntityAccount.DEFAULT_POLL_INTERVAL).apply();
+                int value = (isChecked ? 0 : EntityAccount.DEFAULT_POLL_INTERVAL);
+                prefs.edit().putInt("poll_interval", value).apply();
+                if (value == 0)
+                    prefs.edit().remove("auto_optimize").apply();
             }
         });
 

@@ -235,6 +235,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 if (value != current) {
                     adapterView.setTag(value);
                     prefs.edit().putInt("poll_interval", value).apply();
+                    if (value == 0)
+                        prefs.edit().remove("auto_optimize").apply();
                     tvPollBattery.setVisibility(value > 0 && value < 15 ? View.VISIBLE : View.GONE);
                     grpExempted.setVisibility(value == 0 ? View.GONE : View.VISIBLE);
                 }
