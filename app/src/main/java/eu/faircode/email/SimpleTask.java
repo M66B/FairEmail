@@ -71,6 +71,12 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private static Context themedContext = null;
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
+    private static final ExecutorService serialExecutor =
+            Helper.getBackgroundExecutor(0, 1, 3, "tasks/serial");
+
+    private static final ExecutorService globalExecutor =
+            Helper.getBackgroundExecutor(0, 0, 3, "tasks/global");
+
     private static final int REPORT_AFTER = 15 * 60 * 1000; // milliseconds
 
     static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
@@ -108,7 +114,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     public SimpleTask<T> serial() {
-        return setExecutor(Helper.getSerialTaskExecutor());
+        return setExecutor(serialExecutor);
     }
 
     @NonNull
@@ -127,7 +133,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         if (localExecutor != null)
             return localExecutor;
 
-        return Helper.getParallelExecutor();
+        return globalExecutor;
     }
 
     @NonNull
