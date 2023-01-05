@@ -3598,14 +3598,14 @@ First of all, a purchase will be available on all devices logged into the same G
 You can select the account in the Play store app by tapping on the avatar at the top right.
 
 Google manages all purchases, so as a developer I have little control over purchases.
-So, basically the only thing I can do, is give some advice:
+So, basically, the only thing I can do, is suggest some things:
 
 * Make sure you have an active, working internet connection, and turn off any VPN based app because it might prevent the Play store from checking purchases
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device (you might need to reinstall the app)
 * Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
+* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it helps to tap the *buy* button
 
 You can also try to clear the cache of the Play store app via the Android apps settings.
 Restarting the device might be necessary to let the Play store recognize the purchase correctly.
@@ -3625,7 +3625,9 @@ Note that:
 
 Please [see here](https://support.google.com/googleplay/answer/4646404) about how to add, remove, or edit your Google Play payment method.
 
-If you cannot solve the problem with the purchase, you will have to contact Google about it.
+If you cannot restore a purchase,
+please contact me via [this contact form](https://contact.faircode.eu/?product=fairemailsupport),
+mentioning the email address of the Google account used for the purchase.
 
 <br />
 
