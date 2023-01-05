@@ -19,11 +19,20 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import android.net.Uri;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 
 public class FileProviderEx extends FileProvider {
     // https://android-review.googlesource.com/c/platform/frameworks/support/+/1978527
     public FileProviderEx() {
         super(R.xml.fileprovider_paths);
+    }
+
+    @Override
+    public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
+        throw new UnsupportedOperationException("No external updates");
     }
 }
