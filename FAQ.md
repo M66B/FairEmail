@@ -2561,8 +2561,8 @@ Since version 1.2018 there is a rule option to run rules daily on messages older
 
 The following rule conditions are available:
 
-* Sender contains or sender is contact
-* Recipient contains
+* Sender (from, reply-to) contains or sender is contact
+* Recipient (to, cc, bcc) contains
 * Subject contains
 * Has attachments (optional of specific type)
 * Header contains

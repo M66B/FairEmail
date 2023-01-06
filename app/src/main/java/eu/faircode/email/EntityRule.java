@@ -234,6 +234,8 @@ public class EntityRule {
                     recipients.addAll(Arrays.asList(message.to));
                 if (message.cc != null)
                     recipients.addAll(Arrays.asList(message.cc));
+                if (message.bcc != null)
+                    recipients.addAll(Arrays.asList(message.bcc));
                 for (Address recipient : recipients) {
                     InternetAddress ia = (InternetAddress) recipient;
                     String personal = ia.getPersonal();
