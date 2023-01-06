@@ -1813,7 +1813,7 @@
     <string name="title_pro_activated">Усе pro-функцыі актывіраваны</string>
     <string name="title_pro_valid">Усе pro-функцыі актывіраваны</string>
     <string name="title_pro_invalid">Няправільны адказ</string>
-    <string name="title_pro_support">FairEmail патрэбна ваша дапамога. Націсніце тут, каб купіць платныя функцыі і тым самым падтрымаць праект, або адключыце гэты напамін.</string>
+    <string name="title_pro_support">FairEmail патрэбна ваша дапамога. Націсніце тут, каб купіць платныя функцыі, і такім чынам падтрымаць праект, або адключыце гэты напамін.</string>
     <string name="title_boundary_error">Памылка загрузкі паведамленняў з паштовага сервера</string>
     <string name="title_boundary_retry">Паўтарыце спробу</string>
     <string name="title_unexpected_error">Нечаканая памылка</string>
