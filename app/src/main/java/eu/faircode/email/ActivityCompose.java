@@ -41,6 +41,7 @@ import androidx.preference.PreferenceManager;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
@@ -102,6 +103,20 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             args = new Bundle();
 
             Uri uri = intent.getData();
+
+            // Workaround mailto in email address
+            if (uri == null && intent.hasExtra(Intent.EXTRA_EMAIL))
+                try {
+                    String[] to = intent.getStringArrayExtra(Intent.EXTRA_EMAIL);
+                    if (to != null && to.length == 1 &&
+                            to[0] != null && to[0].startsWith("mailto:")) {
+                        uri = Uri.parse(to[0]);
+                        intent.removeExtra(Intent.EXTRA_EMAIL);
+                    }
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+
             if (uri != null && "mailto".equalsIgnoreCase(uri.getScheme())) {
                 // https://www.ietf.org/rfc/rfc2368.txt
                 MailTo mailto = MailTo.parse(uri.toString());
