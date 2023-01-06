@@ -1945,4 +1945,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Drie.at"
+        domain="drei\\.at"
+        link="https://www.drei.at/de/info/support/e-mail-einstellungen/">
+        <imap
+            host="imap.drei.at"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.drei.at"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
