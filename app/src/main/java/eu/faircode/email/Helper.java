@@ -3099,7 +3099,11 @@ public class Helper {
     // Miscellaneous
 
     static void gc() {
-        if (BuildConfig.DEBUG) {
+        gc(false);
+    }
+
+    static void gc(boolean force) {
+        if (force || BuildConfig.DEBUG) {
             Runtime.getRuntime().gc();
             try {
                 Thread.sleep(50);
