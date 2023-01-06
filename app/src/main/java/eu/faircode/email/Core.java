@@ -441,6 +441,10 @@ class Core {
                                     onRaw(context, jargs, folder, message, (POP3Store) istore, (POP3Folder) ifolder);
                                     break;
 
+                                case EntityOperation.BODY:
+                                    onBody(context, jargs, folder, message, (POP3Folder) ifolder, (POP3Store) istore);
+                                    break;
+
                                 case EntityOperation.ATTACHMENT:
                                     onAttachment(context, jargs, folder, message, (POP3Folder) ifolder, (POP3Store) istore);
                                     break;
@@ -2198,6 +2202,36 @@ class Core {
 
         if (attachment.size != null)
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
+    }
+
+    private static void onBody(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore) throws MessagingException, IOException {
+        if (!EntityFolder.INBOX.equals(folder.type))
+            throw new IllegalArgumentException("Not INBOX");
+
+        Map<EntityMessage, Message> map = findMessages(context, folder, Arrays.asList(message), istore, ifolder);
+        if (map.size() == 0)
+            throw new MessageRemovedException("Message not found");
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean download_plain = prefs.getBoolean("download_plain", false);
+
+        MessageHelper helper = new MessageHelper((MimeMessage) map.entrySet().iterator().next().getValue(), context);
+        MessageHelper.MessageParts parts = helper.getMessageParts();
+
+        String body = parts.getHtml(context, download_plain);
+        File file = message.getFile(context);
+        Helper.writeText(file, body);
+        String text = HtmlHelper.getFullText(body);
+        message.preview = HtmlHelper.getPreview(text);
+        message.language = HtmlHelper.getLanguage(context, message.subject, text);
+
+        DB db = DB.getInstance(context);
+        db.message().setMessageContent(message.id,
+                true,
+                message.language,
+                parts.isPlainOnly(download_plain),
+                message.preview,
+                parts.getWarnings(message.warning));
     }
 
     private static void onAttachment(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore) throws JSONException, MessagingException, IOException {

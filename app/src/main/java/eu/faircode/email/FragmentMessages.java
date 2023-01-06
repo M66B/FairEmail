@@ -7003,10 +7003,11 @@ public class FragmentMessages extends FragmentBase
                     if (account.protocol != EntityAccount.TYPE_IMAP) {
                         if (account.auto_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
+                        if (!message.content)
+                            EntityOperation.queue(context, message, EntityOperation.BODY);
                     } else if (message.uid != null) {
                         if (account.auto_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
-
                         if (!message.content)
                             EntityOperation.queue(context, message, EntityOperation.BODY);
                     }
