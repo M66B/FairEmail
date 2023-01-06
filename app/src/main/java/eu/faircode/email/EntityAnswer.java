@@ -221,6 +221,9 @@ public class EntityAnswer implements Serializable {
                 text = text.replace("$" + name + "$", TextUtils.join("<br>", lines));
             }
 
+        if (BuildConfig.DEBUG)
+            text = text.replace("$version$", BuildConfig.VERSION_NAME);
+
         return text;
     }
 
