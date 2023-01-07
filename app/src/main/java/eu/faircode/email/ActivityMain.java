@@ -402,10 +402,9 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             }
 
             // Default disable landscape columns for small screens
-            if (!config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL)) {
+            if (!config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL))
                 editor.putBoolean("landscape", false);
-                editor.putBoolean("landscape3", false);
-            }
+            editor.putBoolean("landscape3", false);
 
             // Default send bubbles off when accessibility enabled
             if (Helper.isAccessibilityEnabled(this))
