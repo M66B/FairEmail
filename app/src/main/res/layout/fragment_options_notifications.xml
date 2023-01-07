@@ -194,10 +194,10 @@
                     android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?android:attr/textColorLink"
                     android:text="@string/title_advanced_notify_separate_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ibWhy" />
 
@@ -236,118 +236,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swNotifySummary" />
 
-                <CheckBox
-                    android:id="@+id/cbNotifyActionTrash"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_advanced_notify_action_trash"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvNotifyActions" />
-
-                <CheckBox
-                    android:id="@+id/cbNotifyActionJunk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_advanced_notify_action_junk"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionTrash" />
-
-                <CheckBox
-                    android:id="@+id/cbNotifyActionBlockSender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_block_sender"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionJunk" />
-
-                <CheckBox
-                    android:id="@+id/cbNotifyActionArchive"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_advanced_notify_action_archive"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionBlockSender" />
-
-                <CheckBox
-                    android:id="@+id/cbNotifyActionMove"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_advanced_notify_action_move"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionArchive" />
-
-                <TextView
-                    android:id="@+id/tvNotifyActionMoveHint"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_move_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionMove" />
-
-                <CheckBox
-                    android:id="@+id/cbNotifyActionReply"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_advanced_notify_action_reply"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvNotifyActionMoveHint" />
-
-                <CheckBox
-                    android:id="@+id/cbNotifyActionReplyDirect"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_advanced_notify_action_reply_direct"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionReply" />
-
-                <CheckBox
-                    android:id="@+id/cbNotifyActionFlag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_advanced_notify_action_flag"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionReplyDirect" />
-
-                <CheckBox
-                    android:id="@+id/cbNotifyActionSeen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_advanced_notify_action_seen"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionFlag" />
-
-                <CheckBox
-                    android:id="@+id/cbNotifyActionHide"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_advanced_notify_action_hide"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSeen" />
-
-                <CheckBox
-                    android:id="@+id/cbNotifyActionSnooze"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_advanced_notify_action_snooze"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionHide" />
-
                 <TextView
                     android:id="@+id/tvNotifyActionsHint"
                     android:layout_width="0dp"
@@ -359,7 +247,7 @@
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSnooze" />
+                    app:layout_constraintTop_toBottomOf="@id/tvNotifyActions" />
 
                 <TextView
                     android:id="@+id/tvNotifyActionsPro"
@@ -373,6 +261,129 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsHint" />
 
+                <CheckBox
+                    android:id="@+id/cbNotifyActionTrash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_notify_action_trash"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsPro" />
+
+                <CheckBox
+                    android:id="@+id/cbNotifyActionJunk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_notify_action_junk"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionTrash" />
+
+                <CheckBox
+                    android:id="@+id/cbNotifyActionBlockSender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_block_sender"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionJunk" />
+
+                <CheckBox
+                    android:id="@+id/cbNotifyActionArchive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_notify_action_archive"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionBlockSender" />
+
+                <CheckBox
+                    android:id="@+id/cbNotifyActionMove"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_notify_action_move"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionArchive" />
+
+                <TextView
+                    android:id="@+id/tvNotifyActionMoveHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_move_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionMove" />
+
+                <CheckBox
+                    android:id="@+id/cbNotifyActionReply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_notify_action_reply"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNotifyActionMoveHint" />
+
+                <CheckBox
+                    android:id="@+id/cbNotifyActionReplyDirect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_notify_action_reply_direct"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionReply" />
+
+                <CheckBox
+                    android:id="@+id/cbNotifyActionFlag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_notify_action_flag"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionReplyDirect" />
+
+                <CheckBox
+                    android:id="@+id/cbNotifyActionSeen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_notify_action_seen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionFlag" />
+
+                <CheckBox
+                    android:id="@+id/cbNotifyActionHide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_notify_action_hide"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSeen" />
+
+                <CheckBox
+                    android:id="@+id/cbNotifyActionSnooze"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_notify_action_snooze"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionHide" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swLight"
                     android:layout_width="0dp"
@@ -381,7 +392,7 @@
                     android:text="@string/title_advanced_light"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsPro"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSnooze"
                     app:switchPadding="12dp" />
 
                 <Button
@@ -458,12 +469,12 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
-                    app:drawableTint="?attr/colorWarning"
                     android:gravity="center"
                     android:text="@string/title_setup_advanced"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="?attr/colorWarning"
                     android:textStyle="bold"
+                    app:drawableTint="?attr/colorWarning"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
