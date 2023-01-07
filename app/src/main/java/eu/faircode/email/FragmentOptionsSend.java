@@ -772,7 +772,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swAttachNew.setChecked(prefs.getBoolean("attach_new", true));
         swAutoLink.setChecked(prefs.getBoolean("auto_link", false));
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
-        swPlainOnlyReply.setChecked(prefs.getBoolean("plain_only_reply", true));
+        swPlainOnlyReply.setChecked(prefs.getBoolean("plain_only_reply", false));
         swFormatFlowed.setChecked(prefs.getBoolean("format_flowed", false));
         swUsenetSignature.setChecked(prefs.getBoolean("usenet_signature", false));
         swRemoveSignatures.setChecked(prefs.getBoolean("remove_signatures", false));

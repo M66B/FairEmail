@@ -672,6 +672,9 @@ public class ApplicationEx extends Application
         } else if (version < 2016) {
             if (!prefs.contains("reset_snooze"))
                 editor.putBoolean("reset_snooze", false);
+        } else if (version < 2029) {
+            if (!prefs.contains("plain_only_reply"))
+                editor.putBoolean("plain_only_reply", true);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

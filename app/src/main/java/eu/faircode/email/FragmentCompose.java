@@ -4630,7 +4630,7 @@ public class FragmentCompose extends FragmentBase {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean plain_only = prefs.getBoolean("plain_only", false);
-            boolean plain_only_reply = prefs.getBoolean("plain_only_reply", true);
+            boolean plain_only_reply = prefs.getBoolean("plain_only_reply", false);
             boolean resize_reply = prefs.getBoolean("resize_reply", true);
             boolean sign_default = prefs.getBoolean("sign_default", false);
             boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
