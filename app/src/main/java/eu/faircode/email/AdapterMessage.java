@@ -260,7 +260,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private float textSize;
 
     private boolean date;
-    private boolean week;
+    private boolean date_week;
+    private boolean date_fixed;
     private boolean cards;
     private boolean shadow_unread;
     private boolean shadow_border;
@@ -1409,7 +1410,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     message.totalSize != null && ("size".equals(sort) || "attachments".equals(sort))
                             ? View.VISIBLE : View.GONE);
             SpannableStringBuilder time = new SpannableStringBuilderEx(
-                    (date && !week) && FragmentMessages.SORT_DATE_HEADER.contains(sort)
+                    ((date || date_fixed) && !date_week) && FragmentMessages.SORT_DATE_HEADER.contains(sort)
                             ? TF.format(message.received)
                             : Helper.getRelativeTimeSpanString(context, message.received));
             if (show_recent && message.recent)
@@ -7328,7 +7329,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         boolean generated = prefs.getBoolean("generated_icons", true);
 
         this.date = prefs.getBoolean("date", true);
-        this.week = prefs.getBoolean("date_week", false);
+        this.date_week = prefs.getBoolean("date_week", false);
+        this.date_fixed = (!date && prefs.getBoolean("date_fixed", false));
         this.cards = prefs.getBoolean("cards", true);
         this.shadow_unread = prefs.getBoolean("shadow_unread", false);
         this.shadow_border = prefs.getBoolean("shadow_border", true);
