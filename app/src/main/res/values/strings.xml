@@ -461,6 +461,7 @@
 
     <string name="title_advanced_auto_link">Automatically create links</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>
+    <string name="title_advanced_plain_only_reply">Automatically plain text only when replying to a plain text only message</string>
     <string name="title_advanced_flow">\'format flowed\' for plain text</string>
     <string name="title_advanced_usenet_signature">Follow Usenet signature convention</string>
     <string name="title_advanced_remove_signatures">Remove recognized signatures</string>

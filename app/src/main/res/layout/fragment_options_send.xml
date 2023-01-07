@@ -739,6 +739,18 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swPlainOnlyReply"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_plain_only_reply"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swPlainOnly"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swFormatFlowed"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -746,7 +758,7 @@
                     android:text="@string/title_advanced_flow"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swPlainOnly"
+                    app:layout_constraintTop_toBottomOf="@id/swPlainOnlyReply"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

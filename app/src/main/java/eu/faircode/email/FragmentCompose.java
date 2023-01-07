@@ -4630,6 +4630,7 @@ public class FragmentCompose extends FragmentBase {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean plain_only = prefs.getBoolean("plain_only", false);
+            boolean plain_only_reply = prefs.getBoolean("plain_only_reply", true);
             boolean resize_reply = prefs.getBoolean("resize_reply", true);
             boolean sign_default = prefs.getBoolean("sign_default", false);
             boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
@@ -5074,7 +5075,7 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.sensitivity = ref.sensitivity;
 
                             // Plain-only
-                            if (ref.isPlainOnly())
+                            if (plain_only_reply && ref.isPlainOnly())
                                 data.draft.plain_only = 1;
 
                             // Encryption

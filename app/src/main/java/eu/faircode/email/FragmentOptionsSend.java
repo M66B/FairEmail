@@ -103,6 +103,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAttachNew;
     private SwitchCompat swAutoLink;
     private SwitchCompat swPlainOnly;
+    private SwitchCompat swPlainOnlyReply;
     private SwitchCompat swFormatFlowed;
     private SwitchCompat swUsenetSignature;
     private SwitchCompat swRemoveSignatures;
@@ -126,7 +127,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "prefix_once", "prefix_count", "alt_re", "alt_fwd",
             "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_new", "signature_reply", "signature_reply_once", "signature_forward",
-            "attach_new", "auto_link", "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
+            "attach_new", "auto_link", "plain_only", "plain_only_reply",
+            "format_flowed", "usenet_signature", "remove_signatures",
             "receipt_default", "receipt_type", "receipt_legacy",
             "forward_new",
             "lookup_mx", "reply_move", "reply_move_inbox"
@@ -183,6 +185,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swAttachNew = view.findViewById(R.id.swAttachNew);
         swAutoLink = view.findViewById(R.id.swAutoLink);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
+        swPlainOnlyReply = view.findViewById(R.id.swPlainOnlyReply);
         swFormatFlowed = view.findViewById(R.id.swFormatFlowed);
         swUsenetSignature = view.findViewById(R.id.swUsenetSignature);
         swRemoveSignatures = view.findViewById(R.id.swRemoveSignatures);
@@ -558,6 +561,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swPlainOnlyReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("plain_only_reply", checked).apply();
+            }
+        });
+
         swFormatFlowed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -762,6 +772,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swAttachNew.setChecked(prefs.getBoolean("attach_new", true));
         swAutoLink.setChecked(prefs.getBoolean("auto_link", false));
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
+        swPlainOnlyReply.setChecked(prefs.getBoolean("plain_only_reply", true));
         swFormatFlowed.setChecked(prefs.getBoolean("format_flowed", false));
         swUsenetSignature.setChecked(prefs.getBoolean("usenet_signature", false));
         swRemoveSignatures.setChecked(prefs.getBoolean("remove_signatures", false));
