@@ -6293,7 +6293,7 @@ public class FragmentMessages extends FragmentBase
                     if (archive)
                         count++;
 
-                    boolean inbox = (more_inbox && count < MAX_QUICK_ACTIONS && result.canInbox());
+                    boolean inbox = ((more_inbox || (more_junk && inJunk)) && count < MAX_QUICK_ACTIONS && result.canInbox());
                     if (inbox)
                         count++;
 
