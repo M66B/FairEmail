@@ -1301,6 +1301,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (count == 0)
             finish();
         else {
+            showActionBar(true);
+
             if (count < lastBackStackCount) {
                 Intent intent = getIntent();
                 intent.setAction(null);

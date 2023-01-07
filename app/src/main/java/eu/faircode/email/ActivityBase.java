@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.animation.ValueAnimator;
 import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -42,6 +43,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -830,6 +832,43 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 return false;
         }
         return super.shouldUpRecreateTask(targetIntent);
+    }
+
+    public ValueAnimator abAnimator = null;
+
+    public void showActionBar(boolean show) {
+        ViewGroup abv = findViewById(R.id.action_bar);
+        if (abv == null) {
+            ActionBar ab = getSupportActionBar();
+            if (ab == null)
+                return;
+            if (show)
+                ab.show();
+            else
+                ab.hide();
+        } else {
+            if (abAnimator == null) {
+                abAnimator = ValueAnimator.ofInt(0, Helper.getActionBarHeight(this));
+                abAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator anim) {
+                        abv.getLayoutParams().height = (Integer) anim.getAnimatedValue();
+                        abv.requestLayout();
+                    }
+                });
+                abAnimator.setDuration(250L);
+            } else
+                abAnimator.cancel();
+
+            int target = (show ? Helper.getActionBarHeight(this) : 0);
+            if (abv.getLayoutParams().height == target)
+                return;
+
+            if (show)
+                abAnimator.start();
+            else
+                abAnimator.reverse();
+        }
     }
 
     Handler getMainHandler() {

@@ -27,6 +27,7 @@ import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
 import static android.view.KeyEvent.ACTION_DOWN;
 import static android.view.KeyEvent.ACTION_UP;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
+import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_KEY_MISSING;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_CONFIRMED;
@@ -338,6 +339,7 @@ public class FragmentMessages extends FragmentBase
 
     private WebView printWebView = null;
 
+    private boolean hide_toolbar;
     private boolean cards;
     private boolean dividers;
     private boolean category;
@@ -478,7 +480,7 @@ public class FragmentMessages extends FragmentBase
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        swipenav = prefs.getBoolean("swipenav", true);
+        hide_toolbar = prefs.getBoolean("hide_toolbar", true);
         cards = prefs.getBoolean("cards", true);
         dividers = prefs.getBoolean("dividers", true);
         category = prefs.getBoolean("group_category", false);
@@ -488,6 +490,7 @@ public class FragmentMessages extends FragmentBase
         date_bold = prefs.getBoolean("date_bold", false);
         threading = (prefs.getBoolean("threading", true) ||
                 args.getBoolean("force_threading"));
+        swipenav = prefs.getBoolean("swipenav", true);
         seekbar = prefs.getBoolean("seekbar", false);
         actionbar = prefs.getBoolean("actionbar", true);
         boolean actionbar_swap = prefs.getBoolean("actionbar_swap", false);
@@ -1105,6 +1108,8 @@ public class FragmentMessages extends FragmentBase
         });
 
         rvMessage.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            private boolean show = true;
+
             @Override
             public void onScrolled(@NonNull RecyclerView rv, int dx, int dy) {
                 if (dy != 0) {
@@ -1115,6 +1120,19 @@ public class FragmentMessages extends FragmentBase
                         updateExpanded();
                     }
                 }
+
+                if (hide_toolbar) {
+                    int range = rv.computeVerticalScrollRange();
+                    int extend = rv.computeVerticalScrollExtent();
+                    boolean canScrollVertical = (range > extend);
+                    show = (!canScrollVertical || (rv.computeVerticalScrollOffset() == 0 || dy < 0));
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                if (hide_toolbar && newState == SCROLL_STATE_IDLE)
+                    showActionBar(show);
             }
         });
 

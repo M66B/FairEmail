@@ -6,6 +6,12 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### Next version
+
+* Auto hide top toolbar when scrolling messages
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2028 - 2023-01-06
 
 * Small improvements and minor bug fixes

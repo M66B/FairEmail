@@ -106,6 +106,12 @@ public class FragmentBase extends Fragment {
             return null;
     }
 
+    protected void showActionBar(boolean show) {
+        FragmentActivity activity = getActivity();
+        if (activity instanceof ActivityBase)
+            ((ActivityBase) activity).showActionBar(show);
+    }
+
     protected void setCount(String count) {
         this.count = count;
         updateSubtitle();

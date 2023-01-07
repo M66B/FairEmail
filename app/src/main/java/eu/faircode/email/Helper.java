@@ -883,14 +883,19 @@ public class Helper {
 
     // View
 
+    static Integer actionBarHeight = null;
+
     static int getActionBarHeight(Context context) {
-        int actionBarHeight;
-        TypedValue tv = new TypedValue();
-        if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
-            DisplayMetrics dm = context.getResources().getDisplayMetrics();
-            return TypedValue.complexToDimensionPixelSize(tv.data, dm);
-        } else
-            return Helper.dp2pixels(context, 56);
+        if (actionBarHeight == null) {
+            TypedValue tv = new TypedValue();
+            if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+                DisplayMetrics dm = context.getResources().getDisplayMetrics();
+                actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, dm);
+            } else
+                actionBarHeight = Helper.dp2pixels(context, 56);
+        }
+
+        return actionBarHeight;
     }
 
     static int getBottomNavigationHeight(Context context) {
