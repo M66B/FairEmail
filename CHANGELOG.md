@@ -6,11 +6,12 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### Next version
+### [Next version](https://bitbucket.org/M66B/fairemail-test/downloads/FairEmail-v1.2028a-github-update-release.apk)
 
 * Added auto hiding top toolbar when scrolling messages (can be turned of in the display settings)
 * Added option to disable automatically plain text only when replying to a plain text only message
 * Added option to show unread count badge at the top of the unread count widget
+* Added option for normal importance quick action
 * Small improvements and minor bug fixes
 * Updated translations
 
