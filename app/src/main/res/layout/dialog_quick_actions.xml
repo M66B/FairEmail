@@ -123,6 +123,19 @@
             app:layout_constraintTop_toBottomOf="@id/cbFlagColor" />
 
         <CheckBox
+            android:id="@+id/cbImportanceNormal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_horizontal_rule_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_quick_actions_normal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbImportanceLow" />
+
+        <CheckBox
             android:id="@+id/cbImportanceHigh"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -133,7 +146,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbImportanceLow" />
+            app:layout_constraintTop_toBottomOf="@id/cbImportanceNormal" />
 
         <CheckBox
             android:id="@+id/cbInbox"

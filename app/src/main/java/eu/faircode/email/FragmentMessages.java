@@ -307,6 +307,7 @@ public class FragmentMessages extends FragmentBase
     private ImageButton ibBatchFlag;
     private ImageButton ibBatchFlagColor;
     private ImageButton ibLowImportance;
+    private ImageButton ibNormalImportance;
     private ImageButton ibHighImportance;
     private ImageButton ibInbox;
     private ImageButton ibArchive;
@@ -604,6 +605,7 @@ public class FragmentMessages extends FragmentBase
         ibBatchFlag = view.findViewById(R.id.ibBatchFlag);
         ibBatchFlagColor = view.findViewById(R.id.ibBatchFlagColor);
         ibLowImportance = view.findViewById(R.id.ibLowImportance);
+        ibNormalImportance = view.findViewById(R.id.ibNormalImportance);
         ibHighImportance = view.findViewById(R.id.ibHighImportance);
         ibInbox = view.findViewById(R.id.ibInbox);
         ibArchive = view.findViewById(R.id.ibArchive);
@@ -1509,6 +1511,14 @@ public class FragmentMessages extends FragmentBase
             public void onClick(View v) {
                 boolean more_clear = prefs.getBoolean("more_clear", true);
                 onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW, more_clear);
+            }
+        });
+
+        ibNormalImportance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean more_clear = prefs.getBoolean("more_clear", true);
+                onActionSetImportanceSelection(EntityMessage.PRIORITIY_NORMAL, more_clear);
             }
         });
 
@@ -6272,6 +6282,7 @@ public class FragmentMessages extends FragmentBase
                     boolean more_flag = prefs.getBoolean("more_flag", false);
                     boolean more_flag_color = prefs.getBoolean("more_flag_color", false);
                     boolean more_importance_high = prefs.getBoolean("more_importance_high", false);
+                    boolean more_importance_normal = prefs.getBoolean("more_importance_normal", false);
                     boolean more_importance_low = prefs.getBoolean("more_importance_low", false);
                     boolean more_inbox = prefs.getBoolean("more_inbox", true);
                     boolean more_archive = prefs.getBoolean("more_archive", true);
@@ -6320,6 +6331,11 @@ public class FragmentMessages extends FragmentBase
                     if (importance_high)
                         count++;
 
+                    boolean importance_normal = (more_importance_normal && count < MAX_QUICK_ACTIONS &&
+                            !EntityMessage.PRIORITIY_NORMAL.equals(result.importance));
+                    if (importance_normal)
+                        count++;
+
                     boolean importance_low = (more_importance_low && count < MAX_QUICK_ACTIONS &&
                             !EntityMessage.PRIORITIY_LOW.equals(result.importance));
                     if (importance_low)
@@ -6358,6 +6374,7 @@ public class FragmentMessages extends FragmentBase
                     ibBatchFlag.setVisibility(flag ? View.VISIBLE : View.GONE);
                     ibBatchFlagColor.setVisibility(flag_color ? View.VISIBLE : View.GONE);
                     ibLowImportance.setVisibility(importance_low ? View.VISIBLE : View.GONE);
+                    ibNormalImportance.setVisibility(importance_normal ? View.VISIBLE : View.GONE);
                     ibHighImportance.setVisibility(importance_high ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(inbox ? View.VISIBLE : View.GONE);
                     ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
@@ -10935,6 +10952,7 @@ public class FragmentMessages extends FragmentBase
             final CheckBox cbFlag = dview.findViewById(R.id.cbFlag);
             final CheckBox cbFlagColor = dview.findViewById(R.id.cbFlagColor);
             final CheckBox cbImportanceLow = dview.findViewById(R.id.cbImportanceLow);
+            final CheckBox cbImportanceNormal = dview.findViewById(R.id.cbImportanceNormal);
             final CheckBox cbImportanceHigh = dview.findViewById(R.id.cbImportanceHigh);
             final CheckBox cbInbox = dview.findViewById(R.id.cbInbox);
             final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
@@ -10952,6 +10970,7 @@ public class FragmentMessages extends FragmentBase
             cbFlag.setChecked(prefs.getBoolean("more_flag", false));
             cbFlagColor.setChecked(prefs.getBoolean("more_flag_color", false));
             cbImportanceLow.setChecked(prefs.getBoolean("more_importance_low", false));
+            cbImportanceNormal.setChecked(prefs.getBoolean("more_importance_normal", false));
             cbImportanceHigh.setChecked(prefs.getBoolean("more_importance_high", false));
             cbInbox.setChecked(prefs.getBoolean("more_inbox", true));
             cbArchive.setChecked(prefs.getBoolean("more_archive", true));
@@ -10974,6 +10993,7 @@ public class FragmentMessages extends FragmentBase
                             editor.putBoolean("more_flag", cbFlag.isChecked());
                             editor.putBoolean("more_flag_color", cbFlagColor.isChecked());
                             editor.putBoolean("more_importance_low", cbImportanceLow.isChecked());
+                            editor.putBoolean("more_importance_normal", cbImportanceNormal.isChecked());
                             editor.putBoolean("more_importance_high", cbImportanceHigh.isChecked());
                             editor.putBoolean("more_inbox", cbInbox.isChecked());
                             editor.putBoolean("more_archive", cbArchive.isChecked());

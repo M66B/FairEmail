@@ -1300,6 +1300,7 @@
     <string name="title_quick_actions">Select actions</string>
     <string name="title_quick_actions_hint">Up to %1$d actions will be shown</string>
     <string name="title_quick_actions_low">Low importance</string>
+    <string name="title_quick_actions_normal">Normal importance</string>
     <string name="title_quick_actions_high">High importance</string>
     <string name="title_quick_actions_snooze">Snooze</string>
     <string name="title_quick_actions_clear">Clear selection after action</string>
