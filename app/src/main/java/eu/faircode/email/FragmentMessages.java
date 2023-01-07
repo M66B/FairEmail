@@ -27,7 +27,6 @@ import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
 import static android.view.KeyEvent.ACTION_DOWN;
 import static android.view.KeyEvent.ACTION_UP;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
-import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_KEY_MISSING;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_CONFIRMED;
@@ -1123,17 +1122,18 @@ public class FragmentMessages extends FragmentBase
                     }
                 }
 
-                if (hide_toolbar) {
+                if (hide_toolbar && dy != 0) {
                     int range = rv.computeVerticalScrollRange();
                     int extend = rv.computeVerticalScrollExtent();
+                    int offset = rv.computeVerticalScrollOffset();
                     boolean canScrollVertical = (range > extend);
-                    show = (!canScrollVertical || (rv.computeVerticalScrollOffset() == 0 || dy < 0));
+                    show = (!canScrollVertical || (offset == 0 || dy < 0));
                 }
             }
 
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                if (hide_toolbar && newState == SCROLL_STATE_IDLE)
+                if (hide_toolbar && newState != RecyclerView.SCROLL_STATE_DRAGGING)
                     showActionBar(show);
             }
         });

@@ -847,8 +847,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             else
                 ab.hide();
         } else {
+            int height = Helper.getActionBarHeight(this);
+            int current = abv.getLayoutParams().height;
+            int target = (show ? height : 0);
             if (abAnimator == null) {
-                abAnimator = ValueAnimator.ofInt(0, Helper.getActionBarHeight(this));
+                abAnimator = ValueAnimator.ofInt(current, target);
                 abAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator anim) {
@@ -860,18 +863,13 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                         }
                     }
                 });
-                abAnimator.setDuration(250L);
-            } else
+            } else {
                 abAnimator.cancel();
+                abAnimator.setIntValues(current, target);
+            }
 
-            int target = (show ? Helper.getActionBarHeight(this) : 0);
-            if (abv.getLayoutParams().height == target)
-                return;
-
-            if (show)
-                abAnimator.start();
-            else
-                abAnimator.reverse();
+            abAnimator.setDuration(250L * Math.abs(current - target) / height);
+            abAnimator.start();
         }
     }
 

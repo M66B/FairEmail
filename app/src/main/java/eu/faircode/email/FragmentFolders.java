@@ -124,6 +124,7 @@ public class FragmentFolders extends FragmentBase {
     private boolean primary;
     private boolean show_hidden = false;
     private boolean show_flagged = false;
+    private boolean hide_toolbar = false;
     private String searching = null;
     private AdapterFolder adapter;
 
@@ -155,6 +156,7 @@ public class FragmentFolders extends FragmentBase {
         compact = prefs.getBoolean("compact_folders", true);
         show_hidden = false; // prefs.getBoolean("hidden_folders", false);
         show_flagged = prefs.getBoolean("flagged_folders", false);
+        hide_toolbar = prefs.getBoolean("hide_toolbar", true);
 
         if (BuildConfig.DEBUG) {
             ViewModelSelected selectedModel =
@@ -307,6 +309,26 @@ public class FragmentFolders extends FragmentBase {
             };
             rvFolder.addItemDecoration(categoryDecorator);
         }
+
+        rvFolder.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            private boolean show = true;
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView rv, int dx, int dy) {
+                if (hide_toolbar && dy != 0) {
+                    int range = rv.computeVerticalScrollRange();
+                    int extend = rv.computeVerticalScrollExtent();
+                    boolean canScrollVertical = (range > extend);
+                    show = (!canScrollVertical || (rv.computeVerticalScrollOffset() == 0 || dy < 0));
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                if (hide_toolbar && newState != RecyclerView.SCROLL_STATE_DRAGGING)
+                    showActionBar(show);
+            }
+        });
 
         adapter = new AdapterFolder(this, account, unified, primary, compact, show_hidden, show_flagged, null);
         rvFolder.setAdapter(adapter);
