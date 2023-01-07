@@ -852,8 +852,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 abAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator anim) {
-                        abv.getLayoutParams().height = (Integer) anim.getAnimatedValue();
-                        abv.requestLayout();
+                        try {
+                            abv.getLayoutParams().height = (Integer) anim.getAnimatedValue();
+                            abv.requestLayout();
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                     }
                 });
                 abAnimator.setDuration(250L);
