@@ -2101,6 +2101,7 @@
     <string name="title_widget_padding">Padding size</string>
     <string name="title_widget_separator_lines">Show separator lines</string>
     <string name="title_widget_semi_transparent">Semi transparent background</string>
+    <string name="title_widget_count_top">Show unread count at the top</string>
     <string name="title_widget_avatars">Show contact avatars</string>
     <string name="title_widget_refresh">Show refresh messages button</string>
     <string name="title_widget_compose">Show compose new message button</string>

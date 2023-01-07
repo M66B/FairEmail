@@ -59,6 +59,7 @@ public class Widget extends AppWidgetProvider {
                     boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
                     int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
                     int layout = prefs.getInt("widget." + appWidgetId + ".layout", 0);
+                    boolean top = prefs.getBoolean("widget." + appWidgetId + ".top", false);
                     int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
 
                     if (version <= 1550)
@@ -143,24 +144,32 @@ public class Widget extends AppWidgetProvider {
                         views.setColorAttr(R.id.ivMessage, "setColorFilter", android.R.attr.textColorPrimary);
                         if (layout == 0)
                             views.setColorStateListAttr(R.id.tvCount, "setTextColor", android.R.attr.textColorPrimary);
-                        else
+                        else {
                             views.setTextColor(R.id.tvCount, colorWidgetForeground);
+                            views.setTextColor(R.id.tvCountTop, colorWidgetForeground);
+                        }
                         views.setColorStateListAttr(R.id.tvAccount, "setTextColor", android.R.attr.textColorPrimary);
                     } else if (background == Color.TRANSPARENT) {
                         views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
                         views.setTextColor(R.id.tvCount, colorWidgetForeground);
+                        views.setTextColor(R.id.tvCountTop, colorWidgetForeground);
                         views.setTextColor(R.id.tvAccount, colorWidgetForeground);
                     } else {
                         float lum = (float) ColorUtils.calculateLuminance(background);
                         int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
                         views.setInt(R.id.ivMessage, "setColorFilter", fg);
                         views.setTextColor(R.id.tvCount, layout == 0 ? fg : colorWidgetForeground);
+                        views.setTextColor(R.id.tvCountTop, layout == 0 ? fg : colorWidgetForeground);
                         views.setTextColor(R.id.tvAccount, fg);
                     }
 
                     // Set count
-                    views.setTextViewText(R.id.tvCount, Helper.formatNumber(unseen, 99, nf));
-                    views.setViewVisibility(R.id.tvCount, layout == 1 && unseen == 0 ? View.GONE : View.VISIBLE);
+                    String count = Helper.formatNumber(unseen, 99, nf);
+                    views.setTextViewText(R.id.tvCount, count);
+                    views.setViewVisibility(R.id.tvCount, top || (layout == 1 && unseen == 0) ? View.GONE : View.VISIBLE);
+
+                    views.setTextViewText(R.id.tvCountTop, count);
+                    views.setViewVisibility(R.id.tvCountTop, !top || (layout == 1 && unseen == 0) ? View.GONE : View.VISIBLE);
 
                     // Set account name
                     if (TextUtils.isEmpty(name))

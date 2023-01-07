@@ -112,6 +112,16 @@
                 app:layout_constraintTop_toBottomOf="@id/inNew" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <CheckBox
+            android:id="@+id/cbTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_widget_count_top"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clLayout" />
+
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
@@ -121,7 +131,7 @@
             android:drawablePadding="6dp"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/clLayout" />
+            app:layout_constraintTop_toBottomOf="@id/cbTop" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbWait"

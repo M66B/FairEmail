@@ -59,6 +59,7 @@ public class ActivityWidget extends ActivityBase {
     private View inNew;
     private RadioButton rbOld;
     private RadioButton rbNew;
+    private CheckBox cbTop;
     private Button btnSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -84,6 +85,7 @@ public class ActivityWidget extends ActivityBase {
         boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
         int layout = prefs.getInt("widget." + appWidgetId + ".layout", 1 /* new */);
+        boolean top = prefs.getBoolean("widget." + appWidgetId + ".top", false);
 
         daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
 
@@ -99,6 +101,7 @@ public class ActivityWidget extends ActivityBase {
         inNew = findViewById(R.id.inNew);
         rbOld = findViewById(R.id.rbOld);
         rbNew = findViewById(R.id.rbNew);
+        cbTop = findViewById(R.id.cbTop);
         btnSave = findViewById(R.id.btnSave);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
@@ -119,7 +122,7 @@ public class ActivityWidget extends ActivityBase {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
                     btnColor.setColor(Color.TRANSPARENT);
-                setBackground();
+                updatePreview();
             }
         });
 
@@ -151,7 +154,7 @@ public class ActivityWidget extends ActivityBase {
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
                                     cbSemiTransparent.setChecked(false);
                                 btnColor.setColor(selectedColor);
-                                setBackground();
+                                updatePreview();
                             }
                         })
                         .setNegativeButton(R.string.title_transparent, new DialogInterface.OnClickListener() {
@@ -159,7 +162,7 @@ public class ActivityWidget extends ActivityBase {
                             public void onClick(DialogInterface dialog, int which) {
                                 cbSemiTransparent.setChecked(false);
                                 btnColor.setColor(Color.TRANSPARENT);
-                                setBackground();
+                                updatePreview();
                             }
                         })
                         .build()
@@ -183,6 +186,13 @@ public class ActivityWidget extends ActivityBase {
             }
         });
 
+        cbTop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                updatePreview();
+            }
+        });
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -198,6 +208,7 @@ public class ActivityWidget extends ActivityBase {
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
                 editor.putInt("widget." + appWidgetId + ".layout", rbNew.isChecked() ? 1 : 0);
+                editor.putBoolean("widget." + appWidgetId + ".top", cbTop.isChecked());
                 editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
                 editor.apply();
 
@@ -213,8 +224,9 @@ public class ActivityWidget extends ActivityBase {
         spAccount.setAdapter(adapterAccount);
 
         // Initialize
-        ((TextView) inOld.findViewById(R.id.tvCount)).setText("12");
-        ((TextView) inNew.findViewById(R.id.tvCount)).setText("12");
+        ((TextView) inOld.findViewById(R.id.tvCount)).setText("3");
+        ((TextView) inNew.findViewById(R.id.tvCount)).setText("3");
+        ((TextView) inNew.findViewById(R.id.tvCountTop)).setText("3");
 
         cbDayNight.setChecked(daynight);
         cbDayNight.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.S ? View.GONE : View.VISIBLE);
@@ -224,7 +236,8 @@ public class ActivityWidget extends ActivityBase {
         btnColor.setEnabled(!daynight);
         rbOld.setChecked(layout != 1);
         rbNew.setChecked(layout == 1);
-        setBackground();
+        cbTop.setChecked(top);
+        updatePreview();
 
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -271,7 +284,7 @@ public class ActivityWidget extends ActivityBase {
         }.execute(this, args, "widget:accounts");
     }
 
-    private void setBackground() {
+    private void updatePreview() {
         boolean semi = cbSemiTransparent.isChecked();
         int background = btnColor.getColor();
         if (background == Color.TRANSPARENT) {
@@ -297,7 +310,12 @@ public class ActivityWidget extends ActivityBase {
 
             ((ImageView) inNew.findViewById(R.id.ivMessage)).setColorFilter(color);
             ((TextView) inNew.findViewById(R.id.tvCount)).setTextColor(color);
+            ((TextView) inNew.findViewById(R.id.tvCountTop)).setTextColor(color);
             ((TextView) inNew.findViewById(R.id.tvAccount)).setTextColor(color);
         }
+
+        boolean top = cbTop.isChecked();
+        ((TextView) inNew.findViewById(R.id.tvCount)).setVisibility(top ? View.GONE : View.VISIBLE);
+        ((TextView) inNew.findViewById(R.id.tvCountTop)).setVisibility(top ? View.VISIBLE : View.GONE);
     }
 }
