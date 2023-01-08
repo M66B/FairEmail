@@ -834,7 +834,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         return super.shouldUpRecreateTask(targetIntent);
     }
 
+    public boolean abShowing = true;
     public ValueAnimator abAnimator = null;
+
+    public boolean isActionBarShown() {
+        return abShowing;
+    }
 
     public void showActionBar(boolean show) {
         ViewGroup abv = findViewById(R.id.action_bar);
@@ -847,6 +852,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             else
                 ab.hide();
         } else {
+            if (abShowing == show)
+                return;
+            abShowing = show;
+
             int height = Helper.getActionBarHeight(this);
             int current = abv.getLayoutParams().height;
             int target = (show ? height : 0);

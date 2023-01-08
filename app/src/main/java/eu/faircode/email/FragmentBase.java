@@ -106,6 +106,14 @@ public class FragmentBase extends Fragment {
             return null;
     }
 
+    protected boolean isActionBarShown() {
+        FragmentActivity activity = getActivity();
+        if (activity instanceof ActivityBase)
+            return ((ActivityBase) activity).isActionBarShown();
+        else
+            return false;
+    }
+
     protected void showActionBar(boolean show) {
         FragmentActivity activity = getActivity();
         if (activity instanceof ActivityBase)

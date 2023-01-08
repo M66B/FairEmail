@@ -772,6 +772,21 @@ public class FragmentMessages extends FragmentBase
             }
 
             @Override
+            public void onLayoutCompleted(RecyclerView.State state) {
+                super.onLayoutCompleted(state);
+                if (!isActionBarShown())
+                    try {
+                        int range = computeVerticalScrollRange(state);
+                        int extend = computeVerticalScrollExtent(state);
+                        boolean canScrollVertical = (range > extend);
+                        if (!canScrollVertical) // anymore
+                            showActionBar(true);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+            }
+
+            @Override
             public void onItemsAdded(@NonNull RecyclerView recyclerView, int positionStart, int itemCount) {
                 iProperties.layoutChanged();
             }
@@ -1122,13 +1137,17 @@ public class FragmentMessages extends FragmentBase
                     }
                 }
 
-                if (hide_toolbar && dy != 0) {
-                    int range = rv.computeVerticalScrollRange();
-                    int extend = rv.computeVerticalScrollExtent();
-                    int offset = rv.computeVerticalScrollOffset();
-                    boolean canScrollVertical = (range > extend);
-                    show = (!canScrollVertical || (offset == 0 || dy < 0));
-                }
+                if (hide_toolbar && dy != 0)
+                    try {
+                        int range = rv.computeVerticalScrollRange();
+                        int extend = rv.computeVerticalScrollExtent();
+                        boolean canScrollVertical = (range > extend);
+                        show = (!canScrollVertical ||
+                                (dy < 0 || rv.computeVerticalScrollOffset() == 0));
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        show = true;
+                    }
             }
 
             @Override
