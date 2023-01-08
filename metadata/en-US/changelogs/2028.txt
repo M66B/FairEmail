@@ -2,9 +2,9 @@ Changelog
 
 --------------------
 
-Pelecanimimus
-
 For support you can use the contact form.
+
+Quetecsaurus
 
 Next version
 
@@ -14,6 +14,8 @@ Next version
 * Added option for normal importance quick action
 * Small improvements and minor bug fixes
 * Updated translations
+
+Pelecanimimus
 
 1.2028 - 2023-01-06
 

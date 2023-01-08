@@ -2,11 +2,11 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
-### [Pelecanimimus](https://en.wikipedia.org/wiki/Pelecanimimus)
-
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### [Next version](https://bitbucket.org/M66B/fairemail-test/downloads/FairEmail-v1.2028a-github-update-release.apk)
+### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
+
+### Next version
 
 * Added auto hiding top toolbar when scrolling messages (can be turned of in the display settings)
 * Added option to disable automatically plain text only when replying to a plain text only message
@@ -14,6 +14,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Added option for normal importance quick action
 * Small improvements and minor bug fixes
 * Updated translations
+
+### [Pelecanimimus](https://en.wikipedia.org/wiki/Pelecanimimus)
 
 ### 1.2028 - 2023-01-06
 
