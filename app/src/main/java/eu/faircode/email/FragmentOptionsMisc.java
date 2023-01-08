@@ -147,6 +147,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swBeta;
     private TextView tvBitBucketPrivacy;
     private SwitchCompat swChangelog;
+    private SwitchCompat swAnnouncements;
+    private TextView tvAnnouncementsPrivacy;
     private SwitchCompat swCrashReports;
     private TextView tvUuid;
     private Button btnReset;
@@ -238,6 +240,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpSend;
     private Group grpUpdates;
     private Group grpBitbucket;
+    private Group grpAnnouncements;
     private Group grpTest;
     private CardView cardDebug;
 
@@ -254,7 +257,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host",
-            "updates", "weekly", "beta", "show_changelog",
+            "updates", "weekly", "beta", "show_changelog", "announcements",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
             "test1", "test2", "test3", "test4", "test5",
@@ -291,7 +294,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "gmail_checked", "outlook_checked",
             "redmi_note",
             "accept_space", "accept_unsupported",
-            "junk_hint"
+            "junk_hint",
+            "last_update_check", "last_announcement_check"
     };
 
     @Override
@@ -361,6 +365,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swBeta = view.findViewById(R.id.swBeta);
         tvBitBucketPrivacy = view.findViewById(R.id.tvBitBucketPrivacy);
         swChangelog = view.findViewById(R.id.swChangelog);
+        swAnnouncements = view.findViewById(R.id.swAnnouncements);
+        tvAnnouncementsPrivacy = view.findViewById(R.id.tvAnnouncementsPrivacy);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         tvUuid = view.findViewById(R.id.tvUuid);
         btnReset = view.findViewById(R.id.btnReset);
@@ -452,6 +458,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         grpSend = view.findViewById(R.id.grpSend);
         grpUpdates = view.findViewById(R.id.grpUpdates);
         grpBitbucket = view.findViewById(R.id.grpBitbucket);
+        grpAnnouncements = view.findViewById(R.id.grpAnnouncements);
         grpTest = view.findViewById(R.id.grpTest);
         cardDebug = view.findViewById(R.id.cardDebug);
 
@@ -911,6 +918,21 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("show_changelog", checked).apply();
+            }
+        });
+
+        swAnnouncements.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("announcements", checked).apply();
+            }
+        });
+
+        tvAnnouncementsPrivacy.getPaint().setUnderlineText(true);
+        tvAnnouncementsPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.GITHUB_PRIVACY_URI), true);
             }
         });
 
@@ -1890,6 +1912,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
                 ? View.GONE : View.VISIBLE);
         grpBitbucket.setVisibility(View.GONE);
+        grpAnnouncements.setVisibility(!BuildConfig.DEBUG &&
+                (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
+                ? View.GONE : View.VISIBLE);
         grpTest.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
@@ -2021,12 +2046,16 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         SharedPreferences.Editor editor = prefs.edit();
 
                         if (cbGeneral.isChecked())
-                            for (String option : RESET_QUESTIONS)
-                                editor.remove(option);
+                            for (String key : RESET_QUESTIONS)
+                                if (prefs.contains(key)) {
+                                    Log.i("Removing option=" + key);
+                                    editor.remove(key);
+                                }
 
                         for (String key : prefs.getAll().keySet())
                             if ((!BuildConfig.DEBUG &&
                                     key.startsWith("translated_") && cbGeneral.isChecked()) ||
+                                    (key.startsWith("announcement.") && cbGeneral.isChecked()) ||
                                     (key.endsWith(".show_full") && cbFull.isChecked()) ||
                                     (key.endsWith(".show_images") && cbImages.isChecked()) ||
                                     (key.endsWith(".confirm_link") && cbLinks.isChecked())) {
@@ -2145,6 +2174,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swBeta.setChecked(prefs.getBoolean("beta", false));
         swBeta.setEnabled(swUpdates.isChecked());
         swChangelog.setChecked(prefs.getBoolean("show_changelog", !BuildConfig.PLAY_STORE_RELEASE));
+        swAnnouncements.setChecked(prefs.getBoolean("announcements", true));
         swExperiments.setChecked(prefs.getBoolean("experiments", false));
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));

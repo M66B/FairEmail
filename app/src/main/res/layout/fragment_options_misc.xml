@@ -654,6 +654,33 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAnnouncements"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_announcements"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swChangelog"
+                    app:switchPadding="12dp" />
+
+                <TextView
+                    android:id="@+id/tvAnnouncementsPrivacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_privacy_policy"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAnnouncements" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swCrashReports"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -661,7 +688,7 @@
                     android:text="@string/title_advanced_crash_reports"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swChangelog"
+                    app:layout_constraintTop_toBottomOf="@id/tvAnnouncementsPrivacy"
                     app:switchPadding="12dp" />
 
                 <TextView
@@ -785,6 +812,12 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="swBeta,tvBitBucketPrivacy" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpAnnouncements"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="swAnnouncements,tvAnnouncementsPrivacy" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

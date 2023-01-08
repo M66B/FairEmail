@@ -41,6 +41,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Pair;
@@ -94,9 +95,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.Callable;
 
@@ -163,8 +167,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int PI_THREAD = 3;
     static final int PI_OUTBOX = 4;
     static final int PI_UPDATE = 5;
-    static final int PI_WIDGET = 6;
-    static final int PI_POWER = 7;
+    static final int PI_ANNOUNCEMENT = 6;
+    static final int PI_WIDGET = 7;
+    static final int PI_POWER = 8;
 
     static final String ACTION_VIEW_FOLDERS = BuildConfig.APPLICATION_ID + ".VIEW_FOLDERS";
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
@@ -182,6 +187,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private static final long EXIT_DELAY = 2500L; // milliseconds
     static final long UPDATE_DAILY = (BuildConfig.BETA_RELEASE ? 4 : 12) * 3600 * 1000L; // milliseconds
     static final long UPDATE_WEEKLY = 7 * 24 * 3600 * 1000L; // milliseconds
+
+    private static final int ANNOUNCEMENT_TIMEOUT = 15 * 1000; // milliseconds
+    private static final long ANNOUNCEMENT_INTERVAL = 4 * 3600 * 1000L; // milliseconds
 
     private static final int REQUEST_RULES_ACCOUNT = 2001;
     private static final int REQUEST_RULES_FOLDER = 2002;
@@ -939,6 +947,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     if (!drawerLayout.isLocked(drawerContainer))
                         drawerLayout.closeDrawer(drawerContainer);
                     checkUpdate(true);
+                    checkAnnouncements(true);
                 }
                 return !play;
             }
@@ -1090,6 +1099,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             owner.start();
 
         checkUpdate(false);
+        checkAnnouncements(false);
         checkIntent();
     }
 
@@ -1734,6 +1744,150 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }.execute(this, args, "update:check");
     }
 
+    private void checkAnnouncements(boolean always) {
+        if (TextUtils.isEmpty(BuildConfig.ANNOUNCEMENT_URI))
+            return;
+
+        long now = new Date().getTime();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean announcements = prefs.getBoolean("announcements", true);
+        long last_announcement_check = prefs.getLong("last_announcement_check", 0);
+
+        if (!always && !announcements)
+            return;
+        if (!always && last_announcement_check + ANNOUNCEMENT_INTERVAL > now)
+            return;
+
+        prefs.edit().putLong("last_announcement_check", now).apply();
+
+        Bundle args = new Bundle();
+        args.putBoolean("always", always);
+
+        new SimpleTask<List<Announcement>>() {
+            @Override
+            protected List<Announcement> onExecute(Context context, Bundle args) throws Throwable {
+                StringBuilder response = new StringBuilder();
+                HttpsURLConnection urlConnection = null;
+                try {
+                    URL latest = new URL(BuildConfig.ANNOUNCEMENT_URI);
+                    urlConnection = (HttpsURLConnection) latest.openConnection();
+                    urlConnection.setRequestMethod("GET");
+                    urlConnection.setReadTimeout(ANNOUNCEMENT_TIMEOUT);
+                    urlConnection.setConnectTimeout(ANNOUNCEMENT_TIMEOUT);
+                    urlConnection.setDoOutput(false);
+                    ConnectionHelper.setUserAgent(context, urlConnection);
+                    urlConnection.connect();
+
+                    int status = urlConnection.getResponseCode();
+                    InputStream inputStream = (status == HttpsURLConnection.HTTP_OK
+                            ? urlConnection.getInputStream() : urlConnection.getErrorStream());
+
+                    if (inputStream != null) {
+                        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+
+                        String line;
+                        while ((line = br.readLine()) != null)
+                            response.append(line);
+                    }
+
+                    if (status != HttpsURLConnection.HTTP_OK)
+                        throw new IOException("HTTP " + status + ": " + response);
+
+                    DateFormat DTF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.US);
+
+                    List<Announcement> announcements = new ArrayList<>();
+
+                    JSONObject jroot = new JSONObject(response.toString());
+                    JSONArray jannouncements = jroot.getJSONArray("Announcements");
+                    for (int i = 0; i < jannouncements.length(); i++) {
+                        JSONObject jannouncement = jannouncements.getJSONObject(i);
+
+                        String language = Locale.getDefault().getLanguage();
+
+                        String title = jannouncement.optString("Title." + language);
+                        if (TextUtils.isEmpty(title))
+                            title = jannouncement.getString("Title");
+
+                        String text = jannouncement.optString("Text." + language);
+                        if (TextUtils.isEmpty(text))
+                            text = jannouncement.getString("Text");
+
+                        Announcement announcement = new Announcement();
+                        announcement.id = jannouncement.getInt("ID");
+                        announcement.test = jannouncement.optBoolean("Test");
+                        announcement.title = title;
+                        announcement.text = HtmlHelper.fromHtml(text, context);
+                        if (jannouncement.has("Link"))
+                            announcement.link = Uri.parse(jannouncement.getString("Link"));
+                        announcement.expires = DTF.parse(jannouncement.getString("Expires")
+                                .replace("Z", "+00:00"));
+                        announcements.add(announcement);
+                    }
+
+                    return announcements;
+                } finally {
+                    if (urlConnection != null)
+                        urlConnection.disconnect();
+                }
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<Announcement> announcements) {
+                boolean always = args.getBoolean("always");
+
+                NotificationManager nm =
+                        Helper.getSystemService(ActivityView.this, NotificationManager.class);
+                if (!NotificationHelper.areNotificationsEnabled(nm))
+                    return;
+
+                SharedPreferences.Editor editor = prefs.edit();
+
+                for (Announcement announcement : announcements) {
+                    String key = "announcement." + announcement.id;
+                    if (announcement.isExpired()) {
+                        editor.remove(key);
+                        nm.cancel(announcement.id);
+                    } else {
+                        boolean notified = prefs.getBoolean(key, false);
+                        if (notified && !always)
+                            continue;
+                        editor.putBoolean(key, true);
+
+                        NotificationCompat.Builder builder =
+                                new NotificationCompat.Builder(ActivityView.this, "announcements")
+                                        .setSmallIcon(R.drawable.baseline_warning_white_24)
+                                        .setContentTitle(announcement.title)
+                                        .setContentText(announcement.text)
+                                        .setAutoCancel(true)
+                                        .setShowWhen(true)
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setCategory(NotificationCompat.CATEGORY_REMINDER)
+                                        .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+
+                        if (announcement.link != null) {
+                            Intent update = new Intent(Intent.ACTION_VIEW, announcement.link)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            PendingIntent piUpdate = PendingIntentCompat.getActivity(
+                                    ActivityView.this, PI_ANNOUNCEMENT, update, PendingIntent.FLAG_UPDATE_CURRENT);
+                            builder.setContentIntent(piUpdate);
+                        }
+
+                        nm.notify(announcement.id, builder.build());
+                    }
+                }
+
+                editor.apply();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (args.getBoolean("always"))
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
+            }
+        }.execute(this, args, "announcements:check");
+    }
+
     private void checkIntent() {
         Intent intent = getIntent();
         Log.i("View intent=" + intent +
@@ -2286,6 +2440,23 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         String tag_name; // version
         String html_url;
         String download_url;
+    }
+
+    private class Announcement {
+        int id;
+        boolean test;
+        String title;
+        Spanned text;
+        Uri link;
+        Date expires;
+
+        boolean isExpired() {
+            if (this.test && !BuildConfig.DEBUG)
+                return true;
+            if (expires == null)
+                return true;
+            return (expires.getTime() < new Date().getTime());
+        }
     }
 
     public static class FragmentDialogFirst extends FragmentDialogBase {
