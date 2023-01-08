@@ -4576,7 +4576,7 @@ class Core {
                                 if (replied != null)
                                     all.addAll(replied);
                             }
-                            if (r.refid != null) {
+                            if (r.refid != null && !r.refid.equals(message.inreplyto)) {
                                 List<EntityMessage> refs = db.message().getMessagesByMsgId(folder.account, r.refid);
                                 if (refs != null)
                                     all.addAll(refs);
@@ -4589,8 +4589,10 @@ class Core {
                                         map.put(f.id, f);
                                 }
 
-                            for (EntityFolder f : map.values())
-                                EntityOperation.queue(context, f, EntityOperation.REPORT, message.inreplyto, label);
+                            for (String msgid : new String[]{message.inreplyto, r.refid})
+                                if (msgid != null)
+                                    for (EntityFolder f : map.values())
+                                        EntityOperation.queue(context, f, EntityOperation.REPORT, msgid, label);
                         }
                     }
                 } catch (Throwable ex) {
