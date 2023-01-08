@@ -3159,7 +3159,7 @@ public class MessageHelper {
         }
 
         String getHtml(Context context, boolean plain_text, String override) throws MessagingException, IOException {
-            if (text.size() == 0) {
+            if (text.size() + extra.size() == 0) {
                 Log.i("No body part");
                 return null;
             }
@@ -3194,6 +3194,16 @@ public class MessageHelper {
                 if (size > MAX_MESSAGE_SIZE && size != Integer.MAX_VALUE) {
                     warnings.add(context.getString(R.string.title_insufficient_memory, size));
                     return null;
+                }
+
+                if (BuildConfig.DEBUG) {
+                    String preamble = h.contentType.getParameter("preamble");
+                    if (Boolean.parseBoolean(preamble)) {
+                        String text = ((MimeMultipart) h.part.getContent()).getPreamble();
+                        String html = "<h1>Preamble</h1><div x-plain=\"true\">" + HtmlHelper.formatPlainText(text) + "</div>";
+                        sb.append(html);
+                        continue;
+                    }
                 }
 
                 // Check character set
@@ -4463,6 +4473,15 @@ public class MessageHelper {
                             Log.w(ex);
                             parts.warnings.add(Log.formatThrowable(ex, false));
                         }
+
+                    if (BuildConfig.DEBUG && multipart instanceof MimeMultipart) {
+                        String preamble = ((MimeMultipart) multipart).getPreamble();
+                        if (!TextUtils.isEmpty(preamble)) {
+                            ContentType plain = new ContentType("text/plain; preamble=\"true\"");
+                            parts.extra.add(new PartHolder(part, plain));
+                        }
+                    }
+
                     return;
                 } else {
                     String msg = "Expected multipart/* got " + content.getClass().getName();
