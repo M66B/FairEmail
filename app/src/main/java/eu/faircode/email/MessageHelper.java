@@ -5197,6 +5197,10 @@ public class MessageHelper {
                             case "Diagnostic-Code":
                                 this.diagnostic = value;
                                 break;
+                            case "X-Original-Message-ID":
+                                // GMail
+                                this.refid = value;
+                                break;
                         }
                     } else if (isDispositionNotification(type)) {
                         // https://datatracker.ietf.org/doc/html/rfc3798#section-3.2.6
