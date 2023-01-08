@@ -413,6 +413,7 @@
     <string name="title_advanced_reply_move_inbox">גם להודעות בדואר הנכנס</string>
     <string name="title_advanced_auto_link">ליצור קישורים אוטומטית</string>
     <string name="title_advanced_plain_only">לשלוח טקסט פשוט בלבד כבררת מחדל</string>
+    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">להפוך לטקסט פשוט אוטומטית בעת שליחת תגובה להודעה שהיא בטקסט פשוט בלבד</string>
     <string name="title_advanced_flow">‚שורות תחומות’ לטקסט פשוט</string>
     <string name="title_advanced_usenet_signature">לעקוב אחר מוסכמת החתימות של Usenet</string>
     <string name="title_advanced_remove_signatures">הסרת חתימות מזוהות</string>
@@ -451,6 +452,7 @@
     <string name="title_advanced_min_screen_size">גודל המסך המזערי לפיצול המסך</string>
     <string name="title_advanced_close_pane">לצמצם שורה או עמודה בעת סגירת דיון</string>
     <string name="title_advanced_column_width">רוחב עמודה / גובה שורה של הודעה: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">להסתיר את סרגל הכלים בעת גלילה בין הודעות</string>
     <string name="title_advanced_nav_options">הצגת אפשרויות תפריט הניווט</string>
     <string name="title_advanced_nav_categories">להציג את קטגוריות החשבונות בתפריט הניווט</string>
     <string name="title_advanced_nav_pin">נעיצת תפריט הניווט</string>
@@ -1114,6 +1116,7 @@
     <string name="title_quick_actions">בחירת פעולות</string>
     <string name="title_quick_actions_hint">יופיעו עד %1$d פעולות</string>
     <string name="title_quick_actions_low">חשיבות נמוכה</string>
+    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">חשיבות רגילה</string>
     <string name="title_quick_actions_high">חשיבות גבוהה</string>
     <string name="title_quick_actions_snooze">השהיה</string>
     <string name="title_quick_actions_clear">פינוי הבחירה לאחר פעולה</string>
@@ -1843,6 +1846,7 @@
     <string name="title_widget_padding">גודל ריפוד</string>
     <string name="title_widget_separator_lines">הצגת קווים מפרידים</string>
     <string name="title_widget_semi_transparent">רקע שקוף למחצה</string>
+    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">להציג מניין הודעות שלא נקראו למעלה</string>
     <string name="title_widget_avatars">הצגת תמונות אנשי קשר</string>
     <string name="title_widget_refresh">הצגת כפתור רענון הודעות</string>
     <string name="title_widget_compose">הצגת כפתור כתיבת הודעה חדשה</string>

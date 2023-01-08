@@ -412,6 +412,7 @@
     <string name="title_advanced_reply_move_inbox">Также для сообщений во \"Входящих\"</string>
     <string name="title_advanced_auto_link">Автоматическое создание ссылок</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
+    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">Автоматически использовать обычный текст только при ответе на сообщение с обычным текстом</string>
     <string name="title_advanced_flow">\"Пластичное\" форматирование простого текста</string>
     <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
     <string name="title_advanced_remove_signatures">Удалять распознанные подписи</string>
@@ -450,6 +451,7 @@
     <string name="title_advanced_min_screen_size">Минимальный размер экрана для его разделения</string>
     <string name="title_advanced_close_pane">Свернуть строку или колонку при закрытии диалога</string>
     <string name="title_advanced_column_width">Ширина колонки / высота строки: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">Скрывать верхнюю панель инструментов при прокрутке сообщений</string>
     <string name="title_advanced_nav_options">Показывать панель меню навигации</string>
     <string name="title_advanced_nav_categories">Показывать категории учётных записей в меню навигации</string>
     <string name="title_advanced_nav_pin">Закрепить меню навигации</string>
@@ -1114,6 +1116,7 @@
     <string name="title_quick_actions">Выбрать действия</string>
     <string name="title_quick_actions_hint">Будет показано до %1$d действий</string>
     <string name="title_quick_actions_low">Низкая важность</string>
+    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">Обычная важность</string>
     <string name="title_quick_actions_high">Высокая важность</string>
     <string name="title_quick_actions_snooze">Отложить</string>
     <string name="title_quick_actions_clear">Очистить выбор после действия</string>
@@ -1842,6 +1845,7 @@
     <string name="title_widget_padding">Размер отступа</string>
     <string name="title_widget_separator_lines">Показывать разделительные линии</string>
     <string name="title_widget_semi_transparent">Полупрозрачный фон</string>
+    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">Показывать количество непрочитанных вверху</string>
     <string name="title_widget_avatars">Показывать аватары контактов</string>
     <string name="title_widget_refresh">Показать кнопку обновления сообщений</string>
     <string name="title_widget_compose">Показать кнопку создания нового сообщения</string>

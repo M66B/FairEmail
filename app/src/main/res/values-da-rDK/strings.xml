@@ -387,6 +387,7 @@
     <string name="title_advanced_reply_move_inbox">Også for beskeder i indbakken</string>
     <string name="title_advanced_auto_link">Opret links automatisk</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
+    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">Brug automatisk ren tekst ved besvarelse af en ren tekst besked</string>
     <string name="title_advanced_flow">\'format flowed\' til simpel tekst</string>
     <string name="title_advanced_usenet_signature">Usenet-signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Fjern genkedte signaturer</string>
@@ -425,6 +426,7 @@
     <string name="title_advanced_min_screen_size">Minimumsskærmstørrelse for opsplitning af skærmen</string>
     <string name="title_advanced_close_pane">Skjul række eller kolonne, når en samtale lukkes</string>
     <string name="title_advanced_column_width">Beskedkolonnebredde/-rækkehøjde: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">Skjul øverste værktøjsbjælke ved rulning gennem beskeder</string>
     <string name="title_advanced_nav_options">Vis navigeringsmenuindstillinger</string>
     <string name="title_advanced_nav_categories">Vis kontokategorier i navigeringsmenuen</string>
     <string name="title_advanced_nav_pin">Fastgør navigeringsmenu</string>
@@ -1089,6 +1091,7 @@
     <string name="title_quick_actions">Vælg handlinger</string>
     <string name="title_quick_actions_hint">Maksimalt %1$d handlinger vises</string>
     <string name="title_quick_actions_low">Lav vigtighed</string>
+    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">Normal vigtighed</string>
     <string name="title_quick_actions_high">Høj vigtighed</string>
     <string name="title_quick_actions_snooze">Udsæt</string>
     <string name="title_quick_actions_clear">Ryd valg efter handling</string>
@@ -1817,6 +1820,7 @@
     <string name="title_widget_padding">Polstringsstørrelse</string>
     <string name="title_widget_separator_lines">Vis separatorlinjer</string>
     <string name="title_widget_semi_transparent">Halvgennemsigtig baggrund</string>
+    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">Vis antallet af ulæste øverst</string>
     <string name="title_widget_avatars">Vis kontaktavatarer</string>
     <string name="title_widget_refresh">Vis Opfrisk beskeder-knap</string>
     <string name="title_widget_compose">Vis Skriv ny besked-knap</string>

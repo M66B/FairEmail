@@ -373,6 +373,7 @@
     <string name="title_advanced_reply_move_inbox">也适用于收件箱中的消息</string>
     <string name="title_advanced_auto_link">自动创建链接</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
+    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">仅在回复纯文本消息时自动使用纯文本</string>
     <string name="title_advanced_flow">纯文本中采用可流动换行格式（format=flowed）</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
     <string name="title_advanced_remove_signatures">移除公认的签名</string>
@@ -411,6 +412,7 @@
     <string name="title_advanced_min_screen_size">分屏下的最小屏幕尺寸</string>
     <string name="title_advanced_close_pane">关闭会话时收起行或列</string>
     <string name="title_advanced_column_width">邮件列宽/行高：%1$s %%</string>
+    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">滚动消息时隐藏顶部工具栏</string>
     <string name="title_advanced_nav_options">显示导航菜单选项</string>
     <string name="title_advanced_nav_categories">在导航菜单中显示账户类别</string>
     <string name="title_advanced_nav_pin">固定导航菜单</string>
@@ -1071,6 +1073,7 @@
     <string name="title_quick_actions">选择操作</string>
     <string name="title_quick_actions_hint">最多将显示 %1$d 项操作</string>
     <string name="title_quick_actions_low">低重要性</string>
+    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">一般重要</string>
     <string name="title_quick_actions_high">高重要性</string>
     <string name="title_quick_actions_snooze">打盹</string>
     <string name="title_quick_actions_clear">操作后清除选择</string>
@@ -1796,6 +1799,7 @@
     <string name="title_widget_padding">内边距尺寸</string>
     <string name="title_widget_separator_lines">显示分隔符行</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
+    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">在顶部显示未读计数</string>
     <string name="title_widget_avatars">显示联系人头像</string>
     <string name="title_widget_refresh">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>

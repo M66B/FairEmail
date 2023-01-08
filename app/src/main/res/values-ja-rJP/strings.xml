@@ -374,6 +374,7 @@
     <string name="title_advanced_reply_move_inbox">受信トレイにあるメッセージにも適用</string>
     <string name="title_advanced_auto_link">自動的にリンクを作成</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
+    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">プレーンテキストのみのメッセージにはプレーンテキストのみで返信</string>
     <string name="title_advanced_flow">プレーンテキストに「format flowed」を適用</string>
     <string name="title_advanced_usenet_signature">Usenet の署名ルールに従う</string>
     <string name="title_advanced_remove_signatures">署名を識別して削除</string>
@@ -412,6 +413,7 @@
     <string name="title_advanced_min_screen_size">画面を分割するときの最小画面サイズ</string>
     <string name="title_advanced_close_pane">会話を閉じるときに、行または列を閉じる</string>
     <string name="title_advanced_column_width">本文の列の幅 / 縦の高さ: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">メッセージをスクロールするとき上部ツールバーを隠す</string>
     <string name="title_advanced_nav_options">ナビゲーションメニューにオプションを表示</string>
     <string name="title_advanced_nav_categories">ナビゲーションメニューにアカウントのカテゴリーを表示</string>
     <string name="title_advanced_nav_pin">ナビゲーションメニューをピン留め</string>
@@ -1075,6 +1077,7 @@
     <string name="title_quick_actions">アクションを選択</string>
     <string name="title_quick_actions_hint">最大 %1$d つのアクションを表示できます</string>
     <string name="title_quick_actions_low">重要度が低い</string>
+    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">通常の重要度</string>
     <string name="title_quick_actions_high">重要度が高い</string>
     <string name="title_quick_actions_snooze">スヌーズする</string>
     <string name="title_quick_actions_clear">操作後に選択を解除</string>
@@ -1804,6 +1807,7 @@
     <string name="title_widget_padding">余白サイズ</string>
     <string name="title_widget_separator_lines">区切り線を表示</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>
+    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">未読件数を上部に表示</string>
     <string name="title_widget_avatars">連絡先のアバターを表示</string>
     <string name="title_widget_refresh">メッセージ更新ボタンを表示</string>
     <string name="title_widget_compose">メッセージ新規作成ボタンを表示</string>

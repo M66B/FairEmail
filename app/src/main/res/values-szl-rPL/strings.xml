@@ -412,6 +412,7 @@
     <string name="title_advanced_reply_move_inbox">Również dla wiadomości w skrzynce odbiorczej</string>
     <string name="title_advanced_auto_link">Automatycznie utwórz linki</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
+    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">Automatycznie używaj zwykłego tekstu tylko przy odpowiadaniu na wiadomość ze zwykłym tekstem</string>
     <string name="title_advanced_flow">\'format flowed\' dla zwykłego tekstu</string>
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
     <string name="title_advanced_remove_signatures">Usuń rozpoznane podpisy</string>
@@ -450,6 +451,7 @@
     <string name="title_advanced_min_screen_size">Minimalny rozmiar ekranu dla podziału ekranu</string>
     <string name="title_advanced_close_pane">Zwiń wiersz lub kolumnę podczas zamykania rozmowy</string>
     <string name="title_advanced_column_width">Szerokość kolumny wiadomości / wysokość wiersza: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">Ukryj górny pasek narzędzi podczas przewijania wiadomości</string>
     <string name="title_advanced_nav_options">Pokaż opcje menu nawigacji</string>
     <string name="title_advanced_nav_categories">Pokaż kategorie kont w menu nawigacji</string>
     <string name="title_advanced_nav_pin">Przypnij menu nawigacji</string>
@@ -1112,6 +1114,7 @@
     <string name="title_quick_actions">Wybierz działania</string>
     <string name="title_quick_actions_hint">Do %1$d działań zostanie wyświetlonych</string>
     <string name="title_quick_actions_low">Niskie znaczenie</string>
+    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">Zwykła ważność</string>
     <string name="title_quick_actions_high">Wysokie znaczenie</string>
     <string name="title_quick_actions_snooze">Odłóż</string>
     <string name="title_quick_actions_clear">Wyczyść zaznaczenie po akcji</string>
@@ -1838,6 +1841,7 @@
     <string name="title_widget_padding">Rozmiar wypełnienia</string>
     <string name="title_widget_separator_lines">Pokaż linie rozdzielające</string>
     <string name="title_widget_semi_transparent">Półprzezroczyste tło</string>
+    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">Pokaż ilość nieprzeczytanych na górze</string>
     <string name="title_widget_avatars">Pokaż awatary kontaktu</string>
     <string name="title_widget_refresh">Pokaż przycisk odświeżania wiadomości</string>
     <string name="title_widget_compose">Pokaż przycisk tworzenia nowej wiadomości</string>

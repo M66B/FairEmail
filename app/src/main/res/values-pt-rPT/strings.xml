@@ -388,6 +388,7 @@
     <string name="title_advanced_reply_move_inbox">Também para as mensagens na caixa de entrada</string>
     <string name="title_advanced_auto_link">Criar ligações automaticamente</string>
     <string name="title_advanced_plain_only">Enviar texto simples por omissão</string>
+    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">Texto puro automaticamente apenas quando responder a uma mensagem de texto puro</string>
     <string name="title_advanced_flow">Utilizar \'format flowed\' para texto simples</string>
     <string name="title_advanced_usenet_signature">Seguir a convenção de assinatura Usenet</string>
     <string name="title_advanced_remove_signatures">Remover assinaturas reconhecidas</string>
@@ -426,6 +427,7 @@
     <string name="title_advanced_min_screen_size">Tamanho mínimo de ecrã para dividir</string>
     <string name="title_advanced_close_pane">Recolher linha ou coluna ao fechar uma conversa</string>
     <string name="title_advanced_column_width">Largura / altura da linha da Mensagem: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">Ocultar barra de ferramentas superior quando rolar as mensagens</string>
     <string name="title_advanced_nav_options">Mostrar opções do menu de navegação</string>
     <string name="title_advanced_nav_categories">Mostrar categorias da conta no menu de navegação</string>
     <string name="title_advanced_nav_pin">Fixar menu de navegação</string>
@@ -1089,6 +1091,7 @@
     <string name="title_quick_actions">Selecionar ações</string>
     <string name="title_quick_actions_hint">Serão mostradas %1$d ações no máximo</string>
     <string name="title_quick_actions_low">Importância baixa</string>
+    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">Importância normal</string>
     <string name="title_quick_actions_high">Importância elevada</string>
     <string name="title_quick_actions_snooze">Adiar</string>
     <string name="title_quick_actions_clear">Limpar seleção após ação</string>
@@ -1818,6 +1821,7 @@
     <string name="title_widget_padding">Tamanho do espaçamento</string>
     <string name="title_widget_separator_lines">Mostrar linhas a separar</string>
     <string name="title_widget_semi_transparent">Fundo semitransparente</string>
+    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">Mostrar contagem não lida no topo</string>
     <string name="title_widget_avatars">Mostrar avatares dos contactos</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>
