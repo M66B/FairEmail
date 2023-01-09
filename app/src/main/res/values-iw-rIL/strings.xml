@@ -18,6 +18,7 @@
     <string name="channel_notification">דוא״ל</string>
     <string name="channel_progress">התקדמות</string>
     <string name="channel_update">עדכונים</string>
+    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">הכרזות</string>
     <string name="channel_warning">אזהרות</string>
     <string name="channel_error">שגיאות</string>
     <string name="channel_alert">התראות שרת</string>
@@ -697,6 +698,7 @@
     <string name="title_advanced_check_weekly">לבדוק שבועית במקום יומית</string>
     <string name="title_advanced_beta">איתור גרסאות בדיקה ב־BitBucket</string>
     <string name="title_advanced_changelog">הצגת יומן השינויים לאחר עדכון</string>
+    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">בדיקת הכרזות</string>
     <string name="title_advanced_experiments">התנסות ביכולות נסיוניות</string>
     <string name="title_advanced_crash_reports">שליחת דוחות שגיאה</string>
     <string name="title_advanced_cleanup_attachments">מחיקת קבצים מצורפים להודעות ישנות</string>
