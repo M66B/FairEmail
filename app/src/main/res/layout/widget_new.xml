@@ -39,7 +39,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/colorWidgetForeground"
             android:textSize="12sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tvCountTop"
