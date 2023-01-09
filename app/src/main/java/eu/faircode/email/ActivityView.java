@@ -1863,7 +1863,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                         .setShowWhen(true)
                                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                         .setCategory(NotificationCompat.CATEGORY_RECOMMENDATION)
-                                        .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+                                        .setVisibility(NotificationCompat.VISIBILITY_SECRET)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(announcement.text));
 
                         if (announcement.link != null) {
                             Intent update = new Intent(Intent.ACTION_VIEW, announcement.link)
