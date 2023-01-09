@@ -197,6 +197,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swFakeDark;
     private SwitchCompat swShowRecent;
     private SwitchCompat swModSeq;
+    private SwitchCompat swPreamble;
     private SwitchCompat swUid;
     private SwitchCompat swExpunge;
     private SwitchCompat swUidExpunge;
@@ -266,7 +267,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "chunk_size", "thread_range", "undo_manager",
             "browser_zoom", "fake_dark",
             "show_recent",
-            "use_modseq", "uid_command", "perform_expunge", "uid_expunge",
+            "use_modseq", "preamble", "uid_command", "perform_expunge", "uid_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", "use_top",
             "keep_alive_poll", "empty_pool", "idle_done", "fast_fetch", "logarithmic_backoff",
             "exact_alarms", "infra", "dkim_verify", "dup_msgids", "global_keywords", "test_iab"
@@ -415,6 +416,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swFakeDark = view.findViewById(R.id.swFakeDark);
         swShowRecent = view.findViewById(R.id.swShowRecent);
         swModSeq = view.findViewById(R.id.swModSeq);
+        swPreamble = view.findViewById(R.id.swPreamble);
         swUid = view.findViewById(R.id.swUid);
         swExpunge = view.findViewById(R.id.swExpunge);
         swUidExpunge = view.findViewById(R.id.swUidExpunge);
@@ -1434,6 +1436,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swPreamble.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("preamble", checked).apply();
+                System.setProperty("fairemail.preamble", Boolean.toString(checked));
+            }
+        });
+
         swUid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2228,6 +2238,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swFakeDark.setChecked(prefs.getBoolean("fake_dark", false));
         swShowRecent.setChecked(prefs.getBoolean("show_recent", false));
         swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
+        swPreamble.setChecked(prefs.getBoolean("preamble", false));
         swUid.setChecked(prefs.getBoolean("uid_command", false));
         swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
         swUidExpunge.setChecked(prefs.getBoolean("uid_expunge", false));

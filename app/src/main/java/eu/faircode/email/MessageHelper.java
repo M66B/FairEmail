@@ -273,7 +273,9 @@ public class MessageHelper {
         //System.setProperty("mail.imap.parse.debug", "true");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean preamble = prefs.getBoolean("preamble", false);
         boolean uid_command = prefs.getBoolean("uid_command", false);
+        System.setProperty("fairemail.preamble", Boolean.toString(preamble));
         System.setProperty("fairemail.uid_command", Boolean.toString(uid_command));
     }
 
@@ -3196,7 +3198,7 @@ public class MessageHelper {
                     return null;
                 }
 
-                if (BuildConfig.DEBUG) {
+                if (Boolean.parseBoolean(System.getProperty("fairemail.preamble"))) {
                     String preamble = h.contentType.getParameter("preamble");
                     if (Boolean.parseBoolean(preamble)) {
                         String text = ((MimeMultipart) h.part.getContent()).getPreamble();
@@ -4474,7 +4476,8 @@ public class MessageHelper {
                             parts.warnings.add(Log.formatThrowable(ex, false));
                         }
 
-                    if (BuildConfig.DEBUG && multipart instanceof MimeMultipart) {
+                    if (multipart instanceof MimeMultipart &&
+                            Boolean.parseBoolean(System.getProperty("fairemail.preamble"))) {
                         String preamble = ((MimeMultipart) multipart).getPreamble();
                         if (!TextUtils.isEmpty(preamble)) {
                             ContentType plain = new ContentType("text/plain; preamble=\"true\"");
