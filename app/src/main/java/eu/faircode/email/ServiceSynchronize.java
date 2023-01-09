@@ -128,8 +128,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private final MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
     private final MediatorState liveAccountNetworkState = new MediatorState();
 
-    private static final ExecutorService executor =
+    private static final ExecutorService executorService =
             Helper.getBackgroundExecutor(1, 1, 0, "sync");
+    private static final ExecutorService executorNotify =
+            Helper.getBackgroundExecutor(0, 1, 3, "notify");
 
     private static final long BACKUP_DELAY = 30 * 1000L; // milliseconds
     private static final long PURGE_DELAY = 30 * 1000L; // milliseconds
@@ -470,7 +472,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
             private void init(final TupleAccountNetworkState accountNetworkState) {
-                executor.submit(new RunnableEx("state#init") {
+                executorService.submit(new RunnableEx("state#init") {
                     @Override
                     public void delegate() {
                         long start = new Date().getTime();
@@ -529,7 +531,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 }, "sync.account." + accountNetworkState.accountState.id);
                 coreStates.put(accountNetworkState.accountState.id, astate);
 
-                executor.submit(new RunnableEx("state#start") {
+                executorService.submit(new RunnableEx("state#start") {
                     @Override
                     public void delegate() {
                         long start = new Date().getTime();
@@ -570,7 +572,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                         "Service stop=" + accountNetworkState);
 
-                executor.submit(new RunnableEx("state#stop") {
+                executorService.submit(new RunnableEx("state#stop") {
                     @Override
                     public void delegate() {
                         long start = new Date().getTime();
@@ -608,7 +610,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                         "Service delete=" + accountNetworkState);
 
-                executor.submit(new RunnableEx("state#delete") {
+                executorService.submit(new RunnableEx("state#delete") {
                     @Override
                     public void delegate() {
                         long start = new Date().getTime();
@@ -635,7 +637,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
             private void quit(final Integer eventId) {
-                executor.submit(new RunnableEx("state#quit") {
+                executorService.submit(new RunnableEx("state#quit") {
                     @Override
                     public void delegate() {
                         long start = new Date().getTime();
@@ -694,7 +696,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             private final Runnable backup = new RunnableEx("state#backup") {
                 @Override
                 public void delegate() {
-                    executor.submit(new RunnableEx("state#backup#exec") {
+                    executorService.submit(new RunnableEx("state#backup#exec") {
                         @Override
                         public void delegate() {
                             long start = new Date().getTime();
@@ -846,7 +848,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         mutableUnseenNotify.observe(mowner, new Observer<List<TupleMessageEx>>() {
             @Override
             public void onChanged(final List<TupleMessageEx> messages) {
-                executor.submit(new RunnableEx("mutableUnseenNotify") {
+                executorNotify.submit(new RunnableEx("mutableUnseenNotify") {
                     @Override
                     public void delegate() {
                         try {
