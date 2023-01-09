@@ -18,6 +18,7 @@
     <string name="channel_notification">E-post</string>
     <string name="channel_progress">Förlopp</string>
     <string name="channel_update">Uppdateringar</string>
+    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Notiser</string>
     <string name="channel_warning">Varningar</string>
     <string name="channel_error">Fel</string>
     <string name="channel_alert">Servermeddelanden</string>
@@ -379,6 +380,7 @@
     <string name="title_advanced_reply_move_inbox">Även för meddelanden i inkorgen</string>
     <string name="title_advanced_auto_link">Skapa länkar automatiskt</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
+    <string name="title_advanced_plain_only_reply">Använd textformat automatiskt när du svarar på ett meddelande i textformat</string>
     <string name="title_advanced_flow">\'Formatera flöde\' för oformaterad text</string>
     <string name="title_advanced_usenet_signature">Signaturkonvention för Usenet</string>
     <string name="title_advanced_remove_signatures">Ta bort igenkända signaturer</string>
@@ -417,6 +419,7 @@
     <string name="title_advanced_min_screen_size">Minsta skärmstorlek för uppdelning av skärmen</string>
     <string name="title_advanced_close_pane">Kollapsa rad eller kolumn när en konversation stängs</string>
     <string name="title_advanced_column_width">Meddelandekolumnens bredd / radhöjd: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar">Dölj övre verktygsfältet vid bläddring i meddelanden</string>
     <string name="title_advanced_nav_options">Visa alternativ för navigeringsmeny</string>
     <string name="title_advanced_nav_categories">Visa kontokategorier i navigeringsmenyn</string>
     <string name="title_advanced_nav_pin">Fäst navigeringsmenyn</string>
@@ -660,6 +663,7 @@
     <string name="title_advanced_check_weekly">Kolla veckovis istället för dagligen</string>
     <string name="title_advanced_beta">Sök efter testversioner på BitBucket</string>
     <string name="title_advanced_changelog">Visa ändringslogg efter uppdatering</string>
+    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Kontrollera notiser</string>
     <string name="title_advanced_experiments">Prova experimentella funktioner</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
     <string name="title_advanced_cleanup_attachments">Ta bort bilagor på gamla meddelanden</string>
@@ -1079,6 +1083,7 @@
     <string name="title_quick_actions">Välj åtgärd</string>
     <string name="title_quick_actions_hint">Upp till %1$d åtgärder kommer att visas</string>
     <string name="title_quick_actions_low">Ej viktigt</string>
+    <string name="title_quick_actions_normal">Normalviktigt</string>
     <string name="title_quick_actions_high">Viktigt</string>
     <string name="title_quick_actions_snooze">Pausa</string>
     <string name="title_quick_actions_clear">Nollställ urval efter åtgärd</string>
@@ -1804,6 +1809,7 @@
     <string name="title_widget_padding">Utfyllnadsstorlek</string>
     <string name="title_widget_separator_lines">Visa avgränsare</string>
     <string name="title_widget_semi_transparent">Semi transparent bakgrund</string>
+    <string name="title_widget_count_top">Visa antalet olästa högst upp</string>
     <string name="title_widget_avatars">Visa kontaktavatarer</string>
     <string name="title_widget_refresh">Visa knappen för att uppdatera meddelanden</string>
     <string name="title_widget_compose">Visa knapp för nytt meddelande</string>

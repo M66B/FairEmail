@@ -386,7 +386,7 @@
     <string name="title_advanced_reply_move_inbox">Το ίδιο για τα μηνύματα στα εισερχόμενα</string>
     <string name="title_advanced_auto_link">Αυτόματη δημιουργία συνδέσμων</string>
     <string name="title_advanced_plain_only">Αποστολή απλού κειμένου από προεπιλογή</string>
-    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">Αυτόματη χρήση μόνο απλού κειμένου κατά την απάντηση σε μήνυμα που έχει μόνο απλό κείμενο</string>
+    <string name="title_advanced_plain_only_reply">Αυτόματη χρήση μόνο απλού κειμένου κατά την απάντηση σε μήνυμα που έχει μόνο απλό κείμενο</string>
     <string name="title_advanced_flow">Αναπροσαρμοσμένη μορφοποίηση για απλό κείμενο</string>
     <string name="title_advanced_usenet_signature">Τήρηση των συμβάσεων υπογραφής του Usenet</string>
     <string name="title_advanced_remove_signatures">Αφαίρεση των γνωστών υπογραφών</string>
@@ -425,7 +425,7 @@
     <string name="title_advanced_min_screen_size">Ελάχιστο μέγεθος οθόνης για διαχωρισμό της οθόνης</string>
     <string name="title_advanced_close_pane">Σύμπτυξη γραμμής ή στήλης κατά το κλείσιμο μιας συζήτησης</string>
     <string name="title_advanced_column_width">Πλάτος στήλης / ύψος γραμμής μηνύματος: %1$s %%</string>
-    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">Απόκρυψη της πάνω γραμμής εργαλείων κατά την κύλιση μηνυμάτων</string>
+    <string name="title_advanced_hide_toolbar">Απόκρυψη της πάνω γραμμής εργαλείων κατά την κύλιση μηνυμάτων</string>
     <string name="title_advanced_nav_options">Να προβάλλονται οι επιλογές του μενού πλοήγησης</string>
     <string name="title_advanced_nav_categories">Να προβάλλονται οι κατηγορίες λογαριασμών στο μενού πλοήγησης</string>
     <string name="title_advanced_nav_pin">Καρφίτσωμα του μενού πλοήγησης</string>
@@ -1086,7 +1086,7 @@
     <string name="title_quick_actions">Επιλέξτε ενέργειες</string>
     <string name="title_quick_actions_hint">Θα προβάλλονται μέχρι %1$d ενέργειες</string>
     <string name="title_quick_actions_low">Χαμηλή σημαντικότητα</string>
-    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">Κανονική σημαντικότητα</string>
+    <string name="title_quick_actions_normal">Κανονική σημαντικότητα</string>
     <string name="title_quick_actions_high">Υψηλή σημαντικότητα</string>
     <string name="title_quick_actions_snooze">Αναβολή</string>
     <string name="title_quick_actions_clear">Εκκαθάριση επιλογής μετά την ενέργεια</string>
@@ -1813,7 +1813,7 @@
     <string name="title_widget_padding">Μέγεθος διαστήματος μεταξύ μηνυμάτων</string>
     <string name="title_widget_separator_lines">Προβολή διαχωριστικών γραμμών</string>
     <string name="title_widget_semi_transparent">Ημιδιαφανές φόντο</string>
-    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">Προβολή του αριθμού των μη αναγνωσμένων στην κορυφή</string>
+    <string name="title_widget_count_top">Προβολή του αριθμού των μη αναγνωσμένων στην κορυφή</string>
     <string name="title_widget_avatars">Προβολή άβαταρ των επαφών</string>
     <string name="title_widget_refresh">Προβολή κουμπιού ανανέωσης μηνυμάτων</string>
     <string name="title_widget_compose">Να εμφανίζεται το κουμπί σύνταξης νέου μηνύματος</string>

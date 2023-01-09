@@ -18,6 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Průběh</string>
     <string name="channel_update">Aktualizace</string>
+    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Oznámení</string>
     <string name="channel_warning">Upozornění</string>
     <string name="channel_error">Chyby</string>
     <string name="channel_alert">Upozornění serveru</string>
@@ -413,7 +414,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_reply_move_inbox">Také pro zprávy v Doručených</string>
     <string name="title_advanced_auto_link">Automaticky vytvářet odkazy</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
-    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">Automaticky použít prostý text pouze při odpovědi na zprávu v režimu vynucení prostého textu</string>
+    <string name="title_advanced_plain_only_reply">Automaticky použít prostý text pouze při odpovědi na zprávu v režimu vynucení prostého textu</string>
     <string name="title_advanced_flow">„Format flowed“ pro prostý text</string>
     <string name="title_advanced_usenet_signature">Používat Usenet konvenci pro podpisy</string>
     <string name="title_advanced_remove_signatures">Odmazat rozpoznané podpisy</string>
@@ -452,7 +453,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_min_screen_size">Minimální velikost obrazovky pro její rozdělení</string>
     <string name="title_advanced_close_pane">Sbalit řádek nebo sloupec při zavření konverzace</string>
     <string name="title_advanced_column_width">Šířka sloupce zprávy / výška řádku: %1$s %%</string>
-    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">Skrýt horní panel nástrojů při posouvání zpráv</string>
+    <string name="title_advanced_hide_toolbar">Skrýt horní panel nástrojů při posouvání zpráv</string>
     <string name="title_advanced_nav_options">Zobrazit možnosti navigačního menu</string>
     <string name="title_advanced_nav_categories">Zobrazit kategorie účtu v navigačním menu</string>
     <string name="title_advanced_nav_pin">Připnout navigační menu</string>
@@ -696,6 +697,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_check_weekly">Kontrolovat týdně, místo denně</string>
     <string name="title_advanced_beta">Kontrola testovacích verzí na BitBucket</string>
     <string name="title_advanced_changelog">Zobrazit seznam změn po aktualizaci</string>
+    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Kontrola oznámení</string>
     <string name="title_advanced_experiments">Vyzkoušet experimentální funkce</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
     <string name="title_advanced_cleanup_attachments">Odstranit přílohy starých zpráv</string>
@@ -1115,7 +1117,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_quick_actions">Vybrat akce</string>
     <string name="title_quick_actions_hint">Až %1$d akcí bude zobrazeno</string>
     <string name="title_quick_actions_low">Nízká důležitost</string>
-    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">Normální důležitost</string>
+    <string name="title_quick_actions_normal">Normální důležitost</string>
     <string name="title_quick_actions_high">Vysoká důležitost</string>
     <string name="title_quick_actions_snooze">Odložit</string>
     <string name="title_quick_actions_clear">Vymazat výběr po akci</string>
@@ -1842,7 +1844,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_widget_padding">Velikost odsazení položek</string>
     <string name="title_widget_separator_lines">Použít oddělovací čáry</string>
     <string name="title_widget_semi_transparent">Poloprůhledné pozadí</string>
-    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">Zobrazit počet nepřečtených zpráv v horní části</string>
+    <string name="title_widget_count_top">Zobrazit počet nepřečtených zpráv v horní části</string>
     <string name="title_widget_avatars">Zobrazit avatary kontaktů</string>
     <string name="title_widget_refresh">Zobrazit tlačítko pro obnovení zpráv</string>
     <string name="title_widget_compose">Zobrazit tlačítko pro vytvoření nové zprávy</string>

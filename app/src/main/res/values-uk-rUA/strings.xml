@@ -413,7 +413,7 @@
     <string name="title_advanced_reply_move_inbox">Також для вхідних повідомлень</string>
     <string name="title_advanced_auto_link">Автоматично створювати посилання</string>
     <string name="title_advanced_plain_only">Надсилати як звичайний текст за замовчуванням</string>
-    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">Автоматично застосувати простий текст тільки при відповіді на повідомлення у форматі звичайного тексту</string>
+    <string name="title_advanced_plain_only_reply">Автоматично застосувати простий текст тільки при відповіді на повідомлення у форматі звичайного тексту</string>
     <string name="title_advanced_flow">помічати відповідь в форматі звичайного тексту</string>
     <string name="title_advanced_usenet_signature">Стиль підпису як в Usenet</string>
     <string name="title_advanced_remove_signatures">Видалити розпізнані підписи</string>
@@ -452,7 +452,7 @@
     <string name="title_advanced_min_screen_size">Мінімальний розмір екрану для його розділення</string>
     <string name="title_advanced_close_pane">Згорнути рядок або стовпець при закритті розмови</string>
     <string name="title_advanced_column_width">Повідомлення колонки ширина / висота рядку: %1$s %%</string>
-    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">Приховати верхню панель інструментів під час прокрутки повідомлень</string>
+    <string name="title_advanced_hide_toolbar">Приховати верхню панель інструментів під час прокрутки повідомлень</string>
     <string name="title_advanced_nav_options">Показати параметри меню навігації</string>
     <string name="title_advanced_nav_categories">Показувати категорії облікових записів у навігаційному меню</string>
     <string name="title_advanced_nav_pin">Прикріпити меню навігації</string>
@@ -1115,7 +1115,7 @@
     <string name="title_quick_actions">Вибрати дії</string>
     <string name="title_quick_actions_hint">Буде показано до %1$d дій</string>
     <string name="title_quick_actions_low">Низький пріоритет</string>
-    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">Звичайний пріоритет</string>
+    <string name="title_quick_actions_normal">Звичайний пріоритет</string>
     <string name="title_quick_actions_high">Високий пріоритет</string>
     <string name="title_quick_actions_snooze">Відкласти</string>
     <string name="title_quick_actions_clear">Очистити вибір після дії</string>
@@ -1842,7 +1842,7 @@
     <string name="title_widget_padding">Розмір відступів</string>
     <string name="title_widget_separator_lines">Використовувати розділюючі лінії</string>
     <string name="title_widget_semi_transparent">Напівпрозорий фон</string>
-    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">Показувати кількість непрочитаних зверху</string>
+    <string name="title_widget_count_top">Показувати кількість непрочитаних зверху</string>
     <string name="title_widget_avatars">Показувати аватари контактів</string>
     <string name="title_widget_refresh">Показувати кнопку оновлення повідомлень</string>
     <string name="title_widget_compose">Показати кнопку створення нового повідомлення</string>

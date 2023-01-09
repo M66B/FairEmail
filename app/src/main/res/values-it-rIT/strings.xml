@@ -18,6 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Avanzamento</string>
     <string name="channel_update">Aggiornamenti</string>
+    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Annunci</string>
     <string name="channel_warning">Avvisi</string>
     <string name="channel_error">Errori</string>
     <string name="channel_alert">Avvisi server</string>
@@ -386,7 +387,7 @@
     <string name="title_advanced_reply_move_inbox">Anche per i messaggi nella posta in arrivo</string>
     <string name="title_advanced_auto_link">Crea automaticamente i link</string>
     <string name="title_advanced_plain_only">Invia testo semplice di default</string>
-    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">Testo semplice automatico solo alla risposta a un messaggio in testo semplice solo</string>
+    <string name="title_advanced_plain_only_reply">Testo semplice automatico solo alla risposta a un messaggio in testo semplice solo</string>
     <string name="title_advanced_flow">\'format flowed\' per il testo semplice</string>
     <string name="title_advanced_usenet_signature">Segue la convenzione di firma di Usenet</string>
     <string name="title_advanced_remove_signatures">Rimuovi le firme riconosciute</string>
@@ -425,7 +426,7 @@
     <string name="title_advanced_min_screen_size">Dimensione minima dello schermo per la sua divisione</string>
     <string name="title_advanced_close_pane">Comprimi riga o colonna chiudendo una conversazione</string>
     <string name="title_advanced_column_width">Larghezza colonna/altezza riga del messaggio: %1$s %%</string>
-    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">Nascondi la barra degli strumenti superiore scorrendo i messaggi</string>
+    <string name="title_advanced_hide_toolbar">Nascondi la barra degli strumenti superiore scorrendo i messaggi</string>
     <string name="title_advanced_nav_options">Mostra le opzioni del menu di navigazione</string>
     <string name="title_advanced_nav_categories">Mostra le categorie di profili nel menu di navigazione</string>
     <string name="title_advanced_nav_pin">Fissa il menu di navigazione</string>
@@ -669,6 +670,7 @@
     <string name="title_advanced_check_weekly">Controlla settimanalmente invece che giornalmente</string>
     <string name="title_advanced_beta">Verifica la presenza delle versioni di prova su BitBucket</string>
     <string name="title_advanced_changelog">Mostra il changelog dopo l\'aggiornamento</string>
+    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Controlla gli annunci</string>
     <string name="title_advanced_experiments">Prova le funzionalità sperimentali</string>
     <string name="title_advanced_crash_reports">Invia rapporti d\'errore</string>
     <string name="title_advanced_cleanup_attachments">Elimina gli allegati dei vecchi messaggi</string>
@@ -1089,7 +1091,7 @@
     <string name="title_quick_actions">Seleziona azioni</string>
     <string name="title_quick_actions_hint">Sarranno mostrate fino a %1$d azioni</string>
     <string name="title_quick_actions_low">Importanza bassa</string>
-    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">Importanza normale</string>
+    <string name="title_quick_actions_normal">Importanza normale</string>
     <string name="title_quick_actions_high">Importanza elevata</string>
     <string name="title_quick_actions_snooze">Posticipa</string>
     <string name="title_quick_actions_clear">Annulla la selezione dopo un\'azione</string>
@@ -1819,7 +1821,7 @@
     <string name="title_widget_padding">Dimensione del rientro</string>
     <string name="title_widget_separator_lines">Mostra linee di separazione</string>
     <string name="title_widget_semi_transparent">Sfondo semitrasparente</string>
-    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">Mostra il conteggio non letto in cima</string>
+    <string name="title_widget_count_top">Mostra il conteggio non letto in cima</string>
     <string name="title_widget_avatars">Mostra gli avatar del contatto</string>
     <string name="title_widget_refresh">Mostra il pulsante ricarica messaggi</string>
     <string name="title_widget_compose">Mostra il pulsante componi nuovo messaggio</string>

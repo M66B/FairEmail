@@ -18,6 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Voortgang</string>
     <string name="channel_update">Updates</string>
+    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Aankondigingen</string>
     <string name="channel_warning">Waarschuwingen</string>
     <string name="channel_error">Foutmeldingen</string>
     <string name="channel_alert">Servermeldingen</string>
@@ -385,7 +386,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_reply_move_inbox">Ook voor berichten in de inbox</string>
     <string name="title_advanced_auto_link">Automatisch koppelingen maken</string>
     <string name="title_advanced_plain_only">Verzend standaard platte tekst</string>
-    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">Automatisch alleen platte tekst bij het beantwoorden van een bericht met alleen platte tekst</string>
+    <string name="title_advanced_plain_only_reply">Automatisch alleen platte tekst bij het beantwoorden van een bericht met alleen platte tekst</string>
     <string name="title_advanced_flow">\'format flowed\' voor platte tekst</string>
     <string name="title_advanced_usenet_signature">Usenet handtekening conventie</string>
     <string name="title_advanced_remove_signatures">Verwijder herkende handtekeningen</string>
@@ -424,7 +425,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_min_screen_size">Minimale schermgrootte voor het splitsen van het scherm</string>
     <string name="title_advanced_close_pane">Rij of kolom samenvouwen bij het sluiten van een gesprek</string>
     <string name="title_advanced_column_width">Berichtkolom breedte / rij hoogte: %1$s %%</string>
-    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">Bovenste werkbalk verbergen bij het scrollen van berichten</string>
+    <string name="title_advanced_hide_toolbar">Bovenste werkbalk verbergen bij het scrollen van berichten</string>
     <string name="title_advanced_nav_options">Toon navigatiemenu opties</string>
     <string name="title_advanced_nav_categories">Toon account categorieën in het navigatiemenu</string>
     <string name="title_advanced_nav_pin">Navigatiemenu vastzetten</string>
@@ -668,6 +669,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_check_weekly">Controleer wekelijks in plaats van dagelijks</string>
     <string name="title_advanced_beta">Controleer op testversies op BitBucket</string>
     <string name="title_advanced_changelog">Wijzigingsgeschiedenis weergeven na update</string>
+    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Controleer op aankondigingen</string>
     <string name="title_advanced_experiments">Probeer experimentele functies</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
     <string name="title_advanced_cleanup_attachments">Bijlagen van oude berichten verwijderen</string>
@@ -1086,7 +1088,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_quick_actions">Selecteer acties</string>
     <string name="title_quick_actions_hint">Tot %1$d acties zullen worden getoond</string>
     <string name="title_quick_actions_low">Laag belang</string>
-    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">Normaal belang</string>
+    <string name="title_quick_actions_normal">Normaal belang</string>
     <string name="title_quick_actions_high">Hoog belang</string>
     <string name="title_quick_actions_snooze">Sluimeren</string>
     <string name="title_quick_actions_clear">Selectie wissen na actie</string>
@@ -1809,7 +1811,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_padding">Opvul grootte</string>
     <string name="title_widget_separator_lines">Gebruik scheidingslijnen</string>
     <string name="title_widget_semi_transparent">Semi transparante achtergrond</string>
-    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">Toon aantal ongelezen bovenin</string>
+    <string name="title_widget_count_top">Toon aantal ongelezen bovenin</string>
     <string name="title_widget_avatars">Toon avatars van contacten</string>
     <string name="title_widget_refresh">Toon knop voor het verversen van berichten</string>
     <string name="title_widget_compose">Toon knop voor het opstellen van een nieuw bericht</string>

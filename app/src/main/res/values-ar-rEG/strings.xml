@@ -292,12 +292,12 @@
     <string name="title_advanced_advanced">الإعدادات المتقدمة</string>
     <string name="title_advanced_send_reminders">إظهار التذكيرات</string>
     <string name="title_advanced_compose_color">لون النص الافتراضي</string>
-    <string name="title_advanced_plain_only_reply" comment="title_advanced_plain_only_reply&#10;Title for option to disable replying with plain text only to a received plain text only message">تلقائياً نص عادي فقط عند الرد على رسالة نص عادي فقط</string>
+    <string name="title_advanced_plain_only_reply">تلقائياً نص عادي فقط عند الرد على رسالة نص عادي فقط</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
     <string name="title_advanced_caption_general">الاعدادات العامة</string>
     <string name="title_advanced_caption_list">قائمة</string>
     <string name="title_advanced_caption_conversation">المحادثة</string>
-    <string name="title_advanced_hide_toolbar" comment="title_advanced_hide_toolbar&#10;Title for option to auto-hide top toolbar when scrolling messages ">إخفاء شريط الأدوات العلوي عند تصفح الرسائل</string>
+    <string name="title_advanced_hide_toolbar">إخفاء شريط الأدوات العلوي عند تصفح الرسائل</string>
     <string name="title_advanced_cards_shadow_border">إظهار الحدود</string>
     <string name="title_advanced_date_header">تجميع بحسب التاريخ</string>
     <string name="title_advanced_date_bold">إظهار التاريخ بخط سميك</string>
@@ -422,7 +422,7 @@
     <string name="title_add_keyword">إضافة كلمة مفتاحية</string>
     <string name="title_download_all">تنزيل الكل</string>
     <string name="title_save_all">حفظ الكل</string>
-    <string name="title_quick_actions_normal" comment="title_quick_actions_normal&#10;&#10;Title for optional quick action to set messages to normal importance&#10;&#10;Priority: determined by the sender of a message&#10;Importance: determined by the recipient of a message (the user of the app)">أهمية عادية</string>
+    <string name="title_quick_actions_normal">أهمية عادية</string>
     <string name="title_trash">سلة المهملات</string>
     <string name="title_delete">حذف</string>
     <string name="title_more">المزيد</string>
@@ -634,7 +634,7 @@
     <string name="title_widget_folder">المجلد</string>
     <string name="title_widget_font_size">حجم النص</string>
     <string name="title_widget_semi_transparent">خلفية شبه شفافة</string>
-    <string name="title_widget_count_top" comment="title_widget_count_top&#10;Option to show the unread count badge of the unread count widget at the top of the widget instead of at the bottom">إظهار العدد غير المقروء في الأعلى</string>
+    <string name="title_widget_count_top">إظهار العدد غير المقروء في الأعلى</string>
     <string name="title_widget_background">لون الخلفية</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label4">للانجاز</string>
