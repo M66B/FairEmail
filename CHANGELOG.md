@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
-### Next version
+### 1.2029 - 2023-01-09
 
 * Added auto hiding top toolbar when scrolling messages (can be turned of in the display settings)
 * Added option to disable automatically plain text only when replying to a plain text only message
