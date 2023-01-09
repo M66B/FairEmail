@@ -1856,13 +1856,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                         NotificationCompat.Builder builder =
                                 new NotificationCompat.Builder(ActivityView.this, "announcements")
-                                        .setSmallIcon(R.drawable.baseline_warning_white_24)
+                                        .setSmallIcon(R.drawable.baseline_campaign_white_24)
                                         .setContentTitle(announcement.title)
                                         .setContentText(announcement.text)
                                         .setAutoCancel(true)
                                         .setShowWhen(true)
                                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                        .setCategory(NotificationCompat.CATEGORY_REMINDER)
+                                        .setCategory(NotificationCompat.CATEGORY_RECOMMENDATION)
                                         .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
                         if (announcement.link != null) {
