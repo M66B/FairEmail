@@ -1873,6 +1873,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             builder.setContentIntent(piUpdate);
                         }
 
+                        Intent manage = new Intent(ActivityView.this, ActivitySetup.class)
+                                .setAction("misc")
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                .putExtra("tab", "misc");
+                        PendingIntent piManage = PendingIntentCompat.getActivity(
+                                ActivityView.this, ActivitySetup.PI_MISC, manage, PendingIntent.FLAG_UPDATE_CURRENT);
+                        NotificationCompat.Action.Builder actionManage = new NotificationCompat.Action.Builder(
+                                R.drawable.twotone_settings_24,
+                                getString(R.string.title_setup_manage),
+                                piManage);
+                        builder.addAction(actionManage.build());
+
                         nm.notify(announcement.id, builder.build());
                     }
                 }
