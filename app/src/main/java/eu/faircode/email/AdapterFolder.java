@@ -655,6 +655,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     (folder.selectable && (debug || BuildConfig.DEBUG)))
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_export_messages, order++, R.string.title_export_messages);
 
+            if (!folder.selectable)
+                popupMenu.getMenu()
+                        .add(Menu.NONE, R.string.title_hide_folder, order++, R.string.title_hide_folder)
+                        .setCheckable(true)
+                        .setChecked(folder.hide);
+
             int childs = 0;
             if (folder.child_refs != null)
                 for (TupleFolderEx child : folder.child_refs)
@@ -768,6 +774,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     } else if (itemId == R.string.title_delete_channel) {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                             onActionDeleteChannel();
+                        return true;
+                    } else if (itemId == R.string.title_hide_folder) {
+                        onActionHide();
                         return true;
                     } else if (itemId == R.string.title_create_sub_folder) {
                         onActionCreateFolder();
@@ -1210,6 +1219,30 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 private void onActionDeleteChannel() {
                     folder.deleteNotificationChannel(context);
+                }
+
+                private void onActionHide() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", folder.id);
+                    args.putBoolean("hide", !folder.hide);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+                            boolean hide = args.getBoolean("hide");
+
+                            DB db = DB.getInstance(context);
+                            db.folder().setFolderHide(id, hide);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "folder:hide");
                 }
 
                 private void onActionCreateFolder() {

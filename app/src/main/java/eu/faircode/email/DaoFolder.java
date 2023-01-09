@@ -411,6 +411,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET download = :download WHERE id = :id AND NOT (download IS :download)")
     int setFolderDownload(long id, boolean download);
 
+    @Query("UPDATE folder SET hide = :hide WHERE id = :id AND NOT (hide IS :hide)")
+    int setFolderHide(long id, boolean hide);
+
     @Query("UPDATE folder" +
             " SET auto_classify_source = :source, auto_classify_target = :target" +
             " WHERE id = :id" +
