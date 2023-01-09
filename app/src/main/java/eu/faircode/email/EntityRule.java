@@ -21,12 +21,16 @@ package eu.faircode.email;
 
 import static androidx.room.ForeignKey.CASCADE;
 
+import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.net.Uri;
+import android.provider.ContactsContract;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -673,6 +677,59 @@ public class EntityRule {
                 domain = UriHelper.getEmailDomain(from.getAddress());
             }
             create = create.replace("$domain$", domain == null ? "" : domain);
+
+            if (create.contains("$group$")) {
+                if (!Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
+                    return false;
+                Log.i(this.name + " lookup=" + message.avatar);
+                if (message.avatar == null)
+                    return false;
+
+                ContentResolver resolver = context.getContentResolver();
+                try (Cursor contact = resolver.query(Uri.parse(message.avatar),
+                        new String[]{ContactsContract.Contacts._ID}, null, null, null)) {
+                    Log.i(this.name + " contacts=" + contact.getCount());
+                    if (!contact.moveToNext())
+                        return false;
+
+                    long contactId = contact.getLong(0);
+                    Log.i(this.name + " contactId=" + contactId);
+
+                    try (Cursor membership = resolver.query(ContactsContract.Data.CONTENT_URI,
+                            new String[]{ContactsContract.CommonDataKinds.GroupMembership.GROUP_ROW_ID},
+                            ContactsContract.Data.MIMETYPE + "= ? AND " +
+                                    ContactsContract.CommonDataKinds.GroupMembership.CONTACT_ID + "= ?",
+                            new String[]{
+                                    ContactsContract.CommonDataKinds.GroupMembership.CONTENT_ITEM_TYPE,
+                                    Long.toString((contactId))
+                            },
+                            null)) {
+                        Log.i(this.name + " membership=" + membership.getCount());
+                        if (membership.getCount() != 1)
+                            return false;
+                        if (!membership.moveToNext())
+                            return false;
+
+                        long groupId = membership.getLong(0);
+                        Log.i(this.name + " groupId=" + groupId);
+
+                        try (Cursor groups = resolver.query(ContactsContract.Groups.CONTENT_URI,
+                                new String[]{ContactsContract.Groups.TITLE},
+                                ContactsContract.Groups._ID + " = ?",
+                                new String[]{Long.toString(groupId)},
+                                ContactsContract.Groups.TITLE)) {
+                            Log.i(this.name + " groups=" + groups.getCount());
+                            if (!groups.moveToNext())
+                                return false;
+
+                            String groupName = groups.getString(0);
+                            Log.i(this.name + " groupName=" + groupName);
+
+                            create = create.replace("$group$", groupName);
+                        }
+                    }
+                }
+            }
 
             String name = folder.name + (folder.separator == null ? "" : folder.separator) + create;
             EntityFolder created = db.folder().getFolderByName(folder.account, name);
