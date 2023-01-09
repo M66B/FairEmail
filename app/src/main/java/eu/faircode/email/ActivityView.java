@@ -1868,11 +1868,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                                 .bigText(announcement.text));
 
                         if (announcement.link != null) {
-                            Intent update = new Intent(Intent.ACTION_VIEW, announcement.link)
+                            Intent link = new Intent(Intent.ACTION_VIEW, announcement.link)
                                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            PendingIntent piUpdate = PendingIntentCompat.getActivity(
-                                    ActivityView.this, PI_ANNOUNCEMENT, update, PendingIntent.FLAG_UPDATE_CURRENT);
-                            builder.setContentIntent(piUpdate);
+                            PendingIntent piLink = PendingIntentCompat.getActivity(
+                                    ActivityView.this, PI_ANNOUNCEMENT, link, PendingIntent.FLAG_UPDATE_CURRENT);
+                            builder.setContentIntent(piLink);
                         }
 
                         Intent manage = new Intent(ActivityView.this, ActivitySetup.class)
