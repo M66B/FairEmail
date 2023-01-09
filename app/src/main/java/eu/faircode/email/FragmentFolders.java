@@ -1184,13 +1184,6 @@ public class FragmentFolders extends FragmentBase {
                     return 0;
                 EntityLog.log(context, "Executing rules count=" + rules.size());
 
-                for (EntityRule rule : rules) {
-                    JSONObject jcondition = new JSONObject(rule.condition);
-                    JSONObject jheader = jcondition.optJSONObject("header");
-                    if (jheader != null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
-                }
-
                 List<Long> ids = db.message().getMessageIdsByFolder(fid);
                 if (ids == null)
                     return 0;
