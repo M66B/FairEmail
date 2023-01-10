@@ -679,62 +679,74 @@ public class EntityRule {
             create = create.replace("$domain$", domain == null ? "" : domain);
 
             if (create.contains("$group$")) {
-                if (!Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
-                    return false;
-                Log.i(this.name + " lookup=" + message.avatar);
-                if (message.avatar == null)
-                    return false;
+                EntityContact local = null;
+                if (message.from != null && message.from.length == 1) {
+                    String email = ((InternetAddress) message.from[0]).getAddress();
+                    if (!TextUtils.isEmpty(email))
+                        local = db.contact().getContact(message.account, EntityContact.TYPE_FROM, email);
+                }
 
-                ContentResolver resolver = context.getContentResolver();
-                try (Cursor contact = resolver.query(Uri.parse(message.avatar),
-                        new String[]{ContactsContract.Contacts._ID}, null, null, null)) {
-                    Log.i(this.name + " contacts=" + contact.getCount());
-                    if (!contact.moveToNext())
+                if (local != null && !TextUtils.isEmpty(local.group)) {
+                    Log.i(this.name + " local group=" + local.group);
+                    create = create.replace("$group$", local.group);
+                } else {
+                    if (!Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
+                        return false;
+                    Log.i(this.name + " lookup=" + message.avatar);
+                    if (message.avatar == null)
                         return false;
 
-                    long contactId = contact.getLong(0);
-                    Log.i(this.name + " contactId=" + contactId);
+                    ContentResolver resolver = context.getContentResolver();
+                    try (Cursor contact = resolver.query(Uri.parse(message.avatar),
+                            new String[]{ContactsContract.Contacts._ID}, null, null, null)) {
+                        Log.i(this.name + " contacts=" + contact.getCount());
+                        if (!contact.moveToNext())
+                            return false;
 
-                    try (Cursor membership = resolver.query(ContactsContract.Data.CONTENT_URI,
-                            new String[]{ContactsContract.CommonDataKinds.GroupMembership.GROUP_ROW_ID},
-                            ContactsContract.Data.MIMETYPE + "= ? AND " +
-                                    ContactsContract.CommonDataKinds.GroupMembership.CONTACT_ID + "= ?",
-                            new String[]{
-                                    ContactsContract.CommonDataKinds.GroupMembership.CONTENT_ITEM_TYPE,
-                                    Long.toString((contactId))
-                            },
-                            null)) {
-                        Log.i(this.name + " membership=" + membership.getCount());
+                        long contactId = contact.getLong(0);
+                        Log.i(this.name + " contactId=" + contactId);
 
-                        int count = 0;
-                        String groupName = null;
-                        while (membership.moveToNext()) {
-                            long groupId = membership.getLong(0);
-                            try (Cursor groups = resolver.query(ContactsContract.Groups.CONTENT_URI,
-                                    new String[]{
-                                            ContactsContract.Groups.TITLE,
-                                            ContactsContract.Groups.AUTO_ADD,
-                                            ContactsContract.Groups.GROUP_VISIBLE,
-                                    },
-                                    ContactsContract.Groups._ID + " = ?",
-                                    new String[]{Long.toString(groupId)},
-                                    ContactsContract.Groups.TITLE)) {
-                                while (groups.moveToNext()) {
-                                    groupName = groups.getString(0);
-                                    int auto_add = groups.getInt(1);
-                                    int visible = groups.getInt(2);
-                                    if (auto_add == 0)
-                                        count++;
-                                    Log.i(this.name + " membership groupId=" + groupId +
-                                            " name=" + groupName + " auto_add=" + auto_add + " visible=" + visible);
+                        try (Cursor membership = resolver.query(ContactsContract.Data.CONTENT_URI,
+                                new String[]{ContactsContract.CommonDataKinds.GroupMembership.GROUP_ROW_ID},
+                                ContactsContract.Data.MIMETYPE + "= ? AND " +
+                                        ContactsContract.CommonDataKinds.GroupMembership.CONTACT_ID + "= ?",
+                                new String[]{
+                                        ContactsContract.CommonDataKinds.GroupMembership.CONTENT_ITEM_TYPE,
+                                        Long.toString((contactId))
+                                },
+                                null)) {
+                            Log.i(this.name + " membership=" + membership.getCount());
+
+                            int count = 0;
+                            String groupName = null;
+                            while (membership.moveToNext()) {
+                                long groupId = membership.getLong(0);
+                                try (Cursor groups = resolver.query(ContactsContract.Groups.CONTENT_URI,
+                                        new String[]{
+                                                ContactsContract.Groups.TITLE,
+                                                ContactsContract.Groups.AUTO_ADD,
+                                                ContactsContract.Groups.GROUP_VISIBLE,
+                                        },
+                                        ContactsContract.Groups._ID + " = ?",
+                                        new String[]{Long.toString(groupId)},
+                                        ContactsContract.Groups.TITLE)) {
+                                    while (groups.moveToNext()) {
+                                        groupName = groups.getString(0);
+                                        int auto_add = groups.getInt(1);
+                                        int visible = groups.getInt(2);
+                                        if (auto_add == 0)
+                                            count++;
+                                        Log.i(this.name + " membership groupId=" + groupId +
+                                                " name=" + groupName + " auto_add=" + auto_add + " visible=" + visible);
+                                    }
                                 }
                             }
+                            Log.i(this.name + " name=" + groupName + " count=" + count);
+                            if (count == 1)
+                                create = create.replace("$group$", groupName);
+                            else
+                                return false;
                         }
-                        Log.i(this.name + " name=" + groupName + " count=" + count);
-                        if (count == 1)
-                            create = create.replace("$group$", groupName);
-                        else
-                            return false;
                     }
                 }
             }
