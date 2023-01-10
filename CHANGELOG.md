@@ -8,7 +8,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2029 - 2023-01-09
 
-* Added auto hiding top toolbar when scrolling messages (can be turned of in the display settings)
+* Added auto hiding top toolbar when scrolling messages (can be turned off in the display settings)
 * Added option to disable automatically plain text only when replying to a plain text only message
 * Added option to show unread count badge at the top of the unread count widget
 * Added option for normal importance quick action
