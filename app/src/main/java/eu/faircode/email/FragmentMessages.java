@@ -1139,11 +1139,7 @@ public class FragmentMessages extends FragmentBase
 
                 if (hide_toolbar && dy != 0)
                     try {
-                        int range = rv.computeVerticalScrollRange();
-                        int extend = rv.computeVerticalScrollExtent();
-                        boolean canScrollVertical = (range > extend);
-                        show = (!canScrollVertical ||
-                                (dy < 0 || rv.computeVerticalScrollOffset() == 0));
+                        show = (dy < 0 || rv.computeVerticalScrollOffset() == 0);
                     } catch (Throwable ex) {
                         Log.e(ex);
                         show = true;
@@ -1151,7 +1147,7 @@ public class FragmentMessages extends FragmentBase
             }
 
             @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView rv, int newState) {
                 if (hide_toolbar && newState != RecyclerView.SCROLL_STATE_DRAGGING)
                     showActionBar(show);
             }

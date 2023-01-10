@@ -219,7 +219,22 @@ public class FragmentFolders extends FragmentBase {
         });
 
         rvFolder.setHasFixedSize(false);
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        LinearLayoutManager llm = new LinearLayoutManager(getContext()) {
+            @Override
+            public void onLayoutCompleted(RecyclerView.State state) {
+                super.onLayoutCompleted(state);
+                if (!isActionBarShown())
+                    try {
+                        int range = computeVerticalScrollRange(state);
+                        int extend = computeVerticalScrollExtent(state);
+                        boolean canScrollVertical = (range > extend);
+                        if (!canScrollVertical) // anymore
+                            showActionBar(true);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+            }
+        };
         rvFolder.setLayoutManager(llm);
 
         if (!cards && dividers) {
@@ -315,16 +330,17 @@ public class FragmentFolders extends FragmentBase {
 
             @Override
             public void onScrolled(@NonNull RecyclerView rv, int dx, int dy) {
-                if (hide_toolbar && dy != 0) {
-                    int range = rv.computeVerticalScrollRange();
-                    int extend = rv.computeVerticalScrollExtent();
-                    boolean canScrollVertical = (range > extend);
-                    show = (!canScrollVertical || (rv.computeVerticalScrollOffset() == 0 || dy < 0));
-                }
+                if (hide_toolbar && dy != 0)
+                    try {
+                        show = (dy < 0 || rv.computeVerticalScrollOffset() == 0);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        show = true;
+                    }
             }
 
             @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView rv, int newState) {
                 if (hide_toolbar && newState != RecyclerView.SCROLL_STATE_DRAGGING)
                     showActionBar(show);
             }
