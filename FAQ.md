@@ -2638,11 +2638,16 @@ This will be more reliable than forwarding because forwarded messages might be c
 A *move* action can optionally create subfolders (since version 1.1966) to move messages to, for which you can use the following placeholders:
 
 ```
+$day$ (since version 1.2030)
 $week$
 $month$
 $year$
 $domain$
+$group$ (since version 1.2030)
 ```
+
+$group$ will be replaced with the contact group name of the sender, provided that the related contact is assigned to one contact group only.
+Note that the Android contact provider isn't very fast, so using this placeholder can slow down fetching messages.
 
 <br />
 
