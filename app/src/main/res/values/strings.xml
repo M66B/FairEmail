@@ -639,6 +639,7 @@
     <string name="title_advanced_undo">Undo timeout</string>
     <string name="title_advanced_quick_filter">Show non-obtrusive quick filter icons</string>
     <string name="title_advanced_quick_scroll">Show non-obtrusive quick scroll up/down icons</string>
+    <string name="title_advanced_quick_actions">Show quick actions when messages are selected</string>
     <string name="title_advanced_folder_nav">Always go back to the folder list from a message list</string>
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
     <string name="title_advanced_star_snoozed">Automatically add star on snoozing messages</string>

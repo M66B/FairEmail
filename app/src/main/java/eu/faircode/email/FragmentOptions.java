@@ -149,7 +149,7 @@ public class FragmentOptions extends FragmentBase {
             "autoscroll", "swipenav", "reversed", "swipe_close", "swipe_move", "autoexpand", "autoclose", "onclose",
             "swipe_reply",
             "language_detection",
-            "quick_filter", "quick_scroll",
+            "quick_filter", "quick_scroll", "quick_actions",
             "experiments", "debug", "log_level", "test1", "test2", "test3", "test4", "test5",
             "webview_legacy", "browser_zoom", "fake_dark",
             "show_recent",

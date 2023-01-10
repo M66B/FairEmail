@@ -360,6 +360,7 @@ public class FragmentMessages extends FragmentBase
     private boolean quick_scroll;
     private boolean addresses;
     private boolean swipe_reply;
+    private boolean quick_actions;
 
     private int colorPrimary;
     private int colorAccent;
@@ -503,6 +504,7 @@ public class FragmentMessages extends FragmentBase
         quick_scroll = prefs.getBoolean("quick_scroll", true);
         addresses = prefs.getBoolean("addresses", false);
         swipe_reply = prefs.getBoolean("swipe_reply", false);
+        quick_actions = prefs.getBoolean("quick_actions", true);
 
         colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
         colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
@@ -6275,137 +6277,139 @@ public class FragmentMessages extends FragmentBase
                 tvSelectedCount.setCompoundDrawablesRelative(null, null, null, null);
             tvSelectedCount.setVisibility(View.VISIBLE);
 
-            Bundle args = new Bundle();
-            args.putLongArray("ids", selection);
-            args.putBoolean("threading", threading);
+            if (quick_actions) {
+                Bundle args = new Bundle();
+                args.putLongArray("ids", selection);
+                args.putBoolean("threading", threading);
 
-            new SimpleTask<MoreResult>() {
-                @Override
-                protected MoreResult onExecute(Context context, Bundle args) {
-                    long[] ids = args.getLongArray("ids");
-                    boolean threading = args.getBoolean("threading");
-                    return MoreResult.get(context, ids, threading, true);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, MoreResult result) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean more_seen = prefs.getBoolean("more_seen", true);
-                    boolean more_unseen = prefs.getBoolean("more_unseen", false);
-                    boolean more_snooze = prefs.getBoolean("more_snooze", false);
-                    boolean more_hide = prefs.getBoolean("more_hide", false);
-                    boolean more_flag = prefs.getBoolean("more_flag", false);
-                    boolean more_flag_color = prefs.getBoolean("more_flag_color", false);
-                    boolean more_importance_high = prefs.getBoolean("more_importance_high", false);
-                    boolean more_importance_normal = prefs.getBoolean("more_importance_normal", false);
-                    boolean more_importance_low = prefs.getBoolean("more_importance_low", false);
-                    boolean more_inbox = prefs.getBoolean("more_inbox", true);
-                    boolean more_archive = prefs.getBoolean("more_archive", true);
-                    boolean more_junk = prefs.getBoolean("more_junk", true);
-                    boolean more_trash = prefs.getBoolean("more_trash", true);
-                    boolean more_delete = prefs.getBoolean("more_delete", false);
-                    boolean more_move = prefs.getBoolean("more_move", true);
-
-                    boolean inTrash = EntityFolder.TRASH.equals(type);
-                    boolean inJunk = EntityFolder.JUNK.equals(type);
-
-                    int count = 0;
-
-                    boolean move = (more_move && count < MAX_QUICK_ACTIONS && result.canMove());
-                    if (move)
-                        count++;
-
-                    boolean delete = (more_delete && count < MAX_QUICK_ACTIONS && result.canDelete());
-                    if (delete)
-                        count++;
-
-                    boolean trash = (more_trash && count < MAX_QUICK_ACTIONS && result.canTrash());
-                    if (trash)
-                        count++;
-
-                    if (!delete && !trash && (inTrash || inJunk) &&
-                            more_trash && count < MAX_QUICK_ACTIONS && result.canDelete()) {
-                        delete = true;
-                        count++;
+                new SimpleTask<MoreResult>() {
+                    @Override
+                    protected MoreResult onExecute(Context context, Bundle args) {
+                        long[] ids = args.getLongArray("ids");
+                        boolean threading = args.getBoolean("threading");
+                        return MoreResult.get(context, ids, threading, true);
                     }
 
-                    boolean junk = (more_junk && count < MAX_QUICK_ACTIONS && result.canJunk());
-                    if (junk)
-                        count++;
+                    @Override
+                    protected void onExecuted(Bundle args, MoreResult result) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean more_seen = prefs.getBoolean("more_seen", true);
+                        boolean more_unseen = prefs.getBoolean("more_unseen", false);
+                        boolean more_snooze = prefs.getBoolean("more_snooze", false);
+                        boolean more_hide = prefs.getBoolean("more_hide", false);
+                        boolean more_flag = prefs.getBoolean("more_flag", false);
+                        boolean more_flag_color = prefs.getBoolean("more_flag_color", false);
+                        boolean more_importance_high = prefs.getBoolean("more_importance_high", false);
+                        boolean more_importance_normal = prefs.getBoolean("more_importance_normal", false);
+                        boolean more_importance_low = prefs.getBoolean("more_importance_low", false);
+                        boolean more_inbox = prefs.getBoolean("more_inbox", true);
+                        boolean more_archive = prefs.getBoolean("more_archive", true);
+                        boolean more_junk = prefs.getBoolean("more_junk", true);
+                        boolean more_trash = prefs.getBoolean("more_trash", true);
+                        boolean more_delete = prefs.getBoolean("more_delete", false);
+                        boolean more_move = prefs.getBoolean("more_move", true);
 
-                    boolean archive = (more_archive && count < MAX_QUICK_ACTIONS && result.canArchive());
-                    if (archive)
-                        count++;
+                        boolean inTrash = EntityFolder.TRASH.equals(type);
+                        boolean inJunk = EntityFolder.JUNK.equals(type);
 
-                    boolean inbox = ((more_inbox || (more_junk && inJunk)) && count < MAX_QUICK_ACTIONS && result.canInbox());
-                    if (inbox)
-                        count++;
+                        int count = 0;
 
-                    boolean importance_high = (more_importance_high && count < MAX_QUICK_ACTIONS &&
-                            !EntityMessage.PRIORITIY_HIGH.equals(result.importance));
-                    if (importance_high)
-                        count++;
+                        boolean move = (more_move && count < MAX_QUICK_ACTIONS && result.canMove());
+                        if (move)
+                            count++;
 
-                    boolean importance_normal = (more_importance_normal && count < MAX_QUICK_ACTIONS &&
-                            !EntityMessage.PRIORITIY_NORMAL.equals(result.importance));
-                    if (importance_normal)
-                        count++;
+                        boolean delete = (more_delete && count < MAX_QUICK_ACTIONS && result.canDelete());
+                        if (delete)
+                            count++;
 
-                    boolean importance_low = (more_importance_low && count < MAX_QUICK_ACTIONS &&
-                            !EntityMessage.PRIORITIY_LOW.equals(result.importance));
-                    if (importance_low)
-                        count++;
+                        boolean trash = (more_trash && count < MAX_QUICK_ACTIONS && result.canTrash());
+                        if (trash)
+                            count++;
 
-                    boolean flag = (more_flag && count < MAX_QUICK_ACTIONS && result.unflagged);
-                    if (flag)
-                        count++;
+                        if (!delete && !trash && (inTrash || inJunk) &&
+                                more_trash && count < MAX_QUICK_ACTIONS && result.canDelete()) {
+                            delete = true;
+                            count++;
+                        }
 
-                    boolean flag_color = (more_flag_color && count < MAX_QUICK_ACTIONS && (result.unflagged || result.flagged));
-                    if (flag_color)
-                        count++;
+                        boolean junk = (more_junk && count < MAX_QUICK_ACTIONS && result.canJunk());
+                        if (junk)
+                            count++;
 
-                    boolean hide = (more_hide && count < MAX_QUICK_ACTIONS && result.visible);
-                    if (hide)
-                        count++;
+                        boolean archive = (more_archive && count < MAX_QUICK_ACTIONS && result.canArchive());
+                        if (archive)
+                            count++;
 
-                    boolean snooze = (more_snooze && count < MAX_QUICK_ACTIONS);
-                    if (snooze)
-                        count++;
+                        boolean inbox = ((more_inbox || (more_junk && inJunk)) && count < MAX_QUICK_ACTIONS && result.canInbox());
+                        if (inbox)
+                            count++;
 
-                    boolean unseen = (more_unseen && count < MAX_QUICK_ACTIONS && result.seen);
-                    if (unseen)
-                        count++;
+                        boolean importance_high = (more_importance_high && count < MAX_QUICK_ACTIONS &&
+                                !EntityMessage.PRIORITIY_HIGH.equals(result.importance));
+                        if (importance_high)
+                            count++;
 
-                    boolean seen = (more_seen && count < MAX_QUICK_ACTIONS && result.unseen);
-                    if (seen)
-                        count++;
+                        boolean importance_normal = (more_importance_normal && count < MAX_QUICK_ACTIONS &&
+                                !EntityMessage.PRIORITIY_NORMAL.equals(result.importance));
+                        if (importance_normal)
+                            count++;
 
-                    ibInbox.setImageResource(inJunk ? R.drawable.twotone_report_off_24 : R.drawable.twotone_inbox_24);
+                        boolean importance_low = (more_importance_low && count < MAX_QUICK_ACTIONS &&
+                                !EntityMessage.PRIORITIY_LOW.equals(result.importance));
+                        if (importance_low)
+                            count++;
 
-                    ibBatchSeen.setVisibility(seen ? View.VISIBLE : View.GONE);
-                    ibBatchUnseen.setVisibility(unseen ? View.VISIBLE : View.GONE);
-                    ibBatchSnooze.setVisibility(snooze ? View.VISIBLE : View.GONE);
-                    ibBatchHide.setVisibility(hide ? View.VISIBLE : View.GONE);
-                    ibBatchFlag.setVisibility(flag ? View.VISIBLE : View.GONE);
-                    ibBatchFlagColor.setVisibility(flag_color ? View.VISIBLE : View.GONE);
-                    ibLowImportance.setVisibility(importance_low ? View.VISIBLE : View.GONE);
-                    ibNormalImportance.setVisibility(importance_normal ? View.VISIBLE : View.GONE);
-                    ibHighImportance.setVisibility(importance_high ? View.VISIBLE : View.GONE);
-                    ibInbox.setVisibility(inbox ? View.VISIBLE : View.GONE);
-                    ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
-                    ibJunk.setVisibility(junk ? View.VISIBLE : View.GONE);
-                    ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
-                    ibDelete.setVisibility(delete ? View.VISIBLE : View.GONE);
-                    ibMove.setVisibility(move ? View.VISIBLE : View.GONE);
-                    cardMore.setTag(fabMore.isOrWillBeShown() ? result : null);
-                    cardMore.setVisibility(fabMore.isOrWillBeShown() ? View.VISIBLE : View.GONE);
-                }
+                        boolean flag = (more_flag && count < MAX_QUICK_ACTIONS && result.unflagged);
+                        if (flag)
+                            count++;
 
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getParentFragmentManager(), ex);
-                }
-            }.serial().setId("messages:" + FragmentMessages.this.hashCode()).execute(this, args, "quickactions");
+                        boolean flag_color = (more_flag_color && count < MAX_QUICK_ACTIONS && (result.unflagged || result.flagged));
+                        if (flag_color)
+                            count++;
+
+                        boolean hide = (more_hide && count < MAX_QUICK_ACTIONS && result.visible);
+                        if (hide)
+                            count++;
+
+                        boolean snooze = (more_snooze && count < MAX_QUICK_ACTIONS);
+                        if (snooze)
+                            count++;
+
+                        boolean unseen = (more_unseen && count < MAX_QUICK_ACTIONS && result.seen);
+                        if (unseen)
+                            count++;
+
+                        boolean seen = (more_seen && count < MAX_QUICK_ACTIONS && result.unseen);
+                        if (seen)
+                            count++;
+
+                        ibInbox.setImageResource(inJunk ? R.drawable.twotone_report_off_24 : R.drawable.twotone_inbox_24);
+
+                        ibBatchSeen.setVisibility(seen ? View.VISIBLE : View.GONE);
+                        ibBatchUnseen.setVisibility(unseen ? View.VISIBLE : View.GONE);
+                        ibBatchSnooze.setVisibility(snooze ? View.VISIBLE : View.GONE);
+                        ibBatchHide.setVisibility(hide ? View.VISIBLE : View.GONE);
+                        ibBatchFlag.setVisibility(flag ? View.VISIBLE : View.GONE);
+                        ibBatchFlagColor.setVisibility(flag_color ? View.VISIBLE : View.GONE);
+                        ibLowImportance.setVisibility(importance_low ? View.VISIBLE : View.GONE);
+                        ibNormalImportance.setVisibility(importance_normal ? View.VISIBLE : View.GONE);
+                        ibHighImportance.setVisibility(importance_high ? View.VISIBLE : View.GONE);
+                        ibInbox.setVisibility(inbox ? View.VISIBLE : View.GONE);
+                        ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
+                        ibJunk.setVisibility(junk ? View.VISIBLE : View.GONE);
+                        ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
+                        ibDelete.setVisibility(delete ? View.VISIBLE : View.GONE);
+                        ibMove.setVisibility(move ? View.VISIBLE : View.GONE);
+                        cardMore.setTag(fabMore.isOrWillBeShown() ? result : null);
+                        cardMore.setVisibility(fabMore.isOrWillBeShown() ? View.VISIBLE : View.GONE);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.serial().setId("messages:" + FragmentMessages.this.hashCode()).execute(this, args, "quickactions");
+            }
         } else {
             fabMore.hide();
             tvSelectedCount.setVisibility(View.GONE);
