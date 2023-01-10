@@ -18,6 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Πρόοδος</string>
     <string name="channel_update">Ενημερώσεις</string>
+    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Ανακοινώσεις</string>
     <string name="channel_warning">Προειδοποιήσεις</string>
     <string name="channel_error">Σφάλματα</string>
     <string name="channel_alert">Ειδοποιήσεις διακομιστή</string>
@@ -668,6 +669,7 @@
     <string name="title_advanced_check_weekly">Εβδομαδιαίος έλεγχος αντί για καθημερινός</string>
     <string name="title_advanced_beta">Έλεγχος για δοκιμαστικές εκδόσεις στο BitBucket</string>
     <string name="title_advanced_changelog">Προβολή ιστορικού αλλαγών μετά την ενημέρωση</string>
+    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Έλεγχος για ανακοινώσεις</string>
     <string name="title_advanced_experiments">Δοκιμή πειραματικών χαρακτηριστικών</string>
     <string name="title_advanced_crash_reports">Αποστολή αναφοράς σφαλμάτων</string>
     <string name="title_advanced_cleanup_attachments">Διαγραφή συνημμένων από παλιά μηνύματα</string>

@@ -18,6 +18,7 @@
     <string name="channel_notification">البريد الإلكتروني</string>
     <string name="channel_progress">التفدم</string>
     <string name="channel_update">التحديثات</string>
+    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">إعلانات</string>
     <string name="channel_warning">التحذيرات</string>
     <string name="channel_error">الأخطاء</string>
     <string name="channel_alert">تنبيهات الخادم</string>
@@ -377,6 +378,7 @@
     <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
     </string>
     <string name="title_advanced_language_system">النظام</string>
+    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">التحقق من وجود إعلانات</string>
     <string name="title_advanced_crash_reports">إرسال تقارير الأخطاء</string>
     <string name="title_advanced_cleanup">تنظيف</string>
     <string name="title_advanced_debug">وضع التصحيح</string>

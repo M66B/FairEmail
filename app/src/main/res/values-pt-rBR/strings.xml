@@ -18,6 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Progresso</string>
     <string name="channel_update">Atualizações</string>
+    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Avisos</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
     <string name="channel_alert">Alertas do servidor</string>
@@ -669,6 +670,7 @@
     <string name="title_advanced_check_weekly">Verificar semanalmente ao invés de diariamente</string>
     <string name="title_advanced_beta">Checar por versões de teste no BitBucket</string>
     <string name="title_advanced_changelog">Mostrar mudanças depois da atualização</string>
+    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Verificar se há avisos</string>
     <string name="title_advanced_experiments">Experimente recursos experimentais</string>
     <string name="title_advanced_crash_reports">Enviar relatórios de erro</string>
     <string name="title_advanced_cleanup_attachments">Apagar anexos de mensagens antigas</string>

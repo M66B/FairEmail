@@ -18,6 +18,7 @@
     <string name="channel_notification">电子邮件</string>
     <string name="channel_progress">进度</string>
     <string name="channel_update">更新</string>
+    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">公告</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">错误</string>
     <string name="channel_alert">服务器警告</string>
@@ -656,6 +657,7 @@
     <string name="title_advanced_check_weekly">每周而不是每天检查</string>
     <string name="title_advanced_beta">检查 BitBucket 上的测试版</string>
     <string name="title_advanced_changelog">更新后显示更新日志</string>
+    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">接收公告</string>
     <string name="title_advanced_experiments">尝试实验性功能</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_cleanup_attachments">删除旧消息的附件</string>

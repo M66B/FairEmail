@@ -18,6 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Progres</string>
     <string name="channel_update">Actualizări</string>
+    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Anunţuri</string>
     <string name="channel_warning">Atenționări</string>
     <string name="channel_error">Erori</string>
     <string name="channel_alert">Alerte server</string>
@@ -399,6 +400,7 @@
     <string name="title_advanced_reply_move_inbox">De asemenea, pentru mesajele din inbox</string>
     <string name="title_advanced_auto_link">Creează automat adrese</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
+    <string name="title_advanced_plain_only_reply">Setează automat text simplu doar când se răspunde la un mesaj cu text simplu</string>
     <string name="title_advanced_flow">\'format fluent\' pentru text simplu</string>
     <string name="title_advanced_usenet_signature">Semnatură conform Usenet</string>
     <string name="title_advanced_remove_signatures">Elimină semnăturile cunoscute</string>
@@ -437,6 +439,7 @@
     <string name="title_advanced_min_screen_size">Dimensiunea minimă a ecranului pentru împărțirea ecranului</string>
     <string name="title_advanced_close_pane">Restrângerea unui rând sau a unei coloane la închiderea unei conversații</string>
     <string name="title_advanced_column_width">Lățimea coloanei mesajului / înălțimea rândului: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar">Ascunde bara de instrumente de sus la derularea mesajelor</string>
     <string name="title_advanced_nav_options">Afișați opțiunile din meniul de navigare</string>
     <string name="title_advanced_nav_categories">Afișați categoriile de conturi în meniul de navigare</string>
     <string name="title_advanced_nav_pin">Meniul de navigare Pin</string>
@@ -680,6 +683,7 @@
     <string name="title_advanced_check_weekly">Verifică săptămânal în loc de zilnic</string>
     <string name="title_advanced_beta">Verificați pentru versiuni de testare pe BitBucket</string>
     <string name="title_advanced_changelog">Afișați lista de modificări după actualizare</string>
+    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Caută anunțuri</string>
     <string name="title_advanced_experiments">Încercați funcţii experimentale</string>
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
     <string name="title_advanced_cleanup_attachments">Ştergeţi ataşamentele mesajelor vechi</string>
@@ -1099,6 +1103,7 @@
     <string name="title_quick_actions">Selectați acțiuni</string>
     <string name="title_quick_actions_hint">Vor fi afișate până la %1$d acțiuni</string>
     <string name="title_quick_actions_low">Importanță redusă</string>
+    <string name="title_quick_actions_normal">Importanță normală</string>
     <string name="title_quick_actions_high">Importanță ridicată</string>
     <string name="title_quick_actions_snooze">Amână</string>
     <string name="title_quick_actions_clear">Ștergeți selecția după acțiune</string>
@@ -1825,6 +1830,7 @@
     <string name="title_widget_padding">Mărime spațiu liber</string>
     <string name="title_widget_separator_lines">Arată liniile separatoare</string>
     <string name="title_widget_semi_transparent">Fundal semi transparent</string>
+    <string name="title_widget_count_top">Arată numărul de necitite în partea de sus</string>
     <string name="title_widget_avatars">Afișați avatarele de contact</string>
     <string name="title_widget_refresh">Buton de afișare a mesajelor de reîmprospătare</string>
     <string name="title_widget_compose">Afișați butonul de redactare a unui mesaj nou</string>
