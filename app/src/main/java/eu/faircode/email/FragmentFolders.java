@@ -1179,7 +1179,7 @@ public class FragmentFolders extends FragmentBase {
 
                 DB db = DB.getInstance(context);
 
-                List<EntityRule> rules = db.rule().getEnabledRules(fid, false);
+                List<EntityRule> rules = db.rule().getEnabledRules(fid, null);
                 if (rules == null)
                     return 0;
                 EntityLog.log(context, "Executing rules count=" + rules.size());
