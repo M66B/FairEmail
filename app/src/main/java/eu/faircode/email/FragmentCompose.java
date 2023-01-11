@@ -610,7 +610,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onInputContent(Uri uri) {
                 Log.i("Received input uri=" + uri);
-                onAddAttachment(Arrays.asList(uri), true, 0, false);
+                onAddAttachment(Arrays.asList(uri), true, 0, false, false);
             }
         });
 
@@ -2801,7 +2801,7 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_SHARED:
                     if (resultCode == RESULT_OK && data != null) {
                         Bundle args = data.getBundleExtra("args");
-                        onAddImageFile(args.getParcelableArrayList("images"));
+                        onAddImageFile(args.getParcelableArrayList("images"), true);
                     }
                     break;
                 case REQUEST_IMAGE:
@@ -2812,18 +2812,18 @@ public class FragmentCompose extends FragmentBase {
                     break;
                 case REQUEST_IMAGE_FILE:
                     if (resultCode == RESULT_OK && data != null)
-                        onAddImageFile(getUris(data));
+                        onAddImageFile(getUris(data), false);
                     break;
                 case REQUEST_TAKE_PHOTO:
                     if (resultCode == RESULT_OK) {
                         if (photoURI != null)
-                            onAddImageFile(Arrays.asList(photoURI));
+                            onAddImageFile(Arrays.asList(photoURI), false);
                     }
                     break;
                 case REQUEST_ATTACHMENT:
                 case REQUEST_RECORD_AUDIO:
                     if (resultCode == RESULT_OK && data != null)
-                        onAddAttachment(getUris(data), false, 0, false);
+                        onAddAttachment(getUris(data), false, 0, false, false);
                     break;
                 case REQUEST_OPENPGP:
                     if (resultCode == RESULT_OK && data != null)
@@ -3075,16 +3075,16 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    private void onAddImageFile(List<Uri> uri) {
+    private void onAddImageFile(List<Uri> uri, boolean focus) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean add_inline = prefs.getBoolean("add_inline", true);
         boolean resize_images = prefs.getBoolean("resize_images", true);
         boolean privacy_images = prefs.getBoolean("privacy_images", false);
         int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
-        onAddAttachment(uri, add_inline, resize_images ? resize : 0, privacy_images);
+        onAddAttachment(uri, add_inline, resize_images ? resize : 0, privacy_images, focus);
     }
 
-    private void onAddAttachment(List<Uri> uris, boolean image, int resize, boolean privacy) {
+    private void onAddAttachment(List<Uri> uris, boolean image, int resize, boolean privacy, boolean focus) {
         etBody.clearComposingText();
 
         Bundle args = new Bundle();
@@ -3096,6 +3096,7 @@ public class FragmentCompose extends FragmentBase {
         args.putBoolean("privacy", privacy);
         args.putCharSequence("body", etBody.getText());
         args.putInt("start", etBody.getSelectionStart());
+        args.putBoolean("focus", focus);
 
         new SimpleTask<Spanned>() {
             @Override
@@ -3194,14 +3195,19 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, final Spanned body) {
-                if (body == null)
-                    return;
+                // Update text
+                if (body != null)
+                    etBody.setText(body);
 
-                etBody.setText(body);
-
+                // Restore cursor/keyboard
                 int start = args.getInt("start");
-                if (start <= body.length())
-                    etBody.setSelection(start);
+                boolean focus = args.getBoolean("focus");
+                if (focus)
+                    setFocus(null, start, start, true);
+                else if (body != null) {
+                    if (start <= body.length())
+                        etBody.setSelection(start);
+                }
             }
 
             @Override
@@ -3257,7 +3263,7 @@ public class FragmentCompose extends FragmentBase {
                     fragment.setTargetFragment(FragmentCompose.this, REQUEST_SHARED);
                     fragment.show(getParentFragmentManager(), "compose:shared");
                 } else
-                    onAddImageFile(images);
+                    onAddImageFile(images, false);
             }
 
             @Override
@@ -5691,7 +5697,7 @@ public class FragmentCompose extends FragmentBase {
                                                 fragment.setTargetFragment(FragmentCompose.this, REQUEST_SHARED);
                                                 fragment.show(getParentFragmentManager(), "compose:shared");
                                             } else
-                                                onAddImageFile(images);
+                                                onAddImageFile(images, true);
                                         } catch (Throwable ex) {
                                             Log.e(ex);
                                         }
