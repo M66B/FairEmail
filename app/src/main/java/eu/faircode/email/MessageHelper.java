@@ -3945,16 +3945,13 @@ public class MessageHelper {
                 ICalendar icalendar = Biweekly.parse(file).first();
 
                 Method method = icalendar.getMethod();
-                if (method == null)
-                    return;
-
                 VEvent event = icalendar.getEvents().get(0);
 
                 // https://www.rfc-editor.org/rfc/rfc5546#section-3.2
-                if (method.isRequest() || method.isCancel())
+                if (method == null || method.isRequest() || method.isCancel())
                     CalendarHelper.delete(context, event, message);
 
-                if (method.isRequest()) {
+                if (method == null || method.isRequest()) {
                     String selectedAccount;
                     String selectedName;
                     try {
