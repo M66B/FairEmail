@@ -274,7 +274,7 @@ public class ActivityDmarc extends ActivityBase {
                                                                 String[] net = ip.substring(4).split("/");
                                                                 if (net.length > 2)
                                                                     continue;
-                                                                Integer prefix = ip.startsWith("ip4:") ? 32 : 64;
+                                                                Integer prefix = ip.startsWith("ip4:") ? 32 : 128;
                                                                 if (net.length == 2)
                                                                     prefix = Helper.parseInt(net[1]);
                                                                 if (prefix == null)
