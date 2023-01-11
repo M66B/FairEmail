@@ -2130,7 +2130,7 @@ class Core {
 
     private static void onBody(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
         boolean plain_text = jargs.optBoolean(0);
-        String charset = jargs.optString(1, null);
+        String charset = (jargs.isNull(1) ? null : jargs.optString(1, null));
 
         if (message.uid == null)
             throw new IllegalArgumentException("uid missing");
