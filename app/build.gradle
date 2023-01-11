@@ -463,10 +463,12 @@ dependencies {
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-runtime
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-livedata
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-livedata-core
+    // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-viewmodel-savedstate
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-compiler
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-core:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-extensions
