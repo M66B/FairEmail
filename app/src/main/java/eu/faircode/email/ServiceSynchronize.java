@@ -122,7 +122,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private boolean isInCar = false;
     private boolean isOptimizing = false;
 
-    private boolean foreground = false;
+    private MutableLiveData<Boolean> foreground = new MutableLiveData<>();
     private final Map<Long, Core.State> coreStates = new Hashtable<>();
     private final MutableLiveData<ConnectionHelper.NetworkState> liveNetworkState = new MutableLiveData<>();
     private final MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
@@ -815,6 +815,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
         });
 
+        foreground.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean foreground) {
+                Log.i("Observed foreground=" + foreground);
+                boolean fg = Boolean.TRUE.equals(foreground);
+                if (!fg && (isInCall || isInCar))
+                    mowner.stop();
+                else
+                    mowner.start();
+            }
+        });
+
         MediaPlayerHelper.liveInCall(this, this, new MediaPlayerHelper.IInCall() {
             @Override
             public void onChanged(boolean inCall) {
@@ -822,7 +834,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug,
                         "In call=" + inCall + " suppress=" + suppress);
                 isInCall = (inCall && suppress);
-                if (isInCall || isInCar)
+                boolean fg = Boolean.TRUE.equals(foreground.getValue());
+                if (!fg && (isInCall || isInCar))
                     mowner.stop();
                 else
                     mowner.start();
@@ -838,7 +851,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug,
                         "Projection=" + projection + " state=" + connectionState + " suppress=" + suppress);
                 isInCar = (projection && suppress);
-                if (isInCall || isInCar)
+                boolean fg = Boolean.TRUE.equals(foreground.getValue());
+                if (!fg && (isInCall || isInCar))
                     mowner.stop();
                 else
                     mowner.start();
@@ -852,7 +866,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void delegate() {
                         try {
-                            Core.notifyMessages(ServiceSynchronize.this, messages, notificationData, foreground);
+                            boolean fg = Boolean.TRUE.equals(foreground.getValue());
+                            Core.notifyMessages(ServiceSynchronize.this, messages, notificationData, fg);
                         } catch (SecurityException ex) {
                             Log.w(ex);
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
@@ -1329,9 +1344,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private void onState(Intent intent) {
-        foreground = intent.getBooleanExtra("foreground", false);
+        boolean fg = intent.getBooleanExtra("foreground", false);
+        foreground.setValue(fg);
         for (Core.State state : coreStates.values())
-            state.setForeground(foreground);
+            state.setForeground(fg);
     }
 
     private void onPoll(Intent intent) {
