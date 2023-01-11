@@ -45,7 +45,7 @@ public class ViewModelExport extends ViewModel {
     }
 
     public boolean getOption(String name) {
-        Boolean value = state.get("name");
+        Boolean value = state.get(name);
         return (value != null && value);
     }
 }
