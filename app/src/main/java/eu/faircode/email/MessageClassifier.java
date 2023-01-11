@@ -497,7 +497,7 @@ public class MessageClassifier {
         dirty = false;
 
         long elapsed = new Date().getTime() - start;
-        Log.i("Classifier data saved elapsed=" + elapsed);
+        Log.i("Classifier data saved elapsed=" + elapsed + " size=" + file.length());
     }
 
     private static synchronized void load(@NonNull Context context) {
@@ -666,12 +666,17 @@ public class MessageClassifier {
     private static void reduce() {
         Log.i("Classifier reduce");
         for (long account : wordClassFrequency.keySet()) {
+            Map<String, Integer> max = new HashMap<>();
             Map<String, Long> total = new HashMap<>();
             Map<String, Integer> count = new HashMap<>();
 
             for (String word : wordClassFrequency.get(account).keySet())
                 for (String clazz : wordClassFrequency.get(account).get(word).keySet()) {
                     int f = wordClassFrequency.get(account).get(word).get(clazz).count;
+
+                    Integer m = max.get(clazz);
+                    if (m == null || f > m)
+                        max.put(clazz, f);
 
                     if (!total.containsKey(clazz))
                         total.put(clazz, 0L);
@@ -682,15 +687,23 @@ public class MessageClassifier {
                     count.put(clazz, count.get(clazz) + 1);
                 }
 
+            for (String clazz : max.keySet())
+                Log.i("Classifier max " + account + ":" + clazz + "=" + max.get(clazz));
+
+            int dropped = 0;
             for (String word : wordClassFrequency.get(account).keySet())
                 for (String clazz : new ArrayList<>(wordClassFrequency.get(account).get(word).keySet())) {
+                    long m = max.get(clazz);
                     long avg = total.get(clazz) / count.get(clazz);
                     Frequency freq = wordClassFrequency.get(account).get(word).get(clazz);
-                    if (freq.count < avg / 2) {
+                    if (freq.count < m / 50) {
+                        dropped++;
+                        wordClassFrequency.get(account).get(word).remove(clazz);
+                    } else if (freq.count < avg / 2 && false) {
+                        dropped++;
                         Log.i("Classifier dropping account=" + account +
                                 " word=" + word + " class=" + clazz + " freq=" + freq.count + " avg=" + avg);
-                        wordClassFrequency.get(account).get(word).remove(clazz);
-                    } else if (version >= 3) {
+                    } else if (version >= 3 && false) {
                         for (String b : new ArrayList<>(freq.before.keySet()))
                             if (freq.before.get(b) < freq.count / 20)
                                 freq.before.remove(b);
@@ -699,8 +712,14 @@ public class MessageClassifier {
                                 freq.after.remove(a);
                     }
                 }
+            Log.i("Classifier dropped words=" + dropped);
 
             // Source 47 MB
+
+            // max/10 = 3 MB
+            // max/20 = 4.4 MB
+            // max/50 = 6.5 MB
+            // max/100 = 6.5 MB
 
             // avg/1 = 21.3
             // avg/2 = 25.5
