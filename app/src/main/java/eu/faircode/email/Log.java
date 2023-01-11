@@ -521,6 +521,7 @@ public class Log {
                         event.addMetadata("extra", "memory_available", getAvailableMb());
                         event.addMetadata("extra", "native_allocated", Debug.getNativeHeapAllocatedSize() / 1024L / 1024L);
                         event.addMetadata("extra", "native_size", Debug.getNativeHeapSize() / 1024L / 1024L);
+                        event.addMetadata("extra", "classifier_size", MessageClassifier.getSize(context));
 
                         Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
                         event.addMetadata("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));

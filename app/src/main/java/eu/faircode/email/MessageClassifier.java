@@ -758,6 +758,11 @@ public class MessageClassifier {
                 backup ? "classifier.backup" : "classifier.json");
     }
 
+    static long getSize(Context context) {
+        File file = getFile(context, false);
+        return (file.exists() ? file.length() : -1L);
+    }
+
     private static class State {
         private final List<String> words = new ArrayList<>();
         private final Map<String, Stat> classStats = new HashMap<>();
