@@ -22,9 +22,6 @@ package eu.faircode.email;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ViewModelExport extends ViewModel {
     private SavedStateHandle state;
 

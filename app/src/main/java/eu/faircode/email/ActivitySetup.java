@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.BroadcastReceiver;

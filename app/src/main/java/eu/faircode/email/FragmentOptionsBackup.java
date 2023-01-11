@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
-
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 
 import android.app.Dialog;
@@ -47,9 +46,6 @@ import android.text.style.StyleSpan;
 import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
