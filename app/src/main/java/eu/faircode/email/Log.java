@@ -2048,6 +2048,10 @@ public class Log {
                 .append(TextHelper.canTransliterate())
                 .append("\r\n");
 
+        sb.append("Classifier: ")
+                .append(Helper.humanReadableByteCount(MessageClassifier.getSize(context)))
+                .append("\r\n");
+
         sb.append("\r\n");
 
         int cpus = Runtime.getRuntime().availableProcessors();

@@ -759,8 +759,11 @@ public class MessageClassifier {
     }
 
     static long getSize(Context context) {
-        File file = getFile(context, false);
-        return (file.exists() ? file.length() : -1L);
+        try {
+            return getFile(context, false).length();
+        } catch (Throwable ignored) {
+            return -1L;
+        }
     }
 
     private static class State {
