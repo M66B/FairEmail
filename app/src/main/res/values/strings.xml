@@ -390,6 +390,7 @@
     <string name="title_advanced_section_encryption">Encryption</string>
     <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_misc">Miscellaneous</string>
+    <string name="title_advanced_section_backup">Backup</string>
 
     <string name="title_advanced_default">All options have commonly used standard values, which don\'t need to be changed to use the app</string>
 

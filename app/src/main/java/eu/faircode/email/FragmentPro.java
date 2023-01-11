@@ -104,7 +104,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             public void onClick(View v) {
                 v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                        .putExtra("navigate", true));
+                        .putExtra("tab", "backup"));
             }
         });
 
