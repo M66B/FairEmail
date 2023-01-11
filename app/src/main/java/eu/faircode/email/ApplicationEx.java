@@ -58,6 +58,8 @@ public class ApplicationEx extends Application
         implements androidx.work.Configuration.Provider, SharedPreferences.OnSharedPreferenceChangeListener {
     private Thread.UncaughtExceptionHandler prev = null;
 
+    private static final Object lock = new Object();
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(getLocalizedContext(base));
@@ -868,7 +870,9 @@ public class ApplicationEx extends Application
 
     synchronized static Handler getMainHandler() {
         if (handler == null)
-            handler = new Handler(Looper.getMainLooper());
+            synchronized (lock) {
+                handler = new Handler(Looper.getMainLooper());
+            }
         return handler;
     }
 }
