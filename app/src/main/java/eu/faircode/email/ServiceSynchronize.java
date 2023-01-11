@@ -1345,7 +1345,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private void onState(Intent intent) {
         boolean fg = intent.getBooleanExtra("foreground", false);
-        foreground.setValue(fg);
+        foreground.postValue(fg);
         for (Core.State state : coreStates.values())
             state.setForeground(fg);
     }
