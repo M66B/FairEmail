@@ -73,7 +73,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -133,6 +132,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     private RecyclerView rvMenu;
 
     private boolean hasAccount;
+    private String password;
+    private boolean import_accounts;
+    private boolean import_delete;
+    private boolean import_rules;
+    private boolean import_contacts;
+    private boolean import_answers;
+    private boolean import_searches;
+    private boolean import_settings;
 
     static final int REQUEST_SOUND_INBOUND = 1;
     static final int REQUEST_SOUND_OUTBOUND = 2;
@@ -352,6 +359,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
         if (savedInstanceState != null) {
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
+            password = savedInstanceState.getString("fair:password");
+            import_accounts = savedInstanceState.getBoolean("fair:import_accounts");
+            import_delete = savedInstanceState.getBoolean("fair:import_delete");
+            import_rules = savedInstanceState.getBoolean("fair:import_rules");
+            import_contacts = savedInstanceState.getBoolean("fair:import_contacts");
+            import_answers = savedInstanceState.getBoolean("fair:import_answers");
+            import_searches = savedInstanceState.getBoolean("fair:import_searches");
+            import_settings = savedInstanceState.getBoolean("fair:import_settings");
         }
 
         DB db = DB.getInstance(this);
@@ -367,6 +382,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("fair:toggle", drawerToggle == null || drawerToggle.isDrawerIndicatorEnabled());
+        outState.putString("fair:password", password);
+        outState.putBoolean("fair:import_accounts", import_accounts);
+        outState.putBoolean("fair:import_delete", import_delete);
+        outState.putBoolean("fair:import_rules", import_rules);
+        outState.putBoolean("fair:import_contacts", import_contacts);
+        outState.putBoolean("fair:import_answers", import_answers);
+        outState.putBoolean("fair:import_searches", import_searches);
+        outState.putBoolean("fair:import_settings", import_settings);
         super.onSaveInstanceState(outState);
     }
 
@@ -626,11 +649,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void handleExport(Intent data) {
-        ViewModelExport vme = new ViewModelProvider(this).get(ViewModelExport.class);
-
         Bundle args = new Bundle();
         args.putParcelable("uri", data.getData());
-        args.putString("password", vme.getPassword());
+        args.putString("password", this.password);
 
         new SimpleTask<Void>() {
             private Toast toast = null;
@@ -950,18 +971,16 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         Button ok = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
         ok.setEnabled(false);
 
-        ViewModelExport vme = new ViewModelProvider(this).get(ViewModelExport.class);
-
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
-        args.putString("password", vme.getPassword());
-        args.putBoolean("import_accounts", vme.getOption("accounts"));
-        args.putBoolean("import_delete", vme.getOption("delete"));
-        args.putBoolean("import_rules", vme.getOption("rules"));
-        args.putBoolean("import_contacts", vme.getOption("contacts"));
-        args.putBoolean("import_answers", vme.getOption("answers"));
-        args.putBoolean("import_searches", vme.getOption("searches"));
-        args.putBoolean("import_settings", vme.getOption("settings"));
+        args.putString("password", this.password);
+        args.putBoolean("import_accounts", this.import_accounts);
+        args.putBoolean("import_delete", this.import_delete);
+        args.putBoolean("import_rules", this.import_rules);
+        args.putBoolean("import_contacts", this.import_contacts);
+        args.putBoolean("import_answers", this.import_answers);
+        args.putBoolean("import_searches", this.import_searches);
+        args.putBoolean("import_settings", this.import_settings);
 
         new SimpleTask<Void>() {
             private SpannableStringBuilder ssb = new SpannableStringBuilder();
@@ -1986,8 +2005,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     .setPositiveButton(R.string.title_save_file, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            ViewModelExport vme = new ViewModelProvider(getActivity()).get(ViewModelExport.class);
-                            vme.setPassword(tilPassword1.getEditText().getText().toString());
+                            ((ActivitySetup) getActivity()).password =
+                                    tilPassword1.getEditText().getText().toString();
                             getActivity().startActivityForResult(
                                     Helper.getChooser(context, getIntentExport()), REQUEST_EXPORT);
                         }
@@ -2095,15 +2114,15 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             if (TextUtils.isEmpty(password1) && !(debug || BuildConfig.DEBUG))
                                 ToastEx.makeText(context, R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
                             else {
-                                ViewModelExport vme = new ViewModelProvider(getActivity()).get(ViewModelExport.class);
-                                vme.setPassword(password1);
-                                vme.setOptions("accounts", cbAccounts.isChecked());
-                                vme.setOptions("delete", cbDelete.isChecked());
-                                vme.setOptions("rules", cbRules.isChecked());
-                                vme.setOptions("contacts", cbContacts.isChecked());
-                                vme.setOptions("answers", cbAnswers.isChecked());
-                                vme.setOptions("searches", cbSearches.isChecked());
-                                vme.setOptions("settings", cbSettings.isChecked());
+                                ActivitySetup activity = (ActivitySetup) getActivity();
+                                activity.password = password1;
+                                activity.import_accounts = cbAccounts.isChecked();
+                                activity.import_delete = cbDelete.isChecked();
+                                activity.import_rules = cbRules.isChecked();
+                                activity.import_contacts = cbContacts.isChecked();
+                                activity.import_answers = cbAnswers.isChecked();
+                                activity.import_searches = cbSearches.isChecked();
+                                activity.import_settings = cbSettings.isChecked();
                                 getActivity().startActivityForResult(
                                         Helper.getChooser(context, getIntentImport()), REQUEST_IMPORT);
                             }
