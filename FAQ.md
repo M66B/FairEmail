@@ -4193,7 +4193,7 @@ Voice notes will automatically be attached.
 
 Account:
 
-* Version 1.1927-: enable *Separate notifications* in the advanced account settings
+* ~~Version 1.1927-: enable *Separate notifications* in the advanced account settings~~
 * Version 1.1927+: long press the account in the account list and select *Create notification channel*
 * Long press the account in the account list and select *Edit notification channel* to change the notification sound
 
